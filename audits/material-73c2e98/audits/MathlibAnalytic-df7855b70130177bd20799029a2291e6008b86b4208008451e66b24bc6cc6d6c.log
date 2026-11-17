@@ -1,0 +1,100 @@
+TYPE_BEGIN:AnalyticAt
+AnalyticAt.{u_1, u_2,
+  u_3} : (𝕜 : Type u_1) →
+  {E : Type u_2} →
+    {F : Type u_3} →
+      [inst : NontriviallyNormedField.{u_1} 𝕜] →
+        [inst_1 : NormedAddCommGroup.{u_2} E] →
+          [NormedSpace.{u_1, u_2} 𝕜 E] →
+            [inst_3 : NormedAddCommGroup.{u_3} F] → [NormedSpace.{u_1, u_3} 𝕜 F] → (E → F) → E → Prop
+TYPE_END:AnalyticAt
+AXIOMS_BEGIN:AnalyticAt
+'AnalyticAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:AnalyticAt
+TYPE_BEGIN:AnalyticOnNhd
+AnalyticOnNhd.{u_1, u_2,
+  u_3} : (𝕜 : Type u_1) →
+  {E : Type u_2} →
+    {F : Type u_3} →
+      [inst : NontriviallyNormedField.{u_1} 𝕜] →
+        [inst_1 : NormedAddCommGroup.{u_2} E] →
+          [NormedSpace.{u_1, u_2} 𝕜 E] →
+            [inst_3 : NormedAddCommGroup.{u_3} F] → [NormedSpace.{u_1, u_3} 𝕜 F] → (E → F) → Set.{u_2} E → Prop
+TYPE_END:AnalyticOnNhd
+AXIOMS_BEGIN:AnalyticOnNhd
+'AnalyticOnNhd' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:AnalyticOnNhd
+TYPE_BEGIN:AnalyticOnNhd.mono
+@AnalyticOnNhd.mono.{u_1, u_2,
+    u_3} : ∀ {𝕜 : Type u_1} {E : Type u_2} {F : Type u_3} [inst : NontriviallyNormedField.{u_1} 𝕜]
+  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} 𝕜 E] [inst_3 : NormedAddCommGroup.{u_3} F]
+  [inst_4 : NormedSpace.{u_1, u_3} 𝕜 F] {f : E → F} {s t : Set.{u_2} E},
+  AnalyticOnNhd.{u_1, u_2, u_3} 𝕜 f t → s ⊆ t → AnalyticOnNhd.{u_1, u_2, u_3} 𝕜 f s
+TYPE_END:AnalyticOnNhd.mono
+AXIOMS_BEGIN:AnalyticOnNhd.mono
+'AnalyticOnNhd.mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:AnalyticOnNhd.mono
+TYPE_BEGIN:HasFPowerSeriesOnBall.uniform_geometric_approx
+@HasFPowerSeriesOnBall.uniform_geometric_approx.{u_1, u_2,
+    u_3} : ∀ {𝕜 : Type u_1} {E : Type u_2} {F : Type u_3} [inst : NontriviallyNormedField.{u_1} 𝕜]
+  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} 𝕜 E] [inst_3 : NormedAddCommGroup.{u_3} F]
+  [inst_4 : NormedSpace.{u_1, u_3} 𝕜 F] {f : E → F} {p : FormalMultilinearSeries.{u_1, u_2, u_3} 𝕜 E F} {x : E}
+  {r : ENNReal} {r' : NNReal},
+  HasFPowerSeriesOnBall.{u_1, u_2, u_3} f p x r →
+    LT.lt.{0} (↑r') r →
+      ∃ a,
+        Membership.mem.{0, 0} (Set.Ioo.{0} 0 1) a ∧
+          ∃ C,
+            GT.gt.{0} C 0 ∧
+              ∀ (y : E),
+                Membership.mem.{u_2, u_2} (Metric.ball.{u_2} 0 ↑r') y →
+                  ∀ (n : ℕ),
+                    LE.le.{0}
+                      (norm.{u_3}
+                        (HSub.hSub.{u_3, u_3, u_3} (f (HAdd.hAdd.{u_2, u_2, u_2} x y))
+                          (FormalMultilinearSeries.partialSum.{u_1, u_2, u_3} p n y)))
+                      (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} a n))
+TYPE_END:HasFPowerSeriesOnBall.uniform_geometric_approx
+AXIOMS_BEGIN:HasFPowerSeriesOnBall.uniform_geometric_approx
+'HasFPowerSeriesOnBall.uniform_geometric_approx' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:HasFPowerSeriesOnBall.uniform_geometric_approx
+TYPE_BEGIN:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+@AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq.{u_1, u_2,
+    u_3} : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField.{u_1} 𝕜] {E : Type u_2}
+  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} 𝕜 E] {F : Type u_3}
+  [inst_3 : NormedAddCommGroup.{u_3} F] [inst_4 : NormedSpace.{u_1, u_3} 𝕜 F] {f g : E → F} {U : Set.{u_2} E},
+  AnalyticOnNhd.{u_1, u_2, u_3} 𝕜 f U →
+    AnalyticOnNhd.{u_1, u_2, u_3} 𝕜 g U →
+      IsPreconnected.{u_2} U →
+        ∀ {z₀ : E},
+          Membership.mem.{u_2, u_2} U z₀ →
+            Filter.EventuallyEq.{u_2, u_3} (nhds.{u_2} z₀) f g → Set.EqOn.{u_2, u_3} f g U
+TYPE_END:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+AXIOMS_BEGIN:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+'AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+TYPE_BEGIN:AnalyticOnNhd.contDiffOn_of_completeSpace
+@AnalyticOnNhd.contDiffOn_of_completeSpace.{u_1, u_2,
+    u_3} : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField.{u_1} 𝕜] {E : Type u_2}
+  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} 𝕜 E] {F : Type u_3}
+  [inst_3 : NormedAddCommGroup.{u_3} F] [inst_4 : NormedSpace.{u_1, u_3} 𝕜 F] {s : Set.{u_2} E} {f : E → F}
+  {n : WithTop.{0} ℕ∞} [CompleteSpace.{u_3} F], AnalyticOnNhd.{u_1, u_2, u_3} 𝕜 f s → ContDiffOn.{u_1, u_2, u_3} 𝕜 n f s
+TYPE_END:AnalyticOnNhd.contDiffOn_of_completeSpace
+AXIOMS_BEGIN:AnalyticOnNhd.contDiffOn_of_completeSpace
+'AnalyticOnNhd.contDiffOn_of_completeSpace' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:AnalyticOnNhd.contDiffOn_of_completeSpace
+TYPE_BEGIN:contDiffOn_of_locally_contDiffOn
+@contDiffOn_of_locally_contDiffOn.{u_1, u_2,
+    u_3} : ∀ {𝕜 : Type u_1} [inst : NontriviallyNormedField.{u_1} 𝕜] {E : Type u_2}
+  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} 𝕜 E] {F : Type u_3}
+  [inst_3 : NormedAddCommGroup.{u_3} F] [inst_4 : NormedSpace.{u_1, u_3} 𝕜 F] {s : Set.{u_2} E} {f : E → F}
+  {n : WithTop.{0} ℕ∞},
+  (∀ (x : E),
+      Membership.mem.{u_2, u_2} s x →
+        ∃ u,
+          IsOpen.{u_2} u ∧ Membership.mem.{u_2, u_2} u x ∧ ContDiffOn.{u_1, u_2, u_3} 𝕜 n f (Inter.inter.{u_2} s u)) →
+    ContDiffOn.{u_1, u_2, u_3} 𝕜 n f s
+TYPE_END:contDiffOn_of_locally_contDiffOn
+AXIOMS_BEGIN:contDiffOn_of_locally_contDiffOn
+'contDiffOn_of_locally_contDiffOn' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:contDiffOn_of_locally_contDiffOn

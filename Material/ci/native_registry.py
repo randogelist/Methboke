@@ -60,9 +60,9 @@ def prepare(root, state_path, benchmark=False):
             state['parent_image_digest'] = digests[0]
             r.execute(['docker', 'create', '--name', state['container'], digests[0], '/snapshot-only'])
             try:
-                target = root / 'Material/.lake'
-                target.mkdir(parents=True, exist_ok=True)
-                r.execute(['docker', 'cp', state['container'] + ':/workspace/Material/.lake/.', str(target)])
+                # Dependencies and own objects remain in the immutable image.
+                # The external workspace runner exports only freshly verified own outputs.
+                (root / 'Material/registry').mkdir(parents=True, exist_ok=True)
                 r.execute(['docker', 'cp', state['container'] + ':/workspace/Material/registry/current.json', str(root / 'Material/registry/current.json')])
                 restored_report = root / 'Material/registry/current.json'
                 labels = info['Config'].get('Labels') or {}
@@ -76,6 +76,7 @@ def prepare(root, state_path, benchmark=False):
                 state['parent_dependency_identity'] = dependency_identity(parent_report)
                 restored = True
                 state['restore_mode'] = 'previous_passed_container'
+                state['workspace_mode'] = 'container_native'
             finally:
                 r.execute(['docker', 'rm', state['container']], check=False)
             # Retain this exact immutable image: the amendment build executes inside it.
@@ -97,6 +98,13 @@ def record(root, state_path, exit_code):
     try:
         if exit_code == 0:
             report = r.load(root / 'Material/registry/current.json')
+            if state.get('workspace_mode') == 'container_native':
+                workspace = state.get('container_workspace') or {}
+                if (workspace.get('status') != 'VERIFIED' or workspace.get('exit_code') != 0
+                        or workspace.get('commit') != state['commit']
+                        or workspace.get('own_receipts_verified') is not True
+                        or workspace.get('verified_own_module_count') != len(report.get('module_receipts', {}))):
+                    raise ValueError('container-native result lacks verified current own-object exports')
             endpoints = r.validate_pass(report, state, r.expected_endpoint_ids(root))
             validate_native_evidence(root, state, report, endpoints)
     except Exception:

@@ -3,20 +3,18 @@
 This directory holds generated external verification and publication evidence.
 Source preparation or an empty registry does not establish a compiler pass.
 
-The first accepted snapshot is from [run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373),
-source `6440270ffe9b05b2956cd34c59c65f2fe341e8b8`. Its immutable image is:
+The latest accepted snapshot is from [run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232),
+source `73c2e98e68b4f2f53a7de4d0be622e5739066fc3`. Its immutable image is:
 
 ```text
-ghcr.io/randogelist/methboke-material@sha256:faadfe0f93ebda8ae9bbb34f5f632456400e25197b4636fb5436a86afbe90f1d
+ghcr.io/randogelist/methboke-material@sha256:f5e043ed22085029f59aa7ca76d63cb01d4b43d109304bcce54e21584e03245a
 ```
 
 The aggregate tag and 14 endpoint tags were published, and the compatible main
-pointer was updated. [Retained evidence](../../audits/material-6440270/summary.json)
-contains the exact report, publication record and fresh audit logs. This remains
-the last fully accepted and published snapshot. Warm run `44059698760` restored
-it and passed the verification step, then exhausted disk during publication.
-Its matching artifact is unavailable; step success alone does not replace the
-source-specific theorem receipts.
+pointer was updated. [Retained evidence](../../audits/material-73c2e98/summary.json)
+contains the exact report, publication record and fresh audit logs: 282/283 own
+objects reused, one rebuilt, all endpoint/cutout audits fresh, job 8m07s excluding
+queue. The first cold baseline at `6440270` remains retained separately.
 
 - `current.json` records the tested commit, compiler/platform/dependency
   identity, endpoint acceptance, reuse and timing data.
@@ -35,13 +33,17 @@ requires the exact current source identity and a complete successful build and
 fresh audit. Immutable prior passes remain available even when an amendment
 fails. A latest-pass pointer advances only within its compatible ancestry.
 
-Warm publication now has a prepared path that inherits `.lake/packages` from
-the exact immutable parent after matching its compiler, pins, retained-cache
-status and external `.olean*` digest. Its context contains current sources, all
-own outputs, cutouts and fresh evidence; old own sources and outputs are replaced.
-Disk headroom and context size are recorded before Docker construction. The
-original full cold-seed recipe and prior passed images are preserved. This
-repair is pending external verification.
+Warm publication inherits `.lake/packages` from the exact immutable parent
+after matching its compiler, pins, retained-cache status and external `.olean*`
+digest. Its context contains current sources, all own outputs, cutouts and fresh
+evidence; old own sources and outputs are replaced. This path passed at
+`73c2e98`, with a 73.42 MB context and 55s publication step. Disk headroom is
+checked before Docker construction; the cold recipe and prior images remain.
+
+The next container-native workspace optimization is prepared, not yet accepted.
+It leaves inherited dependencies inside the running image and exports only own
+outputs and evidence; every exported object must match its current receipt.
+Publication still requires all fresh audits and the exact source identity.
 
 GitHub Actions uploads verified evidence before registry publication, then
 uploads final publication diagnostics separately. This preserves compiler

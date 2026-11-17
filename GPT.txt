@@ -1,10 +1,10 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.3
+DOCUMENT_VERSION = 1.4
 DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = repair warm snapshot disk exhaustion and start corrected external CI
+ACTIVE_TASK = optimize container-native workspace and conditional SDK cleanup
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,10 +22,10 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: preserve the accepted 6440270 baseline; repair warm snapshot
-publication without recopying inherited dependencies; release the identified
-stalled run; push main and stop once corrected CI starts. The repair requires
-matching external validation; no new package acceptance is asserted.
+MICROSCOPIC: preserve the accepted 73c2e98 warm baseline; prepare direct use
+of inherited dependencies inside the passed container and conditional SDK
+cleanup; push main and stop once external CI starts. The expected unchanged
+object reuse and runtime improvement require matching external evidence.
 
 2. DEFINITIONS AND PREMISES
 
@@ -128,7 +128,7 @@ L15 further certified input families;
 L16 universal analytic germ-to-cap admission R1 (open).
 
 L01-L04 have selected pinned source interfaces in Material, externally
-compiled and audited at 6440270. L05-L14 still require exact adapter
+compiled and freshly audited at 73c2e98. L05-L14 still require exact adapter
 construction and matching external audits for the new root. L16 is not supplied by a structure field or an identity theorem.
 A-tier activation follows presentation of the relevant mid-tier endpoints
 and user assent. Current setup does not change unresolved mathematical scope.
@@ -180,7 +180,7 @@ Observed configuration: Ubuntu 24.04, Lean 4.33.0, dependency/project cache
 restoration, frontier regressions and sixteen checkpoints, 3m03s job.
 The two observations have different target scopes and are not speed ratios.
 
-Accepted Methboke baseline:
+First accepted cold Methboke baseline:
 https://github.com/randogelist/Methboke/actions/runs/44052579373
 Tested source: 6440270ffe9b05b2956cd34c59c65f2fe341e8b8.
 Compiler: Lean 4.33.0, x86_64-unknown-linux-gnu, commit
@@ -206,6 +206,23 @@ Acceptance attaches to the exact tested source and identity, not every later
 commit. Frozen endpoint manifest status fields describe preparation; these
 source-specific receipts govern acceptance.
 
+Latest accepted warm baseline:
+https://github.com/randogelist/Methboke/actions/runs/44066821232
+Tested source: 73c2e98e68b4f2f53a7de4d0be622e5739066fc3.
+Same pinned compiler, Mathlib revision and standard-only axiom policy.
+PASS: 282/283 own module receipts reused; QFBRoot.Endpoint rebuilt after the
+requested comment change. All 14 audit files covering 41 declarations and the
+standalone QFB cutout passed freshly. All 100 external Python control tests passed.
+Job: 487s (8m07s), excluding queue time; restore: 212s; SDK cleanup: 48s;
+verification step: 141s; publication: 55s. Driver: 129.974s, comprising cache
+27.462s, own build work 37.694s and fresh audits 63.615s. The 0.476s no-op receipt
+recheck did not execute Lean again. Snapshot context: 73,327,527 bytes (BuildKit
+transfer display about 73.42 MB), with 52,160 inherited external .olean* objects.
+Image: ghcr.io/randogelist/methboke-material@sha256:f5e043ed22085029f59aa7ca76d63cb01d4b43d109304bcce54e21584e03245a
+The compatible main pointer advanced. Retained exact evidence:
+audits/material-73c2e98/summary.json, current.json, registry-entry.json,
+snapshot-plan.json and original fresh audit logs.
+
 Historical failure: run 44046225468 at 670de211 compiled all 283 modules,
 then failed on unsupported pp.width; no caches or container were published.
 The corrected run removed that option and passed its early compatibility
@@ -226,16 +243,34 @@ if ordinary cancellation does not finish it.
 The no-change commit 799b55142f04895f9d3a45bd40f4aac54ce9b85f had pending
 run 44061003809 cancelled by queue replacement; its timing remains unmeasured.
 
-Prepared disk repair: PENDING_EXTERNAL_VERIFICATION. Warm publication uses a
-generated Dockerfile FROM the exact passed image, inherits .lake/packages after
-matching compiler/pins/platform/retained-cache and external .olean* identities,
-and copies current sources, all own outputs, cutouts and fresh evidence. Stale
-own files are replaced. Snapshot.Dockerfile remains unchanged to preserve its
-compatibility key; the cold seed retains the original complete snapshot recipe.
-Disk headroom and context size are recorded before image construction. No
-compatible cache or passed image is pruned. Verification evidence uploads before
-publication; redundant dependency archive saves on registry hits are skipped;
-publication has a 15-minute step timeout. All theorem audits remain fresh.
+Disk repair: VERIFIED_AT_73c2e98. Warm publication uses a generated Dockerfile
+FROM the exact passed image, inherits .lake/packages after matching compiler,
+pins, platform, retained-cache and external .olean* identities, and copies
+current sources, own outputs, cutouts and fresh evidence. Stale own files are
+replaced. Snapshot.Dockerfile remains unchanged to preserve compatibility.
+Disk headroom is checked; evidence uploads before publication; redundant
+dependency archives are skipped on registry hits; publication timeout is 15m.
+
+Next runtime optimization: PREPARED_PENDING_EXTERNAL_VERIFICATION.
+The registry prepare step extracts only the authenticated parent report.
+container_workspace.py overlays current source under /workspace in an isolated
+container from the exact passed digest, preserving inherited .lake dependencies
+and own objects. The pinned host Lean installation is mounted read-only; no
+host workspace, home, credentials or Docker socket is mounted. The container
+uses its own root identity to avoid ownership changes to inherited dependencies.
+Fresh registry evidence and successful own .lake/build outputs are exported;
+all exported object hashes must match the current module receipts before
+acceptance. The transport code identity is recorded separately. native_build.py,
+build.py, verify-external.sh, Snapshot.Dockerfile, compiler/dependency pins and
+module receipt checks remain unchanged. Native fallback and exact-cache paths
+remain available. Every endpoint and cutout audit remains fresh.
+
+SDK reclamation is conditional on free space, applies only to disposable
+GitHub-hosted runners, and stops after enough allowlisted SDK space is freed.
+Warm and cold budgets are explicit and bounded (defaults 20/40 GiB); the cold
+check is used on a registry miss. No workspace, toolchain, object cache or passed
+image is deleted. Expected 283/283 reuse for the next unchanged proof source is
+not yet verified, and the 8m07s measurement predates these new optimizations.
 
 New finite-cap root A-tier: NOT_ESTABLISHED.
 New root formal/unconditional closure: NOT_ESTABLISHED.
@@ -258,16 +293,14 @@ Do not promote pending source preparation or an unrelated green run.
 
 Main consolidation and native source preparation are complete. The candidate
 history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
-44046225564 succeeded and retired the candidate branch. The native package,
-original QFB root and single-file cutout passed at 6440270; the first passed
-container is registered. Warm restoration and verification step summaries are
-now available, but disk exhaustion blocked publication and matching receipts
-were not retained. Current target: complete the publication repair, cancel the
-identified stalled obsolete run, push main and stop once corrected CI starts.
+44046225564 retired that branch. The native package, original QFB root and
+single-file cutout passed cold at 6440270 and warm at 73c2e98. The latter is the
+current accepted passed-container base, with matching object/audit evidence and
+successful publication. Current target: finish the direct container workspace
+and conditional SDK cleanup changes, push main and stop once CI starts.
 Preserve proof sources, pins, endpoint manifests and all audit gates. The next
-go on assesses new evidence, actual object reuse and complete publication.
-The upstream timing anchors guide scheduling; they do not guarantee this larger
-package's runtime.
+go on assesses actual object reuse, exported object checks and full publication.
+The upstream timing anchors guide scheduling; they do not guarantee runtime.
 
 CI contract: restore compatible dependency/foundation/project objects;
 validate source/compiler/lock/policy identity; use two dependency workers

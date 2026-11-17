@@ -8,15 +8,15 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 - **Native QFB source is present:** 74 QFB modules and 195 required
   SingularClosure modules, preserved at their pinned source bytes.
-- **Material passed at `6440270`:** all 283 modules compiled; 14 fresh endpoint
-  audits covering 41 declaration entries and the QFB cutout passed with standard
-  axioms only in [run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373).
-  Exact statements, dependency closures and premises are retained.
-- **The passed container is published:** immutable aggregate and 14 endpoint
-  tags are registered; dependency and project caches were saved. The
-  [source-specific evidence](audits/material-6440270/summary.json) records this
-  acceptance. Warm restoration and verification steps succeeded, but publication
-  exhausted disk; the last fully accepted baseline remains `6440270`.
+- **Material passed at `73c2e98`:** 282/283 modules were reused and the
+  comment-modified QFB endpoint was rebuilt. All 14 endpoint audits covering 41
+  declarations and the QFB cutout passed freshly with standard axioms only in
+  [run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232).
+- **Warm publication passed:** the job took **8m07s**, excluding queue time.
+  The image context fell from the failed 7.67 GB copy to about 73.42 MB, and the
+  aggregate/14 endpoint tags and compatible main pointer were published. The
+  [source-specific evidence](audits/material-73c2e98/summary.json) records this
+  acceptance; the earlier cold baseline remains retained separately.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -92,19 +92,20 @@ modules were compiled, and official Mathlib objects were restored. The job took
 39.296s for fresh audits. Container publication took 534s. These are cold
 baseline measurements, not warm rerun timings.
 
-Warm [run 44059698760](https://github.com/randogelist/Methboke/actions/runs/44059698760)
-restored the passed container in 264s and completed its compilation/fresh-audit
-step in 157s. Publication then exhausted disk while copying a 7.67 GB context.
-Those are GitHub step observations; its audit artifact is unavailable, so no
-module-reuse count or new theorem acceptance is inferred. The later comment
-run also reached publication after a successful 162s verification step.
+The disk failure in warm run `44059698760` is retained as infrastructure history:
+its verification step succeeded but publication copied a 7.67 GB context and
+exhausted disk. It supplied no retained matching audit artifact. The corrected
+[run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232) passed completely: restoration 212s,
+SDK cleanup 48s, compilation/fresh-audit step 141s, and publication 55s.
 
-The prepared repair inherits `.lake/packages` from the exact passed image and
-copies current project sources, own outputs and fresh evidence into a small
-warm snapshot. It adds disk headroom checks and preserves verification evidence
-before publication. This repair still needs external validation. The scoped
-recovery workflow can cancel the identified stalled publication. The empty
-commit timing remains unmeasured because its pending run was superseded.
+The next prepared optimization uses dependencies and cached own objects directly
+inside the passed container at `/workspace`, then exports only current project
+outputs and evidence. Exported object hashes are checked before publication.
+SDK cleanup now stops when enough disk is available and is skipped when the
+budget is already met. These changes are **pending external verification**;
+the measured 8m07s result belongs to the preceding implementation. All theorem
+audits remain fresh. The original empty-commit timing remains unmeasured because
+its pending run was superseded.
 After a new CI run starts, agent work stops; **go on** resumes result inspection
 and any necessary repair.
 

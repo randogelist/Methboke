@@ -3,7 +3,7 @@ DATE = 2026-11-17
 WORKING_BRANCH = main
 
 I01 ORIGINAL_QFB_COMPOSED
-STATUS: MATCHING_METHBOKE_EXTERNAL_LEAN_PASS_AT_6440270; standard axioms only.
+STATUS: MATCHING_METHBOKE_EXTERNAL_LEAN_PASS_AT_73c2e98; standard axioms only.
 EXACT DECLARATION:
   QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement
 SCOPE: nu>0; original CriticalPhysicalL2 data with EnergySigmaZero; LH
@@ -16,9 +16,10 @@ NATIVE COPY: Material/_vendor/QuasiFeffermanB/Endpoints/Root.lean.
 DEPENDENCY IDENTITY: Material/_vendor/source-manifest.json and
   Material/lake-manifest.json; Lean 4.33.0.
 INHERITED EVIDENCE: https://github.com/randogelist/Methlib/actions/runs/43801307847
-MATCHING EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44052579373
-TESTED COMMIT: 6440270ffe9b05b2956cd34c59c65f2fe341e8b8.
-RECEIPTS: audits/material-6440270/current.json and original fresh audit logs;
+MATCHING EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44066821232
+TESTED COMMIT: 73c2e98e68b4f2f53a7de4d0be622e5739066fc3.
+PRIOR ACCEPTED BASELINE: run 44052579373 at 6440270; evidence retained separately.
+RECEIPTS: audits/material-73c2e98/current.json and original fresh audit logs;
   the endpoint and independently elaborated LEAN_CUTOUTS/Cutouts.lean passed.
 AXIOMS: propext, Classical.choice, Quot.sound.
 BOUNDARY: original exact QFB result, now checked in the native Methboke package.
@@ -36,20 +37,21 @@ explicit differentiation argument. No QFB or admission premise required.
 BOUNDARY: no compiled theorem is claimed; no universal input class follows.
 
 I03 MATERIAL_NATIVE_PACKAGE_ACCEPTANCE
-STATUS: EXTERNAL_COMPILER_TYPE_AXIOM_PASS_AT_6440270.
+STATUS: EXTERNAL_COMPILER_TYPE_AXIOM_PASS_AT_73c2e98.
 SCOPE: 283 own modules (269 native plus 14 endpoint wrappers), 14 fresh endpoint
   audit files covering 41 declaration entries, and the fresh QFB cutout audit.
+  282 objects reused; the comment-modified QFBRoot.Endpoint was rebuilt.
   All theorem premises are retained; only approved standard axioms occur.
-EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44052579373
-  audits/material-6440270/summary.json and current.json; exact tested commit
-  6440270ffe9b05b2956cd34c59c65f2fe341e8b8.
-REGISTRY: ghcr.io/randogelist/methboke-material@sha256:faadfe0f93ebda8ae9bbb34f5f632456400e25197b4636fb5436a86afbe90f1d
+EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44066821232
+  audits/material-73c2e98/summary.json and current.json; exact tested commit
+  73c2e98e68b4f2f53a7de4d0be622e5739066fc3.
+REGISTRY: ghcr.io/randogelist/methboke-material@sha256:f5e043ed22085029f59aa7ca76d63cb01d4b43d109304bcce54e21584e03245a
   Immutable aggregate and 14 endpoint tags published; main pointer updated.
+INFRASTRUCTURE MEASUREMENT: job 487s excluding queue; restore 212s; verification
+  step 141s; publication 55s; 73.42 MB context. All 100 external control tests passed.
 BOUNDARY: acceptance of selected existing declarations and their packaging.
-  This is not a new finite-cap or universal regularity theorem. Warm registry
-  restoration and verification step summaries were successful, but publication
-  failed on disk exhaustion and matching new audit receipts were unavailable.
-  The last fully accepted and published baseline remains 6440270.
+  This is not a new finite-cap or universal regularity theorem. The next
+  container-native workspace and conditional cleanup changes remain unverified.
 
 NOT INDEXED AS UNCONDITIONAL RESULTS:
 - New finite-cap Lean root: not formalized/certified.
@@ -60,7 +62,7 @@ NOT INDEXED AS UNCONDITIONAL RESULTS:
 - Warm run 44059698760: registry restore 264s, verification step 157s, then
   publication disk exhaustion. GitHub step summaries only; no retained matching
   audit artifact or exact reused-module count. No new accepted snapshot.
-- Snapshot disk repair: prepared, pending external verification.
+- Container-native workspace and conditional SDK cleanup: prepared, pending external verification.
 - CI configuration or successful cache restoration: infrastructure evidence.
 
 Other conditional B-tier chains and their premises remain in GPT.txt and

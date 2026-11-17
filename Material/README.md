@@ -1,15 +1,15 @@
 # Material
 
-`STATUS = EXTERNAL_LEAN_PASS_AT_6440270`. `NO_LOCAL_LEAN` applies to preparation.
+`STATUS = EXTERNAL_LEAN_PASS_AT_73c2e98`. `NO_LOCAL_LEAN` applies to preparation.
 The universal analytic admission theorem is outside these endpoint containers.
 
-[Run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373)
-passed at `6440270ffe9b05b2956cd34c59c65f2fe341e8b8`: all 283 modules compiled,
-14 fresh endpoint audit files covered 41 declaration entries, and the standalone
-QFB cutout passed freshly. Exact types and approved standard axioms were checked.
-The passed aggregate container and 14 endpoint tags were published, with both
-Actions caches saved and the compatible main pointer updated. See the
-[source-specific acceptance record](../audits/material-6440270/summary.json).
+[Run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232)
+passed at `73c2e98e68b4f2f53a7de4d0be622e5739066fc3`: 282/283 modules were reused,
+the comment-modified QFBRoot.Endpoint was rebuilt, and all 14 endpoint audit
+files covering 41 declarations plus the standalone QFB cutout passed freshly.
+Exact types and approved standard axioms were checked. The passed aggregate
+container and 14 endpoint tags were published, and the compatible main pointer
+updated. See the [source-specific acceptance record](../audits/material-73c2e98/summary.json).
 
 The unchanged endpoint manifest status fields record the preparation state;
 acceptance is determined by the source-specific external receipts. No later
@@ -65,11 +65,10 @@ Material\run.cmd
 Material\run.cmd --endpoint QFBRoot
 ```
 
-The configured external Linux workflow invokes:
-
-```sh
-bash Material/ci/verify-external.sh
-```
+The prepared external Linux workflow invokes `container_workspace.py` for a
+restored passed image, and `verify-external.sh` for native-host fallback and
+exact-cache measurements. The container-native path is pending its matching
+external verification; both use the same pinned compilation and fresh audit driver.
 
 Local work is limited to reading, file preparation and nonexecuting static
 inspection. Lean, Lake wrappers and kernel audits must run only in the
@@ -104,21 +103,20 @@ uploads compiler, exact declaration type, axiom and runtime evidence as GitHub
 Actions artifacts. See [CI controls](ci/README.md) and the
 [registry record guide](registry/README.md) for the executable contract.
 
-The accepted baseline used the official Mathlib cache and compiled all 283 own
-modules from source: dependency/project MISS, native-host execution, 0/283 reuse.
-Its job took 37m51s; driver 1479.602s, including 1293.421s own compilation and
-39.296s fresh audits; container publication took 534s. The 0.252s no-op receipt
-recheck did not execute a second Lean pass. Warm run `44059698760` subsequently
-restored the registry snapshot in 264s and completed its verification step in
-157s, but publication failed when a 7.67 GB Docker context exhausted disk.
-Its matching audit artifact is unavailable; these step timings do not establish
-a module-reuse count or a new accepted snapshot.
+The first cold baseline at `6440270` compiled all 283 modules and took 37m51s.
+The accepted warm baseline at `73c2e98` took **8m07s**, excluding queue time:
+282 objects reused, one rebuilt, restoration 212s, SDK cleanup 48s, verification
+step 141s and publication 55s. Driver time was 129.974s, including 37.694s own
+build work and 63.615s fresh audits. The 0.476s no-op receipt recheck was not a
+second Lean verification. The successful warm snapshot context was 73.42 MB;
+it inherited the large dependency directory instead of recopying 7.67 GB.
 
-The prepared warm publication repair inherits the verified dependency directory
-from the exact passed image and copies current sources, own outputs and fresh
-evidence. It checks disk headroom and preserves verification artifacts before
-publication. The cold seed recipe and prior passed image remain intact. External
-validation of this repair and a complete warm publication remain pending.
+The next prepared optimization leaves both dependency and cached own objects
+inside the exact passed container, overlays current source, and exports only
+fresh evidence and own build outputs. Exported object hashes must match their
+receipts. Conditional SDK cleanup reclaims only enough allowlisted space for
+the current disk budget. These changes remain pending external verification;
+283/283 reuse is an expectation for unchanged source, not an accepted result.
 
 GitHub Actions caches from Methlib are not directly shared across repositories.
 Missing Mathlib objects do not authorize a Mathlib source rebuild. Every

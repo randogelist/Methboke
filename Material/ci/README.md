@@ -8,15 +8,20 @@ Local authoring validation never executes Lean. Linux evidence is not native
 Windows evidence.
 
 On a push to `main`, CI restores the latest compatible passed GHCR snapshot by
-immutable digest. Its dependency and project objects are restored into the
-current workspace. That amended workspace is then mounted into the same passed
-image, which internally compiles only affected own modules and freshly audits
-all endpoints. If there is no accessible snapshot, independent compatible Actions caches
-are restored. A first seed uses the pinned official Mathlib cache and compiles
-only the requested own-source closure. The build driver never issues a Mathlib
-source build. Missing official objects fail elaboration instead of authorizing a
-source rebuild. Actions caches from Methlib cannot be restored directly in this
-repository; the first Methboke seed is reported as a miss.
+immutable digest. The prepared `container_workspace.py` path keeps inherited
+dependency and own objects inside that image instead of copying the full cache
+to the host. It overlays current Material source and cutouts at `/workspace`,
+runs the unchanged compiler/audit driver, and exports only fresh registry
+evidence and successful own build outputs. Each exported object is checked
+against its receipt before acceptance. This workspace optimization is pending
+external verification; the preceding mounted-workspace path passed at `73c2e98`.
+
+If no compatible registry snapshot is available, independent compatible Actions
+caches are restored and the native-host path is used. A first seed uses the
+pinned official Mathlib cache and compiles only the requested own-source closure.
+The driver never issues a Mathlib source build. Missing official objects fail
+elaboration instead of authorizing a source rebuild. Actions caches from Methlib
+cannot be restored directly in this repository.
 
 After installing the pinned compiler, CI checks all audit `set_option` lines in
 an isolated Lean probe before compiling project modules. This catches printer
@@ -36,9 +41,10 @@ mathematical result. Old audit logs never satisfy a new run.
 
 The source/configuration receipt adapter has compiler-free adversarial tests and
 follows the established QFB reuse contract. The selected package passed at
-`6440270`; each later amendment still needs matching external evidence. New
-snapshot publication tests are prepared for external CI only. No CI-green claim
-is made from Python tests or local static inspection.
+`6440270` and `73c2e98`; each later amendment still needs matching external
+evidence. The latter run passed all 100 external control tests. New workspace
+and cleanup tests are prepared for external CI only. Python tests or local
+static inspection alone cannot establish a Lean theorem.
 
 ## Exact-cache benchmark
 
@@ -65,14 +71,18 @@ The image repository is `ghcr.io/<owner>/<repository>-material`. Images are
 runnable Ubuntu 24.04 snapshots, published only after compilation and all fresh
 audits pass. They include copied sources, dependency/project objects, receipts
 and audit evidence. Image construction executes no Lean compiler. On the next
-registry-restored push, `verify-external.sh` invokes that exact immutable image
-and runs the amendment build inside it. The same checksum-pinned host-installed
-Lean toolchain is mounted read-only at `/opt/lean`; it is not duplicated inside
-the image. The current workspace is mounted at its original absolute path, and
-the container uses the runner UID/GID. Only explicit nonsecret run/cache settings
-are forwarded. No token, Docker socket or host credential directory is mounted.
+registry-restored push, the prepared `container_workspace.py` launches that exact
+immutable image and runs the amendment build at `/workspace`. The checksum-pinned
+host Lean toolchain is mounted read-only at `/opt/lean`; it is not duplicated
+inside the image. Source is copied into the isolated container without mounting
+the host workspace, home, credentials or Docker socket. Only explicit nonsecret
+run/cache settings are forwarded. The container uses its root identity to read
+and write its own inherited files without changing dependency ownership.
+
 Cold seeding, Actions-cache fallback and exact-cache benchmarks use the native
-host. Both paths share the identical receipt scheduler and fresh audit policy.
+host through `verify-external.sh`. Both paths retain the same source/compiler
+receipt scheduler and fresh audit policy. The new transport source hash is
+recorded separately, without weakening compiled-object identity checks.
 
 | Registry identity | Meaning |
 |---|---|
@@ -97,41 +107,48 @@ arguments. Credentials are scoped to registry login/publication steps; checkout
 does not retain credentials.
 
 `registry.py`, `Dockerfile` and `container-build.sh` retain the historical container
-backend for review/replay. The active main workflow uses `native_registry.py`, `verify-external.sh` and
-`Snapshot.Dockerfile`. Its existing ancestry and PASS publication gates are shared
+backend for review/replay. The active main workflow uses `native_registry.py`,
+`container_workspace.py`, native fallback `verify-external.sh`, and the snapshot
+recipes. Its existing ancestry and PASS publication gates are shared
 with the historical implementation.
 
-## Warm snapshot disk repair
+## Verified warm publication and next optimization
 
-Run `44059698760` restored the passed image in 264s and completed the verification
-step in 157s, according to GitHub job summaries. Its full snapshot publication
-then copied a 7.67 GB context and exhausted disk. The matching artifact was not
-available, so no exact module-reuse count or new theorem receipt is asserted.
-The later comment run reached the same publication stage after a successful
-162s verification step. The original `6440270` passed snapshot remains the base.
+Earlier run `44059698760` restored the passed image and completed verification,
+then exhausted disk while copying a 7.67 GB context. Its matching audit artifact
+was unavailable, so no exact reuse count or new theorem receipt is asserted.
+The corrected [run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232) passed at
+`73c2e98`: 282/283 own objects reused, one comment-modified endpoint rebuilt,
+all 14 endpoint audits plus cutout fresh, and publication complete. Job 8m07s
+excludes queue time; restoration took 212s, SDK cleanup 48s, verification step
+141s and publication 55s. Exact evidence is retained under
+[material-73c2e98](../../audits/material-73c2e98/summary.json).
 
-The prepared repair generates a warm Dockerfile FROM the validated immutable
-parent digest. It retains `.lake/packages` in the inherited image layer, removes
-old own sources/outputs, and copies current Material sources, all own build
-outputs, cutouts and fresh evidence. The staged context excludes the dependency
-directory. Inheritance requires matching compiler/toolchain, pins, platform,
-retained passed-cache status and external `.olean*` digest. This digest covers
-Lean object files and their `.olean*` companions, not every IR or trace file.
-A dependency mismatch fails closed rather than silently copying an oversized
-replacement into the warm image. The original cold `Snapshot.Dockerfile` and
-its compatibility identity stay unchanged.
+Warm publication inherits `.lake/packages` from the validated immutable parent.
+The new layer replaces current sources, own outputs and fresh evidence; its
+73,327,527-byte context excludes the large dependency directory. Inheritance
+requires matching compiler/toolchain, pins, platform, retained-cache status and
+external `.olean*` digest. That digest covers Lean objects and their `.olean*`
+companions, not every IR/trace file. A mismatch fails closed. The original cold
+`Snapshot.Dockerfile` and compatibility identity remain unchanged. Context size
+and disk headroom are checked before construction; no passed image is pruned.
 
-Context size and available disk are recorded before construction; a proportional
-headroom check stops unsafe publication before the runner fills. Compatible
-caches and parent images are not pruned. This repair is
-`PENDING_EXTERNAL_VERIFICATION`; prepared code is not a passed publication.
+The next optimization removes the remaining full dependency export during
+restoration and verifies hashes on the smaller exported own-object set. It is
+`PREPARED_PENDING_EXTERNAL_VERIFICATION`, not an already measured improvement.
 Repeated parent-image layering may eventually require a bounded dependency-base
-strategy; that longer-term optimization is not part of this repair.
+strategy; that separate optimization is not part of this change.
 
-The scoped recovery workflow targets only obsolete run `44061664660`, checks
-its exact commit and workflow identity, requests ordinary cancellation, and
-uses force cancellation if it remains active. The user explicitly authorized
-cancellation of such stalled runs. It does not delete registry images.
+SDK cleanup first checks a bounded free-space target and stops after reaching
+it. Defaults are 20 GiB before warm restoration and 40 GiB for the cold-seed path;
+configuration may adjust these only within the implementation's allowed bounds.
+Deletion is restricted to the existing unrelated SDK allowlist on disposable
+GitHub-hosted runners. Workspace, toolchain, caches and images are excluded.
+Per-mode reports record the budget, space observations and cleanup decisions.
+
+The historical recovery workflow targets only obsolete run `44061664660`, checks
+its exact commit/workflow identity and requests cancellation, escalating to
+force cancellation when needed. It does not delete registry images.
 
 ## Reference configurations
 

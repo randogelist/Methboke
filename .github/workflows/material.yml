@@ -42,7 +42,7 @@ jobs:
           python3 Material/ci/build.py --validate-only
 
       - name: Reclaim unused disposable runner SDKs
-        run: bash Material/ci/prepare-runner.sh
+        run: bash Material/ci/prepare-runner.sh --mode warm
 
       - name: Authenticate passed snapshot registry
         env:
@@ -55,6 +55,10 @@ jobs:
           extra=()
           if [ "$EXACT_BENCHMARK" = true ]; then extra+=(--benchmark); fi
           python3 Material/ci/native_registry.py prepare --state "$MATERIAL_STATE" "${extra[@]}"
+
+      - name: Ensure cold seed disk headroom
+        if: steps.restore.outputs.registry_restored != 'true'
+        run: bash Material/ci/prepare-runner.sh --mode cold
 
       - name: Restore pinned dependencies
         id: dependencies
@@ -145,7 +149,11 @@ jobs:
             export MATERIAL_PROJECT_CACHE_CLASS=PREFIX
           fi
           set +e
-          bash Material/ci/verify-external.sh
+          if [ "$REGISTRY_RESTORED" = true ]; then
+            python3 Material/ci/container_workspace.py --state "$MATERIAL_STATE"
+          else
+            bash Material/ci/verify-external.sh
+          fi
           result=$?
           set -e
           python3 Material/ci/native_registry.py record --state "$MATERIAL_STATE" --exit-code "$result"
