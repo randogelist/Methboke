@@ -1,0 +1,318 @@
+METHLIB_QFB_REUSE_AUDIT
+MODE = B_TIER_DERIVATION / source-and-evidence audit.
+DATE = 2026-11-17.
+NO_LOCAL_LEAN = true.
+NEW_A_TIER_PROMOTION = none.
+
+SOURCE PIN
+Repository: randogelist/Methlib.
+Branch: QUASI-FEFFERMAN-B.
+Commit: 96033dd69c994bec337a87369a6c27256e724980.
+QFB base path: Quasi-Fefferman-B/.
+Foundation base path:
+regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/.
+Pinned link prefix:
+https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/
+
+1. EXACT CARRIERS AND SEMANTICS
+
+QuasiFeffermanB/Semantics.lean:
+  EnergySigmaZero a :=
+    annihilation of gradients of all smooth periodic scalar tests
+    AND zero physical mean in every component.
+  CriticalPhysicalL2 := Lp Vec 2 (volume.restrict unitCube).
+  LerayHopf nu a u := exists G, CriticalLerayHopf nu a u G.
+  cutoff a nu = norm(a)^4 / (8 * Real.pi^2 * nu^5).
+  safeCutoff a nu = 2 * cutoff a nu.
+  SameVelocity u v :=
+    forall t >= 0, u(t) = v(t) almost everywhere on unitCube.
+  Shift s u t = u(s+t).
+
+Foundation Contracts.lean:
+  Vec = EuclideanSpace Real (Fin 3).
+  SpatialPeriodic uses unit translations.
+  divergence, gradient, laplacian and convection use actual Frechet derivatives.
+  timeDerivative uses derivWithin on [0,infinity), including right derivative at zero.
+  GlobalSmoothNSE records actual equations, smoothness, periodicity,
+  solenoidality, initial value and normalized means.
+  Fefferman_B_0_adjust is a target definition, not an existence theorem.
+
+Foundation CriticalWeakMomentum.lean:
+  CriticalIntegratedWeakMomentum includes spatial periodicity/L2,
+  gradient annihilation, integrability of all three actual weak momentum
+  integrands, and the integrated identity against every positive-time
+  smooth periodic solenoidal test.
+
+Foundation CriticalLerayHopf.lean:
+  CriticalLerayHopf has eleven fields:
+  momentum; velocity_L2; velocity_energy_class; gradient_energy_class;
+  initial; weak_continuity; strong_trace; spatial_H1;
+  dissipation_integrable; energy_initial; energy_intervals.
+  No smoothing, global smoothness, uniqueness or regular restart conclusion
+  is a field of this carrier.
+
+QuasiFeffermanB/RootContract.lean:
+  ClassicalTail nu delta v p records actual smooth NSE on t >= delta.
+  HasSmoothTail nu u delta :=
+    exists v p, ClassicalTail nu delta v p
+    AND forall t >= delta, u(t) = v(t) almost everywhere.
+  UniqueFuture nu u G delta includes actual LH membership of Shift delta u,
+  AND equality of every LH solution starting from the trace at delta with
+  that shifted original trajectory.
+  UniqueFuture is trace-based future uniqueness; it does not assert equality
+  of arbitrary original trajectories before the cutoff.
+
+2. DIRECT REUSE ENDPOINTS
+
+All names in entries Q1-Q10 have namespace QuasiFeffermanB.
+
+Q1. CUTOFF_NONNEG, CUTOFF_ZERO, CUTOFF_POS, SAFE_CUTOFF_GT.
+    Path: QuasiFeffermanB/Cutoff.lean.
+    CUTOFF_POS: a != 0, nu > 0 -> cutoff a nu > 0.
+    SAFE_CUTOFF_GT: a != 0, nu > 0 -> cutoff a nu < safeCutoff a nu.
+    Reuse: zero split and strict overlap arithmetic.
+    Analytic content: none.
+
+Q2. Q01_LERAY_HOPF_EXISTENCE.
+    Path: QuasiFeffermanB/Endpoints/LerayHopfExistence.lean.
+    Exact premises: nu > 0; a : CriticalPhysicalL2; EnergySigmaZero a.
+    Conclusion: exists u G, CriticalLerayHopf nu a u G.
+    Reuse: choose one actual global weak trajectory from the admitted datum.
+    No analytic-germ or regularity premise occurs in its signature.
+
+Q3. Q09_POST_CUTOFF_SMOOTHNESS.
+    Path: QuasiFeffermanB/TailChain.lean.
+    Exact premises: nu > 0; EnergySigmaZero a;
+    CriticalLerayHopf nu a u G; cutoff a nu < delta.
+    Conclusion: HasSmoothTail nu u delta.
+    Body: TAIL_CONCLUSIONS_FROM_EXACT_ADMISSION with
+    EXACT_H1_ADMISSION_UNCONDITIONAL.
+    Reuse: tail at delta = (3/2) cutoff for a != 0.
+    No ExactH1Admission argument remains in Q09.
+
+Q4. Q11_POST_CUTOFF_ENERGY_EQUALITY.
+    Path: QuasiFeffermanB/TailChain.lean.
+    Same hypotheses as Q3.
+    Conclusion: TailEnergyEquality nu u G delta.
+    Reuse: restarting at an explicitly regular trace and energy bookkeeping.
+
+Q5. Q12_POST_CUTOFF_TRACE_UNIQUENESS.
+    Path: QuasiFeffermanB/TailChain.lean.
+    Same hypotheses as Q3.
+    Conclusion: UniqueFuture nu u G delta.
+    Reuse: uniqueness after the identified regular trace.
+    Scope limitation: no control before delta.
+
+Q6. Q13_ZERO_AND_SAFE_CLOSED_CUTOFF.
+    Path: QuasiFeffermanB/TailChain.lean.
+    Premises: nu > 0; EnergySigmaZero a; CriticalLerayHopf nu a u G.
+    Conclusion: HasSmoothTail nu u (safeCutoff a nu).
+    Reuse: safe closed endpoint, including a = 0.
+    An analytic interval [0,safeCutoff) must be joined using Q3 at an earlier
+    delta in (cutoff,safeCutoff); merely adjoining two open pieces at one
+    endpoint is not the proof.
+
+Q7. QUASI_FEFFERMAN_B_COMPOSED.
+    Path: QuasiFeffermanB/Endpoints/Root.lean.
+    Exact type: QuasiFeffermanBStatement.
+    Definition of statement:
+    forall nu > 0 and a : physical L2 with EnergySigmaZero,
+    LH existence AND, for every original LH path,
+    safe-cutoff smooth tail AND, for every delta > cutoff,
+    smooth tail, tail energy equality, and trace future uniqueness.
+    Body: Quasi_Fefferman_B_of_LH_existence Q01_LERAY_HOPF_EXISTENCE.
+    Reuse: complete eventual-tail infrastructure.
+    Scope limitation: neither local analytic germ extension nor exclusion of
+    singularities before the cutoff is supplied by this theorem.
+
+Q8. LH_RESTART_AE_Ioo / LH_RESTART_AE_Ioc / LH_RESTART_AE.
+    Path: QuasiFeffermanB/LHRestart.lean.
+    Premises: actual CriticalLerayHopf; nu >= 0.
+    Conclusion: almost-everywhere positive-time H1 traces plus actual LH
+    membership of the translated path.
+    Reuse: restart optimization only with the retained good-time condition.
+    An arbitrary selected time cannot replace an almost-everywhere witness.
+
+Q9. LH_GOOD_SUBCRITICAL_TIME.
+    Path: QuasiFeffermanB/GoodTime.lean.
+    Premises: nu > 0; actual CriticalLerayHopf; cutoff < T;
+    any specified full-measure Good predicate on (0,T).
+    Conclusion: t in (0,T), Good t, physical H1 at t, and
+    physicalHalfEnergy(u(t)) < 2*pi*nu^2.
+    Reuse: small critical trace extraction, preserving restart admissibility.
+    Scope limitation: T > cutoff is essential; it does not bridge a shorter
+    initial analytic lifespan to the cutoff.
+
+Q10. positive_reference_strict_shift_serrin;
+     LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE.
+     Path: QuasiFeffermanB/TailUniqueness.lean.
+     First endpoint: PositiveSmoothNSE nu v p, epsilon > 0
+     -> each finite shifted horizon has actual L4_t L6_x integrability.
+     Proof mechanism: continuous spatial L6 norm on a compact time interval,
+     boundedness, finite measure, MemLp.of_bound.
+     Second endpoint additionally assumes agreement of the weak path with
+     the smooth reference after a start s; delta > s; concludes UniqueFuture.
+     Reuse: compactness-to-Serrin and post-trace uniqueness.
+     Scope limitation: PositiveSmoothNSE is global in positive time.
+     A reference known only on [0,T_Q) requires a finite-slab analogue.
+
+Q11. SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON.
+     Path: foundation/CriticalSerrinUniqueness.lean.
+     Exact premises: nu > 0; actual LH v from a; smooth positive-time
+     periodic solenoidal reference u; smooth periodic pressure p; actual
+     NSE for u; strong physical L2 trace a; T > 0;
+     MemLp (criticalSpatialNorm 6 o u) 4 on (0,T].
+     Conclusion: v(t)=u(t) almost everywhere for t in (0,T].
+     Reuse: weak-strong identification.
+     Formalization limitation: smoothness/test/PDE premises quantify over
+     all positive times even though the conclusion is finite-horizon.
+     For a merely finite analytic reference, localize the proof or construct
+     a justified finite-horizon adapter. Do not silently supply a global
+     reference as an implicit assumption.
+
+3. ADMISSION ROOT ALREADY DISCHARGED IN QFB SOURCE
+
+RegularReference.lean:
+  ExactH1Admission nu :=
+  forall physical H1 trace b with EnergySigmaZero and
+  physicalHalfEnergy b < 2*pi*nu^2,
+  exists a positive Sobolev NSE flow with strong initial trace
+  and finite-horizon Serrin bounds.
+
+ExactAdmission.lean:
+  EXACT_H1_ADMISSION_OF_SPECTRAL_CALORIC_BUDGET
+  consumes an explicit uniform finiteChi0 squared integral budget
+  over all Fourier-Galerkin solutions of the given subcritical datum.
+
+CaloricNumericalAdmission.lean:
+  SPECTRAL_H1_CALORIC_BUDGET proves that budget from the stated strict
+  critical norm threshold; EXACT_H1_ADMISSION_UNCONDITIONAL supplies
+  ExactH1Admission for every nu > 0.
+
+Interpretation:
+  Source-level small critical admission is supplied.
+  Universal analytic-germ extension is not supplied.
+  These are different obligations.
+
+4. UNRESOLVED BRIDGES MUST NOT BE REUSED AS CLOSED THEOREMS
+
+QFBBridge/FeffermanBClosure.lean:
+  OneRestartOverlapCertificate includes
+    restartTime >= 0,
+    tailLag > 0,
+    restartTime + tailLag < localEnd,
+    trace_sigma_zero,
+    actual restarted LH membership,
+    cutoff(trace,nu) < tailLag,
+    local_overlap_closes :
+      HasSmoothTail nu (Shift restartTime u) tailLag
+      -> HasSmoothTail nu u 0.
+  The last field already supplies the desired gluing conclusion as an
+  implication premise. No actual local analytic or local classical solution
+  record is a field of this certificate.
+  Strict interval arithmetic alone does not construct local_overlap_closes.
+
+  FEFFERMAN_B_OF_QFB_ONE_RESTART_OVERLAP :
+    QFBOneRestartOverlapStatement -> FeffermanBStatement.
+  This is an implication theorem with an explicitly unresolved premise.
+
+QFBAdmissions/OneRestartOverlapAxiom.lean:
+  axiom QFB_ONE_RESTART_OVERLAP : QFBOneRestartOverlapStatement.
+  FEFFERMAN_B_CONDITIONAL_CLOSURE imports this custom axiom.
+  Exclude this module from an unconditional candidate import graph.
+
+QFBBridge/AnalyticUniqueness.lean:
+  QFBPositiveSpaceTimeAnalytic is AnalyticOnNhd on positiveSpacetime.
+  QFBAnalyticAdmissibilityPrincipleAt requires actual finite-horizon
+  L4_t L6_x integrability from positive-time analyticity and smooth NSE.
+  QFB_ANALYTIC_UNIQUENESS_AT_OF_AAP explicitly assumes that principle.
+  QFB_ANALYTIC_UNIQUENESS universally quantifies the same premise.
+  QFB_ANALYTIC_UNIQUE packages QFB plus that conditional implication.
+  Thus the merged name does not discharge the analytic-admissibility premise.
+  For an analytic environment containing t=0, boundedness on [0,T] can
+  discharge near-zero Serrin integrability by compactness; this is a
+  finite-window adapter to prove, not a global extension theorem.
+
+5. SOURCE GRAPH AND MATCHING EXTERNAL EVIDENCE
+
+Import traversal root: QuasiFeffermanB.Endpoints.Root.
+Local modules fetched at current source commit: 256.
+  QuasiFeffermanB modules: 74.
+  SingularClosure foundation modules: 182.
+All direct local imports recursively resolved.
+Comment/string-aware source token scan:
+  axiom = 0; sorry = 0; admit = 0; sorryAx = 0; unsafe = 0.
+This is static source evidence, not a new kernel run.
+
+Git blob equality:
+  all 74 QFB modules equal their versions at external compiled QFB commit
+  f70d495e952c952ccc87a390194dd1621643a233;
+  all 182 foundation modules equal their versions at external pinned
+  foundation commit 09dfe94a1ef150e21d09df3013fbe09002ef139c.
+Differences: 0.
+Dependency manifest:
+  METHLIB_QFB_DEPENDENCY_AUDIT.json.
+
+Archived evidence at current source commit:
+  Quasi-Fefferman-B/evidence/run-43535278019-verification.json
+  Quasi-Fefferman-B/evidence/run-43535278019-exact/qfb/
+    QuasiFeffermanB_Endpoints_Root-axioms.log
+  Quasi-Fefferman-B/evidence/run-43535278019-exact/qfb/
+    QuasiFeffermanB_TailChain-axioms.log
+  Quasi-Fefferman-B/evidence/r10-final-scope-review.json
+
+Observed external evidence:
+  run = 43535278019;
+  compiler = Lean 4.33.0, x86_64-unknown-linux-gnu;
+  mathlib = db584cd6d46c92f209a44c0f1c829460d327499d;
+  verified object cache hits = 71;
+  selected modules PASS = 74;
+  exact root type = QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement;
+  root axiom list = [propext, Classical.choice, Quot.sound].
+  Q09/Q11/Q12/Q13 logs retain the exact premises listed above and the same
+  standard axiom list.
+
+Evidence limitation:
+  Evidence is the archived external Linux 4.33 run.
+  No local Lean execution occurred.
+  No new native Windows 4.34.0-rc1 or Windows 4.33 run occurred.
+  No compiler/audit evidence exists here for the new Clay admission root.
+  Existing matching QFB evidence is not promotion evidence for a new theorem.
+
+Separate conditional-closure evidence:
+  evidence/fefferman-b-run-43541304720.json;
+  compiled_commit = 0f20ea84a385359c2b005ef10c6a17f4ee648539.
+  Strict implication audit lists standard axioms.
+  FEFFERMAN_B_CONDITIONAL_CLOSURE audit explicitly lists
+  QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP.
+  This evidence confirms the named obstruction rather than removing it.
+
+6. ACTUAL REMAINING OBLIGATIONS FOR CLAY-ADMISSION-CANDIDATE-01
+
+A. Define the actual periodic analytic germ and finite QFB-capped environment,
+   with velocity, pressure, initial trace and literal NSE equations.
+B. Prove finite-window analytic -> compact spatial/time bounds -> L4_t L6_x.
+C. Supply a finite-slab weak-strong comparison adapter; the existing global
+   positive-time comparison signature cannot be applied directly to a local
+   reference.
+D. Prove normalized pressure agreement and smooth overlap patching from
+   actual local and tail fields. Do not retain local_overlap_closes as a field.
+E. Use Q01/Q09 to close the restricted theorem
+     a has analytic NSE environment through safeCutoff
+     -> a has a global classical solution.
+F. Universal extension
+     every locally admitted analytic germ extends through safeCutoff
+   remains unresolved. QFB tail, small-data admission, analyticity of an
+   already existing flow, and compactness do not supply F.
+G. For the unrestricted Fefferman-B equivalence, separately formalize local
+   smooth existence, positive-time joint analyticity, analytic restart and
+   uniqueness/gluing. These general mathematical results do not establish F.
+
+B_TIER CONCLUSION
+  QFB eventual-tail infrastructure: concrete reusable source endpoints,
+  with matching archived external source/audit evidence.
+  Finite analytic overlap -> global smoothness: mathematically derivable
+  after constructing B-D.
+  Local analytic germ -> QFB-capped analytic environment: unresolved.
+  UNCONDITIONAL_CLOSURE of the new universal admission target: not obtained.
+

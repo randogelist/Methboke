@@ -1,0 +1,390 @@
+CLAY_ADMISSION_CANDIDATE_01
+MODE = B_TIER_DERIVATION
+DATE = 2026-11-17
+REPOSITORY = randogelist/Methboke
+BRANCH = Clay-Admission-Candidate-01
+
+!=B_TIER: exact implications and explicit solution families proved below.
+A_TIER_NEW_ROOT = NOT_ESTABLISHED.
+FORMAL_CLOSURE_NEW_ROOT = NOT_ESTABLISHED.
+UNCONDITIONAL_CLOSURE_NEW_ROOT = NOT_ESTABLISHED.
+LOCAL_LEAN_EXECUTION = NONE.
+
+0. ROOT DISTINCTION
+
+R0: Every datum admitting an actual space-time analytic NSE solution through
+    a strict QFB overlap admits a global smooth NSE solution.
+R1: Every datum admitting an arbitrary nonzero local space-time analytic NSE
+    germ admits such an analytic solution through the QFB overlap.
+
+Result: R0 has the complete B-tier derivation in Section 4, using the actual
+QFB tail theorem. R1 remains unresolved. Under the standard local classical
+theory and positive-time analytic regularization, R1 is equivalent to the
+unrestricted mean-zero periodic Fefferman-B statement. Neither an analytic
+identity theorem nor an abstract overlap-certificate field proves R1.
+
+1. SCOPE AND DEFINITIONS
+
+Domain: T^3 = R^3/Z^3; spatial volume = 1; viscosity nu > 0; force = 0.
+Velocity and pressure are real-valued and periodic in the spatial variables.
+Pressure gauge: integral_T3 p(t,x) dx = 0.
+NSE_nu(U,p):
+    partial_t U + (U dot grad)U + grad p = nu Delta U,
+    div U = 0.
+D_inf = C^infinity_{sigma,0}(T^3).
+R_nu = {a in D_inf : an actual global classical solution from a exists,
+                     smooth up to t=0 on every finite time cylinder}.
+FB_nu := forall a in D_inf, a in R_nu.
+
+G_nu(a; epsilon,L):
+    epsilon > 0, L > 0, and there exist U,p jointly real analytic on
+    (-epsilon,L) x T^3 satisfying NSE_nu there, U(0)=a, and zero spatial mean.
+Analyticity is asserted of an actual solution, not merely of a formal jet.
+
+D_germ(nu) := {a in D_inf : exists epsilon>0, G_nu(a;epsilon,epsilon)}.
+An asymmetric positive pair of radii defines the same germ class by
+restriction to their minimum.
+
+tau_Q(a,nu) := ||a||_2^4 / (8*pi^2*nu^5).
+T_Q(a,nu) := 2*tau_Q(a,nu).
+D_Q(nu) := {0} union
+    {a in D_inf \ {0} : exists epsilon>0, G_nu(a;epsilon,T_Q(a,nu))}.
+
+The zero datum is handled by U=0, p=0; its cutoff is zero.
+For nonzero a, tau_Q>0. The finite environment is open at its forward cap:
+    E_(epsilon,Q) = (-epsilon,T_Q) x T^3.
+The attachment time is chosen strictly inside this environment:
+    t_attach = 3*tau_Q/2.
+Then tau_Q < t_attach < T_Q, and
+    [0,T_Q) union (tau_Q,infinity) = [0,infinity).
+
+By restriction, D_Q(nu) subset D_germ(nu).
+
+2. FOUNDATION INTERFACES; NO CONCLUSION-AS-PREMISE REPLACEMENT
+
+F_LH: every a in D_inf admits a global Leray-Hopf solution u with the
+      prescribed initial L2 trace, energy inequality and weak NSE equation.
+F_LOCAL: every a in D_inf admits a classical solution on [0,t_loc), with
+         t_loc>0, smooth up to zero; classical solutions are locally unique.
+F_ANALYTIC: every existing classical unforced periodic NSE solution is
+            jointly space-time analytic at every strictly positive time of
+            its classical lifespan; the mean-zero pressure is analytic too.
+F_RELATIVE_ENERGY: a Leray-Hopf solution and a classical comparison solution
+                   with the same initial datum satisfy the relative energy
+                   inequality on each common finite regular interval.
+F_QFB: for every a in D_inf and every Leray-Hopf solution u from a,
+       every delta > tau_Q(a,nu) has an actual smooth NSE tail representing
+       u on [delta,infinity), with the specified trace/agreement semantics.
+
+F_LH, F_LOCAL, F_ANALYTIC and F_RELATIVE_ENERGY are classical analytic inputs
+to the mathematical derivation. Their exact Lean realization and adapter
+obligations are distinct from their mathematical validity. F_QFB is the
+specific quantified cutoff theorem audited in Methlib, not an inference
+from the arithmetic definition of tau_Q.
+
+No occurrence of 'local_overlap_closes', 'regular_of_serrin46',
+'FeffermanBAnalyticUpgradeStatement' or
+'QFBAnalyticAdmissibilityPrincipleAt' is counted as a discharged theorem
+solely because it is a structure field or explicit premise.
+
+3. FINITE ANALYTIC ENVIRONMENT -> QUANTITATIVE COMPARISON BOUNDS
+
+THEOREM FINITE_ANALYTIC_CYLINDER_SERRIN.
+Assume G_nu(a;epsilon,L), and 0<T<L. Define
+    M_T := max_{(t,x) in [0,T] x T^3} |U(t,x)|,
+    G_T := max_{(t,x) in [0,T] x T^3} ||grad U(t,x)||_op.
+Then M_T,G_T are finite, U has a strong L2 initial trace a, and
+    integral_0^T ||U(t)||_6^4 dt <= T*M_T^4,
+    integral_0^T ||grad U(t)||_infinity dt <= T*G_T.
+
+PROOF.
+Joint real analyticity implies continuity of U and its spatial first
+derivatives on an open neighborhood of the compact cylinder. Compactness
+gives the two maxima. Unit spatial volume gives ||U(t)||_6 <= M_T; integration
+gives the first estimate. The second follows from the definition of G_T.
+Uniform continuity on the compact cylinder gives uniform convergence
+U(t,.) -> U(0,.)=a as t -> 0+, hence strong L2 convergence. QED.
+
+Consequently, analyticity through the initial time discharges the finite
+Serrin-integrability obligation for each already covered compact interval.
+The independent near-zero analytic-admissibility premise in the inspected
+positive-time-only uniqueness interface is unnecessary for this stronger
+initial-germ hypothesis. Its Lean interface still requires localization.
+
+THEOREM FINITE_ANALYTIC_CYLINDER_IDENTIFICATION.
+Assume G_nu(a;epsilon,L), u is a Leray-Hopf solution from a, and
+F_RELATIVE_ENERGY. Then u(t)=U(t) in L2 for every 0<=t<L.
+
+PROOF.
+Fix 0<T<L. For w=u-U, the divergence-free transport cancellation and the
+weak formulation tested against the smooth comparison solution yield
+    (1/2)||w(t)||_2^2 + nu*integral_0^t ||grad w||_2^2 ds
+      <= integral_0^t integral_T3 |w|^2 ||grad U||_op dx ds.
+The initial relative energy is zero. Thus
+    E(t) <= 2*integral_0^t g(s)E(s) ds,
+    E(t)=||w(t)||_2^2, g(s)=||grad U(s)||_infinity <= G_T.
+Integral Gronwall yields E(t)=0. The weakly continuous Leray-Hopf
+representative and the continuous comparison give equality at every time
+in [0,T], not only almost every time. Since T<L was arbitrary, the stated
+identification holds. QED.
+
+The explicit quantitative bound avoids introducing an additional global
+analytic-upgrade axiom into this finite-window comparison argument.
+
+4. COMPLETE FINITE-CAP CONTINUATION DERIVATION
+
+THEOREM CLAY_ADMISSION_CANDIDATE_01_FINITE_CAP.
+Assume F_LH, F_RELATIVE_ENERGY and F_QFB. Then
+    D_Q(nu) subset R_nu.
+
+PROOF.
+For a=0, use U=0,p=0. Let a!=0 belong to D_Q(nu). Choose its analytic
+witness U,p on (-epsilon,T_Q) x T^3 and a global Leray-Hopf trajectory u
+from F_LH. Set delta=3*tau_Q/2. Sections 1 and 3 give
+    tau_Q < delta < T_Q,
+    u(t)=U(t) in L2 for 0<=t<T_Q.
+F_QFB supplies a classical tail V,q representing the same trajectory for
+t>=delta. On the nonempty open overlap (delta,T_Q), U and V are smooth
+and agree almost everywhere in x at each t. Their spatial continuity gives
+pointwise equality. NSE then gives grad(p-q)=0; connectedness of the torus
+and the mean-zero gauge give p=q on the overlap.
+Choose eta in (delta,T_Q). Define the global solution using U,p before eta
+and V,q after eta. Equality on an open neighborhood of eta implies smooth
+patching of every space and time derivative, preservation of NSE, and
+preservation of the initial trace. The initial analytic neighborhood gives
+smoothness up to t=0. Hence a belongs to R_nu. QED.
+
+No assumption concerning a trace at the open cap T_Q is required. The
+gluing time is strictly smaller than T_Q and strictly larger than tau_Q.
+Replacing T_Q by the open cap tau_Q removes this guaranteed overlap;
+additional endpoint control would then be necessary.
+
+THEOREM GENERAL_OVERLAP.
+Under the same foundation interfaces,
+    G_nu(a;epsilon,L) and L>tau_Q(a,nu) => a in R_nu.
+PROOF: choose delta strictly between tau_Q and L and repeat the argument.
+
+5. UNIVERSAL INITIAL-GERM ADMISSION IS THE REMAINING ROOT
+
+Define
+    COVER_nu := forall a in D_germ(nu), a in D_Q(nu).
+This is the exact proposed statement FB^(omega,epsilon->Q)_nu.
+
+THEOREM ANALYTIC_GERM_QFB_REDUCTION.
+Under F_LH, F_LOCAL, F_ANALYTIC, F_RELATIVE_ENERGY and F_QFB,
+    FB_nu <-> COVER_nu.
+
+PROOF, FORWARD.
+Assume FB_nu, and fix a in D_germ(nu). Let W,p_W be its two-sided analytic
+germ and V,p_V its global classical solution. Local classical uniqueness
+identifies W and V on a positive initial interval. F_ANALYTIC gives joint
+analyticity of V for every positive time. Patch the negative-time part of
+W to V using equality on the initial overlap and normalized pressure.
+This produces an analytic NSE solution on (-epsilon',infinity) for some
+epsilon'>0. Restriction to (-epsilon',T_Q) gives a in D_Q when a!=0;
+the zero case is included by definition. Hence COVER_nu.
+
+PROOF, REVERSE.
+Assume COVER_nu, and fix arbitrary b in D_inf. F_LOCAL supplies a classical
+solution v on [0,t_loc). Choose t0 with 0<t0<t_loc. F_ANALYTIC and compactness
+of T^3 supply a joint analytic neighborhood of {t0} x T^3. For some
+epsilon>0 with (t0-epsilon,t0+epsilon) subset (0,t_loc),
+    W(s,x)=v(t0+s,x)
+is an analytic NSE germ from a=v(t0). Mean-zero and divergence-free
+constraints persist, so a in D_germ(nu). COVER_nu gives a in D_Q(nu).
+Section 4 supplies a global classical solution from a. Classical uniqueness
+identifies its short initial segment with v(t0+.). Patching gives a global
+classical solution from b, smooth at original time zero. Thus FB_nu. QED.
+
+Logical consequence:
+    local analytic input restriction alone does not remove the universal
+    continuation problem. The universal initial-germ-to-cap bridge has the
+    strength of the full periodic smooth-data root under these interfaces.
+
+Scope adapter to the official periodic problem:
+Given arbitrary smooth periodic divergence-free a with mean m, put b=a-m.
+If v,p solves mean-zero NSE from b, then
+    U(t,x)=m+v(t,x-m*t), P(t,x)=p(t,x-m*t)
+solves NSE from a. The time derivative contributes -m dot grad v and the
+transport contributes +m dot grad v, which cancel. Periodicity and global
+smoothness persist. Thus the mean-zero restriction is removable by this
+explicit Galilean transform; it is not an additional smallness premise.
+The unforced periodic energy identity gives
+    d/dt ||U(t)||_2^2 = -2*nu*||grad U(t)||_2^2 <= 0,
+so the resulting classical solution also has the uniform energy bound.
+
+6. SPATIAL ANALYTICITY DOES NOT PROVIDE THE INITIAL TIME GERM
+
+For rho>0, let
+    a(x)=e1*sum_{k>=1} exp(-rho*k)*cos(2*pi*k*x2),
+    U(t,x)=e1*sum_{k>=1} exp(-rho*k-4*pi^2*nu*k^2*t)*cos(2*pi*k*x2).
+The nonlinear term is zero because U has only its first component and is
+independent of x1. Hence U is an exact global NSE solution with p=0.
+The initial datum is spatially analytic. At x=0,
+    |partial_t^n U_1(0,0)|
+      = (4*pi^2*nu)^n * sum_{k>=1} k^(2*n)*exp(-rho*k).
+For integer n>=rho, select k_n=floor(2*n/rho). Then k_n>=n/rho,
+exp(-rho*k_n)>=exp(-2*n), and n!<=n^n. Consequently
+    (|partial_t^n U_1(0,0)|/n!)^(1/n)
+      >= [4*pi^2*nu/(exp(2)*rho^2)]*n -> infinity.
+Thus the time-Taylor radius at zero is zero. Differentiation is justified
+for every fixed n by exponential summability. Any competing analytic NSE
+germ would agree with U at positive times by local uniqueness, hence would
+have these same derivatives, a contradiction.
+
+Therefore
+    D_germ(nu) proper subset C^omega_{sigma,0}(T^3).
+An initial spatial AnalyticOnNhd proof cannot replace a space-time germ
+certificate; formal Taylor recursion cannot replace a convergence proof.
+
+7. EXPLICIT UNCONDITIONAL MATHEMATICAL SUBCLASS
+
+THEOREM BELTRAMI_FINITE_FOURIER_ADMISSION.
+Let a be a real mean-zero divergence-free trigonometric polynomial and
+assume curl a = mu*a for a real constant mu. Then, for every nu>0,
+    a in D_Q(nu) and a in R_nu.
+No QFB or universal analytic-admission hypothesis is required for this
+explicit solution theorem.
+
+PROOF.
+The identity curl curl a = grad div a - Delta a gives Delta a=-mu^2*a.
+Define, for every real t,
+    U(t,x)=exp(-nu*mu^2*t)*a(x),
+    p(t,x)=-(1/2)*|U(t,x)|^2
+            +(1/2)*integral_T3 |U(t,y)|^2 dy.
+Finite Fourier sums and the exponential are jointly real analytic on
+R x T^3. Moreover partial_t U=nu Delta U and curl U=mu U. The identity
+    (U dot grad)U = grad(|U|^2/2) - U cross curl U
+reduces the nonlinear term to grad(|U|^2/2). Therefore
+    (U dot grad)U + grad p = 0.
+All NSE equations, periodicity, divergence, mean and initial constraints
+follow directly. Restrict this entire real-time solution to any finite
+analytic environment. The zero case is already included. QED.
+
+Concrete three-parameter family (A,B,C arbitrary real numbers):
+    a1 = A*sin(2*pi*x3) + C*cos(2*pi*x2),
+    a2 = B*sin(2*pi*x1) + A*cos(2*pi*x3),
+    a3 = C*sin(2*pi*x2) + B*cos(2*pi*x1).
+Direct differentiation gives curl a=2*pi*a and div a=0. This is the
+BAMBUS-compatible ABC/Beltrami family. Arbitrary amplitudes are admitted.
+The solution is U(t)=exp(-4*pi^2*nu*t)*a.
+
+This establishes a concrete, nontrivial subclass of the requested admission
+class. It does not establish COVER_nu for arbitrary analytic germs.
+
+Small-data reuse has a different scope:
+    a in D_germ(nu), represented by c : CriticalSobolev 1,
+    CriticalSigmaZero c,
+    SingularClosure.criticalNonlinearConstant * ||c|| < nu
+      => a in R_nu by the existing small-data endpoint;
+      => a in D_Q(nu) by the forward construction in Section 5.
+The smallness hypothesis cannot be discarded. The exact norm normalization
+and threshold must be those of the inspected Methlib endpoint.
+The existing small-data witness is positively smooth and has actual
+Leray-Hopf membership. Identify it with the admitted analytic germ near
+zero by Section 3 and patch to obtain smoothness up to zero in R_nu.
+Apply F_ANALYTIC on its positive-time lifespan and the Section 5 patching
+construction to obtain D_Q membership.
+
+8. SOURCE-AUDITED REUSE PLAN
+
+S1. Retain actual physical data/trajectory semantics:
+    CriticalPhysicalL2, CriticalLerayHopf, EnergySigmaZero,
+    SmoothInitialDatum, ClassicalTail, HasSmoothTail.
+    ClassicalTail nu 0 uses ContDiffOn on the CLOSED halfspace t>=0.
+    Required adapters: periodic Vec fields <-> torus fields; initial a.e.
+    equality <-> equality with the continuous smooth representative;
+    right timeDerivative at zero <-> the analytic/classical derivative.
+S2. Reuse cutoff, safeCutoff, Q09_POST_CUTOFF_SMOOTHNESS,
+    QUASI_FEFFERMAN_B_COMPOSED at their pinned revisions.
+S3. Define finite-cylinder initial analytic admission using AnalyticOnNhd
+    on an open real space-time domain containing time zero.
+S4. Formalize compact-cylinder boundedness and the two explicit integral
+    estimates in Section 3. This removes the finite-horizon analytic
+    integrability admission for the new input class.
+S5. Localize the physical Serrin/relative-energy comparison theorem to an
+    existing finite classical cylinder; do not require a global classical
+    comparison as an input to the localization theorem.
+S6. Prove smooth pressure-normalized patching on a strict open overlap.
+S7. Assemble R0 from S1-S6; no explicit overlap axiom is needed.
+S8. Supply separate constructive admission certificates for concrete input
+    families, including the finite Fourier Beltrami family in Section 7.
+S9. The universal family of certificates required for R1 remains unresolved.
+
+The existing OneRestartOverlapCertificate may be an output adapter after
+S4-S6. Its local_overlap_closes field must be proved from the finite-cylinder
+data; inserting that field as an input does not discharge the target.
+
+EXCLUDED IMPORT:
+    QFBAdmissions.OneRestartOverlapAxiom
+Reason: explicit axiom QFB_ONE_RESTART_OVERLAP. No A-tier unconditional
+candidate may use this axiom to discharge the universal admission.
+
+9. COMPILER / CACHE / EVIDENCE POLICY
+
+No Lean execution was performed for this B-tier package.
+No prepared Lean file, source scan, or inherited theorem promotes this new
+root to A_TIER. No run.cmd is required for this B-tier-only artifact.
+
+Methlib's inspected 4.33.0 development pins mathlib to
+    db584cd6d46c92f209a44c0f1c829460d327499d.
+The separately inspected mathlib 4.34.0-rc1 source pin is
+    de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11.
+Do not combine these dependency locks as if they were interchangeable.
+Source pin availability does not imply availability of matching cached
+oleans. Any future native Windows build must use its exact compiler,
+dependency manifest and matching cache, followed by theorem-level
+#print axioms evidence for the exact new root.
+
+Inherited QFB evidence is recorded in audits/METHLIB_QFB_REUSE_AUDIT.txt.
+Its Linux build evidence is not relabeled as a native Windows run and is
+not relabeled as a compiler/audit result for this new theorem.
+
+10. PRIMARY SOURCES AND PINNED REGISTERS
+
+Detailed paths, declarations, premises and source pins:
+    audits/MATHLIB_REUSE_AUDIT.txt
+    audits/METHLIB_QFB_REUSE_AUDIT.txt
+    audits/METHLIB_ANALYTIC_REUSE_AUDIT.txt
+
+QFB source:
+https://github.com/randogelist/Methlib/tree/96033dd69c994bec337a87369a6c27256e724980/Quasi-Fefferman-B
+
+Analytic and overlap adapters:
+https://github.com/randogelist/Methlib/tree/04211c54544b769505319097e6ce8e184420c068/Quasi-Fefferman-B/QFBBridge
+
+Official periodic Fefferman-B problem and classical local/small-data scope:
+https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+
+R. Temam, Navier-Stokes Equations and Nonlinear Functional Analysis,
+Theorem 7.1: time analyticity on the existing strong lifespan.
+https://epubs.siam.org/doi/10.1137/1.9781611970050
+
+K. Masuda, On the analyticity and the unique continuation theorem for
+solutions of the Navier-Stokes equation, Proc. Japan Acad. 43 (1967),
+827-832: local interior analyticity. See also G. Camliyurt, I. Kukavica,
+V. Vicol, Gevrey regularity of the Navier-Stokes equations in a half-space,
+introduction and references for the space-time analytic regularization
+scope; the half-space theorem is not substituted for a torus Lean endpoint.
+https://cims.nyu.edu/~vicol/CaKV1.pdf
+
+11. FINAL STATUS
+
+!=B_TIER:
+    FINITE_ANALYTIC_CYLINDER_SERRIN;
+    FINITE_ANALYTIC_CYLINDER_IDENTIFICATION under relative energy;
+    CLAY_ADMISSION_CANDIDATE_01_FINITE_CAP under the listed foundation inputs;
+    ANALYTIC_GERM_QFB_REDUCTION under the listed foundation inputs;
+    BELTRAMI_FINITE_FOURIER_ADMISSION by explicit construction.
+
+DISCHARGED MATHEMATICALLY FOR AN ALREADY GIVEN FINITE ANALYTIC ENVIRONMENT:
+    strong initial trace; finite Serrin norm; finite gradient comparison
+    budget; strict QFB overlap; velocity identification; pressure gauge;
+    smooth patching.
+
+UNRESOLVED UNIVERSAL MATHEMATICAL OBLIGATION:
+    forall a in D_germ(nu), exists an analytic extension reaching T_Q(a,nu).
+
+NEW_ROOT_EXTERNAL_COMPILER_EVIDENCE = NONE.
+NEW_ROOT_THEOREM_AXIOM_AUDIT = NONE.
+UNCONDITIONAL_CLOSURE = NOT_ESTABLISHED.

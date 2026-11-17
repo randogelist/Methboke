@@ -1,11 +1,52 @@
-# Methboke
+# Clay-Admission-Candidate-01
 
-## Clay admission program
+`MODE = B_TIER_DERIVATION` · `NO_LOCAL_LEAN` · `NEW_ROOT_A_TIER = NOT_ESTABLISHED`
 
-Target branch: `Clay-Admission-Candidate-01`.
+## Exact scope
 
-Scope: unforced incompressible Navier–Stokes on the unit three-torus; smooth divergence-free mean-zero initial data; local joint space-time analytic germs; finite analytic continuation to a QFB overlap.
+Unforced incompressible Navier–Stokes on the unit three-torus; viscosity `nu > 0`; smooth, divergence-free, mean-zero initial data.
 
-Mode: `B_TIER_DERIVATION`.
+`D_germ(nu)` consists of initial data admitting an actual jointly space-time analytic NSE germ through time zero. `D_Q(nu)` consists of data admitting such an analytic solution on `(-epsilon, 2*tau_Q)`, with the zero datum included separately, where
 
-Status: source-audited mathematical derivations and explicit remaining obligations. No unconditional global regularity claim. No local Lean execution. A-tier promotion requires matching external compiler and theorem-level axiom-audit evidence.
+```text
+tau_Q(a,nu) = ||a||_2^4 / (8*pi^2*nu^5).
+```
+
+## B-tier conclusions
+
+| Statement | Status |
+|---|---|
+| Finite analytic cylinder implies finite Serrin norm and strong initial trace | `!=B_TIER`; explicit compactness estimate |
+| `D_Q(nu) subset R_nu` | `!=B_TIER`; actual QFB tail plus finite weak–strong comparison and overlap patching |
+| Finite Fourier Beltrami data belong to `D_Q(nu)` | `!=B_TIER`; explicit arbitrary-amplitude solution |
+| `D_germ(nu) subset D_Q(nu)` | Unresolved universal continuation obligation |
+| Universal germ-to-cap admission is equivalent to periodic Fefferman B under the stated local/analytic/QFB interfaces | `!=B_TIER`; exact reduction |
+| New-root compiler pass / theorem-level axiom audit | None |
+
+## Deliverables
+
+- [CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt](CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt): definitions, complete mathematical derivations, explicit admitted family, and remaining root.
+- [Mathlib reuse audit](audits/MATHLIB_REUSE_AUDIT.txt): exact declarations, source pins, signatures and scope limits.
+- [Methlib QFB reuse audit](audits/METHLIB_QFB_REUSE_AUDIT.txt): actual physical endpoints and matching archived compiler evidence.
+- [Methlib analytic reuse audit](audits/METHLIB_ANALYTIC_REUSE_AUDIT.txt): finite-window adapters and named unresolved premises.
+- [QFB dependency audit](audits/METHLIB_QFB_DEPENDENCY_AUDIT.json): 256-module source/blob comparison.
+- [Source and status manifest](SOURCE_STATUS.json).
+
+## Dependency constraints
+
+Methlib's inspected lock: Lean `4.33.0`, mathlib `db584cd6d46c92f209a44c0f1c829460d327499d`.
+
+The archived QFB external run identifies Linux Lean `4.33.0`, 71 verified object-cache hits, and root axioms `[propext, Classical.choice, Quot.sound]`. The 256 audited local source modules match the compiled QFB/foundation snapshots. This is inherited evidence for QFB; it is not native Windows evidence or evidence for the new root.
+
+Future native Windows formalization must retain a compatible compiler, manifest and cache, and produce exact new-root compiler and axiom-audit evidence. No local Lean command was executed.
+
+## Excluded closure shortcut
+
+```text
+QFBAdmissions.OneRestartOverlapAxiom
+  axiom QFB_ONE_RESTART_OVERLAP : QFBOneRestartOverlapStatement
+```
+
+`OneRestartOverlapCertificate.local_overlap_closes` must be constructed from actual local solutions and overlap identification. Its existence is not implied by interval arithmetic or by naming the certificate.
+
+`UNCONDITIONAL_CLOSURE = NOT_ESTABLISHED`.

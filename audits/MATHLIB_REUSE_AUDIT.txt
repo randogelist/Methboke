@@ -1,0 +1,254 @@
+MATHLIB REUSE AUDIT FOR CLAY ADMISSION CANDIDATE 01
+DATE: 2026-11-17
+STATUS: SOURCE_AUDIT_ONLY; B_TIER dependency register.
+NO_LOCAL_LEAN. No compiler run, build, cache fetch, or theorem-level axiom audit.
+No A_TIER, FORMAL_CLOSURE, or UNCONDITIONAL_CLOSURE promotion.
+
+PIN REGISTER
+Initial comparison source (superseded for integration by the verified locked pin below):
+  leanprover-community/mathlib4 v4.34.0-rc1
+  commit de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11
+  lean-toolchain leanprover/lean4:v4.34.0-rc1
+Preferred integration dependency; all 13 declarations additionally verified below:
+  v4.33.0, commit db584cd6d46c92f209a44c0f1c829460d327499d
+  lean-toolchain leanprover/lean4:v4.33.0
+Current-master comparison:
+  commit d9a73ae1ea9a53526dad68d23815571c601d1ddf
+  lean-toolchain leanprover/lean4:v4.36.0
+All signatures below were read at both listed native commits via GitHub connector.
+Retain Methlib's exact cache-compatible manifest if it specifies another revision.
+A tag and toolchain match do not establish native Windows cached .olean availability.
+
+AMBIENT TYPES
+Analytic: nontrivially normed field k and normed k-vector spaces E,F.
+Analytic-to-ContDiff: standard ContDiff scalar assumptions and CompleteSpace F.
+Fourier: finite type d; L2(UnitAddTorus d) := Lp C 2 volume; scalar complex codomain.
+ODE existence: complete real normed vector space E.
+Signatures below retain explicit hypotheses; authoritative sources retain all binders.
+
+DECLARATION REGISTER
+
+1. AnalyticAt
+PATH: Mathlib/Analysis/Analytic/Basic.lean:109
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Analytic/Basic.lean#L109
+SIGNATURE:
+def AnalyticAt (f : E → F) (x : E) :=
+  ∃ p : FormalMultilinearSeries 𝕜 E F, HasFPowerSeriesAt f p x
+REUSE / LIMIT: Convergent local germ semantics; positive convergence radius is an existential premise, not a consequence of a formal recursion.
+
+2. AnalyticOnNhd
+PATH: Mathlib/Analysis/Analytic/Basic.lean:118
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Analytic/Basic.lean#L118
+SIGNATURE:
+def AnalyticOnNhd (f : E → F) (s : Set E) :=
+  ∀ x, x ∈ s → AnalyticAt 𝕜 f x
+REUSE / LIMIT: Analytic environment semantics. Implement on a periodic lift to R x R^3 or with chart adapters; UnitAddTorus is not a real vector space.
+
+3. AnalyticOnNhd.mono
+PATH: Mathlib/Analysis/Analytic/Basic.lean:498
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Analytic/Basic.lean#L498
+SIGNATURE:
+theorem AnalyticOnNhd.mono {s t : Set E} (hf : AnalyticOnNhd 𝕜 f t) (hst : s ⊆ t) :
+    AnalyticOnNhd 𝕜 f s :=
+REUSE / LIMIT: Restricts a certified environment to a smaller domain; does not extend a germ to a larger time window.
+
+4. HasFPowerSeriesOnBall.uniform_geometric_approx
+PATH: Mathlib/Analysis/Analytic/Basic.lean:744
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Analytic/Basic.lean#L744
+SIGNATURE:
+theorem HasFPowerSeriesOnBall.uniform_geometric_approx {r' : ℝ≥0}
+    (hf : HasFPowerSeriesOnBall f p x r) (h : (r' : ℝ≥0∞) < r) :
+    ∃ a ∈ Ioo (0 : ℝ) 1,
+      ∃ C > 0, ∀ y ∈ Metric.ball (0 : E) r', ∀ n,
+      ‖f (x + y) - p.partialSum n y‖ ≤ C * a ^ n := by
+REUSE / LIMIT: Geometric Taylor approximation on strict subballs. Requires the actual convergent series; does not establish Galerkin-uniform analytic radii or bounds.
+
+5. AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+PATH: Mathlib/Analysis/Analytic/Uniqueness.lean:223
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Analytic/Uniqueness.lean#L223
+SIGNATURE:
+theorem eqOn_of_preconnected_of_eventuallyEq {f g : E → F} {U : Set E} (hf : AnalyticOnNhd 𝕜 f U)
+    (hg : AnalyticOnNhd 𝕜 g U) (hU : IsPreconnected U) {z₀ : E} (h₀ : z₀ ∈ U) (hfg : f =ᶠ[𝓝 z₀] g) :
+    EqOn f g U := by
+REUSE / LIMIT: Identifies two existing analytic representatives on a preconnected domain. Does not construct continuation; equality at t=0 alone is not neighborhood equality.
+
+6. AnalyticOnNhd.contDiffOn_of_completeSpace
+PATH: Mathlib/Analysis/Calculus/ContDiff/Defs.lean:727
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L727
+SIGNATURE:
+theorem AnalyticOnNhd.contDiffOn_of_completeSpace [CompleteSpace F] (h : AnalyticOnNhd 𝕜 f s) :
+    ContDiffOn 𝕜 n f s :=
+REUSE / LIMIT: Analytic-to-smooth conversion; complete target; choose n=infinity. No NSE existence is supplied.
+
+7. contDiffOn_of_locally_contDiffOn
+PATH: Mathlib/Analysis/Calculus/ContDiff/Defs.lean:587
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L587
+SIGNATURE:
+theorem contDiffOn_of_locally_contDiffOn
+    (h : ∀ x ∈ s, ∃ u, IsOpen u ∧ x ∈ u ∧ ContDiffOn 𝕜 n f (s ∩ u)) : ContDiffOn 𝕜 n f s := by
+REUSE / LIMIT: Regularity gluing for a single already-defined function. Equality on overlaps and PDE equations require separate proofs.
+
+8. UnitAddTorus.mFourierBasis
+PATH: Mathlib/Analysis/Fourier/AddCircleMulti.lean:266
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L266
+SIGNATURE:
+def mFourierBasis : HilbertBasis (d → ℤ) ℂ L²(UnitAddTorus d) :=
+  HilbertBasis.mk orthonormal_mFourier (span_mFourierLp_closure_eq_top (by simp)).ge
+REUSE / LIMIT: Scalar-complex Fourier Hilbert representation; d=Fin 3. Vector, real-conjugation, solenoidal, mean-zero and weighted Sobolev adapters remain.
+
+9. UnitAddTorus.hasSum_mFourier_series_L2
+PATH: Mathlib/Analysis/Fourier/AddCircleMulti.lean:286
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L286
+SIGNATURE:
+theorem hasSum_mFourier_series_L2 (f : L²(UnitAddTorus d)) :
+    HasSum (fun i ↦ mFourierCoeff f i • mFourierLp 2 i) f := by
+REUSE / LIMIT: L2 Fourier convergence; does not control analytic norms, nonlinear convergence, or uniform high-Sobolev norms.
+
+10. UnitAddTorus.hasSum_sq_mFourierCoeff
+PATH: Mathlib/Analysis/Fourier/AddCircleMulti.lean:301
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L301
+SIGNATURE:
+theorem hasSum_sq_mFourierCoeff (f : L²(UnitAddTorus d)) :
+    HasSum (fun i ↦ ‖mFourierCoeff f i‖ ^ 2) (∫ t, ‖f t‖ ^ 2) := by
+REUSE / LIMIT: Parseval energy identity. Weighted H^s variants require multiplier-domain and summability adapters.
+
+11. IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+PATH: Mathlib/Analysis/ODE/ExistUnique.lean:57
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/ODE/ExistUnique.lean#L57
+SIGNATURE:
+theorem exists_eq_forall_mem_Icc_hasDerivWithinAt
+    (hf : IsPicardLindelof f t₀ x₀ a r L K) (hx : x ∈ closedBall x₀ r) :
+    ∃ α : ℝ → E, α t₀ = x ∧
+      ∀ t ∈ Icc tmin tmax, HasDerivWithinAt α (f t (α t)) (Icc tmin tmax) t := by
+REUSE / LIMIT: Finite Galerkin ODE existence after proving IsPicardLindelof bounds. Not directly infinite NSE: Laplacian is unbounded on fixed H^s and convection loses derivatives.
+
+12. ODE_solution_unique_of_mem_Ioo
+PATH: Mathlib/Analysis/ODE/ExistUnique.lean:279
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/ODE/ExistUnique.lean#L279
+SIGNATURE:
+theorem ODE_solution_unique_of_mem_Ioo
+    (hv : ∀ t ∈ Ioo a b, LipschitzOnWith K (v t) (s t))
+    (ht : t₀ ∈ Ioo a b)
+    (hf : ∀ t ∈ Ioo a b, HasDerivAt f (v t (f t)) t ∧ f t ∈ s t)
+    (hg : ∀ t ∈ Ioo a b, HasDerivAt g (v t (g t)) t ∧ g t ∈ s t)
+    (heq : f t₀ = g t₀) :
+    EqOn f g (Ioo a b) := by
+REUSE / LIMIT: Finite Galerkin uniqueness or separately validated Banach ODE realization. Lipschitz and trajectory hypotheses remain; not Leray-Hopf weak-strong uniqueness.
+
+13. norm_le_gronwallBound_of_norm_deriv_right_le
+PATH: Mathlib/Analysis/ODE/Gronwall.lean:134
+SOURCE: https://github.com/leanprover-community/mathlib4/blob/de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11/Mathlib/Analysis/ODE/Gronwall.lean#L134
+SIGNATURE:
+theorem norm_le_gronwallBound_of_norm_deriv_right_le {f f' : ℝ → E} {δ K ε : ℝ} {a b : ℝ}
+    (hf : ContinuousOn f (Icc a b)) (hf' : ∀ x ∈ Ico a b, HasDerivWithinAt f (f' x) (Ici x) x)
+    (ha : ‖f a‖ ≤ δ) (bound : ∀ x ∈ Ico a b, ‖f' x‖ ≤ K * ‖f x‖ + ε) :
+    ∀ x ∈ Icc a b, ‖f x‖ ≤ gronwallBound δ K ε (x - a) :=
+REUSE / LIMIT: Stability after a right-derivative bound with constant K is proved. NSE relative energy and integrable-coefficient Gronwall adaptation remain obligations.
+
+PDE ENDPOINT AUDIT
+Inspected: non-truncated current-master recursive tree; native-pinned relevant files above.
+GitHub code search Navier: no matches. Serrin: no matches.
+Leray: docs/1000.yaml entries for unrelated named theorems only.
+No usable actual NSE local strong-existence, positive-time joint analytic regularization,
+Leray-Hopf weak-strong uniqueness, or QFB eventual-tail theorem was located.
+This is a bounded source-audit result, not a proof of repository-wide absence.
+
+ROOT OBLIGATION
+D_germ(nu) subset D_Q(nu) is not discharged by the audited declarations.
+None establishes persistence of the actual nonlinear NSE flow to T_Q(a,nu).
+Identity theorems and Hilbert completeness identify/approximate existing objects;
+they do not extend the maximal regular lifespan.
+
+REUSE ORDER
+Convergent analytic germ semantics
+-> analytic-to-smooth conversion
+-> finite Galerkin ODE existence and uniqueness
+-> Fourier Hilbert representation and Parseval
+-> [UNRESOLVED uniform analytic/Sobolev control to T_Q]
+-> [actual PDE semantic limit and weak-strong comparison]
+-> regularity gluing
+-> [QFB-tail endpoint with analytic premises discharged].
+
+The brackets are mathematical or semantic obligations. Introducing hypothesis fields
+for these obligations proves an implication, not their existence or universal validity.
+
+CACHE / PROMOTION
+Future A-tier work must use the existing matching native cache and locked revision.
+External native Windows compiler output and theorem-level #print axioms evidence are
+required for the exact root. This source audit has no promotion force.
+
+METHLIB-LOCKED PIN VERIFICATION (2026-11-17)
+Integration dependency:
+  mathlib commit db584cd6d46c92f209a44c0f1c829460d327499d
+  lean-toolchain leanprover/lean4:v4.33.0
+The complete six source files containing the thirteen registered declarations were
+fetched directly at this exact pin. Each declaration is present. All thirteen
+registered signatures are text-identical to the v4.34.0-rc1 comparison signatures.
+Three complete files are text-identical: Analytic/Basic, Analytic/Uniqueness,
+and Calculus/ContDiff/Defs. The other three differ only in proof-term rewrite
+lemma names: AddCircleMulti line 236 uses if_false versus ite_false;
+ODE/ExistUnique lines 92, 95, 106 use dif_pos versus dite_eq_left;
+ODE/Gronwall lines 47, 51, 74, 75 use if_pos/if_neg versus ite_eq_left/ite_eq_right.
+Ambient binders, namespaces, and local hypotheses in these six files agree.
+This source comparison supplies no compiler or axiom-audit evidence.
+
+PREFERRED INTEGRATION POLICY
+  retain Methlib's locked v4.33.0 dependency and corresponding native cache;
+  do not upgrade to v4.34.0-rc1 for these declarations.
+The initial v4.34.0-rc1 inspection is retained only as comparative source evidence.
+
+LOCKED SOURCE REGISTER
+1. AnalyticAt
+   Mathlib/Analysis/Analytic/Basic.lean:109
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Analytic/Basic.lean#L109
+   SIGNATURE_COMPARISON: IDENTICAL
+2. AnalyticOnNhd
+   Mathlib/Analysis/Analytic/Basic.lean:118
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Analytic/Basic.lean#L118
+   SIGNATURE_COMPARISON: IDENTICAL
+3. AnalyticOnNhd.mono
+   Mathlib/Analysis/Analytic/Basic.lean:498
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Analytic/Basic.lean#L498
+   SIGNATURE_COMPARISON: IDENTICAL
+4. HasFPowerSeriesOnBall.uniform_geometric_approx
+   Mathlib/Analysis/Analytic/Basic.lean:744
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Analytic/Basic.lean#L744
+   SIGNATURE_COMPARISON: IDENTICAL
+5. AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq
+   Mathlib/Analysis/Analytic/Uniqueness.lean:223
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Analytic/Uniqueness.lean#L223
+   SIGNATURE_COMPARISON: IDENTICAL
+6. AnalyticOnNhd.contDiffOn_of_completeSpace
+   Mathlib/Analysis/Calculus/ContDiff/Defs.lean:727
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L727
+   SIGNATURE_COMPARISON: IDENTICAL
+7. contDiffOn_of_locally_contDiffOn
+   Mathlib/Analysis/Calculus/ContDiff/Defs.lean:587
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L587
+   SIGNATURE_COMPARISON: IDENTICAL
+8. UnitAddTorus.mFourierBasis
+   Mathlib/Analysis/Fourier/AddCircleMulti.lean:266
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L266
+   SIGNATURE_COMPARISON: IDENTICAL
+9. UnitAddTorus.hasSum_mFourier_series_L2
+   Mathlib/Analysis/Fourier/AddCircleMulti.lean:286
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L286
+   SIGNATURE_COMPARISON: IDENTICAL
+10. UnitAddTorus.hasSum_sq_mFourierCoeff
+   Mathlib/Analysis/Fourier/AddCircleMulti.lean:301
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L301
+   SIGNATURE_COMPARISON: IDENTICAL
+11. IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+   Mathlib/Analysis/ODE/ExistUnique.lean:57
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L57
+   SIGNATURE_COMPARISON: IDENTICAL
+12. ODE_solution_unique_of_mem_Ioo
+   Mathlib/Analysis/ODE/ExistUnique.lean:279
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L279
+   SIGNATURE_COMPARISON: IDENTICAL
+13. norm_le_gronwallBound_of_norm_deriv_right_le
+   Mathlib/Analysis/ODE/Gronwall.lean:134
+   https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Gronwall.lean#L134
+   SIGNATURE_COMPARISON: IDENTICAL
+
+
