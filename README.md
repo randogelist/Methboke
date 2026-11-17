@@ -34,6 +34,12 @@ tau_Q(a,nu) = ||a||_2^4 / (8*pi^2*nu^5).
 - [QFB dependency audit](audits/METHLIB_QFB_DEPENDENCY_AUDIT.json): 256-module source/blob comparison.
 - [Source and status manifest](SOURCE_STATUS.json).
 
+## Material rebuild contract
+
+`push -> last compatible PASS image -> changed modules + dependents -> exact axiom audit -> immutable registry tags`.
+
+The branch cache pointer advances only when `previousPASS <= candidate <= HEAD` in commit ancestry. A newer queued commit can therefore reuse the just-completed predecessor. A documentation-only amendment has no Lean source changes; its CI run must preserve matching compiled objects and audit evidence while still executing Lake validation and the measured no-op rerun. Runtime and cache-reuse claims require the resulting external evidence; preparation alone remains `A_TIER_CANDIDATE`.
+
 ## Dependency constraints
 
 Methlib's inspected lock: Lean `4.33.0`, mathlib `db584cd6d46c92f209a44c0f1c829460d327499d`.
