@@ -22,12 +22,18 @@ jobs:
       PYTHONUNBUFFERED: '1'
       MATERIAL_STATE: /tmp/material-state.json
       MATERIAL_JOBS: '2'
+      MATERIAL_MIN_FREE_GIB: '20'
     steps:
       - name: Checkout exact source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
           fetch-depth: 1
+
+      - name: Validate source closures and registry controls
+        run: |
+          python3 -m unittest discover -s Material/ci/tests
+          python3 Material/ci/build.py --validate-only
 
       - name: Authenticate registry on host only
         env:
@@ -37,6 +43,15 @@ jobs:
 
       - name: Select last compatible passed container
         run: python3 Material/ci/registry.py prepare --state "$MATERIAL_STATE"
+
+      - name: Preserve pre-build resource diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: material-resources-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: Material/registry/resources-*.json
+          if-no-files-found: warn
+          retention-days: 90
 
       - name: Build amendments and audit exact endpoints
         run: python3 Material/ci/registry.py run --state "$MATERIAL_STATE"

@@ -16,7 +16,7 @@ push
   -> incremental build + exact type/axiom audit + no-op rerun measurement
   -> PASS report for this exact commit
   -> immutable aggregate container + immutable endpoint tags
-  -> latest-compatible branch pointer, only when commit remains branch HEAD
+  -> latest-compatible branch pointer, advancing along current branch ancestry
 ```
 
 `FAIL -> evidence artifact; previous successful pointer unchanged`.
@@ -29,7 +29,7 @@ Image repository: `ghcr.io/<owner>/<repository>-material`, lower-case.
 |---|---|---|
 | Successful aggregate | `passed-<commit12>-<run>-<attempt>` | New tag per successful run |
 | Successful endpoint | `ep-<endpoint>-<inputhash12>-<run>-<attempt>` | New tag per successful endpoint/run |
-| Reuse pointer | `latest-<branch>-<branchhash8>-<compatibility16>` | Updated only after all endpoints PASS and current-head verification |
+| Reuse pointer | `latest-<branch>-<branchhash8>-<compatibility16>` | Updated after all endpoints PASS and forward-ancestry verification |
 
 Endpoint tags refer to the aggregate image digest. Each endpoint retains its individual declaration, dependency and audit record; shared Lean/mathlib layers are not duplicated. No registry deletion or retention-pruning command is configured.
 
@@ -41,17 +41,27 @@ The compatibility key hashes the committed `lean-toolchain`, `lake-manifest.json
 
 Prior exact endpoint audit evidence is retained in `Material/registry/audits/` and the prior `current.json`. The build driver must validate its source/dependency/input hash before reusing an audit. Publication independently requires successful container exit, exact current commit, nonempty endpoint list and `PASS` for every endpoint.
 
-Compatibility misses bootstrap the exact declared Lean toolchain. The build driver obtains the matching mathlib cache before compiling. The first successful run establishes the registry pointer; no successful image is assumed beforehand.
+Compatibility misses bootstrap the exact declared Lean toolchain. The build driver obtains the matching mathlib cache before compiling. A restored compatible PASSED image skips cache transfer only when the prior compiler/platform/pins match, every locked package has its expected clean source revision, and the requested Mathlib root objects/hash files/traces remain installed. Lake still validates the entire dependency DAG and the exact theorem audit remains mandatory. Missing prerequisites invoke the ordinary cache getter. The first successful run establishes the registry pointer; no successful image is assumed beforehand.
+
+At the pinned mathlib revision, `Cache/Requests.lean:downloadFiles` filters via `Cache/IO.lean:ModuleHashMap.filterExists`, which checks `.ltar` archive presence rather than installed object presence. Therefore unconditionally running the cache getter after pruning archives would transfer the same closure again. The passed-output check avoids that warm-run transfer. Completed archives are pruned after PASS to limit image size and runner disk use; when outputs are missing or a new import is not installed, the fallback cache getter may redownload the required closure. This is an explicit storage/transfer tradeoff; proof checks remain unchanged.
 
 ## Runtime evidence
 
 - `transport.json`: restore mode, previous image digest, bootstrap/restore seconds, container build/audit seconds.
 - `current.json`: dependency and source changes, endpoint build/audit status and no-op rerun timing from the build driver.
 - `registry-entry.json`: publication receipt and exact image digest.
-- `image-optimization.json`: removed completed `.ltar` download count/bytes; installed objects and dependency source retained.
+- `image-optimization.json`: pruned completed `.ltar` archive count/bytes and warm-hydration policy.
 - GitHub Actions artifact: all `Material/registry/` evidence, retained for 90 days independently of GHCR publication.
 
 The secondary optimization target is measured runtime and reruntime, subject to identical theorem statements and axiom policy. No proof obligation or audit is removed to shorten runtime.
+
+Initial/recovering local compilation is serialized in import-topological order with `lake build +Module:leanArts`, followed by the aggregate endpoint build and exact audits. `LEAN_NUM_THREADS` bounds Lean worker preference, not Lake's total compiler-process fan-out. A compatible previous PASS records local module source hashes; subsequent runs schedule changed/missing modules and their transitive dependents only. Aggregate Lake validation still executes, followed by one measured no-op rerun. This trades initial command-launch overhead for bounded local compilation concurrency.
+
+Command stdout is streamed to the workflow and flushed to its evidence file while the process runs. Nonzero exits and timeouts retain partial output. `module_schedule` and serial/aggregate timings are recorded separately in `current.json`.
+
+## Runner resource bounds
+
+The build container receives at most two CPUs and a memory limit of `min(5 GiB, host total - 2 GiB, host available - 1 GiB)`, with no container swap and at most 512 processes. A minimum 2 GiB container budget is required. Preflight requires 20 GiB free disk before restore/bootstrap and 8 GiB before compilation; it performs no cleanup. Host and Docker resource snapshots are uploaded before compilation. During compilation, a 30-second monitor records host capacity and container usage; only this run's container is stopped if host free disk falls below 1 GiB or available memory below 256 MiB. Exit code, OOM status and resource aborts are recorded and prohibit publication.
 
 ## Credential and publication boundary
 
@@ -59,7 +69,7 @@ The secondary optimization target is measured runtime and reruntime, subject to 
 
 Workflow events are `push` and manually authorized `workflow_dispatch`; no pull-request execution or publication path is configured. Permissions are `contents: read` and `packages: write`. Registry access or organization policy can still reject publication; in that case the compile/audit evidence remains available as a workflow artifact and the existing passed pointer remains valid.
 
-An old successful rerun keeps its immutable successful tags but cannot overwrite the current branch pointer. Concurrent runs of one branch are serialized. All branch names and tags are derived without shell interpolation.
+A successful candidate may advance the pointer when the refreshed previous successful commit is its ancestor and the candidate is an ancestor of the current branch head. An absent pointer requires only the latter check. Thus, if `C2` is pushed while `C1` compiles, successful `C1` becomes available for the queued `C2` build. GitHub compare statuses `ahead` and `identical` certify the forward relation. An old rerun cannot replace a newer successful pointer; a divergent or force-pushed candidate cannot advance the current branch pointer. Concurrent runs of one branch are serialized, and the registry pointer is refreshed immediately before the ancestry checks. All branch names and tags are derived without shell interpolation.
 
 ## Verified upstream pins
 
@@ -73,6 +83,9 @@ Primary documentation:
 - https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images
 - https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
 - https://github.com/leanprover/elan/releases/tag/v4.2.4
+- https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Cache/IO.lean#L267
+- https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Cache/Requests.lean#L792
+- https://github.com/leanprover/lean4/blob/v4.33.0/src/lake/Lake/Config/Module.lean#L119
 
 ## Local non-Lean validation
 

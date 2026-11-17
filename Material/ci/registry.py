@@ -2,7 +2,7 @@
 """Passed-container registry; all Lean execution is delegated to external CI.
 
 No credential enters the build container. A mutable compatibility pointer is
-updated only after compile/audit PASS and only for the current branch head.
+updated only after compile/audit PASS and forward along the current branch.
 """
 from __future__ import annotations
 
@@ -12,8 +12,10 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
+import threading
 import time
 import urllib.parse
 import urllib.request
@@ -21,6 +23,8 @@ import urllib.request
 
 LABEL_PREFIX = "io.methboke.material."
 PLATFORM = "linux/amd64"
+GIB = 1024 ** 3
+MIB = 1024 ** 2
 COMPATIBILITY_FILES = (
     "Material/lean-toolchain",
     "Material/lake-manifest.json",
@@ -29,8 +33,9 @@ COMPATIBILITY_FILES = (
 )
 
 
-def execute(argv: list[str], *, capture: bool = False, check: bool = True):
-    result = subprocess.run(argv, text=True, capture_output=capture)
+def execute(argv: list[str], *, capture: bool = False, check: bool = True,
+            timeout: float | None = None):
+    result = subprocess.run(argv, text=True, capture_output=capture, timeout=timeout)
     if check and result.returncode:
         detail = result.stderr[-3000:] if capture else ""
         raise RuntimeError(f"command failed ({result.returncode}): {argv[0]} {argv[1]} {detail}")
@@ -46,6 +51,107 @@ def save(path: Path, data: dict) -> None:
 
 def load(path: Path) -> dict:
     return json.loads(path.read_text())
+
+
+def parse_meminfo(text: str) -> dict[str, int]:
+    values = {}
+    for line in text.splitlines():
+        match = re.fullmatch(r"([A-Za-z_]+):\s+(\d+)\s+kB", line.strip())
+        if match:
+            values[match.group(1)] = int(match.group(2)) * 1024
+    return values
+
+
+def host_resources(root: Path, docker_root: str | None = None) -> dict:
+    memory = parse_meminfo(Path("/proc/meminfo").read_text())
+    paths = {"workspace": root, "docker": Path(docker_root or "/var/lib/docker")}
+    disk = {}
+    for name, path in paths.items():
+        try:
+            usage = shutil.disk_usage(path)
+            disk[name] = {"path": str(path), "total_bytes": usage.total,
+                          "free_bytes": usage.free, "used_bytes": usage.used}
+        except OSError as exc:
+            disk[name] = {"path": str(path), "error": str(exc)}
+    return {"timestamp": time.time(), "cpu_count": os.cpu_count() or 1,
+            "memory_total_bytes": memory.get("MemTotal", 0),
+            "memory_available_bytes": memory.get("MemAvailable", 0), "disk": disk}
+
+
+def resource_limits(snapshot: dict) -> dict:
+    """Conservative cgroup limits; reserve >=2 GiB for the runner host."""
+    total = snapshot["memory_total_bytes"]
+    available = snapshot["memory_available_bytes"]
+    limit = min(5 * GIB, total - 2 * GIB, available - GIB)
+    limit = (limit // MIB) * MIB
+    if limit < 2 * GIB:
+        raise ValueError("insufficient available RAM for a bounded build plus runner reserve")
+    return {"memory_bytes": limit, "memory_swap_bytes": limit,
+            "host_memory_reserve_bytes": total - limit,
+            "cpus": min(2, snapshot["cpu_count"]), "pids_limit": 512,
+            "policy": "min(5GiB,total-2GiB,available-1GiB); no container swap"}
+
+
+def preflight(root: Path, stage: str, minimum_disk_gib: int) -> tuple[dict, dict]:
+    info_result = execute(["docker", "info", "--format", "{{json .}}"], capture=True, timeout=30)
+    info = json.loads(info_result.stdout)
+    snapshot = host_resources(root, info.get("DockerRootDir"))
+    snapshot["docker_controls"] = {key: info.get(key) for key in
+                                   ("MemoryLimit", "SwapLimit", "CpuCfsQuota", "CgroupVersion")}
+    snapshot["stage"] = stage
+    snapshot["minimum_disk_free_bytes"] = minimum_disk_gib * GIB
+    save(root / "Material/registry" / ("resources-" + stage + ".json"), snapshot)
+    print("MATERIAL_RESOURCES " + json.dumps(snapshot, sort_keys=True), flush=True)
+    for name, entry in snapshot["disk"].items():
+        if "free_bytes" not in entry:
+            raise ValueError(f"cannot inspect {name} filesystem capacity")
+        if entry["free_bytes"] < minimum_disk_gib * GIB:
+            raise ValueError(f"insufficient {name} free disk: requires {minimum_disk_gib} GiB; no cleanup performed")
+    if not info.get("MemoryLimit") or not info.get("SwapLimit") or not info.get("CpuCfsQuota"):
+        raise ValueError("Docker must expose memory, swap and CPU quota controls for runner protection")
+    return snapshot, resource_limits(snapshot)
+
+
+def container_exit_metadata(info: dict) -> dict:
+    state = info.get("State") or {}
+    config = info.get("HostConfig") or {}
+    return {"container_exit_code": state.get("ExitCode"),
+            "container_oom_killed": bool(state.get("OOMKilled", False)),
+            "container_state": state.get("Status"), "container_running": bool(state.get("Running", False)),
+            "container_error": state.get("Error", ""),
+            "container_started_at": state.get("StartedAt"), "container_finished_at": state.get("FinishedAt"),
+            "enforced_resources": {name: config.get(name) for name in
+                                   ("Memory", "MemorySwap", "NanoCpus", "PidsLimit")}}
+
+
+def monitor_resources(root: Path, container: str, stop: threading.Event,
+                      failures: list[str], docker_root: str) -> None:
+    """Persist progress without reading credentials or stopping unrelated resources."""
+    path = root / "Material/registry/host-monitor.jsonl"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    while not stop.is_set():
+        try:
+            sample = host_resources(root, docker_root)
+            stats = execute(["docker", "stats", "--no-stream", "--format", "{{json .}}", container],
+                            capture=True, check=False, timeout=15)
+            sample["container_stats"] = stats.stdout.strip()
+            low_disk = any(item.get("free_bytes", 0) < GIB for item in sample["disk"].values())
+            low_memory = sample["memory_available_bytes"] < 256 * MIB
+            if low_disk or low_memory:
+                reason = "host_disk_below_1GiB" if low_disk else "host_available_memory_below_256MiB"
+                failures.append(reason)
+                sample["resource_abort"] = reason
+                # Only this workflow's named container is stopped.
+                execute(["docker", "stop", "--time", "15", container], check=False, timeout=30)
+            with path.open("a") as stream:
+                stream.write(json.dumps(sample, sort_keys=True) + "\n")
+                stream.flush()
+            print("MATERIAL_RESOURCE_SAMPLE " + json.dumps(sample, sort_keys=True), flush=True)
+            if failures:
+                return
+        except (OSError, ValueError, RuntimeError, subprocess.SubprocessError) as exc:
+            print("::warning::Resource sampling unavailable: " + str(exc), flush=True)
+        stop.wait(30)
 
 
 def compatibility(root: Path) -> str:
@@ -109,6 +215,13 @@ def prepare(root: Path, state_path: Path) -> None:
     state = metadata(root, os.environ)
     state["status"] = "PREPARING"
     save(state_path, state)
+    minimum_disk = int(os.environ.get("MATERIAL_MIN_FREE_GIB", "20"))
+    if not 8 <= minimum_disk <= 100:
+        raise ValueError("MATERIAL_MIN_FREE_GIB must be between 8 and 100")
+    before, limits = preflight(root, "before-prepare", minimum_disk)
+    state["resource_limits"] = limits
+    state["docker_root"] = before["disk"]["docker"]["path"]
+    save(state_path, state)
     pulled = execute(["docker", "pull", "--platform", PLATFORM, state["pointer"]], check=False)
     if pulled.returncode == 0:
         inspection = execute(["docker", "image", "inspect", state["pointer"]], capture=True)
@@ -144,6 +257,7 @@ def prepare(root: Path, state_path: Path) -> None:
         ])
         state.update(base_image=tag, parent_image_digest=None, parent_commit=None,
                      restore_mode="cold_bootstrap")
+    preflight(root, "after-prepare", 8)
     state["prepare_seconds"] = round(time.monotonic() - started, 3)
     state["status"] = "PREPARED"
     save(state_path, state)
@@ -154,6 +268,9 @@ def prepare(root: Path, state_path: Path) -> None:
 
 def run(root: Path, state_path: Path) -> None:
     state = load(state_path)
+    _, limits = preflight(root, "before-run", 8)
+    state["resource_limits"] = limits
+    save(state_path, state)
     env = {
         "CI": "true",
         "GITHUB_SHA": state["commit"],
@@ -168,6 +285,9 @@ def run(root: Path, state_path: Path) -> None:
     }
     args = [
         "docker", "create", "--platform", PLATFORM, "--name", state["container"],
+        "--memory", str(limits["memory_bytes"]),
+        "--memory-swap", str(limits["memory_swap_bytes"]),
+        "--cpus", str(limits["cpus"]), "--pids-limit", str(limits["pids_limit"]),
         "--mount", f"type=bind,src={root},dst=/incoming,readonly",
     ]
     for name, value in env.items():
@@ -177,15 +297,38 @@ def run(root: Path, state_path: Path) -> None:
     state["status"] = "BUILDING"
     save(state_path, state)
     started = time.monotonic()
-    execute(["docker", "start", "--attach", state["container"]], check=False)
-    inspection = execute(["docker", "inspect", state["container"]], capture=True)
-    exit_code = json.loads(inspection.stdout)[0]["State"]["ExitCode"]
-    state["container_exit_code"] = exit_code
+    stop = threading.Event()
+    resource_failures: list[str] = []
+    monitor = threading.Thread(target=monitor_resources,
+                               args=(root, state["container"], stop, resource_failures,
+                                     state.get("docker_root", "/var/lib/docker")), daemon=True)
+    monitor.start()
+    try:
+        attached = execute(["docker", "start", "--attach", state["container"]], check=False)
+    finally:
+        stop.set()
+        monitor.join(timeout=20)
+    inspection = execute(["docker", "inspect", state["container"]], capture=True, timeout=30)
+    state.update(container_exit_metadata(json.loads(inspection.stdout)[0]))
+    exit_code = state["container_exit_code"]
+    state["docker_attach_exit_code"] = attached.returncode
+    state["resource_abort"] = resource_failures
     state["build_container_seconds"] = round(time.monotonic() - started, 3)
-    state["status"] = "BUILT" if exit_code == 0 else "BUILD_FAILED"
+    passed = (exit_code == 0 and attached.returncode == 0 and
+              state["container_state"] == "exited" and not state["container_oom_killed"] and
+              not resource_failures)
+    state["status"] = "BUILT" if passed else "BUILD_FAILED"
     save(state_path, state)
-    if exit_code != 0:
-        raise RuntimeError(f"external compilation/audit container exited with {exit_code}")
+    save(root / "Material/registry/resources-after-run.json", {
+        "host": host_resources(root, state.get("docker_root")),
+        "container": {key: value for key, value in state.items()
+                      if key.startswith("container_") or key in ("resource_abort", "enforced_resources")},
+    })
+    print("MATERIAL_CONTAINER_RESULT " + json.dumps({key: state.get(key) for key in
+          ("status", "container_exit_code", "container_oom_killed", "container_error", "resource_abort")}), flush=True)
+    if not passed:
+        raise RuntimeError(f"external container failed: exit={exit_code}, OOMKilled={state['container_oom_killed']}, "
+                           f"resource_abort={resource_failures}")
 
 
 def collect(root: Path, state_path: Path) -> None:
@@ -196,9 +339,20 @@ def collect(root: Path, state_path: Path) -> None:
         return
     state = load(state_path)
     if "container" in state:
+        monitor_path = registry / "host-monitor.jsonl"
+        # Host samples are newer than any snapshot copied during source overlay.
+        # A container-to-host evidence copy must not truncate this host-only log.
+        host_monitor = monitor_path.read_bytes() if monitor_path.is_file() else None
+        inspection = execute(["docker", "inspect", state["container"]], capture=True,
+                             check=False, timeout=30)
+        if inspection.returncode == 0:
+            state.update(container_exit_metadata(json.loads(inspection.stdout)[0]))
+            save(state_path, state)
         execute([
             "docker", "cp", state["container"] + ":/workspace/Material/registry/.", str(registry)
         ], check=False)
+        if host_monitor is not None:
+            monitor_path.write_bytes(host_monitor)
     save(registry / "transport.json", state)
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
     if summary_path:
@@ -209,6 +363,9 @@ def collect(root: Path, state_path: Path) -> None:
             f"- Cache mode: `{state.get('restore_mode', 'not_started')}`",
             f"- Parent digest: `{state.get('parent_image_digest') or 'none'}`",
             f"- Container result: `{state.get('status')}`",
+            f"- Container OOMKilled: `{state.get('container_oom_killed')}`",
+            f"- Container exit: `{state.get('container_exit_code')}`",
+            f"- Resource abort: `{state.get('resource_abort')}`",
             f"- Restore/bootstrap seconds: `{state.get('prepare_seconds')}`",
             f"- Container build/audit seconds: `{state.get('build_container_seconds')}`",
             "",
@@ -238,7 +395,8 @@ def expected_endpoint_ids(root: Path) -> set[str]:
 
 
 def validate_pass(report: dict, state: dict, expected_ids: set[str]) -> list[dict]:
-    if state.get("container_exit_code") != 0:
+    if (state.get("container_exit_code") != 0 or state.get("container_oom_killed")
+            or state.get("resource_abort")):
         raise ValueError("publication requires a successful external container exit")
     if report.get("status") != "PASS" or report.get("commit") != state["commit"]:
         raise ValueError("publication requires PASS evidence for this exact source commit")
@@ -265,19 +423,66 @@ def validate_pass(report: dict, state: dict, expected_ids: set[str]) -> list[dic
     return endpoints
 
 
-def current_branch_head(state: dict) -> str:
+def github_json(state: dict, suffix: str) -> dict:
     token = os.environ.get("GITHUB_TOKEN")
     if not token:
-        raise ValueError("branch-head verification requires the host GitHub token")
-    branch = urllib.parse.quote(state["branch"], safe="")
-    url = f"https://api.github.com/repos/{state['repository']}/git/ref/heads/{branch}"
+        raise ValueError("branch ancestry verification requires the host GitHub token")
+    url = f"https://api.github.com/repos/{state['repository']}/{suffix}"
     request = urllib.request.Request(url, headers={
         "Authorization": "Bearer " + token,
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
     })
     with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)["object"]["sha"]
+        return json.load(response)
+
+
+def current_branch_head(state: dict) -> str:
+    branch = urllib.parse.quote(state["branch"], safe="")
+    return github_json(state, f"git/ref/heads/{branch}")["object"]["sha"]
+
+
+def is_ancestor(state: dict, base: str, head: str) -> bool:
+    if not all(re.fullmatch(r"[0-9a-f]{40}", commit) for commit in (base, head)):
+        raise ValueError("ancestry comparison requires exact source commits")
+    if base == head:
+        return True
+    comparison = github_json(state, f"compare/{base}...{head}")
+    status = comparison.get("status")
+    if status not in {"ahead", "identical", "behind", "diverged"}:
+        raise ValueError("unrecognized GitHub commit-comparison status")
+    return status in {"ahead", "identical"}
+
+
+def refreshed_pointer(state: dict) -> dict | None:
+    """Inspect the remote pointer again after the potentially long build."""
+    pulled = execute([
+        "docker", "pull", "--platform", PLATFORM, state["pointer"]
+    ], capture=True, check=False)
+    if pulled.returncode:
+        detail = ((pulled.stdout or "") + "\n" + (pulled.stderr or "")).lower()
+        if any(marker in detail for marker in ("manifest unknown", "name unknown", "not found")):
+            return None
+        raise RuntimeError("cannot verify latest registry pointer; pointer update refused")
+    inspection = execute(["docker", "image", "inspect", state["pointer"]], capture=True)
+    info = json.loads(inspection.stdout)[0]
+    if not compatible_image(info, state):
+        raise ValueError("latest registry pointer does not identify a compatible passed image")
+    commit = (info["Config"].get("Labels") or {}).get("org.opencontainers.image.revision", "")
+    if not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise ValueError("latest registry pointer lacks an exact source commit")
+    digests = [value for value in info.get("RepoDigests", [])
+               if value.startswith(state["image_repository"] + "@sha256:")]
+    if not digests:
+        raise ValueError("latest registry pointer lacks an immutable digest")
+    return {"commit": commit, "digest": digests[0]}
+
+
+def pointer_advance_allowed(state: dict, previous: dict | None, head: str) -> bool:
+    candidate = state["commit"]
+    if not is_ancestor(state, candidate, head):
+        return False
+    return previous is None or is_ancestor(state, previous["commit"], candidate)
 
 
 def publish(root: Path, state_path: Path) -> None:
@@ -324,10 +529,13 @@ def publish(root: Path, state_path: Path) -> None:
         execute(["docker", "tag", state["immutable_tag"], tag])
         execute(["docker", "push", tag])
 
-    # An old rerun may retain its immutable successful images, but cannot
-    # move a newer branch's successful pointer backwards.
+    # A queued newer commit must be able to reuse this completed predecessor.
+    # Refresh the registry pointer after the build, then advance only forward:
+    # previous successful commit <= candidate <= current branch head.
+    # Workflow branch concurrency serializes ordinary pointer publishers.
     head = current_branch_head(state)
-    pointer_updated = head == state["commit"]
+    previous = refreshed_pointer(state)
+    pointer_updated = pointer_advance_allowed(state, previous, head)
     if pointer_updated:
         execute(["docker", "tag", state["immutable_tag"], state["pointer"]])
         execute(["docker", "push", state["pointer"]])
@@ -338,7 +546,8 @@ def publish(root: Path, state_path: Path) -> None:
     if not digests:
         raise RuntimeError("successful push did not produce a registry digest")
     entry.update(image_digest=digests[0], pointer=state["pointer"],
-                 pointer_updated=pointer_updated, observed_branch_head=head)
+                 pointer_updated=pointer_updated, observed_branch_head=head,
+                 observed_previous_pointer=previous)
     save(registry_path, entry)
     state.update(status="REGISTERED", published_digest=digests[0], pointer_updated=pointer_updated)
     save(state_path, state)
@@ -369,7 +578,7 @@ def main() -> int:
         else:
             globals()[args.command](args.root.resolve(), args.state)
         return 0
-    except (OSError, ValueError, RuntimeError, KeyError, json.JSONDecodeError) as exc:
+    except (OSError, ValueError, RuntimeError, KeyError, json.JSONDecodeError, subprocess.SubprocessError) as exc:
         print(f"::error::{exc}", file=sys.stderr)
         return 1
 

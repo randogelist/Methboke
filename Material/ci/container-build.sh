@@ -12,12 +12,16 @@ rsync -a --no-times --omit-dir-times --checksum --delete \
   --exclude='/Material/registry/current.json' \
   --exclude='/Material/registry/audits/' \
   --exclude='/Material/registry/history/' \
+  --exclude='/Material/registry/host-monitor.jsonl' \
   /incoming/ /workspace/
+# The host sampler remains host-only, including when upgrading an older image.
+rm -f /workspace/Material/registry/host-monitor.jsonl
 cd /workspace
 python3 Material/ci/build.py --report Material/registry/current.json
 
-# The installed objects/traces remain in .lake. Completed download archives
-# are reproducible transfer inputs and need not inflate every registry image.
+# Retained PASS outputs skip hydration on the next ordinary warm build.
+# Remove completed transfer archives to limit image size and runner disk use;
+# missing-output/new-import hydration may redownload the required closure.
 python3 - <<'PY'
 import json
 from pathlib import Path
@@ -34,6 +38,7 @@ target.parent.mkdir(parents=True, exist_ok=True)
 target.write_text(json.dumps({
     'removed_completed_mathlib_download_archives': removed_count,
     'removed_bytes': removed_bytes,
+    'policy': 'warm passed outputs skip hydration; missing prerequisites may redownload',
     'retained': ['.lake/packages', '.lake/build', 'toolchain', 'source', 'audit logs'],
 }, indent=2) + '\n')
 PY

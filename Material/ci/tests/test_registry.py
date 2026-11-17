@@ -111,13 +111,48 @@ class RegistryContractTests(unittest.TestCase):
             return subprocess.CompletedProcess(args, 0, json.dumps(result), "")
 
         with patch.object(registry, "execute", side_effect=fake_execute), \
-                patch.object(registry, "current_branch_head", return_value="f" * 40):
+                patch.object(registry, "current_branch_head", return_value="f" * 40), \
+                patch.object(registry, "refreshed_pointer", return_value={"commit": "b" * 40}), \
+                patch.object(registry, "is_ancestor", side_effect=[True, False]):
             registry.publish(self.root, state_path)
         pushed = [args[2] for args in commands if args[:2] == ["docker", "push"]]
         self.assertIn(self.state["immutable_tag"], pushed)
         self.assertNotIn(self.state["pointer"], pushed)
         self.assertEqual(len(pushed), 2)  # Aggregate plus one exact endpoint tag.
         self.assertFalse(registry.load(state_path)["pointer_updated"])
+
+    def test_queued_c2_reuses_c1_success_with_absent_pointer(self):
+        # C1 completes after C2 was pushed; C1 is still the newest PASS.
+        with patch.object(registry, "is_ancestor", return_value=True) as ancestor:
+            self.assertTrue(registry.pointer_advance_allowed(self.state, None, "f" * 40))
+        ancestor.assert_called_once_with(self.state, self.state["commit"], "f" * 40)
+
+    def test_queued_c2_reuses_c1_success_after_c0_pointer(self):
+        c0 = {"commit": "b" * 40, "digest": "old"}
+        with patch.object(registry, "is_ancestor", side_effect=[True, True]) as ancestor:
+            self.assertTrue(registry.pointer_advance_allowed(self.state, c0, "f" * 40))
+        self.assertEqual(ancestor.call_args_list[1].args,
+                         (self.state, c0["commit"], self.state["commit"]))
+
+    def test_candidate_diverged_from_force_pushed_head_cannot_advance(self):
+        with patch.object(registry, "is_ancestor", return_value=False):
+            self.assertFalse(registry.pointer_advance_allowed(self.state, None, "f" * 40))
+
+    def test_compare_api_statuses_have_forward_direction(self):
+        for status, expected in [("ahead", True), ("identical", True),
+                                 ("behind", False), ("diverged", False)]:
+            with self.subTest(status=status), \
+                    patch.object(registry, "github_json", return_value={"status": status}) as api:
+                self.assertEqual(registry.is_ancestor(self.state, "b" * 40, "a" * 40), expected)
+                api.assert_called_once_with(self.state, "compare/" + "b" * 40 + "..." + "a" * 40)
+
+    def test_registry_pointer_absence_differs_from_permission_error(self):
+        absent = subprocess.CompletedProcess([], 1, "", "manifest unknown")
+        denied = subprocess.CompletedProcess([], 1, "", "permission denied")
+        with patch.object(registry, "execute", return_value=absent):
+            self.assertIsNone(registry.refreshed_pointer(self.state))
+        with patch.object(registry, "execute", return_value=denied), self.assertRaises(RuntimeError):
+            registry.refreshed_pointer(self.state)
 
     def test_current_successful_head_advances_pointer_last(self):
         state_path = self.root / "state.json"
@@ -131,7 +166,8 @@ class RegistryContractTests(unittest.TestCase):
             return subprocess.CompletedProcess(args, 0, json.dumps(data), "")
 
         with patch.object(registry, "execute", side_effect=fake_execute), \
-                patch.object(registry, "current_branch_head", return_value=self.state["commit"]):
+                patch.object(registry, "current_branch_head", return_value=self.state["commit"]), \
+                patch.object(registry, "refreshed_pointer", return_value=None):
             registry.publish(self.root, state_path)
         pushed = [args[2] for args in commands if args[:2] == ["docker", "push"]]
         self.assertEqual(pushed[-1], self.state["pointer"])

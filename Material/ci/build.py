@@ -12,9 +12,11 @@ import json
 import os
 from pathlib import Path
 import platform
+import queue
 import re
 import subprocess
 import sys
+import threading
 import time
 from datetime import datetime, timezone
 
@@ -293,18 +295,123 @@ def execute(command: list[str], root: Path, log_path: Path, environment: dict[st
     print("MATERIAL_COMMAND " + json.dumps(command), flush=True)
     started = time.monotonic()
     timeout = int(environment.get("MATERIAL_COMMAND_TIMEOUT", "7200"))
-    result = subprocess.run(command, cwd=root, env=environment, text=True,
-                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=timeout)
-    output = result.stdout or ""
-    log_path.write_text(output, encoding="utf-8")
-    if output:
-        print(output, end="" if output.endswith("\n") else "\n", flush=True)
+    process = subprocess.Popen(command, cwd=root, env=environment, text=True,
+                               encoding="utf-8", errors="replace", bufsize=1,
+                               stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    messages: queue.Queue = queue.Queue()
+    parts: list[str] = []
+
+    def pump() -> None:
+        try:
+            assert process.stdout is not None
+            for line in process.stdout:
+                messages.put(line)
+        except Exception as exc:
+            messages.put(exc)
+        finally:
+            messages.put(None)
+
+    reader = threading.Thread(target=pump, daemon=True)
+    reader.start()
+    with log_path.open("w", encoding="utf-8") as stream:
+        def emit(line: str) -> None:
+            parts.append(line)
+            stream.write(line)
+            stream.flush()
+            print(line, end="", flush=True)
+        try:
+            while True:
+                remaining = timeout - (time.monotonic() - started)
+                if remaining <= 0:
+                    raise subprocess.TimeoutExpired(command, timeout)
+                try:
+                    message = messages.get(timeout=min(remaining, 0.25))
+                except queue.Empty:
+                    continue
+                if message is None:
+                    break
+                if isinstance(message, Exception):
+                    raise BuildError(f"compiler output stream failed: {message}")
+                emit(message)
+            returncode = process.wait(timeout=max(0.001, timeout - (time.monotonic() - started)))
+        except (subprocess.TimeoutExpired, BuildError):
+            process.kill()
+            try:
+                process.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                pass
+            while True:
+                try:
+                    message = messages.get_nowait()
+                except queue.Empty:
+                    break
+                if isinstance(message, str):
+                    emit(message)
+            stream.write(f"\nMATERIAL_COMMAND_ABORTED: timeout={timeout}s; partial output retained.\n")
+            stream.flush()
+            raise
+    output = "".join(parts)
     elapsed = round(time.monotonic() - started, 3)
-    if result.returncode:
-        raise BuildError(f"command exited {result.returncode}; evidence: {log_path.name}")
+    if returncode:
+        raise BuildError(f"command exited {returncode}; evidence: {log_path.name}")
     if re.search(r"\bwarning\s*:.*\bsorry\b|\bsorryAx\b", output, re.I):
         raise BuildError(f"sorry admission in compiler output: {log_path.name}")
     return output, elapsed
+
+
+def serial_module_plan(root: Path, plan: dict, previous: dict,
+                       retained: bool) -> tuple[list[str], dict[str, str], str]:
+    """Topological local module schedule; at most one module target runs at once."""
+    audits = {entry["spec"].get("audit_module", entry["id"] + ".Audit")
+              for entry in plan["endpoints"]}
+    records: dict[str, dict] = {}
+    for endpoint in plan["endpoints"]:
+        for record in endpoint["files"]:
+            module = record["module"]
+            if module in audits:
+                continue
+            if module in records and records[module] != record:
+                raise BuildError(f"inconsistent local module source record: {module}")
+            records[module] = record
+    inputs = {name: record["sha256"] for name, record in records.items()}
+    dependencies = {name: sorted(imp for imp in record["imports"] if imp in records)
+                    for name, record in records.items()}
+    order: list[str] = []
+    visiting: set[str] = set()
+    visited: set[str] = set()
+
+    def visit(name: str) -> None:
+        if name in visited:
+            return
+        if name in visiting:
+            raise BuildError("cyclic local import graph: " + name)
+        visiting.add(name)
+        for dependency in dependencies[name]:
+            visit(dependency)
+        visiting.remove(name)
+        visited.add(name)
+        order.append(name)
+
+    for name in sorted(records):
+        visit(name)
+    if (not retained or previous.get("status") != "PASS"
+            or previous.get("build_configuration") != plan.get("config")
+            or not isinstance(previous.get("local_module_inputs"), dict)):
+        return order, inputs, "all_local_modules"
+    old_inputs = previous["local_module_inputs"]
+    dirty = {name for name, digest in inputs.items() if old_inputs.get(name) != digest}
+    build_dir = root / ".lake/build/lib/lean"
+    for name in records:
+        stem = build_dir.joinpath(*name.split("."))
+        if any(not Path(str(stem) + suffix).is_file()
+               or Path(str(stem) + suffix).stat().st_size == 0
+               for suffix in (".olean", ".trace")):
+            dirty.add(name)
+    # Topological order ensures every changed prerequisite is seen first.
+    for name in order:
+        if any(dependency in dirty for dependency in dependencies[name]):
+            dirty.add(name)
+    return [name for name in order if name in dirty], inputs, "dirty_modules_and_dependents"
 
 
 def verify_dependencies(root: Path, lock: dict, environment: dict[str, str], logs: Path,
@@ -331,6 +438,46 @@ def verify_dependencies(root: Path, lock: dict, environment: dict[str, str], log
             raise BuildError(f"locked dependency has modified tracked sources: {name}")
         result.append({"name": name, "commit": head.strip(), "tracked_source_clean": True})
     return result
+
+
+def retained_dependency_cache_ready(root: Path, plan: dict, previous: dict,
+                                    modules: list[str], verified: list[dict],
+                                    environment: dict[str, str]) -> tuple[bool, str]:
+    """Skip transfer only for intact outputs from a compatible PASSED image.
+
+    This does not skip Lake's dependency DAG validation or any theorem audit.
+    The registry validates the OCI digest and compatibility labels before
+    starting the container; dependency commits/clean source are checked above.
+    """
+    if environment.get("MATERIAL_RESTORE_MODE") != "previous_passed_container":
+        return False, "no_restored_passed_container"
+    digest = environment.get("MATERIAL_PARENT_IMAGE_DIGEST", "")
+    if not re.fullmatch(r"ghcr\.io/[^\s]+@sha256:[0-9a-f]{64}", digest):
+        return False, "missing_immutable_parent_digest"
+    if (previous.get("status") != "PASS" or not previous.get("compiler_executed")
+            or not previous.get("all_endpoints_selected")
+            or previous.get("toolchain") != plan["toolchain"]
+            or previous.get("mathlib_commit") != plan["mathlib_commit"]
+            or previous.get("platform") != {"system": platform.system(), "machine": platform.machine()}):
+        return False, "prior_pass_or_compiler_scope_mismatch"
+    expected = {p["name"]: p["rev"] for p in plan["dependency_lock"].get("packages", [])}
+    if not expected:
+        return False, "missing_locked_dependencies"
+    for records in (verified, previous.get("verified_dependencies", [])):
+        actual = {item.get("name"): item.get("commit") for item in records
+                  if isinstance(item, dict) and item.get("tracked_source_clean") is True}
+        if actual != expected or len(records) != len(expected):
+            return False, "dependency_pin_or_clean_source_mismatch"
+    build_dir = root / ".lake/packages/mathlib/.lake/build/lib/lean"
+    for module in modules:
+        if not re.fullmatch(r"Mathlib(?:\.[A-Za-z0-9_']+)*", module):
+            return False, "unsupported_cache_root"
+        stem = build_dir.joinpath(*module.split("."))
+        for suffix in (".olean", ".olean.hash", ".ilean", ".ilean.hash", ".trace"):
+            artifact = Path(str(stem) + suffix)
+            if not artifact.is_file() or artifact.stat().st_size == 0:
+                return False, "missing_installed_cache_output:" + module + suffix
+    return True, "compatible_passed_dependency_outputs"
 
 
 def reuse_audit(root: Path, old: dict | None, entry: dict, input_hash: str) -> dict | None:
@@ -400,11 +547,26 @@ def run_build(root: Path, report_path: Path, selected: list[str] | None, native:
         logs.mkdir(parents=True, exist_ok=True)
         report["compiler_executed"] = True
         before_lock = (root / "lake-manifest.json").read_bytes()
-        verify_dependencies(root, plan["dependency_lock"], environment, logs, require_all=False)
+        retained_dependencies = verify_dependencies(
+            root, plan["dependency_lock"], environment, logs, require_all=False)
         cache_modules = sorted({m for e in plan["endpoints"] for m in e["external_imports"]
                                 if m == "Mathlib" or m.startswith("Mathlib.")})
-        _, cache_seconds = execute(["lake", "exe", "cache", "get", *cache_modules], root,
-                                   logs / "cache-get.log", environment)
+        retained, cache_reason = retained_dependency_cache_ready(
+            root, plan, previous, cache_modules, retained_dependencies, environment)
+        if retained:
+            cache_seconds = 0.0
+            (logs / "cache-get.log").write_text(
+                "CACHE_TRANSFER_SKIPPED: compatible PASSED container; locked clean dependency "
+                "sources and requested installed cache outputs retained. "
+                "Lake dependency validation and exact theorem audits remain mandatory.\n")
+        else:
+            _, cache_seconds = execute(["lake", "exe", "cache", "get", *cache_modules], root,
+                                       logs / "cache-get.log", environment)
+        report["cache_hydration"] = {
+            "mode": "retained_passed_outputs" if retained else "cache_get",
+            "reason": cache_reason, "requested_mathlib_roots": cache_modules,
+            "parent_image_digest": environment.get("MATERIAL_PARENT_IMAGE_DIGEST") or None,
+        }
         if (root / "lake-manifest.json").read_bytes() != before_lock:
             raise BuildError("Lake changed the locked dependency manifest; no promotion")
         report["verified_dependencies"] = verify_dependencies(
@@ -416,7 +578,21 @@ def run_build(root: Path, report_path: Path, selected: list[str] | None, native:
             raise BuildError("external compiler version differs from the pinned toolchain")
         report["compiler"] = version.strip()
         targets = [x["id"] for x in plan["endpoints"]]
-        _, build_seconds = execute(["lake", "build", *targets], root, logs / "build-first.log", environment)
+        module_schedule, module_inputs, schedule_mode = serial_module_plan(root, plan, previous, retained)
+        report["build_configuration"] = plan.get("config", {})
+        report["local_module_inputs"] = module_inputs
+        report["module_schedule"] = {"mode": schedule_mode, "modules": module_schedule,
+                                     "scheduled_count": len(module_schedule),
+                                     "total_local_modules": len(module_inputs)}
+        serial_started = time.monotonic()
+        for position, module in enumerate(module_schedule, 1):
+            print(f"MATERIAL_MODULE {position}/{len(module_schedule)} {module}", flush=True)
+            execute(["lake", "build", "+" + module + ":leanArts"], root,
+                    logs / "modules" / (module + ".log"), environment)
+        serial_seconds = round(time.monotonic() - serial_started, 3)
+        _, aggregate_seconds = execute(["lake", "build", *targets], root,
+                                       logs / "build-first.log", environment)
+        build_seconds = round(serial_seconds + aggregate_seconds, 3)
         audit_started = time.monotonic()
         for entry in plan["endpoints"]:
             identity = fingerprint({"source": entry["input_plan_hash"], "compiler": version.strip()})
@@ -440,6 +616,8 @@ def run_build(root: Path, report_path: Path, selected: list[str] | None, native:
         audit_seconds = round(time.monotonic() - audit_started, 3)
         _, rerun_seconds = execute(["lake", "build", *targets], root, logs / "build-rerun.log", environment)
         report["metrics"] = {"cache_get_seconds": cache_seconds, "build_first_seconds": build_seconds,
+                             "serial_module_seconds": serial_seconds,
+                             "aggregate_validation_seconds": aggregate_seconds,
                              "audit_seconds": audit_seconds, "build_rerun_seconds": rerun_seconds,
                              "audit_reused_count": sum(x["audit_reused"] for x in report["endpoints"]),
                              "audit_fresh_count": sum(not x["audit_reused"] for x in report["endpoints"]),

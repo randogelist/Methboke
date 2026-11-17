@@ -70,7 +70,7 @@ python3 -m unittest discover -s Material/ci/tests
 3. Lake rebuilds changed modules and their transitive dependents. Endpoint audits are reused only when their complete inputs and saved evidence hashes match; changed audit inputs are checked again.
 4. A second no-op build records rerun time. Initial compilation, affected compilation, audits and rerun measurements are reported separately.
 5. Only a successful compiler/type/axiom result creates immutable aggregate and per-endpoint registry tags. A failed run cannot replace the passed pointer.
-6. The mutable branch pointer updates only if the run's commit is still the current branch head. Earlier successful images remain accessible under immutable tags.
+6. The mutable branch pointer advances only along commit ancestry: previous passed commit <= newly passed commit <= current branch head. A queued newer commit can therefore reuse the immediately preceding successful container; an old rerun cannot move the pointer backwards. Earlier successful images remain accessible under immutable tags.
 
 Registry package: `ghcr.io/randogelist/methboke-material`. Compiler reports, exact declaration types, axiom lists and transport/registry metadata are uploaded as GitHub Actions artifacts. Image tags and digests are recorded in the resulting registry entry.
 

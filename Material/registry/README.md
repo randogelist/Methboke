@@ -8,8 +8,10 @@
 
 `transport.json`: restore/bootstrap and container execution result, including failures.
 
-`logs/`: compiler, cache, exact type and theorem-level axiom logs.
+`logs/`: cache hydration, compiler version, initial build and no-op rerun logs.
 
-`history/`: prior successful run records retained inside passed containers.
+`audits/`: content-addressed exact type and theorem-level axiom logs eligible for validated reuse.
+
+`/opt/material-registry/` inside passed images: immutable successful container records. Previous full reports remain available in their immutable predecessor images.
 
 Generated evidence is retained by GHCR images and GitHub Actions artifacts. A source manifest or an empty registry is not PASS evidence.

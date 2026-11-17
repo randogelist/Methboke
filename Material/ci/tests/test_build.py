@@ -3,6 +3,9 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import io
+import threading
+import time
 from pathlib import Path
 import tempfile
 import unittest
@@ -138,6 +141,168 @@ class SourceTests(unittest.TestCase):
                 result = build.run_build(root, report, None, False, False, {})
             self.assertEqual(result, 1)
             self.assertEqual(json.loads(report.read_text())["status"], "FAIL")
+
+
+class RetainedDependencyCacheTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.plan = {"toolchain": "leanprover/lean4:v4.33.0", "mathlib_commit": "a" * 40,
+                     "dependency_lock": {"packages": [{"name": "mathlib", "rev": "a" * 40}]}}
+        self.verified = [{"name": "mathlib", "commit": "a" * 40, "tracked_source_clean": True}]
+        self.previous = {"status": "PASS", "compiler_executed": True, "all_endpoints_selected": True,
+                         "toolchain": self.plan["toolchain"], "mathlib_commit": "a" * 40,
+                         "platform": {"system": build.platform.system(), "machine": build.platform.machine()},
+                         "verified_dependencies": self.verified}
+        self.environment = {"MATERIAL_RESTORE_MODE": "previous_passed_container",
+                            "MATERIAL_PARENT_IMAGE_DIGEST": "ghcr.io/owner/repo@sha256:" + "b" * 64}
+        self.stem = self.root / ".lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Init"
+        self.stem.parent.mkdir(parents=True)
+        for suffix in (".olean", ".olean.hash", ".ilean", ".ilean.hash", ".trace"):
+            Path(str(self.stem) + suffix).write_text("installed")
+
+    def ready(self):
+        return build.retained_dependency_cache_ready(self.root, self.plan, self.previous,
+                                                     ["Mathlib.Init"], self.verified, self.environment)
+
+    def test_compatible_passed_objects_skip_network_hydration(self):
+        self.assertEqual(self.ready(), (True, "compatible_passed_dependency_outputs"))
+
+    def test_cold_or_digestless_execution_requires_cache_get(self):
+        self.environment["MATERIAL_RESTORE_MODE"] = "cold_bootstrap"
+        self.assertFalse(self.ready()[0])
+        self.environment["MATERIAL_RESTORE_MODE"] = "previous_passed_container"
+        self.environment["MATERIAL_PARENT_IMAGE_DIGEST"] = ""
+        self.assertFalse(self.ready()[0])
+
+    def test_missing_new_import_or_trace_requires_cache_get(self):
+        Path(str(self.stem) + ".trace").unlink()
+        self.assertFalse(self.ready()[0])
+        self.assertFalse(build.retained_dependency_cache_ready(
+            self.root, self.plan, self.previous, ["Mathlib.NewImport"],
+            self.verified, self.environment)[0])
+
+    def test_changed_or_dirty_dependency_cannot_skip_hydration(self):
+        self.verified = [{"name": "mathlib", "commit": "c" * 40, "tracked_source_clean": True}]
+        self.assertFalse(self.ready()[0])
+        self.verified = [{"name": "mathlib", "commit": "a" * 40, "tracked_source_clean": False}]
+        self.assertFalse(self.ready()[0])
+
+    def test_failed_or_other_platform_report_requires_cache_get(self):
+        self.previous["status"] = "FAIL"
+        self.assertFalse(self.ready()[0])
+        self.previous["status"] = "PASS"
+        self.previous["platform"] = {"system": "Other", "machine": "Other"}
+        self.assertFalse(self.ready()[0])
+
+
+class SerialModuleScheduleTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        records = [{"module": "A", "sha256": "a", "imports": []},
+                   {"module": "B", "sha256": "b", "imports": ["A"]},
+                   {"module": "C", "sha256": "c", "imports": ["B"]},
+                   {"module": "D", "sha256": "d", "imports": []},
+                   {"module": "Example.Audit", "sha256": "x", "imports": ["C"]}]
+        self.plan = {"config": {"lakefile.lean": "config"}, "endpoints": [
+            {"id": "Example", "spec": {"audit_module": "Example.Audit"}, "files": records}]}
+        self.previous = {"status": "PASS", "build_configuration": self.plan["config"],
+                         "local_module_inputs": {r["module"]: r["sha256"] for r in records}}
+        for name in ("A", "B", "C", "D"):
+            stem = self.root / ".lake/build/lib/lean" / name
+            stem.parent.mkdir(parents=True, exist_ok=True)
+            for suffix in (".olean", ".trace"):
+                Path(str(stem) + suffix).write_text("compiled")
+
+    def test_cold_schedule_is_topological_and_excludes_audit_module(self):
+        order, inputs, mode = build.serial_module_plan(self.root, self.plan, {}, False)
+        self.assertLess(order.index("A"), order.index("B"))
+        self.assertLess(order.index("B"), order.index("C"))
+        self.assertNotIn("Example.Audit", order)
+        self.assertEqual(mode, "all_local_modules")
+
+    def test_warm_no_change_schedules_no_compilation(self):
+        self.assertEqual(build.serial_module_plan(self.root, self.plan, self.previous, True)[0], [])
+
+    def test_amended_module_schedules_transitive_dependents_only(self):
+        self.plan["endpoints"][0]["files"][1]["sha256"] = "amended"
+        self.assertEqual(build.serial_module_plan(self.root, self.plan, self.previous, True)[0], ["B", "C"])
+
+    def test_missing_output_schedules_dependency_and_dependents(self):
+        (self.root / ".lake/build/lib/lean/A.trace").unlink()
+        self.assertEqual(build.serial_module_plan(self.root, self.plan, self.previous, True)[0], ["A", "B", "C"])
+
+    def test_cycle_fails_before_compiler(self):
+        self.plan["endpoints"][0]["files"][0]["imports"] = ["C"]
+        with self.assertRaises(build.BuildError):
+            build.serial_module_plan(self.root, self.plan, {}, False)
+
+
+class StreamingCommandTests(unittest.TestCase):
+    class Process:
+        def __init__(self, stdout, returncode=0, release=None):
+            self.stdout = stdout
+            self.returncode = returncode
+            self.release = release
+        def wait(self, timeout=None):
+            return self.returncode
+        def kill(self):
+            self.returncode = -9
+            if self.release is not None:
+                self.release.set()
+
+    def test_log_is_flushed_before_command_completion(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            log = root / "stream.log"
+            release = threading.Event()
+            def lines():
+                yield "phase one\n"
+                release.wait(2)
+                yield "phase two\n"
+            process = self.Process(lines(), release=release)
+            result = []
+            with patch.object(build.subprocess, "Popen", return_value=process):
+                worker = threading.Thread(target=lambda: result.append(
+                    build.execute(["mock-compiler"], root, log, {"MATERIAL_COMMAND_TIMEOUT": "3"})))
+                worker.start()
+                deadline = time.monotonic() + 1
+                try:
+                    while time.monotonic() < deadline and (not log.exists() or "phase one" not in log.read_text()):
+                        time.sleep(0.01)
+                    self.assertIn("phase one", log.read_text())
+                    self.assertTrue(worker.is_alive())
+                finally:
+                    release.set()
+                    worker.join(2)
+            self.assertEqual(result[0][0], "phase one\nphase two\n")
+
+    def test_timeout_retains_partial_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            log = root / "timeout.log"
+            release = threading.Event()
+            def lines():
+                yield "before timeout\n"
+                release.wait(3)
+            process = self.Process(lines(), release=release)
+            with patch.object(build.subprocess, "Popen", return_value=process), \
+                    self.assertRaises(build.subprocess.TimeoutExpired):
+                build.execute(["mock-compiler"], root, log, {"MATERIAL_COMMAND_TIMEOUT": "1"})
+            self.assertIn("before timeout", log.read_text())
+            self.assertIn("partial output retained", log.read_text())
+
+    def test_nonzero_exit_retains_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            log = root / "failure.log"
+            process = self.Process(io.StringIO("compiler error details\n"), returncode=1)
+            with patch.object(build.subprocess, "Popen", return_value=process), self.assertRaises(build.BuildError):
+                build.execute(["mock-compiler"], root, log, {})
+            self.assertIn("compiler error details", log.read_text())
 
 
 class PipelineTests(unittest.TestCase):
