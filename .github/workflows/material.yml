@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 240
     env:
       PYTHONUNBUFFERED: '1'
-      MATERIAL_STATE: ${{ runner.temp }}/material-state.json
+      MATERIAL_STATE: /tmp/material-state.json
       MATERIAL_JOBS: '2'
     steps:
       - name: Checkout exact source
