@@ -31,9 +31,18 @@ so its proof is elaborated again without redefining an imported declaration.
 The audit accepts only `propext`, `Classical.choice` and `Quot.sound`.
 
 The [inherited upstream QFB run](https://github.com/randogelist/Methlib/actions/runs/43801307847)
-is evidence for the pinned original endpoint. It is not a compiler pass for this
-new single-file packaging. Matching external validation of the packaging is
-pending until its own run passes. No local Lean execution was performed.
+records the original endpoint. Matching validation of this single-file packaging
+passed in [Methboke run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373)
+at source `6440270ffe9b05b2956cd34c59c65f2fe341e8b8`. The proof was elaborated
+and its exact type and axioms checked freshly in 3.767s. The axiom list is
+`[Classical.choice, Quot.sound, propext]`.
+
+The [accepted report](../audits/material-6440270/current.json) records cutout
+SHA-256 `b67344ddb9e509d7224b529bcd1022181360b973a17602aca8a66d4cdc273f7b`
+and audit-log SHA-256 `256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d`.
+This acceptance identifies the tested source, compiler and dependency pins;
+each later verification must rerun its own audit. No local Lean execution was
+performed.
 
 QFB asserts Leray–Hopf existence and regular, energy-equality, unique futures
 after its cutoff. It does not establish universal extension of a local analytic

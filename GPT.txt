@@ -1,10 +1,10 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.1
+DOCUMENT_VERSION = 1.2
 DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = repair audit configuration and start the next external CI run
+ACTIVE_TASK = record accepted Material baseline and start first warm container replay
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,9 +22,10 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: remove the unsupported audit option, preserve the full audit scope,
-and start the corrected external verification. Stop work once CI starts;
-resume result inspection only when the user says go on.
+MICROSCOPIC: record the accepted 6440270 baseline, then start the first actual
+warm container replay on a documentation/status-only amendment. Check 283/283
+object reuse and all required fresh audits when the user next says go on.
+Warm execution and timing are not yet verified. Stop work once CI starts.
 
 2. DEFINITIONS AND PREMISES
 
@@ -126,13 +127,13 @@ L14 constructive Beltrami admission certificate;
 L15 further certified input families;
 L16 universal analytic germ-to-cap admission R1 (open).
 
-L01-L04 have selected pinned source interfaces in Material. L05-L14 still
-require exact adapter construction and matching external audits for the new
-root. L16 is not supplied by a structure field or an identity theorem.
+L01-L04 have selected pinned source interfaces in Material, externally
+compiled and audited at 6440270. L05-L14 still require exact adapter
+construction and matching external audits for the new root. L16 is not supplied by a structure field or an identity theorem.
 A-tier activation follows presentation of the relevant mid-tier endpoints
 and user assent. Current setup does not change unresolved mathematical scope.
 
-Material has 14 endpoint folders and 41 declared audit targets; its shared
+Material has 14 endpoint folders and 41 declaration audit entries; its shared
 source closure contains 74 QuasiFeffermanB and 195 SingularClosure modules.
 Each endpoint retains a declaration list, exact source provenance, audit and
 recursive local dependency closure. Native sources require no private
@@ -179,19 +180,36 @@ Observed configuration: Ubuntu 24.04, Lean 4.33.0, dependency/project cache
 restoration, frontier regressions and sixteen checkpoints, 3m03s job.
 The two observations have different target scopes and are not speed ratios.
 
-Latest Methboke run:
-https://github.com/randogelist/Methboke/actions/runs/44046225468
-Tested source: 670de211b2787bdbd1a208210c1efd0ac313c2f4.
+Accepted Methboke baseline:
+https://github.com/randogelist/Methboke/actions/runs/44052579373
+Tested source: 6440270ffe9b05b2956cd34c59c65f2fe341e8b8.
 Compiler: Lean 4.33.0, x86_64-unknown-linux-gnu, commit
 d8b18978322de05a8f3dba51ef03cf5461676c17.
-All 283 own-module receipts passed: 269 vendored modules and 14 wrappers,
-39,619 physical source lines. Source pin integrity was true. The driver ran
-for 1665.677 seconds, including cache hydration and the failed audit phase.
-Four started audit files failed with Unknown option pp.width. Remaining
-audits and the single-file cutout were not completed. Overall run: FAIL.
-Dependency/project cache saves and GHCR publication were skipped; the evidence
-artifact contains no compiled objects. This is compiler-only evidence, not an
-accepted package theorem/type/axiom pass. Correction and revalidation pending.
+Overall run: PASS. All 283 own-module receipts passed: 269 vendored modules
+and 14 wrappers, 39,619 physical source lines. Source pin integrity was true.
+All 14 endpoint audit files passed freshly, covering 41 declaration audit
+entries with exact type and axiom records; the standalone QFB root cutout
+also passed freshly. All recorded theorem axioms belong to
+{propext, Classical.choice, Quot.sound}. Existing theorem premises remain.
+The external Python control suite passed all 87 tests.
+
+Both caches were MISS; this was a native-host cold seed, with 0/283 modules
+reused. Job: 37m51s. Driver: 1479.602s; cache phase: 146.587s; own compilation:
+1293.421s; all fresh audits: 39.296s; publication step: 534s. The 0.252s
+no-op receipt recheck is not another Lean verification or a warm job timing.
+Dependency and freshly audited project caches were saved. Immutable aggregate
+and 14 endpoint tags were published, and the compatible main pointer updated.
+Image: ghcr.io/randogelist/methboke-material@sha256:faadfe0f93ebda8ae9bbb34f5f632456400e25197b4636fb5436a86afbe90f1d
+Evidence: audits/material-6440270/summary.json, current.json,
+registry-entry.json, transport.json and original fresh audit logs.
+Acceptance attaches to the exact tested source and identity, not every later
+commit. Frozen endpoint manifest status fields describe preparation; these
+source-specific receipts govern acceptance.
+
+Historical failure: run 44046225468 at 670de211 compiled all 283 modules,
+then failed on unsupported pp.width; no caches or container were published.
+The corrected run removed that option and passed its early compatibility
+probe without altering the native proof bodies or dropping audit targets.
 New finite-cap root A-tier: NOT_ESTABLISHED.
 New root formal/unconditional closure: NOT_ESTABLISHED.
 Do not promote pending source preparation or an unrelated green run.
@@ -213,10 +231,15 @@ Do not promote pending source preparation or an unrelated green run.
 
 Main consolidation and native source preparation are complete. The candidate
 history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
-44046225564 succeeded and retired the candidate branch. Current target: repair
-the audit formatting configuration without changing proof bodies or audit
-scope, then start external revalidation. The upstream timing anchors guide
-scheduling; they do not guarantee this package's runtime.
+44046225564 succeeded and retired the candidate branch. The native package,
+original QFB root and single-file cutout passed at 6440270; the first passed
+container is registered. Current target: start the first actual warm replay
+from that exact container after a documentation/status-only amendment, then
+on the user's next go on assess object reuse and fresh audits. Expected reuse
+is 283/283 unchanged own modules; no warm outcome or runtime is claimed yet.
+Proof sources, compiler/dependency pins, CI policy and endpoint manifests stay
+unchanged for this measurement. The upstream timing anchors guide scheduling;
+they do not guarantee this larger package's runtime.
 
 CI contract: restore compatible dependency/foundation/project objects;
 validate source/compiler/lock/policy identity; use two dependency workers

@@ -1,6 +1,12 @@
 # QFBTail
 
-`STATUS = PENDING_EXTERNAL_CI` · `NO_LOCAL_LEAN`
+`STATUS = EXTERNAL_PASS_AT_6440270` · `NO_LOCAL_LEAN`
+
+Verified by [run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373)
+at source `6440270ffe9b05b2956cd34c59c65f2fe341e8b8`, with a fresh exact-type
+and standard-axiom audit. [Retained evidence](../../audits/material-6440270/summary.json)
+keys acceptance to that source. The endpoint manifest retains its original
+preparation status; it is not the current acceptance record.
 
 Actual eventual smoothness, energy equality and trace-based future uniqueness; no pre-cutoff continuation assertion.
 

@@ -1,12 +1,21 @@
 # Material
 
-`STATUS = A_TIER_CANDIDATE` until matching external compiler and theorem-level axiom evidence is emitted. `NO_LOCAL_LEAN` applies to preparation. The universal analytic admission theorem is outside these endpoint containers.
+`STATUS = EXTERNAL_LEAN_PASS_AT_6440270`. `NO_LOCAL_LEAN` applies to preparation.
+The universal analytic admission theorem is outside these endpoint containers.
 
-[Run 44046225468](https://github.com/randogelist/Methboke/actions/runs/44046225468)
-compiled all 283 local modules at `670de211`, then failed in the audit phase on
-unsupported option `pp.width`. The remaining audits and single-file cutout
-were not completed. No passed cache/container was published. Audit correction
-and matching external acceptance remain pending.
+[Run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373)
+passed at `6440270ffe9b05b2956cd34c59c65f2fe341e8b8`: all 283 modules compiled,
+14 fresh endpoint audit files covered 41 declaration entries, and the standalone
+QFB cutout passed freshly. Exact types and approved standard axioms were checked.
+The passed aggregate container and 14 endpoint tags were published, with both
+Actions caches saved and the compatible main pointer updated. See the
+[source-specific acceptance record](../audits/material-6440270/summary.json).
+
+The unchanged endpoint manifest status fields record the preparation state;
+acceptance is determined by the source-specific external receipts. No later
+commit inherits a fresh audit pass automatically. Earlier run `44046225468`
+failed on `pp.width` after module compilation and published nothing; the
+corrected baseline above supersedes that failure for its exact tested source.
 
 ## Endpoint packages
 
@@ -95,11 +104,18 @@ uploads compiler, exact declaration type, axiom and runtime evidence as GitHub
 Actions artifacts. See [CI controls](ci/README.md) and the
 [registry record guide](registry/README.md) for the executable contract.
 
-The first accepted baseline may require the exact official Mathlib cache and
-compilation of this repository's own selected source closure. GitHub Actions
-caches from Methlib are not directly shared across repositories. Missing
-Mathlib objects do not authorize a Mathlib source rebuild. No successful
-Methboke baseline or performance result is assumed before an external receipt.
+The accepted baseline used the official Mathlib cache and compiled all 283 own
+modules from source: dependency/project MISS, native-host execution, 0/283 reuse.
+Its job took 37m51s; driver 1479.602s, including 1293.421s own compilation and
+39.296s fresh audits; container publication took 534s. The 0.252s no-op receipt
+recheck did not execute a second Lean pass. The first actual warm replay is the
+next scoped check: reuse the last passed container after documentation/status
+changes, preserve unchanged objects, and freshly audit every endpoint again.
+Warm execution and timing have not yet been measured.
+
+GitHub Actions caches from Methlib are not directly shared across repositories.
+Missing Mathlib objects do not authorize a Mathlib source rebuild. Every
+acceptance and performance result must identify its exact external receipt.
 
 ## Proof scope
 

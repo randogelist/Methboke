@@ -1,0 +1,41 @@
+TYPE_BEGIN:SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON
+SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a₀ : ↥SingularClosure.CriticalPhysicalL2) (v u : SingularClosure.Velocity)
+      (G :
+        ℝ →
+          SingularClosure.Vec →
+            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec)
+      (p : SingularClosure.Pressure),
+      SingularClosure.CriticalLerayHopf ν a₀ v G →
+        SingularClosure.CriticalPositiveSolenoidalTest u →
+          (∀ (r : ℝ), LT.lt.{0} 0 r → ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (p r)) →
+            (∀ (r : ℝ), LT.lt.{0} 0 r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+              (∀ (r : ℝ),
+                  LT.lt.{0} 0 r →
+                    ∀ (x : SingularClosure.Vec),
+                      Eq.{1}
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                            (SingularClosure.convection (u r) x))
+                          (SingularClosure.gradient (p r) x))
+                        (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+                Filter.Tendsto.{0, 0}
+                    (fun t =>
+                      MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (u t) ↑↑a₀) 2
+                        (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube))
+                    (nhdsWithin.{0} 0 (Set.Ioi.{0} 0)) (nhds.{0} 0) →
+                  ∀ (T : ℝ),
+                    LT.lt.{0} 0 T →
+                      MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4
+                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T)) →
+                        ∀ (t : ℝ),
+                          Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t →
+                            v t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube]
+                              u t
+TYPE_END:SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON
+AXIOMS_BEGIN:SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON
+'SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON

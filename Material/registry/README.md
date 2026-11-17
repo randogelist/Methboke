@@ -3,6 +3,19 @@
 This directory holds generated external verification and publication evidence.
 Source preparation or an empty registry does not establish a compiler pass.
 
+The first accepted snapshot is from [run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373),
+source `6440270ffe9b05b2956cd34c59c65f2fe341e8b8`. Its immutable image is:
+
+```text
+ghcr.io/randogelist/methboke-material@sha256:faadfe0f93ebda8ae9bbb34f5f632456400e25197b4636fb5436a86afbe90f1d
+```
+
+The aggregate tag and 14 endpoint tags were published, and the compatible main
+pointer was updated. [Retained evidence](../../audits/material-6440270/summary.json)
+contains the exact report, publication record and fresh audit logs. This was a
+cold seed; actual amendment execution inside this snapshot is the next check,
+with no warm result or timing claimed yet.
+
 - `current.json` records the tested commit, compiler/platform/dependency
   identity, endpoint acceptance, reuse and timing data.
 - `registry-entry.json` records a successfully published snapshot, its immutable

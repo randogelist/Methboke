@@ -8,14 +8,16 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 - **Native QFB source is present:** 74 QFB modules and 195 required
   SingularClosure modules, preserved at their pinned source bytes.
-- **Material contains 14 endpoint packages / 41 declarations.** Each retains
-  its exact statement, proof dependency closure and explicit premises.
-- **All 283 local modules compiled** in [run 44046225468](https://github.com/randogelist/Methboke/actions/runs/44046225468)
-  at `670de211`. The audit phase then failed on unsupported option `pp.width`.
-  Complete package acceptance and passed-container publication remain pending.
+- **Material passed at `6440270`:** all 283 modules compiled; 14 fresh endpoint
+  audits covering 41 declaration entries and the QFB cutout passed with standard
+  axioms only in [run 44052579373](https://github.com/randogelist/Methboke/actions/runs/44052579373).
+  Exact statements, dependency closures and premises are retained.
+- **The passed container is published:** immutable aggregate and 14 endpoint
+  tags are registered; dependency and project caches were saved. The
+  [source-specific evidence](audits/material-6440270/summary.json) records this
+  acceptance. The first warm container replay remains to be measured.
 - **Main consolidation is complete:** the candidate history is preserved and
-  `Clay-Admission-Candidate-01` has been retired. Inherited QFB evidence remains
-  separate from the unfinished Methboke audit.
+  `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
   of an arbitrary analytic germ to the QFB cap remains unresolved.
 
@@ -83,9 +85,17 @@ a passed container to `ghcr.io/randogelist/methboke-material`. Immutable records
 preserve earlier passes; a compatible latest-pass pointer serves subsequent
 commits. Cache misses and warm measurements are reported distinctly.
 
-The failed first run published no dependency/project cache or GHCR container.
-The audit-option correction preserves the proof bodies and all required audit
-targets. An early external option check now runs before the full build.
+The accepted first baseline was a cold seed: both caches missed, all 283 own
+modules were compiled, and official Mathlib objects were restored. The job took
+37m51s; its driver took 1479.602s, including 1293.421s compiling own modules and
+39.296s for fresh audits. Container publication took 534s. These are cold
+baseline measurements, not warm rerun timings.
+
+The earlier run `44046225468` compiled all modules but failed on unsupported
+`pp.width` and published nothing. The correction and early external option
+check passed without changing proof bodies or reducing audit scope. The next
+scoped check replays the passed container after a documentation/status-only
+amendment, aiming to reuse 283/283 objects while rerunning every required audit.
 After a new CI run starts, agent work stops; **go on** resumes result inspection
 and any necessary repair.
 
