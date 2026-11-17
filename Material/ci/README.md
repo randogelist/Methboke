@@ -26,7 +26,7 @@ The full endpoint and cutout audits still run after compilation.
 `native_build.py` implements the QFB dependency-frontier pattern with `--jobs 2`.
 `LEAN_NUM_THREADS=2` is a separate compiler setting. Module reuse requires a
 matching compiler, dependency lock, platform, configuration/policy, all installed
-external object hashes, source hash, recursively imported own-object identities,
+external `.olean*` hashes, source hash, recursively imported own-object identities,
 and every retained object/companion digest. Only affected own modules are rebuilt.
 Independent modules run concurrently; a failed module blocks its dependants while
 unrelated modules continue. Each verification freshly elaborates all fourteen
@@ -35,8 +35,10 @@ cutout. The cutout repeats the same QFB theorem; it is not an additional distinc
 mathematical result. Old audit logs never satisfy a new run.
 
 The source/configuration receipt adapter has compiler-free adversarial tests and
-follows the established QFB reuse contract. Matching external execution of this
-adaptation is still required. No CI-green claim is made from Python tests.
+follows the established QFB reuse contract. The selected package passed at
+`6440270`; each later amendment still needs matching external evidence. New
+snapshot publication tests are prepared for external CI only. No CI-green claim
+is made from Python tests or local static inspection.
 
 ## Exact-cache benchmark
 
@@ -81,9 +83,11 @@ host. Both paths share the identical receipt scheduler and fresh audit policy.
 The pointer advances only if `previous successful commit <= candidate <= current
 branch head`. Old reruns cannot replace newer successful pointers. Failed builds,
 missing audits, unapproved axioms or snapshot publication failures leave the last
-passed pointer intact. GitHub evidence artifacts are uploaded independently of
-publication success. Generic Actions caches are saved only after the current
-native build and fresh audits pass.
+passed pointer intact. Verified compiler/audit evidence is uploaded before
+publication; final diagnostics are uploaded afterward. Generic Actions caches
+are saved only after the current native build and fresh audits pass. Registry
+hits skip the redundant dependency archive save. Publication has a 15-minute
+step timeout.
 
 Compatibility hashes the toolchain, full lock, Lake configuration, snapshot
 Dockerfile and cache contract. Source and audit-policy changes also affect the
@@ -96,6 +100,38 @@ does not retain credentials.
 backend for review/replay. The active main workflow uses `native_registry.py`, `verify-external.sh` and
 `Snapshot.Dockerfile`. Its existing ancestry and PASS publication gates are shared
 with the historical implementation.
+
+## Warm snapshot disk repair
+
+Run `44059698760` restored the passed image in 264s and completed the verification
+step in 157s, according to GitHub job summaries. Its full snapshot publication
+then copied a 7.67 GB context and exhausted disk. The matching artifact was not
+available, so no exact module-reuse count or new theorem receipt is asserted.
+The later comment run reached the same publication stage after a successful
+162s verification step. The original `6440270` passed snapshot remains the base.
+
+The prepared repair generates a warm Dockerfile FROM the validated immutable
+parent digest. It retains `.lake/packages` in the inherited image layer, removes
+old own sources/outputs, and copies current Material sources, all own build
+outputs, cutouts and fresh evidence. The staged context excludes the dependency
+directory. Inheritance requires matching compiler/toolchain, pins, platform,
+retained passed-cache status and external `.olean*` digest. This digest covers
+Lean object files and their `.olean*` companions, not every IR or trace file.
+A dependency mismatch fails closed rather than silently copying an oversized
+replacement into the warm image. The original cold `Snapshot.Dockerfile` and
+its compatibility identity stay unchanged.
+
+Context size and available disk are recorded before construction; a proportional
+headroom check stops unsafe publication before the runner fills. Compatible
+caches and parent images are not pruned. This repair is
+`PENDING_EXTERNAL_VERIFICATION`; prepared code is not a passed publication.
+Repeated parent-image layering may eventually require a bounded dependency-base
+strategy; that longer-term optimization is not part of this repair.
+
+The scoped recovery workflow targets only obsolete run `44061664660`, checks
+its exact commit and workflow identity, requests ordinary cancellation, and
+uses force cancellation if it remains active. The user explicitly authorized
+cancellation of such stalled runs. It does not delete registry images.
 
 ## Reference configurations
 

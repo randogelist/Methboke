@@ -17,6 +17,9 @@ proof and evidence changes.
   toolchain and dependency lock.
 - Finish the turn once an external CI runner has started. Do not wait or monitor;
   the user's go on resumes result inspection and any necessary fixes.
+- The user authorizes cancelling failed or stalled obsolete CI runs, including
+  force cancellation when normal cancellation does not release them. Target the
+  identified run only; preserve passed registry images and compatible objects.
 - Restore compatible objects, rebuild affected own modules, and freshly audit
   every required endpoint/type/axiom on each new verification run.
 - Never rebuild Mathlib from source merely because its official object cache

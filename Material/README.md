@@ -108,10 +108,17 @@ The accepted baseline used the official Mathlib cache and compiled all 283 own
 modules from source: dependency/project MISS, native-host execution, 0/283 reuse.
 Its job took 37m51s; driver 1479.602s, including 1293.421s own compilation and
 39.296s fresh audits; container publication took 534s. The 0.252s no-op receipt
-recheck did not execute a second Lean pass. The first actual warm replay is the
-next scoped check: reuse the last passed container after documentation/status
-changes, preserve unchanged objects, and freshly audit every endpoint again.
-Warm execution and timing have not yet been measured.
+recheck did not execute a second Lean pass. Warm run `44059698760` subsequently
+restored the registry snapshot in 264s and completed its verification step in
+157s, but publication failed when a 7.67 GB Docker context exhausted disk.
+Its matching audit artifact is unavailable; these step timings do not establish
+a module-reuse count or a new accepted snapshot.
+
+The prepared warm publication repair inherits the verified dependency directory
+from the exact passed image and copies current sources, own outputs and fresh
+evidence. It checks disk headroom and preserves verification artifacts before
+publication. The cold seed recipe and prior passed image remain intact. External
+validation of this repair and a complete warm publication remain pending.
 
 GitHub Actions caches from Methlib are not directly shared across repositories.
 Missing Mathlib objects do not authorize a Mathlib source rebuild. Every

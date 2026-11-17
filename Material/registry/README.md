@@ -12,9 +12,11 @@ ghcr.io/randogelist/methboke-material@sha256:faadfe0f93ebda8ae9bbb34f5f632456400
 
 The aggregate tag and 14 endpoint tags were published, and the compatible main
 pointer was updated. [Retained evidence](../../audits/material-6440270/summary.json)
-contains the exact report, publication record and fresh audit logs. This was a
-cold seed; actual amendment execution inside this snapshot is the next check,
-with no warm result or timing claimed yet.
+contains the exact report, publication record and fresh audit logs. This remains
+the last fully accepted and published snapshot. Warm run `44059698760` restored
+it and passed the verification step, then exhausted disk during publication.
+Its matching artifact is unavailable; step success alone does not replace the
+source-specific theorem receipts.
 
 - `current.json` records the tested commit, compiler/platform/dependency
   identity, endpoint acceptance, reuse and timing data.
@@ -33,7 +35,17 @@ requires the exact current source identity and a complete successful build and
 fresh audit. Immutable prior passes remain available even when an amendment
 fails. A latest-pass pointer advances only within its compatible ancestry.
 
-GitHub Actions artifacts preserve evidence independently of registry publication.
+Warm publication now has a prepared path that inherits `.lake/packages` from
+the exact immutable parent after matching its compiler, pins, retained-cache
+status and external `.olean*` digest. Its context contains current sources, all
+own outputs, cutouts and fresh evidence; old own sources and outputs are replaced.
+Disk headroom and context size are recorded before Docker construction. The
+original full cold-seed recipe and prior passed images are preserved. This
+repair is pending external verification.
+
+GitHub Actions uploads verified evidence before registry publication, then
+uploads final publication diagnostics separately. This preserves compiler
+evidence if subsequent image construction fails.
 The workflow's [CI controls](../ci/README.md) specify filenames, compatibility
 checks and publication gates. No generated PASS receipt is committed merely to
 represent a prepared configuration.

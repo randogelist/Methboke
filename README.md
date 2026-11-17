@@ -15,7 +15,8 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 - **The passed container is published:** immutable aggregate and 14 endpoint
   tags are registered; dependency and project caches were saved. The
   [source-specific evidence](audits/material-6440270/summary.json) records this
-  acceptance. The first warm container replay remains to be measured.
+  acceptance. Warm restoration and verification steps succeeded, but publication
+  exhausted disk; the last fully accepted baseline remains `6440270`.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -91,11 +92,19 @@ modules were compiled, and official Mathlib objects were restored. The job took
 39.296s for fresh audits. Container publication took 534s. These are cold
 baseline measurements, not warm rerun timings.
 
-The earlier run `44046225468` compiled all modules but failed on unsupported
-`pp.width` and published nothing. The correction and early external option
-check passed without changing proof bodies or reducing audit scope. The next
-scoped check replays the passed container after a documentation/status-only
-amendment, aiming to reuse 283/283 objects while rerunning every required audit.
+Warm [run 44059698760](https://github.com/randogelist/Methboke/actions/runs/44059698760)
+restored the passed container in 264s and completed its compilation/fresh-audit
+step in 157s. Publication then exhausted disk while copying a 7.67 GB context.
+Those are GitHub step observations; its audit artifact is unavailable, so no
+module-reuse count or new theorem acceptance is inferred. The later comment
+run also reached publication after a successful 162s verification step.
+
+The prepared repair inherits `.lake/packages` from the exact passed image and
+copies current project sources, own outputs and fresh evidence into a small
+warm snapshot. It adds disk headroom checks and preserves verification evidence
+before publication. This repair still needs external validation. The scoped
+recovery workflow can cancel the identified stalled publication. The empty
+commit timing remains unmeasured because its pending run was superseded.
 After a new CI run starts, agent work stops; **go on** resumes result inspection
 and any necessary repair.
 

@@ -1,10 +1,10 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.2
+DOCUMENT_VERSION = 1.3
 DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = record accepted Material baseline and start first warm container replay
+ACTIVE_TASK = repair warm snapshot disk exhaustion and start corrected external CI
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,10 +22,10 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: record the accepted 6440270 baseline, then start the first actual
-warm container replay on a documentation/status-only amendment. Check 283/283
-object reuse and all required fresh audits when the user next says go on.
-Warm execution and timing are not yet verified. Stop work once CI starts.
+MICROSCOPIC: preserve the accepted 6440270 baseline; repair warm snapshot
+publication without recopying inherited dependencies; release the identified
+stalled run; push main and stop once corrected CI starts. The repair requires
+matching external validation; no new package acceptance is asserted.
 
 2. DEFINITIONS AND PREMISES
 
@@ -210,6 +210,33 @@ Historical failure: run 44046225468 at 670de211 compiled all 283 modules,
 then failed on unsupported pp.width; no caches or container were published.
 The corrected run removed that option and passed its early compatibility
 probe without altering the native proof bodies or dropping audit targets.
+Warm publication obstruction (infrastructure evidence, not theorem acceptance):
+Run 44059698760, source fa803419ae1f3d7d91da1e0709193ac928057a02,
+completed FAILURE. GitHub job 133958054680 reports passed-container restoration
+success in 264s, compilation/fresh-audit step success in 157s, and cache saves
+success. The supplied publication log shows 7.67 GB context transfer and
+COPY Material failing with no space left on device. The artifact list was empty
+and the completed job-log fetch returned 404. Accordingly, no exact reused
+module count, new axiom receipt, or new published snapshot is claimed.
+Run 44061664660 at 5f0e7b72d4612657df7dfbd8191391026e871320 was observed
+stalled in publication after restoration success (317s) and verification-step
+success (162s). It is not an accepted package result. The user authorized its
+cancellation; recovery targets only that exact run, with force cancellation
+if ordinary cancellation does not finish it.
+The no-change commit 799b55142f04895f9d3a45bd40f4aac54ce9b85f had pending
+run 44061003809 cancelled by queue replacement; its timing remains unmeasured.
+
+Prepared disk repair: PENDING_EXTERNAL_VERIFICATION. Warm publication uses a
+generated Dockerfile FROM the exact passed image, inherits .lake/packages after
+matching compiler/pins/platform/retained-cache and external .olean* identities,
+and copies current sources, all own outputs, cutouts and fresh evidence. Stale
+own files are replaced. Snapshot.Dockerfile remains unchanged to preserve its
+compatibility key; the cold seed retains the original complete snapshot recipe.
+Disk headroom and context size are recorded before image construction. No
+compatible cache or passed image is pruned. Verification evidence uploads before
+publication; redundant dependency archive saves on registry hits are skipped;
+publication has a 15-minute step timeout. All theorem audits remain fresh.
+
 New finite-cap root A-tier: NOT_ESTABLISHED.
 New root formal/unconditional closure: NOT_ESTABLISHED.
 Do not promote pending source preparation or an unrelated green run.
@@ -233,13 +260,14 @@ Main consolidation and native source preparation are complete. The candidate
 history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
 44046225564 succeeded and retired the candidate branch. The native package,
 original QFB root and single-file cutout passed at 6440270; the first passed
-container is registered. Current target: start the first actual warm replay
-from that exact container after a documentation/status-only amendment, then
-on the user's next go on assess object reuse and fresh audits. Expected reuse
-is 283/283 unchanged own modules; no warm outcome or runtime is claimed yet.
-Proof sources, compiler/dependency pins, CI policy and endpoint manifests stay
-unchanged for this measurement. The upstream timing anchors guide scheduling;
-they do not guarantee this larger package's runtime.
+container is registered. Warm restoration and verification step summaries are
+now available, but disk exhaustion blocked publication and matching receipts
+were not retained. Current target: complete the publication repair, cancel the
+identified stalled obsolete run, push main and stop once corrected CI starts.
+Preserve proof sources, pins, endpoint manifests and all audit gates. The next
+go on assesses new evidence, actual object reuse and complete publication.
+The upstream timing anchors guide scheduling; they do not guarantee this larger
+package's runtime.
 
 CI contract: restore compatible dependency/foundation/project objects;
 validate source/compiler/lock/policy identity; use two dependency workers
@@ -252,7 +280,9 @@ threads. No direct or indirect local Lean execution, including Lake wrappers,
 kernel audits, subprocesses, containers and subagents. Local work is source
 reading, file preparation and nonexecuting static inspection. External
 verification unavailability never authorizes a local fallback. Preserve prior
-successful compatible objects.
+successful compatible objects. The user authorizes cancellation, including
+force cancellation, of identified failed or stalled obsolete runs. This is not
+authorization to delete their passed images or cancel unrelated runs.
 
 CI HANDOFF: once the external runner has started, finish the agent turn without
 waiting or monitoring. The user's go on resumes inspection and any necessary

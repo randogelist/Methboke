@@ -63,7 +63,7 @@
   "target_hierarchy": {
     "macroscopic": "Fixed analytic finite-cap admission goal; universal germ-to-cap continuation remains unresolved",
     "mesoscopic": "User-requested main-branch, native-QFB and cached-CI setup",
-    "microscopic": "Record the matching package PASS and start the first warm passed-container replay on a records-only amendment; verify unchanged-object reuse with all audits fresh externally"
+    "microscopic": "Repair warm snapshot disk usage, release the specifically authorized stalled run, and start corrected external CI"
   },
   "ci_handoff": "STOP_ON_RUNNER_START; GO_ON_RESUMES_RESULT_INSPECTION",
   "latest_material_run": {
@@ -182,5 +182,30 @@
       "compiled_objects_in_artifact": false,
       "accepted_package_type_axiom_pass": false
     }
-  ]
+  ],
+  "warm_container_observations": {
+    "last_complete_failure_run": 44059698760,
+    "registry_restore_step": "SUCCESS",
+    "registry_restore_seconds": 264,
+    "compile_and_fresh_audit_step": "SUCCESS",
+    "compile_and_fresh_audit_step_seconds": 157,
+    "publication": "FAILED_DISK_EXHAUSTION",
+    "matching_receipts_available": false,
+    "verified_reuse_count": null,
+    "evidence": "audits/material-snapshot-disk-failure.json",
+    "empty_commit_timing_run": 44061003809,
+    "empty_commit_timing_status": "CANCELLED_BY_PENDING_RUN_REPLACEMENT",
+    "stalled_comment_run": 44061664660,
+    "force_cancel_authorized": true
+  },
+  "snapshot_publication_repair": {
+    "status": "PREPARED_PENDING_EXTERNAL_CI",
+    "warm_dependency_storage": "INHERITED_FROM_IMMUTABLE_PASSED_IMAGE",
+    "context": "CURRENT_SOURCES_OWN_OUTPUTS_FRESH_EVIDENCE_CUTOUTS_EXCLUDING_PACKAGES",
+    "parent_dependency_identity_required": true,
+    "cold_snapshot_recipe_unchanged": true,
+    "early_verification_artifact": true,
+    "disk_budget_guard": true,
+    "local_lean_execution": false
+  }
 }

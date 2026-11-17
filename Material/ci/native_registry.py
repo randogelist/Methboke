@@ -2,11 +2,15 @@
 """Native CI restoration/publication of immutable passed-source/object snapshots."""
 from __future__ import annotations
 import argparse
+from contextlib import contextmanager
+import copy
 import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shutil
+import tempfile
 import time
 
 import registry as r
@@ -64,8 +68,12 @@ def prepare(root, state_path, benchmark=False):
                 labels = info['Config'].get('Labels') or {}
                 if hashlib.sha256(restored_report.read_bytes()).hexdigest() != labels.get(r.LABEL_PREFIX + 'report-sha256'):
                     raise ValueError('restored PASS report digest disagrees with snapshot label')
-                if r.load(restored_report).get('commit') != labels.get('org.opencontainers.image.revision'):
+                parent_report = r.load(restored_report)
+                if parent_report.get('commit') != labels.get('org.opencontainers.image.revision'):
                     raise ValueError('restored PASS report source disagrees with snapshot revision')
+                state['parent_report_sha256'] = hashlib.sha256(restored_report.read_bytes()).hexdigest()
+                state['parent_commit'] = parent_report['commit']
+                state['parent_dependency_identity'] = dependency_identity(parent_report)
                 restored = True
                 state['restore_mode'] = 'previous_passed_container'
             finally:
@@ -146,15 +154,162 @@ def validate_native_evidence(root, state, report, endpoints):
               build.STANDARD_AXIOMS, 'registry/logs/cutouts-audit.log')
 
 
+def dependency_identity(report):
+    """Identity of the installed dependencies inherited by a warm image layer."""
+    if (report.get('status') != 'PASS' or report.get('compiler_executed') is not True
+            or report.get('all_endpoints_selected') is not True):
+        raise ValueError('dependency inheritance requires a complete passed report')
+    fields = ('toolchain', 'mathlib_commit', 'compiler', 'platform',
+              'verified_dependencies', 'external_objects')
+    identity = {name: report.get(name) for name in fields}
+    if any(not value for value in identity.values()):
+        raise ValueError('passed report lacks dependency inheritance identity')
+    objects = identity['external_objects']
+    if (not isinstance(objects, dict) or not isinstance(objects.get('count'), int)
+            or objects['count'] <= 0
+            or not re.fullmatch('[0-9a-f]{64}', str(objects.get('sha256', '')))):
+        raise ValueError('passed report lacks a complete dependency object digest')
+    config = report.get('build_configuration') or {}
+    keys = ('lean-toolchain', 'lake-manifest.json', 'lakefile.lean')
+    identity['dependency_configuration'] = {key: config.get(key) for key in keys}
+    if any(not re.fullmatch('[0-9a-f]{64}', str(value or ''))
+           for value in identity['dependency_configuration'].values()):
+        raise ValueError('passed report lacks pinned dependency configuration hashes')
+    return copy.deepcopy(identity)
+
+
+def snapshot_mode(state, report):
+    """Do not silently duplicate a loaded parent when its dependencies changed."""
+    parent = state.get('parent_image_digest')
+    if not parent:
+        if state.get('restore_mode') == 'previous_passed_container':
+            raise ValueError('restored snapshot lacks immutable parent identity')
+        return 'cold_seed'
+    expected = re.escape(state['image_repository']) + r'@sha256:[0-9a-f]{64}'
+    if (state.get('restore_mode') != 'previous_passed_container'
+            or not re.fullmatch(expected, parent)):
+        raise ValueError('warm publication requires the exact restored immutable parent')
+    if (not re.fullmatch('[0-9a-f]{40}', str(state.get('parent_commit', '')))
+            or not re.fullmatch('[0-9a-f]{64}', str(state.get('parent_report_sha256', '')))):
+        raise ValueError('warm publication lacks authenticated parent report identity')
+    if (report.get('cache_hydration') or {}).get('mode') != 'retained_passed_outputs':
+        raise ValueError('warm publication requires unchanged retained dependency outputs; a separate cold seed is required')
+    if state.get('parent_dependency_identity') != dependency_identity(report):
+        raise ValueError('inherited dependency identity changed; a separate cold seed is required')
+    return 'inherited_dependencies'
+
+
+def snapshot_files(root, mode):
+    """Whitelist snapshot inputs; never stage the repository or dependency tree twice."""
+    selected = []
+    for top in ('Material', 'LEAN_CUTOUTS'):
+        source = root / top
+        if not source.is_dir() or source.is_symlink():
+            raise ValueError('snapshot source directory is missing or is a symlink: ' + top)
+        for directory, dirs, files in os.walk(source, followlinks=False):
+            folder = Path(directory)
+            dirs[:] = sorted(name for name in dirs if name != '__pycache__'
+                and not (mode == 'inherited_dependencies'
+                         and folder == root / 'Material/.lake' and name == 'packages'))
+            # COPY preserves safe relative symlinks; never follow paths outside the snapshot.
+            symlinks = [name for name in dirs if (folder / name).is_symlink()]
+            dirs[:] = [name for name in dirs if name not in symlinks]
+            for name in sorted(files + symlinks):
+                path = folder / name
+                if (name.endswith(('.ltar', '.pyc'))
+                        or path == root / 'Material/registry/snapshot-plan.json'):
+                    continue
+                if path.is_symlink():
+                    target = os.readlink(path)
+                    if os.path.isabs(target) or not path.resolve().is_relative_to(root):
+                        raise ValueError('snapshot symlink leaves the repository: ' + str(path))
+                elif not path.is_file():
+                    raise ValueError('snapshot input is not a regular file: ' + str(path))
+                selected.append((path, path.relative_to(root)))
+    return selected
+
+
+def warm_dockerfile(parent):
+    # Replace old source and own outputs so removed files cannot survive a COPY
+    # overlay. The large verified dependency directory remains in its parent layer.
+    cleanup = (
+        "from pathlib import Path; import shutil; "
+        "m=Path('/workspace/Material'); l=m/'.lake'; "
+        "drop=lambda p: p.unlink() if p.is_symlink() or p.is_file() else shutil.rmtree(p); "
+        "[drop(p) for p in m.iterdir() if p.name != '.lake']; "
+        "[drop(p) for p in l.iterdir() if p.name != 'packages']; "
+        "shutil.rmtree('/workspace/LEAN_CUTOUTS', ignore_errors=True)"
+    )
+    return ('# Inherit verified dependency bytes; no compiler runs while packaging.\n'
+            + 'FROM ' + parent + '\nUSER root\n'
+            + 'RUN ' + json.dumps(['python3', '-c', cleanup]) + '\n'
+            + 'COPY Material /workspace/Material\n'
+            + 'COPY LEAN_CUTOUTS /workspace/LEAN_CUTOUTS\n'
+            + 'WORKDIR /workspace\n'
+            + 'CMD ["python3", "Material/ci/native_build.py", "--jobs", "2"]\n')
+
+
+def snapshot_disk_budget(root, context_bytes, file_count):
+    """Leave room for BuildKit context, new layer/export and runner evidence."""
+    info = json.loads(r.execute(['docker', 'info', '--format', '{{json .}}'],
+                                capture=True, timeout=30).stdout)
+    docker_root = Path(info.get('DockerRootDir') or '/var/lib/docker')
+    # Staging uses hardlinks on the workspace filesystem, not a third data copy.
+    # Three payloads reserve context/layer/export peaks; 2 GiB protects job evidence.
+    required = 3 * context_bytes + 4096 * file_count + 2 * r.GIB
+    disks = {}
+    for label, path in (('workspace', root), ('docker', docker_root)):
+        usage = shutil.disk_usage(path)
+        disks[label] = {'path': str(path), 'free_bytes': usage.free,
+                        'required_free_bytes': required}
+    return {'context_bytes': context_bytes, 'context_file_count': file_count,
+            'required_free_bytes': required, 'disks': disks,
+            'sufficient': all(d['free_bytes'] >= required for d in disks.values()),
+            'policy': '3*context_bytes + 4096*file_count + 2GiB; hardlink staging'}
+
+
+@contextmanager
+def snapshot_context(root, state, report):
+    mode = snapshot_mode(state, report)
+    files = snapshot_files(root, mode)
+    size = sum(len(os.readlink(p).encode()) if p.is_symlink() else p.stat().st_size
+               for p, _ in files)
+    metrics = snapshot_disk_budget(root, size, len(files))
+    metrics.update(mode=mode, parent_image_digest=state.get('parent_image_digest'),
+                   inherited_dependency_objects=report['external_objects'] if mode == 'inherited_dependencies' else None)
+    r.save(root / 'Material/registry/snapshot-plan.json', metrics)
+    state['snapshot_publication'] = metrics
+    if not metrics['sufficient']:
+        raise ValueError('insufficient disk for snapshot publication; no Docker build or cache deletion performed')
+    # Keep the temporary directory on the same filesystem so regular files can
+    # be hardlinked. Cleanup affects staging links only, never source/cache bytes.
+    with tempfile.TemporaryDirectory(prefix='.material-snapshot-', dir=root.parent) as temporary:
+        context = Path(temporary)
+        for source, relative in files:
+            target = context / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if source.is_symlink():
+                target.symlink_to(os.readlink(source))
+            else:
+                os.link(source, target)
+        # The plan was written after file enumeration; include it deliberately.
+        plan = context / 'Material/registry/snapshot-plan.json'
+        plan.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(root / 'Material/registry/snapshot-plan.json', plan)
+        dockerfile = context / 'Snapshot.Dockerfile'
+        if mode == 'inherited_dependencies':
+            dockerfile.write_text(warm_dockerfile(state['parent_image_digest']))
+        else:
+            shutil.copyfile(root / 'Material/ci/Snapshot.Dockerfile', dockerfile)
+        yield context, dockerfile, metrics
+
+
 def publish(root, state_path):
     state = r.load(state_path)
     report_path = root / 'Material/registry/current.json'
     report = r.load(report_path)
     endpoints = r.validate_pass(report, state, r.expected_endpoint_ids(root))
     validate_native_evidence(root, state, report, endpoints)
-    # Transfer archives are not required for installed-output reuse.
-    for path in (root / 'Material/.lake').rglob('*.ltar'):
-        path.unlink()
     entry = {'schema': 2, 'status': 'PASS', 'execution_backend': 'native',
         'source_commit': state['commit'], 'compatibility_key': state['compatibility_key'],
         'parent_image_digest': state['parent_image_digest'], 'image_tag': state['immutable_tag'],
@@ -168,10 +323,22 @@ def publish(root, state_path):
         r.LABEL_PREFIX + 'endpoint-count': str(len(endpoints)), r.LABEL_PREFIX + 'report-sha256': entry['report_sha256'],
         'org.opencontainers.image.source': 'https://github.com/' + state['repository'],
         'org.opencontainers.image.revision': state['commit']}
-    args = ['docker', 'build', '--file', str(root / 'Material/ci/Snapshot.Dockerfile'), '--tag', state['immutable_tag']]
-    for key, value in labels.items():
-        args += ['--label', key + '=' + value]
-    r.execute(args + [str(root)])
+    try:
+        with snapshot_context(root, state, report) as (context, dockerfile, metrics):
+            entry['snapshot_publication'] = metrics
+            r.save(entry_path, entry)
+            # Refresh this small record after staging; dependency objects are inherited.
+            shutil.copyfile(entry_path, context / 'Material/registry/registry-entry.json')
+            args = ['docker', 'build', '--file', str(dockerfile), '--tag', state['immutable_tag']]
+            for key, value in labels.items():
+                args += ['--label', key + '=' + value]
+            r.execute(args + [str(context)])
+    except Exception:
+        state['status'] = 'PUBLICATION_FAILED'
+        raise
+    finally:
+        r.save(state_path, state)
+        r.save(root / 'Material/registry/transport.json', state)
     r.execute(['docker', 'push', state['immutable_tag']])
     for tag in entry['endpoint_tags'].values():
         r.execute(['docker', 'tag', state['immutable_tag'], tag])

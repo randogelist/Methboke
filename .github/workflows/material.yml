@@ -151,8 +151,16 @@ jobs:
           python3 Material/ci/native_registry.py record --state "$MATERIAL_STATE" --exit-code "$result"
           exit "$result"
 
+      - name: Preserve verified evidence before snapshot publication
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: material-verified-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: Material/registry/
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Preserve passing dependency cache
-        if: success() && steps.dependencies.outputs.cache-hit != 'true'
+        if: success() && steps.restore.outputs.registry_restored != 'true' && steps.dependencies.outputs.cache-hit != 'true'
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: Material/.lake/packages
@@ -168,6 +176,7 @@ jobs:
           key: ${{ steps.restore.outputs.project_key }}
 
       - name: Publish immutable passed snapshot and endpoint registry
+        timeout-minutes: 15
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 Material/ci/native_registry.py publish --state "$MATERIAL_STATE"
