@@ -36,6 +36,14 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(build.parse_audit(audit(axioms=None), ["Example.root"])["axioms"],
                          {"Example.root": []})
 
+    def test_lean_433_universe_output_does_not_hide_compiler_failure(self):
+        observed = audit(axioms="[propext, Classical.choice.{u}, Quot.sound.{u}]")
+        parsed = build.parse_audit(observed, ["Example.root"])
+        self.assertEqual(set(parsed["axioms"]["Example.root"]), build.STANDARD_AXIOMS)
+        with self.assertRaises(build.BuildError):
+            build.parse_audit("Audit.lean:4:0: error: Unknown option `pp.width`\n" + observed,
+                              ["Example.root"])
+
     def test_rejects_custom_axiom_and_sorry(self):
         for value in ("[Example.admission]", "[sorryAx]", "[propext, sorryAx]"):
             with self.subTest(value=value), self.assertRaises(build.BuildError):

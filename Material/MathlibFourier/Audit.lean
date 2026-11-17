@@ -1,7 +1,6 @@
 import MathlibFourier.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:UnitAddTorus.mFourierBasis"
 #check @UnitAddTorus.mFourierBasis

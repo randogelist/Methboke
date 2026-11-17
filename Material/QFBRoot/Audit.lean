@@ -1,7 +1,6 @@
 import QFBRoot.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED"
 #check @QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED

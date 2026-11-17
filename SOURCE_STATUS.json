@@ -58,8 +58,43 @@
   ],
   "historical_candidate_branch": "Clay-Admission-Candidate-01",
   "resume_mode": "DISCUSSION",
-  "main_consolidation": "CANDIDATE_HISTORY_PRESERVED_BY_THIS_MAIN_COMMIT",
-  "current_material_external_verification": "PENDING_EXTERNAL_CI",
+  "main_consolidation": "COMPLETED_AT_670de211b2787bdbd1a208210c1efd0ac313c2f4",
+  "current_material_external_verification": "CORRECTED_AUDITS_PENDING_EXTERNAL_REVALIDATION",
+  "target_hierarchy": {
+    "macroscopic": "Fixed analytic finite-cap admission goal; universal germ-to-cap continuation remains unresolved",
+    "mesoscopic": "User-requested main-branch, native-QFB and cached-CI setup",
+    "microscopic": "Repair audit options without changing proofs or required audit scope, then start external revalidation"
+  },
+  "ci_handoff": "STOP_ON_RUNNER_START; GO_ON_RESUMES_RESULT_INSPECTION",
+  "latest_material_run": {
+    "run_id": 44046225468,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44046225468",
+    "tested_commit": "670de211b2787bdbd1a208210c1efd0ac313c2f4",
+    "overall_conclusion": "FAILURE",
+    "compiler": "Lean 4.33.0 x86_64-unknown-linux-gnu",
+    "compiler_commit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+    "module_compilation": "PASS",
+    "passed_modules": 283,
+    "vendored_modules": 269,
+    "endpoint_wrappers": 14,
+    "local_source_lines": 39619,
+    "source_pin_integrity": true,
+    "verification_driver_seconds": 1665.677,
+    "dependency_cache_class": "MISS",
+    "project_cache_class": "MISS",
+    "audit_conclusion": "FAILED_UNSUPPORTED_PP_WIDTH_OPTION",
+    "started_audit_files": 4,
+    "required_audit_files": 14,
+    "required_declaration_entries": 41,
+    "remaining_audits": "NOT_COMPLETED",
+    "cutout_audit": "NOT_RUN",
+    "dependency_cache_publication": "SKIPPED",
+    "project_cache_publication": "SKIPPED",
+    "registry_publication": "SKIPPED",
+    "artifact_id": 14313197973,
+    "compiled_objects_in_artifact": false,
+    "accepted_package_type_axiom_pass": false
+  },
   "ci_reference_observations": [
     {
       "workflow": "quasi-fefferman-b",
@@ -83,7 +118,7 @@
       "requires_dependency_and_project_restoration": true
     }
   ],
-  "candidate_retirement": "GUARDED_EXTERNAL_WORKFLOW_PENDING",
+  "candidate_retirement": "COMPLETED_BY_RUN_44046225564",
   "native_source_verification": {
     "modules": 269,
     "qfb_modules": 74,
@@ -91,5 +126,11 @@
     "hash_verification": "PASS",
     "local_import_closure": "COMPLETE",
     "lean_executed_locally": false
+  },
+  "audit_option_correction": {
+    "removed_option": "pp.width",
+    "proof_sources_changed": false,
+    "preflight": "EXTERNAL_BEFORE_OWN_MODULE_COMPILATION",
+    "local_verification": "NONEXECUTING_STATIC_INSPECTION_ONLY"
   }
 }

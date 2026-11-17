@@ -1,7 +1,6 @@
 import SmallH12.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:SingularClosure.SMALL_DATA_CRITICAL_REGULARITY"
 #check @SingularClosure.SMALL_DATA_CRITICAL_REGULARITY

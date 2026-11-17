@@ -6,10 +6,17 @@ single project context document; amend it constructively with relevant source,
 proof and evidence changes.
 
 - Work from `main`. Preserve the fixed goal unless the user explicitly changes it.
-- Follow the user's current BASE_LOOP. Discussion creates no artifacts; parser
+- Follow the user's current BASE_LOOP 1.3. Discussion creates no artifacts; parser
   collection defers execution until the relevant compilation command.
-- Never run Lean or Lake locally. Use authorized cached external CI or external
-  native Windows replay. Preserve the pinned toolchain and dependency lock.
+- Emit removes only the last uncompiled buffer request; it never deletes files
+  or branches. Preserve the fixed goal when assessing or updating local targets.
+- Never execute Lean locally, directly or indirectly through Lake, wrappers,
+  subprocesses, containers or subagents. Local work is reading, file preparation
+  and nonexecuting static inspection. Use authorized cached external CI or
+  external native Windows replay; no local fallback. Preserve the pinned
+  toolchain and dependency lock.
+- Finish the turn once an external CI runner has started. Do not wait or monitor;
+  the user's go on resumes result inspection and any necessary fixes.
 - Restore compatible objects, rebuild affected own modules, and freshly audit
   every required endpoint/type/axiom on each new verification run.
 - Never rebuild Mathlib from source merely because its official object cache

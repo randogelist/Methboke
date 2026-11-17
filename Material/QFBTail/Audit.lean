@@ -1,7 +1,6 @@
 import QFBTail.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS"
 #check @QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS

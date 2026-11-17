@@ -10,8 +10,12 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   SingularClosure modules, preserved at their pinned source bytes.
 - **Material contains 14 endpoint packages / 41 declarations.** Each retains
   its exact statement, proof dependency closure and explicit premises.
-- **Inherited QFB evidence exists.** Matching external verification of the
-  newly assembled Methboke package remains pending until its CI receipt passes.
+- **All 283 local modules compiled** in [run 44046225468](https://github.com/randogelist/Methboke/actions/runs/44046225468)
+  at `670de211`. The audit phase then failed on unsupported option `pp.width`.
+  Complete package acceptance and passed-container publication remain pending.
+- **Main consolidation is complete:** the candidate history is preserved and
+  `Clay-Admission-Candidate-01` has been retired. Inherited QFB evidence remains
+  separate from the unfinished Methboke audit.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
   of an arbitrary analytic germ to the QFB cap remains unresolved.
 
@@ -78,6 +82,12 @@ required endpoint/type/axiom audit freshly. Only an accepted result can publish
 a passed container to `ghcr.io/randogelist/methboke-material`. Immutable records
 preserve earlier passes; a compatible latest-pass pointer serves subsequent
 commits. Cache misses and warm measurements are reported distinctly.
+
+The failed first run published no dependency/project cache or GHCR container.
+The audit-option correction preserves the proof bodies and all required audit
+targets. An early external option check now runs before the full build.
+After a new CI run starts, agent work stops; **go on** resumes result inspection
+and any necessary repair.
 
 Lean execution belongs to authorized external CI or native Windows replay.
 The compiler pin is `leanprover/lean4:v4.33.0`; Mathlib is

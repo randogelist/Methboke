@@ -1,12 +1,12 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.0
+DOCUMENT_VERSION = 1.1
 DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = consolidate candidate work on main; native QFB; cached external CI
+ACTIVE_TASK = repair audit configuration and start the next external CI run
 RESUME_MODE = DISCUSSION
-LOCAL_LEAN_EXECUTION = FORBIDDEN
+LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
 1. FIXED PROJECT GOAL
 
@@ -18,6 +18,13 @@ certificates can discharge admission. Preserve the distinction between:
   R1: every local analytic germ extends through that overlap.
 R0 has a recorded B-tier argument. R1 is unresolved. No infrastructure
 milestone changes this goal. Only explicit CHANGE updates the project goal.
+
+CURRENT TARGET HIERARCHY
+MACROSCOPIC: the fixed analytic finite-cap admission goal above.
+MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
+MICROSCOPIC: remove the unsupported audit option, preserve the full audit scope,
+and start the corrected external verification. Stop work once CI starts;
+resume result inspection only when the user says go on.
 
 2. DEFINITIONS AND PREMISES
 
@@ -172,7 +179,19 @@ Observed configuration: Ubuntu 24.04, Lean 4.33.0, dependency/project cache
 restoration, frontier regressions and sixteen checkpoints, 3m03s job.
 The two observations have different target scopes and are not speed ratios.
 
-New Methboke package compiler/type/axiom evidence: PENDING_EXTERNAL_CI.
+Latest Methboke run:
+https://github.com/randogelist/Methboke/actions/runs/44046225468
+Tested source: 670de211b2787bdbd1a208210c1efd0ac313c2f4.
+Compiler: Lean 4.33.0, x86_64-unknown-linux-gnu, commit
+d8b18978322de05a8f3dba51ef03cf5461676c17.
+All 283 own-module receipts passed: 269 vendored modules and 14 wrappers,
+39,619 physical source lines. Source pin integrity was true. The driver ran
+for 1665.677 seconds, including cache hydration and the failed audit phase.
+Four started audit files failed with Unknown option pp.width. Remaining
+audits and the single-file cutout were not completed. Overall run: FAIL.
+Dependency/project cache saves and GHCR publication were skipped; the evidence
+artifact contains no compiled objects. This is compiler-only evidence, not an
+accepted package theorem/type/axiom pass. Correction and revalidation pending.
 New finite-cap root A-tier: NOT_ESTABLISHED.
 New root formal/unconditional closure: NOT_ESTABLISHED.
 Do not promote pending source preparation or an unrelated green run.
@@ -192,10 +211,12 @@ Do not promote pending source preparation or an unrelated green run.
 
 8. CURRENT TARGET AND OPERATING RULES
 
-Current target: consolidate preserved candidate content onto main, keep the
-original QFB source native, establish these repository records and validate
-external cached CI with fresh exact endpoint audits. The upstream timing
-anchors guide scheduling; they do not guarantee this package's runtime.
+Main consolidation and native source preparation are complete. The candidate
+history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
+44046225564 succeeded and retired the candidate branch. Current target: repair
+the audit formatting configuration without changing proof bodies or audit
+scope, then start external revalidation. The upstream timing anchors guide
+scheduling; they do not guarantee this package's runtime.
 
 CI contract: restore compatible dependency/foundation/project objects;
 validate source/compiler/lock/policy identity; use two dependency workers
@@ -204,14 +225,26 @@ all required declarations freshly; publish only passed registry records.
 A missing Mathlib object requests the exact official cache, never an
 unapproved Mathlib source rebuild. Warm cache-required measurements must
 report cache misses honestly. Record module workers separately from Lean
-threads. No local Lean/Lake compiler execution. Pure static/Python checks
-are permitted. Preserve prior successful compatible objects.
+threads. No direct or indirect local Lean execution, including Lake wrappers,
+kernel audits, subprocesses, containers and subagents. Local work is source
+reading, file preparation and nonexecuting static inspection. External
+verification unavailability never authorizes a local fallback. Preserve prior
+successful compatible objects.
+
+CI HANDOFF: once the external runner has started, finish the agent turn without
+waiting or monitoring. The user's go on resumes inspection and any necessary
+repair. A launched run is not a PASS; retain candidate status until matching
+external compiler, exact-type and axiom evidence is accepted.
 
 Work from main; do not create a new working branch unless explicitly asked.
 The historical candidate theorem/document names remain stable.
-The user's current BASE_LOOP takes precedence. Init reads README, GPT and
+The user's current BASE_LOOP 1.3 takes precedence. Init reads README, GPT and
 INDEX-WORTHY before reporting checks. Discussion creates no artifacts.
 Parse records ordered input and replies ok; compile processes that buffer.
+Emit removes only the last uncompiled buffer request; it never deletes files
+or branches or undoes compiled changes. Local target changes the user-stated
+mesoscopic target while preserving the project goal; no argument displays the
+target hierarchy. A suggested next target is not an adopted user target.
 Compile branch reparses accessible context without implicit Git mutation or
 Lean execution. Commit updates this document and relevant indices before
 committing/pushing the current branch. CHANGE alone changes the fixed goal.

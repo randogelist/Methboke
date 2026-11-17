@@ -1,7 +1,6 @@
 import MathlibODE.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt"
 #check @IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt

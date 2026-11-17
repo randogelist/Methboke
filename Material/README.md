@@ -2,6 +2,12 @@
 
 `STATUS = A_TIER_CANDIDATE` until matching external compiler and theorem-level axiom evidence is emitted. `NO_LOCAL_LEAN` applies to preparation. The universal analytic admission theorem is outside these endpoint containers.
 
+[Run 44046225468](https://github.com/randogelist/Methboke/actions/runs/44046225468)
+compiled all 283 local modules at `670de211`, then failed in the audit phase on
+unsupported option `pp.width`. The remaining audits and single-file cutout
+were not completed. No passed cache/container was published. Audit correction
+and matching external acceptance remain pending.
+
 ## Endpoint packages
 
 | Folder | Exact source scope |
@@ -50,18 +56,16 @@ Material\run.cmd
 Material\run.cmd --endpoint QFBRoot
 ```
 
-External Linux CI invokes:
+The configured external Linux workflow invokes:
 
 ```sh
-python3 Material/ci/build.py --report Material/registry/current.json
+bash Material/ci/verify-external.sh
 ```
 
-Static source preparation, without invoking Lean:
-
-```sh
-python3 Material/ci/build.py --validate-only
-python3 -m unittest discover -s Material/ci/tests
-```
+Local work is limited to reading, file preparation and nonexecuting static
+inspection. Lean, Lake wrappers and kernel audits must run only in the
+authorized external environments. Once a CI runner starts, agent work stops
+until the user's **go on** resumes result inspection.
 
 ## Registry and incremental rebuild contract
 

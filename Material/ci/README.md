@@ -18,6 +18,11 @@ source build. Missing official objects fail elaboration instead of authorizing a
 source rebuild. Actions caches from Methlib cannot be restored directly in this
 repository; the first Methboke seed is reported as a miss.
 
+After installing the pinned compiler, CI checks all audit `set_option` lines in
+an isolated Lean probe before compiling project modules. This catches printer
+option incompatibilities early; it does not count as a theorem audit or PASS.
+The full endpoint and cutout audits still run after compilation.
+
 `native_build.py` implements the QFB dependency-frontier pattern with `--jobs 2`.
 `LEAN_NUM_THREADS=2` is a separate compiler setting. Module reuse requires a
 matching compiler, dependency lock, platform, configuration/policy, all installed

@@ -95,6 +95,35 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
           "$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"
 
+      - name: Check audit options before compiling project modules
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          from pathlib import Path
+          sources = sorted(Path('Material').glob('*/Audit.lean'))
+          sources.append(Path('LEAN_CUTOUTS/Cutouts.lean'))
+          options = set()
+          for source in sources:
+              options.update(re.findall(r'^set_option .+$', source.read_text(), re.MULTILINE))
+          probe = Path(os.environ['RUNNER_TEMP']) / 'MaterialAuditOptions.lean'
+          probe.write_text('import Lean\n' + '\n'.join(sorted(options)) + '\n#check Nat\n')
+          plan = {
+              'scope': 'audit option compatibility only; no theorem acceptance',
+              'tested_revision': os.environ['GITHUB_SHA'],
+              'lean_toolchain': Path('Material/lean-toolchain').read_text().strip(),
+              'dependency_lock_sha256': hashlib.sha256(Path('Material/lake-manifest.json').read_bytes()).hexdigest(),
+              'probe_sha256': hashlib.sha256(probe.read_bytes()).hexdigest(),
+              'sources': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},
+              'local_lean_allowed': False,
+          }
+          Path('Material/registry/audit-options-plan.json').write_text(json.dumps(plan, indent=2) + '\n')
+          PY
+          cd Material
+          lean --root="$RUNNER_TEMP" "$RUNNER_TEMP/MaterialAuditOptions.lean"
+
       - name: Compile affected own modules and freshly audit every endpoint
         id: verify
         env:

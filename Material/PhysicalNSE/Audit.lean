@@ -1,7 +1,6 @@
 import PhysicalNSE.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth"
 #check @SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth

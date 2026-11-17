@@ -1,7 +1,6 @@
 import QFBCutoff.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:QuasiFeffermanB.cutoff"
 #check @QuasiFeffermanB.cutoff

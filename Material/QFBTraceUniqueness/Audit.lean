@@ -1,7 +1,6 @@
 import QFBTraceUniqueness.Endpoint
 
 set_option pp.universes true
-set_option pp.width 120
 
 #eval IO.println "TYPE_BEGIN:QuasiFeffermanB.positive_reference_strict_shift_serrin"
 #check @QuasiFeffermanB.positive_reference_strict_shift_serrin
