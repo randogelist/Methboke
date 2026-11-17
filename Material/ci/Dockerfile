@@ -16,7 +16,7 @@ RUN curl --fail --location --retry 3 \
       --output /tmp/elan.tar.gz \
     && printf '%s  %s\n' "${ELAN_SHA256}" /tmp/elan.tar.gz | sha256sum --check --strict \
     && tar -xzf /tmp/elan.tar.gz -C /tmp \
-    && /tmp/elan-init --yes --no-modify-path --default-toolchain none \
+    && /tmp/elan-init -y --no-modify-path --default-toolchain none \
     && rm -f /tmp/elan.tar.gz /tmp/elan-init
 
 ENV PATH="/root/.elan/bin:${PATH}"
