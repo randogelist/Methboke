@@ -8,15 +8,14 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 - **Native QFB source is present:** 74 QFB modules and 195 required
   SingularClosure modules, preserved at their pinned source bytes.
-- **Material passed at `04fbd79`:** all 283 project objects were reused. All 14
-  endpoint audits covering 41 declarations and the QFB cutout passed freshly
-  with standard axioms only in [run 44071830091](https://github.com/randogelist/Methboke/actions/runs/44071830091).
-- **Container-native reuse passed:** the job took **7m26s**, excluding queue
-  time, versus the preceding 8m07s. All 125 control tests passed. Dependencies
-  stayed inside the passed container, all exported project receipts were
-  hash-checked, and the new GHCR container and compatible main pointer were
-  published. [Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44071830091/artifacts/14322868702)
-  belongs to the exact tested source; earlier baselines remain retained.
+- **Material passed at `68e9f8a`, attempt 2:** all 283 project objects were reused.
+  All 14 endpoint audits covering 41 declarations and the QFB cutout passed
+  freshly with standard axioms only in [the 8m13s rerun](https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2).
+  All 125 control tests passed, and the GHCR image and main pointer were published.
+  [Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770) belongs to that exact source and attempt.
+- **Native binary-cache pilot is prepared:** the next run restores compiled
+  objects from Actions caches and publishes a verified project archive, without
+  Docker packaging. Its result and performance remain pending external CI.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -82,9 +81,9 @@ cache label alone cannot supply Methboke's first verified baseline.
 The [Material workflow](.github/workflows/material.yml) restores compatible
 passed objects, builds amendments and affected dependencies, and runs every
 required endpoint/type/axiom audit freshly. Only an accepted result can publish
-a passed container to `ghcr.io/randogelist/methboke-material`. Immutable records
-preserve earlier passes; a compatible latest-pass pointer serves subsequent
-commits. Cache misses and warm measurements are reported distinctly.
+verified binary archives during the pilot. The manual `registry` backend retains
+passed containers in `ghcr.io/randogelist/methboke-material`; prior images remain
+available. Cache misses and warm measurements are reported distinctly.
 
 The accepted first baseline was a cold seed: both caches missed, all 283 own
 modules were compiled, and official Mathlib objects were restored. The job took
@@ -105,10 +104,24 @@ phase was skipped. All exported object hashes were checked before publication.
 The 41s overall improvement is a single observation, and the prior run rebuilt
 one wrapper whereas this run rebuilt none.
 
-The requested `MAYBE ;AYBE` comment in `Material/QFBRoot/Endpoint.lean` now
-provides a one-module amendment benchmark against that accepted container.
-Its result remains pending external CI. The original empty-commit timing
-remains unmeasured because its pending run was superseded.
+The `MAYBE ;AYBE` comment benchmark passed in 9m08s: 282 objects reused and
+only its wrapper rebuilt. Its unchanged manual rerun passed in 8m13s with all
+283 objects reused. These are GHCR measurements; the original empty-commit
+timing remains unmeasured because its pending run was superseded.
+
+For the next three rounds, pushes default to `binary_cache`; manual
+`backend=registry` retains the previous path. Binary runs require an exact
+existing dependency cache and compatible project objects with a prior PASS
+report. Missing caches stop the trial; no dependency source rebuild is allowed.
+The unchanged native driver compiles amendments and freshly audits every endpoint.
+A receipt-checked `material-project-<shortSHA>-<run>-<attempt>.tar.gz` plus manifest is retained as a
+`material-binary-<sha>-<run>-<attempt>` Actions artifact for 90 days. Dependencies
+remain in their separate Actions cache; this is not a durable dependency-release
+fallback. The 20 GiB warm disk guard is unchanged; Docker publication and the
+40 GiB cold-seed cleanup are disabled for this backend.
+
+Planned rounds are unchanged-source native reuse, an exact repeat, then a
+comment amendment. Runtime improvements are hypotheses until measured.
 After a new CI run starts, agent work stops; **go on** resumes result inspection
 and any necessary repair.
 

@@ -1,170 +1,112 @@
-# Native cached verification and passed snapshots
+# Cached verification and passed objects
 
-The active workflow is `.github/workflows/material.yml`: native Ubuntu 24.04,
-Lean `leanprover/lean4:v4.33.0`, pinned Mathlib and complete dependency lock.
-The first seed runs natively on the host; later registry-restored builds execute
-inside the exact last passed image.
-Local authoring validation never executes Lean. Linux evidence is not native
-Windows evidence.
+The active workflow is `.github/workflows/material.yml`: Ubuntu 24.04,
+Lean `leanprover/lean4:v4.33.0`, pinned Mathlib and the complete dependency lock.
+Local authoring work never executes Lean. Linux evidence is not native Windows
+verification. The native binary-cache trial is **prepared, pending external CI**.
 
-On a push to `main`, CI restores the latest compatible passed GHCR snapshot by
-immutable digest. The prepared `container_workspace.py` path keeps inherited
-dependency and own objects inside that image instead of copying the full cache
-to the host. It overlays current Material source and cutouts at `/workspace`,
-runs the unchanged compiler/audit driver, and exports only fresh registry
-evidence and successful own build outputs. Each exported object is checked
-against its receipt before acceptance. This workspace optimization is pending
-external verification; the preceding mounted-workspace path passed at `73c2e98`.
+## Trial backends
 
-If no compatible registry snapshot is available, independent compatible Actions
-caches are restored and the native-host path is used. A first seed uses the
-pinned official Mathlib cache and compiles only the requested own-source closure.
-The driver never issues a Mathlib source build. Missing official objects fail
-elaboration instead of authorizing a source rebuild. Actions caches from Methlib
-cannot be restored directly in this repository.
+Pushes and default manual runs use `binary_cache` during the pilot. Manual
+`backend=registry` selects the existing GHCR path. `exact_cache_benchmark=true`
+implies the binary backend and requires an exact project cache as well as exact
+dependencies. Neither a prepared backend nor cache restoration establishes PASS.
 
-After installing the pinned compiler, CI checks all audit `set_option` lines in
-an isolated Lean probe before compiling project modules. This catches printer
-option incompatibilities early; it does not count as a theorem audit or PASS.
-The full endpoint and cutout audits still run after compilation.
+The binary path restores separate Actions caches for `Material/.lake/packages`
+and for own `.lake/build` outputs plus their previous `registry/current.json`.
+An exact dependency hit, compatible project-cache match and prior PASS report
+are required before compiler setup. A miss stops the trial honestly. Native
+verification also rejects incomplete/incompatible installed dependency outputs;
+it does not fetch or rebuild missing Mathlib objects. The ordinary binary round
+allows compatible project prefixes so amendments can reuse unchanged modules.
 
-`native_build.py` implements the QFB dependency-frontier pattern with `--jobs 2`.
-`LEAN_NUM_THREADS=2` is a separate compiler setting. Module reuse requires a
-matching compiler, dependency lock, platform, configuration/policy, all installed
-external `.olean*` hashes, source hash, recursively imported own-object identities,
-and every retained object/companion digest. Only affected own modules are rebuilt.
-Independent modules run concurrently; a failed module blocks its dependants while
-unrelated modules continue. Each verification freshly elaborates all fourteen
-audit files (41 configured declaration entries) and the single-file original QFB
-cutout. The cutout repeats the same QFB theorem; it is not an additional distinct
-mathematical result. Old audit logs never satisfy a new run.
+Compilation runs directly on the external native runner. Binary runs perform no
+Docker authentication, pull, build or push, and do not advance the GHCR pointer.
+The warm 20 GiB disk guard remains unchanged for comparison; the 40 GiB cold-seed
+cleanup is excluded. Existing passed GHCR images and dependency caches remain.
 
-The source/configuration receipt adapter has compiler-free adversarial tests and
-follows the established QFB reuse contract. The selected package passed at
-`6440270` and `73c2e98`; each later amendment still needs matching external
-evidence. The latter run passed all 100 external control tests. New workspace
-and cleanup tests are prepared for external CI only. Python tests or local
-static inspection alone cannot establish a Lean theorem.
+The planned rounds are (1) unchanged-source native reuse, (2) an exact repeat,
+and (3) a comment amendment. Each round starts only within the user's continuing
+work; agent work stops when CI starts, and **go on** resumes inspection. Faster
+runtime is a hypothesis, not a preparation result.
 
-## Exact-cache benchmark
+## Shared verification contract
 
-The manual `exact_cache_benchmark` input selects the H12-style measurement:
-exact dependency and project Actions-cache hits are mandatory. A miss ends the
-measurement before compiler setup. The ordinary push profile can seed missing
-own objects and retrieve official dependency objects. It never labels a miss
-as a warm run. Every actual verification performs fresh required audits.
+`native_build.py` uses two dependency-frontier workers; `LEAN_NUM_THREADS=2` is
+a separate compiler setting. Reuse requires matching compiler, lock, platform,
+configuration/policy, installed external `.olean*` digest, source hash, recursive
+own-import identities and every retained object/companion hash. Only affected
+own modules rebuild. The driver, launcher, pins and proof sources are unchanged
+for this trial, preserving compatible per-module receipts.
 
-`current.json` reports compiler identity, execution backend, dependency revisions, module counts,
-fresh/reused physical source lines, build/audit time, and receipt-recheck time.
-The secondary no-op measurement checks all source/object receipts again; it is
-explicitly **not** a second Lean compilation or duplicate theorem audit.
-`run-plan.json` records the exact source, pins, endpoint scope, policy and controls
-before external Lean execution. `transport.json` records restoration and native
-exit status. Compatible registry restoration records dependency cache class EXACT
-and project class PREFIX; the restore mode separately identifies the registry,
-and per-module receipts establish which objects actually match. Missing setup/upload measurements remain in Actions step timings;
-no stable-runtime guarantee is inferred from a single run.
+Every verification freshly elaborates all fourteen endpoint audit files,
+covering 41 declaration entries, plus the original QFB single-file cutout.
+Exact types and allowed axioms are checked against fresh logs. The cutout repeats
+the original root; it is not an extra mathematical result. The early printer
+option probe detects unsupported audit options but is not theorem acceptance.
 
-## Passed registry
+`current.json` records compiler/dependencies, execution backend, source, reuse
+counts and timings. `run-plan.json` records scope and controls before compiler
+execution. The receipt recheck is explicitly not another Lean pass. Restoration
+metadata and Actions step timings distinguish cache hits, setup, compilation,
+audits, archive publication and failed phases.
 
-The image repository is `ghcr.io/<owner>/<repository>-material`. Images are
-runnable Ubuntu 24.04 snapshots, published only after compilation and all fresh
-audits pass. They include copied sources, dependency/project objects, receipts
-and audit evidence. Image construction executes no Lean compiler. On the next
-registry-restored push, the prepared `container_workspace.py` launches that exact
-immutable image and runs the amendment build at `/workspace`. The checksum-pinned
-host Lean toolchain is mounted read-only at `/opt/lean`; it is not duplicated
-inside the image. Source is copied into the isolated container without mounting
-the host workspace, home, credentials or Docker socket. Only explicit nonsecret
-run/cache settings are forwarded. The container uses its root identity to read
-and write its own inherited files without changing dependency ownership.
+## Binary pilot archives
 
-Cold seeding, Actions-cache fallback and exact-cache benchmarks use the native
-host through `verify-external.sh`. Both paths retain the same source/compiler
-receipt scheduler and fresh audit policy. The new transport source hash is
-recorded separately, without weakening compiled-object identity checks.
+After the native build and all fresh audits pass, `binary_bundle.py` revalidates
+the current evidence and own `.olean*` receipts, then prepares
+`material-project-<shortSHA>-<run>-<attempt>.tar.gz` with gzip level 1 and an adjacent `manifest.json`. It includes
+receipt-verified own objects, `current.json` and required fresh audit logs;
+it excludes Mathlib/dependency packages and stale unreceipted objects. The
+manifest binds exact source/run/attempt, compiler/dependency identity, member
+hashes, archive SHA256, bytes and packaging time. `binary-entry.json` records
+`READY_FOR_UPLOAD`; successful remote upload is established by the Actions step.
 
-| Registry identity | Meaning |
-|---|---|
-| `passed-<commit12>-<run>-<attempt>` | Immutable successful aggregate snapshot |
-| `ep-<endpoint>-<inputhash12>-<run>-<attempt>` | Endpoint tag referencing the same aggregate bytes |
-| `latest-<branch>-<branchhash8>-<compatibility16>` | Compatible latest successful branch pointer |
+Actions uploads `material-binary-<sha>-<run>-<attempt>` with **90-day retention**.
+Own objects are also saved in the compatible project Actions cache. Dependencies
+remain in their separate cache. This is a pilot archive, not a durable release
+fallback for dependencies. No compiled binary is committed into Git. Verified
+compiler/audit evidence is uploaded before publication, and final diagnostics
+are uploaded even when publication fails.
 
-The pointer advances only if `previous successful commit <= candidate <= current
-branch head`. Old reruns cannot replace newer successful pointers. Failed builds,
-missing audits, unapproved axioms or snapshot publication failures leave the last
-passed pointer intact. Verified compiler/audit evidence is uploaded before
-publication; final diagnostics are uploaded afterward. Generic Actions caches
-are saved only after the current native build and fresh audits pass. Registry
-hits skip the redundant dependency archive save. Publication has a 15-minute
-step timeout.
+## GHCR alternative
 
-Compatibility hashes the toolchain, full lock, Lake configuration, snapshot
-Dockerfile and cache contract. Source and audit-policy changes also affect the
-project cache key and module receipts. Reuse never crosses Linux/Windows or Lean
-version boundaries. Registry/source identifiers are passed as structured process
-arguments. Credentials are scoped to registry login/publication steps; checkout
-does not retain credentials.
+The `registry` backend restores the exact compatible passed image by digest.
+`container_workspace.py` keeps dependencies and own objects inside it, overlays
+current source at `/workspace`, and exports only fresh evidence and verified own
+outputs. The pinned host Lean installation is mounted read-only at `/opt/lean`.
+No host workspace, credentials, home directory or Docker socket is mounted.
 
-`registry.py`, `Dockerfile` and `container-build.sh` retain the historical container
-backend for review/replay. The active main workflow uses `native_registry.py`,
-`container_workspace.py`, native fallback `verify-external.sh`, and the snapshot
-recipes. Its existing ancestry and PASS publication gates are shared
-with the historical implementation.
+Successful GHCR publication creates the aggregate
+`passed-<commit12>-<run>-<attempt>`, fourteen endpoint aliases and a compatible
+latest-pass pointer. The pointer advances only within the current compatible
+branch ancestry. Each warm snapshot inherits dependencies from its authenticated
+parent and replaces own sources/outputs/evidence. Context size and disk headroom
+are checked. Failed verification/publication leaves previous passed images intact.
+A registry miss may use compatible caches or the exact official dependency cache;
+Mathlib source compilation is never authorized. Its cold snapshot recipe remains.
 
-## Verified warm publication and next optimization
+## Verified comparison baseline
 
-Earlier run `44059698760` restored the passed image and completed verification,
-then exhausted disk while copying a 7.67 GB context. Its matching audit artifact
-was unavailable, so no exact reuse count or new theorem receipt is asserted.
-The corrected [run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232) passed at
-`73c2e98`: 282/283 own objects reused, one comment-modified endpoint rebuilt,
-all 14 endpoint audits plus cutout fresh, and publication complete. Job 8m07s
-excludes queue time; restoration took 212s, SDK cleanup 48s, verification step
-141s and publication 55s. Exact evidence is retained under
-[material-73c2e98](../../audits/material-73c2e98/summary.json).
+[Run 44073883524, attempt 2](https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2)
+at `68e9f8ad8663ebfcc0b84ca5b927908dfe5e1602` passed in **8m13s**, excluding
+queue: all 283 own objects reused; all fourteen endpoint audits and the cutout
+fresh; 125 control tests passed. Cleanup took 78s, image restoration 160s,
+compiler installation 17s, verification 151s and publication 70s. Driver time
+was 133.550s: cache 29.880s, own build 0.464s and fresh audits 101.865s.
+[Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770)
+has verified archive/report/audit-log hashes. This measures GHCR, not binary CI.
 
-Warm publication inherits `.lake/packages` from the validated immutable parent.
-The new layer replaces current sources, own outputs and fresh evidence; its
-73,327,527-byte context excludes the large dependency directory. Inheritance
-requires matching compiler/toolchain, pins, platform, retained-cache status and
-external `.olean*` digest. That digest covers Lean objects and their `.olean*`
-companions, not every IR/trace file. A mismatch fails closed. The original cold
-`Snapshot.Dockerfile` and compatibility identity remain unchanged. Context size
-and disk headroom are checked before construction; no passed image is pruned.
+The preceding comment amendment passed in 9m08s with 282 reused objects and one
+rebuilt wrapper. Earlier unchanged-source `04fbd79` passed in 7m26s; `73c2e98`
+passed in 8m07s. Variable cleanup/import/transfer times prevent a speed guarantee.
+The old 7.67 GB Docker-context failure remains historical infrastructure evidence.
+The current small context is not a measurement of total image size.
 
-The next optimization removes the remaining full dependency export during
-restoration and verifies hashes on the smaller exported own-object set. It is
-`PREPARED_PENDING_EXTERNAL_VERIFICATION`, not an already measured improvement.
-Repeated parent-image layering may eventually require a bounded dependency-base
-strategy; that separate optimization is not part of this change.
+Reference designs remain the Methlib QFB 4m40s / 74-object reuse run and H12
+3m03s / sixteen-checkpoint run. Their scopes differ from this project's 283
+modules. Source preparation, Python control tests and static inspection cannot
+establish a new Lean theorem or unconditional finite-cap closure.
 
-SDK cleanup first checks a bounded free-space target and stops after reaching
-it. Defaults are 20 GiB before warm restoration and 40 GiB for the cold-seed path;
-configuration may adjust these only within the implementation's allowed bounds.
-Deletion is restricted to the existing unrelated SDK allowlist on disposable
-GitHub-hosted runners. Workspace, toolchain, caches and images are excluded.
-Per-mode reports record the budget, space observations and cleanup decisions.
-
-The historical recovery workflow targets only obsolete run `44061664660`, checks
-its exact commit/workflow identity and requests cancellation, escalating to
-force cancellation when needed. It does not delete registry images.
-
-## Reference configurations
-
-| Source | Verified observation | Adopted structure |
-|---|---|---|
-| [Methlib QFB run 43801307847](https://github.com/randogelist/Methlib/actions/runs/43801307847) | 4m40, 74/74 objects reused | Two-worker dependency scheduler and fresh audits |
-| [Methlib H12 run 43361151038](https://github.com/randogelist/Methlib/actions/runs/43361151038) | 3m03, sixteen checkpoints | Separate dependency/project restoration and exact-cache measurement |
-
-These timings have different target scopes from Material's 269 inherited modules
-plus fourteen wrappers. They are structural references, not predicted runtimes.
-
-## Compiler-free preparation checks
-
-```bash
-python3 -m unittest discover -s Material/ci/tests
-python3 Material/ci/build.py --validate-only
-```
-
-These checks cannot establish a Lean theorem or unconditional finite-cap closure.
+Fourteen additional control tests are prepared for external CI (139 total expected).
+They have not been executed locally.

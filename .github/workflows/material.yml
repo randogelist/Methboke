@@ -1,12 +1,17 @@
-name: Material / native cached verification and passed registry
+name: Material / cached verification and passed objects
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
     inputs:
+      backend:
+        description: 'Binary-cache pilot or the retained passed-container path'
+        type: choice
+        options: [binary_cache, registry]
+        default: binary_cache
       exact_cache_benchmark:
-        description: 'Require exact dependency and project caches; stop on cache miss'
+        description: 'Use binary backend and require exact dependency and project cache keys'
         type: boolean
         default: false
 
@@ -29,6 +34,7 @@ jobs:
       MATERIAL_COMMAND_TIMEOUT: '1800'
       LEAN_NUM_THREADS: '2'
       EXACT_BENCHMARK: ${{ inputs.exact_cache_benchmark && 'true' || 'false' }}
+      MATERIAL_BACKEND: ${{ inputs.exact_cache_benchmark && 'binary_cache' || inputs.backend || 'binary_cache' }}
     steps:
       - name: Checkout exact source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -45,19 +51,24 @@ jobs:
         run: bash Material/ci/prepare-runner.sh --mode warm
 
       - name: Authenticate passed snapshot registry
+        if: env.MATERIAL_BACKEND == 'registry'
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
 
-      - name: Restore last compatible passed snapshot
+      - name: Select cache transport and compatible keys
         id: restore
         run: |
           extra=()
-          if [ "$EXACT_BENCHMARK" = true ]; then extra+=(--benchmark); fi
+          case "$MATERIAL_BACKEND" in
+            binary_cache) extra+=(--benchmark) ;;
+            registry) ;;
+            *) echo 'Unsupported Material backend'; exit 1 ;;
+          esac
           python3 Material/ci/native_registry.py prepare --state "$MATERIAL_STATE" "${extra[@]}"
 
       - name: Ensure cold seed disk headroom
-        if: steps.restore.outputs.registry_restored != 'true'
+        if: env.MATERIAL_BACKEND == 'registry' && steps.restore.outputs.registry_restored != 'true'
         run: bash Material/ci/prepare-runner.sh --mode cold
 
       - name: Restore pinned dependencies
@@ -78,6 +89,52 @@ jobs:
             Material/registry/current.json
           key: ${{ steps.restore.outputs.project_key }}
           restore-keys: ${{ steps.restore.outputs.project_prefix }}
+
+      - name: Require passed binary caches before compiler setup
+        if: env.MATERIAL_BACKEND == 'binary_cache'
+        env:
+          DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
+          PROJECT_HIT: ${{ steps.project.outputs.cache-hit }}
+          PROJECT_MATCHED: ${{ steps.project.outputs.cache-matched-key }}
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          report_path = Path('Material/registry/current.json')
+          if os.environ.get('DEPENDENCY_HIT') != 'true' or not os.environ.get('PROJECT_MATCHED'):
+              raise SystemExit('CACHE_MISS: binary trial requires exact dependencies and compatible passed project objects.')
+          if not report_path.is_file():
+              raise SystemExit('CACHE_MISS: restored project objects lack their PASS report.')
+          previous = json.loads(report_path.read_text())
+          if (previous.get('status') != 'PASS' or previous.get('compiler_executed') is not True
+                  or previous.get('all_endpoints_selected') is not True
+                  or previous.get('source_pin_integrity') is not True
+                  or not previous.get('module_receipts')):
+              raise SystemExit('CACHE_REJECTED: a complete prior verified project report is required.')
+          state_path = Path(os.environ['MATERIAL_STATE'])
+          state = json.loads(state_path.read_text())
+          plan = {
+              'schema_version': 1, 'backend': 'binary_cache',
+              'commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
+              'attempt': os.environ['GITHUB_RUN_ATTEMPT'],
+              'dependency_key': state['dependency_key'], 'dependency_exact_hit': True,
+              'project_requested_key': state['project_key'],
+              'project_matched_key': os.environ['PROJECT_MATCHED'],
+              'project_exact_hit': os.environ.get('PROJECT_HIT') == 'true',
+              'parent_commit': previous.get('commit'), 'parent_run_url': previous.get('run_url'),
+              'parent_report_sha256': hashlib.sha256(report_path.read_bytes()).hexdigest(),
+              'compiler_location': 'native_host', 'docker_used': False,
+              'missing_dependency_policy': 'STOP_WITHOUT_REBUILD_OR_DOCKER_SEED',
+              'artifact_retention_days': 90, 'scope': 'pilot; dependency bundle remains in Actions cache',
+          }
+          state.update(restore_mode='actions_passed_cache', workspace_mode='native_binary',
+                       benchmark_backend='binary_cache', binary_cache=plan)
+          state_path.write_text(json.dumps(state, indent=2, sort_keys=True) + '\n')
+          Path('Material/registry/binary-restore-plan.json').write_text(json.dumps(plan, indent=2, sort_keys=True) + '\n')
+          print('MATERIAL_BINARY_RESTORE ' + json.dumps(plan, sort_keys=True))
+          PY
 
       - name: Enforce exact-cache measurement profile
         if: inputs.exact_cache_benchmark
@@ -148,6 +205,11 @@ jobs:
             export MATERIAL_DEPENDENCY_CACHE_CLASS=EXACT
             export MATERIAL_PROJECT_CACHE_CLASS=PREFIX
           fi
+          if [ "$MATERIAL_BACKEND" = binary_cache ]; then
+            # Compatible project prefixes may rebuild amendments, but the driver
+            # must reject missing dependency outputs instead of hydrating a seed.
+            export EXACT_BENCHMARK=true
+          fi
           set +e
           if [ "$REGISTRY_RESTORED" = true ]; then
             python3 Material/ci/container_workspace.py --state "$MATERIAL_STATE"
@@ -174,6 +236,10 @@ jobs:
           path: Material/.lake/packages
           key: ${{ steps.restore.outputs.dependency_key }}
 
+      - name: Package verified own binary objects and fresh evidence
+        if: success() && env.MATERIAL_BACKEND == 'binary_cache'
+        run: python3 Material/ci/binary_bundle.py --state "$MATERIAL_STATE" --output-dir "$RUNNER_TEMP/material-binary"
+
       - name: Preserve freshly audited project cache
         if: success() && steps.project.outputs.cache-hit != 'true'
         uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
@@ -183,7 +249,18 @@ jobs:
             Material/registry/current.json
           key: ${{ steps.restore.outputs.project_key }}
 
+      - name: Publish binary pilot archive and manifest
+        if: success() && env.MATERIAL_BACKEND == 'binary_cache'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: material-binary-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/material-binary/
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Publish immutable passed snapshot and endpoint registry
+        if: success() && env.MATERIAL_BACKEND == 'registry'
         timeout-minutes: 15
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -4,7 +4,7 @@ DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = rebenchmark one comment amendment against the accepted container-native base
+ACTIVE_TASK = trial native binary-cache restoration and verified project archives
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,10 +22,10 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: use the accepted 04fbd79 container-native baseline; add the
-requested MAYBE ;AYBE comment to Material/QFBRoot/Endpoint.lean, push main
-and stop once external CI starts. The comment benchmark remains pending
-matching external compilation, fresh audits and timing evidence.
+MICROSCOPIC: prepare the native binary-cache pilot against the accepted 68e9f8a
+GHCR baseline; start round 1 with unchanged proof sources and stop once CI starts.
+Later go on rounds compare an exact repeat and a comment amendment. Native
+binary reuse and runtime remain pending matching external evidence.
 
 2. DEFINITIONS AND PREMISES
 
@@ -128,7 +128,7 @@ L15 further certified input families;
 L16 universal analytic germ-to-cap admission R1 (open).
 
 L01-L04 have selected pinned source interfaces in Material, externally
-compiled and freshly audited at 04fbd79. L05-L14 still require exact adapter
+compiled and freshly audited at 68e9f8a (run 44073883524, attempt 2). L05-L14 still require exact adapter
 construction and matching external audits for the new root. L16 is not supplied by a structure field or an identity theorem.
 A-tier activation follows presentation of the relevant mid-tier endpoints
 and user assent. Current setup does not change unresolved mathematical scope.
@@ -223,7 +223,7 @@ The compatible main pointer advanced. Retained exact evidence:
 audits/material-73c2e98/summary.json, current.json, registry-entry.json,
 snapshot-plan.json and original fresh audit logs.
 
-Latest accepted container-native baseline:
+Earlier accepted container-native baseline:
 https://github.com/randogelist/Methboke/actions/runs/44071830091
 Tested source: 04fbd79f3eb90ae2ea3ce62934da83bf10eecd9d.
 PASS: 283/283 own modules reused, with zero fresh modules; all 14 endpoint
@@ -242,6 +242,23 @@ The artifact, report and all 15 fresh audit-log hashes were checked. The 41s
 job improvement is one observation; the prior run rebuilt one wrapper while
 this run rebuilt none. Cleanup deleted Android because free space was below
 the 20 GiB budget. Fresh audits took longer; stable runtime is not established.
+
+Latest accepted GHCR baseline:
+https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2
+Tested source: 68e9f8ad8663ebfcc0b84ca5b927908dfe5e1602.
+Attempt 1 tested the MAYBE ;AYBE comment: PASS in 548s (9m08s), with 282/283
+objects reused and only QFBRoot.Endpoint rebuilt (45.999s). Attempt 2 manually
+repeated the same commit: PASS in 493s (8m13s), with 283/283 objects reused and
+zero modules compiled. Both retained all 14 fresh endpoint audits covering 41
+declarations and the fresh QFB cutout, exact types and standard-only axioms.
+All 125 external control tests passed. Attempt 2 timings: cleanup 78s, restore
+160s, toolchain 17s, verification step 151s, publication 70s. Driver 133.550s:
+cache 29.880s, own build 0.464s, fresh audits 101.865s, receipt recheck 0.506s.
+Image: ghcr.io/randogelist/methboke-material@sha256:c9263b3679086bc2874e1cd5ecaa721be41a02d28dfbf1abea070bb9a2d17ba4
+Main pointer updated. Matching artifact: https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770
+Artifact SHA256: e238380738d2520eae343939e06a750a54b815a8e1f97effb0b47503446fa60a.
+ZIP, current report and all 15 fresh audit-log hashes were verified. These
+measurements describe GHCR execution, not the prepared native binary pilot.
 
 Historical failure: run 44046225468 at 670de211 compiled all 283 modules,
 then failed on unsupported pp.width; no caches or container were published.
@@ -289,8 +306,30 @@ SDK reclamation is conditional on free space, applies only to disposable
 GitHub-hosted runners, and stops after enough allowlisted SDK space is freed.
 Warm and cold budgets are explicit and bounded (defaults 20/40 GiB); the cold
 check is used on a registry miss. No workspace, toolchain, object cache or passed
-image is deleted. The unchanged proof-source run at 04fbd79 verified 283/283
-reuse in 7m26s. The requested comment amendment is a separate pending benchmark.
+image is deleted. The unchanged proof-source runs at 04fbd79 and 68e9f8a
+attempt 2 verified 283/283 reuse in 7m26s and 8m13s respectively.
+
+Native binary-cache pilot: PREPARED_PENDING_EXTERNAL_CI.
+During the trial, pushes and the default manual backend use binary_cache;
+manual backend=registry preserves the GHCR path and all existing passed images.
+The exact_cache_benchmark input implies binary_cache with exact project-key
+matching. Ordinary binary rounds require exact dependency-cache restoration,
+a compatible own-project cache and its prior PASS report; absence stops the
+round before compiler setup. Native verification rejects missing/incompatible
+installed dependencies instead of fetching or rebuilding them. Compiler drivers,
+launcher, pins, proof bodies and per-module receipt identities remain unchanged.
+
+After current compilation and all fresh audits pass, binary_bundle.py verifies
+own .olean* receipts and creates material-project-<shortSHA>-<run>-<attempt>.tar.gz (gzip level 1), a hashed
+manifest and binary-entry.json. The archive contains current own objects and
+fresh evidence, not Mathlib/dependency packages. Actions publishes the archive
+as material-binary-<sha>-<run>-<attempt> with 90-day retention; dependencies and
+own outputs also use separate compatible Actions caches. The binary backend
+performs no Docker login/pull/build/push and no cold 40 GiB cleanup. The warm
+20 GiB cleanup guard remains unchanged for comparability. This is a pilot archive,
+not a durable dependency-release fallback. No speedup is asserted in advance.
+Planned rounds: (1) native reuse with unchanged proofs, (2) exact repeat,
+(3) a comment amendment. Each round resumes with go on and stops at runner start.
 
 New finite-cap root A-tier: NOT_ESTABLISHED.
 New root formal/unconditional closure: NOT_ESTABLISHED.
@@ -314,20 +353,21 @@ Do not promote pending source preparation or an unrelated green run.
 Main consolidation and native source preparation are complete. The candidate
 history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
 44046225564 retired that branch. The native package, original QFB root and
-single-file cutout passed cold at 6440270 and warm at 73c2e98 and 04fbd79.
-04fbd79 is the current accepted container-native base, with matching object/audit
-evidence and successful publication. Current target: benchmark the requested
-MAYBE ;AYBE Lean comment amendment, then stop once external CI starts. Preserve
-proof bodies, pins, endpoint manifests and all audit gates. The next go on
-assesses the amendment build, cache reuse, fresh audits and full job timing.
+single-file cutout passed cold at 6440270 and warm through 68e9f8a attempt 2.
+68e9f8a is the current accepted GHCR base, with matching object/audit evidence
+and successful publication. Current target: trial native binary-cache reuse
+for three controlled rounds, starting with unchanged proof sources. Preserve
+proof bodies, pins, endpoint manifests and all audit gates. Stop once CI starts;
+go on resumes receipt/artifact inspection and the next benchmark round.
 The upstream timing anchors guide scheduling; they do not guarantee runtime.
 
 CI contract: restore compatible dependency/foundation/project objects;
 validate source/compiler/lock/policy identity; use two dependency workers
 where supported; compile amendments and affected own dependencies; audit
 all required declarations freshly; publish only passed registry records.
-A missing Mathlib object requests the exact official cache, never an
-unapproved Mathlib source rebuild. Warm cache-required measurements must
+A registry cold seed may request the exact official Mathlib cache, never an
+unapproved Mathlib source rebuild. The binary pilot stops on missing/incompatible
+installed dependencies. Warm cache-required measurements must
 report cache misses honestly. Record module workers separately from Lean
 threads. No direct or indirect local Lean execution, including Lake wrappers,
 kernel audits, subprocesses, containers and subagents. Local work is source
