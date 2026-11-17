@@ -14,10 +14,11 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   All 139 control tests passed. The verified project archive is 25,391,076 bytes;
   [matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291)
   belongs to that exact source and attempt. Existing GHCR images remain available.
-- **Automatic recovery is prepared, pending external CI:** if the fast binary
-  worker cannot complete, a separate runner rebuilds all project modules from
-  the pinned official dependency objects, reruns every audit, and publishes
-  replacement objects and caches. The first integration run exercises this path.
+- **Recovery disk-budget repair is prepared, pending external CI:** the first
+  drill correctly launched the second runner and passed all 146 control tests,
+  then stopped before Lean on a 40 GiB disk guard. Binary recovery now requests
+  the existing 32 GiB minimum; the observed runner had 33.54 GiB free. The next
+  drill must still verify the full rebuild, audits and replacement publication.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -135,8 +136,12 @@ and no durable dependency-release backup is claimed. Both binary workers avoid
 Docker operations. Full recovery and subsequent reuse still await matching CI.
 
 The first native binary round passed in 4m59s; repeat/comment rounds remain pending.
-The next push uses `[material-recovery-drill]` to exercise recovery without deleting
-valid caches. After a new CI run starts, agent work stops; **go on** resumes result
+[The first recovery drill](https://github.com/randogelist/Methboke/actions/runs/44085694998)
+failed its disk preflight and correctly failed the final acceptance gate. No new
+compiled package was published. The repair applies a step-local 32 GiB cold budget
+to binary recovery only; fast verification remains at 20 GiB and registry cold
+publication at 40 GiB. The next `[material-recovery-drill]` push repeats recovery
+without deleting valid caches. After a new CI run starts, agent work stops; **go on** resumes result
 inspection and any necessary repair.
 
 Lean execution belongs to authorized external CI or native Windows replay.

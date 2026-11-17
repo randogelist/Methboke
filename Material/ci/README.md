@@ -4,7 +4,7 @@ The active workflow is `.github/workflows/material.yml`: Ubuntu 24.04,
 Lean `leanprover/lean4:v4.33.0`, pinned Mathlib and the complete dependency lock.
 Local authoring work never executes Lean. Linux evidence is not native Windows
 verification. The first native binary-cache round passed at `66052f4`; automatic
-recovery is **prepared, pending external CI**.
+recovery stopped on its first disk preflight; the **32 GiB repair awaits external CI**.
 
 ## Trial backends
 
@@ -25,7 +25,9 @@ to the separate recovery worker described below, except in strict benchmark mode
 Compilation runs directly on the external native runner. Binary runs perform no
 Docker authentication, pull, build or push, and do not advance the GHCR pointer.
 The warm 20 GiB disk guard remains unchanged for fast comparison. Recovery
-uses the cold disk guard before a full project rebuild. Existing passed GHCR
+uses the cold disk guard with a step-local `MATERIAL_COLD_MIN_FREE_GIB=32`
+override before a full project rebuild. The registry cold path remains at 40 GiB.
+The bounded helper itself is unchanged. Existing passed GHCR
 images and cache entries remain.
 
 The first unchanged-source native round passed in 4m59s; an exact repeat and
@@ -57,11 +59,21 @@ immutable canonical cache; strict benchmarks retain canonical exact-key rules.
 Neither path removes previous good caches or images. Acceptance follows complete
 verification, cache publication, archive upload and final evidence upload.
 
-The first integration push includes `[material-recovery-drill]`, intentionally
-requesting recovery before normal restoration without deleting caches. Manual
-`force_rebuild=true` supplies the same controlled exercise. Recovery and subsequent
-healed-cache reuse remain unverified until their matching external evidence is
-inspected. A longer full-project run is expected; it is not a warm benchmark.
+The first `[material-recovery-drill]` run,
+[44085694998 at c461671](https://github.com/randogelist/Methboke/actions/runs/44085694998),
+correctly started recovery and passed all 146 control tests plus source validation.
+Its disk guard then failed before toolchain setup: 36,011,274,240 bytes
+(33.54 GiB) remained after allowed SDK cleanup, below the inherited 40 GiB
+requirement. No Lean or project build ran and no new package or caches were
+published. The terminal acceptance gate correctly rejected the run.
+
+Binary recovery now uses the helper's existing bounded 32 GiB minimum through
+a step-local override; the Docker registry path retains 40 GiB. This changes
+only resource admission, not the fresh-build or audit requirements. The next
+`[material-recovery-drill]` push repeats recovery without deleting caches. Manual
+`force_rebuild=true` supplies the same exercise. The completed full rebuild and
+subsequent healed-cache reuse still require matching external evidence. A longer
+full-project run is expected; it is not a warm benchmark.
 
 ## Shared verification contract
 
@@ -161,6 +173,8 @@ Reference designs remain the Methlib QFB 4m40s / 74-object reuse run and H12
 modules. Source preparation, Python control tests and static inspection cannot
 establish a new Lean theorem or unconditional finite-cap closure.
 
-The 139 control tests passed in external round 1. Seven additional bundle
-recovery tests are prepared for the next external run (146 total expected).
+The 139 control tests passed in external round 1; all 146, including the seven
+bundle recovery tests, passed in the first recovery drill. One additional mocked
+regression covers the observed disk availability under the 32/40 GiB profiles
+(147 total expected on the next external run).
 No project tests or Lean commands are executed locally.

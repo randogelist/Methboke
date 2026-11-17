@@ -72,6 +72,9 @@ runs:
       shell: bash
       env:
         WORKER_MODE: ${{ inputs.worker-mode }}
+        # Binary recovery builds no Docker image; keep the helper's existing
+        # conservative cold minimum. This override applies only to this step.
+        MATERIAL_COLD_MIN_FREE_GIB: ${{ inputs.worker-mode == 'recovery' && '32' || '40' }}
       run: |
         disk_mode=warm
         if [ "$WORKER_MODE" = recovery ]; then disk_mode=cold; fi

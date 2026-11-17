@@ -4,7 +4,7 @@ DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = add separate-runner recovery for unavailable or unusable binary caches
+ACTIVE_TASK = repair the binary recovery disk budget and repeat the external recovery drill
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,9 +22,9 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: prepare and externally exercise automatic full-project recovery
-when the fast binary worker cannot complete, preserving the accepted 66052f4
-native binary baseline. Recovery uses pinned official dependency objects and
+MICROSCOPIC: repair the pre-compiler disk-budget failure in recovery run
+44085694998 and repeat the external full-project drill, preserving the accepted
+66052f4 native binary baseline. Recovery uses pinned official dependency objects and
 publishes fresh audited objects and caches. Stop once CI starts; matching recovery
 and later healed-cache reuse evidence remain pending. Exact repeat/comment trial
 rounds remain available after this scoped recovery request.
@@ -325,8 +325,10 @@ remain available. Every endpoint and cutout audit remains fresh.
 
 SDK reclamation is conditional on free space, applies only to disposable
 GitHub-hosted runners, and stops after enough allowlisted SDK space is freed.
-Warm and cold budgets are explicit and bounded (defaults 20/40 GiB); the cold
-check is used on a registry miss or full binary recovery. No workspace, toolchain, object cache or passed
+Warm and cold budgets are explicit and bounded (defaults 20/40 GiB). Binary
+recovery now selects the existing 32 GiB cold minimum through a step-local
+MATERIAL_COLD_MIN_FREE_GIB override; the registry cold path stays at 40 GiB
+and the fast path at 20 GiB. No workspace, toolchain, object cache or passed
 image is deleted. The unchanged proof-source runs at 04fbd79 and 68e9f8a
 attempt 2 verified 283/283 reuse in 7m26s and 8m13s respectively.
 
@@ -338,7 +340,7 @@ new recovered cache generations before canonical keys; compatible project
 prefixes support amendment builds. Strict exact_cache_benchmark bypasses those
 probes, requires canonical exact hits and never starts recovery.
 
-Automatic recovery: PREPARED_PENDING_EXTERNAL_CI.
+Automatic recovery: DISK_BUDGET_REPAIR_PREPARED_PENDING_EXTERNAL_CI.
 The fast worker may fail without accepting the workflow. For ordinary binary
 runs, failure to obtain its final accepted output launches a separate Ubuntu
 24.04 recovery worker at the same source SHA, unless the workflow is cancelled.
@@ -364,8 +366,23 @@ Actions caches remain the restoration input, so artifact expiry alone does not
 trigger recovery while usable caches remain. Recovery recreates missing caches
 and the project archive; no durable dependency-release backup or Git binary
 store is asserted. Existing successful images and cache entries are retained.
-The initial integration push includes [material-recovery-drill] to request the
-second worker without deleting valid caches. Its runtime result is pending.
+The first drill at c461671d604903df0d1a4c05dc12c63332126db2, run 44085694998,
+correctly handed the deliberately unsuccessful fast worker to recovery. All
+146 external control tests passed in 1.388s and source validation passed. Recovery
+then stopped before toolchain setup or Lean execution: the inherited 40 GiB cold
+guard required 42,949,672,960 bytes but the allowed SDK cleanup left
+36,011,274,240 bytes (33.54 GiB), up from 13,504,372,736 bytes in 67.433s.
+Only allowlisted Android, dotnet and ghcup SDKs were removed; caches were intact.
+No project compilation, fresh theorem audit, binary or cache publication occurred.
+The terminal acceptance job correctly failed. Failure evidence:
+https://github.com/randogelist/Methboke/actions/runs/44085694998/artifacts/14328628908
+Artifact SHA256 f88ed4967c521b7bb1c8eb6eade5cb27a540dad747cf52f450f163b4ddb9e630.
+The repair uses the existing bounded 32 GiB cold setting only for binary recovery,
+which does not build a Docker snapshot. The helper, driver, proof sources and pins
+are unchanged. One mocked disk regression is prepared for external CI (147 tests
+expected); no local tests ran. The next [material-recovery-drill] push repeats the
+full recovery exercise without deleting valid caches. Matching rebuild and
+subsequent healed-cache reuse evidence remain pending.
 Each resumed round stops once CI starts; go on resumes inspection.
 
 New finite-cap root A-tier: NOT_ESTABLISHED.

@@ -113,6 +113,23 @@ class RunnerDiskTests(unittest.TestCase):
         self.assertEqual(report['required_free_bytes'], 40 * d.GIB)
         self.assertTrue((self.root / 'Material/registry/runner-disk-cold.json').is_file())
 
+    def test_binary_recovery_accepts_observed_headroom_without_lowering_registry_default(self):
+        observed = {name: {'path': str(self.root), 'free_bytes': 36011274240}
+                    for name in ('workspace', 'docker')}
+        recovery = {**self.environment, 'MATERIAL_COLD_MIN_FREE_GIB': '32'}
+        with patch.object(d, 'disk_snapshot', return_value=observed), \
+                patch.object(d, 'eligible_sdk', return_value=False), patch.object(d, 'remove_sdk') as remove:
+            report = d.prepare(self.root, mode='cold', environment=recovery)
+            self.assertEqual(report['status'], 'SPACE_SUFFICIENT')
+            self.assertEqual(report['required_free_bytes'], 32 * d.GIB)
+            self.assertTrue(report['cleanup_skipped'])
+            with self.assertRaisesRegex(RuntimeError, 'insufficient runner disk'):
+                d.prepare(self.root, mode='cold', environment=self.environment)
+            remove.assert_not_called()
+        saved = json.loads((self.root / 'Material/registry/runner-disk-cold.json').read_text())
+        self.assertEqual(saved['required_free_bytes'], 40 * d.GIB)
+        self.assertEqual(saved['status'], 'FAIL')
+
 
 if __name__ == '__main__':
     unittest.main()

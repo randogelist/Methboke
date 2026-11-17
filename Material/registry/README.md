@@ -34,7 +34,7 @@ objects and a prior PASS report are mandatory for fast acceptance. No Docker
 publication occurs and the existing GHCR pointer is preserved. Manual
 `backend=registry` retains the previous container path.
 
-Automatic separate-runner recovery is prepared, pending matching external CI.
+Automatic separate-runner recovery has a disk-budget repair pending external CI.
 When the fast binary worker cannot finish, a fresh runner at the same commit
 restores no Actions caches or image, obtains the pinned official Mathlib binary
 objects, rebuilds every project module and audits everything freshly. It must
@@ -44,6 +44,14 @@ dependency objects still block the build; Mathlib source compilation is forbidde
 The final workflow verdict requires one fully accepted worker, including cache
 availability, archive upload and final evidence upload. Cancelled runs and strict
 exact-cache benchmarks do not start recovery. Existing good caches are preserved.
+
+The first drill at `c461671`, [run 44085694998](https://github.com/randogelist/Methboke/actions/runs/44085694998),
+passed 146 controls and source validation but stopped before Lean: its 40 GiB
+disk requirement exceeded the 33.54 GiB remaining after allowlisted SDK cleanup.
+The final verdict correctly failed. [Failure evidence](https://github.com/randogelist/Methboke/actions/runs/44085694998/artifacts/14328628908)
+is infrastructure evidence only; no new binary or caches were published. The
+repair selects the existing 32 GiB cold minimum only for binary recovery, leaving
+fast 20 GiB and registry cold 40 GiB settings intact. Full recovery remains unverified.
 
 After complete verification, the pilot prepares `material-project-<shortSHA>-<run>-<attempt>-<fast|recovery>.tar.gz`, a
 hashed manifest and `binary-entry.json`. The archive contains current
@@ -71,6 +79,6 @@ Every accepted artifact must bind a successful current build and all fresh
 audits to the exact source, compiler, dependency and object identities. Private
 storage controls access; it does not replace these checks. The
 [CI controls](../ci/README.md) describe backend selection, recovery and the
-pending repeat/comment rounds. The first recovery drill and later healed-cache
+pending repeat/comment rounds. The repaired recovery drill and later healed-cache
 reuse require separate matching evidence. Agent work stops once each external
 runner starts.

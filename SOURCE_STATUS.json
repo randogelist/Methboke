@@ -63,7 +63,7 @@
   "target_hierarchy": {
     "macroscopic": "Fixed analytic finite-cap admission goal; universal germ-to-cap continuation remains unresolved",
     "mesoscopic": "User-requested main-branch, native-QFB and cached-CI setup",
-    "microscopic": "Prepare and externally exercise separate-runner full-project recovery and replacement binary/cache publication; stop at runner start"
+    "microscopic": "Repair recovery disk preflight with step-local 32 GiB cold budget and repeat the external full-project drill; stop at runner start"
   },
   "ci_handoff": "STOP_ON_RUNNER_START; GO_ON_RESUMES_RESULT_INSPECTION",
   "latest_material_run": {
@@ -585,7 +585,7 @@
     "cold_seed_cleanup_scope": "FAST_BINARY_WORKER"
   },
   "binary_cache_recovery": {
-    "status": "PREPARED_PENDING_EXTERNAL_CI",
+    "status": "DISK_BUDGET_REPAIR_PREPARED_PENDING_EXTERNAL_CI",
     "runner": "ubuntu-24.04",
     "same_source_commit": true,
     "trigger": "BINARY_FAST_WORKER_NOT_ACCEPTED_AND_NOT_CANCELLED_AND_NOT_STRICT_BENCHMARK",
@@ -610,8 +610,60 @@
     "artifact_expiration_alone_requires_rebuild": false,
     "local_lean_execution": false,
     "local_tests_executed": false,
-    "cold_disk_guard_gib": 40,
-    "new_control_tests_prepared": 7,
-    "expected_external_control_tests": 146
+    "cold_disk_guard_gib": 32,
+    "new_control_tests_prepared": 1,
+    "expected_external_control_tests": 147,
+    "cold_disk_guard_scope": "RECOVERY_STEP_ONLY; EXISTING_BOUNDED_OVERRIDE; REGISTRY_COLD_REMAINS_40",
+    "external_control_tests_passed_at_first_drill": 146,
+    "initial_drill": {
+      "run_id": 44085694998,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44085694998",
+      "tested_commit": "c461671d604903df0d1a4c05dc12c63332126db2",
+      "overall_conclusion": "FAILURE",
+      "primary_job": 134047406323,
+      "primary_result": "DELIBERATE_RECOVERY_REQUEST",
+      "recovery_job": 134047493575,
+      "recovery_started": true,
+      "external_control_tests_passed": 146,
+      "control_tests_seconds": 1.388,
+      "source_validation": "PASS",
+      "failure_phase": "RUNNER_DISK_PREFLIGHT",
+      "required_free_bytes": 42949672960,
+      "before_free_bytes": 13504372736,
+      "after_free_bytes": 36011274240,
+      "reclaimed_bytes": 22506901504,
+      "cleanup_seconds": 67.433,
+      "removed_sdk_paths": [
+        "/usr/local/lib/android",
+        "/usr/share/dotnet",
+        "/usr/local/.ghcup"
+      ],
+      "caches_deleted": false,
+      "toolchain_installed": false,
+      "lean_executed": false,
+      "project_compilation": "NOT_STARTED",
+      "fresh_audits": "NOT_STARTED",
+      "binary_publication": "NOT_STARTED",
+      "cache_publication": "NOT_STARTED",
+      "terminal_verdict": "CORRECTLY_FAILED",
+      "artifact_id": 14328628908,
+      "artifact_sha256": "f88ed4967c521b7bb1c8eb6eade5cb27a540dad747cf52f450f163b4ddb9e630",
+      "artifact_url": "https://github.com/randogelist/Methboke/actions/runs/44085694998/artifacts/14328628908"
+    },
+    "disk_budget_repair": {
+      "status": "PREPARED_PENDING_EXTERNAL_CI",
+      "environment_variable": "MATERIAL_COLD_MIN_FREE_GIB",
+      "value": "32",
+      "scope": "BINARY_RECOVERY_STEP_ONLY",
+      "runner_disk_helper_changed": false,
+      "compiler_driver_changed": false,
+      "proof_sources_changed": false,
+      "pins_changed": false,
+      "fast_budget_gib": 20,
+      "registry_cold_budget_gib": 40,
+      "new_mocked_regression_tests": 1,
+      "local_tests_executed": false,
+      "local_lean_execution": false
+    }
   }
 }
