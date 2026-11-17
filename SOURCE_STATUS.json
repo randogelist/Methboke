@@ -1,8 +1,8 @@
 {
   "date": "2026-11-17",
   "repository": "randogelist/Methboke",
-  "branch": "Clay-Admission-Candidate-01",
-  "mode": "B_TIER_DERIVATION",
+  "branch": "main",
+  "mode": "GITHUB_SETUP",
   "initial_commit": "8b8a62ed30d36df990e407fd98bb692b5ce8a468",
   "source_pins": {
     "methlib_qfb": "96033dd69c994bec337a87369a6c27256e724980",
@@ -55,5 +55,41 @@
   ],
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
-  ]
+  ],
+  "historical_candidate_branch": "Clay-Admission-Candidate-01",
+  "resume_mode": "DISCUSSION",
+  "main_consolidation": "CANDIDATE_HISTORY_PRESERVED_BY_THIS_MAIN_COMMIT",
+  "current_material_external_verification": "PENDING_EXTERNAL_CI",
+  "ci_reference_observations": [
+    {
+      "workflow": "quasi-fefferman-b",
+      "run": 43801307847,
+      "url": "https://github.com/randogelist/Methlib/actions/runs/43801307847",
+      "runner": "ubuntu-24.04",
+      "lean": "4.33.0",
+      "job_seconds": 280,
+      "reused_modules": 74,
+      "module_scope": 74,
+      "fresh_audits": true
+    },
+    {
+      "workflow": "h12-main-integration",
+      "run": 43361151038,
+      "url": "https://github.com/randogelist/Methlib/actions/runs/43361151038",
+      "runner": "ubuntu-24.04",
+      "lean": "4.33.0",
+      "job_seconds": 183,
+      "checkpoints": 16,
+      "requires_dependency_and_project_restoration": true
+    }
+  ],
+  "candidate_retirement": "GUARDED_EXTERNAL_WORKFLOW_PENDING",
+  "native_source_verification": {
+    "modules": 269,
+    "qfb_modules": 74,
+    "foundation_modules": 195,
+    "hash_verification": "PASS",
+    "local_import_closure": "COMPLETE",
+    "lean_executed_locally": false
+  }
 }

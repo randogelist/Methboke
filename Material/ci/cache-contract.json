@@ -1,5 +1,5 @@
 {
-  "schema": 1,
+  "schema": 2,
   "platform": "linux/amd64",
   "runner": "ubuntu-24.04",
   "workspace": "/workspace",
@@ -7,6 +7,15 @@
   "lean_toolchain_file": "Material/lean-toolchain",
   "dependency_lock_file": "Material/lake-manifest.json",
   "pass_report": "Material/registry/current.json",
-  "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
-  "published_image_requires_all_endpoints": true
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "published_image_requires_all_endpoints": true,
+  "execution_backend": "native-host-seed-or-passed-container",
+  "retained_image": "runnable-source-and-object-snapshot",
+  "fresh_required_audits": true,
+  "local_lean_allowed": false,
+  "mathlib_source_build_allowed": false
 }

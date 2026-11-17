@@ -1,13 +1,17 @@
-name: Material / compiled endpoint registry
+name: Material / native cached verification and passed registry
 
 on:
   push:
-    branches: ['**']
+    branches: [main]
   workflow_dispatch:
+    inputs:
+      exact_cache_benchmark:
+        description: 'Require exact dependency and project caches; stop on cache miss'
+        type: boolean
+        default: false
 
-# Serialize each branch; a failed run never replaces its successful pointer.
 concurrency:
-  group: material-${{ github.repository }}-${{ github.ref }}
+  group: material-native-${{ github.repository }}-${{ github.ref }}
   cancel-in-progress: false
 
 permissions:
@@ -17,12 +21,14 @@ permissions:
 jobs:
   compile-audit-register:
     runs-on: ubuntu-24.04
-    timeout-minutes: 240
+    timeout-minutes: 90
     env:
       PYTHONUNBUFFERED: '1'
-      MATERIAL_STATE: /tmp/material-state.json
+      MATERIAL_STATE: /tmp/material-native-state.json
       MATERIAL_JOBS: '2'
-      MATERIAL_MIN_FREE_GIB: '20'
+      MATERIAL_COMMAND_TIMEOUT: '1800'
+      LEAN_NUM_THREADS: '2'
+      EXACT_BENCHMARK: ${{ inputs.exact_cache_benchmark && 'true' || 'false' }}
     steps:
       - name: Checkout exact source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -30,7 +36,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 1
 
-      - name: Validate source closures and registry controls
+      - name: Validate sources and receipt controls without Lean
         run: |
           python3 -m unittest discover -s Material/ci/tests
           python3 Material/ci/build.py --validate-only
@@ -38,37 +44,106 @@ jobs:
       - name: Reclaim unused disposable runner SDKs
         run: bash Material/ci/prepare-runner.sh
 
-      - name: Authenticate registry on host only
+      - name: Authenticate passed snapshot registry
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+
+      - name: Restore last compatible passed snapshot
+        id: restore
         run: |
-          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          extra=()
+          if [ "$EXACT_BENCHMARK" = true ]; then extra+=(--benchmark); fi
+          python3 Material/ci/native_registry.py prepare --state "$MATERIAL_STATE" "${extra[@]}"
 
-      - name: Select last compatible passed container
-        run: python3 Material/ci/registry.py prepare --state "$MATERIAL_STATE"
-
-      - name: Preserve pre-build resource diagnostics
-        if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - name: Restore pinned dependencies
+        id: dependencies
+        if: steps.restore.outputs.registry_restored != 'true'
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
-          name: material-resources-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
-          path: Material/registry/resources-*.json
-          if-no-files-found: warn
-          retention-days: 90
+          path: Material/.lake/packages
+          key: ${{ steps.restore.outputs.dependency_key }}
 
-      - name: Build amendments and audit exact endpoints
-        run: python3 Material/ci/registry.py run --state "$MATERIAL_STATE"
+      - name: Restore verified own project objects
+        id: project
+        if: steps.restore.outputs.registry_restored != 'true'
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            Material/.lake/build
+            Material/registry/current.json
+          key: ${{ steps.restore.outputs.project_key }}
+          restore-keys: ${{ steps.restore.outputs.project_prefix }}
 
-      - name: Collect compiler, axiom, and runtime evidence
-        if: always()
-        run: python3 Material/ci/registry.py collect --state "$MATERIAL_STATE"
+      - name: Enforce exact-cache measurement profile
+        if: inputs.exact_cache_benchmark
+        env:
+          DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
+          PROJECT_HIT: ${{ steps.project.outputs.cache-hit }}
+        run: |
+          if [ "$DEPENDENCY_HIT" != true ] || [ "$PROJECT_HIT" != true ]; then
+            echo 'CACHE_MISS: exact-cache measurement stopped before compiler setup.'
+            exit 1
+          fi
 
-      - name: Register passed container and endpoint tags
+      - name: Install checksum-pinned native elan and Lean
+        run: |
+          curl --fail --location --retry 3 https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz --output "$RUNNER_TEMP/elan.tar.gz"
+          printf '%s  %s\n' '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63' "$RUNNER_TEMP/elan.tar.gz" | sha256sum --check --strict
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP"
+          "$RUNNER_TEMP/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"
+
+      - name: Compile affected own modules and freshly audit every endpoint
+        id: verify
+        env:
+          REGISTRY_RESTORED: ${{ steps.restore.outputs.registry_restored }}
+          MATERIAL_PARENT_IMAGE_DIGEST: ${{ steps.restore.outputs.parent_image_digest }}
+          DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
+          PROJECT_HIT: ${{ steps.project.outputs.cache-hit }}
+          PROJECT_MATCHED: ${{ steps.project.outputs.cache-matched-key }}
+        run: |
+          export MATERIAL_RESTORE_MODE=actions_passed_cache
+          export MATERIAL_DEPENDENCY_CACHE_CLASS=MISS
+          export MATERIAL_PROJECT_CACHE_CLASS=MISS
+          if [ "$DEPENDENCY_HIT" = true ]; then export MATERIAL_DEPENDENCY_CACHE_CLASS=EXACT; fi
+          if [ -n "$PROJECT_MATCHED" ]; then export MATERIAL_PROJECT_CACHE_CLASS=PREFIX; fi
+          if [ "$PROJECT_HIT" = true ]; then export MATERIAL_PROJECT_CACHE_CLASS=EXACT; fi
+          if [ "$REGISTRY_RESTORED" = true ]; then
+            export MATERIAL_RESTORE_MODE=previous_passed_container
+            export MATERIAL_DEPENDENCY_CACHE_CLASS=EXACT
+            export MATERIAL_PROJECT_CACHE_CLASS=PREFIX
+          fi
+          set +e
+          bash Material/ci/verify-external.sh
+          result=$?
+          set -e
+          python3 Material/ci/native_registry.py record --state "$MATERIAL_STATE" --exit-code "$result"
+          exit "$result"
+
+      - name: Preserve passing dependency cache
+        if: success() && steps.dependencies.outputs.cache-hit != 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: Material/.lake/packages
+          key: ${{ steps.restore.outputs.dependency_key }}
+
+      - name: Preserve freshly audited project cache
+        if: success() && steps.project.outputs.cache-hit != 'true'
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            Material/.lake/build
+            Material/registry/current.json
+          key: ${{ steps.restore.outputs.project_key }}
+
+      - name: Publish immutable passed snapshot and endpoint registry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 Material/ci/registry.py publish --state "$MATERIAL_STATE"
+        run: python3 Material/ci/native_registry.py publish --state "$MATERIAL_STATE"
 
-      - name: Preserve evidence independently of registry success
+      - name: Preserve compiler, fresh audit and runtime evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
@@ -76,7 +151,3 @@ jobs:
           path: Material/registry/
           if-no-files-found: warn
           retention-days: 90
-
-      - name: Remove transient container
-        if: always()
-        run: python3 Material/ci/registry.py cleanup --state "$MATERIAL_STATE"

@@ -1,0 +1,41 @@
+METHBOKE_SUBSTANTIATED_RESULT_REGISTER
+DATE = 2026-11-17
+WORKING_BRANCH = main
+
+I01 ORIGINAL_QFB_COMPOSED
+STATUS: INHERITED_EXTERNAL_LEAN_EVIDENCE; standard axioms only.
+EXACT DECLARATION:
+  QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement
+SCOPE: nu>0; original CriticalPhysicalL2 data with EnergySigmaZero; LH
+existence and every original CriticalLerayHopf trajectory; smooth tail at
+safeCutoff and smoothness/energy equality/future uniqueness at each
+strictly post-cutoff trace. No pre-cutoff regularity conclusion.
+SOURCE: randogelist/Methlib@96033dd69c994bec337a87369a6c27256e724980,
+  Quasi-Fefferman-B/QuasiFeffermanB/Endpoints/Root.lean.
+NATIVE COPY: Material/_vendor/QuasiFeffermanB/Endpoints/Root.lean.
+DEPENDENCY IDENTITY: Material/_vendor/source-manifest.json and
+  Material/lake-manifest.json; Lean 4.33.0.
+EVIDENCE: https://github.com/randogelist/Methlib/actions/runs/43801307847
+AXIOMS: propext, Classical.choice, Quot.sound.
+BOUNDARY: inherited exact QFB result; new Methboke package acceptance awaits
+its own matching external receipt. No universal analytic-germ extension is
+indexed as proved. Linux evidence only.
+
+I02 BELTRAMI_FINITE_FOURIER_ADMISSION
+STATUS: B_TIER; explicit mathematical solution, not a Lean-certified result.
+SCOPE: every real mean-zero divergence-free trigonometric polynomial a with
+curl a=mu*a and every nu>0. Arbitrary amplitudes. The exact solution
+U(t)=exp(-nu*mu^2*t)*a with normalized pressure -|U|^2/2+mean(|U|^2/2)
+is jointly analytic for all real time and belongs to D_Q(nu) and R_nu.
+SOURCE/EVIDENCE: CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt, Section 7, complete
+explicit differentiation argument. No QFB or admission premise required.
+BOUNDARY: no compiled theorem is claimed; no universal input class follows.
+
+NOT INDEXED AS UNCONDITIONAL RESULTS:
+- New finite-cap Lean root: not formalized/certified.
+- Universal D_germ(nu) subset D_Q(nu): open.
+- Material candidate compilation: external evidence pending.
+- CI configuration or successful cache restoration: infrastructure evidence.
+
+Other conditional B-tier chains and their premises remain in GPT.txt and
+CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt rather than the unconditional register.

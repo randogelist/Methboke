@@ -1,0 +1,221 @@
+METHBOKE_AGENT_CONTEXT
+DOCUMENT_VERSION = 1.0
+DATE = 2026-11-17
+REPOSITORY = randogelist/Methboke
+WORKING_BRANCH = main
+HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
+ACTIVE_TASK = consolidate candidate work on main; native QFB; cached external CI
+RESUME_MODE = DISCUSSION
+LOCAL_LEAN_EXECUTION = FORBIDDEN
+
+1. FIXED PROJECT GOAL
+
+Establish the exact finite-cap analytic admission theorem for unforced
+periodic 3D Navier-Stokes, then identify which constructive analytic data
+certificates can discharge admission. Preserve the distinction between:
+  R0: admitted analytic evolution through a strict QFB overlap gives a
+      global smooth solution;
+  R1: every local analytic germ extends through that overlap.
+R0 has a recorded B-tier argument. R1 is unresolved. No infrastructure
+milestone changes this goal. Only explicit CHANGE updates the project goal.
+
+2. DEFINITIONS AND PREMISES
+
+Domain T^3=R^3/Z^3, volume one, viscosity nu>0, force zero.
+Initial data D_inf=C^infinity_{sigma,0}(T^3). Pressure has zero spatial mean.
+NSE: partial_t U+(U dot grad)U+grad p=nu Delta U, div U=0.
+R_nu consists of data with a global classical solution smooth up to t=0.
+FB_nu means D_inf subset R_nu.
+
+G_nu(a;epsilon,L): epsilon,L>0 and an actual jointly real analytic NSE
+solution (U,p) on (-epsilon,L) x T^3 with U(0)=a and zero spatial mean.
+D_germ(nu): exists epsilon>0, G_nu(a;epsilon,epsilon).
+tau_Q(a,nu)=||a||_2^4/(8*pi^2*nu^5).
+T_Q(a,nu)=2*tau_Q(a,nu).
+D_Q(nu): {0} union {nonzero a: exists epsilon>0,G_nu(a;epsilon,T_Q)}.
+The analytic cap is open. For a!=0, tau_Q<3*tau_Q/2<T_Q.
+
+Foundation interfaces of the mathematical chain:
+F_LH: global Leray-Hopf existence with the original initial trace.
+F_LOCAL: local classical existence and uniqueness for smooth data.
+F_ANALYTIC: joint positive-time analytic regularization of an existing
+  classical unforced periodic solution and its normalized pressure.
+F_RELATIVE_ENERGY: finite-interval weak-strong relative-energy comparison.
+F_QFB: for each original LH trajectory, actual smooth tails from every
+  delta>tau_Q, with agreement, energy and trace-uniqueness semantics.
+These interfaces remain distinct Lean adapter obligations until matched.
+
+3. CONSTRUCTIVE B-TIER DERIVATION
+
+Authoritative cumulative argument:
+CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt, Sections 1-8.
+
+3.1 Finite cylinder bounds.
+If G_nu(a;epsilon,L) and 0<T<L, continuity of U and grad U on the compact
+cylinder gives finite M_T=max|U| and G_T=max||grad U||_op. Volume one gives
+  integral_0^T ||U(t)||_6^4 dt <= T*M_T^4,
+  integral_0^T ||grad U(t)||_infinity dt <= T*G_T.
+Uniform continuity gives U(t)->a uniformly, hence strongly in L2.
+
+3.2 Identification with the original weak trajectory.
+For an LH solution u with the same datum, F_RELATIVE_ENERGY gives
+  E(t)<=2*integral_0^t g(s)E(s)ds,
+  E(t)=||u(t)-U(t)||_2^2, g(t)<=G_T, E(0)=0.
+Gronwall yields equality. Weak continuity and the continuous comparison
+identify representatives at every time. Arbitrary T<L covers [0,L).
+
+3.3 Finite-cap closure R0.
+Zero has the explicit zero solution. Otherwise choose delta=3*tau_Q/2.
+F_QFB supplies a smooth tail V,q for the same LH trajectory from delta.
+On (delta,T_Q), U and V agree in L2, hence pointwise by spatial continuity.
+Their pressure gradients agree by NSE; normalized pressures therefore agree.
+Choose eta strictly inside the overlap. Patching before/after eta preserves
+all derivatives, NSE and the initial trace. Thus D_Q(nu) subset R_nu.
+The same proof works for any analytic cap L>tau_Q. L=tau_Q has no guaranteed
+open overlap and is not silently included.
+
+3.4 Remaining universal admission R1.
+COVER_nu means D_germ(nu) subset D_Q(nu).
+Under the five recorded foundation interfaces, FB_nu iff COVER_nu:
+  Forward: identify an admitted analytic germ with the global classical
+  solution, use positive-time analyticity and patch the negative germ.
+  Reverse: advance any smooth local solution to an interior positive time.
+  Its analytic neighborhood supplies a germ. COVER supplies finite-cap
+  admission; 3.3 supplies a global solution; local uniqueness patches back
+  to the original initial time.
+This reduction does not prove either universal assertion.
+
+3.5 Explicit admissible family.
+For a finite Fourier Beltrami datum curl a=mu*a, div a=0, mean a=0,
+Delta a=-mu^2*a. Set U(t)=exp(-nu*mu^2*t)*a and
+p=-|U|^2/2+mean(|U|^2/2). Since U cross curl U=0, the convection term is
+exactly cancelled by grad p. This actual solution is jointly analytic for
+all real t and has arbitrary amplitude. The ABC/BAMBUS family is a concrete
+three-parameter example. This B-tier statement needs no QFB premise.
+
+3.6 Analyticity distinction.
+Spatially analytic shear data with coefficients exp(-rho*k) can have
+zero time-Taylor radius at t=0 under heat evolution. Thus spatial analytic
+input alone does not supply the required jointly space-time analytic germ.
+No formal Taylor recursion is counted as a convergence certificate.
+
+4. LEAN-ORIENTED DEPENDENCY CHAIN
+
+Prepared source reuse (not a declaration of new theorem verification):
+L01 actual physical datum/trajectory semantics;
+L02 literal cutoff and safeCutoff;
+L03 original LH existence;
+L04 exact QFB tail theorem and composed root;
+L05 finite-cylinder jointly analytic admission definition;
+L06 compact-cylinder boundedness;
+L07 strong initial trace;
+L08 finite Serrin/gradient bounds;
+L09 finite-window physical relative-energy localization;
+L10 Gronwall identification of the same LH trajectory;
+L11 pointwise overlap and normalized-pressure equality;
+L12 smooth patching across strict overlap;
+L13 assembled finite-cap root R0;
+L14 constructive Beltrami admission certificate;
+L15 further certified input families;
+L16 universal analytic germ-to-cap admission R1 (open).
+
+L01-L04 have selected pinned source interfaces in Material. L05-L14 still
+require exact adapter construction and matching external audits for the new
+root. L16 is not supplied by a structure field or an identity theorem.
+A-tier activation follows presentation of the relevant mid-tier endpoints
+and user assent. Current setup does not change unresolved mathematical scope.
+
+Material has 14 endpoint folders and 41 declared audit targets; its shared
+source closure contains 74 QuasiFeffermanB and 195 SingularClosure modules.
+Each endpoint retains a declaration list, exact source provenance, audit and
+recursive local dependency closure. Native sources require no private
+Methlib checkout during CI. Public dependencies remain pinned in the lock.
+LEAN_CUTOUTS/Cutouts.lean is the single-file selected interface aggregation;
+its provenance explains the preserved modular dependencies. Standalone
+endpoint exports retain the complete local source closure.
+
+5. ASSOCIATED SOURCE IDENTITIES
+
+Methlib source: 96033dd69c994bec337a87369a6c27256e724980.
+Lean: leanprover/lean4:v4.33.0.
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Complete nine-package lock: Material/lake-manifest.json.
+Exact upstream source bytes/blob/SHA256: Material/_vendor/source-manifest.json.
+Original root: Material/_vendor/QuasiFeffermanB/Endpoints/Root.lean.
+Original contract: Material/_vendor/QuasiFeffermanB/RootContract.lean.
+Original cutoff: Material/_vendor/QuasiFeffermanB/Semantics.lean.
+
+Original root declaration and full proof body:
+  theorem QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement :=
+    Quasi_Fefferman_B_of_LH_existence Q01_LERAY_HOPF_EXISTENCE
+This uses the original TailChain and EXACT_H1_ADMISSION_UNCONDITIONAL.
+It does not assume QFB_ONE_RESTART_OVERLAP.
+
+The literal root quantifies nu>0, every CriticalPhysicalL2 datum with
+EnergySigmaZero, and every CriticalLerayHopf trajectory. It provides LH
+existence, HasSmoothTail at safeCutoff, and for every delta>cutoff:
+HasSmoothTail, TailEnergyEquality and UniqueFuture. Its semantics are not
+silently replaced with an unrestricted Fefferman-B statement.
+
+6. VERIFIED ENDPOINTS AND INDEX REFERENCES
+
+INDEX-WORTHY.txt records inherited QFB evidence separately from new builds.
+QFB reference run:
+https://github.com/randogelist/Methlib/actions/runs/43801307847
+Observed configuration: Ubuntu 24.04, Lean 4.33.0, 74/74 project objects
+reused, fresh audits, 4m40s job. Root axioms are exactly the approved standard
+set {propext, Classical.choice, Quot.sound}; literal theorem scope retained.
+
+H12 runner reference (performance configuration, not a new theorem claim):
+https://github.com/randogelist/Methlib/actions/runs/43361151038
+Observed configuration: Ubuntu 24.04, Lean 4.33.0, dependency/project cache
+restoration, frontier regressions and sixteen checkpoints, 3m03s job.
+The two observations have different target scopes and are not speed ratios.
+
+New Methboke package compiler/type/axiom evidence: PENDING_EXTERNAL_CI.
+New finite-cap root A-tier: NOT_ESTABLISHED.
+New root formal/unconditional closure: NOT_ESTABLISHED.
+Do not promote pending source preparation or an unrelated green run.
+
+7. OPEN OBLIGATIONS AND EVIDENCE RULES
+
+- Formalize the actual analytic-cylinder input and its representation adapter.
+- Localize relative-energy comparison to an existing finite classical cylinder.
+- Prove pressure-normalized smooth patching and assemble the exact R0 endpoint.
+- Produce external compiler, exact type and theorem-level axiom evidence for
+  the exact source/dependency/toolchain/policy identity of each new endpoint.
+- Leave universal germ-to-cap extension explicitly open.
+- Do not import QFBAdmissions.OneRestartOverlapAxiom or add custom closure
+  axioms. Naming local_overlap_closes does not prove it.
+- Retain every small-data threshold and existing analytic/semantic premise.
+- A Linux pass cannot satisfy an explicit native Windows evidence requirement.
+
+8. CURRENT TARGET AND OPERATING RULES
+
+Current target: consolidate preserved candidate content onto main, keep the
+original QFB source native, establish these repository records and validate
+external cached CI with fresh exact endpoint audits. The upstream timing
+anchors guide scheduling; they do not guarantee this package's runtime.
+
+CI contract: restore compatible dependency/foundation/project objects;
+validate source/compiler/lock/policy identity; use two dependency workers
+where supported; compile amendments and affected own dependencies; audit
+all required declarations freshly; publish only passed registry records.
+A missing Mathlib object requests the exact official cache, never an
+unapproved Mathlib source rebuild. Warm cache-required measurements must
+report cache misses honestly. Record module workers separately from Lean
+threads. No local Lean/Lake compiler execution. Pure static/Python checks
+are permitted. Preserve prior successful compatible objects.
+
+Work from main; do not create a new working branch unless explicitly asked.
+The historical candidate theorem/document names remain stable.
+The user's current BASE_LOOP takes precedence. Init reads README, GPT and
+INDEX-WORTHY before reporting checks. Discussion creates no artifacts.
+Parse records ordered input and replies ok; compile processes that buffer.
+Compile branch reparses accessible context without implicit Git mutation or
+Lean execution. Commit updates this document and relevant indices before
+committing/pushing the current branch. CHANGE alone changes the fixed goal.
+
+Suggested next mathematical endpoint after infrastructure verification:
+L05-L08, the finite analytic cylinder definition, strong trace and explicit
+compact-cylinder bounds, preserving the actual physical semantics.

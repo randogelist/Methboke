@@ -28,7 +28,8 @@ MIB = 1024 ** 2
 COMPATIBILITY_FILES = (
     "Material/lean-toolchain",
     "Material/lake-manifest.json",
-    "Material/ci/Dockerfile",
+    "Material/lakefile.lean",
+    "Material/ci/Snapshot.Dockerfile",
     "Material/ci/cache-contract.json",
 )
 
@@ -395,7 +396,10 @@ def expected_endpoint_ids(root: Path) -> set[str]:
 
 
 def validate_pass(report: dict, state: dict, expected_ids: set[str]) -> list[dict]:
-    if (state.get("container_exit_code") != 0 or state.get("container_oom_killed")
+    if state.get("execution_backend") == "native":
+        if state.get("native_exit_code") != 0:
+            raise ValueError("publication requires a successful external native compiler exit")
+    elif (state.get("container_exit_code") != 0 or state.get("container_oom_killed")
             or state.get("resource_abort")):
         raise ValueError("publication requires a successful external container exit")
     if report.get("status") != "PASS" or report.get("commit") != state["commit"]:

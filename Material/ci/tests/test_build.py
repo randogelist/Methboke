@@ -334,7 +334,7 @@ class PipelineTests(unittest.TestCase):
             return output, 0.01
         return run
 
-    def test_pass_requires_audit_then_reuses_exact_evidence_on_next_commit(self):
+    def test_pass_requires_fresh_audit_on_every_commit(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             (root / "lake-manifest.json").write_text('{"packages":[]}\n')
@@ -353,9 +353,9 @@ class PipelineTests(unittest.TestCase):
                                                 {"CI": "true", "GITHUB_SHA": "2" * 40}), 0)
             second = json.loads(report.read_text())
             self.assertEqual(second["commit"], "2" * 40)
-            self.assertTrue(second["endpoints"][0]["audit_reused"])
-            self.assertEqual(second["endpoints"][0]["audit_origin_commit"], "1" * 40)
-            self.assertEqual(commands.count(["lake", "env", "lean", "Example/Audit.lean"]), 1)
+            self.assertFalse(second["endpoints"][0]["audit_reused"])
+            self.assertEqual(second["endpoints"][0]["audit_origin_commit"], "2" * 40)
+            self.assertEqual(commands.count(["lake", "env", "lean", "Example/Audit.lean"]), 2)
             self.assertEqual(commands.count(["lake", "build", "Example"]), 4)
 
     def test_failed_rerun_cannot_promote_even_after_theorem_audit_pass(self):

@@ -188,7 +188,7 @@ def parse_audit(text: str, names: list[str], allowed: set[str] | frozenset[str] 
     if not allowed.issubset(STANDARD_AXIOMS):
         raise BuildError("endpoint manifest may not widen the standard axiom allowlist")
     clean = ANSI.sub("", text).replace("\r\n", "\n")
-    if re.search(r"\bsorryAx\b|\bwarning\s*:.*\bsorry\b|\berror\s*:", clean, re.I):
+    if re.search(r"\bsorryAx\b|\bwarning\s*:.*\bsorry\b|\berror(?:\([^\n)]*\))?\s*:", clean, re.I):
         raise BuildError("compiler/audit output contains an error or sorry admission")
     if not names or len(set(names)) != len(names):
         raise BuildError("nonempty unique declaration list required")
@@ -219,7 +219,7 @@ def parse_audit(text: str, names: list[str], allowed: set[str] | frozenset[str] 
         if none:
             deps: list[str] = []
         elif some:
-            deps = [x.strip() for x in some.group(1).split(",") if x.strip()]
+            deps = [re.sub(r"\.\{[^{}]*\}", "", x.strip()) for x in some.group(1).split(",") if x.strip()]
         else:
             raise BuildError(f"invalid axiom record: {name}")
         unapproved = set(deps) - set(allowed)
@@ -449,10 +449,11 @@ def retained_dependency_cache_ready(root: Path, plan: dict, previous: dict,
     The registry validates the OCI digest and compatibility labels before
     starting the container; dependency commits/clean source are checked above.
     """
-    if environment.get("MATERIAL_RESTORE_MODE") != "previous_passed_container":
+    if environment.get("MATERIAL_RESTORE_MODE") not in {"previous_passed_container", "actions_passed_cache"}:
         return False, "no_restored_passed_container"
     digest = environment.get("MATERIAL_PARENT_IMAGE_DIGEST", "")
-    if not re.fullmatch(r"ghcr\.io/[^\s]+@sha256:[0-9a-f]{64}", digest):
+    if (environment.get("MATERIAL_RESTORE_MODE") == "previous_passed_container"
+            and not re.fullmatch(r"ghcr\.io/[^\s]+@sha256:[0-9a-f]{64}", digest)):
         return False, "missing_immutable_parent_digest"
     if (previous.get("status") != "PASS" or not previous.get("compiler_executed")
             or not previous.get("all_endpoints_selected")
@@ -601,7 +602,8 @@ def run_build(root: Path, report_path: Path, selected: list[str] | None, native:
                       "local_dependency_modules": len(entry["files"]),
                       "declaration_count": len(entry["spec"]["declarations"])}
             report["endpoints"].append(record)
-            evidence = reuse_audit(root, old_entries.get(entry["id"]), entry, identity)
+            # Every new verification executes required audits freshly.
+            evidence = None
             if evidence is None:
                 relative_log = f"registry/audits/{entry['id']}-{identity}.log"
                 output, seconds = execute(["lake", "env", "lean", entry["id"] + "/Audit.lean"],

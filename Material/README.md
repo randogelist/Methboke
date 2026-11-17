@@ -65,16 +65,37 @@ python3 -m unittest discover -s Material/ci/tests
 
 ## Registry and incremental rebuild contract
 
-1. Each push selects the branch's last **passed** GHCR image with matching Linux/AMD64 platform, compiler, dependency lock and cache contract.
-2. The container receives the current source checkout; its previous `.lake` compiled artifacts and audit registry remain available. Content-equal source files retain their timestamps.
-3. Lake rebuilds changed modules and their transitive dependents. Endpoint audits are reused only when their complete inputs and saved evidence hashes match; changed audit inputs are checked again.
-4. A second no-op build records rerun time. Initial compilation, affected compilation, audits and rerun measurements are reported separately.
-5. Only a successful compiler/type/axiom result creates immutable aggregate and per-endpoint registry tags. A failed run cannot replace the passed pointer.
-6. The mutable branch pointer advances only along commit ancestry: previous passed commit <= newly passed commit <= current branch head. A queued newer commit can therefore reuse the immediately preceding successful container; an old rerun cannot move the pointer backwards. Earlier successful images remain accessible under immutable tags.
+The working branch is `main`. The first verification runs on the external
+Ubuntu 24.04 host with Lean 4.33.0. Subsequent commits execute amendments inside
+the exact last passed GHCR container, with restored objects, current source and
+a read-only mount of the pinned compiler. Exact-cache benchmarks use the host.
 
-Registry package: `ghcr.io/randogelist/methboke-material`. Compiler reports, exact declaration types, axiom lists and transport/registry metadata are uploaded as GitHub Actions artifacts. Image tags and digests are recorded in the resulting registry entry.
+1. Restore compatible dependency objects and the most recent eligible passed
+   project snapshot. Validate the toolchain, full dependency lock, source and
+   audit-policy identities before reuse. A cache label alone is insufficient.
+2. Preserve unchanged foundation/project objects. Schedule amended local modules
+   and their transitive dependents in dependency order, starting with two module
+   workers. Record module workers and Lean threads separately.
+3. Run every configured endpoint type check and theorem-level axiom audit
+   **freshly on each verification run**. Retained logs establish historical
+   evidence only; they cannot substitute for the new run's required audits.
+4. Record cache classification and setup, restoration, build, audit and rerun
+   measurements separately. The cache-required warm profile stops with a cache
+   miss if its exact prerequisites are absent.
+5. Publish immutable aggregate/per-endpoint records only after the complete
+   required build and fresh audit pass. Failed verification cannot replace the
+   previous passed pointer. Pointer updates must preserve commit ancestry.
 
-The bootstrap has no previous theorem image; it obtains the exact Mathlib compiled cache and builds the extracted local closure. Subsequent runs execute the last compatible passed container. A changed compiler or dependency lock starts a separate compatible cache lineage.
+Registry package: `ghcr.io/randogelist/methboke-material`. The workflow also
+uploads compiler, exact declaration type, axiom and runtime evidence as GitHub
+Actions artifacts. See [CI controls](ci/README.md) and the
+[registry record guide](registry/README.md) for the executable contract.
+
+The first accepted baseline may require the exact official Mathlib cache and
+compilation of this repository's own selected source closure. GitHub Actions
+caches from Methlib are not directly shared across repositories. Missing
+Mathlib objects do not authorize a Mathlib source rebuild. No successful
+Methboke baseline or performance result is assumed before an external receipt.
 
 ## Proof scope
 
