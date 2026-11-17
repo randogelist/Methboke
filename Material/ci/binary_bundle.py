@@ -44,7 +44,7 @@ def safe_file(root, relative):
     return path
 
 
-def validate(root, state, environment):
+def validate(root, state, environment, require_full_rebuild=False):
     container_workspace.require_external(environment)
     expected = r.metadata(root, environment)
     for key in ('repository', 'commit', 'branch', 'run_id', 'attempt', 'compatibility_key'):
@@ -64,6 +64,18 @@ def validate(root, state, environment):
     native_registry.validate_native_evidence(root, state, report, endpoints)
     expected_modules = native_build.local_records(build.validate(root / 'Material'))
     container_workspace.verify_exported_objects(root, report, expected_modules)
+    if require_full_rebuild:
+        receipts = report['module_receipts']
+        count = len(expected_modules)
+        metrics = report.get('metrics', {})
+        if (not count or any(receipt.get('status') != 'PASS' or receipt.get('reused') is not False
+                             for receipt in receipts.values())
+                or metrics.get('module_count') != count
+                or metrics.get('fresh_module_count') != count
+                or metrics.get('reused_module_count') != 0):
+            raise ValueError('recovery publication requires every current project module freshly rebuilt')
+        if report.get('cache_hydration', {}).get('mode') != 'official_cache_get':
+            raise ValueError('recovery publication requires the pinned official dependency bootstrap')
     if report_path.read_bytes() != report_bytes:
         raise ValueError('accepted report changed during validation')
     return report, sha256(report_bytes)
@@ -104,7 +116,12 @@ def pack(root, expected, destination):
     return manifest
 
 
-def run(root, state_path, output_dir, environment=None):
+def run(root, state_path, output_dir, environment=None, *, artifact_suffix='', require_full_rebuild=False):
+    if artifact_suffix not in ('', 'fast', 'recovery'):
+        raise ValueError('binary artifact suffix must be empty, fast or recovery')
+    if artifact_suffix == 'recovery' and not require_full_rebuild:
+        raise ValueError('recovery artifact requires full rebuild validation')
+    suffix = '-' + artifact_suffix if artifact_suffix else ''
     environment = dict(os.environ if environment is None else environment)
     root = Path(root).absolute()
     output_dir = Path(output_dir).absolute()
@@ -126,18 +143,19 @@ def run(root, state_path, output_dir, environment=None):
     started, cpu_started = time.monotonic(), time.process_time()
     created = []
     try:
-        report, report_sha = validate(root, state, environment)
+        report, report_sha = validate(root, state, environment, require_full_rebuild)
         selected = members(root, report, report_sha)
         verified = time.monotonic()
         output_dir.mkdir(parents=True, exist_ok=True)
-        name = 'material-project-' + state['commit'][:12] + '-' + state['run_id'] + '-' + state['attempt'] + '.tar.gz'
+        name = 'material-project-' + state['commit'][:12] + '-' + state['run_id'] + '-' + state['attempt'] + suffix + '.tar.gz'
         archive = output_dir / name
         created.append(archive)
         file_manifest = pack(root, selected, archive)
         archive_sha = sha256(archive.read_bytes())
         metadata = {'schema_version': 1, 'status': 'READY_FOR_UPLOAD', 'repository': state['repository'],
             'commit': state['commit'], 'branch': state['branch'], 'run_id': state['run_id'], 'attempt': state['attempt'],
-            'run_url': report['run_url'], 'artifact_name': 'material-binary-' + state['commit'] + '-' + state['run_id'] + '-' + state['attempt'],
+            'run_url': report['run_url'], 'artifact_name': 'material-binary-' + state['commit'] + '-' + state['run_id'] + '-' + state['attempt'] + suffix,
+            'worker_mode': artifact_suffix or 'legacy', 'full_project_rebuild_verified': require_full_rebuild,
             'archive_name': name, 'archive_sha256': archive_sha, 'archive_bytes': archive.stat().st_size,
             'compression': 'gzip-level-1', 'archive_layout': 'repository-relative; current own .olean* objects and fresh evidence only',
             'report_sha256': selected['Material/registry/current.json'],
@@ -171,8 +189,11 @@ def main():
     parser.add_argument('--root', type=Path, default=Path.cwd())
     parser.add_argument('--state', type=Path, required=True)
     parser.add_argument('--output-dir', type=Path, required=True)
+    parser.add_argument('--artifact-suffix', choices=('fast', 'recovery'), default='')
+    parser.add_argument('--require-full-rebuild', action='store_true')
     args = parser.parse_args()
-    run(args.root, args.state, args.output_dir)
+    run(args.root, args.state, args.output_dir, artifact_suffix=args.artifact_suffix,
+        require_full_rebuild=args.require_full_rebuild)
 
 
 if __name__ == '__main__':

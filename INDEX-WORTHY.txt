@@ -3,7 +3,7 @@ DATE = 2026-11-17
 WORKING_BRANCH = main
 
 I01 ORIGINAL_QFB_COMPOSED
-STATUS: MATCHING_METHBOKE_EXTERNAL_LEAN_PASS_AT_68e9f8a_ATTEMPT_2; standard axioms only.
+STATUS: MATCHING_METHBOKE_EXTERNAL_LEAN_PASS_AT_66052f4_ATTEMPT_1; standard axioms only.
 EXACT DECLARATION:
   QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement
 SCOPE: nu>0; original CriticalPhysicalL2 data with EnergySigmaZero; LH
@@ -16,11 +16,11 @@ NATIVE COPY: Material/_vendor/QuasiFeffermanB/Endpoints/Root.lean.
 DEPENDENCY IDENTITY: Material/_vendor/source-manifest.json and
   Material/lake-manifest.json; Lean 4.33.0.
 INHERITED EVIDENCE: https://github.com/randogelist/Methlib/actions/runs/43801307847
-MATCHING EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2
-TESTED COMMIT: 68e9f8ad8663ebfcc0b84ca5b927908dfe5e1602.
+MATCHING EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44080437531
+TESTED COMMIT: 66052f498614c8b3dc31f5331f5bfdd4667fa87c.
 PRIOR ACCEPTED BASELINES: runs 44052579373 at 6440270 and 44066821232 at
   73c2e98, plus run 44071830091 at 04fbd79; evidence retained separately.
-RECEIPTS: https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770;
+RECEIPTS: https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291;
   the endpoint and independently elaborated LEAN_CUTOUTS/Cutouts.lean passed.
 AXIOMS: propext, Classical.choice, Quot.sound.
 BOUNDARY: original exact QFB result, now checked in the native Methboke package.
@@ -38,22 +38,25 @@ explicit differentiation argument. No QFB or admission premise required.
 BOUNDARY: no compiled theorem is claimed; no universal input class follows.
 
 I03 MATERIAL_NATIVE_PACKAGE_ACCEPTANCE
-STATUS: EXTERNAL_COMPILER_TYPE_AXIOM_PASS_AT_68e9f8a_ATTEMPT_2.
+STATUS: EXTERNAL_COMPILER_TYPE_AXIOM_PASS_AT_66052f4_ATTEMPT_1.
 SCOPE: 283 own modules (269 native plus 14 endpoint wrappers), 14 fresh endpoint
   audit files covering 41 declaration entries, and the fresh QFB cutout audit.
   All 283 objects reused; zero modules rebuilt.
   All theorem premises are retained; only approved standard axioms occur.
-EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2
-  https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770; exact tested commit
-  68e9f8ad8663ebfcc0b84ca5b927908dfe5e1602.
-REGISTRY: ghcr.io/randogelist/methboke-material@sha256:c9263b3679086bc2874e1cd5ecaa721be41a02d28dfbf1abea070bb9a2d17ba4
-  Immutable aggregate and 14 endpoint tags published; main pointer updated.
-INFRASTRUCTURE MEASUREMENT: job 493s excluding queue; restore 160s; cleanup
-  78s; verification step 151s; publication 70s. All 125 external control tests
-  passed. Zero dependency bytes exported; 283 own receipt hashes verified.
+EVIDENCE: https://github.com/randogelist/Methboke/actions/runs/44080437531
+  https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291;
+  exact tested commit 66052f498614c8b3dc31f5331f5bfdd4667fa87c.
+BINARY ARTIFACT: https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14326982454
+  25,391,076-byte project archive; 299 member hashes and 283 receipts verified.
+  SHA256 f6971ee9ff8e101ef8e3ce5aa94301228fd3ae1406966cb9b77ea123d8b11950.
+INFRASTRUCTURE MEASUREMENT: job 299s excluding queue; dependency restore 66s;
+  project restore 2s; cleanup 43s; verification step 137s; packaging 8s; upload 3s.
+  All 139 external control tests passed. No Docker operations performed.
+RETAINED GHCR BASE: 68e9f8a attempt 2, run 44073883524, 493s; image
+  ghcr.io/randogelist/methboke-material@sha256:c9263b3679086bc2874e1cd5ecaa721be41a02d28dfbf1abea070bb9a2d17ba4
 BOUNDARY: acceptance of selected existing declarations and their packaging.
-  This is not a new finite-cap or universal regularity theorem. The native
-  binary-cache pilot is prepared and still awaits matching external evidence.
+  This is not a new finite-cap or universal regularity theorem. Automatic
+  separate-runner recovery is prepared and still awaits matching external CI.
 
 NOT INDEXED AS UNCONDITIONAL RESULTS:
 - New finite-cap Lean root: not formalized/certified.
@@ -64,7 +67,9 @@ NOT INDEXED AS UNCONDITIONAL RESULTS:
 - Warm run 44059698760: registry restore 264s, verification step 157s, then
   publication disk exhaustion. GitHub step summaries only; no retained matching
   audit artifact or exact reused-module count. No new accepted snapshot.
-- Native binary-cache pilot: prepared, pending matching external CI; no measured speedup.
+- Automatic binary-cache recovery: prepared, pending matching external CI.
+- Binary archive restoration as a standalone input: not yet exercised.
+- First binary round runtime: one 4m59s observation, not a stable speed guarantee.
 - CI configuration or successful cache restoration: infrastructure evidence.
 
 Other conditional B-tier chains and their premises remain in GPT.txt and

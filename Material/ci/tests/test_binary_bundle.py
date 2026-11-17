@@ -58,14 +58,71 @@ class BinaryBundleTests(unittest.TestCase):
     def hash(self, path):
         return hashlib.sha256(path.read_bytes()).hexdigest()
 
-    def run_fixture(self, evidence_error=None):
+    def run_fixture(self, evidence_error=None, **options):
         with patch.object(b.r, 'metadata', return_value=self.state), \
              patch.object(b.r, 'expected_endpoint_ids', return_value={'A'}), \
              patch.object(b.native_registry, 'validate_native_evidence', side_effect=evidence_error), \
              patch.object(b.native_registry, 'dependency_identity', return_value={'compiler': 'pinned fixture'}), \
              patch.object(b.build, 'validate', return_value={}), \
              patch.object(b.native_build, 'local_records', return_value={'A'}):
-            return b.run(self.root, self.state_path, self.output, self.env)
+            return b.run(self.root, self.state_path, self.output, self.env, **options)
+
+    def fresh_recovery_report(self):
+        self.report['module_receipts']['A']['reused'] = False
+        self.report['metrics'] = {'module_count': 1, 'fresh_module_count': 1, 'reused_module_count': 0}
+        self.report['cache_hydration'] = {'mode': 'official_cache_get'}
+        b.r.save(self.root / 'Material/registry/current.json', self.report)
+
+    def test_worker_suffix_prevents_same_run_artifact_collision(self):
+        fast = self.run_fixture(artifact_suffix='fast')
+        self.output = self.output.parent / 'recovery'
+        self.fresh_recovery_report()
+        recovery = self.run_fixture(artifact_suffix='recovery', require_full_rebuild=True)
+        self.assertNotEqual(fast['artifact_name'], recovery['artifact_name'])
+        self.assertNotEqual(fast['archive_name'], recovery['archive_name'])
+        self.assertTrue(recovery['full_project_rebuild_verified'])
+        self.assertFalse(fast['full_project_rebuild_verified'])
+
+    def test_unknown_artifact_suffix_is_rejected(self):
+        with self.assertRaisesRegex(ValueError, 'artifact suffix'):
+            self.run_fixture(artifact_suffix='../outside')
+
+    def test_recovery_label_requires_full_rebuild_check(self):
+        with self.assertRaisesRegex(ValueError, 'requires full rebuild'):
+            self.run_fixture(artifact_suffix='recovery')
+
+    def test_recovery_rejects_reused_module_even_with_fresh_metrics(self):
+        self.fresh_recovery_report()
+        self.report['module_receipts']['A']['reused'] = True
+        b.r.save(self.root / 'Material/registry/current.json', self.report)
+        with self.assertRaisesRegex(ValueError, 'every current project module freshly rebuilt'):
+            self.run_fixture(require_full_rebuild=True)
+        self.assertFalse(self.output.exists())
+
+    def test_recovery_rejects_missing_reuse_provenance(self):
+        self.fresh_recovery_report()
+        del self.report['module_receipts']['A']['reused']
+        b.r.save(self.root / 'Material/registry/current.json', self.report)
+        with self.assertRaisesRegex(ValueError, 'freshly rebuilt'):
+            self.run_fixture(require_full_rebuild=True)
+
+    def test_recovery_rejects_inconsistent_metrics(self):
+        self.fresh_recovery_report()
+        for field, value in [('module_count', 2), ('fresh_module_count', 0), ('reused_module_count', 1)]:
+            with self.subTest(field=field):
+                metrics = dict(self.report['metrics'])
+                self.report['metrics'][field] = value
+                b.r.save(self.root / 'Material/registry/current.json', self.report)
+                with self.assertRaisesRegex(ValueError, 'freshly rebuilt'):
+                    self.run_fixture(require_full_rebuild=True)
+                self.report['metrics'] = metrics
+
+    def test_recovery_rejects_retained_dependencies(self):
+        self.fresh_recovery_report()
+        self.report['cache_hydration']['mode'] = 'retained_passed_outputs'
+        b.r.save(self.root / 'Material/registry/current.json', self.report)
+        with self.assertRaisesRegex(ValueError, 'pinned official dependency bootstrap'):
+            self.run_fixture(require_full_rebuild=True)
 
     def test_archive_bytes_match_manifest_and_exclude_unaccepted_files(self):
         entry = self.run_fixture()

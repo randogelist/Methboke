@@ -8,14 +8,16 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 - **Native QFB source is present:** 74 QFB modules and 195 required
   SingularClosure modules, preserved at their pinned source bytes.
-- **Material passed at `68e9f8a`, attempt 2:** all 283 project objects were reused.
-  All 14 endpoint audits covering 41 declarations and the QFB cutout passed
-  freshly with standard axioms only in [the 8m13s rerun](https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2).
-  All 125 control tests passed, and the GHCR image and main pointer were published.
-  [Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770) belongs to that exact source and attempt.
-- **Native binary-cache pilot is prepared:** the next run restores compiled
-  objects from Actions caches and publishes a verified project archive, without
-  Docker packaging. Its result and performance remain pending external CI.
+- **Native binary reuse passed at `66052f4`:** all 283 project objects were
+  reused; all 14 endpoint audits covering 41 declarations and the QFB cutout
+  passed freshly with standard axioms only in [the 4m59s run](https://github.com/randogelist/Methboke/actions/runs/44080437531).
+  All 139 control tests passed. The verified project archive is 25,391,076 bytes;
+  [matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291)
+  belongs to that exact source and attempt. Existing GHCR images remain available.
+- **Automatic recovery is prepared, pending external CI:** if the fast binary
+  worker cannot complete, a separate runner rebuilds all project modules from
+  the pinned official dependency objects, reruns every audit, and publishes
+  replacement objects and caches. The first integration run exercises this path.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -109,21 +111,33 @@ only its wrapper rebuilt. Its unchanged manual rerun passed in 8m13s with all
 283 objects reused. These are GHCR measurements; the original empty-commit
 timing remains unmeasured because its pending run was superseded.
 
-For the next three rounds, pushes default to `binary_cache`; manual
-`backend=registry` retains the previous path. Binary runs require an exact
-existing dependency cache and compatible project objects with a prior PASS
-report. Missing caches stop the trial; no dependency source rebuild is allowed.
-The unchanged native driver compiles amendments and freshly audits every endpoint.
-A receipt-checked `material-project-<shortSHA>-<run>-<attempt>.tar.gz` plus manifest is retained as a
-`material-binary-<sha>-<run>-<attempt>` Actions artifact for 90 days. Dependencies
-remain in their separate Actions cache; this is not a durable dependency-release
-fallback. The 20 GiB warm disk guard is unchanged; Docker publication and the
-40 GiB cold-seed cleanup are disabled for this backend.
+Pushes default to `binary_cache`; manual `backend=registry` retains the GHCR
+path. The fast worker requires compatible dependency and project caches with a
+prior PASS report, compiles amendments and runs all audits freshly. Missing or
+unusable cached objects, or another unsuccessful fast-worker phase, trigger a
+separate recovery runner at the same source commit. Recovery restores no project
+or dependency Actions caches: it obtains pinned official Mathlib objects and
+rebuilds every project module before all fresh audits. Mathlib source compilation
+is not allowed; an unavailable official dependency cache remains a blocking error.
 
-Planned rounds are unchanged-source native reuse, an exact repeat, then a
-comment amendment. Runtime improvements are hypotheses until measured.
-After a new CI run starts, agent work stops; **go on** resumes result inspection
-and any necessary repair.
+After verification, recovery publishes a replacement receipt-checked project
+archive and new immutable dependency/project cache generations. Future fast runs
+prefer these healed keys. A final verdict requires a fully accepted fast or
+recovery result, including successful publication; cancellation does not launch
+recovery. Strict `exact_cache_benchmark=true` runs retain their miss-fails behavior.
+The manual registry backend does not enter this new recovery path.
+
+Binary artifacts have 90-day retention and distinct `-fast`/`-recovery` names;
+Actions caches are the current restoration input. Artifact expiration alone does
+not require rebuilding while compatible caches remain. If caches are unavailable,
+recovery recreates them and supplies a fresh archive. No binary is committed to Git
+and no durable dependency-release backup is claimed. Both binary workers avoid
+Docker operations. Full recovery and subsequent reuse still await matching CI.
+
+The first native binary round passed in 4m59s; repeat/comment rounds remain pending.
+The next push uses `[material-recovery-drill]` to exercise recovery without deleting
+valid caches. After a new CI run starts, agent work stops; **go on** resumes result
+inspection and any necessary repair.
 
 Lean execution belongs to authorized external CI or native Windows replay.
 The compiler pin is `leanprover/lean4:v4.33.0`; Mathlib is

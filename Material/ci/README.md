@@ -3,7 +3,8 @@
 The active workflow is `.github/workflows/material.yml`: Ubuntu 24.04,
 Lean `leanprover/lean4:v4.33.0`, pinned Mathlib and the complete dependency lock.
 Local authoring work never executes Lean. Linux evidence is not native Windows
-verification. The native binary-cache trial is **prepared, pending external CI**.
+verification. The first native binary-cache round passed at `66052f4`; automatic
+recovery is **prepared, pending external CI**.
 
 ## Trial backends
 
@@ -15,20 +16,52 @@ dependencies. Neither a prepared backend nor cache restoration establishes PASS.
 The binary path restores separate Actions caches for `Material/.lake/packages`
 and for own `.lake/build` outputs plus their previous `registry/current.json`.
 An exact dependency hit, compatible project-cache match and prior PASS report
-are required before compiler setup. A miss stops the trial honestly. Native
-verification also rejects incomplete/incompatible installed dependency outputs;
-it does not fetch or rebuild missing Mathlib objects. The ordinary binary round
-allows compatible project prefixes so amendments can reuse unchanged modules.
+are required by the fast worker before compiler setup. Fast verification rejects
+incomplete/incompatible installed dependency outputs; it does not fetch or rebuild
+missing Mathlib objects. Ordinary binary runs allow compatible project prefixes
+so amendments can reuse unchanged modules. An unsuccessful fast worker now leads
+to the separate recovery worker described below, except in strict benchmark mode.
 
 Compilation runs directly on the external native runner. Binary runs perform no
 Docker authentication, pull, build or push, and do not advance the GHCR pointer.
-The warm 20 GiB disk guard remains unchanged for comparison; the 40 GiB cold-seed
-cleanup is excluded. Existing passed GHCR images and dependency caches remain.
+The warm 20 GiB disk guard remains unchanged for fast comparison. Recovery
+uses the cold disk guard before a full project rebuild. Existing passed GHCR
+images and cache entries remain.
 
-The planned rounds are (1) unchanged-source native reuse, (2) an exact repeat,
-and (3) a comment amendment. Each round starts only within the user's continuing
-work; agent work stops when CI starts, and **go on** resumes inspection. Faster
-runtime is a hypothesis, not a preparation result.
+The first unchanged-source native round passed in 4m59s; an exact repeat and
+comment amendment remain pending. The user's current scoped request adds automatic
+recovery first. Agent work stops when CI starts; **go on** resumes inspection.
+
+## Separate recovery runner
+
+The workflow uses a shared local composite action for fast and recovery workers.
+The fast job may fail; that alone never marks the whole workflow successful.
+For ordinary binary runs, absence of its final `accepted` output starts a fresh
+Ubuntu 24.04 recovery job at the same source SHA. Cancelled runs, strict
+`exact_cache_benchmark=true` runs and the manual registry backend do not take this
+path. A final verdict fails unless one worker supplies a fully accepted result.
+
+Recovery skips all dependency/project Actions restoration and all Docker use.
+It bootstraps the exact official Mathlib binary objects, rebuilds every current
+own module, and runs every endpoint and cutout audit freshly. Its bundle guard
+requires zero reused modules and a fresh PASS for the complete project plan.
+If official dependency objects are unavailable, recovery fails; compiling Mathlib
+from source is not a fallback. Proof sources, pins and module-identity drivers
+remain unchanged.
+
+After verification, recovery publishes a new binary artifact and append-only
+`-recovered-<run>-<attempt>` dependency/project cache generations. It verifies
+exact cache availability before acceptance. Ordinary fast runs first use
+lookup-only probes for compatible recovered keys, avoiding a permanently broken
+immutable canonical cache; strict benchmarks retain canonical exact-key rules.
+Neither path removes previous good caches or images. Acceptance follows complete
+verification, cache publication, archive upload and final evidence upload.
+
+The first integration push includes `[material-recovery-drill]`, intentionally
+requesting recovery before normal restoration without deleting caches. Manual
+`force_rebuild=true` supplies the same controlled exercise. Recovery and subsequent
+healed-cache reuse remain unverified until their matching external evidence is
+inspected. A longer full-project run is expected; it is not a warm benchmark.
 
 ## Shared verification contract
 
@@ -55,17 +88,23 @@ audits, archive publication and failed phases.
 
 After the native build and all fresh audits pass, `binary_bundle.py` revalidates
 the current evidence and own `.olean*` receipts, then prepares
-`material-project-<shortSHA>-<run>-<attempt>.tar.gz` with gzip level 1 and an adjacent `manifest.json`. It includes
+`material-project-<shortSHA>-<run>-<attempt>-<fast|recovery>.tar.gz` with gzip level 1 and an adjacent `manifest.json`. It includes
 receipt-verified own objects, `current.json` and required fresh audit logs;
 it excludes Mathlib/dependency packages and stale unreceipted objects. The
 manifest binds exact source/run/attempt, compiler/dependency identity, member
 hashes, archive SHA256, bytes and packaging time. `binary-entry.json` records
 `READY_FOR_UPLOAD`; successful remote upload is established by the Actions step.
 
-Actions uploads `material-binary-<sha>-<run>-<attempt>` with **90-day retention**.
+Actions uploads `material-binary-<sha>-<run>-<attempt>-<fast|recovery>` with
+**90-day retention**. Distinct worker names prevent partial primary publication
+from colliding with recovery in the same run.
 Own objects are also saved in the compatible project Actions cache. Dependencies
-remain in their separate cache. This is a pilot archive, not a durable release
-fallback for dependencies. No compiled binary is committed into Git. Verified
+remain in their separate cache. Actions caches are the restoration input; an
+expired binary artifact alone does not block reuse while those caches remain.
+When cached inputs are missing or unusable, recovery recreates caches and a fresh
+project archive. This is not a durable dependency-release backup, and standalone
+archive restoration has not been exercised. No compiled binary is committed into
+Git. Verified
 compiler/audit evidence is uploaded before publication, and final diagnostics
 are uploaded even when publication fails.
 
@@ -86,7 +125,21 @@ are checked. Failed verification/publication leaves previous passed images intac
 A registry miss may use compatible caches or the exact official dependency cache;
 Mathlib source compilation is never authorized. Its cold snapshot recipe remains.
 
-## Verified comparison baseline
+## Verified comparison baselines
+
+[Native binary run 44080437531](https://github.com/randogelist/Methboke/actions/runs/44080437531)
+at `66052f498614c8b3dc31f5331f5bfdd4667fa87c` passed in **4m59s**, excluding
+queue: 283 reused objects, zero fresh modules, all fourteen endpoint audits and
+the cutout fresh, and 139 control tests passed. Cleanup took 43s, dependency cache
+restoration 66s, own cache restoration 2s, compiler setup 18s, verification 137s,
+packaging 8s and upload 3s. Driver time was 128.521s, including 96.004s fresh audits.
+The project archive is 25,391,076 bytes; separate compressed Actions caches are
+19,904,940 bytes for own objects and 2,527,746,970 bytes for dependencies. All
+299 archive member hashes and 283 module receipts were checked against
+[matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291).
+This verifies warm native reuse and archive publication, not the prepared recovery
+worker or a durable archive-download fallback. No Docker operations occurred.
+
 
 [Run 44073883524, attempt 2](https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2)
 at `68e9f8ad8663ebfcc0b84ca5b927908dfe5e1602` passed in **8m13s**, excluding
@@ -108,5 +161,6 @@ Reference designs remain the Methlib QFB 4m40s / 74-object reuse run and H12
 modules. Source preparation, Python control tests and static inspection cannot
 establish a new Lean theorem or unconditional finite-cap closure.
 
-Fourteen additional control tests are prepared for external CI (139 total expected).
-They have not been executed locally.
+The 139 control tests passed in external round 1. Seven additional bundle
+recovery tests are prepared for the next external run (146 total expected).
+No project tests or Lean commands are executed locally.

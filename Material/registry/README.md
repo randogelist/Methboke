@@ -18,20 +18,43 @@ were published. [Matching evidence](https://github.com/randogelist/Methboke/acti
 has checked ZIP, report and all fifteen fresh audit-log hashes. Earlier accepted
 baselines remain separately retained. This is not native binary-pilot acceptance.
 
-The prepared pilot defaults to the `binary_cache` backend: separate existing
-Actions caches restore dependencies and own objects, the native runner compiles
-amendments, and every required audit remains fresh. Exact dependency restoration,
-compatible project objects and a prior PASS report are mandatory. No Docker
+The accepted native binary baseline is
+[run 44080437531](https://github.com/randogelist/Methboke/actions/runs/44080437531),
+source `66052f498614c8b3dc31f5331f5bfdd4667fa87c`: 4m59s, all 283 objects
+reused, every endpoint/cutout audit fresh, and 139 control tests passed. Its
+25,391,076-byte project archive has 299 verified member hashes and 283 checked
+module receipts. [Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291)
+and [binary artifact](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14326982454)
+bind the exact tested source and run. No Docker operations occurred.
+
+The `binary_cache` backend is default: Actions caches restore dependencies and
+own objects, the fast native runner compiles amendments, and every required
+audit remains fresh. Exact compatible dependency restoration, compatible project
+objects and a prior PASS report are mandatory for fast acceptance. No Docker
 publication occurs and the existing GHCR pointer is preserved. Manual
 `backend=registry` retains the previous container path.
 
-After complete verification, the pilot prepares `material-project-<shortSHA>-<run>-<attempt>.tar.gz`, a
+Automatic separate-runner recovery is prepared, pending matching external CI.
+When the fast binary worker cannot finish, a fresh runner at the same commit
+restores no Actions caches or image, obtains the pinned official Mathlib binary
+objects, rebuilds every project module and audits everything freshly. It must
+publish replacement objects and append-only healed dependency/project caches;
+future fast runs prefer these compatible recovered keys. Unavailable official
+dependency objects still block the build; Mathlib source compilation is forbidden.
+The final workflow verdict requires one fully accepted worker, including cache
+availability, archive upload and final evidence upload. Cancelled runs and strict
+exact-cache benchmarks do not start recovery. Existing good caches are preserved.
+
+After complete verification, the pilot prepares `material-project-<shortSHA>-<run>-<attempt>-<fast|recovery>.tar.gz`, a
 hashed manifest and `binary-entry.json`. The archive contains current
 receipt-verified own `.olean*` objects and fresh evidence, not dependency packages.
-Actions retains it as `material-binary-<sha>-<run>-<attempt>` for **90 days**;
-dependencies remain in their separate cache. This is a pilot archive, not a
-durable dependency-release fallback. Artifact preparation and successful remote
-upload are distinct states. No generated PASS record is committed to simulate
+Actions retains it as `material-binary-<sha>-<run>-<attempt>-<fast|recovery>` for **90 days**;
+dependencies remain in their separate cache. Distinct worker names avoid
+same-run artifact collisions. Actions caches are the current restoration input:
+artifact expiration alone does not require rebuilding while caches remain usable.
+Recovery can recreate missing caches and a fresh archive, but no durable dependency
+release backup or standalone archive-restoration pass is claimed. Artifact
+preparation and successful remote upload are distinct states. No generated PASS record is committed to simulate
 verification of a prepared configuration.
 
 - `current.json`: exact tested source, compiler/platform/dependencies, endpoint
@@ -47,5 +70,7 @@ verification of a prepared configuration.
 Every accepted artifact must bind a successful current build and all fresh
 audits to the exact source, compiler, dependency and object identities. Private
 storage controls access; it does not replace these checks. The
-[CI controls](../ci/README.md) describe backend selection and the planned three
-rounds. Agent work stops once each external runner starts.
+[CI controls](../ci/README.md) describe backend selection, recovery and the
+pending repeat/comment rounds. The first recovery drill and later healed-cache
+reuse require separate matching evidence. Agent work stops once each external
+runner starts.

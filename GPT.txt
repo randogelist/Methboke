@@ -1,10 +1,10 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.4
+DOCUMENT_VERSION = 1.5
 DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = trial native binary-cache restoration and verified project archives
+ACTIVE_TASK = add separate-runner recovery for unavailable or unusable binary caches
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,10 +22,12 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: prepare the native binary-cache pilot against the accepted 68e9f8a
-GHCR baseline; start round 1 with unchanged proof sources and stop once CI starts.
-Later go on rounds compare an exact repeat and a comment amendment. Native
-binary reuse and runtime remain pending matching external evidence.
+MICROSCOPIC: prepare and externally exercise automatic full-project recovery
+when the fast binary worker cannot complete, preserving the accepted 66052f4
+native binary baseline. Recovery uses pinned official dependency objects and
+publishes fresh audited objects and caches. Stop once CI starts; matching recovery
+and later healed-cache reuse evidence remain pending. Exact repeat/comment trial
+rounds remain available after this scoped recovery request.
 
 2. DEFINITIONS AND PREMISES
 
@@ -128,7 +130,7 @@ L15 further certified input families;
 L16 universal analytic germ-to-cap admission R1 (open).
 
 L01-L04 have selected pinned source interfaces in Material, externally
-compiled and freshly audited at 68e9f8a (run 44073883524, attempt 2). L05-L14 still require exact adapter
+compiled and freshly audited at 66052f4 (run 44080437531, attempt 1). L05-L14 still require exact adapter
 construction and matching external audits for the new root. L16 is not supplied by a structure field or an identity theorem.
 A-tier activation follows presentation of the relevant mid-tier endpoints
 and user assent. Current setup does not change unresolved mathematical scope.
@@ -258,7 +260,26 @@ Image: ghcr.io/randogelist/methboke-material@sha256:c9263b3679086bc2874e1cd5ecaa
 Main pointer updated. Matching artifact: https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770
 Artifact SHA256: e238380738d2520eae343939e06a750a54b815a8e1f97effb0b47503446fa60a.
 ZIP, current report and all 15 fresh audit-log hashes were verified. These
-measurements describe GHCR execution, not the prepared native binary pilot.
+measurements describe GHCR execution, not the separate native binary baseline.
+
+Latest accepted native binary baseline:
+https://github.com/randogelist/Methboke/actions/runs/44080437531
+Tested source: 66052f498614c8b3dc31f5331f5bfdd4667fa87c; attempt 1.
+PASS in 299s (4m59s): all 283 own modules reused, zero fresh modules; all 14
+endpoint audit files covering 41 declarations and the QFB cutout audited freshly.
+Exact types and standard-only axiom records match the prior baseline. All 139
+external control tests passed. Cleanup 43s, dependency restoration 66s, project
+restoration 2s, toolchain 18s, verification 137s, packaging 8s, upload 3s.
+Driver 128.521s: cache 31.037s, own work 0.404s, fresh audits 96.004s.
+No Docker operations were performed. The project archive is 25,391,076 bytes;
+compressed project Actions cache 19,904,940 bytes; dependency cache
+2,527,746,970 bytes. The archive excludes dependencies. Its SHA256 is
+f6971ee9ff8e101ef8e3ce5aa94301228fd3ae1406966cb9b77ea123d8b11950.
+Matching evidence: https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291
+Binary artifact: https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14326982454
+Artifact, manifest, report, all 299 archive member hashes and 283 own receipts
+were checked without executing Lean locally. This verifies the first native
+binary round, not automatic recovery or standalone archive restoration.
 
 Historical failure: run 44046225468 at 670de211 compiled all 283 modules,
 then failed on unsupported pp.width; no caches or container were published.
@@ -305,31 +326,47 @@ remain available. Every endpoint and cutout audit remains fresh.
 SDK reclamation is conditional on free space, applies only to disposable
 GitHub-hosted runners, and stops after enough allowlisted SDK space is freed.
 Warm and cold budgets are explicit and bounded (defaults 20/40 GiB); the cold
-check is used on a registry miss. No workspace, toolchain, object cache or passed
+check is used on a registry miss or full binary recovery. No workspace, toolchain, object cache or passed
 image is deleted. The unchanged proof-source runs at 04fbd79 and 68e9f8a
 attempt 2 verified 283/283 reuse in 7m26s and 8m13s respectively.
 
-Native binary-cache pilot: PREPARED_PENDING_EXTERNAL_CI.
-During the trial, pushes and the default manual backend use binary_cache;
-manual backend=registry preserves the GHCR path and all existing passed images.
-The exact_cache_benchmark input implies binary_cache with exact project-key
-matching. Ordinary binary rounds require exact dependency-cache restoration,
-a compatible own-project cache and its prior PASS report; absence stops the
-round before compiler setup. Native verification rejects missing/incompatible
-installed dependencies instead of fetching or rebuilding them. Compiler drivers,
-launcher, pins, proof bodies and per-module receipt identities remain unchanged.
+Native binary-cache pilot: ROUND_1_EXTERNALLY_VERIFIED_AT_66052f4.
+Pushes and default manual runs use binary_cache; backend=registry preserves
+GHCR and its passed images. Fast binary verification restores compatible Actions
+dependency/project objects and a prior PASS report. Ordinary fast runs prefer
+new recovered cache generations before canonical keys; compatible project
+prefixes support amendment builds. Strict exact_cache_benchmark bypasses those
+probes, requires canonical exact hits and never starts recovery.
 
-After current compilation and all fresh audits pass, binary_bundle.py verifies
-own .olean* receipts and creates material-project-<shortSHA>-<run>-<attempt>.tar.gz (gzip level 1), a hashed
-manifest and binary-entry.json. The archive contains current own objects and
-fresh evidence, not Mathlib/dependency packages. Actions publishes the archive
-as material-binary-<sha>-<run>-<attempt> with 90-day retention; dependencies and
-own outputs also use separate compatible Actions caches. The binary backend
-performs no Docker login/pull/build/push and no cold 40 GiB cleanup. The warm
-20 GiB cleanup guard remains unchanged for comparability. This is a pilot archive,
-not a durable dependency-release fallback. No speedup is asserted in advance.
-Planned rounds: (1) native reuse with unchanged proofs, (2) exact repeat,
-(3) a comment amendment. Each round resumes with go on and stops at runner start.
+Automatic recovery: PREPARED_PENDING_EXTERNAL_CI.
+The fast worker may fail without accepting the workflow. For ordinary binary
+runs, failure to obtain its final accepted output launches a separate Ubuntu
+24.04 recovery worker at the same source SHA, unless the workflow is cancelled.
+The recovery runner restores no Actions caches or passed image. It obtains the
+pinned official Mathlib objects, compiles all own modules and performs every
+fresh endpoint/type/axiom/cutout audit. Missing official objects stop recovery;
+Mathlib source compilation and all local Lean execution remain forbidden.
+A recovery archive must show all current own modules freshly passed and zero
+reused receipts. Proof sources, compiler drivers, pins and receipt identities
+remain unchanged. No Docker operations are used by either binary worker.
+
+Successful recovery saves new append-only dependency/project cache generations
+and publishes its receipt-verified archive. Fast/recovery artifact names are
+distinct, preventing a partly uploaded fast result from blocking recovery.
+Cache availability is checked after publication. A final verdict fails unless
+one worker finishes verification, cache publication, archive upload and final
+evidence upload successfully. The manual registry backend retains its own path.
+
+binary_bundle.py binds own .olean* receipt hashes, fresh evidence and exact
+source/run/attempt/compiler/dependency identity in a gzip-level-1 project archive
+and manifest. Artifact retention is 90 days; dependency packages are excluded.
+Actions caches remain the restoration input, so artifact expiry alone does not
+trigger recovery while usable caches remain. Recovery recreates missing caches
+and the project archive; no durable dependency-release backup or Git binary
+store is asserted. Existing successful images and cache entries are retained.
+The initial integration push includes [material-recovery-drill] to request the
+second worker without deleting valid caches. Its runtime result is pending.
+Each resumed round stops once CI starts; go on resumes inspection.
 
 New finite-cap root A-tier: NOT_ESTABLISHED.
 New root formal/unconditional closure: NOT_ESTABLISHED.
@@ -353,21 +390,22 @@ Do not promote pending source preparation or an unrelated green run.
 Main consolidation and native source preparation are complete. The candidate
 history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
 44046225564 retired that branch. The native package, original QFB root and
-single-file cutout passed cold at 6440270 and warm through 68e9f8a attempt 2.
-68e9f8a is the current accepted GHCR base, with matching object/audit evidence
-and successful publication. Current target: trial native binary-cache reuse
-for three controlled rounds, starting with unchanged proof sources. Preserve
-proof bodies, pins, endpoint manifests and all audit gates. Stop once CI starts;
-go on resumes receipt/artifact inspection and the next benchmark round.
+single-file cutout passed cold at 6440270 and warm through 66052f4.
+68e9f8a remains the accepted GHCR base; 66052f4 is the accepted native binary
+base, with matching object/audit/archive evidence. Current target: separate-runner
+full-project recovery and replacement cache/archive publication. Preserve proof
+bodies, pins, endpoint manifests and all audit gates. Stop once CI starts;
+go on resumes receipt/artifact inspection and any necessary repair.
 The upstream timing anchors guide scheduling; they do not guarantee runtime.
 
 CI contract: restore compatible dependency/foundation/project objects;
 validate source/compiler/lock/policy identity; use two dependency workers
 where supported; compile amendments and affected own dependencies; audit
 all required declarations freshly; publish only passed registry records.
-A registry cold seed may request the exact official Mathlib cache, never an
-unapproved Mathlib source rebuild. The binary pilot stops on missing/incompatible
-installed dependencies. Warm cache-required measurements must
+Registry cold seeds and binary recovery may request the exact official Mathlib
+cache, never a Mathlib source rebuild. Fast binary failure starts recovery only
+outside strict benchmark mode; recovery remains blocked if official dependencies
+are unavailable. Warm cache-required measurements must
 report cache misses honestly. Record module workers separately from Lean
 threads. No direct or indirect local Lean execution, including Lake wrappers,
 kernel audits, subprocesses, containers and subagents. Local work is source
