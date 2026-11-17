@@ -11,7 +11,7 @@ inputs:
     description: Require the canonical exact caches and prohibit recovery.
     default: 'false'
   force-rebuild:
-    description: Deliberately hand the fast path to the fresh recovery runner.
+    description: Record explicit manual recovery; incompatible combinations fail validation.
     default: 'false'
   github-token:
     description: Token for the retained registry backend.
@@ -23,7 +23,7 @@ outputs:
 runs:
   using: composite
   steps:
-    - name: Record worker routing and deliberate recovery request
+    - name: Validate and record worker routing
       shell: bash
       env:
         WORKER_MODE: ${{ inputs.worker-mode }}
@@ -43,12 +43,15 @@ runs:
             raise SystemExit('Unsupported Material worker configuration.')
         if mode == 'recovery' and (backend != 'binary_cache' or strict):
             raise SystemExit('Recovery is only available for the ordinary binary backend.')
+        if forced and (mode != 'recovery' or backend != 'binary_cache' or strict):
+            raise SystemExit('force_rebuild requires the ordinary binary recovery path; disable exact_cache_benchmark and select binary_cache.')
         plan = {
             'schema_version': 1, 'worker_mode': mode, 'backend': backend,
             'commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
             'attempt': os.environ['GITHUB_RUN_ATTEMPT'],
             'exact_cache_benchmark': strict, 'force_rebuild_requested': forced,
-            'recovery_trigger': 'manual input or push commit drill marker' if forced else 'automatic on unaccepted primary',
+            'recovery_trigger': ('manual force_rebuild input' if forced else
+                                 'unaccepted fast worker' if mode == 'recovery' else None),
             'own_project_restore_allowed': mode == 'fast',
             'dependency_restore_allowed': mode == 'fast',
             'dependency_source_build_allowed': False,
@@ -56,10 +59,6 @@ runs:
         registry = Path('Material/registry')
         registry.mkdir(parents=True, exist_ok=True)
         (registry / 'worker-plan.json').write_text(json.dumps(plan, indent=2, sort_keys=True) + '\n')
-        if forced:
-            if mode != 'fast' or backend != 'binary_cache' or strict:
-                raise SystemExit('force_rebuild requires the ordinary binary fast path; exact benchmarks remain strict.')
-            raise SystemExit('RECOVERY_REQUESTED: handing this exact revision to the fresh recovery runner.')
         PY
 
     - name: Validate sources and receipt controls without Lean

@@ -4,7 +4,7 @@ DATE = 2026-11-17
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = repair the binary recovery disk budget and repeat the external recovery drill
+ACTIVE_TASK = restore normal cached CI routing after two successful recovery drills; Docker Hub paused
 RESUME_MODE = DISCUSSION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
@@ -22,12 +22,12 @@ milestone changes this goal. Only explicit CHANGE updates the project goal.
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: the user's main-branch, native-QFB and cached-CI setup request.
-MICROSCOPIC: repair the pre-compiler disk-budget failure in recovery run
-44085694998 and repeat the external full-project drill, preserving the accepted
-66052f4 native binary baseline. Recovery uses pinned official dependency objects and
-publishes fresh audited objects and caches. Stop once CI starts; matching recovery
-and later healed-cache reuse evidence remain pending. Exact repeat/comment trial
-rounds remain available after this scoped recovery request.
+MICROSCOPIC: remove the commit-marker recovery trigger that deliberately fails
+the fast job on every rerun. Recovery and its 32 GiB disk guard passed twice at
+b1178b8; the latest accepted full rebuild is attempt 2 of run 44086819243.
+Ordinary runs should try the verified caches first; explicit manual force_rebuild
+should select recovery without a synthetic failure. Revised routing and later
+healed-cache reuse await matching CI. Stop once CI starts. Docker Hub work is paused.
 
 2. DEFINITIONS AND PREMISES
 
@@ -130,7 +130,7 @@ L15 further certified input families;
 L16 universal analytic germ-to-cap admission R1 (open).
 
 L01-L04 have selected pinned source interfaces in Material, externally
-compiled and freshly audited at 66052f4 (run 44080437531, attempt 1). L05-L14 still require exact adapter
+compiled and freshly audited at b1178b8 (run 44086819243, attempt 2). L05-L14 still require exact adapter
 construction and matching external audits for the new root. L16 is not supplied by a structure field or an identity theorem.
 A-tier activation follows presentation of the relevant mid-tier endpoints
 and user assent. Current setup does not change unresolved mathematical scope.
@@ -262,7 +262,7 @@ Artifact SHA256: e238380738d2520eae343939e06a750a54b815a8e1f97effb0b47503446fa60
 ZIP, current report and all 15 fresh audit-log hashes were verified. These
 measurements describe GHCR execution, not the separate native binary baseline.
 
-Latest accepted native binary baseline:
+Accepted warm native binary baseline:
 https://github.com/randogelist/Methboke/actions/runs/44080437531
 Tested source: 66052f498614c8b3dc31f5331f5bfdd4667fa87c; attempt 1.
 PASS in 299s (4m59s): all 283 own modules reused, zero fresh modules; all 14
@@ -340,7 +340,8 @@ new recovered cache generations before canonical keys; compatible project
 prefixes support amendment builds. Strict exact_cache_benchmark bypasses those
 probes, requires canonical exact hits and never starts recovery.
 
-Automatic recovery: DISK_BUDGET_REPAIR_PREPARED_PENDING_EXTERNAL_CI.
+Automatic recovery: EXTERNALLY_VERIFIED_AT_b1178b8_ATTEMPT_2.
+Normal cached routing: REPAIR_PREPARED_PENDING_EXTERNAL_CI.
 The fast worker may fail without accepting the workflow. For ordinary binary
 runs, failure to obtain its final accepted output launches a separate Ubuntu
 24.04 recovery worker at the same source SHA, unless the workflow is cancelled.
@@ -377,12 +378,40 @@ No project compilation, fresh theorem audit, binary or cache publication occurre
 The terminal acceptance job correctly failed. Failure evidence:
 https://github.com/randogelist/Methboke/actions/runs/44085694998/artifacts/14328628908
 Artifact SHA256 f88ed4967c521b7bb1c8eb6eade5cb27a540dad747cf52f450f163b4ddb9e630.
-The repair uses the existing bounded 32 GiB cold setting only for binary recovery,
-which does not build a Docker snapshot. The helper, driver, proof sources and pins
-are unchanged. One mocked disk regression is prepared for external CI (147 tests
-expected); no local tests ran. The next [material-recovery-drill] push repeats the
-full recovery exercise without deleting valid caches. Matching rebuild and
-subsequent healed-cache reuse evidence remain pending.
+The existing bounded 32 GiB cold setting passed in both recovery attempts at
+b1178b843bbaa62d4b3c2fba2fc8f8b0c5a95120, run 44086819243. Attempt 1
+recovery job 134051396564 passed in 2016s (33m36s); attempt 2 job 134071441340
+passed in 2107s (35m07s). Both passed all 147 controls, freshly compiled all 283
+own modules with zero reuse, and freshly audited all 14 endpoint files/41
+declarations plus the QFB cutout. Both published replacement binary artifacts
+and recovered dependency/project cache keys, confirmed available by exact lookup.
+Attempt 2 driver: 1896.043s; dependencies 177.751s; own build 1672.854s; audits
+44.929s. The 66052f4 4m59s result remains the separate warm-reuse benchmark.
+Matching attempt 2 evidence:
+https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2
+https://github.com/randogelist/Methboke/actions/runs/44086819243/artifacts/14334074369
+The downloaded evidence ZIP SHA256 is
+7cf24ea25a35af497bc9d3d5c28fe0eda20801e02385ebd20dc70c3ccd0f377b;
+current.json SHA256 is 9394970471201efffee390e15a6145d5b4f46cff34c2711f77fbc07137885aa9.
+Both hashes and all fifteen fresh audit-log hashes were checked without Lean.
+All recorded axioms are standard-only and the source pin is intact. The published
+attempt 2 binary archive is 25,391,070 bytes, SHA256
+165fc6e24ae079cbea83456c0ab04302ea78e0e5b7c76001d901a0bf44bf4f25,
+artifact 14334004520; archive size/hash come from publication evidence, not a new
+independent download of its binary members. No new mathematical closure follows.
+
+The first worker was red because the commit carried [material-recovery-drill],
+not because these two recovery builds crashed. That trigger repeats on every
+manual rerun of the same commit and makes another full rebuild unavoidable.
+The routing repair removes commit-message triggers: normal pushes and reruns
+try the fast cached worker; actual unaccepted fast results retain fallback.
+Explicit manual force_rebuild=true skips the fast job cleanly and selects recovery.
+Strict benchmark/registry exclusions remain: force_rebuild combined with either
+fails explicitly at preflight without recovery. Only a new push attempt supersedes
+older active work; manual reruns remain queued and retain their old configuration.
+Revised routing and fast reuse of recovered caches still await external CI;
+existing verified evidence is retained.
+Docker Hub configuration remains paused until the CI work is resolved.
 Each resumed round stops once CI starts; go on resumes inspection.
 
 New finite-cap root A-tier: NOT_ESTABLISHED.

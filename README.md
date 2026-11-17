@@ -14,11 +14,14 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   All 139 control tests passed. The verified project archive is 25,391,076 bytes;
   [matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291)
   belongs to that exact source and attempt. Existing GHCR images remain available.
-- **Recovery disk-budget repair is prepared, pending external CI:** the first
-  drill correctly launched the second runner and passed all 146 control tests,
-  then stopped before Lean on a 40 GiB disk guard. Binary recovery now requests
-  the existing 32 GiB minimum; the observed runner had 33.54 GiB free. The next
-  drill must still verify the full rebuild, audits and replacement publication.
+- **Full recovery passed twice at `b1178b8`:** the 32 GiB disk guard, all 147
+  controls, 283 fresh module builds, every fresh audit and replacement publication
+  passed. [Attempt 2](https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2)
+  took 35m07s. Its red fast job was an intentional drill trigger, not a recovery crash.
+- **Normal CI routing is being repaired:** commit-message drill triggers are
+  removed. Normal runs try the cached worker; manual `force_rebuild=true` selects
+  recovery directly. Revised routing and recovered-cache reuse await external CI.
+  Docker Hub work is paused.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -133,16 +136,23 @@ Actions caches are the current restoration input. Artifact expiration alone does
 not require rebuilding while compatible caches remain. If caches are unavailable,
 recovery recreates them and supplies a fresh archive. No binary is committed to Git
 and no durable dependency-release backup is claimed. Both binary workers avoid
-Docker operations. Full recovery and subsequent reuse still await matching CI.
+Docker operations. Full recovery passed twice; subsequent fast reuse of its
+replacement caches remains to be measured.
 
 The first native binary round passed in 4m59s; repeat/comment rounds remain pending.
 [The first recovery drill](https://github.com/randogelist/Methboke/actions/runs/44085694998)
 failed its disk preflight and correctly failed the final acceptance gate. No new
 compiled package was published. The repair applies a step-local 32 GiB cold budget
 to binary recovery only; fast verification remains at 20 GiB and registry cold
-publication at 40 GiB. The next `[material-recovery-drill]` push repeats recovery
-without deleting valid caches. After a new CI run starts, agent work stops; **go on** resumes result
-inspection and any necessary repair.
+publication at 40 GiB. The 32 GiB recovery passed twice at `b1178b8`, with
+147 controls, 283 fresh modules, all fresh audits and replacement publication.
+The old commit marker deliberately failed the first worker on every rerun; it
+is removed from the revised routing. Manual `force_rebuild=true` now skips the
+fast job and selects recovery directly. Combining it with strict benchmarking
+or the registry backend fails preflight without recovery. New pushes supersede
+older active work; manual reruns remain queued. Rerunning an old workflow uses
+its old configuration. After a new CI run starts, agent work stops; **go on**
+resumes result inspection and any necessary repair.
 
 Lean execution belongs to authorized external CI or native Windows replay.
 The compiler pin is `leanprover/lean4:v4.33.0`; Mathlib is

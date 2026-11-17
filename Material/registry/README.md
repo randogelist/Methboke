@@ -18,7 +18,7 @@ were published. [Matching evidence](https://github.com/randogelist/Methboke/acti
 has checked ZIP, report and all fifteen fresh audit-log hashes. Earlier accepted
 baselines remain separately retained. This is not native binary-pilot acceptance.
 
-The accepted native binary baseline is
+The accepted warm native binary baseline is
 [run 44080437531](https://github.com/randogelist/Methboke/actions/runs/44080437531),
 source `66052f498614c8b3dc31f5331f5bfdd4667fa87c`: 4m59s, all 283 objects
 reused, every endpoint/cutout audit fresh, and 139 control tests passed. Its
@@ -34,7 +34,8 @@ objects and a prior PASS report are mandatory for fast acceptance. No Docker
 publication occurs and the existing GHCR pointer is preserved. Manual
 `backend=registry` retains the previous container path.
 
-Automatic separate-runner recovery has a disk-budget repair pending external CI.
+Automatic separate-runner recovery and its 32 GiB disk guard passed twice at
+`b1178b8`; subsequent fast reuse of the replacement caches remains pending.
 When the fast binary worker cannot finish, a fresh runner at the same commit
 restores no Actions caches or image, obtains the pinned official Mathlib binary
 objects, rebuilds every project module and audits everything freshly. It must
@@ -51,7 +52,20 @@ disk requirement exceeded the 33.54 GiB remaining after allowlisted SDK cleanup.
 The final verdict correctly failed. [Failure evidence](https://github.com/randogelist/Methboke/actions/runs/44085694998/artifacts/14328628908)
 is infrastructure evidence only; no new binary or caches were published. The
 repair selects the existing 32 GiB cold minimum only for binary recovery, leaving
-fast 20 GiB and registry cold 40 GiB settings intact. Full recovery remains unverified.
+fast 20 GiB and registry cold 40 GiB settings intact. The repair passed in both
+attempts of run `44086819243`: 33m36s and 35m07s, respectively.
+
+The latest accepted full rebuild is [attempt 2](https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2),
+source `b1178b843bbaa62d4b3c2fba2fc8f8b0c5a95120`: 147 controls passed,
+283 fresh modules/zero reused, all fourteen endpoint audits/41 declarations and
+the cutout fresh. [Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44086819243/artifacts/14334074369)
+has checked ZIP, report and all fifteen audit-log hashes; types and standard-only
+axioms match the preceding accepted baseline. The published project archive is
+25,391,070 bytes, SHA256 `165fc6e24ae079cbea83456c0ab04302ea78e0e5b7c76001d901a0bf44bf4f25`,
+[binary artifact 14334004520](https://github.com/randogelist/Methboke/actions/runs/44086819243/artifacts/14334004520).
+Archive size/hash are from publication logs; its binary members were not
+independently downloaded in this inspection. Both recovered cache generations
+passed exact availability checks. No new mathematical closure follows.
 
 After complete verification, the pilot prepares `material-project-<shortSHA>-<run>-<attempt>-<fast|recovery>.tar.gz`, a
 hashed manifest and `binary-entry.json`. The archive contains current
@@ -79,6 +93,8 @@ Every accepted artifact must bind a successful current build and all fresh
 audits to the exact source, compiler, dependency and object identities. Private
 storage controls access; it does not replace these checks. The
 [CI controls](../ci/README.md) describe backend selection, recovery and the
-pending repeat/comment rounds. The repaired recovery drill and later healed-cache
-reuse require separate matching evidence. Agent work stops once each external
-runner starts.
+pending repeat/comment rounds. The repeated red fast job was an intentional
+commit-marker trigger. Revised routing removes that trigger and makes explicit
+manual force skip directly to recovery. Routing and later healed-cache reuse
+await matching external evidence. Docker Hub work remains paused. Agent work
+stops once each external runner starts.

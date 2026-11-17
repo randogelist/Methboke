@@ -15,13 +15,14 @@ on:
         type: boolean
         default: false
       force_rebuild:
-        description: 'Exercise the fresh binary recovery runner without deleting existing caches'
+        description: 'Skip the fast job and rebuild fresh (binary backend only; incompatible with exact benchmark)'
         type: boolean
         default: false
 
 concurrency:
   group: material-native-${{ github.repository }}-${{ github.ref }}
-  cancel-in-progress: false
+  # Fresh commits supersede obsolete runs; a manual rerun keeps queue semantics.
+  cancel-in-progress: ${{ github.event_name == 'push' && github.run_attempt == 1 }}
 
 permissions:
   contents: read
@@ -39,6 +40,9 @@ env:
 jobs:
   compile-audit-register:
     name: Fast cached verification
+    # A valid explicit rebuild selects recovery without manufacturing a failure.
+    # Invalid rebuild/benchmark or rebuild/registry combinations fail in preflight.
+    if: ${{ !inputs.force_rebuild || inputs.exact_cache_benchmark || inputs.backend == 'registry' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     # The terminal result job, rather than this recoverable attempt, owns acceptance.
@@ -60,7 +64,7 @@ jobs:
           worker-mode: fast
           backend: ${{ env.MATERIAL_BACKEND }}
           exact-cache-benchmark: ${{ inputs.exact_cache_benchmark && 'true' || 'false' }}
-          force-rebuild: ${{ (inputs.force_rebuild || (github.event_name == 'push' && contains(github.event.head_commit.message, '[material-recovery-drill]'))) && 'true' || 'false' }}
+          force-rebuild: ${{ inputs.force_rebuild && 'true' || 'false' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   rebuild-and-reseed:
@@ -86,7 +90,7 @@ jobs:
           worker-mode: recovery
           backend: binary_cache
           exact-cache-benchmark: 'false'
-          force-rebuild: 'false'
+          force-rebuild: ${{ inputs.force_rebuild && 'true' || 'false' }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
   material-result:

@@ -3,8 +3,9 @@
 The active workflow is `.github/workflows/material.yml`: Ubuntu 24.04,
 Lean `leanprover/lean4:v4.33.0`, pinned Mathlib and the complete dependency lock.
 Local authoring work never executes Lean. Linux evidence is not native Windows
-verification. The first native binary-cache round passed at `66052f4`; automatic
-recovery stopped on its first disk preflight; the **32 GiB repair awaits external CI**.
+verification. The first native binary-cache round passed at `66052f4`; full
+recovery and the 32 GiB disk guard passed twice at `b1178b8`. Revised normal
+routing and subsequent fast reuse of the recovered caches await external CI.
 
 ## Trial backends
 
@@ -31,8 +32,9 @@ The bounded helper itself is unchanged. Existing passed GHCR
 images and cache entries remain.
 
 The first unchanged-source native round passed in 4m59s; an exact repeat and
-comment amendment remain pending. The user's current scoped request adds automatic
-recovery first. Agent work stops when CI starts; **go on** resumes inspection.
+comment amendment remain pending. The current request repairs repeated forced
+rebuilds before Docker Hub work. Agent work stops when CI starts; **go on**
+resumes inspection.
 
 ## Separate recovery runner
 
@@ -69,11 +71,25 @@ published. The terminal acceptance gate correctly rejected the run.
 
 Binary recovery now uses the helper's existing bounded 32 GiB minimum through
 a step-local override; the Docker registry path retains 40 GiB. This changes
-only resource admission, not the fresh-build or audit requirements. The next
-`[material-recovery-drill]` push repeats recovery without deleting caches. Manual
-`force_rebuild=true` supplies the same exercise. The completed full rebuild and
-subsequent healed-cache reuse still require matching external evidence. A longer
-full-project run is expected; it is not a warm benchmark.
+only resource admission, not the fresh-build or audit requirements. Both recovery
+attempts at `b1178b843bbaa62d4b3c2fba2fc8f8b0c5a95120`, run `44086819243`,
+passed: attempt 1 in 33m36s and [attempt 2](https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2)
+in 35m07s. Each passed 147 controls, rebuilt all 283 own modules with zero reuse,
+audited all fourteen endpoint files/41 declarations and the QFB cutout freshly,
+and published replacement artifacts and both recovered cache generations. Exact
+cache-availability checks passed. Attempt 2 driver time was 1896.043s: dependency
+hydration 177.751s, own compilation 1672.854s and audits 44.929s. These full
+rebuild timings are separate from the 4m59s warm baseline.
+
+The red first worker was the intentional `[material-recovery-drill]` commit
+trigger, repeated on every manual rerun. The revised workflow removes all
+commit-message triggers. Normal binary runs use the fast cached path and retain
+recovery for an unaccepted result. Manual `force_rebuild=true` skips the fast job
+cleanly and directly selects recovery. Combining force with strict benchmarking
+or the registry backend instead fails preflight explicitly, without recovery.
+Only new push attempts cancel older active work; manual reruns retain queuing.
+Rerunning an old run replays its old workflow. Revised routing and fast reuse
+of the replacement caches await matching external CI; Docker Hub work is paused.
 
 ## Shared verification contract
 
@@ -149,8 +165,9 @@ The project archive is 25,391,076 bytes; separate compressed Actions caches are
 19,904,940 bytes for own objects and 2,527,746,970 bytes for dependencies. All
 299 archive member hashes and 283 module receipts were checked against
 [matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291).
-This verifies warm native reuse and archive publication, not the prepared recovery
-worker or a durable archive-download fallback. No Docker operations occurred.
+This verifies warm native reuse and archive publication. The separate recovery
+passes above verify full rebuilds; standalone archive-download restoration is
+still untested. No Docker operations occurred.
 
 
 [Run 44073883524, attempt 2](https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2)
@@ -175,6 +192,6 @@ establish a new Lean theorem or unconditional finite-cap closure.
 
 The 139 control tests passed in external round 1; all 146, including the seven
 bundle recovery tests, passed in the first recovery drill. One additional mocked
-regression covers the observed disk availability under the 32/40 GiB profiles
-(147 total expected on the next external run).
+regression covers the observed disk availability under the 32/40 GiB profiles.
+All 147 controls passed in both successful recovery attempts at `b1178b8`.
 No project tests or Lean commands are executed locally.
