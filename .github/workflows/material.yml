@@ -35,6 +35,9 @@ jobs:
           python3 -m unittest discover -s Material/ci/tests
           python3 Material/ci/build.py --validate-only
 
+      - name: Reclaim unused disposable runner SDKs
+        run: bash Material/ci/prepare-runner.sh
+
       - name: Authenticate registry on host only
         env:
           GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
