@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "id": "QFBCutoff",
+  "endpoint_module": "QFBCutoff.Endpoint",
+  "audit_module": "QFBCutoff.Audit",
+  "imports": [
+    "QuasiFeffermanB.Cutoff"
+  ],
+  "source_roots": [
+    {
+      "module": "QuasiFeffermanB.Cutoff",
+      "path": "_vendor/QuasiFeffermanB/Cutoff.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "QuasiFeffermanB.cutoff",
+      "kind": "def",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Semantics.lean",
+        "module": "QuasiFeffermanB.Semantics"
+      },
+      "scope": "norm(a)^4 / (8*pi^2*nu^5)."
+    },
+    {
+      "name": "QuasiFeffermanB.safeCutoff",
+      "kind": "def",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Semantics.lean",
+        "module": "QuasiFeffermanB.Semantics"
+      },
+      "scope": "2*cutoff a nu."
+    },
+    {
+      "name": "QuasiFeffermanB.CUTOFF_NONNEG",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Cutoff.lean",
+        "module": "QuasiFeffermanB.Cutoff"
+      },
+      "scope": "Positive viscosity retained."
+    },
+    {
+      "name": "QuasiFeffermanB.CUTOFF_ZERO",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Cutoff.lean",
+        "module": "QuasiFeffermanB.Cutoff"
+      },
+      "scope": "Zero datum exact arithmetic."
+    },
+    {
+      "name": "QuasiFeffermanB.CUTOFF_POS",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Cutoff.lean",
+        "module": "QuasiFeffermanB.Cutoff"
+      },
+      "scope": "Nonzero datum and positive viscosity retained."
+    },
+    {
+      "name": "QuasiFeffermanB.SAFE_CUTOFF_GT",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Cutoff.lean",
+        "module": "QuasiFeffermanB.Cutoff"
+      },
+      "scope": "Nonzero datum and positive viscosity retained."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Exact cutoff definitions and arithmetic; no additional PDE inference.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

@@ -1,0 +1,64 @@
+name: Material / compiled endpoint registry
+
+on:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+
+# Serialize each branch; a failed run never replaces its successful pointer.
+concurrency:
+  group: material-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  compile-audit-register:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 240
+    env:
+      PYTHONUNBUFFERED: '1'
+      MATERIAL_STATE: ${{ runner.temp }}/material-state.json
+      MATERIAL_JOBS: '2'
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Authenticate registry on host only
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+
+      - name: Select last compatible passed container
+        run: python3 Material/ci/registry.py prepare --state "$MATERIAL_STATE"
+
+      - name: Build amendments and audit exact endpoints
+        run: python3 Material/ci/registry.py run --state "$MATERIAL_STATE"
+
+      - name: Collect compiler, axiom, and runtime evidence
+        if: always()
+        run: python3 Material/ci/registry.py collect --state "$MATERIAL_STATE"
+
+      - name: Register passed container and endpoint tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 Material/ci/registry.py publish --state "$MATERIAL_STATE"
+
+      - name: Preserve evidence independently of registry success
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: material-evidence-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: Material/registry/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Remove transient container
+        if: always()
+        run: python3 Material/ci/registry.py cleanup --state "$MATERIAL_STATE"

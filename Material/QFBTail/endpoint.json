@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "QFBTail",
+  "endpoint_module": "QFBTail.Endpoint",
+  "audit_module": "QFBTail.Audit",
+  "imports": [
+    "QuasiFeffermanB.TailChain"
+  ],
+  "source_roots": [
+    {
+      "module": "QuasiFeffermanB.TailChain",
+      "path": "_vendor/QuasiFeffermanB/TailChain.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/TailChain.lean",
+        "module": "QuasiFeffermanB.TailChain"
+      },
+      "scope": "nu>0, EnergySigmaZero, actual LH path, and delta>cutoff."
+    },
+    {
+      "name": "QuasiFeffermanB.Q11_POST_CUTOFF_ENERGY_EQUALITY",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/TailChain.lean",
+        "module": "QuasiFeffermanB.TailChain"
+      },
+      "scope": "nu>0, EnergySigmaZero, actual LH path, and delta>cutoff."
+    },
+    {
+      "name": "QuasiFeffermanB.Q12_POST_CUTOFF_TRACE_UNIQUENESS",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/TailChain.lean",
+        "module": "QuasiFeffermanB.TailChain"
+      },
+      "scope": "Uniqueness from the given regular trace after delta>cutoff."
+    },
+    {
+      "name": "QuasiFeffermanB.Q13_ZERO_AND_SAFE_CLOSED_CUTOFF",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/TailChain.lean",
+        "module": "QuasiFeffermanB.TailChain"
+      },
+      "scope": "Actual LH path; smooth tail at safeCutoff including zero datum."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Actual eventual smoothness, energy equality and trace-based future uniqueness; no pre-cutoff continuation assertion.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

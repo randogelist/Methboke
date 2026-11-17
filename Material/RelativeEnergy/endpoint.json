@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "RelativeEnergy",
+  "endpoint_module": "RelativeEnergy.Endpoint",
+  "audit_module": "RelativeEnergy.Audit",
+  "imports": [
+    "SingularClosure.CriticalLocalUniqueness"
+  ],
+  "source_roots": [
+    {
+      "module": "SingularClosure.CriticalLocalUniqueness",
+      "path": "_vendor/SingularClosure/CriticalLocalUniqueness.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalLocalUniqueness.lean",
+        "module": "SingularClosure.CriticalLocalUniqueness"
+      },
+      "scope": "Relative-energy inequality, coefficient integrability, and vanishing admissible initial traces required."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Finite-interval scalar relative-energy uniqueness; all integrability and admissible-trace hypotheses retained.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

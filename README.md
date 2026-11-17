@@ -25,6 +25,8 @@ tau_Q(a,nu) = ||a||_2^4 / (8*pi^2*nu^5).
 
 ## Deliverables
 
+- [Material](Material/README.md): 14 exact endpoint folders, complete vendored local source closures, standalone cutout export, cached external compilation and passed-container registry.
+- [Material CI](.github/workflows/material.yml): push-triggered compilation, type/axiom audits, incremental container reuse and immutable GHCR endpoint tags.
 - [CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt](CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt): definitions, complete mathematical derivations, explicit admitted family, and remaining root.
 - [Mathlib reuse audit](audits/MATHLIB_REUSE_AUDIT.txt): exact declarations, source pins, signatures and scope limits.
 - [Methlib QFB reuse audit](audits/METHLIB_QFB_REUSE_AUDIT.txt): actual physical endpoints and matching archived compiler evidence.

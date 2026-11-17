@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "MathlibODE",
+  "endpoint_module": "MathlibODE.Endpoint",
+  "audit_module": "MathlibODE.Audit",
+  "imports": [
+    "Mathlib.Analysis.ODE.ExistUnique",
+    "Mathlib.Analysis.ODE.Gronwall"
+  ],
+  "source_roots": [
+    {
+      "module": "Mathlib.Analysis.ODE.ExistUnique",
+      "path": ".lake/packages/mathlib/Mathlib/Analysis/ODE/ExistUnique.lean",
+      "storage": "locked_lake_dependency",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    {
+      "module": "Mathlib.Analysis.ODE.Gronwall",
+      "path": ".lake/packages/mathlib/Mathlib/Analysis/ODE/Gronwall.lean",
+      "storage": "locked_lake_dependency",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/ODE/ExistUnique.lean",
+        "module": "Mathlib.Analysis.ODE.ExistUnique"
+      },
+      "scope": "IsPicardLindelof bounds and complete Banach-space realization required."
+    },
+    {
+      "name": "ODE_solution_unique_of_mem_Ioo",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/ODE/ExistUnique.lean",
+        "module": "Mathlib.Analysis.ODE.ExistUnique"
+      },
+      "scope": "Uniform Lipschitz vector field, differentiable trajectories, and common initial value required."
+    },
+    {
+      "name": "norm_le_gronwallBound_of_norm_deriv_right_le",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/ODE/Gronwall.lean",
+        "module": "Mathlib.Analysis.ODE.Gronwall"
+      },
+      "scope": "Explicit right-derivative bound with constant coefficient required."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Banach-space ODE and Gronwall endpoints with their explicit Lipschitz and differentiability hypotheses retained.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}
