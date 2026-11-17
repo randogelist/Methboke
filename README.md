@@ -8,15 +8,15 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 - **Native QFB source is present:** 74 QFB modules and 195 required
   SingularClosure modules, preserved at their pinned source bytes.
-- **Material passed at `73c2e98`:** 282/283 modules were reused and the
-  comment-modified QFB endpoint was rebuilt. All 14 endpoint audits covering 41
-  declarations and the QFB cutout passed freshly with standard axioms only in
-  [run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232).
-- **Warm publication passed:** the job took **8m07s**, excluding queue time.
-  The image context fell from the failed 7.67 GB copy to about 73.42 MB, and the
-  aggregate/14 endpoint tags and compatible main pointer were published. The
-  [source-specific evidence](audits/material-73c2e98/summary.json) records this
-  acceptance; the earlier cold baseline remains retained separately.
+- **Material passed at `04fbd79`:** all 283 project objects were reused. All 14
+  endpoint audits covering 41 declarations and the QFB cutout passed freshly
+  with standard axioms only in [run 44071830091](https://github.com/randogelist/Methboke/actions/runs/44071830091).
+- **Container-native reuse passed:** the job took **7m26s**, excluding queue
+  time, versus the preceding 8m07s. All 125 control tests passed. Dependencies
+  stayed inside the passed container, all exported project receipts were
+  hash-checked, and the new GHCR container and compatible main pointer were
+  published. [Matching evidence](https://github.com/randogelist/Methboke/actions/runs/44071830091/artifacts/14322868702)
+  belongs to the exact tested source; earlier baselines remain retained.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -98,14 +98,17 @@ exhausted disk. It supplied no retained matching audit artifact. The corrected
 [run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232) passed completely: restoration 212s,
 SDK cleanup 48s, compilation/fresh-audit step 141s, and publication 55s.
 
-The next prepared optimization uses dependencies and cached own objects directly
-inside the passed container at `/workspace`, then exports only current project
-outputs and evidence. Exported object hashes are checked before publication.
-SDK cleanup now stops when enough disk is available and is skipped when the
-budget is already met. These changes are **pending external verification**;
-the measured 8m07s result belongs to the preceding implementation. All theorem
-audits remain fresh. The original empty-commit timing remains unmeasured because
-its pending run was superseded.
+The container-native run verified dependency use directly inside the passed
+container and export of only current project outputs and evidence. Restoration
+fell from 212s to 117s. SDK cleanup took 77s and fresh audits 110.849s; neither
+phase was skipped. All exported object hashes were checked before publication.
+The 41s overall improvement is a single observation, and the prior run rebuilt
+one wrapper whereas this run rebuilt none.
+
+The requested `MAYBE ;AYBE` comment in `Material/QFBRoot/Endpoint.lean` now
+provides a one-module amendment benchmark against that accepted container.
+Its result remains pending external CI. The original empty-commit timing
+remains unmeasured because its pending run was superseded.
 After a new CI run starts, agent work stops; **go on** resumes result inspection
 and any necessary repair.
 
