@@ -8,6 +8,8 @@ The working branch is **`main`**.
 
 ## Current state
 
+The latest Ehrenfest root attempt (`d6e74ba8`, [run 44639459376](https://github.com/randogelist/Methboke/actions/runs/44639459376)) passed 406 modules but stopped before audits at one continuity-proof normalization. The proof-only repair is pending the unchanged complete external checks; E09.bound and E10 are not yet accepted.
+
 **Weak_Fourierman_B is implemented and externally verified.**
 [Run 44566880192](https://github.com/randogelist/Methboke/actions/runs/44566880192) at `fdb515d8bde35ec8021bbc26f360aca8dfa2855c` passed all **365 modules**, all **55 fresh endpoint packages**,
 **265 declaration audits plus the QFB cutout**, and **183 controls**.

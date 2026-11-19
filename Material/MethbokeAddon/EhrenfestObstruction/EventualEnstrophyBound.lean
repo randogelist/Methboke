@@ -36,7 +36,9 @@ theorem canonicalErrorCoeff_continuousOn_Icc
     ((canonicalFamily ν hν a n).coefficient_continuous k i).mono (fun t ht => ht.1)
   have hv := initial_front_cutoff_fourier_continuousOn_Icc
     ν S a.val u p H (n + 1) k i T hTS
-  simpa only [canonicalErrorCoeff, Pi.sub_apply] using hc.sub hv
+  change ContinuousOn (fun t => (canonicalFamily ν hν a n).coeff t k i -
+    cutoffCoeff (n + 1) (datumFourierCoeff (u t)) k i) (Icc (0 : ℝ) T)
+  convert! hc.sub hv using 1
 
 /-- Finite summation gives closed-slab continuity of the actual H1 error square. -/
 theorem canonical_error_dissipation_continuousOn_Icc
