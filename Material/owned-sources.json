@@ -769,6 +769,89 @@
       "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
       "source_status": "PENDING_EXTERNAL_VERIFICATION",
       "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+      "path": "MethbokeAddon/EhrenfestObstruction/SlabDescent.lean",
+      "sha256": "1d764602160b8a591798d0daa5bb068b8eb9fb521129d5a31923919f452c3365",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
+      "path": "MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean",
+      "sha256": "5491e748ebba91234e0175fc2064ba17cd91020ef7914bc5ca5e716f6e89d0ff",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+        "Mathlib.Topology.Order.IntermediateValue"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.Definitions",
+      "path": "MethbokeAddon/EhrenfestObstruction/Definitions.lean",
+      "sha256": "30c08e3f45146ef897704c21ad7a6ee51141d79ac2422e96735f7e2912d36b3d",
+      "imports": [
+        "SingularClosure.CanonicalGalerkin",
+        "SingularClosure.EnstrophyInequality"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ReciprocalDrift",
+      "path": "MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean",
+      "sha256": "37de6b455cca2b88075b48e8929ddd53a3b063e3a99b7fdf1f09ee96f67b0775",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.Definitions",
+        "Mathlib.Analysis.Calculus.Deriv.Inv"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.CanonicalBarrier",
+      "path": "MethbokeAddon/EhrenfestObstruction/CanonicalBarrier.lean",
+      "sha256": "1d58b0613081a186e5029897a9d5566b338dcc10ab29c364a92384e5c0207f96",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.ReciprocalDrift",
+        "MethbokeAddon.EhrenfestObstruction.SlabDescent"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.CoefficientError",
+      "path": "MethbokeAddon/EhrenfestObstruction/CoefficientError.lean",
+      "sha256": "df52af61cabd0611b5b218202092c298d64db076b61f8f1003cc71b0b3c8069e",
+      "imports": [
+        "SingularClosure.EnstrophyAbsorption"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
     }
   ]
 }

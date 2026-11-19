@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "endpoint": "EhrenfestScalar",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+  "derivation_basis": {
+    "repository": "randogelist/Methboke",
+    "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+    "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.EhrenfestObstruction.StoppedScalar"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+      "path": "MethbokeAddon/EhrenfestObstruction/SlabDescent.lean",
+      "sha256": "1d764602160b8a591798d0daa5bb068b8eb9fb521129d5a31923919f452c3365",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
+      "path": "MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean",
+      "sha256": "5491e748ebba91234e0175fc2064ba17cd91020ef7914bc5ca5e716f6e89d0ff",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+        "Mathlib.Topology.Order.IntermediateValue"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Topology.Order.IntermediateValue"
+  ],
+  "local_module_count": 2,
+  "owned_module_count": 2,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "dependency_boundary": "Current pinned metadata plus actual new owned bytes; no vendor or existing source mutation.",
+  "source_closure_sha256": "6f02ea0a18e5861cf4793d1fe3e005eee625e93dc90cb6fcaa4d5a38fb5d6afc"
+}

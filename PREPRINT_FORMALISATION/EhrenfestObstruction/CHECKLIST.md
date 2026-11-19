@@ -63,3 +63,7 @@ The root no longer depends on E07's hitting theorem or E08's escape theorem. A h
 E06.scalar, E07.slab and E09.bound are separately tracked helpers. Passing a helper does not check its enclosing full milestone. E10's exact implication can pass independently of the full operator construction; complete workstream acceptance still requires all ten original boxes. Root imports only DynamicalRoot; All is an optional full bundle.
 
 The front-based bound requires T<S; the root takes T=1/gamma and S=T+1. All planned sources remain unactivated, and every checkbox remains open.
+
+## First implementation batch (v0.4.0)
+
+Six owned sources and three packages are prepared for external CI: full E07 scalar hitting, E06.scalar reciprocal identities, E07.slab comparison, the one-cutoff rejection helper, and arbitrary forced-error calculus. All boxes remain open until matching evidence. Full E09 stability and the root are not supplied by the error-calculus helper. See [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). Historical no-activation statements above describe v0.3.

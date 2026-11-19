@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "endpoint": "EhrenfestCanonical",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+  "derivation_basis": {
+    "repository": "randogelist/Methboke",
+    "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+    "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.EhrenfestObstruction.CanonicalBarrier"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.CanonicalBarrier",
+      "path": "MethbokeAddon/EhrenfestObstruction/CanonicalBarrier.lean",
+      "sha256": "1d58b0613081a186e5029897a9d5566b338dcc10ab29c364a92384e5c0207f96",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.ReciprocalDrift",
+        "MethbokeAddon.EhrenfestObstruction.SlabDescent"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.Definitions",
+      "path": "MethbokeAddon/EhrenfestObstruction/Definitions.lean",
+      "sha256": "30c08e3f45146ef897704c21ad7a6ee51141d79ac2422e96735f7e2912d36b3d",
+      "imports": [
+        "SingularClosure.CanonicalGalerkin",
+        "SingularClosure.EnstrophyInequality"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ReciprocalDrift",
+      "path": "MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean",
+      "sha256": "37de6b455cca2b88075b48e8929ddd53a3b063e3a99b7fdf1f09ee96f67b0775",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.Definitions",
+        "Mathlib.Analysis.Calculus.Deriv.Inv"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+      "path": "MethbokeAddon/EhrenfestObstruction/SlabDescent.lean",
+      "sha256": "1d764602160b8a591798d0daa5bb068b8eb9fb521129d5a31923919f452c3365",
+      "imports": [
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "SingularClosure.Admission",
+      "local_path": "_vendor/SingularClosure/Admission.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Admission.lean",
+      "git_blob_sha": "b28f8ae19042a947a1c46a7eaf6f9afc306844f7",
+      "sha256": "cd8e62a4f88a33b14d3a699b2431e801d590bcadf02d03b2e67ef3ebb5dc63ca",
+      "size_bytes": 2934,
+      "imports": [
+        "SingularClosure.Galerkin"
+      ],
+      "path": "_vendor/SingularClosure/Admission.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Admission.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.CanonicalGalerkin",
+      "local_path": "_vendor/SingularClosure/CanonicalGalerkin.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CanonicalGalerkin.lean",
+      "git_blob_sha": "e13bfcd457edef7a93af8f3fdacf963795a6c58c",
+      "sha256": "82fbeb113d8678a4b7bec1681b8f47ed57f17e0f46b376766441bb33eb690bbb",
+      "size_bytes": 1815,
+      "imports": [
+        "SingularClosure.GalerkinGlobal",
+        "SingularClosure.Admission"
+      ],
+      "path": "_vendor/SingularClosure/CanonicalGalerkin.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CanonicalGalerkin.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "local_path": "_vendor/SingularClosure/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean",
+      "git_blob_sha": "7d64a61a47bedb2bd7a2801641c5959178837f04",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "size_bytes": 6043,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.DissipativeODE",
+      "local_path": "_vendor/SingularClosure/DissipativeODE.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/DissipativeODE.lean",
+      "git_blob_sha": "8f95c8e11a98951def0e9126a7d180288fbe32e0",
+      "sha256": "310387334a08bbfb13033b578b0c569a38e3eb4b5a48c58cce5842d0aebad106",
+      "size_bytes": 17513,
+      "imports": [
+        "Mathlib.Analysis.ODE.PicardLindelof",
+        "Mathlib.Analysis.ODE.Gronwall",
+        "Mathlib.Analysis.ODE.ExistUnique",
+        "Mathlib.Analysis.Calculus.ContDiff.FiniteDimension",
+        "Mathlib.Analysis.InnerProductSpace.Calculus"
+      ],
+      "path": "_vendor/SingularClosure/DissipativeODE.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/DissipativeODE.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.EnstrophyInequality",
+      "local_path": "_vendor/SingularClosure/EnstrophyInequality.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyInequality.lean",
+      "git_blob_sha": "fdc12e4676295ea43d0e2f8d1f0592e0c545200e",
+      "sha256": "903678f104e8f312e0c7b2ed5f7846109931cea773b8a989df7ab14de2a93c17",
+      "size_bytes": 4633,
+      "imports": [
+        "SingularClosure.GalerkinEnergy"
+      ],
+      "path": "_vendor/SingularClosure/EnstrophyInequality.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyInequality.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.FourierIntegral",
+      "local_path": "_vendor/SingularClosure/FourierIntegral.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FourierIntegral.lean",
+      "git_blob_sha": "7e5ee2ef060d2fc6530ddc64aac313342caa07ff",
+      "sha256": "8ecd56d311006a4db14bbe41a9d920d1760412f2ead5f3684239b85f0ad5290e",
+      "size_bytes": 3944,
+      "imports": [
+        "SingularClosure.PhysicalEnstrophy"
+      ],
+      "path": "_vendor/SingularClosure/FourierIntegral.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FourierIntegral.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.Galerkin",
+      "local_path": "_vendor/SingularClosure/Galerkin.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Galerkin.lean",
+      "git_blob_sha": "8ba283677fe19e33333b8169afbc39ba3ead1c54",
+      "sha256": "e1ac5c944bab2667b02ae6c75b46f63605354b8c928c56298aee0e28b043a6fa",
+      "size_bytes": 6444,
+      "imports": [
+        "SingularClosure.Contracts",
+        "SingularClosure.SixChannels"
+      ],
+      "path": "_vendor/SingularClosure/Galerkin.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Galerkin.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.GalerkinAlgebra",
+      "local_path": "_vendor/SingularClosure/GalerkinAlgebra.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinAlgebra.lean",
+      "git_blob_sha": "2db76563813ace44d18df11d0092dd9dd7933ca3",
+      "sha256": "f361277b03794598be46b2c5faaee641d3d0772a4c75eab543fd86aa0ea088a8",
+      "size_bytes": 12133,
+      "imports": [
+        "SingularClosure.Galerkin"
+      ],
+      "path": "_vendor/SingularClosure/GalerkinAlgebra.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinAlgebra.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.GalerkinEnergy",
+      "local_path": "_vendor/SingularClosure/GalerkinEnergy.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinEnergy.lean",
+      "git_blob_sha": "e6501bff17d1fa9aa48166e85a1ddfafc7c221ae",
+      "sha256": "1f0e5b8a62e9d65bd7161efdfe539793157e8edbe94434d0c43b7af4644d5c02",
+      "size_bytes": 10885,
+      "imports": [
+        "SingularClosure.GalerkinAlgebra"
+      ],
+      "path": "_vendor/SingularClosure/GalerkinEnergy.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinEnergy.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.GalerkinExistence",
+      "local_path": "_vendor/SingularClosure/GalerkinExistence.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinExistence.lean",
+      "git_blob_sha": "99a1d77891985e082e015e055cef7c3980c2e5fc",
+      "sha256": "b06de730475c44c518c24246911d771e883dac8123cae8e25915ca69631e08c5",
+      "size_bytes": 8329,
+      "imports": [
+        "SingularClosure.GalerkinAlgebra"
+      ],
+      "path": "_vendor/SingularClosure/GalerkinExistence.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinExistence.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.GalerkinGlobal",
+      "local_path": "_vendor/SingularClosure/GalerkinGlobal.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinGlobal.lean",
+      "git_blob_sha": "9f88a66094c86393f3f76260570c2bc52ee0ad40",
+      "sha256": "a1d740877b742820c4ab512bc5dd01f5c4ef29d77798fc753a04bba7812df683",
+      "size_bytes": 1194,
+      "imports": [
+        "SingularClosure.GalerkinInvariant",
+        "SingularClosure.GalerkinExistence",
+        "SingularClosure.InitialFourier"
+      ],
+      "path": "_vendor/SingularClosure/GalerkinGlobal.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinGlobal.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.GalerkinInvariant",
+      "local_path": "_vendor/SingularClosure/GalerkinInvariant.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinInvariant.lean",
+      "git_blob_sha": "eeaf7acef88635864a09fa92ca07745c19a62912",
+      "sha256": "7b202d4743bd672c18809aef068cde1e67a2afc450b1e93aa41bf02019eea6d1",
+      "size_bytes": 12587,
+      "imports": [
+        "SingularClosure.GalerkinReality",
+        "SingularClosure.LerayPressure",
+        "SingularClosure.DissipativeODE"
+      ],
+      "path": "_vendor/SingularClosure/GalerkinInvariant.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinInvariant.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.GalerkinReality",
+      "local_path": "_vendor/SingularClosure/GalerkinReality.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinReality.lean",
+      "git_blob_sha": "3ae23263fad711565812a58bac4dd4f922fb06f5",
+      "sha256": "48dcb88fd3b82c93a8227432d4e909f4834434b51e24dfd9f2bdcc6f6d03cbe4",
+      "size_bytes": 2520,
+      "imports": [
+        "SingularClosure.GalerkinEnergy"
+      ],
+      "path": "_vendor/SingularClosure/GalerkinReality.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinReality.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.InitialFourier",
+      "local_path": "_vendor/SingularClosure/InitialFourier.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/InitialFourier.lean",
+      "git_blob_sha": "c8f4073b788f8e055502c8e9b8574cbab9355402",
+      "sha256": "acc40e4e4acd8ffa46fdd6ea1a46ac38fa4196bb329cc2856be04c183aaa4b6e",
+      "size_bytes": 11225,
+      "imports": [
+        "SingularClosure.FourierIntegral",
+        "SingularClosure.PhysicalProjection"
+      ],
+      "path": "_vendor/SingularClosure/InitialFourier.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/InitialFourier.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.LerayPressure",
+      "local_path": "_vendor/SingularClosure/LerayPressure.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/LerayPressure.lean",
+      "git_blob_sha": "5bfcf093f2862b7490d7fef01792f5ab1499551b",
+      "sha256": "fb20ecd6a63415920817de69141c2b6ce23ce1967c2d52c4c9415ceaaf744a27",
+      "size_bytes": 4327,
+      "imports": [
+        "SingularClosure.GalerkinAlgebra"
+      ],
+      "path": "_vendor/SingularClosure/LerayPressure.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/LerayPressure.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.PhysicalChannels",
+      "local_path": "_vendor/SingularClosure/PhysicalChannels.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalChannels.lean",
+      "git_blob_sha": "51143ae4f06ee8bb6f2d0a7886a83a92ee913de3",
+      "sha256": "0d522433e0a511a1c0f41b25947a05ece9780cacbe6809d105fdbb8991dca89f",
+      "size_bytes": 6166,
+      "imports": [
+        "SingularClosure.Galerkin"
+      ],
+      "path": "_vendor/SingularClosure/PhysicalChannels.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalChannels.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.PhysicalEnstrophy",
+      "local_path": "_vendor/SingularClosure/PhysicalEnstrophy.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalEnstrophy.lean",
+      "git_blob_sha": "23c2cf54b457b402952c1f70108807fdf49114f1",
+      "sha256": "720eaee5f18ea728c366880aeb05ced52bd9167369103cb19450991f74e08614",
+      "size_bytes": 11413,
+      "imports": [
+        "SingularClosure.Admission",
+        "SingularClosure.PhysicalChannels"
+      ],
+      "path": "_vendor/SingularClosure/PhysicalEnstrophy.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalEnstrophy.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.PhysicalProjection",
+      "local_path": "_vendor/SingularClosure/PhysicalProjection.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalProjection.lean",
+      "git_blob_sha": "3e5946e86c86461f479900a33c4b69d3c65e32f0",
+      "sha256": "8ad95865c4dcec61caae216aa8fd09043f2e0e760a128752d00aee5aa82c4287",
+      "size_bytes": 8251,
+      "imports": [
+        "SingularClosure.PhysicalChannels"
+      ],
+      "path": "_vendor/SingularClosure/PhysicalProjection.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalProjection.lean"
+      }
+    },
+    {
+      "module": "SingularClosure.SixChannels",
+      "local_path": "_vendor/SingularClosure/SixChannels.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SixChannels.lean",
+      "git_blob_sha": "d39d32cba53e57ab7a8bd458eff1725d1a810e6f",
+      "sha256": "1c7f53956d9a766a3c8e4e781aa850a26351761ef0086c7ffd10047762854eab",
+      "size_bytes": 5991,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/SixChannels.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SixChannels.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.ContDiff.FiniteDimension",
+    "Mathlib.Analysis.Calculus.Deriv.Inv",
+    "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+    "Mathlib.Analysis.InnerProductSpace.Calculus",
+    "Mathlib.Analysis.ODE.ExistUnique",
+    "Mathlib.Analysis.ODE.Gronwall",
+    "Mathlib.Analysis.ODE.PicardLindelof",
+    "Mathlib.Tactic.Linarith"
+  ],
+  "local_module_count": 23,
+  "owned_module_count": 4,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "dependency_boundary": "Current pinned metadata plus actual new owned bytes; no vendor or existing source mutation.",
+  "source_closure_sha256": "a63d39e16d784f213b842ea5043e17bf3b3fbbaea4ad5910c11f59f251cbe1c4"
+}

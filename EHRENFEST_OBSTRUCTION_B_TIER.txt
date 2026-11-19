@@ -1,16 +1,16 @@
 DOCUMENT := EHRENFEST_OBSTRUCTION_B_TIER
 FROZEN_NAME := EHRENFEST-OBSTRUCTION
-VERSION := 0.3.1
+VERSION := 0.4.0
 DATE := 2026-11-19
 MODE := B_TIER_DERIVATION
 REPOSITORY := randogelist/Methboke
 BRANCH := main
 SOURCE_REVIEW_REVISION := 42cbbf404b50cd578cb9d648f1e3d388513dbf1a
 MACROSCOPIC_GOAL := Weak_Fourierman_B; unchanged
-LOCAL_TARGET := first gather source-exact identity cutouts for the shortest route
+LOCAL_TARGET := bottom-up formalization and matching external verification
 STATUS := COMPLETE_CONDITIONAL_MATHEMATICAL_DERIVATION; NOT_LEAN_VERIFIED
 NEW_LOCAL_LEAN_EXECUTIONS := 0
-NEW_EXTERNAL_LEAN_RUNS := 0
+NEW_EXTERNAL_LEAN_RUNS := PENDING_FIRST_IMPLEMENTATION_PUSH
 NEW_GLOBAL_AXIOM_DECLARATIONS := 0
 
 1. NAMESPACE, SCOPE, AND STATUS BOUNDARY
@@ -18,7 +18,8 @@ NEW_GLOBAL_AXIOM_DECLARATIONS := 0
 Proposed namespace: MethbokeAddon.EhrenfestObstruction.
 The frozen mathematical theorem name is EHRENFEST-OBSTRUCTION. A future Lean
 identifier may be EHRENFEST_OBSTRUCTION; this does not rename the theorem.
-No Lean declaration or proof file is introduced by this B-tier package.
+The complete mathematical derivation below is preserved. Section17 records
+first implementation candidates, separately from external acceptance.
 
 The initial datum is smooth. The proposed stopped-commutator condition is
 a singularity-forcing dynamical premise, not rough or singular initial data.
@@ -726,3 +727,35 @@ SOURCE_STATUS:40 source-only records,13 accepted-module source reviews and
 acceptance. The actual-reference/forced-error derivative, physical projection
 adapters, mixed estimates/bootstrap and final root remain new formal work.
 The stopped-bound witness remains open.
+
+17. FIRST IMPLEMENTATION CANDIDATES (v0.4.0)
+
+The new active sources are Definitions, ReciprocalDrift, SlabDescent,
+StoppedScalar, CanonicalBarrier and CoefficientError, in the proposed namespace.
+Three native audit packages cover23 new public theorem declarations, including
+independent exact types and the literal canonical definition checks.
+All remain PREPARED_PENDING_EXTERNAL_CI until matching evidence is recorded.
+
+The scalar proof uses mean value on the closed slab and an interior derivative.
+For a target r>0, the deadline d=(v(0)-r)/gamma lies strictly before1/gamma.
+If no hit occurs by d, the prefix guard holds throughout that slab; mean value
+gives v(d)<=r, a contradiction. Continuity then supplies exact equality.
+
+The reciprocal derivative follows from the actual Galerkin identity
+D'=-2nu Z-2P and the inverse chain rule. CanonicalBarrier selects one index
+with R_n>C under a hypothetical eventual uniform bound and obtains the
+positive-terminal contradiction. This is a completed proof candidate for
+that helper, not yet the smooth-NSE obstruction theorem.
+
+The finite error calculus uses arbitrary coordinate derivatives. It proves
+D'= -2nu Z-2P + forcingPower under the literal forced finite equation and
+D'+nu Z <= C/nu^3 D^3 + forcingPower. Arbitrary real solenoidal finite fields
+satisfy the native physical self-interaction absorption estimate. No premise
+asserts that the error is an unforced NSE solution.
+
+Remaining analytic edge: derive the actual smooth-reference coefficient
+equation, projected residual and mixed-term bounds; then bootstrap to the
+eventual uniform slab bound and compose the exact frozen root. The full
+Heisenberg/operator construction is still separate. No stopped-bound witness
+is supplied. All earlier no-activation statements describe their historical
+source-gathering versions. Current status is IMPLEMENTATION_STATUS.json.

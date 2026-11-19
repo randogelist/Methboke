@@ -2,10 +2,10 @@
   "schema_version": 1,
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "date": "2026-11-19",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "project_goal_changed": false,
   "fixed_project_goal": "Weak_Fourierman_B",
-  "local_target": "Shortest source-grounded B-tier route to the unchanged conditional root",
+  "local_target": "Bottom-up implementation and matching external cached verification",
   "root_hypothesis": "StoppedCommutatorBound nu",
   "global_custom_axiom_added": false,
   "existential_premise_proved": false,
@@ -235,7 +235,7 @@
       "mathematical_statement": "For 0<r<v(0)<=1 and gamma>0, pre-hit drift v prime<=-gamma up to 1/gamma forces a hit of r by (v(0)-r)/gamma<1/gamma.",
       "derivation_section": "E07",
       "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
-      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_status": "PREPARED_PENDING_EXTERNAL_CI",
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
         "ML13",
@@ -255,7 +255,9 @@
       ],
       "planned_package": "EhrenfestStoppedScalar",
       "required_for_fast_root_as_complete_milestone": false,
-      "root_required_facet": "E07.slab"
+      "root_required_facet": "E07.slab",
+      "candidate_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting",
+      "candidate_package": "EhrenfestScalar"
     },
     {
       "id": "E08",
@@ -383,7 +385,7 @@
   "module_plan": "MODULE_PLAN.json",
   "interface_spec": "INTERFACES.lean.txt",
   "proposed_module_count": 31,
-  "implementation_activated": false,
+  "implementation_activated": true,
   "dependency_facets": {
     "E06.scalar": {
       "parent": "E06",
@@ -394,7 +396,8 @@
         "Definitions",
         "ReciprocalDrift"
       ],
-      "scope": "Exact coefficient drift and chain rule only; does not complete E06."
+      "scope": "Exact coefficient drift and chain rule only; does not complete E06.",
+      "formal_status": "PREPARED_PENDING_EXTERNAL_CI"
     },
     "E05.core": {
       "parent": "E05",
@@ -425,7 +428,8 @@
       "modules": [
         "Definitions"
       ],
-      "scope": "Literal canonical coefficient definitions only; does not complete the real phase-space/volume adapter."
+      "scope": "Literal canonical coefficient definitions only; does not complete the real phase-space/volume adapter.",
+      "formal_status": "PREPARED_PENDING_EXTERNAL_CI"
     },
     "E04.core": {
       "parent": "E04",
@@ -443,7 +447,8 @@
       "modules": [
         "SlabDescent"
       ],
-      "scope": "Only the generic full-slab mean-value comparison, not the stopped hitting theorem."
+      "scope": "Only the generic full-slab mean-value comparison, not the stopped hitting theorem.",
+      "formal_status": "PREPARED_PENDING_EXTERNAL_CI"
     },
     "E09.bound": {
       "parent": "E09",
