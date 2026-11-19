@@ -1,0 +1,27 @@
+/-- A version of `ODE_solution_unique_of_mem_Icc_right` for uniqueness in a closed interval whose
+interior contains the initial time. -/
+theorem ODE_solution_unique_of_mem_Icc
+    (hv : ∀ t ∈ Ioo a b, LipschitzOnWith K (v t) (s t))
+    (ht : t₀ ∈ Ioo a b)
+    (hf : ContinuousOn f (Icc a b))
+    (hf' : ∀ t ∈ Ioo a b, HasDerivAt f (v t (f t)) t)
+    (hfs : ∀ t ∈ Ioo a b, f t ∈ s t)
+    (hg : ContinuousOn g (Icc a b))
+    (hg' : ∀ t ∈ Ioo a b, HasDerivAt g (v t (g t)) t)
+    (hgs : ∀ t ∈ Ioo a b, g t ∈ s t)
+    (heq : f t₀ = g t₀) :
+    EqOn f g (Icc a b) := by
+  rw [← Icc_union_Icc_eq_Icc (le_of_lt ht.1) (le_of_lt ht.2)]
+  apply EqOn.union
+  · have hss : Ioc a t₀ ⊆ Ioo a b := Ioc_subset_Ioo_right ht.2
+    exact ODE_solution_unique_of_mem_Icc_left (fun t ht ↦ hv t (hss ht))
+      (hf.mono <| Icc_subset_Icc_right <| le_of_lt ht.2)
+      (fun _ ht' ↦ (hf' _ (hss ht')).hasDerivWithinAt) (fun _ ht' ↦ (hfs _ (hss ht')))
+      (hg.mono <| Icc_subset_Icc_right <| le_of_lt ht.2)
+      (fun _ ht' ↦ (hg' _ (hss ht')).hasDerivWithinAt) (fun _ ht' ↦ (hgs _ (hss ht'))) heq
+  · have hss : Ico t₀ b ⊆ Ioo a b := Ico_subset_Ioo_left ht.1
+    exact ODE_solution_unique_of_mem_Icc_right (fun t ht ↦ hv t (hss ht))
+      (hf.mono <| Icc_subset_Icc_left <| le_of_lt ht.1)
+      (fun _ ht' ↦ (hf' _ (hss ht')).hasDerivWithinAt) (fun _ ht' ↦ (hfs _ (hss ht')))
+      (hg.mono <| Icc_subset_Icc_left <| le_of_lt ht.1)
+      (fun _ ht' ↦ (hg' _ (hss ht')).hasDerivWithinAt) (fun _ ht' ↦ (hgs _ (hss ht'))) heq

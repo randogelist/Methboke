@@ -1,0 +1,9 @@
+/-- **Integration by parts on (-∞, ∞).**
+Version assuming that the total function is integrable -/
+theorem integral_mul_deriv_eq_deriv_mul_of_integrable
+    (hu : ∀ x ∈ tsupport v, HasDerivAt u (u' x) x)
+    (hv : ∀ x ∈ tsupport u, HasDerivAt v (v' x) x)
+    (huv' : Integrable (u * v')) (hu'v : Integrable (u' * v)) (huv : Integrable (u * v)) :
+    ∫ (x : ℝ), u x * v' x = - ∫ (x : ℝ), u' x * v x :=
+  integral_bilinear_hasDerivAt_right_eq_neg_left_of_integrable (L := ContinuousLinearMap.mul ℝ A)
+    hu hv huv' hu'v huv

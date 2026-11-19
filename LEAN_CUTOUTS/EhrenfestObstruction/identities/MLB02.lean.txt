@@ -1,0 +1,5 @@
+theorem contDiff_invariantGalerkinRhs (ν : ℝ) (N : ℕ) :
+    ContDiff ℝ ∞ (invariantGalerkinRhs ν N) := by
+  exact (invariantGalerkinSubspace N).orthogonalProjectionOnto.contDiff.comp
+    ((contDiff_hilbertGalerkinRhs ν N).comp
+      (invariantGalerkinSubspace N).subtypeL.contDiff)

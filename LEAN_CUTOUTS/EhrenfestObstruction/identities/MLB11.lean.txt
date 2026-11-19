@@ -1,0 +1,7 @@
+theorem GalerkinSolution.sobolevState_H1_physical_norm_sq
+    {ν : ℝ} {a : Field} {N : ℕ} (g : GalerkinSolution ν a N)
+    {t : ℝ} (ht : 0 ≤ t) :
+    ‖g.sobolevState 1 t‖ ^ 2 =
+      (∫ x in unitCube, ‖g.velocity t x‖ ^ 2) +
+        ∫ x in unitCube, gradientSquareDensity (g.velocity t) x :=
+  finiteSobolev_H1_physical_norm_sq N (g.coeff t) (g.real_symmetry t ht)

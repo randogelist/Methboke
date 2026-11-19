@@ -1,0 +1,5 @@
+@[to_fun]
+theorem HasDerivAt.inv (hc : HasDerivAt c c' x) (hx : c x ≠ 0) :
+    HasDerivAt (c⁻¹) (-c' / c x ^ 2) x := by
+  rw [← hasDerivWithinAt_univ] at *
+  exact hc.inv hx

@@ -1,0 +1,19 @@
+theorem torusSobolevMultiplierLinear_norm_le (s t : ℕ) (b : Frequency → ℂ)
+    (B : ℝ) (hB : 0 ≤ B)
+    (hb : ∀ k, torusSobolevWeight k ^ s * ‖b k‖ ≤ B * torusSobolevWeight k ^ t)
+    (c : TorusSobolev t) :
+    ‖torusSobolevMultiplierLinear s t b B hB hb c‖ ≤ B * ‖c‖ := by
+  calc
+    _ = ‖torusSobolevRepr s (torusSobolevMultiplierLinear s t b B hB hb c)‖ :=
+      ((torusSobolevRepr s).norm_map _).symm
+    _ ≤ ‖(B : ℂ) • torusSobolevRepr t c‖ := by
+      apply lp.norm_mono (by norm_num)
+      intro ki
+      simp only [torusSobolevRepr_apply, torusSobolevMultiplierLinear_coeff]
+      change ‖sobolevWeightedCoeff s (fun k i => b k * c.val k i) ki‖ ≤
+        ‖(B : ℂ) * sobolevWeightedCoeff t c.val ki‖
+      rw [norm_mul, Complex.norm_real, Real.norm_eq_abs, abs_of_nonneg hB]
+      exact torusSobolev_multiplier_weighted_norm_le s t b B hb c.val ki
+    _ = _ := by
+      rw [norm_smul, Complex.norm_real, Real.norm_eq_abs, abs_of_nonneg hB,
+        (torusSobolevRepr t).norm_map]

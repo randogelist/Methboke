@@ -95,3 +95,7 @@ The current [v0.3 index](ANCHOR_INDEX_v0_3.json) has **53 anchors**: 28 Mathlib 
 | ML21 | [`exists_hasDerivAt_eq_slope`](https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/Deriv/MeanValue.lean#L122) | Direct explicit-rate mean-value comparison on a closed slab, using derivatives only in its interior. The application must first derive the original PreHit guard from the hypothetical smooth-front bound; this theorem does not remove the stopped premise or prove stability. |
 
 The absorption theorem applies to arbitrary smooth periodic mean-zero error fields. The actual-NSE enstrophy derivative theorem does not: the forced-error identity must be proved. Root uses only eventual bounds, not a new uniform-budget assumption.
+
+## Accessible declaration and proof cutouts
+
+All 53 indexed entries now have [source-exact cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/README.md), alongside seven companion derivative/norm identities. Each has a readable card, raw `.lean.txt` slice, original consumer import, source range/hash, evidence scope and full source snapshot. The seven companions are cataloged separately in `IDENTITIES.json`; this does not change the original 53-anchor index or promote any evidence status. Start with the [fast-route reading order](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md).

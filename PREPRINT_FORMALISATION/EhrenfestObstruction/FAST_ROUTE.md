@@ -4,6 +4,8 @@
 
 The scalar root needs **nine of the 31 planned modules**. The 31-file inventory includes the original stronger milestones, the new shorter proof and an optional full import bundle. Only the nine-module source closure should enter the first root activation. No Lean source is activated by this document.
 
+The [existing identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md) provide the initial reusable inputs, including original proof bodies and imports. [Remaining adapters](../../LEAN_CUTOUTS/EhrenfestObstruction/REMAINING_ADAPTERS.md) records what the sources do not yet prove.
+
 ## Two mathematical reductions
 
 ### 1. One cutoff and one mean-value comparison

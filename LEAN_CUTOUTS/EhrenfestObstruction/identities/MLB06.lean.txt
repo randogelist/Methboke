@@ -1,0 +1,21 @@
+theorem coefficientNonlinearPower_eq_zero
+    (N : ℕ) (c : FourierCoeff)
+    (hsupp : ∀ k : Frequency, k ∉ cutoffModes N → ∀ i : Fin 3, c k i = 0)
+    (hreal : ∀ k : Frequency, ∀ i : Fin 3, c (-k) i = star (c k i))
+    (hsol : ∀ k : Frequency, (∑ i : Fin 3, (k i : ℂ) * c k i) = 0) :
+    coefficientNonlinearPower N c = 0 := by
+  have h := congrArg Complex.re
+    (coefficientTransport_complex_energy_zero N c hsupp hreal hsol)
+  unfold coefficientNonlinearPower
+  simp only [Complex.re_sum, Complex.zero_re] at h
+  calc
+    _ = ∑ k ∈ cutoffModes N,
+        (∑ i : Fin 3, star (c k i) *
+          coefficientLeray k (coefficientTransport N c k) i).re := by
+            simp only [Complex.re_sum]
+    _ = ∑ k ∈ cutoffModes N,
+        (∑ i : Fin 3, star (c k i) * coefficientTransport N c k i).re := by
+          apply Finset.sum_congr rfl
+          intro k hk
+          rw [coefficientLeray_pairing k (c k) (coefficientTransport N c k) (hsol k)]
+    _ = 0 := by simpa only [Complex.re_sum] using h

@@ -1,0 +1,4 @@
+/-- An operator `T` is a formal adjoint of `S` if for all `x` in the domain of `T` and `y` in the
+domain of `S`, we have that `⟪T x, y⟫ = ⟪x, S y⟫`. -/
+def IsFormalAdjoint (T : E →ₗ.[𝕜] F) (S : F →ₗ.[𝕜] E) : Prop :=
+  ∀ (x : T.domain) (y : S.domain), ⟪T x, y⟫ = ⟪(x : E), S y⟫

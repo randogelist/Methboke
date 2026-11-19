@@ -1,0 +1,8 @@
+theorem GalerkinSolution.coefficientEnstrophy_identity
+    {ν : ℝ} {a : Field} {N : ℕ}
+    (g : GalerkinSolution ν a N) {t : ℝ} (ht : 0 ≤ t) :
+    HasDerivWithinAt (fun r => coefficientDissipation N (g.coeff r))
+      ((-2 * ν) * coefficientLaplacianSquare N (g.coeff t) -
+        2 * coefficientEnstrophyNonlinearPower N (g.coeff t)) (Ici 0) t := by
+  rw [← coefficientDissipation_rate_split]
+  exact g.coefficientDissipation_hasDerivWithinAt ht

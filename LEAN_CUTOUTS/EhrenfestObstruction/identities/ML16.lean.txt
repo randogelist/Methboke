@@ -1,0 +1,15 @@
+/-- Change of variable formula for differentiable functions: if a function `f` is
+injective and differentiable on a measurable set `s`, then the Lebesgue integral of a function
+`g : E → ℝ≥0∞` on `f '' s` coincides with the integral of `|(f' x).det| * g ∘ f` on `s`.
+Note that the measurability of `f '' s` is given by `measurable_image_of_fderivWithin`. -/
+theorem lintegral_image_eq_lintegral_abs_det_fderiv_mul (hs : MeasurableSet s)
+    (hf' : ∀ x ∈ s, HasFDerivWithinAt f (f' x) s x) (hf : InjOn f s) (g : E → ℝ≥0∞) :
+    ∫⁻ x in f '' s, g x ∂μ = ∫⁻ x in s, ENNReal.ofReal |(f' x).det| * g (f x) ∂μ := by
+  rw [← restrict_map_withDensity_abs_det_fderiv_eq_addHaar μ hs hf' hf,
+    (measurableEmbedding_of_fderivWithin hs hf' hf).lintegral_map]
+  simp only [Set.domRestrict_apply, ← Function.comp_apply (f := g)]
+  rw [← (MeasurableEmbedding.subtype_coe hs).lintegral_map, map_comap_subtype_coe hs,
+    setLIntegral_withDensity_eq_setLIntegral_mul_non_measurable₀ _ _ _ hs]
+  · simp only [Pi.mul_apply]
+  · simp only [eventually_true, ENNReal.ofReal_lt_top]
+  · exact aemeasurable_ofReal_abs_det_fderivWithin μ hs hf'

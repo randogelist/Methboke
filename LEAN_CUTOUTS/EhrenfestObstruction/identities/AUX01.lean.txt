@@ -1,0 +1,9 @@
+theorem finiteSobolev_H1_physical_norm_sq (N : ℕ) (c : FourierCoeff)
+    (hreal : SpectralReality c) :
+    ‖finiteSobolev 1 N c‖ ^ 2 =
+      (∫ x in unitCube, ‖finiteSynthesis N c x‖ ^ 2) +
+        ∫ x in unitCube, gradientSquareDensity (finiteSynthesis N c) x := by
+  rw [finiteSobolev_H1_norm_sq,
+    ← FINITE_PHYSICAL_ENERGY_PARSEVAL N c hreal,
+    ← FINITE_PHYSICAL_REAL_ENSTROPHY_PARSEVAL N c hreal,
+    physicalEnergy_eq_integral_norm_sq]

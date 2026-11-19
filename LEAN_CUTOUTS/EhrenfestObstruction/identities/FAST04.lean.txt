@@ -1,0 +1,9 @@
+theorem coefficientEnergy_le_dissipation (N : ℕ) (c : FourierCoeff) :
+    coefficientEnergy N c ≤ coefficientDissipation N c := by
+  have hgap : (1 : ℝ) ≤ 4 * Real.pi ^ 2 := by
+    nlinarith [Real.pi_gt_three]
+  calc
+    coefficientEnergy N c = 1 * coefficientEnergy N c := by ring
+    _ ≤ 4 * Real.pi ^ 2 * coefficientEnergy N c :=
+      mul_le_mul_of_nonneg_right hgap (coefficientEnergy_nonneg N c)
+    _ ≤ coefficientDissipation N c := COEFFICIENT_POINCARE N c

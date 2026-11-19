@@ -1,0 +1,7 @@
+theorem invariantGalerkinRhs_global_exists (ν : ℝ) (hν : 0 ≤ ν) (N : ℕ)
+    (z₀ : InvariantGalerkinState N) :
+    ∃ z : ℝ → InvariantGalerkinState N, z 0 = z₀ ∧
+      ∀ t : ℝ, 0 ≤ t → HasDerivAt z (invariantGalerkinRhs ν N (z t)) t := by
+  exact forwardGlobalSolution_exists (invariantGalerkinRhs ν N)
+    ((contDiff_invariantGalerkinRhs ν N).of_le (by norm_num))
+    (invariantGalerkinRhs_dissipative ν hν N) z₀

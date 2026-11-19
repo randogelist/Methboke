@@ -1,0 +1,9 @@
+include hT in
+/-- The adjoint is maximal in the sense that it contains every formal adjoint. -/
+theorem IsFormalAdjoint.le_adjoint (h : T.IsFormalAdjoint S) : S ≤ T† :=
+  ⟨-- Trivially, every `x : S.domain` is in `T.adjoint.domain`
+  fun x hx =>
+    mem_adjoint_domain_of_exists _
+      ⟨S ⟨x, hx⟩, h.symm ⟨x, hx⟩⟩,-- Equality on `S.domain` follows from equality
+  -- `⟪v, S x⟫ = ⟪v, T.adjoint y⟫` for all `v : T.domain`:
+  fun _ _ hxy => (adjoint_apply_eq hT _ fun _ => by rw [h.symm, hxy]).symm⟩

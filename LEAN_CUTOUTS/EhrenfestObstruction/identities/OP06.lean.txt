@@ -1,0 +1,4 @@
+/-- A submodule `S` is a core of `f` if the closure of the restriction of `f` to `S` is `f`. -/
+structure HasCore (f : E →ₗ.[R] F) (S : Submodule R E) : Prop where
+  le_domain : S ≤ f.domain
+  closure_eq : (f.domRestrict S).closure = f

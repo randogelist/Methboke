@@ -1,0 +1,14 @@
+theorem global_smooth_to_initial_front
+    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (H : GlobalSmoothNSE ν a u p) : InitialClassicalFront ν T a u p := by
+  exact {
+    velocity_smooth := H.velocity_smooth.mono (fun _ hz => hz.1)
+    pressure_smooth := H.pressure_smooth.mono (fun _ hz => hz.1)
+    velocity_periodic := fun t ht => H.velocity_periodic t ht.1
+    pressure_periodic := fun t ht => H.pressure_periodic t ht.1
+    divergence_free := fun t ht => H.divergence_free t ht.1
+    equation := fun t ht => H.equation t ht.1
+    initial := H.initial
+    velocity_mean_zero := fun t ht => H.velocity_mean_zero t ht.1
+    pressure_mean_zero := fun t ht => H.pressure_mean_zero t ht.1
+  }

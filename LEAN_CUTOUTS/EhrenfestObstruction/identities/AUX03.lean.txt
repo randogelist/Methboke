@@ -1,0 +1,4 @@
+theorem HasDerivWithinAt.norm_sq {f : ℝ → F} {f' : F} {s : Set ℝ} {x : ℝ}
+    (hf : HasDerivWithinAt f f' s x) :
+    HasDerivWithinAt (‖f ·‖ ^ 2) (2 * ⟪f x, f'⟫) s x := by
+  simpa using hf.hasFDerivWithinAt.norm_sq.hasDerivWithinAt

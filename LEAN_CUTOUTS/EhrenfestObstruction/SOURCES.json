@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "S01",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/BumpFunction/Normed.lean",
+      "git_blob_sha": "9f23d19dd1b85285b198375cbad423413b41d72c",
+      "sha256": "7d195d6e1db1024a3ac842f1d1c1188f37fb28636f6906f2b8104eaa355a8d8b",
+      "bytes": 6330,
+      "snapshot": "sources/S01_Normed.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.BumpFunction.Normed",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.BumpFunction.Basic",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S02",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/ContDiff/Convolution.lean",
+      "git_blob_sha": "211d87a80843c26eb7565088484ce0ab8cb395b4",
+      "sha256": "51c4b08497f08a898573cabb6ad5a95f4a1e170ab74fec15d2bf4fdd8eba370b",
+      "bytes": 25016,
+      "snapshot": "sources/S02_Convolution.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.ContDiff.Convolution",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.ParametricIntegral",
+        "Mathlib.Analysis.Convolution"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S03",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/ContDiff/Operations.lean",
+      "git_blob_sha": "fcd9c1301e86029937280502aa02b3c13b07cd68",
+      "sha256": "3ba61e517d6162ed2fd043f1deb48d80567c2470991d9b3ae99e7be1176eb1c2",
+      "bytes": 48074,
+      "snapshot": "sources/S03_Operations.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.ContDiff.Operations",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Inverse",
+        "Mathlib.Topology.OpenPartialHomeomorph.IsImage",
+        "Mathlib.Analysis.Calculus.FDeriv.OfCompLeft"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S04",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/Deriv/Basic.lean",
+      "git_blob_sha": "99b298181811591362a2467cfd825017ac9d0fef",
+      "sha256": "da1d29570f45bd14f5a37aa5b024d46b3076a47f04e9315bf72cd65f6505d55b",
+      "bytes": 40271,
+      "snapshot": "sources/S04_Basic.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.Deriv.Basic",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.Analysis.Calculus.TangentCone.DimOne",
+        "Mathlib.Analysis.Calculus.TangentCone.Real",
+        "Mathlib.Analysis.Normed.Operator.Bilinear"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S05",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/Deriv/Comp.lean",
+      "git_blob_sha": "0b9db5a45db7989755faf336238545ee35543aef",
+      "sha256": "f98d6383df7e29a0712f18c7bd38e7eaa53b9ffffd39d3a6526e1e9513cfa534",
+      "bytes": 21868,
+      "snapshot": "sources/S05_Comp.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.Deriv.Comp",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Basic",
+        "Mathlib.Analysis.Calculus.FDeriv.Comp",
+        "Mathlib.Analysis.Calculus.FDeriv.RestrictScalars"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S06",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/Deriv/Inv.lean",
+      "git_blob_sha": "9872e356f606bd1be308cc10127da3c716f7a6f8",
+      "sha256": "728a55b0c00e62076563a9018c801d6f61ff491ab040b923c7235879060f3477",
+      "bytes": 9568,
+      "snapshot": "sources/S06_Inv.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.Deriv.Inv",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Comp"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S07",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/Deriv/MeanValue.lean",
+      "git_blob_sha": "06e0420d287d978fa56d45627ec52220688e16a6",
+      "sha256": "5fd9daf39319b42d9d6f76ab6092e70e5e230cc2d3bed2a3db7deb1967450f81",
+      "bytes": 29893,
+      "snapshot": "sources/S07_MeanValue.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.AffineMap",
+        "Mathlib.Analysis.Calculus.Deriv.Comp",
+        "Mathlib.Analysis.Calculus.Deriv.Mul",
+        "Mathlib.Analysis.Calculus.Deriv.Slope",
+        "Mathlib.Analysis.Calculus.LocalExtr.Rolle",
+        "Mathlib.Analysis.Normed.Group.AddTorsor",
+        "Mathlib.Analysis.RCLike.Basic"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S08",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Calculus/FDeriv/Mul.lean",
+      "git_blob_sha": "78915282e98b0d897bef526fc8b00b7faf097653",
+      "sha256": "cb6b129e2bc9f0e946445da29c072eff747cbe4477e8f90aecc6145eb69fea6a",
+      "bytes": 36530,
+      "snapshot": "sources/S08_Mul.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Calculus.FDeriv.Mul",
+      "source_file_imports": [
+        "Mathlib.Analysis.Analytic.Constructions",
+        "Mathlib.Analysis.Calculus.FDeriv.Analytic",
+        "Mathlib.Analysis.Calculus.FDeriv.Bilinear"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S09",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Distribution/TestFunction.lean",
+      "git_blob_sha": "93e58459dfd4675441ca276d455171326210ebd2",
+      "sha256": "ddfbe5ee046c31fc9e51a3ab24668e0bb53c6658d6ff4c10b657aa6925ba23cf",
+      "bytes": 33495,
+      "snapshot": "sources/S09_TestFunction.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Distribution.TestFunction",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.LineDeriv.Basic",
+        "Mathlib.Analysis.Distribution.ContDiffMapSupportedIn",
+        "Mathlib.Analysis.Distribution.DerivNotation"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S10",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/InnerProductSpace/Calculus.lean",
+      "git_blob_sha": "0cb732b074509d4aa9fccd3c3f83d30f9021eb90",
+      "sha256": "902f118cce8ed2a8d385b11e29d95a20424361ca8e47d9bf94fbf954057a7f05",
+      "bytes": 17372,
+      "snapshot": "sources/S10_Calculus.lean.txt",
+      "consumer_import": "Mathlib.Analysis.InnerProductSpace.Calculus",
+      "source_file_imports": [
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.Analysis.SpecialFunctions.Sqrt",
+        "Mathlib.Analysis.Normed.Module.Ball.Homeomorph",
+        "Mathlib.Analysis.Calculus.ContDiff.WithLp",
+        "Mathlib.Analysis.Calculus.FDeriv.WithLp"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S11",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/InnerProductSpace/LinearPMap.lean",
+      "git_blob_sha": "601755168bcab687bfa8369206bf3b692a1ff859",
+      "sha256": "52eb9aade1019a56c5299e3eee416b3f301327ab2c11741e5a142f78a47bf847",
+      "bytes": 12903,
+      "snapshot": "sources/S11_LinearPMap.lean.txt",
+      "consumer_import": "Mathlib.Analysis.InnerProductSpace.LinearPMap",
+      "source_file_imports": [
+        "Mathlib.Analysis.InnerProductSpace.Adjoint",
+        "Mathlib.Analysis.InnerProductSpace.ProdL2",
+        "Mathlib.Analysis.Normed.Operator.Extend",
+        "Mathlib.Topology.Algebra.Module.Equiv",
+        "Mathlib.Topology.Algebra.Module.LinearPMap"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S12",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/Normed/Lp/SmoothApprox.lean",
+      "git_blob_sha": "be25da2e7b60e17851b0a920af42c6720dd23674",
+      "sha256": "b241b4d50c8705f60930b08595330ff34c9b5c145562a6cf542e2e8a9982512f",
+      "bytes": 5405,
+      "snapshot": "sources/S12_SmoothApprox.lean.txt",
+      "consumer_import": "Mathlib.Analysis.Normed.Lp.SmoothApprox",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.LinearAlgebra.FiniteDimensional.Defs",
+        "Mathlib.MeasureTheory.Function.LpSpace.Basic",
+        "Mathlib.Geometry.Manifold.SmoothApprox",
+        "Mathlib.MeasureTheory.Function.ContinuousMapDense"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S13",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/ODE/ExistUnique.lean",
+      "git_blob_sha": "62609142eb50b4420f651aa4b5e94e96908e331a",
+      "sha256": "975302569f7c219e936991508664449784dcb57f899f27f2811db0891b4132bd",
+      "bytes": 18044,
+      "snapshot": "sources/S13_ExistUnique.lean.txt",
+      "consumer_import": "Mathlib.Analysis.ODE.ExistUnique",
+      "source_file_imports": [
+        "Mathlib.Analysis.ODE.Basic",
+        "Mathlib.Analysis.ODE.Gronwall",
+        "Mathlib.Analysis.ODE.PicardLindelof"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S14",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Analysis/ODE/Gronwall.lean",
+      "git_blob_sha": "bedc58a9ea540b856e264d1cc156b707579b8672",
+      "sha256": "11368e8bc827d20fdf555d73699e20cea9fa7f6fe005bef65a585ae20763020f",
+      "bytes": 11756,
+      "snapshot": "sources/S14_Gronwall.lean.txt",
+      "consumer_import": "Mathlib.Analysis.ODE.Gronwall",
+      "source_file_imports": [
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S15",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/LinearAlgebra/LinearPMap.lean",
+      "git_blob_sha": "b314e097a396a6b7e2c3d42cdf379ad7e7a19e95",
+      "sha256": "1d2975571378546a4b12058c99724b255e5a3b05def0c238e1e800c6f3a60090",
+      "bytes": 41930,
+      "snapshot": "sources/S15_LinearPMap.lean.txt",
+      "consumer_import": "Mathlib.LinearAlgebra.LinearPMap",
+      "source_file_imports": [
+        "Mathlib.Algebra.Field.Basic",
+        "Mathlib.Algebra.Module.Torsion.Field",
+        "Mathlib.LinearAlgebra.Prod"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S16",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/MeasureTheory/Function/Jacobian.lean",
+      "git_blob_sha": "fe7664d0202314c1be5c7f038cf5fe2a4eb75f31",
+      "sha256": "56c0b9342e7a3c2d09cab936c8502a1144175b08e6f960f828154f1efef9ba68",
+      "bytes": 70594,
+      "snapshot": "sources/S16_Jacobian.lean.txt",
+      "consumer_import": "Mathlib.MeasureTheory.Function.Jacobian",
+      "source_file_imports": [
+        "Mathlib.Analysis.Calculus.FDeriv.Congr",
+        "Mathlib.MeasureTheory.Constructions.BorelSpace.ContinuousLinearMap",
+        "Mathlib.MeasureTheory.Covering.BesicovitchVectorSpace",
+        "Mathlib.Analysis.Calculus.InverseFunctionTheorem.ApproximatesLinearOn"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S17",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/MeasureTheory/Integral/IntegralEqImproper.lean",
+      "git_blob_sha": "7de909dd857336d631a72f8d2b2e81be32bb02c9",
+      "sha256": "9b23ece88109c97647472e92ac73478da988c81436efc63e17a2acfb2db15353",
+      "bytes": 77011,
+      "snapshot": "sources/S17_IntegralEqImproper.lean.txt",
+      "consumer_import": "Mathlib.MeasureTheory.Integral.IntegralEqImproper",
+      "source_file_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Pow.Deriv",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts",
+        "Mathlib.MeasureTheory.Measure.Haar.NormedSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.Unique"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S18",
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_path": "Mathlib/Topology/Algebra/Module/LinearPMap.lean",
+      "git_blob_sha": "999f059ebdc1b1f0a9600dc7544f8b012a55f9e2",
+      "sha256": "0f09b4171438d914fb2326706eea68be85b1423d1e9340cdd07afa6fc87e4360",
+      "bytes": 9381,
+      "snapshot": "sources/S18_LinearPMap.lean.txt",
+      "consumer_import": "Mathlib.Topology.Algebra.Module.LinearPMap",
+      "source_file_imports": [
+        "Mathlib.LinearAlgebra.LinearPMap",
+        "Mathlib.Topology.Algebra.Module.Basic",
+        "Mathlib.Topology.Algebra.Module.Equiv"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S19",
+      "repository": "randogelist/Methboke",
+      "revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
+      "source_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean",
+      "git_blob_sha": "1b3ecaf2897c9a22610d4d328e08337e5402528a",
+      "sha256": "128457902664720a24fae52f386d6f5247438051c15a4c31270bc933c0f12102",
+      "bytes": 14961,
+      "snapshot": "sources/S19_PhysicalNonlinear.lean.txt",
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
+      "source_file_imports": [
+        "MethbokeAddon.WeakFouriermanB.HomogeneousBudget",
+        "SingularClosure.PeriodicFourierInjective",
+        "SingularClosure.EnstrophyAbsorption"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S20",
+      "repository": "randogelist/Methboke",
+      "revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
+      "source_path": "Material/_vendor/SingularClosure/FourierSobolevOperators.lean",
+      "git_blob_sha": "98bbd557c7014537ecb77d85475cd7b05c1cb1b5",
+      "sha256": "d65a481a2d8a0db940c2cb24346492ce0c0ecc81f861a0f6fd21418551b0a48f",
+      "bytes": 17375,
+      "snapshot": "sources/S20_FourierSobolevOperators.lean.txt",
+      "consumer_import": "SingularClosure.FourierSobolevOperators",
+      "source_file_imports": [
+        "SingularClosure.TorusGalerkinSobolev",
+        "SingularClosure.LerayL2Contraction"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S21",
+      "repository": "randogelist/Methboke",
+      "revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
+      "source_path": "Material/_vendor/SingularClosure/LatticeSobolevSummability.lean",
+      "git_blob_sha": "256ed4881539d214137116a01483050831dbd48f",
+      "sha256": "34634888f8a8601ebb6a5c40f57d2b4a19b0f77295a0c37aeb59fbbd6ea09203",
+      "bytes": 5521,
+      "snapshot": "sources/S21_LatticeSobolevSummability.lean.txt",
+      "consumer_import": "SingularClosure.LatticeSobolevSummability",
+      "source_file_imports": [
+        "SingularClosure.TorusSobolev",
+        "Mathlib.Algebra.Module.ZLattice.Summable"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S22",
+      "repository": "randogelist/Methboke",
+      "revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
+      "source_path": "Material/_vendor/SingularClosure/PeriodicSobolev.lean",
+      "git_blob_sha": "704b8970c312368c6e64cb1700c9a9402e1d9604",
+      "sha256": "ace35d53379ddbc55dc51e8dc4ed7b3055024f8961f3946cfb2b30bd72ecf215",
+      "bytes": 17387,
+      "snapshot": "sources/S22_PeriodicSobolev.lean.txt",
+      "consumer_import": "SingularClosure.PeriodicSobolev",
+      "source_file_imports": [
+        "SingularClosure.PeriodicPoincare",
+        "SingularClosure.PeriodicCover"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S23",
+      "repository": "randogelist/Methboke",
+      "revision": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "source_path": "Material/MethbokeAddon/WeakFouriermanB/LocalClassicalUniqueness.lean",
+      "git_blob_sha": "bfe2ae01851909b2e95e343867e55f19b74f1b71",
+      "sha256": "1fb0136ec5d736645de81e77984a08e5ae221d5e8418d2a5813bc96f84b0cbed",
+      "bytes": 8747,
+      "snapshot": "sources/S23_LocalClassicalUniqueness.lean.txt",
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness",
+      "source_file_imports": [
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "MethbokeAddon.WeakFouriermanB.PressureUniqueness"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S24",
+      "repository": "randogelist/Methboke",
+      "revision": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "source_path": "Material/MethbokeAddon/WeakFouriermanB/LocalGalerkinBounds.lean",
+      "git_blob_sha": "db99eb577a0f397bc656b23a9e11c6ca6c2ed5d5",
+      "sha256": "b7337e3eb59d2909933932f66b38d0917d7d112ef7b791c4b02e8a2a2000721c",
+      "bytes": 10260,
+      "snapshot": "sources/S24_LocalGalerkinBounds.lean.txt",
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.LocalGalerkinBounds",
+      "source_file_imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier",
+        "SingularClosure.StrongAccumulation",
+        "SingularClosure.SobolevTrajectoryCalculus"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S25",
+      "repository": "randogelist/Methboke",
+      "revision": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "source_path": "Material/MethbokeAddon/WeakFouriermanB/LocalGalerkinRegularity.lean",
+      "git_blob_sha": "95e5f38462638e5431e128252585a87e54f37ce4",
+      "sha256": "911b65c970740c8dce632e0471f4f795ef99feb60f2c9536e99c36a74053f36b",
+      "bytes": 8542,
+      "snapshot": "sources/S25_LocalGalerkinRegularity.lean.txt",
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.LocalGalerkinRegularity",
+      "source_file_imports": [
+        "SingularClosure.HighOrderAccumulation",
+        "SingularClosure.HighOrderTimeModulus"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S26",
+      "repository": "randogelist/Methboke",
+      "revision": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "source_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean",
+      "git_blob_sha": "2335a18ccbb0ee6dda235abf5bc1b6bab4df2024",
+      "sha256": "46df260b6b5ea904cb2bf9de20e144d6860cba41c9f033de679ed9672fbda866",
+      "bytes": 18898,
+      "snapshot": "sources/S26_PhysicalEnstrophyEvolution.lean.txt",
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+      "source_file_imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.TangentCone.Prod",
+        "Mathlib.Analysis.Calculus.TangentCone.Real"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S27",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CanonicalGalerkin.lean",
+      "git_blob_sha": "e13bfcd457edef7a93af8f3fdacf963795a6c58c",
+      "sha256": "82fbeb113d8678a4b7bec1681b8f47ed57f17e0f46b376766441bb33eb690bbb",
+      "bytes": 1815,
+      "snapshot": "sources/S27_CanonicalGalerkin.lean.txt",
+      "consumer_import": "SingularClosure.CanonicalGalerkin",
+      "source_file_imports": [
+        "SingularClosure.GalerkinGlobal",
+        "SingularClosure.Admission"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S28",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalGalerkin.lean",
+      "git_blob_sha": "b2aa366cdfaadeb48b369da21267f2d9f9d4351f",
+      "sha256": "347395289b970591aabcad088f0b4c6594d38450d7115ad49a71c33a122738ae",
+      "bytes": 8033,
+      "snapshot": "sources/S28_CriticalGalerkin.lean.txt",
+      "consumer_import": "SingularClosure.CriticalGalerkin",
+      "source_file_imports": [
+        "SingularClosure.GalerkinInvariant",
+        "SingularClosure.GalerkinExistence",
+        "SingularClosure.InitialFourier",
+        "SingularClosure.FiniteParseval"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S29",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyInequality.lean",
+      "git_blob_sha": "fdc12e4676295ea43d0e2f8d1f0592e0c545200e",
+      "sha256": "903678f104e8f312e0c7b2ed5f7846109931cea773b8a989df7ab14de2a93c17",
+      "bytes": 4633,
+      "snapshot": "sources/S29_EnstrophyInequality.lean.txt",
+      "consumer_import": "SingularClosure.EnstrophyInequality",
+      "source_file_imports": [
+        "SingularClosure.GalerkinEnergy"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S30",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FourierSobolevProduct.lean",
+      "git_blob_sha": "0648e014e3ae54a267b9a2bd32b485d280adc0bb",
+      "sha256": "bc37c72d3026d04831200724509128f0daa1f0d57e0f820a82ea273f8e52be20",
+      "bytes": 10324,
+      "snapshot": "sources/S30_FourierSobolevProduct.lean.txt",
+      "consumer_import": "SingularClosure.FourierSobolevProduct",
+      "source_file_imports": [
+        "SingularClosure.InfiniteScalarProduct",
+        "SingularClosure.FourierTransport",
+        "SingularClosure.FourierSobolevOperators",
+        "SingularClosure.HighOrderEstimate"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S31",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinEnergy.lean",
+      "git_blob_sha": "e6501bff17d1fa9aa48166e85a1ddfafc7c221ae",
+      "sha256": "1f0e5b8a62e9d65bd7161efdfe539793157e8edbe94434d0c43b7af4644d5c02",
+      "bytes": 10885,
+      "snapshot": "sources/S31_GalerkinEnergy.lean.txt",
+      "consumer_import": "SingularClosure.GalerkinEnergy",
+      "source_file_imports": [
+        "SingularClosure.GalerkinAlgebra"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S32",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinExistence.lean",
+      "git_blob_sha": "99a1d77891985e082e015e055cef7c3980c2e5fc",
+      "sha256": "b06de730475c44c518c24246911d771e883dac8123cae8e25915ca69631e08c5",
+      "bytes": 8329,
+      "snapshot": "sources/S32_GalerkinExistence.lean.txt",
+      "consumer_import": "SingularClosure.GalerkinExistence",
+      "source_file_imports": [
+        "SingularClosure.GalerkinAlgebra"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S33",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinInvariant.lean",
+      "git_blob_sha": "eeaf7acef88635864a09fa92ca07745c19a62912",
+      "sha256": "7b202d4743bd672c18809aef068cde1e67a2afc450b1e93aa41bf02019eea6d1",
+      "bytes": 12587,
+      "snapshot": "sources/S33_GalerkinInvariant.lean.txt",
+      "consumer_import": "SingularClosure.GalerkinInvariant",
+      "source_file_imports": [
+        "SingularClosure.GalerkinReality",
+        "SingularClosure.LerayPressure",
+        "SingularClosure.DissipativeODE"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S34",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/InitialCutoffBounds.lean",
+      "git_blob_sha": "dadf69927b1858ab267cd1d1c5c629abdcf1dd33",
+      "sha256": "f9f7eec7c6f8fa46f45ce4bc5942ff9627fe532e377780d5701f144ffd833c30",
+      "bytes": 9827,
+      "snapshot": "sources/S34_InitialCutoffBounds.lean.txt",
+      "consumer_import": "SingularClosure.InitialCutoffBounds",
+      "source_file_imports": [
+        "SingularClosure.PhysicalBilinear",
+        "SingularClosure.InitialFourier"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S35",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalBilinear.lean",
+      "git_blob_sha": "97b76bf8e8964a03b3ea13f2099900dd75865cd6",
+      "sha256": "6062c88611b7b2d8885d62272d2be88a95cbec37335a1129a636e84b564b3262",
+      "bytes": 13097,
+      "snapshot": "sources/S35_PhysicalBilinear.lean.txt",
+      "consumer_import": "SingularClosure.PhysicalBilinear",
+      "source_file_imports": [
+        "SingularClosure.FiniteHessian",
+        "SingularClosure.EnstrophyInequality"
+      ],
+      "full_source_preserved_verbatim": true
+    },
+    {
+      "id": "S36",
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "source_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/TorusGalerkinSobolev.lean",
+      "git_blob_sha": "2ee17b11e2417a19a05a14a6b170e68397ce26f2",
+      "sha256": "ca33f9d5a8be2d0fdd0d355cdc98de0555a9026b304e5793159b8b13e1d704b4",
+      "bytes": 6629,
+      "snapshot": "sources/S36_TorusGalerkinSobolev.lean.txt",
+      "consumer_import": "SingularClosure.TorusGalerkinSobolev",
+      "source_file_imports": [
+        "SingularClosure.TorusSobolev",
+        "SingularClosure.EnstrophyAbsorption"
+      ],
+      "full_source_preserved_verbatim": true
+    }
+  ],
+  "mathlib_license": {
+    "path": "LICENSE.mathlib",
+    "source_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "source_blob_sha": "8dada3edaf50dbc082c9a125058f25def75e625a",
+    "source_sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+  }
+}

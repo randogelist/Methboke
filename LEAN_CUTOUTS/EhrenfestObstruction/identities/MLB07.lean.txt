@@ -1,0 +1,9 @@
+theorem GalerkinSolution.coefficientEnergy_identity
+    {ν : ℝ} {a : Field} {N : ℕ}
+    (g : GalerkinSolution ν a N) {t : ℝ} (ht : 0 ≤ t) :
+    HasDerivWithinAt (fun r => coefficientEnergy N (g.coeff r))
+      ((-2 * ν) * coefficientDissipation N (g.coeff t)) (Ici 0) t := by
+  have hzero := coefficientNonlinearPower_eq_zero N (g.coeff t)
+    (g.mode_support t ht) (g.real_symmetry t ht) (g.solenoidal t ht)
+  simpa only [hzero, mul_zero, sub_zero] using
+    g.coefficientEnergy_balance_with_remainder ht

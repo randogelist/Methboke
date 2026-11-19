@@ -1,0 +1,5 @@
+@[to_fun (attr := fun_prop)]
+theorem HasFDerivAt.smul (hc : HasFDerivAt c c' x) (hf : HasFDerivAt f f' x) :
+    HasFDerivAt (c • f) (c x • f' + c'.smulRight (f x)) x := by
+  -- `by exact` to solve unification issues.
+  exact (isBoundedBilinearMap_smul.hasFDerivAt (𝕜 := 𝕜) (c x, f x)).comp x <| hc.prodMk hf

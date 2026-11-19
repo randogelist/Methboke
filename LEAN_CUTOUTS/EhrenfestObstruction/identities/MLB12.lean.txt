@@ -1,0 +1,3 @@
+def canonicalGalerkinSolution (ν : ℝ) (hν : 0 < ν) (a : Field)
+    (ha : SmoothSigmaZero a) (N : ℕ) : GalerkinSolution ν a N :=
+  (GALERKIN_GLOBAL_EXISTS_UNIQUE ν hν a ha N).choose

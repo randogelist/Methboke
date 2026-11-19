@@ -1,0 +1,6 @@
+theorem GalerkinSolution.coefficientDissipation_initial_le
+    {ν : ℝ} {a : Field} {N : ℕ} (g : GalerkinSolution ν a N)
+    (ha : SmoothSigmaZero a) :
+    coefficientDissipation N (g.coeff 0) ≤ ∫ x in unitCube, gradientSquareDensity a x := by
+  rw [g.coefficientDissipation_initial_eq]
+  exact coefficientDissipation_initial_cutoff_le N a ha.smooth ha.periodic

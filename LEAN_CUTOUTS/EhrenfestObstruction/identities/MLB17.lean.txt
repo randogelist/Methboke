@@ -1,0 +1,11 @@
+theorem initial_physicalDissipation_continuousOn_Icc
+    (u : Velocity) (T : ℝ)
+    (hu : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (initialFrontSpacetime T))
+    (τ : ℝ) (hτT : τ < T) :
+    ContinuousOn (fun t => physicalDissipation (u t)) (Icc (0 : ℝ) τ) := by
+  apply initial_real_cube_integral_continuousOn_Icc T
+    (fun t x => gradientSquareDensity (u t) x) _ τ hτT
+  simp_rw [gradientSquareDensity_eq_sum_norm_sq]
+  apply continuousOn_finset_sum
+  intro j _
+  exact (initial_coordinateDerivative_contDiffOn u T hu j).continuousOn.norm.pow 2

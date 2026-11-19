@@ -1,0 +1,4 @@
+/-- If `f` is closable, then the closure is closed. -/
+theorem IsClosable.closure_isClosed {f : E →ₗ.[R] F} (hf : f.IsClosable) : f.closure.IsClosed := by
+  rw [IsClosed, ← hf.graph_closure_eq_closure_graph]
+  exact f.graph.isClosed_topologicalClosure

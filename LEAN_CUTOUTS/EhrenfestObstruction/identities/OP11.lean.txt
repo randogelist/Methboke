@@ -1,0 +1,8 @@
+variable (Ω F n) in
+/-- The type of bundled `n`-times continuously differentiable maps with compact support -/
+structure TestFunction : Type _ where
+  /-- The underlying function. Use coercion instead. -/
+  protected toFun : E → F
+  protected contDiff' : ContDiff ℝ n toFun
+  protected hasCompactSupport' : HasCompactSupport toFun
+  protected tsupport_subset' : tsupport toFun ⊆ Ω

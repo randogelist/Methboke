@@ -1,0 +1,3 @@
+theorem HasDerivWithinAt.hasDerivAt (h : HasDerivWithinAt f f' s x) (hs : s ∈ 𝓝 x) :
+    HasDerivAt f f' x :=
+  HasFDerivWithinAt.hasFDerivAt h hs

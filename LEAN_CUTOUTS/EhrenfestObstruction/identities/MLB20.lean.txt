@@ -1,0 +1,16 @@
+theorem local_galerkin_high_order_pointwise
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T)
+    (S : ℝ) (hS : 0 ≤ S)
+    (hH2 : ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,
+      (∫ t in (0 : ℝ)..T, ‖g.sobolevState 2 t‖ ^ 2) ≤ S)
+    (m : ℕ) :
+    ∃ B : ℝ, 0 ≤ B ∧ ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,
+      ∀ t ∈ Icc (0 : ℝ) T, ‖g.sobolevState m t‖ ^ 2 ≤ B := by
+  obtain ⟨B, hB, hb⟩ := local_galerkin_high_order_accumulation ν hν a ha T hT S hS hH2 m
+  refine ⟨B, hB, ?_⟩
+  intro N hN g t ht
+  have hi : 0 ≤ ∫ r in (0 : ℝ)..t, ‖g.sobolevState (m + 1) r‖ ^ 2 :=
+    intervalIntegral.integral_nonneg_of_forall ht.1 (fun r => sq_nonneg _)
+  have h := hb N hN g t ht
+  nlinarith [mul_nonneg hν.le hi]

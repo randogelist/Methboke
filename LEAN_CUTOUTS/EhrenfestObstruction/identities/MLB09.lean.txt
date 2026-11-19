@@ -1,0 +1,31 @@
+theorem coefficientEnstrophyNonlinearPower_eq_physical
+    (N : ℕ) (c : FourierCoeff)
+    (hsupp : ∀ k : Frequency, k ∉ cutoffModes N → ∀ i : Fin 3, c k i = 0)
+    (hreal : SpectralReality c) (hsol : SpectralSolenoidal c) :
+    coefficientEnstrophyNonlinearPower N c =
+      -(∫ x in unitCube, inner ℝ (convection (finiteSynthesis N c) x)
+        (laplacian (finiteSynthesis N c) x)) := by
+  rw [finiteSynthesis_laplacian]
+  have hswap :
+      (∫ x in unitCube, inner ℝ (convection (finiteSynthesis N c) x)
+        (finiteSynthesis N (laplacianCoefficient c) x)) =
+      ∫ x in unitCube, inner ℝ (finiteSynthesis N (laplacianCoefficient c) x)
+        (convection (finiteSynthesis N c) x) := by
+    apply integral_congr_ae
+    filter_upwards with x
+    exact real_inner_comm _ _
+  rw [hswap]
+  rw [integral_finiteSynthesis_pairing N (laplacianCoefficient c) _
+    (convection_continuous (finiteSynthesis_contDiff N c)),
+    datumFourierCoeff_convection_finiteSynthesis N c hsupp hreal,
+    coefficientEnstrophyNonlinearPower_eq_transport N c hsol]
+  rw [← Finset.sum_neg_distrib]
+  apply Finset.sum_congr rfl
+  intro k _
+  rw [physical_complex_re_sum, Finset.mul_sum, ← Finset.sum_neg_distrib]
+  apply Finset.sum_congr rfl
+  intro i _
+  have hscalar (r : ℝ) (z w : ℂ) :
+      r * (star z * w).re = -(star (-(r : ℂ) * z) * w).re := by
+    simp [Complex.star_def, Complex.mul_re, Complex.mul_im] <;> ring
+  exact hscalar (laplacianFrequency k) (c k i) (coefficientTransport N c k i)

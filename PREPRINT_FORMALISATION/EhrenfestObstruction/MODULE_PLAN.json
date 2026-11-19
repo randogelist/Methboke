@@ -27,7 +27,11 @@
       "role": "SmoothDatum, canonicalFamily at n+1, e, Vrec, literal drift, PreHit, StoppedForDatum, StoppedCommutatorBound and actual NSE_B.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB08",
+        "MLB12"
+      ]
     },
     {
       "name": "PhaseSpace",
@@ -45,7 +49,11 @@
       "role": "Real invariant phase space; coordinates and physical synthesis; polynomial RHS, projection/cancellation and positive Stokes operator.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB01",
+        "ML08"
+      ]
     },
     {
       "name": "ReciprocalDrift",
@@ -65,7 +73,18 @@
       "role": "Exact canonical reciprocal derivative with coefficient sign and positive denominator; no operator imports.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB08",
+        "MLB09",
+        "ML05",
+        "ML06",
+        "AUX02",
+        "AUX04",
+        "AUX05",
+        "AUX06",
+        "AUX07"
+      ]
     },
     {
       "name": "StoppedScalar",
@@ -82,7 +101,10 @@
       "role": "Continuous scalar pre-hit comparison and explicit hitting-time bound; no assumed finite hitting time.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML13"
+      ]
     },
     {
       "name": "StoppedFamily",
@@ -102,7 +124,11 @@
       "role": "One fixed smooth datum; divergent thresholds and uniform initial bound imply explicit threshold hits before 1/gamma.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB10",
+        "MLB12"
+      ]
     },
     {
       "name": "ClosedSlab",
@@ -120,7 +146,11 @@
       "role": "Actual physical PDE and compact Sobolev traces; adapt InitialClassicalFront on [0,S) to a closed [0,T] with T<S.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB15",
+        "MLB17"
+      ]
     },
     {
       "name": "FourierTail",
@@ -137,7 +167,10 @@
       "role": "Uniform H4 control gives cutoff H3 tail O(1/N); Sobolev contraction of Fourier/Leray projections.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB11"
+      ]
     },
     {
       "name": "SobolevProduct",
@@ -154,7 +187,10 @@
       "role": "Prove mixed H2 x H3 -> H2 convection estimate, respecting the derivative loss; existing anchor is only supporting infrastructure.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB14"
+      ]
     },
     {
       "name": "GalerkinError",
@@ -173,7 +209,11 @@
       "role": "Actual projected residual and w equation; Y prime <= C(Y+Y^2)+C/N^2 with Y(0)=0.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB08",
+        "ML08"
+      ]
     },
     {
       "name": "SpectralStability",
@@ -193,7 +233,13 @@
       "role": "First-exit Gronwall gives full-slab H2 convergence and all-cutoff H1/enstrophy bound; no uniform budget assumed. This full H2-convergence/all-cutoff statement is retained as a stronger E09 milestone, outside the shortest root route.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML03",
+        "MLB11",
+        "MLB19",
+        "MLB20"
+      ]
     },
     {
       "name": "DynamicalRoot",
@@ -212,7 +258,10 @@
       "role": "Single-cutoff full-slab contradiction: choose R_n>C using eventual thresholds/bounds, derive PreHit on all interior times, contradict positive terminal reciprocal via mean value.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB15"
+      ]
     },
     {
       "name": "CompleteFlow",
@@ -234,7 +283,15 @@
       "role": "Complete jointly smooth real-time flow, backwards energy estimate, group law and Jacobian invertibility.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML01",
+        "ML02",
+        "ML03",
+        "MLB03",
+        "MLB05",
+        "MLB13"
+      ]
     },
     {
       "name": "CanonicalOrbit",
@@ -253,7 +310,11 @@
       "role": "Use actual ODE uniqueness to identify the phase flow through P_(n+1)a with the canonical forward Galerkin solution.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB05",
+        "MLB12"
+      ]
     },
     {
       "name": "TestCore",
@@ -272,7 +333,12 @@
       "role": "Native compactly supported smooth complex tests; variable-vector transport H0 and smooth multiplication as core linear maps.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP11",
+        "ML10",
+        "ML12"
+      ]
     },
     {
       "name": "CoreCommutator",
@@ -290,7 +356,11 @@
       "role": "Pointwise product rule: (i/hbar)[H0,M_g]=M_(Dg[b]); independent of self-adjointness and complete flow.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML05",
+        "ML10"
+      ]
     },
     {
       "name": "HilbertCore",
@@ -309,7 +379,12 @@
       "role": "Complex-linear injective dense test embedding into L2(volume); H0 as LinearPMap on its range submodule.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP01",
+        "OP11",
+        "OP12"
+      ]
     },
     {
       "name": "TransportSymmetry",
@@ -329,7 +404,13 @@
       "role": "Integration by parts, dense formal symmetry, closed adjoint extension and genuine closability of H0.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP03",
+        "OP07",
+        "OP08",
+        "OP09"
+      ]
     },
     {
       "name": "HalfDensity",
@@ -349,7 +430,12 @@
       "role": "Construct Jacobian half-density transport, surjective L2 isometries, group laws, strong continuity and core invariance.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML16",
+        "ML17",
+        "OP12"
+      ]
     },
     {
       "name": "UnitaryGenerator",
@@ -368,7 +454,11 @@
       "role": "Actual strong derivative domain and generator L; graph closedness, skew symmetry and agreement with H0.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP01",
+        "OP02"
+      ]
     },
     {
       "name": "UnitaryResolvent",
@@ -387,7 +477,12 @@
       "role": "Bochner R+/- resolvents, surjectivity of I-/+L, adjoint-domain equality and self-adjoint H=i*hbar*L.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP07",
+        "OP08",
+        "OP10"
+      ]
     },
     {
       "name": "TransportCore",
@@ -406,7 +501,12 @@
       "role": "Time-convolution graph density; H.HasCore D0 and H0.closure=H, with closability proved first.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP04",
+        "OP05",
+        "OP06"
+      ]
     },
     {
       "name": "Heisenberg",
@@ -425,7 +525,11 @@
       "role": "Conjugation including maximal multiplication domains and Ehrenfest identity on invariant common core.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML17",
+        "OP01"
+      ]
     },
     {
       "name": "Localization",
@@ -443,7 +547,11 @@
       "role": "L2-normalized smooth bump packets; expectation localization at fixed cutoff, no interchange of limits.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML18",
+        "ML19"
+      ]
     },
     {
       "name": "Translation",
@@ -462,7 +570,11 @@
       "role": "NSE_HEISENBERG_TRANSLATION: construct actual finite-phase operators and their exact common-core/classical identities.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB05",
+        "MLB12"
+      ]
     },
     {
       "name": "ReciprocalCommutator",
@@ -482,7 +594,12 @@
       "role": "Bounded reciprocal multiplier and bounded drift at fixed N; domain-preserving extension and canonical localized rate equality.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB08",
+        "MLB09",
+        "OP04"
+      ]
     },
     {
       "name": "Root",
@@ -499,7 +616,10 @@
       "role": "Frozen EHRENFEST_OBSTRUCTION with unchanged explicit stopped premise; imports only the minimal dynamical proof, not All or operator infrastructure.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB15"
+      ]
     },
     {
       "name": "SlabDescent",
@@ -514,7 +634,12 @@
       "role": "Real mean-value endpoint comparison with an explicit rate and interior derivatives; no NSE, hitting times or operator imports.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "ML21",
+        "AUX05",
+        "AUX07"
+      ]
     },
     {
       "name": "SmoothReference",
@@ -533,7 +658,13 @@
       "role": "Uniform projected C1 and H1 Fourier-tail estimates from the actual smooth closed slab; finite coefficient l1 estimate and multiplier norm bound.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "FAST02",
+        "FAST03",
+        "FAST05",
+        "AUX01"
+      ]
     },
     {
       "name": "H1Error",
@@ -551,7 +682,13 @@
       "role": "Differentiate finite error coefficient enstrophy; use arbitrary-field nonlinear absorption, elementary mixed L2 estimates and Poincare.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "FAST01",
+        "FAST04",
+        "AUX01",
+        "AUX03"
+      ]
     },
     {
       "name": "EventualEnstrophyBound",
@@ -568,7 +705,10 @@
       "role": "Bootstrap error D<=1 using D prime <= C(D+D^3)+C/N^2; expose only an eventual uniform Galerkin enstrophy bound.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": true
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "ML03"
+      ]
     },
     {
       "name": "All",
@@ -586,7 +726,8 @@
       "role": "Optional full-workstream import bundle; scalar Root never imports this file. All ten original milestone scopes remain separately auditable.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
       "activated": false,
-      "required_for_fast_root": false
+      "required_for_fast_root": false,
+      "available_cutout_ids": []
     }
   ],
   "endpoint_packages": [
@@ -709,5 +850,7 @@
     "optional": true,
     "activated": false,
     "scope": "Import convenience after completing all ten original milestones; no semantic change to scalar theorem."
-  }
+  },
+  "identity_cutout_catalog": "../../LEAN_CUTOUTS/EhrenfestObstruction/IDENTITIES.json",
+  "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED"
 }

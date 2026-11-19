@@ -1,0 +1,3 @@
+theorem HasDerivAt.norm_sq {f : ℝ → F} {f' : F} {x : ℝ} (hf : HasDerivAt f f' x) :
+    HasDerivAt (‖f ·‖ ^ 2) (2 * ⟪f x, f'⟫) x := by
+  simpa using hf.hasFDerivAt.norm_sq.hasDerivAt

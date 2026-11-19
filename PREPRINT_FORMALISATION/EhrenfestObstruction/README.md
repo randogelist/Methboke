@@ -12,6 +12,7 @@ The ten-step mathematical derivation is complete as a conditional argument. **Ze
 
 - [Cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt)
 - [Ten mid-tier checklist](CHECKLIST.md)
+- [Source-exact identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/README.md) and [fast-route reading order](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md)
 - [Shortest identified Lean route: nine-module scalar root](FAST_ROUTE.md)
 - [Five minimal interfaces](FAST_INTERFACES.lean.txt)
 - [Full 31-module proposed layout](LEAN_LAYOUT.md)
@@ -29,3 +30,5 @@ Verification is external and cached only. No local Lean, Lake or kernel executio
 The v0.2 refinement separates the coefficient-only conditional obstruction from its full Heisenberg interpretation. It records the same-datum canonical-family adapter, explicit real-time no-hit predicate, safe `T<S` front semantics, and a direct unitary-generator/resolvent route to self-adjointness. The ten milestones keep their full scope. No local or external compiler was run for this refinement.
 
 Version 0.3 shortens the root further: use one-cutoff mean-value contradiction and an eventual H1 enstrophy bound, supported by existing physical absorption and Fourier estimates. Hitting/escape and full H2 convergence remain separate stronger milestones. The root source closure excludes every operator module and the optional All bundle. This is a source-grounded proof-plan optimization, not a measured compiler-speed claim.
+
+The initial identity-gathering stage is now available: 60 existing declarations/definitions, comprising the 53 indexed anchors and seven companion identities, with complete source/proof slices and 36 full pinned module snapshots. This is source extraction, not new implementation or formal acceptance. See the cutout catalog for original imports, contextual hypotheses and new adapters still required.

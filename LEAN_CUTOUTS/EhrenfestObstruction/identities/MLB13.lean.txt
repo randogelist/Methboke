@@ -1,0 +1,16 @@
+theorem CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+    (ν : ℝ) (hν : 0 ≤ ν) (c : FourierCoeff)
+    (hreal : SpectralReality c) (hsol : SpectralSolenoidal c) (N : ℕ) :
+    ∃ g : GalerkinSolution ν (finiteSynthesis N c) N,
+      g.coeff 0 = cutoffCoeff N c ∧
+        ∀ h : GalerkinSolution ν (finiteSynthesis N c) N,
+          EqOn g.coeff h.coeff (Ici 0) := by
+  have hrealN : SpectralReality (datumFourierCoeff (finiteSynthesis N c)) := by
+    rw [criticalGalerkin_datumFourierCoeff_finiteSynthesis N c hreal]
+    exact cutoffCoeff_preserves_reality N hreal
+  have hsolN : SpectralSolenoidal (datumFourierCoeff (finiteSynthesis N c)) := by
+    rw [criticalGalerkin_datumFourierCoeff_finiteSynthesis N c hreal]
+    exact cutoffCoeff_preserves_solenoidal N hsol
+  obtain ⟨g⟩ := galerkinSolution_exists_of_fourier_invariants ν hν
+    (finiteSynthesis N c) N (criticalGalerkin_fourier_integrable N c) hrealN hsolN
+  exact ⟨g, criticalGalerkin_initial_coeff hreal g, fun h => g.coeff_unique_forward h⟩

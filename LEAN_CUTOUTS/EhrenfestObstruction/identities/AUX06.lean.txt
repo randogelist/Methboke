@@ -1,0 +1,3 @@
+theorem HasDerivWithinAt.continuousWithinAt (h : HasDerivWithinAt f f' s x) :
+    ContinuousWithinAt f s x :=
+  HasDerivAtFilter.tendsto_nhds inf_le_left h

@@ -1,0 +1,3 @@
+theorem HasDerivWithinAt.mono (h : HasDerivWithinAt f f' t x) (hst : s ⊆ t) :
+    HasDerivWithinAt f f' s x :=
+  HasFDerivWithinAt.mono h hst

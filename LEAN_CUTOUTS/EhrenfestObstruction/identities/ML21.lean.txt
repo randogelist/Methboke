@@ -1,0 +1,8 @@
+include hab hfc hff' in
+/-- Lagrange's Mean Value Theorem, `HasDerivAt` version -/
+theorem exists_hasDerivAt_eq_slope : ∃ c ∈ Ioo a b, f' c = (f b - f a) / (b - a) := by
+  obtain ⟨c, cmem, hc⟩ : ∃ c ∈ Ioo a b, (b - a) * f' c = (f b - f a) * 1 :=
+    exists_ratio_hasDerivAt_eq_ratio_slope f f' hab hfc hff' id 1 continuousOn_id
+      fun x _ => hasDerivAt_id x
+  use c, cmem
+  rwa [mul_one, mul_comm, ← eq_div_iff (sub_ne_zero.2 hab.ne')] at hc

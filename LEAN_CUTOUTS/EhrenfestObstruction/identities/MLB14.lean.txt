@@ -1,0 +1,7 @@
+theorem SOBOLEV_DIVERGENCE_PRODUCT_NORM_BOUND (r : ℕ) :
+    ∃ C : ℝ, 0 < C ∧ ∀ c d : TorusSobolev (r + 2),
+      ‖sobolevDivergenceProduct r c d‖ ≤ C * ‖c‖ * ‖d‖ := by
+  obtain ⟨C, hC, hbound⟩ := SOBOLEV_DIVERGENCE_PRODUCT_MEM_NORM_BOUND r
+  refine ⟨C, hC, ?_⟩
+  intro c d
+  exact (hbound c d).choose_spec

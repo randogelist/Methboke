@@ -1,0 +1,12 @@
+/-- Let `f` be a function continuous on a convex (or, equivalently, connected) subset `D`
+of the real line. If `f` is differentiable on the interior of `D` and `f' ≤ C`, then
+`f` grows at most as fast as `C * x` on `D`, i.e., `f y - f x ≤ C * (y - x)` whenever `x, y ∈ D`,
+`x ≤ y`. -/
+theorem Convex.image_sub_le_mul_sub_of_deriv_le {D : Set ℝ} (hD : Convex ℝ D) {f : ℝ → ℝ}
+    (hf : ContinuousOn f D) (hf' : DifferentiableOn ℝ f (interior D)) {C}
+    (le_hf' : ∀ x ∈ interior D, deriv f x ≤ C) (x : ℝ) (hx : x ∈ D) (y : ℝ) (hy : y ∈ D)
+    (hxy : x ≤ y) : f y - f x ≤ C * (y - x) := by
+  have hf'_ge : ∀ x ∈ interior D, -C ≤ deriv (fun y => -f y) x := fun x hx => by
+    rw [deriv.fun_neg, neg_le_neg_iff]
+    exact le_hf' x hx
+  linarith [hD.mul_sub_le_image_sub_of_le_deriv hf.fun_neg hf'.neg hf'_ge x hx y hy hxy]

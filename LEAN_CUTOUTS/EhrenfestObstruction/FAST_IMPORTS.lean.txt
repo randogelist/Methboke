@@ -1,0 +1,64 @@
+/-
+Nonexecuting consumer reference, not a compiled source or accepted audit.
+Use the original pinned module layout/cache. No declarations are copied or
+redefined here. Any future checks must run only in authorized external CI.
+-/
+
+import SingularClosure.CanonicalGalerkin
+import SingularClosure.EnstrophyInequality
+import Mathlib.Analysis.Calculus.Deriv.Inv
+import Mathlib.Analysis.Calculus.Deriv.Comp
+import Mathlib.Analysis.Calculus.Deriv.Basic
+import Mathlib.Analysis.Calculus.Deriv.MeanValue
+import MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness
+import SingularClosure.LatticeSobolevSummability
+import SingularClosure.FourierSobolevOperators
+import SingularClosure.PeriodicSobolev
+import SingularClosure.TorusGalerkinSobolev
+import SingularClosure.PhysicalBilinear
+import MethbokeAddon.WeakFouriermanB.PhysicalNonlinear
+import Mathlib.Analysis.ODE.Gronwall
+import Mathlib.Analysis.InnerProductSpace.Calculus
+
+-- MLB12
+#check @SingularClosure.canonicalGalerkinSolution
+-- MLB08
+#check @SingularClosure.GalerkinSolution.coefficientEnstrophy_identity
+-- AUX02
+#check @HasDerivWithinAt.inv
+-- ML06
+#check @HasDerivAt.inv
+-- ML05
+#check @HasFDerivAt.comp_hasDerivAt
+-- AUX04
+#check @HasDerivWithinAt.mono
+-- AUX05
+#check @HasDerivWithinAt.hasDerivAt
+-- AUX06
+#check @HasDerivWithinAt.continuousWithinAt
+-- AUX07
+#check @HasDerivWithinAt.continuousOn
+-- ML21
+#check @exists_hasDerivAt_eq_slope
+-- MLB15
+#check @MethbokeAddon.WeakFouriermanB.global_smooth_to_initial_front
+-- FAST02
+#check @SingularClosure.FINITE_FOURIER_H2_L1_BOUND
+-- FAST03
+#check @SingularClosure.torusSobolevMultiplierLinear_norm_le
+-- FAST05
+#check @SingularClosure.torusSobolevLeray_norm_le
+-- FAST04
+#check @SingularClosure.coefficientEnergy_le_dissipation
+-- AUX01
+#check @SingularClosure.finiteSobolev_H1_physical_norm_sq
+-- MLB09
+#check @SingularClosure.coefficientEnstrophyNonlinearPower_eq_physical
+-- FAST01
+#check @MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_ABSORPTION
+-- ML03
+#check @le_gronwallBound_of_liminf_deriv_right_le
+-- AUX03
+#check @HasDerivWithinAt.norm_sq
+-- ML08
+#check @HasDerivAt.norm_sq

@@ -1,0 +1,10 @@
+theorem initial_front_physicalEnstrophy_hasDerivAt
+    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (H : InitialClassicalFront ν T a u p)
+    (t : ℝ) (ht : t ∈ Ioo (0 : ℝ) T) :
+    HasDerivAt (fun r => physicalDissipation (u r)) (physicalEnstrophyRate ν (u t)) t := by
+  have hu : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (localFrontSpacetime T) :=
+    H.velocity_smooth.mono (fun z hz => ⟨hz.1.le, hz.2⟩)
+  have h := local_physicalDissipation_hasDerivAt u T hu
+    (fun r hr => H.velocity_periodic r ⟨hr.1.le, hr.2⟩) t ht
+  rwa [initial_front_enstrophy_pairing ν T a u p H t ht] at h

@@ -1,0 +1,5 @@
+theorem FINITE_FOURIER_H2_L1_BOUND : ∃ C : ℝ, 0 < C ∧
+    ∀ (s : Finset Frequency) (a : Frequency → ℂ),
+      (∑ k ∈ s, ‖a k‖) ^ 2 ≤ C *
+        (∑ k ∈ s, (torusSobolevWeight k ^ 2 * ‖a k‖) ^ 2) :=
+  ⟨latticeSobolevConstant, latticeSobolevConstant_pos, finite_l1_sq_le_H2_sq⟩

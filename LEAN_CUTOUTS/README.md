@@ -1,4 +1,8 @@
-# Native QFB root cutout
+# Lean cutouts
+
+The [Ehrenfest identity collection](EhrenfestObstruction/README.md) contains 60 source-exact reference excerpts and 36 complete pinned source snapshots. Start with its [fast-route reading order](EhrenfestObstruction/FAST_IDENTITIES.md). This collection has no new compilation or formal acceptance.
+
+## Native QFB root cutout
 
 `Cutouts.lean` contains the original QFB root interface and its complete proof
 body, followed by a fresh type check and theorem-level axiom audit. The upstream

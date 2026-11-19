@@ -1,0 +1,25 @@
+theorem PHYSICAL_NONLINEAR_ABSORPTION :
+    ∃ C : ℝ, 0 < C ∧ ∀ ν : ℝ, 0 < ν → ∀ v : Field,
+      ContDiff ℝ ∞ v → SpatialPeriodic v → MeanZero v →
+      2 * (∫ x in unitCube, inner ℝ (convection v x) (laplacian v x)) ≤
+        ν * physicalLaplacianSquare v + C / ν ^ 3 * physicalDissipation v ^ 3 := by
+  obtain ⟨K, hK, hb⟩ := PHYSICAL_NONLINEAR_REAL_BOUND
+  refine ⟨(2 * K) ^ 4 + 1, by positivity, ?_⟩
+  intro ν hν v hv hp hz
+  have hD := physical_dissipation_nonneg v
+  have hZ := physicalLaplacianSquare_nonneg v
+  calc
+    _ ≤ 2 * abs (∫ x in unitCube, inner ℝ (convection v x) (laplacian v x)) :=
+      mul_le_mul_of_nonneg_left (le_abs_self _) (by norm_num)
+    _ ≤ 2 * (K * physicalDissipation v ^ (3 / 4 : ℝ) *
+        physicalLaplacianSquare v ^ (3 / 4 : ℝ)) :=
+      mul_le_mul_of_nonneg_left (hb v hv hp hz) (by norm_num)
+    _ = 2 * K * physicalDissipation v ^ (3 / 4 : ℝ) *
+        physicalLaplacianSquare v ^ (3 / 4 : ℝ) := by ring
+    _ ≤ ν * physicalLaplacianSquare v +
+        (2 * K) ^ 4 / ν ^ 3 * physicalDissipation v ^ 3 :=
+      nonlinear_three_quarter_absorption hK hD hZ hν
+    _ ≤ _ := by
+      apply add_le_add le_rfl
+      apply mul_le_mul_of_nonneg_right _ (pow_nonneg hD _)
+      exact div_le_div_of_nonneg_right (by linarith) (pow_nonneg hν.le _)

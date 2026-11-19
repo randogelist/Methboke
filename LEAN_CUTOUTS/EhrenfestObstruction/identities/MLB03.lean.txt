@@ -1,0 +1,25 @@
+theorem invariantGalerkinRhs_inner (ν : ℝ) (N : ℕ) (z : InvariantGalerkinState N) :
+    inner (𝕜 := ℝ) z (invariantGalerkinRhs ν N z) =
+      ∑ k ∈ cutoffModes N, ∑ i : Fin 3,
+        (star (hilbertCoeff N z.val k i) *
+          galerkinRhs ν N (hilbertCoeff N z.val) k i).re := by
+  change inner (𝕜 := ℝ) z.val (invariantGalerkinRhs ν N z).val = _
+  rw [invariantGalerkinRhs_coe, PiLp.inner_apply]
+  simp only [Complex.inner, ← Complex.star_def, Fintype.sum_prod_type]
+  change (∑ k : ↥(cutoffModes N), ∑ i : Fin 3,
+    (galerkinRhs ν N (hilbertCoeff N z.val) k.val i * star (z.val (k, i))).re) = _
+  calc
+    _ = ∑ k : ↥(cutoffModes N), ∑ i : Fin 3,
+        (star (hilbertCoeff N z.val k.val i) *
+          galerkinRhs ν N (hilbertCoeff N z.val) k.val i).re := by
+      apply Finset.sum_congr rfl
+      intro k hk
+      apply Finset.sum_congr rfl
+      intro i hi
+      rw [hilbertCoeff_apply]
+      congr 1
+      exact mul_comm _ _
+    _ = _ := Finset.sum_coe_sort (cutoffModes N)
+      (fun k => ∑ i : Fin 3,
+        (star (hilbertCoeff N z.val k i) *
+          galerkinRhs ν N (hilbertCoeff N z.val) k i).re)
