@@ -1,0 +1,53 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:89:62: error: unsolved goals
+N : ℕ
+c : FourierCoeff
+F : SingularClosure.Field
+hF : Continuous F
+k : Frequency
+hk : k ∈ cutoffModes N
+i : Fin 3
+hi : i ∈ Finset.univ
+⊢ Real.pi ^ 2 * ↑(galerkinFreqSq k) * (c k i).re * (datumFourierCoeff F k i).re * 8 +
+      Real.pi ^ 2 * ↑(galerkinFreqSq k) * (c k i).im * (datumFourierCoeff F k i).im * 8 =
+    ↑(galerkinFreqSq k) * (c k i).re * (datumFourierCoeff F k i).re * (↑Real.pi ^ 2 * 4).re * 2 -
+          ↑(galerkinFreqSq k) * (c k i).re * (datumFourierCoeff F k i).im * (↑Real.pi ^ 2 * 4).im * 2 +
+        ↑(galerkinFreqSq k) * (datumFourierCoeff F k i).re * (c k i).im * (↑Real.pi ^ 2 * 4).im * 2 +
+      ↑(galerkinFreqSq k) * (c k i).im * (datumFourierCoeff F k i).im * (↑Real.pi ^ 2 * 4).re * 2
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:98:50: warning: This simp argument is unused:
+  Complex.star_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [laplacianCoefficient, laplacianFrequency, Complex.mul_re, Complex.mul_im]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:111:30: error(lean.invalidField): Invalid field `mp`: The environment does not contain `Function.mp`, so it is not possible to project the field `mp` from an expression
+  mul_le_mul_right ?m.148
+of type
+  ∀ (a : ?m.142), a * ?m.146 ≤ a * ?m.147
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:111:26: error: Application type mismatch: The argument
+  hδ
+has type
+  0 < δ
+but is expected to have type
+  ?m.146 ≤ ?m.147
+in the application
+  mul_le_mul_right hδ
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:107:35: warning: This simp argument is unused:
+  real_inner_smul_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [real_inner_smul_left, real_inner_self_eq_norm_sq] at hsq
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:193:28: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/EhrenfestObstruction/PhysicalForcing.lean:193:28: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

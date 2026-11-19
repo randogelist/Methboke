@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.5.0",
-  "status": "FIRST_LAYER_ACCEPTED_SECOND_LAYER_PENDING",
+  "status": "FIRST_LAYER_ACCEPTED_SECOND_REPAIR_PENDING",
   "metadata_basis": "4068641471b9b9324a5d138cacfa37a94a648bf1",
   "accepted_new_declarations": 23,
   "local_lean_executions": 0,
@@ -91,9 +91,28 @@
       "evidence": "../../audits/material-40686414-accepted/summary.json",
       "local_lean_executions": 0,
       "conclusion": "PASS"
+    },
+    {
+      "commit": "9595d3540b5eadee01e503dd31f54accd62b8cd9",
+      "run_id": 44629764703,
+      "conclusion": "FAIL_MODULE_COMPILATION",
+      "compiled_modules_passed": 380,
+      "reused_modules": 374,
+      "fresh_compiler_passes": 6,
+      "failed_modules": [
+        "FourierL1",
+        "SmoothSobolevNorm",
+        "PhysicalForcing",
+        "SmallForcingBootstrap"
+      ],
+      "failed_module_count": 4,
+      "blocked_module_count": 8,
+      "audits_reached": false,
+      "newly_accepted_declarations": 0,
+      "evidence": "../../audits/material-9595d354-failed/summary.json"
     }
   ],
-  "repair": "Fully qualified audit printing and explicit consumer options; all proof source bytes unchanged",
+  "repair": "Four elaboration-only proof repairs; public theorem/audit signatures,64-package/373-name scope, dependency pins and audit policy unchanged.",
   "pending_new_declarations": 85,
   "accepted_packages": {
     "EhrenfestScalar": 4,
@@ -212,10 +231,29 @@
     "named_audits": 85,
     "theorems": 82,
     "definitions": 3,
-    "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+    "status": "FOUR_PROOF_REPAIRS_PENDING_EXTERNAL_REPLAY",
     "tested_commit": null,
     "run_id": null,
-    "evidence": null
+    "evidence": null,
+    "last_failed_attempt": {
+      "commit": "9595d3540b5eadee01e503dd31f54accd62b8cd9",
+      "run_id": 44629764703,
+      "conclusion": "FAIL_MODULE_COMPILATION",
+      "compiled_modules_passed": 380,
+      "reused_modules": 374,
+      "fresh_compiler_passes": 6,
+      "failed_modules": [
+        "FourierL1",
+        "SmoothSobolevNorm",
+        "PhysicalForcing",
+        "SmallForcingBootstrap"
+      ],
+      "failed_module_count": 4,
+      "blocked_module_count": 8,
+      "audits_reached": false,
+      "newly_accepted_declarations": 0,
+      "evidence": "../../audits/material-9595d354-failed/summary.json"
+    }
   },
   "current_registry": {
     "packages": 64,
@@ -229,7 +267,7 @@
     "new_owned_modules": 12,
     "new_packages": 7,
     "named_audits": 75,
-    "status": "PREPARED_NOT_ACTIVATED"
+    "status": "HELD_UNTIL_SECOND_REPAIR_ACCEPTANCE"
   },
   "counts_file": "COUNT_RECONCILIATION.json"
 }

@@ -9,7 +9,7 @@
   "actual_new_lean_files": 18,
   "new_formal_acceptances": 23,
   "local_lean_executions": 0,
-  "external_compiler_runs": 4,
+  "external_compiler_runs": 5,
   "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
@@ -873,23 +873,23 @@
   "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
   "activation_register": "IMPLEMENTATION_STATUS.json",
   "current_external_run": {
-    "commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
-    "run_id": 44626474631,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
-    "status": "ACCEPTED",
-    "primary_job_id": 135921536065,
-    "acceptance_job_id": 135928742922,
-    "publication_passed": true,
-    "compiled_modules": 374,
-    "reused_modules": 365,
-    "fresh_compiler_passes": 9,
-    "fresh_package_audits": 58,
-    "named_type_axiom_audits": 288,
-    "qfb_cutout_audit_passed": true,
-    "new_ehrenfest_declarations": 23,
-    "standard_axioms_only": true,
-    "evidence": "../../audits/material-40686414-accepted/summary.json",
-    "local_lean_executions": 0
+    "commit": "9595d3540b5eadee01e503dd31f54accd62b8cd9",
+    "run_id": 44629764703,
+    "conclusion": "FAIL_MODULE_COMPILATION",
+    "compiled_modules_passed": 380,
+    "reused_modules": 374,
+    "fresh_compiler_passes": 6,
+    "failed_modules": [
+      "FourierL1",
+      "SmoothSobolevNorm",
+      "PhysicalForcing",
+      "SmallForcingBootstrap"
+    ],
+    "failed_module_count": 4,
+    "blocked_module_count": 8,
+    "audits_reached": false,
+    "newly_accepted_declarations": 0,
+    "evidence": "../../audits/material-9595d354-failed/summary.json"
   },
   "planned_count_semantics": "Historical design:31 proposed modules and9 logical fast-root blocks. Concrete activation:18 owned sources. The separately held scalar-root closure uses25 owned sources after helper splitting; counts do not assert milestone acceptance.",
   "additional_active_helpers": [
@@ -954,7 +954,7 @@
     "E07"
   ],
   "next_external_run": {
-    "status": "SECOND_LAYER_PENDING",
+    "status": "REPAIR_REPLAY_PENDING_SAME_SECOND_LAYER_SCOPE",
     "commit": null,
     "run_id": null
   },
@@ -1002,5 +1002,24 @@
     "EhrenfestPhysicalForcing": 9,
     "EhrenfestReference": 34
   },
-  "concrete_count_reconciliation": "COUNT_RECONCILIATION.json"
+  "concrete_count_reconciliation": "COUNT_RECONCILIATION.json",
+  "last_accepted_external_run": {
+    "commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
+    "run_id": 44626474631,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
+    "status": "ACCEPTED",
+    "primary_job_id": 135921536065,
+    "acceptance_job_id": 135928742922,
+    "publication_passed": true,
+    "compiled_modules": 374,
+    "reused_modules": 365,
+    "fresh_compiler_passes": 9,
+    "fresh_package_audits": 58,
+    "named_type_axiom_audits": 288,
+    "qfb_cutout_audit_passed": true,
+    "new_ehrenfest_declarations": 23,
+    "standard_axioms_only": true,
+    "evidence": "../../audits/material-40686414-accepted/summary.json",
+    "local_lean_executions": 0
+  }
 }

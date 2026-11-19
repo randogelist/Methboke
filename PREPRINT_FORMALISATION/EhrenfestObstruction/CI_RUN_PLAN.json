@@ -12,7 +12,7 @@
   "source_manifest_sha256": "1db399f7ba66ae256815a93a7362b38a049186ac8563040cf0f69c035dc92f76",
   "audit_policy_sha256": "06a53b8a7a7dbc43d46e7e421a4082fe0fce70d740fec8dd6f11296f9fc692d9",
   "prior_evidence_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
-  "reason_for_new_run": "Add12 owned helper sources in6 packages with85 named audits after first-layer acceptance; all existing accepted proof/audit bytes and CI policy are preserved.",
+  "reason_for_new_run": "Retry the same64 packages/373 named audits after four proof elaboration repairs from9595d354/run44629764703; exact public statements, accepted first layer, pins and audit policy unchanged.",
   "cache_requirement": "compatible",
   "module_workers": 2,
   "lean_threads": 2,
@@ -30,5 +30,24 @@
   "prior_accepted_revision": "4068641471b9b9324a5d138cacfa37a94a648bf1",
   "prior_evidence_summary": "../../audits/material-40686414-accepted/summary.json",
   "run_id": null,
-  "status": "SECOND_LAYER_PENDING_EXTERNAL_CI"
+  "status": "SECOND_LAYER_REPAIR_REPLAY_PENDING",
+  "previous_failed_attempt": {
+    "commit": "9595d3540b5eadee01e503dd31f54accd62b8cd9",
+    "run_id": 44629764703,
+    "conclusion": "FAIL_MODULE_COMPILATION",
+    "compiled_modules_passed": 380,
+    "reused_modules": 374,
+    "fresh_compiler_passes": 6,
+    "failed_modules": [
+      "FourierL1",
+      "SmoothSobolevNorm",
+      "PhysicalForcing",
+      "SmallForcingBootstrap"
+    ],
+    "failed_module_count": 4,
+    "blocked_module_count": 8,
+    "audits_reached": false,
+    "newly_accepted_declarations": 0,
+    "evidence": "../../audits/material-9595d354-failed/summary.json"
+  }
 }

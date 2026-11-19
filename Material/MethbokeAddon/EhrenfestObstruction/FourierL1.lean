@@ -26,8 +26,15 @@ theorem finite_component_H2_sum_le (s : Finset Frequency)
     (∑ k ∈ s, (torusSobolevWeight k ^ 2 * ‖c.val k i‖) ^ 2) ≤ ‖c‖ ^ 2 := by
   have h := torusSobolev_finite_weighted_sum_le 2 c
     (s.product ({i} : Finset (Fin 3)))
-  simpa only [Finset.sum_product, Finset.sum_singleton,
-    torusSobolev_weightedCoeff_norm] using h
+  have hproduct :
+      (∑ ki ∈ s.product ({i} : Finset (Fin 3)),
+        ‖sobolevWeightedCoeff 2 c.val ki‖ ^ 2) =
+      ∑ k ∈ s, ∑ j ∈ ({i} : Finset (Fin 3)),
+        ‖sobolevWeightedCoeff 2 c.val (k, j)‖ ^ 2 :=
+    Finset.sum_product s ({i} : Finset (Fin 3))
+      (fun ki : FourierIndex => ‖sobolevWeightedCoeff 2 c.val ki‖ ^ 2)
+  rw [hproduct] at h
+  simpa only [Finset.sum_singleton, torusSobolev_weightedCoeff_norm] using h
 
 /-- The finite coefficient l1 square has a support-independent H2 bound. -/
 theorem finite_component_l1_sq_le_H2_norm_sq (s : Finset Frequency)

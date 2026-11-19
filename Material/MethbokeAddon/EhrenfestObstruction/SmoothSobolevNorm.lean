@@ -10,7 +10,7 @@ The estimate is extracted from the actual Fourier-decay membership proof.
 set_option autoImplicit false
 
 open SingularClosure
-open scoped BigOperators ContDiff
+open scoped BigOperators ContDiff ENNReal
 
 namespace MethbokeAddon.EhrenfestObstruction
 noncomputable section

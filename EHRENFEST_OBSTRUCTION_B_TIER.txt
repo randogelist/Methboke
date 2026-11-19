@@ -10,7 +10,7 @@ MACROSCOPIC_GOAL := Weak_Fourierman_B; unchanged
 LOCAL_TARGET := bottom-up formalization and matching external verification
 STATUS := CONDITIONAL_B_TIER_ROOT; E07_AND23_SCOPED_DECLARATIONS_ACCEPTED; SECOND_LAYER_PENDING
 NEW_LOCAL_LEAN_EXECUTIONS := 0
-NEW_EXTERNAL_LEAN_RUNS := 4; THREE_RETAINED_FAILURES_AND_FIRST_LAYER_ACCEPTED
+NEW_EXTERNAL_LEAN_RUNS := 5; FIRST_LAYER_ACCEPTED_AND_SECOND_LAYER_REPAIR_PENDING
 NEW_GLOBAL_AXIOM_DECLARATIONS := 0
 
 1. NAMESPACE, SCOPE, AND STATUS BOUNDARY
@@ -812,3 +812,10 @@ full operator/domain realization; the stronger H2 convergence milestone; and
 existence of any fixed smooth datum satisfying the stopped premise. The exact
 conditional B-tier root, main Weak_Fourierman_B goal and accepted finite-budget
 WFB scope are unchanged. No new global axiom or local Lean execution.
+
+SECOND_LAYER_ATTEMPT_1:9595d354/run44629764703 failed source elaboration
+in FourierL1, SmoothSobolevNorm, PhysicalForcing and SmallForcingBootstrap.
+380 modules passed (374 reused,6 fresh);4 failed and8 were blocked. No audits
+were reached and no new acceptance follows. Four proof-only repairs preserve
+all public types, first-layer acceptance, scope and pins. Third activation
+remains held. Evidence: audits/material-9595d354-failed/summary.json.

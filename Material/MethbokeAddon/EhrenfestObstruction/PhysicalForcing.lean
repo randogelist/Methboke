@@ -95,8 +95,10 @@ theorem dissipationRatePairing_fourier_eq_physical
   intro k hk
   apply Finset.sum_congr rfl
   intro i hi
-  simp [laplacianCoefficient, laplacianFrequency, Complex.star_def,
-    Complex.mul_re, Complex.mul_im] <;> ring
+  have hscalar (r : ℝ) (z w : ℂ) :
+      r * (2 * (star z * w).re) = -2 * (star (-(r : ℂ) * z) * w).re := by
+    simp [Complex.star_def, Complex.mul_re, Complex.mul_im] <;> ring
+  exact hscalar (laplacianFrequency k) (c k i) (datumFourierCoeff F k i)
 
 /-- Pointwise Young inequality with its exact coefficient; no square roots. -/
 theorem physical_inner_young (δ : ℝ) (hδ : 0 < δ) (a b : Vec) :
@@ -104,11 +106,11 @@ theorem physical_inner_young (δ : ℝ) (hδ : 0 < δ) (a b : Vec) :
   have hsq : 0 ≤ inner ℝ (δ • a + b) (δ • a + b) :=
     real_inner_self_nonneg
   rw [real_inner_add_add_self] at hsq
-  simp only [real_inner_smul_left, real_inner_smul_right,
-    real_inner_self_eq_norm_sq] at hsq
+  simp only [real_inner_smul_left, real_inner_smul_right] at hsq
+  simp only [real_inner_self_eq_norm_sq] at hsq
   have hdiv : (‖b‖ ^ 2 / δ) * δ = ‖b‖ ^ 2 :=
     div_mul_cancel₀ _ hδ.ne'
-  apply (mul_le_mul_right hδ).mp
+  apply (mul_le_mul_iff_right₀ hδ).mp
   nlinarith
 
 /-- Integrating Young gives literal L2 forcing control on the physical cube. -/
