@@ -2,7 +2,7 @@
   "schema_version": 1,
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "date": "2026-11-19",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "project_goal_changed": false,
   "fixed_project_goal": "Weak_Fourierman_B",
   "local_target": "Bottom-up implementation and matching external cached verification",
@@ -10,7 +10,7 @@
   "global_custom_axiom_added": false,
   "existential_premise_proved": false,
   "mathematical_chain_complete_conditionally": true,
-  "new_formal_accepted_count": 23,
+  "new_formal_accepted_count": 108,
   "obligations": [
     {
       "id": "E01",
@@ -164,7 +164,7 @@
       "mathematical_statement": "Prove U_N(t)^* M_g U_N(t)=M_(g composed with Phi_N^t) with natural domains and (i/hbar)[H0_N,M_g]=M_(Dg[b_N]) on the common core; recover observable and localized-state identities.",
       "derivation_section": "E05",
       "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
-      "formal_status": "POINTWISE_CORE_ALGEBRA_PENDING_FULL_OPERATOR_MILESTONE_OPEN",
+      "formal_status": "POINTWISE_CORE_ACCEPTED_FULL_OPERATOR_MILESTONE_OPEN",
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
         "ML05",
@@ -274,8 +274,8 @@
       "mathematical_statement": "From the explicit StoppedCommutatorBound premise for one fixed smooth datum, derive t_N<1/gamma with e_N(u_N(t_N))>=R_N and hence divergent slab suprema.",
       "derivation_section": "E08",
       "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
-      "formal_status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "formal_checkbox_checked": false,
+      "formal_status": "ACCEPTED_EXTERNAL_CACHED",
+      "formal_checkbox_checked": true,
       "source_anchor_ids": [
         "ML13",
         "MLB10",
@@ -283,10 +283,11 @@
       ],
       "new_formal_work": "Keep a, gamma and e_* independent of N, R_N tending to infinity, and the first-hit stopping rule.",
       "acceptance_gate": {
-        "matching_external_cached_compiler": false,
-        "exact_endpoint_type_audit": false,
-        "standard_axioms_only_audit": false,
-        "local_lean_allowed": false
+        "matching_external_cached_compiler": true,
+        "exact_endpoint_type_audit": true,
+        "standard_axioms_only_audit": true,
+        "local_lean_allowed": false,
+        "publication_and_final_acceptance": true
       },
       "consumes_stopped_bound_hypothesis": true,
       "planned_modules": [
@@ -295,7 +296,10 @@
       "planned_package": "EhrenfestStoppedFamily",
       "required_for_fast_root_as_complete_milestone": false,
       "candidate_package": "EhrenfestEscape",
-      "candidate_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop"
+      "candidate_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop",
+      "accepted_package": "EhrenfestEscape",
+      "accepted_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop",
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "id": "E09",
@@ -307,7 +311,7 @@
       "mathematical_statement": "An actual smooth solution U on [0,T] implies exact P_Na Galerkin convergence in C([0,T];H2) and uniform H1 there.",
       "derivation_section": "E09",
       "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
-      "formal_status": "COEFFICIENT_HELPERS_ACCEPTED_ANALYTIC_HELPERS_PENDING_FULL_STABILITY_OPEN",
+      "formal_status": "ANALYTIC_HELPERS_ACCEPTED_BOUND_PENDING_FULL_H2_STABILITY_OPEN",
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
         "ML03",
@@ -359,7 +363,7 @@
       "mathematical_statement": "For nu>0, StoppedCommutatorBound nu implies not NSE_B nu; its fixed smooth datum has no smooth continuation through 1/gamma.",
       "derivation_section": "E10",
       "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
-      "formal_status": "ROOT_SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
+      "formal_status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
         "MLB15",
@@ -419,7 +423,8 @@
       "concrete_modules": [
         "CoreAlgebra"
       ],
-      "formal_status": "ACTIVATED_PENDING_EXTERNAL_CI"
+      "formal_status": "ACCEPTED_SCOPED_HELPER",
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     "E10.dynamical": {
       "parent": "E10",
@@ -432,7 +437,7 @@
         "DynamicalRoot"
       ],
       "scope": "Exact conditional implication only; does not certify the full Heisenberg workstream.",
-      "formal_status": "SOURCE_PREPARED_NOT_ACTIVATED"
+      "formal_status": "ACTIVATED_PENDING_EXTERNAL_CI"
     },
     "E01.data": {
       "parent": "E01",
@@ -476,7 +481,7 @@
         "EventualEnstrophyBound"
       ],
       "scope": "Only eventual uniform enstrophy under an actual smooth front, via H1 error; not full H2 convergence/all-cutoff stability.",
-      "formal_status": "HELPER_LAYER_ACTIVE_PENDING_FINAL_BOUND_HELD"
+      "formal_status": "ACTIVATED_PENDING_EXTERNAL_CI"
     },
     "E09.coefficient": {
       "parent": "E09",
@@ -512,25 +517,34 @@
     "source_modules": 36,
     "new_formal_acceptances": 0
   },
-  "accepted_milestone_count": 1,
+  "accepted_milestone_count": 2,
   "accepted_milestones": [
-    "E07"
+    "E07",
+    "E08"
   ],
-  "next_milestone": "E08",
-  "accepted_evidence": "../../audits/material-40686414-accepted/summary.json",
+  "next_milestone": "E10",
+  "accepted_evidence": "../../audits/material-7908890a-accepted/summary.json",
   "accepted_scoped_packages": {
-    "EhrenfestScalar": 4,
-    "EhrenfestCanonical": 11,
-    "EhrenfestErrorCalculus": 8
-  },
-  "pending_scoped_packages": {
     "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
     "EhrenfestCoreAlgebra": 3,
     "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
     "EhrenfestEscape": 19,
     "EhrenfestPhysicalForcing": 9,
-    "EhrenfestReference": 34
+    "EhrenfestReference": 34,
+    "EhrenfestScalar": 4
   },
-  "actual_active_owned_module_count": 18,
-  "count_reconciliation": "COUNT_RECONCILIATION.json"
+  "pending_scoped_packages": {
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReferenceEvolution": 33
+  },
+  "actual_active_owned_module_count": 30,
+  "count_reconciliation": "COUNT_RECONCILIATION.json",
+  "next_required_helper": "E09.bound"
 }

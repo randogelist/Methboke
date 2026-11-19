@@ -1,0 +1,261 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.scalar_reciprocal_denominator_pos
+MethbokeAddon.EhrenfestObstruction.scalar_reciprocal_denominator_pos : ∀ (eStar e : ℝ),
+  LT.lt.{0} 0 eStar → LE.le.{0} 0 e → LT.lt.{0} 0 (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} e eStar))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.scalar_reciprocal_denominator_pos
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.scalar_reciprocal_denominator_pos
+'MethbokeAddon.EhrenfestObstruction.scalar_reciprocal_denominator_pos' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.scalar_reciprocal_denominator_pos
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_pos
+MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_pos : ∀ (eStar R : ℝ),
+  LT.lt.{0} 0 eStar → LE.le.{0} 0 R → LT.lt.{0} 0 (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_pos
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_pos
+'MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_pos' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_pos
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_strict_iff
+MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_strict_iff : ∀ (eStar e R : ℝ),
+  LT.lt.{0} 0 eStar →
+    LE.le.{0} 0 e →
+      LE.le.{0} 0 R →
+        (LT.lt.{0} (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar)))
+            (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} e eStar))) ↔
+          LT.lt.{0} e R)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_strict_iff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_strict_iff
+'MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_strict_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_strict_iff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_weak_iff
+MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_weak_iff : ∀ (eStar e R : ℝ),
+  LT.lt.{0} 0 eStar →
+    LE.le.{0} 0 e →
+      LE.le.{0} 0 R →
+        (LE.le.{0} (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} e eStar)))
+            (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar))) ↔
+          LE.le.{0} R e)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_weak_iff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_weak_iff
+'MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_weak_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_weak_iff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_eq_iff
+MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_eq_iff : ∀ (eStar e R : ℝ),
+  LT.lt.{0} 0 eStar →
+    LE.le.{0} 0 e →
+      LE.le.{0} 0 R →
+        (Eq.{1} (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} e eStar)))
+            (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar))) ↔
+          Eq.{1} e R)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_eq_iff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_eq_iff
+'MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_eq_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.reciprocal_threshold_eq_iff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_strict_iff
+MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_strict_iff : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar : ℝ),
+  LT.lt.{0} 0 eStar →
+    ∀ (n : ℕ) (t R : ℝ),
+      LE.le.{0} 0 R →
+        (LT.lt.{0} (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar)))
+            (MethbokeAddon.EhrenfestObstruction.canonicalReciprocal ν hν a eStar n t) ↔
+          LT.lt.{0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t) R)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_strict_iff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_strict_iff
+'MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_strict_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_strict_iff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_weak_iff
+MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_weak_iff : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar : ℝ),
+  LT.lt.{0} 0 eStar →
+    ∀ (n : ℕ) (t R : ℝ),
+      LE.le.{0} 0 R →
+        (LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalReciprocal ν hν a eStar n t)
+            (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar))) ↔
+          LE.le.{0} R (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_weak_iff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_weak_iff
+'MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_weak_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_weak_iff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_eq_iff
+MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_eq_iff : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar : ℝ),
+  LT.lt.{0} 0 eStar →
+    ∀ (n : ℕ) (t R : ℝ),
+      LE.le.{0} 0 R →
+        (Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalReciprocal ν hν a eStar n t)
+            (Inv.inv.{0} (HAdd.hAdd.{0, 0, 0} 1 (HDiv.hDiv.{0, 0, 0} R eStar))) ↔
+          Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t) R)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_eq_iff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_eq_iff
+'MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_eq_iff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_threshold_eq_iff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_stopped_exact_threshold_hitting
+MethbokeAddon.EhrenfestObstruction.canonical_stopped_exact_threshold_hitting : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma R : ℝ) (n : ℕ),
+  LT.lt.{0} 0 eStar →
+    LT.lt.{0} 0 gamma →
+      LT.lt.{0} 0 R →
+        LT.lt.{0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n 0) R →
+          (∀ (t : ℝ),
+              MethbokeAddon.EhrenfestObstruction.PreHit (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n)
+                  R (HDiv.hDiv.{0, 0, 0} 1 gamma) t →
+                LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalDrift ν hν a eStar n t) (Neg.neg.{0} gamma)) →
+            ∃ t,
+              Membership.mem.{0, 0} (Set.Ico.{0} 0 (HDiv.hDiv.{0, 0, 0} 1 gamma)) t ∧
+                Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t) R
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_stopped_exact_threshold_hitting
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_stopped_exact_threshold_hitting
+'MethbokeAddon.EhrenfestObstruction.canonical_stopped_exact_threshold_hitting' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_stopped_exact_threshold_hitting
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_stopped_threshold_crossing
+MethbokeAddon.EhrenfestObstruction.canonical_stopped_threshold_crossing : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma R : ℝ) (n : ℕ),
+  LT.lt.{0} 0 eStar →
+    LT.lt.{0} 0 gamma →
+      LT.lt.{0} 0 R →
+        (∀ (t : ℝ),
+            MethbokeAddon.EhrenfestObstruction.PreHit (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n) R
+                (HDiv.hDiv.{0, 0, 0} 1 gamma) t →
+              LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalDrift ν hν a eStar n t) (Neg.neg.{0} gamma)) →
+          ∃ t,
+            Membership.mem.{0, 0} (Set.Ico.{0} 0 (HDiv.hDiv.{0, 0, 0} 1 gamma)) t ∧
+              LE.le.{0} R (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_stopped_threshold_crossing
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_stopped_threshold_crossing
+'MethbokeAddon.EhrenfestObstruction.canonical_stopped_threshold_crossing' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_stopped_threshold_crossing
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_threshold_escape
+MethbokeAddon.EhrenfestObstruction.stopped_threshold_escape : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma : ℝ) (R : ℕ → ℝ),
+  MethbokeAddon.EhrenfestObstruction.StoppedForDatum ν hν a eStar gamma R →
+    ∃ n₀,
+      ∀ (n : ℕ),
+        LE.le.{0} n₀ n →
+          ∃ t,
+            Membership.mem.{0, 0} (Set.Ico.{0} 0 (HDiv.hDiv.{0, 0, 0} 1 gamma)) t ∧
+              LE.le.{0} (R n) (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_threshold_escape
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_threshold_escape
+'MethbokeAddon.EhrenfestObstruction.stopped_threshold_escape' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_threshold_escape
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Ici
+MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Ici : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (n : ℕ),
+  ContinuousOn.{0, 0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n) (Set.Ici.{0} 0)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Ici
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Ici
+'MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Ici' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Ici
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Icc
+MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Icc : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (n : ℕ) (T : ℝ),
+  ContinuousOn.{0, 0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n) (Set.Icc.{0} 0 T)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Icc
+'MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_bddAbove_Icc
+MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_bddAbove_Icc : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (n : ℕ) (T : ℝ),
+  BddAbove.{0} (Set.image.{0, 0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n) (Set.Icc.{0} 0 T))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_bddAbove_Icc
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_bddAbove_Icc
+'MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_bddAbove_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_bddAbove_Icc
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_slab_enstrophy_sup_attained
+MethbokeAddon.EhrenfestObstruction.canonical_slab_enstrophy_sup_attained : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (T : ℝ) (n : ℕ),
+  LE.le.{0} 0 T →
+    ∃ t,
+      Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t ∧
+        Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalSlabEnstrophySup ν hν a T n)
+          (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_slab_enstrophy_sup_attained
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_slab_enstrophy_sup_attained
+'MethbokeAddon.EhrenfestObstruction.canonical_slab_enstrophy_sup_attained' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_slab_enstrophy_sup_attained
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_slab_sup
+MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_slab_sup : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (T : ℝ) (n : ℕ) (t : ℝ),
+  Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+    LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t)
+      (MethbokeAddon.EhrenfestObstruction.canonicalSlabEnstrophySup ν hν a T n)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_slab_sup
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_slab_sup
+'MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_slab_sup' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_slab_sup
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_threshold_le_slab_sup
+MethbokeAddon.EhrenfestObstruction.stopped_threshold_le_slab_sup : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma : ℝ) (R : ℕ → ℝ),
+  MethbokeAddon.EhrenfestObstruction.StoppedForDatum ν hν a eStar gamma R →
+    ∃ n₀,
+      ∀ (n : ℕ),
+        LE.le.{0} n₀ n →
+          LE.le.{0} (R n)
+            (MethbokeAddon.EhrenfestObstruction.canonicalSlabEnstrophySup ν hν a (HDiv.hDiv.{0, 0, 0} 1 gamma) n)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_threshold_le_slab_sup
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_threshold_le_slab_sup
+'MethbokeAddon.EhrenfestObstruction.stopped_threshold_le_slab_sup' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_threshold_le_slab_sup
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop
+MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma : ℝ) (R : ℕ → ℝ),
+  MethbokeAddon.EhrenfestObstruction.StoppedForDatum ν hν a eStar gamma R →
+    Filter.Tendsto.{0, 0}
+      (fun n => MethbokeAddon.EhrenfestObstruction.canonicalSlabEnstrophySup ν hν a (HDiv.hDiv.{0, 0, 0} 1 gamma) n)
+      Filter.atTop.{0} Filter.atTop.{0}
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop
+'MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_eventually_large_enstrophy
+MethbokeAddon.EhrenfestObstruction.stopped_eventually_large_enstrophy : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma : ℝ) (R : ℕ → ℝ),
+  MethbokeAddon.EhrenfestObstruction.StoppedForDatum ν hν a eStar gamma R →
+    ∀ (B : ℝ),
+      ∃ n₀,
+        ∀ (n : ℕ),
+          LE.le.{0} n₀ n →
+            ∃ t,
+              Membership.mem.{0, 0} (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} 1 gamma)) t ∧
+                LE.le.{0} B (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_eventually_large_enstrophy
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_eventually_large_enstrophy
+'MethbokeAddon.EhrenfestObstruction.stopped_eventually_large_enstrophy' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_eventually_large_enstrophy

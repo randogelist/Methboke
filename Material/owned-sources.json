@@ -1029,6 +1029,188 @@
         "revision": "976b44605945891a0e9e704101afe8ab21a1b4b2",
         "path": "Material/MethbokeAddon/EhrenfestObstruction/CrossTransport.lean"
       }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ReferenceCoefficientEvolution",
+      "path": "MethbokeAddon/EhrenfestObstruction/ReferenceCoefficientEvolution.lean",
+      "sha256": "7237754052e306be447d0acf04862331d89c1ad1c0c8743b60cf99172fe09370",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+        "SingularClosure.InitialFourier"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.PhysicalReferenceTail",
+      "path": "MethbokeAddon/EhrenfestObstruction/PhysicalReferenceTail.lean",
+      "sha256": "1d2eb8e00c99799505d6ed240be38b81507999fdff28a4be50b3b853a93db8e3",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.FourierTail",
+        "MethbokeAddon.EhrenfestObstruction.ProjectedC1",
+        "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+        "SingularClosure.CriticalGalerkin",
+        "Mathlib.Topology.Algebra.InfiniteSum.Order"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ProjectedReferenceEvolution",
+      "path": "MethbokeAddon/EhrenfestObstruction/ProjectedReferenceEvolution.lean",
+      "sha256": "9151e70a476b975a148abe2750e14693cefb4056e7f8f6949b0fdac53c4838f4",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.ReferenceCoefficientEvolution",
+        "MethbokeAddon.EhrenfestObstruction.PressureFourier",
+        "SingularClosure.FourierSobolevOperators",
+        "SingularClosure.SmoothFourierLaplacian"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ReferenceC1Norm",
+      "path": "MethbokeAddon/EhrenfestObstruction/ReferenceC1Norm.lean",
+      "sha256": "ea882e3df8d080db054f9be2fee1c5529c9cf1c0243216d6be25ece81245acb8",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.SmoothReference",
+        "SingularClosure.PeriodicSobolev"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.PressureFourier",
+      "path": "MethbokeAddon/EhrenfestObstruction/PressureFourier.lean",
+      "sha256": "7268a7c33afdddb9fd41883ccc2dc160f6c95db9811fedb66887b4e5ce2277af",
+      "imports": [
+        "SingularClosure.InitialCutoffBounds",
+        "SingularClosure.LerayPressure",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ErrorState",
+      "path": "MethbokeAddon/EhrenfestObstruction/ErrorState.lean",
+      "sha256": "d68837db8e3bae5037e655aa659420a20e1b61de9ad6d1005b751044c34017f1",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.Definitions",
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "SingularClosure.GalerkinInvariant",
+        "SingularClosure.InitialFourier"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ErrorSlabBound",
+      "path": "MethbokeAddon/EhrenfestObstruction/ErrorSlabBound.lean",
+      "sha256": "1e36c1991ded2fc14f95560d55c63e0fb4bd4ffe97f2b5efb0c33952f9c0a696",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.ErrorState",
+        "MethbokeAddon.EhrenfestObstruction.SmoothReference"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.ErrorEquation",
+      "path": "MethbokeAddon/EhrenfestObstruction/ErrorEquation.lean",
+      "sha256": "3972ac85b9adb9de0be66a5be2fbc95d38e41571458bb345431dc28cc18daacf",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.CrossTransport",
+        "MethbokeAddon.EhrenfestObstruction.ProjectedReferenceEvolution",
+        "SingularClosure.GalerkinInvariant"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.CanonicalErrorInequality",
+      "path": "MethbokeAddon/EhrenfestObstruction/CanonicalErrorInequality.lean",
+      "sha256": "549c87738961ecf9ccfe6eb901dc46b44bc27b95c6f36ecdf774a77d9fce88f6",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.ErrorEquation",
+        "MethbokeAddon.EhrenfestObstruction.ErrorState",
+        "MethbokeAddon.EhrenfestObstruction.PhysicalReferenceTail",
+        "MethbokeAddon.EhrenfestObstruction.ReferenceC1Norm"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound",
+      "path": "MethbokeAddon/EhrenfestObstruction/EventualEnstrophyBound.lean",
+      "sha256": "518bf0886b357876f7068013f5ec637de6bdeff4898a5ff85ed1f4a1b4b399e8",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.CanonicalErrorInequality",
+        "MethbokeAddon.EhrenfestObstruction.ErrorSlabBound",
+        "MethbokeAddon.EhrenfestObstruction.SmallForcingBootstrap",
+        "Mathlib.Analysis.SpecificLimits.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.DynamicalRoot",
+      "path": "MethbokeAddon/EhrenfestObstruction/DynamicalRoot.lean",
+      "sha256": "2b93608a6ef5f22e5a7117f9963a969033e493efe1e4b26e6f9312df46f1be2f",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound",
+        "MethbokeAddon.EhrenfestObstruction.CanonicalBarrier",
+        "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
+    },
+    {
+      "module": "MethbokeAddon.EhrenfestObstruction.Root",
+      "path": "MethbokeAddon/EhrenfestObstruction/Root.lean",
+      "sha256": "fc60dc14b890b34868cb503a86fc73c05bab951e8ea7afb7d599964886c20ff0",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.DynamicalRoot"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "70a8a5cec445de4b91f19e5526587daaed6e432b",
+        "path": "PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_INTERFACES.lean.txt"
+      }
     }
   ]
 }

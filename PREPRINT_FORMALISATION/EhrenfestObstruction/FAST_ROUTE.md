@@ -1,8 +1,11 @@
 # Shortest identified Lean route
 
+**Current activation0.6.0:** E07/E08 and108 scoped declarations accepted at790;75 third-layer audits pending. 30 owned sources are active; historical31 modules/nine logical blocks are design counts, and the scalar-root closure has25 owned dependencies. E09.bound/E10 are pending; full operator and H2 milestones remain open. [Ledger](IMPLEMENTATION_STATUS.json).
+
+
 **Version 0.3.0 — B-tier derivation and proposed layout only.** The frozen implication and its stopped premise are unchanged. This is a reduction in new proof infrastructure; no compiler timing or global runtime optimality is claimed.
 
-The historical scalar-root design has **nine logical blocks within31 proposed modules**. Concrete helper splitting now gives25 owned dependencies for the separately held root. Current activation has18 owned sources; E07 and23 first-layer declarations are accepted, while85 second-layer audit candidates remain pending. See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json) and [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). The stronger milestones and optional full bundle retain their original scope.
+The historical scalar-root design has **nine logical blocks within31 proposed modules**. Concrete helper splitting now gives25 owned dependencies for the activated root. Current activation has 30 owned sources; E07, E08 and 108 scoped declarations are accepted, while 75 third-layer audit candidates remain pending. See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json) and [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). The stronger milestones and optional full bundle retain their original scope.
 
 The [existing identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md) provide the initial reusable inputs, including original proof bodies and imports. [Remaining adapters](../../LEAN_CUTOUTS/EhrenfestObstruction/REMAINING_ADAPTERS.md) records what the sources do not yet prove.
 

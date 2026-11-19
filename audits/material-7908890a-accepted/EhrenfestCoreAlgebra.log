@@ -1,0 +1,57 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.transport_multiplication_commutator
+@MethbokeAddon.EhrenfestObstruction.transport_multiplication_commutator.{u_1} : ∀ {E : Type u_1}
+  [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E] (b : E → E) (z g ψ : E → ℂ) (x : E),
+  DifferentiableAt.{0, u_1, 0} ℝ g x →
+    DifferentiableAt.{0, u_1, 0} ℝ ψ x →
+      Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (MethbokeAddon.EhrenfestObstruction.transportExpression.{u_1} b z (fun y => HMul.hMul.{0, 0, 0} (g y) (ψ y))
+            x)
+          (HMul.hMul.{0, 0, 0} (g x) (MethbokeAddon.EhrenfestObstruction.transportExpression.{u_1} b z ψ x)))
+        (HMul.hMul.{0, 0, 0} ((fderiv.{0, u_1, 0} ℝ g x) (b x)) (ψ x))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.transport_multiplication_commutator
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.transport_multiplication_commutator
+'MethbokeAddon.EhrenfestObstruction.transport_multiplication_commutator' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.transport_multiplication_commutator
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.hamiltonian_multiplication_commutator
+@MethbokeAddon.EhrenfestObstruction.hamiltonian_multiplication_commutator.{u_1} : ∀ {E : Type u_1}
+  [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E] (hbar : ℝ) (b : E → E) (z g ψ : E → ℂ)
+  (x : E),
+  DifferentiableAt.{0, u_1, 0} ℝ g x →
+    DifferentiableAt.{0, u_1, 0} ℝ ψ x →
+      Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (MethbokeAddon.EhrenfestObstruction.hamiltonianExpression.{u_1} hbar b z
+            (fun y => HMul.hMul.{0, 0, 0} (g y) (ψ y)) x)
+          (HMul.hMul.{0, 0, 0} (g x) (MethbokeAddon.EhrenfestObstruction.hamiltonianExpression.{u_1} hbar b z ψ x)))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} Complex.I) ↑hbar)
+          (HMul.hMul.{0, 0, 0} ((fderiv.{0, u_1, 0} ℝ g x) (b x)) (ψ x)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.hamiltonian_multiplication_commutator
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.hamiltonian_multiplication_commutator
+'MethbokeAddon.EhrenfestObstruction.hamiltonian_multiplication_commutator' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.hamiltonian_multiplication_commutator
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.normalized_hamiltonian_commutator
+@MethbokeAddon.EhrenfestObstruction.normalized_hamiltonian_commutator.{u_1} : ∀ {E : Type u_1}
+  [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E] (hbar : ℝ),
+  LT.lt.{0} 0 hbar →
+    ∀ (b : E → E) (z g ψ : E → ℂ) (x : E),
+      DifferentiableAt.{0, u_1, 0} ℝ g x →
+        DifferentiableAt.{0, u_1, 0} ℝ ψ x →
+          Eq.{1}
+            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} Complex.I ↑hbar)
+              (HSub.hSub.{0, 0, 0}
+                (MethbokeAddon.EhrenfestObstruction.hamiltonianExpression.{u_1} hbar b z
+                  (fun y => HMul.hMul.{0, 0, 0} (g y) (ψ y)) x)
+                (HMul.hMul.{0, 0, 0} (g x)
+                  (MethbokeAddon.EhrenfestObstruction.hamiltonianExpression.{u_1} hbar b z ψ x))))
+            (HMul.hMul.{0, 0, 0} ((fderiv.{0, u_1, 0} ℝ g x) (b x)) (ψ x))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.normalized_hamiltonian_commutator
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.normalized_hamiltonian_commutator
+'MethbokeAddon.EhrenfestObstruction.normalized_hamiltonian_commutator' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.normalized_hamiltonian_commutator

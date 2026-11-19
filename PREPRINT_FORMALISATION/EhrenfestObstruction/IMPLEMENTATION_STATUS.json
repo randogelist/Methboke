@@ -1,20 +1,27 @@
 {
   "schema_version": 1,
-  "version": "0.5.0",
-  "status": "FIRST_LAYER_ACCEPTED_SECOND_BOOTSTRAP_REPAIR_PENDING",
-  "metadata_basis": "4068641471b9b9324a5d138cacfa37a94a648bf1",
-  "accepted_new_declarations": 23,
+  "version": "0.6.0",
+  "status": "SECOND_LAYER_ACCEPTED_THIRD_LAYER_PENDING",
+  "metadata_basis": "7908890a0afb1746ec43f127792a7e0cc667dca6",
+  "accepted_new_declarations": 108,
   "local_lean_executions": 0,
-  "public_declarations": 108,
+  "public_declarations": 183,
   "packages": {
     "EhrenfestBootstrap": 7,
     "EhrenfestCanonical": 11,
+    "EhrenfestCanonicalErrorInequality": 1,
     "EhrenfestCoreAlgebra": 3,
     "EhrenfestCrossTransport": 13,
     "EhrenfestErrorCalculus": 8,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
     "EhrenfestEscape": 19,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
     "EhrenfestPhysicalForcing": 9,
+    "EhrenfestPressureFourier": 10,
     "EhrenfestReference": 34,
+    "EhrenfestReferenceEvolution": 33,
     "EhrenfestScalar": 4
   },
   "owned_modules": [
@@ -35,10 +42,22 @@
     "CoreAlgebra",
     "PhysicalForcing",
     "SmallForcingBootstrap",
-    "CrossTransport"
+    "CrossTransport",
+    "ReferenceCoefficientEvolution",
+    "PhysicalReferenceTail",
+    "ProjectedReferenceEvolution",
+    "ReferenceC1Norm",
+    "PressureFourier",
+    "ErrorState",
+    "ErrorSlabBound",
+    "ErrorEquation",
+    "CanonicalErrorInequality",
+    "EventualEnstrophyBound",
+    "DynamicalRoot",
+    "Root"
   ],
-  "milestone_candidate": "E08",
-  "remaining_root_edge": "Matching external acceptance of the analytic helper layer, then activation and verification of actual-reference evolution, canonical error reconstruction, the actual-front eventual bound and the conditional root.",
+  "milestone_candidate": "E10",
+  "remaining_root_edge": "Matching verification of the activated actual-front E09.bound helper and conditional E10 root; full E09 H2 convergence and operator realization remain separate.",
   "stopped_witness_proved": false,
   "root_proved": false,
   "full_operator_translation_proved": false,
@@ -144,33 +163,59 @@
       "audits_reached": false,
       "newly_accepted_declarations": 0,
       "evidence": "../../audits/material-e184374e-failed/summary.json"
+    },
+    {
+      "commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
+      "run_id": 44635322649,
+      "status": "ACCEPTED",
+      "evidence": "../../audits/material-7908890a-accepted/summary.json",
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44635322649",
+      "primary_job_id": 135952222336,
+      "acceptance_job_id": 135957041026,
+      "publication_passed": true,
+      "compiled_modules": 392,
+      "fresh_package_audits": 64,
+      "named_type_axiom_audits": 373,
+      "new_second_layer_declarations": 85,
+      "cumulative_ehrenfest_declarations": 108,
+      "standard_axioms_only": true,
+      "local_lean_executions": 0,
+      "conclusion": "PASS"
     }
   ],
-  "repair": "Bootstrap derivative-proof elaboration repair only; all other source modules compiled, but no new audits passed. Public statements and audit files,64/373/392 scope, pins and policy unchanged.",
-  "pending_new_declarations": 85,
-  "accepted_packages": {
-    "EhrenfestScalar": 4,
-    "EhrenfestCanonical": 11,
-    "EhrenfestErrorCalculus": 8
+  "repair": {
+    "status": "ACCEPTED_AT_790",
+    "further_repair_pending": false
   },
-  "pending_packages": {
+  "pending_new_declarations": 75,
+  "accepted_packages": {
     "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
     "EhrenfestCoreAlgebra": 3,
     "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
     "EhrenfestEscape": 19,
     "EhrenfestPhysicalForcing": 9,
-    "EhrenfestReference": 34
+    "EhrenfestReference": 34,
+    "EhrenfestScalar": 4
   },
-  "owned_module_count": 18,
+  "pending_packages": {
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReferenceEvolution": 33
+  },
+  "owned_module_count": 30,
   "accepted_owned_modules": [
-    "Definitions",
-    "ReciprocalDrift",
     "SlabDescent",
     "StoppedScalar",
+    "Definitions",
+    "ReciprocalDrift",
     "CanonicalBarrier",
-    "CoefficientError"
-  ],
-  "pending_owned_modules": [
+    "CoefficientError",
     "FourierL1",
     "SmoothSobolevNorm",
     "ProjectedC1",
@@ -184,8 +229,23 @@
     "SmallForcingBootstrap",
     "CrossTransport"
   ],
+  "pending_owned_modules": [
+    "ReferenceCoefficientEvolution",
+    "PhysicalReferenceTail",
+    "ProjectedReferenceEvolution",
+    "ReferenceC1Norm",
+    "PressureFourier",
+    "ErrorState",
+    "ErrorSlabBound",
+    "ErrorEquation",
+    "CanonicalErrorInequality",
+    "EventualEnstrophyBound",
+    "DynamicalRoot",
+    "Root"
+  ],
   "accepted_full_milestones": [
-    "E07"
+    "E07",
+    "E08"
   ],
   "first_layer_acceptance": {
     "commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
@@ -258,17 +318,17 @@
       "evidence": "../../audits/material-40686414-accepted/summary.json"
     }
   ],
-  "second_layer_accepted_declarations": 0,
+  "second_layer_accepted_declarations": 85,
   "second_layer": {
     "new_owned_modules": 12,
     "new_packages": 6,
     "named_audits": 85,
     "theorems": 82,
     "definitions": 3,
-    "status": "BOOTSTRAP_ONLY_REPAIR_PENDING_EXTERNAL_REPLAY",
-    "tested_commit": null,
-    "run_id": null,
-    "evidence": null,
+    "status": "ACCEPTED",
+    "tested_commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
+    "run_id": 44635322649,
+    "evidence": "../../audits/material-7908890a-accepted/summary.json",
     "last_failed_attempt": {
       "commit": "e184374e415722e91ec0c350f101e9ef69b7d11c",
       "run_id": 44633131323,
@@ -287,8 +347,9 @@
     }
   },
   "current_registry": {
-    "packages": 64,
-    "named_audits": 373
+    "modules": 411,
+    "packages": 71,
+    "named_audits": 448
   },
   "accepted_registry_at_first_layer": {
     "packages": 58,
@@ -298,7 +359,49 @@
     "new_owned_modules": 12,
     "new_packages": 7,
     "named_audits": 75,
-    "status": "HELD_UNTIL_SECOND_REPAIR_ACCEPTANCE"
+    "status": "ACTIVATED_PENDING_EXTERNAL_CI"
   },
-  "counts_file": "COUNT_RECONCILIATION.json"
+  "counts_file": "COUNT_RECONCILIATION.json",
+  "next_required_helper": "E09.bound",
+  "second_layer_acceptance": {
+    "commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
+    "run_id": 44635322649,
+    "status": "ACCEPTED",
+    "evidence": "../../audits/material-7908890a-accepted/summary.json",
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44635322649",
+    "primary_job_id": 135952222336,
+    "acceptance_job_id": 135957041026,
+    "publication_passed": true,
+    "compiled_modules": 392,
+    "fresh_package_audits": 64,
+    "named_type_axiom_audits": 373,
+    "new_second_layer_declarations": 85,
+    "cumulative_ehrenfest_declarations": 108,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0
+  },
+  "accepted_registry_at_second_layer": {
+    "modules": 392,
+    "packages": 64,
+    "named_audits": 373
+  },
+  "third_layer": {
+    "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+    "new_owned_modules": 12,
+    "new_packages": 7,
+    "named_audits": 75,
+    "theorems": 74,
+    "definitions": 1,
+    "accepted_declarations": 0,
+    "tested_commit": null,
+    "run_id": null,
+    "evidence": null
+  },
+  "inactive_E01_retention": {
+    "path": "PreparedE01",
+    "status": "PREPARED_SOURCE_ONLY",
+    "registered_modules": 0,
+    "archive_sha256": "e08599a79d0328c004060604ea102a29f37e90365f1edb66f86accc4fcd4b121",
+    "formal_acceptance": false
+  }
 }

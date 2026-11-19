@@ -1,0 +1,159 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.finiteSynthesis_meanZero_of_reality
+MethbokeAddon.EhrenfestObstruction.finiteSynthesis_meanZero_of_reality : ∀ (N : ℕ) (c : SingularClosure.FourierCoeff),
+  SingularClosure.SpectralReality c → SingularClosure.MeanZero (SingularClosure.finiteSynthesis N c)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.finiteSynthesis_meanZero_of_reality
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.finiteSynthesis_meanZero_of_reality
+'MethbokeAddon.EhrenfestObstruction.finiteSynthesis_meanZero_of_reality' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.finiteSynthesis_meanZero_of_reality
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_ABSORPTION_FROM_PHYSICAL
+MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_ABSORPTION_FROM_PHYSICAL : ∃ C,
+  LT.lt.{0} 0 C ∧
+    ∀ (ν : ℝ),
+      LT.lt.{0} 0 ν →
+        ∀ (N : ℕ) (c : SingularClosure.FourierCoeff),
+          (∀ k ∉ SingularClosure.cutoffModes N, ∀ (i : Fin 3), Eq.{1} (c k i) 0) →
+            SingularClosure.SpectralReality c →
+              SingularClosure.SpectralSolenoidal c →
+                LE.le.{0} (HMul.hMul.{0, 0, 0} (-2) (SingularClosure.coefficientEnstrophyNonlinearPower N c))
+                  (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} ν (SingularClosure.coefficientLaplacianSquare N c))
+                    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C (HPow.hPow.{0, 0, 0} ν 3))
+                      (HPow.hPow.{0, 0, 0} (SingularClosure.coefficientDissipation N c) 3)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_ABSORPTION_FROM_PHYSICAL
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_ABSORPTION_FROM_PHYSICAL
+'MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_ABSORPTION_FROM_PHYSICAL' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_ABSORPTION_FROM_PHYSICAL
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_cutoff_right
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_cutoff_right : ∀ (N : ℕ) (c f : SingularClosure.FourierCoeff),
+  Eq.{1} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c (SingularClosure.cutoffCoeff N f))
+    (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c f)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_cutoff_right
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_cutoff_right
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_cutoff_right' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_cutoff_right
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_leray_right
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_leray_right : ∀ (N : ℕ) (c f : SingularClosure.FourierCoeff),
+  SingularClosure.SpectralSolenoidal c →
+    Eq.{1}
+      (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c fun k => SingularClosure.coefficientLeray k (f k))
+      (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c f)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_leray_right
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_leray_right
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_leray_right' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_leray_right
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_fourier_eq_physical
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_fourier_eq_physical : ∀ (N : ℕ)
+  (c : SingularClosure.FourierCoeff) (F : SingularClosure.Field),
+  Continuous.{0, 0} F →
+    Eq.{1} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c (SingularClosure.datumFourierCoeff F))
+      (HMul.hMul.{0, 0, 0} (-2)
+        (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+          Inner.inner.{0, 0} ℝ (SingularClosure.laplacian (SingularClosure.finiteSynthesis N c) x) (F x)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_fourier_eq_physical
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_fourier_eq_physical
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_fourier_eq_physical' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_fourier_eq_physical
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physical_inner_young
+MethbokeAddon.EhrenfestObstruction.physical_inner_young : ∀ (δ : ℝ),
+  LT.lt.{0} 0 δ →
+    ∀ (a b : SingularClosure.Vec),
+      LE.le.{0} (HMul.hMul.{0, 0, 0} (-2) (Inner.inner.{0, 0} ℝ a b))
+        (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} δ (HPow.hPow.{0, 0, 0} (Norm.norm.{0} a) 2))
+          (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} b) 2) δ))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physical_inner_young
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physical_inner_young
+'MethbokeAddon.EhrenfestObstruction.physical_inner_young' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physical_inner_young
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physical_integral_inner_young
+MethbokeAddon.EhrenfestObstruction.physical_integral_inner_young : ∀ (δ : ℝ),
+  LT.lt.{0} 0 δ →
+    ∀ (a b : SingularClosure.Field),
+      Continuous.{0, 0} a →
+        Continuous.{0, 0} b →
+          LE.le.{0}
+            (HMul.hMul.{0, 0, 0} (-2)
+              (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, Inner.inner.{0, 0} ℝ (a x) (b x)))
+            (HAdd.hAdd.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0} δ
+                (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (a x)) 2))
+              (HDiv.hDiv.{0, 0, 0}
+                (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (b x)) 2)
+                δ))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physical_integral_inner_young
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physical_integral_inner_young
+'MethbokeAddon.EhrenfestObstruction.physical_integral_inner_young' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physical_integral_inner_young
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_projected_forcing_le
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_projected_forcing_le : ∀ (δ : ℝ),
+  LT.lt.{0} 0 δ →
+    ∀ (N : ℕ) (c : SingularClosure.FourierCoeff),
+      SingularClosure.SpectralReality c →
+        SingularClosure.SpectralSolenoidal c →
+          ∀ (F : SingularClosure.Field),
+            Continuous.{0, 0} F →
+              LE.le.{0}
+                (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c
+                  (SingularClosure.cutoffCoeff N fun k =>
+                    SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff F k)))
+                (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} δ (SingularClosure.coefficientLaplacianSquare N c))
+                  (HDiv.hDiv.{0, 0, 0}
+                    (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+                      HPow.hPow.{0, 0, 0} (Norm.norm.{0} (F x)) 2)
+                    δ))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_projected_forcing_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_projected_forcing_le
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_projected_forcing_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_projected_forcing_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.PHYSICAL_FORCED_ERROR_ENSTROPHY_INEQUALITY
+MethbokeAddon.EhrenfestObstruction.PHYSICAL_FORCED_ERROR_ENSTROPHY_INEQUALITY : ∃ C,
+  LT.lt.{0} 0 C ∧
+    ∀ (ν : ℝ),
+      LT.lt.{0} 0 ν →
+        ∀ (N : ℕ) (c : ℝ → SingularClosure.FourierCoeff) (F : SingularClosure.Field),
+          Continuous.{0, 0} F →
+            ∀ (s : Set.{0} ℝ) (t : ℝ),
+              (∀ k ∉ SingularClosure.cutoffModes N, ∀ (i : Fin 3), Eq.{1} (c t k i) 0) →
+                SingularClosure.SpectralReality (c t) →
+                  SingularClosure.SpectralSolenoidal (c t) →
+                    (∀ (k : SingularClosure.Frequency),
+                        Membership.mem.{0, 0} (SingularClosure.cutoffModes N) k →
+                          ∀ (i : Fin 3),
+                            HasDerivWithinAt.{0, 0} (fun r => c r k i)
+                              (HAdd.hAdd.{0, 0, 0} (SingularClosure.galerkinRhs ν N (c t) k i)
+                                (SingularClosure.cutoffCoeff N
+                                  (fun l => SingularClosure.coefficientLeray l (SingularClosure.datumFourierCoeff F l))
+                                  k i))
+                              s t) →
+                      ∃ d,
+                        HasDerivWithinAt.{0, 0} (fun r => SingularClosure.coefficientDissipation N (c r)) d s t ∧
+                          LE.le.{0}
+                            (HAdd.hAdd.{0, 0, 0} d
+                              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} ν 2)
+                                (SingularClosure.coefficientLaplacianSquare N (c t))))
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C (HPow.hPow.{0, 0, 0} ν 3))
+                                (HPow.hPow.{0, 0, 0} (SingularClosure.coefficientDissipation N (c t)) 3))
+                              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} 2 ν)
+                                (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+                                  HPow.hPow.{0, 0, 0} (Norm.norm.{0} (F x)) 2)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.PHYSICAL_FORCED_ERROR_ENSTROPHY_INEQUALITY
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.PHYSICAL_FORCED_ERROR_ENSTROPHY_INEQUALITY
+'MethbokeAddon.EhrenfestObstruction.PHYSICAL_FORCED_ERROR_ENSTROPHY_INEQUALITY' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.PHYSICAL_FORCED_ERROR_ENSTROPHY_INEQUALITY

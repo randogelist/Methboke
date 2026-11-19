@@ -1,6 +1,9 @@
 # Probable Lean layout for EHRENFEST-OBSTRUCTION
 
-**Historical B-tier design, version0.3.0; activation updated at0.5.0.** The design retains31 proposed modules and nine logical fast-root blocks, ten full milestone scopes and an optional bundle. Concrete helper splitting is recorded in [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json):18 owned sources are active, and the held scalar-root closure has25 owned dependencies. E07 and23 scoped first-layer declarations are accepted; the second layer and all remaining full milestones await their own matching evidence.
+**Current activation0.6.0:** E07/E08 and108 scoped declarations accepted at790;75 third-layer audits pending. 30 owned sources are active; historical31 modules/nine logical blocks are design counts, and the scalar-root closure has25 owned dependencies. E09.bound/E10 are pending; full operator and H2 milestones remain open. [Ledger](IMPLEMENTATION_STATUS.json).
+
+
+**Historical B-tier design, version0.3.0; activation updated at 0.6.0.** The design retains31 proposed modules and nine logical fast-root blocks, ten full milestone scopes and an optional bundle. Concrete helper splitting is recorded in [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json):30 owned sources are active, and the scalar-root closure has 25 owned dependencies. E07, E08 and 108 scoped declarations are accepted; 75 third-layer audits await their own matching evidence. The remaining full milestones stay open.
 
 The [shortest identified route](FAST_ROUTE.md) supersedes the v0.2 implementation order below: one-cutoff mean-value contradiction and a new H1 error bound avoid hitting/escape and full H2 convergence in the root. [FAST_INTERFACES.lean.txt](FAST_INTERFACES.lean.txt) gives its minimal contracts.
 

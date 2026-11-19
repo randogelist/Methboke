@@ -1,0 +1,161 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.cubic_le_self_of_mem_unit_interval
+@MethbokeAddon.EhrenfestObstruction.cubic_le_self_of_mem_unit_interval : ∀ {x : ℝ},
+  LE.le.{0} 0 x → LE.le.{0} x 1 → LE.le.{0} (HPow.hPow.{0, 0, 0} x 3) x
+TYPE_END:MethbokeAddon.EhrenfestObstruction.cubic_le_self_of_mem_unit_interval
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.cubic_le_self_of_mem_unit_interval
+'MethbokeAddon.EhrenfestObstruction.cubic_le_self_of_mem_unit_interval' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.cubic_le_self_of_mem_unit_interval
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.small_forcing_fence_hasDerivAt
+MethbokeAddon.EhrenfestObstruction.small_forcing_fence_hasDerivAt : ∀ (C epsilon t : ℝ),
+  HasDerivAt.{0, 0}
+    (fun s =>
+      HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+        (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) s)))
+    (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1)
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+        (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) t))))
+    t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.small_forcing_fence_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.small_forcing_fence_hasDerivAt
+'MethbokeAddon.EhrenfestObstruction.small_forcing_fence_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.small_forcing_fence_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound
+@MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound : ∀ {D d : ℝ → ℝ} {C epsilon T : ℝ},
+  LE.le.{0} 0 C →
+    LT.lt.{0} 0 epsilon →
+      LE.le.{0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+            (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) T)))
+          1 →
+        ContinuousOn.{0, 0} D (Set.Icc.{0} 0 T) →
+          LE.le.{0} (D 0) 0 →
+            (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → HasDerivWithinAt.{0, 0} D (d t) (Set.Ici.{0} 0) t) →
+              (∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+                    LE.le.{0} (D t) 1 →
+                      LE.le.{0} (d t)
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} C (HAdd.hAdd.{0, 0, 0} (D t) (HPow.hPow.{0, 0, 0} (D t) 3))) epsilon)) →
+                ∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                    LE.le.{0} (D t)
+                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+                          (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) t))) ∧
+                      LE.le.{0} (D t) 1
+TYPE_END:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound
+'MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_gronwall
+@MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_gronwall : ∀ {D d : ℝ → ℝ} {C epsilon T : ℝ},
+  LE.le.{0} 0 C →
+    LT.lt.{0} 0 epsilon →
+      LE.le.{0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+            (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) T)))
+          1 →
+        ContinuousOn.{0, 0} D (Set.Icc.{0} 0 T) →
+          (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t → LE.le.{0} 0 (D t)) →
+            LE.le.{0} (D 0) 0 →
+              (∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → HasDerivWithinAt.{0, 0} D (d t) (Set.Ici.{0} 0) t) →
+                (∀ (t : ℝ),
+                    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+                      LE.le.{0} (D t) 1 →
+                        LE.le.{0} (d t)
+                          (HAdd.hAdd.{0, 0, 0}
+                            (HMul.hMul.{0, 0, 0} C (HAdd.hAdd.{0, 0, 0} (D t) (HPow.hPow.{0, 0, 0} (D t) 3)))
+                            epsilon)) →
+                  ∀ (t : ℝ),
+                    Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                      LE.le.{0} (D t) (gronwallBound 0 (HMul.hMul.{0, 0, 0} 2 C) epsilon t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_gronwall
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_gronwall
+'MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_gronwall' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_gronwall
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound
+@MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound : ∀ {D d : ℕ → ℝ → ℝ} {epsilon : ℕ → ℝ}
+  {C T : ℝ},
+  LE.le.{0} 0 C →
+    (∀ᶠ (n : ℕ) in Filter.atTop.{0}, LT.lt.{0} 0 (epsilon n)) →
+      Filter.Tendsto.{0, 0} epsilon Filter.atTop.{0} (nhds.{0} 0) →
+        (∀ (n : ℕ), ContinuousOn.{0, 0} (D n) (Set.Icc.{0} 0 T)) →
+          (∀ (n : ℕ), LE.le.{0} (D n 0) 0) →
+            (∀ (n : ℕ) (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → HasDerivWithinAt.{0, 0} (D n) (d n t) (Set.Ici.{0} 0) t) →
+              (∀ (n : ℕ) (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+                    LE.le.{0} (D n t) 1 →
+                      LE.le.{0} (d n t)
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} C (HAdd.hAdd.{0, 0, 0} (D n t) (HPow.hPow.{0, 0, 0} (D n t) 3)))
+                          (epsilon n))) →
+                ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+                  ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t → LE.le.{0} (D n t) 1
+TYPE_END:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound
+'MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound_interior
+@MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound_interior : ∀ {D d : ℝ → ℝ} {C epsilon T : ℝ},
+  LE.le.{0} 0 C →
+    LT.lt.{0} 0 epsilon →
+      LE.le.{0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+            (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) T)))
+          1 →
+        ContinuousOn.{0, 0} D (Set.Icc.{0} 0 T) →
+          LE.le.{0} (D 0) 0 →
+            (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → HasDerivAt.{0, 0} D (d t) t) →
+              (∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                    LE.le.{0} (D t) 1 →
+                      LE.le.{0} (d t)
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} C (HAdd.hAdd.{0, 0, 0} (D t) (HPow.hPow.{0, 0, 0} (D t) 3))) epsilon)) →
+                ∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                    LE.le.{0} (D t)
+                        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 epsilon)
+                          (Real.exp (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 C) 1) t))) ∧
+                      LE.le.{0} (D t) 1
+TYPE_END:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound_interior
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound_interior
+'MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound_interior' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.guarded_cubic_small_forcing_bound_interior
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound_interior
+@MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound_interior : ∀ {D d : ℕ → ℝ → ℝ} {epsilon : ℕ → ℝ}
+  {C T : ℝ},
+  LE.le.{0} 0 C →
+    (∀ᶠ (n : ℕ) in Filter.atTop.{0}, LT.lt.{0} 0 (epsilon n)) →
+      Filter.Tendsto.{0, 0} epsilon Filter.atTop.{0} (nhds.{0} 0) →
+        (∀ (n : ℕ), ContinuousOn.{0, 0} (D n) (Set.Icc.{0} 0 T)) →
+          (∀ (n : ℕ), LE.le.{0} (D n 0) 0) →
+            (∀ (n : ℕ) (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → HasDerivAt.{0, 0} (D n) (d n t) t) →
+              (∀ (n : ℕ) (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                    LE.le.{0} (D n t) 1 →
+                      LE.le.{0} (d n t)
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} C (HAdd.hAdd.{0, 0, 0} (D n t) (HPow.hPow.{0, 0, 0} (D n t) 3)))
+                          (epsilon n))) →
+                ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+                  ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t → LE.le.{0} (D n t) 1
+TYPE_END:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound_interior
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound_interior
+'MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound_interior' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.eventually_guarded_cubic_unit_bound_interior

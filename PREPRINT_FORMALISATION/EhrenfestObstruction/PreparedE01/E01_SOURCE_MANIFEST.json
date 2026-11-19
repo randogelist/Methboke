@@ -1,0 +1,1531 @@
+{
+  "collection": "EHRENFEST_OBSTRUCTION_RETAINED_E01",
+  "version": "source-freeze-2026-11-19",
+  "status": "PREPARED_SOURCE_ONLY",
+  "activation": "UNACTIVATED; no build registration or repository mutation by this agent",
+  "verification": {
+    "local_lean_executed": false,
+    "local_lake_executed": false,
+    "local_kernel_audit_executed": false,
+    "external_compiler_for_collection_executed": false,
+    "axiom_queries_executed": false,
+    "static_inventory_only": true,
+    "required_next_evidence": "matching authorized external cached compiler and axiom audit"
+  },
+  "mathlib_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "native_source_snapshots": [
+    {
+      "repository": "randogelist/Methboke",
+      "revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
+      "role": "main native phase and operator source inspection"
+    },
+    {
+      "repository": "randogelist/Methboke",
+      "revision": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
+      "role": "transport author native reality-proof source inspection"
+    }
+  ],
+  "archive_root": "E01_PREPARED_SOURCE_2026-11-19",
+  "totals": {
+    "lean_files": 19,
+    "implementation_modules": 11,
+    "consumer_modules": 7,
+    "separate_query_modules": 1,
+    "theorem_candidates": 129,
+    "definitions": 25,
+    "abbreviations": 3,
+    "exact_consumer_examples": 148,
+    "prepared_axiom_queries": 148
+  },
+  "static_checks": {
+    "duplicate_named_declarations": [],
+    "theorems_without_named_query": [],
+    "theorems_without_consumer_name": [],
+    "sorry_or_admit_tokens": [],
+    "new_axiom_or_opaque_declarations": [],
+    "original_transport_and_consumer_sha256_preserved": true
+  },
+  "directly_queried_definitions": [
+    "MethbokeAddon.EhrenfestObstruction.phaseCutoff",
+    "MethbokeAddon.EhrenfestObstruction.phaseDerivative",
+    "MethbokeAddon.EhrenfestObstruction.phaseMultiplierLinear",
+    "MethbokeAddon.EhrenfestObstruction.phaseMultiplier",
+    "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier",
+    "MethbokeAddon.EhrenfestObstruction.phaseCoordinates",
+    "MethbokeAddon.EhrenfestObstruction.phaseProjection",
+    "MethbokeAddon.EhrenfestObstruction.phaseCoeff",
+    "MethbokeAddon.EhrenfestObstruction.phaseLambdaMax",
+    "MethbokeAddon.EhrenfestObstruction.phaseStokes",
+    "MethbokeAddon.EhrenfestObstruction.phaseSynthesis",
+    "MethbokeAddon.EhrenfestObstruction.ambientSolenoidalSubspace",
+    "MethbokeAddon.EhrenfestObstruction.ambientLerayValue",
+    "MethbokeAddon.EhrenfestObstruction.ambientLeray",
+    "MethbokeAddon.EhrenfestObstruction.phaseVolume",
+    "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv",
+    "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff",
+    "MethbokeAddon.EhrenfestObstruction.phaseInitialState",
+    "MethbokeAddon.EhrenfestObstruction.phaseTransportLinear"
+  ],
+  "definitions_without_separate_query": [
+    "MethbokeAddon.EhrenfestObstruction.phaseCutoffSymbol",
+    "MethbokeAddon.EhrenfestObstruction.phaseMultiplierHilbert",
+    "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol",
+    "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport",
+    "MethbokeAddon.EhrenfestObstruction.phaseRawTransport",
+    "MethbokeAddon.EhrenfestObstruction.phaseTransport"
+  ],
+  "review_scope": [
+    {
+      "reviewer": "/root/qm_single_condition",
+      "modules": [
+        "PhaseMultipliers",
+        "PhaseStokes",
+        "PhaseCutoffs",
+        "PhaseBounds",
+        "PhaseLeray"
+      ],
+      "kind": "independent static source/mathematical review",
+      "result": "no material mathematical defect found; no execution"
+    },
+    {
+      "reviewer": "/root/ehrenfest_error",
+      "modules": [
+        "PhaseLeray"
+      ],
+      "kind": "independent residual orthogonality and consumer interface review",
+      "result": "no material mathematical defect found; no execution"
+    },
+    {
+      "reviewer": "/root/ehrenfest_mathlib_index",
+      "modules": [
+        "PhaseTransport",
+        "PhaseTransportPhysical"
+      ],
+      "kind": "independent review of transport author source against native identities",
+      "result": "no material mathematical defect found; no execution"
+    },
+    {
+      "reviewer": "/root/ehrenfest_mathlib_index",
+      "modules": [
+        "PhaseSpace",
+        "PhaseSynthesis",
+        "PhaseVolume",
+        "PhaseInitialState"
+      ],
+      "kind": "preparer source/API inspection only",
+      "result": "no independent peer review or compiler acceptance claimed"
+    }
+  ],
+  "files": [
+    {
+      "path": "phase_space/PhaseBounds.lean",
+      "bytes": 2377,
+      "sha256": "20c12d0ba49ebbc3e5255b4bd13598de718b37559443fdd89529796d09123ee6",
+      "lines": 55,
+      "declarations": [
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_lipschitzOn_closedBall",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_lipschitzOn_closedBall",
+          "line": 15
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseDissipation_le_lambdaMax_energy",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseDissipation_le_lambdaMax_energy",
+          "line": 23
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_stokes_split",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_stokes_split",
+          "line": 29
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_reverse_radial_le",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_reverse_radial_le",
+          "line": 45
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseStokes"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseCutoffs.lean",
+      "bytes": 5735,
+      "sha256": "204956a5db545cd1cac2ccaeaa84952278e2a8d33727daecae6530bac0a23c3a",
+      "lines": 126,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "phaseCutoffSymbol",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoffSymbol",
+          "line": 17
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoffSymbol_even",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoffSymbol_even",
+          "line": 20
+        },
+        {
+          "kind": "def",
+          "name": "phaseCutoff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff",
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_coeff",
+          "line": 33
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_same",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_same",
+          "line": 42
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_idempotent",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_idempotent",
+          "line": 46
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_selfAdjoint",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_selfAdjoint",
+          "line": 51
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_orthogonal_residual",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_orthogonal_residual",
+          "line": 54
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_opNorm_le_one",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_opNorm_le_one",
+          "line": 62
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_stokes_commute",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_stokes_commute",
+          "line": 68
+        },
+        {
+          "kind": "def",
+          "name": "phaseDerivative",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseDerivative",
+          "line": 76
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseDerivative_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseDerivative_coeff",
+          "line": 79
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseDerivative_synthesis",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseDerivative_synthesis",
+          "line": 84
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCutoff_derivative_commute",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCutoff_derivative_commute",
+          "line": 90
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_derivative_commute",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_derivative_commute",
+          "line": 96
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_neg",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_neg",
+          "line": 101
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseLaplacian_synthesis",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseLaplacian_synthesis",
+          "line": 107
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_synthesis",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_synthesis",
+          "line": 117
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseStokes",
+        "MethbokeAddon.EhrenfestObstruction.PhaseSynthesis",
+        "SingularClosure.FiniteHessian"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseMultipliers.lean",
+      "bytes": 8140,
+      "sha256": "cbdcda4cc4b7e94b556d00952b5a3d491bc770abf73cd2963e54b47efa1a92de",
+      "lines": 181,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "phaseMultiplierHilbert",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplierHilbert",
+          "line": 18
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseMultiplierHilbert_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplierHilbert_coeff",
+          "line": 22
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseMultiplierHilbert_mem",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplierHilbert_mem",
+          "line": 30
+        },
+        {
+          "kind": "def",
+          "name": "phaseMultiplierLinear",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplierLinear",
+          "line": 51
+        },
+        {
+          "kind": "def",
+          "name": "phaseMultiplier",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplier",
+          "line": 67
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseMultiplier_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplier_apply",
+          "line": 71
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseMultiplier_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplier_coeff",
+          "line": 76
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseMultiplier_commute",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseMultiplier_commute",
+          "line": 82
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealSymbol_reality",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealSymbol_reality",
+          "line": 93
+        },
+        {
+          "kind": "def",
+          "name": "phaseRealMultiplier",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier",
+          "line": 98
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_apply",
+          "line": 102
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_coeff",
+          "line": 109
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_selfAdjoint",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_selfAdjoint",
+          "line": 116
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_quadratic",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_quadratic",
+          "line": 128
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_nonneg",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_nonneg",
+          "line": 138
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_quadratic_le",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_quadratic_le",
+          "line": 145
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_norm_le",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_norm_le",
+          "line": 155
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRealMultiplier_opNorm_le",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_opNorm_le",
+          "line": 172
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+        "Mathlib.Analysis.InnerProductSpace.Adjoint",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseOperatorTypeChecks.lean",
+      "bytes": 12975,
+      "sha256": "ba8a91a51354c7fb8937bf98c7ecc1fa83255551db24db9cd9e5e1a77f1c0601",
+      "lines": 258,
+      "declarations": [],
+      "examples": 53,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplierHilbert_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplierHilbert_mem",
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplierLinear",
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplier",
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplier_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplier_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseMultiplier_commute",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealSymbol_reality",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_selfAdjoint",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_quadratic",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_nonneg",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_quadratic_le",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_norm_le",
+        "MethbokeAddon.EhrenfestObstruction.phaseRealMultiplier_opNorm_le",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol_even",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol_nonneg",
+        "MethbokeAddon.EhrenfestObstruction.phaseLambdaMax",
+        "MethbokeAddon.EhrenfestObstruction.phaseLambdaMax_nonneg",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol_le_lambdaMax",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_selfAdjoint",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_quadratic",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_nonneg",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_poincare",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_pos_of_ne_zero",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_quadratic_le_lambdaMax",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_opNorm_le_lambdaMax",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_stokes_energy",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoffSymbol_even",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_same",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_idempotent",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_selfAdjoint",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_orthogonal_residual",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_opNorm_le_one",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_stokes_commute",
+        "MethbokeAddon.EhrenfestObstruction.phaseDerivative",
+        "MethbokeAddon.EhrenfestObstruction.phaseDerivative_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseDerivative_synthesis",
+        "MethbokeAddon.EhrenfestObstruction.phaseCutoff_derivative_commute",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_derivative_commute",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_neg",
+        "MethbokeAddon.EhrenfestObstruction.phaseLaplacian_synthesis",
+        "MethbokeAddon.EhrenfestObstruction.phaseStokes_synthesis",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_lipschitzOn_closedBall",
+        "MethbokeAddon.EhrenfestObstruction.phaseDissipation_le_lambdaMax_energy",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_stokes_split",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_reverse_radial_le"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseCutoffs",
+        "MethbokeAddon.EhrenfestObstruction.PhaseBounds"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseSpace.lean",
+      "bytes": 7091,
+      "sha256": "92f392498ef9b018eb78aa7f50f7c16c7ff1aea3a08dd2efc4d0754c92651c16",
+      "lines": 175,
+      "declarations": [
+        {
+          "kind": "abbrev",
+          "name": "GalerkinPhaseAmbient",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.GalerkinPhaseAmbient",
+          "line": 26
+        },
+        {
+          "kind": "abbrev",
+          "name": "GalerkinPhase",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.GalerkinPhase",
+          "line": 29
+        },
+        {
+          "kind": "theorem",
+          "name": "galerkinPhase_finiteDimensional",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.galerkinPhase_finiteDimensional",
+          "line": 31
+        },
+        {
+          "kind": "def",
+          "name": "phaseCoordinates",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates",
+          "line": 36
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinates_norm",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_norm",
+          "line": 41
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinates_symm_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_symm_apply",
+          "line": 45
+        },
+        {
+          "kind": "def",
+          "name": "phaseProjection",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseProjection",
+          "line": 50
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseProjection_fixed_iff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseProjection_fixed_iff",
+          "line": 53
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseProjection_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseProjection_apply",
+          "line": 57
+        },
+        {
+          "kind": "def",
+          "name": "phaseCoeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff",
+          "line": 63
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_apply",
+          "line": 68
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_support",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_support",
+          "line": 73
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_reality",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_reality",
+          "line": 78
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_solenoidal",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_solenoidal",
+          "line": 81
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_meanZero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_meanZero",
+          "line": 84
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_cutoff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_cutoff",
+          "line": 89
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_injective",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_injective",
+          "line": 97
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_energy_eq_norm_sq",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_energy_eq_norm_sq",
+          "line": 105
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinates_energy",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_energy",
+          "line": 123
+        },
+        {
+          "kind": "abbrev",
+          "name": "phaseRhs",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs",
+          "line": 130
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_coe",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_coe",
+          "line": 133
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_coeff",
+          "line": 137
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_contDiff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_contDiff",
+          "line": 144
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_radial_energy",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_radial_energy",
+          "line": 150
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_inviscid_radial_zero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_inviscid_radial_zero",
+          "line": 165
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_dissipative",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_dissipative",
+          "line": 169
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "SingularClosure.GalerkinInvariant",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseSpaceTypeChecks.lean",
+      "bytes": 7208,
+      "sha256": "ed887cae4b9a2c35b1122152d5f77ca9f57ee2f9ff293943a78b5a49b450a149",
+      "lines": 157,
+      "declarations": [],
+      "examples": 34,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.galerkinPhase_finiteDimensional",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_norm",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_symm_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseProjection",
+        "MethbokeAddon.EhrenfestObstruction.phaseProjection_fixed_iff",
+        "MethbokeAddon.EhrenfestObstruction.phaseProjection_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_support",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_reality",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_solenoidal",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_meanZero",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_cutoff",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_injective",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_energy_eq_norm_sq",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_energy",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_coe",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_contDiff",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_radial_energy",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_inviscid_radial_zero",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_dissipative",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_smooth",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_periodic",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_divergence_free",
+        "MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_phaseSynthesis",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_injective",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_meanZero",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_smoothSigmaZero",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_physicalEnergy",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_integral_norm_sq",
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_gradient_energy"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseSynthesis"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseStokes.lean",
+      "bytes": 4831,
+      "sha256": "7b3689fd21d0f0a0ee913dfa5ca49659aa3a1a8a1488a7b4b1c5a7c48ed02f6a",
+      "lines": 111,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "phaseStokesSymbol",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol",
+          "line": 18
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokesSymbol_even",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol_even",
+          "line": 21
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokesSymbol_nonneg",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol_nonneg",
+          "line": 25
+        },
+        {
+          "kind": "def",
+          "name": "phaseLambdaMax",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseLambdaMax",
+          "line": 31
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseLambdaMax_nonneg",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseLambdaMax_nonneg",
+          "line": 33
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokesSymbol_le_lambdaMax",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokesSymbol_le_lambdaMax",
+          "line": 36
+        },
+        {
+          "kind": "def",
+          "name": "phaseStokes",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes",
+          "line": 42
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_coeff",
+          "line": 45
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_selfAdjoint",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_selfAdjoint",
+          "line": 50
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_quadratic",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_quadratic",
+          "line": 53
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_nonneg",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_nonneg",
+          "line": 75
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_poincare",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_poincare",
+          "line": 80
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_pos_of_ne_zero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_pos_of_ne_zero",
+          "line": 85
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_quadratic_le_lambdaMax",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_quadratic_le_lambdaMax",
+          "line": 91
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseStokes_opNorm_le_lambdaMax",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseStokes_opNorm_le_lambdaMax",
+          "line": 96
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_stokes_energy",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_stokes_energy",
+          "line": 104
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseMultipliers",
+        "SingularClosure.PeriodicPoincare"
+      ]
+    },
+    {
+      "path": "phase_space/PhaseSynthesis.lean",
+      "bytes": 3617,
+      "sha256": "7432849f4f85a822f16a6c9acefc37caa89c64db65aabcd1bff0f97b53f37fe7",
+      "lines": 85,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "phaseSynthesis",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis",
+          "line": 23
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_smooth",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_smooth",
+          "line": 26
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_periodic",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_periodic",
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_divergence_free",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_divergence_free",
+          "line": 34
+        },
+        {
+          "kind": "theorem",
+          "name": "datumFourierCoeff_phaseSynthesis",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_phaseSynthesis",
+          "line": 39
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_injective",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_injective",
+          "line": 45
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_meanZero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_meanZero",
+          "line": 51
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_smoothSigmaZero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_smoothSigmaZero",
+          "line": 63
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_physicalEnergy",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_physicalEnergy",
+          "line": 68
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_integral_norm_sq",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_integral_norm_sq",
+          "line": 74
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_gradient_energy",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_gradient_energy",
+          "line": 78
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+        "SingularClosure.CriticalGalerkin"
+      ]
+    },
+    {
+      "path": "phase_space/README.txt",
+      "bytes": 5288,
+      "sha256": "33a1818cfc4924bc7f8de904bcb8fde2dad2c5b0326f32bf3be216525a3b608c"
+    },
+    {
+      "path": "phase_space/SOURCE_MANIFEST.json",
+      "bytes": 4825,
+      "sha256": "bfbe328f5eac8e5ce7360ed63ebfcc3c1ae71add50c5e495c243f9f21334dd93"
+    },
+    {
+      "path": "phase_space_leray/PhaseLeray.lean",
+      "bytes": 8248,
+      "sha256": "246b69f65d23a69f3e0d3343cbb9334313fad5f5a49ea7a0d6434279a10a3d89",
+      "lines": 182,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "ambientSolenoidalSubspace",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientSolenoidalSubspace",
+          "line": 24
+        },
+        {
+          "kind": "def",
+          "name": "ambientLerayValue",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLerayValue",
+          "line": 45
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLerayValue_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLerayValue_coeff",
+          "line": 49
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLerayValue_mem",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLerayValue_mem",
+          "line": 60
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLerayValue_residual_orthogonal",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLerayValue_residual_orthogonal",
+          "line": 67
+        },
+        {
+          "kind": "def",
+          "name": "ambientLeray",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray",
+          "line": 90
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_eq_value",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_eq_value",
+          "line": 93
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_apply",
+          "line": 98
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_coeff",
+          "line": 103
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_fixed_iff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_fixed_iff",
+          "line": 107
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_range",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_range",
+          "line": 111
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_idempotent",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_idempotent",
+          "line": 115
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_selfAdjoint",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_selfAdjoint",
+          "line": 121
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_opNorm_le_one",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_opNorm_le_one",
+          "line": 124
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_reality",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_reality",
+          "line": 127
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_residual_orthogonal",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_residual_orthogonal",
+          "line": 133
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseProjection_coe_eq_ambientLeray_of_reality",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseProjection_coe_eq_ambientLeray_of_reality",
+          "line": 141
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_commutes_multiplier",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_commutes_multiplier",
+          "line": 155
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_commutes_cutoff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_commutes_cutoff",
+          "line": 169
+        },
+        {
+          "kind": "theorem",
+          "name": "ambientLeray_commutes_derivative",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.ambientLeray_commutes_derivative",
+          "line": 174
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseCutoffs",
+        "SingularClosure.FourierSobolevOperators",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Basic"
+      ]
+    },
+    {
+      "path": "phase_space_leray/PhaseLerayTypeChecks.lean",
+      "bytes": 5039,
+      "sha256": "562cddd275eb38442428d6870588ec5264a289bca4e8f031727c14ed80541b2e",
+      "lines": 101,
+      "declarations": [],
+      "examples": 20,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.ambientSolenoidalSubspace",
+        "MethbokeAddon.EhrenfestObstruction.ambientLerayValue",
+        "MethbokeAddon.EhrenfestObstruction.ambientLerayValue_coeff",
+        "MethbokeAddon.EhrenfestObstruction.ambientLerayValue_mem",
+        "MethbokeAddon.EhrenfestObstruction.ambientLerayValue_residual_orthogonal",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_eq_value",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_apply",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_coeff",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_fixed_iff",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_range",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_idempotent",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_selfAdjoint",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_opNorm_le_one",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_reality",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_residual_orthogonal",
+        "MethbokeAddon.EhrenfestObstruction.phaseProjection_coe_eq_ambientLeray_of_reality",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_commutes_multiplier",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_commutes_cutoff",
+        "MethbokeAddon.EhrenfestObstruction.ambientLeray_commutes_derivative"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseLeray"
+      ]
+    },
+    {
+      "path": "phase_space_leray/README.txt",
+      "bytes": 2715,
+      "sha256": "737226cc84791074d4e1efe836a646b5f76d38c23d2e4ad9e2eb91bec6a39f41"
+    },
+    {
+      "path": "phase_space_volume/PhaseVolume.lean",
+      "bytes": 2168,
+      "sha256": "8b1dfc9080bb6b4421c7064733d68be6a2d6366ebb546e4250a42d25a0861a9e",
+      "lines": 57,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "phaseVolume",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseVolume",
+          "line": 20
+        },
+        {
+          "kind": "def",
+          "name": "phaseCoordinatesMeasurableEquiv",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv",
+          "line": 22
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinatesMeasurableEquiv_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv_apply",
+          "line": 27
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinatesMeasurableEquiv_symm_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv_symm_apply",
+          "line": 30
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinates_measurePreserving",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_measurePreserving",
+          "line": 34
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinates_symm_measurePreserving",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_symm_measurePreserving",
+          "line": 38
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoordinates_map_volume",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_map_volume",
+          "line": 42
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseVolume_eq_map_coordinates_symm",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseVolume_eq_map_coordinates_symm",
+          "line": 46
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseVolume_map_linearIsometry",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseVolume_map_linearIsometry",
+          "line": 51
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace"
+      ]
+    },
+    {
+      "path": "phase_space_volume/PhaseVolumeTypeChecks.lean",
+      "bytes": 2237,
+      "sha256": "6851130432e71f68f5d66994b246a57ba2fe52e493ea80dc9786ea2586fd9884",
+      "lines": 47,
+      "declarations": [],
+      "examples": 9,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.phaseVolume",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinatesMeasurableEquiv_symm_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_measurePreserving",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_symm_measurePreserving",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoordinates_map_volume",
+        "MethbokeAddon.EhrenfestObstruction.phaseVolume_eq_map_coordinates_symm",
+        "MethbokeAddon.EhrenfestObstruction.phaseVolume_map_linearIsometry"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseVolume"
+      ]
+    },
+    {
+      "path": "phase_space_volume/README.txt",
+      "bytes": 1177,
+      "sha256": "d545ebefee38b4cf5b61e6faa3b8c43cc2850328ecdb273e4e23f79b59a3487a"
+    },
+    {
+      "path": "phase_space_coordinates/PhaseInitialState.lean",
+      "bytes": 3813,
+      "sha256": "95a25f6fa17612d20fba1182c121094f58b5a97897e6dfb1b5d58b0aa3a3447b",
+      "lines": 83,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "phaseFromCoeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff",
+          "line": 16
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseFromCoeff_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff_coeff",
+          "line": 28
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseFromCoeff_phaseCoeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff_phaseCoeff",
+          "line": 35
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseCoeff_characterization",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseCoeff_characterization",
+          "line": 41
+        },
+        {
+          "kind": "def",
+          "name": "phaseInitialState",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseInitialState",
+          "line": 57
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseInitialState_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseInitialState_coeff",
+          "line": 61
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseInitialState_synthesis",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseInitialState_synthesis",
+          "line": 65
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseInitialState_energy_le",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseInitialState_energy_le",
+          "line": 70
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseSynthesis",
+        "SingularClosure.InitialCutoffBounds"
+      ]
+    },
+    {
+      "path": "phase_space_coordinates/PhaseInitialStateTypeChecks.lean",
+      "bytes": 2251,
+      "sha256": "6dd7a9594a00488c2c4358e1ebb647114087783d715bbb8b157eaacc9c985149",
+      "lines": 46,
+      "declarations": [],
+      "examples": 8,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseFromCoeff_phaseCoeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseCoeff_characterization",
+        "MethbokeAddon.EhrenfestObstruction.phaseInitialState",
+        "MethbokeAddon.EhrenfestObstruction.phaseInitialState_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseInitialState_synthesis",
+        "MethbokeAddon.EhrenfestObstruction.phaseInitialState_energy_le"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseInitialState"
+      ]
+    },
+    {
+      "path": "phase_space_coordinates/README.txt",
+      "bytes": 1165,
+      "sha256": "3e059cc21d9409927460c860bfb3c52ced4ef62d3f9fee774dea381f27e58912"
+    },
+    {
+      "path": "phase_space_transport/PhaseTransport.lean",
+      "bytes": 10342,
+      "sha256": "0dd1ec41f4fc960f794e14bf75011128f365966cf7c1c3301af226d3ae246ac6",
+      "lines": 237,
+      "declarations": [
+        {
+          "kind": "def",
+          "name": "coefficientBilinearTransport",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport",
+          "line": 22
+        },
+        {
+          "kind": "theorem",
+          "name": "coefficientBilinearTransport_diagonal",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_diagonal",
+          "line": 28
+        },
+        {
+          "kind": "theorem",
+          "name": "coefficientBilinearTransport_add_left",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_add_left",
+          "line": 31
+        },
+        {
+          "kind": "theorem",
+          "name": "coefficientBilinearTransport_add_right",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_add_right",
+          "line": 39
+        },
+        {
+          "kind": "theorem",
+          "name": "coefficientBilinearTransport_smul_left",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_smul_left",
+          "line": 47
+        },
+        {
+          "kind": "theorem",
+          "name": "coefficientBilinearTransport_smul_right",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_smul_right",
+          "line": 60
+        },
+        {
+          "kind": "theorem",
+          "name": "coefficientBilinearTransport_reality",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_reality",
+          "line": 74
+        },
+        {
+          "kind": "def",
+          "name": "phaseRawTransport",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport",
+          "line": 109
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRawTransport_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_coeff",
+          "line": 113
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRawTransport_reality",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_reality",
+          "line": 120
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRawTransport_add_left",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_add_left",
+          "line": 127
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRawTransport_add_right",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_add_right",
+          "line": 136
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRawTransport_smul_left",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_smul_left",
+          "line": 145
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRawTransport_smul_right",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_smul_right",
+          "line": 153
+        },
+        {
+          "kind": "def",
+          "name": "phaseTransport",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport",
+          "line": 162
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_coeff",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_coeff",
+          "line": 167
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_add_left",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_add_left",
+          "line": 180
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_add_right",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_add_right",
+          "line": 184
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_smul_left",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_smul_left",
+          "line": 188
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_smul_right",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_smul_right",
+          "line": 192
+        },
+        {
+          "kind": "def",
+          "name": "phaseTransportLinear",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransportLinear",
+          "line": 197
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransportLinear_apply",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransportLinear_apply",
+          "line": 212
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_diagonal",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_diagonal",
+          "line": 216
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_diagonal_energy_zero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_diagonal_energy_zero",
+          "line": 226
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseRhs_eq_stokes_sub_transport",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseRhs_eq_stokes_sub_transport",
+          "line": 231
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseLeray",
+        "MethbokeAddon.EhrenfestObstruction.PhaseBounds",
+        "SingularClosure.GalerkinReality"
+      ]
+    },
+    {
+      "path": "phase_space_transport/PhaseTransportAudit.lean",
+      "bytes": 1854,
+      "sha256": "49b52a368c3da66d9aab5c78f1866f4bc4cafb23d8c093a9c5e937e86b8e18c8",
+      "lines": 26,
+      "declarations": [],
+      "examples": 0,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_diagonal",
+        "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_add_left",
+        "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_add_right",
+        "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_smul_left",
+        "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_smul_right",
+        "MethbokeAddon.EhrenfestObstruction.coefficientBilinearTransport_reality",
+        "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_reality",
+        "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_add_left",
+        "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_add_right",
+        "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_smul_left",
+        "MethbokeAddon.EhrenfestObstruction.phaseRawTransport_smul_right",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_coeff",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_add_left",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_add_right",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_smul_left",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_smul_right",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransportLinear_apply",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_diagonal",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_diagonal_energy_zero",
+        "MethbokeAddon.EhrenfestObstruction.phaseRhs_eq_stokes_sub_transport",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransportLinear"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseTransport"
+      ]
+    },
+    {
+      "path": "phase_space_transport/PhaseTransportPhysical.lean",
+      "bytes": 1953,
+      "sha256": "c6c89078d1b69c22a4ed7ea853f0fe9486404e1934f9070834ffc6f934938d40",
+      "lines": 45,
+      "declarations": [
+        {
+          "kind": "theorem",
+          "name": "phaseSynthesis_convection_energy_zero",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_convection_energy_zero",
+          "line": 22
+        },
+        {
+          "kind": "theorem",
+          "name": "phaseTransport_diagonal_energy_eq_physical",
+          "qualified_name": "MethbokeAddon.EhrenfestObstruction.phaseTransport_diagonal_energy_eq_physical",
+          "line": 38
+        }
+      ],
+      "examples": 0,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseTransport",
+        "MethbokeAddon.EhrenfestObstruction.PhaseSynthesis",
+        "SingularClosure.PhysicalBilinear"
+      ]
+    },
+    {
+      "path": "phase_space_transport/PhaseTransportPhysicalAudit.lean",
+      "bytes": 834,
+      "sha256": "7805f31f62215dd37f0aea9d6d3db656d016ea5ff0c5231b52f19e21f5c7603d",
+      "lines": 20,
+      "declarations": [],
+      "examples": 2,
+      "axiom_queries": [
+        "MethbokeAddon.EhrenfestObstruction.phaseSynthesis_convection_energy_zero",
+        "MethbokeAddon.EhrenfestObstruction.phaseTransport_diagonal_energy_eq_physical"
+      ],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseTransportPhysical"
+      ]
+    },
+    {
+      "path": "phase_space_transport/PhaseTransportTypeChecks.lean",
+      "bytes": 4063,
+      "sha256": "2b81a64052761b595ee855e2bd1ea8a6862c89afc46e47ffb39d3a9587219947",
+      "lines": 100,
+      "declarations": [],
+      "examples": 22,
+      "axiom_queries": [],
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.PhaseTransport"
+      ]
+    },
+    {
+      "path": "phase_space_transport/README.txt",
+      "bytes": 3069,
+      "sha256": "e153fb795761e3c803d99fcc1950392045c2cfdc0786fa5a79bfe40cbbb490b9"
+    },
+    {
+      "path": "phase_space_transport/declarations.txt",
+      "bytes": 1369,
+      "sha256": "0630420d9b45ded93a75e02b518db6024e272c62cc47fa2ad6c83f810345fef8"
+    },
+    {
+      "path": "phase_space_transport/physical_declarations.txt",
+      "bytes": 151,
+      "sha256": "e01697dccf46953710f177fbbeea12dd90c434c474804b1b7ef4d0d4553c567f"
+    },
+    {
+      "path": "E01_COVERAGE.md",
+      "bytes": 4685,
+      "sha256": "4f92e8bce8aac1b9db0a7777212568068b9626235ae552ead3e991e8d408ca30"
+    },
+    {
+      "path": "E01_FROZEN_README.md",
+      "bytes": 4923,
+      "sha256": "89e15f359f77ffaddc98a4bb0aad60c6b318f854e13d3f02b21d8147a46376d6"
+    }
+  ],
+  "excluded": [
+    "E02 complete flow",
+    "E03-E05 unitary and unbounded generator realization",
+    "NSE singular witness or obstruction conclusion",
+    "scalar root source or CI batches",
+    "repository build registration"
+  ]
+}

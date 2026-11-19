@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "version": "0.5.0",
+  "version": "0.6.0",
   "date": "2026-11-19",
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "source_review_revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
   "scope": "HISTORICAL_LAYOUT_WITH_CURRENT_ACTIVATION_REGISTER",
   "fixed_project_goal": "Weak_Fourierman_B",
-  "actual_new_lean_files": 18,
-  "new_formal_acceptances": 23,
+  "actual_new_lean_files": 30,
+  "new_formal_acceptances": 108,
   "local_lean_executions": 0,
-  "external_compiler_runs": 7,
+  "external_compiler_runs": 8,
   "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
@@ -32,7 +32,7 @@
         "MLB08",
         "MLB12"
       ],
-      "evidence": "../../audits/material-40686414-accepted/summary.json"
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "PhaseSpace",
@@ -86,7 +86,7 @@
         "AUX06",
         "AUX07"
       ],
-      "evidence": "../../audits/material-40686414-accepted/summary.json"
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "StoppedScalar",
@@ -107,7 +107,7 @@
       "available_cutout_ids": [
         "ML13"
       ],
-      "evidence": "../../audits/material-40686414-accepted/summary.json"
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "StoppedFamily",
@@ -125,13 +125,14 @@
         "MLB12"
       ],
       "role": "One fixed smooth datum; divergent thresholds and uniform initial bound imply explicit threshold hits before 1/gamma.",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": false,
       "required_for_fast_root": false,
       "available_cutout_ids": [
         "MLB10",
         "MLB12"
-      ]
+      ],
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "ClosedSlab",
@@ -168,12 +169,13 @@
         "MLB11"
       ],
       "role": "Uniform H4 control gives cutoff H3 tail O(1/N); Sobolev contraction of Fourier/Leray projections.",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": false,
       "required_for_fast_root": false,
       "available_cutout_ids": [
         "MLB11"
-      ]
+      ],
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "SobolevProduct",
@@ -259,12 +261,13 @@
         "MLB15"
       ],
       "role": "Single-cutoff full-slab contradiction: choose R_n>C using eventual thresholds/bounds, derive PreHit on all interior times, contradict positive terminal reciprocal via mean value.",
-      "status": "SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "MLB15"
-      ]
+      ],
+      "evidence": null
     },
     {
       "name": "CompleteFlow",
@@ -617,12 +620,13 @@
         "MLB15"
       ],
       "role": "Frozen EHRENFEST_OBSTRUCTION with unchanged explicit stopped premise; imports only the minimal dynamical proof, not All or operator infrastructure.",
-      "status": "SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "MLB15"
-      ]
+      ],
+      "evidence": null
     },
     {
       "name": "SlabDescent",
@@ -643,7 +647,7 @@
         "AUX05",
         "AUX07"
       ],
-      "evidence": "../../audits/material-40686414-accepted/summary.json"
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "SmoothReference",
@@ -660,7 +664,7 @@
         "FAST05"
       ],
       "role": "Uniform projected C1 and H1 Fourier-tail estimates from the actual smooth closed slab; finite coefficient l1 estimate and multiplier norm bound.",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
@@ -668,7 +672,8 @@
         "FAST03",
         "FAST05",
         "AUX01"
-      ]
+      ],
+      "evidence": "../../audits/material-7908890a-accepted/summary.json"
     },
     {
       "name": "H1Error",
@@ -707,12 +712,13 @@
         "ML03"
       ],
       "role": "Bootstrap error D<=1 using D prime <= C(D+D^3)+C/N^2; expose only an eventual uniform Galerkin enstrophy bound.",
-      "status": "SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "ML03"
-      ]
+      ],
+      "evidence": null
     },
     {
       "name": "All",
@@ -801,7 +807,7 @@
       "activated": false,
       "historical_package_proposal": true,
       "implemented_package": "EhrenfestEscape",
-      "formal_milestone_status": "PENDING_EXTERNAL_CI"
+      "formal_milestone_status": "ACCEPTED"
     },
     {
       "step": "E09",
@@ -873,85 +879,112 @@
   "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
   "activation_register": "IMPLEMENTATION_STATUS.json",
   "current_external_run": {
-    "commit": "e184374e415722e91ec0c350f101e9ef69b7d11c",
-    "run_id": 44633131323,
-    "conclusion": "FAIL_MODULE_COMPILATION",
-    "compiled_modules_passed": 390,
-    "reused_modules": 374,
-    "fresh_compiler_passes": 16,
-    "failed_modules": [
-      "SmallForcingBootstrap"
-    ],
-    "failed_module_count": 1,
-    "blocked_module_count": 1,
-    "audits_reached": false,
-    "newly_accepted_declarations": 0,
-    "evidence": "../../audits/material-e184374e-failed/summary.json"
+    "commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
+    "run_id": 44635322649,
+    "status": "ACCEPTED",
+    "evidence": "../../audits/material-7908890a-accepted/summary.json",
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44635322649",
+    "primary_job_id": 135952222336,
+    "acceptance_job_id": 135957041026,
+    "publication_passed": true,
+    "compiled_modules": 392,
+    "fresh_package_audits": 64,
+    "named_type_axiom_audits": 373,
+    "new_second_layer_declarations": 85,
+    "cumulative_ehrenfest_declarations": 108,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0
   },
   "planned_count_semantics": "Historical design:31 proposed modules and9 logical fast-root blocks. Concrete activation:18 owned sources. The separately held scalar-root closure uses25 owned sources after helper splitting; counts do not assert milestone acceptance.",
   "additional_active_helpers": [
     {
       "name": "CanonicalBarrier",
-      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
-      "evidence": "../../audits/material-40686414-accepted/summary.json"
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "CoefficientError",
-      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
-      "evidence": "../../audits/material-40686414-accepted/summary.json"
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "FourierL1",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "SmoothSobolevNorm",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "ProjectedC1",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "ReciprocalThreshold",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "SlabSupremum",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "CoreAlgebra",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "PhysicalForcing",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "SmallForcingBootstrap",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
     },
     {
       "name": "CrossTransport",
-      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-      "evidence": null
+      "status": "ACCEPTED_SCOPED_SOURCE"
+    },
+    {
+      "name": "ReferenceCoefficientEvolution",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "PhysicalReferenceTail",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "ProjectedReferenceEvolution",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "ReferenceC1Norm",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "PressureFourier",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "ErrorState",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "ErrorSlabBound",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "ErrorEquation",
+      "status": "PENDING_EXTERNAL_CI"
+    },
+    {
+      "name": "CanonicalErrorInequality",
+      "status": "PENDING_EXTERNAL_CI"
     }
   ],
-  "actual_new_lean_files_semantics": "Owned Ehrenfest sources only; nine Endpoint/Audit pairs contribute18 additional wrapper Lean files.",
+  "actual_new_lean_files_semantics": "30 owned sources plus32 Endpoint/Audit wrappers;62 active Ehrenfest Lean files. Inactive E01 ZIP files are excluded.",
   "accepted_full_milestones": [
-    "E07"
+    "E07",
+    "E08"
   ],
   "next_external_run": {
-    "status": "BOOTSTRAP_ONLY_REPLAY_PENDING_SAME_SCOPE",
+    "status": "THIRD_LAYER_PENDING",
     "commit": null,
     "run_id": null
   },
@@ -973,9 +1006,39 @@
     "CoreAlgebra",
     "PhysicalForcing",
     "SmallForcingBootstrap",
-    "CrossTransport"
+    "CrossTransport",
+    "ReferenceCoefficientEvolution",
+    "PhysicalReferenceTail",
+    "ProjectedReferenceEvolution",
+    "ReferenceC1Norm",
+    "PressureFourier",
+    "ErrorState",
+    "ErrorSlabBound",
+    "ErrorEquation",
+    "CanonicalErrorInequality",
+    "EventualEnstrophyBound",
+    "DynamicalRoot",
+    "Root"
   ],
   "actual_active_endpoint_packages": {
+    "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestCoreAlgebra": 3,
+    "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEscape": 19,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPhysicalForcing": 9,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReference": 34,
+    "EhrenfestReferenceEvolution": 33,
+    "EhrenfestScalar": 4
+  },
+  "accepted_endpoint_packages": {
     "EhrenfestBootstrap": 7,
     "EhrenfestCanonical": 11,
     "EhrenfestCoreAlgebra": 3,
@@ -986,37 +1049,31 @@
     "EhrenfestReference": 34,
     "EhrenfestScalar": 4
   },
-  "accepted_endpoint_packages": {
-    "EhrenfestScalar": 4,
-    "EhrenfestCanonical": 11,
-    "EhrenfestErrorCalculus": 8
-  },
   "pending_endpoint_packages": {
-    "EhrenfestBootstrap": 7,
-    "EhrenfestCoreAlgebra": 3,
-    "EhrenfestCrossTransport": 13,
-    "EhrenfestEscape": 19,
-    "EhrenfestPhysicalForcing": 9,
-    "EhrenfestReference": 34
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReferenceEvolution": 33
   },
   "concrete_count_reconciliation": "COUNT_RECONCILIATION.json",
   "last_accepted_external_run": {
-    "commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
-    "run_id": 44626474631,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
+    "commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
+    "run_id": 44635322649,
     "status": "ACCEPTED",
-    "primary_job_id": 135921536065,
-    "acceptance_job_id": 135928742922,
+    "evidence": "../../audits/material-7908890a-accepted/summary.json",
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44635322649",
+    "primary_job_id": 135952222336,
+    "acceptance_job_id": 135957041026,
     "publication_passed": true,
-    "compiled_modules": 374,
-    "reused_modules": 365,
-    "fresh_compiler_passes": 9,
-    "fresh_package_audits": 58,
-    "named_type_axiom_audits": 288,
-    "qfb_cutout_audit_passed": true,
-    "new_ehrenfest_declarations": 23,
+    "compiled_modules": 392,
+    "fresh_package_audits": 64,
+    "named_type_axiom_audits": 373,
+    "new_second_layer_declarations": 85,
+    "cumulative_ehrenfest_declarations": 108,
     "standard_axioms_only": true,
-    "evidence": "../../audits/material-40686414-accepted/summary.json",
     "local_lean_executions": 0
   }
 }
