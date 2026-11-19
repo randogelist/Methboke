@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.5.0",
-  "status": "FIRST_LAYER_ACCEPTED_SECOND_THREE_SOURCE_REPAIR_PENDING",
+  "status": "FIRST_LAYER_ACCEPTED_SECOND_BOOTSTRAP_REPAIR_PENDING",
   "metadata_basis": "4068641471b9b9324a5d138cacfa37a94a648bf1",
   "accepted_new_declarations": 23,
   "local_lean_executions": 0,
@@ -128,9 +128,25 @@
       "audits_reached": false,
       "newly_accepted_declarations": 0,
       "evidence": "../../audits/material-976b4460-failed/summary.json"
+    },
+    {
+      "commit": "e184374e415722e91ec0c350f101e9ef69b7d11c",
+      "run_id": 44633131323,
+      "conclusion": "FAIL_MODULE_COMPILATION",
+      "compiled_modules_passed": 390,
+      "reused_modules": 374,
+      "fresh_compiler_passes": 16,
+      "failed_modules": [
+        "SmallForcingBootstrap"
+      ],
+      "failed_module_count": 1,
+      "blocked_module_count": 1,
+      "audits_reached": false,
+      "newly_accepted_declarations": 0,
+      "evidence": "../../audits/material-e184374e-failed/summary.json"
     }
   ],
-  "repair": "Three proof/parser elaboration repairs after976 failure; exact statements and all audit files,64-package/373-name/392-module scope, pins and audit policy unchanged.",
+  "repair": "Bootstrap derivative-proof elaboration repair only; all other source modules compiled, but no new audits passed. Public statements and audit files,64/373/392 scope, pins and policy unchanged.",
   "pending_new_declarations": 85,
   "accepted_packages": {
     "EhrenfestScalar": 4,
@@ -249,27 +265,25 @@
     "named_audits": 85,
     "theorems": 82,
     "definitions": 3,
-    "status": "THREE_SOURCE_REPAIRS_PENDING_EXTERNAL_REPLAY",
+    "status": "BOOTSTRAP_ONLY_REPAIR_PENDING_EXTERNAL_REPLAY",
     "tested_commit": null,
     "run_id": null,
     "evidence": null,
     "last_failed_attempt": {
-      "commit": "976b44605945891a0e9e704101afe8ab21a1b4b2",
-      "run_id": 44631562429,
+      "commit": "e184374e415722e91ec0c350f101e9ef69b7d11c",
+      "run_id": 44633131323,
       "conclusion": "FAIL_MODULE_COMPILATION",
-      "compiled_modules_passed": 385,
+      "compiled_modules_passed": 390,
       "reused_modules": 374,
-      "fresh_compiler_passes": 11,
+      "fresh_compiler_passes": 16,
       "failed_modules": [
-        "SmallForcingBootstrap",
-        "SmoothReference",
-        "CrossTransport"
+        "SmallForcingBootstrap"
       ],
-      "failed_module_count": 3,
-      "blocked_module_count": 4,
+      "failed_module_count": 1,
+      "blocked_module_count": 1,
       "audits_reached": false,
       "newly_accepted_declarations": 0,
-      "evidence": "../../audits/material-976b4460-failed/summary.json"
+      "evidence": "../../audits/material-e184374e-failed/summary.json"
     }
   },
   "current_registry": {

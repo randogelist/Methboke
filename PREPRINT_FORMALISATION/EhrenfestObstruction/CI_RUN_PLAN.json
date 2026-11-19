@@ -12,7 +12,7 @@
   "source_manifest_sha256": "1db399f7ba66ae256815a93a7362b38a049186ac8563040cf0f69c035dc92f76",
   "audit_policy_sha256": "06a53b8a7a7dbc43d46e7e421a4082fe0fce70d740fec8dd6f11296f9fc692d9",
   "prior_evidence_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
-  "reason_for_new_run": "Retry unchanged64 packages/373 named audits/392 modules after three proof/parser repairs from976b4460/run44631562429; exact public statements, first acceptance, pins and audit policy unchanged.",
+  "reason_for_new_run": "Retry unchanged64 packages/373 named audits/392 modules after only the Bootstrap derivative proof failed at e184374e/run44633131323; all exact statements, first acceptance, pins and audit policy retained.",
   "cache_requirement": "compatible",
   "module_workers": 2,
   "lean_threads": 2,
@@ -30,23 +30,21 @@
   "prior_accepted_revision": "4068641471b9b9324a5d138cacfa37a94a648bf1",
   "prior_evidence_summary": "../../audits/material-40686414-accepted/summary.json",
   "run_id": null,
-  "status": "SECOND_LAYER_THREE_SOURCE_REPAIR_REPLAY_PENDING",
+  "status": "SECOND_LAYER_BOOTSTRAP_ONLY_REPLAY_PENDING",
   "previous_failed_attempt": {
-    "commit": "976b44605945891a0e9e704101afe8ab21a1b4b2",
-    "run_id": 44631562429,
+    "commit": "e184374e415722e91ec0c350f101e9ef69b7d11c",
+    "run_id": 44633131323,
     "conclusion": "FAIL_MODULE_COMPILATION",
-    "compiled_modules_passed": 385,
+    "compiled_modules_passed": 390,
     "reused_modules": 374,
-    "fresh_compiler_passes": 11,
+    "fresh_compiler_passes": 16,
     "failed_modules": [
-      "SmallForcingBootstrap",
-      "SmoothReference",
-      "CrossTransport"
+      "SmallForcingBootstrap"
     ],
-    "failed_module_count": 3,
-    "blocked_module_count": 4,
+    "failed_module_count": 1,
+    "blocked_module_count": 1,
     "audits_reached": false,
     "newly_accepted_declarations": 0,
-    "evidence": "../../audits/material-976b4460-failed/summary.json"
+    "evidence": "../../audits/material-e184374e-failed/summary.json"
   }
 }

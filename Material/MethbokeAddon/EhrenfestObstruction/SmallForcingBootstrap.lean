@@ -38,8 +38,16 @@ theorem cubic_le_self_of_mem_unit_interval
 theorem small_forcing_fence_hasDerivAt (C epsilon t : ℝ) :
     HasDerivAt (fun s : ℝ => 2 * epsilon * Real.exp ((2 * C + 1) * s))
       ((2 * C + 1) * (2 * epsilon * Real.exp ((2 * C + 1) * t))) t := by
-  convert (((hasDerivAt_id t).const_mul (2 * C + 1)).exp.const_mul
-    (2 * epsilon)) using 1 <;> (try simp only [id_eq]) <;> ring
+  have harg : HasDerivAt (fun s : ℝ => (2 * C + 1) * s) (2 * C + 1) t :=
+    hasDerivAt_const_mul (2 * C + 1)
+  have hfence := harg.exp.const_mul (2 * epsilon)
+  have hrate :
+      2 * epsilon * (Real.exp ((2 * C + 1) * t) * (2 * C + 1)) =
+        (2 * C + 1) * (2 * epsilon * Real.exp ((2 * C + 1) * t)) := by
+    ring
+  rw [hrate] at hfence
+  -- Default transparency identifies the real normed-module instances.
+  convert! hfence using 1
 
 /-- A small positive forcing gives a global fence on the chosen compact
 slab from a derivative inequality that is only assumed below one.
