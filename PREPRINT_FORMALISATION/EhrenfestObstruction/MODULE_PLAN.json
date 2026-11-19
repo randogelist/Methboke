@@ -9,7 +9,7 @@
   "actual_new_lean_files": 18,
   "new_formal_acceptances": 23,
   "local_lean_executions": 0,
-  "external_compiler_runs": 5,
+  "external_compiler_runs": 6,
   "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
@@ -873,23 +873,22 @@
   "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
   "activation_register": "IMPLEMENTATION_STATUS.json",
   "current_external_run": {
-    "commit": "9595d3540b5eadee01e503dd31f54accd62b8cd9",
-    "run_id": 44629764703,
+    "commit": "976b44605945891a0e9e704101afe8ab21a1b4b2",
+    "run_id": 44631562429,
     "conclusion": "FAIL_MODULE_COMPILATION",
-    "compiled_modules_passed": 380,
+    "compiled_modules_passed": 385,
     "reused_modules": 374,
-    "fresh_compiler_passes": 6,
+    "fresh_compiler_passes": 11,
     "failed_modules": [
-      "FourierL1",
-      "SmoothSobolevNorm",
-      "PhysicalForcing",
-      "SmallForcingBootstrap"
+      "SmallForcingBootstrap",
+      "SmoothReference",
+      "CrossTransport"
     ],
-    "failed_module_count": 4,
-    "blocked_module_count": 8,
+    "failed_module_count": 3,
+    "blocked_module_count": 4,
     "audits_reached": false,
     "newly_accepted_declarations": 0,
-    "evidence": "../../audits/material-9595d354-failed/summary.json"
+    "evidence": "../../audits/material-976b4460-failed/summary.json"
   },
   "planned_count_semantics": "Historical design:31 proposed modules and9 logical fast-root blocks. Concrete activation:18 owned sources. The separately held scalar-root closure uses25 owned sources after helper splitting; counts do not assert milestone acceptance.",
   "additional_active_helpers": [
@@ -954,7 +953,7 @@
     "E07"
   ],
   "next_external_run": {
-    "status": "REPAIR_REPLAY_PENDING_SAME_SECOND_LAYER_SCOPE",
+    "status": "THREE_SOURCE_REPAIR_REPLAY_PENDING_SAME_SCOPE",
     "commit": null,
     "run_id": null
   },

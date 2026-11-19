@@ -128,13 +128,13 @@ theorem physicalReferenceResidual_l2_le
     _ = (2 * M ^ 2) * (∫ x in unitCube, ‖r x‖ ^ 2) +
         (6 * M ^ 2) * physicalDissipation r := by
       rw [integral_add (hiE.const_mul (2 * M ^ 2)) (hiD.const_mul (6 * M ^ 2)),
-        integral_const_mul, integral_const_mul]
+        integral_const_mul, integral_const_mul, physicalDissipation]
     _ ≤ _ := by nlinarith [mul_nonneg (sq_nonneg M) hE]
 
 theorem norm_sub_sub_sq_le_three (a b c : Vec) :
     ‖a - b - c‖ ^ 2 ≤ 3 * (‖a‖ ^ 2 + ‖b‖ ^ 2 + ‖c‖ ^ 2) := by
   have hn : ‖a - b - c‖ ≤ ‖a‖ + ‖b‖ + ‖c‖ :=
-    (norm_sub_le (a - b) c).trans (add_le_add_right (norm_sub_le a b) _)
+    (norm_sub_le (a - b) c).trans (add_le_add (norm_sub_le a b) (le_refl ‖c‖))
   have hs := (sq_le_sq₀ (norm_nonneg (a - b - c))
     (add_nonneg (add_nonneg (norm_nonneg a) (norm_nonneg b))
       (norm_nonneg c))).mpr hn
@@ -225,9 +225,29 @@ theorem finite_physicalErrorForcing_l2_le
     _ = 3 * (∫ x in unitCube, ‖R x‖ ^ 2) +
         (9 * M ^ 2) * coefficientDissipation N c +
           (3 * M ^ 2) * coefficientEnergy N c := by
-      rw [integral_add ((hiR.const_mul 3).add (hiD.const_mul (9 * M ^ 2)))
-          (hiE.const_mul (3 * M ^ 2)),
-        integral_add (hiR.const_mul 3) (hiD.const_mul (9 * M ^ 2)),
+      have hsum12 :
+          (∫ x in unitCube, 3 * ‖R x‖ ^ 2 +
+            (9 * M ^ 2) * gradientSquareDensity (finiteSynthesis N c) x) =
+          (∫ x in unitCube, 3 * ‖R x‖ ^ 2) +
+            ∫ x in unitCube, (9 * M ^ 2) * gradientSquareDensity (finiteSynthesis N c) x :=
+        integral_add
+          (f := fun x : Vec => 3 * ‖R x‖ ^ 2)
+          (g := fun x : Vec => (9 * M ^ 2) * gradientSquareDensity (finiteSynthesis N c) x)
+          (hiR.const_mul 3) (hiD.const_mul (9 * M ^ 2))
+      have hsum123 :
+          (∫ x in unitCube, 3 * ‖R x‖ ^ 2 +
+            (9 * M ^ 2) * gradientSquareDensity (finiteSynthesis N c) x +
+              (3 * M ^ 2) * ‖finiteSynthesis N c x‖ ^ 2) =
+          (∫ x in unitCube, 3 * ‖R x‖ ^ 2 +
+            (9 * M ^ 2) * gradientSquareDensity (finiteSynthesis N c) x) +
+            ∫ x in unitCube, (3 * M ^ 2) * ‖finiteSynthesis N c x‖ ^ 2 :=
+        integral_add
+          (f := fun x : Vec => 3 * ‖R x‖ ^ 2 +
+            (9 * M ^ 2) * gradientSquareDensity (finiteSynthesis N c) x)
+          (g := fun x : Vec => (3 * M ^ 2) * ‖finiteSynthesis N c x‖ ^ 2)
+          ((hiR.const_mul 3).add (hiD.const_mul (9 * M ^ 2)))
+          (hiE.const_mul (3 * M ^ 2))
+      rw [hsum123, hsum12,
         integral_const_mul, integral_const_mul, integral_const_mul,
         FINITE_PHYSICAL_REAL_ENSTROPHY_PARSEVAL N c hreal, hE]
     _ ≤ _ := by linarith
@@ -275,7 +295,7 @@ theorem FINITE_ERROR_CROSS_ENSTROPHY_INEQUALITY :
     _ ≤ C / ν ^ 3 * (coefficientDissipation N (c t)) ^ 3 +
         (2 / ν) * (3 * (∫ x in unitCube, ‖R x‖ ^ 2) +
           (12 * M ^ 2) * coefficientDissipation N (c t)) :=
-      add_le_add_left hscaled _
+      add_le_add (le_refl _) hscaled
     _ = _ := by ring
 
 end

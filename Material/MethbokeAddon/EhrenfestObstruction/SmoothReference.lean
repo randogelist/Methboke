@@ -92,8 +92,8 @@ theorem initial_front_uniform_decay_constant
     (s : ℕ) (T : ℝ) (hTS : T < S) :
     ∃ C : ℝ, 1 ≤ C ∧ ∀ t ∈ Icc (0 : ℝ) T,
       smoothDatumDecayConstant s (u t) ≤ C := by
-  obtain ⟨C, hC⟩ := (isCompact_Icc : IsCompact (Icc (0 : ℝ) T)).
-    exists_bound_of_continuousOn
+  obtain ⟨C, hC⟩ :=
+    (isCompact_Icc : IsCompact (Icc (0 : ℝ) T)).exists_bound_of_continuousOn
       (initial_smoothDatumDecayConstant_continuousOn_Icc u S H.velocity_smooth s T hTS)
   refine ⟨max 1 C, le_max_left _ _, ?_⟩
   intro t ht
@@ -151,8 +151,8 @@ theorem initial_front_uniform_projected_dissipation
     (T : ℝ) (hTS : T < S) :
     ∃ K : ℝ, 1 ≤ K ∧ ∀ N t (ht : t ∈ Icc (0 : ℝ) T),
       coefficientDissipation N (datumFourierCoeff (u t)) ≤ K := by
-  obtain ⟨C, hC⟩ := (isCompact_Icc : IsCompact (Icc (0 : ℝ) T)).
-    exists_bound_of_continuousOn
+  obtain ⟨C, hC⟩ :=
+    (isCompact_Icc : IsCompact (Icc (0 : ℝ) T)).exists_bound_of_continuousOn
       (initial_physicalDissipation_continuousOn_Icc u S H.velocity_smooth T hTS)
   refine ⟨max 1 C, le_max_left _ _, ?_⟩
   intro N t ht

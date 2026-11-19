@@ -39,7 +39,7 @@ theorem small_forcing_fence_hasDerivAt (C epsilon t : ℝ) :
     HasDerivAt (fun s : ℝ => 2 * epsilon * Real.exp ((2 * C + 1) * s))
       ((2 * C + 1) * (2 * epsilon * Real.exp ((2 * C + 1) * t))) t := by
   convert (((hasDerivAt_id t).const_mul (2 * C + 1)).exp.const_mul
-    (2 * epsilon)) using 1 <;> simp only [id_eq] <;> ring
+    (2 * epsilon)) using 1 <;> (try simp only [id_eq]) <;> ring
 
 /-- A small positive forcing gives a global fence on the chosen compact
 slab from a derivative inequality that is only assumed below one.

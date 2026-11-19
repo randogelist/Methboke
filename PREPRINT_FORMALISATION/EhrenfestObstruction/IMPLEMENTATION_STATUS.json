@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.5.0",
-  "status": "FIRST_LAYER_ACCEPTED_SECOND_REPAIR_PENDING",
+  "status": "FIRST_LAYER_ACCEPTED_SECOND_THREE_SOURCE_REPAIR_PENDING",
   "metadata_basis": "4068641471b9b9324a5d138cacfa37a94a648bf1",
   "accepted_new_declarations": 23,
   "local_lean_executions": 0,
@@ -110,9 +110,27 @@
       "audits_reached": false,
       "newly_accepted_declarations": 0,
       "evidence": "../../audits/material-9595d354-failed/summary.json"
+    },
+    {
+      "commit": "976b44605945891a0e9e704101afe8ab21a1b4b2",
+      "run_id": 44631562429,
+      "conclusion": "FAIL_MODULE_COMPILATION",
+      "compiled_modules_passed": 385,
+      "reused_modules": 374,
+      "fresh_compiler_passes": 11,
+      "failed_modules": [
+        "SmallForcingBootstrap",
+        "SmoothReference",
+        "CrossTransport"
+      ],
+      "failed_module_count": 3,
+      "blocked_module_count": 4,
+      "audits_reached": false,
+      "newly_accepted_declarations": 0,
+      "evidence": "../../audits/material-976b4460-failed/summary.json"
     }
   ],
-  "repair": "Four elaboration-only proof repairs; public theorem/audit signatures,64-package/373-name scope, dependency pins and audit policy unchanged.",
+  "repair": "Three proof/parser elaboration repairs after976 failure; exact statements and all audit files,64-package/373-name/392-module scope, pins and audit policy unchanged.",
   "pending_new_declarations": 85,
   "accepted_packages": {
     "EhrenfestScalar": 4,
@@ -231,28 +249,27 @@
     "named_audits": 85,
     "theorems": 82,
     "definitions": 3,
-    "status": "FOUR_PROOF_REPAIRS_PENDING_EXTERNAL_REPLAY",
+    "status": "THREE_SOURCE_REPAIRS_PENDING_EXTERNAL_REPLAY",
     "tested_commit": null,
     "run_id": null,
     "evidence": null,
     "last_failed_attempt": {
-      "commit": "9595d3540b5eadee01e503dd31f54accd62b8cd9",
-      "run_id": 44629764703,
+      "commit": "976b44605945891a0e9e704101afe8ab21a1b4b2",
+      "run_id": 44631562429,
       "conclusion": "FAIL_MODULE_COMPILATION",
-      "compiled_modules_passed": 380,
+      "compiled_modules_passed": 385,
       "reused_modules": 374,
-      "fresh_compiler_passes": 6,
+      "fresh_compiler_passes": 11,
       "failed_modules": [
-        "FourierL1",
-        "SmoothSobolevNorm",
-        "PhysicalForcing",
-        "SmallForcingBootstrap"
+        "SmallForcingBootstrap",
+        "SmoothReference",
+        "CrossTransport"
       ],
-      "failed_module_count": 4,
-      "blocked_module_count": 8,
+      "failed_module_count": 3,
+      "blocked_module_count": 4,
       "audits_reached": false,
       "newly_accepted_declarations": 0,
-      "evidence": "../../audits/material-9595d354-failed/summary.json"
+      "evidence": "../../audits/material-976b4460-failed/summary.json"
     }
   },
   "current_registry": {

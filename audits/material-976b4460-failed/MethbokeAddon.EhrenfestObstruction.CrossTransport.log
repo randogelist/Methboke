@@ -1,0 +1,74 @@
+MethbokeAddon/EhrenfestObstruction/CrossTransport.lean:44:26: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+MethbokeAddon/EhrenfestObstruction/CrossTransport.lean:60:35: warning: `ContinuousLinearMap.sub_apply` has been deprecated: Use `sub_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.sub_apply` to `sub_apply x`).
+MethbokeAddon/EhrenfestObstruction/CrossTransport.lean:129:47: error: unsolved goals
+M : ℝ
+hM : 0 ≤ M
+U v r : SingularClosure.Field
+hU : ContDiff ℝ ∞ U
+hv : Continuous v
+hr : ContDiff ℝ ∞ r
+hDUM : ∀ x ∈ unitCube, ‖fderiv ℝ U x‖ ≤ M
+hvM : ∀ x ∈ unitCube, ‖v x‖ ≤ M
+hR : Continuous (physicalReferenceResidual U v r)
+hiR : IntegrableOn (fun x => ‖physicalReferenceResidual U v r x‖ ^ 2) unitCube volume
+hiE : IntegrableOn (fun x => ‖r x‖ ^ 2) unitCube volume
+hiD : IntegrableOn (gradientSquareDensity r) unitCube volume
+hE : 0 ≤ ∫ (x : Vec) in unitCube, ‖r x‖ ^ 2
+⊢ (2 * M ^ 2 * ∫ (a : Vec) in unitCube, ‖r a‖ ^ 2) + 6 * M ^ 2 * ∫ (a : Vec) in unitCube, gradientSquareDensity r a =
+    (2 * M ^ 2 * ∫ (x : Vec) in unitCube, ‖r x‖ ^ 2) + 6 * M ^ 2 * physicalDissipation r
+MethbokeAddon/EhrenfestObstruction/CrossTransport.lean:137:34: error: Application type mismatch: The argument
+  add_le_add_right (norm_sub_le a b) ?m.123
+has type
+  ?m.123 + ‖a - b‖ ≤ ?m.123 + (‖a‖ + ‖b‖)
+but is expected to have type
+  ‖a - b‖ + ‖c‖ ≤ ‖a‖ + ‖b‖ + ‖c‖
+in the application
+  LE.le.trans (norm_sub_le (a - b) c) (add_le_add_right (norm_sub_le a b) ?m.123)
+MethbokeAddon/EhrenfestObstruction/CrossTransport.lean:228:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : Vec) in unitCube,
+    ((fun x => 3 * ‖R x‖ ^ 2) + fun x => 9 * M ^ 2 * gradientSquareDensity (finiteSynthesis N c) x) a +
+      3 * M ^ 2 * ‖finiteSynthesis N c a‖ ^ 2
+in the target expression
+  ∫ (x : Vec) in unitCube,
+      3 * ‖R x‖ ^ 2 + 9 * M ^ 2 * gradientSquareDensity (finiteSynthesis N c) x +
+        3 * M ^ 2 * ‖finiteSynthesis N c x‖ ^ 2 =
+    (3 * ∫ (x : Vec) in unitCube, ‖R x‖ ^ 2) + 9 * M ^ 2 * coefficientDissipation N c +
+      3 * M ^ 2 * coefficientEnergy N c
+
+M : ℝ
+hM : 0 ≤ M
+N : ℕ
+c : FourierCoeff
+hreal : SpectralReality c
+v R : SingularClosure.Field
+hv : ContDiff ℝ ∞ v
+hR : Continuous R
+hvM : ∀ x ∈ unitCube, ‖v x‖ ≤ M
+hDvM : ∀ x ∈ unitCube, ‖fderiv ℝ v x‖ ≤ M
+hw : ContDiff ℝ ∞ (finiteSynthesis N c)
+hF : Continuous (physicalErrorForcing v (finiteSynthesis N c) R)
+hiF : IntegrableOn (fun x => ‖physicalErrorForcing v (finiteSynthesis N c) R x‖ ^ 2) unitCube volume
+hiR : IntegrableOn (fun x => ‖R x‖ ^ 2) unitCube volume
+hiD : IntegrableOn (gradientSquareDensity (finiteSynthesis N c)) unitCube volume
+hiE : IntegrableOn (fun x => ‖finiteSynthesis N c x‖ ^ 2) unitCube volume
+hE : ∫ (x : Vec) in unitCube, ‖finiteSynthesis N c x‖ ^ 2 = coefficientEnergy N c
+hEP : 3 * M ^ 2 * coefficientEnergy N c ≤ 3 * M ^ 2 * coefficientDissipation N c
+⊢ ∫ (x : Vec) in unitCube,
+      3 * ‖R x‖ ^ 2 + 9 * M ^ 2 * gradientSquareDensity (finiteSynthesis N c) x +
+        3 * M ^ 2 * ‖finiteSynthesis N c x‖ ^ 2 =
+    (3 * ∫ (x : Vec) in unitCube, ‖R x‖ ^ 2) + 9 * M ^ 2 * coefficientDissipation N c +
+      3 * M ^ 2 * coefficientEnergy N c
+MethbokeAddon/EhrenfestObstruction/CrossTransport.lean:278:6: error: Type mismatch
+  add_le_add_left hscaled ?m.697
+has type
+  (2 / ν * ∫ (x : Vec) in unitCube, ‖physicalErrorForcing v (finiteSynthesis N (c t)) R x‖ ^ 2) + ?m.697 ≤
+    2 / ν * ((3 * ∫ (x : Vec) in unitCube, ‖R x‖ ^ 2) + 12 * M ^ 2 * coefficientDissipation N (c t)) + ?m.697
+but is expected to have type
+  C / ν ^ 3 * coefficientDissipation N (c t) ^ 3 +
+      2 / ν * ∫ (x : Vec) in unitCube, ‖physicalErrorForcing v (finiteSynthesis N (c t)) R x‖ ^ 2 ≤
+    C / ν ^ 3 * coefficientDissipation N (c t) ^ 3 +
+      2 / ν * ((3 * ∫ (x : Vec) in unitCube, ‖R x‖ ^ 2) + 12 * M ^ 2 * coefficientDissipation N (c t))
