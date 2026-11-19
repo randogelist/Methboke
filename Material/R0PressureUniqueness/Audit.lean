@@ -4,7 +4,7 @@ set_option pp.universes true
 set_option pp.fullNames true
 set_option autoImplicit false
 
-open Set Filter MeasureTheory SingularClosure QuasiFeffermanB MethbokeAddon.WeakFouriermanB
+open Set Filter MeasureTheory SingularClosure MethbokeAddon.WeakFouriermanB
 open scoped BigOperators ContDiff ENNReal Topology Interval
 
 -- Exact independently stated type: MethbokeAddon.WeakFouriermanB.continuous_periodic_field_eq_of_cube_ae

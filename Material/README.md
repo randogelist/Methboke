@@ -172,3 +172,8 @@ stopped in initial-trace filter notation and composition normalization. Those
 expressions are corrected; statements and321/33/161 scope are unchanged.
 [Retained failed-run evidence](https://github.com/randogelist/Methboke/actions/runs/44545010863)
 confirms303 baseline objects reused and recovery skipped. Acceptance is pending.
+
+Run44547124107 atd2c0259 compiled all321 modules and passed19 audit packages,
+including the literal R0 root. The remaining required gate stopped at an unused
+namespace in the pressure audit. Its one-line setup repair preserves every
+proof, signature assertion and axiom audit; full acceptance remains pending.
