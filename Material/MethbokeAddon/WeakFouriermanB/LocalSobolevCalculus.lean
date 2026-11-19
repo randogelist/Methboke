@@ -241,8 +241,9 @@ theorem LocalSobolevFlow.velocity_timeDerivative
     intro z hz
     exact congrArg (fun c : FourierCoeff => smoothFourierSynthesis c x) (L.coeff 4 z hz).symm
   have hlocal : Icc (0 : ℝ) T ∈ 𝓝[Ici (0 : ℝ)] t := by
-    filter_upwards [self_mem_nhdsWithin,
-      (Iio_mem_nhds ht.2).filter_mono nhdsWithin_le_nhds] with z hz hzT
+    have hupper : ∀ᶠ z : ℝ in 𝓝[Ici (0 : ℝ)] t, z < T :=
+      nhdsWithin_le_nhds (Iio_mem_nhds ht.2)
+    filter_upwards [self_mem_nhdsWithin, hupper] with z hz hzT
     exact ⟨hz, hzT.le⟩
   exact (h0.mono_of_mem_nhdsWithin hlocal).derivWithin ((uniqueDiffOn_Ici 0) t ht.1)
 

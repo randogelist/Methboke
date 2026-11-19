@@ -352,7 +352,7 @@
     "whole_obligations_promoted": []
   },
   "prepared_full_chain": {
-    "status": "FULL_CHAIN_PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+    "status": "FULL_CHAIN_REPAIR_PENDING_EXTERNAL_VERIFICATION",
     "modules": [
       "LocalCubicBarrier",
       "LocalGalerkinBounds",
@@ -432,6 +432,47 @@
     "local_lean_executions": 0,
     "new_acceptance_signals": 0,
     "root_candidate": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
-    "budget_remains_explicit_hypothesis": true
+    "budget_remains_explicit_hypothesis": true,
+    "latest_attempt": {
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "tested_commit": "8318b7a6e5e0a44161eab5d041ace375c1379a68",
+      "run_id": "44564405380",
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44564405380",
+      "artifact_id": 14551408514,
+      "artifact_sha256": "26d94a18b6e6037cd7ff154b82d4e0326ba7876d2d0b5978a0d32d0097ac6e2e",
+      "report_sha256": "1ded3c3a966d57590f752fdc7ddd10ab4019564fa15e7766465b11ebb5bafc2e",
+      "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "failure_class": "MODULE_COMPILATION_FAILED",
+      "failure_phase": "compile",
+      "module_status_counts": {
+        "PASS": 343,
+        "BLOCKED_BY_DEPENDENCY": 19,
+        "FAIL": 3
+      },
+      "reused_pass_modules": 321,
+      "fresh_pass_modules": 22,
+      "required_audits_completed": false,
+      "verified_cache_published": false,
+      "recovery_job": "SKIPPED",
+      "logs": {
+        "LocalSobolevCalculus": {
+          "path": "LocalSobolevCalculus.log",
+          "sha256": "db93b5e27b3a1646ddc1a4651c1f2bdf99957afcab2c4995f04358cd09e3ccc4"
+        },
+        "MaximalLerayHopfIdentification": {
+          "path": "MaximalLerayHopfIdentification.log",
+          "sha256": "32e7aff0748d3dffd8812ade89331de430378e541c8f5b42f065b0a36fea08fc"
+        },
+        "PhysicalEnstrophyEvolution": {
+          "path": "PhysicalEnstrophyEvolution.log",
+          "sha256": "6659f79f2fb39ea9b6b830c68563d982cd789fa14ec2730fcc2d96d70a152b49"
+        }
+      },
+      "previous_three_repairs_compiled": true,
+      "statements_changed": false,
+      "local_lean_executions": 0,
+      "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
+    }
   }
 }

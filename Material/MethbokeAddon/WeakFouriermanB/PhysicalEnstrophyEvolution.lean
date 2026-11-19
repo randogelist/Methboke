@@ -169,7 +169,10 @@ theorem local_time_coordinateDerivative_commute
   rw [local_timeDerivative_eq_joint _ T (local_coordinateDerivative_contDiffOn u T hu j) t ht x,
     local_coordinateDerivative_eq_joint _ T (local_timeDerivative_contDiffOn u T hu) t ht x j,
     hs.fderiv, ht'.fderiv]
-  exact hF.isSymmSndFDerivAt (by simp) (1, 0) (0, unitVector j)
+  exact hF.isSymmSndFDerivAt (by
+    simp only [minSmoothness_of_isRCLikeNormedField]
+    exact WithTop.coe_le_coe.mpr (show (2 : ℕ∞) ≤ ⊤ from le_top))
+      (1, 0) (0, unitVector j)
 
 theorem local_timeDerivative_spatialPeriodic
     (u : Velocity) (T : ℝ)
@@ -195,7 +198,7 @@ theorem local_physicalDissipation_hasDerivAt
   have hsum : HasDerivAt (fun r => ∑ j : Fin 3, physicalEnergy (coordinateDerivative (u r) j))
       (∑ j : Fin 3, 2 * physicalFieldInner (coordinateDerivative (u t) j)
         (timeDerivative (fun r => coordinateDerivative (u r) j) t)) t := by
-    simpa only [Fin.sum_univ_three] using ((hj 0).add (hj 1)).add (hj 2)
+    simpa only [Fin.sum_univ_three, Pi.add_apply] using! ((hj 0).add (hj 1)).add (hj 2)
   have hD : HasDerivAt (fun r => physicalDissipation (u r))
       (∑ j : Fin 3, 2 * physicalFieldInner (coordinateDerivative (u t) j)
         (timeDerivative (fun r => coordinateDerivative (u r) j) t)) t := by
@@ -285,12 +288,16 @@ theorem initial_front_enstrophy_pairing
   have hI₁ := physicalFieldInner_integrable (laplacian (u t)) (timeDerivative u t) hlap hud
   have hI₂ := physicalFieldInner_integrable (laplacian (u t)) (convection (u t)) hlap hconv
   have hI₃ := physicalFieldInner_integrable (laplacian (u t)) (SingularClosure.gradient (p t)) hlap hgrad
+  have hI₁₂ : IntegrableOn (fun x =>
+      inner ℝ (laplacian (u t) x) (timeDerivative u t x) +
+        inner ℝ (laplacian (u t) x) (convection (u t) x)) unitCube volume :=
+    hI₁.add hI₂
   have heq : timeDerivative u t + convection (u t) + SingularClosure.gradient (p t) =
       ν • laplacian (u t) := funext (H.equation t ⟨ht.1.le, ht.2⟩)
   have h := congrArg (physicalFieldInner (laplacian (u t))) heq
   simp only [physicalFieldInner, Pi.add_apply, inner_add_right,
     Pi.smul_apply, inner_smul_right] at h
-  rw [integral_add (hI₁.add hI₂) hI₃, integral_add hI₁ hI₂, integral_const_mul,
+  rw [integral_add hI₁₂ hI₃, integral_add hI₁ hI₂, integral_const_mul,
     critical_smooth_integral_inner_gradient_eq_zero _ (p t)
       (laplacian_contDiff (u t) hus.smooth) hps
       (laplacian_spatialPeriodic (u t) hus.periodic) (H.pressure_periodic t ⟨ht.1.le, ht.2⟩)

@@ -1,0 +1,79 @@
+MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean:83:10: warning: `continuousOn_finset_sum` has been deprecated: Use `continuousOn_finsetSum` instead
+MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean:99:8: warning: `continuousOn_finset_sum` has been deprecated: Use `continuousOn_finsetSum` instead
+MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean:172:30: error: unsolved goals
+u : Velocity
+T : ℝ
+hu : ContDiffOn ℝ ∞ (fun z => u z.1 z.2) (localFrontSpacetime T)
+t : ℝ
+ht : t ∈ Ioo 0 T
+j : Fin 3
+x : Vec
+F : ℝ × Vec → Vec := fun z => u z.1 z.2
+hz : (t, x) ∈ localFrontSpacetime T
+hF : ContDiffAt ℝ ∞ F (t, x)
+hd : DifferentiableAt ℝ (fderiv ℝ F) (t, x)
+hs :
+  HasFDerivAt (fun z => coordinateDerivative (u z.1) j z.2)
+    ((ContinuousLinearMap.apply ℝ Vec) (0, unitVector j) ∘SL fderiv ℝ (fderiv ℝ F) (t, x)) (t, x)
+ht' :
+  HasFDerivAt (fun z => timeDerivative u z.1 z.2)
+    ((ContinuousLinearMap.apply ℝ Vec) (1, 0) ∘SL fderiv ℝ (fderiv ℝ F) (t, x)) (t, x)
+⊢ 2 ≤ ∞
+MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean:198:4: error: Type mismatch: After simplification, term
+  HasDerivAt.add (HasDerivAt.add (hj 0) (hj 1)) (hj 2)
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.normedAddCommGroup.toAddCommGroup
+    RCLike.toInnerProductSpaceReal.toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    (((fun r => physicalEnergy (coordinateDerivative (u r) 0)) + fun r =>
+        physicalEnergy (coordinateDerivative (u r) 1)) +
+      fun r => physicalEnergy (coordinateDerivative (u r) 2))
+    (2 * physicalFieldInner (coordinateDerivative (u t) 0) (timeDerivative (fun r => coordinateDerivative (u r) 0) t) +
+        2 *
+          physicalFieldInner (coordinateDerivative (u t) 1) (timeDerivative (fun r => coordinateDerivative (u r) 1) t) +
+      2 * physicalFieldInner (coordinateDerivative (u t) 2) (timeDerivative (fun r => coordinateDerivative (u r) 2) t))
+    t
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    (fun r =>
+      physicalEnergy (coordinateDerivative (u r) 0) + physicalEnergy (coordinateDerivative (u r) 1) +
+        physicalEnergy (coordinateDerivative (u r) 2))
+    (2 * physicalFieldInner (coordinateDerivative (u t) 0) (timeDerivative (fun r => coordinateDerivative (u r) 0) t) +
+        2 *
+          physicalFieldInner (coordinateDerivative (u t) 1) (timeDerivative (fun r => coordinateDerivative (u r) 1) t) +
+      2 * physicalFieldInner (coordinateDerivative (u t) 2) (timeDerivative (fun r => coordinateDerivative (u r) 2) t))
+    t
+MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean:293:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : Vec) in unitCube,
+    ((fun x => ⟪laplacian (u t) x, timeDerivative u t x⟫) + fun x => ⟪laplacian (u t) x, convection (u t) x⟫) a +
+      ⟪laplacian (u t) a, SingularClosure.gradient (p t) a⟫
+in the target expression
+  ∫ (x : Vec) in unitCube,
+      ⟪laplacian (u t) x, timeDerivative u t x⟫ + ⟪laplacian (u t) x, convection (u t) x⟫ +
+        ⟪laplacian (u t) x, SingularClosure.gradient (p t) x⟫ =
+    ∫ (x : Vec) in unitCube, ν * ⟪laplacian (u t) x, laplacian (u t) x⟫
+
+ν T : ℝ
+a : SingularClosure.Field
+u : Velocity
+p : Pressure
+H : InitialClassicalFront ν T a u p
+t : ℝ
+ht : t ∈ Ioo 0 T
+hus : SmoothSigmaZero (u t)
+hu : ContDiffOn ℝ ∞ (fun z => u z.1 z.2) (localFrontSpacetime T)
+hps : ContDiff ℝ ∞ (p t)
+hlap : Continuous (laplacian (u t))
+hud : Continuous (timeDerivative u t)
+hconv : Continuous (convection (u t))
+hgrad : Continuous (SingularClosure.gradient (p t))
+hI₁ : IntegrableOn (fun x => ⟪laplacian (u t) x, timeDerivative u t x⟫) unitCube volume
+hI₂ : IntegrableOn (fun x => ⟪laplacian (u t) x, convection (u t) x⟫) unitCube volume
+hI₃ : IntegrableOn (fun x => ⟪laplacian (u t) x, SingularClosure.gradient (p t) x⟫) unitCube volume
+heq : timeDerivative u t + convection (u t) + SingularClosure.gradient (p t) = ν • laplacian (u t)
+h :
+  ∫ (x : Vec) in unitCube,
+      ⟪laplacian (u t) x, timeDerivative u t x⟫ + ⟪laplacian (u t) x, convection (u t) x⟫ +
+        ⟪laplacian (u t) x, SingularClosure.gradient (p t) x⟫ =
+    ∫ (x : Vec) in unitCube, ν * ⟪laplacian (u t) x, laplacian (u t) x⟫
+⊢ -2 * physicalFieldInner (timeDerivative u t) (laplacian (u t)) = physicalEnstrophyRate ν (u t)

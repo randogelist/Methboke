@@ -26,7 +26,7 @@ noncomputable section
 maximal classical velocity at every pre-endpoint time, including zero. -/
 theorem maximal_front_leray_hopf_identification
     (ν : ℝ) (a : Field) (u v : Velocity) (p : Pressure)
-    (G : WeakGradientTrajectory) (Tmax : ℝ≥0∞)
+    (G : QuasiFeffermanB.WeakGradientTrajectory) (Tmax : ℝ≥0∞)
     (hν : 0 < ν) (ha : SmoothSigmaZero a)
     (H : MaximalClassicalFront ν a u p Tmax)
     (hv : CriticalLerayHopf ν (criticalL2Representative a) v G) :
@@ -52,7 +52,7 @@ theorem maximal_front_original_leray_hopf
     (ν : ℝ) (a : Field) (u : Velocity) (p : Pressure) (Tmax : ℝ≥0∞)
     (hν : 0 < ν) (ha : SmoothSigmaZero a)
     (H : MaximalClassicalFront ν a u p Tmax) :
-    ∃ (v : Velocity) (G : WeakGradientTrajectory),
+    ∃ (v : Velocity) (G : QuasiFeffermanB.WeakGradientTrajectory),
       CriticalLerayHopf ν (criticalL2Representative a) v G ∧
       (v 0 =ᵐ[volume.restrict unitCube] a) ∧
       ∀ t : ℝ, 0 ≤ t → ENNReal.ofReal t < Tmax →

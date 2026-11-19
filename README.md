@@ -12,9 +12,10 @@ The working branch is **`main`**.
   now cover physical H1 local existence, maximality, actual-budget continuation,
   strict cutoff overlap and the exact same-path WFB root. External scope:
   **365 modules / 55 fresh packages / 265 declarations plus cutout**.
-  The first attempt found three proof expressions, now repaired without changing
-  statements; [failure evidence](audits/material-4bd466f1-failed/summary.json)
-  is retained. The full chain remains pending external verification.
+  The latest run compiled 343 modules (321 reused) and found errors in three
+  new modules; 19 dependencies were blocked and audits were not reached.
+  [Exact failure evidence](audits/material-8318b7a6-failed/summary.json) is retained.
+  Repairs preserve all statements; full external verification remains pending.
 
 - **Latest accepted package and exact R0 root:** [run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
   at `93ca8a57536512556ec36717ee933ea52db283bf` verified 321 source modules
