@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "date": "2026-11-19",
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "source_review_revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
-  "scope": "B_TIER_PROPOSED_LAYOUT_ONLY",
+  "scope": "PROPOSED_LAYOUT_WITH_SEPARATE_ACTIVATION_REGISTER",
   "fixed_project_goal": "Weak_Fourierman_B",
-  "actual_new_lean_files": 0,
+  "actual_new_lean_files": 6,
   "new_formal_acceptances": 0,
   "local_lean_executions": 0,
-  "external_compiler_runs": 0,
+  "external_compiler_runs": 2,
   "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
@@ -25,8 +25,8 @@
         "MLB12"
       ],
       "role": "SmoothDatum, canonicalFamily at n+1, e, Vrec, literal drift, PreHit, StoppedForDatum, StoppedCommutatorBound and actual NSE_B.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false,
+      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "activated": true,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "MLB08",
@@ -71,8 +71,8 @@
         "ML06"
       ],
       "role": "Exact canonical reciprocal derivative with coefficient sign and positive denominator; no operator imports.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false,
+      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "activated": true,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "MLB08",
@@ -99,8 +99,8 @@
         "ML13"
       ],
       "role": "Continuous scalar pre-hit comparison and explicit hitting-time bound; no assumed finite hitting time.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false,
+      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "activated": true,
       "required_for_fast_root": false,
       "available_cutout_ids": [
         "ML13"
@@ -632,8 +632,8 @@
         "ML21"
       ],
       "role": "Real mean-value endpoint comparison with an explicit rate and interior derivatives; no NSE, hitting times or operator imports.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false,
+      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "activated": true,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "ML21",
@@ -852,5 +852,24 @@
     "scope": "Import convenience after completing all ten original milestones; no semantic change to scalar theorem."
   },
   "identity_cutout_catalog": "../../LEAN_CUTOUTS/EhrenfestObstruction/IDENTITIES.json",
-  "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED"
+  "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
+  "activation_register": "IMPLEMENTATION_STATUS.json",
+  "current_external_run": {
+    "commit": "72a09b32b64ff0a481bc3ba678dcf4d3b898bc66",
+    "run_id": 44622642427,
+    "status": "PENDING"
+  },
+  "planned_count_semantics": "Historical v0.3 design has31 proposed modules and9-module fast root. Actual helper splits and activation are recorded separately; activation is not full milestone acceptance.",
+  "additional_active_helpers": [
+    {
+      "name": "CanonicalBarrier",
+      "scope": "Rejects eventual slab bound under literal stopped premise",
+      "status": "EXTERNAL_AUDIT_PENDING"
+    },
+    {
+      "name": "CoefficientError",
+      "scope": "Arbitrary finite coefficient error differentiation and forced self-interaction inequality",
+      "status": "EXTERNAL_AUDIT_PENDING"
+    }
+  ]
 }

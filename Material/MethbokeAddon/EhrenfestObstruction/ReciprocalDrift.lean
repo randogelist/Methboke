@@ -60,8 +60,8 @@ theorem galerkin_reciprocal_hasDerivWithinAt
       (-((1 + (coefficientDissipation N (g.coeff t) / 2) / eStar) ^ 2)⁻¹)
       (1 + (coefficientDissipation N (g.coeff t) / 2) / eStar) :=
     hasDerivAt_inv hden
-  -- The vector-space chain rule preserves the standard real module instance;
-  -- the algebra-valued inverse rule selects a different instance diamond.
+  -- Scalar composition can select the real inner-product module instance.
+  -- The final convert! normalizes that instance diamond at default transparency.
   have hInv := hOuter.scomp_hasDerivWithinAt t hInner
   have hrate :
       (((-2 * ν) * coefficientLaplacianSquare N (g.coeff t) -
@@ -71,7 +71,8 @@ theorem galerkin_reciprocal_hasDerivWithinAt
     simp only [smul_eq_mul, reciprocalDrift, halfEnstrophy, div_eq_mul_inv, mul_inv_rev]
     ring
   rw [hrate] at hInv
-  simpa only [Function.comp_apply, reciprocalValue, halfEnstrophy] using hInv
+  convert! hInv using 1 <;>
+    simp only [Function.comp_apply, reciprocalValue, halfEnstrophy]
 
 theorem canonical_enstrophy_nonneg
     (ν : ℝ) (hν : 0 < ν) (a : SmoothDatum) (n : ℕ) (t : ℝ) :
