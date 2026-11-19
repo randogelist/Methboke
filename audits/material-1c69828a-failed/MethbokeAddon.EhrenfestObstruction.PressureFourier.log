@@ -1,0 +1,25 @@
+MethbokeAddon/EhrenfestObstruction/PressureFourier.lean:57:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  IntegrableOn (datumFourierIntegrand (pressureAsFirstComponent p) k 0) unitCube volume
+but is expected to have type
+  IntegrableOn (fun x => star (fourierCharacter k x) * ↑(p x)) unitCube volume
+MethbokeAddon/EhrenfestObstruction/PressureFourier.lean:101:55: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (SingularClosure.gradient p x).ofLp i
+in the target expression
+  (fun a => star (fourierCharacter k a) * ↑((SingularClosure.gradient p a).ofLp i)) x =
+    (fun a => star (fourierCharacter k a) * ↑((coordinateDerivative (pressureAsFirstComponent p) i a).ofLp 0)) x
+
+p : Vec → ℝ
+hp : ContDiff ℝ ∞ p
+hperiod : SpatialPeriodic p
+k : Frequency
+i : Fin 3
+hcomponent :
+  ∀ (x : Vec), (SingularClosure.gradient p x).ofLp i = (coordinateDerivative (pressureAsFirstComponent p) i x).ofLp 0
+x : Vec
+⊢ (fun a => star (fourierCharacter k a) * ↑((SingularClosure.gradient p a).ofLp i)) x =
+    (fun a => star (fourierCharacter k a) * ↑((coordinateDerivative (pressureAsFirstComponent p) i a).ofLp 0)) x
+MethbokeAddon/EhrenfestObstruction/PressureFourier.lean:129:22: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

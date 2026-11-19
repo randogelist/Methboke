@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.6.0",
-  "status": "SECOND_LAYER_ACCEPTED_THIRD_LAYER_PENDING",
+  "status": "SECOND_LAYER_ACCEPTED_THIRD_LAYER_REPAIR_PENDING",
   "metadata_basis": "7908890a0afb1746ec43f127792a7e0cc667dca6",
   "accepted_new_declarations": 108,
   "local_lean_executions": 0,
@@ -181,11 +181,36 @@
       "standard_axioms_only": true,
       "local_lean_executions": 0,
       "conclusion": "PASS"
+    },
+    {
+      "commit": "1c69828a9ce7929a10ba1b3d0036f6869305cf7d",
+      "run_id": 44637424868,
+      "conclusion": "FAIL_MODULE_COMPILATION",
+      "compiled_modules_passed": 395,
+      "reused_modules": 392,
+      "fresh_compiler_passes": 3,
+      "failed_modules": [
+        "ErrorState",
+        "PressureFourier"
+      ],
+      "failed_module_count": 2,
+      "blocked_module_count": 14,
+      "audits_reached": false,
+      "newly_accepted_declarations": 0,
+      "evidence": "../../audits/material-1c69828a-failed/summary.json"
     }
   ],
   "repair": {
-    "status": "ACCEPTED_AT_790",
-    "further_repair_pending": false
+    "status": "TWO_PROOF_BODY_REPAIRS_PREPARED_FOR_EXTERNAL_REPLAY",
+    "failed_commit": "1c69828a9ce7929a10ba1b3d0036f6869305cf7d",
+    "failed_run": 44637424868,
+    "sources": [
+      "PressureFourier",
+      "ErrorState"
+    ],
+    "scope": "Only the two diagnosed proof bodies; public statements and all consumer audits unchanged.",
+    "new_audits_passed": 0,
+    "prior_accepted_declarations_preserved": 108
   },
   "pending_new_declarations": 75,
   "accepted_packages": {
@@ -359,7 +384,7 @@
     "new_owned_modules": 12,
     "new_packages": 7,
     "named_audits": 75,
-    "status": "ACTIVATED_PENDING_EXTERNAL_CI"
+    "status": "ACTIVE_REPAIR_PENDING_EXTERNAL_CI"
   },
   "counts_file": "COUNT_RECONCILIATION.json",
   "next_required_helper": "E09.bound",
@@ -386,16 +411,16 @@
     "named_audits": 373
   },
   "third_layer": {
-    "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+    "status": "FAILED_COMPILATION_REPAIR_PENDING",
     "new_owned_modules": 12,
     "new_packages": 7,
     "named_audits": 75,
     "theorems": 74,
     "definitions": 1,
     "accepted_declarations": 0,
-    "tested_commit": null,
-    "run_id": null,
-    "evidence": null
+    "tested_commit": "1c69828a9ce7929a10ba1b3d0036f6869305cf7d",
+    "run_id": 44637424868,
+    "evidence": "../../audits/material-1c69828a-failed/summary.json"
   },
   "inactive_E01_retention": {
     "path": "PreparedE01",

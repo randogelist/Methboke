@@ -9,7 +9,7 @@
   "actual_new_lean_files": 30,
   "new_formal_acceptances": 108,
   "local_lean_executions": 0,
-  "external_compiler_runs": 8,
+  "external_compiler_runs": 9,
   "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
@@ -879,21 +879,21 @@
   "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
   "activation_register": "IMPLEMENTATION_STATUS.json",
   "current_external_run": {
-    "commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
-    "run_id": 44635322649,
-    "status": "ACCEPTED",
-    "evidence": "../../audits/material-7908890a-accepted/summary.json",
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44635322649",
-    "primary_job_id": 135952222336,
-    "acceptance_job_id": 135957041026,
-    "publication_passed": true,
-    "compiled_modules": 392,
-    "fresh_package_audits": 64,
-    "named_type_axiom_audits": 373,
-    "new_second_layer_declarations": 85,
-    "cumulative_ehrenfest_declarations": 108,
-    "standard_axioms_only": true,
-    "local_lean_executions": 0
+    "commit": "1c69828a9ce7929a10ba1b3d0036f6869305cf7d",
+    "run_id": 44637424868,
+    "conclusion": "FAIL_MODULE_COMPILATION",
+    "compiled_modules_passed": 395,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 3,
+    "failed_modules": [
+      "ErrorState",
+      "PressureFourier"
+    ],
+    "failed_module_count": 2,
+    "blocked_module_count": 14,
+    "audits_reached": false,
+    "newly_accepted_declarations": 0,
+    "evidence": "../../audits/material-1c69828a-failed/summary.json"
   },
   "planned_count_semantics": "Historical design:31 proposed modules and9 logical fast-root blocks. Concrete activation:18 owned sources. The separately held scalar-root closure uses25 owned sources after helper splitting; counts do not assert milestone acceptance.",
   "additional_active_helpers": [
@@ -984,7 +984,7 @@
     "E08"
   ],
   "next_external_run": {
-    "status": "THIRD_LAYER_PENDING",
+    "status": "THIRD_LAYER_TWO_SOURCE_REPAIR_PENDING",
     "commit": null,
     "run_id": null
   },

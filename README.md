@@ -55,6 +55,8 @@ E07 and E08 plus108 scoped declarations are accepted at7908890a, [run44635322649
 
 The [cumulative B-tier derivation](EHRENFEST_OBSTRUCTION_B_TIER.txt), [ten-step checklist](PREPRINT_FORMALISATION/EhrenfestObstruction/CHECKLIST.md), [source-exact identity cutouts](LEAN_CUTOUTS/EhrenfestObstruction/README.md), [fast-route identity index](LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md) and [53 pinned anchors](PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX_v0_3.json) remain available.
 
+Third-layer attempt `1c69828a` / [run 44637424868](https://github.com/randogelist/Methboke/actions/runs/44637424868) failed before audits: 395 modules passed (392 reused, 3 fresh), two failed and 14 were blocked. The two diagnosed proof bodies are prepared for replay; no third-layer declaration is accepted. The accepted 108 declarations and E07/E08 remain unchanged. [Failure evidence](audits/material-1c69828a-failed/summary.json).
+
 ## Fixed scope and useful identities
 
 Let `nu > 0`, `a` be smooth, divergence-free and mean-zero on the unit

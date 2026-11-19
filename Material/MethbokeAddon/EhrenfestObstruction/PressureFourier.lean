@@ -54,7 +54,10 @@ theorem scalarPressureFourierIntegrand_integrableOn
       unitCube volume := by
   have h := datumFourierIntegrand_integrableOn
     (pressureAsFirstComponent_contDiff p hp).continuous k (0 : Fin 3)
-  simpa only [datumFourierIntegrand, pressureAsFirstComponent_apply_zero] using h
+  change IntegrableOn (fun x : Vec =>
+    star (fourierCharacter k x) * (pressureAsFirstComponent p x 0 : ℂ))
+    unitCube volume at h
+  simpa only [pressureAsFirstComponent_apply_zero] using h
 
 theorem datumFourierCoeff_pressureAsFirstComponent_zero
     (p : Vec → ℝ) (k : Frequency) :
@@ -98,7 +101,12 @@ theorem datumFourierCoeff_gradient
       ∫ x in unitCube, star (fourierCharacter k x) *
         (coordinateDerivative (pressureAsFirstComponent p) i x 0 : ℂ)
     apply integral_congr_ae
-    exact Filter.Eventually.of_forall (fun x => by rw [hcomponent x])
+    refine Filter.Eventually.of_forall ?_
+    intro x
+    change star (fourierCharacter k x) * (SingularClosure.gradient p x i : ℂ) =
+      star (fourierCharacter k x) *
+        (coordinateDerivative (pressureAsFirstComponent p) i x 0 : ℂ)
+    exact congrArg (fun r : ℝ => star (fourierCharacter k x) * (r : ℂ)) (hcomponent x)
   have hfourier := congrFun (congrFun
     (datumFourierCoeff_coordinateDerivative i (pressureAsFirstComponent p)
       (pressureAsFirstComponent_contDiff p hp)

@@ -1,0 +1,17 @@
+MethbokeAddon/EhrenfestObstruction/ErrorState.lean:38:49: error(lean.unknownIdentifier): Unknown identifier `k`
+MethbokeAddon/EhrenfestObstruction/ErrorState.lean:38:76: error(lean.unknownIdentifier): Unknown identifier `k`
+MethbokeAddon/EhrenfestObstruction/ErrorState.lean:38:78: error(lean.unknownIdentifier): Unknown identifier `i`
+MethbokeAddon/EhrenfestObstruction/ErrorState.lean:54:13: error: unsolved goals
+N : ℕ
+c v : FourierCoeff
+⊢ 2 * ∑ i ∈ cutoffModes N, (2 * Real.pi) ^ 2 * ↑(galerkinFreqSq i) * ∑ i_1, Complex.normSq (c i i_1) +
+      2 * ((2 * Real.pi) ^ 2 * ↑(galerkinFreqSq sorry) * Complex.normSq (v sorry sorry)) =
+    2 * ∑ x ∈ cutoffModes N, (2 * Real.pi) ^ 2 * ↑(galerkinFreqSq x) * ∑ i, Complex.normSq (c x i) +
+      2 * ∑ x ∈ cutoffModes N, (2 * Real.pi) ^ 2 * ↑(galerkinFreqSq x) * ∑ i, Complex.normSq (v x i)
+MethbokeAddon/EhrenfestObstruction/ErrorState.lean:54:27: warning: This simp argument is unused:
+  Finset.sum_add_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [← Finset.mul_sum]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

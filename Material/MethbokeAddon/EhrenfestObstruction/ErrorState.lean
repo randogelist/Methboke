@@ -33,9 +33,10 @@ theorem coefficientDissipation_add_le_twice (N : ℕ) (c v : FourierCoeff) :
       2 * coefficientDissipation N c + 2 * coefficientDissipation N v := by
   unfold coefficientDissipation
   calc
-    _ ≤ ∑ k ∈ cutoffModes N, ∑ i : Fin 3,
-        2 * ((2 * Real.pi) ^ 2 * (galerkinFreqSq k : ℝ) * Complex.normSq (c k i)) +
-        2 * ((2 * Real.pi) ^ 2 * (galerkinFreqSq k : ℝ) * Complex.normSq (v k i)) := by
+    _ ≤ (∑ k ∈ cutoffModes N,
+        (∑ i : Fin 3,
+          (2 * ((2 * Real.pi) ^ 2 * (galerkinFreqSq k : ℝ) * Complex.normSq (c k i)) +
+          2 * ((2 * Real.pi) ^ 2 * (galerkinFreqSq k : ℝ) * Complex.normSq (v k i))))) := by
       apply Finset.sum_le_sum
       intro k hk
       apply Finset.sum_le_sum
@@ -51,7 +52,7 @@ theorem coefficientDissipation_add_le_twice (N : ℕ) (c v : FourierCoeff) :
           Complex.normSq (c k i + v k i) ≤
           2 * ((2 * Real.pi) ^ 2 * (galerkinFreqSq k : ℝ) * Complex.normSq (c k i)) +
           2 * ((2 * Real.pi) ^ 2 * (galerkinFreqSq k : ℝ) * Complex.normSq (v k i)))
-    _ = _ := by simp only [Finset.sum_add_distrib, ← Finset.mul_sum]
+    _ = _ := by simp only [Finset.sum_add_distrib, Finset.mul_sum]
 
 /-- Reconstructing the Galerkin state from error plus reference. -/
 theorem coefficientDissipation_le_error_plus_reference
