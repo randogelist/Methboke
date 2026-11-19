@@ -4,14 +4,15 @@
 \usepackage{lmodern}
 \usepackage{mathpazo}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage[margin=27mm,headheight=14pt,headsep=9mm,footskip=12mm]{geometry}
-\usepackage{microtype,fancyhdr,booktabs,longtable,array,enumitem,xcolor,seqsplit}
+\usepackage[margin=27mm,headheight=24pt,headsep=9mm,footskip=12mm]{geometry}
+\usepackage{microtype,fancyhdr,booktabs,longtable,array,enumitem,xcolor,seqsplit,needspace,listings}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
 \definecolor{paperteal}{HTML}{216C68}
 \definecolor{paperrule}{gray}{0.72}
 \hypersetup{colorlinks=true,linkcolor=paperteal,citecolor=paperteal,urlcolor=paperteal,
- pdftitle={A finite Fourier-budget criterion for global Navier--Stokes regularity on the three-torus},
+ pdftitle={Finite Fourier budgets and global continuation for the periodic Navier--Stokes equations},
+ pdfauthor={Simon Suchan},
  pdfsubject={Weak Fourierman B: ten-step derivation and formal verification},
  pdfkeywords={Navier-Stokes, Fourier budget, continuation, critical Sobolev data, Lean}}
 \urlstyle{tt}
@@ -24,7 +25,7 @@
 \fancyhf{}
 \fancyhead[L]{\small Periodic Navier--Stokes equations}
 \fancyhead[R]{\small Finite Fourier budgets}
-\fancyfoot[L]{\small Preprint draft\enspace$\cdot$\enspace19 November 2026}
+\fancyfoot[L]{\small Preprint v1.1\enspace$\cdot$\enspace19 November 2026}
 \fancyfoot[R]{\small\thepage}
 \renewcommand{\headrulewidth}{0.35pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{paperrule}\leaders\hrule height \headrulewidth\hfill}}
@@ -54,45 +55,54 @@
 \newcommand{\hash}[1]{{\small\ttfamily\seqsplit{#1}}}
 \newcommand{\step}[2]{\par\medskip\noindent\textbf{Step #1. #2}\par\smallskip}
 \newcommand{\sourcecommit}{fdb515d8bde35ec8021bbc26f360aca8dfa2855c}
+\newcommand{\anchor}[3]{\href{https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/#1\#L#2}{\decl{#3}}}
+\newcommand{\vanchor}[3]{\href{https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/#1\#L#2}{\decl{#3}}}
+
+\lstdefinestyle{leanstatement}{
+ basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,
+ keepspaces=true,showstringspaces=false,aboveskip=8pt,belowskip=8pt,
+ literate={ℝ≥0∞}{{$\mathbb R_{\ge0}^{\infty}$}}5
+ {ν}{{$\nu$}}1 {ℝ}{{$\mathbb R$}}1 {≥}{{$\ge$}}1 {≤}{{$\le$}}1
+ {∞}{{$\infty$}}1 {⊤}{{$\top$}}1 {∀}{{$\forall$}}1
+ {∃}{{$\exists$}}1 {∧}{{$\land$}}1 {→}{{$\to$}}1}
 
 \begin{document}
 \begin{center}
-{\LARGE\bfseries A finite Fourier-budget criterion\par
-for global Navier--Stokes regularity\par
-on the three-torus\par}
+{\LARGE\bfseries Finite Fourier budgets and global continuation\par
+for the periodic Navier--Stokes equations\par}
 \vspace{7pt}
-{\large\color{paperteal} From critical Sobolev smallness to same-trajectory continuation\par}
+{\large\color{paperteal} A quantitative criterion and its Lean-verified realization\par}
+\vspace{11pt}
+{\large Simon Suchan\par}
+\vspace{4pt}
+{\small 19 November 2026\enspace$\cdot$\enspace Version 1.1\par}
 \end{center}
 \vspace{3pt}
 \noindent\textbf{Abstract.}
-For the unforced Navier--Stokes equations on the unit three-torus, we present
-a finite-horizon Fourier criterion for global smooth continuation of the
-unique maximal classical solution. The hypothesis is finiteness of the
-squared full Fourier enstrophy integrated up to the smaller of the maximal
-lifetime and the explicit time $\tq=\norm{a}{2}^4/(8\pi^2\nu^5)$.
-An enstrophy inequality and Gronwall give a uniform $H^1$ bound; a common
-local restart time then forces strict passage beyond $\tq$.
-An inherited QFB theorem supplies a smooth tail of the same original
-Leray--Hopf trajectory, and normalized-pressure agreement permits a smooth
-global splice. We organize the argument into ten steps and connect it to the
-small-$H^{1/2}$ theorem of \cite{small}, obtaining the explicit budget
-$\norm{a}{\HH{1/2}}^4/[64\pi^4(\nu-P\norm{a}{\HH{1/2}})]$ under strict
-critical smallness. The exact WFB endpoint has matching external Lean
-compilation and theorem-level axiom-audit evidence. The finite-budget
-hypothesis is retained throughout; it is not established for every smooth datum.
+Let $a$ be a smooth, divergence-free, mean-zero datum for the unforced
+Navier--Stokes equations on the unit three-torus, with viscosity $\nu>0$.
+For its maximal classical velocity $u$, write
+$Q_u(t)=\sum_{k\ne0}|k|^2|\widehat u(t,k)|^2$ and
+$\tq=\norm{a}{2}^4/(8\pi^2\nu^5)$.
+We prove that finiteness of $\int_{(0,\min\{\Tmax,\tq\})}Q_u(t)^2\,dt$
+implies $\Tmax=\infty$ and preserves both the velocity and normalized
+pressure. The proof combines an enstrophy estimate, uniform $H^1$
+restart times and a quantitative eventual-regularity theorem for the same
+Leray--Hopf trajectory. We state the exact external restart theorem used
+for the latter and derive the cutoff from the weak energy inequality.
+For smooth small critical data we obtain the explicit budget
+$h_0^4/[64\pi^4(\nu-Ph_0)]$, where
+$h_0=\norm{a}{\HH{1/2}}$ and $P$ is a product of admissible Sobolev constants.
+Within the smooth data class, the finite-budget condition characterizes
+global regularity; it is a condition on the solution trajectory, and its
+universal validity remains open. The conditional forward theorem has
+external Lean compilation and exact-type and axiom-audit evidence.
 
 \medskip
 \noindent\textbf{Keywords.} Periodic Navier--Stokes equations; Fourier enstrophy;
-finite-horizon continuation; critical Sobolev smallness; Leray--Hopf solutions;
+continuation criteria; eventual regularity; critical Sobolev spaces;
 formal verification.
 
-\medskip
-\noindent\textbf{Verification status.}
-The exact conditional WFB endpoint and its contextual obligations are
-externally verified at the source revision recorded in Appendix~\ref{app:evidence}.
-This paper is a mathematical exposition of that endpoint and a reconstruction
-of its connection to \cite{small}. The arbitrary-admissible-constant
-small-data argument is not claimed to be a newly formalized proof.
 
 \section{Equation and scope}
 We consider
@@ -110,33 +120,67 @@ Velocity and pressure are periodic, and pressure is fixed by
 $\int_\T p(t,x)\,dx=0$. Smoothness at $t=0$ is understood on the closed
 forward spacetime domain, with right time derivatives there.
 
-The starting publication \cite{small} proves global regularity for small
-critical Sobolev data. Its analytic argument contains two distinct components:
-a smallness-dependent coercive estimate that generates a quartic gradient
-budget, and a continuation argument that uses such a budget. The latter
-component does not require the datum itself to be small.
+The condition studied here is a finite-horizon version of the usual
+fourth-power enstrophy continuation condition. Its local analytic content
+is classical: on the mean-zero torus,
+\[
+ \int_0^T\norm{\nabla u(t)}{2}^4\,dt<\infty
+ \quad\Longrightarrow\quad u\in L^4(0,T;L^6).
+\]
+The pair $(4,6)$ satisfies $2/4+3/6=1$ and belongs to the
+Prodi--Serrin conditional-uniqueness range. Prodi's original theorem
+\cite{prodi} treats the corresponding integrability class in its original
+boundary-value setting. We use the periodic $H^1$ local theory of
+Tao \cite[Theorem~5.1 and Corollary~5.2]{tao} and prove the continuation
+estimate directly below, so no transfer of a boundary-value theorem to
+the torus is implicit.
 
-The present criterion, called \emph{Weak\_Fourierman\_B} (WFB) in the formal
-development, uses a budget only on the open interval ending at
-$\min\{\Tmax,\tq\}$. The additional QFB result supplies eventual smoothness
-after $\tq$ for the same original weak trajectory. The proof must therefore
-establish a \emph{strict} overlap between the classical interval and the
-regular tail. Merely reaching the cutoff is insufficient.
+Eventual regularity of periodic Leray--Hopf solutions provides the second
+ingredient. For example, Hoang and Martinez
+\cite[Theorem~2.4]{hoangmartinez} give quantitative eventual Gevrey
+regularity of a fixed periodic weak solution. Their normalization and
+constants differ from those used here. Our explicit cutoff is derived
+from the fixed-constant restart theorem in the pinned QFB development
+\cite{methlib}, whose exact statement is recalled in
+Proposition~\ref{prop:admission}. QFB abbreviates the source project's
+\emph{Quasi-Fefferman-B} eventual-regularity theorem; it is not an
+assumption of pre-cutoff smoothness.
 
-The analytical dependence is
+The present contribution is the precise finite-cutoff composition and
+its formal realization. We establish strict overlap with the regular
+tail, retain one original weak trajectory throughout the comparison,
+and preserve the normalized pressure as well as velocity. The root
+\emph{Weak\_Fourierman\_B} (WFB) has been checked in the formal
+source package \cite{methboke}. The ten steps in Section~\ref{sec:proof}
+exhibit the complete dependence of this result on its analytic inputs.
+
+The small-$H^{1/2}$ preprint \cite{small} supplies a complementary,
+quantitative certificate. Its coercive estimate generates a quartic
+\emph{gradient} budget under strict critical smallness. We reconstruct
+that estimate before globalization and convert it to the exact Fourier
+normalization used by WFB. The two logical uses of a budget are thus
 \[
 \begin{gathered}
-\text{finite Fourier budget}\ \Longrightarrow\ \text{uniform }H^1\text{ bound}
-\ \Longrightarrow\ \tq<\Tmax,\\
-\text{strict overlap}+\text{same-trajectory QFB tail}
-\ \Longrightarrow\ \text{global smooth continuation}.
+\text{critical smallness}\ \Longrightarrow\ \text{finite Fourier budget},\\
+\text{finite Fourier budget}\ \Longrightarrow\ \text{uniform }H^1
+\ \Longrightarrow\ \tq<\Tmax
+\ \Longrightarrow\ \text{global continuation}.
 \end{gathered}
 \]
-Critical smallness gives one explicit sufficient condition for the first
-hypothesis. The paper does not prove that this hypothesis holds for all of
-$\D$, nor does it claim a result for general rough data through the WFB
-statement. The rough-$H^{1/2}$ trace and compactness theory in \cite{small}
-remains a separate result.
+The last implication uses the same-trajectory eventual-regularity theorem.
+The general criterion retains the budget as a hypothesis. It does not
+supply a bound for arbitrary large smooth data, and it does not replace
+the rough-data compactness and initial-trace argument of \cite{small}.
+
+The organization is as follows. Section~\ref{sec:main} states the main
+result and fixes normalization. Sections~\ref{sec:local}--\ref{sec:continue}
+develop the local construction, the small-data certificate and the
+continuation argument. Section~\ref{sec:tail} defines the weak-solution
+class and derives the quantitative tail from its stated restart input.
+Sections~\ref{sec:proof}--\ref{sec:classes} prove the main theorem and
+its converse within the smooth class. The appendices identify the exact
+formal statements, source revisions and retained verification evidence.
+
 
 \section{Normalization and the main theorem}\label{sec:main}
 \subsection{Fourier coefficients and physical quantities}
@@ -148,7 +192,14 @@ For a periodic real vector field, set
  \norm{u}{\HH{s}}^2=\sum_{k\ne0}(2\pi|k|)^{2s}|\widehat u(k)|^2.
 \end{equation}
 Coefficient norms are Euclidean norms on $\mathbb C^3$.
-Write $\Lambda=(-\Delta)^{1/2}$ and use the paper's notation
+The Leray projection $\Psol$ is the $L^2$ orthogonal projection onto
+solenoidal fields; its nonzero-frequency symbol is
+$I-k\otimes k/|k|^2$. The homogeneous norms below are used for mean-zero
+fields.
+Write $\Lambda=(-\Delta)^{1/2}$. Throughout, $\norm{\cdot}{p}$ denotes
+the spatial $L^p(\T)$ norm, and
+$\norm{u}{H^1}^2=\norm{u}{2}^2+\norm{\nabla u}{2}^2$.
+We use the notation of \cite{small}
 \begin{equation}\label{eq:energies}
 \begin{aligned}
  E(u)&=\norm{u}{\HH{1/2}}^2,&
@@ -186,13 +237,13 @@ is empty and the budget is zero. In the formal statement the minimum is
 taken in the extended nonnegative reals \emph{before} conversion to a real
 endpoint; Appendix~\ref{app:semantics} records the precise expression.
 
-\begin{theorem}[Weak\_Fourierman\_B]\label{thm:wfb}
+\begin{theorem}[Finite-cutoff continuation; WFB]\label{thm:wfb}
 Let $\nu>0$ and $a\in\D$. There exists a unique maximal classical trajectory
 $(u,p)$ with $\Tmax\in(0,\infty]$. If
 \begin{equation}\label{eq:mainbudget}
  \Budget_{\min\{\Tmax,\tq(a,\nu)\}}(u)<\infty,
 \end{equation}
-then $\Tmax=\infty$. There is a global smooth solution pair $(U,\Pi)$ of
+then $\Tmax=\infty$ and there exists a global smooth solution pair $(U,\Pi)$ of
 \eqref{eq:nse}, with zero velocity mean and normalized pressure, such that
 \begin{equation}\label{eq:preservation}
  U(t)=u(t),\qquad \Pi(t)=p(t),\qquad 0\le t<\Tmax.
@@ -200,11 +251,14 @@ then $\Tmax=\infty$. There is a global smooth solution pair $(U,\Pi)$ of
 In particular, the conclusion preserves the entire original trajectory.
 \end{theorem}
 
-The proof uses the local theory, physical estimates and same-witness QFB
-tail stated below. They are proved or imported endpoints of the accepted
-formal development, rather than unspecified analytic premises of its root
-declaration. The budget \eqref{eq:mainbudget}, by contrast, is an explicit
-hypothesis of both the mathematical and formal statements.
+The theorem uses the quantitative restart result of
+Proposition~\ref{prop:admission}, from which Section~\ref{sec:tail} derives
+the required QFB tail. This input is an imported proved theorem in the
+formal root, not an additional argument to its signature. The budget
+\eqref{eq:mainbudget} remains an explicit hypothesis. Since it involves
+the maximal solution and its lifetime, it is an \emph{a posteriori}
+trajectory criterion; Corollary~\ref{cor:smallbudget} provides a sufficient
+condition expressed solely in the initial datum.
 
 \begin{remark}[Equivalent physical hypothesis]\label{rem:physical}
 On the classical interval, Parseval gives
@@ -287,7 +341,8 @@ This section reconstructs the mechanism in \cite[Lemmas~4.1--4.2]{small}
 on the \emph{already existing} smooth lifespan. Global existence is not
 used to obtain the estimate.
 
-Fix admissible positive Sobolev constants $S_6,S_3$ such that
+Fix admissible positive Sobolev constants $S_6,S_3$ such that every
+smooth, real, periodic, solenoidal, mean-zero field satisfies
 \begin{equation}\label{eq:sobolev}
  \norm{u}{6}\le S_6\sqrt{Y(u)},\qquad
  \norm{Du}{L^3(\mathrm{op})}\le S_3\sqrt{Z(u)}.
@@ -478,34 +533,150 @@ The contradiction argument includes the equality case $\Tmax=\tq>0$.
 \end{proof}
 
 \section{The original weak trajectory and its regular tail}\label{sec:tail}
-This section states the additional QFB input used by WFB. It is not a
-consequence attributed to the small-$H^{1/2}$ publication. Its exact
-formal endpoints are retained in the pinned source package \cite{methlib}
-and in the accepted Methboke closure \cite{methboke}.
+\subsection{Weak-solution class and comparison}
+\begin{definition}[Leray--Hopf representative]\label{def:LH}
+A mean-zero periodic Leray--Hopf solution with datum $a\in L^2_{\sigma,0}$
+is a velocity $v$ with
+\[
+ v\in L^\infty_{\mathrm{loc}}([0,\infty);L^2_{\sigma,0})
+ \cap L^2_{\mathrm{loc}}([0,\infty);H^1_{\sigma,0}),
+ \qquad v\in C_w([0,\infty);L^2_{\sigma,0}),
+\]
+which solves the momentum equation against every smooth, periodic,
+solenoidal test field compactly supported in positive time. Its weak
+spatial gradient is denoted by $G=\nabla v$ almost everywhere.
+The representative satisfies $v(0)=a$, $v(t)\to a$ strongly in $L^2$
+as $t\downarrow0$, and
+\begin{equation}\label{eq:LHenergy}
+ \norm{v(t)}{2}^2+2\nu\int_s^t\norm{G(r)}{2}^2\,dr
+ \le\norm{v(s)}{2}^2
+\end{equation}
+for $s=0$ and every $t\ge0$, and, on every finite time interval, for
+almost every starting time $s$ and every later $t$ in that interval.
+Equalities between weak trajectories are equalities of spatial $L^2$
+classes at the indicated times.
+\end{definition}
+Here $\norm{G}{2}$ uses the Hilbert--Schmidt matrix norm. Equivalently, the
+weak momentum identity for a positive-time test field $\varphi$ is
+\[
+ \int_0^\infty\!\int_\T
+ \bigl(v\cdot\partial_t\varphi+(v\otimes v):\nabla\varphi
+       -\nu G:\nabla\varphi\bigr)\,dx\,dt=0.
+\]
+Weak solutions in this class exist for the present data; the exact
+formal existence endpoint is
+\vanchor{Endpoints/LerayHopfExistence.lean}{35}{Q01_LERAY_HOPF_EXISTENCE}.
+Fix one such pair $(v,G)$ once and for all.
 
-\begin{proposition}[Inherited QFB tail and comparison]\label{prop:qfb}
-For $\nu>0$ and $a\in\D$, a global Leray--Hopf velocity $v$ with initial
-datum $a$ exists. Fix one such original weak trajectory, together with
-its weak-gradient witness. The following assertions hold.
-\begin{enumerate}[label=(\roman*),leftmargin=2em,itemsep=2pt]
-\item On every compact classical interval with datum $a$, weak--strong
-comparison identifies $v(t)$ with the classical velocity spatially almost
-everywhere, at each time in that interval.
-\item For every $d>\tq(a,\nu)$ there is a smooth periodic normalized pair
-$(w,q)$ on $[d,\infty)$ solving the evolution and incompressibility
-equations in \eqref{eq:nse} on that interval, such that
-$v(t)=w(t)$ spatially almost everywhere for every $t\ge d$.
-\end{enumerate}
+\begin{lemma}[Comparison with the classical interval]\label{lem:weakstrong}
+For every $0\le t<\Tmax$, the fixed weak representative satisfies
+$v(t)=u(t)$ in $L^2$, hence spatially almost everywhere.
+\end{lemma}
+\begin{proof}
+Fix $0<b<\Tmax$. Testing the weak equation with a time-cutoff version of
+the smooth field $u$, and combining the resulting cross-term identity
+with the weak energy inequality and the classical energy identity,
+gives, for $z=v-u$ and almost every $t\in[0,b]$,
+\[
+ \tfrac12\norm{z(t)}{2}^2+\nu\int_0^t\norm{\nabla z(r)}{2}^2\,dr
+ \le-\int_0^t\!\int_\T ((z\cdot\nabla)u)\cdot z\,dx\,dr
+ \le\int_0^t\norm{\nabla u(r)}{\infty}\norm{z(r)}{2}^2\,dr.
+\]
+The testing is justified by smooth approximation of the time cutoff;
+the strong initial trace identifies the initial cross term, and the
+energy-class bounds make every displayed integral finite. Smoothness
+of $u$ on the compact slab makes $\norm{\nabla u}{\infty}$ bounded.
+Gronwall gives $z=0$ for almost every time. For every fixed spatial
+$L^2$ test field, the pairing with $v-u$ is continuous in time by weak
+continuity of $v$ and strong continuity of $u$. A continuous scalar
+function vanishing almost everywhere vanishes everywhere. Thus the
+equality holds at every time in $[0,b]$; exhaustion gives the result.
+\end{proof}
+
+\subsection{The quantitative restart input}
+The following is the exact external small-data input used by the
+QFB construction. It is separate from the arbitrary-admissible-constant
+estimate in Section~\ref{sec:smallbudget}.
+
+\begin{proposition}[Fixed-constant restart theorem, inherited]\label{prop:admission}
+Let $b\in H^1_{\sigma,0}(\T)$ be real and let $\nu>0$. If
+\begin{equation}\label{eq:exactadmission}
+ \norm{b}{\HH{1/2}}^2<2\pi\nu^2,
+\end{equation}
+there is a global positive-time smooth normalized NSE pair with strong
+$L^2$ trace $b$ at time zero. Its velocity belongs to
+$L^4(0,T;L^6)$ for every finite $T$. Every Leray--Hopf solution with datum
+$b$ agrees with this reference velocity in $L^2$ at every positive time.
 \end{proposition}
 
-The existence and tail declarations are, respectively,
-\decl{QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE} and
-\decl{QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS}.
-Finite weak--strong comparison supplies part (i). The all-times
-representative statement is relevant: space-time almost-everywhere
-agreement alone must not silently be read as pointwise agreement at
-every time. The imported predicates and comparison endpoints provide
-the required representatives.
+This proposition is used as an external proved result. Its existence,
+trace and finite-window $L^4L^6$ assertion are the concrete content of
+\decl{ExactH1Admission}, supplied by
+\vanchor{CaloricNumericalAdmission.lean}{53}{EXACT_H1_ADMISSION_UNCONDITIONAL}
+in \cite{methlib}. The comparison assertion follows from the separately
+proved positive-flow relative-energy theorem. The underlying proof
+constructs a uniform caloric Galerkin budget, passes to a physical flow,
+and establishes positive-time regularity and the strong trace. Its numerical normalization is
+$B=\norm{b}{\HH{1/2}}^2/(4\pi)$: the finite heat estimate and nonlinear
+barrier require $B<\nu^2/2$ and yield a uniform Galerkin time budget.
+This explains the threshold $2\pi\nu^2$ in \eqref{eq:exactadmission}.
+We do not reproduce that construction here or identify its squared-norm threshold with
+$(\nu/P)^2$ for an arbitrary choice of the constants in
+\eqref{eq:sobolev}. Appendix~\ref{app:anchors} gives the corresponding
+source and evidence boundary.
+
+\subsection{Deriving the explicit cutoff}
+\begin{proposition}[Tail of the same original trajectory]\label{prop:qfb}
+For the fixed Leray--Hopf pair $(v,G)$ and every $d>\tq(a,\nu)$, there
+is a smooth periodic normalized pair $(w,q)$ on $[d,\infty)$ solving the
+evolution and incompressibility equations in \eqref{eq:nse}, with
+\begin{equation}\label{eq:tailAE}
+ v(t)=w(t)\quad\text{in }L^2(\T)\quad\text{for every }t\ge d.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Set $M=\norm{a}{2}^2$ and, for almost every time at which $v(t)\in H^1$,
+let $H(t)=\norm{v(t)}{\HH{1/2}}^2$. Fourier Cauchy--Schwarz and the
+weak energy inequality give
+\[
+ H(t)^2\le\norm{v(t)}{2}^2\norm{G(t)}{2}^2,
+ \qquad\norm{v(t)}{2}^2\le M,
+ \qquad\int_0^d\norm{G(t)}{2}^2\,dt\le\frac{M}{2\nu}.
+\]
+Consequently
+\begin{equation}\label{eq:weakcriticalbudget}
+ \int_0^d H(t)^2\,dt\le\frac{M^2}{2\nu}
+ <d(2\pi\nu^2)^2,
+ \qquad d>\frac{M^2}{8\pi^2\nu^5}.
+\end{equation}
+The almost-every-start energy inequality, together with the weak
+formulation and the energy class, ensures that almost every positive
+time is a valid Leray--Hopf restart time. Retain that full-measure set
+and the full-measure $H^1$ set when applying the strict mean-value
+argument to \eqref{eq:weakcriticalbudget}. It produces
+$s\in(0,d)$ such that $v(s)\in H^1_{\sigma,0}$, the time-translated
+pair $(v(s+\cdot),G(s+\cdot))$ is a Leray--Hopf solution with datum
+$v(s)$, and $H(s)<2\pi\nu^2$. This good-time selection is precisely
+\vanchor{GoodTime.lean}{73}{LH_GOOD_SUBCRITICAL_TIME}; the restart property
+is proved in \path{LHRestart.lean} of the same source package.
+
+Apply Proposition~\ref{prop:admission} at $v(s)$. Its comparison clause
+identifies the global smooth reference with the \emph{same} translated
+weak pair at every positive time. Since $s<d$, shifting this reference
+back and restricting to $t\ge d$ gives a pair smooth on a neighborhood
+of the closed tail, with normalized pressure and \eqref{eq:tailAE}.
+The formal tail endpoint is
+\vanchor{TailChain.lean}{13}{Q09_POST_CUTOFF_SMOOTHNESS}.
+\end{proof}
+
+\begin{remark}[Two different quartic budgets]\label{rem:twobudgets}
+The estimate \eqref{eq:weakcriticalbudget} controls
+$\int\norm{v(t)}{\HH{1/2}}^4\,dt$ for weak solutions. WFB requires
+$\int\norm{\nabla u(t)}{2}^4\,dt$, equivalently the squared Fourier
+enstrophy. These have different derivative orders. The universal weak
+energy estimate above does not establish the WFB budget.
+\end{remark}
+
 
 \begin{lemma}[Velocity and pressure on an open overlap]\label{lem:overlap}
 Suppose $d<\Tmax$, and let $(w,q)$ be the tail from Proposition~\ref{prop:qfb}
@@ -536,7 +707,7 @@ Choose finite times
  \tq<d<\eta<T<\Tmax.
 \end{equation}
 Such times exist by strict overlap, including when $\Tmax=\infty$.
-Fix one original weak witness and apply Proposition~\ref{prop:qfb} to
+Fix the original weak witness and apply Proposition~\ref{prop:qfb} to
 that witness with cutoff parameter $d$. Let $(w,q)$ be the resulting tail.
 Define
 \[
@@ -569,58 +740,50 @@ Maximality therefore gives $S\le\Tmax$. Since $S$ is arbitrary,
 $\Tmax=\infty$.
 \end{proof}
 
-For clarity, the complete publication-to-WFB route can now be recorded
-without merging the budget-generating and budget-using arguments.
+The ten steps below summarize the dependence of the proof. Steps 2--4
+supply a sufficient small-data certificate; Steps 5--10 use the finite
+budget without a smallness assumption.
 
-\step{1}{Construct the local and maximal classical pair.}
-Use the local $H^1$ theorem, smooth persistence and normalized uniqueness
-to obtain $(u,p)$ and $\Tmax>0$
-(Propositions~\ref{prop:local}--\ref{prop:maximal}).
+\step{1}{Local and maximal existence.}
+Uniform $H^1$ local theory and normalized uniqueness construct the pair
+$(u,p)$ with $\Tmax>0$ (Proposition~\ref{prop:maximal}).
 
-\step{2}{Identify critical coercivity on the small-data branch.}
-For $\delta=\nu-P\norm{a}{\HH{1/2}}>0$, the interpolation and product
-estimates imply $E\le h_0^2$ and $E'+2\delta Z\le0$
-(Lemma~\ref{lem:critical} and Proposition~\ref{prop:quartic}).
+\step{2}{Critical coercivity.}
+If $\delta=\nu-Ph_0>0$, then $E\le h_0^2$ and
+$E'+2\delta Z\le0$ (Proposition~\ref{prop:quartic}).
 
-\step{3}{Extract one quartic gradient budget.}
-Multiplication by $2E$ gives
-$E(b)^2+4\delta\int_0^bY^2\le h_0^4$ for every shorter interval.
-The common bound passes to $(0,L)$ by monotone convergence.
+\step{3}{Quartic gradient control.}
+The inequality $(E^2)'+4\delta Y^2\le0$ gives one bound on every
+shorter interval, which passes to $(0,L)$ by monotone convergence.
 
-\step{4}{Convert the budget into the full Fourier normalization.}
-The identity $Y=4\pi^2Q_u$ gives
-$\Budget_L\le h_0^4/(64\pi^4\delta)$ for small data.
-For general smooth data, retain $\Budget_L<\infty$ as an explicit
-hypothesis (Corollary~\ref{cor:smallbudget}).
+\step{4}{Fourier normalization.}
+$Y=4\pi^2Q_u$ yields $\Budget_L\le h_0^4/(64\pi^4\delta)$.
+For general smooth data, retain $\Budget_L<\infty$ as the hypothesis.
 
-\step{5}{Use the enstrophy inequality independently of smallness.}
-The physical calculation yields $Y'+\nu W\le C\nu^{-3}Y^3$
-for every smooth solution (Lemma~\ref{lem:enstrophy}).
+\step{5}{Enstrophy evolution.}
+Every smooth solution satisfies $Y'+\nu W\le C\nu^{-3}Y^3$
+(Lemma~\ref{lem:enstrophy}).
 
-\step{6}{Control all pre-endpoint slices by one $H^1$ bound.}
-Gronwall with coefficient $C\nu^{-3}Y^2$, followed by mean-zero
-Poincar\'e, gives \eqref{eq:H1bound} uniformly on $(0,L)$
-(Proposition~\ref{prop:H1}).
+\step{6}{Uniform pre-endpoint control.}
+Gronwall and Poincar\'e bound $\norm{u(t)}{H^1}$ by one constant for
+all $0\le t<L$ (Proposition~\ref{prop:H1}).
 
-\step{7}{Restart without assuming a terminal trace.}
-The common local lifespan permits a restart at an interior smooth slice
-close enough to a finite endpoint to extend beyond it
-(Proposition~\ref{prop:continue}).
+\step{7}{Actual continuation.}
+A common restart duration extends a finite front from an interior
+smooth slice, without a terminal trace (Proposition~\ref{prop:continue}).
 
-\step{8}{Exclude both an early endpoint and cutoff equality.}
-If $\Tmax\le\tq$, the budget controls the whole maximal interval and
-Step~7 contradicts maximality. Thus $\tq<\Tmax$
-(Proposition~\ref{prop:strict}).
+\step{8}{Strict cutoff passage.}
+The case $\Tmax\le\tq$ contradicts maximality; hence
+$\tq<\Tmax$ (Proposition~\ref{prop:strict}).
 
-\step{9}{Attach the tail of the same original weak trajectory.}
-Q01, finite weak--strong comparison and Q09 give an open overlap.
-Pointwise velocity and normalized-pressure agreement make the splice
-smooth (Section~\ref{sec:tail}). These are additional QFB inputs.
+\step{9}{Same-trajectory tail.}
+Weak--strong comparison and the quantitative tail theorem identify
+velocity and normalized pressure on an open overlap
+(Propositions~\ref{prop:qfb} and~\ref{prop:splice}).
 
-\step{10}{Conclude infinite lifetime and preserve the pair.}
-Every finite restriction of the global splice is an initial front.
-Maximality forces $\Tmax=\infty$ and gives the full conclusion of
-Theorem~\ref{thm:wfb}.
+\step{10}{Global continuation.}
+The global splice supplies fronts of every finite duration, forcing
+$\Tmax=\infty$ and preserving the original pair (Theorem~\ref{thm:wfb}).
 
 \section{Small-data inclusion and the remaining universal question}\label{sec:classes}
 For fixed $\nu>0$ and admissible $P$, define
@@ -637,58 +800,85 @@ For fixed $\nu>0$ and admissible $P$, define
 The maximal velocity $u_a$ in \eqref{eq:wclass} is well defined by
 Proposition~\ref{prop:maximal}, before any assertion of global regularity.
 
-\begin{corollary}[The precise connection to the publication]\label{cor:inclusion}
+\begin{corollary}[Smooth-class characterization]\label{cor:inclusion}
+For every $\nu>0$,
 \begin{equation}\label{eq:inclusions}
- \mathcal S_\nu\subseteq\mathcal W_\nu\subseteq
- \mathcal R_\nu^{\mathrm{sm}}.
+ \mathcal S_\nu\subseteq\mathcal W_\nu
+ =\mathcal R_\nu^{\mathrm{sm}}.
 \end{equation}
 The first inclusion has the explicit certificate
-\eqref{eq:smallcertificate}; the second is WFB.
+\eqref{eq:smallcertificate}.
 \end{corollary}
 \begin{proof}
-For $a\in\mathcal S_\nu$, Corollary~\ref{cor:smallbudget} gives a
-finite bound with positive denominator, so $a\in\mathcal W_\nu$.
-Theorem~\ref{thm:wfb} gives the second inclusion.
+Corollary~\ref{cor:smallbudget} proves the first inclusion, and
+Theorem~\ref{thm:wfb} proves
+$\mathcal W_\nu\subseteq\mathcal R_\nu^{\mathrm{sm}}$.
+Conversely, let $a\in\mathcal R_\nu^{\mathrm{sm}}$ and fix a global
+smooth normalized pair $(U,\Pi)$. Its restriction to every finite
+interval is an initial classical solution. Maximality forces
+$\Tmax=\infty$, and uniqueness gives $(U,\Pi)=(u_a,p_a)$ for all
+nonnegative times. Smoothness on the compact cylinder
+$[0,\tq]\times\T$ gives a finite bound for $Y(U(t))$. Hence
+\begin{equation}\label{eq:conversebound}
+ \Budget_{\tq}(u_a)
+ \le\frac{\tq}{16\pi^4}
+       \max_{0\le t\le\tq}Y(U(t))^2<\infty.
+\end{equation}
+This also holds when $\tq=0$, with zero integral. Thus
+$a\in\mathcal W_\nu$.
 \end{proof}
 
-No strictness assertion is made for these inclusions. In particular, the
-notation does not by itself exhibit data beyond the small critical ball.
-The small-data sector here is the intersection of the publication's
-admissible class with smooth data. Its theorem for rough $H^{1/2}$ data
-also needs compactness and a strong initial trace; those arguments are
-not absorbed into the present WFB statement.
+The reverse inclusion is an elementary analytic corollary included in
+this manuscript; it is not represented as an additional audited Lean
+endpoint. No strictness of
+$\mathcal S_\nu\subseteq\mathcal W_\nu$ is proved here.
+The small-data sector is the intersection of the class in \cite{small}
+with smooth data. Its rough-$H^{1/2}$ theorem also requires compactness
+and a strong initial trace, which are not absorbed into WFB.
 
-The unresolved universal assertion relevant to this criterion is
+In particular, the remaining universal assertion
 \begin{equation}\label{eq:universal}
  \forall a\in\D,\qquad
- \Budget_{\min\{\Tmax(a),\tq(a,\nu)\}}(u_a)<\infty.
+ \Budget_{\min\{\Tmax(a),\tq(a,\nu)\}}(u_a)<\infty
 \end{equation}
-Combining \eqref{eq:universal} with WFB would give global smooth
-regularity for all data in $\D$. Neither the paper's small-data estimate
-nor the verified conditional root establishes \eqref{eq:universal}.
-The role of the finite cutoff is to limit the required control in time;
-it does not supply that control automatically.
+is equivalent, within this framework, to global smooth regularity for
+all data in $\D$. This equivalence explains the scope of the result:
+the finite cutoff limits the time interval that must be controlled,
+while the required bound on that interval remains the open analytic
+problem. Membership in $\mathcal W_\nu$ is defined through the unique
+maximal trajectory and is not asserted to have a terminating,
+initial-data-only decision procedure.
+
 
 \appendix
 \section{Exact mathematical and formal interfaces}\label{app:semantics}
-\subsection{The physical endpoint}
+\Needspace{9\baselineskip}\subsection{The physical endpoint}
 The root namespace is
 \decl{MethbokeAddon.WeakFouriermanB}.
-The declaration \decl{smooth_datum_maximal_classical_front_exists}
+The declaration \anchor{WeakFouriermanB.lean}{36}{smooth_datum_maximal_classical_front_exists}
 constructs an actual maximal front for every positive viscosity and every
 smooth periodic solenoidal mean-zero datum. Its final signature has no
 local-existence premise.
 
-The declaration \decl{Weak_Fourierman_B} takes such a maximal front and
-the budget predicate
-\begin{quote}\small\ttfamily\raggedright
-FourierBudgetFinite (fun t => datumFourierCoeff (u t))\\
-\quad (min Tmax (ENNReal.ofReal\\
-\qquad (cutoff (criticalL2Representative a) nu))).toReal
-\end{quote}
-and returns $\Tmax=\top$ together with an actual
-\decl{GlobalSmoothNSE} pair and pointwise agreement of velocity and
-pressure at every nonnegative original time.
+The full root signature below is reproduced from the immutable source,
+with only line wrapping changed. The enclosing namespace is
+\decl{MethbokeAddon.WeakFouriermanB}; the proof body is available through
+\anchor{WeakFouriermanB.lean}{53}{Weak_Fourierman_B}.
+\begin{lstlisting}[style=leanstatement]
+theorem Weak_Fourierman_B
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (_ha : SmoothSigmaZero a)
+    (u : Velocity) (p : Pressure) (Tmax : ℝ≥0∞)
+    (H : MaximalClassicalFront ν a u p Tmax)
+    (hbudget : FourierBudgetFinite (fun t => datumFourierCoeff (u t))
+      (min Tmax (ENNReal.ofReal (cutoff (criticalL2Representative a) ν))).toReal) :
+    Tmax = ⊤ ∧ ∃ (U : Velocity) (P : Pressure), GlobalSmoothNSE ν a U P ∧
+      ∀ t : ℝ, 0 ≤ t → ENNReal.ofReal t < Tmax → U t = u t ∧ P t = p t
+\end{lstlisting}
+The datum's maximal existence is a separate proved declaration; the root
+quantifies over any such maximal pair. Together with normalized
+uniqueness, these declarations justify the existence-and-uniqueness
+sentence in Theorem~\ref{thm:wfb}. The reverse inclusion of
+Corollary~\ref{cor:inclusion} is an analytic addition in this paper.
 
 The formal $\mathrm{GlobalSmoothNSE}$ structure states smoothness on the
 closed forward spacetime domain, actual time and spatial derivatives,
@@ -725,7 +915,7 @@ For zero initial data, $\tq=0$ and the budget is zero; positivity of the
 local lifespan already gives strict overlap. No division by initial
 enstrophy is used in the Gronwall argument.
 
-\clearpage
+\Needspace{12\baselineskip}
 \section{Publication steps and formal anchors}\label{app:anchors}
 The ten steps in Section~\ref{sec:proof} are expositional steps. They are
 not identical to the ten implementation obligations in the repository:
@@ -734,7 +924,7 @@ organizes the construction of the general conditional endpoint.
 The table below uses the \emph{expositional} numbering.
 
 \small
-\begin{longtable}{@{}p{0.055\linewidth}p{0.875\linewidth}@{}}
+\begin{longtable}{@{}p{0.055\linewidth}>{\raggedright\arraybackslash}p{0.875\linewidth}@{}}
 \toprule
 Step & Principal source and formal anchor\\
 \midrule
@@ -743,48 +933,57 @@ Step & Principal source and formal anchor\\
 \endhead
 \bottomrule\endfoot
 1 & \cite[Proposition~3.1]{small}; local existence and maximal assembly:
-\decl{uniform_H1_local_initial_classical_front_exists},
-\decl{initial_classical_front_unique},
-\decl{smooth_datum_maximal_classical_front_exists},
-\decl{maximal_classical_front_unique}.\\[7pt]
+\anchor{LocalExistence.lean}{46}{uniform_H1_local_initial_classical_front_exists},
+\anchor{LocalClassicalUniqueness.lean}{135}{initial_classical_front_unique},
+\anchor{WeakFouriermanB.lean}{36}{smooth_datum_maximal_classical_front_exists},
+\anchor{MaximalClassicalFront.lean}{165}{maximal_classical_front_unique}.\\[7pt]
 2 & \cite[Lemmas~4.1--4.2]{small}: interpolation, product bound and invariant
 critical ball. The arbitrary-admissible-constant presentation is analytic;
-the imported small-data development contains fixed-constant counterparts.\\[7pt]
+compiled counterparts include
+\decl{FINITE_CRITICAL_NONLINEAR_BOUND} and
+\decl{CRITICAL_ENERGY_INVARIANT} in the vendor
+\path{SingularClosure/CriticalNonlinear.lean} and
+\path{SingularClosure/CriticalInvariant.lean}.\\[7pt]
 3 & \cite[Lemma~4.2, Eq.~(4.4)]{small}: terminal quartic estimate and the
 common bound before globalization. The paper's Appendix~C distinguishes
-its Galerkin and physical-limit versions.\\[7pt]
+its Galerkin and physical-limit versions. Compiled counterparts include
+\decl{CRITICAL_SQUARE_BUDGET} and
+\decl{SMALL_DATA_LIMIT_PHYSICAL_SHARP_QUARTIC}; these intermediate names
+are not separate entries among the 265 fresh named audits.\\[7pt]
 4 & Exact physical--Fourier conversion:
-\decl{smoothSigmaZero_dissipation_eq_fourierEnstrophy};
-\decl{initial_front_dissipation_square_integrable_of_fourier_budget}.\\[7pt]
+\anchor{PhysicalFourier.lean}{130}{smoothSigmaZero_dissipation_eq_fourierEnstrophy};
+\anchor{PhysicalBudgetContinuation.lean}{38}{initial_front_dissipation_square_integrable_of_fourier_budget}.\\[7pt]
 5 & \cite[Lemma~5.1]{small}; physical formal evolution and absorption:
-\decl{PHYSICAL_NONLINEAR_ABSORPTION};
-\decl{INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC};
-\decl{initial_front_enstrophy_scalar_continuity}.\\[7pt]
+\anchor{PhysicalNonlinear.lean}{262}{PHYSICAL_NONLINEAR_ABSORPTION};
+\anchor{PhysicalEnstrophyEvolution.lean}{325}{INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC};
+\anchor{PhysicalEnstrophyEvolution.lean}{344}{initial_front_enstrophy_scalar_continuity}.\\[7pt]
 6 & Uniform physical bounds:
-\decl{initial_front_uniform_H1_of_dissipation_square};
-\decl{maximal_front_uniform_H1_before_budget_cap}.\\[7pt]
+\anchor{PhysicalBudgetContinuation.lean}{119}{initial_front_uniform_H1_of_dissipation_square};
+\anchor{PhysicalBudgetContinuation.lean}{156}{maximal_front_uniform_H1_before_budget_cap}.\\[7pt]
 7 & Actual restart and extension:
-\decl{initial_front_extend_from_restart};
-\decl{initial_front_extends_of_dissipation_square};
-\decl{maximal_classical_lifetime_eq_top_of_uniform_H1}.\\[7pt]
+\anchor{FiniteFrontGluing.lean}{88}{initial_front_extend_from_restart};
+\anchor{PhysicalEndpointContinuation.lean}{30}{initial_front_extends_of_dissipation_square};
+\anchor{StrongContinuation.lean}{42}{maximal_classical_lifetime_eq_top_of_uniform_H1}.\\[7pt]
 8 & Strict cutoff passage:
-\decl{maximal_classical_lifetime_strictly_exceeds_cutoff};
-\decl{maximal_front_exists_strictly_after_cutoff}.\\[7pt]
+\anchor{StrictCutoff.lean}{28}{maximal_classical_lifetime_strictly_exceeds_cutoff};
+\anchor{StrictCutoff.lean}{46}{maximal_front_exists_strictly_after_cutoff}.\\[7pt]
 9 & Original weak witness and one tail:
-\decl{maximal_front_original_leray_hopf};
-\decl{maximal_front_tail_overlap_of_same_leray_hopf};
-\decl{maximal_front_tail_gluing_of_leray_hopf}.
+\anchor{MaximalLerayHopfIdentification.lean}{51}{maximal_front_original_leray_hopf};
+\anchor{MaximalTailGluing.lean}{33}{maximal_front_tail_overlap_of_same_leray_hopf};
+\anchor{MaximalTailGluing.lean}{66}{maximal_front_tail_gluing_of_leray_hopf}.
 Imports Q01 and Q09 of Proposition~\ref{prop:qfb}.\\[7pt]
 10 & Global root:
-\decl{maximal_classical_front_global_of_strict_cutoff};
-\decl{Weak_Fourierman_B}.\\
+\anchor{WFBRootAssembly.lean}{32}{maximal_classical_front_global_of_strict_cutoff};
+\anchor{WeakFouriermanB.lean}{53}{Weak_Fourierman_B}.\\
 \end{longtable}
 \normalsize
 
 \begingroup\raggedright
-Except for the fully qualified QFB inputs, names in this table are in
-the namespace stated in Appendix~\ref{app:semantics}. Their source files
-are under \path{Material/MethbokeAddon/WeakFouriermanB/} at the accepted
+The compiled counterparts in rows 2--3 are in the namespace
+\decl{SingularClosure} and the directory
+\path{Material/_vendor/SingularClosure/}. The QFB inputs are qualified
+separately. All remaining names are in the namespace stated in
+Appendix~\ref{app:semantics}, with source files under \path{Material/MethbokeAddon/WeakFouriermanB/} at the accepted
 revision. The root is in \path{WeakFouriermanB.lean}; key modules include
 \path{LocalExistence.lean}, \path{PhysicalFourier.lean},
 \path{PhysicalEnstrophyEvolution.lean}, \path{PhysicalBudgetContinuation.lean},
@@ -813,7 +1012,7 @@ not change the accepted proof revision and does not constitute a new
 compiler run or theorem-level audit.
 
 \begin{center}
-\begin{tabular}{p{0.48\linewidth}p{0.40\linewidth}}
+\begin{tabular}{p{0.48\linewidth}>{\raggedright\arraybackslash}p{0.40\linewidth}}
 \toprule
 Accepted check & Recorded result\\
 \midrule
@@ -823,71 +1022,99 @@ Modules freshly compiled & 44\\
 Fresh endpoint audit packages & 55\\
 Unique named declaration audits & 265, plus the QFB cutout\\
 External controls & 183 passed\\
-Permitted reported axioms & \texttt{propext}, \texttt{Classical.choice},
+Transitive axiom dependencies & \texttt{propext}, \texttt{Classical.choice},
 \texttt{Quot.sound}\\
 \bottomrule
 \end{tabular}
 \end{center}
-The report records successful compilation, exact-type and theorem-level
-axiom checks, evidence publication and final acceptance. No admitted
-proof placeholder or custom analytic axiom is reported among the audited
-declarations. Reuse of compatible compiled modules is distinguished from
-fresh execution of the required endpoint audits.
+The report records successful compilation and fresh exact-type and
+theorem-level axiom checks. The reported dependencies of the audited
+declarations are contained in the three standard Lean axioms listed
+above; no \decl{sorryAx} or additional analytic axiom is reported.
+An axiom audit concerns the formal declarations and their transitive
+dependencies. Correspondence between those definitions and the stated
+physical problem is documented separately in Appendix~\ref{app:semantics}.
+Reuse of compiled modules is distinguished from fresh execution of the
+required endpoint audits.
+Here \texttt{propext} is propositional extensionality,
+\texttt{Classical.choice} is classical choice, and \texttt{Quot.sound}
+is soundness of quotient equality. These are the standard logical
+foundations reported by Lean, rather than PDE assumptions. The machine
+claim is relative to Lean's trusted implementation and to the stated
+interpretation of the formal definitions.
 
 \subsection{Pinned dependencies and retained evidence}
-\begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt,itemsep=4pt]
+\begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt,labelwidth=0pt,labelsep=0pt,itemsep=4pt]
 \item[Lean] Version 4.33.0; compiler revision
 \decl{d8b18978322de05a8f3dba51ef03cf5461676c17}.
 \item[Mathlib] Revision
 \decl{db584cd6d46c92f209a44c0f1c829460d327499d}.
 \item[Methlib foundation] Revision
 \decl{96033dd69c994bec337a87369a6c27256e724980}.
-\item[Retained summary] \path{audits/material-fdb515d8/summary.json}.
+\item[Immutable evidence record] The proof revision above and the
+evidence-record revision are distinct. The retained
+\href{https://github.com/randogelist/Methboke/blob/6a4f86ff4dad58ea3c1f3f65776a36643eddc0fe/audits/material-fdb515d8/summary.json}{summary}
+and
+\href{https://github.com/randogelist/Methboke/tree/6a4f86ff4dad58ea3c1f3f65776a36643eddc0fe/audits/material-fdb515d8}{audit logs}
+are pinned at documentation revision
+\hash{6a4f86ff4dad58ea3c1f3f65776a36643eddc0fe}.
 The directory also retains the 22 new package audit logs and their
 provenance record.
-\item[External evidence artifact] Artifact 14553501775 of the accepted run;
+\item[Complete retained evidence] The byte-identical
+\href{https://github.com/randogelist/Methboke/raw/8876af42bf835a3999fe8963141d61ac9186f7b4/audits/material-fdb515d8/accepted-evidence.zip}{accepted-evidence.zip}
+is pinned at revision
+\hash{8876af42bf835a3999fe8963141d61ac9186f7b4}.
+Its 129 members include the full \path{current.json} report, all 55
+fresh package audit logs, the cutout audit and the execution manifests.
+It is the original artifact 14553501775 of the accepted run;
 ZIP SHA-256
 \hash{ec7fbafac42924bc814b7a23f7c090b5f476d84d76193b5f4c0a100c3051612d}.
 \end{description}
 
-\subsection{What the evidence establishes}
-The evidence attaches to the exact declarations, their concrete
-definitions, source closure and pinned compiler environment. The WFB
-root retains the finite Fourier-budget premise. Its successful audit is
-not a proof of universal budget finiteness.
+\subsection{Verification scope and availability}
+The evidence attaches to the exact declarations, concrete definitions,
+source closure and pinned compiler environment. The root retains the
+finite Fourier-budget premise. Its audit does not establish universal
+budget finiteness.
 
-The small-data paper \cite{small} separately identifies its fixed-constant
-audited roots and its independent analytic proof. Its Sections~3--7 are
-not represented as having been formalized by the WFB run. Likewise the
-arbitrary-admissible-constant reconstruction in Section~\ref{sec:smallbudget}
-is not a newly audited endpoint. Compiled fixed-constant intermediate
-results and freshly audited named roots should not be conflated.
+The arbitrary-admissible-constant reconstruction in
+Section~\ref{sec:smallbudget} and the reverse inclusion in
+Corollary~\ref{cor:inclusion} are mathematical arguments in this paper,
+not additional audited endpoints. The original small-data publication
+likewise distinguishes its analytic derivation from its fixed-constant
+formal roots. The editable manuscript and its manifest record the
+paper version separately from the accepted proof revision.
 
-This manuscript was prepared by reading the mathematical sources and
-retained external evidence, with nonexecuting inspection of the Lean
-source. No local Lean, Lake or kernel audit was run. The document itself
-is built with a standard LaTeX engine; the editable source accompanies
-the PDF. A future formal replay should use the recorded source pins and
-compatible external caches, and repeat the required exact-type and
-theorem-level axiom checks.
+The immutable source and complete retained evidence archive provide
+the software and data record for this paper. The Actions run supplies
+the execution record; access to the full report and audit bundle does
+not depend on the retention period of that Actions artifact.
 
 \begin{thebibliography}{9}
-\raggedright
+\small\raggedright
 \bibitem{small}
 S.~Suchan, \emph{Global Regularity for Small $H^{1/2}$ Data in the Periodic
 Three-Dimensional Navier--Stokes Equations: Quantitative Bounds and Lean
 Verification}, preprint, version~1, 13 November 2026.
 \href{https://doi.org/10.5281/zenodo.24185514}{doi:10.5281/zenodo.24185514}.
-The attached PDF has the internal title \emph{Global Navier--Stokes
-regularity for small $H^{1/2}$ data on $\T$: Sobolev-product bounds and
-Fourier normalization}. Principal anchors: Proposition~3.1,
-Lemmas~4.1--4.2 and~5.1, Proposition~5.2, and Appendices~B--C.
-
 \bibitem{tao}
 T.~Tao, \emph{Localisation and compactness properties of the Navier--Stokes
 global regularity problem}, Analysis \& PDE \textbf{6} (2013), no.~1,
 25--107. \href{https://doi.org/10.2140/apde.2013.6.25}{doi:10.2140/apde.2013.6.25}.
 Periodic local well-posedness: Theorem~5.1, pp.~48--49.
+
+\bibitem{prodi}
+G.~Prodi, \emph{Un teorema di unicit\`a per le equazioni di Navier--Stokes},
+Annali di Matematica Pura ed Applicata (4) \textbf{48} (1959), 173--182.
+\href{https://doi.org/10.1007/BF02410664}{doi:10.1007/BF02410664}.
+
+\bibitem{hoangmartinez}
+L.~T.~Hoang and V.~R.~Martinez, \emph{Asymptotic expansion in Gevrey spaces
+for solutions of Navier--Stokes equations}, Asymptotic Analysis
+\textbf{104} (2017), nos.~3--4, 167--190.
+\href{https://doi.org/10.3233/ASY-171429}{doi:10.3233/ASY-171429}.
+\href{https://arxiv.org/abs/1511.03523}{arXiv:1511.03523}.
+Quantitative periodic eventual regularity: Theorem~2.4.
 
 \bibitem{methlib}
 \emph{Methlib: Quasi-Fefferman-B and critical Sobolev foundations}, source

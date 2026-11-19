@@ -1,8 +1,8 @@
-# WFB preprint draft
+# WFB preprint
 
-**A finite Fourier-budget criterion for global Navier-Stokes regularity on the three-torus**
+**Finite Fourier budgets and global continuation for the periodic Navier-Stokes equations**
 
-Version 1.0, 19 November 2026. The manuscript follows the structure of the
+Version 1.1, 19 November 2026. The manuscript follows the structure of the
 [small-H1/2 publication](https://zenodo.org/records/24185514): abstract,
 explicit normalization, numbered theorems and proofs, source-linked formal
 appendices and references. The teal subtitle and links, running headers and
@@ -43,3 +43,21 @@ review distinguished compiled fixed-constant small-data counterparts from
 freshly audited roots and from the arbitrary-constant analytic reconstruction.
 The final PDF is checked for unresolved references, overflowing text and
 missing glyphs, and its pages are visually reviewed.
+
+## Version 1.1
+
+The preprint revision adds primary literature positioning; a precise Leray-Hopf
+representative definition; an all-times relative-energy comparison argument;
+the explicit QFB cutoff derivation from the lower-order weak energy budget;
+the separate numerical caloric admission theorem; and the analytic converse
+W_nu=R_nu^smooth. The finite WFB budget remains a hypothesis, and the converse
+is not represented as a new formal endpoint. The full root signature and
+clickable pinned declaration anchors make the formal correspondence inspectable.
+
+Proof source fdb515d8, original evidence record 6a4f86ff, and complete evidence
+archive revision 8876af42 are cited separately. The complete 129-member external
+archive retains all 55 fresh package logs, current.json, the cutout and manifests.
+
+[Revision review](PREPRINT_REVIEW.md) records the final mathematical, editorial
+and production checks. The readiness judgment is for preprint circulation;
+it does not claim journal acceptance or a new Lean verification run.

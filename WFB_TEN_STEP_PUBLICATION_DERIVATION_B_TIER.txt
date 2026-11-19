@@ -1,5 +1,5 @@
 DOCUMENT := WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER
-VERSION := 1.0
+VERSION := 1.1
 DATE := 2026-11-19
 MODE := B_TIER_DERIVATION_WITH_EXISTING_A_TIER_ANCHORS
 PROJECT_GOAL := Weak_Fourierman_B; already externally accepted
@@ -241,16 +241,43 @@ Let W_nu={a in C-infinity_sigma,0 : B_min(Tmax(a),tau_Q(a,nu))(u_a)<infinity},
 where u_a is the uniquely constructed maximal classical velocity.
 Let R_nu^smooth be the smooth data admitting a global smooth normalized NSE pair.
 
-  S_nu subseteq W_nu subseteq R_nu^smooth.
+  S_nu subseteq W_nu = R_nu^smooth.
 
-The first inclusion has the explicit certificate from Step 4. The second is
-WFB. No strictness of these inclusions is claimed here. The paper's rough
-small-H1/2 theorem and its strong initial trace remain a separate result.
+The first inclusion has the explicit certificate from Step 4. WFB proves
+W_nu subseteq R_nu^smooth. Conversely, a global smooth normalized pair
+restricts to every finite initial front. Maximality gives Tmax=infinity;
+uniqueness identifies the pair with the maximal trajectory. Continuity of
+Y(t) on [0,tau_Q] then gives
+  B_tau_Q(u) <= tau_Q*max_[0,tau_Q](Y(t)^2)/(16*pi^4) < infinity.
+For tau_Q=0 the budget is zero. Thus R_nu^smooth subseteq W_nu.
+This reverse inclusion is an ordinary B-tier corollary, not a new audited
+Lean endpoint. No strictness of S_nu subseteq W_nu is claimed. The paper's
+rough small-H1/2 theorem and its strong initial trace remain separate.
+W_nu is a trajectory-defined class; no terminating initial-data-only test
+is asserted. Universal budget finiteness is equivalent, in this framework,
+to global smooth regularity for all smooth data.
 
 The main distinction is between GENERATING the budget (Steps 2-4, using strict
 smallness) and USING the budget (Steps 5-10, with finiteness explicit). QFB gives
 the global tail after the explicit cutoff; continuation supplies the earlier
 segment and strict overlap. Universal Fourier-budget finiteness remains open.
+
+ADDITIONAL QFB CUTOFF EXPLANATION
+
+For the fixed weak trajectory v with actual weak gradient G, set
+M=||a||_2^2 and H(t)=||v(t)||_{dot H1/2}^2. Energy and Fourier interpolation
+imply H(t)^2<=||v(t)||_2^2*||G(t)||_2^2 and
+  integral_0^d H(t)^2 dt <= M^2/(2*nu).
+For d>M^2/(8*pi^2*nu^5), this is strictly less than d*(2*pi*nu^2)^2.
+Intersect the H1/full-measure restart set with the strict mean-value
+selection to obtain s in (0,d), H(s)<2*pi*nu^2. The separate fixed-constant
+EXACT_H1_ADMISSION_UNCONDITIONAL theorem constructs the positive-time smooth
+reference, strong L2 trace and finite-window L4_t L6_x control. Comparison
+identifies the SAME translated v,G with that reference; restricting after d
+produces Q09. The fixed squared-norm threshold 2*pi*nu^2 is not inferred
+from an arbitrary P; its caloric normalization is B=H(s)/(4*pi)<nu^2/2.
+This universal Hhalf fourth-power budget is NOT the WFB gradient fourth-power
+budget. The latter retains its explicit finiteness premise.
 
 ENDPOINT STATUS
 

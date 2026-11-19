@@ -44,7 +44,10 @@ It separates the smallness-based budget certificate from the general finite-budg
 continuation theorem and identifies the additional QFB input.
 The [companion paper](PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.pdf)
 and [editable LaTeX source](PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.tex)
-present the complete argument, ten-step chain and verification appendices.
+present the revised preprint argument, ten-step chain and verification appendices.
+Version 1.1 adds the precise weak-solution class, the numerical cutoff derivation,
+primary-source positioning and the analytic characterization `W_nu = R_nu^smooth`;
+the converse is an analytic corollary, not a new audited Lean declaration.
 
 ## Fixed scope and useful identities
 

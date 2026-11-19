@@ -90,8 +90,8 @@
   "current_material_external_verification": "PASS_AT_fdb515d8bde35ec8021bbc26f360aca8dfa2855c_RUN_44566880192",
   "target_hierarchy": {
     "macroscopic": "Exact Weak_Fourierman_B: ACCEPTED with its explicit full finite Fourier-budget premise",
-    "mesoscopic": "All ten contextual WFB obligations accepted",
-    "microscopic": "Acceptance evidence recorded; no remaining in-scope obligation",
+    "mesoscopic": "WFB preprint v1.1 prepared for circulation; all ten contextual formal obligations remain accepted",
+    "microscopic": "Mathematical, source and production review complete; final manuscript and evidence preserved",
     "suggested_next_goal": {
       "description": "No new goal adopted; universal budget finiteness and R1 remain outside completed WFB scope",
       "adopted": false
@@ -1044,8 +1044,8 @@
   },
   "weak_fourierman_b": {
     "b_tier_document": "Weak_Fourierman_B_B_TIER.txt",
-    "b_tier_version": "0.9.0",
-    "b_tier_status": "COMPLETE_WITH_MATCHING_EXTERNAL_LEAN_VERIFICATION",
+    "b_tier_version": "0.10.0",
+    "b_tier_status": "ACCEPTED_WFB_ROOT_WITH_ADDITIONAL_B_TIER_ANALYTIC_COROLLARY",
     "scope": "Finite full squared Fourier budget implies global smooth continuation of the same maximal trajectory; finite budget remains a hypothesis",
     "workflow_plan": "PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md",
     "obligation_register": "PREPRINT_FORMALISATION/WeakFouriermanB/obligations.json",
@@ -1105,19 +1105,25 @@
       "small_branch_bound": "h0^4/(64*pi^4*(nu-P*h0)); nu-P*h0>0",
       "additional_qfb_input_explicit": true,
       "new_lean_runs": 0,
-      "new_a_tier_promotions": 0
+      "new_a_tier_promotions": 0,
+      "version": "1.1",
+      "smooth_class_relation": "S_nu subset W_nu = R_nu^sm",
+      "reverse_inclusion_status": "B_TIER_ANALYTIC_COROLLARY; not a new audited endpoint"
     },
     "paper": {
-      "status": "PREPRINT_DRAFT_MATHEMATICAL_EXPOSITION",
-      "version": "1.0",
+      "status": "PREPRINT_READY_MATHEMATICAL_EXPOSITION",
+      "version": "1.1",
       "pdf": "PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.pdf",
       "tex": "PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.tex",
       "manifest": "PAPER_PREPRINT_PDF/WFB/MANUSCRIPT_MANIFEST.json",
-      "pages": 13,
-      "pdf_sha256": "864426d46a3d1520d14d46e85773aadfe5128ffdd7cc575f44daad776f87aee4",
+      "pages": 16,
+      "pdf_sha256": "d17c9279071c756ad5cc87072d998ca10d59d84a52ad27f191d81a3fcdd3f73f",
       "proof_revision": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
       "new_lean_runs": 0,
-      "new_a_tier_promotions": 0
+      "new_a_tier_promotions": 0,
+      "tex_sha256": "dcad891c59f27249a71bf053b9878a6b012d0c46c36a31eff168a0fa6313acaf",
+      "review": "PAPER_PREPRINT_PDF/WFB/PREPRINT_REVIEW.md",
+      "readiness_scope": "Ready for preprint circulation; not journal acceptance or a new formal verification"
     },
     "complete_evidence_archive": {
       "path": "audits/material-fdb515d8/accepted-evidence.zip",
@@ -1125,7 +1131,8 @@
       "sha256": "ec7fbafac42924bc814b7a23f7c090b5f476d84d76193b5f4c0a100c3051612d",
       "members": 129,
       "fresh_package_logs": 55,
-      "new_lean_runs": 0
+      "new_lean_runs": 0,
+      "revision": "8876af42bf835a3999fe8963141d61ac9186f7b4"
     }
   },
   "latest_main_ci_metadata_observation": {

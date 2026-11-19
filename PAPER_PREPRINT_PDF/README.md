@@ -9,5 +9,5 @@ normalization dictionary, exact formal anchors and external verification scope.
 [LaTeX source](WFB/WFB_FOURIER_BUDGET_PREPRINT.tex)
 
 The finite budget remains a hypothesis. Universal budget finiteness and
-universal analytic admission remain outside the result. This is a manuscript
-draft, not a claim of journal acceptance or a new formal verification run.
+universal analytic admission remain outside the result. Version 1.1 is prepared for preprint circulation. Journal acceptance and a
+new formal verification run are not claimed.
