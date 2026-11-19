@@ -87,19 +87,26 @@
       "intended_claim": "For nu>0 and smooth periodic solenoidal mean-zero data with H1 norm bounded by R, construct a physical smooth local solution with normalized pressure for a positive duration depending only on nu and R.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier",
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinBounds",
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinRegularity",
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness",
+        "MethbokeAddon.WeakFouriermanB.LocalSobolevCalculus",
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit",
+        "MethbokeAddon.WeakFouriermanB.LocalExistence"
+      ],
       "depends_on": [],
       "dependency_note": null,
       "external_acceptance": null,
       "chat_sign_announced": false,
       "chat_sign_announced_at": null,
       "formal_obstruction": {
-        "blocked_edge": "cutoff-uniform physical periodic H1 local existence",
-        "cause": "Galerkin lifespan may depend on N; infinite RHS loses two derivatives",
-        "required": "actual norm-controlled physical local construction with pressure",
-        "review": "next/REVIEW.md"
+        "blocked_edge": "matching external compiler/type/axiom verification of constructed physical local existence",
+        "cause": "full source candidate prepared; no matching complete accepted run yet",
+        "required": "fresh exact audit of uniform_H1_local_initial_classical_front_exists and its actual source closure"
       }
     },
     {
@@ -108,13 +115,15 @@
       "intended_claim": "Physical local strong solutions with the same datum agree on their common finite front; normalized pressures agree as well.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.initial_classical_front_unique",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness"
+      ],
       "depends_on": [
         "WFB-03"
       ],
-      "dependency_note": null,
+      "dependency_note": "The uniqueness proof takes supplied actual fronts and compiles independently; contextual obligation promotion also awaits the registered local construction.",
       "external_acceptance": null,
       "chat_sign_announced": false,
       "chat_sign_announced_at": null
@@ -125,9 +134,13 @@
       "intended_claim": "Construct the same unique maximal strong trajectory with positive extended lifetime, finite-front regularity, initial smoothness and the physical maximal-extension property.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront",
+        "MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction",
+        "MethbokeAddon.WeakFouriermanB.WeakFouriermanB"
+      ],
       "depends_on": [
         "WFB-03",
         "WFB-04"
@@ -143,9 +156,17 @@
       "intended_claim": "A finite integral of actual physical dissipation squared up to a finite maximal endpoint yields a bounded H1 norm and same-path physical continuation beyond that endpoint.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
+        "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+        "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+        "MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation",
+        "MethbokeAddon.WeakFouriermanB.LocalTimeTranslation",
+        "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing",
+        "MethbokeAddon.WeakFouriermanB.StrongContinuation"
+      ],
       "depends_on": [
         "WFB-03",
         "WFB-04",
@@ -162,9 +183,11 @@
       "intended_claim": "For nonzero datum, the finite budget up to min(Tmax,Tf) implies Tf<Tmax; construct finite strict overlap times, including equality/infinite-lifetime cases.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.StrictCutoff"
+      ],
       "depends_on": [
         "WFB-05",
         "WFB-06"
@@ -180,9 +203,11 @@
       "intended_claim": "Embed the smooth physical datum into EnergySigmaZero, use Q01 actual weak existence, and identify the same weak path with the strong trajectory on every compact pre-endpoint interval.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification"
+      ],
       "depends_on": [
         "WFB-03",
         "WFB-04",
@@ -207,9 +232,11 @@
       "intended_claim": "Use Q09 on that same weak path; prove pointwise velocity and normalized-pressure agreement and glue a pair satisfying every GlobalSmoothNSE field.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.MaximalTailGluing"
+      ],
       "depends_on": [
         "WFB-07",
         "WFB-08"
@@ -225,9 +252,12 @@
       "intended_claim": "For all nu>0 and smooth periodic divergence-free mean-zero a, the full squared Fourier budget on (0,min(Tmax,Tf)), Tf=||a||_L2^4/(8*pi^2*nu^5), implies actual GlobalSmoothNSE nu a U P agreeing with the same maximal path, including zero datum and all lifetime cases.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
       "a_tier_status": "NOT_VERIFIED",
-      "principal_declaration": null,
-      "candidate_source_status": "FORMALIZATION_REQUIRED",
-      "required_candidate_modules": [],
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
+      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.WFBRootAssembly",
+        "MethbokeAddon.WeakFouriermanB.WeakFouriermanB"
+      ],
       "depends_on": [
         "WFB-05",
         "WFB-06",
@@ -320,5 +350,88 @@
     "new_public_theorems": 40,
     "status": "PENDING_EXTERNAL_VERIFICATION",
     "whole_obligations_promoted": []
+  },
+  "prepared_full_chain": {
+    "status": "FULL_CHAIN_PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+    "modules": [
+      "LocalCubicBarrier",
+      "LocalGalerkinBounds",
+      "LocalGalerkinRegularity",
+      "LocalGalerkinCompactness",
+      "LocalClassicalUniqueness",
+      "LocalTimeTranslation",
+      "PhysicalNonlinear",
+      "LocalSobolevCalculus",
+      "LocalGalerkinLimit",
+      "LocalExistence",
+      "MaximalClassicalFront",
+      "MaximalFrontRestriction",
+      "FiniteFrontGluing",
+      "PhysicalEnstrophyEvolution",
+      "StrongContinuation",
+      "PhysicalBudgetContinuation",
+      "PhysicalEndpointContinuation",
+      "StrictCutoff",
+      "WFBRootAssembly",
+      "WeakFouriermanB",
+      "MaximalLerayHopfIdentification",
+      "MaximalTailGluing"
+    ],
+    "new_public_theorems_since_accepted_R0": 104,
+    "new_modules_since_accepted_R0": 22,
+    "planned_compiled_modules": 365,
+    "planned_fresh_packages": 55,
+    "planned_declaration_audits": 265,
+    "qfb_cutout_required": true,
+    "prior_accepted_modules_unchanged": 321,
+    "first_attempt": {
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "tested_commit": "4bd466f1dd22fb4e7125b07d8f840f21fbc4c950",
+      "run_id": "44560978167",
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44560978167",
+      "artifact_id": 14551346158,
+      "artifact_sha256": "9f67675cd2e026c54c9442f889abc628d90ee09bd991cd37713ff0cc9872755b",
+      "report_sha256": "d792be52866db5c70ec50e6e06a15696b2b4c74a988038347da67788f614597b",
+      "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "failure_class": "MODULE_COMPILATION_FAILED",
+      "failure_phase": "compile",
+      "module_status_counts": {
+        "PASS": 329,
+        "FAIL": 3,
+        "BLOCKED_BY_DEPENDENCY": 3
+      },
+      "reused_pass_modules": 321,
+      "fresh_pass_modules": 8,
+      "required_audits_completed": false,
+      "verified_cache_published": false,
+      "recovery_job": "SKIPPED",
+      "logs": {
+        "LocalGalerkinBounds": {
+          "path": "LocalGalerkinBounds.log",
+          "sha256": "96c7b8facef93d2422151a8add4e0dddbcee43df73db7cb680d3515b97659783"
+        },
+        "LocalTimeTranslation": {
+          "path": "LocalTimeTranslation.log",
+          "sha256": "983984110d2dc017f8ea4bd702ff49c0f06c592ad55bff1bdf1e3331454cc8ba"
+        },
+        "PhysicalNonlinear": {
+          "path": "PhysicalNonlinear.log",
+          "sha256": "223fb37542750f59ceb380afc95f17e93f73b010491a5cc4dce39f2425d7a88f"
+        }
+      },
+      "repairs": {
+        "LocalGalerkinBounds": "Use add_le_add le_rfl hZ for the literal addition order.",
+        "LocalTimeTranslation": "Supply explicit le_trans hs (le_of_lt ht.1) for membership in Ici 0.",
+        "PhysicalNonlinear": "Change the zero-vector component goal to its literal real-zero scalar equality before exact_mod_cast."
+      },
+      "statements_changed": false,
+      "local_lean_executions": 0,
+      "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
+    },
+    "local_lean_executions": 0,
+    "new_acceptance_signals": 0,
+    "root_candidate": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
+    "budget_remains_explicit_hypothesis": true
   }
 }

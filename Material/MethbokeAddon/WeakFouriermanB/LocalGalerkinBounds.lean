@@ -207,7 +207,7 @@ theorem galerkin_uniform_local_sobolev_bounds
         simp only [sub_zero, smul_eq_mul]
         ring
       _ ≤ 6 * (R + 1) * T + localGalerkinAccumulationBound ν R / ν :=
-        add_le_add_left hZ _
+        add_le_add le_rfl hZ
 
 end
 

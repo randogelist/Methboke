@@ -91,7 +91,8 @@ theorem initial_front_timeDerivative_shift_back
       (timeDerivative u (t - s) x) t := by
     simpa only [Function.comp_def, id_eq, one_smul] using
       hd.scomp t ((hasDerivAt_id t).sub_const s)
-  exact hc.hasDerivWithinAt.derivWithin ((uniqueDiffOn_Ici 0) t (by linarith [ht.1]))
+  exact hc.hasDerivWithinAt.derivWithin
+    ((uniqueDiffOn_Ici 0) t (le_trans hs (le_of_lt ht.1)))
 
 theorem initial_front_shift_back_equation
     (ν T s : ℝ) (a : Field) (u : Velocity) (p : Pressure)

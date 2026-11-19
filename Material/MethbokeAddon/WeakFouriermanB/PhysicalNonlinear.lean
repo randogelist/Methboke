@@ -60,6 +60,7 @@ theorem physical_coordinateDerivative_meanZero
     (coordinateDerivative_continuous hv i).continuousOn.integrableOn_compact isCompact_unitCube
   refine ⟨hi, ?_⟩
   ext j
+  change spatialMean (coordinateDerivative v i) j = 0
   have hz : datumFourierCoeff (coordinateDerivative v i) 0 j = 0 := by
     rw [datumFourierCoeff_coordinateDerivative i v hv hp]
     simp [spectralMultiplier, derivativeSymbol]

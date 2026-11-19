@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "WFBLocalGalerkinLimit",
+  "endpoint_module": "WFBLocalGalerkinLimit.Endpoint",
+  "audit_module": "WFBLocalGalerkinLimit.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalGalerkinLimit.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/CriticalPositiveLimit.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalGalerkinLimit.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/_vendor/SingularClosure/CriticalPositiveLimit.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    },
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalGalerkinLimit.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/_vendor/SingularClosure/CriticalPositiveLimit.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "An actual finite-window Galerkin limit with proved local high-order bounds constructs the untruncated Sobolev flow and original initial coefficients.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS",
+  "source_layout": "Owned source plus complete unchanged pinned vendor dependencies; exact existing public dependency lock retained.",
+  "type_policy": "Every public theorem has an independently stated full signature and fresh complete type/axiom sentinels; definitions/private helpers are covered transitively.",
+  "whole_wfb_obligation_completed": false,
+  "universal_budget_finiteness_included": false
+}

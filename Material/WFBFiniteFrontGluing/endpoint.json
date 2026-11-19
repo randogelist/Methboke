@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "WFBFiniteFrontGluing",
+  "endpoint_module": "WFBFiniteFrontGluing.Endpoint",
+  "audit_module": "WFBFiniteFrontGluing.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteFrontGluing.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.finite_front_splice_contDiffOn",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteFrontGluing.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    },
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.initial_front_extend_from_restart",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteFrontGluing.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Glue an actual finite initial front and an actual finite restart across an open overlap, preserving original velocity and normalized pressure.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS",
+  "source_layout": "Owned source plus complete unchanged pinned vendor dependencies; exact existing public dependency lock retained.",
+  "type_policy": "Every public theorem has an independently stated full signature and fresh complete type/axiom sentinels; definitions/private helpers are covered transitively.",
+  "whole_wfb_obligation_completed": false,
+  "universal_budget_finiteness_included": false
+}

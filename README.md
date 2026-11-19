@@ -8,12 +8,13 @@ The working branch is **`main`**.
 
 ## Current state
 
-- **Implementation started from the largest gap:** seven new proof modules
-  prepare cutoff-uniform local Galerkin estimates, finite-window regularity
-  and compactness, physical nonlinear estimates, and local uniqueness/time
-  translation. Their 40 theorem candidates await external verification; the
-  next complete scope is 335 modules / 40 packages / 201 declarations plus
-  cutout. No new theorem acceptance is claimed from source preparation.
+- **Full WFB chain prepared:** 22 new proof modules and 104 theorem candidates
+  now cover physical H1 local existence, maximality, actual-budget continuation,
+  strict cutoff overlap and the exact same-path WFB root. External scope:
+  **365 modules / 55 fresh packages / 265 declarations plus cutout**.
+  The first attempt found three proof expressions, now repaired without changing
+  statements; [failure evidence](audits/material-4bd466f1-failed/summary.json)
+  is retained. The full chain remains pending external verification.
 
 - **Latest accepted package and exact R0 root:** [run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
   at `93ca8a57536512556ec36717ee933ea52db283bf` verified 321 source modules
@@ -207,10 +208,11 @@ finite-front comparison with the original weak path. The globally positive-time 
 object used in weak testing is a constructed test; it is not an assumed global
 NSE solution.
 
-Physical periodic H1 local existence with a norm-controlled lifespan remains
-the next WFB obstruction. Existing fixed-cutoff Galerkin existence does not
-supply it. The maximal-trajectory, continuation and exact WFB-root obligations
-remain separate from the accepted comparison helpers.
+Physical periodic H1 local existence with a norm-controlled lifespan now has
+a complete source candidate derived from cutoff-uniform estimates and an actual
+Galerkin limit. The maximal-trajectory, physical-budget continuation and exact
+WFB root are also prepared. Their external acceptance remains separate from
+the previously accepted comparison helpers.
 
 The accepted R0 layer derives initial trace and compact Serrin bounds from
 an actual admitted front, identifies the original weak path, proves velocity

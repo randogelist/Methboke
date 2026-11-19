@@ -1,0 +1,45 @@
+{
+  "status": "FAILED_NO_NEW_ACCEPTANCE",
+  "tested_commit": "4bd466f1dd22fb4e7125b07d8f840f21fbc4c950",
+  "run_id": "44560978167",
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44560978167",
+  "artifact_id": 14551346158,
+  "artifact_sha256": "9f67675cd2e026c54c9442f889abc628d90ee09bd991cd37713ff0cc9872755b",
+  "report_sha256": "d792be52866db5c70ec50e6e06a15696b2b4c74a988038347da67788f614597b",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "failure_phase": "compile",
+  "module_status_counts": {
+    "PASS": 329,
+    "FAIL": 3,
+    "BLOCKED_BY_DEPENDENCY": 3
+  },
+  "reused_pass_modules": 321,
+  "fresh_pass_modules": 8,
+  "required_audits_completed": false,
+  "verified_cache_published": false,
+  "recovery_job": "SKIPPED",
+  "logs": {
+    "LocalGalerkinBounds": {
+      "path": "LocalGalerkinBounds.log",
+      "sha256": "96c7b8facef93d2422151a8add4e0dddbcee43df73db7cb680d3515b97659783"
+    },
+    "LocalTimeTranslation": {
+      "path": "LocalTimeTranslation.log",
+      "sha256": "983984110d2dc017f8ea4bd702ff49c0f06c592ad55bff1bdf1e3331454cc8ba"
+    },
+    "PhysicalNonlinear": {
+      "path": "PhysicalNonlinear.log",
+      "sha256": "223fb37542750f59ceb380afc95f17e93f73b010491a5cc4dce39f2425d7a88f"
+    }
+  },
+  "repairs": {
+    "LocalGalerkinBounds": "Use add_le_add le_rfl hZ for the literal addition order.",
+    "LocalTimeTranslation": "Supply explicit le_trans hs (le_of_lt ht.1) for membership in Ici 0.",
+    "PhysicalNonlinear": "Change the zero-vector component goal to its literal real-zero scalar equality before exact_mod_cast."
+  },
+  "statements_changed": false,
+  "local_lean_executions": 0,
+  "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
+}
