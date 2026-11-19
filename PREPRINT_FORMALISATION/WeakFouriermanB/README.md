@@ -18,6 +18,8 @@ the separate WFB obligations.
 | Item | State |
 |---|---|
 | [Cumulative B-tier derivation](../../Weak_Fourierman_B_B_TIER.txt) | Full conditional WFB composition; complete WFB Lean root remains open |
+| [Current B-tier route index](../../WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt) | Ten remaining work packages; 126 exact source anchors; first formal obstruction R01/WFB-03 |
+| [Machine-readable anchor index](ANCHOR_INDEX_v0_2.json) | 33 audited, 67 compiled-only and 26 Mathlib source-only anchors; exact premises and source identities |
 | [Workflow plan](WORKFLOW_PLAN.md) | Current acceptance, historical activation stages and receipt/failure policy |
 | [Ten contextual obligations](obligations.json) | WFB-01/WFB-02 accepted first at `0402aa37`; eight and root remain open |
 | [Initial four source modules and audit requirements](candidate-sources.json) | Historical exact-byte snapshot: 1,255 lines, 57 declaration pairs; accepted at `0402aa37` |

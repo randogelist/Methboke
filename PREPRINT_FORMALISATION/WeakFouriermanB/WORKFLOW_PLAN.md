@@ -281,3 +281,12 @@ preserved every proof, signature assertion and axiom audit. Each failed run
 preserved the accepted 303-module baseline and skipped recovery. They supplied
 no aggregate acceptance; the subsequent full pass at `93ca8a5` is the current
 acceptance record, with 303 reused and 18 freshly compiled modules.
+
+## Current B-tier source index (2026-11-19)
+
+The [remaining route](../../WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt) and
+[126-anchor register](ANCHOR_INDEX_v0_2.json) map ten work packages R01–R10 to
+the existing contextual obligations. The first formal edge remains R01/WFB-03:
+cutoff-independent physical H1 local existence. Later entries are prospective;
+accepted R0 comparison, pressure and gluing layers are explicitly reused.
+This documentation-only round changes no proof, audit, CI or acceptance status.

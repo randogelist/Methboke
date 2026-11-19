@@ -21,6 +21,7 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   in the current package. The complete WFB root and the remaining eight
   contextual obligations remain unresolved; accepted helpers retain their
   exact scope.
+- **Remaining WFB route indexed at B-tier:** [ten-step route and source register](WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt), with [126 pinned anchors and exact evidence levels](PREPRINT_FORMALISATION/WeakFouriermanB/ANCHOR_INDEX_v0_2.json). The first formal gap is cutoff-independent physical H¹ local existence; subsequent entries are prospective. Accepted R0 comparison/pressure/gluing is explicitly reused. No new theorem status follows from this index.
 - **Cached external verification remains mandatory.** Explicit current cache
   rejection may select recovery; proof, audit, static and publication failures
   preserve the accepted baseline. Independent implementation may continue

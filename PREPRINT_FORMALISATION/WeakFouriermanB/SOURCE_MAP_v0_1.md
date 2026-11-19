@@ -5,7 +5,9 @@
 > at `93ca8a5` verifies the finite-front adapters and exact R0 `D_Q_subset_R_nu`
 > (321 modules / 33 packages / 161 declarations plus cutout). WFB-01/WFB-02 are
 > accepted; [eight contextual obligations and the WFB root](obligations.json)
-> remain open, as does universal R1. Use the [current README](README.md) for status.
+> remain open, as does universal R1. Use the [current README](README.md) for status
+> and the [v0.2 route index](../../WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt) /
+> [exact anchor register](ANCHOR_INDEX_v0_2.json) for the post-R0 source mapping.
 
 
 Date: 2026-11-19. Purpose: index-guided source reuse for the ten remaining contextual endpoints. This is an applicability register, not a new proof or compiler receipt. No Lean, Lake, Docker, installer, kernel audit, CI dispatch or repository mutation was performed.

@@ -1,13 +1,15 @@
 DOCUMENT := Weak_Fourierman_B
-VERSION := 0.4.0
+VERSION := 0.5.0
 DATE := 2026-11-19
 MODE := B_TIER_DERIVATION
 NAMESPACE := MethbokeAddon.WeakFouriermanB
 MAIN_TARGET := FOURIER_FINITE_FRONT_IMPLIES_GLOBAL_SMOOTH_REGULARITY
-CURRENT_STEP := COMPOSITION_OF_THE_TEN_INDEXED_ENDPOINTS
+CURRENT_STEP := PINNED_ANCHOR_INDEX_OF_REMAINING_FORMAL_ROUTE
 B_TIER_ROOT_STATUS := COMPLETE_FROM_INDEXED_QFB_THEOREMS_AND_CLASSICAL_LOCAL_THEORY
 LEAN_ROOT_STATUS := NOT_BUILT_OR_VERIFIED
 LOCAL_LEAN_EXECUTION := NONE
+CURRENT_STATUS_AUTHORITY := SECTION_20; prior preparation labels are historical
+FORMAL_ROUTE_STATUS := BLOCKED_AT_R01_WFB03; downstream entries prospective
 
 This is the cumulative mathematical development of Weak_Fourierman_B. It
 supersedes the mathematical stop point in version 0.3.1: that version lacked
@@ -780,3 +782,46 @@ exactscope: FINITE_CAP_ADMISSION_A_TIER.txt. Actualcap admission remains the
 premise. This does not promote the full WFB root or another whole WFB obligation:
 WFB-01/02 remain accepted; WFB-03 andR1 remain unresolved. Earlier failed R0
 attempts are historical and did not replace the accepted cache.
+
+20. SOURCE-GROUNDED ROUTE INDEX AFTER ACCEPTED R0 (2026-11-19)
+
+CURRENT FORMALIZATION INVENTORY:
+  WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt
+  PREPRINT_FORMALISATION/WeakFouriermanB/ANCHOR_INDEX_v0_2.json
+The new index records 126 unique Mathlib/Methlib/Methboke source anchors:
+33 have matching named fresh type/axiom audits at93ca8a5;67 have compiled
+module receipts but no separate current named audit;26 are pinned Mathlib
+source-only primitives. Exact premises, source revisions/lines, provenance,
+hashes, receipt/audit evidence and exclusions are retained in the JSON.
+
+The remaining route is indexed as ten work packages, separate from the
+original ten contextual WFB obligation IDs:
+R01 physical H1-controlled local existence -> R02 pressure/trace/persistence;
+R03 actual local uniqueness -> R04 unique maximal path;
+R05 actual physical enstrophy -> R06 nonlinear cubic inequality;
+R07 full squared budget -> uniform H1;
+R08 uniform restart/finite-endpoint continuation;
+R09 strict tau_Q<Tmax including equality;
+R10 accepted classical R0 -> global solution preserving the whole original path.
+
+FIRST BLOCKED FORMAL EDGE remains R01/WFB-03. The available local ODE time
+may depend on Fourier cutoff N, and the Sobolev RHS loses two derivatives.
+No complete physical H1-controlled local existence theorem was found in the
+pinned closure. Generic finite-window Galerkin compactness without AX6 is
+available, but its uniform local bounds and physical smooth realization must
+be constructed. Downstream entries are prospective; the formal derivation
+stops at this first unresolved edge. This does not alter the existing
+mathematical B-tier composition relative to the cited classical local theory.
+
+R03 can reuse one fixed original Q01 path, accepted identification and pressure
+uniqueness; pressure equality at zero needs continuity. R05/R06 can be developed
+conditionally on actual fronts. R07 must use scalar z=||Delta u||_2, not its
+square, and only compact slabs strictly before Tmax. R08 requires finite-front
+restart gluing: the accepted global-tail splice is not directly that theorem.
+R09 rules out Tmax=tau_Q by continuation. R10 invokes the accepted classical
+cap root, not the stronger two-sided analytic D_Q admission, and fixes one
+global witness for agreement on the entire maximal trajectory.
+
+No new A-tier endpoint, whole WFB obligation, universal budget or R1 result.
+Only WFB-01/02 retain whole-obligation acceptance. R0 remains accepted at
+93ca8a5/run44549257770. No local Lean/tests or new external run occurred.

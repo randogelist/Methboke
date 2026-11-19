@@ -1,0 +1,1371 @@
+DOCUMENT := WFB_ROUTE_ANCHOR_INDEX_B_TIER
+VERSION := 0.2.0
+DATE := 2026-11-19
+MODE := B_TIER_SOURCE_GROUNDED_ROUTE_INDEX
+NAMESPACE := MethbokeAddon.WeakFouriermanB
+REPOSITORY := randogelist/Methboke
+BRANCH := main
+PROJECT_GOAL := PRESERVED_R0_FINITE_CAP_ADMISSION; UNIVERSAL_R1_OPEN
+LOCAL_TARGET := INDEX_REMAINING_WFB_ROUTE_FROM_EXISTING_ANCHORS
+FIRST_UNRESOLVED_EDGE := R01 = WFB-03_PHYSICAL_LOCAL_H1_EXISTENCE
+FORMAL_ROUTE_STATUS := BLOCKED; DOWNSTREAM_ENTRIES_ARE_PROSPECTIVE
+NEW_A_TIER_ENDPOINTS := NONE
+LOCAL_LEAN_EXECUTION := NONE
+
+1. EXACT SCOPE AND EXISTING ACCEPTANCE
+
+This is a B-tier index of the remaining formalization route, not a newly
+compiled WFB proof. Weak_Fourierman_B_B_TIER.txt retains the mathematical
+composition relative to its explicitly cited classical periodic local theory
+and indexed QFB results. The present source-only route stops at the missing
+formal physical local-existence edge. The later entries inventory available
+tools and exact remaining contracts; they are not a completed implication chain.
+
+Fixed R0 remains accepted: an actual initial classical NSE cap [0,T) with
+nu>0 and tau_Q(a,nu)<T gives a GlobalSmoothNSE pair preserving the full cap's
+velocity and normalized pressure. The analytic D_Q subset R_nu wrapper is
+also accepted. Universal germ-to-cap R1 remains open.
+
+WFB-01 and WFB-02 remain the only accepted whole WFB contextual obligations.
+Accepted comparison, pressure and gluing helpers substantially reduce the
+remaining work but do not by themselves promote WFB-03 through WFB-10.
+Route labels R01--R10 below are work packages, not replacement obligation IDs.
+
+The intended WFB statement retains its finite-budget hypothesis:
+  nu>0; a smooth, periodic, divergence-free and mean-zero on the unit torus;
+  (u,p) the actual unique maximal strong trajectory, with 0<Tmax<=infinity;
+  tau_Q = ||a||_2^4/(8*pi^2*nu^5);
+  Q(t) = sum_(k!=0) |k|^2 |u_hat_k(t)|^2;
+  integral_(0,min(Tmax,tau_Q)) Q(t)^2 dt < infinity
+    ==> Tmax=infinity and a global smooth pair agreeing with the entire
+        original velocity and normalized pressure.
+
+The initial sum/integral are nonnegative extended operations. The full open
+interval budget is required, not only separate compact-interval finiteness.
+Unconditional formal WFB means the implication has no additional unproved
+local-existence/continuation axiom. It does not mean removing its budget.
+
+2. PINNED SOURCES AND EVIDENCE LEVELS
+
+Mathlib:
+  leanprover-community/mathlib4@db584cd6d46c92f209a44c0f1c829460d327499d
+Methlib native source closure:
+  randogelist/Methlib@96033dd69c994bec337a87369a6c27256e724980
+  Exact upstream paths, blobs and SHA256: Material/_vendor/source-manifest.json.
+Methboke accepted physical adapters and R0:
+  randogelist/Methboke@93ca8a57536512556ec36717ee933ea52db283bf
+Lean pin: leanprover/lean4:v4.33.0.
+Accepted external run:
+  https://github.com/randogelist/Methboke/actions/runs/44549257770
+Evidence: audits/material-93ca8a5/summary.json.
+The accepted run covers 321 modules, 33 fresh packages, 161 declaration audits
+and the QFB cutout, with only propext, Classical.choice and Quot.sound.
+This index reuses that evidence; it dispatches no new verification.
+
+A = MATCHING_TYPE_AXIOM_AUDIT: exact named declaration, exact type and fresh
+    standard-only axiom report in the accepted run.
+C = COMPILED_SOURCE_ONLY: its exact source module has a PASS receipt there;
+    no separate named fresh audit is claimed for this declaration.
+S = PINNED_MATHLIB_SOURCE_ONLY: exact pinned source inspected; no individual
+    current audit claimed. Generic hypotheses must still be instantiated.
+
+INDEX_SIZE := 126 unique source anchors; 33 A, 67 C, 26 S.
+The JSON companion contains full source identities, exact source signatures
+where collected, actual printed types for A entries, module receipts, audit
+log hashes, route references and premise boundaries. Historical preparation
+labels in unchanged source/manifests do not override matching accepted evidence.
+
+3. DEPENDENCY-ORDERED ROUTE AND FIRST OBSTRUCTION
+
+Construction spine: R01 + R02 -> R04, using R03 uniqueness.
+Continuation estimate: R05 -> R06 -> R07.
+Restart: R01 + R02 + R03 + R04 + R07 -> R08 -> R09.
+Root: R03 + R04 + R09 + accepted classical R0 -> R10.
+R03, R05 and R06 may be prepared conditionally on supplied fronts independently
+of constructing local solutions. R01 can use existing finite Galerkin estimates;
+it must not assume the later arbitrary physical trajectory it is constructing.
+
+FIRST BLOCKED EDGE: existing finite Galerkin/compactness anchors -> actual
+physical local solution with a cutoff-independent H1-controlled lifespan.
+CAUSE: forall nu,N,R exists delta in the current finite ODE theorem permits
+delta to depend on N. Smoothness of H^(r+2)->H^r does not satisfy same-space
+Picard-Lindelof. Generic compactness does not supply uniform bounds or smooth
+physical realization. No matching physical theorem was found in this pinned
+closure. Derivation of the full formal chain stops here.
+
+The entries below are the remaining target contracts and source inventory.
+
+R01. PHYSICAL LOCAL EXISTENCE WITH AN H1-CONTROLLED LIFESPAN
+ORIGINAL OBLIGATIONS: WFB-03
+STATUS: FIRST_UNRESOLVED_FORMAL_EDGE
+TARGET: For every nu>0 and R>=0, there exists h(nu,R)>0 such that every smooth periodic solenoidal mean-zero datum b with H1 norm <=R has an actual forward NSE solution for at least h. The time is uniform in b and every Fourier cutoff. R02 supplies smooth initial-boundary persistence and normalized pressure.
+EXISTING ANCHORS:
+  A002 [A] IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+  A014 [S] BoundedContinuousFunction.arzela_ascoli
+  A041 [A] SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+  A035 [C] SingularClosure.finiteGalerkinRhs_uniform_local_time
+  A089 [C] SingularClosure.GALERKIN_ENSTROPHY_INEQUALITY
+  A051 [C] SingularClosure.GALERKIN_TIME_DERIVATIVE_CUBIC_BOUND
+  A045 [C] SingularClosure.CRITICAL_GALERKIN_H0_L2H1_SUBSEQUENCE
+  A047 [C] SingularClosure.galerkinLimit_coefficient_integral
+STILL REQUIRED: Establish cutoff-independent short-time H1 and integrated H2 bounds, the compatible derivative/time-modulus bounds and finite-window limit realization. Fixed-N ODE existence is insufficient. Full rough-H1 local theory would suffice, but uniform smooth-input H1 local theory is enough for this WFB route.
+BOUNDARY: The first blocked implication is these anchors -> actual norm-controlled physical local solution. No downstream WFB proof is asserted.
+
+R02. PRESSURE, ORIGINAL INITIAL TRACE AND SMOOTH PERSISTENCE
+ORIGINAL OBLIGATIONS: WFB-03
+STATUS: PROSPECTIVE_CONSTRUCTION_ADAPTERS
+TARGET: Upgrade the locally constructed solution for smooth data to InitialClassicalFront with actual initial value, smoothness through the forward boundary, divergence freedom, periodicity, velocity mean zero and normalized pressure.
+EXISTING ANCHORS:
+  A065 [C] SingularClosure.GALERKIN_POSITIVE_TIME_ALL_ORDERS
+  A061 [C] SingularClosure.torusSobolev_limit_of_bounded_higher_order
+  A064 [C] SingularClosure.canonicalSobolevLimit_initial_physical
+  A067 [C] SingularClosure.SOBOLEV_SCALE_TIME_SMOOTH
+  A069 [C] SingularClosure.SOBOLEV_CURVES_JOINT_SPACETIME_SMOOTH
+  A070 [C] SingularClosure.INFINITE_TRANSPORT_PRESSURE_RECOVERY
+  A071 [C] SingularClosure.SOBOLEV_TRANSPORT_PRESSURE_JOINT_SMOOTH
+  A073 [C] SingularClosure.PHYSICAL_NSE_OF_FULL_FOURIER_RHS
+  A104 [A] MethbokeAddon.WeakFouriermanB.initial_front_strong_initial_trace
+STILL REQUIRED: Adapt global-horizon regularity helpers to one finite local interval and prove smooth initial-boundary persistence for the constructed path. Existing InitialClassicalFront trace theorem consumes an already constructed front; it cannot construct its own premise.
+BOUNDARY: Pressure reconstruction is present under all-order Sobolev/reality/solenoidality premises; these must be supplied on the local constructed flow.
+
+R03. ACTUAL LOCAL CLASSICAL UNIQUENESS, INCLUDING NORMALIZED PRESSURE
+ORIGINAL OBLIGATIONS: WFB-04
+STATUS: ACCEPTED_INGREDIENTS_CONTEXTUAL_WRAPPER_PENDING
+TARGET: Two actual InitialClassicalFront witnesses with the same datum agree in velocity and normalized pressure on their common forward interval.
+EXISTING ANCHORS:
+  A106 [A] MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists
+  A105 [A] MethbokeAddon.WeakFouriermanB.initial_front_leray_hopf_identification
+  A110 [A] MethbokeAddon.WeakFouriermanB.continuous_periodic_field_eq_of_cube_ae
+  A111 [A] MethbokeAddon.WeakFouriermanB.normalized_pressure_eq_on_jointly_smooth_velocity_overlap
+STILL REQUIRED: Choose one original Q01 Leray-Hopf path and compare both fronts to that fixed path. Upgrade every-time ae velocity equality to pointwise equality, obtain pressure on the open overlap, and extend pressure equality to t=0 by continuity. Package the exact local uniqueness theorem.
+BOUNDARY: This conditional uniqueness adapter can be proved independently of R01; it does not require assuming either front exists for arbitrary data.
+
+R04. UNIQUE MAXIMAL STRONG TRAJECTORY AND LIFETIME
+ORIGINAL OBLIGATIONS: WFB-05
+STATUS: PHYSICAL_ASSEMBLY_PENDING
+TARGET: For every smooth datum construct one actual maximal trajectory, Tmax in (0,infinity], compatible on all shorter fronts, with uniqueness and no proper classical extension.
+EXISTING ANCHORS:
+  A012 [S] zorn_le_nonempty
+  A007 [S] IsIntegralCurveOn.mono
+  A010 [S] IsIntegralCurveOn.comp_add
+  A028 [A] contDiffOn_of_locally_contDiffOn
+  A125 [A] MethbokeAddon.WeakFouriermanB.finiteCapSplice_contDiffOn
+STILL REQUIRED: Define physical extension/restriction, glue compatible finite fronts with pressure, and prove an upper-bound construction or a supremum-of-admissible-durations construction. Generic order/ODE lemmas do not construct physical fronts.
+BOUNDARY: Zorn is optional, not a required PDE theorem. Existing finite-cap/global-tail splice must be adapted before use on two finite fronts.
+
+R05. ENSTROPHY IDENTITY ALONG AN ARBITRARY PHYSICAL FRONT
+ORIGINAL OBLIGATIONS: WFB-06
+STATUS: FINITE_TO_PHYSICAL_CALCULUS_LIFT_PENDING
+TARGET: For an actual InitialClassicalFront, Y=||grad u||_2^2 and Z=||Delta u||_2^2 satisfy (1/2)Y'+nu*Z = integral ((u dot grad)u) dot Delta u on the positive interval, with continuous expressions on every shorter closed slab.
+EXISTING ANCHORS:
+  A075 [C] SingularClosure.GalerkinSolution.coefficientEnstrophy_identity
+  A077 [C] SingularClosure.coefficientEnstrophyNonlinearPower_eq_physical
+  A098 [C] SingularClosure.critical_integral_inner_laplacian
+  A099 [C] SingularClosure.critical_smooth_integral_inner_gradient_eq_zero
+STILL REQUIRED: Differentiate the actual physical spatial integral in time and perform periodic integration by parts for arbitrary smooth fields. Supply a continuous explicit derivative d, rather than only an existential pointwise derivative.
+BOUNDARY: Existing Galerkin enstrophy identities quantify over finite trajectories. This adapter can be developed conditionally on a supplied front, independently of its construction.
+
+R06. PHYSICAL NONLINEAR ESTIMATE AND CUBIC INEQUALITY
+ORIGINAL OBLIGATIONS: WFB-06
+STATUS: ARBITRARY_FIELD_ANALYTIC_LIFT_PENDING
+TARGET: For actual mean-zero smooth solenoidal fields, |integral ((u dot grad)u) dot Delta u| <= C*Y^(3/4)*Z^(3/4); hence Y'+nu*Z <= kappa*Y^3 with kappa=C_* nu^(-3).
+EXISTING ANCHORS:
+  A079 [C] SingularClosure.PERIODIC_SOBOLEV_H1_L6
+  A080 [C] SingularClosure.CRITICAL_PHYSICAL_H1_L6
+  A082 [C] SingularClosure.cube_eLpNorm_three_le_interpolation
+  A083 [C] SingularClosure.convection_eLpNorm_two_le
+  A084 [C] SingularClosure.inner_integral_enorm_le_eLpNorm_two
+  A078 [C] SingularClosure.FINITE_HESSIAN_LAPLACIAN_EQ
+  A086 [C] SingularClosure.FINITE_PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND
+  A088 [C] SingularClosure.nonlinear_three_quarter_absorption
+  A089 [C] SingularClosure.GALERKIN_ENSTROPHY_INEQUALITY
+STILL REQUIRED: Extend the finite Hessian/Laplacian and nonlinear estimate to arbitrary physical smooth fields, assembling the existing periodic Sobolev, interpolation, Holder and integration-by-parts results with correct mean-zero normalization.
+BOUNDARY: The scalar Young absorption is reusable; its finite-synthesis input theorem is not already the required physical-front theorem.
+
+R07. FULL SQUARED FOURIER BUDGET IMPLIES A UNIFORM H1 BOUND
+ORIGINAL OBLIGATIONS: WFB-06
+STATUS: AUDITED_FOURIER_BRIDGE_AND_COMPILED_SCALAR_CONSUMER; PHYSICAL_PREMISES_PENDING
+TARGET: Let M=integral_(0,tau)Y^2<infinity. For every 0<=b<tau, Y(t)+nu*integral_0^t Z <= Y(0)*exp(kappa*M) on [0,b]. With the physical L2 energy bound this gives one H1 bound independent of b.
+EXISTING ANCHORS:
+  A100 [A] MethbokeAddon.WeakFouriermanB.smoothSigmaZero_dissipation_eq_fourierEnstrophy
+  A102 [A] MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget
+  A126 [A] MethbokeAddon.WeakFouriermanB.local_front_energy_bound
+  A090 [C] SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL
+STILL REQUIRED: Instantiate the scalar lemma with y=Y, z=||Delta u||_2 (so z^2=Z), and the continuous physical d from R05. Prove interval restriction and use the same full-budget M for all shorter slabs; package the actual H1 bound.
+BOUNDARY: Do not assume continuity or a solution value at finite Tmax. Actual-path budget does not imply AX6 uniform Galerkin budgets.
+
+R08. UNIFORM RESTART AND FINITE-ENDPOINT CONTINUATION
+ORIGINAL OBLIGATIONS: WFB-06
+STATUS: PHYSICAL_RESTART_ASSEMBLY_PENDING
+TARGET: If Tmax<infinity and sup_(t<Tmax)||u(t)||_H1<=R, restart from s<Tmax within h(nu,R)/2 of Tmax; extend past Tmax and contradict maximality.
+EXISTING ANCHORS:
+  A010 [S] IsIntegralCurveOn.comp_add
+  A011 [S] IsIntegralCurveOn.comp_sub
+  A028 [A] contDiffOn_of_locally_contDiffOn
+  A125 [A] MethbokeAddon.WeakFouriermanB.finiteCapSplice_contDiffOn
+  A118 [A] MethbokeAddon.WeakFouriermanB.finite_cap_gluing
+  A123 [A] QuasiFeffermanB.LH_RESTART_AE_Ioo
+STILL REQUIRED: Transport the actual physical NSE equation and normalized pressure under time translation, apply the uniform lifespan, and glue the two finite classical pieces by R03. Explicitly prove this is a proper extension.
+BOUNDARY: The LH restart is weak/a.e. and supplies no strong lifespan. Existing finite_cap_gluing assumes a global ClassicalTail, so is a template rather than a direct local-restart theorem. No limiting datum at Tmax is needed.
+
+R09. STRICT CUTOFF OVERLAP, INCLUDING EQUALITY
+ORIGINAL OBLIGATIONS: WFB-07
+STATUS: SHORT_CONTEXTUAL_ARGUMENT_PENDING_R08
+TARGET: For tau_Q=||a||_2^4/(8*pi^2*nu^5), the full budget up to min(Tmax,tau_Q) implies ofReal(tau_Q)<Tmax.
+EXISTING ANCHORS:
+  A032 [S] ENNReal.lt_iff_exists_real_btwn
+  A033 [S] ENNReal.ofReal_lt_ofReal_iff_of_nonneg
+  A108 [A] MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff
+STILL REQUIRED: Assume finite Tmax<=tau_Q. The budget then covers all of (0,Tmax), so R07/R08 contradict maximality. This includes Tmax=tau_Q; choose a finite T with tau_Q<T<Tmax after the contradiction.
+BOUNDARY: Handle Tmax=infinity before converting it to a real. Only strict overlap beyond tau_Q is needed, not extension through 2*tau_Q or a two-sided analytic cap.
+
+R10. EXACT WFB ROOT THROUGH THE ACCEPTED CLASSICAL R0 THEOREM
+ORIGINAL OBLIGATIONS: WFB-08, WFB-09, WFB-10
+STATUS: ACCEPTED_R0_ROOT_REUSE; WFB_CONTEXTUAL_ASSEMBLY_PENDING
+TARGET: The full finite squared Fourier budget implies Tmax=infinity and a GlobalSmoothNSE pair equal to the entire original maximal velocity and normalized pressure.
+EXISTING ANCHORS:
+  A119 [A] MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
+  A105 [A] MethbokeAddon.WeakFouriermanB.initial_front_leray_hopf_identification
+  A117 [A] MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae
+  A118 [A] MethbokeAddon.WeakFouriermanB.finite_cap_gluing
+  A120 [A] QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE
+  A121 [A] QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS
+  A124 [C] SingularClosure.globalSmoothNSE_zero
+STILL REQUIRED: Restrict the maximal trajectory to the cap T from R09 and apply the accepted classical R0 implication once. Fix that global witness; R03 on every further compact overlap proves whole-trajectory agreement. Maximality forces Tmax=infinity. Treat zero and infinite-lifetime branches explicitly.
+BOUNDARY: R0 already derives Q01 identification, Q09 attachment, pressure equality and global gluing for an admitted cap. Do not re-prove those layers or promote WFB08/09 before matching their full maximal-trajectory context.
+
+4. EXACT NORMALIZATIONS AND EDGE CASES
+
+Define tau=(min Tmax (ENNReal.ofReal tau_Q)).toReal after proving this
+minimum finite, since it is bounded by ofReal tau_Q. Use 0<=b<tau.
+The R05/R07 closed-slab estimates require InitialClassicalFront smoothness
+through zero; positive-time smoothness with only an L2 trace is insufficient.
+
+E(t)=physicalEnergy(u(t))=||u(t)||_2^2; no factor 1/2.
+Y(t)=physicalDissipation(u(t))=||grad u(t)||_2^2=4*pi^2*Q(t).
+Z(t)=||Delta u(t)||_2^2. Thus integral Y^2=16*pi^4*integral Q^2.
+The scalar CubicBudget theorem uses nu*z(t)^2, so choose z=||Delta u||_2,
+not z=Z. It requires continuous y,z,d on each closed slab [0,b], the actual
+derivative on (0,b), and d+nu*z^2<=kappa*y^3. The explicit enstrophy formula
+must supply continuous d. Choose b<Tmax and use one bound M from the full
+budget; never assume regularity, continuity or a value at finite Tmax.
+
+Then the prospective R07 conclusion is
+  E(t)+Y(t) <= E(0)+Y(0)*exp(kappa*M),  0<=t<Tmax,
+when the budget covers the whole possibly finite maximal interval.
+Take R as the square root of the right side in the physical H1 norm convention
+E+Y, or prove the equivalence constant for any Fourier-weighted H1 convention.
+CriticalSobolev q in Methlib denotes H^(q/2), not H^q.
+
+R01 need only be uniform on smooth data with this H1 bound. A full rough-H1
+local theory suffices, but is not a necessary extra target for this route.
+The required duration is independent of N, higher derivatives and start time.
+R01 and R02 can be one physical construction presented as two review steps.
+R02 may not assume smoothness/pressure by putting them into an uninhabited
+certificate structure. Once InitialClassicalFront is constructed, its strong
+initial L2 trace is already derived by the accepted adapter.
+
+If Tmax<=tau_Q, the full budget is exactly on (0,Tmax). Uniform restart rules
+out this case, including Tmax=tau_Q. Q09 alone cannot rule out equality because
+it applies strictly after the cutoff. Once tau_Q<Tmax, a real finite T between
+them gives the R0 input. Neither 2*tau_Q<Tmax nor analyticity is required.
+
+If Tmax=infinity, select finite cap times without taking its real value.
+Taking min(Tmax,ofReal(tau_Q)) first is finite; arbitrary use of toReal_min
+would require its separate finiteness hypotheses. Do not convert infinity to
+zero through a totalized real-valued conversion.
+
+For a=0, tau_Q=0 and the budget is vacuous. Use the explicit global zero
+solution, local uniqueness including normalized pressure, and maximality.
+No division by initial enstrophy or positive-cutoff premise is needed.
+For a!=0, the accepted smooth representative theorem and CUTOFF_POS derive
+positive cutoff; they do not add a hypothesis.
+
+For local uniqueness choose one original Q01 Leray-Hopf witness once, compare
+both fronts to it, and upgrade cube-a.e. equality at every positive time to
+pointwise equality. Pressure equality at t=0 follows by right continuity.
+For the root apply R0 once and retain one global pair. Comparison on all
+shorter compact restrictions proves agreement on the whole original path.
+
+5. REUSE BOUNDARIES
+
+1. Fixed-N existence is not a cutoff-uniform physical local lifespan.
+2. H^(r+2)->H^r smoothness is not same-space Banach ODE local existence.
+3. Compactness requires uniform bounds/moduli and does not itself recover nonlinear PDE, pressure, trace or smoothness.
+4. A scalar cubic estimate consumes its derivative/cubic premises; it does not prove them for NSE.
+5. One physical-path Fourier budget is not AX6 uniform Galerkin budget.
+6. Existing global-horizon Sobolev flow/regularity assumptions are not a local construction.
+7. Generic Zorn/gluing/ODE time translation is not a physical extension theorem.
+8. R0 accepts an actual cap; it does not produce that cap from the WFB budget.
+9. Strict cutoff<Tmax is sufficient; do not insert two-sided analytic admission or 2*cutoff<Tmax.
+10. Extended nonnegative sums/integrals retain infinity; totalized real integrals are not finiteness predicates.
+11. Only b<Tmax is available for closed-slab scalar estimates; do not assume endpoint regularity.
+12. Use one fixed LH witness to compare fronts and one fixed global R0 witness for whole-trajectory agreement.
+
+The generic finite-window compactness theorem
+CRITICAL_GALERKIN_H0_L2H1_SUBSEQUENCE takes explicit uniform bounds and has
+no AX6 premise. It is the relevant construction candidate. By contrast,
+AX6_UNIFORM_STRONG_BOUNDS and related packaged global results retain an
+explicit AX6Statement premise. The small-critical-data route retains its
+smallness hypothesis. Neither silently covers arbitrary smooth data.
+
+The existing arbitrary-field periodic Sobolev, interpolation, convection
+Holder, Cauchy-Schwarz and integration-by-parts results are real reusable
+ingredients. The displayed Hessian/nonlinear/enstrophy final endpoints are
+still finite-synthesis/Galerkin statements; truncating an actual NSE solution
+does not make its truncation an actual Galerkin solution.
+
+6. SOURCE ANCHOR REGISTER
+
+The A/C/S label is the evidence level from Section 2, not a relevance score.
+All links below are immutable source revisions. Extra anchors record useful
+supporting interfaces or explicit exclusions, not 126 new proof obligations.
+
+A001 [S] IsPicardLindelof
+SOURCE: Mathlib/Analysis/ODE/PicardLindelof.lean:79
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/PicardLindelof.lean#L79
+ROLE/CONCLUSION: Prop record: K-Lipschitz on closedBall x0 a; continuity in time there; RHS norm <=L there; L*max(tmax-t0,t0-tmin)<=a-r.
+BOUNDARY: No existence by the record itself; all bounds and same-space realization must be supplied.
+
+A002 [A] IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+SOURCE: Mathlib/Analysis/ODE/ExistUnique.lean:57
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L57
+ROLE/CONCLUSION: Exists alpha:R->E, alpha t0=x and actual HasDerivWithinAt alpha (f t(alpha t)) (Icc tmin tmax) t for every t in the interval.
+BOUNDARY: No physical NSE realization, pressure, divergence/periodicity constraints, smoothing, or cutoff-uniform lifespan.
+
+A003 [S] ContDiffAt.exists_forall_mem_closedBall_exists_eq_forall_mem_Ioo_hasDerivAt
+SOURCE: Mathlib/Analysis/ODE/ExistUnique.lean:145
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L145
+ROLE/CONCLUSION: Exists r>0 and eps>0, uniformly for x in closedBall x0 r exists alpha with initial alpha t0=x and alpha'=f(alpha) on Ioo(t0-eps)(t0+eps).
+BOUNDARY: No uniformity across changing cutoff N; no PDE theorem for derivative-losing infinite RHS.
+
+A004 [S] ContDiffAt.exists_forall_mem_closedBall_exists_eq_forall_mem_Ioo_hasDerivAt₀
+SOURCE: Mathlib/Analysis/ODE/ExistUnique.lean:157
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L157
+ROLE/CONCLUSION: Exists alpha with alpha t0=x0 and a positive open-time radius solving alpha'=f(alpha).
+BOUNDARY: No physically reconstructed infinite-dimensional solution or uniform H1 restart.
+
+A005 [A] ODE_solution_unique_of_mem_Ioo
+SOURCE: Mathlib/Analysis/ODE/ExistUnique.lean:279
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L279
+ROLE/CONCLUSION: EqOn f g (Ioo a b).
+BOUNDARY: Not a PDE weak-strong or physical strong uniqueness theorem; no normalized pressure conclusion.
+
+A006 [S] ODE_solution_unique_of_eventually
+SOURCE: Mathlib/Analysis/ODE/ExistUnique.lean:312
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L312
+ROLE/CONCLUSION: f =ᶠ[nhds t0] g.
+BOUNDARY: No NSE physical uniqueness unless correct same-space vector field premises are independently proved.
+
+A007 [S] IsIntegralCurveOn.mono
+SOURCE: Mathlib/Analysis/ODE/Basic.lean:98
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Basic.lean#L98
+ROLE/CONCLUSION: IsIntegralCurveOn gamma v s'.
+BOUNDARY: No construction or extension; physical PDE contracts are not this ODE predicate.
+
+A008 [S] IsIntegralCurveAt.isIntegralCurveOn
+SOURCE: Mathlib/Analysis/ODE/Basic.lean:110
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Basic.lean#L110
+ROLE/CONCLUSION: IsIntegralCurveOn gamma v s.
+BOUNDARY: Does not assemble different curves or prove that local representatives agree.
+
+A009 [S] isIntegralCurveOn_iff_isIntegralCurveAt
+SOURCE: Mathlib/Analysis/ODE/Basic.lean:116
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Basic.lean#L116
+ROLE/CONCLUSION: IsIntegralCurveOn gamma v s iff forall t in s, IsIntegralCurveAt gamma v t.
+BOUNDARY: Does not provide chain upper bounds or physical PDE consistency.
+
+A010 [S] IsIntegralCurveOn.comp_add
+SOURCE: Mathlib/Analysis/ODE/Transform.lean:37
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Transform.lean#L37
+ROLE/CONCLUSION: gamma composed with (+dt) is an integral curve for shifted vector field on -dt +ᵥ s.
+BOUNDARY: Cannot restart beyond an existing interval or supply new solution.
+
+A011 [S] IsIntegralCurveOn.comp_sub
+SOURCE: Mathlib/Analysis/ODE/Transform.lean:59
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Transform.lean#L59
+ROLE/CONCLUSION: gamma composed with (-dt) is an integral curve for shifted vector field on dt +ᵥ s.
+BOUNDARY: No physical local existence or compatibility with old trajectory.
+
+A012 [S] zorn_le_nonempty
+SOURCE: Mathlib/Order/Zorn.lean:106
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Order/Zorn.lean#L106
+ROLE/CONCLUSION: Exists maximal m:alpha.
+BOUNDARY: No physical extension preorder, nonempty trajectory family, compatible chain union, interval lifetime, or PDE invariants are supplied.
+
+A013 [S] zorn_le_nonempty₀
+SOURCE: Mathlib/Order/Zorn.lean:122
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Order/Zorn.lean#L122
+ROLE/CONCLUSION: Exists m with x<=m and Maximal (membership in s) m.
+BOUNDARY: Physical chain bounds, normalized-pressure agreement and positive/extended lifetime remain to prove.
+
+A014 [S] BoundedContinuousFunction.arzela_ascoli
+SOURCE: Mathlib/Topology/ContinuousMap/Bounded/ArzelaAscoli.lean:109
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Topology/ContinuousMap/Bounded/ArzelaAscoli.lean#L109
+ROLE/CONCLUSION: IsCompact (closure A) in bounded-continuous-function topology (uniform convergence).
+BOUNDARY: No a priori uniform coefficient bounds/time modulus; no strong H1 limit, nonlinear passage, physical local lifespan or pressure.
+
+A015 [S] isCompact_pi_infinite
+SOURCE: Mathlib/Topology/Compactness/Compact.lean:1167
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Topology/Compactness/Compact.lean#L1167
+ROLE/CONCLUSION: The product set {x | forall i, x i in s i} is compact.
+BOUNDARY: No first countability/sequential conclusion by itself; no PDE limit or estimates.
+
+A016 [S] IsCompact.tendsto_subseq
+SOURCE: Mathlib/Topology/Sequences.lean:298
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Topology/Sequences.lean#L298
+ROLE/CONCLUSION: Exists a in s and strictly monotone phi:N->N with Tendsto(x composed phi) atTop(nhds a).
+BOUNDARY: No compactness proof, nonlinear stability, norm-controlled lifespan, or limit regularity.
+
+A017 [A] UnitAddTorus.mFourierBasis
+SOURCE: Mathlib/Analysis/Fourier/AddCircleMulti.lean:266
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L266
+ROLE/CONCLUSION: A (d -> Z)-indexed complex Hilbert basis for L2(UnitAddTorus d).
+BOUNDARY: No vector-field divergence/mean constraints, Sobolev weights, actual nonlinear equation, or pointwise smooth reconstruction.
+
+A018 [A] UnitAddTorus.hasSum_mFourier_series_L2
+SOURCE: Mathlib/Analysis/Fourier/AddCircleMulti.lean:286
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L286
+ROLE/CONCLUSION: HasSum (fun i=>mFourierCoeff f i • mFourierLp 2 i) f.
+BOUNDARY: Does not strengthen convergence to H1/analytic/pointwise; no solution existence or nonlinear limit.
+
+A019 [A] UnitAddTorus.hasSum_sq_mFourierCoeff
+SOURCE: Mathlib/Analysis/Fourier/AddCircleMulti.lean:301
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/AddCircleMulti.lean#L301
+ROLE/CONCLUSION: HasSum (fun i=>norm(mFourierCoeff f i)^2) (integral norm(f t)^2).
+BOUNDARY: Physical vector-valued weighted energy/dissipation identities still require the existing Methlib adapters; no bound on Fourier budgets over time.
+
+A020 [S] MeasureTheory.Integrable.mono'
+SOURCE: Mathlib/MeasureTheory/Function/L1Space/Integrable.lean:101
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/L1Space/Integrable.lean#L101
+ROLE/CONCLUSION: Integrable f.
+BOUNDARY: Does not prove the dominator integrable or establish finite Fourier budget.
+
+A021 [S] MeasureTheory.integrable_norm_rpow_iff
+SOURCE: Mathlib/MeasureTheory/Function/L1Space/Integrable.lean:225
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/L1Space/Integrable.lean#L225
+ROLE/CONCLUSION: Integrable(norm(f)^p.toReal) iff MemLp f p.
+BOUNDARY: No integrability from a totalized real integral; no solution continuation.
+
+A022 [S] MeasureTheory.lintegral_ofReal_ne_top_iff_integrable
+SOURCE: Mathlib/MeasureTheory/Function/L1Space/Integrable.lean:934
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/L1Space/Integrable.lean#L934
+ROLE/CONCLUSION: lintegral ofReal(f) != infinity iff Integrable f.
+BOUNDARY: Does not prove finite budget or justify replacing it with a totalized finite-valued real integral.
+
+A023 [S] MeasureTheory.lintegral_const_mul'
+SOURCE: Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean:418
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean#L418
+ROLE/CONCLUSION: lintegral(r*f)=r*lintegral(f).
+BOUNDARY: No finiteness of lintegral f is supplied.
+
+A024 [A] norm_le_gronwallBound_of_norm_deriv_right_le
+SOURCE: Mathlib/Analysis/ODE/Gronwall.lean:134
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/Gronwall.lean#L134
+ROLE/CONCLUSION: In a real normed space, f continuous on Icc a b, right derivative f' on Ico a b, initial norm <= δ, and ||f'|| <= K||f||+ε imply ||f x|| <= gronwallBound δ K ε (x-a). gronwallBound = δ+εx when K=0, otherwise δ exp(Kx)+(ε/K)(exp(Kx)-1).
+BOUNDARY: Constant coefficient K and actual right differentiability are required. Does not derive the NSE relative-energy inequality, variable Serrin coefficient, pressure uniqueness, or local physical existence.
+
+A025 [S] antitoneOn_of_deriv_nonpos
+SOURCE: Mathlib/Analysis/Calculus/Deriv/MeanValue.lean:479
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/Deriv/MeanValue.lean#L479
+ROLE/CONCLUSION: For convex D⊆ℝ, continuous scalar f on D, differentiable on interior D, and deriv f <=0 there, conclude AntitoneOn f D.
+BOUNDARY: Only a scalar monotonicity step; the PDE estimate and the differentiated integrating factor must already be constructed.
+
+A026 [S] intervalIntegral.integral_hasDerivAt_right
+SOURCE: Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean:725
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean#L725
+ROLE/CONCLUSION: Complete real normed target E. IntervalIntegrable f volume a b, StronglyMeasurableAtFilter f (nhds b), and ContinuousAt f b imply HasDerivAt (fun u => ∫x in a..u,f x) (f b) b.
+BOUNDARY: Does not justify differentiating an arbitrary weak energy, or continuity of f at the endpoint; used on already-controlled scalar integral primitives.
+
+A027 [S] intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le
+SOURCE: Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean:1140
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean#L1140
+ROLE/CONCLUSION: Complete real normed target E. a<=b, continuous f on Icc a b, HasDerivAt f (f' x) x on Ioo a b, and IntervalIntegrable f' volume a b imply ∫a..b f'=f b-f a.
+BOUNDARY: Only FTC; physical energy derivative, integrability and endpoint continuity must be established independently.
+
+A028 [A] contDiffOn_of_locally_contDiffOn
+SOURCE: Mathlib/Analysis/Calculus/ContDiff/Defs.lean:587
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L587
+ROLE/CONCLUSION: For an already-defined f:E→F between normed spaces over a nontrivially normed field, if each x∈s has an open neighborhood u containing x and ContDiffOn 𝕜 n f (s∩u), conclude ContDiffOn 𝕜 n f s.
+BOUNDARY: Does not construct a single trajectory, establish overlap equality, pressure agreement, maximality, or domain extension.
+
+A029 [S] ContDiffWithinAt.congr_of_eventuallyEq
+SOURCE: Mathlib/Analysis/Calculus/ContDiff/Defs.lean:218
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L218
+ROLE/CONCLUSION: Given ContDiffWithinAt 𝕜 n f s x, equality f₁=f eventually in nhdsWithin s x, and f₁ x=f x, transfer ContDiffWithinAt to f₁.
+BOUNDARY: Requires actual local equality and point equality; smoothness cannot be glued from a single boundary value.
+
+A030 [S] ContDiffWithinAt.mono_of_mem_nhdsWithin
+SOURCE: Mathlib/Analysis/Calculus/ContDiff/Defs.lean:284
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L284
+ROLE/CONCLUSION: Given ContDiffWithinAt 𝕜 n f s x and s∈nhdsWithin t x, conclude ContDiffWithinAt 𝕜 n f t x.
+BOUNDARY: A local neighborhood restriction, not analytic/PDE continuation to previously missing points.
+
+A031 [S] Filter.EventuallyEq.derivWithin_eq_of_nhds
+SOURCE: Mathlib/Analysis/Calculus/Deriv/Basic.lean:626
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/Deriv/Basic.lean#L626
+ROLE/CONCLUSION: For functions f₁,f:𝕜→F over a nontrivially normed field with normed target, equality eventually in nhds x implies derivWithin f₁ s x = derivWithin f s x for any s.
+BOUNDARY: Requires equality in an actual neighborhood, not merely equality at x. Transfers literal forward timeDerivative (within Ici 0) through a proven local splice; does not prove PDE equality itself.
+
+A032 [S] ENNReal.lt_iff_exists_real_btwn
+SOURCE: Mathlib/Data/ENNReal/Basic.lean:589
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Data/ENNReal/Basic.lean#L589
+ROLE/CONCLUSION: For a,b:ℝ≥0∞, a<b iff there is r:ℝ with 0<=r, a<ofReal r and ofReal r<b.
+BOUNDARY: Only provides a finite overlap time AFTER ofReal Tf<Tmax is proved; does not exclude equality Tf=Tmax, derive continuation, or prove a lifetime lower bound.
+
+A033 [S] ENNReal.ofReal_lt_ofReal_iff_of_nonneg
+SOURCE: Mathlib/Data/ENNReal/Real.lean:171
+LINK: https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Data/ENNReal/Real.lean#L171
+ROLE/CONCLUSION: For p,q:ℝ with 0<=p, ofReal p<ofReal q iff p<q.
+BOUNDARY: Requires nonnegative lower real endpoint. Used after real-between lemma; zero cutoff cases still need separate physical reasoning.
+
+A034 [C] SingularClosure.finiteGalerkinRhs_local_exists
+SOURCE: Material/_vendor/SingularClosure/GalerkinExistence.lean:27
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinExistence.lean#L27
+ROLE/CONCLUSION: theorem finiteGalerkinRhs_local_exists (ν : ℝ) (N : ℕ)
+    (z₀ : FiniteGalerkinState N) (t₀ : ℝ) :
+    ∃ z : ℝ → FiniteGalerkinState N, z t₀ = z₀ ∧
+      ∃ ε > (0 : ℝ), ∀ t ∈ Ioo (t₀ - ε) (t₀ + ε),
+        HasDerivAt z (finiteGalerkinRhs ν N (z t)) t
+BOUNDARY: Actual polynomial finite-state local solution for every finite state/time. The positive time may depend on viscosity, N, initial state and reference time; no PDE limit follows.
+
+A035 [C] SingularClosure.finiteGalerkinRhs_uniform_local_time
+SOURCE: Material/_vendor/SingularClosure/GalerkinExistence.lean:39
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinExistence.lean#L39
+ROLE/CONCLUSION: theorem finiteGalerkinRhs_uniform_local_time (ν : ℝ) (N : ℕ) (R : ℝ) :
+    ∃ δ > (0 : ℝ),
+      ∀ z₀ ∈ closedBall (0 : FiniteGalerkinState N) R, ∀ t₀ : ℝ,
+        ∃ z : ℝ → FiniteGalerkinState N, z t₀ = z₀ ∧
+          ∀ t ∈ Ioo (t₀ - δ) (t₀ + δ),
+            HasDerivAt z (finiteGalerkinRhs ν N (z t)) t
+BOUNDARY: The quantifier order is forall nu,N,R, exists delta. Delta is uniform over starting points in a ball and starting times at fixed N; it is not cutoff independent.
+
+A036 [C] SingularClosure.finiteGalerkinRhs_unique_on_Icc
+SOURCE: Material/_vendor/SingularClosure/GalerkinExistence.lean:109
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinExistence.lean#L109
+ROLE/CONCLUSION: theorem finiteGalerkinRhs_unique_on_Icc (ν : ℝ) (N : ℕ)
+    (f g : ℝ → FiniteGalerkinState N) (T : ℝ)
+    (hf : ContinuousOn f (Ici 0)) (hg : ContinuousOn g (Ici 0))
+    (hf' : ∀ t : ℝ, 0 ≤ t →
+      HasDerivWithinAt f (finiteGalerkinRhs ν N (f t)) (Ici 0) t)
+    (hg' : ∀ t : ℝ, 0 ≤ t →
+      HasDerivWithinAt g (finiteGalerkinRhs ν N (g t)) (Ici 0) t)
+    (h0 : f 0 = g 0) : EqOn f g (Icc 0 T)
+BOUNDARY: Uniqueness only for the fixed finite-dimensional Galerkin vector field, given actual continuous forward solutions.
+
+A037 [C] SingularClosure.uniform_local_time
+SOURCE: Material/_vendor/SingularClosure/DissipativeODE.lean:79
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/DissipativeODE.lean#L79
+ROLE/CONCLUSION: theorem uniform_local_time (g : V → V) (hg : ContDiff ℝ 1 g) (R : ℝ) :
+    ∃ δ : ℝ, 0 < δ ∧ ∀ x₀ ∈ Metric.closedBall (0 : V) R, ∀ t₀ : ℝ,
+      ∃ α : ℝ → V, α t₀ = x₀ ∧
+        ∀ t ∈ Set.Ioo (t₀ - δ) (t₀ + δ), HasDerivAt α (g (α t)) t
+BOUNDARY: Ambient V is a finite-dimensional real inner-product space. Compact finite-dimensional balls are used; this does not apply directly to infinite-dimensional H1.
+
+A038 [C] SingularClosure.solution_agree
+SOURCE: Material/_vendor/SingularClosure/DissipativeODE.lean:206
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/DissipativeODE.lean#L206
+ROLE/CONCLUSION: theorem solution_agree (g : V → V) (hg : ContDiff ℝ 1 g)
+    (α β : ℝ → V) {a b t₀ : ℝ} (_hab : a ≤ b) (ht₀ : t₀ ∈ Set.Icc a b)
+    (hαβ : α t₀ = β t₀)
+    (hα : ∀ t ∈ Set.Icc a b, HasDerivAt α (g (α t)) t)
+    (hβ : ∀ t ∈ Set.Icc a b, HasDerivAt β (g (β t)) t) :
+    ∀ t ∈ Set.Icc a b, α t = β t
+BOUNDARY: Finite-dimensional C1 ODE overlap uniqueness given actual solution equations on the whole closed overlap. It is a splice model, not physical PDE uniqueness.
+
+A039 [C] SingularClosure.forwardGlobalSolution_exists
+SOURCE: Material/_vendor/SingularClosure/DissipativeODE.lean:259
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/DissipativeODE.lean#L259
+ROLE/CONCLUSION: theorem forwardGlobalSolution_exists (g : V → V) (hg : ContDiff ℝ 1 g)
+    (hdiss : ∀ v : V, inner (𝕜
+BOUNDARY: Finite-dimensional C1 dissipative field; constructs global forward ODE trajectory. Dimension/cutoff-independent PDE regularity is not concluded.
+
+A040 [C] SingularClosure.GALERKIN_GLOBAL_EXISTS_UNIQUE
+SOURCE: Material/_vendor/SingularClosure/GalerkinGlobal.lean:23
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/GalerkinGlobal.lean#L23
+ROLE/CONCLUSION: theorem GALERKIN_GLOBAL_EXISTS_UNIQUE (ν : ℝ) (hν : 0 < ν)
+    (a : Field) (ha : SmoothSigmaZero a) (N : ℕ) :
+    ∃ g : GalerkinSolution ν a N, ∀ h : GalerkinSolution ν a N,
+      EqOn g.coeff h.coeff (Ici 0)
+BOUNDARY: Actual smooth physical datum gives every finite Galerkin approximation. Full physical unprojected NSE is not asserted for a finite truncation.
+
+A041 [A] SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+SOURCE: Material/_vendor/SingularClosure/CriticalGalerkin.lean:124
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalGalerkin.lean#L124
+ROLE/CONCLUSION: theorem CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+    (ν : ℝ) (hν : 0 ≤ ν) (c : FourierCoeff)
+    (hreal : SpectralReality c) (hsol : SpectralSolenoidal c) (N : ℕ) :
+    ∃ g : GalerkinSolution ν (finiteSynthesis N c) N,
+      g.coeff 0 = cutoffCoeff N c ∧
+        ∀ h : GalerkinSolution ν (finiteSynthesis N c) N,
+          EqOn g.coeff h.coeff (Ici 0)
+BOUNDARY: No smallness or Sobolev regularity required for c; every finite cutoff is synthesized and evolved, with reality/solenoidality and nu>=0. Does not assert the N-to-infinity limit is strong.
+
+A042 [C] SingularClosure.CRITICAL_GALERKIN_FOURIER_COMPACTNESS
+SOURCE: Material/_vendor/SingularClosure/CriticalGalerkinTrajectory.lean:104
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalGalerkinTrajectory.lean#L104
+ROLE/CONCLUSION: theorem CRITICAL_GALERKIN_FOURIER_COMPACTNESS
+    (ν : ℝ) (a : ℕ → Field) (N : ℕ → ℕ)
+    (g : ∀ n, GalerkinSolution ν (a n) (N n))
+    (T A B : ℝ) (hA : 0 ≤ A) (hB : 0 ≤ B)
+    (hstate : ∀ n t, t ∈ Icc (0 : ℝ) T → ‖(g n).criticalState 1 t‖ ≤ A)
+    (hbudget : ∀ n, (∫ t in (0 : ℝ)..T, ‖(g n).criticalRhs (-1) t‖ ^ 2) ≤ B) :
+    ∃ u : FourierIndex → C(Icc (0 : ℝ) T, ℂ), ∃ φ : ℕ → ℕ,
+      StrictMono φ ∧ ∀ k i,
+        TendstoUniformly (fun n (t : Icc (0 : ℝ) T) =>
+          (g (φ n)).coeff t.val k i) (u (k, i)) atTop
+BOUNDARY: Conditional on N-uniform H^(1/2) state bound and L2 H^(-1/2) derivative budget on the given finite interval; returns a common subsequence and uniform convergence of each Fourier coefficient.
+
+A043 [C] SingularClosure.CRITICAL_GALERKIN_H0_UNIFORM_SUBSEQUENCE
+SOURCE: Material/_vendor/SingularClosure/CriticalLimitUniform.lean:143
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalLimitUniform.lean#L143
+ROLE/CONCLUSION: theorem CRITICAL_GALERKIN_H0_UNIFORM_SUBSEQUENCE
+    (ν : ℝ) (a : ℕ → Field) (N : ℕ → ℕ)
+    (g : ∀ n, GalerkinSolution ν (a n) (N n))
+    (T A B : ℝ) (hA : 0 ≤ A) (hB : 0 ≤ B)
+    (hstate : ∀ n t, t ∈ Icc (0 : ℝ) T → ‖(g n).criticalState 1 t‖ ≤ A)
+    (hbudget : ∀ n, (∫ t in (0 : ℝ)..T, ‖(g n).criticalRhs (-1) t‖ ^ 2) ≤ B) :
+    ∃ u : Icc (0 : ℝ) T → CriticalSobolev 1, ∃ φ : ℕ → ℕ,
+      StrictMono φ ∧ (∀ t, ‖u t‖ ≤ A) ∧
+      Continuous (fun t => criticalToTorusH0 1 (by norm_num) (u t)) ∧
+      TendstoUniformly (fun n (t : Icc (0 : ℝ) T) =>
+        (g (φ n)).sobolevState 0 t.val)
+        (fun t => criticalToTorusH0 1 (by norm_num) (u t)) atTop
+BOUNDARY: Same explicit uniform estimates yield a genuine H^(1/2)-valued limit and uniform H0 convergence on the finite interval; no AX6 premise.
+
+A044 [C] SingularClosure.CRITICAL_GALERKIN_L2H1_LIMIT_OF_H0_UNIFORM
+SOURCE: Material/_vendor/SingularClosure/CriticalLimitTimeL2.lean:160
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalLimitTimeL2.lean#L160
+ROLE/CONCLUSION: theorem CRITICAL_GALERKIN_L2H1_LIMIT_OF_H0_UNIFORM
+    (ν : ℝ) (a : ℕ → Field) (N : ℕ → ℕ)
+    (g : ∀ n, GalerkinSolution ν (a n) (N n))
+    (T B : ℝ) (hT : 0 ≤ T) (hB : 0 ≤ B)
+    (u0 : Icc (0 : ℝ) T → TorusSobolev 0)
+    (hconv : TendstoUniformly (fun n (t : Icc (0 : ℝ) T) =>
+      (g n).sobolevState 0 t.val) u0 atTop)
+    (hbudget : ∀ n, (∫ t in (0 : ℝ)..T, ‖(g n).criticalState 3 t‖ ^ 2) ≤ B) :
+    ∃ u1 : TimeH1L2 T,
+      Tendsto (fun n => (g n).criticalTimeH1L2 T) atTop (𝓝 u1)
+BOUNDARY: Given uniform H0 convergence and N-uniform integral H^(3/2) squared bound, obtains strong convergence in time L2 H1. No PDE smoothness is concluded.
+
+A045 [C] SingularClosure.CRITICAL_GALERKIN_H0_L2H1_SUBSEQUENCE
+SOURCE: Material/_vendor/SingularClosure/CriticalLimitTimeL2.lean:229
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalLimitTimeL2.lean#L229
+ROLE/CONCLUSION: theorem CRITICAL_GALERKIN_H0_L2H1_SUBSEQUENCE
+    (ν : ℝ) (a : ℕ → Field) (N : ℕ → ℕ)
+    (g : ∀ n, GalerkinSolution ν (a n) (N n))
+    (T A B D : ℝ) (hT : 0 ≤ T) (hA : 0 ≤ A) (hB : 0 ≤ B) (hD : 0 ≤ D)
+    (hstate : ∀ n t, t ∈ Icc (0 : ℝ) T → ‖(g n).criticalState 1 t‖ ≤ A)
+    (hspace : ∀ n, (∫ t in (0 : ℝ)..T, ‖(g n).criticalState 3 t‖ ^ 2) ≤ B)
+    (htime : ∀ n, (∫ t in (0 : ℝ)..T, ‖(g n).criticalRhs (-1) t‖ ^ 2) ≤ D) :
+    ∃ u : Icc (0 : ℝ) T → CriticalSobolev 1, ∃ u1 : TimeH1L2 T, ∃ φ : ℕ → ℕ,
+      StrictMono φ ∧ (∀ t, ‖u t‖ ≤ A) ∧
+      Continuous (fun t => criticalToTorusH0 1 (by norm_num) (u t)) ∧
+      TendstoUniformly (fun n (t : Icc (0 : ℝ) T) =>
+        (g (φ n)).sobolevState 0 t.val)
+        (fun t => criticalToTorusH0 1 (by norm_num) (u t)) atTop ∧
+      Tendsto (fun n => (g (φ n)).criticalTimeH1L2 T) atTop (𝓝 u1)
+BOUNDARY: Combines three explicit finite-window bounds, not AX6, into simultaneous uniform H0 and strong L2 H1 subsequential limits. The estimates still must be proved from the local data.
+
+A046 [C] SingularClosure.criticalGalerkinLimit_coefficient_integral
+SOURCE: Material/_vendor/SingularClosure/CriticalLimitEquation.lean:15
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalLimitEquation.lean#L15
+ROLE/CONCLUSION: theorem criticalGalerkinLimit_coefficient_integral
+    (ν : ℝ) (a : ℕ → Field) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+    (g : ∀ n : ℕ, GalerkinSolution ν (a n) (φ n + 1))
+    (T : ℝ) (hT : 0 ≤ T) (u : ℝ → TorusSobolev 0)
+    (hu : ContinuousOn u (Icc (0 : ℝ) T))
+    (hconv : TendstoUniformlyOn (fun n t => (g n).sobolevState 0 t)
+      u atTop (Icc (0 : ℝ) T))
+    (t : ℝ) (ht : t ∈ Icc (0 : ℝ) T) (k : Frequency) (i : Fin 3) :
+    (u t).val k i = (u 0).val k i +
+      ∫ r in (0 : ℝ)..t, fullFourierRhs ν (u r) k i
+BOUNDARY: For increasing cutoffs and varying data, uniform H0 convergence of actual Galerkin trajectories gives the exact untruncated modal integral equation. Initial datum identity and strong/smooth physical realization remain separate.
+
+A047 [C] SingularClosure.galerkinLimit_coefficient_integral
+SOURCE: Material/_vendor/SingularClosure/FourierLimitEquation.lean:102
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FourierLimitEquation.lean#L102
+ROLE/CONCLUSION: theorem galerkinLimit_coefficient_integral
+    (ν : ℝ) (a : Field) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+    (g : ∀ n : ℕ, GalerkinSolution ν a (φ n + 1))
+    (T : ℝ) (hT : 0 ≤ T) (u : ℝ → TorusSobolev 0)
+    (hu : ContinuousOn u (Icc (0 : ℝ) T))
+    (hconv : TendstoUniformlyOn (fun n t => (g n).sobolevState 0 t)
+      u atTop (Icc (0 : ℝ) T))
+    (t : ℝ) (ht : t ∈ Icc (0 : ℝ) T) (k : Frequency) (i : Fin 3) :
+    (u t).val k i = (u 0).val k i +
+      ∫ r in (0 : ℝ)..t, fullFourierRhs ν (u r) k i
+BOUNDARY: Same modal integral-equation passage for a fixed physical datum; only finite interval hypotheses are needed.
+
+A048 [C] SingularClosure.SMALL_DATA_GALERKIN_GLOBAL_COMPACTNESS
+SOURCE: Material/_vendor/SingularClosure/CriticalUniformBounds.lean:85
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalUniformBounds.lean#L85
+ROLE/CONCLUSION: theorem SMALL_DATA_GALERKIN_GLOBAL_COMPACTNESS
+    (ν : ℝ) (hν : 0 ≤ ν) (a : CriticalSobolev 1)
+    (hreal : SpectralReality (criticalCoeff 1 a))
+    (hsol : SpectralSolenoidal (criticalCoeff 1 a))
+    (hsmall : criticalNonlinearConstant * ‖a‖ < ν) :
+    ∃ u : ℝ → CriticalSobolev 1, ∃ φ : ℕ → ℕ, StrictMono φ ∧
+      (∀ t, 0 ≤ t → ‖u t‖ ≤ ‖a‖) ∧
+      ContinuousOn (fun t => criticalToTorusH0 1 (by norm_num) (u t)) (Ici 0) ∧
+      (∀ T : ℝ, TendstoUniformlyOn
+        (fun n t => (criticalDatumGalerkinFamily ν hν a hreal hsol (φ n)).sobolevState 0 t)
+        (fun t => criticalToTorusH0 1 (by norm_num) (u t)) atTop (Icc (0 : ℝ) T)) ∧
+      ∀ T : ℝ, 0 ≤ T → ∃ u1 : TimeH1L2 T,
+        Tendsto
+          (fun n => (criticalDatumGalerkinFamily ν hν a hreal hsol (φ n)).criticalTimeH1L2 T)
+          atTop (𝓝 u1)
+BOUNDARY: Actual global compactness is established here under strict H^(1/2) smallness criticalNonlinearConstant*norm(a)<nu. That hypothesis cannot be dropped for arbitrary large H1 local data.
+
+A049 [C] SingularClosure.fourierSobolevRhs_contDiff
+SOURCE: Material/_vendor/SingularClosure/FourierSobolevRhs.lean:120
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FourierSobolevRhs.lean#L120
+ROLE/CONCLUSION: theorem fourierSobolevRhs_contDiff (ν : ℝ) (r : ℕ) :
+    ContDiff ℝ ∞ (fourierSobolevRhs ν r)
+BOUNDARY: Smooth nonlinear map has domain TorusSobolev(r+2) and codomain TorusSobolev r; two-derivative loss prevents direct same-Banach-space ODE existence.
+
+A050 [C] SingularClosure.fourierSobolevRhs_coefficient_eq_fullRhs
+SOURCE: Material/_vendor/SingularClosure/FourierSobolevRhs.lean:130
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FourierSobolevRhs.lean#L130
+ROLE/CONCLUSION: theorem fourierSobolevRhs_coefficient_eq_fullRhs (ν : ℝ) (r : ℕ)
+    (c : TorusSobolev (r + 2)) :
+    (fourierSobolevRhs ν r c).val =
+      fullFourierRhs ν (torusSobolevLower 0 (r + 2) (Nat.zero_le _) c)
+BOUNDARY: The smooth Sobolev-scale RHS is the actual untruncated Fourier vector field on every H(r+2) input; this is an identification, not a solution-existence theorem.
+
+A051 [C] SingularClosure.GALERKIN_TIME_DERIVATIVE_CUBIC_BOUND
+SOURCE: Material/_vendor/SingularClosure/StrongTimeBounds.lean:91
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/StrongTimeBounds.lean#L91
+ROLE/CONCLUSION: theorem GALERKIN_TIME_DERIVATIVE_CUBIC_BOUND (ν : ℝ) :
+    ∃ C : ℝ, 0 < C ∧ ∀ (a : Field) (N : ℕ) (g : GalerkinSolution ν a N)
+      (t : ℝ), 0 ≤ t →
+      (∫ x in unitCube, ‖timeDerivative g.velocity t x‖ ^ 2) ≤
+        C * ((coefficientDissipation N (g.coeff t)) ^ 3 +
+          coefficientLaplacianSquare N (g.coeff t))
+BOUNDARY: Genuine N-independent constant chosen before datum,N,trajectory,time. With uniform local enstrophy supremum and integrated Laplacian-square bound, supplies a local uniform time derivative bound. No AX6.
+
+A052 [C] SingularClosure.GalerkinSolution.sobolevState_H0_time_modulus
+SOURCE: Material/_vendor/SingularClosure/SobolevTimeModulus.lean:48
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevTimeModulus.lean#L48
+ROLE/CONCLUSION: theorem GalerkinSolution.sobolevState_H0_time_modulus
+    {ν : ℝ} {a : Field} {N : ℕ} (g : GalerkinSolution ν a N)
+    {s t T : ℝ} (hs : 0 ≤ s) (hst : s ≤ t) (htT : t ≤ T) :
+    ‖g.sobolevState 0 t - g.sobolevState 0 s‖ ^ 2 ≤
+      (t - s) * (∫ r in (0 : ℝ)..T,
+        ∫ x in unitCube, ‖timeDerivative g.velocity r x‖ ^ 2)
+BOUNDARY: Actual H0 time modulus from physical time-derivative integral. No AX6; uniformity across N requires a common integral bound.
+
+A053 [C] SingularClosure.GalerkinSolution.sobolevState_integral_rhs
+SOURCE: Material/_vendor/SingularClosure/SobolevTimeModulus.lean:32
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevTimeModulus.lean#L32
+ROLE/CONCLUSION: theorem GalerkinSolution.sobolevState_integral_rhs
+    {ν : ℝ} {a : Field} {N : ℕ} (g : GalerkinSolution ν a N)
+    (q : ℕ) {s t : ℝ} (hs : 0 ≤ s) (hst : s ≤ t) :
+    (∫ r in s..t, g.rhsSobolev q r) = g.sobolevState q t - g.sobolevState q s
+BOUNDARY: Actual finite-state Sobolev integral identity on every forward subinterval.
+
+A054 [C] SingularClosure.AX6_UNIFORM_TIME_DERIVATIVE_BOUND
+SOURCE: Material/_vendor/SingularClosure/StrongTimeBounds.lean:109
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/StrongTimeBounds.lean#L109
+ROLE/CONCLUSION: theorem AX6_UNIFORM_TIME_DERIVATIVE_BOUND (hAX6 : AX6Statement)
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T) :
+    ∃ B : ℝ, 0 ≤ B ∧ ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,
+      (∫ t in (0 : ℝ)..T, ∫ x in unitCube,
+        ‖timeDerivative g.velocity t x‖ ^ 2) ≤ B
+BOUNDARY: Contains global AX6Statement explicitly; cannot silently replace by the WFB budget of one maximal physical path.
+
+A055 [C] SingularClosure.AX6_UNIFORM_PHYSICAL_STRONG_BOUNDS
+SOURCE: Material/_vendor/SingularClosure/UniformStrongBounds.lean:65
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/UniformStrongBounds.lean#L65
+ROLE/CONCLUSION: theorem AX6_UNIFORM_PHYSICAL_STRONG_BOUNDS (hAX6 : AX6Statement)
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T) :
+    ∃ B : ℝ, 0 ≤ B ∧ ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,
+      (∀ t ∈ Icc (0 : ℝ) T, physicalH1Square (g.velocity t) ≤ B) ∧
+      IntervalIntegrable (fun t => physicalH2Square (g.velocity t)) volume 0 T ∧
+      (∫ t in (0 : ℝ)..T, physicalH2Square (g.velocity t)) ≤ B ∧
+      IntervalIntegrable (fun t => ∫ x in unitCube,
+        ‖timeDerivative g.velocity t x‖ ^ 2) volume 0 T ∧
+      (∫ t in (0 : ℝ)..T, ∫ x in unitCube,
+        ‖timeDerivative g.velocity t x‖ ^ 2) ≤ B
+BOUNDARY: Physical uniform H1/H2/time-derivative estimates are derived using explicit global AX6Statement.
+
+A056 [C] SingularClosure.AX6_UNIFORM_STRONG_BOUNDS
+SOURCE: Material/_vendor/SingularClosure/StrongSobolevRealization.lean:63
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/StrongSobolevRealization.lean#L63
+ROLE/CONCLUSION: theorem AX6_UNIFORM_STRONG_BOUNDS (hAX6 : AX6Statement)
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T) :
+    ∃ B : ℝ, 0 ≤ B ∧ ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,
+      ContinuousOn (g.sobolevState 1) (Ici 0) ∧
+      MemLp (g.sobolevState 1) ⊤ (volume.restrict (Icc (0 : ℝ) T)) ∧
+      MemLp (g.sobolevState 2) 2 (volume.restrict (Icc (0 : ℝ) T)) ∧
+      MemLp (g.rhsSobolev 0) 2 (volume.restrict (Icc (0 : ℝ) T)) ∧
+      (∀ t : ℝ, 0 ≤ t → HasDerivWithinAt (g.sobolevState 0)
+        (g.rhsSobolev 0 t) (Ici 0) t) ∧
+      (∀ t ∈ Icc (0 : ℝ) T, ‖g.sobolevState 1 t‖ ^ 2 ≤ B) ∧
+      IntervalIntegrable (fun t => ‖g.sobolevState 2 t‖ ^ 2) volume 0 T ∧
+      (∫ t in (0 : ℝ)..T, ‖g.sobolevState 2 t‖ ^ 2) ≤ B ∧
+      IntervalIntegrable (fun t => ‖g.rhsSobolev 0 t‖ ^ 2) volume 0 T ∧
+      (∫ t in (0 : ℝ)..T, ‖g.rhsSobolev 0 t‖ ^ 2) ≤ B ∧
+      IntervalIntegrable (fun t => ∫ x in unitCube,
+        ‖timeDerivative g.velocity t x‖ ^ 2) volume 0 T ∧
+      (∫ t in (0 : ℝ)..T, ∫ x in unitCube,
+        ‖timeDerivative g.velocity t x‖ ^ 2) ≤ B
+BOUNDARY: Packaged strong Sobolev path bounds and derivative identities retain AX6. Local versions should instead use newly proved finite-window bounds.
+
+A057 [C] SingularClosure.AX6_CANONICAL_GALERKIN_H0_UNIFORM_SUBSEQUENCE
+SOURCE: Material/_vendor/SingularClosure/SobolevArzelaAscoli.lean:47
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevArzelaAscoli.lean#L47
+ROLE/CONCLUSION: theorem AX6_CANONICAL_GALERKIN_H0_UNIFORM_SUBSEQUENCE (hAX6 : AX6Statement)
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T) :
+    ∃ u : C(Icc (0 : ℝ) T, TorusSobolev 0), ∃ φ : ℕ → ℕ,
+      StrictMono φ ∧ TendstoUniformly
+        (fun n (t : Icc (0 : ℝ) T) =>
+          (canonicalGalerkinSolution ν hν a ha (φ n + 1)).sobolevState 0 t.val)
+        u atTop
+BOUNDARY: Current canonical compactness theorem requires AX6; its proof is a finite-window template once uniform H1 bound and H0 time modulus are supplied.
+
+A058 [C] SingularClosure.AX6_CANONICAL_GALERKIN_H0_L2H1_SUBSEQUENCE
+SOURCE: Material/_vendor/SingularClosure/SobolevTimeL2Compactness.lean:71
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevTimeL2Compactness.lean#L71
+ROLE/CONCLUSION: theorem AX6_CANONICAL_GALERKIN_H0_L2H1_SUBSEQUENCE (hAX6 : AX6Statement)
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T) :
+    ∃ u0 : C(Icc (0 : ℝ) T, TorusSobolev 0), ∃ u1 : TimeH1L2 T,
+      ∃ φ : ℕ → ℕ, StrictMono φ ∧
+        TendstoUniformly
+          (fun n (t : Icc (0 : ℝ) T) =>
+            (canonicalGalerkinSolution ν hν a ha (φ n + 1)).sobolevState 0 t.val)
+          u0 atTop ∧
+        Tendsto (fun n => canonicalSobolevTimeH1L2 ν hν a ha T (φ n)) atTop (𝓝 u1)
+BOUNDARY: Canonical H0-uniform and time-L2 H1 subsequence retains AX6; do not cite as arbitrary-data local PDE existence.
+
+A059 [C] SingularClosure.torusSobolev_limit_mem_and_norm_le
+SOURCE: Material/_vendor/SingularClosure/SobolevLimitBounds.lean:46
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevLimitBounds.lean#L46
+ROLE/CONCLUSION: theorem torusSobolev_limit_mem_and_norm_le
+    {α : Type*} {l : Filter α} [l.NeBot]
+    (s : ℕ) (u : α → TorusSobolev s) (c : FourierCoeff) (B : ℝ)
+    (hbound : ∀ n, ‖u n‖ ≤ B)
+    (hcoeff : ∀ k i, Tendsto (fun n => (u n).val k i) l (𝓝 (c k i))) :
+    ∃ hc : Memℓp (sobolevWeightedCoeff s c) 2,
+      @norm (TorusSobolev s) inferInstance ⟨c, hc⟩ ≤ B
+BOUNDARY: Unconditional generic norm/membership passage given actual uniform norm bound and coefficient convergence.
+
+A060 [C] SingularClosure.torusSobolevInclusion_tendsto_of_coeff_tendsto
+SOURCE: Material/_vendor/SingularClosure/SobolevLimitBounds.lean:70
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevLimitBounds.lean#L70
+ROLE/CONCLUSION: theorem torusSobolevInclusion_tendsto_of_coeff_tendsto
+    {α : Type*} {l : Filter α} (s : ℕ)
+    (u : α → TorusSobolev (s + 1)) (v : TorusSobolev s) (B : ℝ)
+    (hbound : ∀ᶠ n in l, ‖u n‖ ≤ B)
+    (hcoeff : ∀ k i, Tendsto (fun n => (u n).val k i) l (𝓝 (v.val k i))) :
+    Tendsto (fun n => torusSobolevInclusion s (u n)) l (𝓝 v)
+BOUNDARY: Actual coefficient convergence plus an eventual one-higher-order bound gives strong lower-order convergence; no AX6.
+
+A061 [C] SingularClosure.torusSobolev_limit_of_bounded_higher_order
+SOURCE: Material/_vendor/SingularClosure/SobolevLimitBounds.lean:99
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevLimitBounds.lean#L99
+ROLE/CONCLUSION: theorem torusSobolev_limit_of_bounded_higher_order
+    {α : Type*} {l : Filter α} [l.NeBot]
+    (s : ℕ) (u : α → TorusSobolev (s + 1)) (c : FourierCoeff) (B : ℝ)
+    (hbound : ∀ n, ‖u n‖ ≤ B)
+    (hcoeff : ∀ k i, Tendsto (fun n => (u n).val k i) l (𝓝 (c k i))) :
+    ∃ v : TorusSobolev (s + 1), v.val = c ∧ ‖v‖ ≤ B ∧
+      Tendsto (fun n => torusSobolevInclusion s (u n)) l
+        (𝓝 (torusSobolevInclusion s v))
+BOUNDARY: Constructs limit membership and strong lower-order convergence together from stated bounds.
+
+A062 [C] SingularClosure.torusSobolevInclusion_compact
+SOURCE: Material/_vendor/SingularClosure/TorusSobolev.lean:477
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/TorusSobolev.lean#L477
+ROLE/CONCLUSION: theorem torusSobolevInclusion_compact (s : ℕ) :
+    IsCompactOperator (torusSobolevInclusion s)
+BOUNDARY: Actual compact Sobolev inclusion, available independently of a trajectory or budget.
+
+A063 [C] SingularClosure.canonicalSobolevLimit_initial_coeff
+SOURCE: Material/_vendor/SingularClosure/SobolevLimitInitial.lean:59
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevLimitInitial.lean#L59
+ROLE/CONCLUSION: theorem canonicalSobolevLimit_initial_coeff
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 ≤ T) (u : C(Icc (0 : ℝ) T, TorusSobolev 0))
+    (φ : ℕ → ℕ) (hφ : StrictMono φ)
+    (hconv : TendstoUniformly
+      (fun n (t : Icc (0 : ℝ) T) =>
+        (canonicalGalerkinSolution ν hν a ha (φ n + 1)).sobolevState 0 t.val)
+      u atTop) :
+    (u ⟨0, le_rfl, hT⟩).val = datumFourierCoeff a
+BOUNDARY: Identifies literal Fourier initial data for a given continuous uniform canonical H0 limit; finite-window statement, no AX6.
+
+A064 [C] SingularClosure.canonicalSobolevLimit_initial_physical
+SOURCE: Material/_vendor/SingularClosure/SobolevLimitInitial.lean:86
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevLimitInitial.lean#L86
+ROLE/CONCLUSION: theorem canonicalSobolevLimit_initial_physical
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 ≤ T) (u : C(Icc (0 : ℝ) T, TorusSobolev 0))
+    (φ : ℕ → ℕ) (hφ : StrictMono φ)
+    (hconv : TendstoUniformly
+      (fun n (t : Icc (0 : ℝ) T) =>
+        (canonicalGalerkinSolution ν hν a ha (φ n + 1)).sobolevState 0 t.val)
+      u atTop) :
+    torusSobolevL2 (u ⟨0, le_rfl, hT⟩) = torusPhysicalDatumL2 a ha.smooth.continuous
+BOUNDARY: Identifies physical initial torus L2 state of that given canonical limit; strong/smooth evolution remains separate.
+
+A065 [C] SingularClosure.GALERKIN_POSITIVE_TIME_ALL_ORDERS
+SOURCE: Material/_vendor/SingularClosure/CriticalPositiveTimeHighOrder.lean:108
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPositiveTimeHighOrder.lean#L108
+ROLE/CONCLUSION: theorem GALERKIN_POSITIVE_TIME_ALL_ORDERS
+    (ν : ℝ) (hν : 0 < ν) (a : ℕ → Field)
+    (hseed : ∀ σ T : ℝ, 0 < σ → σ < T →
+      ∃ S : ℝ, 0 ≤ S ∧ ∀ (N : ℕ) (g : GalerkinSolution ν (a N) N),
+        (∫ s in σ..T, highOrderEnergy 2 N (g.coeff s)) ≤ S)
+    (m : ℕ) :
+    ∀ τ T : ℝ, 0 < τ → τ < T →
+      ∃ B : ℝ, 0 ≤ B ∧ ∀ (N : ℕ) (g : GalerkinSolution ν (a N) N),
+        ∀ t ∈ Icc τ T, highOrderEnergy m N (g.coeff t) +
+          ν * (∫ s in τ..t, highOrderEnergy (m + 1) N (g.coeff s)) ≤ B
+BOUNDARY: Generic bootstrap uses uniform integrated order-two bounds on every positive interval and yields every integer order away from zero. Global horizon quantifiers need finite-window adaptation; no initial-time smooth persistence supplied.
+
+A066 [C] SingularClosure.CRITICAL_POSITIVE_FLOW_OF_GALERKIN_LIMIT
+SOURCE: Material/_vendor/SingularClosure/CriticalPositiveLimit.lean:18
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPositiveLimit.lean#L18
+ROLE/CONCLUSION: theorem CRITICAL_POSITIVE_FLOW_OF_GALERKIN_LIMIT
+    (ν : ℝ) (a : ℕ → Field) (φ : ℕ → ℕ) (hφ : StrictMono φ)
+    (g : ∀ n : ℕ, GalerkinSolution ν (a n) (φ n + 1))
+    (u : ℝ → TorusSobolev 0) (hu : ContinuousOn u (Ici 0))
+    (hconv : ∀ T : ℝ, 0 < T → TendstoUniformlyOn
+      (fun n t => (g n).sobolevState 0 t) u atTop (Icc (0 : ℝ) T))
+    (hbound : ∀ (s : ℕ) (τ T : ℝ), 0 < τ → τ < T →
+      ∃ B : ℝ, 0 ≤ B ∧ ∀ (n : ℕ) (t : ℝ), t ∈ Icc τ T →
+        ‖(g n).sobolevState s t‖ ≤ B) :
+    ∃ L : CriticalPositiveSobolevFlow ν, ∀ t : ℝ, 0 < t → L.state 0 t = u t
+BOUNDARY: Constructs actual positive Sobolev flow from global compact-time H0 convergence and all-order uniform bounds on every positive interval. A finite-window version and smooth initial-boundary control remain needed.
+
+A067 [C] SingularClosure.SOBOLEV_SCALE_TIME_SMOOTH
+SOURCE: Material/_vendor/SingularClosure/SobolevScaleTimeSmooth.lean:47
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevScaleTimeSmooth.lean#L47
+ROLE/CONCLUSION: theorem SOBOLEV_SCALE_TIME_SMOOTH
+    (U : ∀ m : ℕ, ℝ → TorusSobolev m)
+    (F : ∀ m : ℕ, TorusSobolev (m + 2) → TorusSobolev m)
+    (hU : ∀ m : ℕ, ContinuousOn (U m) (Ici (0 : ℝ)))
+    (hF : ∀ m : ℕ, ContDiff ℝ ∞ (F m))
+    (hderiv : ∀ (m : ℕ) (t : ℝ), t ∈ Ici (0 : ℝ) →
+      HasDerivWithinAt (U m) (F m (U (m + 2) t)) (Ici (0 : ℝ)) t) :
+    ∀ m : ℕ, ContDiffOn ℝ ∞ (U m) (Ici (0 : ℝ))
+BOUNDARY: All-order continuous curves plus smooth scale vector fields and actual derivative identities imply all-order time smoothness on Ici0; not an existence/persistence theorem.
+
+A068 [C] SingularClosure.CRITICAL_POSITIVE_SCALE_TIME_SMOOTH
+SOURCE: Material/_vendor/SingularClosure/CriticalPositiveTimeSmooth.lean:47
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPositiveTimeSmooth.lean#L47
+ROLE/CONCLUSION: theorem CRITICAL_POSITIVE_SCALE_TIME_SMOOTH
+    (U : ∀ m : ℕ, ℝ → TorusSobolev m)
+    (F : ∀ m : ℕ, TorusSobolev (m + 2) → TorusSobolev m)
+    (hU : ∀ m : ℕ, ContinuousOn (U m) (Ioi (0 : ℝ)))
+    (hF : ∀ m : ℕ, ContDiff ℝ ∞ (F m))
+    (hderiv : ∀ (m : ℕ) (t : ℝ), t ∈ Ioi (0 : ℝ) →
+      HasDerivWithinAt (U m) (F m (U (m + 2) t)) (Ioi (0 : ℝ)) t) :
+    ∀ m : ℕ, ContDiffOn ℝ ∞ (U m) (Ioi (0 : ℝ))
+BOUNDARY: Same conditional scale bootstrap on Ioi0; does not give initial regularity.
+
+A069 [C] SingularClosure.SOBOLEV_CURVES_JOINT_SPACETIME_SMOOTH
+SOURCE: Material/_vendor/SingularClosure/SobolevSpacetimeSmooth.lean:30
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevSpacetimeSmooth.lean#L30
+ROLE/CONCLUSION: theorem SOBOLEV_CURVES_JOINT_SPACETIME_SMOOTH
+    (U : ∀ s : ℕ, ℝ → TorusSobolev s)
+    (hU : ∀ s : ℕ, ContDiffOn ℝ ∞ (U s) (Ici (0 : ℝ)))
+    (hcoeff : ∀ (s : ℕ) (t : ℝ), 0 ≤ t → (U s t).val = (U 0 t).val) :
+    ContDiffOn ℝ ∞
+      (fun z : ℝ × Vec => smoothFourierSynthesis (U 0 z.1).val z.2) forwardSpacetime
+BOUNDARY: Compatible all-order smooth Sobolev curves give actual joint physical smoothness; all-order curve regularity is a premise.
+
+A070 [C] SingularClosure.INFINITE_TRANSPORT_PRESSURE_RECOVERY
+SOURCE: Material/_vendor/SingularClosure/InfiniteFourierPressure.lean:267
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/InfiniteFourierPressure.lean#L267
+ROLE/CONCLUSION: theorem INFINITE_TRANSPORT_PRESSURE_RECOVERY (c : TorusSobolev 0)
+    (hc : ∀ s : ℕ, Memℓp (sobolevWeightedCoeff s c.val) 2)
+    (hreal : SpectralReality c.val) (hsol : SpectralSolenoidal c.val) :
+    ContDiff ℝ ∞ (fullTransportPressure c) ∧
+      SpatialPeriodic (fullTransportPressure c) ∧
+      PressureMeanZero (fullTransportPressure c) ∧
+      ∀ x : Vec, smoothFourierSynthesis (fullTransportCoefficients c) x +
+        gradient (fullTransportPressure c) x =
+        smoothFourierSynthesis
+          (fun k => coefficientLeray k (fullTransportCoefficients c k)) x
+BOUNDARY: Actual normalized periodic smooth pressure from all-order Sobolev membership plus reality/solenoidality. Supplies the exact transport/projection identity, not existence of a smooth evolving state.
+
+A071 [C] SingularClosure.SOBOLEV_TRANSPORT_PRESSURE_JOINT_SMOOTH
+SOURCE: Material/_vendor/SingularClosure/SobolevPressure.lean:212
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SobolevPressure.lean#L212
+ROLE/CONCLUSION: theorem SOBOLEV_TRANSPORT_PRESSURE_JOINT_SMOOTH
+    (U : ∀ s : ℕ, ℝ → TorusSobolev s)
+    (hU : ∀ s : ℕ, ContDiffOn ℝ ∞ (U s) (Ici (0 : ℝ)))
+    (hcoeff : ∀ (s : ℕ) (t : ℝ), 0 ≤ t → (U s t).val = (U 0 t).val) :
+    ContDiffOn ℝ ∞
+      (fun z : ℝ × Vec => fullTransportPressure (U 0 z.1) z.2) forwardSpacetime
+BOUNDARY: Actual pressure jointly smooth for compatible all-order smooth Sobolev curves on Ici0.
+
+A072 [C] SingularClosure.CRITICAL_POSITIVE_PRESSURE_JOINT_SMOOTH
+SOURCE: Material/_vendor/SingularClosure/CriticalPositivePressure.lean:39
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPositivePressure.lean#L39
+ROLE/CONCLUSION: theorem CRITICAL_POSITIVE_PRESSURE_JOINT_SMOOTH
+    (U : ∀ s : ℕ, ℝ → TorusSobolev s)
+    (hU : ∀ s : ℕ, ContDiffOn ℝ ∞ (U s) (Ioi (0 : ℝ)))
+    (hcoeff : ∀ (s : ℕ) (t : ℝ), 0 < t → (U s t).val = (U 0 t).val) :
+    ContDiffOn ℝ ∞
+      (fun z : ℝ × Vec => fullTransportPressure (U 0 z.1) z.2) positiveSpacetime
+BOUNDARY: Positive-time counterpart for existing smooth compatible Sobolev curves.
+
+A073 [C] SingularClosure.PHYSICAL_NSE_OF_FULL_FOURIER_RHS
+SOURCE: Material/_vendor/SingularClosure/PhysicalNSEIdentity.lean:36
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalNSEIdentity.lean#L36
+ROLE/CONCLUSION: theorem PHYSICAL_NSE_OF_FULL_FOURIER_RHS (ν : ℝ) (c : TorusSobolev 0)
+    (hc : ∀ s : ℕ, Memℓp (sobolevWeightedCoeff s c.val) 2)
+    (hreal : SpectralReality c.val) (hsol : SpectralSolenoidal c.val)
+    (hr : ∀ s : ℕ, Memℓp (sobolevWeightedCoeff s (fullFourierRhs ν c)) 2) :
+    ∀ x : Vec,
+      smoothFourierSynthesis (fullFourierRhs ν c) x +
+        convection (smoothFourierSynthesis c.val) x +
+        gradient (fullTransportPressure c) x =
+          ν • laplacian (smoothFourierSynthesis c.val) x
+BOUNDARY: Actual pointwise NSE algebra after all-order state and RHS membership; RHS must additionally be identified as the velocity time derivative.
+
+A074 [A] SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE
+SOURCE: Material/_vendor/SingularClosure/CriticalPositiveFlow.lean:109
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPositiveFlow.lean#L109
+ROLE/CONCLUSION: theorem CRITICAL_POSITIVE_PHYSICAL_NSE
+    {ν : ℝ} (L : CriticalPositiveSobolevFlow ν) :
+    PositiveSmoothNSE ν L.velocity L.pressure
+BOUNDARY: Existing CriticalPositiveSobolevFlow yields actual PositiveSmoothNSE, including pressure and equations at every t>0. No flow existence or t=0 regularity is concluded.
+
+A075 [C] SingularClosure.GalerkinSolution.coefficientEnstrophy_identity
+SOURCE: Material/_vendor/SingularClosure/EnstrophyInequality.lean:86
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyInequality.lean#L86
+ROLE/CONCLUSION: HasDerivWithinAt (r ↦ coefficientDissipation N (g.coeff r)) (-2*ν*coefficientLaplacianSquare N (g.coeff t) - 2*coefficientEnstrophyNonlinearPower N (g.coeff t)) (Ici 0) t.
+BOUNDARY: Exact differentiated finite enstrophy balance. No corresponding arbitrary physical-front time identity is supplied here.
+
+A076 [C] SingularClosure.FINITE_PHYSICAL_BILINEAR_PARSEVAL
+SOURCE: Material/_vendor/SingularClosure/PhysicalBilinear.lean:59
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalBilinear.lean#L59
+ROLE/CONCLUSION: Integral of inner(finiteSynthesis N a, finiteSynthesis N b) over unitCube equals sum over cutoffModes N and components of Re(conj(a_kj)*b_kj).
+BOUNDARY: Physical/coefficient pairing bridge; finite synthesis remains explicit.
+
+A077 [C] SingularClosure.coefficientEnstrophyNonlinearPower_eq_physical
+SOURCE: Material/_vendor/SingularClosure/PhysicalBilinear.lean:256
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalBilinear.lean#L256
+ROLE/CONCLUSION: coefficientEnstrophyNonlinearPower N c = -∫unitCube inner(convection(finiteSynthesis N c),laplacian(finiteSynthesis N c)).
+BOUNDARY: Identifies the literal nonlinear pairing and its sign. Does not lift the time derivative or nonlinear bound to arbitrary solutions.
+
+A078 [C] SingularClosure.FINITE_HESSIAN_LAPLACIAN_EQ
+SOURCE: Material/_vendor/SingularClosure/FiniteHessian.lean:110
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/FiniteHessian.lean#L110
+ROLE/CONCLUSION: Σ_i ∫unitCube gradientSquareDensity(coordinateDerivative(finiteSynthesis N c) i) = ∫unitCube ||laplacian(finiteSynthesis N c)||².
+BOUNDARY: Exact physical Hessian/Laplacian equality, uniform in N. An arbitrary smooth periodic field version still needs an adapter/proof.
+
+A079 [C] SingularClosure.PERIODIC_SOBOLEV_H1_L6
+SOURCE: Material/_vendor/SingularClosure/PeriodicSobolev.lean:216
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicSobolev.lean#L216
+ROLE/CONCLUSION: ∃K≥0, fixed before v, ||v||_L6 ≤ SNormLESNormFDerivOfEqConst(F,volume,2)*343^(1/2)*(||fderiv v||_L2 + ENNReal.ofReal(K)*||v||_L2).
+BOUNDARY: Genuine arbitrary-field Sobolev anchor. Includes a lower-order term; does not by itself give homogeneous H1 local existence.
+
+A080 [C] SingularClosure.CRITICAL_PHYSICAL_H1_L6
+SOURCE: Material/_vendor/SingularClosure/CriticalPhysicalH1.lean:61
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPhysicalH1.lean#L61
+ROLE/CONCLUSION: ∃K≥0 fixed before v,G, the same L6 inequality as PERIODIC_SOBOLEV_H1_L6 with G replacing fderiv v.
+BOUNDARY: Actual H1→L6 extension beyond smooth fields. It is a spatial closure theorem, not existence of an H1 trajectory.
+
+A081 [C] SingularClosure.FINITE_PHYSICAL_L6_FROM_ENSTROPHY
+SOURCE: Material/_vendor/SingularClosure/PeriodicSobolev.lean:329
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicSobolev.lean#L329
+ROLE/CONCLUSION: ∃C : ENNReal, C<∞, fixed before N,c, ||finiteSynthesis N c||_L6 ≤ C*(ofReal(coefficientDissipation N c))^(1/2).
+BOUNDARY: Homogeneous finite-field bound; zero mode is excluded by cutoffModes, so mean zero is built into finite synthesis.
+
+A082 [C] SingularClosure.cube_eLpNorm_three_le_interpolation
+SOURCE: Material/_vendor/SingularClosure/PeriodicNonlinear.lean:103
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicNonlinear.lean#L103
+ROLE/CONCLUSION: ||v||_L3 ≤ ||v||_L2^(1/2)*||v||_L6^(1/2), with physical eLpNorm on unitCube.
+BOUNDARY: Reusable interpolation for fderiv v once its L2/L6 estimates are supplied.
+
+A083 [C] SingularClosure.convection_eLpNorm_two_le
+SOURCE: Material/_vendor/SingularClosure/PeriodicNonlinear.lean:140
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicNonlinear.lean#L140
+ROLE/CONCLUSION: ||convection v||_L2 ≤ ||v||_L6*||fderiv v||_L3.
+BOUNDARY: Actual convection Hölder bound; no periodicity or finite-mode premise.
+
+A084 [C] SingularClosure.inner_integral_enorm_le_eLpNorm_two
+SOURCE: Material/_vendor/SingularClosure/PeriodicNonlinear.lean:159
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicNonlinear.lean#L159
+ROLE/CONCLUSION: ofReal(abs(∫unitCube inner(v,w))) ≤ ||v||_L2*||w||_L2.
+BOUNDARY: Physical Cauchy-Schwarz pairing. Supports an arbitrary-field nonlinear proof after derivative bounds.
+
+A085 [C] SingularClosure.FINITE_PHYSICAL_DERIVATIVE_L6_FROM_LAPLACIAN
+SOURCE: Material/_vendor/SingularClosure/PeriodicNonlinear.lean:56
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicNonlinear.lean#L56
+ROLE/CONCLUSION: ∃C<∞ fixed before N,c, ||fderiv(finiteSynthesis N c)||_L6 ≤ C*(ofReal(coefficientLaplacianSquare N c))^(1/2).
+BOUNDARY: Finite Hessian plus homogeneous Sobolev. Missing arbitrary-field analogue is one component of the lifting edge.
+
+A086 [C] SingularClosure.FINITE_PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND
+SOURCE: Material/_vendor/SingularClosure/PeriodicNonlinear.lean:201
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PeriodicNonlinear.lean#L201
+ROLE/CONCLUSION: ∃C<∞ fixed before N,c, ofReal(abs(∫inner(convection u_N,laplacian u_N))) ≤ C*(ofReal D_N)^(3/4)*(ofReal Z_N)^(3/4).
+BOUNDARY: Cutoff-independent estimate with literal physical operators, but quantified only over u_N=finiteSynthesis N c.
+
+A087 [C] SingularClosure.FINITE_PHYSICAL_NONLINEAR_REAL_BOUND
+SOURCE: Material/_vendor/SingularClosure/EnstrophyAbsorption.lean:23
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyAbsorption.lean#L23
+ROLE/CONCLUSION: ∃K≥0 fixed before N,c, abs(∫inner(convection u_N,laplacian u_N)) ≤ K*D_N^(3/4)*Z_N^(3/4).
+BOUNDARY: Finite real-constant version after finite ENNReal bounds justify toReal.
+
+A088 [C] SingularClosure.nonlinear_three_quarter_absorption
+SOURCE: Material/_vendor/SingularClosure/EnstrophyAbsorption.lean:63
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyAbsorption.lean#L63
+ROLE/CONCLUSION: 2*K*E^(3/4)*Z^(3/4) ≤ ν*Z + (2*K)^4/ν^3*E^3.
+BOUNDARY: Genuine reusable scalar Young-type absorption; it does not supply a PDE estimate.
+
+A089 [C] SingularClosure.GALERKIN_ENSTROPHY_INEQUALITY
+SOURCE: Material/_vendor/SingularClosure/EnstrophyAbsorption.lean:135
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/EnstrophyAbsorption.lean#L135
+ROLE/CONCLUSION: ∃d, HasDerivWithinAt (r↦∫gradientSquareDensity(g.velocity r)) d (Ici 0) t and d+ν*∫||laplacian(g.velocity t)||² ≤ (C/ν³)*(∫gradientSquareDensity(g.velocity t))³.
+BOUNDARY: The precise finite physical theorem. Actual integrals do not remove its GalerkinSolution premise.
+
+A090 [C] SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL
+SOURCE: Material/_vendor/SingularClosure/CubicBudget.lean:174
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CubicBudget.lean#L174
+ROLE/CONCLUSION: ∀t∈[0,T], y(t)+ν∫_0^t z² ≤ y(0)*exp(κ*M).
+BOUNDARY: Can consume an actual enstrophy/cubic bridge; contains no NSE existence, endpoint continuation or automatic identification y=D.
+
+A091 [C] SingularClosure.CUBIC_POSITIVE_TIME_ACCUMULATION
+SOURCE: Material/_vendor/SingularClosure/CriticalPositiveTimeScalar.lean:31
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPositiveTimeScalar.lean#L31
+ROLE/CONCLUSION: ∀t∈[τ,T], y(t)+ν∫_τ^t z² ≤ sqrt(M/τ)*exp(κ*M).
+BOUNDARY: Positive-time scalar seed removes dependence on y(0), but retains derivative, cubic and whole-interval continuity premises.
+
+A092 [C] SingularClosure.AX6Statement
+SOURCE: Material/_vendor/SingularClosure/Admission.lean:52
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Admission.lean#L52
+ROLE/CONCLUSION: ∃M : NNReal, ∀N≥1, ∀g : GalerkinSolution ν a N, budget6 N g.coeff T ≤ M.
+BOUNDARY: Uniform across all cutoffs/trajectories; not the single existing physical trajectory's FourierBudgetFinite assumption.
+
+A093 [C] SingularClosure.AX6_EXACT_REAL_SQUARE_BUDGET
+SOURCE: Material/_vendor/SingularClosure/Ax6ExactBudget.lean:48
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Ax6ExactBudget.lean#L48
+ROLE/CONCLUSION: ∃M≥0, ∀N≥1 and g, IntervalIntegrable(D_N²,0,T) and ∫_0^T D_N²≤M.
+BOUNDARY: Converts the already assumed AX6 extended budget to a real scalar bound. Does not derive AX6 from one physical path.
+
+A094 [C] SingularClosure.AX6_UNIFORM_ENSTROPHY_ACCUMULATION
+SOURCE: Material/_vendor/SingularClosure/StrongAccumulation.lean:66
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/StrongAccumulation.lean#L66
+ROLE/CONCLUSION: ∃B≥0, ∀N≥1, ∀g : GalerkinSolution ν a N, ∀t∈[0,T], D_N(t)+ν∫_0^t Z_N≤B.
+BOUNDARY: Finite Galerkin accumulation, using cubic estimate and initial cutoff contraction. Explicit AX6 premise is indispensable.
+
+A095 [C] SingularClosure.AX6_UNIFORM_PHYSICAL_ENSTROPHY_ACCUMULATION
+SOURCE: Material/_vendor/SingularClosure/StrongAccumulation.lean:112
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/StrongAccumulation.lean#L112
+ROLE/CONCLUSION: ∃B≥0 uniform in N,g,t, ∫gradientSquareDensity(g.velocity t)+ν∫_0^t∫||laplacian(g.velocity s)||²≤B.
+BOUNDARY: Literal physical rewriting of the finite Galerkin family bound; not arbitrary-trajectory endpoint continuation.
+
+A096 [C] SingularClosure.SIX_CHANNEL_ENSTROPHY_EQ
+SOURCE: Material/_vendor/SingularClosure/SmoothSixEnstrophy.lean:104
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SmoothSixEnstrophy.lean#L104
+ROLE/CONCLUSION: Σ_A physicalEnstrophy(smoothSixChannel A a)=physicalEnstrophy a.
+BOUNDARY: Genuine all-smooth-field orthogonal identity; no solenoidality, mean zero or finite-frequency restriction. Static-in-time only.
+
+A097 [C] SingularClosure.physicalEnstrophy_eq_ofReal_integral
+SOURCE: Material/_vendor/SingularClosure/PhysicalParseval.lean:231
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/PhysicalParseval.lean#L231
+ROLE/CONCLUSION: physicalEnstrophy v = ofReal(∫unitCube gradientSquareDensity v).
+BOUNDARY: Actual integrability is proved before converting extended integral to real.
+
+A098 [C] SingularClosure.critical_integral_inner_laplacian
+SOURCE: Material/_vendor/SingularClosure/CriticalPeriodicIBP.lean:76
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalPeriodicIBP.lean#L76
+ROLE/CONCLUSION: ∫inner(u,laplacian v) = -Σ_j∫inner(∂_j u,∂_j v).
+BOUNDARY: Reusable physical IBP; obtaining the Hessian identity needs mixed-derivative commutation and another application.
+
+A099 [C] SingularClosure.critical_smooth_integral_inner_gradient_eq_zero
+SOURCE: Material/_vendor/SingularClosure/CriticalSmoothCancellation.lean:17
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalSmoothCancellation.lean#L17
+ROLE/CONCLUSION: ∫inner(v,gradient f)=0.
+BOUNDARY: Pressure cancellation anchor. Applying at enstrophy level still requires divergence-free Laplacian or differentiated pressure adapters.
+
+A100 [A] MethbokeAddon.WeakFouriermanB.smoothSigmaZero_dissipation_eq_fourierEnstrophy
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean:130
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean#L130
+ROLE/CONCLUSION: physicalDissipation v = (4*pi^2)*FourierEnstrophy(datumFourierCoeff v).
+BOUNDARY: Exact actual-field normalization; squared budget scales by (4*pi^2)^2.
+
+A101 [A] MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean:62
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean#L62
+ROLE/CONCLUSION: ∃K>0 fixed before v, criticalSpatialNorm 6 v ^4 ≤ K*physicalDissipation v ^2.
+BOUNDARY: Accepted arbitrary-field homogeneous Sobolev adapter is already available; do not list it as missing.
+
+A102 [A] MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean:127
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean#L127
+ROLE/CONCLUSION: Integrable (t↦physicalDissipation(u t)^2) μ.
+BOUNDARY: Accepted single-path budget conversion; yields actual D² integrability but neither a D derivative nor an enstrophy cubic inequality.
+
+A103 [C] MethbokeAddon.WeakFouriermanB.InitialClassicalFront
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean:35
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean#L35
+ROLE/CONCLUSION: Literal physical smooth pair on Ico 0 T; no existence or continuation field.
+BOUNDARY: Preserve every explicit source premise.
+
+A104 [A] MethbokeAddon.WeakFouriermanB.initial_front_strong_initial_trace
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean:86
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean#L86
+ROLE/CONCLUSION: InitialClassicalFront ν T a u p and 0<T imply the actual strong L2 initial trace.
+BOUNDARY: Preserve every explicit source premise.
+
+A105 [A] MethbokeAddon.WeakFouriermanB.initial_front_leray_hopf_identification
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean:173
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean#L173
+ROLE/CONCLUSION: Given InitialClassicalFront, ν>0,T>0 and any fixed CriticalLerayHopf ν (criticalL2Representative a) v G, every r∈Ioo 0 T satisfies v r =ae u r.
+BOUNDARY: Preserve every explicit source premise.
+
+A106 [A] MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean:70
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean#L70
+ROLE/CONCLUSION: ν>0 and SmoothSigmaZero a imply ∃v G, CriticalLerayHopf ν (criticalL2Representative a) v G ∧ v 0 =ae a.
+BOUNDARY: Preserve every explicit source premise.
+
+A107 [A] MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean:42
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean#L42
+ROLE/CONCLUSION: SmoothSigmaZero a implies EnergySigmaZero (criticalL2Representative a).
+BOUNDARY: Preserve every explicit source premise.
+
+A108 [A] MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean:58
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean#L58
+ROLE/CONCLUSION: Smooth datum identifies cutoff(rep a)ν with physicalEnergy(a)^2/(8*pi^2*ν^5).
+BOUNDARY: Preserve every explicit source premise.
+
+A109 [A] MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ne_zero
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/R0DataAdmission.lean:53
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/R0DataAdmission.lean#L53
+ROLE/CONCLUSION: SmoothSigmaZero a and a≠0 imply criticalL2Representative a≠0.
+BOUNDARY: Preserve every explicit source premise.
+
+A110 [A] MethbokeAddon.WeakFouriermanB.continuous_periodic_field_eq_of_cube_ae
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean:47
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean#L47
+ROLE/CONCLUSION: Continuous periodic fields agreeing ae on unitCube agree as actual fields everywhere.
+BOUNDARY: Preserve every explicit source premise.
+
+A111 [A] MethbokeAddon.WeakFouriermanB.normalized_pressure_eq_on_jointly_smooth_velocity_overlap
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean:178
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean#L178
+ROLE/CONCLUSION: On an open time set, actual velocity equality + both NSE equations + jointly smooth normalized pressures imply pressure equality.
+BOUNDARY: Preserve every explicit source premise.
+
+A112 [A] MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean:37
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean#L37
+ROLE/CONCLUSION: Smooth periodic mean-zero v implies physicalEnergy v≤physicalDissipation v.
+BOUNDARY: Preserve every explicit source premise.
+
+A113 [A] MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean:85
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean#L85
+ROLE/CONCLUSION: Actual L6 norm fourth power≤constant*actual dissipation squared for smooth periodic mean-zero fields.
+BOUNDARY: Preserve every explicit source premise.
+
+A114 [C] MethbokeAddon.WeakFouriermanB.FourierBudgetFinite
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/FourierBudget.lean:26
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/FourierBudget.lean#L26
+ROLE/CONCLUSION: Full extended Fourier-enstrophy square lintegral over Ioo 0 T is finite.
+BOUNDARY: Preserve every explicit source premise.
+
+A115 [A] MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean:158
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean#L158
+ROLE/CONCLUSION: Joint finite-front smoothness gives actual dissipation time measurability.
+BOUNDARY: Preserve every explicit source premise.
+
+A116 [A] MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean:325
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean#L325
+ROLE/CONCLUSION: Differentiates actual kinetic energy; this is not the enstrophy derivative.
+BOUNDARY: Preserve every explicit source premise.
+
+A117 [A] MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean:58
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean#L58
+ROLE/CONCLUSION: InitialClassicalFront + ClassicalTail + agreement with one weak path on overlap imply actual velocity and normalized-pressure equality there.
+BOUNDARY: Preserve every explicit source premise.
+
+A118 [A] MethbokeAddon.WeakFouriermanB.finite_cap_gluing
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean:213
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean#L213
+ROLE/CONCLUSION: Actual initial front and global ClassicalTail with strict overlap and derived pair equality yield GlobalSmoothNSE preserving the entire initial cap.
+BOUNDARY: Preserve every explicit source premise.
+
+A119 [A] MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean:39
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean#L39
+ROLE/CONCLUSION: ν>0, cutoff(rep a)ν<T and InitialClassicalFront ν T a u p imply ∃U P, GlobalSmoothNSE ν a U P and U=u,P=p at every r∈Ico 0 T.
+BOUNDARY: Preserve every explicit source premise.
+
+A120 [A] QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE
+SOURCE: Material/_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean:35
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/Quasi-Fefferman-B/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean#L35
+ROLE/CONCLUSION: ν>0 and EnergySigmaZero a imply existence of an actual original CriticalLerayHopf path.
+BOUNDARY: Preserve every explicit source premise.
+
+A121 [A] QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS
+SOURCE: Material/_vendor/QuasiFeffermanB/TailChain.lean:13
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/Quasi-Fefferman-B/QuasiFeffermanB/TailChain.lean#L13
+ROLE/CONCLUSION: ν>0, EnergySigmaZero a, actual CriticalLerayHopf ν a u G and cutoff a ν<δ imply HasSmoothTail ν u δ.
+BOUNDARY: Preserve every explicit source premise.
+
+A122 [A] QuasiFeffermanB.CUTOFF_POS
+SOURCE: Material/_vendor/QuasiFeffermanB/Cutoff.lean:19
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/Quasi-Fefferman-B/QuasiFeffermanB/Cutoff.lean#L19
+ROLE/CONCLUSION: Nonzero physical L2 datum and ν>0 imply cutoff a ν>0; no lifetime assertion.
+BOUNDARY: Preserve every explicit source premise.
+
+A123 [A] QuasiFeffermanB.LH_RESTART_AE_Ioo
+SOURCE: Material/_vendor/QuasiFeffermanB/LHRestart.lean:312
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/Quasi-Fefferman-B/QuasiFeffermanB/LHRestart.lean#L312
+ROLE/CONCLUSION: Almost-everywhere weak LH restart on the open time interval; not strong local construction.
+BOUNDARY: Preserve every explicit source premise.
+
+A124 [C] SingularClosure.globalSmoothNSE_zero
+SOURCE: Material/_vendor/SingularClosure/Contracts.lean:130
+LINK: https://github.com/randogelist/Methlib/blob/96033dd69c994bec337a87369a6c27256e724980/regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean#L130
+ROLE/CONCLUSION: Explicit actual zero GlobalSmoothNSE pair.
+BOUNDARY: Preserve every explicit source premise.
+
+A125 [A] MethbokeAddon.WeakFouriermanB.finiteCapSplice_contDiffOn
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean:86
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean#L86
+ROLE/CONCLUSION: Joint forward smoothness of the spliced field.
+BOUNDARY: Right piece is a whole tail; a finite-to-finite restart variant still needs proof.
+
+A126 [A] MethbokeAddon.WeakFouriermanB.local_front_energy_bound
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean:600
+LINK: https://github.com/randogelist/Methboke/blob/93ca8a57536512556ec36717ee933ea52db283bf/Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean#L600
+ROLE/CONCLUSION: physicalEnergy (u t) <= physicalEnergy a.
+BOUNDARY: Consumes an actual physical front with its strong initial trace; supplies the L2 part of R07, not local existence.
+
+7. ENDPOINT STATUS AND NEXT SCOPED WORK
+
+This source index is complete for its stated review scope. The formal WFB
+root remains blocked at R01/WFB-03. No new whole obligation or A-tier endpoint
+is promoted. The exact accepted R0 implication and WFB-01/WFB-02 remain intact.
+Universal Fourier-budget finiteness and universal R1 remain open.
+
+Suggested next construction: a cutoff-independent short-time Galerkin H1/H2
+bound for arbitrary smooth H1-bounded data, with the uniform derivative/modulus
+estimates needed by the existing generic compactness interface. This is a
+suggestion within the existing WFB scope, not a changed project goal.
+R03 local classical uniqueness and the conditional R05/R06 physical estimates
+are independent preparation opportunities. Prepared code would still require
+authorized cached external compilation and matching fresh type/axiom audits.
+
+This round only read sources/evidence and prepared index/documentation files.
+No Lean, Lake, local kernel audit, project test or external compiler was run.
