@@ -29,3 +29,17 @@ proof and evidence changes.
 - Preserve theorem statements, explicit premises and scope. Prepared files,
   cache hits or CI status alone do not prove the analytic continuation root.
 - Synchronize GPT, README, relevant indices and status metadata before commits.
+
+
+## Weak_Fourierman_B workstream
+
+Use `PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md` and its
+`obligations.json` for the current repository migration. Preserve the fixed
+analytic finite-cap goal; WFB is a supporting conditional criterion. Candidate
+sources are staged outside active Material discovery until cache-safe activation.
+For this workstream use the user's exact chat-only `<->` sign for each complete
+one of the ten obligations that reaches A-tier, and separately for the complete
+root. Name its obligation and matching external evidence. Do not signal a whole
+obligation from a helper pass, B-tier prose, prepared code, cache hit or CI green.
+No scheduled monitoring, polling automation or webhook notification. The prior
+watch is disabled. Stop on runner start; `go on` resumes active result inspection.

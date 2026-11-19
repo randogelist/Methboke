@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-19",
+  "repository": "randogelist/Methboke",
+  "branch": "main",
+  "workstream": "Weak_Fourierman_B",
+  "macro_goal_changed": false,
+  "budget_remains_explicit_hypothesis": true,
+  "monitoring_enabled": false,
+  "chat_sign": "<->",
+  "sign_scope": "One exact complete contextual obligation at a time; root separately. No sign for a helper count or CI green alone.",
+  "acceptance_requirements": [
+    "Successful authorized external cached compiler run on matching sources",
+    "Exact principal theorem type and explicit premises checked",
+    "All required fresh theorem-level axiom reports complete and unique",
+    "No sorryAx; only propext, Classical.choice, Quot.sound",
+    "Matching compiler, dependency lock, source/imported-object and audit-policy identity",
+    "Every analytic certificate/local-existence/continuation/gluing obligation of the intended claim discharged",
+    "Accepted scope and evidence recorded before the chat announcement"
+  ],
+  "on_external_runner_start": "FINISH_TURN; user go on resumes inspection; no waiting or monitoring",
+  "obligations": [
+    {
+      "id": "WFB-01",
+      "title": "Local-front Fourier to Serrin",
+      "intended_claim": "An actual finite physical NSE front, its strong initial L2 trace, and the full finite squared Fourier budget imply the genuine L4_t L6_x bound on the whole open front.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin",
+      "candidate_source_status": "STAGED_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+        "MethbokeAddon.WeakFouriermanB.FourierBudget",
+        "MethbokeAddon.WeakFouriermanB.LocalFront"
+      ],
+      "depends_on": [],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-02",
+      "title": "Homogeneous Fourier to Serrin",
+      "intended_claim": "Jointly smooth periodic mean-zero slices and the full finite squared Fourier budget imply the genuine L4_t L6_x bound, without an assumed energy bound or global solution.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": "MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin",
+      "candidate_source_status": "STAGED_PENDING_EXTERNAL_VERIFICATION",
+      "required_candidate_modules": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+        "MethbokeAddon.WeakFouriermanB.FourierBudget",
+        "MethbokeAddon.WeakFouriermanB.LocalFront",
+        "MethbokeAddon.WeakFouriermanB.HomogeneousBudget"
+      ],
+      "depends_on": [],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-03",
+      "title": "Physical local H1 existence",
+      "intended_claim": "For nu>0 and smooth periodic solenoidal mean-zero data with H1 norm bounded by R, construct a physical smooth local solution with normalized pressure for a positive duration depending only on nu and R.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-04",
+      "title": "Local strong uniqueness",
+      "intended_claim": "Physical local strong solutions with the same datum agree on their common finite front; normalized pressures agree as well.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-03"
+      ],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-05",
+      "title": "Maximal same-path trajectory",
+      "intended_claim": "Construct the same unique maximal strong trajectory with positive extended lifetime, finite-front regularity, initial smoothness and the physical maximal-extension property.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-03",
+        "WFB-04"
+      ],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-06",
+      "title": "Physical endpoint continuation",
+      "intended_claim": "A finite integral of actual physical dissipation squared up to a finite maximal endpoint yields a bounded H1 norm and same-path physical continuation beyond that endpoint.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-03",
+        "WFB-04",
+        "WFB-05"
+      ],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-07",
+      "title": "Strict cutoff overlap",
+      "intended_claim": "For nonzero datum, the finite budget up to min(Tmax,Tf) implies Tf<Tmax; construct finite strict overlap times, including equality/infinite-lifetime cases.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-05",
+        "WFB-06"
+      ],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-08",
+      "title": "Leray-Hopf identification",
+      "intended_claim": "Embed the smooth physical datum into EnergySigmaZero, use Q01 actual weak existence, and identify the same weak path with the strong trajectory on every compact pre-endpoint interval.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-03",
+        "WFB-04",
+        "WFB-05"
+      ],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-09",
+      "title": "Same-path tail and pressure gluing",
+      "intended_claim": "Use Q09 on that same weak path; prove pointwise velocity and normalized-pressure agreement and glue a pair satisfying every GlobalSmoothNSE field.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-07",
+        "WFB-08"
+      ],
+      "dependency_note": null,
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null
+    },
+    {
+      "id": "WFB-10",
+      "title": "Weak_Fourierman_B root",
+      "intended_claim": "For all nu>0 and smooth periodic divergence-free mean-zero a, the full squared Fourier budget on (0,min(Tmax,Tf)), Tf=||a||_L2^4/(8*pi^2*nu^5), implies actual GlobalSmoothNSE nu a U P agreeing with the same maximal path, including zero datum and all lifetime cases.",
+      "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+      "a_tier_status": "NOT_VERIFIED",
+      "principal_declaration": null,
+      "candidate_source_status": "FORMALIZATION_REQUIRED",
+      "required_candidate_modules": [],
+      "depends_on": [
+        "WFB-05",
+        "WFB-06",
+        "WFB-07",
+        "WFB-08",
+        "WFB-09"
+      ],
+      "dependency_note": "Obligations01/02 are alternative analytic bridges; direct continuation uses dissipation-square integrability. Root checklist tracks all ten without implying both bridges are logically necessary.",
+      "external_acceptance": null,
+      "chat_sign_announced": false,
+      "chat_sign_announced_at": null,
+      "review_checklist": [
+        "WFB-01",
+        "WFB-02",
+        "WFB-03",
+        "WFB-04",
+        "WFB-05",
+        "WFB-06",
+        "WFB-07",
+        "WFB-08",
+        "WFB-09"
+      ]
+    }
+  ]
+}

@@ -6,6 +6,14 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 ## Current state
 
+- **Weak_Fourierman_B is now a repository workstream:** the
+  [workflow plan](PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md),
+  [B-tier derivation](Weak_Fourierman_B_B_TIER.txt), ten-obligation register and
+  four exact source candidates are staged. All ten obligations await matching
+  repository A-tier evidence. Active Material registration remains unchanged.
+- **Chat-only progress signs:** `<->` is issued for a complete verified WFB
+  obligation or root during an active review. No scheduled monitoring.
+
 - **Native QFB source is present:** 74 QFB modules and 195 required
   SingularClosure modules, preserved at their pinned source bytes.
 - **Native binary reuse passed at `66052f4`:** all 283 project objects were
@@ -20,8 +28,11 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   took 35m07s. Its red fast job was an intentional drill trigger, not a recovery crash.
 - **Normal CI routing is being repaired:** commit-message drill triggers are
   removed. Normal runs try the cached worker; manual `force_rebuild=true` selects
-  recovery directly. Revised routing and recovered-cache reuse await external CI.
-  Docker Hub work is paused.
+  recovery directly. Revised routing and recovered-cache reuse await matching
+  receipt review and acceptance.
+  Docker Hub work is paused. Subsequent read-only job metadata shows fast-job
+  success and skipped recovery at [44126844972](https://github.com/randogelist/Methboke/actions/runs/44126844972)
+  on `43530b7`; its full theorem receipts were not re-audited in this migration.
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -63,6 +74,7 @@ arbitrary-amplitude BAMBUS/ABC family without proving universal admission.
 |---|---|
 | [GPT.txt](GPT.txt) | Fixed goal, mathematical chain, Lean dependency chain and current obligations |
 | [INDEX-WORTHY.txt](INDEX-WORTHY.txt) | Short register of substantiated results with exact evidence scope |
+| [Weak_Fourierman_B](PREPRINT_FORMALISATION/WeakFouriermanB/README.md) | Scoped Fourier-budget proof, source candidates, workflow plan and ten-obligation ledger |
 | [Material/](Material/README.md) | Independently exportable endpoint packages and shared native source closure |
 | [LEAN_CUTOUTS/](LEAN_CUTOUTS/README.md) | Single-file interface aggregation and provenance |
 | [CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt](CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt) | Cumulative complete B-tier derivation; historical theorem name retained |
@@ -171,3 +183,17 @@ semantics. It does not supply regularity before the cutoff.
 `QFB_ONE_RESTART_OVERLAP` axiom are excluded. A named certificate field is not a
 proof of the missing analytic extension. The new root has **no established
 unconditional closure**.
+
+
+## Current WFB migration boundary
+
+The WFB B-tier chain derives global regularity of the same trajectory from a
+finite full squared Fourier budget; it does not prove that budget for every
+datum. See [the exact cumulative statement](Weak_Fourierman_B_B_TIER.txt).
+The first source stage is preparation only and explicitly skips CI. It preserves
+all active Material sources, drivers, audits, vendor bytes and dependency pins.
+Before activation, address the cache-key effect of Lake/driver changes and
+classify fast-worker failures so a new proof error does not trigger a full
+foundation rebuild. LocalFront repair and HomogeneousBudget still need external
+acceptance; physical local H1 theory and the remaining root adapters remain
+substantial formal work. The existing analytic finite-cap goal is unchanged.
