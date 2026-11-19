@@ -1,5 +1,13 @@
 # Weak_Fourierman_B: ten-endpoint source map v0.1
 
+> Historical applicability map at `43530b7`; the body records that search's
+> source and evidence state. Current [acceptance](../../audits/material-93ca8a5/summary.json)
+> at `93ca8a5` verifies the finite-front adapters and exact R0 `D_Q_subset_R_nu`
+> (321 modules / 33 packages / 161 declarations plus cutout). WFB-01/WFB-02 are
+> accepted; [eight contextual obligations and the WFB root](obligations.json)
+> remain open, as does universal R1. Use the [current README](README.md) for status.
+
+
 Date: 2026-11-19. Purpose: index-guided source reuse for the ten remaining contextual endpoints. This is an applicability register, not a new proof or compiler receipt. No Lean, Lake, Docker, installer, kernel audit, CI dispatch or repository mutation was performed.
 
 The target remains the full finite squared Fourier budget on the same maximal strong trajectory implying an actual global smooth NSE solution, with same-path agreement. No universal finiteness claim is introduced.

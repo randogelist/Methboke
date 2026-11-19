@@ -6,22 +6,21 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 ## Current state
 
-- **Latest accepted package:** [run 44540921991](https://github.com/randogelist/Methboke/actions/runs/44540921991)
-  at `67f766330918577e714e326be82eebfe29f5f2f7` verified 303 source modules,
-  24 endpoint packages and all 120 declaration audits plus the QFB cutout.
-  It reused 291 objects and compiled 12 additions. The
-  [matching evidence](audits/material-67f7663/summary.json) accepts actual
-  smooth-datum admission and finite-front Leray–Hopf identification.
-- **WFB-01 and WFB-02 are accepted** at `0402aa37` with
-  [matching evidence](audits/material-0402aa37/summary.json). The complete WFB
-  root and the remaining eight contextual obligations remain unresolved;
-  accepted helpers retain their exact scope.
-- **The fixed R0 finite-cap roots have complete candidate source proofs.**
-  [Run 44543421609](https://github.com/randogelist/Methboke/actions/runs/44543421609)
-  is checking `0ddd2d67`: 317 modules, 31 packages and 154 declaration audits
-  plus the cutout. Classical and analytic admission retain an actual finite cap
-  strictly beyond the QFB cutoff as a premise. Exact external acceptance is
-  pending; universal analytic germ extension R1 remains open.
+- **Latest accepted package and exact R0 root:** [run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
+  at `93ca8a57536512556ec36717ee933ea52db283bf` verified 321 source modules
+  (303 reused, 18 freshly compiled), all 33 fresh endpoint packages and all
+  161 declaration audits plus the QFB cutout. All 183 controls passed; every
+  audited theorem uses only approved standard axioms. The
+  [matching evidence](audits/material-93ca8a5/summary.json) accepts
+  `MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu` and the classical and
+  two-sided analytic finite-cap roots, preserving both velocity and normalized
+  pressure on the admitted front. The actual finite cap remains explicit;
+  universal analytic germ extension R1 remains open.
+- **WFB-01 and WFB-02 are accepted**, first at `0402aa37` with
+  [matching evidence](audits/material-0402aa37/summary.json) and freshly audited
+  in the current package. The complete WFB root and the remaining eight
+  contextual obligations remain unresolved; accepted helpers retain their
+  exact scope.
 - **Cached external verification remains mandatory.** Explicit current cache
   rejection may select recovery; proof, audit, static and publication failures
   preserve the accepted baseline. Independent implementation may continue
@@ -52,12 +51,12 @@ insufficient.
 
 | Statement | Exact status |
 |---|---|
-| Finite analytic cylinder gives strong initial trace and finite Serrin norm | B-tier argument and complete candidate proofs; R0 verification pending |
-| `D_Q(nu) subset R_nu` | B-tier; classical/analytic finite-cap proof sources prepared, exact external acceptance pending |
+| Finite analytic cylinder gives strong initial trace and finite Serrin norm | A-tier at `93ca8a5`; actual admitted cylinder retained |
+| `D_Q(nu) subset R_nu` | A-tier at `93ca8a5`; literal two-sided NSE cap and explicit zero branch |
 | Arbitrary-amplitude finite Fourier Beltrami data belong to `D_Q(nu)` | Explicit B-tier solution; no QFB premise |
 | `FB_nu <-> (D_germ(nu) subset D_Q(nu))` | B-tier reduction under the recorded foundation interfaces |
 | `D_germ(nu) subset D_Q(nu)` universally | Open continuation obligation |
-| New finite-cap roots in Lean | Complete candidate proof sources; matching external acceptance pending in run 44543421609 |
+| Classical and two-sided analytic finite-cap roots | A-tier at `93ca8a5`; velocity and normalized pressure preserved on `[0,T)` |
 
 For a Beltrami trigonometric polynomial, `curl a = mu*a`, the exact solution
 `U(t) = exp(-nu*mu^2*t)*a` is jointly analytic for every real time. Its pressure
@@ -149,7 +148,7 @@ not require rebuilding while compatible caches remain. If caches are unavailable
 recovery recreates them and supplies a fresh archive. No binary is committed to Git
 and no durable dependency-release backup is claimed. Both binary workers avoid
 Docker operations. Full recovery passed twice at the historical `b1178b8`
-baseline. Later accepted cached runs, including `67f7663`, record their own
+baseline. Later accepted cached runs, including `93ca8a5`, record their own
 object-reuse counts and fresh audit evidence.
 
 The historical first native binary round passed in 4m59s. Its scope differs
@@ -184,8 +183,8 @@ semantics. It does not supply regularity before the cutoff.
 
 `QFBAdmissions.OneRestartOverlapAxiom` and its custom
 `QFB_ONE_RESTART_OVERLAP` axiom are excluded. A named certificate field is not a
-proof of the missing analytic extension. The new root has **no established
-unconditional closure**.
+proof of universal analytic extension. The accepted R0 inclusion retains an
+actual cap premise; universal germ-to-cap extension R1 remains open.
 
 
 ## Current mathematical boundary
@@ -194,7 +193,7 @@ The [WFB B-tier chain](Weak_Fourierman_B_B_TIER.txt) derives global regularity o
 the same trajectory from a finite full squared Fourier budget. It does not prove
 that budget for every datum. Its two Fourier-to-Serrin bridges are accepted,
 and the second accepted layer supplies smooth-datum admission and genuine
-finite-front comparison with the original weak path. The globally smooth
+finite-front comparison with the original weak path. The globally positive-time smooth
 object used in weak testing is a constructed test; it is not an assumed global
 NSE solution.
 
@@ -203,31 +202,33 @@ the next WFB obstruction. Existing fixed-cutoff Galerkin existence does not
 supply it. The maximal-trajectory, continuation and exact WFB-root obligations
 remain separate from the accepted comparison helpers.
 
-The R0 layer now under verification derives initial trace and compact Serrin
-bounds from an actual admitted front, identifies the original weak path,
-proves velocity and normalized-pressure agreement with its QFB tail, and
-constructs a global smooth splice. The classical and analytic root proofs are
-present in `Material/MethbokeAddon/WeakFouriermanB/`; matching external
-acceptance remains pending. No arbitrary-data cap or universal germ-to-cap
-extension is asserted.
+The accepted R0 layer derives initial trace and compact Serrin bounds from
+an actual admitted front, identifies the original weak path, proves velocity
+and normalized-pressure agreement with its QFB tail, and constructs a global
+smooth splice. `D_Q_subset_R_nu` includes the explicit zero solution and an
+actual two-sided analytic NSE cap for nonzero data. The classical and analytic
+roots preserve the admitted velocity and pressure on `[0,T)`. Their matching
+external acceptance is recorded at `93ca8a5`; no arbitrary-data cap or universal
+germ-to-cap extension is asserted.
 
-### R0 compilation feedback and exact data-class adapter
+### Historical R0 verification attempts
 
-[Run44543421609](https://github.com/randogelist/Methboke/actions/runs/44543421609)
-reused303 accepted modules but stopped at two syntactic rewrite matches in
-gluing and pressure uniqueness. Both source corrections preserve every statement.
-No root audits or acceptance followed; recovery was correctly skipped.
-The next verification also includes the literal two-sided analytic NSE cap
-and exact `D_Q(nu) subset R_nu` theorem, with the zero branch handled explicitly.
-Prepared scope:321 modules,33 packages,161 declarations pluscutout.
+[Run 44543421609](https://github.com/randogelist/Methboke/actions/runs/44543421609)
+at `0ddd2d67` reused 303 accepted modules but stopped before audits at two
+rewrite matches in gluing and pressure uniqueness. Both corrections preserved
+every statement. The later scope expanded from 317/31/154 to 321 modules,
+33 packages and 161 declarations plus the cutout by adding the literal
+two-sided analytic cap and exact data-class adapter.
 
-The c6e039da recheck compiled the earlier gluing/pressure corrections but
-stopped in initial-trace filter notation and composition normalization. Those
-expressions are corrected; statements and321/33/161 scope are unchanged.
-[Retained failed-run evidence](https://github.com/randogelist/Methboke/actions/runs/44545010863)
-confirms303 baseline objects reused and recovery skipped. Acceptance is pending.
+[Run 44545010863](https://github.com/randogelist/Methboke/actions/runs/44545010863)
+at `c6e039da` compiled the earlier corrections but stopped in initial-trace
+filter notation and composition normalization. These expressions were repaired
+without changing statements or the 321/33/161 scope.
 
-Run44547124107 atd2c0259 compiled all321 modules and passed19 audit packages,
-including the literal R0 root. The remaining required gate stopped at an unused
-namespace in the pressure audit. Its one-line setup repair preserves every
-proof, signature assertion and axiom audit; full acceptance remains pending.
+[Run 44547124107](https://github.com/randogelist/Methboke/actions/runs/44547124107)
+at `d2c0259` compiled all 321 modules and passed 19 audit packages, including
+the literal R0 root, but stopped at an unused namespace in the pressure audit.
+The one-line audit setup repair preserved every proof and signature assertion.
+These failed attempts did not promote the root or replace accepted caches;
+recovery was skipped. The complete compiler/type/axiom gate and publication
+subsequently passed in run `44549257770` at `93ca8a5`.

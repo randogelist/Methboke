@@ -1,10 +1,23 @@
 # Weak_Fourierman_B repository workflow plan
 
 Date: 2026-11-19. Repository: `randogelist/Methboke`, working branch `main`.
-Inspected base: `43530b70d044624cbf83a3480840187a567549a5`.
-State: **four modules activated; external compiler/audit acceptance pending**.
-The historical stage plan below is retained; the activation record supersedes
-its preparation-only status.
+Historical inspected base: `43530b70d044624cbf83a3480840187a567549a5`.
+Current state: **exact R0 finite-cap admission accepted at `93ca8a5`; WFB-01
+and WFB-02 accepted; eight WFB obligations, the exact WFB root and R1 open**.
+
+[Run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
+verified 321 modules (303 reused, 18 freshly compiled), all 33 fresh endpoint
+packages and 161 declaration audits plus the QFB cutout. All 183 controls passed;
+all theorem audits use approved standard axioms only. The
+[matching evidence](../../audits/material-93ca8a5/summary.json) accepts the
+literal `D_Q_subset_R_nu` and classical/two-sided analytic finite-cap roots,
+including preservation of velocity and normalized pressure on `[0,T)`.
+Actual cap admission remains explicit; universal germ extension is not proved.
+
+The stage A–C plan and initial activation record below are historical snapshots
+of preparation and migration requirements, not current pending-acceptance claims.
+The final acceptance record identifies their completed external verification.
+Stage D continues to track the remaining WFB work.
 
 ## Scope and notification rule
 
@@ -29,13 +42,13 @@ after it is actually made. Never issue the root sign for a partial package pass.
 The finite-budget premise remains in the exact root type; all auxiliary analytic
 existence, continuation, identification and gluing obligations must be proved.
 
-## Stage A: completed source preparation
+## Historical Stage A: source preparation
 
-This commit brings the current cumulative B-tier argument, indexed source map,
+That preparation commit brought the then-current cumulative B-tier argument, indexed source map,
 machine-readable ten-obligation register and four exact candidate modules into
-the repository. It also synchronizes GPT, README, index and status metadata.
+the repository. It also synchronized GPT, README, index and status metadata.
 
-The owned sources are staged at
+The initial owned sources were staged at
 `candidate/src/MethbokeAddon/WeakFouriermanB/` under this directory, outside
 `Material/`. `candidate-sources.json` binds their hashes, imports and all required
 audit names. The staged dependency order is:
@@ -48,8 +61,8 @@ audit names. The staged dependency order is:
 
 There are **57 declaration audit requirements and 1,255 source lines**, not 57
 completed contextual obligations. No compiled objects or Windows/WSL checkpoint
-receipts are imported into GitHub Actions. There is no new repository compiler
-pass for these files.
+receipts are imported into GitHub Actions. At that preparation stage there was no repository compiler
+pass for these files; subsequent acceptance is recorded below.
 
 The original local Docker workflow remains an external replay option. Its
 Simon/test paths, container locks and payload-pointer scripts are not ported as
@@ -57,15 +70,15 @@ the repository build driver. No active Lean source, pinned vendor source,
 dependency lock, Lake configuration, build driver or workflow is changed by
 this preparation stage.
 
-This preparation-only commit uses `[skip ci]`: current `material.yml` runs on
-every push to main, so otherwise even this plan could launch verification and
-full recovery. This is an explicit skipped verification, never a green result.
+That preparation-only commit used `[skip ci]`: the then-current `material.yml`
+ran on every push to main, so the plan alone could have launched verification
+and full recovery. This was an explicit skipped verification, never a green result.
 The subsequent active implementation/verification commit must not use that
 marker. See [GitHub's documented behavior](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs).
 
-## Inspected infrastructure and migration hazards
+## Historical inspected infrastructure and migration hazards
 
-The package has 269 vendored modules and 14 endpoint wrappers: 283 own modules,
+The inspected baseline had 269 vendored modules and 14 endpoint wrappers: 283 own modules,
 14 endpoint audit packages, 41 declaration audit entries and the separate QFB
 cutout. Preserve all of them and their evidence. The compiler remains
 `leanprover/lean4:v4.33.0`; Mathlib remains
@@ -82,15 +95,15 @@ audit contents. It therefore does not replace the accepted theorem-evidence
 ledger or certify WFB. Inspect the matching receipts before selecting a restored
 baseline for the new verification run.
 
-Three implementation constraints must be resolved before activation:
+The following three constraints had to be resolved before activation:
 
 | Constraint | Observed source | Required treatment |
 |---|---|---|
 | Package changes can invalidate the whole baseline | `native_registry.py` cache keys include `lakefile.lean`; native receipt context includes plan configuration hashes | Do not add a `lean_lib` and assume warm reuse. Demonstrate compatible receipt restoration first. |
-| Recovery currently follows any unsuccessful fast worker | `material.yml` recovery condition checks `accepted != true` | Distinguish missing/corrupt cache infrastructure from theorem, audit, static-validation and publication failures. |
+| At the inspected base, recovery followed any unsuccessful fast worker | `material.yml` recovery condition checks `accepted != true` | Distinguish missing/corrupt cache infrastructure from theorem, audit, static-validation and publication failures. |
 | Owned additions differ from the pinned upstream closure | `build.py` discovers native modules; export/provenance tooling assumes vendor records for source-graph members | Add an explicit owned-source provenance model without rewriting the vendor manifest or pretending WFB came from Methlib. |
 
-## Stage B: prepare cache-safe activation and failure routing
+## Historical Stage B: cache-safe activation and failure routing
 
 1. Capture a source-only plan for the existing baseline and intended WFB
    additions. Inspect the current report, compiler/lock/policy identity and
@@ -136,7 +149,7 @@ must demonstrate which of the 283 receipts remain valid. Keep `MATERIAL_JOBS=2`
 and `LEAN_NUM_THREADS=2` initially; they are separate controls. Optimize only
 after comparable timings identify a dominant phase.
 
-## Stage C: external cached verification and chat handoff
+## Stage C: external cached verification and chat handoff contract
 
 Activate the first dependency-closed source layer only after Stage B is ready.
 Prefer PhysicalFourier -> repaired FourierBudget -> repaired LocalFront first;
@@ -174,7 +187,7 @@ the first two obligations.
 
 ## Stage D: build the remaining mathematical obligations
 
-The dependency-oriented sequence after the prepared bridges is:
+The remaining dependency-oriented WFB sequence after the accepted bridges is:
 
 - WFB-03 physical periodic H1 local existence with norm-controlled lifespan;
 - WFB-04 finite-front strong uniqueness and normalized pressure;
@@ -192,16 +205,16 @@ development or an existing correctly typed formal theorem. Scalar Gronwall,
 fixed-cutoff Galerkin existence, or a record containing the desired continuation
 implication does not discharge the physical local theory.
 
-## Exit condition of this planning change
+## Historical exit condition of the planning change
 
-The repository contains the exact candidate sources and a reviewable migration
-plan with ten individually tracked obligations. Active Material build behavior
-and all established source/cache identities are preserved. No new obligation is
-marked A-tier, no external run is claimed, and no success sign has been issued.
+At the planning-only snapshot, the repository contained exact candidate sources
+and a reviewable migration plan with ten individually tracked obligations. Active
+Material behavior and source/cache identities were preserved. That snapshot
+claimed no new A-tier obligation or external run and issued no success sign.
 
-## Activation record — 2026-11-19
+## Historical initial activation record — 2026-11-19
 
-Stage B and active registration are prepared: four source modules copied with
+Stage B and active registration were prepared: four source modules copied with
 matching staged SHA256; four wrapper/audit packages; 57 unique declaration audit
 pairs with explicit principal type assertions. Full scope is 291 modules,
 18 packages, 98 declaration audits and the unchanged QFB cutout. Separate owned
@@ -217,49 +230,54 @@ failures remain failures; candidate outputs cannot replace a passed baseline.
 
 The retained run 44126844972 report and 15 fresh audit-log hashes were reviewed;
 see ../../audits/material-43530b7/summary.json. This verifies only the baseline.
-New source, audit, receipt and routing controls await external execution.
+At that snapshot the new source, audit, receipt and routing controls awaited
+external execution; the following records supply the subsequent results.
 
 WFB-03 is blocked at genuine cutoff-uniform physical local H1 construction.
-The seven-declaration SmoothDatum source in next/ is an independent WFB-08 input
-helper, prepared only. No downstream root assembly bypasses the missing edge.
+The seven-declaration SmoothDatum source was an independent prepared WFB-08
+input helper, subsequently accepted at `67f7663`. It did not discharge WFB-03.
+The R0 path uses an actual admitted front and does not bypass or prove that edge.
 
-## First acceptance and next registered layer
+## Accepted source layers
 
-Run44537934256 at0402aa37 accepted the four initial modules, all98 declaration
-audits and cutout with only standard axioms. All283 baseline objects were
-reused and eight additions built; 183 controls passed. WFB-01/WFB-02 are
-accepted with exact evidence in ../../audits/material-0402aa37/summary.json.
+Run `44537934256` at `0402aa37` accepted the four initial modules, all 98
+declaration audits and cutout with only standard axioms. All 283 baseline
+objects were reused and eight additions built; 183 controls passed. WFB-01
+and WFB-02 have exact evidence in
+[the first-layer summary](../../audits/material-0402aa37/summary.json).
 
-The next registered layer has six modules and22 additional declarations:
-SmoothDatum, FiniteFrontTest, FiniteWindowCrossIdentity,
-FiniteWindowRelativeEnergy, FiniteWindowSerrinComparison,
-LocalFrontIdentification. Full scope303 modules/24 packages/120 declarations
-plus cutout. It prepares genuine same-path finite-front identification without
-assuming a global classical NSE solution. No CI driver or dependency pins change.
-Physical local H1 existence and the full root remain unresolved; later
-compact-cylinder and gluing candidates are excluded from this run.
+Run `44540921991` at `67f7663` accepted six further modules and 22 additional
+declarations: SmoothDatum, FiniteFrontTest, FiniteWindowCrossIdentity,
+FiniteWindowRelativeEnergy, FiniteWindowSerrinComparison and
+LocalFrontIdentification. Its scope was 303 modules, 24 packages and 120
+declarations plus cutout, with 291 objects reused and 12 freshly built. This
+established same-path finite-front identification without assuming a global
+classical NSE solution. See the
+[second-layer summary](../../audits/material-67f7663/summary.json).
 
-## R0 final source layer
+The R0 layer initially registered seven packages and 34 declarations at scope
+317/31/154. Two-sided analytic-cap and exact data-class adapters later added
+two packages and seven declarations, giving 321/33/161. These nine R0 packages
+and all preceding packages are accepted at `93ca8a5` / run `44549257770`, with
+all required audits fresh and successful receipt-checked publication. The
+literal `D_Q_subset_R_nu` includes the zero solution and actual nonzero cap.
+Classical and two-sided analytic roots preserve velocity and normalized
+pressure. Compiler/dependency/Lake identities and the pinned vendor sources
+remain unchanged. This result does not discharge universal R1 or any further
+whole WFB obligation.
 
-The second layer passed at67f7663/run44540921991 with all120 fresh audits and
-291 reused/12 freshly built modules. The third registered layer contains seven
-R0 packages and34 declarations, including exact classical and analytic finitecap
-admission roots. Scope317 modules/31 packages/154 audits plus cutout. Actualcap
-admission remains explicit; WFB-03 and R1 are not discharged. All initial
-compiler/dependency/Lake/CI identities and passed source bytes are preserved.
+## Historical R0 verification feedback
 
-The first R0 run0ddd2d67 failed before audits on two syntactic rewrites.
-Corrections and the literal D_Q data-class adapter are prepared for321 modules,
-33 packages and161 declarations pluscutout. The303-module accepted baseline
-remains intact; no recovery/full rebuild was selected by the proof failure.
+The first R0 run at `0ddd2d67` failed before audits on two rewrite matches.
+Proof corrections preserved statements. The `c6e039da` recheck compiled those
+gluing/pressure corrections but stopped in initial-trace filter notation and
+composition normalization. Typed eventual bounds and explicit composition
+expansion repaired those sites without changing statements or the final scope.
 
-The c6e039da recheck compiled the earlier gluing/pressure corrections but
-stopped in initial-trace filter notation and composition normalization. Those
-expressions are corrected; statements and321/33/161 scope are unchanged.
-[Retained failed-run evidence](https://github.com/randogelist/Methboke/actions/runs/44545010863)
-confirms303 baseline objects reused and recovery skipped. Acceptance is pending.
-
-Run44547124107 atd2c0259 compiled all321 modules and passed19 audit packages,
-including the literal R0 root. The remaining required gate stopped at an unused
-namespace in the pressure audit. Its one-line setup repair preserves every
-proof, signature assertion and axiom audit; full acceptance remains pending.
+Run `44547124107` at `d2c0259` compiled all 321 modules and passed 19 audit
+packages, including the literal R0 root. Its required pressure audit stopped
+at an unused namespace absent from the imports. A one-line setup correction
+preserved every proof, signature assertion and axiom audit. Each failed run
+preserved the accepted 303-module baseline and skipped recovery. They supplied
+no aggregate acceptance; the subsequent full pass at `93ca8a5` is the current
+acceptance record, with 303 reused and 18 freshly compiled modules.

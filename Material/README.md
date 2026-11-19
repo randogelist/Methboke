@@ -1,10 +1,17 @@
 # Material
 
-`STATUS = FINITE_FRONT_PASS_AT_67f7663; R0_ADMISSION_PENDING`.
-The retained baseline has matching evidence at `43530b7`; the first four WFB modules have their own matching pass at `0402aa37`.
-See [the acceptance record](../audits/material-0402aa37/summary.json). `NO_LOCAL_LEAN` applies to preparation.
-The universal analytic admission theorem is outside these endpoint containers.
+`STATUS = R0_ADMISSION_PASS_AT_93ca8a5; WFB_ROOT_AND_R1_OPEN`.
+[Run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
+at `93ca8a57536512556ec36717ee933ea52db283bf` accepted all 321 modules
+(303 reused, 18 freshly compiled), 33 fresh endpoint packages and 161 declaration
+audits plus the QFB cutout. All 183 controls passed and all audited declarations
+use only approved standard axioms. See the
+[matching acceptance record](../audits/material-93ca8a5/summary.json).
+The exact R0 inclusion `D_Q_subset_R_nu` and classical/two-sided analytic cap
+roots retain actual cap premises. They do not prove universal analytic admission.
+`NO_LOCAL_LEAN` applies throughout preparation.
 
+The following baseline observations are historical and source-specific.
 [Run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232)
 passed at `73c2e98e68b4f2f53a7de4d0be622e5739066fc3`: 282/283 modules were reused,
 the comment-modified QFBRoot.Endpoint was rebuilt, and all 14 endpoint audit
@@ -42,8 +49,22 @@ corrected baseline above supersedes that failure for its exact tested source.
 | `WFBLocalFront` | Physical finite-front energy and Serrin bridge (29) |
 | `WFBHomogeneousBudget` | Mean-zero homogeneous Fourier-to-Serrin bridge (10) |
 | `WFBSmoothDatum` | Actual smooth-datum energy admission and Q01 weak existence (7); WFB-08 input only |
+| `WFBFiniteFrontTest` | Globally positive-time smooth velocity test agreeing with the finite front (5) |
+| `WFBFiniteWindowCrossIdentity` | Actual localized weak/classical cross identity (1) |
+| `WFBFiniteWindowRelativeEnergy` | Finite-window smooth energy and relative-energy transport (3) |
+| `WFBFiniteWindowSerrinComparison` | Physical finite-window weak/strong comparison (1) |
+| `WFBLocalFrontIdentification` | Same-path original Leray–Hopf identification on the finite front (5) |
+| `R0CompactCylinderSerrin` | Actual compact-cylinder bounds and finite Serrin norm (4) |
+| `R0PressureUniqueness` | Normalized-pressure agreement on open velocity overlap (9) |
+| `R0FiniteCapGluing` | Smooth velocity/pressure splice and physical equation (5) |
+| `R0FiniteCapOverlap` | Same weak-path velocity and pressure overlap (2) |
+| `R0InitialFrontAdmission` | Initial trace, compact Serrin bound and original weak-path identification (9) |
+| `R0FiniteCapAdmission` | Classical finite-cap global admission preserving the front (1) |
+| `R0AnalyticCapAdmission` | Analytic forward-cap conversion and admission (4) |
+| `R0AnalyticTwoSidedCap` | Literal two-sided NSE cap, forward derivative bridge and admission (5) |
+| `R0DataAdmission` | Explicit zero/nonzero data classes and exact `D_Q_subset_R_nu` (2) |
 
-Each endpoint folder contains the import boundary, exact declaration/audit requests, dependency closure and immutable upstream provenance. `_vendor` contains all 269 actual local Lean source bodies; no private Methlib checkout is required during CI. Shared source bytes prevent duplicate rebuilding across endpoints.
+Each endpoint folder contains the import boundary, exact declaration/audit requests, dependency closure and source provenance. `_vendor` contains 269 pinned source bodies; `MethbokeAddon` contains 19 separately registered owned proof modules. No private Methlib checkout is required during CI. Shared source bytes prevent duplicate rebuilding across endpoints.
 
 An independently transferable full cutout is produced by:
 
@@ -72,10 +93,13 @@ Material\run.cmd
 Material\run.cmd --endpoint QFBRoot
 ```
 
-The prepared external Linux workflow invokes `container_workspace.py` for a
-restored passed image, and `verify-external.sh` for native-host fallback and
-exact-cache measurements. The container-native path is pending its matching
-external verification; both use the same pinned compilation and fresh audit driver.
+The external Linux workflow defaults to the accepted `binary_cache` path:
+restore compatible dependency/project receipts, compile affected modules and
+run every required audit freshly. Manual `backend=registry` retains the passed
+GHCR container path through `container_workspace.py`. Native-host and exact-cache
+verification use the same pinned compilation and fresh audit driver. Current
+source-specific Linux acceptance is recorded above; native Windows evidence
+remains separate.
 
 Local work is limited to reading, file preparation and nonexecuting static
 inspection. Lean, Lake wrappers and kernel audits must run only in the
@@ -84,10 +108,12 @@ while CI verifies the committed source; inspect results when available.
 
 ## Registry and incremental rebuild contract
 
-The working branch is `main`. The first verification runs on the external
-Ubuntu 24.04 host with Lean 4.33.0. Subsequent commits execute amendments inside
-the exact last passed GHCR container, with restored objects, current source and
-a read-only mount of the pinned compiler. Exact-cache benchmarks use the host.
+The working branch is `main`. Cached verification runs externally on Linux
+with Lean 4.33.0. The default binary worker and optional registry backend both
+validate compatible objects against current sources and pinned dependencies.
+Only an explicit current-run cache rejection can select bounded recovery;
+proof, audit, static, publication and unknown failures preserve the accepted
+baseline without selecting a cold rebuild.
 
 1. Restore compatible dependency objects and the most recent eligible passed
    project snapshot. Validate the toolchain, full dependency lock, source and
@@ -118,12 +144,12 @@ build work and 63.615s fresh audits. The 0.476s no-op receipt recheck was not a
 second Lean verification. The successful warm snapshot context was 73.42 MB;
 it inherited the large dependency directory instead of recopying 7.67 GB.
 
-The next prepared optimization leaves both dependency and cached own objects
-inside the exact passed container, overlays current source, and exports only
-fresh evidence and own build outputs. Exported object hashes must match their
-receipts. Conditional SDK cleanup reclaims only enough allowlisted space for
-the current disk budget. These changes remain pending external verification;
-283/283 reuse is an expectation for unchanged source, not an accepted result.
+The later container-native optimization was externally accepted: dependency
+and cached own objects remained inside the passed container, current sources
+were overlaid, and only fresh evidence and project outputs were exported.
+Receipt/object hashes were checked. Subsequent unchanged GHCR runs reused all
+283 modules in that historical scope. These measurements do not describe the
+current expanded package or replace its matching evidence.
 
 GitHub Actions caches from Methlib are not directly shared across repositories.
 Missing Mathlib objects do not authorize a Mathlib source rebuild. Every
@@ -133,47 +159,50 @@ acceptance and performance result must identify its exact external receipt.
 
 Allowed theorem axioms: `propext`, `Classical.choice`, `Quot.sound`. Missing audits, unknown axioms and `sorryAx` fail publication. Source-level or static validation is not a compiler pass.
 
-These containers preserve original theorem premises. They do not prove the new finite-cylinder comparison adapter, the new finite-cap root, or universal analytic germ continuation. Linux CI evidence remains explicitly Linux evidence; native Windows evidence remains separate.
+These packages preserve theorem premises. The current evidence accepts actual
+finite-cylinder comparison and the R0 finite-cap roots, including the literal
+`D_Q_subset_R_nu` inclusion. Classical and two-sided analytic admission preserve
+both velocity and normalized pressure on `[0,T)`. No universal analytic-germ
+continuation or arbitrary-data cap admission follows. WFB-01/WFB-02 are accepted;
+eight contextual WFB obligations and the exact WFB root remain open. Linux CI
+evidence remains Linux evidence; native Windows evidence is separate.
 
-## WFB owned-source activation
+## Owned sources and accepted activation
 
-Four owned sources are registered separately in `owned-sources.json`; they are
-not attributed to the pinned Methlib vendor snapshot. The complete native scope
-is 317 modules, 31 audit packages, 154 declaration entries and the QFB cutout.
-Principal WFB theorem types are explicitly asserted before their fresh audits.
-Native direct compilation needs no Lake target change. Standalone exports add
-the required owned libraries and preserve both provenance classes.
+Nineteen owned proof sources are registered separately in `owned-sources.json`;
+they are not attributed to the pinned Methlib vendor snapshot. Together with
+269 vendor modules and 33 endpoint wrappers they give the accepted native scope
+of 321 modules, 33 fresh audit packages, 161 declaration entries and the QFB
+cutout. New theorem types are explicitly asserted before their fresh audits.
+Native direct compilation required no Lake target change. Standalone exports
+include the needed owned libraries and preserve both provenance classes.
 
 The allowlisted legacy receipt adapter preserves unchanged baseline objects
 only after recursive source/import/object identity checks. Full fresh audits
-remain mandatory. Unknown compile contexts fail without implicit whole-project
+remain mandatory. Unknown compile contexts fail without an implicit project
 rebuild. Automatic recovery requires a typed current-run cache failure.
-No new WFB theorem is accepted until matching external evidence is reviewed.
 
-The subsequent prepared packages WFBFiniteFrontTest, WFBFiniteWindowCrossIdentity,
-WFBFiniteWindowRelativeEnergy, WFBFiniteWindowSerrinComparison and
-WFBLocalFrontIdentification carry the actual finite-front comparison chain.
-Their source proofs and exact signature assertions require external acceptance;
-no physical local-existence or global-root conclusion is hidden in a field.
+The first four WFB modules passed at `0402aa37`; the six-module smooth-datum
+and finite-front comparison layer passed at `67f7663`. All were freshly audited
+again in the current accepted package. The constructed globally positive-time smooth velocity
+test is not assumed to solve NSE globally. These helpers do not supply physical
+local H1 existence or complete the WFB root.
 
-Seven R0 packages register actual compact-cylinder estimates, pressure
-uniqueness, finite-cap gluing/overlap, initial-front admission, and the classical
-and analytic finite-cap roots. Their34 public declarations have explicit type
-assertions and fresh axiom audits. Root admission is a real finite solution
-premise; universal extension and arbitrary-data regularity remain outside scope.
+Nine R0 packages add 41 declarations: compact-cylinder estimates, pressure
+uniqueness, finite-cap overlap/gluing, initial-front admission, classical and
+analytic cap roots, the literal two-sided derivative bridge and exact data-class
+inclusion. Their current acceptance is `93ca8a5` / run `44549257770`. Explicit
+cap admission remains a premise; universal extension R1 stays open.
 
-Next R0 recheck:321 modules/33 packages/161 declaration audits pluscutout.
-The two source rewrite failures at0ddd2d67 are corrected without statement or
-driver changes. Literal two-sided analytic-cap and D_Q subset R_nu packages
-are included. All root acceptance remains pending matching external evidence.
+## Historical R0 verification failures
 
-The c6e039da recheck compiled the earlier gluing/pressure corrections but
-stopped in initial-trace filter notation and composition normalization. Those
-expressions are corrected; statements and321/33/161 scope are unchanged.
-[Retained failed-run evidence](https://github.com/randogelist/Methboke/actions/runs/44545010863)
-confirms303 baseline objects reused and recovery skipped. Acceptance is pending.
-
-Run44547124107 atd2c0259 compiled all321 modules and passed19 audit packages,
-including the literal R0 root. The remaining required gate stopped at an unused
-namespace in the pressure audit. Its one-line setup repair preserves every
-proof, signature assertion and axiom audit; full acceptance remains pending.
+The initial `0ddd2d67` run had scope 317/31/154 and failed before audits on two
+rewrite matches in gluing and pressure uniqueness. Corrections preserved the
+statements; two-sided cap/data-class adapters expanded the scope to 321/33/161.
+The `c6e039da` recheck compiled those fixes but stopped in initial-trace filter
+notation and composition normalization. The `d2c0259` recheck compiled all 321
+modules and passed 19 audit packages, but an unused namespace in the pressure
+audit prevented aggregate acceptance. Its one-line setup repair preserved every
+proof, signature assertion and axiom audit. Recovery was skipped in all three
+failed attempts. The complete corrected scope subsequently passed, with
+publication, at `93ca8a5`; the earlier failures remain historical evidence.

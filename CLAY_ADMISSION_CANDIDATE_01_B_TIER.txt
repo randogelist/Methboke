@@ -6,13 +6,15 @@ BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
 
 !=B_TIER: exact implications and explicit solution families proved below.
-A_TIER_NEW_ROOT = NOT_ESTABLISHED.
-FORMAL_CLOSURE_NEW_ROOT = NOT_ESTABLISHED.
+A_TIER_NEW_ROOT = ACCEPTED_FOR_EXACT_R0_D_Q_SUBSET_R_nu.
+FORMAL_CLOSURE_NEW_ROOT = ESTABLISHED_FOR_FINITE_CAP_R0.
 UNCONDITIONAL_CLOSURE_NEW_ROOT = NOT_ESTABLISHED.
+UNCONDITIONAL_SCOPE = UNIVERSAL_ADMISSION_AND_ARBITRARY_SMOOTH_DATA_REGULARITY.
 LOCAL_LEAN_EXECUTION = NONE.
-R0_LEAN_SOURCE = COMPLETE_CANDIDATE; MATCHING_EXTERNAL_ACCEPTANCE_PENDING.
-PENDING_COMMIT = c6e039da53283442393ecff1c6e125c880bdba7d.
-PENDING_RUN = https://github.com/randogelist/Methboke/actions/runs/44545010863.
+R0_LEAN_STATUS = MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS.
+ACCEPTED_COMMIT = 93ca8a57536512556ec36717ee933ea52db283bf.
+ACCEPTED_RUN = https://github.com/randogelist/Methboke/actions/runs/44549257770.
+ACCEPTED_EVIDENCE = audits/material-93ca8a5/summary.json.
 
 0. ROOT DISTINCTION
 
@@ -21,29 +23,36 @@ R0: Every datum admitting an actual space-time analytic NSE solution through
 R1: Every datum admitting an arbitrary nonzero local space-time analytic NSE
     germ admits such an analytic solution through the QFB overlap.
 
-Result: R0 has the complete B-tier derivation in Section 4, using the actual
-QFB tail theorem. R1 remains unresolved. Under the standard local classical
-theory and positive-time analytic regularization, R1 is equivalent to the
-unrestricted mean-zero periodic Fefferman-B statement. Neither an analytic
-identity theorem nor an abstract overlap-certificate field proves R1.
+Result: R0 has the complete B-tier derivation in Section 4 and matching
+external A-tier acceptance for the literal D_Q(nu) subset R_nu theorem,
+using the actual QFB tail theorem. R1 remains unresolved. Under the standard
+local classical theory and positive-time analytic regularization, R1 is
+equivalent to the unrestricted mean-zero periodic Fefferman-B statement.
+Neither an analytic identity theorem nor an abstract overlap-certificate
+field proves R1.
 
-Current formalization status: complete candidate Lean source now states the
-literal data-class inclusion
+Current formalization status: matching external compiler, exact-type and
+standard-only axiom evidence accepts the literal data-class inclusion
     MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu
       (ν : ℝ) (hν : 0 < ν) : D_Q ν ⊆ R_nu ν.
 Its D_Q is exactly the zero branch union the nonzero smooth-data class with
 an actual two-sided analytic NSE cap at 2*tau_Q. The ordinary time derivative
 is used throughout the negative and positive analytic interval. The forward
 derivative adapter, initial trace, compact Serrin integrability, finite-front
-identification, pressure agreement and smooth gluing all have proof sources;
+identification, pressure agreement and smooth gluing are externally verified;
 none is replaced by an assumed continuation field. The supporting classical
 cap theorem also retains both supplied velocity and normalized pressure on
 the whole forward cap. Section 8 records the source map.
 
-External recheck at the exact commit and run above is pending. The earlier
-run 44543421609 at 0ddd2d67 did not establish the root; two proof-syntax
-rewrites have been corrected for the recheck. Source completion is not
-A-tier acceptance, and does not resolve R1 or the full Weak_Fourierman_B root.
+Acceptance is tied to the exact commit, run and retained evidence above.
+The zero branch uses the explicit global zero solution; the nonzero branch
+retains the actual two-sided analytic cap as its admission premise. This
+does not resolve R1 or the full Weak_Fourierman_B root.
+
+Historical verification failures: run 44543421609 at 0ddd2d67 and run
+44545010863 at c6e039da53283442393ecff1c6e125c880bdba7d failed before the
+accepted recheck. Their proof-syntax and inference corrections are included
+in 93ca8a5. Neither failed run is counted as root-acceptance evidence.
 
 1. SCOPE AND DEFINITIONS
 
@@ -99,12 +108,12 @@ F_QFB: for every a in D_inf and every Leray-Hopf solution u from a,
        u on [delta,infinity), with the specified trace/agreement semantics.
 
 F_LH, F_LOCAL, F_ANALYTIC and F_RELATIVE_ENERGY are classical analytic inputs
-to the mathematical derivation. The prepared finite-cap root now composes
+to the mathematical derivation. The accepted finite-cap root composes
 the actual physical Leray-Hopf existence endpoint, finite-window comparison
-proofs and QFB tail endpoint, with their physical adapters. Its external
-acceptance remains pending. F_LOCAL and F_ANALYTIC are still separate inputs
+proofs and QFB tail endpoint, with their externally verified physical
+adapters. F_LOCAL and F_ANALYTIC are still separate inputs
 to the universal reduction in Section 5; that reduction has not been promoted
-by preparing R0. F_QFB is the specific quantified cutoff theorem audited in
+by accepting R0. F_QFB is the specific quantified cutoff theorem audited in
 Methlib, not an inference from the arithmetic definition of tau_Q.
 
 No occurrence of 'local_overlap_closes', 'regular_of_serrin46',
@@ -135,13 +144,14 @@ Serrin-integrability obligation for each already covered compact interval.
 The independent near-zero analytic-admissibility premise in the inspected
 positive-time-only uniqueness interface is unnecessary for this stronger
 initial-germ hypothesis. The localization required by the originally
-inspected interface now has proof sources: a globally admissible smooth test
-agrees with the existing front near each compact interval, while the NSE and
-pressure premises remain restricted to that interval. Compact-cylinder
+inspected interface now has externally verified proofs: a globally admissible
+smooth test agrees with the existing front near each compact interval, while
+the NSE and pressure premises remain restricted to that interval. Compact-cylinder
 continuity yields actual L4-time/L6-space integrability; continuity at zero
-yields the original strong physical L2 trace. This source status does not
-assert external acceptance of the new root or formalization of both explicit
-numerical integral estimates displayed above.
+yields the original strong physical L2 trace. These exact statements are
+included in the accepted package. The two explicit numerical integral
+estimates displayed above remain B-tier; in particular the numerical
+gradient bound is not promoted by the accepted Serrin-integrability proof.
 
 THEOREM FINITE_ANALYTIC_CYLINDER_IDENTIFICATION.
 Assume G_nu(a;epsilon,L), u is a Leray-Hopf solution from a, and
@@ -162,7 +172,7 @@ identification holds. QED.
 
 The explicit quantitative bound avoids introducing an additional global
 analytic-upgrade axiom into this finite-window comparison argument.
-The prepared Lean route uses the finite-window Serrin comparison and the
+The accepted Lean route uses the finite-window Serrin comparison and the
 derived L4-time/L6-space bound to obtain the same physical identification.
 
 4. COMPLETE FINITE-CAP CONTINUATION DERIVATION
@@ -198,13 +208,14 @@ Under the same foundation interfaces,
     G_nu(a;epsilon,L) and L>tau_Q(a,nu) => a in R_nu.
 PROOF: choose delta strictly between tau_Q and L and repeat the argument.
 
-The candidate Lean data-class theorem D_Q_subset_R_nu now implements the
+The accepted Lean data-class theorem D_Q_subset_R_nu implements the
 literal inclusion above, including the explicit zero solution and strict
 cutoff positivity derived from a nonzero smooth datum. The more general
 analytic_two_sided_cap_admission and physical-cutoff variant implement the
 arbitrary strict cap L>tau_Q and preserve the admitted forward pair. Their
-matching compiler, exact-type and axiom acceptance is pending in the run
-recorded at the top of this file; the B-tier proof here remains complete.
+matching compiler, exact-type and standard-only axiom evidence is retained
+for the accepted run recorded at the top of this file. The mathematical
+derivation here remains the complete B-tier counterpart.
 
 5. UNIVERSAL INITIAL-GERM ADMISSION IS THE REMAINING ROOT
 
@@ -328,12 +339,13 @@ zero by Section 3 and patch to obtain smoothness up to zero in R_nu.
 Apply F_ANALYTIC on its positive-time lifespan and the Section 5 patching
 construction to obtain D_Q membership.
 
-8. SOURCE-AUDITED REUSE PLAN AND CURRENT PREPARATION STATUS
+8. SOURCE-AUDITED REUSE PLAN AND CURRENT VERIFIED STATUS
 
-The original plan below is retained with current source status. Prepared
+The original plan below is retained with current evidence status. Accepted
 modules are in Material/MethbokeAddon/WeakFouriermanB/; source preparation
-copies are in PREPRINT_FORMALISATION/WeakFouriermanB/next/. These statuses do
-not replace the pending exact external compiler/type/axiom review.
+copies remain in PREPRINT_FORMALISATION/WeakFouriermanB/next/. R0 acceptance
+is tied to 93ca8a5 and audits/material-93ca8a5/summary.json, not to the
+existence of preparation copies. S8 and S9 retain their distinct scope.
 
 S1. Retain actual physical data/trajectory semantics:
     CriticalPhysicalL2, CriticalLerayHopf, EnergySigmaZero,
@@ -367,8 +379,8 @@ S6. PressureUniqueness, FiniteCapOverlap and FiniteCapGluing derive
 S7. FiniteCapAdmission assembles the conditional classical cap root.
     AnalyticCapAdmission and AnalyticTwoSidedCap supply the analytic roots.
     R0DataAdmission defines the literal D_Q and R_nu classes and proves the
-    candidate D_Q_subset_R_nu. The actual analytic cap remains the input;
-    overlap and global existence are derived. External acceptance is pending.
+    accepted D_Q_subset_R_nu. The actual analytic cap remains the input;
+    overlap and global existence are derived. The zero branch is included.
 S8. Supply separate constructive admission certificates for concrete input
     families, including the finite Fourier Beltrami family in Section 7.
 S9. The universal family of certificates required for R1 remains unresolved.
@@ -385,12 +397,26 @@ candidate may use this axiom to discharge the universal admission.
 9. COMPILER / CACHE / EVIDENCE POLICY
 
 No local Lean, Lake, kernel audit or executable project/control test was
-performed. The mathematical derivation in this file remains B-tier; the
-separate prepared Lean root is undergoing cached external recheck at the
-exact commit and run above. No prepared file, source scan, cache hit,
-inherited theorem or CI status alone promotes the new root to A_TIER.
-Matching source/dependency identities, exact declaration types and fresh
-theorem-level axiom evidence must be reviewed before acceptance.
+performed. The mathematical derivation in this file remains B-tier; its
+exact finite-cap R0 counterpart has matching external A-tier acceptance.
+The reviewed evidence is retained in audits/material-93ca8a5/summary.json
+and its nine R0 audit logs, including R0DataAdmission.log and
+R0FiniteCapAdmission.log. The accepted run verified 321 source modules,
+reused 303 objects and built 18 additions. All 33 endpoint-package audits
+were fresh, covering 161 declarations plus the QFB cutout; 183 external
+controls passed. The root's exact axioms are
+    {propext, Classical.choice, Quot.sound}.
+The observed compiler was Lean 4.33.0 on Linux x86_64, compiler commit
+    d8b18978322de05a8f3dba51ef03cf5461676c17.
+Report SHA256:
+    edb591aac17061cfeb6639e7caf6702cc96e9f16af9e09d795b5140020054475.
+Artifact:
+    https://github.com/randogelist/Methboke/actions/runs/44549257770/artifacts/14543236124
+Artifact SHA256:
+    e549583f0c337690993a9ad176c8b9b39c49cabc6acab8fc6bf3ea69da8f72fd.
+Acceptance follows the reviewed source/dependency identities, exact types
+and fresh axiom logs. Prepared files, cache hits and CI status alone remain
+insufficient. This evidence does not promote the unresolved universal claims.
 
 Methlib's inspected 4.33.0 development pins mathlib to
     db584cd6d46c92f209a44c0f1c829460d327499d.
@@ -448,9 +474,19 @@ DISCHARGED MATHEMATICALLY FOR AN ALREADY GIVEN FINITE ANALYTIC ENVIRONMENT:
     budget; strict QFB overlap; velocity identification; pressure gauge;
     smooth patching.
 
+A_TIER_AT_93ca8a5_RUN_44549257770:
+    literal D_Q_subset_R_nu for every nu>0, including the zero datum;
+    classical and two-sided analytic strict-cap admission, preserving both
+      the original forward velocity and normalized pressure;
+    actual compact Serrin integrability, strong physical initial trace,
+      same-path identification, normalized-pressure overlap and smooth gluing.
+The actual two-sided analytic cap remains an explicit premise of the
+nonzero D_Q branch. The separately stated numerical gradient integral bound,
+the BAMBUS/Beltrami family and the universal reduction remain B-tier.
+
 UNRESOLVED UNIVERSAL MATHEMATICAL OBLIGATION:
     forall a in D_germ(nu), exists an analytic extension reaching T_Q(a,nu).
 
-NEW_ROOT_EXTERNAL_COMPILER_EVIDENCE = NONE.
-NEW_ROOT_THEOREM_AXIOM_AUDIT = NONE.
+NEW_ROOT_EXTERNAL_COMPILER_EVIDENCE = MATCHING_PASS_AT_93ca8a5_RUN_44549257770.
+NEW_ROOT_THEOREM_AXIOM_AUDIT = PASS_STANDARD_AXIOMS_ONLY_AT_93ca8a5.
 UNCONDITIONAL_CLOSURE = NOT_ESTABLISHED.

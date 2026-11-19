@@ -1,12 +1,13 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
 DATE = 2026-11-19
 WORKING_BRANCH = main
-LATEST_ACCEPTED_PACKAGE = 67f766330918577e714e326be82eebfe29f5f2f7
-LATEST_ACCEPTED_RUN = 44540921991
-LATEST_ACCEPTED_SCOPE = 303 modules; 24 packages; 120 declarations plus QFB cutout
-PENDING_R0_RUN = 44543421609 at 0ddd2d67
-PENDING_R0_SCOPE = 317 modules; 31 packages; 154 declarations plus QFB cutout
-PENDING_R0_STATUS = COMPLETE_CANDIDATE_SOURCES; MATCHING_ACCEPTANCE_PENDING
+LATEST_ACCEPTED_PACKAGE = 93ca8a57536512556ec36717ee933ea52db283bf
+LATEST_ACCEPTED_RUN = 44549257770
+LATEST_ACCEPTED_SCOPE = 321 modules; 33 fresh packages; 161 declarations plus QFB cutout
+LATEST_ACCEPTED_REUSE = 303 reused modules; 18 freshly compiled modules; 183 controls passed
+R0_STATUS = A_TIER_MATCHING_EXTERNAL_PASS; STANDARD_AXIOMS_ONLY
+R0_EVIDENCE = audits/material-93ca8a5/summary.json
+OPEN_SCOPE = Universal R1; remaining eight WFB obligations and exact WFB root
 
 I01 ORIGINAL_QFB_COMPOSED
 ROLE: RETAINED_SOURCE_SPECIFIC_BASELINE; later package evidence is recorded separately.
@@ -73,7 +74,7 @@ RETAINED GHCR BASE: 68e9f8a attempt 2, run 44073883524, 493s; image
 BOUNDARY: acceptance of selected existing declarations and their packaging.
   This is not a new finite-cap or universal regularity theorem. Full recovery
   and the 32 GiB disk guard were verified at this historical baseline. Later
-  cached activation and expanded-package evidence are recorded in I05-I07;
+  cached activation and expanded-package evidence are recorded in I05-I08;
   this older receipt is not presented as current pending work.
 
 I04 WEAK_FOURIERMAN_B_CONDITIONAL_CRITERION
@@ -95,8 +96,9 @@ obligations and the root remain pending. Chat-only
 <-> is emitted only for an actually accepted whole obligation or exact root.
 
 NOT INDEXED AS UNCONDITIONAL RESULTS:
-- New classical/analytic finite-cap Lean roots: complete candidate proofs
-  registered; matching acceptance pending in run 44543421609 at 0ddd2d67.
+- Arbitrary-data admission to the analytic cap: not proved. The accepted
+  classical/two-sided finite-cap roots and D_Q subset R_nu retain their
+  actual admitted-cap premises; their exact A-tier scope is indexed in I08.
 - Weak_Fourierman_B Lean root and remaining eight contextual obligations: not certified.
 - Universal D_germ(nu) subset D_Q(nu): open.
 - Material run 44046225468 at 670de211: all 283 local modules compiled,
@@ -159,45 +161,58 @@ STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_67f7663; standard axioms only.
 DECLARATION: MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
 SCOPE: actual LocalPhysicalNSEFront, same original CriticalLerayHopf datum,
 0<tau<T and actual compact Serrin bound imply same-path ae equality on(0,tau].
-The global smooth object used in weak testing is constructed, not assumed to
+The globally positive-time smooth test is constructed, not assumed to
 solve NSE globally. Full-front and Fourier-budget corollaries also accepted.
 SOURCE: Material/MethbokeAddon/WeakFouriermanB/LocalFrontIdentification.lean
 EVIDENCE: audits/material-67f7663/summary.json; run44540921991.
 BOUNDARY: does not supply local strong existence, maximal trajectory or root.
 
-R0 ROOT CANDIDATE REGISTER (not yet an accepted theorem):
-Seven packages add 34 declarations: full scope 317 modules/31 packages/154
-fresh declaration audits plus QFB cutout. Run 44543421609 at 0ddd2d67 is
-checking the registered classical and analytic finite-cap source proofs.
-PRINCIPAL CANDIDATES:
+I08 FINITE_CAP_R0_ADMISSION
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_93ca8a5; standard axioms only.
+EXACT PRINCIPAL:
+  MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu
+    (nu : Real) (hnu : 0 < nu) : D_Q nu subset R_nu nu
+SCOPE: D_Q has an explicit zero branch and a nonzero branch admitting an
+actual jointly analytic NSE solution on the two-sided cylinder
+(-epsilon,2*cutoff(criticalL2Representative a,nu)), with epsilon>0.
+R_nu requires SmoothSigmaZero a and an actual GlobalSmoothNSE nu a U P.
+The classical and two-sided analytic cap roots additionally preserve both
+velocity and normalized pressure on [0,T), assuming an actual cap T strictly
+beyond the QFB cutoff. The physical cutoff is ||a||_2^4/(8*pi^2*nu^5).
+DECLARATIONS INCLUDE:
   MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
   MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission
-  MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff
-BOUNDARY: an actual finite cap strictly beyond the QFB cutoff remains an
-explicit premise. Exact matching external acceptance is pending. Universal
-analytic-germ extension R1 and the exact WFB root remain unresolved.
+  MethbokeAddon.WeakFouriermanB.analytic_two_sided_cap_admission
+  MethbokeAddon.WeakFouriermanB.analytic_two_sided_cap_admission_physical_cutoff
+SOURCE: Material/MethbokeAddon/WeakFouriermanB/R0DataAdmission.lean;
+  FiniteCapAdmission.lean; AnalyticCapAdmission.lean; AnalyticTwoSidedCap.lean.
+EVIDENCE: audits/material-93ca8a5/summary.json and nine retained R0 audit logs;
+  https://github.com/randogelist/Methboke/actions/runs/44549257770
+  tested commit 93ca8a57536512556ec36717ee933ea52db283bf.
+VERIFIED PACKAGE: 321 modules (303 reused, 18 freshly compiled); all 33 fresh
+  endpoint packages covering 161 declarations plus the fresh QFB cutout;
+  183 controls passed. Nine R0 packages cover 41 declarations. Overall success,
+  receipt-checked publication, no recovery. Linux Lean4.33.0 with pinned Mathlib.
+AXIOMS: propext, Classical.choice, Quot.sound only.
+BOUNDARY: R0 inclusion is accepted for the explicitly admitted class. No
+  universal analytic-germ extension R1, arbitrary-data admission, additional
+  whole WFB obligation or complete WFB root follows from this result.
 
-R0 verification attempt0ddd2d67/run44543421609: FAILED before audits on two
-syntactic rewrite matches, now corrected in prepared sources.303 accepted
-objects reused; no R0 theorem promotion. Evidence: audits/material-0ddd2d67-failed.
-Next exact scope321/33/161 includes literal two-sided analytic cap and D_Q subset
-R_nu with explicit zero branch. These remain unaccepted candidates.
-
-R0_RECHECK_44545010863:
-Atc6e039da the gluing and pressure corrections compiled;311 modules passed,
-including303 reused baseline objects. The only direct failure was the strong
-initial-trace proof: two filter-membership field projections and one unexpanded
-composition. Typed eventual bounds and Function.comp_def now correct these
-expressions without changing statements. Required audits were not reached,
-recovery was skipped, and no accepted cache was replaced. Evidence:
-audits/material-c6e039da-failed/summary.json. Full321/33/161 recheck pending.
-
-R0_RECHECK_44547124107:
-Atd2c0259 ALL321 modules compiled;303 accepted objects were reused and18
-compiled.19 audit packages passed, including the exact D_Q and classical/
-two-sided analytic roots, but the required pressure audit failed because its
-open command named an unused namespace absent from its imports. The repair
-removes that namespace only. All9 pressure signature assertions, type/axiom
-sentinels and proof sources are unchanged. No aggregate acceptance or cache
-publication yet. Recovery correctly skipped. Evidence:
-audits/material-d2c0259-failed/summary.json. Full321/33/161 recheck pending.
+HISTORICAL R0 VERIFICATION ATTEMPTS:
+- 0ddd2d67/run44543421609: scope 317/31/154 failed before audits on two
+  rewrite matches; 303 accepted objects reused. Source corrections preserved
+  statements. The later scope 321/33/161 added the literal two-sided cap and
+  D_Q data-class adapter. Evidence: audits/material-0ddd2d67-failed.
+- c6e039da/run44545010863: earlier gluing/pressure fixes compiled;311 modules
+  passed, including 303 reused. InitialFrontAdmission failed at filter-membership
+  notation and composition expansion. Typed eventual bounds and Function.comp_def
+  repaired the proof sites. Audits were not reached. Evidence:
+  audits/material-c6e039da-failed/summary.json.
+- d2c0259/run44547124107: all 321 modules compiled; 303 reused and 18 fresh.
+  Nineteen audit packages passed, including the exact R0 roots. The pressure
+  audit failed because its open command named an absent, unused namespace.
+  Removing that namespace preserved all 9 signature assertions and audit pairs.
+  Evidence: audits/material-d2c0259-failed/summary.json.
+These attempts did not yield aggregate acceptance or replace the accepted
+cache; recovery was skipped. Their corrected 321/33/161 scope subsequently
+passed completely at 93ca8a5 in run 44549257770 (I08).

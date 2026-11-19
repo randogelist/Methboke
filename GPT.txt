@@ -1,11 +1,14 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.7
+DOCUMENT_VERSION = 1.8
 DATE = 2026-11-19
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = Verify finite-cap R0 classical/analytic admission roots after accepted finite-front identification; preserve WFB/R1 obligations
-RESUME_MODE = A_TIER_SOURCE_PREPARATION
+ACTIVE_TASK = Record accepted exact R0 D_Q_subset_R_nu and its evidence; preserve the fixed goal and remaining WFB/R1 obligations
+RESUME_MODE = A_TIER_DERIVATION
+CURRENT_MILESTONE = A_TIER_R0_D_Q_SUBSET_R_NU_AT_93ca8a57536512556ec36717ee933ea52db283bf
+CURRENT_ACCEPTANCE = 321_MODULES_33_FRESH_PACKAGES_161_DECLARATIONS_PLUS_QFB_CUTOUT; STANDARD_AXIOMS_ONLY
+STATUS_AUTHORITY = SECTION_16; earlier preparation and failed-run statuses are historical
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
 1. FIXED PROJECT GOAL
@@ -16,25 +19,31 @@ certificates can discharge admission. Preserve the distinction between:
   R0: admitted analytic evolution through a strict QFB overlap gives a
       global smooth solution;
   R1: every local analytic germ extends through that overlap.
-R0 has a recorded B-tier argument and prepared Lean root proofs awaiting
-matching external evidence. R1 is unresolved. No infrastructure
-milestone changes this goal. Only explicit CHANGE updates the project goal.
+R0 is accepted at A-tier in its exact form D_Q(nu) subset R_nu(nu), for nu>0,
+with matching external compiler, exact-type and fresh standard-axiom evidence
+at 93ca8a5, run 44549257770. The actual analytic-cap membership premise remains.
+R1 is unresolved. This milestone does not change the fixed goal or prove
+universal admission. Only explicit CHANGE updates the project goal.
 
 CURRENT TARGET HIERARCHY
 MACROSCOPIC: the fixed analytic finite-cap admission goal above.
 MESOSCOPIC: move Weak_Fourierman_B and its ten contextual obligations into
 Methboke, preserving the local workflow's object reuse and external-only Lean.
-MICROSCOPIC: externally verify the prepared R0 classical/analytic finite-cap
-roots plus the literal two-sided cap and D_Q subset R_nu adapter, reusing the303
-accepted module receipts. Full scope321 modules/33 packages/161 declarations.
+MICROSCOPIC: synchronize the accepted R0 root and matching evidence at 93ca8a5;
+retain the unresolved physical local-theory and universal-admission boundaries.
+The accepted scope is 321 modules/33 fresh packages/161 declaration audits plus
+QFB cutout; 303 modules reused and 18 freshly compiled; 183 external controls passed.
 This supporting conditional Fourier criterion does not replace the fixed
 analytic finite-cap project goal or establish universal budget/admission.
 Chat-only <-> is reserved for accepted complete obligations and separately the
 root. No monitoring automation. The prior scheduled watch is disabled.
 Accepted source gate: owned-source registration, exact legacy receipt
 reconstruction, complete audits and classified failure routing. The finite-front
-layer is accepted at67f7663; R0 root acceptance remains pending. Preserve all
-passed baseline objects.
+layer is accepted at 67f7663; the complete exact R0 root is accepted at 93ca8a5.
+Only WFB-01 and WFB-02 are accepted whole WFB obligations. WFB-03 and the full
+WFB root remain open. Preserve all passed baseline objects.
+SUGGESTED_NEXT_GOAL (not adopted): an explicit analytic shear admission
+certificate. This suggestion does not change the current target hierarchy.
 The user authorizes continued independent implementation while external CI runs.
 Inspect available results and continue without awaiting another go on.
 Docker Hub work remains paused.
@@ -695,7 +704,7 @@ These roots are prepared candidates pending their own external acceptance.
 Universal germ-to-cap R1, universal Fourier-budget finiteness and WFB-03
 cutoff-uniform physical localH1 existence remain unresolved. No goal change.
 
-15. FIRST R0 COMPILATION FEEDBACK AND EXACT DATA-CLASS ADAPTER
+15. HISTORICAL R0 COMPILATION FEEDBACK (superseded by acceptance in Section16)
 
 Run44543421609 at0ddd2d67 failed two source rewrites: Iio membership did not
 match an if simplification in FiniteCapGluing; lambda subtraction did not
@@ -734,3 +743,74 @@ removes that namespace only. All9 pressure signature assertions, type/axiom
 sentinels and proof sources are unchanged. No aggregate acceptance or cache
 publication yet. Recovery correctly skipped. Evidence:
 audits/material-d2c0259-failed/summary.json. Full321/33/161 recheck pending.
+
+16. EXACT R0 FINITE-CAP ANALYTIC ADMISSION ACCEPTED (2026-11-19)
+
+AUTHORITATIVE_CURRENT_STATUS: A_TIER; PASS_STANDARD_AXIOMS_ONLY.
+Exact principal declaration:
+  MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu
+    (nu : Real) (hnu : 0 < nu) : D_Q nu subset R_nu nu.
+The whole fixed R0 admission implication has matching external acceptance.
+This section supersedes earlier preparation, pending-run and failed-run statuses
+for these exact R0 sources; historical evidence remains retained separately.
+
+TESTED_COMMIT = 93ca8a57536512556ec36717ee933ea52db283bf
+RUN = https://github.com/randogelist/Methboke/actions/runs/44549257770
+RUN_CONCLUSION = SUCCESS
+EVIDENCE = audits/material-93ca8a5/summary.json
+ARTIFACT = https://github.com/randogelist/Methboke/actions/runs/44549257770/artifacts/14543236124
+REPORT_SHA256 = edb591aac17061cfeb6639e7caf6702cc96e9f16af9e09d795b5140020054475
+COMPILER = Lean 4.33.0, x86_64-unknown-linux-gnu,
+  commit d8b18978322de05a8f3dba51ef03cf5461676c17
+MATHLIB = db584cd6d46c92f209a44c0f1c829460d327499d
+AXIOMS = {propext, Classical.choice, Quot.sound}; no sorryAx or custom admission axiom.
+
+Acceptance covers 321 compiled module receipts, 33 freshly executed endpoint
+audit packages with 161 declaration entries, and the fresh QFB cutout. All 34
+retained audit-log hashes, principal exact types and standard-only axiom outputs
+were reviewed. The run reused 303 accepted module objects and freshly compiled 18;
+all 183 external control tests passed. The R0 addition comprises 9 endpoint
+packages and 41 public declarations. No required audit was reused or skipped.
+Build 118.141s; fresh audits 111.962s; cache validation 27.759s;
+verification total 263.017s. These are single-run observations.
+
+The actual accepted data classes preserve the frozen theorem scope:
+  tau_Q(a,nu) = ||a||_2^4/(8*pi^2*nu^5)
+              = (physicalEnergy a)^2/(8*pi^2*nu^5) for smooth physical data;
+  D_Q(nu) = {0} union the nonzero SmoothSigmaZero data with epsilon>0
+    and an actual AnalyticTwoSidedNSECap through the open cap 2*tau_Q;
+  R_nu(nu) = SmoothSigmaZero data with actual GlobalSmoothNSE witnesses.
+The two-sided cap requires jointly analytic velocity and pressure, the ordinary
+time-derivative NSE equation on (-epsilon,T), periodicity, divergence freedom,
+mean-zero velocity, normalized pressure and the literal initial field.
+The forward derivative conversion is proved, including at t=0. Nonzero
+smooth data imply a nonzero physical L2 representative and positive cutoff;
+the zero branch uses the proved explicit zero solution.
+
+The accepted classical cap root additionally preserves both original velocity
+and normalized pressure at every time in [0,T). Its chain derives the initial
+strong L2 trace and compact Serrin bounds, obtains an original weak path by Q01,
+identifies the finite front and Q09 tail with that same path, derives pointwise
+velocity/pressure equality on the strict overlap, and constructs the smooth
+splice with every GlobalSmoothNSE field. Analytic cap wrappers discharge the
+classical-front regularity by the pinned analytic-to-smooth theorem.
+
+BOUNDARY: R0 is proved for the admitted class. Universal germ-to-cap R1,
+universal Fourier-budget finiteness, WFB-03 physical H1 local existence with a
+cutoff-independent lifespan, and the full Weak_Fourierman_B root remain open.
+Exactly two complete WFB obligations are accepted: WFB-01 and WFB-02. The new
+R0 helper and root passes do not promote any other whole WFB obligation.
+No native-Windows acceptance or local Lean execution is claimed.
+
+PUBLICATION: verified project cache saved and publication identity checked;
+compatible exact dependency cache preserved; recovery skipped. Binary artifact
+14542023381 is 26,894,511 bytes, SHA256
+d1832bed1a7a89e58a91d40e308f9ddbf1b6e3834c0d27699e33b13ef5ffe588.
+This binary identity comes from external publication logs; its members were not
+redownloaded locally. The legacy report flag new_finite_cap_theorem_included=false
+is hardcoded in the unchanged driver; actual root inclusion is established by
+the current manifests, compiled sources and fresh exact root/type/axiom logs.
+
+SUGGESTION_ONLY: an explicit analytic shear admission certificate is a compatible
+next constructive-certificate endpoint. It is not an adopted local target and
+does not modify the fixed project goal or resolve R1.

@@ -1,11 +1,22 @@
-# Next mathematical layer: source review and prepared input adapter
+# Mathematical source review and accepted R0 adapters
 
-Date: 2026-11-19. Reviewed repository base:
+Date: 2026-11-19. Current external acceptance:
+`93ca8a57536512556ec36717ee933ea52db283bf`,
+[run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770).
+The [matching record](../../../audits/material-93ca8a5/summary.json) verifies
+321 modules (303 reused, 18 freshly compiled), all 33 fresh endpoint packages,
+161 declaration audits plus cutout and 183 controls, with standard axioms only.
+The exact `D_Q_subset_R_nu` and classical/two-sided analytic finite-cap roots
+are accepted; both velocity and normalized pressure are preserved on the
+admitted front. Universal R1, the remaining eight WFB contextual obligations
+and exact WFB root remain open.
+
+Historical source-review base:
 `randogelist/Methboke@bfc9c6f39230121f6a269f65e22784597ce0d4cd`.
-Method: source reading and nonexecuting static inspection only. No Lean, Lake,
-kernel audit, executable control test or external verification was performed
-for this layer. The fixed finite-cap goal and all ten obligation statuses are
-preserved.
+The initial review used source reading and nonexecuting static inspection only;
+it did not itself supply compiler evidence. Later acceptance is identified
+above and below. No Lean, Lake, kernel audit or executable control test ran
+locally during source preparation or repair.
 
 ## WFB-03: first formalization obstruction
 
@@ -42,7 +53,7 @@ No WFB-05 maximal-trajectory, WFB-06 continuation, WFB-07 strict-overlap, or
 WFB-10 root derivation is advanced past this missing edge. No continuation
 field or admission axiom has been introduced.
 
-## Fixed R0 finite-cap path: separate localization gap
+## Fixed R0 finite-cap path: resolved localization gap
 
 An already admitted finite analytic solution does not require WFB-03 merely
 to exist. It still requires identification with the original Leray--Hopf path
@@ -57,14 +68,14 @@ positive-time hypotheses. `CriticalPositiveSolenoidalTest` itself requires
 joint smoothness throughout positive spacetime.
 
 Consequently, applying it directly to a solution available only before a
-finite cap is not justified. A genuine finite-front localization of the
-physical relative-energy chain is needed. The scalar theorem
+finite cap is not justified. The accepted finite-front localization of the
+physical relative-energy chain supplies this missing interface. The scalar theorem
 `CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE` is useful only after
 that physical relative-energy inequality, local integrability, and limiting
 initial trace have been supplied. A proof of the scalar Gronwall implication
 does not supply those physical hypotheses.
 
-`FiniteFrontTest.lean` now prepares the missing test extension with a smooth
+`FiniteFrontTest.lean` supplies the accepted test extension with a smooth
 time map, avoiding a zero-extension boundary argument. For a shorter horizon
 `0 < t < T`, choose a real bump `b` centered at zero with
 `t < rIn < rOut < T`, set `c = T/2` and
@@ -73,7 +84,7 @@ near every time in `[0,t]`, `rho(r)=r`. The physical field
 `phi(r,x)=u(rho(r),x)` is therefore a global positive smooth solenoidal test,
 with time-neighborhood equality to `u` through the shorter horizon and near
 zero. It preserves the initial trace without asserting NSE after `t`.
-The compact-inner-window form follows. A separate prepared helper transfers
+The compact-inner-window form follows. A separate accepted helper transfers
 the literal `timeDerivative` across time-neighborhood equality.
 
 The pinned Mathlib source
@@ -81,12 +92,13 @@ The pinned Mathlib source
 `ContDiffBump.contDiff`, `support_eq`, `tsupport_eq`,
 `eventuallyEq_one_of_mem_ball`, and `zero_of_le_dist`. These signatures were
 read at revision `db584cd6d46c92f209a44c0f1c829460d327499d`; they provide the
-cutoff ingredients. The new extension source awaits external verification.
-The already prepared `MethbokeAddon.WeakFouriermanB.local_nse_energy_identity` supplies the
-finite-front classical energy side. After the extension is proved, the next
-separate step is to localize the actual weak/classical cross identity.
+cutoff ingredients. The extension and finite-window physical comparison chain
+were accepted at `67f7663` and freshly audited at `93ca8a5`. The accepted
+`MethbokeAddon.WeakFouriermanB.local_nse_energy_identity` supplies the
+finite-front classical energy side; the localized cross identity and relative
+energy theorems supply the other physical comparison steps.
 
-`CompactCylinderSerrin.lean` prepares four further independent R0 input
+`CompactCylinderSerrin.lean` supplies four accepted R0 input
 lemmas. Joint continuity of the actual velocity on
 `Icc 0 tau × unitCube` gives a compact uniform bound `M`. The actual slice
 eLpNorm at exponent six is dominated by that of the scalar constant `M`,
@@ -96,9 +108,9 @@ to `Ioc 0 tau`; finite time measure and `MemLp.of_bound` yield actual
 L4-time/L6-space membership for `0 < tau < Tcap`. No Fourier budget or
 Serrin conclusion is assumed. The closed-cylinder continuity premise is
 precisely the regularity supplied by an admitted analytic cylinder. These
-four lemmas remain candidates pending matching external verification.
+four lemmas passed with the complete R0 layer at `93ca8a5`.
 
-`InitialFrontAdmission.lean` prepares the actual admission adapter for the
+`InitialFrontAdmission.lean` supplies the accepted admission adapter for the
 literal `InitialClassicalFront` contract in `FiniteCapGluing.lean`. Spatial
 restriction at zero derives `SmoothSigmaZero a`. Compact domination proves
 continuity of the actual integral `E(t)=integral |u(t)-a|^2` down to zero,
@@ -108,13 +120,13 @@ existing exact norm-square identity give
 trace. The conversion to `LocalPhysicalNSEFront` therefore adds no trace
 premise. Compact Serrin and finite-window comparison then identify every
 original LH path with the admitted front before its cap. Q01 provides one
-such original path. These nine prepared theorems assume existence of the
+such original path. These nine accepted theorems assume existence of the
 actual initial classical pair; they do not construct it from arbitrary
 smooth data or assert universal admission.
 
-## Independent prepared WFB-08 input adapter
+## Accepted WFB-08 input adapter; whole obligation remains open
 
-`SmoothDatum.lean` is a small, independent source candidate. It uses actual
+`SmoothDatum.lean` is a small, independently accepted source module. It uses actual
 periodic integration by parts and the original Q01 existence theorem to prove:
 
 1. Smooth physical data are in the literal cube L2 space.
@@ -130,10 +142,9 @@ periodic integration by parts and the original Q01 existence theorem to prove:
 
 This is only the datum-admission/existence portion of WFB-08. It does not
 identify a strong trajectory or complete that contextual obligation. It has
-seven prepared declarations, not seven accepted milestones. It is staged
-outside active Material discovery; activation requires registering its source,
-wrapper, exact-type audits and fresh theorem-level axiom reports, followed by
-matching authorized external cached verification.
+seven accepted declarations, not seven complete contextual obligations. Its
+active source, wrapper, exact-type assertions and theorem-level axiom reports
+first passed at `67f7663` and passed freshly again in the `93ca8a5` package.
 
 The source reuses `physical_constant_pairing_coordinate` and
 `physical_inner_congr_left_ae` from QuasiFeffermanB, the literal pressure
@@ -141,49 +152,56 @@ gradient cancellation from `CriticalSmoothCancellation`, and the actual
 representative-norm identity from `CriticalRelativeEnergyIntegrable`.
 It assumes only `SmoothSigmaZero a` and, for weak existence, `nu > 0`.
 
-Status: **prepared candidate; no new A-tier declaration, complete obligation,
-root closure, or chat sign**.
+Status: **accepted input component; no completion of the whole WFB-08
+obligation or exact WFB root**.
 
 
-## Frozen R0 data-class registration
+## Accepted frozen R0 data classes
 
 `AnalyticTwoSidedCap.lean` and `R0DataAdmission.lean` are now registered in
 `Material` as `R0AnalyticTwoSidedCap` and `R0DataAdmission`. Their five and two
 public declarations each have an independent exact-signature assertion and
 fresh theorem-level type/axiom audit. Candidate and active proof bytes match.
 
-The full planned verification scope is 321 modules, 33 endpoint packages and
-161 declaration audits plus the QFB cutout. Previous sources, declarations,
-compiler/dependency pins and driver behavior are preserved. Registration is
-source preparation only; these additions require their own matching external
-cached compiler and audit evidence. No local Lean or executable tests ran.
+The complete accepted scope at `93ca8a5` is 321 modules, 33 endpoint packages
+and 161 declaration audits plus the QFB cutout. Previous declarations, compiler/
+dependency pins and driver behavior were preserved. Matching external cached
+compilation and all required fresh type/axiom audits passed. No local Lean or
+executable tests ran.
 
 The first module states actual NSE on the full two-sided analytic cylinder
 using the ordinary time derivative. It derives equality with the physical
 forward derivative for nonnegative times, including zero, and applies the
-prepared finite-cap root. The second module defines the frozen classes with
+accepted finite-cap root. The second module defines the frozen classes with
 the explicit zero branch and the genuine nonzero double-cutoff cap. Its
 `D_Q_subset_R_nu` theorem proves the R0 inclusion from those premises; it does
 not assert that arbitrary smooth data or every local analytic germ belongs
 to `D_Q`. Universal extension R1 remains unresolved.
 
 
-## External R0 check: localized rewrite repairs
+## Historical external R0 checks and localized repairs
 
-Run `44543421609` at `0ddd2d67` ended with two proof rewrite failures in
-`FiniteCapGluing` and `PressureUniqueness`. This run did not accept the R0
-package; the accepted baseline remains `67f7663`, with 303 modules,
-24 packages and 120 declaration audits plus the cutout.
+Run `44543421609` at `0ddd2d67` stopped before audits at two rewrite matches
+in `FiniteCapGluing` and `PressureUniqueness`. It did not accept R0; the accepted
+baseline at that time was `67f7663`, with 303 modules, 24 packages and 120
+declarations plus cutout. Candidate and active proof corrections preserved
+every statement: the splice-left proof made the pointwise conditional explicit
+before `if_pos`, and the pressure proof repaired the reported rewrite match.
+Hashes, closures and fingerprints were synchronized. Adding the two frozen
+data-class adapters expanded the scope to 321/33/161.
 
-The affected proof bodies were repaired in both candidate and active sources
-without changing theorem signatures or premises. The splice-left proof now
-makes its pointwise conditional explicit before applying `if_pos`. The
-pressure repair addresses the reported rewrite match. The repaired source
-hashes are recorded in `Material/owned-sources.json`, and every affected
-dependency closure and index fingerprint has been synchronized.
+Run `44545010863` at `c6e039da` compiled those corrections but stopped in
+InitialFrontAdmission at filter-membership field notation and composition
+expansion. Typed eventual bounds via `nhdsWithin_le_nhds` and explicit
+`Function.comp_def` repaired only the reported proof sites.
 
-The next intended scope includes the two newly registered frozen data-class
-adapters: 321 modules, 33 packages and 161 declaration audits plus cutout.
-Repairs and additions remain candidates until matching external cached
-compilation and complete fresh audits pass. No local Lean or executable
-control tests ran during these repairs or metadata synchronization.
+Run `44547124107` at `d2c0259` compiled all 321 modules and passed 19 audit
+packages, including the literal R0 root. Its pressure audit stopped because
+an open command named an absent, unused namespace. Removing that namespace
+preserved the nine exact-type assertions and all type/axiom sentinels.
+
+These failed attempts skipped recovery and did not replace accepted caches.
+The complete unchanged scope subsequently passed at `93ca8a5` in run
+`44549257770`, with every audit fresh and successful publication. Historical
+preparation labels in source/provenance records remain historical; current
+acceptance is determined by this matching external evidence.
