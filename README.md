@@ -35,6 +35,11 @@ implementation attempts are retained at
 [4bd466f1](audits/material-4bd466f1-failed/summary.json) and
 [8318b7a6](audits/material-8318b7a6-failed/summary.json).
 
+The [ten-step publication-to-WFB derivation](WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER.txt) maps the
+[small-H1/2 preprint](https://zenodo.org/records/24185514) to the accepted root.
+It separates the smallness-based budget certificate from the general finite-budget
+continuation theorem and identifies the additional QFB input.
+
 ## Fixed scope and useful identities
 
 Let `nu > 0`, `a` be smooth, divergence-free and mean-zero on the unit

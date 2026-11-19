@@ -1,0 +1,260 @@
+DOCUMENT := WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER
+VERSION := 1.0
+DATE := 2026-11-19
+MODE := B_TIER_DERIVATION_WITH_EXISTING_A_TIER_ANCHORS
+PROJECT_GOAL := Weak_Fourierman_B; already externally accepted
+LOCAL_TARGET := Ten-step derivation from the cited small-H1/2 publication to WFB
+NEW_LEAN_EXECUTION := NONE
+NEW_FORMAL_THEOREM_CLAIM := NONE
+
+SOURCE AND SCOPE
+
+[S] Simon Suchan, Global Regularity for Small H^{1/2} Data in the Periodic
+Three-Dimensional Navier-Stokes Equations: Quantitative Bounds and Lean
+Verification. Zenodo 24185514, version v1, 13 November 2026.
+Record: https://zenodo.org/records/24185514
+PDF: https://zenodo.org/records/24185514/files/PERIODIC_NAVIER_STOKES_CRITICAL_SOBOLEV_PREPRINT.pdf?download=1
+The exact attached 18-page PDF was read. Its shorter internal title is
+Global Navier-Stokes regularity for small H1/2 data on T3: Sobolev-product
+bounds and Fourier normalization.
+
+[S] Theorem 2.2 is a small-critical-data result. Proposition 3.1 and Lemma 5.1
+supply the local/continuation argument that can be reused for smooth data
+without critical smallness. Lemma 4.2 produces a quartic budget only when its
+strict smallness margin is positive. The paper explicitly distinguishes its
+analytic Sections 3-7 from the audited fixed-constant roots P15/P16; this
+write-up does not retroactively identify those as the same formal proof.
+
+[W] Existing WFB source: randogelist/Methboke at
+fdb515d8bde35ec8021bbc26f360aca8dfa2855c.
+External run: https://github.com/randogelist/Methboke/actions/runs/44566880192
+Evidence: audits/material-fdb515d8/summary.json.
+365 modules, 55 fresh packages, 265 named type/axiom audits plus QFB cutout,
+183 controls: PASS. Only propext, Classical.choice, Quot.sound.
+Namespace W := MethbokeAddon.WeakFouriermanB.
+
+[Q] Additional QFB inputs are the original same-datum Leray-Hopf existence,
+finite weak-strong comparison, and the Q09 post-cutoff smooth tail for the same
+weak witness. These are verified imported foundations of [W], not results of
+[S]. Pinned Methlib: 96033dd69c994bec337a87369a6c27256e724980.
+Pinned Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d; Lean 4.33.0.
+
+The chain uses the smooth-data sector of [S]. The publication also treats
+rough H1/2 initial data through compactness and strong trace; no extension of
+WFB's current smooth-datum statement to all rough data is asserted here.
+
+NOTATION AND EXPLICIT PREMISES
+
+Space: T3=R3/Z3, volume one. Viscosity nu>0; no forcing.
+a is a real smooth divergence-free mean-zero field.
+Pressure is periodic and has spatial mean zero.
+
+For the actual maximal classical velocity u, write
+  E(t) = ||u(t)||_{dot H1/2}^2,
+  Y(t) = ||grad u(t)||_2^2,
+  Z(t) = ||u(t)||_{dot H3/2}^2,
+  W(t) = ||Delta u(t)||_2^2.
+These are exactly the paper's E,Y,Z,W; in particular E is not L2 energy.
+
+  Q_u(t) = sum_{k in Z3, k!=0} |k|^2 |u_hat(t,k)|^2,
+  u_hat(t,k) = integral_T3 u(t,x) exp(-2*pi*i*k.x) dx,
+  tau_Q(a,nu) = ||a||_2^4 / (8*pi^2*nu^5),
+  L = min(Tmax,tau_Q),
+  B_L(u) = integral_(0,L) Q_u(t)^2 dt.
+
+All Fourier modes are included. The sum and integral are nonnegative extended
+quantities. In the formal statement the minimum in ENNReal is taken before
+conversion to a real time; it is finite because tau_Q is finite.
+
+The general WFB hypothesis is B_L(u)<infinity. It is proved from smallness in
+Steps 2-4 only. Steps 5-10 retain it as a premise for arbitrary smooth data.
+No global solution, endpoint trace or global Fourier-budget bound is assumed.
+
+TEN DEPENDENCY-ORDERED STEPS
+
+1. CONSTRUCT THE LOCAL SOLUTION AND ITS UNIQUE MAXIMAL TRAJECTORY
+
+For smooth data in an H1 ball, local existence and uniqueness hold on a common
+positive interval depending only on nu and the H1 bound. The paper states a
+restart time h_nu(M)=c0*nu^3/(1+M^4) for ||b||_H1<=M. Smooth-data persistence
+and uniqueness construct one maximal pair (u,p) on [0,Tmax), Tmax in (0,infinity].
+
+[S] Proposition 3.1, printed pp.3-4, Eqs.(3.1)-(3.2), and the maximal-flow
+construction in Proposition 5.2. The local result itself does not require
+small critical norm.
+[W] uniform_H1_local_initial_classical_front_exists;
+initial_classical_front_unique; smooth_datum_maximal_classical_front_exists;
+maximal_classical_front_unique.
+
+The formal proof constructs its own admissible uniform lifespan from Galerkin
+bounds and an actual limit. Its numerical constants are not identified with
+the paper's c0. Neither local existence nor compactness is a premise of the
+final formal local-existence theorem.
+
+2. IDENTIFY THE PAPER'S SMALL-DATA COERCIVITY MECHANISM
+
+Fix admissible S6,S3,Ctr as in [S] Eq.(2.3), P=S6*S3, and put
+  h0=||a||_{dot H1/2}, delta=nu-P*h0.
+On the SMALL branch assume delta>0. The estimates
+  Y^2 <= E*Z,
+  |<B(u,u),Lambda u>| <= P*sqrt(E)*Z
+imply
+  E' + 2*(nu-P*sqrt(E))*Z <= 0.
+The first-exit argument gives E(t)<=h0^2, hence
+  E' + 2*delta*Z <= 0
+throughout the already existing maximal interval.
+
+[S] Lemma 4.1, Lemma 4.2, Eqs.(4.1)-(4.3),(4.6).
+The publication's Appendix C, P06/P07, records finite-Galerkin fixed-constant
+formal counterparts. No new arbitrary-constant Lean audit is claimed here.
+
+3. EXTRACT A COMMON QUARTIC-GRADIENT BUDGET BEFORE GLOBALIZATION
+
+Multiply by 2E>=0 and use Y^2<=E*Z:
+  (E^2)' + 4*delta*Y^2 <= 0.
+For every 0<=b<Tmax,
+  E(b)^2 + 4*delta*integral_0^b Y(t)^2 dt <= h0^4.
+In particular the same bound h0^4/(4*delta) works for every shorter interval.
+If L=0, the open-interval budget is zero. If L>0, monotone convergence as
+nonnegative b increases to L gives
+  integral_(0,L) Y(t)^2 dt <= h0^4/(4*delta).
+This passage uses one common bound; finiteness on separate compact intervals
+without a common bound would not suffice. No global existence conclusion is
+used to justify this budget.
+
+[S] Lemma 4.2, Eq.(4.4); Theorem 2.2, Eq.(2.10).
+Appendix C P08/P12/P13 distinguishes the formal Galerkin and physical-limit
+versions of the quantitative estimate.
+
+4. TRANSLATE TO THE FULL FOURIER BUDGET AND STATE THE GENERAL HYPOTHESIS
+
+Physical Parseval on the unit torus gives
+  Y(t)=4*pi^2*Q_u(t),
+  integral_(0,L) Y^2 = 16*pi^4*B_L(u).
+Thus the SMALL branch has the explicit certificate
+  B_L(u) <= h0^4 / (64*pi^4*delta).
+
+For arbitrary smooth a, Steps 5-10 instead assume B_L(u)<infinity directly.
+There is no inference from the small-data theorem to budget finiteness for
+all smooth data. Smallness is one sufficient way to verify this hypothesis.
+
+[W] smoothSigmaZero_dissipation_eq_fourierEnstrophy;
+initial_front_dissipation_square_integrable_of_fourier_budget.
+
+5. REUSE THE ENSTROPHY ESTIMATE WITHOUT A SMALLNESS PREMISE
+
+The paper's Lemma 5.1 applies to every smooth solution:
+  Y' + nu*W <= K*nu^(-3)*||u||_6^4*Y.
+Together with ||u||_6<=S6*sqrt(Y), it gives
+  Y' + nu*W <= C*nu^(-3)*Y^3,
+where C=K*S6^4 is independent of the datum and its size.
+
+[S] Lemma 5.1, Eqs.(5.1)-(5.2), and Eq.(2.3).
+[W] PHYSICAL_NONLINEAR_ABSORPTION;
+INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC;
+initial_front_enstrophy_scalar_continuity.
+
+The formal scalar dissipation variable is sqrt(W), so nu*z^2=nu*W.
+It is not the paper's Z. Formal physical and Galerkin constants need not be
+equal to each other or to the paper's presentation constants.
+
+6. OBTAIN ONE H1 BOUND ON THE WHOLE BUDGET INTERVAL
+
+Put M_Y=16*pi^4*B_L(u)<infinity. The cubic inequality can be written as a
+linear inequality for Y with coefficient C*nu^(-3)*Y^2. Gronwall therefore gives
+  Y(t) <= Y(0)*exp(C*nu^(-3)*M_Y),   0<=t<L.
+This is derived first on each closed b<L and uses the same M_Y for all b.
+The zero case uses no division by Y(0). Mean-zero Poincare gives
+  ||u(t)||_H1^2
+    <= (1+(2*pi)^(-2))*Y(t)
+    <= 2*Y(0)*exp(C*nu^(-3)*M_Y).
+Thus one bound controls every pre-endpoint slice in the budget interval.
+
+[S] Lemma 5.1 and the argument of Proposition 5.2.
+[W] initial_front_uniform_H1_of_dissipation_square;
+maximal_front_uniform_H1_before_budget_cap.
+
+7. TURN THE H1 BOUND INTO ACTUAL CONTINUATION
+
+Given a finite positive front [0,T) with the actual integral of Y^2 finite,
+Step 6 yields one finite bound M for the H1 norm itself (take the square
+root of its squared-norm bound). Step 1 provides a common restart duration
+h_nu(M)>0. Choose s<T so close to T that s+h_nu(M)>T.
+Restart from the smooth datum u(s). Uniqueness identifies velocity and
+normalized pressure on the overlap. Gluing yields an actual longer front
+[0,S), S>T, preserving both original fields throughout [0,T).
+No solution value or regularity at T is assumed.
+
+[S] Proposition 5.2 uses this restart argument on its small-data branch.
+[W] initial_front_extend_from_restart;
+initial_front_extends_of_dissipation_square;
+maximal_classical_lifetime_eq_top_of_uniform_H1.
+
+8. PROVE STRICT OVERLAP WITH THE QFB CUTOFF
+
+Suppose Tmax<=tau_Q. Then Tmax is finite and L=Tmax, so the assumed Fourier
+budget covers the whole open maximal interval. Steps 6-7 produce an extension
+beyond Tmax, contradicting maximality. Therefore
+  tau_Q(a,nu) < Tmax.
+The argument excludes equality as well as an earlier endpoint. If tau_Q=0,
+the strict inequality follows already from Tmax>0; infinite Tmax is included.
+
+[W] maximal_classical_lifetime_strictly_exceeds_cutoff;
+maximal_front_exists_strictly_after_cutoff.
+The explicit cutoff and this strict-overlap endpoint are additions to [S].
+
+9. ATTACH THE QFB TAIL OF THE SAME ORIGINAL WEAK TRAJECTORY
+
+Choose finite times tau_Q<d<eta<T<Tmax. Q01 supplies one original Leray-Hopf
+witness v,G with datum a. On every compact classical interval, finite weak-strong
+comparison identifies that same v with u. Q09 applied to that very witness
+supplies a classical tail (w,q) after d.
+At each time in the overlap, v=u and v=w spatially almost everywhere.
+Spatial continuity gives
+u=w pointwise. The equations imply grad(p-q)=0; both pressure means are zero,
+so p=q. Splicing at eta is smooth because the pairs agree on an open overlap.
+The resulting single global pair (U,P) preserves the entire original maximal
+path, by the same-path comparison and uniqueness.
+
+[Q] Q01_LERAY_HOPF_EXISTENCE and Q09_POST_CUTOFF_SMOOTHNESS.
+[W] maximal_front_original_leray_hopf;
+maximal_front_tail_overlap_of_same_leray_hopf;
+maximal_front_tail_gluing_of_leray_hopf.
+These are additional QFB/WFB inputs, not claims attributed to [S].
+
+10. CONCLUDE THE EXACT WFB THEOREM
+
+Every finite restriction of (U,P) is now an actual initial classical front.
+Maximality bounds all such durations by Tmax, forcing Tmax=infinity. Hence
+  B_min(Tmax,tau_Q)(u)<infinity
+    implies Tmax=infinity and GlobalSmoothNSE(nu,a,U,P),
+with U(t)=u(t) and P(t)=p(t) at every original nonnegative pre-endpoint time.
+Since Tmax=infinity, this preserves the whole nonnegative trajectory.
+
+[W] maximal_classical_front_global_of_strict_cutoff;
+Weak_Fourierman_B.
+
+THE PRECISE PUBLICATION-TO-WFB RELATION
+
+Let S_nu={a in C-infinity_sigma,0 : P*||a||_{dot H1/2}<nu}.
+Let W_nu={a in C-infinity_sigma,0 : B_min(Tmax(a),tau_Q(a,nu))(u_a)<infinity},
+where u_a is the uniquely constructed maximal classical velocity.
+Let R_nu^smooth be the smooth data admitting a global smooth normalized NSE pair.
+
+  S_nu subseteq W_nu subseteq R_nu^smooth.
+
+The first inclusion has the explicit certificate from Step 4. The second is
+WFB. No strictness of these inclusions is claimed here. The paper's rough
+small-H1/2 theorem and its strong initial trace remain a separate result.
+
+The main distinction is between GENERATING the budget (Steps 2-4, using strict
+smallness) and USING the budget (Steps 5-10, with finiteness explicit). QFB gives
+the global tail after the explicit cutoff; continuation supplies the earlier
+segment and strict overlap. Universal Fourier-budget finiteness remains open.
+
+ENDPOINT STATUS
+
+Ten-step mathematical exposition: COMPLETE, with exact publication anchors.
+Existing WFB formal root: A_TIER_MATCHING_EXTERNAL_VERIFICATION at [W].
+This derivation write-up: B-tier reconstruction of those sources and proofs.
+New compiler runs, new axiom audits, new formal promotions: NONE.

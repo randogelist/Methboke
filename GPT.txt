@@ -1,5 +1,5 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 2.2
+DOCUMENT_VERSION = 2.3
 DATE = 2026-11-19
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
@@ -973,3 +973,16 @@ WFB-07: MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceed
 WFB-08: MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
 WFB-09: MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
 WFB-10: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+21. PUBLICATION-TO-WFB DERIVATION
+The ten-step exposition in WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER.txt and cumulative B-tier Section24
+connects Zenodo24185514 (13Nov2026 small-H1/2 paper) to the accepted WFB root.
+Paper Prop3.1 and Lem5.1 supply the local/continuation core; Lem4.2 supplies
+the small-data quartic budget. Exact Fourier conversion gives
+B_L<=h0^4/(64*pi^4*(nu-P*h0)) when nu-P*h0>0. Arbitrary smooth data retain
+B_L<infinity as the WFB premise. The QFB cutoff and same-witness tail/gluing
+are additional accepted inputs, not results of that paper. The paper uses
+E=Hhalf norm squared, Y=gradient norm squared, Z=Hthreehalf norm squared,
+W=Laplacian norm squared. Its independent analytic route was not itself the
+paper's fixed-constant audited proof. This is B-tier exposition only; no new
+Lean run, axiom audit or theorem promotion; WFB acceptance is unchanged.
