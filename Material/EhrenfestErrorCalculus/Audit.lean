@@ -1,6 +1,9 @@
 import EhrenfestErrorCalculus.Endpoint
 
+set_option pp.universes true
+set_option pp.fullNames true
 set_option autoImplicit false
+
 open Set MeasureTheory SingularClosure
 open scoped BigOperators ContDiff RealInnerProductSpace
 open MethbokeAddon.EhrenfestObstruction
@@ -76,7 +79,6 @@ example :
             dissipationRatePairing N (c t) f :=
   FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY
 
-set_option pp.universes true
 
 #eval IO.println "TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt"
 #check @MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt

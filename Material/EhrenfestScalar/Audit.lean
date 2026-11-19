@@ -1,5 +1,9 @@
 import EhrenfestScalar.Endpoint
 
+set_option pp.universes true
+set_option pp.fullNames true
+set_option autoImplicit false
+
 /-!
 Exact, independently written consumer propositions for external verification.
 This file is a candidate and has not been executed locally.
@@ -51,7 +55,6 @@ example :
 
 end EhrenfestScalar.TypeChecks
 
-set_option pp.universes true
 
 #eval IO.println "TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le"
 #check @MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le

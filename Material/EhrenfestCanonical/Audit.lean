@@ -1,5 +1,9 @@
 import EhrenfestCanonical.Endpoint
 
+set_option pp.universes true
+set_option pp.fullNames true
+set_option autoImplicit false
+
 /-!
 Independent exact consumer types and literal-definition checks.
 This file is prepared for external verification and was not executed locally.
@@ -95,7 +99,6 @@ example : ∀ (ν : ℝ) (hν : 0 < ν) (a : SmoothDatum)
 
 end EhrenfestCanonical.TypeChecks
 
-set_option pp.universes true
 
 #eval IO.println "TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.halfEnstrophy_nonneg"
 #check @MethbokeAddon.EhrenfestObstruction.halfEnstrophy_nonneg
