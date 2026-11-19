@@ -20,10 +20,17 @@ outputs:
   accepted:
     description: True only after validation, required publication and evidence upload.
     value: ${{ steps.accept.outputs.accepted }}
+  recovery-allowed:
+    description: True only for an explicit current pre-compilation cache rejection.
+    value: ${{ steps.route.outputs.recovery_allowed }}
+  failure-class:
+    description: Fail-closed classification of the first failed worker phase.
+    value: ${{ steps.route.outputs.failure_class }}
 runs:
   using: composite
   steps:
     - name: Validate and record worker routing
+      id: routing
       shell: bash
       env:
         WORKER_MODE: ${{ inputs.worker-mode }}
@@ -51,7 +58,7 @@ runs:
             'attempt': os.environ['GITHUB_RUN_ATTEMPT'],
             'exact_cache_benchmark': strict, 'force_rebuild_requested': forced,
             'recovery_trigger': ('manual force_rebuild input' if forced else
-                                 'unaccepted fast worker' if mode == 'recovery' else None),
+                                 'explicit classified cache rejection' if mode == 'recovery' else None),
             'own_project_restore_allowed': mode == 'fast',
             'dependency_restore_allowed': mode == 'fast',
             'dependency_source_build_allowed': False,
@@ -62,12 +69,14 @@ runs:
         PY
 
     - name: Validate sources and receipt controls without Lean
+      id: static
       shell: bash
       run: |
         python3 -m unittest discover -s Material/ci/tests
         python3 Material/ci/build.py --validate-only
 
     - name: Reclaim unused disposable runner SDKs
+      id: disk
       shell: bash
       env:
         WORKER_MODE: ${{ inputs.worker-mode }}
@@ -80,6 +89,7 @@ runs:
         bash Material/ci/prepare-runner.sh --mode "$disk_mode"
 
     - name: Authenticate passed snapshot registry
+      id: registry_auth
       if: env.MATERIAL_BACKEND == 'registry'
       env:
         GHCR_TOKEN: ${{ inputs.github-token }}
@@ -99,6 +109,7 @@ runs:
         python3 Material/ci/native_registry.py prepare --state "$MATERIAL_STATE" "${extra[@]}"
 
     - name: Ensure cold seed disk headroom
+      id: cold_disk
       if: env.MATERIAL_BACKEND == 'registry' && steps.restore.outputs.registry_restored != 'true'
       shell: bash
       run: bash Material/ci/prepare-runner.sh --mode cold
@@ -145,6 +156,7 @@ runs:
         restore-keys: ${{ inputs.exact-cache-benchmark != 'true' && steps.restore.outputs.project_prefix || '' }}
 
     - name: Require passed binary caches before compiler setup
+      id: cache_admission
       if: inputs.worker-mode == 'fast' && env.MATERIAL_BACKEND == 'binary_cache'
       env:
         DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
@@ -153,50 +165,10 @@ runs:
         DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
         STRICT_BENCHMARK: ${{ inputs.exact-cache-benchmark }}
       shell: bash
-      run: |
-        python3 - <<'PY'
-        import hashlib
-        import json
-        import os
-        from pathlib import Path
-        report_path = Path('Material/registry/current.json')
-        if os.environ.get('DEPENDENCY_HIT') != 'true' or not os.environ.get('PROJECT_MATCHED'):
-            raise SystemExit('CACHE_MISS: fast path requires exact dependencies and compatible passed project objects.')
-        if not report_path.is_file():
-            raise SystemExit('CACHE_MISS: restored project objects lack their PASS report.')
-        previous = json.loads(report_path.read_text())
-        if (previous.get('status') != 'PASS' or previous.get('compiler_executed') is not True
-                or previous.get('all_endpoints_selected') is not True
-                or previous.get('source_pin_integrity') is not True
-                or not previous.get('module_receipts')):
-            raise SystemExit('CACHE_REJECTED: a complete prior verified project report is required.')
-        state_path = Path(os.environ['MATERIAL_STATE'])
-        state = json.loads(state_path.read_text())
-        plan = {
-            'schema_version': 1, 'backend': 'binary_cache',
-            'commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],
-            'attempt': os.environ['GITHUB_RUN_ATTEMPT'],
-            'dependency_key': state['dependency_key'], 'dependency_exact_hit': True,
-            'dependency_matched_key': os.environ['DEPENDENCY_MATCHED'],
-            'project_requested_key': state['project_key'],
-            'project_matched_key': os.environ['PROJECT_MATCHED'],
-            'project_exact_hit': os.environ.get('PROJECT_HIT') == 'true',
-            'parent_commit': previous.get('commit'), 'parent_run_url': previous.get('run_url'),
-            'parent_report_sha256': hashlib.sha256(report_path.read_bytes()).hexdigest(),
-            'compiler_location': 'native_host', 'docker_used': False,
-            'missing_dependency_policy': ('STOP_WITHOUT_RECOVERY' if os.environ['STRICT_BENCHMARK'] == 'true'
-                                          else 'FRESH_RUNNER_FULL_PROJECT_RECOVERY'),
-            'worker_mode': 'fast',
-            'artifact_retention_days': 90, 'scope': 'own binary objects; dependencies remain in Actions cache',
-        }
-        state.update(restore_mode='actions_passed_cache', workspace_mode='native_binary',
-                     benchmark_backend='binary_cache', binary_cache=plan)
-        state_path.write_text(json.dumps(state, indent=2, sort_keys=True) + '\n')
-        Path('Material/registry/binary-restore-plan.json').write_text(json.dumps(plan, indent=2, sort_keys=True) + '\n')
-        print('MATERIAL_BINARY_RESTORE ' + json.dumps(plan, sort_keys=True))
-        PY
+      run: python3 Material/ci/failure_routing.py admit
 
     - name: Require clean recovery workspace and record official seed plan
+      id: recovery_admission
       if: inputs.worker-mode == 'recovery'
       shell: bash
       run: |
@@ -229,6 +201,7 @@ runs:
         PY
 
     - name: Enforce exact-cache measurement profile
+      id: exact_gate
       if: inputs.exact-cache-benchmark == 'true'
       env:
         DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
@@ -241,6 +214,7 @@ runs:
         fi
 
     - name: Install checksum-pinned native elan and Lean
+      id: compiler_setup
       shell: bash
       run: |
         curl --fail --location --retry 3 https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz --output "$RUNNER_TEMP/elan.tar.gz"
@@ -251,6 +225,7 @@ runs:
         "$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"
 
     - name: Check audit options before compiling project modules
+      id: audit_options
       shell: bash
       run: |
         python3 - <<'PY'
@@ -322,6 +297,7 @@ runs:
         exit "$result"
 
     - name: Preserve verified evidence before snapshot publication
+      id: verified_evidence
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
         name: material-verified-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ inputs.worker-mode }}
@@ -330,6 +306,7 @@ runs:
         retention-days: 90
 
     - name: Preserve passing dependency cache
+      id: save_dependencies
       if: success() && steps.restore.outputs.registry_restored != 'true' && steps.dependencies.outputs.cache-hit != 'true'
       uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
@@ -337,6 +314,7 @@ runs:
         key: ${{ steps.restore.outputs.dependency_key }}${{ inputs.worker-mode == 'recovery' && format('-recovered-{0}-{1}', github.run_id, github.run_attempt) || '' }}
 
     - name: Package verified own binary objects and fresh evidence
+      id: binary_package
       if: success() && env.MATERIAL_BACKEND == 'binary_cache'
       shell: bash
       env:
@@ -347,6 +325,7 @@ runs:
         python3 Material/ci/binary_bundle.py --state "$MATERIAL_STATE" --output-dir "$RUNNER_TEMP/material-binary" --artifact-suffix "$WORKER_MODE" "${extra[@]}"
 
     - name: Preserve freshly audited project cache
+      id: save_project
       if: success() && steps.project.outputs.cache-hit != 'true'
       uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
@@ -378,6 +357,7 @@ runs:
         fail-on-cache-miss: true
 
     - name: Require exact published cache identities
+      id: published_identities
       if: success() && env.MATERIAL_BACKEND == 'binary_cache'
       shell: bash
       env:
@@ -390,6 +370,7 @@ runs:
         fi
 
     - name: Publish binary archive and manifest
+      id: publish_binary
       if: success() && env.MATERIAL_BACKEND == 'binary_cache'
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
@@ -400,6 +381,7 @@ runs:
         retention-days: 90
 
     - name: Publish immutable passed snapshot and endpoint registry
+      id: publish_registry
       if: success() && env.MATERIAL_BACKEND == 'registry'
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
@@ -407,6 +389,7 @@ runs:
       run: timeout 15m python3 Material/ci/native_registry.py publish --state "$MATERIAL_STATE"
 
     - name: Preserve compiler, fresh audit and runtime evidence
+      id: final_evidence
       if: always()
       uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
       with:
@@ -415,8 +398,81 @@ runs:
         if-no-files-found: error
         retention-days: 90
 
+    - name: Classify the first failure without fallback assumptions
+      id: classify
+      if: always()
+      shell: bash
+      env:
+        WORKER_MODE: ${{ inputs.worker-mode }}
+        WORKER_BACKEND: ${{ inputs.backend }}
+        STRICT_BENCHMARK: ${{ inputs.exact-cache-benchmark }}
+        STEP_OUTCOMES: >-
+          {
+            "routing": "${{ steps.routing.outcome }}",
+            "static": "${{ steps.static.outcome }}",
+            "disk": "${{ steps.disk.outcome }}",
+            "registry_auth": "${{ steps.registry_auth.outcome }}",
+            "restore": "${{ steps.restore.outcome }}",
+            "cold_disk": "${{ steps.cold_disk.outcome }}",
+            "repaired_dependencies": "${{ steps.repaired-dependencies.outcome }}",
+            "dependencies": "${{ steps.dependencies.outcome }}",
+            "repaired_project": "${{ steps.repaired-project.outcome }}",
+            "project": "${{ steps.project.outcome }}",
+            "cache_admission": "${{ steps.cache_admission.outcome }}",
+            "recovery_admission": "${{ steps.recovery_admission.outcome }}",
+            "exact_gate": "${{ steps.exact_gate.outcome }}",
+            "compiler_setup": "${{ steps.compiler_setup.outcome }}",
+            "audit_options": "${{ steps.audit_options.outcome }}",
+            "verify": "${{ steps.verify.outcome }}",
+            "verified_evidence": "${{ steps.verified_evidence.outcome }}",
+            "save_dependencies": "${{ steps.save_dependencies.outcome }}",
+            "binary_package": "${{ steps.binary_package.outcome }}",
+            "save_project": "${{ steps.save_project.outcome }}",
+            "published_dependencies": "${{ steps.published-dependencies.outcome }}",
+            "published_project": "${{ steps.published-project.outcome }}",
+            "published_identities": "${{ steps.published_identities.outcome }}",
+            "publish_binary": "${{ steps.publish_binary.outcome }}",
+            "publish_registry": "${{ steps.publish_registry.outcome }}",
+            "final_evidence": "${{ steps.final_evidence.outcome }}"
+          }
+      run: python3 Material/ci/failure_routing.py classify
+
+    - name: Preserve explicit failure routing evidence
+      id: routing_evidence
+      if: always()
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: material-routing-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}-${{ inputs.worker-mode }}
+        path: Material/registry/failure-routing.json
+        if-no-files-found: error
+        retention-days: 90
+
+    - name: Expose recovery only after routing evidence is preserved
+      id: route
+      if: always()
+      shell: bash
+      env:
+        CLASSIFIER_OUTCOME: ${{ steps.classify.outcome }}
+        ROUTING_UPLOAD_OUTCOME: ${{ steps.routing_evidence.outcome }}
+        FAILURE_CLASS: ${{ steps.classify.outputs.failure_class }}
+        RECOVERY_ALLOWED: ${{ steps.classify.outputs.recovery_allowed }}
+      run: |
+        if [ "$CLASSIFIER_OUTCOME" != success ]; then
+          FAILURE_CLASS=UNKNOWN_CLASSIFICATION_FAILURE
+          RECOVERY_ALLOWED=false
+        elif [ "$ROUTING_UPLOAD_OUTCOME" != success ]; then
+          FAILURE_CLASS=PUBLICATION_FAILURE
+          RECOVERY_ALLOWED=false
+        fi
+        echo "failure_class=$FAILURE_CLASS" >> "$GITHUB_OUTPUT"
+        echo "recovery_allowed=$RECOVERY_ALLOWED" >> "$GITHUB_OUTPUT"
+
     - name: Accept only fully verified and published worker result
       id: accept
       if: success()
       shell: bash
-      run: echo 'accepted=true' >> "$GITHUB_OUTPUT"
+      env:
+        FAILURE_CLASS: ${{ steps.route.outputs.failure_class }}
+      run: |
+        test "$FAILURE_CLASS" = NONE
+        echo 'accepted=true' >> "$GITHUB_OUTPUT"

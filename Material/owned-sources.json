@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "status": "ACTIVE_CANDIDATES_PENDING_EXTERNAL_VERIFICATION",
+  "modules": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+      "path": "MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean",
+      "sha256": "7c7a4603b79e3facb8f06e8c406fc555b99d9505f4a44fa4d9f1244732df859a",
+      "imports": [
+        "SingularClosure.CriticalSmoothParseval",
+        "SingularClosure.CriticalSerrinTime",
+        "SingularClosure.SmoothDatumSobolev",
+        "SingularClosure.PeriodicFourierInjective",
+        "QuasiFeffermanB.PhysicalH1Admission",
+        "Mathlib.Topology.Algebra.InfiniteSum.ENNReal"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FourierBudget",
+      "path": "MethbokeAddon/WeakFouriermanB/FourierBudget.lean",
+      "sha256": "07c21513514cf842110246a8988609b20a3c96b6beda11de4cb9b8ab536a33ad",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+        "SingularClosure.CriticalSerrinTime",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/FourierBudget.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalFront",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalFront.lean",
+      "sha256": "43f6d02ac5b9e62d9a3a6486fb84b418dcd65eed09e853eea15b2e2345973c31",
+      "imports": [
+        "SingularClosure.CriticalSpatialNormMeasurable",
+        "SingularClosure.CriticalSerrinTime",
+        "SingularClosure.CriticalSmoothEnergy",
+        "Mathlib.Topology.Order.LeftRightNhds",
+        "SingularClosure.CriticalLerayHopf",
+        "SingularClosure.CriticalGradientEnergyBound",
+        "MethbokeAddon.WeakFouriermanB.FourierBudget"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/LocalFront.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.HomogeneousBudget",
+      "path": "MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean",
+      "sha256": "6c21d2ef6fbcc1878b67f13e927b082789ffdb1aebbc8e47b041792149aca43c",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FourierBudget",
+        "MethbokeAddon.WeakFouriermanB.LocalFront"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean"
+      }
+    }
+  ]
+}

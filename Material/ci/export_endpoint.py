@@ -113,11 +113,40 @@ def imports_of(data: bytes) -> list[str]:
     return result
 
 
-def verified_graph(root: Path, endpoint: dict, closure: dict, manifest: dict) -> list[dict]:
+def verified_graph(root: Path, endpoint: dict, closure: dict, manifest: dict,
+                   owned_manifest: dict | None = None) -> list[dict]:
     """Check recorded closure against recursively parsed current source bytes."""
     records = {row["module"]: row for row in manifest["files"]}
     if len(records) != len(manifest["files"]):
         raise ExportError("Duplicate modules in source-manifest.json")
+    owned: set[str] = set()
+    if owned_manifest is not None:
+        if owned_manifest.get("schema_version") != 1 or not isinstance(owned_manifest.get("modules"), list):
+            raise ExportError("Invalid owned-sources.json schema")
+        for row in owned_manifest["modules"]:
+            if not isinstance(row, dict):
+                raise ExportError("Invalid owned source record")
+            module = row.get("module")
+            if not isinstance(module, str) or not MODULE.fullmatch(module):
+                raise ExportError("Invalid owned module name")
+            if module in records:
+                raise ExportError(f"Duplicate vendor/owned module: {module}")
+            relative = row.get("path")
+            if relative != module.replace(".", "/") + ".lean":
+                raise ExportError(f"Owned source path does not match module name: {module}")
+            if module.split(".")[0] in EXTERNAL_ROOTS | {"_vendor", "ci", "registry", "tests", "provenance"}:
+                raise ExportError(f"Reserved owned module namespace: {module}")
+            origin = row.get("origin", {})
+            if (not isinstance(origin, dict) or origin.get("repository") != "randogelist/Methboke"
+                    or not isinstance(origin.get("path"), str)
+                    or not origin["path"] or not isinstance(origin.get("revision"), str)
+                    or not re.fullmatch("[0-9a-f]{40}", origin["revision"])):
+                raise ExportError(f"Missing exact owned source provenance: {module}")
+            if (not isinstance(row.get("imports"), list) or not isinstance(row.get("sha256"), str)
+                    or not re.fullmatch("[0-9a-f]{64}", row["sha256"])):
+                raise ExportError(f"Invalid owned source identity: {module}")
+            records[module] = row
+            owned.add(module)
     endpoint_path = endpoint["endpoint_module"].replace(".", "/") + ".lean"
     actual_roots = imports_of(contained_file(root, endpoint_path).read_bytes())
     if set(actual_roots) != set(endpoint["imports"]) or set(actual_roots) != set(closure["roots"]):
@@ -139,24 +168,30 @@ def verified_graph(root: Path, endpoint: dict, closure: dict, manifest: dict) ->
                 raise ExportError(f"Missing transitive local module: {module}")
             continue
         relative = row.get("path", row.get("local_path"))
-        if not isinstance(relative, str) or not relative.startswith("_vendor/"):
-            raise ExportError(f"Invalid vendor source path for {module}")
-        if relative != "_vendor/" + module.replace(".", "/") + ".lean":
-            raise ExportError(f"Vendor source path does not match module name: {module}")
+        if module not in owned:
+            if not isinstance(relative, str) or not relative.startswith("_vendor/"):
+                raise ExportError(f"Invalid vendor source path for {module}")
+            if relative != "_vendor/" + module.replace(".", "/") + ".lean":
+                raise ExportError(f"Vendor source path does not match module name: {module}")
         data = contained_file(root, relative).read_bytes()
-        if sha256(data) != row["sha256"] or git_blob_sha(data) != row["git_blob_sha"]:
+        if (sha256(data) != row["sha256"]
+                or (module not in owned and git_blob_sha(data) != row["git_blob_sha"])
+                or ("git_blob_sha" in row and git_blob_sha(data) != row["git_blob_sha"])):
             raise ExportError(f"Source content hash mismatch: {module}")
         actual_imports = imports_of(data)
         if set(actual_imports) != set(row["imports"]):
             raise ExportError(f"Stale import manifest: {module}")
-        selected[module] = row
+        selected[module] = {**row, "source_kind": "owned" if module in owned else "vendor"}
         pending.extend(actual_imports)
     recorded = {row["module"]: row for row in closure["files"]}
     if len(recorded) != len(closure["files"]) or set(recorded) != set(selected):
         raise ExportError("Recorded endpoint closure is incomplete or stale")
     for module, row in selected.items():
         other = recorded[module]
-        if other["sha256"] != row["sha256"] or other["git_blob_sha"] != row["git_blob_sha"]:
+        if (other["sha256"] != row["sha256"]
+                or (module not in owned and other.get("git_blob_sha") != row["git_blob_sha"])
+                or (module in owned and other.get("path", other.get("local_path")) != row["path"])
+                or ("git_blob_sha" in other and other["git_blob_sha"] != row.get("git_blob_sha"))):
             raise ExportError(f"Endpoint closure hash mismatch: {module}")
     return [copy.deepcopy(selected[name]) for name in sorted(selected)]
 
@@ -168,11 +203,18 @@ def lakefile(endpoint_id: str, files: list[dict]) -> str:
         'require mathlib from git "https://github.com/leanprover-community/mathlib4" '
         f'@ "{MATHLIB_REV}"', "",
     ]
-    for namespace in sorted({row["module"].split(".")[0] for row in files}):
+    namespace_roots: dict[str, str] = {}
+    for row in files:
+        namespace = row["module"].split(".")[0]
+        source_root = "." if row.get("source_kind") == "owned" else "_vendor"
+        if namespace in namespace_roots and namespace_roots[namespace] != source_root:
+            raise ExportError(f"Namespace spans vendor and owned roots: {namespace}")
+        namespace_roots[namespace] = source_root
+    for namespace, source_root in sorted(namespace_roots.items()):
         if not IDENTIFIER.fullmatch(namespace):
             raise ExportError(f"Invalid local namespace: {namespace}")
         lines.extend([
-            f"lean_lib {namespace} where", '  srcDir := "_vendor"',
+            f"lean_lib {namespace} where", f'  srcDir := "{source_root}"',
             f"  globs := #[.submodules `{namespace}]", "",
         ])
     lines.extend([
@@ -231,6 +273,8 @@ def export_endpoint(endpoint_id: str, output: Path, zip_path: Path | None = None
     endpoint = load_json(contained_file(root, entry["manifest"]))
     closure = load_json(contained_file(root, entry["closure"]))
     source_manifest = load_json(contained_file(root, "_vendor/source-manifest.json"))
+    owned_path = root / "owned-sources.json"
+    owned_manifest = load_json(contained_file(root, "owned-sources.json")) if owned_path.exists() else None
     if endpoint["id"] != endpoint_id or closure["endpoint"] != endpoint_id:
         raise ExportError("Endpoint identifiers disagree")
     for module_key in ("endpoint_module", "audit_module"):
@@ -245,7 +289,7 @@ def export_endpoint(endpoint_id: str, output: Path, zip_path: Path | None = None
     mathlib = [row for row in lock["packages"] if row["name"] == "mathlib"]
     if len(mathlib) != 1 or mathlib[0]["rev"] != MATHLIB_REV:
         raise ExportError("Source package Mathlib lock differs from the endpoint")
-    files = verified_graph(root, endpoint, closure, source_manifest)
+    files = verified_graph(root, endpoint, closure, source_manifest, owned_manifest)
     contained_file(root, "ci/build.py")
     output.parent.mkdir(parents=True, exist_ok=True)
     staging = Path(tempfile.mkdtemp(prefix=f".{endpoint_id}-export-", dir=output.parent))
@@ -261,13 +305,23 @@ def export_endpoint(endpoint_id: str, output: Path, zip_path: Path | None = None
         for provenance in source_manifest.get("provenance", []):
             copy_exact(root, staging, provenance["local_path"])
         reduced_manifest = copy.deepcopy(source_manifest)
-        reduced_manifest["files"] = files
-        reduced_manifest["local_module_count"] = len(files)
+        vendor_files = [{k: v for k, v in row.items() if k != "source_kind"}
+                        for row in files if row["source_kind"] == "vendor"]
+        owned_files = [{k: v for k, v in row.items() if k != "source_kind"}
+                       for row in files if row["source_kind"] == "owned"]
+        reduced_manifest["files"] = vendor_files
+        reduced_manifest["local_module_count"] = len(vendor_files)
         reduced_manifest["static_validation"] = {
-            "source_blob_matches": len(files), "missing_local_imports": [],
+            "source_blob_matches": len(vendor_files), "missing_local_imports": [],
             "recursive_imports_rechecked_at_export": True,
         }
         write_json(staging / "_vendor/source-manifest.json", reduced_manifest)
+        if owned_manifest is not None:
+            reduced_owned = copy.deepcopy(owned_manifest)
+            reduced_owned["modules"] = owned_files
+            if "module_count" in reduced_owned:
+                reduced_owned["module_count"] = len(owned_files)
+            write_json(staging / "owned-sources.json", reduced_owned)
         reduced_index = copy.deepcopy(index)
         reduced_index.update({"endpoints": [entry], "endpoint_count": 1,
                               "declaration_count": len(endpoint["declarations"]),

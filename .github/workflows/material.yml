@@ -49,6 +49,8 @@ jobs:
     continue-on-error: true
     outputs:
       accepted: ${{ steps.worker.outputs.accepted }}
+      recovery-allowed: ${{ steps.worker.outputs.recovery-allowed }}
+      failure-class: ${{ steps.worker.outputs.failure-class }}
     steps:
       - name: Checkout exact source
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -70,7 +72,8 @@ jobs:
   rebuild-and-reseed:
     name: Fresh runner rebuild and cache recovery
     needs: compile-audit-register
-    if: ${{ !cancelled() && needs.compile-audit-register.outputs.accepted != 'true' && !inputs.exact_cache_benchmark && (inputs.backend == '' || inputs.backend == 'binary_cache') }}
+    # No theorem, audit, publication, cancellation or unknown failure can select recovery.
+    if: ${{ !cancelled() && (inputs.force_rebuild || needs.compile-audit-register.outputs.recovery-allowed == 'true') && needs.compile-audit-register.outputs.accepted != 'true' && !inputs.exact_cache_benchmark && (inputs.backend == '' || inputs.backend == 'binary_cache') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     outputs:
@@ -105,6 +108,7 @@ jobs:
           PRIMARY_ACCEPTED: ${{ needs.compile-audit-register.outputs.accepted }}
           RECOVERY_ACCEPTED: ${{ needs.rebuild-and-reseed.outputs.accepted }}
           PRIMARY_RESULT: ${{ needs.compile-audit-register.result }}
+          PRIMARY_FAILURE_CLASS: ${{ needs.compile-audit-register.outputs.failure-class }}
           RECOVERY_RESULT: ${{ needs.rebuild-and-reseed.result }}
         run: |
           if [ "$PRIMARY_ACCEPTED" = true ]; then
@@ -112,6 +116,6 @@ jobs:
           elif [ "$RECOVERY_ACCEPTED" = true ]; then
             echo 'Material accepted: fresh recovery rebuilt every own module, audited and published replacement objects.' >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Material rejected: no accepted worker (primary=$PRIMARY_RESULT, recovery=$RECOVERY_RESULT)." >> "$GITHUB_STEP_SUMMARY"
+            echo "Material rejected: no accepted worker (primary=$PRIMARY_RESULT, class=$PRIMARY_FAILURE_CLASS, recovery=$RECOVERY_RESULT)." >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi

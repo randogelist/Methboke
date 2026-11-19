@@ -230,6 +230,41 @@ def parse_audit(text: str, names: list[str], allowed: set[str] | frozenset[str] 
     return {"types": types, "axioms": axioms}
 
 
+def validate_owned_sources(root: Path, index: dict[str, Path], endpoints: set[str]) -> dict:
+    """First-party proof sources have their own manifest; vendor pins stay intact."""
+    manifest_path = root / "owned-sources.json"
+    manifest = read_json(manifest_path) if manifest_path.is_file() else {"schema_version": 1, "modules": []}
+    if manifest.get("schema_version") != 1 or not isinstance(manifest.get("modules"), list):
+        raise BuildError("unsupported owned-source manifest")
+    owned = {}
+    wrappers = {name + suffix for name in endpoints for suffix in (".Endpoint", ".Audit")}
+    for row in manifest["modules"]:
+        if not isinstance(row, dict):
+            raise BuildError("owned-source record is not an object")
+        name, relative = row.get("module"), row.get("path")
+        if (not isinstance(name, str) or name in owned or name in wrappers
+                or not isinstance(relative, str) or relative.startswith("_vendor/")):
+            raise BuildError("duplicate or invalid owned-source identity")
+        if name.split(".")[0] in EXTERNAL_PREFIXES | {"_vendor", "ci", "registry", "tests", "provenance"}:
+            raise BuildError("reserved owned-source namespace: " + name)
+        path = inside(root, relative)
+        if index.get(name) != path or relative != name.replace(".", "/") + ".lean":
+            raise BuildError("owned-source path/module mismatch: " + name)
+        data = path.read_bytes()
+        if sha256(data) != row.get("sha256") or lean_imports(data.decode("utf-8")) != row.get("imports"):
+            raise BuildError("owned-source bytes/imports differ from manifest: " + name)
+        origin = row.get("origin") or {}
+        if (not isinstance(origin, dict) or origin.get("repository") != "randogelist/Methboke"
+                or not re.fullmatch(r"[0-9a-f]{40}", str(origin.get("revision", "")))
+                or not isinstance(origin.get("path"), str) or not origin["path"]):
+            raise BuildError("owned-source origin must name its exact repository snapshot: " + name)
+        owned[name] = row
+    for name, path in index.items():
+        if not path.relative_to(root).as_posix().startswith("_vendor/") and name not in wrappers and name not in owned:
+            raise BuildError("unregistered owned source: " + name)
+    return owned
+
+
 def validate(root: Path, selected: list[str] | None = None) -> dict:
     root = root.resolve()
     source_manifest = read_json(root / "_vendor/source-manifest.json")
@@ -250,6 +285,7 @@ def validate(root: Path, selected: list[str] | None = None) -> dict:
         raise BuildError("mathlib dependency lock does not match the retained source pin")
     index = module_index(root)
     available = {p.parent.name: p for p in root.glob("*/endpoint.json")}
+    owned = validate_owned_sources(root, index, set(available))
     identifiers = sorted(available) if not selected else sorted(set(selected))
     if not identifiers or set(identifiers) - set(available):
         raise BuildError("unknown endpoint or empty endpoint selection")
@@ -282,11 +318,14 @@ def validate(root: Path, selected: list[str] | None = None) -> dict:
                     raise BuildError(f"audit source lacks unique sentinel: {identifier}:{name}")
         payload = {"id": identifier, "config": config, "files": files,
                    "spec_sha256": sha256(spec_path.read_bytes()), "external_imports": external,
+                   "owned_sources": {row["module"]: owned[row["module"]] for row in files
+                                     if row["module"] in owned},
                    "platform": {"system": platform.system(), "machine": platform.machine()}}
         entries.append({"id": identifier, "spec": spec, "input_plan_hash": fingerprint(payload),
                         "files": files, "external_imports": external, "source_drift": drift})
     return {"toolchain": toolchain, "mathlib_commit": source_manifest["mathlib_commit"],
             "config": config, "dependency_lock": lock, "endpoints": entries,
+            "owned_sources": owned,
             "all_endpoint_ids": sorted(available)}
 
 

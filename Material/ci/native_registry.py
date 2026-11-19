@@ -34,6 +34,7 @@ def cache_keys(root):
     paths += list((root / 'Material/ci').glob('*.py'))
     paths += list((root / 'Material/ci').glob('*.sh'))
     paths += list((root / 'LEAN_CUTOUTS').glob('*.lean'))
+    paths += [p for p in (root / 'Material/owned-sources.json',) if p.is_file()]
     for path in sorted(p for p in paths if '.lake' not in p.parts and 'registry' not in p.parts):
         own.update(path.relative_to(root).as_posix().encode() + b'\0' + path.read_bytes())
     return {'dependency_key': 'material-deps-' + identity,

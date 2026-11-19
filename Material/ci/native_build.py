@@ -17,6 +17,7 @@ import re
 import time
 
 import build
+import receipt_compatibility
 
 
 def local_records(plan):
@@ -71,8 +72,11 @@ def schedule(records, context, old, output, worker, jobs=2):
                         worker(name, records[name], artifact)
                     if not artifact.is_file() or artifact.stat().st_size == 0:
                         raise build.BuildError('missing compiler output: ' + name)
-                    return name, {'status': 'PASS', 'identity': identity,
+                    result = {'status': 'PASS', 'identity': identity,
                         'olean_sha256': object_digest(artifact), 'object_files': object_files(artifact), 'reused': reused}
+                    if reused and old[name].get('context_migration'):
+                        result['context_migration'] = old[name]['context_migration']
+                    return name, result
                 except Exception as exc:
                     return name, {'status': 'FAIL', 'error': str(exc)}
             for name, record in pool.map(perform, tasks):
@@ -110,6 +114,8 @@ def run(root, jobs=2, benchmark=False):
     if not re.fullmatch('[0-9a-f]{40}', commit):
         raise build.BuildError('exact checked-out source commit required')
     report = {'schema_version': 2, 'status': 'FAIL', 'commit': commit,
+        'repository': env['GITHUB_REPOSITORY'], 'run_id': env['GITHUB_RUN_ID'],
+        'run_attempt': env.get('GITHUB_RUN_ATTEMPT', '1'),
         'toolchain': plan['toolchain'], 'mathlib_commit': plan['mathlib_commit'],
         'platform': {'system': platform.system(), 'machine': platform.machine()},
         'all_endpoints_selected': True, 'compiler_executed': False,
@@ -131,6 +137,7 @@ def run(root, jobs=2, benchmark=False):
         'lean_threads': threads, 'fresh_required_audits': True, 'mathlib_source_build_allowed': False,
         'local_lean_allowed': False, 'execution_backend': report['execution_backend'], 'receipt_adapter': 'native_build.py; full external-object digest and own imported-object hashes'}
     build.atomic_json(root / 'registry/run-plan.json', run_plan)
+    phase, failure_class = 'dependencies', 'UNKNOWN_FAILURE'
     try:
         cutout = root.parent / 'LEAN_CUTOUTS/Cutouts.lean'
         if not cutout.is_file():
@@ -142,6 +149,7 @@ def run(root, jobs=2, benchmark=False):
         cache_started = time.monotonic()
         if not ready:
             if benchmark:
+                failure_class = 'DEPENDENCY_CACHE_REJECTED'
                 raise build.BuildError('CACHE_MISS: compatible installed dependency outputs required')
             build.execute(['lake', 'exe', 'cache', 'get', *roots], root, logs / 'cache-get.log', env)
         if lock != (root / 'lake-manifest.json').read_bytes():
@@ -150,6 +158,7 @@ def run(root, jobs=2, benchmark=False):
         report['cache_hydration'] = {'mode': 'retained_passed_outputs' if ready else 'official_cache_get', 'reason': reason}
         report['dependency_cache_class'] = env.get('MATERIAL_DEPENDENCY_CACHE_CLASS', 'MISS')
         report['project_cache_class'] = env.get('MATERIAL_PROJECT_CACHE_CLASS', 'MISS')
+        phase = 'compiler'
         version, _ = build.execute(['lake', 'env', 'lean', '--version'], root, logs / 'lean-version.log', env)
         if not re.search(r'\bversion\s+' + re.escape(plan['toolchain'].rsplit(':v', 1)[-1]) + r'(?:,|\s|\))', version):
             raise build.BuildError('compiler differs from pinned version')
@@ -159,21 +168,33 @@ def run(root, jobs=2, benchmark=False):
         cache_seconds = time.monotonic() - cache_started
         context = {'compiler': version.strip(), 'lock': build.sha256(lock), 'configuration': plan['config'],
             'driver': build.sha256(Path(__file__).read_bytes()),
+            'receipt_adapter': build.sha256((root / 'ci/receipt_compatibility.py').read_bytes()),
             'launcher_policy': build.sha256((root / 'ci/verify-external.sh').read_bytes()),
             'external_objects': report['external_objects'],
             'platform': report['platform']}
         records = local_records(plan)
         output = root / '.lake/build/lib/lean'
-        old = previous.get('module_receipts', {}) if previous.get('status') == 'PASS' else {}
+        report['compile_context'] = context
+        old, migration = receipt_compatibility.migrate(previous, context, records, output, receipt_matches)
+        report['receipt_context_migration'] = migration
+        if old and migration['status'] == 'NOT_APPLICABLE' and previous.get('compile_context') != context:
+            failure_class = 'OWN_CONTEXT_INCOMPATIBLE'
+            raise build.BuildError('restored own-object context has no approved compatibility adapter; full foundation rebuild is not an implicit fallback')
+        if (old and migration['status'] == 'EXACT_LEGACY_CONTEXT_RECONSTRUCTION'
+                and migration['migrated_count'] == 0):
+            failure_class = 'OWN_CONTEXT_INCOMPATIBLE'
+            raise build.BuildError('no restored legacy receipt passed exact source/import/object reconstruction; full foundation rebuild is not an implicit fallback')
         def compile_module(name, record, artifact):
             build.execute(['lake', 'env', 'lean', '--root=' + str(root / '_vendor' if record['path'].startswith('_vendor/') else root), '-o', str(artifact), record['path']],
                           root, logs / 'modules' / (name + '.log'), env)
+        phase, failure_class = 'compile', 'MODULE_COMPILATION_FAILED'
         build_started = time.monotonic()
         receipts = schedule(records, context, old, output, compile_module, jobs)
         report['module_receipts'] = receipts
         if any(r['status'] != 'PASS' for r in receipts.values()):
             raise build.BuildError('own module compilation failed; see module receipts')
         build_seconds = time.monotonic() - build_started
+        phase, failure_class = 'audit', 'ENDPOINT_AUDIT_FAILED'
         audit_started = time.monotonic()
         def audit(entry):
             identity = build.fingerprint({'input': entry['input_plan_hash'], 'compiler': version.strip(), 'context': context})
@@ -195,6 +216,7 @@ def run(root, jobs=2, benchmark=False):
                            'audit_sha256': object_digest(logs / 'cutouts-audit.log')}
         audit_seconds = time.monotonic() - audit_started
         # A rerun checks all receipts again without duplicate Lean/audit executions.
+        phase, failure_class = 'recheck', 'RECEIPT_RECHECK_FAILED'
         rerun_started = time.monotonic()
         def reject_recompile(*args):
             raise build.BuildError('unchanged no-op receipt recheck unexpectedly requested compilation')
@@ -213,6 +235,7 @@ def run(root, jobs=2, benchmark=False):
         report['status'] = 'PASS'
     except Exception as exc:
         report['error'] = str(exc)
+        report['failure_phase'], report['failure_class'] = phase, failure_class
         print('MATERIAL_NATIVE_FAILURE ' + str(exc), flush=True)
     report['total_seconds'] = round(time.monotonic() - started, 3)
     build.atomic_json(report_path, report)

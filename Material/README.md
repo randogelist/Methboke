@@ -1,6 +1,8 @@
 # Material
 
-`STATUS = EXTERNAL_LEAN_PASS_AT_73c2e98`. `NO_LOCAL_LEAN` applies to preparation.
+`STATUS = WFB_ACTIVATION_PENDING_EXTERNAL_VERIFICATION`.
+The retained baseline has matching evidence at `43530b7`; new WFB additions
+are not covered by that pass. `NO_LOCAL_LEAN` applies to preparation.
 The universal analytic admission theorem is outside these endpoint containers.
 
 [Run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232)
@@ -35,6 +37,10 @@ corrected baseline above supersedes that failure for its exact tested source.
 | `RelativeEnergy` | Finite-interval scalar relative-energy argument |
 | `SerrinComparison` | Physical comparison; existing global-reference premises retained |
 | `PhysicalNSE` | Positive-time smooth physical realization |
+| `WFBPhysicalFourier` | Actual Fourier enstrophy and physical dissipation identities (13) |
+| `WFBFourierBudget` | Finite Fourier budget to Serrin with explicit energy premises (5) |
+| `WFBLocalFront` | Physical finite-front energy and Serrin bridge (29) |
+| `WFBHomogeneousBudget` | Mean-zero homogeneous Fourier-to-Serrin bridge (10) |
 
 Each endpoint folder contains the import boundary, exact declaration/audit requests, dependency closure and immutable upstream provenance. `_vendor` contains all 269 actual local Lean source bodies; no private Methlib checkout is required during CI. Shared source bytes prevent duplicate rebuilding across endpoints.
 
@@ -72,8 +78,8 @@ external verification; both use the same pinned compilation and fresh audit driv
 
 Local work is limited to reading, file preparation and nonexecuting static
 inspection. Lean, Lake wrappers and kernel audits must run only in the
-authorized external environments. Once a CI runner starts, agent work stops
-until the user's **go on** resumes result inspection.
+authorized external environments. Independent implementation may continue
+while CI verifies the committed source; inspect results when available.
 
 ## Registry and incremental rebuild contract
 
@@ -127,3 +133,18 @@ acceptance and performance result must identify its exact external receipt.
 Allowed theorem axioms: `propext`, `Classical.choice`, `Quot.sound`. Missing audits, unknown axioms and `sorryAx` fail publication. Source-level or static validation is not a compiler pass.
 
 These containers preserve original theorem premises. They do not prove the new finite-cylinder comparison adapter, the new finite-cap root, or universal analytic germ continuation. Linux CI evidence remains explicitly Linux evidence; native Windows evidence remains separate.
+
+## WFB owned-source activation
+
+Four owned sources are registered separately in `owned-sources.json`; they are
+not attributed to the pinned Methlib vendor snapshot. The complete native scope
+is 291 modules, 18 audit packages, 98 declaration entries and the QFB cutout.
+Principal WFB theorem types are explicitly asserted before their fresh audits.
+Native direct compilation needs no Lake target change. Standalone exports add
+the required owned libraries and preserve both provenance classes.
+
+The allowlisted legacy receipt adapter preserves unchanged baseline objects
+only after recursive source/import/object identity checks. Full fresh audits
+remain mandatory. Unknown compile contexts fail without implicit whole-project
+rebuild. Automatic recovery requires a typed current-run cache failure.
+No new WFB theorem is accepted until matching external evidence is reviewed.

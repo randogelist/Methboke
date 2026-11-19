@@ -81,6 +81,25 @@ class ExportTests(unittest.TestCase):
     def export(self, **kwargs) -> dict:
         return EXPORT.export_endpoint("Example", self.output, root=self.root, **kwargs)
 
+    def owned_front(self) -> dict:
+        content = b"import SingularClosure.Leaf\ndef owned_front : Nat := leaf\n"
+        row = {
+            "module": "MethbokeAddon.Front", "path": "MethbokeAddon/Front.lean",
+            "sha256": EXPORT.sha256(content), "imports": ["SingularClosure.Leaf"],
+            "origin": {"repository": "randogelist/Methboke", "revision": "a" * 40,
+                       "path": "candidate/MethbokeAddon/Front.lean"},
+        }
+        self.put(row["path"], content)
+        self.save("owned-sources.json", {"schema_version": 1, "modules": [row]})
+        self.put("Example/Endpoint.lean", b"import MethbokeAddon.Front\n")
+        self.endpoint["imports"] = ["MethbokeAddon.Front"]
+        self.save("Example/endpoint.json", self.endpoint)
+        self.closure["roots"] = ["MethbokeAddon.Front"]
+        self.closure["files"].append(copy.deepcopy(row))
+        self.closure["local_module_count"] = 3
+        self.save("Example/closure.json", self.closure)
+        return row
+
     def test_complete_subset_preserves_exact_bytes_and_lock(self) -> None:
         result = self.export()
         self.assertEqual(result["local_modules"], 2)
@@ -176,6 +195,61 @@ class ExportTests(unittest.TestCase):
     def test_comments_do_not_create_fake_dependencies(self) -> None:
         source = b'import Mathlib\n/- import Missing.X /- import Missing.Y -/ -/\n#eval "import Missing.Z"\n'
         self.assertEqual(EXPORT.imports_of(source), ["Mathlib"])
+
+    def test_owned_provenance_is_exported_separately_with_complete_vendor_closure(self) -> None:
+        owned = self.owned_front()
+        result = self.export()
+        self.assertEqual(result["local_modules"], 3)
+        self.assertEqual((self.output / owned["path"]).read_bytes(),
+                         (self.root / owned["path"]).read_bytes())
+        vendor = EXPORT.load_json(self.output / "_vendor/source-manifest.json")
+        self.assertEqual([row["module"] for row in vendor["files"]],
+                         ["SingularClosure.Base", "SingularClosure.Leaf"])
+        self.assertEqual(vendor["local_module_count"], 2)
+        own = EXPORT.load_json(self.output / "owned-sources.json")
+        self.assertEqual(own["modules"], [owned])
+        lake = (self.output / "lakefile.lean").read_text()
+        self.assertIn('lean_lib MethbokeAddon where\n  srcDir := "."', lake)
+        self.assertIn('lean_lib SingularClosure where\n  srcDir := "_vendor"', lake)
+
+    def test_changed_owned_source_is_rejected(self) -> None:
+        owned = self.owned_front()
+        self.put(owned["path"], b"import SingularClosure.Leaf\ndef owned_front := 0\n")
+        with self.assertRaisesRegex(EXPORT.ExportError, "content hash mismatch"):
+            self.export()
+
+    def test_unregistered_owned_source_is_rejected(self) -> None:
+        self.owned_front()
+        (self.root / "owned-sources.json").unlink()
+        with self.assertRaisesRegex(EXPORT.ExportError, "Missing transitive local module"):
+            self.export()
+
+    def test_unpinned_owned_provenance_is_rejected(self) -> None:
+        owned = self.owned_front()
+        owned["origin"]["revision"] = "main"
+        self.save("owned-sources.json", {"schema_version": 1, "modules": [owned]})
+        with self.assertRaisesRegex(EXPORT.ExportError, "exact owned source provenance"):
+            self.export()
+
+    def test_duplicate_vendor_owned_module_is_rejected(self) -> None:
+        owned = self.owned_front()
+        owned["module"] = "SingularClosure.Leaf"
+        self.save("owned-sources.json", {"schema_version": 1, "modules": [owned]})
+        with self.assertRaisesRegex(EXPORT.ExportError, "Duplicate vendor/owned module"):
+            self.export()
+
+    def test_owned_namespace_cannot_share_vendor_source_root(self) -> None:
+        rows = [{"module": "Shared.Vendor", "source_kind": "vendor"},
+                {"module": "Shared.Owned", "source_kind": "owned"}]
+        with self.assertRaisesRegex(EXPORT.ExportError, "spans vendor and owned roots"):
+            EXPORT.lakefile("Example", rows)
+
+    def test_owned_closure_path_mismatch_is_rejected(self) -> None:
+        self.owned_front()
+        self.closure["files"][-1]["path"] = "Other/Front.lean"
+        self.save("Example/closure.json", self.closure)
+        with self.assertRaisesRegex(EXPORT.ExportError, "Endpoint closure hash mismatch"):
+            self.export()
 
 
 if __name__ == "__main__":

@@ -15,8 +15,10 @@ proof and evidence changes.
   and nonexecuting static inspection. Use authorized cached external CI or
   external native Windows replay; no local fallback. Preserve the pinned
   toolchain and dependency lock.
-- Finish the turn once an external CI runner has started. Do not wait or monitor;
-  the user's go on resumes result inspection and any necessary fixes.
+- The user authorizes sustained work after commits and while external CI runs.
+  Continue independent obligations between runs; inspect results when available.
+  Do not supersede an active verification commit with unrelated pushes; prepare
+  changes locally and preserve exact source/evidence identity.
 - The user authorizes cancelling failed or stalled obsolete CI runs, including
   force cancellation when normal cancellation does not release them. Target the
   identified run only; preserve passed registry images and compatible objects.
@@ -42,4 +44,5 @@ one of the ten obligations that reaches A-tier, and separately for the complete
 root. Name its obligation and matching external evidence. Do not signal a whole
 obligation from a helper pass, B-tier prose, prepared code, cache hit or CI green.
 No scheduled monitoring, polling automation or webhook notification. The prior
-watch is disabled. Stop on runner start; `go on` resumes active result inspection.
+watch is disabled. Continue independent implementation while CI runs; inspect
+results actively without scheduled monitoring.

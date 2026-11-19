@@ -2,7 +2,9 @@
 
 Date: 2026-11-19. Repository: `randogelist/Methboke`, working branch `main`.
 Inspected base: `43530b70d044624cbf83a3480840187a567549a5`.
-State: **preparation stage; candidate sources are outside the active build**.
+State: **four modules activated; external compiler/audit acceptance pending**.
+The historical stage plan below is retained; the activation record supersedes
+its preparation-only status.
 
 ## Scope and notification rule
 
@@ -160,9 +162,12 @@ On each verification record:
 - required exact types, complete fresh axiom outputs and source preservation;
 - publication outcome separately from the theorem verification outcome.
 
-Once a new external runner starts, end the agent turn with its run link. Do not
-wait or monitor. On the user's next `go on`, inspect that run once and repair or
-advance. Emit the chat-only sign only after accepting the evidence for an entire
+The 2026-11-19 sustained-work instruction permits continued independent source
+preparation while an external runner verifies the committed layer. Inspect
+available results and repair or advance without requiring another `go on`.
+Preserve the tested commit and avoid superseding it with unrelated pushes.
+No scheduled monitoring is introduced. Emit the chat-only sign only after
+accepting the evidence for an entire
 contextual obligation. Update `obligations.json`, GPT and relevant indices with
 the exact acceptance and announcement scope; do not infer root acceptance from
 the first two obligations.
@@ -193,3 +198,27 @@ The repository contains the exact candidate sources and a reviewable migration
 plan with ten individually tracked obligations. Active Material build behavior
 and all established source/cache identities are preserved. No new obligation is
 marked A-tier, no external run is claimed, and no success sign has been issued.
+
+## Activation record — 2026-11-19
+
+Stage B and active registration are prepared: four source modules copied with
+matching staged SHA256; four wrapper/audit packages; 57 unique declaration audit
+pairs with explicit principal type assertions. Full scope is 291 modules,
+18 packages, 98 declaration audits and the unchanged QFB cutout. Separate owned
+provenance validates source bytes/imports and standalone exports. Lake, lock,
+compiler and vendor source manifest remain unchanged.
+
+The receipt adapter recognizes only the exact reviewed legacy driver/configuration
+context, reconstructs source/import receipt identities, and validates every
+restored object before rebinding. All 283 prior identity calculations match by
+static reconstruction; object-byte validation belongs to the external run.
+Typed current cache rejection alone can trigger automatic recovery. All other
+failures remain failures; candidate outputs cannot replace a passed baseline.
+
+The retained run 44126844972 report and 15 fresh audit-log hashes were reviewed;
+see ../../audits/material-43530b7/summary.json. This verifies only the baseline.
+New source, audit, receipt and routing controls await external execution.
+
+WFB-03 is blocked at genuine cutoff-uniform physical local H1 construction.
+The seven-declaration SmoothDatum source in next/ is an independent WFB-08 input
+helper, prepared only. No downstream root assembly bypasses the missing edge.

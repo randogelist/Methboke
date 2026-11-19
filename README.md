@@ -9,8 +9,9 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 - **Weak_Fourierman_B is now a repository workstream:** the
   [workflow plan](PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md),
   [B-tier derivation](Weak_Fourierman_B_B_TIER.txt), ten-obligation register and
-  four exact source candidates are staged. All ten obligations await matching
-  repository A-tier evidence. Active Material registration remains unchanged.
+  four exact source modules are registered with 57 new declaration audits.
+  The full run covers 18 packages, 98 declarations and the QFB cutout.
+  All ten obligations await matching repository A-tier evidence.
 - **Chat-only progress signs:** `<->` is issued for a complete verified WFB
   obligation or root during an active review. No scheduled monitoring.
 
@@ -26,13 +27,14 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   controls, 283 fresh module builds, every fresh audit and replacement publication
   passed. [Attempt 2](https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2)
   took 35m07s. Its red fast job was an intentional drill trigger, not a recovery crash.
-- **Normal CI routing is being repaired:** commit-message drill triggers are
+- **Normal CI routing now distinguishes cache failures:** commit-message drill triggers are
   removed. Normal runs try the cached worker; manual `force_rebuild=true` selects
-  recovery directly. Revised routing and recovered-cache reuse await matching
-  receipt review and acceptance.
+  recovery directly. Only explicit current cache rejection may select automatic recovery.
+  Proof, audit, static and publication failures preserve the accepted baseline.
   Docker Hub work is paused. Subsequent read-only job metadata shows fast-job
   success and skipped recovery at [44126844972](https://github.com/randogelist/Methboke/actions/runs/44126844972)
-  on `43530b7`; its full theorem receipts were not re-audited in this migration.
+  on `43530b7`; its retained report and all 15 audit-log hashes are now checked in
+  [the baseline review](audits/material-43530b7/summary.json).
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
 - **The new analytic finite-cap theorem is B-tier only.** Universal extension
@@ -129,9 +131,9 @@ timing remains unmeasured because its pending run was superseded.
 
 Pushes default to `binary_cache`; manual `backend=registry` retains the GHCR
 path. The fast worker requires compatible dependency and project caches with a
-prior PASS report, compiles amendments and runs all audits freshly. Missing or
-unusable cached objects, or another unsuccessful fast-worker phase, trigger a
-separate recovery runner at the same source commit. Recovery restores no project
+prior PASS report, compiles amendments and runs all audits freshly. An explicit current-run rejection of missing or unusable cached objects may
+select a separate recovery runner at the same source commit. Proof, type, axiom,
+static, publication, cancellation and unknown failures do not select recovery. Recovery restores no project
 or dependency Actions caches: it obtains pinned official Mathlib objects and
 rebuilds every project module before all fresh audits. Mathlib source compilation
 is not allowed; an unavailable official dependency cache remains a blocking error.
@@ -163,8 +165,9 @@ is removed from the revised routing. Manual `force_rebuild=true` now skips the
 fast job and selects recovery directly. Combining it with strict benchmarking
 or the registry backend fails preflight without recovery. New pushes supersede
 older active work; manual reruns remain queued. Rerunning an old workflow uses
-its old configuration. After a new CI run starts, agent work stops; **go on**
-resumes result inspection and any necessary repair.
+its old configuration. After a new CI run starts, independent implementation may continue while that
+exact commit is verified. Available results are inspected without requiring a
+new **go on**; no scheduled monitor is used.
 
 Lean execution belongs to authorized external CI or native Windows replay.
 The compiler pin is `leanprover/lean4:v4.33.0`; Mathlib is
@@ -190,10 +193,13 @@ unconditional closure**.
 The WFB B-tier chain derives global regularity of the same trajectory from a
 finite full squared Fourier budget; it does not prove that budget for every
 datum. See [the exact cumulative statement](Weak_Fourierman_B_B_TIER.txt).
-The first source stage is preparation only and explicitly skips CI. It preserves
-all active Material sources, drivers, audits, vendor bytes and dependency pins.
-Before activation, address the cache-key effect of Lake/driver changes and
-classify fast-worker failures so a new proof error does not trigger a full
-foundation rebuild. LocalFront repair and HomogeneousBudget still need external
-acceptance; physical local H1 theory and the remaining root adapters remain
-substantial formal work. The existing analytic finite-cap goal is unchanged.
+The active source layer preserves all four candidate proof files, the 269 vendor
+modules and dependency pins. A versioned adapter reconstructs legacy receipt
+identities and verifies restored object bytes before reuse; all audits run freshly.
+The first activation still needs matching external acceptance.
+
+The next formal obstruction is physical periodic H1 local existence with a
+cutoff-independent norm-controlled lifespan. Existing Galerkin existence does
+not provide it. A separate seven-declaration smooth-datum admission helper is
+[prepared only](PREPRINT_FORMALISATION/WeakFouriermanB/next/REVIEW.md).
+The exact WFB and finite-cap roots remain unverified; the fixed goal is unchanged.
