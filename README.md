@@ -39,6 +39,9 @@ The [ten-step publication-to-WFB derivation](WFB_TEN_STEP_PUBLICATION_DERIVATION
 [small-H1/2 preprint](https://zenodo.org/records/24185514) to the accepted root.
 It separates the smallness-based budget certificate from the general finite-budget
 continuation theorem and identifies the additional QFB input.
+The [companion paper](PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.pdf)
+and [editable LaTeX source](PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.tex)
+present the complete argument, ten-step chain and verification appendices.
 
 ## Fixed scope and useful identities
 
@@ -81,7 +84,7 @@ arbitrary-amplitude BAMBUS/ABC family without proving universal admission.
 | [LEAN_CUTOUTS/](LEAN_CUTOUTS/README.md) | Single-file interface aggregation and provenance |
 | [CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt](CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt) | Cumulative complete B-tier derivation; historical theorem name retained |
 | [PREPRINT_FORMALISATION/](PREPRINT_FORMALISATION/README.md) | Preprint statement anchors and formalization status |
-| [PAPER_PREPRINT_PDF/](PAPER_PREPRINT_PDF/README.md) | Reserved paper area; no PDF is represented as completed |
+| [PAPER_PREPRINT_PDF/](PAPER_PREPRINT_PDF/README.md) | WFB companion manuscript, PDF and editable LaTeX |
 | [audits/](audits/) | Mathlib/Methlib source and evidence reviews |
 | [SOURCE_STATUS.json](SOURCE_STATUS.json) | Machine-readable source identities and status boundary |
 

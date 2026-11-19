@@ -1,10 +1,13 @@
-# Paper preprint PDFs
+# Paper preprints
 
-This is the reserved location for versioned paper PDFs associated with the
-fixed analytic-admission project. No preprint PDF has been supplied or generated
-as part of this repository setup.
+The [WFB companion paper](WFB/README.md) develops the ten-step route from the
+[small-H1/2 publication](https://zenodo.org/records/24185514) to the accepted
+conditional Fourier-budget theorem. It includes the complete analytic argument,
+normalization dictionary, exact formal anchors and external verification scope.
 
-Statement anchors and their current proof status are recorded in
-[PREPRINT_FORMALISATION](../PREPRINT_FORMALISATION/README.md). A later paper must
-preserve the distinction between inherited QFB, the finite-cap B-tier argument,
-and the unresolved universal admission problem.
+[PDF](WFB/WFB_FOURIER_BUDGET_PREPRINT.pdf) ·
+[LaTeX source](WFB/WFB_FOURIER_BUDGET_PREPRINT.tex)
+
+The finite budget remains a hypothesis. Universal budget finiteness and
+universal analytic admission remain outside the result. This is a manuscript
+draft, not a claim of journal acceptance or a new formal verification run.
