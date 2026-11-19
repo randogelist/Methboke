@@ -10,7 +10,7 @@ MACROSCOPIC_GOAL := Weak_Fourierman_B; unchanged
 LOCAL_TARGET := bottom-up formalization and matching external verification
 STATUS := COMPLETE_CONDITIONAL_MATHEMATICAL_DERIVATION; NOT_LEAN_VERIFIED
 NEW_LOCAL_LEAN_EXECUTIONS := 0
-NEW_EXTERNAL_LEAN_RUNS := PENDING_FIRST_IMPLEMENTATION_PUSH
+NEW_EXTERNAL_LEAN_RUNS := 1_FAILED; REPAIR_VERIFICATION_PENDING
 NEW_GLOBAL_AXIOM_DECLARATIONS := 0
 
 1. NAMESPACE, SCOPE, AND STATUS BOUNDARY
@@ -759,3 +759,9 @@ eventual uniform slab bound and compose the exact frozen root. The full
 Heisenberg/operator construction is still separate. No stopped-bound witness
 is supplied. All earlier no-activation statements describe their historical
 source-gathering versions. Current status is IMPLEMENTATION_STATUS.json.
+
+EXTERNAL_ATTEMPT_1: d1cce38f/run44621109994; failed reciprocal proof instance
+normalization. Scalar hitting and forced-error source modules compiled; full
+audits did not run. No A-tier promotion. Source repair uses the explicitly
+typed real inverse derivative and scalar-to-vector-space composition; no
+mathematical premise or conclusion changes. Failed evidence is retained.

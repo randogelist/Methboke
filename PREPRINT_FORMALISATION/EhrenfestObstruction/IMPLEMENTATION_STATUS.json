@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "version": "0.4.0",
-  "status": "PREPARED_PENDING_EXTERNAL_CI",
+  "status": "REPAIRED_PENDING_EXTERNAL_CI",
   "metadata_basis": "5b1d5e89754e82bb3867daefa1af4f887cadd33b",
   "accepted_new_declarations": 0,
   "local_lean_executions": 0,
@@ -24,5 +24,17 @@
   "stopped_witness_proved": false,
   "root_proved": false,
   "full_operator_translation_proved": false,
-  "full_checklist_unchanged": true
+  "full_checklist_unchanged": true,
+  "attempts": [
+    {
+      "commit": "d1cce38f4fd240c927c42893d23907dd3158e100",
+      "run_id": 44621109994,
+      "conclusion": "FAIL",
+      "failed_module": "ReciprocalDrift",
+      "compiler_only_new_module_passes": 6,
+      "audits_reached": false,
+      "evidence": "../../audits/material-d1cce38f-failed/summary.json"
+    }
+  ],
+  "repair": "Real inverse derivative followed by the vector-space chain rule; theorem statements unchanged"
 }

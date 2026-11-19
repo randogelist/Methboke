@@ -1,0 +1,12 @@
+MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean:64:2: error: Type mismatch: After simplification, term
+  hInv
+ has type
+  @HasDerivWithinAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ
+    DenselyNormedField.toNontriviallyNormedField.toDivisionRing.toAddCommGroup (NormedAlgebra.toNormedSpace ℝ).toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    (fun x => 1 + coefficientDissipation N (g.coeff x) / 2 / eStar)⁻¹ (reciprocalDrift ν eStar N (g.coeff t)) (Ici 0) t
+but is expected to have type
+  @HasDerivWithinAt ℝ DenselyNormedField.toNontriviallyNormedField ℝ Real.instAddCommGroup Semiring.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    (fun r => (1 + coefficientDissipation N (g.coeff r) / 2 / eStar)⁻¹) (reciprocalDrift ν eStar N (g.coeff t)) (Ici 0)
+    t

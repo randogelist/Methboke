@@ -50,18 +50,28 @@ theorem galerkin_reciprocal_hasDerivWithinAt
       (reciprocalDrift ν eStar N (g.coeff t)) (Ici 0) t := by
   have hden : 1 + (coefficientDissipation N (g.coeff t) / 2) / eStar ≠ 0 := by
     exact ne_of_gt (reciprocal_denominator_pos eStar heStar N (g.coeff t))
-  have hInv :=
-    ((((g.coefficientEnstrophy_identity ht).div_const 2).div_const eStar).const_add 1).inv
-      hden
+  have hInner : HasDerivWithinAt
+      (fun r : ℝ => 1 + (coefficientDissipation N (g.coeff r) / 2) / eStar)
+      (((-2 * ν) * coefficientLaplacianSquare N (g.coeff t) -
+        2 * coefficientEnstrophyNonlinearPower N (g.coeff t)) / 2 / eStar)
+      (Ici 0) t :=
+    (((g.coefficientEnstrophy_identity ht).div_const 2).div_const eStar).const_add 1
+  have hOuter : HasDerivAt (fun x : ℝ => x⁻¹)
+      (-((1 + (coefficientDissipation N (g.coeff t) / 2) / eStar) ^ 2)⁻¹)
+      (1 + (coefficientDissipation N (g.coeff t) / 2) / eStar) :=
+    hasDerivAt_inv hden
+  -- The vector-space chain rule preserves the standard real module instance;
+  -- the algebra-valued inverse rule selects a different instance diamond.
+  have hInv := hOuter.scomp_hasDerivWithinAt t hInner
   have hrate :
-      -(((-2 * ν) * coefficientLaplacianSquare N (g.coeff t) -
-          2 * coefficientEnstrophyNonlinearPower N (g.coeff t)) / 2 / eStar) /
-          (1 + (coefficientDissipation N (g.coeff t) / 2) / eStar) ^ 2 =
+      (((-2 * ν) * coefficientLaplacianSquare N (g.coeff t) -
+          2 * coefficientEnstrophyNonlinearPower N (g.coeff t)) / 2 / eStar) •
+          (-((1 + (coefficientDissipation N (g.coeff t) / 2) / eStar) ^ 2)⁻¹) =
         reciprocalDrift ν eStar N (g.coeff t) := by
-    simp only [reciprocalDrift, halfEnstrophy, div_eq_mul_inv, mul_inv_rev]
+    simp only [smul_eq_mul, reciprocalDrift, halfEnstrophy, div_eq_mul_inv, mul_inv_rev]
     ring
   rw [hrate] at hInv
-  simpa only [reciprocalValue, halfEnstrophy] using hInv
+  simpa only [Function.comp_apply, reciprocalValue, halfEnstrophy] using hInv
 
 theorem canonical_enstrophy_nonneg
     (ν : ℝ) (hν : 0 < ν) (a : SmoothDatum) (n : ℕ) (t : ℝ) :
