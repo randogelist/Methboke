@@ -23,6 +23,9 @@ Actual maximal existence for every smooth datum is proved separately.
 **The finite budget remains a hypothesis.** Universal budget finiteness and
 universal analytic germ extension R1 remain outside this result.
 
+The [complete accepted-run evidence archive](audits/material-fdb515d8/accepted-evidence.zip)
+retains the full report, all 55 fresh package audits and the cutout log.
+
 All ten [contextual obligations](PREPRINT_FORMALISATION/WeakFouriermanB/obligations.json)
 are accepted. Their [matching evidence](audits/material-fdb515d8/summary.json) retains the 22 new audit logs;
 [the A-tier register](Weak_Fourierman_B_A_TIER.txt) and

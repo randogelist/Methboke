@@ -11,3 +11,13 @@ cache publication and final acceptance job succeeded.
 The 22 newly accepted package logs are retained here; summary.json records
 all 55 package hashes, exact new endpoint types, source identities and publication.
 The root keeps the finite full Fourier budget explicit. No local Lean was run.
+
+## Complete accepted-run archive
+
+[accepted-evidence.zip](accepted-evidence.zip) is the byte-identical original
+external artifact 14553501775: the full current.json report, all 55 fresh
+package audit logs, the QFB cutout audit, source/receipt manifests and supporting
+execution logs (129 members). Its SHA-256 is
+`ec7fbafac42924bc814b7a23f7c090b5f476d84d76193b5f4c0a100c3051612d`.
+The [archive manifest](archive-manifest.json) records provenance and counts.
+This retained copy introduces no new proof or verification claim.
