@@ -11,11 +11,11 @@ Universal budget finiteness and universal analytic-germ extension remain open.
 |---|---|
 | [Cumulative B-tier derivation](../../Weak_Fourierman_B_B_TIER.txt) | Version0.4.0; complete composition using indexed QFB and cited classical local theory |
 | [Workflow plan](WORKFLOW_PLAN.md) | Owned-source activation and explicit receipt/failure policy |
-| [Ten contextual obligations](obligations.json) | All pending matching repository A-tier evidence |
+| [Ten contextual obligations](obligations.json) | WFB-01/WFB-02 accepted at0402aa37; eight and root remain open |
 | [Four source modules and audit requirements](candidate-sources.json) | Exact bytes active; 1,255 lines, 57 declaration pairs |
 | [Source map](SOURCE_MAP_v0_1.md) | Historical indexed lookup; mathematical gaps superseded by B-tier v0.4.0, Lean gaps remain |
 | Active Material registration | Four owned modules and four packages; 18 total packages / 98 audits |
-| External WFB repository verification | Not run |
+| External WFB repository verification | First layer PASS: [44537934256](https://github.com/randogelist/Methboke/actions/runs/44537934256); SmoothDatum pending |
 
 Candidate sources are under `candidate/src/MethbokeAddon/WeakFouriermanB/`.
 Keep their namespaces/imports and do not substitute the old failed FourierBudget

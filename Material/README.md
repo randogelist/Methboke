@@ -1,8 +1,8 @@
 # Material
 
-`STATUS = WFB_ACTIVATION_PENDING_EXTERNAL_VERIFICATION`.
-The retained baseline has matching evidence at `43530b7`; new WFB additions
-are not covered by that pass. `NO_LOCAL_LEAN` applies to preparation.
+`STATUS = FIRST_WFB_LAYER_PASS_AT_0402aa37; FINITE_FRONT_IDENTIFICATION_PENDING`.
+The retained baseline has matching evidence at `43530b7`; the first four WFB modules have their own matching pass at `0402aa37`.
+See [the acceptance record](../audits/material-0402aa37/summary.json). `NO_LOCAL_LEAN` applies to preparation.
 The universal analytic admission theorem is outside these endpoint containers.
 
 [Run 44066821232](https://github.com/randogelist/Methboke/actions/runs/44066821232)
@@ -41,6 +41,7 @@ corrected baseline above supersedes that failure for its exact tested source.
 | `WFBFourierBudget` | Finite Fourier budget to Serrin with explicit energy premises (5) |
 | `WFBLocalFront` | Physical finite-front energy and Serrin bridge (29) |
 | `WFBHomogeneousBudget` | Mean-zero homogeneous Fourier-to-Serrin bridge (10) |
+| `WFBSmoothDatum` | Actual smooth-datum energy admission and Q01 weak existence (7); WFB-08 input only |
 
 Each endpoint folder contains the import boundary, exact declaration/audit requests, dependency closure and immutable upstream provenance. `_vendor` contains all 269 actual local Lean source bodies; no private Methlib checkout is required during CI. Shared source bytes prevent duplicate rebuilding across endpoints.
 
@@ -138,7 +139,7 @@ These containers preserve original theorem premises. They do not prove the new f
 
 Four owned sources are registered separately in `owned-sources.json`; they are
 not attributed to the pinned Methlib vendor snapshot. The complete native scope
-is 291 modules, 18 audit packages, 98 declaration entries and the QFB cutout.
+is 303 modules, 24 audit packages, 120 declaration entries and the QFB cutout.
 Principal WFB theorem types are explicitly asserted before their fresh audits.
 Native direct compilation needs no Lake target change. Standalone exports add
 the required owned libraries and preserve both provenance classes.
@@ -148,3 +149,9 @@ only after recursive source/import/object identity checks. Full fresh audits
 remain mandatory. Unknown compile contexts fail without implicit whole-project
 rebuild. Automatic recovery requires a typed current-run cache failure.
 No new WFB theorem is accepted until matching external evidence is reviewed.
+
+The subsequent prepared packages WFBFiniteFrontTest, WFBFiniteWindowCrossIdentity,
+WFBFiniteWindowRelativeEnergy, WFBFiniteWindowSerrinComparison and
+WFBLocalFrontIdentification carry the actual finite-front comparison chain.
+Their source proofs and exact signature assertions require external acceptance;
+no physical local-existence or global-root conclusion is hidden in a field.

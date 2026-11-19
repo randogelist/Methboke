@@ -25,9 +25,9 @@
       "title": "Local-front Fourier to Serrin",
       "intended_claim": "An actual finite physical NSE front, its strong initial L2 trace, and the full finite squared Fourier budget imply the genuine L4_t L6_x bound on the whole open front.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin",
-      "candidate_source_status": "ACTIVE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
         "MethbokeAddon.WeakFouriermanB.FourierBudget",
@@ -35,18 +35,29 @@
       ],
       "depends_on": [],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "run_id": 44537934256,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44537934256",
+        "evidence": "audits/material-0402aa37/summary.json",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "platform": "Linux x86_64; Lean4.33.0"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T14:01:20.252565+00:00"
     },
     {
       "id": "WFB-02",
       "title": "Homogeneous Fourier to Serrin",
       "intended_claim": "Jointly smooth periodic mean-zero slices and the full finite squared Fourier budget imply the genuine L4_t L6_x bound, without an assumed energy bound or global solution.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin",
-      "candidate_source_status": "ACTIVE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
         "MethbokeAddon.WeakFouriermanB.FourierBudget",
@@ -55,9 +66,20 @@
       ],
       "depends_on": [],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "run_id": 44537934256,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44537934256",
+        "evidence": "audits/material-0402aa37/summary.json",
+        "axioms": [
+          "propext",
+          "Classical.choice",
+          "Quot.sound"
+        ],
+        "platform": "Linux x86_64; Lean4.33.0"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T14:01:20.252576+00:00"
     },
     {
       "id": "WFB-03",
@@ -171,10 +193,10 @@
       "chat_sign_announced": false,
       "chat_sign_announced_at": null,
       "independent_preparation": {
-        "path": "next/SmoothDatum.lean",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean",
         "declaration_count": 7,
         "scope": "input admission and Q01 existence only",
-        "status": "PREPARED_NOT_VERIFIED"
+        "status": "ACTIVE_PENDING_EXTERNAL_VERIFICATION"
       }
     },
     {

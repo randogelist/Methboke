@@ -10,8 +10,12 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   [workflow plan](PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md),
   [B-tier derivation](Weak_Fourierman_B_B_TIER.txt), ten-obligation register and
   four exact source modules are registered with 57 new declaration audits.
-  The full run covers 18 packages, 98 declarations and the QFB cutout.
-  All ten obligations await matching repository A-tier evidence.
+  Six subsequent datum-admission and finite-front comparison modules bring the
+  next full run to 24 packages, 120 declarations and the QFB cutout.
+  **WFB-01 and WFB-02 are externally verified** at `0402aa37`;
+  [matching evidence](audits/material-0402aa37/summary.json) includes all 98 fresh
+  declaration audits, 283 reused modules and eight freshly compiled additions.
+  Eight contextual obligations and the exact root remain open.
 - **Chat-only progress signs:** `<->` is issued for a complete verified WFB
   obligation or root during an active review. No scheduled monitoring.
 
@@ -196,10 +200,18 @@ datum. See [the exact cumulative statement](Weak_Fourierman_B_B_TIER.txt).
 The active source layer preserves all four candidate proof files, the 269 vendor
 modules and dependency pins. A versioned adapter reconstructs legacy receipt
 identities and verifies restored object bytes before reuse; all audits run freshly.
-The first activation still needs matching external acceptance.
+The first activation passed externally with 183 control tests, all 283 baseline
+objects reused, and all 98 declaration audits freshly accepted. The subsequent
+datum-admission helper still needs its matching verification.
 
 The next formal obstruction is physical periodic H1 local existence with a
 cutoff-independent norm-controlled lifespan. Existing Galerkin existence does
 not provide it. A separate seven-declaration smooth-datum admission helper is
-[prepared only](PREPRINT_FORMALISATION/WeakFouriermanB/next/REVIEW.md).
+[registered for external verification](PREPRINT_FORMALISATION/WeakFouriermanB/next/REVIEW.md).
 The exact WFB and finite-cap roots remain unverified; the fixed goal is unchanged.
+
+The next prepared layer identifies an actual finite NSE front with the original
+Leray–Hopf path under compact Serrin bounds (or the accepted Fourier-budget
+criterion). Its global object is a smooth weak test constructed by changing
+time outside the relevant interval; it is not an assumed global NSE solution.
+These22 additional declarations still need matching external verification.

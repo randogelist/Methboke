@@ -222,3 +222,19 @@ New source, audit, receipt and routing controls await external execution.
 WFB-03 is blocked at genuine cutoff-uniform physical local H1 construction.
 The seven-declaration SmoothDatum source in next/ is an independent WFB-08 input
 helper, prepared only. No downstream root assembly bypasses the missing edge.
+
+## First acceptance and next registered layer
+
+Run44537934256 at0402aa37 accepted the four initial modules, all98 declaration
+audits and cutout with only standard axioms. All283 baseline objects were
+reused and eight additions built; 183 controls passed. WFB-01/WFB-02 are
+accepted with exact evidence in ../../audits/material-0402aa37/summary.json.
+
+The next registered layer has six modules and22 additional declarations:
+SmoothDatum, FiniteFrontTest, FiniteWindowCrossIdentity,
+FiniteWindowRelativeEnergy, FiniteWindowSerrinComparison,
+LocalFrontIdentification. Full scope303 modules/24 packages/120 declarations
+plus cutout. It prepares genuine same-path finite-front identification without
+assuming a global classical NSE solution. No CI driver or dependency pins change.
+Physical local H1 existence and the full root remain unresolved; later
+compact-cylinder and gluing candidates are excluded from this run.

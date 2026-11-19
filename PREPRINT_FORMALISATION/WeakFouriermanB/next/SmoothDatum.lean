@@ -37,8 +37,7 @@ theorem smooth_datum_constant_pairing_zero {a : Field}
   rw [physical_constant_pairing_coordinate]
   have hi : (∫ x in unitCube, a x i) = spatialMean a i :=
     (EuclideanSpace.proj i : Vec →L[ℝ] ℝ).integral_comp_comm ha.mean_zero.1
-  rw [hi, ha.mean_zero.2]
-  rfl
+  exact hi.trans (congrArg (fun x : Vec => x i) ha.mean_zero.2)
 
 theorem smooth_datum_energySigmaZero {a : Field} (ha : SmoothSigmaZero a) :
     EnergySigmaZero (criticalL2Representative a) := by

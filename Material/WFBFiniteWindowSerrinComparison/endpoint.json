@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "WFBFiniteWindowSerrinComparison",
+  "endpoint_module": "WFBFiniteWindowSerrinComparison.Endpoint",
+  "audit_module": "WFBFiniteWindowSerrinComparison.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.FiniteWindowSerrinComparison"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowSerrinComparison",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowSerrinComparison",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+          "path": "Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean"
+        }
+      },
+      "scope": "Exact new owned declaration with all explicit premises retained; basis is not the historical location of this theorem."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Physical finite-window Leray-Hopf/Serrin comparison from the same initial trace and a finite physical Serrin bound; the classical equation and pressure are required only on the comparison interval.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "New owned sources under MethbokeAddon; complete pinned vendor dependencies under _vendor; exact public dependency lock retained.",
+  "type_policy": "Each public named theorem has an independent full signature assertion and fresh complete type/axiom sentinels; private proof helpers are covered by transitive theorem-level axiom audits.",
+  "new_finite_cap_theorem_included": false,
+  "whole_wfb_obligation_completed": false
+}

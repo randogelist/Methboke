@@ -763,8 +763,13 @@
     "candidate_lines": 1255,
     "required_candidate_declarations": 57,
     "active_material_registration": true,
-    "repository_external_run": null,
-    "a_tier_obligations": 0,
+    "repository_external_run": {
+      "run_id": 44537934256,
+      "commit": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+      "scope": "first four modules only; 18 packages/98 declarations plus cutout",
+      "status": "PASS_STANDARD_AXIOMS_ONLY_REVIEWED"
+    },
+    "a_tier_obligations": 2,
     "root_a_tier": false,
     "chat_sign": "<->",
     "monitoring_enabled": false,
@@ -785,17 +790,45 @@
     "promotes_wfb": false
   },
   "wfb_activation": {
-    "status": "PENDING_EXTERNAL_VERIFICATION",
-    "owned_modules": 4,
-    "new_wrappers": 4,
-    "full_module_count": 291,
-    "endpoint_packages": 18,
-    "declaration_audits": 98,
+    "status": "FIRST_LAYER_ACCEPTED_SECOND_LAYER_PENDING",
+    "owned_modules": 10,
+    "new_wrappers": 10,
+    "full_module_count": 303,
+    "endpoint_packages": 24,
+    "declaration_audits": 120,
     "cutout_audit_required": true,
     "baseline_review": "audits/material-43530b7/summary.json",
     "pins_changed": false,
     "local_lean_executions": 0,
     "formal_obstruction": "WFB-03 cutoff-uniform physical local H1 existence",
-    "independent_prepared_helper": "PREPRINT_FORMALISATION/WeakFouriermanB/next/SmoothDatum.lean"
+    "independent_prepared_helper": "Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean",
+    "accepted_first_layer": {
+      "commit": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+      "run_id": 44537934256,
+      "obligations": [
+        "WFB-01",
+        "WFB-02"
+      ],
+      "reused_modules": 283,
+      "fresh_modules": 8,
+      "fresh_endpoint_audits": 18,
+      "declaration_audits": 98,
+      "external_control_tests": 183,
+      "root_accepted": false,
+      "evidence": "audits/material-0402aa37/summary.json"
+    },
+    "second_layer": {
+      "modules": [
+        "SmoothDatum",
+        "FiniteFrontTest",
+        "FiniteWindowCrossIdentity",
+        "FiniteWindowRelativeEnergy",
+        "FiniteWindowSerrinComparison",
+        "LocalFrontIdentification"
+      ],
+      "new_declarations": 22,
+      "status": "PREPARED_PENDING_EXTERNAL_VERIFICATION",
+      "scope": "actual datum admission, finite-window identities and same-path identification; no strong local existence or root"
+    }
   }
 }

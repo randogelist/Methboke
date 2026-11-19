@@ -64,6 +64,40 @@ that physical relative-energy inequality, local integrability, and limiting
 initial trace have been supplied. A proof of the scalar Gronwall implication
 does not supply those physical hypotheses.
 
+`FiniteFrontTest.lean` now prepares the missing test extension with a smooth
+time map, avoiding a zero-extension boundary argument. For a shorter horizon
+`0 < t < T`, choose a real bump `b` centered at zero with
+`t < rIn < rOut < T`, set `c = T/2` and
+`rho(r) = c + b(r)*(r-c)`. Every positive `rho(r)` lies strictly in `(0,T)`;
+near every time in `[0,t]`, `rho(r)=r`. The physical field
+`phi(r,x)=u(rho(r),x)` is therefore a global positive smooth solenoidal test,
+with time-neighborhood equality to `u` through the shorter horizon and near
+zero. It preserves the initial trace without asserting NSE after `t`.
+The compact-inner-window form follows. A separate prepared helper transfers
+the literal `timeDerivative` across time-neighborhood equality.
+
+The pinned Mathlib source
+`Mathlib/Analysis/Calculus/BumpFunction/Basic.lean` provides
+`ContDiffBump.contDiff`, `support_eq`, `tsupport_eq`,
+`eventuallyEq_one_of_mem_ball`, and `zero_of_le_dist`. These signatures were
+read at revision `db584cd6d46c92f209a44c0f1c829460d327499d`; they provide the
+cutoff ingredients. The new extension source awaits external verification.
+The already prepared `MethbokeAddon.WeakFouriermanB.local_nse_energy_identity` supplies the
+finite-front classical energy side. After the extension is proved, the next
+separate step is to localize the actual weak/classical cross identity.
+
+`CompactCylinderSerrin.lean` prepares four further independent R0 input
+lemmas. Joint continuity of the actual velocity on
+`Icc 0 tau × unitCube` gives a compact uniform bound `M`. The actual slice
+eLpNorm at exponent six is dominated by that of the scalar constant `M`,
+whose finiteness is proved using the cube's finite measure before applying
+`ENNReal.toReal_mono`. The front's established time measurability restricts
+to `Ioc 0 tau`; finite time measure and `MemLp.of_bound` yield actual
+L4-time/L6-space membership for `0 < tau < Tcap`. No Fourier budget or
+Serrin conclusion is assumed. The closed-cylinder continuity premise is
+precisely the regularity supplied by an admitted analytic cylinder. These
+four lemmas remain candidates pending matching external verification.
+
 ## Independent prepared WFB-08 input adapter
 
 `SmoothDatum.lean` is a small, independent source candidate. It uses actual
