@@ -290,3 +290,36 @@ the existing contextual obligations. The first formal edge remains R01/WFB-03:
 cutoff-independent physical H1 local existence. Later entries are prospective;
 accepted R0 comparison, pressure and gluing layers are explicitly reused.
 This documentation-only round changes no proof, audit, CI or acceptance status.
+
+## WFB main-goal implementation authorized
+
+
+WFB_LOCAL_THEORY_LAYER_1_PREPARED_2026_11_19
+The user explicitly identifies WFB as the main goal and authorizes sustained
+implementation, largest open gap first, with independent work between commits
+and external runs. This supersedes the former supporting-workstream role.
+The exact WFB conclusion retains the finite full Fourier-square budget; no
+universal budget bound or universal analytic germ-extension claim is added.
+Accepted R0 remains a reusable foundation, not the current main target.
+
+Seven new owned modules provide40 public theorem candidates: a scalar cubic
+short-time barrier; cutoff-uniform actual Galerkin H1/H2 estimates; local
+all-order/RHS/time-modulus bounds; genuine finite-window compactness; actual
+local classical velocity/pressure uniqueness including0; physical time
+translation; arbitrary-field Hessian/nonlinear/absorption estimates.
+The square budget in the local Galerkin construction is derived, not assumed.
+The explicit lifespan is1/(16*(C/nu^3+1)*(R+1)^2), withR an upper bound for
+initial physicalDissipation. It is independent of cutoff and higher norms.
+The final physical solution construction still needs its limit/recovery layer.
+
+Prepared external scope:335 compiled modules (269 vendor+26owned+40wrappers),
+40 fresh endpoint packages,201 declaration type/axiom audits plusQFBcutout.
+All321 accepted module inputs are unchanged and eligible forcompatible reuse.
+All previously required audits rerun freshly. Compiler,dependencylock,Lake,
+CI drivers,cachecompatibility policy andvendor bytes remain unchanged.
+No local Lean,Lake,kernel audit orproject tests. No new acceptance signal.
+OnlyWFB-01/02 currentlywhole-obligation accepted;WFB04uniqueness is a candidate
+pendingmatchingexternalverification. The completeWFBroot remains unverified.
+Nextindependentpreparation: finite-windowSobolevlimit/physicalrecovery and
+uniformphysicalexistence, maximaltrajectory, finite restartgluing, physical
+enstrophytimeidentity, budgettouniformH1, strictcutoff andR0rootassembly.

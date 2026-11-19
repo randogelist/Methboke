@@ -1,10 +1,19 @@
 # Methboke
 
-Analytic initial admission for the unforced periodic Navier–Stokes equation,
-with the original Quasi-Fefferman-B (QFB) endpoint copied into this repository.
-The working branch is **`main`**. The fixed mathematical goal is unchanged.
+The current main goal is **Weak_Fourierman_B** for unforced periodic
+Navier–Stokes: its full finite squared Fourier budget implies global smooth
+continuation of the same maximal trajectory. The budget remains a hypothesis.
+Accepted finite-cap R0 and the original QFB endpoints are reusable foundations.
+The working branch is **`main`**.
 
 ## Current state
+
+- **Implementation started from the largest gap:** seven new proof modules
+  prepare cutoff-uniform local Galerkin estimates, finite-window regularity
+  and compactness, physical nonlinear estimates, and local uniqueness/time
+  translation. Their 40 theorem candidates await external verification; the
+  next complete scope is 335 modules / 40 packages / 201 declarations plus
+  cutout. No new theorem acceptance is claimed from source preparation.
 
 - **Latest accepted package and exact R0 root:** [run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
   at `93ca8a57536512556ec36717ee933ea52db283bf` verified 321 source modules

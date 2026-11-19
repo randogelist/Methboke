@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "WFBLocalGalerkinCompactness",
+  "endpoint_module": "WFBLocalGalerkinCompactness.Endpoint",
+  "audit_module": "WFBLocalGalerkinCompactness.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalGalerkinCompactness.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/SobolevArzelaAscoli.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalGalerkinCompactness.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/_vendor/SingularClosure/SobolevArzelaAscoli.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Actual canonical Galerkin trajectories with the explicit local H2 bound admit a uniform H0-convergent subsequence on that closed interval.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS",
+  "source_layout": "Owned source plus complete unchanged pinned vendor dependencies; exact existing public dependency lock retained.",
+  "type_policy": "Every public theorem has an independently stated full signature and fresh complete type/axiom sentinels; definitions/private helpers are covered transitively.",
+  "whole_wfb_obligation_completed": false,
+  "universal_budget_finiteness_included": false
+}

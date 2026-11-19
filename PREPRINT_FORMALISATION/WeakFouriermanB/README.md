@@ -1,6 +1,13 @@
 # Weak_Fourierman_B
 
-Repository workstream on `main`; current external acceptance at `93ca8a5`, 2026-11-19.
+Current main goal on `main`, explicitly authorized by the user; existing
+external acceptance remains at `93ca8a5`, 2026-11-19.
+
+Seven new source modules with 40 theorem candidates are registered for the
+next external 335-module / 40-package / 201-declaration verification. These
+address cutoff-uniform local estimates and compactness, arbitrary physical
+nonlinear estimates, local uniqueness and time translation. They are prepared,
+not accepted. Full physical recovery and the WFB root remain pending.
 
 The WFB target is the conditional implication from the full finite squared
 Fourier budget up to `min(Tmax,Tf)` to global smoothness of the same trajectory,
@@ -8,7 +15,7 @@ with `Tf = ||a||_2^4/(8*pi^2*nu^5)`. WFB-01 and WFB-02 are accepted; the other
 eight contextual obligations and exact WFB root remain open. Universal budget
 finiteness is not asserted.
 
-Methboke's fixed R0 finite-cap admission goal has matching external acceptance:
+The reusable R0 finite-cap admission foundation has matching external acceptance:
 `MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu`, with the actual two-sided NSE
 cap and explicit zero branch. The classical and two-sided analytic cap roots
 preserve both velocity and normalized pressure on the admitted front. Universal

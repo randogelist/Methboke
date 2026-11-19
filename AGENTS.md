@@ -36,8 +36,9 @@ proof and evidence changes.
 ## Weak_Fourierman_B workstream
 
 Use `PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md` and its
-`obligations.json` for the current repository migration. Preserve the fixed
-analytic finite-cap goal; WFB is a supporting conditional criterion. Candidate
+`obligations.json` for the current repository migration. The user explicitly identifies WFB as the current main goal. Preserve its
+finite Fourier-budget premise and use accepted R0 as a foundation; universal
+budget finiteness and universal analytic germ extension remain separate. Candidate
 sources are staged outside active Material discovery until cache-safe activation.
 For this workstream use the user's exact chat-only `<->` sign for each complete
 one of the ten obligations that reaches A-tier, and separately for the complete
@@ -46,3 +47,10 @@ obligation from a helper pass, B-tier prose, prepared code, cache hit or CI gree
 No scheduled monitoring, polling automation or webhook notification. The prior
 watch is disabled. Continue independent implementation while CI runs; inspect
 results actively without scheduled monitoring.
+
+## Current implementation priority
+
+Start with cutoff-independent physical H1 local existence, the largest open
+WFB gap, then reduce the remaining analytic and assembly obligations. Continue
+independent preparation between commits and while exact external CI runs.
+No prepared source alone earns the chat-only `<->` sign.

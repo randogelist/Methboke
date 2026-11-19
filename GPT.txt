@@ -1,40 +1,40 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.9
+DOCUMENT_VERSION = 2.0
 DATE = 2026-11-19
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = B-tier index the remaining WFB route from existing pinned Mathlib/Methlib and accepted Methboke anchors
-RESUME_MODE = B_TIER_DERIVATION
+ACTIVE_TASK = Implement WFB as the explicit main goal; largest unresolved gap first; continue independent preparation during external cached verification
+RESUME_MODE = A_TIER_DERIVATION
 CURRENT_MILESTONE = A_TIER_R0_D_Q_SUBSET_R_NU_AT_93ca8a57536512556ec36717ee933ea52db283bf
 CURRENT_ACCEPTANCE = 321_MODULES_33_FRESH_PACKAGES_161_DECLARATIONS_PLUS_QFB_CUTOUT; STANDARD_AXIOMS_ONLY
-STATUS_AUTHORITY = SECTION_17 for current route; SECTION_16 for accepted R0; earlier preparation and failed-run statuses are historical
+STATUS_AUTHORITY = SECTION_18 for current WFB implementation; SECTION_16 for accepted R0; earlier scope/preparation labels are historical
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
-1. FIXED PROJECT GOAL
+1. CURRENT MAIN GOAL: WEAK_FOURIERMAN_B
 
-Establish the exact finite-cap analytic admission theorem for unforced
-periodic 3D Navier-Stokes, then identify which constructive analytic data
-certificates can discharge admission. Preserve the distinction between:
-  R0: admitted analytic evolution through a strict QFB overlap gives a
-      global smooth solution;
-  R1: every local analytic germ extends through that overlap.
-R0 is accepted at A-tier in its exact form D_Q(nu) subset R_nu(nu), for nu>0,
-with matching external compiler, exact-type and fresh standard-axiom evidence
-at 93ca8a5, run 44549257770. The actual analytic-cap membership premise remains.
-R1 is unresolved. This milestone does not change the fixed goal or prove
-universal admission. Only explicit CHANGE updates the project goal.
+The user explicitly states that WFB is the main goal and authorizes its full
+implementation, largest unresolved gap first. This replaces the former R0
+main-goal hierarchy while preserving every accepted R0 theorem and its scope.
+For nu>0 and smooth periodic solenoidal mean-zero a, construct the unique
+maximal strong trajectory and prove: the full finite squared Fourier budget
+on(0,min(Tmax,tau_Q(a,nu))) implies Tmax=infinity and a GlobalSmoothNSE pair
+agreeing with the entire original velocity and normalized pressure.
+The finite budget remains an explicit hypothesis. Universal budget finiteness
+and universal analytic germ-to-cap extension R1 are not the WFB target.
+R0 is accepted at93ca8a5/run44549257770 and supplies the final classical
+finite-cap-to-global implication once strict cutoff overlap has been derived.
 
 CURRENT TARGET HIERARCHY
-MACROSCOPIC: the fixed analytic finite-cap admission goal above.
-MESOSCOPIC: move Weak_Fourierman_B and its ten contextual obligations into
-Methboke, preserving the local workflow's object reuse and external-only Lean.
-MICROSCOPIC: source-grounded WFB route indexing completed; first formal gap is
-R01/WFB-03 cutoff-independent physical H1 local existence. Preserve R0/R1 scope.
+MACROSCOPIC: exact Weak_Fourierman_B with its finite full Fourier-budget premise.
+MESOSCOPIC: close the ten contextual WFB obligations using unchanged pinned
+Mathlib/Methlib anchors, compatible object reuse and external-only Lean.
+MICROSCOPIC: cutoff-independent physical H1 local existence first; seven
+source modules/40 public theorem candidates registered for external review.
 The accepted scope is 321 modules/33 fresh packages/161 declaration audits plus
 QFB cutout; 303 modules reused and 18 freshly compiled; 183 external controls passed.
-This supporting conditional Fourier criterion does not replace the fixed
-analytic finite-cap project goal or establish universal budget/admission.
+The explicit current user instruction makes this conditional Fourier criterion
+the main goal. It does not establish universal budget/admission.
 Chat-only <-> is reserved for accepted complete obligations and separately the
 root. No monitoring automation. The prior scheduled watch is disabled.
 Accepted source gate: owned-source registration, exact legacy receipt
@@ -854,3 +854,35 @@ physical cubic inequality. Actual-path budget does not imply AX6.
 
 No proof, audit, manifest, compiler, lock or CI source is changed by this index.
 No local Lean/project tests or new external run. No new acceptance signals.
+
+18. CURRENT MAIN-GOAL IMPLEMENTATION AND FIRST EXTERNAL LAYER
+
+WFB_LOCAL_THEORY_LAYER_1_PREPARED_2026_11_19
+The user explicitly identifies WFB as the main goal and authorizes sustained
+implementation, largest open gap first, with independent work between commits
+and external runs. This supersedes the former supporting-workstream role.
+The exact WFB conclusion retains the finite full Fourier-square budget; no
+universal budget bound or universal analytic germ-extension claim is added.
+Accepted R0 remains a reusable foundation, not the current main target.
+
+Seven new owned modules provide40 public theorem candidates: a scalar cubic
+short-time barrier; cutoff-uniform actual Galerkin H1/H2 estimates; local
+all-order/RHS/time-modulus bounds; genuine finite-window compactness; actual
+local classical velocity/pressure uniqueness including0; physical time
+translation; arbitrary-field Hessian/nonlinear/absorption estimates.
+The square budget in the local Galerkin construction is derived, not assumed.
+The explicit lifespan is1/(16*(C/nu^3+1)*(R+1)^2), withR an upper bound for
+initial physicalDissipation. It is independent of cutoff and higher norms.
+The final physical solution construction still needs its limit/recovery layer.
+
+Prepared external scope:335 compiled modules (269 vendor+26owned+40wrappers),
+40 fresh endpoint packages,201 declaration type/axiom audits plusQFBcutout.
+All321 accepted module inputs are unchanged and eligible forcompatible reuse.
+All previously required audits rerun freshly. Compiler,dependencylock,Lake,
+CI drivers,cachecompatibility policy andvendor bytes remain unchanged.
+No local Lean,Lake,kernel audit orproject tests. No new acceptance signal.
+OnlyWFB-01/02 currentlywhole-obligation accepted;WFB04uniqueness is a candidate
+pendingmatchingexternalverification. The completeWFBroot remains unverified.
+Nextindependentpreparation: finite-windowSobolevlimit/physicalrecovery and
+uniformphysicalexistence, maximaltrajectory, finite restartgluing, physical
+enstrophytimeidentity, budgettouniformH1, strictcutoff andR0rootassembly.

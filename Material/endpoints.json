@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "endpoint_count": 33,
-  "declaration_count": 161,
+  "endpoint_count": 40,
+  "declaration_count": 201,
   "status": "PENDING_EXTERNAL_CI",
   "endpoints": [
     {
@@ -115,6 +115,96 @@
       "source_closure_sha256": "6741f3d437b7336edf733e21b9ff52d5af51d187b711be261f54de8db6e320ab"
     },
     {
+      "id": "R0AnalyticCapAdmission",
+      "endpoint_module": "R0AnalyticCapAdmission.Endpoint",
+      "audit_module": "R0AnalyticCapAdmission.Audit",
+      "manifest": "R0AnalyticCapAdmission/endpoint.json",
+      "closure": "R0AnalyticCapAdmission/closure.json",
+      "declarations": 4,
+      "local_source_modules": 270,
+      "source_closure_sha256": "596cd93006560f76d441bbb160787e645ca9746f434b5da2db2bf5452aa3256b"
+    },
+    {
+      "id": "R0AnalyticTwoSidedCap",
+      "endpoint_module": "R0AnalyticTwoSidedCap.Endpoint",
+      "audit_module": "R0AnalyticTwoSidedCap.Audit",
+      "manifest": "R0AnalyticTwoSidedCap/endpoint.json",
+      "closure": "R0AnalyticTwoSidedCap/closure.json",
+      "declarations": 5,
+      "local_source_modules": 271,
+      "source_closure_sha256": "859ceafcdbe0afaeb6d0c0195dc85079ed43fba21247c4a5e96abd1242989f74"
+    },
+    {
+      "id": "R0CompactCylinderSerrin",
+      "endpoint_module": "R0CompactCylinderSerrin.Endpoint",
+      "audit_module": "R0CompactCylinderSerrin.Audit",
+      "manifest": "R0CompactCylinderSerrin/endpoint.json",
+      "closure": "R0CompactCylinderSerrin/closure.json",
+      "declarations": 4,
+      "local_source_modules": 176,
+      "source_closure_sha256": "0716143f5c014a7e6e74fca1484a14df03fe469f0e73f50b5a6192c5ed65abad"
+    },
+    {
+      "id": "R0DataAdmission",
+      "endpoint_module": "R0DataAdmission.Endpoint",
+      "audit_module": "R0DataAdmission.Audit",
+      "manifest": "R0DataAdmission/endpoint.json",
+      "closure": "R0DataAdmission/closure.json",
+      "declarations": 2,
+      "local_source_modules": 272,
+      "source_closure_sha256": "aee9129caca9a2eda8322365239333e86ba5a4ebc27785d3d62142bd1aa3e161"
+    },
+    {
+      "id": "R0FiniteCapAdmission",
+      "endpoint_module": "R0FiniteCapAdmission.Endpoint",
+      "audit_module": "R0FiniteCapAdmission.Audit",
+      "manifest": "R0FiniteCapAdmission/endpoint.json",
+      "closure": "R0FiniteCapAdmission/closure.json",
+      "declarations": 1,
+      "local_source_modules": 269,
+      "source_closure_sha256": "5cdd38a0894e99f3fcb2da3f3409e309e8c3dfbfad8aae402ba756408b77ae25"
+    },
+    {
+      "id": "R0FiniteCapGluing",
+      "endpoint_module": "R0FiniteCapGluing.Endpoint",
+      "audit_module": "R0FiniteCapGluing.Audit",
+      "manifest": "R0FiniteCapGluing/endpoint.json",
+      "closure": "R0FiniteCapGluing/closure.json",
+      "declarations": 5,
+      "local_source_modules": 117,
+      "source_closure_sha256": "a782a625a5f140b47fd0747cad81c9a53d099c212b4f4e2b4cee7ea226290058"
+    },
+    {
+      "id": "R0FiniteCapOverlap",
+      "endpoint_module": "R0FiniteCapOverlap.Endpoint",
+      "audit_module": "R0FiniteCapOverlap.Audit",
+      "manifest": "R0FiniteCapOverlap/endpoint.json",
+      "closure": "R0FiniteCapOverlap/closure.json",
+      "declarations": 2,
+      "local_source_modules": 119,
+      "source_closure_sha256": "ad3123fbb45accf3d30b4571b5445f5612339f9a29aae73210fa75f83e00e201"
+    },
+    {
+      "id": "R0InitialFrontAdmission",
+      "endpoint_module": "R0InitialFrontAdmission.Endpoint",
+      "audit_module": "R0InitialFrontAdmission.Audit",
+      "manifest": "R0InitialFrontAdmission/endpoint.json",
+      "closure": "R0InitialFrontAdmission/closure.json",
+      "declarations": 9,
+      "local_source_modules": 218,
+      "source_closure_sha256": "6ac89dd075d2e0ca1ddcbe05b0159c508824ee2d965afd38f4bec02498779b62"
+    },
+    {
+      "id": "R0PressureUniqueness",
+      "endpoint_module": "R0PressureUniqueness.Endpoint",
+      "audit_module": "R0PressureUniqueness.Audit",
+      "manifest": "R0PressureUniqueness/endpoint.json",
+      "closure": "R0PressureUniqueness/closure.json",
+      "declarations": 9,
+      "local_source_modules": 106,
+      "source_closure_sha256": "44c137665314e9de9d16f7f70d34d3d0b3bc8ce74eeea50232ed061d1c3512af"
+    },
+    {
       "id": "RelativeEnergy",
       "endpoint_module": "RelativeEnergy.Endpoint",
       "audit_module": "RelativeEnergy.Audit",
@@ -143,56 +233,6 @@
       "declarations": 4,
       "local_source_modules": 194,
       "source_closure_sha256": "7816c09dc4549b9ed05dbcaa37f62fe3af30da10758e88fd46b305ae3b2ef0e9"
-    },
-    {
-      "id": "WFBPhysicalFourier",
-      "endpoint_module": "WFBPhysicalFourier.Endpoint",
-      "audit_module": "WFBPhysicalFourier.Audit",
-      "manifest": "WFBPhysicalFourier/endpoint.json",
-      "closure": "WFBPhysicalFourier/closure.json",
-      "declarations": 13,
-      "local_source_modules": 172,
-      "source_closure_sha256": "671ba6278441fac75a67f91ae2bacbb9b050825839088d419347e6326b52be6d"
-    },
-    {
-      "id": "WFBFourierBudget",
-      "endpoint_module": "WFBFourierBudget.Endpoint",
-      "audit_module": "WFBFourierBudget.Audit",
-      "manifest": "WFBFourierBudget/endpoint.json",
-      "closure": "WFBFourierBudget/closure.json",
-      "declarations": 5,
-      "local_source_modules": 173,
-      "source_closure_sha256": "c92b004b38f45db623190d7841d0efbf20293a43061fa286b1fe1b4855f78ee2"
-    },
-    {
-      "id": "WFBLocalFront",
-      "endpoint_module": "WFBLocalFront.Endpoint",
-      "audit_module": "WFBLocalFront.Audit",
-      "manifest": "WFBLocalFront/endpoint.json",
-      "closure": "WFBLocalFront/closure.json",
-      "declarations": 29,
-      "local_source_modules": 175,
-      "source_closure_sha256": "fc7de31dd5004809dcc89056989b47983568a4b1ea7c66c0f1e57aeb2b800545"
-    },
-    {
-      "id": "WFBHomogeneousBudget",
-      "endpoint_module": "WFBHomogeneousBudget.Endpoint",
-      "audit_module": "WFBHomogeneousBudget.Audit",
-      "manifest": "WFBHomogeneousBudget/endpoint.json",
-      "closure": "WFBHomogeneousBudget/closure.json",
-      "declarations": 10,
-      "local_source_modules": 176,
-      "source_closure_sha256": "e2d5a80e0b52e5683c8a11b2ac9724c49df09f8ce0930d37455f1dfa6b622b5c"
-    },
-    {
-      "id": "WFBSmoothDatum",
-      "endpoint_module": "WFBSmoothDatum.Endpoint",
-      "audit_module": "WFBSmoothDatum.Audit",
-      "manifest": "WFBSmoothDatum/endpoint.json",
-      "closure": "WFBSmoothDatum/closure.json",
-      "declarations": 7,
-      "local_source_modules": 182,
-      "source_closure_sha256": "c274869dfcefb9e5f3f2b6480b8f335bbfe598e6c13d8b05b6b5cd5ad1622365"
     },
     {
       "id": "WFBFiniteFrontTest",
@@ -235,6 +275,56 @@
       "source_closure_sha256": "5822a3cb80ab5ca85fc7d1e46c508f13553ba439fdaf75d51066b2a57686361e"
     },
     {
+      "id": "WFBFourierBudget",
+      "endpoint_module": "WFBFourierBudget.Endpoint",
+      "audit_module": "WFBFourierBudget.Audit",
+      "manifest": "WFBFourierBudget/endpoint.json",
+      "closure": "WFBFourierBudget/closure.json",
+      "declarations": 5,
+      "local_source_modules": 173,
+      "source_closure_sha256": "c92b004b38f45db623190d7841d0efbf20293a43061fa286b1fe1b4855f78ee2"
+    },
+    {
+      "id": "WFBHomogeneousBudget",
+      "endpoint_module": "WFBHomogeneousBudget.Endpoint",
+      "audit_module": "WFBHomogeneousBudget.Audit",
+      "manifest": "WFBHomogeneousBudget/endpoint.json",
+      "closure": "WFBHomogeneousBudget/closure.json",
+      "declarations": 10,
+      "local_source_modules": 176,
+      "source_closure_sha256": "e2d5a80e0b52e5683c8a11b2ac9724c49df09f8ce0930d37455f1dfa6b622b5c"
+    },
+    {
+      "id": "WFBLocalClassicalUniqueness",
+      "endpoint_module": "WFBLocalClassicalUniqueness.Endpoint",
+      "audit_module": "WFBLocalClassicalUniqueness.Audit",
+      "manifest": "WFBLocalClassicalUniqueness/endpoint.json",
+      "closure": "WFBLocalClassicalUniqueness/closure.json",
+      "declarations": 4,
+      "local_source_modules": 220,
+      "source_closure_sha256": "3b2349f051fdee63bf1ef14fb5ecd4d7f7d08abe6b6b86961e9498c52d304185"
+    },
+    {
+      "id": "WFBLocalCubicBarrier",
+      "endpoint_module": "WFBLocalCubicBarrier.Endpoint",
+      "audit_module": "WFBLocalCubicBarrier.Audit",
+      "manifest": "WFBLocalCubicBarrier/endpoint.json",
+      "closure": "WFBLocalCubicBarrier/closure.json",
+      "declarations": 4,
+      "local_source_modules": 2,
+      "source_closure_sha256": "5c1eb2f6799ee3db315a96be77ecfe5b11b21a1026bbd87e92e80dc2732c58a4"
+    },
+    {
+      "id": "WFBLocalFront",
+      "endpoint_module": "WFBLocalFront.Endpoint",
+      "audit_module": "WFBLocalFront.Audit",
+      "manifest": "WFBLocalFront/endpoint.json",
+      "closure": "WFBLocalFront/closure.json",
+      "declarations": 29,
+      "local_source_modules": 175,
+      "source_closure_sha256": "fc7de31dd5004809dcc89056989b47983568a4b1ea7c66c0f1e57aeb2b800545"
+    },
+    {
       "id": "WFBLocalFrontIdentification",
       "endpoint_module": "WFBLocalFrontIdentification.Endpoint",
       "audit_module": "WFBLocalFrontIdentification.Audit",
@@ -245,94 +335,74 @@
       "source_closure_sha256": "32b5115a8730d61ed18c2252fe1b6042d36174c419f62b01e03a34fe9c1db5a4"
     },
     {
-      "id": "R0CompactCylinderSerrin",
-      "endpoint_module": "R0CompactCylinderSerrin.Endpoint",
-      "audit_module": "R0CompactCylinderSerrin.Audit",
-      "manifest": "R0CompactCylinderSerrin/endpoint.json",
-      "closure": "R0CompactCylinderSerrin/closure.json",
-      "declarations": 4,
-      "local_source_modules": 176,
-      "source_closure_sha256": "0716143f5c014a7e6e74fca1484a14df03fe469f0e73f50b5a6192c5ed65abad"
+      "id": "WFBLocalGalerkinBounds",
+      "endpoint_module": "WFBLocalGalerkinBounds.Endpoint",
+      "audit_module": "WFBLocalGalerkinBounds.Audit",
+      "manifest": "WFBLocalGalerkinBounds/endpoint.json",
+      "closure": "WFBLocalGalerkinBounds/closure.json",
+      "declarations": 8,
+      "local_source_modules": 37,
+      "source_closure_sha256": "8da426c34962234eb82ae619814d38ab0fb76c6b6120774526219fa16c24ab90"
     },
     {
-      "id": "R0PressureUniqueness",
-      "endpoint_module": "R0PressureUniqueness.Endpoint",
-      "audit_module": "R0PressureUniqueness.Audit",
-      "manifest": "R0PressureUniqueness/endpoint.json",
-      "closure": "R0PressureUniqueness/closure.json",
-      "declarations": 9,
-      "local_source_modules": 106,
-      "source_closure_sha256": "44c137665314e9de9d16f7f70d34d3d0b3bc8ce74eeea50232ed061d1c3512af"
-    },
-    {
-      "id": "R0FiniteCapGluing",
-      "endpoint_module": "R0FiniteCapGluing.Endpoint",
-      "audit_module": "R0FiniteCapGluing.Audit",
-      "manifest": "R0FiniteCapGluing/endpoint.json",
-      "closure": "R0FiniteCapGluing/closure.json",
-      "declarations": 5,
-      "local_source_modules": 117,
-      "source_closure_sha256": "a782a625a5f140b47fd0747cad81c9a53d099c212b4f4e2b4cee7ea226290058"
-    },
-    {
-      "id": "R0FiniteCapOverlap",
-      "endpoint_module": "R0FiniteCapOverlap.Endpoint",
-      "audit_module": "R0FiniteCapOverlap.Audit",
-      "manifest": "R0FiniteCapOverlap/endpoint.json",
-      "closure": "R0FiniteCapOverlap/closure.json",
-      "declarations": 2,
-      "local_source_modules": 119,
-      "source_closure_sha256": "ad3123fbb45accf3d30b4571b5445f5612339f9a29aae73210fa75f83e00e201"
-    },
-    {
-      "id": "R0InitialFrontAdmission",
-      "endpoint_module": "R0InitialFrontAdmission.Endpoint",
-      "audit_module": "R0InitialFrontAdmission.Audit",
-      "manifest": "R0InitialFrontAdmission/endpoint.json",
-      "closure": "R0InitialFrontAdmission/closure.json",
-      "declarations": 9,
-      "local_source_modules": 218,
-      "source_closure_sha256": "6ac89dd075d2e0ca1ddcbe05b0159c508824ee2d965afd38f4bec02498779b62"
-    },
-    {
-      "id": "R0FiniteCapAdmission",
-      "endpoint_module": "R0FiniteCapAdmission.Endpoint",
-      "audit_module": "R0FiniteCapAdmission.Audit",
-      "manifest": "R0FiniteCapAdmission/endpoint.json",
-      "closure": "R0FiniteCapAdmission/closure.json",
+      "id": "WFBLocalGalerkinCompactness",
+      "endpoint_module": "WFBLocalGalerkinCompactness.Endpoint",
+      "audit_module": "WFBLocalGalerkinCompactness.Audit",
+      "manifest": "WFBLocalGalerkinCompactness/endpoint.json",
+      "closure": "WFBLocalGalerkinCompactness/closure.json",
       "declarations": 1,
-      "local_source_modules": 269,
-      "source_closure_sha256": "5cdd38a0894e99f3fcb2da3f3409e309e8c3dfbfad8aae402ba756408b77ae25"
+      "local_source_modules": 58,
+      "source_closure_sha256": "08667691dfb638549b47c2db527bf2100e5866471ced0086e9d29e77a28786e0"
     },
     {
-      "id": "R0AnalyticCapAdmission",
-      "endpoint_module": "R0AnalyticCapAdmission.Endpoint",
-      "audit_module": "R0AnalyticCapAdmission.Audit",
-      "manifest": "R0AnalyticCapAdmission/endpoint.json",
-      "closure": "R0AnalyticCapAdmission/closure.json",
+      "id": "WFBLocalGalerkinRegularity",
+      "endpoint_module": "WFBLocalGalerkinRegularity.Endpoint",
+      "audit_module": "WFBLocalGalerkinRegularity.Audit",
+      "manifest": "WFBLocalGalerkinRegularity/endpoint.json",
+      "closure": "WFBLocalGalerkinRegularity/closure.json",
       "declarations": 4,
-      "local_source_modules": 270,
-      "source_closure_sha256": "596cd93006560f76d441bbb160787e645ca9746f434b5da2db2bf5452aa3256b"
+      "local_source_modules": 52,
+      "source_closure_sha256": "86850f70677087a6e037b1dd7b2a2d3ff53780c9b1b5549d345f36efcdb148e7"
     },
     {
-      "id": "R0AnalyticTwoSidedCap",
-      "endpoint_module": "R0AnalyticTwoSidedCap.Endpoint",
-      "audit_module": "R0AnalyticTwoSidedCap.Audit",
-      "manifest": "R0AnalyticTwoSidedCap/endpoint.json",
-      "closure": "R0AnalyticTwoSidedCap/closure.json",
+      "id": "WFBLocalTimeTranslation",
+      "endpoint_module": "WFBLocalTimeTranslation.Endpoint",
+      "audit_module": "WFBLocalTimeTranslation.Audit",
+      "manifest": "WFBLocalTimeTranslation/endpoint.json",
+      "closure": "WFBLocalTimeTranslation/closure.json",
       "declarations": 5,
-      "local_source_modules": 271,
-      "source_closure_sha256": "859ceafcdbe0afaeb6d0c0195dc85079ed43fba21247c4a5e96abd1242989f74"
+      "local_source_modules": 178,
+      "source_closure_sha256": "bbc7cb9847386396487e78f04b7046e25dca7a4ae0fa83adc28099eb3ce35b65"
     },
     {
-      "id": "R0DataAdmission",
-      "endpoint_module": "R0DataAdmission.Endpoint",
-      "audit_module": "R0DataAdmission.Audit",
-      "manifest": "R0DataAdmission/endpoint.json",
-      "closure": "R0DataAdmission/closure.json",
-      "declarations": 2,
-      "local_source_modules": 272,
-      "source_closure_sha256": "aee9129caca9a2eda8322365239333e86ba5a4ebc27785d3d62142bd1aa3e161"
+      "id": "WFBPhysicalFourier",
+      "endpoint_module": "WFBPhysicalFourier.Endpoint",
+      "audit_module": "WFBPhysicalFourier.Audit",
+      "manifest": "WFBPhysicalFourier/endpoint.json",
+      "closure": "WFBPhysicalFourier/closure.json",
+      "declarations": 13,
+      "local_source_modules": 172,
+      "source_closure_sha256": "671ba6278441fac75a67f91ae2bacbb9b050825839088d419347e6326b52be6d"
+    },
+    {
+      "id": "WFBPhysicalNonlinear",
+      "endpoint_module": "WFBPhysicalNonlinear.Endpoint",
+      "audit_module": "WFBPhysicalNonlinear.Audit",
+      "manifest": "WFBPhysicalNonlinear/endpoint.json",
+      "closure": "WFBPhysicalNonlinear/closure.json",
+      "declarations": 14,
+      "local_source_modules": 177,
+      "source_closure_sha256": "67af4d67db5a29974aaad9daec35c3e2e364d19bfb41bb00e930445856d3929e"
+    },
+    {
+      "id": "WFBSmoothDatum",
+      "endpoint_module": "WFBSmoothDatum.Endpoint",
+      "audit_module": "WFBSmoothDatum.Audit",
+      "manifest": "WFBSmoothDatum/endpoint.json",
+      "closure": "WFBSmoothDatum/closure.json",
+      "declarations": 7,
+      "local_source_modules": 182,
+      "source_closure_sha256": "c274869dfcefb9e5f3f2b6480b8f335bbfe598e6c13d8b05b6b5cd5ad1622365"
     }
   ]
 }
