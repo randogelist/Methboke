@@ -1,13 +1,13 @@
 DOCUMENT := EHRENFEST_OBSTRUCTION_B_TIER
 FROZEN_NAME := EHRENFEST-OBSTRUCTION
-VERSION := 0.1.0
+VERSION := 0.2.0
 DATE := 2026-11-19
 MODE := B_TIER_DERIVATION
 REPOSITORY := randogelist/Methboke
 BRANCH := main
-SOURCE_REVIEW_REVISION := b7a1ed890bb359e6e2913622c2796d123d48e582
+SOURCE_REVIEW_REVISION := c10abd8c3e97ae3bed85749f0f40d2b40f43bcba
 MACROSCOPIC_GOAL := Weak_Fourierman_B; unchanged
-LOCAL_TARGET := ten mid-tier endpoints for the conditional Ehrenfest obstruction
+LOCAL_TARGET := refined ten-step B-tier chain and probable Lean layout
 STATUS := COMPLETE_CONDITIONAL_MATHEMATICAL_DERIVATION; NOT_LEAN_VERIFIED
 NEW_LOCAL_LEAN_EXECUTIONS := 0
 NEW_EXTERNAL_LEAN_RUNS := 0
@@ -63,7 +63,7 @@ Fluid quantities (do not confuse these with phase-space wavefunctions):
   W_N(q) := -<B_N(q,q),A_N q>_L2.
 Equivalently W_N = integral omega dot S(q) omega, with omega=curl q and
 S(q)=(grad q + transpose(grad q))/2.
-The symbol e_N here is enstrophy/2, not the critical H^(1/2) energy used in
+The symbol e_N here is half the squared gradient norm, not the critical H^(1/2) energy used in
 the earlier signed-production discussion.
 
 Fix e_* > 0 and define the bounded reciprocal observable
@@ -365,7 +365,7 @@ standard-only policy for an unconditional root.
 6. SOURCE INDEX AND FORMALIZATION BOUNDARIES
 
 Canonical machine index:
-  PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX_v0_1.json
+  PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX_v0_2.json
 Human index:
   PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX.md
 Ten mid-tier interfaces and gates:
@@ -422,8 +422,149 @@ A_TIER: zero new endpoints; no new Lean source, compilation or axiom audit.
 OPEN_EXISTENTIAL_PREMISE: StoppedCommutatorBound(nu) for exact NSE.
 NO_UNCONDITIONAL_COUNTEREXAMPLE: no fixed smooth witness has been constructed.
 
-Next scoped proposal: formalize E01 and the independent scalar lemma E07,
-then E02--E06 and E08--E10 in dependency order, with every named premise
-preserved. Implementation follows the user's assent process. Any later
+Next scoped proposal: use the refined scalar/operator module split below;
+start literal data/reciprocal interfaces and independent E07 while preparing
+E09 and the phase-space construction, with every named premise preserved. Implementation follows the user's assent process. Any later
 verification must use matching authorized external cached CI or native
 Windows replay; local Lean execution remains prohibited.
+
+9. REFINED DEPENDENCY CHAIN AND LEAN LAYOUT (v0.2)
+
+The actual scalar obstruction has the smaller dependency chain
+  canonical Galerkin coefficient identity
+    -> exact reciprocal drift
+    -> stopped scalar hitting
+    -> fixed-datum threshold escape
+    -> contradiction with smooth-front spectral stability.
+No Stone theorem, phase-space measure or self-adjoint operator enters this
+implication. The separate operator chain constructs an exact interpretation:
+  real finite phase and complete smooth flow
+    -> half-density C0 unitary group
+    -> strong-derivative generator, resolvents and self-adjoint Hamiltonian
+    -> common-core/conjugation/Ehrenfest identities
+    -> equality with the canonical coefficient drift.
+This equality gives interpretation, not a sign estimate. Robertson uncertainty
+still supplies no proof of the assumed negative stopped drift.
+
+Three endpoints have distinct evidence scopes:
+  EHRENFEST_OBSTRUCTION_DYNAMICAL: coefficient hypothesis -> not NSE_B;
+  NSE_HEISENBERG_TRANSLATION: actual finite-phase operator construction;
+  EHRENFEST_OBSTRUCTION: frozen implication, with interpretation separately
+    checked by canonical_heisenberg_rate_eq.
+The frozen implication can invoke the dynamical proof directly. Its proof must
+not be made artificially dependent on an unused operator certificate. Acceptance
+of the scalar theorem alone does not complete E03--E06 or all ten milestones.
+
+The planned source namespace remains MethbokeAddon.EhrenfestObstruction.
+The 26 planned modules and their own-import DAG are recorded in
+  PREPRINT_FORMALISATION/EhrenfestObstruction/MODULE_PLAN.json.
+The ten milestone/package map and eight schematic signatures are in
+  LEAN_LAYOUT.md and INTERFACES.lean.txt in the same directory.
+All paths ending in .lean inside those documents are proposed paths only.
+No new Lean source is activated; all signatures await external elaboration.
+
+10. LITERAL CANONICAL INTERFACE AND CLOSED-SLAB REFINEMENTS
+
+Use a subtype SmoothDatum of the actual Field with SmoothSigmaZero proof.
+For every logical index n use the exact physical cutoff n+1:
+  canonicalGalerkinSolution nu hnu a.val a.property (n+1).
+One nu, hnu, a, eStar, gamma and threshold family R are fixed before n.
+The cofinal n+1 reindexing does not change the eventual-positive-cutoff claim.
+
+Let P denote coefficientEnstrophyNonlinearPower (not the Leray projection
+in this paragraph). The exact native identity D'=-2*nu*Z-2*P yields
+  e=D/2, e'=-nu*Z-P, W=-P,
+  V'=(nu*Z+P)/(eStar*(1+e/eStar)^2)=c.
+This sign can be checked on a caloric shear: P=0 and c>=0. Its evolution
+therefore cannot supply the required negative-rate premise.
+
+Define PreHit(e,R,T,t) by
+  0<=t, t<T, and forall s in [0,t], e(s)<R.
+With T=1/gamma, the stopped predicate asserts c_n(t)<=-gamma only under
+this guard. Continuity makes it equivalent to being strictly before the first
+threshold hit: below-threshold compact prefixes contain no hit; an earliest
+hit, if one exists, excludes the guard at and after it. If e(0)>=R, both
+strict pre-hit intervals are empty. The large-index application uses the
+uniform initial enstrophy bound to ensure e_n(0)<R_n.
+
+Bind witness data with existentials in StoppedCommutatorBound(nu), including
+the proof of nu>0 needed by the canonical family. A Type-valued data record
+with separate Prop-valued laws is also valid. Do not project data out of a
+Prop-valued certificate to define a trajectory. Keep the rational formula c
+literal and prove its derivative identity separately. Use HasDerivWithinAt
+on Ici 0 at time zero; ordinary interior derivative comparison suffices for
+the hitting argument.
+
+For an actual InitialClassicalFront nu S a U P, the terminal edge is open.
+To obtain E09 on the closed slab [0,T], require T<S. A global smooth solution
+in the root gives T=1/gamma and S=T+1. Compact H4 control then follows on
+[0,T]; no Galerkin bound is placed inside the front definition. The E09 H2
+error and Gronwall argument above applies, giving C with all e_n(t)<=C.
+Choose n large enough for threshold escape and R_n>C. Its hitting time lies
+in [0,T), contradicting that bound. This proves the unchanged frozen root.
+
+The genuine closed-slab E09 statement remains valid under the actual closed-
+slab smooth PDE hypotheses. A separately typed closed-slab wrapper must derive
+its continuous Sobolev traces; passing only the easier T<S wrapper does not
+audit that stronger interface. For maximal lifespan <=1/gamma the strict
+wrapper suffices: a larger lifespan would supply an S>1/gamma.
+
+Before identifying the commutator rate with c_n(t), prove that the constructed
+complete flow through P_(n+1)a agrees with the canonical forward Galerkin
+trajectory by the actual ODE uniqueness theorem. Localize normalized smooth
+packets at fixed n, then use this equality. Without the uniqueness adapter,
+an exact transport identity might refer to the wrong trajectory.
+
+11. DIRECT GENERATOR CONSTRUCTION AND NATIVE OPERATOR TYPES
+
+Pinned source inspection located native LinearPMap (explicit domain), graph,
+adjoint, IsClosable, closure, HasCore, TestFunction and smooth compact-support
+Lp density. The 12 additional anchors OP01--OP12 bring the index to 47:
+27 Mathlib source-only records, 13 source reviews in accepted native modules,
+and 7 named external audits. These do not imply any new endpoint acceptance.
+
+The direct product-rule identity for H0 and M_g can be proved already on the
+smooth compact-support core. For the Hilbert realization, embed this core
+complex-linearly into L2 and prove injectivity and density. H0 is a native
+partially defined operator on the image submodule, never an everywhere-defined
+continuous operator. Integration by parts gives formal symmetry. Density
+identifies containment in the closed adjoint, hence closability. Native closure
+is guaranteed closed only after this closability proof.
+
+E04 can avoid relying on an unlocated generic Stone formal interface by the
+following explicit construction. Let L be the strong-derivative generator of
+the already constructed C0 unitary group U. Its dense domain contains the test
+core. Define bounded Bochner operators
+  R_+ f = integral_0^infinity exp(-t) U(t)f dt,
+  R_- f = integral_0^infinity exp(-t) U(-t)f dt.
+Their integrands have norm exp(-t)||f||. The group law and a time-variable
+change give membership in D(L) and
+  L R_+ f=R_+ f-f,   (I-L)R_+=I,
+  L R_- f=f-R_- f,   (I+L)R_-=I.
+Differentiating unitarity proves skew symmetry, L subset -L*. For y in D(L*)
+choose x in D(L) with (I-L)x=(I+L*)y. Then (I+L*)(y-x)=0; its kernel is the
+orthogonal complement of range(I+L), hence zero. Thus y=x is in D(L) and
+L*=-L. In particular L is closed. H=i*hbar*L is self-adjoint. The time-
+convolution core proof in E04 then gives closure(H0)=H.
+
+All generator, Bochner and adjoint-domain lemmas here are new implementation
+obligations. They are not extra analytic premises of the theorem. The strong
+generator relation is the literal proposed Lean interface. U=exp(-itH/hbar)
+is valid mathematical shorthand; a literal functional-calculus exponential
+in Lean would additionally need the corresponding construction/uniqueness API.
+
+12. ACTIVATION AND STATUS
+
+The current native build discovers Material/*/endpoint.json and indexes every
+Lean source under Material. Proposed/incomplete files stay outside that tree.
+Later coherent activation must synchronize owned source registrations, package
+Endpoint/Audit source, exact signature and axiom records, recursive closure
+hashes and Material/endpoints.json. The pinned compiler, Mathlib, vendor and
+native build driver need not change. NATIVE_PACKAGE_PLAN.json records the exact
+source-reviewed contract. No active package manifest is changed by this task.
+
+B_TIER_REFINEMENT: complete written interface/dependency refinement recorded.
+NEW_A_TIER_ENDPOINTS: 0. NEW_LEAN_FILES: 0. LOCAL_LEAN_EXECUTIONS: 0.
+EXTERNAL_COMPILER_RUNS_FOR_THIS_REFINEMENT: 0.
+OPEN: all new formal implementation and the stopped-condition witness.
+MAIN_GOAL: Weak_Fourierman_B unchanged, with its original finite-budget scope.

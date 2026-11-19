@@ -1,0 +1,381 @@
+EHRENFEST-OBSTRUCTION: REFINED INTERFACE AND DEPENDENCY AUDIT
+Date: 2026-11-19
+Status: SCHEMATIC LEAN-SHAPED SPECIFICATION; NOT COMPILED; NO LEAN EXECUTION.
+No .lean file is created by this audit. All module paths below are planned.
+
+1. ARCHITECTURAL CONCLUSION
+
+The stopped-drift obstruction is a dynamical theorem about the concrete
+coefficient functions of the canonical Galerkin family. Its proof does not
+logically require Stone's theorem, a phase-space measure, a self-adjoint
+operator, or a unitary group. Keeping those dependencies out of the scalar
+root is mathematically correct and materially improves the implementation
+order. It does not weaken or strengthen the frozen root statement.
+
+Use three separately reported endpoints:
+  (A) EHRENFEST_OBSTRUCTION_DYNAMICAL:
+        literal stopped coefficient drift -> not NSE_B.
+  (B) NSE_HEISENBERG_TRANSLATION:
+        construct the phase-space operators and exact commutator identities.
+  (C) EHRENFEST_OBSTRUCTION:
+        the frozen implication, with a separately proved exact interpretation
+        of its literal coefficient premise as the Heisenberg commutator rate.
+
+The proof term for (C)'s implication may simply invoke (A). Do not insert an
+unused theorem or certificate to pretend that Stone is logically required.
+If (A) is verified first, report the dynamical implication as accepted while
+the operator-interpretation work remains open. Completion of all ten original
+contextual endpoints still requires the operator branch. No accepted scalar
+root alone licenses declaring that complete operator branch accepted.
+
+2. PROPOSED MODULE BOUNDARIES (PLANNED PATHS ONLY)
+
+MethbokeAddon/EhrenfestObstruction/Definitions.lean
+  Canonical family, explicit coefficient observables, pre-hit guard, and
+  literal existential stopped predicate. No operator-analysis imports.
+MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean
+  Positivity, continuity and derivative from the existing exact enstrophy
+  identity; reciprocal chain rule and physical normalization.
+MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean
+  Independent scalar stopped comparison lemma.
+MethbokeAddon/EhrenfestObstruction/StoppedFamily.lean
+  Actual fixed-datum threshold hits before 1/gamma.
+MethbokeAddon/EhrenfestObstruction/SpectralStability.lean
+  Actual smooth-front -> Galerkin H2 convergence/uniform H1, proved by the
+  residual estimate and first-exit bootstrap; no assumed stability port.
+MethbokeAddon/EhrenfestObstruction/DynamicalRoot.lean
+  Data-specific contradiction and EHRENFEST_OBSTRUCTION_DYNAMICAL.
+
+MethbokeAddon/EhrenfestObstruction/PhaseSpace.lean
+MethbokeAddon/EhrenfestObstruction/CompleteFlow.lean
+MethbokeAddon/EhrenfestObstruction/HalfDensity.lean
+MethbokeAddon/EhrenfestObstruction/TransportCore.lean
+MethbokeAddon/EhrenfestObstruction/Translation.lean
+  Independent operator construction and exact canonical-family semantics.
+
+MethbokeAddon/EhrenfestObstruction/Root.lean
+  Preserved frozen root and theorem references for the exact semantic bridge.
+
+3. CONCRETE DATA DEFINITIONS
+
+These definitions are Lean-shaped schemas using the source-reviewed names
+from SingularClosure. They are not claimed to elaborate unchanged.
+
+  abbrev SmoothDatum := {a : SingularClosure.Field //
+    SingularClosure.SmoothSigmaZero a}
+
+  noncomputable def canonicalFamily
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum) (n : Nat) :
+      SingularClosure.GalerkinSolution nu a.val (n + 1) :=
+    SingularClosure.canonicalGalerkinSolution
+      nu hnu a.val a.property (n + 1)
+
+The logical index is n : Nat; the physical Fourier cutoff is ALWAYS n+1.
+This avoids a zero-dimensional phase-space/lambda_max case. This cofinal
+reindexing is equivalent to the eventual-positive-cutoff frozen statement.
+One a, hnu, eStar, gamma and threshold family are fixed before quantifying n.
+
+  def halfEnstrophy (N : Nat) (c : SingularClosure.FourierCoeff) : Real :=
+    SingularClosure.coefficientDissipation N c / 2
+
+  def reciprocalValue (eStar : Real) (N : Nat)
+      (c : SingularClosure.FourierCoeff) : Real :=
+    (1 + halfEnstrophy N c / eStar)⁻¹
+
+  def reciprocalDrift (nu eStar : Real) (N : Nat)
+      (c : SingularClosure.FourierCoeff) : Real :=
+    (nu * SingularClosure.coefficientLaplacianSquare N c +
+      SingularClosure.coefficientEnstrophyNonlinearPower N c) /
+    (eStar * (1 + halfEnstrophy N c / eStar)^2)
+
+SIGN CHECK: the existing D' is -2 nu Z - 2 P, where
+P=coefficientEnstrophyNonlinearPower. Thus e'= -nu Z-P=W-nu Z with W=-P,
+and reciprocalValue'=(nu Z+P)/(eStar(1+e/eStar)^2). A caloric shear has
+P=0, so the reciprocal drift is nonnegative, as required physically.
+
+  def canonicalEnstrophy (nu : Real) (hnu : 0 < nu)
+      (a : SmoothDatum) (n : Nat) (t : Real) : Real :=
+    halfEnstrophy (n + 1) ((canonicalFamily nu hnu a n).coeff t)
+
+  def canonicalReciprocal (nu : Real) (hnu : 0 < nu)
+      (a : SmoothDatum) (eStar : Real) (n : Nat) (t : Real) : Real :=
+    reciprocalValue eStar (n + 1) ((canonicalFamily nu hnu a n).coeff t)
+
+  def canonicalDrift (nu : Real) (hnu : 0 < nu)
+      (a : SmoothDatum) (eStar : Real) (n : Nat) (t : Real) : Real :=
+    reciprocalDrift nu eStar (n + 1) ((canonicalFamily nu hnu a n).coeff t)
+
+  def PreHit (e : Real -> Real) (R T t : Real) : Prop :=
+    0 <= t /\ t < T /\ forall s, 0 <= s -> s <= t -> e s < R
+
+PreHit uses only real times and elementary inequalities. It avoids defining
+an ENNReal infimum, and it retains the important restriction to [0,1/gamma).
+It is equivalent to the frozen first-hit guard by continuity; that equivalence
+is a theorem, not a new assumption. It does not presuppose that a hit exists.
+
+  def StoppedForDatum (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (eStar gamma : Real) (R : Nat -> Real) : Prop :=
+    0 < eStar /\ 0 < gamma /\
+    (forall n, 0 < R n) /\
+    Filter.Tendsto R Filter.atTop Filter.atTop /\
+    exists n0 : Nat, forall n, n0 <= n -> forall t,
+      PreHit (canonicalEnstrophy nu hnu a n) (R n) (1 / gamma) t ->
+      canonicalDrift nu hnu a eStar n t <= -gamma
+
+  def StoppedCommutatorBound (nu : Real) : Prop :=
+    exists hnu : 0 < nu, exists a : SmoothDatum,
+      exists eStar gamma : Real, exists R : Nat -> Real,
+        StoppedForDatum nu hnu a eStar gamma R
+
+This public predicate has only nu as an argument, preserving the frozen
+root shape. The positivity proof hnu is existentially bound to make the
+canonical function application explicit. Lean proof irrelevance reconciles
+it with any external hnu supplied to the theorem. Do not remove nu from the
+family or silently apply a theorem at a different viscosity.
+
+  def NSE_B (nu : Real) : Prop :=
+    forall a : SingularClosure.Field,
+      SingularClosure.SmoothSigmaZero a ->
+      exists U : SingularClosure.Velocity,
+      exists P : SingularClosure.Pressure,
+        SingularClosure.GlobalSmoothNSE nu a U P
+
+The root quantifies the actual project physical solution predicate, not a
+replacement definition of regularity through the stopped condition.
+
+DATA/PROP CAUTION
+Do not make a Prop-valued structure with data-bearing projections a : Field,
+gamma : Real, or R : Nat -> Real and then try to use those projections to
+define canonical trajectories. Use explicit existential binders as above.
+Alternatively make a Type-valued parameter record and put all its laws in
+a separate Prop; the existential root may quantify that record. Extract
+witnesses from StoppedCommutatorBound only inside Prop-valued proofs. The
+canonical family itself takes explicit data and positivity/smoothness proofs.
+
+4. EIGHT PRINCIPAL LEAN-SHAPED SIGNATURES
+
+All signatures below are SCHEMATIC, NOT COMPILED. Ordinary source names are
+preserved where inspected. Names for new operator interfaces deliberately
+remain planned definitions whose exact fields are specified in words.
+
+(1) Exact canonical reciprocal derivative, independently of stopped drift:
+
+  theorem canonical_reciprocal_hasDerivWithinAt
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (eStar : Real) (heStar : 0 < eStar) (n : Nat)
+      (t : Real) (ht : 0 <= t) :
+      HasDerivWithinAt
+        (canonicalReciprocal nu hnu a eStar n)
+        (canonicalDrift nu hnu a eStar n t) (Set.Ici 0) t
+
+This must follow from the existing coefficientEnstrophy_identity and inverse
+chain rule. It is not a field of a certificate supplied to the root.
+
+(2) Independent scalar hitting bound:
+
+  theorem stopped_scalar_hitting
+      (v rate : Real -> Real) (gamma r : Real)
+      (hgamma : 0 < gamma) (hr : 0 < r)
+      (hr0 : r < v 0) (hv0 : v 0 <= 1)
+      (hcont : ContinuousOn v (Set.Icc 0 (1 / gamma)))
+      (hderiv : forall t, 0 <= t -> t < 1 / gamma ->
+        (forall s, 0 <= s -> s <= t -> r < v s) ->
+        HasDerivWithinAt v (rate t) (Set.Ici 0) t /\ rate t <= -gamma) :
+      exists t, t in Set.Icc 0 ((v 0 - r) / gamma) /\ v t = r
+
+Use a derivative-comparison/mean-value proof on the no-hit interval. Do not
+assume any finite first-hit time or use the desired conclusion as a field.
+
+(3) Fixed-data threshold escape:
+
+  theorem stopped_threshold_escape
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (eStar gamma : Real) (R : Nat -> Real)
+      (hStopped : StoppedForDatum nu hnu a eStar gamma R) :
+      exists n1 : Nat, forall n, n1 <= n ->
+        exists t, t in Set.Ico 0 (1 / gamma) /\
+          R n <= canonicalEnstrophy nu hnu a n t
+
+The uniform INITIAL enstrophy bound and R -> infinity supply r_N<v_N(0)
+eventually. It is unnecessary to introduce an extended supremum of enstrophy:
+the explicit hit witness is stronger and simpler for the contradiction.
+
+(4) Actual physical-front Galerkin stability, with a strict outer endpoint:
+
+  theorem smooth_front_galerkin_enstrophy_bounded
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (S T : Real) (hT : 0 <= T) (hTS : T < S)
+      (U : SingularClosure.Velocity) (P : SingularClosure.Pressure)
+      (H : MethbokeAddon.WeakFouriermanB.InitialClassicalFront
+        nu S a.val U P) :
+      exists C : Real, forall n : Nat, forall t,
+        t in Set.Icc 0 T -> canonicalEnstrophy nu hnu a n t <= C
+
+The proof is the H2 residual/bootstrap argument, not an invocation of a
+conditional compactness theorem whose uniform budget is assumed. The strict
+T<S ensures that the imported open-front semantics supply regularity on the
+entire closed comparison slab, including its terminal time.
+
+(5) Purely dynamical obstruction:
+
+  theorem EHRENFEST_OBSTRUCTION_DYNAMICAL
+      (nu : Real) (hnu : 0 < nu)
+      (hStopped : StoppedCommutatorBound nu) : Not (NSE_B nu)
+
+Proof structure: destruct hStopped; assume NSE_B; obtain its actual global
+pair U,P for the SAME a; set T=1/gamma and S=T+1. The inspected theorem
+global_smooth_to_initial_front produces InitialClassicalFront nu S a U P.
+Apply (4), then choose an index with R n>C and large enough for (3).
+The explicit hitting time from (3) lies in Icc 0 T and contradicts (4).
+No quantum-operator interface occurs in this proof or in its input predicate.
+
+(6) Independent full phase-space translation:
+
+  theorem NSE_HEISENBERG_TRANSLATION
+      (nu : Real) (hnu : 0 < nu)
+      (hbar : Real) (hhbar : 0 < hbar) (n : Nat) :
+      ExactPhaseSpaceTranslation nu hbar (n + 1)
+
+ExactPhaseSpaceTranslation is a NEW conclusion predicate, not an assumed
+certificate. Its definition must literally assert existence of the constructed
+operators U,H on L2 of the real physical V_(n+1), strong unitary group laws,
+self-adjointness with the stated domain/core, the differential expression
+H0=-i*hbar*(b dot grad+div b/2), exact multiplication conjugation, and the core
+commutator. It must not contain any smoothness, singularity, hitting, or
+uniform-in-n conclusion. Every existential field must be constructed.
+
+(7) Canonical-family semantic equality:
+
+  theorem canonical_heisenberg_rate_eq
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (eStar : Real) (heStar : 0 < eStar)
+      (hbar : Real) (hhbar : 0 < hbar)
+      (n : Nat) (t : Real) (ht : 0 <= t) :
+      Filter.Tendsto
+        (fun epsilon => canonicalLocalizedCommutatorExpectation
+          nu hnu a eStar hbar n t epsilon)
+        (nhdsWithin (0 : Real) (Set.Ioi 0))
+        (nhds (canonicalDrift nu hnu a eStar n t))
+
+canonicalLocalizedCommutatorExpectation is defined using the actual U,H from
+the constructed translation, the multiplier M_Vrec, and explicitly normalized
+smooth packets centered at the physical phase coordinate of P_(n+1)a. It
+contains the REAL part of (i/hbar)<psi,[H0,M_Vrec]psi>. It is not an arbitrary
+function introduced solely to make this equality true.
+
+To prove (7), first identify the constructed finite flow with the existing
+canonicalGalerkinSolution on t>=0 using the actual ODE and its uniqueness.
+Then apply the common-core commutator identity and fixed-n packet localization.
+Without this canonical-family identification, the operator theorem might
+describe a different phase-space trajectory and would not justify the root.
+The limit is epsilon->0 at FIXED n; no exchange with n->infinity is allowed.
+Replacing each literal drift in StoppedForDatum by this limit is then an
+equivalent predicate. No new sign or lower bound follows from the equality.
+
+(8) Frozen root, same scope and hypothesis:
+
+  theorem EHRENFEST_OBSTRUCTION
+      (nu : Real) (hnu : 0 < nu)
+      (hStopped : StoppedCommutatorBound nu) : Not (NSE_B nu) :=
+    EHRENFEST_OBSTRUCTION_DYNAMICAL nu hnu hStopped
+
+This last line is a schematic proof shape, not a compiled proof. The operator
+interpretation is supplied by (6)--(7) and is tracked separately. Keep the
+frozen name EHRENFEST-OBSTRUCTION in exposition and this lawful identifier in
+Lean. Do not add a global custom axiom to replace hStopped.
+
+5. CLOSED-SLAB AND ENDPOINT SEMANTICS
+
+An InitialClassicalFront with endpoint exactly T generally supplies an open
+time front [0,T), not regularity through its endpoint. It cannot be used as
+the hypothesis of a uniform estimate on [0,T] without an extra argument.
+The safe already-typed adapter is signature (4) with T<S. A global smooth
+solution supplies S=T+1 immediately, so the literal frozen root is unchanged.
+
+The stronger mathematical E09 statement remains valid for an actual smooth
+closed-slab solution: the proof needs continuous H4 control and the projected
+NSE equation through the open interior, with its initial trace, not an assumed
+Galerkin bound. Preserve that direct proof in the B-tier text. For formal
+acceptance of its stronger interface, either:
+  - define a concrete ClosedSmoothNSESlab using actual fields, PDE, periodicity,
+    initial trace and joint smoothness/continuous Sobolev traces on [0,T], and
+    derive the required compact H4 bound; or
+  - derive the relevant continuous Sobolev-slab interface from those actual
+    closed-slab hypotheses before applying the H2 error estimate.
+Do not define ClosedSmoothNSESlab to include Galerkin convergence or uniform
+Galerkin enstrophy. Do not mark the stronger closed-slab declaration accepted
+merely because the easier T<S front wrapper has passed.
+
+For the data-specific conclusion that maximal lifetime is <=1/gamma, the
+strict-front wrapper is already sufficient: if Tmax>1/gamma, choose a finite
+S strictly between them and apply (4). The frozen no-global-solution root
+therefore loses no strength by implementing that wrapper first.
+
+6. DIRECT RESOLVENT CONSTRUCTION IN PLACE OF A GENERAL STONE PORT
+
+The proposed alternative is correct. Once the explicit strongly continuous
+unitary group U(t) is constructed, define its strong derivative generator L
+on the actual domain of vectors for which lim_(h->0)(U(h)f-f)/h exists.
+The domain is dense because it contains C_c^infty. Differentiating unitarity
+shows L is skew-symmetric on this domain.
+
+Define bounded Bochner integrals
+  R_+ f = integral_0^infinity exp(-t) U(t)f dt,
+  R_- f = integral_0^infinity exp(-t) U(-t)f dt.
+They converge because ||exp(-t)U(+/-t)f||<=exp(-t)||f||, and have operator
+norm at most one. The group law and a change of time variable give
+  L R_+ f=R_+ f-f,     (I-L)R_+=I,
+  L R_- f=f-R_- f,     (I+L)R_-=I.
+These derivatives use continuity of U at zero and the integrable exponential
+tail; they prove R_+/- f belongs to the actual generator domain.
+
+A densely defined skew-symmetric operator with both I-L and I+L surjective
+is skew-adjoint. Explicitly L is contained in -L*. For y in D(L*), choose
+x in D(L) satisfying (I-L)x=(I+L*)y. Then (I+L*)(y-x)=0. But this kernel is
+the orthogonal complement of range(I+L), which is zero by surjectivity.
+Thus y=x is in D(L), and L*=-L. In particular L is closed.
+
+Set H=i*hbar*L; then H is self-adjoint and U has strong derivative generator
+(-i/hbar)H. The time-convolution graph-core proof from E04 identifies closure
+of the explicit H0 with this H. Therefore no assumed general Stone theorem
+or self-adjointness certificate is needed as an analytic premise.
+
+Formal implementation still needs actual Bochner-integral, adjoint-domain,
+surjectivity and generator-domain arguments. An unchecked structure recording
+those conclusions is not a proof. If U=exp(-itH/hbar) is used as literal
+functional-calculus notation, the associated functional-calculus construction
+or generator uniqueness theorem must also be supplied. The statement that
+U is the strongly continuous unitary group generated by H is already exact
+and sufficient for the Heisenberg/Ehrenfest identities.
+
+7. ANTI-CIRCULARITY CHECKS
+
+- StoppedCommutatorBound contains only one fixed datum, actual canonical
+  Galerkin trajectories, explicit reciprocal drift, positive constants,
+  divergent thresholds and the pre-hit rate inequality. It contains no
+  singularity, no failure of continuation, no Galerkin instability, and no
+  desired conclusion as a field.
+- The drift is the stated rational coefficient expression, not `deriv v`
+  with an unrelated differentiability certificate or a chosen arbitrary rate.
+  Exact derivative identification is proved separately.
+- Uniform initial enstrophy is reused only at time zero. Uniform-in-time
+  Galerkin bounds in the contradiction are proved from the hypothetical
+  actual smooth solution by the H2 error bootstrap.
+- E09 must not consume `forall N, integral H2^2 <= C` or a certificate of
+  Galerkin convergence. Those are the very analytic control being derived.
+- Every n uses cutoff n+1 and the same actual viscosity and datum.
+- The stopped horizon is min(first-hit,1/gamma), represented by PreHit.
+  Do not strengthen it to a forever-negative commutator rate.
+- The phase-space H is distinct from any state-dependent velocity-space
+  operator G=-i*hbar*C(u). No uncertainty-product identity for G may silently
+  be substituted for the phase-space generator H.
+- Formal success of the conditional implication does not prove that the
+  existential stopped premise has a witness, and does not refute NSE-B.
+- Completing the dynamics branch does not certify the separate operator
+  construction; every acceptance marker must retain its literal scope.
+
+END OF AUDIT
+
+MODULE NAMING: the canonical proposed file names and dependency DAG are in
+MODULE_PLAN.json. Section 2 above lists only the principal boundaries; the complete helper
+module split is recorded in MODULE_PLAN.json.

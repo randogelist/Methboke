@@ -18,7 +18,7 @@ The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) conta
 
 - [ ] **E04 — SELF_ADJOINT_TRANSPORT_GENERATOR**
   Prove H0_N=-i*hbar*(b_N dot grad+div(b_N)/2) on Cc-infinity is essentially self-adjoint; its closure generates U_N with the specified sign.
-  B-tier: derived. Sources: ML15, ML20. New formal work: Unbounded domains, Stone realization and graph-core proof; no replacement by bounded/everywhere-defined symmetric maps.
+  B-tier: derived. Sources: ML15, ML20, OP01–OP12. New formal work: native partially defined operators, direct unitary generator/resolvent construction, adjoint-domain equality and graph-core proof.
 
 - [ ] **E05 — EXACT_HEISENBERG_EHRENFEST_CORRESPONDENCE**
   Prove U_N(t)^* M_g U_N(t)=M_(g composed with Phi_N^t) with natural domains and (i/hbar)[H0_N,M_g]=M_(Dg[b_N]) on the common core; recover observable and localized-state identities.
@@ -46,10 +46,18 @@ The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) conta
 
 ## Evidence and execution
 
-The [source index](ANCHOR_INDEX.md) has 35 exact anchors: 15 pinned Mathlib source references, 13 source-reviewed declarations in accepted Methlib modules, and 7 declarations with named external type/axiom audits. These statuses belong to the listed anchors, not the ten new endpoints.
+The [source index](ANCHOR_INDEX.md) has 47 exact anchors: 27 pinned Mathlib source references, 13 source-reviewed declarations in accepted Methlib modules, and 7 declarations with named external type/axiom audits. These statuses belong to the listed anchors, not the ten new endpoints.
 
-Formalization starts from E01 and the independent scalar lemma E07, then follows the dependency graph. E04 (unbounded generator/core) and E09 (full-slab Galerkin stability) are substantial new work. No suitable already accepted Stone/core endpoint has been located.
+The proposed schedule starts with literal data/reciprocal interfaces and independent E07, while E09 and the phase-space adapter proceed in parallel. E04 (unbounded generator/core) and E09 (full-slab Galerkin stability) are substantial new work. No suitable already accepted Stone/core endpoint has been located.
 
 Later acceptance requires the matching external cached compiler, exact endpoint type and theorem-level axiom audit. No local Lean, Lake or kernel execution is permitted. This documentation-only update dispatches no verification run.
 
-Machine ledger: [obligations.json](obligations.json). Exact pinned signatures: [ANCHOR_INDEX_v0_1.json](ANCHOR_INDEX_v0_1.json).
+Machine ledger: [obligations.json](obligations.json). Exact pinned signatures: [ANCHOR_INDEX_v0_2.json](ANCHOR_INDEX_v0_2.json).
+
+## Refined module and acceptance map
+
+[LEAN_LAYOUT.md](LEAN_LAYOUT.md) proposes 26 owned modules and ten full milestone packages. [MODULE_PLAN.json](MODULE_PLAN.json) records the exact planned own-import DAG; [INTERFACES.lean.txt](INTERFACES.lean.txt) gives eight uncompiled signatures. No new Lean source is activated.
+
+E06 splits into an early scalar identity and its later full operator interpretation. E08 uses only the scalar part plus E07. E09 uses the existing forward canonical family, not E02's new complete-flow construction. The dynamical E10 implication can therefore be audited before E03–E06 are complete. The full workstream requires separate acceptance of the actual Heisenberg translation and canonical rate equality. Passing a helper never checks its enclosing box.
+
+For the front-based E09 interface require `T<S`, since `InitialClassicalFront` at `S` has an open terminal edge. A global solution supplies `S=T+1`. The stronger actual closed-slab statement remains separately scoped.

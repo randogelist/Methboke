@@ -2,10 +2,10 @@
   "schema_version": 1,
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "date": "2026-11-19",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "project_goal_changed": false,
   "fixed_project_goal": "Weak_Fourierman_B",
-  "local_target": "Ten mid-tier conditional obstruction endpoints",
+  "local_target": "Refined B-tier chain and probable Lean module/layout interfaces",
   "root_hypothesis": "StoppedCommutatorBound nu",
   "global_custom_axiom_added": false,
   "existential_premise_proved": false,
@@ -34,7 +34,12 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "Definitions",
+        "PhaseSpace"
+      ],
+      "planned_package": "EhrenfestPhaseSpace"
     },
     {
       "id": "E02",
@@ -67,14 +72,20 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "CompleteFlow",
+        "CanonicalOrbit"
+      ],
+      "planned_package": "EhrenfestCompleteFlow"
     },
     {
       "id": "E03",
       "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.HALF_DENSITY_UNITARY_GROUP",
       "existing_declaration": false,
       "dependencies": [
-        "E02"
+        "E02",
+        "E04.core"
       ],
       "mathematical_statement": "Construct U_N(t)f=|det D Phi_N^(-t)|^(1/2) f composed with Phi_N^(-t) on L2(V_N;C); prove unitarity, group law, strong continuity and Cc-infinity invariance.",
       "derivation_section": "E03",
@@ -92,7 +103,11 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "HalfDensity"
+      ],
+      "planned_package": "EhrenfestHalfDensity"
     },
     {
       "id": "E04",
@@ -108,16 +123,36 @@
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
         "ML15",
-        "ML20"
+        "ML20",
+        "OP01",
+        "OP02",
+        "OP03",
+        "OP04",
+        "OP05",
+        "OP06",
+        "OP07",
+        "OP08",
+        "OP09",
+        "OP10",
+        "OP11",
+        "OP12"
       ],
-      "new_formal_work": "Unbounded domains, Stone realization and graph-core proof; no replacement by bounded/everywhere-defined symmetric maps.",
+      "new_formal_work": "Native LinearPMap generator, explicit Bochner resolvents and shifted-surjectivity proof of skew-adjointness, then time-convolution graph-core identification. No assumed Stone port.",
       "acceptance_gate": {
         "matching_external_cached_compiler": false,
         "exact_endpoint_type_audit": false,
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "HilbertCore",
+        "TransportSymmetry",
+        "UnitaryGenerator",
+        "UnitaryResolvent",
+        "TransportCore"
+      ],
+      "planned_package": "EhrenfestGenerator"
     },
     {
       "id": "E05",
@@ -137,7 +172,8 @@
         "ML12",
         "ML17",
         "ML18",
-        "ML19"
+        "ML19",
+        "OP11"
       ],
       "new_formal_work": "Domain equality, common-core product rule, L2-normalized smooth packets and fixed-N-first localization.",
       "acceptance_gate": {
@@ -146,7 +182,15 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "TestCore",
+        "CoreCommutator",
+        "Heisenberg",
+        "Localization",
+        "Translation"
+      ],
+      "planned_package": "EhrenfestHeisenberg"
     },
     {
       "id": "E06",
@@ -176,7 +220,12 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "ReciprocalDrift",
+        "ReciprocalCommutator"
+      ],
+      "planned_package": "EhrenfestInverseEnstrophy"
     },
     {
       "id": "E07",
@@ -198,14 +247,18 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "StoppedScalar"
+      ],
+      "planned_package": "EhrenfestStoppedScalar"
     },
     {
       "id": "E08",
       "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.CUTOFF_UNIFORM_THRESHOLD_ESCAPE",
       "existing_declaration": false,
       "dependencies": [
-        "E06",
+        "E06.scalar",
         "E07"
       ],
       "mathematical_statement": "From the explicit StoppedCommutatorBound premise for one fixed smooth datum, derive t_N<1/gamma with e_N(u_N(t_N))>=R_N and hence divergent slab suprema.",
@@ -225,15 +278,18 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": true
+      "consumes_stopped_bound_hypothesis": true,
+      "planned_modules": [
+        "StoppedFamily"
+      ],
+      "planned_package": "EhrenfestStoppedFamily"
     },
     {
       "id": "E09",
       "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.SMOOTH_FRONT_GALERKIN_STABILITY",
       "existing_declaration": false,
       "dependencies": [
-        "E01",
-        "E02"
+        "E01.data"
       ],
       "mathematical_statement": "An actual smooth solution U on [0,T] implies exact P_Na Galerkin convergence in C([0,T];H2) and uniform H1 there.",
       "derivation_section": "E09",
@@ -256,7 +312,16 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": false
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "ClosedSlab",
+        "FourierTail",
+        "SobolevProduct",
+        "GalerkinError",
+        "SpectralStability"
+      ],
+      "planned_package": "EhrenfestSpectralStability",
+      "formal_interface_refinement": "Use T<S for InitialClassicalFront nu S on the closed comparison slab [0,T]; derive actual compact Sobolev control. Full closed-slab version is a separately scoped declaration."
     },
     {
       "id": "E10",
@@ -282,8 +347,82 @@
         "standard_axioms_only_audit": false,
         "local_lean_allowed": false
       },
-      "consumes_stopped_bound_hypothesis": true
+      "consumes_stopped_bound_hypothesis": true,
+      "planned_modules": [
+        "DynamicalRoot",
+        "Root"
+      ],
+      "planned_package": "EhrenfestObstruction",
+      "full_workstream_acceptance_dependencies": [
+        "E05",
+        "E06",
+        "E08",
+        "E09"
+      ],
+      "distinct_audit_scopes": [
+        "EHRENFEST_OBSTRUCTION_DYNAMICAL",
+        "NSE_HEISENBERG_TRANSLATION",
+        "canonical_heisenberg_rate_eq",
+        "EHRENFEST_OBSTRUCTION"
+      ]
     }
   ],
-  "cutoff_minimum": 1
+  "cutoff_minimum": 1,
+  "module_plan": "MODULE_PLAN.json",
+  "interface_spec": "INTERFACES.lean.txt",
+  "proposed_module_count": 26,
+  "implementation_activated": false,
+  "dependency_facets": {
+    "E06.scalar": {
+      "parent": "E06",
+      "dependencies": [
+        "E01.data"
+      ],
+      "modules": [
+        "Definitions",
+        "ReciprocalDrift"
+      ],
+      "scope": "Exact coefficient drift and chain rule only; does not complete E06."
+    },
+    "E05.core": {
+      "parent": "E05",
+      "dependencies": [
+        "E01"
+      ],
+      "modules": [
+        "TestCore",
+        "CoreCommutator"
+      ],
+      "scope": "Algebraic core identity only; does not complete E05."
+    },
+    "E10.dynamical": {
+      "parent": "E10",
+      "dependencies": [
+        "E08",
+        "E09"
+      ],
+      "modules": [
+        "DynamicalRoot"
+      ],
+      "scope": "Exact conditional implication only; does not certify the full Heisenberg workstream."
+    },
+    "E01.data": {
+      "parent": "E01",
+      "dependencies": [],
+      "modules": [
+        "Definitions"
+      ],
+      "scope": "Literal canonical coefficient definitions only; does not complete the real phase-space/volume adapter."
+    },
+    "E04.core": {
+      "parent": "E04",
+      "dependencies": [
+        "E05.core"
+      ],
+      "modules": [
+        "HilbertCore"
+      ],
+      "scope": "Dense L2 test embedding and explicit partial operator domain only; no self-adjointness or generator conclusion."
+    }
+  }
 }

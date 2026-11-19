@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "version": "0.2.0",
+  "date": "2026-11-19",
+  "frozen_name": "EHRENFEST-OBSTRUCTION",
+  "source_review_revision": "c10abd8c3e97ae3bed85749f0f40d2b40f43bcba",
+  "scope": "B_TIER_PROPOSED_LAYOUT_ONLY",
+  "fixed_project_goal": "Weak_Fourierman_B",
+  "actual_new_lean_files": 0,
+  "new_formal_acceptances": 0,
+  "local_lean_executions": 0,
+  "external_compiler_runs": 0,
+  "module_count": 26,
+  "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
+  "modules": [
+    {
+      "name": "Definitions",
+      "module": "MethbokeAddon.EhrenfestObstruction.Definitions",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean",
+      "step": "E01",
+      "lane": "dynamics",
+      "proposed_own_imports": [],
+      "source_anchor_ids": [
+        "MLB08",
+        "MLB12"
+      ],
+      "role": "SmoothDatum, canonicalFamily at n+1, e, Vrec, literal drift, PreHit, StoppedForDatum, StoppedCommutatorBound and actual NSE_B.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "PhaseSpace",
+      "module": "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/PhaseSpace.lean",
+      "step": "E01",
+      "lane": "shared",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB01",
+        "ML08"
+      ],
+      "role": "Real invariant phase space; coordinates and physical synthesis; polynomial RHS, projection/cancellation and positive Stokes operator.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "ReciprocalDrift",
+      "module": "MethbokeAddon.EhrenfestObstruction.ReciprocalDrift",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean",
+      "step": "E06.scalar",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB08",
+        "MLB09",
+        "ML05",
+        "ML06"
+      ],
+      "role": "Exact canonical reciprocal derivative with coefficient sign and positive denominator; no operator imports.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "StoppedScalar",
+      "module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean",
+      "step": "E07",
+      "lane": "dynamics",
+      "proposed_own_imports": [],
+      "source_anchor_ids": [
+        "ML13"
+      ],
+      "role": "Continuous scalar pre-hit comparison and explicit hitting-time bound; no assumed finite hitting time.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "StoppedFamily",
+      "module": "MethbokeAddon.EhrenfestObstruction.StoppedFamily",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedFamily.lean",
+      "step": "E08",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions",
+        "ReciprocalDrift",
+        "StoppedScalar"
+      ],
+      "source_anchor_ids": [
+        "MLB10",
+        "MLB12"
+      ],
+      "role": "One fixed smooth datum; divergent thresholds and uniform initial bound imply explicit threshold hits before 1/gamma.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "ClosedSlab",
+      "module": "MethbokeAddon.EhrenfestObstruction.ClosedSlab",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/ClosedSlab.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB15",
+        "MLB17"
+      ],
+      "role": "Actual physical PDE and compact Sobolev traces; adapt InitialClassicalFront on [0,S) to a closed [0,T] with T<S.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "FourierTail",
+      "module": "MethbokeAddon.EhrenfestObstruction.FourierTail",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/FourierTail.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "ClosedSlab"
+      ],
+      "source_anchor_ids": [
+        "MLB11"
+      ],
+      "role": "Uniform H4 control gives cutoff H3 tail O(1/N); Sobolev contraction of Fourier/Leray projections.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "SobolevProduct",
+      "module": "MethbokeAddon.EhrenfestObstruction.SobolevProduct",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SobolevProduct.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB14"
+      ],
+      "role": "Prove mixed H2 x H3 -> H2 convection estimate, respecting the derivative loss; existing anchor is only supporting infrastructure.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "GalerkinError",
+      "module": "MethbokeAddon.EhrenfestObstruction.GalerkinError",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/GalerkinError.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "FourierTail",
+        "SobolevProduct"
+      ],
+      "source_anchor_ids": [
+        "MLB08",
+        "ML08"
+      ],
+      "role": "Actual projected residual and w equation; Y prime <= C(Y+Y^2)+C/N^2 with Y(0)=0.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "SpectralStability",
+      "module": "MethbokeAddon.EhrenfestObstruction.SpectralStability",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SpectralStability.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "GalerkinError"
+      ],
+      "source_anchor_ids": [
+        "ML03",
+        "MLB11",
+        "MLB19",
+        "MLB20"
+      ],
+      "role": "First-exit Gronwall gives full-slab H2 convergence and all-cutoff H1/enstrophy bound; no uniform budget assumed.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "DynamicalRoot",
+      "module": "MethbokeAddon.EhrenfestObstruction.DynamicalRoot",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/DynamicalRoot.lean",
+      "step": "E10.dynamical",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "StoppedFamily",
+        "SpectralStability"
+      ],
+      "source_anchor_ids": [
+        "MLB15"
+      ],
+      "role": "EHRENFEST_OBSTRUCTION_DYNAMICAL by contradiction for the same datum and viscosity; T=1/gamma, S=T+1.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "CompleteFlow",
+      "module": "MethbokeAddon.EhrenfestObstruction.CompleteFlow",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/CompleteFlow.lean",
+      "step": "E02",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "PhaseSpace"
+      ],
+      "source_anchor_ids": [
+        "ML01",
+        "ML02",
+        "ML03",
+        "MLB03",
+        "MLB05",
+        "MLB13"
+      ],
+      "role": "Complete jointly smooth real-time flow, backwards energy estimate, group law and Jacobian invertibility.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "CanonicalOrbit",
+      "module": "MethbokeAddon.EhrenfestObstruction.CanonicalOrbit",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/CanonicalOrbit.lean",
+      "step": "E02",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "CompleteFlow",
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB05",
+        "MLB12"
+      ],
+      "role": "Use actual ODE uniqueness to identify the phase flow through P_(n+1)a with the canonical forward Galerkin solution.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "TestCore",
+      "module": "MethbokeAddon.EhrenfestObstruction.TestCore",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/TestCore.lean",
+      "step": "E05.core",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "PhaseSpace"
+      ],
+      "source_anchor_ids": [
+        "OP11",
+        "ML10",
+        "ML12"
+      ],
+      "role": "Native compactly supported smooth complex tests; variable-vector transport H0 and smooth multiplication as core linear maps.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "CoreCommutator",
+      "module": "MethbokeAddon.EhrenfestObstruction.CoreCommutator",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/CoreCommutator.lean",
+      "step": "E05.core",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "TestCore"
+      ],
+      "source_anchor_ids": [
+        "ML05",
+        "ML10"
+      ],
+      "role": "Pointwise product rule: (i/hbar)[H0,M_g]=M_(Dg[b]); independent of self-adjointness and complete flow.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "HilbertCore",
+      "module": "MethbokeAddon.EhrenfestObstruction.HilbertCore",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/HilbertCore.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "TestCore"
+      ],
+      "source_anchor_ids": [
+        "OP01",
+        "OP11",
+        "OP12"
+      ],
+      "role": "Complex-linear injective dense test embedding into L2(volume); H0 as LinearPMap on its range submodule.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "TransportSymmetry",
+      "module": "MethbokeAddon.EhrenfestObstruction.TransportSymmetry",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/TransportSymmetry.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "HilbertCore"
+      ],
+      "source_anchor_ids": [
+        "OP03",
+        "OP07",
+        "OP08",
+        "OP09"
+      ],
+      "role": "Integration by parts, dense formal symmetry, closed adjoint extension and genuine closability of H0.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "HalfDensity",
+      "module": "MethbokeAddon.EhrenfestObstruction.HalfDensity",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/HalfDensity.lean",
+      "step": "E03",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "CompleteFlow",
+        "HilbertCore"
+      ],
+      "source_anchor_ids": [
+        "ML16",
+        "ML17",
+        "OP12"
+      ],
+      "role": "Construct Jacobian half-density transport, surjective L2 isometries, group laws, strong continuity and core invariance.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "UnitaryGenerator",
+      "module": "MethbokeAddon.EhrenfestObstruction.UnitaryGenerator",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/UnitaryGenerator.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "HalfDensity",
+        "TransportSymmetry"
+      ],
+      "source_anchor_ids": [
+        "OP01",
+        "OP02"
+      ],
+      "role": "Actual strong derivative domain and generator L; graph closedness, skew symmetry and agreement with H0.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "UnitaryResolvent",
+      "module": "MethbokeAddon.EhrenfestObstruction.UnitaryResolvent",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/UnitaryResolvent.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "UnitaryGenerator"
+      ],
+      "source_anchor_ids": [
+        "OP07",
+        "OP08",
+        "OP10"
+      ],
+      "role": "Bochner R+/- resolvents, surjectivity of I-/+L, adjoint-domain equality and self-adjoint H=i*hbar*L.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "TransportCore",
+      "module": "MethbokeAddon.EhrenfestObstruction.TransportCore",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/TransportCore.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "UnitaryResolvent"
+      ],
+      "source_anchor_ids": [
+        "OP04",
+        "OP05",
+        "OP06"
+      ],
+      "role": "Time-convolution graph density; H.HasCore D0 and H0.closure=H, with closability proved first.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "Heisenberg",
+      "module": "MethbokeAddon.EhrenfestObstruction.Heisenberg",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Heisenberg.lean",
+      "step": "E05",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "TransportCore",
+        "CoreCommutator"
+      ],
+      "source_anchor_ids": [
+        "ML17",
+        "OP01"
+      ],
+      "role": "Conjugation including maximal multiplication domains and Ehrenfest identity on invariant common core.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "Localization",
+      "module": "MethbokeAddon.EhrenfestObstruction.Localization",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Localization.lean",
+      "step": "E05",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "Heisenberg"
+      ],
+      "source_anchor_ids": [
+        "ML18",
+        "ML19"
+      ],
+      "role": "L2-normalized smooth bump packets; expectation localization at fixed cutoff, no interchange of limits.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "Translation",
+      "module": "MethbokeAddon.EhrenfestObstruction.Translation",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Translation.lean",
+      "step": "E05",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "Localization",
+        "CanonicalOrbit"
+      ],
+      "source_anchor_ids": [
+        "MLB05",
+        "MLB12"
+      ],
+      "role": "NSE_HEISENBERG_TRANSLATION: construct actual finite-phase operators and their exact common-core/classical identities.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "ReciprocalCommutator",
+      "module": "MethbokeAddon.EhrenfestObstruction.ReciprocalCommutator",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/ReciprocalCommutator.lean",
+      "step": "E06",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "Translation",
+        "ReciprocalDrift"
+      ],
+      "source_anchor_ids": [
+        "MLB08",
+        "MLB09",
+        "OP04"
+      ],
+      "role": "Bounded reciprocal multiplier and bounded drift at fixed N; domain-preserving extension and canonical localized rate equality.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    },
+    {
+      "name": "Root",
+      "module": "MethbokeAddon.EhrenfestObstruction.Root",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Root.lean",
+      "step": "E10",
+      "lane": "assembly",
+      "proposed_own_imports": [
+        "DynamicalRoot",
+        "ReciprocalCommutator"
+      ],
+      "source_anchor_ids": [
+        "MLB15"
+      ],
+      "role": "Frozen EHRENFEST_OBSTRUCTION implication plus separately audited full translation and canonical interpretation; no artificial logical dependency.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false
+    }
+  ],
+  "endpoint_packages": [
+    {
+      "step": "E01",
+      "id": "EhrenfestPhaseSpace",
+      "planned_path": "Material/EhrenfestPhaseSpace",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+      "activated": false
+    },
+    {
+      "step": "E02",
+      "id": "EhrenfestCompleteFlow",
+      "planned_path": "Material/EhrenfestCompleteFlow",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.CanonicalOrbit",
+      "activated": false
+    },
+    {
+      "step": "E03",
+      "id": "EhrenfestHalfDensity",
+      "planned_path": "Material/EhrenfestHalfDensity",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.HalfDensity",
+      "activated": false
+    },
+    {
+      "step": "E04",
+      "id": "EhrenfestGenerator",
+      "planned_path": "Material/EhrenfestGenerator",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.TransportCore",
+      "activated": false
+    },
+    {
+      "step": "E05",
+      "id": "EhrenfestHeisenberg",
+      "planned_path": "Material/EhrenfestHeisenberg",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.Translation",
+      "activated": false
+    },
+    {
+      "step": "E06",
+      "id": "EhrenfestInverseEnstrophy",
+      "planned_path": "Material/EhrenfestInverseEnstrophy",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.ReciprocalCommutator",
+      "activated": false
+    },
+    {
+      "step": "E07",
+      "id": "EhrenfestStoppedScalar",
+      "planned_path": "Material/EhrenfestStoppedScalar",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
+      "activated": false
+    },
+    {
+      "step": "E08",
+      "id": "EhrenfestStoppedFamily",
+      "planned_path": "Material/EhrenfestStoppedFamily",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.StoppedFamily",
+      "activated": false
+    },
+    {
+      "step": "E09",
+      "id": "EhrenfestSpectralStability",
+      "planned_path": "Material/EhrenfestSpectralStability",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.SpectralStability",
+      "activated": false
+    },
+    {
+      "step": "E10",
+      "id": "EhrenfestObstruction",
+      "planned_path": "Material/EhrenfestObstruction",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.Root",
+      "activated": false
+    }
+  ],
+  "early_helper_package": {
+    "id": "EhrenfestDynamicalObstruction",
+    "root_module": "MethbokeAddon.EhrenfestObstruction.DynamicalRoot",
+    "activated": false,
+    "scope": "Optional separate exact audit package if the scalar implication is accepted before the full operator workstream; never a substitute for E03-E06."
+  },
+  "acceptance_waves": [
+    {
+      "id": "W1",
+      "scope": "Definitions, E07 and coefficient-only E06.scalar; prepare E09 analytic estimates in parallel"
+    },
+    {
+      "id": "W2",
+      "scope": "E08 and E09, then independently audit EHRENFEST_OBSTRUCTION_DYNAMICAL"
+    },
+    {
+      "id": "W3",
+      "scope": "E01-E02, TestCore/CoreCommutator, HilbertCore and E03; independent of W2 beyond shared definitions"
+    },
+    {
+      "id": "W4",
+      "scope": "E04 actual generator/resolvent/core, E05 exact translation and E06 full reciprocal interpretation"
+    },
+    {
+      "id": "W5",
+      "scope": "Full E10 package and separate named audits for scalar root, translation and canonical rate; all ten boxes retain literal scope"
+    }
+  ]
+}

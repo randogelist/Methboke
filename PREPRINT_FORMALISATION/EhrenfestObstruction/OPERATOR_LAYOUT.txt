@@ -1,0 +1,222 @@
+DOCUMENT := EHRENFEST_OBSTRUCTION_OPERATOR_LAYOUT
+VERSION := 0.2
+DATE := 2026-11-19
+STATUS := STATIC_SOURCE_GROUNDED_ARCHITECTURE; NO_LEAN_EXECUTION
+MATHLIB_PIN := db584cd6d46c92f209a44c0f1c829460d327499d
+SCOPE := E03-E05; native unbounded-operator domains; independent common-core algebra
+SOURCE_SUPPLEMENT := ANCHOR_INDEX_v0_2.json; anchors OP01-OP12
+ALL_NAMES_BELOW_MARKED_PROPOSED := NEW_OWN_DECLARATIONS_NOT_EXISTING_MATHLIB
+
+1. VERIFIED SOURCE INFRASTRUCTURE (SOURCE-ONLY STATUS)
+
+Mathlib/LinearAlgebra/LinearPMap.lean:
+  LinearPMap at line 41 has domain : Submodule R E and toFun : domain ->linear F.
+  The native notation H ->_linear.[Complex] H represents an unbounded operator.
+  LinearPMap.graph at line 735 is a submodule of H x H.
+  LinearPMap.domRestrict and comp require explicit domain restrictions/preservation.
+
+Mathlib/Topology/Algebra/Module/LinearPMap.lean:
+  IsClosed, IsClosable, closure, isClosable_iff_exists_closed_extension,
+  IsClosable.closure_isClosed, HasCore.
+  IMPORTANT: closure returns the original map when it is not closable.
+  A proof of IsClosable must precede any use of closure as a closed extension.
+  HasCore means S <= domain and (operator.domRestrict S).closure = operator.
+
+Mathlib/Analysis/InnerProductSpace/LinearPMap.lean:
+  IsFormalAdjoint, adjoint, IsFormalAdjoint.le_adjoint, adjoint_isClosed,
+  isSelfAdjoint_def, IsSelfAdjoint.dense_domain, IsSelfAdjoint.isClosed.
+  The adjoint is mathematically identified using the proved density of the domain.
+  Self-adjointness means adjoint equality including equality of domains.
+  Formal symmetry alone is insufficient.
+
+Mathlib/Analysis/Distribution/TestFunction.lean:
+  Native TestFunction Omega Complex top = smooth complex-valued compactly
+  supported maps on an open subset Omega of a REAL normed phase space.
+  lineDerivCLM supplies constant-direction derivatives. Its continuity is for
+  the test-function topology, not boundedness as an L2 operator.
+
+Mathlib/Analysis/Normed/Lp/SmoothApprox.lean:
+  MeasureTheory.Lp.dense_hasCompactSupport_contDiff at line 97 gives actual
+  density in Lp for p<infinity. Specialize to p=2, Lebesgue measure and Complex.
+  Identify this native dense set with the image of the test embedding.
+
+No generic Stone/unitary-generator source endpoint was located. This is not
+an absence proof. Neither such a theorem nor essential self-adjointness is
+inserted as an unnamed hypothesis.
+
+2. MINIMAL COMMON-CORE LAYER (INDEPENDENT OF COMPLETE FLOW AND STONE)
+
+Proposed module TestCore.lean:
+  Input: the finite-dimensional real solenoidal Galerkin space V_N;
+  the smooth REAL vector field b_N and its divergence.
+  Core_N := TestFunction (top open subset of V_N) Complex top.
+  Construct linear endomorphisms on Core_N:
+    H0_core psi = -i*hbar*(D psi[b_N] + (div b_N)/2 * psi);
+    Mg_core psi = g*psi for each smooth complex-valued coefficient g.
+  Preserve smoothness and compact support. For the variable-vector derivative,
+  use a finite real basis and sum b_j * partial_j psi. Do not assert that
+  constant-direction lineDerivCLM alone already handles variable b_N.
+
+Proposed module CoreCommutator.lean:
+  For smooth real g and psi in Core_N prove the pointwise/core-linear identity
+    (i/hbar)*(H0_core(Mg_core psi) - Mg_core(H0_core psi))
+      = M_(Dg[b_N])_core psi.
+  Only calculus/product rules, complex-linear algebra, and hbar != 0 enter.
+  No Hilbert generator, unitary group, Stone theorem, adjoint, or NSE global
+  regularity is required for this identity.
+  Prove the trajectory identity independently:
+    q'=b_N(q) -> (g(q(t)))' = Dg(q(t))[b_N(q(t))].
+  This is the exact multiplier correspondence consumed by the scalar
+  EHRENFEST-OBSTRUCTION proof.
+
+3. L2 EMBEDDING AND PARTIALLY DEFINED HAMILTONIAN
+
+Proposed module HilbertCore.lean:
+  Hilbert_N := MeasureTheory.Lp Complex 2 volume on V_N.
+  Build a COMPLEX-linear embedding j_N : Core_N ->linear Hilbert_N from
+  compact-support MemLp proofs.
+  Prove injectivity: continuous representatives equal a.e. for full-support
+  Lebesgue measure are equal everywhere.
+  Set D0_N := LinearMap.range j_N as a submodule of Hilbert_N.
+  Use the native density theorem to prove Dense(D0_N).
+  Define H0_N : Hilbert_N ->_linear.[Complex] Hilbert_N:
+    domain = D0_N;
+    H0_N(j_N psi) = j_N(H0_core psi).
+  Uniqueness of the representative follows from j_N injectivity.
+  H0_N is NOT a continuous linear map on all Hilbert_N.
+
+Proposed module TransportSymmetry.lean:
+  Coordinate integration by parts on compact support, with the explicit
+  one-half divergence correction, proves H0_N.IsFormalAdjoint H0_N.
+  Native IsFormalAdjoint.le_adjoint gives H0_N <= H0_N.adjoint using Dense(D0_N).
+  Native adjoint_isClosed gives a closed extension.
+  Native isClosable_iff_exists_closed_extension gives H0_N.IsClosable.
+  Now H0_N.closure is genuinely closed; self-adjointness is still unproved.
+
+4. E03 HALF-DENSITY UNITARY REPRESENTATION
+
+Proposed module HalfDensity.lean:
+  Consume the separately proved E02 complete jointly smooth flow Phi_N.
+  Define on the test core
+    U0_N(t)psi(q) =
+      abs(det D Phi_N(-t,q))^(1/2) * psi(Phi_N(-t,q)).
+  Prove positive smooth Jacobian factor, compact-support transport and group law.
+  Apply pinned Jacobian change-of-variables identities to prove the L2 norm
+  identity. Extend to a surjective complex linear isometry U_N(t) on Hilbert_N;
+  inverse is U_N(-t). Prove the extension agrees with U0_N on the embedded core.
+  Establish strong continuity first on core vectors by common-compact-support
+  dominated convergence for t in compact intervals, then on every L2 vector
+  by density and the isometry bound.
+
+  Representation type:
+    U_N : Real -> (Hilbert_N linear-isometry-equivalent[Complex] Hilbert_N)
+  with U_N(0)=identity, U_N(t+s)=U_N(t) composed U_N(s), and
+  for every x, Continuous(t -> U_N(t)x).
+
+  These assertions are constructed theorems, not fields assumed at the
+  ultimate endpoint. A structure may package them only after its actual
+  inhabitant has been built.
+
+5. E04 DIRECT GENERATOR / RESOLVENT ROUTE (NEW GENERIC PROOFS)
+
+Proposed module UnitaryGenerator.lean:
+  Define the generator as a native LinearPMap L_N:
+    domain = {x | exists y, HasDerivAt (t -> U_N(t)x) y 0};
+    L_N x = the unique derivative y.
+  Prove that the domain is a complex submodule and the derivative action is
+  complex-linear. Equivalently construct its graph submodule and use the
+  native graph-to-LinearPMap API after proving single-valuedness.
+  Define H_N = (i*hbar) scalar-multiple L_N.
+  Prove on Core_N that L_N(j_N psi)=(-i/hbar)*H0_N(j_N psi);
+  hence H0_N <= H_N and the generator domain is dense.
+
+  Prove generator closedness from the integral identity
+    U_N(t)x-x = integral_0^t U_N(s)(L_N x) ds,
+  passing to limits in (x,L_N x), then differentiating at t=0.
+  Prove skew symmetry of L_N by differentiating preservation of inner product.
+
+Proposed module UnitaryResolvent.lean:
+  Construct bounded Bochner integral operators
+    R_+ x = integral_0^infinity exp(-t)*U_N(t)x dt;
+    R_- x = integral_0^infinity exp(-t)*U_N(-t)x dt.
+  Prove convergence from ||U_N(t)x||=||x|| and integrability of exp(-t).
+  Prove R_+ x and R_- x lie in the generator domain and
+    (I-L_N)R_+ x=x; (I+L_N)R_- x=x.
+  Deduce surjectivity of I-L_N and I+L_N.
+  Prove the generic dense-domain skew-symmetry plus shifted-surjectivity lemma:
+    L_N.adjoint = -L_N.
+  Deduce IsSelfAdjoint H_N, with adjoint-domain equality explicit.
+  ALL of these generator/resolvent implications are proposed new proofs.
+  Existing LinearPMap adjoint infrastructure supports their expression but
+  does not prove them automatically.
+
+Proposed module TransportCore.lean:
+  Prove Core_N is a core of H_N by compactly supported TIME convolution:
+    x_epsilon = integral rho_epsilon(t) U_N(t)x dt.
+  For x in domain(L_N), x_epsilon -> x and L_N x_epsilon -> L_N x.
+  For fixed epsilon approximate x in L2 by j_N psi_j. The smoothed psi_j stay
+  in Core_N because the union of transported compact supports over compact
+  time support is compact and the integrand is jointly smooth.
+  Differentiate convolution by the kernel:
+    L_N(int rho(t) U_N(t)z dt) = -int rho'(t) U_N(t)z dt.
+  This bounds the derivative error using ||z_j-z||, without assuming bounds
+  on derivatives of the unsmoothed approximants.
+  Diagonalize the two approximation parameters to obtain graph-norm density.
+  Conclude H_N.HasCore D0_N and H0_N.closure = H_N.
+
+  Do not invoke closureHasCore as proof of this identification: it only
+  describes the closure already defined, not the independently constructed H_N.
+
+6. E05 EXACT HILBERT CORRESPONDENCE AND DOMAIN SCOPE
+
+Proposed module Heisenberg.lean (conjugation substep):
+  For bounded smooth real g, multiplication M_g is a bounded L2 operator.
+  Prove U_N(t)^* M_g U_N(t) = M_(g composed Phi_N(t)).
+  For general unbounded smooth g, represent M_g by a native LinearPMap whose
+  domain is {x in L2 | g*x in L2}; prove transported domain equality as well
+  as action equality. Do not silently use bounded-M_g API for enstrophy.
+
+Proposed module Heisenberg.lean (Ehrenfest substep):
+  For embedded psi in Core_N, U_N(t)psi remains in Core_N. Multiplication by
+  smooth g and application of H0_core preserve this common core.
+  Prove differentiability of the L2 expectation and
+    d/dt <U_N(t)psi, M_g U_N(t)psi>
+      = <U_N(t)psi, (i/hbar)[H_N,M_g] U_N(t)psi>.
+  The formula is first stated on this invariant common core, where products
+  H_N M_g and M_g H_N are defined. Extend only with explicit extra domains.
+  Transfer the algebraic CoreCommutator identity through j_N.
+
+  State the generator relation rather than an unlocated unbounded exponential:
+    for x in domain(H_N),
+    HasDerivAt (t -> U_N(t)x) ((-i/hbar)*U_N(t)(H_N x)) t.
+  The notation U_N(t)=exp(-itH_N/hbar) is explanatory mathematical shorthand
+  until an appropriate functional-calculus exponential endpoint is proved.
+
+7. DEPENDENCY SEPARATION AND ACCEPTANCE
+
+Scalar obstruction lane:
+  E01 finite NSE -> reciprocal observable/chain rule -> stopped bound
+  -> linear descent/hitting -> cutoff escape -> E09 smooth-front uniformity
+  -> conditional obstruction.
+  CoreCommutator is an independent exact operator interpretation of its symbol.
+  This scalar proof need not import HalfDensity, UnitaryGenerator,
+  UnitaryResolvent, TransportCore, or any Stone theorem.
+
+Full QM translation lane:
+  E02 -> HalfDensity -> HilbertCore/TransportSymmetry
+  -> UnitaryGenerator -> UnitaryResolvent -> TransportCore
+  -> HeisenbergConjugation/EhrenfestCore.
+  The full NSE_HEISENBERG_TRANSLATION endpoint requires this lane.
+
+Proposed public endpoints must distinguish:
+  (a) scalar EHRENFEST-OBSTRUCTION conditional on the explicit stopped bound;
+  (b) exact full Hilbert translation, unconditional at each finite cutoff;
+  (c) a combined theorem packaging (a) and (b), only after both are proved.
+Proving (a) or CoreCommutator alone does not promote E03-E05 or (b).
+No implementation-port structure may conceal the full operator theorem as an
+unproved field. Any unresolved port remains visibly named and blocks promotion.
+No custom axiom, sorry, local compiler, or unbounded matrix-exponential shortcut.
+
+
+CANONICAL MODULE NAMES: MODULE_PLAN.json is authoritative for planned file names.
+Descriptive names above denote conceptual substeps, not additional required files.
