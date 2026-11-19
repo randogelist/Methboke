@@ -1,14 +1,16 @@
 # Probable Lean layout for EHRENFEST-OBSTRUCTION
 
-**B-tier design, version 0.2.0.** This is a plan for 26 owned modules, ten milestone packages and an optional early scalar audit package. No new `.lean` source is created or activated. All proposed names and signatures await external elaboration.
+**B-tier design, version 0.3.0.** The current plan has 31 owned modules, with only nine in the scalar root closure. The inventory retains ten full milestone scopes and an optional full import bundle. No new `.lean` source is created or activated. All proposed names and signatures await external elaboration.
+
+The [shortest identified route](FAST_ROUTE.md) supersedes the v0.2 implementation order below: one-cutoff mean-value contradiction and a new H1 error bound avoid hitting/escape and full H2 convergence in the root. [FAST_INTERFACES.lean.txt](FAST_INTERFACES.lean.txt) gives its minimal contracts.
 
 The main architectural refinement is to separate two proofs. The conditional obstruction is a theorem about the literal coefficient drift of the canonical Galerkin family. The full phase-space Heisenberg realization supplies an exact operator interpretation of that drift. The former need not wait for the latter, while completion of the full ten-step workstream requires both.
 
 ```mermaid
 flowchart TD
-  A["Canonical Galerkin dynamics"] --> B["Reciprocal drift and stopped comparison"]
-  A --> C["Smooth-front spectral stability"]
-  B --> D["Conditional dynamical obstruction"]
+  A["Canonical Galerkin dynamics"] --> B["Reciprocal drift and slab comparison"]
+  A --> C["Eventual H1 enstrophy bound"]
+  B --> D["One-cutoff scalar contradiction"]
   C --> D
   A --> E["Complete flow and half-density group"]
   E --> F["Self-adjoint generator and exact translation"]
@@ -18,7 +20,7 @@ flowchart TD
   G --> H
 ```
 
-The arrow into the final audit package is a workstream requirement, not a claim that the scalar implication logically depends on self-adjointness.
+The final node is the optional All import bundle. Root itself imports only DynamicalRoot and has no operator dependency.
 
 ## Ten milestones and their implementation units
 
@@ -32,10 +34,10 @@ All source paths in this table are **planned**, under `Material/MethbokeAddon/Eh
 | E04 | `HilbertCore`, `TransportSymmetry`, `UnitaryGenerator`, `UnitaryResolvent`, `TransportCore` | Dense domain, true adjoint equality and graph-core closure of the differential Hamiltonian. |
 | E05 | `TestCore`, `CoreCommutator`, `Heisenberg`, `Localization`, `Translation` | Common-core identity first; then operator domains, Ehrenfest and fixed-cutoff localization. |
 | E06 | `ReciprocalDrift`, `ReciprocalCommutator` | Scalar derivative independently; full bounded commutator and canonical rate interpretation later. |
-| E07 | `StoppedScalar` | Hit a lower level by `(v 0 - r)/gamma`, with no-hit guard and no assumed hit. |
+| E07 | `SlabDescent`, `StoppedScalar` | Hit a lower level by `(v 0 - r)/gamma`, with no-hit guard and no assumed hit. |
 | E08 | `StoppedFamily` | One fixed smooth datum, thresholds tending to infinity, hits before `1/gamma`. |
-| E09 | `ClosedSlab`, `FourierTail`, `SobolevProduct`, `GalerkinError`, `SpectralStability` | Actual smooth front gives full-slab convergence and uniform Galerkin enstrophy through a new H2 bootstrap. |
-| E10 | `DynamicalRoot`, `Root` | Exact conditional implication, separately tracked full translation and semantic equality. |
+| E09 | `ClosedSlab`, `SmoothReference`, `H1Error`, `EventualEnstrophyBound`; retained `FourierTail`, `SobolevProduct`, `GalerkinError`, `SpectralStability` | Actual smooth front gives full-slab convergence and uniform Galerkin enstrophy through a new H2 bootstrap. |
+| E10 | `DynamicalRoot`, `Root`; optional `All` collection | Exact conditional implication, separately tracked full translation and semantic equality. |
 
 [MODULE_PLAN.json](MODULE_PLAN.json) is the authoritative planned path/import DAG. The row order above is conceptual; E07 can start independently, and E06's scalar part precedes the full E05 package. E03 reuses the early Hilbert-core part of E04, while E04's complete generator theorem comes after E03. These are acyclic module dependencies, not a circular assumption of self-adjointness. Existing Mathlib/vendor imports will be chosen from the pinned source index when implementation begins; the JSON does not pretend that source anchors are elaborated imports.
 
@@ -77,9 +79,9 @@ These are uncompiled schemas. `ExactPhaseSpaceTranslation` is a new *conclusion*
 
 The proof of the frozen implication may invoke the dynamical theorem directly. Its name does not hide an additional operator hypothesis. Acceptance of that implication alone does not certify the full Heisenberg translation, and none of these implications constructs a witness to `hStopped`.
 
-## The two largest new proof blocks
+## Retained stronger proof blocks and operator construction
 
-**E09 — actual smooth solution to spectral stability.** An `InitialClassicalFront` with endpoint `S` supplies a front `[0,S)`. To estimate on the closed slab `[0,T]`, use `T<S`. A global solution gives `S=T+1`. Derive compact H4 control from the actual physical PDE/smooth traces. Prove the H3 Fourier tail, mixed H2 x H3 product bound, residual of size `C/N`, and the error inequality
+**E09 — retained full spectral stability milestone.** The shortest root now uses only its separately tracked H1/eventual-bound helper. The following stronger H2-convergence proof remains a later milestone. An `InitialClassicalFront` with endpoint `S` supplies a front `[0,S)`. To estimate on the closed slab `[0,T]`, use `T<S`. A global solution gives `S=T+1`. Derive compact H4 control from the actual physical PDE/smooth traces. Prove the H3 Fourier tail, mixed H2 x H3 product bound, residual of size `C/N`, and the error inequality
 
 ```text
 Y_N' <= C_(nu,K)*(Y_N+Y_N^2) + C_(nu,K)/N^2,  Y_N(0)=0.
@@ -101,13 +103,13 @@ The unitary norm bound makes these Bochner integrals converge. Prove the domain 
 
 ## Implementation and acceptance order
 
-1. Prepare `Definitions`, the reciprocal scalar identity and independent E07; develop E09 estimates in parallel.
-2. Complete E08 and E09, then audit the exact dynamical implication in its own optional package if ready first.
-3. Build E01–E03 and the independent core commutator; identify the actual canonical forward orbit.
-4. Complete E04, full E05, then E06's bounded-generator-domain and localized interpretation results.
-5. Audit the final E10 package and each interpretation endpoint separately. Ten complete boxes require all their named substeps, not just the scalar root.
+1. Prepare literal definitions, reciprocal identities and independent `SlabDescent`; develop the H1 error estimate in parallel.
+2. Complete the actual-reference eventual bound, then the single-cutoff `DynamicalRoot` and frozen `Root` using only their nine-module closure.
+3. Build the independent native test-core commutator early; zero-order terms cancel without needing a unitary group.
+4. Complete the full flow/generator/domain/localization construction and canonical rate identification.
+5. Complete the original hitting, threshold-escape and full H2-convergence milestones separately. Use `All` only as an optional import bundle after its dependencies exist.
 
-This is a proposed sequence within the existing B-tier request, not an activation of A-tier implementation.
+The scalar E10 theorem can be audited before all ten milestones are complete. Its acceptance never certifies the omitted stronger/operator statements. No A-tier implementation is activated by this B-tier task.
 
 ## Native package and cache integration
 

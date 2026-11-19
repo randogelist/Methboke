@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "date": "2026-11-19",
   "frozen_name": "EHRENFEST-OBSTRUCTION",
-  "source_review_revision": "c10abd8c3e97ae3bed85749f0f40d2b40f43bcba",
+  "source_review_revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
   "scope": "B_TIER_PROPOSED_LAYOUT_ONLY",
   "fixed_project_goal": "Weak_Fourierman_B",
   "actual_new_lean_files": 0,
   "new_formal_acceptances": 0,
   "local_lean_executions": 0,
   "external_compiler_runs": 0,
-  "module_count": 26,
+  "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
     {
@@ -26,7 +26,8 @@
       ],
       "role": "SmoothDatum, canonicalFamily at n+1, e, Vrec, literal drift, PreHit, StoppedForDatum, StoppedCommutatorBound and actual NSE_B.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": true
     },
     {
       "name": "PhaseSpace",
@@ -43,7 +44,8 @@
       ],
       "role": "Real invariant phase space; coordinates and physical synthesis; polynomial RHS, projection/cancellation and positive Stokes operator.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "ReciprocalDrift",
@@ -62,7 +64,8 @@
       ],
       "role": "Exact canonical reciprocal derivative with coefficient sign and positive denominator; no operator imports.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": true
     },
     {
       "name": "StoppedScalar",
@@ -70,13 +73,16 @@
       "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean",
       "step": "E07",
       "lane": "dynamics",
-      "proposed_own_imports": [],
+      "proposed_own_imports": [
+        "SlabDescent"
+      ],
       "source_anchor_ids": [
         "ML13"
       ],
       "role": "Continuous scalar pre-hit comparison and explicit hitting-time bound; no assumed finite hitting time.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "StoppedFamily",
@@ -95,7 +101,8 @@
       ],
       "role": "One fixed smooth datum; divergent thresholds and uniform initial bound imply explicit threshold hits before 1/gamma.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "ClosedSlab",
@@ -112,7 +119,8 @@
       ],
       "role": "Actual physical PDE and compact Sobolev traces; adapt InitialClassicalFront on [0,S) to a closed [0,T] with T<S.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": true
     },
     {
       "name": "FourierTail",
@@ -128,7 +136,8 @@
       ],
       "role": "Uniform H4 control gives cutoff H3 tail O(1/N); Sobolev contraction of Fourier/Leray projections.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "SobolevProduct",
@@ -144,7 +153,8 @@
       ],
       "role": "Prove mixed H2 x H3 -> H2 convection estimate, respecting the derivative loss; existing anchor is only supporting infrastructure.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "GalerkinError",
@@ -162,7 +172,8 @@
       ],
       "role": "Actual projected residual and w equation; Y prime <= C(Y+Y^2)+C/N^2 with Y(0)=0.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "SpectralStability",
@@ -179,9 +190,10 @@
         "MLB19",
         "MLB20"
       ],
-      "role": "First-exit Gronwall gives full-slab H2 convergence and all-cutoff H1/enstrophy bound; no uniform budget assumed.",
+      "role": "First-exit Gronwall gives full-slab H2 convergence and all-cutoff H1/enstrophy bound; no uniform budget assumed. This full H2-convergence/all-cutoff statement is retained as a stronger E09 milestone, outside the shortest root route.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "DynamicalRoot",
@@ -190,15 +202,17 @@
       "step": "E10.dynamical",
       "lane": "dynamics",
       "proposed_own_imports": [
-        "StoppedFamily",
-        "SpectralStability"
+        "ReciprocalDrift",
+        "SlabDescent",
+        "EventualEnstrophyBound"
       ],
       "source_anchor_ids": [
         "MLB15"
       ],
-      "role": "EHRENFEST_OBSTRUCTION_DYNAMICAL by contradiction for the same datum and viscosity; T=1/gamma, S=T+1.",
+      "role": "Single-cutoff full-slab contradiction: choose R_n>C using eventual thresholds/bounds, derive PreHit on all interior times, contradict positive terminal reciprocal via mean value.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": true
     },
     {
       "name": "CompleteFlow",
@@ -219,7 +233,8 @@
       ],
       "role": "Complete jointly smooth real-time flow, backwards energy estimate, group law and Jacobian invertibility.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "CanonicalOrbit",
@@ -237,7 +252,8 @@
       ],
       "role": "Use actual ODE uniqueness to identify the phase flow through P_(n+1)a with the canonical forward Galerkin solution.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "TestCore",
@@ -255,7 +271,8 @@
       ],
       "role": "Native compactly supported smooth complex tests; variable-vector transport H0 and smooth multiplication as core linear maps.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "CoreCommutator",
@@ -272,7 +289,8 @@
       ],
       "role": "Pointwise product rule: (i/hbar)[H0,M_g]=M_(Dg[b]); independent of self-adjointness and complete flow.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "HilbertCore",
@@ -290,7 +308,8 @@
       ],
       "role": "Complex-linear injective dense test embedding into L2(volume); H0 as LinearPMap on its range submodule.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "TransportSymmetry",
@@ -309,7 +328,8 @@
       ],
       "role": "Integration by parts, dense formal symmetry, closed adjoint extension and genuine closability of H0.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "HalfDensity",
@@ -328,7 +348,8 @@
       ],
       "role": "Construct Jacobian half-density transport, surjective L2 isometries, group laws, strong continuity and core invariance.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "UnitaryGenerator",
@@ -346,7 +367,8 @@
       ],
       "role": "Actual strong derivative domain and generator L; graph closedness, skew symmetry and agreement with H0.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "UnitaryResolvent",
@@ -364,7 +386,8 @@
       ],
       "role": "Bochner R+/- resolvents, surjectivity of I-/+L, adjoint-domain equality and self-adjoint H=i*hbar*L.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "TransportCore",
@@ -382,7 +405,8 @@
       ],
       "role": "Time-convolution graph density; H.HasCore D0 and H0.closure=H, with closability proved first.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "Heisenberg",
@@ -400,7 +424,8 @@
       ],
       "role": "Conjugation including maximal multiplication domains and Ehrenfest identity on invariant common core.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "Localization",
@@ -417,7 +442,8 @@
       ],
       "role": "L2-normalized smooth bump packets; expectation localization at fixed cutoff, no interchange of limits.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "Translation",
@@ -435,7 +461,8 @@
       ],
       "role": "NSE_HEISENBERG_TRANSLATION: construct actual finite-phase operators and their exact common-core/classical identities.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "ReciprocalCommutator",
@@ -454,7 +481,8 @@
       ],
       "role": "Bounded reciprocal multiplier and bounded drift at fixed N; domain-preserving extension and canonical localized rate equality.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": false
     },
     {
       "name": "Root",
@@ -463,15 +491,102 @@
       "step": "E10",
       "lane": "assembly",
       "proposed_own_imports": [
-        "DynamicalRoot",
-        "ReciprocalCommutator"
+        "DynamicalRoot"
       ],
       "source_anchor_ids": [
         "MLB15"
       ],
-      "role": "Frozen EHRENFEST_OBSTRUCTION implication plus separately audited full translation and canonical interpretation; no artificial logical dependency.",
+      "role": "Frozen EHRENFEST_OBSTRUCTION with unchanged explicit stopped premise; imports only the minimal dynamical proof, not All or operator infrastructure.",
       "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
-      "activated": false
+      "activated": false,
+      "required_for_fast_root": true
+    },
+    {
+      "name": "SlabDescent",
+      "module": "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SlabDescent.lean",
+      "step": "E07.slab",
+      "lane": "dynamics",
+      "proposed_own_imports": [],
+      "source_anchor_ids": [
+        "ML21"
+      ],
+      "role": "Real mean-value endpoint comparison with an explicit rate and interior derivatives; no NSE, hitting times or operator imports.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": true
+    },
+    {
+      "name": "SmoothReference",
+      "module": "MethbokeAddon.EhrenfestObstruction.SmoothReference",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SmoothReference.lean",
+      "step": "E09.bound",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "ClosedSlab"
+      ],
+      "source_anchor_ids": [
+        "FAST02",
+        "FAST03",
+        "FAST05"
+      ],
+      "role": "Uniform projected C1 and H1 Fourier-tail estimates from the actual smooth closed slab; finite coefficient l1 estimate and multiplier norm bound.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": true
+    },
+    {
+      "name": "H1Error",
+      "module": "MethbokeAddon.EhrenfestObstruction.H1Error",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/H1Error.lean",
+      "step": "E09.bound",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "SmoothReference"
+      ],
+      "source_anchor_ids": [
+        "FAST01",
+        "FAST04"
+      ],
+      "role": "Differentiate finite error coefficient enstrophy; use arbitrary-field nonlinear absorption, elementary mixed L2 estimates and Poincare.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": true
+    },
+    {
+      "name": "EventualEnstrophyBound",
+      "module": "MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/EventualEnstrophyBound.lean",
+      "step": "E09.bound",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "H1Error"
+      ],
+      "source_anchor_ids": [
+        "ML03"
+      ],
+      "role": "Bootstrap error D<=1 using D prime <= C(D+D^3)+C/N^2; expose only an eventual uniform Galerkin enstrophy bound.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": true
+    },
+    {
+      "name": "All",
+      "module": "MethbokeAddon.EhrenfestObstruction.All",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/All.lean",
+      "step": "FULL_WORKSTREAM",
+      "lane": "assembly",
+      "proposed_own_imports": [
+        "Root",
+        "ReciprocalCommutator",
+        "StoppedFamily",
+        "SpectralStability"
+      ],
+      "source_anchor_ids": [],
+      "role": "Optional full-workstream import bundle; scalar Root never imports this file. All ten original milestone scopes remain separately auditable.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false
     }
   ],
   "endpoint_packages": [
@@ -548,30 +663,51 @@
   ],
   "early_helper_package": {
     "id": "EhrenfestDynamicalObstruction",
-    "root_module": "MethbokeAddon.EhrenfestObstruction.DynamicalRoot",
+    "status": "NOT_NEEDED_IN_PRIMARY_SCHEDULE",
     "activated": false,
-    "scope": "Optional separate exact audit package if the scalar implication is accepted before the full operator workstream; never a substitute for E03-E06."
+    "scope": "Superseded as a required extra package: the ordinary EhrenfestObstruction root package now imports only the scalar path. A separate helper package is optional if exact audit granularity later warrants it."
   },
   "acceptance_waves": [
     {
       "id": "W1",
-      "scope": "Definitions, E07 and coefficient-only E06.scalar; prepare E09 analytic estimates in parallel"
+      "scope": "Prepare exact Definitions/ReciprocalDrift and independent SlabDescent; begin actual-reference/finite-coefficient H1 error work in parallel."
     },
     {
       "id": "W2",
-      "scope": "E08 and E09, then independently audit EHRENFEST_OBSTRUCTION_DYNAMICAL"
+      "scope": "ClosedSlab, SmoothReference, H1Error, EventualEnstrophyBound; then DynamicalRoot and Root. Activate only the nine coherent root modules and its exact audit package when ready."
     },
     {
       "id": "W3",
-      "scope": "E01-E02, TestCore/CoreCommutator, HilbertCore and E03; independent of W2 beyond shared definitions"
+      "scope": "In parallel or later: real phase adapter, native TestCore and zero-order-independent CoreCommutator; these give an early exact algebra theorem, not self-adjointness."
     },
     {
       "id": "W4",
-      "scope": "E04 actual generator/resolvent/core, E05 exact translation and E06 full reciprocal interpretation"
+      "scope": "Complete flow, half-density group, generator/resolvent/core, full Heisenberg translation and canonical reciprocal interpretation."
     },
     {
       "id": "W5",
-      "scope": "Full E10 package and separate named audits for scalar root, translation and canonical rate; all ten boxes retain literal scope"
+      "scope": "Complete retained E07 hitting, E08 escape and full E09 H2 stability; optional All bundle. Full workstream acceptance still requires every original milestone."
     }
-  ]
+  ],
+  "fast_root_module_count": 9,
+  "fast_root_modules": [
+    "ClosedSlab",
+    "Definitions",
+    "DynamicalRoot",
+    "EventualEnstrophyBound",
+    "H1Error",
+    "ReciprocalDrift",
+    "Root",
+    "SlabDescent",
+    "SmoothReference"
+  ],
+  "fastest_route_status": "SHORTEST_SOURCE_GROUNDED_ROUTE_IDENTIFIED; NOT_MEASURED_RUNTIME_OPTIMUM",
+  "fastest_route_document": "FAST_ROUTE.md",
+  "fast_interfaces": "FAST_INTERFACES.lean.txt",
+  "full_bundle": {
+    "module": "MethbokeAddon.EhrenfestObstruction.All",
+    "optional": true,
+    "activated": false,
+    "scope": "Import convenience after completing all ten original milestones; no semantic change to scalar theorem."
+  }
 }

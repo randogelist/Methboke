@@ -62,7 +62,7 @@ The [JSON index](ANCHOR_INDEX_v0_1.json) retains source signatures, lines, blob 
 
 ## Native unbounded-operator supplement
 
-The current [v0.2 machine index](ANCHOR_INDEX_v0_2.json) has **47 anchors**: 27 pinned Mathlib source-only records, 13 source reviews in accepted native modules, and 7 named external audits. The [v0.1 index](ANCHOR_INDEX_v0_1.json) is retained unchanged. OP01–OP12 were read at the same pinned Mathlib revision; exact source signatures and blob identities were checked. None is new endpoint acceptance.
+The retained [v0.2 machine index](ANCHOR_INDEX_v0_2.json) has **47 anchors**: 27 pinned Mathlib source-only records, 13 source reviews in accepted native modules, and 7 named external audits. The [v0.1 index](ANCHOR_INDEX_v0_1.json) is retained unchanged. OP01–OP12 were read at the same pinned Mathlib revision; exact source signatures and blob identities were checked. None is new endpoint acceptance.
 
 | ID | Exact declaration | Role and boundary |
 |---|---|---|
@@ -80,3 +80,18 @@ The current [v0.2 machine index](ANCHOR_INDEX_v0_2.json) has **47 anchors**: 27 
 | OP12 | [`MeasureTheory.Lp.dense_hasCompactSupport_contDiff`](https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Normed/Lp/SmoothApprox.lean#L97) | Prove density of the image of the test-function embedding in L2. Must identify the native dense set with the embedded test domain and prove ae-equality/representative adapters. |
 
 The common-core product rule can be proved before the complete Hilbert realization. See [operator layout](OPERATOR_LAYOUT.txt) for the new generator/resolvent and core arguments.
+
+## Shortest-route source supplement
+
+The current [v0.3 index](ANCHOR_INDEX_v0_3.json) has **53 anchors**: 28 Mathlib and 25 native declarations. Evidence counts are 33 pinned source-only records, 13 source reviews in accepted modules, and the same 7 named external audits. All six new records are source-only; no new compiler or named-audit claim is made. Their exact source signatures and blob identities were read at the recorded pins.
+
+| ID | Exact declaration | Role / limitation |
+|---|---|---|
+| FAST01 | [`MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_ABSORPTION`](https://github.com/randogelist/Methboke/blob/9ae4429b9c218c109bddaac2f993f1cc5bd66aa8/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean#L262) | Absorb self-error nonlinear enstrophy term using reduced positive viscosity allocation. One-sided sign is appropriate for convection paired with laplacian in error energy identity. Must build forced-error derivative identity; solution-only derivative theorem does not apply to w_N. |
+| FAST02 | [`SingularClosure.FINITE_FOURIER_H2_L1_BOUND`](https://github.com/randogelist/Methboke/blob/9ae4429b9c218c109bddaac2f993f1cc5bd66aa8/Material/_vendor/SingularClosure/LatticeSobolevSummability.lean#L121) | Bound projected reference C1 norm by H3 Fourier norm, applying H2-to-l1 separately to components and first derivative coefficients. Need component/derivative symbol adapters and uniform reference H3 bound. The theorem is not itself a physical C1 estimate. |
+| FAST03 | [`SingularClosure.torusSobolevMultiplierLinear_norm_le`](https://github.com/randogelist/Methboke/blob/9ae4429b9c218c109bddaac2f993f1cc5bd66aa8/Material/_vendor/SingularClosure/FourierSobolevOperators.lean#L177) | With high-frequency tail symbol, s=1 and t=2, obtain H1 tail O(1/N). Need explicit tail symbol cutoff comparison, zero-mode agreement, and physical/Fourier norm bridge. |
+| FAST04 | [`SingularClosure.coefficientEnergy_le_dissipation`](https://github.com/randogelist/Methboke/blob/9ae4429b9c218c109bddaac2f993f1cc5bd66aa8/Material/_vendor/SingularClosure/PeriodicSobolev.lean#L305) | Supply mean-zero finite Poincare estimate for cross convection terms after Parseval. Need reality and physical/coefficient Parseval adapters for the real error field. |
+| FAST05 | [`SingularClosure.torusSobolevLeray_norm_le`](https://github.com/randogelist/Methboke/blob/9ae4429b9c218c109bddaac2f993f1cc5bd66aa8/Material/_vendor/SingularClosure/FourierSobolevOperators.lean#L364) | At s=0 contract Leray projection of residual; combine with finite cutoff contraction. Does not by itself identify physical Leray or project a physical residual. Need synthesis/Parseval adapters. |
+| ML21 | [`exists_hasDerivAt_eq_slope`](https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/Deriv/MeanValue.lean#L122) | Direct explicit-rate mean-value comparison on a closed slab, using derivatives only in its interior. The application must first derive the original PreHit guard from the hypothetical smooth-front bound; this theorem does not remove the stopped premise or prove stability. |
+
+The absorption theorem applies to arbitrary smooth periodic mean-zero error fields. The actual-NSE enstrophy derivative theorem does not: the forced-error identity must be proved. Root uses only eventual bounds, not a new uniform-budget assumption.

@@ -409,11 +409,11 @@ SCOPE: one fixed smooth periodic solenoidal mean-zero datum; exact Galerkin
 flows; reciprocal-enstrophy observable; fixed gamma/e_*; diverging finite
 thresholds; drift only through min(first-hit,1/gamma). The stopped condition
 remains an explicit unproved premise, not a global custom axiom.
-SOURCE: EHRENFEST_OBSTRUCTION_B_TIER.txt v0.2.0;
+SOURCE: EHRENFEST_OBSTRUCTION_B_TIER.txt v0.3.0;
   PREPRINT_FORMALISATION/EhrenfestObstruction/CHECKLIST.md;
-  ANCHOR_INDEX_v0_2.json and obligations.json in that directory.
-EVIDENCE: complete written ten-step conditional proof; 47 exact pinned anchors
-  (27 Mathlib source-only, 13 accepted-module source reviews, 7 named external audits).
+  ANCHOR_INDEX_v0_3.json and obligations.json in that directory.
+EVIDENCE: complete written ten-step conditional proof; 53 exact pinned anchors
+  (33 source-only, 13 accepted-module source reviews, 7 retained named external audits).
 BOUNDARY: all ten new formal endpoints unimplemented/unverified; no singular
   witness, universal assertion, new compiler run or A-tier promotion.
   Existing WFB goal, statement, source and acceptance remain unchanged.
@@ -432,3 +432,19 @@ EVIDENCE: static path/DAG/anchor/source-signature review only. Twelve new native
   operator/test-core source anchors at the existing Mathlib pin. No new Lean
   implementation, compiler run, theorem acceptance or stopped-bound witness.
 BOUNDARY: scalar implication acceptance cannot stand in for the operator branch.
+
+I24 EHRENFEST_SINGLE_CUTOFF_H1_ROUTE_B_TIER
+STATUS: WRITTEN_B_TIER_SHORTER_PROOF; no implementation or new acceptance.
+STATEMENT: the frozen stopped premise rejects an eventual uniform Galerkin
+  enstrophy bound by one-index, full-slab mean-value comparison. A smooth front
+  supplies that bound through a lower-order H1 error bootstrap.
+STRUCTURE: nine-module Root closure; 31-module full inventory preserving all
+  original stronger/operator milestone scopes. E07/E08 threshold hits and full
+  E09 H2 convergence are no longer prerequisites of the scalar root.
+REUSE: actual arbitrary-field physical nonlinear absorption; finite Fourier
+  H2-to-l1 estimate; Fourier multiplier norm; mean-zero physical Poincare;
+  explicit-rate HasDerivAt mean-value theorem. Exact new adapters remain visible.
+SOURCE: EHRENFEST_OBSTRUCTION_B_TIER.txt sections 13--15; FAST_ROUTE.md,
+  FAST_INTERFACES.lean.txt and MODULE_PLAN.json in the Ehrenfest package.
+BOUNDARY: no singular witness, new analytic premise, global axiom, runtime
+  benchmark or A-tier result. Existing WFB goal and acceptance preserved.

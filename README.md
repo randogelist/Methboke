@@ -51,8 +51,8 @@ the converse is an analytic corollary, not a new audited Lean declaration.
 
 ## Supporting conditional obstruction workstream
 
-The frozen **EHRENFEST-OBSTRUCTION** now has a [complete conditional B-tier derivation](EHRENFEST_OBSTRUCTION_B_TIER.txt), a [ten mid-tier checklist](PREPRINT_FORMALISATION/EhrenfestObstruction/CHECKLIST.md), and [47 pinned Mathlib/Methlib/Methboke source anchors](PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX.md).
-The [refined Lean layout](PREPRINT_FORMALISATION/EhrenfestObstruction/LEAN_LAYOUT.md) proposes 26 modules, a separate dynamical proof and full operator translation, eight schematic interfaces, and native package/audit integration. No Lean implementation is activated.
+The frozen **EHRENFEST-OBSTRUCTION** now has a [complete conditional B-tier derivation](EHRENFEST_OBSTRUCTION_B_TIER.txt), a [ten mid-tier checklist](PREPRINT_FORMALISATION/EhrenfestObstruction/CHECKLIST.md), and [53 pinned Mathlib/Methlib/Methboke source anchors](PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX.md).
+The [shortest identified Lean route](PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_ROUTE.md) needs nine planned modules for the exact scalar root: a one-cutoff mean-value contradiction and an eventual H1 enstrophy bound. The [full layout](PREPRINT_FORMALISATION/EhrenfestObstruction/LEAN_LAYOUT.md) retains 31 proposed modules for all ten original milestones and their stronger/operator results. No Lean implementation is activated.
 Its target is `StoppedCommutatorBound ν → ¬ NSE_B ν`: the stopped commutator condition is an explicit unproved hypothesis for one fixed smooth datum. No singular witness, new global axiom, new Lean endpoint or formal acceptance is claimed. The accepted WFB implication and fixed project goal remain unchanged.
 
 ## Fixed scope and useful identities

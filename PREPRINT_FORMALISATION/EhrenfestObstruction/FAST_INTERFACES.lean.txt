@@ -1,0 +1,114 @@
+EHRENFEST-OBSTRUCTION FAST INTERFACES v0.3
+STATUS: SCHEMATIC; NOT COMPILED; NO LEAN EXECUTION.
+Canonical names in Definitions and the frozen stopped predicate are unchanged.
+The existing v0.2 INTERFACES.lean.txt retains stronger optional contracts.
+
+1. LEAF SCALAR COMPARISON (SlabDescent)
+
+Proposed narrow import:
+  Mathlib.Analysis.Calculus.Deriv.MeanValue
+
+  theorem terminal_le_of_rate_le
+      (v rate : Real -> Real) (T gamma : Real)
+      (hT : 0 < T)
+      (hcont : ContinuousOn v (Set.Icc 0 T))
+      (hderiv : forall t, t in Set.Ioo 0 T ->
+        HasDerivAt v (rate t) t)
+      (hrate : forall t, t in Set.Ioo 0 T -> rate t <= -gamma) :
+      v T <= v 0 - gamma*T
+
+Use exists_hasDerivAt_eq_slope with the explicit rate; multiply its slope
+identity by positive T. Gamma positivity is not needed for this generic lemma.
+No NSE, stopping, inner-product, test-function or unitary-group import belongs
+in this file. No derivatives at 0 or T are assumed.
+
+2. RECIPROCAL BOUNDS (ReciprocalDrift)
+
+  theorem canonical_reciprocal_bounds
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (eStar : Real) (heStar : 0 < eStar)
+      (n : Nat) (t : Real) (ht : 0 <= t) :
+      0 < canonicalReciprocal nu hnu a eStar n t ∧
+      canonicalReciprocal nu hnu a eStar n t <= 1
+
+Keep the exact canonical_reciprocal_hasDerivWithinAt theorem from v0.2.
+Restrict its within-Ici derivative to Icc 0 T and use hasDerivAt with
+Icc_mem_nhds for interior times. Within derivatives also give endpoint
+continuity. The drift remains the actual rational coefficient expression.
+
+3. MINIMAL SMOOTH-FRONT OUTPUT (EventualEnstrophyBound)
+
+  theorem smooth_front_eventual_galerkin_enstrophy_bound
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (S T : Real) (hT : 0 <= T) (hTS : T < S)
+      (U : SingularClosure.Velocity) (P : SingularClosure.Pressure)
+      (H : MethbokeAddon.WeakFouriermanB.InitialClassicalFront
+        nu S a.val U P) :
+      exists C : Real, ∀ᶠ n in Filter.atTop,
+        forall t, t in Set.Icc 0 T ->
+          canonicalEnstrophy nu hnu a n t <= C
+
+The eventual binder above uses Lean notation; all signatures remain schematic.
+This theorem must be proved from the actual physical front via the finite-
+coefficient H1 error estimate. No Galerkin bound, approximation certificate,
+finite budget, or convergence hypothesis may be added to H or to this signature.
+Handle T=0 directly if useful; the frozen root only uses positive T=1/gamma.
+Use a uniform H3/C1 reference bound for the primary source-based proof. The
+stronger full H2-convergence/all-cutoff E09 contract remains independently open.
+
+4. STOPPED CONDITION REJECTS THE EVENTUAL BOUND (DynamicalRoot)
+
+  theorem stopped_rejects_eventual_slab_bound
+      (nu : Real) (hnu : 0 < nu) (a : SmoothDatum)
+      (eStar gamma : Real) (R : Nat -> Real)
+      (hStopped : StoppedForDatum nu hnu a eStar gamma R) :
+      Not (exists C : Real, ∀ᶠ n in Filter.atTop,
+        forall t, t in Set.Icc 0 (1/gamma) ->
+          canonicalEnstrophy nu hnu a n t <= C)
+
+Intersect the three eventual properties: the slab bound, stopped-index bound,
+and R n>C. Extract one natural index. At every t in (0,1/gamma), construct
+PreHit using the closed-slab bound for all earlier s. Apply the scalar comparison
+and reciprocal bounds to contradict positivity at T. No threshold hitting
+lemma, initial uniform enstrophy bound, all-cutoff maximum or supremum is needed.
+The public StoppedForDatum and StoppedCommutatorBound definitions are unchanged.
+
+5. SAME FROZEN ROOT (DynamicalRoot then Root)
+
+  theorem EHRENFEST_OBSTRUCTION_DYNAMICAL
+      (nu : Real) (hnu : 0 < nu)
+      (hStopped : StoppedCommutatorBound nu) : Not (NSE_B nu)
+
+Assume NSE_B, use its actual global pair for the SAME datum bound by hStopped,
+set T=1/gamma and S=T+1, and invoke the existing global-to-front adapter.
+The derived eventual bound contradicts theorem 4. Proof irrelevance reconciles
+viscosity positivity proofs; no data or viscosity is changed.
+
+  theorem EHRENFEST_OBSTRUCTION
+      (nu : Real) (hnu : 0 < nu)
+      (hStopped : StoppedCommutatorBound nu) : Not (NSE_B nu) :=
+    EHRENFEST_OBSTRUCTION_DYNAMICAL nu hnu hStopped
+
+Root.lean imports only DynamicalRoot.lean. The optional All.lean imports Root,
+the full operator realization and the retained stronger milestones. Do not
+introduce a global axiom or a regularity/stability port into the public root.
+
+6. INTERNAL H1 ERROR CONTRACT
+
+Let w_N be canonical physical synthesis minus P_N U, D_N=physicalDissipation
+w_N and Z_N=physicalLaplacianSquare w_N. Prove the finite-coefficient derivative
+identity from the actual forced error equation, then a scalar bound with
+constants independent of cutoff:
+  D_N' <= C*(D_N+D_N^3)+C/(n+1)^2, D_N(0)=0.
+Continuity and a first-exit Gronwall bootstrap give D_N<=1 on the whole closed
+slab for all sufficiently large n. The existing arbitrary-field
+PHYSICAL_NONLINEAR_ABSORPTION handles w_N; the actual-NSE evolution theorem
+does not apply to this forced error. Exact new helper signatures for Fourier
+reference traces and physical coefficient adapters are implementation work.
+
+7. EVIDENCE BOUNDARY
+
+These are proposed declarations, not compiled files. Existing source anchors
+support reuse only in their literal stated scope. A future exact root audit
+checks the unchanged implication; it cannot certify E07, E08, full E09 or
+self-adjoint operator construction that lie outside its source closure.

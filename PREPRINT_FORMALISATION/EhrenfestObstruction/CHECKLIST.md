@@ -46,18 +46,20 @@ The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) conta
 
 ## Evidence and execution
 
-The [source index](ANCHOR_INDEX.md) has 47 exact anchors: 27 pinned Mathlib source references, 13 source-reviewed declarations in accepted Methlib modules, and 7 declarations with named external type/axiom audits. These statuses belong to the listed anchors, not the ten new endpoints.
+The [source index](ANCHOR_INDEX.md) has 53 exact anchors: 33 pinned source-only records (28 Mathlib, 5 native), 13 source-reviewed declarations in accepted native modules, and the same 7 named external type/axiom audits. These statuses belong to the listed anchors, not the ten new endpoints.
 
-The proposed schedule starts with literal data/reciprocal interfaces and independent E07, while E09 and the phase-space adapter proceed in parallel. E04 (unbounded generator/core) and E09 (full-slab Galerkin stability) are substantial new work. No suitable already accepted Stone/core endpoint has been located.
+The current shortest schedule is in [FAST_ROUTE.md](FAST_ROUTE.md): literal data/reciprocal interfaces, a generic slab comparison, and the E09 H1/eventual-bound helper precede the exact scalar root. E04 (unbounded generator/core) and E09 (full-slab Galerkin stability) are substantial new work. No suitable already accepted Stone/core endpoint has been located.
 
 Later acceptance requires the matching external cached compiler, exact endpoint type and theorem-level axiom audit. No local Lean, Lake or kernel execution is permitted. This documentation-only update dispatches no verification run.
 
-Machine ledger: [obligations.json](obligations.json). Exact pinned signatures: [ANCHOR_INDEX_v0_2.json](ANCHOR_INDEX_v0_2.json).
+Machine ledger: [obligations.json](obligations.json). Exact pinned signatures: [ANCHOR_INDEX_v0_3.json](ANCHOR_INDEX_v0_3.json).
 
 ## Refined module and acceptance map
 
-[LEAN_LAYOUT.md](LEAN_LAYOUT.md) proposes 26 owned modules and ten full milestone packages. [MODULE_PLAN.json](MODULE_PLAN.json) records the exact planned own-import DAG; [INTERFACES.lean.txt](INTERFACES.lean.txt) gives eight uncompiled signatures. No new Lean source is activated.
+[MODULE_PLAN.json](MODULE_PLAN.json) records 31 proposed modules, only **nine** in the frozen root closure. [FAST_ROUTE.md](FAST_ROUTE.md) and [FAST_INTERFACES.lean.txt](FAST_INTERFACES.lean.txt) are the current minimal route; [LEAN_LAYOUT.md](LEAN_LAYOUT.md) also retains the full workstream.
 
-E06 splits into an early scalar identity and its later full operator interpretation. E08 uses only the scalar part plus E07. E09 uses the existing forward canonical family, not E02's new complete-flow construction. The dynamical E10 implication can therefore be audited before E03–E06 are complete. The full workstream requires separate acceptance of the actual Heisenberg translation and canonical rate equality. Passing a helper never checks its enclosing box.
+The root no longer depends on E07's hitting theorem or E08's escape theorem. A hypothetical smooth solution gives an eventual enstrophy bound C; choose one large cutoff with R_n>C, make PreHit hold throughout the slab, and use mean value to contradict positive terminal reciprocal. E09.bound uses an H1 error bootstrap and existing arbitrary-field nonlinear absorption. It does not prove the retained full E09 H2-convergence statement.
 
-For the front-based E09 interface require `T<S`, since `InitialClassicalFront` at `S` has an open terminal edge. A global solution supplies `S=T+1`. The stronger actual closed-slab statement remains separately scoped.
+E06.scalar, E07.slab and E09.bound are separately tracked helpers. Passing a helper does not check its enclosing full milestone. E10's exact implication can pass independently of the full operator construction; complete workstream acceptance still requires all ten original boxes. Root imports only DynamicalRoot; All is an optional full bundle.
+
+The front-based bound requires T<S; the root takes T=1/gamma and S=T+1. All planned sources remain unactivated, and every checkbox remains open.

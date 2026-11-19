@@ -8,7 +8,7 @@
 | GERM-REDUCTION | `FB_nu iff (D_germ(nu) subset D_Q(nu))` | B-tier under recorded foundation interfaces; section 5 |
 | BELTRAMI | Arbitrary-amplitude finite Fourier Beltrami admission | Explicit B-tier solution; section 7 and index I02 |
 | WEAK-FOURIERMAN-B | Full finite squared Fourier budget implies global smooth continuation of the same trajectory | Accepted at `fdb515d8`, run `44566880192`; [exact evidence](../audits/material-fdb515d8/summary.json); finite budget retained |
-| EHRENFEST-OBSTRUCTION | A stopped negative-commutator bound for one fixed smooth datum implies failure of NSE-B | [Conditional B-tier derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt); [ten mid-tier steps](EhrenfestObstruction/CHECKLIST.md); [refined 26-module layout](EhrenfestObstruction/LEAN_LAYOUT.md); no new formal acceptance |
+| EHRENFEST-OBSTRUCTION | A stopped negative-commutator bound for one fixed smooth datum implies failure of NSE-B | [Conditional B-tier derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt); [ten mid-tier steps](EhrenfestObstruction/CHECKLIST.md); [nine-module root route](EhrenfestObstruction/FAST_ROUTE.md) within the preserved full workstream; no new formal acceptance |
 | UNIVERSAL-ADMISSION | `D_germ(nu) subset D_Q(nu)` | Open |
 
 The [cumulative derivation](../CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt) is the

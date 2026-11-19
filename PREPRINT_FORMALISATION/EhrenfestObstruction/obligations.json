@@ -2,10 +2,10 @@
   "schema_version": 1,
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "date": "2026-11-19",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "project_goal_changed": false,
   "fixed_project_goal": "Weak_Fourierman_B",
-  "local_target": "Refined B-tier chain and probable Lean module/layout interfaces",
+  "local_target": "Shortest source-grounded B-tier route to the unchanged conditional root",
   "root_hypothesis": "StoppedCommutatorBound nu",
   "global_custom_axiom_added": false,
   "existential_premise_proved": false,
@@ -238,7 +238,8 @@
       "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
-        "ML13"
+        "ML13",
+        "ML21"
       ],
       "new_formal_work": "Continuity and pre-hit guard, finite/empty hitting-set cases, derivative comparison without assuming a hit already exists.",
       "acceptance_gate": {
@@ -249,9 +250,12 @@
       },
       "consumes_stopped_bound_hypothesis": false,
       "planned_modules": [
-        "StoppedScalar"
+        "StoppedScalar",
+        "SlabDescent"
       ],
-      "planned_package": "EhrenfestStoppedScalar"
+      "planned_package": "EhrenfestStoppedScalar",
+      "required_for_fast_root_as_complete_milestone": false,
+      "root_required_facet": "E07.slab"
     },
     {
       "id": "E08",
@@ -282,7 +286,8 @@
       "planned_modules": [
         "StoppedFamily"
       ],
-      "planned_package": "EhrenfestStoppedFamily"
+      "planned_package": "EhrenfestStoppedFamily",
+      "required_for_fast_root_as_complete_milestone": false
     },
     {
       "id": "E09",
@@ -303,7 +308,12 @@
         "MLB14",
         "MLB17",
         "MLB19",
-        "MLB20"
+        "MLB20",
+        "FAST01",
+        "FAST02",
+        "FAST03",
+        "FAST04",
+        "FAST05"
       ],
       "new_formal_work": "New H2 residual/error estimate and first-exit Gronwall bootstrap. Existing conditional H2-budget and local bounds do not supply this full-slab implication.",
       "acceptance_gate": {
@@ -318,18 +328,25 @@
         "FourierTail",
         "SobolevProduct",
         "GalerkinError",
-        "SpectralStability"
+        "SpectralStability",
+        "SmoothReference",
+        "H1Error",
+        "EventualEnstrophyBound"
       ],
       "planned_package": "EhrenfestSpectralStability",
-      "formal_interface_refinement": "Use T<S for InitialClassicalFront nu S on the closed comparison slab [0,T]; derive actual compact Sobolev control. Full closed-slab version is a separately scoped declaration."
+      "formal_interface_refinement": "Use T<S for InitialClassicalFront nu S on the closed comparison slab [0,T]; derive actual compact Sobolev control. Full closed-slab version is a separately scoped declaration.",
+      "root_required_facet": "E09.bound",
+      "full_statement_preserved": true,
+      "new_fast_helper": "H1 error with physical nonlinear absorption and finite Fourier tail/C1 estimates; expose eventual cutoff bound only."
     },
     {
       "id": "E10",
       "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
       "existing_declaration": false,
       "dependencies": [
-        "E08",
-        "E09"
+        "E06.scalar",
+        "E07.slab",
+        "E09.bound"
       ],
       "mathematical_statement": "For nu>0, StoppedCommutatorBound nu implies not NSE_B nu; its fixed smooth datum has no smooth continuation through 1/gamma.",
       "derivation_section": "E10",
@@ -338,9 +355,10 @@
       "formal_checkbox_checked": false,
       "source_anchor_ids": [
         "MLB15",
-        "MLB16"
+        "MLB16",
+        "ML21"
       ],
-      "new_formal_work": "Literal universal-global-smooth statement and existential counterexample semantics; explicit premise argument; exact endpoint and standard-axiom audit.",
+      "new_formal_work": "Choose one cutoff under the derived eventual bound; full-slab MVT contradicts terminal positivity. Frozen implication only; full translation separately audited.",
       "acceptance_gate": {
         "matching_external_cached_compiler": false,
         "exact_endpoint_type_audit": false,
@@ -353,12 +371,6 @@
         "Root"
       ],
       "planned_package": "EhrenfestObstruction",
-      "full_workstream_acceptance_dependencies": [
-        "E05",
-        "E06",
-        "E08",
-        "E09"
-      ],
       "distinct_audit_scopes": [
         "EHRENFEST_OBSTRUCTION_DYNAMICAL",
         "NSE_HEISENBERG_TRANSLATION",
@@ -370,7 +382,7 @@
   "cutoff_minimum": 1,
   "module_plan": "MODULE_PLAN.json",
   "interface_spec": "INTERFACES.lean.txt",
-  "proposed_module_count": 26,
+  "proposed_module_count": 31,
   "implementation_activated": false,
   "dependency_facets": {
     "E06.scalar": {
@@ -398,8 +410,9 @@
     "E10.dynamical": {
       "parent": "E10",
       "dependencies": [
-        "E08",
-        "E09"
+        "E06.scalar",
+        "E07.slab",
+        "E09.bound"
       ],
       "modules": [
         "DynamicalRoot"
@@ -423,6 +436,42 @@
         "HilbertCore"
       ],
       "scope": "Dense L2 test embedding and explicit partial operator domain only; no self-adjointness or generator conclusion."
+    },
+    "E07.slab": {
+      "parent": "E07",
+      "dependencies": [],
+      "modules": [
+        "SlabDescent"
+      ],
+      "scope": "Only the generic full-slab mean-value comparison, not the stopped hitting theorem."
+    },
+    "E09.bound": {
+      "parent": "E09",
+      "dependencies": [
+        "E01.data"
+      ],
+      "modules": [
+        "ClosedSlab",
+        "SmoothReference",
+        "H1Error",
+        "EventualEnstrophyBound"
+      ],
+      "scope": "Only eventual uniform enstrophy under an actual smooth front, via H1 error; not full H2 convergence/all-cutoff stability."
     }
-  }
+  },
+  "fast_root_module_count": 9,
+  "fast_route": "FAST_ROUTE.md",
+  "fast_interfaces": "FAST_INTERFACES.lean.txt",
+  "full_workstream_acceptance_requires": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10"
+  ]
 }

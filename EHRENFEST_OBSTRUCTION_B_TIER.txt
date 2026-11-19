@@ -1,13 +1,13 @@
 DOCUMENT := EHRENFEST_OBSTRUCTION_B_TIER
 FROZEN_NAME := EHRENFEST-OBSTRUCTION
-VERSION := 0.2.0
+VERSION := 0.3.0
 DATE := 2026-11-19
 MODE := B_TIER_DERIVATION
 REPOSITORY := randogelist/Methboke
 BRANCH := main
-SOURCE_REVIEW_REVISION := c10abd8c3e97ae3bed85749f0f40d2b40f43bcba
+SOURCE_REVIEW_REVISION := 9ae4429b9c218c109bddaac2f993f1cc5bd66aa8
 MACROSCOPIC_GOAL := Weak_Fourierman_B; unchanged
-LOCAL_TARGET := refined ten-step B-tier chain and probable Lean layout
+LOCAL_TARGET := shortest identified source-grounded Lean route for the unchanged root
 STATUS := COMPLETE_CONDITIONAL_MATHEMATICAL_DERIVATION; NOT_LEAN_VERIFIED
 NEW_LOCAL_LEAN_EXECUTIONS := 0
 NEW_EXTERNAL_LEAN_RUNS := 0
@@ -365,7 +365,7 @@ standard-only policy for an unconditional root.
 6. SOURCE INDEX AND FORMALIZATION BOUNDARIES
 
 Canonical machine index:
-  PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX_v0_2.json
+  PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX_v0_3.json
 Human index:
   PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX.md
 Ten mid-tier interfaces and gates:
@@ -568,3 +568,132 @@ NEW_A_TIER_ENDPOINTS: 0. NEW_LEAN_FILES: 0. LOCAL_LEAN_EXECUTIONS: 0.
 EXTERNAL_COMPILER_RUNS_FOR_THIS_REFINEMENT: 0.
 OPEN: all new formal implementation and the stopped-condition witness.
 MAIN_GOAL: Weak_Fourierman_B unchanged, with its original finite-budget scope.
+
+13. SHORTEST ROOT: SINGLE-CUTOFF FULL-SLAB CONTRADICTION (v0.3)
+
+Sections 1--12 preserve the full mathematical program. The implementation
+order is now refined again without changing StoppedCommutatorBound or the
+frozen EHRENFEST-OBSTRUCTION implication.
+
+Assume the stopped premise. For contradiction suppose NSE_B holds and take
+its actual global smooth solution with the SAME datum. Set T=1/gamma and
+S=T+1. It supplies the actual smooth front on [0,S). It is enough to derive
+  exists C, eventually n, forall t in [0,T], e_n(t)<=C.
+Intersect this eventual statement with the stopped-index condition and
+R_n>C, which follows eventually from R_n->infinity. Choose ONE such n.
+For every t in (0,T), every earlier s satisfies e_n(s)<=C<R_n. Thus the
+literal PreHit guard holds and c_n(t)<=-gamma. The exact reciprocal identity
+v_n'=c_n and continuity on [0,T] imply, by the mean-value theorem,
+  v_n(T)<=v_n(0)-gamma*T<=1-1=0.
+But v_n(T)=(1+e_n(T)/eStar)^(-1)>0. Contradiction.
+
+This proof needs no threshold hitting-time definition, initial enstrophy bound
+uniform in cutoff, divergent supremum or finite maximum over small cutoffs.
+It uses derivatives only on (0,T); no stopped inequality at T is assumed.
+E07 and E08 remain independent stronger milestones, not root prerequisites.
+The exact pinned scalar source is exists_hasDerivAt_eq_slope in Mathlib's
+Analysis/Calculus/Deriv/MeanValue.lean:122. Keep the explicit derivative rate
+argument to avoid rewriting deriv or the interior of a closed interval.
+
+14. SHORTER E09 HELPER: H1 ERROR AND EVENTUAL ENSTROPHY
+
+Fix an actual smooth front and a strict closed subslab 0<=T<S. Choose K>=1
+controlling its H3 norm and first spatial derivatives on the slab. These
+bounds follow from the actual smooth solution; no additional datum admission
+or regularity certificate is supplied to the root.
+For physical cutoff N=n+1 set
+  v_N=P_N U, r_N=U-v_N, w_N=u_N-v_N,
+  f_N=P_N P_Leray(B(r_N,U)+B(v_N,r_N)).
+The exact finite error equation is
+  w_N'+nu A w_N+P_N P_Leray[
+    B(w_N,w_N)+B(v_N,w_N)+B(w_N,v_N)]=f_N,
+  w_N(0)=0.
+
+Existing FINITE_FOURIER_H2_L1_BOUND controls the finite coefficient l1 norm
+by H2. Applying it to vector components and first-derivative coefficients,
+with the required physical normalization, gives
+  ||v_N||_infinity+||grad v_N||_infinity<=C K.
+The existing torusSobolevMultiplierLinear_norm_le, specialized to the cutoff
+complement and the appropriate weights, yields
+  ||r_N||_H1<=C K/N.
+The elementary estimates
+  ||B(r_N,U)||_2<=||r_N||_2 ||grad U||_infinity,
+  ||B(v_N,r_N)||_2<=||v_N||_infinity ||grad r_N||_2
+therefore give ||f_N||_2<=C K^2/N. The cutoff, componentwise and physical
+adapters remain explicit new formal work; the source anchors do not already
+assert the final displayed bounds.
+
+Let D_N=||grad w_N||_2^2 and Z_N=||A w_N||_2^2. Pairing with A w_N removes
+both orthogonal projections. The self-interaction equals
+  integral convection(w_N) dot laplacian(w_N).
+PHYSICAL_NONLINEAR_ABSORPTION applies to every smooth periodic mean-zero
+field, including w_N, and bounds twice this signed integral by
+  mu Z_N+C/mu^3 D_N^3.
+Choose a positive viscosity fraction mu. Bound the two mixed terms by
+  (||grad v_N||_infinity ||w_N||_2
+   +||v_N||_infinity ||grad w_N||_2) sqrt(Z_N).
+Mean-zero Poincare bounds ||w_N||_2 by C sqrt(D_N). Young's inequality absorbs
+these mixed terms and ||f_N||_2 sqrt(Z_N) into the remaining viscosity budget.
+With constants independent of N, this yields
+  D_N'<=C_(nu,K)(D_N+D_N^3)+C_(nu,K)/N^2,  D_N(0)=0.
+While D_N<=1, Gronwall gives D_N(t)<=C_(nu,K,T)/N^2. For N sufficiently large
+this is strictly below one, so continuity excludes a first error-bootstrap
+exit at D_N=1. Hence the bound holds throughout [0,T]. Consequently
+  e_N(u_N(t)) <= ||grad v_N(t)||_2^2+D_N(t)<=K^2+1
+for all sufficiently large N. This is the eventual bound used in section 13.
+The internal error bootstrap is distinct from a hit of the stopped threshold
+R_N. No full H2-error convergence or all-small-cutoff maximum is required.
+
+For formal calculus use the finite weighted coefficient sum defining D_N.
+Derive each reference coefficient derivative from the actual smooth PDE and
+its spatial integral, then transfer the finite pairing by Parseval. This
+avoids a general Sobolev-valued time-derivative API. The actual-NSE enstrophy
+identity alone cannot be applied to the forced error w_N; the error identity
+must be proved. The arbitrary-field absorption theorem is reusable precisely
+because it does not assume its input solves NSE.
+
+A purely mathematical H2-reference alternative uses H2->Linfinity,
+H1->L6 and gradient-H2->L3 to obtain the same L2 mixed-product estimates.
+The primary source-grounded route uses the located finite Fourier l1 bound
+and smooth H3 reference to minimize new embedding infrastructure. This does
+not strengthen the frozen datum or stopped premise: the reference is the
+hypothetical global smooth solution used only in the contradiction.
+
+15. ROOT IMPORTS, EARLY CORE ALGEBRA AND RETAINED FULL SCOPES
+
+The planned scalar closure contains nine modules:
+  Definitions, ReciprocalDrift, SlabDescent, ClosedSlab, SmoothReference,
+  H1Error, EventualEnstrophyBound, DynamicalRoot, Root.
+Root imports only DynamicalRoot. The optional All bundle collects Root,
+the full operator interpretation, stopped hitting/escape and full H2 stability.
+The full proposed inventory is 31 modules because it preserves both the shorter
+proof and the original stronger milestones. Only a coherent minimal closure
+should be activated for the first root verification, not all planned sources.
+
+The first independent exact QM algebra statement can be even earlier than
+the flow construction. On native smooth test functions put
+  H0 psi=-i*hbar*(D psi[b]+a psi)
+for any smooth zero-order coefficient a. The product rule proves
+  (i/hbar)[H0,M_g]=M_(Dg[b]);
+the zero-order coefficient cancels. Specialize a=div(b)/2 later. This proves
+an exact common-core algebra identity, not self-adjointness or a unitary group.
+The full E02--E06 domain/core/flow/interpretation scope remains unchanged.
+
+E06.scalar, E07.slab and E09.bound are separately tracked helpers. E10's exact
+implication may pass before the other full milestones. Full workstream
+acceptance still requires all ten original boxes; the full E09 H2-convergence
+statement is retained rather than relabeled as proved by its weaker helper.
+FAST_ROUTE.md and FAST_INTERFACES.lean.txt are the current minimal contracts;
+MODULE_PLAN.json is the authoritative proposed DAG. No Lean source is added.
+
+B_TIER_STATUS: written shorter proof complete under the stated actual smooth
+front; exact scalar root and stopped premise unchanged.
+FORMAL_STATUS: no new Lean endpoint accepted, no local/external Lean run.
+OPEN: implementation of the new adapters/error/bootstrap and all operator
+obligations; no witness to StoppedCommutatorBound is constructed.
+FASTEST means shortest source-grounded proof route identified here, not a
+measured compiler/runtime optimum or proof of minimality over all designs.
+
+SOURCE_INDEX_v0.3: 53 anchors, including 28 Mathlib and 25 native records;
+33 source-only, 13 accepted-module source reviews, 7 retained named audits.
+Six new shortest-route anchors are source-only and confer no new acceptance.
