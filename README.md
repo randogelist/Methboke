@@ -6,44 +6,33 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
 
 ## Current state
 
-- **Weak_Fourierman_B is now a repository workstream:** the
-  [workflow plan](PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md),
-  [B-tier derivation](Weak_Fourierman_B_B_TIER.txt), ten-obligation register and
-  four exact source modules are registered with 57 new declaration audits.
-  Six subsequent datum-admission and finite-front comparison modules bring the
-  accepted second run to24 packages,120 declarations and the QFB cutout.
-  **WFB-01 and WFB-02 are externally verified** at `0402aa37`;
-  [matching evidence](audits/material-0402aa37/summary.json) includes all 98 fresh
-  declaration audits, 283 reused modules and eight freshly compiled additions.
-  Eight contextual obligations and the exact root remain open.
-- **Chat-only progress signs:** `<->` is issued for a complete verified WFB
-  obligation or root during an active review. No scheduled monitoring.
+- **Latest accepted package:** [run 44540921991](https://github.com/randogelist/Methboke/actions/runs/44540921991)
+  at `67f766330918577e714e326be82eebfe29f5f2f7` verified 303 source modules,
+  24 endpoint packages and all 120 declaration audits plus the QFB cutout.
+  It reused 291 objects and compiled 12 additions. The
+  [matching evidence](audits/material-67f7663/summary.json) accepts actual
+  smooth-datum admission and finite-front Leray–Hopf identification.
+- **WFB-01 and WFB-02 are accepted** at `0402aa37` with
+  [matching evidence](audits/material-0402aa37/summary.json). The complete WFB
+  root and the remaining eight contextual obligations remain unresolved;
+  accepted helpers retain their exact scope.
+- **The fixed R0 finite-cap roots have complete candidate source proofs.**
+  [Run 44543421609](https://github.com/randogelist/Methboke/actions/runs/44543421609)
+  is checking `0ddd2d67`: 317 modules, 31 packages and 154 declaration audits
+  plus the cutout. Classical and analytic admission retain an actual finite cap
+  strictly beyond the QFB cutoff as a premise. Exact external acceptance is
+  pending; universal analytic germ extension R1 remains open.
+- **Cached external verification remains mandatory.** Explicit current cache
+  rejection may select recovery; proof, audit, static and publication failures
+  preserve the accepted baseline. Independent implementation may continue
+  while an exact commit is checked. No local Lean or scheduled monitor is used.
+- **Chat-only progress signs:** `<->` is reserved for an accepted complete WFB
+  contextual obligation or exact root, not a helper pass or CI status alone.
 
-- **Native QFB source is present:** 74 QFB modules and 195 required
-  SingularClosure modules, preserved at their pinned source bytes.
-- **Native binary reuse passed at `66052f4`:** all 283 project objects were
-  reused; all 14 endpoint audits covering 41 declarations and the QFB cutout
-  passed freshly with standard axioms only in [the 4m59s run](https://github.com/randogelist/Methboke/actions/runs/44080437531).
-  All 139 control tests passed. The verified project archive is 25,391,076 bytes;
-  [matching evidence](https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291)
-  belongs to that exact source and attempt. Existing GHCR images remain available.
-- **Full recovery passed twice at `b1178b8`:** the 32 GiB disk guard, all 147
-  controls, 283 fresh module builds, every fresh audit and replacement publication
-  passed. [Attempt 2](https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2)
-  took 35m07s. Its red fast job was an intentional drill trigger, not a recovery crash.
-- **Normal CI routing now distinguishes cache failures:** commit-message drill triggers are
-  removed. Normal runs try the cached worker; manual `force_rebuild=true` selects
-  recovery directly. Only explicit current cache rejection may select automatic recovery.
-  Proof, audit, static and publication failures preserve the accepted baseline.
-  Docker Hub work is paused. Subsequent read-only job metadata shows fast-job
-  success and skipped recovery at [44126844972](https://github.com/randogelist/Methboke/actions/runs/44126844972)
-  on `43530b7`; its retained report and all 15 audit-log hashes are now checked in
-  [the baseline review](audits/material-43530b7/summary.json).
-- **Main consolidation is complete:** the candidate history is preserved and
-  `Clay-Admission-Candidate-01` has been retired.
-- **The finite-cap root is now prepared for external verification.** The
-  complete classical and analytic admission chain has source proofs; its
-  actual finite-cap premise remains explicit. Universal germ extension remains open.
+The 269 pinned vendor modules remain unchanged. Main consolidation is complete;
+the retired `Clay-Admission-Candidate-01` branch history is preserved. Docker Hub
+work remains paused. Earlier infrastructure measurements are retained below
+and in [INDEX-WORTHY.txt](INDEX-WORTHY.txt).
 
 ## Fixed scope and useful identities
 
@@ -63,12 +52,12 @@ insufficient.
 
 | Statement | Exact status |
 |---|---|
-| Finite analytic cylinder gives strong initial trace and finite Serrin norm | B-tier compactness argument |
-| `D_Q(nu) subset R_nu` | B-tier, using the stated LH, relative-energy and QFB interfaces |
+| Finite analytic cylinder gives strong initial trace and finite Serrin norm | B-tier argument and complete candidate proofs; R0 verification pending |
+| `D_Q(nu) subset R_nu` | B-tier; classical/analytic finite-cap proof sources prepared, exact external acceptance pending |
 | Arbitrary-amplitude finite Fourier Beltrami data belong to `D_Q(nu)` | Explicit B-tier solution; no QFB premise |
 | `FB_nu <-> (D_germ(nu) subset D_Q(nu))` | B-tier reduction under the recorded foundation interfaces |
 | `D_germ(nu) subset D_Q(nu)` universally | Open continuation obligation |
-| New finite-cap root in Lean | Not yet formalized or externally certified |
+| New finite-cap roots in Lean | Complete candidate proof sources; matching external acceptance pending in run 44543421609 |
 
 For a Beltrami trigonometric polynomial, `curl a = mu*a`, the exact solution
 `U(t) = exp(-nu*mu^2*t)*a` is jointly analytic for every real time. Its pressure
@@ -110,6 +99,8 @@ verified binary archives during the pilot. The manual `registry` backend retains
 passed containers in `ghcr.io/randogelist/methboke-material`; prior images remain
 available. Cache misses and warm measurements are reported distinctly.
 
+### Retained historical observations
+
 The accepted first baseline was a cold seed: both caches missed, all 283 own
 modules were compiled, and official Mathlib objects were restored. The job took
 37m51s; its driver took 1479.602s, including 1293.421s compiling own modules and
@@ -134,6 +125,8 @@ only its wrapper rebuilt. Its unchanged manual rerun passed in 8m13s with all
 283 objects reused. These are GHCR measurements; the original empty-commit
 timing remains unmeasured because its pending run was superseded.
 
+### Current verification behavior
+
 Pushes default to `binary_cache`; manual `backend=registry` retains the GHCR
 path. The fast worker requires compatible dependency and project caches with a
 prior PASS report, compiles amendments and runs all audits freshly. An explicit current-run rejection of missing or unusable cached objects may
@@ -155,10 +148,12 @@ Actions caches are the current restoration input. Artifact expiration alone does
 not require rebuilding while compatible caches remain. If caches are unavailable,
 recovery recreates them and supplies a fresh archive. No binary is committed to Git
 and no durable dependency-release backup is claimed. Both binary workers avoid
-Docker operations. Full recovery passed twice; subsequent fast reuse of its
-replacement caches remains to be measured.
+Docker operations. Full recovery passed twice at the historical `b1178b8`
+baseline. Later accepted cached runs, including `67f7663`, record their own
+object-reuse counts and fresh audit evidence.
 
-The first native binary round passed in 4m59s; repeat/comment rounds remain pending.
+The historical first native binary round passed in 4m59s. Its scope differs
+from later GHCR comment benchmarks and current expanded proof packages.
 [The first recovery drill](https://github.com/randogelist/Methboke/actions/runs/44085694998)
 failed its disk preflight and correctly failed the final acceptance gate. No new
 compiled package was published. The repair applies a step-local 32 GiB cold budget
@@ -193,35 +188,35 @@ proof of the missing analytic extension. The new root has **no established
 unconditional closure**.
 
 
-## Current WFB migration boundary
+## Current mathematical boundary
 
-The WFB B-tier chain derives global regularity of the same trajectory from a
-finite full squared Fourier budget; it does not prove that budget for every
-datum. See [the exact cumulative statement](Weak_Fourierman_B_B_TIER.txt).
-The active source layer preserves all four candidate proof files, the 269 vendor
-modules and dependency pins. A versioned adapter reconstructs legacy receipt
-identities and verifies restored object bytes before reuse; all audits run freshly.
-The first activation passed externally with 183 control tests, all 283 baseline
-objects reused, and all 98 declaration audits freshly accepted. The subsequent
-datum-admission helper still needs its matching verification.
+The [WFB B-tier chain](Weak_Fourierman_B_B_TIER.txt) derives global regularity of
+the same trajectory from a finite full squared Fourier budget. It does not prove
+that budget for every datum. Its two Fourier-to-Serrin bridges are accepted,
+and the second accepted layer supplies smooth-datum admission and genuine
+finite-front comparison with the original weak path. The globally smooth
+object used in weak testing is a constructed test; it is not an assumed global
+NSE solution.
 
-The next formal obstruction is physical periodic H1 local existence with a
-cutoff-independent norm-controlled lifespan. Existing Galerkin existence does
-not provide it. A separate seven-declaration smooth-datum admission helper is
-[registered for external verification](PREPRINT_FORMALISATION/WeakFouriermanB/next/REVIEW.md).
-The exact WFB and finite-cap roots remain unverified; the fixed goal is unchanged.
+Physical periodic H1 local existence with a norm-controlled lifespan remains
+the next WFB obstruction. Existing fixed-cutoff Galerkin existence does not
+supply it. The maximal-trajectory, continuation and exact WFB-root obligations
+remain separate from the accepted comparison helpers.
 
-The next prepared layer identifies an actual finite NSE front with the original
-Leray–Hopf path under compact Serrin bounds (or the accepted Fourier-budget
-criterion). Its global object is a smooth weak test constructed by changing
-time outside the relevant interval; it is not an assumed global NSE solution.
-These22 additional declarations passed at67f7663;
-[matching evidence](audits/material-67f7663/summary.json) covers all120 fresh
-audits and291 reused objects, with12 additions compiled.
+The R0 layer now under verification derives initial trace and compact Serrin
+bounds from an actual admitted front, identifies the original weak path,
+proves velocity and normalized-pressure agreement with its QFB tail, and
+constructs a global smooth splice. The classical and analytic root proofs are
+present in `Material/MethbokeAddon/WeakFouriermanB/`; matching external
+acceptance remains pending. No arbitrary-data cap or universal germ-to-cap
+extension is asserted.
 
-The next R0 verification covers34 additional declarations and the exact
-classical/analytic finite-cap admission roots:317 modules,31 packages,154 audits
-plus cutout. The proof derives the initial trace and compact Serrin bounds,
-identifies one original weak path, derives velocity and normalized-pressure
-agreement with its QFB tail, and constructs the global smooth splice.
-No arbitrary-data cap or universal germ-to-cap extension is asserted.
+### R0 compilation feedback and exact data-class adapter
+
+[Run44543421609](https://github.com/randogelist/Methboke/actions/runs/44543421609)
+reused303 accepted modules but stopped at two syntactic rewrite matches in
+gluing and pressure uniqueness. Both source corrections preserve every statement.
+No root audits or acceptance followed; recovery was correctly skipped.
+The next verification also includes the literal two-sided analytic NSE cap
+and exact `D_Q(nu) subset R_nu` theorem, with the zero branch handled explicitly.
+Prepared scope:321 modules,33 packages,161 declarations pluscutout.

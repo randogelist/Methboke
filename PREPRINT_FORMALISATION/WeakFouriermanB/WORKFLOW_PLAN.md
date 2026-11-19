@@ -247,3 +247,8 @@ R0 packages and34 declarations, including exact classical and analytic finitecap
 admission roots. Scope317 modules/31 packages/154 audits plus cutout. Actualcap
 admission remains explicit; WFB-03 and R1 are not discharged. All initial
 compiler/dependency/Lake/CI identities and passed source bytes are preserved.
+
+The first R0 run0ddd2d67 failed before audits on two syntactic rewrites.
+Corrections and the literal D_Q data-class adapter are prepared for321 modules,
+33 packages and161 declarations pluscutout. The303-module accepted baseline
+remains intact; no recovery/full rebuild was selected by the proof failure.

@@ -89,6 +89,7 @@ theorem normalized_pressure_eq_of_gradient_eq
   have hpD : Differentiable ℝ p := hp.differentiable (by simp)
   have hqD : Differentiable ℝ q := hq.differentiable (by simp)
   have hzero (x : Vec) : fderiv ℝ (fun y : Vec => p y - q y) x = 0 := by
+    change fderiv ℝ (p - q) x = 0
     rw [fderiv_sub (hpD x) (hqD x),
       scalar_fderiv_eq_of_gradient_eq (hgrad x), sub_self]
   have hconstant : (fun x : Vec => p x - q x) =

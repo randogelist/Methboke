@@ -161,3 +161,8 @@ uniqueness, finite-cap gluing/overlap, initial-front admission, and the classica
 and analytic finite-cap roots. Their34 public declarations have explicit type
 assertions and fresh axiom audits. Root admission is a real finite solution
 premise; universal extension and arbitrary-data regularity remain outside scope.
+
+Next R0 recheck:321 modules/33 packages/161 declaration audits pluscutout.
+The two source rewrite failures at0ddd2d67 are corrected without statement or
+driver changes. Literal two-sided analytic-cap and D_Q subset R_nu packages
+are included. All root acceptance remains pending matching external evidence.

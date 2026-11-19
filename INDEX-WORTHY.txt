@@ -1,8 +1,15 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
 DATE = 2026-11-19
 WORKING_BRANCH = main
+LATEST_ACCEPTED_PACKAGE = 67f766330918577e714e326be82eebfe29f5f2f7
+LATEST_ACCEPTED_RUN = 44540921991
+LATEST_ACCEPTED_SCOPE = 303 modules; 24 packages; 120 declarations plus QFB cutout
+PENDING_R0_RUN = 44543421609 at 0ddd2d67
+PENDING_R0_SCOPE = 317 modules; 31 packages; 154 declarations plus QFB cutout
+PENDING_R0_STATUS = COMPLETE_CANDIDATE_SOURCES; MATCHING_ACCEPTANCE_PENDING
 
 I01 ORIGINAL_QFB_COMPOSED
+ROLE: RETAINED_SOURCE_SPECIFIC_BASELINE; later package evidence is recorded separately.
 STATUS: MATCHING_METHBOKE_EXTERNAL_LEAN_PASS_AT_b1178b8_ATTEMPT_2; standard axioms only.
 EXACT DECLARATION:
   QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement
@@ -38,6 +45,7 @@ explicit differentiation argument. No QFB or admission premise required.
 BOUNDARY: no compiled theorem is claimed; no universal input class follows.
 
 I03 MATERIAL_NATIVE_PACKAGE_ACCEPTANCE
+ROLE: HISTORICAL_RECOVERY_BASELINE; not the latest accepted package scope.
 STATUS: EXTERNAL_COMPILER_TYPE_AXIOM_PASS_AT_b1178b8_ATTEMPT_2.
 SCOPE: 283 own modules (269 native plus 14 endpoint wrappers), all freshly
   compiled with zero reused modules; 14 fresh endpoint audit files covering 41
@@ -64,8 +72,9 @@ RETAINED GHCR BASE: 68e9f8a attempt 2, run 44073883524, 493s; image
   ghcr.io/randogelist/methboke-material@sha256:c9263b3679086bc2874e1cd5ecaa721be41a02d28dfbf1abea070bb9a2d17ba4
 BOUNDARY: acceptance of selected existing declarations and their packaging.
   This is not a new finite-cap or universal regularity theorem. Full recovery
-  and the 32 GiB disk guard are verified; revised normal routing and fast reuse
-  of recovered caches remain pending external evidence.
+  and the 32 GiB disk guard were verified at this historical baseline. Later
+  cached activation and expanded-package evidence are recorded in I05-I07;
+  this older receipt is not presented as current pending work.
 
 I04 WEAK_FOURIERMAN_B_CONDITIONAL_CRITERION
 STATUS: B_TIER; cumulative mathematical composition, no new Lean-root pass.
@@ -76,14 +85,18 @@ same trajectory, including normalized pressure. The finite budget is explicit.
 SOURCE/EVIDENCE: Weak_Fourierman_B_B_TIER.txt v0.4.0; indexed Q01/Q09 and
 cited classical periodic H1 local theory, plus recorded enstrophy/comparison/
 pressure-gluing derivations. Prepared source and workflow provenance are in
-PREPRINT_FORMALISATION/WeakFouriermanB/. Four source modules and57 audits are
-now active, pending matching external compiler/type/axiom evidence.
-BOUNDARY: no universal budget finiteness or analytic-germ extension; WFB-01 and WFB-02 now have matching A-tier evidence (I05/I06); eight
-contextual obligations and the root remain pending. Chat-only
+PREPRINT_FORMALISATION/WeakFouriermanB/. The first four modules and 57 added
+audits were accepted at 0402aa37 (I05/I06). Six subsequent modules and 22 added
+declarations were accepted at 67f7663 (I07). The complete WFB root remains
+unverified; these accepted components do not establish it.
+BOUNDARY: no universal budget finiteness or analytic-germ extension. WFB-01
+and WFB-02 have matching A-tier evidence (I05/I06); eight contextual
+obligations and the root remain pending. Chat-only
 <-> is emitted only for an actually accepted whole obligation or exact root.
 
 NOT INDEXED AS UNCONDITIONAL RESULTS:
-- New finite-cap Lean root: not formalized/certified.
+- New classical/analytic finite-cap Lean roots: complete candidate proofs
+  registered; matching acceptance pending in run 44543421609 at 0ddd2d67.
 - Weak_Fourierman_B Lean root and remaining eight contextual obligations: not certified.
 - Universal D_germ(nu) subset D_Q(nu): open.
 - Material run 44046225468 at 670de211: all 283 local modules compiled,
@@ -105,22 +118,22 @@ Other conditional B-tier chains and their premises remain in GPT.txt and
 CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt rather than the unconditional register.
 
 
-BASELINE REVIEW FOR WFB ACTIVATION (not a new WFB result):
+HISTORICAL BASELINE REVIEW FOR WFB ACTIVATION (not a new WFB result):
 Run44126844972 at43530b7 reused283 modules and ran14 fresh endpoint audits
 covering41 declarations plus QFB cutout. Evidence ZIP SHA256
 06c20d84dfd6f0e3eace7165f8d438926951072f89772554762a3c9d579ae78e;
 report SHA256 b7cb46426242f78186d52c13c3394bd8f8566640b1ba392aeb127e99824f83e7.
 All15 retained audit-log hashes checked; source/type/axiom scope is recorded in
-audits/material-43530b7/summary.json. Actual object-byte validation remains an
-external activation gate. New WFB scope291 modules/98 audits is not yet accepted.
-WFB-03: physical cutoff-uniform H1 local existence still missing.
-Independent smooth-datum admission helper: prepared only, not WFB-08 closure.
+audits/material-43530b7/summary.json. Object-byte reuse was subsequently
+validated during accepted activation at 0402aa37; its scope was 291 modules
+and 98 declaration audits plus the cutout. See I05/I06.
 
-PREPARED SECOND LAYER (not an indexed theorem):
-WFBSmoothDatum adds7 explicit audits for actual input admission and original
-Q01 weak existence. It retains all initial four WFB source bytes and requires
-external verification; full next scope293 modules/19 packages/105 declarations
-plus cutout. It does not complete WFB-08 or remove the WFB-03 obstruction.
+HISTORICAL SECOND-LAYER PREPARATION SCOPE:
+The initial SmoothDatum-only plan was 293 modules/19 packages/105 declarations.
+It expanded to six additions and 303 modules/24 packages/120 declarations,
+accepted at 67f7663 (I07). The interim plan was not a separate accepted run.
+Smooth-datum admission is accepted within that expanded scope; it alone does
+not complete WFB-08 or remove the WFB-03 local-existence obstruction.
 
 I05 WFB_LOCAL_FRONT_FOURIER_TO_SERRIN
 STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_0402aa37; standard axioms only.
@@ -141,12 +154,6 @@ SOURCE: Material/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean
 EVIDENCE: audits/material-0402aa37/summary.json; run44537934256.
 The exact WFB root and universal analytic admission remain unverified.
 
-SECOND-LAYER SOURCE REGISTER (not accepted result):
-Six additions prepare22 declarations for actual datum admission and finite-front
-weak/strong identification. Verification scope303 modules/24 packages/120
-declarations plus cutout; every previous audit is retained. FixedR0 pressure
-and gluing and WFB-03 local-existence obligations remain separate.
-
 I07 ACTUAL_FINITE_FRONT_LERAY_HOPF_IDENTIFICATION
 STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_67f7663; standard axioms only.
 DECLARATION: MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
@@ -158,5 +165,20 @@ SOURCE: Material/MethbokeAddon/WeakFouriermanB/LocalFrontIdentification.lean
 EVIDENCE: audits/material-67f7663/summary.json; run44540921991.
 BOUNDARY: does not supply local strong existence, maximal trajectory or root.
 
-R0 root source registration:34 new declarations,317 modules/31 packages/154
-audits plus cutout; prepared, not yet indexed as an accepted theorem.
+R0 ROOT CANDIDATE REGISTER (not yet an accepted theorem):
+Seven packages add 34 declarations: full scope 317 modules/31 packages/154
+fresh declaration audits plus QFB cutout. Run 44543421609 at 0ddd2d67 is
+checking the registered classical and analytic finite-cap source proofs.
+PRINCIPAL CANDIDATES:
+  MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
+  MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission
+  MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff
+BOUNDARY: an actual finite cap strictly beyond the QFB cutoff remains an
+explicit premise. Exact matching external acceptance is pending. Universal
+analytic-germ extension R1 and the exact WFB root remain unresolved.
+
+R0 verification attempt0ddd2d67/run44543421609: FAILED before audits on two
+syntactic rewrite matches, now corrected in prepared sources.303 accepted
+objects reused; no R0 theorem promotion. Evidence: audits/material-0ddd2d67-failed.
+Next exact scope321/33/161 includes literal two-sided analytic cap and D_Q subset
+R_nu with explicit zero branch. These remain unaccepted candidates.

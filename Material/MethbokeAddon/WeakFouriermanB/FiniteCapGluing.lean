@@ -55,7 +55,9 @@ theorem finiteCapSplice_eventually_left {E : Type*}
     (η : ℝ) (f g : ℝ → E) {t : ℝ} (ht : t < η) :
     finiteCapSplice η f g =ᶠ[𝓝 t] f := by
   filter_upwards [Iio_mem_nhds ht] with r hr
-  simp only [finiteCapSplice, if_pos hr]
+  change r < η at hr
+  change (if r < η then f r else g r) = f r
+  exact if_pos hr
 
 /-- On the overlap and to its right the splice is locally the tail, including
 at the joining time. The conclusion is a neighborhood equality of functions.

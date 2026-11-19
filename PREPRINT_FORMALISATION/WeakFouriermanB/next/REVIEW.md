@@ -143,3 +143,47 @@ It assumes only `SmoothSigmaZero a` and, for weak existence, `nu > 0`.
 
 Status: **prepared candidate; no new A-tier declaration, complete obligation,
 root closure, or chat sign**.
+
+
+## Frozen R0 data-class registration
+
+`AnalyticTwoSidedCap.lean` and `R0DataAdmission.lean` are now registered in
+`Material` as `R0AnalyticTwoSidedCap` and `R0DataAdmission`. Their five and two
+public declarations each have an independent exact-signature assertion and
+fresh theorem-level type/axiom audit. Candidate and active proof bytes match.
+
+The full planned verification scope is 321 modules, 33 endpoint packages and
+161 declaration audits plus the QFB cutout. Previous sources, declarations,
+compiler/dependency pins and driver behavior are preserved. Registration is
+source preparation only; these additions require their own matching external
+cached compiler and audit evidence. No local Lean or executable tests ran.
+
+The first module states actual NSE on the full two-sided analytic cylinder
+using the ordinary time derivative. It derives equality with the physical
+forward derivative for nonnegative times, including zero, and applies the
+prepared finite-cap root. The second module defines the frozen classes with
+the explicit zero branch and the genuine nonzero double-cutoff cap. Its
+`D_Q_subset_R_nu` theorem proves the R0 inclusion from those premises; it does
+not assert that arbitrary smooth data or every local analytic germ belongs
+to `D_Q`. Universal extension R1 remains unresolved.
+
+
+## External R0 check: localized rewrite repairs
+
+Run `44543421609` at `0ddd2d67` ended with two proof rewrite failures in
+`FiniteCapGluing` and `PressureUniqueness`. This run did not accept the R0
+package; the accepted baseline remains `67f7663`, with 303 modules,
+24 packages and 120 declaration audits plus the cutout.
+
+The affected proof bodies were repaired in both candidate and active sources
+without changing theorem signatures or premises. The splice-left proof now
+makes its pointwise conditional explicit before applying `if_pos`. The
+pressure repair addresses the reported rewrite match. The repaired source
+hashes are recorded in `Material/owned-sources.json`, and every affected
+dependency closure and index fingerprint has been synchronized.
+
+The next intended scope includes the two newly registered frozen data-class
+adapters: 321 modules, 33 packages and 161 declaration audits plus cutout.
+Repairs and additions remain candidates until matching external cached
+compilation and complete fresh audits pass. No local Lean or executable
+control tests ran during these repairs or metadata synchronization.

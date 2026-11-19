@@ -1,0 +1,145 @@
+DOCUMENT := FINITE_CAP_ADMISSION_A_TIER_REGISTER
+DATE := 2026-11-19
+ROOT_STATUS := PENDING_MATCHING_EXTERNAL_EVIDENCE_REVIEW
+A_TIER_ACCEPTANCE := NOT_YET_ESTABLISHED
+LOCAL_LEAN_EXECUTIONS := 0
+
+This is a statement and evidence template for the prepared R0 root. The file
+name does not assert acceptance. Fill the pending fields only after checking
+the matching external compiler, declaration types, axioms and source identity.
+
+1. EXACT ROOT STATEMENTS
+
+Namespace: MethbokeAddon.WeakFouriermanB.
+Source: Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean.
+
+theorem finite_cap_classical_admission
+    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (hν : 0 < ν) (hcap : cutoff (criticalL2Representative a) ν < T)
+    (H : InitialClassicalFront ν T a u p) :
+    ∃ (U : Velocity) (P : Pressure), GlobalSmoothNSE ν a U P ∧
+      ∀ r ∈ Ico (0 : ℝ) T, U r = u r ∧ P r = p r
+
+InitialClassicalFront has exactly these physical premises:
+  velocity_smooth: joint ContDiffOn ℝ ∞ of (t,x) ↦ u t x on 0 ≤ t < T;
+  pressure_smooth: joint ContDiffOn ℝ ∞ of (t,x) ↦ p t x on 0 ≤ t < T;
+  velocity_periodic: ∀ t ∈ Ico 0 T, SpatialPeriodic (u t);
+  pressure_periodic: ∀ t ∈ Ico 0 T, SpatialPeriodic (p t);
+  divergence_free: ∀ t ∈ Ico 0 T, ∀ x, divergence (u t) x = 0;
+  equation: ∀ t ∈ Ico 0 T, ∀ x,
+    timeDerivative u t x + convection (u t) x + SingularClosure.gradient (p t) x
+      = ν • laplacian (u t) x;
+  initial: u 0 = a;
+  velocity_mean_zero: ∀ t ∈ Ico 0 T, MeanZero (u t);
+  pressure_mean_zero: ∀ t ∈ Ico 0 T, PressureMeanZero (p t).
+Here the joint domain is {z : ℝ × Vec | 0 ≤ z.1 ∧ z.1 < T}.
+No strong initial trace, Serrin bound, weak-path identification, tail overlap
+or continuation conclusion is assumed as a field. T > 0 and SmoothSigmaZero a
+are derived from these hypotheses and the strict cutoff inequality.
+
+Source: Material/MethbokeAddon/WeakFouriermanB/AnalyticCapAdmission.lean.
+
+theorem analytic_forward_cap_admission
+    (ν ε T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (hν : 0 < ν) (hε : 0 < ε)
+    (hcap : cutoff (criticalL2Representative a) ν < T)
+    (H : AnalyticForwardNSECap ν ε T a u p) :
+    ∃ (U : Velocity) (P : Pressure), GlobalSmoothNSE ν a U P ∧
+      ∀ r ∈ Ico (0 : ℝ) T, U r = u r ∧ P r = p r
+
+theorem analytic_forward_cap_admission_physical_cutoff
+    (ν ε T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (hν : 0 < ν) (hε : 0 < ε)
+    (hcap : (physicalEnergy a) ^ 2 / (8 * Real.pi ^ 2 * ν ^ 5) < T)
+    (H : AnalyticForwardNSECap ν ε T a u p) :
+    ∃ (U : Velocity) (P : Pressure), GlobalSmoothNSE ν a U P ∧
+      ∀ r ∈ Ico (0 : ℝ) T, U r = u r ∧ P r = p r
+
+AnalyticForwardNSECap replaces the two smoothness premises above by
+  AnalyticOnNhd ℝ (fun z : ℝ × Vec => u z.1 z.2) (analyticCapSpacetime ε T),
+  AnalyticOnNhd ℝ (fun z : ℝ × Vec => p z.1 z.2) (analyticCapSpacetime ε T),
+where analyticCapSpacetime ε T = {z | -ε < z.1 ∧ z.1 < T}.
+It retains exactly the seven periodicity, divergence, equation, initial-value
+and mean-zero premises above on Ico 0 T. Analytic regularity is asserted
+through zero; the physical equation is asserted only at nonnegative times.
+The imported timeDerivative is within Ici 0. This interface does not assert
+an ordinary negative-time NSE equation or identify that derivative there.
+
+2. PHYSICAL CUTOFF AND PRESERVED SOLUTION
+
+Domain: R^3/Z^3, represented by periodic fields on the unit cube; volume one.
+Viscosity ν > 0; force zero. Pressure is normalized by zero spatial mean.
+E(a) := physicalEnergy a = integral_unitCube ||a(x)||^2 dx, with no 1/2.
+For the derived smooth datum, smooth_datum_representative_norm_sq proves
+  ||criticalL2Representative a||^2 = E(a).
+smooth_datum_cutoff therefore proves the literal physical normalization
+  τQ = cutoff (criticalL2Representative a) ν
+     = ||a||_L2^4 / (8*pi^2*ν^5) = E(a)^2 / (8*pi^2*ν^5).
+
+The premise is a genuine existing cap with T > τQ. The usual nonzero-data
+choice TQ = 2*τQ is a special case. T = τQ is not included, and no value or
+trace at the open endpoint T is required. The zero case in the set-theoretic
+definition D_Q = {0} union the nonzero cap class is separate from that choice.
+
+The conclusion is GlobalSmoothNSE with the original datum and equality of
+both actual fields at EVERY r in [0,T): U r = u r and P r = p r. It preserves
+the normalized pressure itself, not merely its gradient or a pressure class.
+The source chain derives initial trace and compact-cylinder Serrin bounds,
+identifies an original Leray-Hopf path, invokes Q09 at δ=(τQ+T)/2, derives
+pointwise velocity and normalized-pressure equality on the open overlap, and
+glues the smooth pairs. The cap and the strict overlap remain explicit inputs.
+
+3. EXACT EXTERNAL EVIDENCE -- ALL NEW ACCEPTANCE FIELDS PENDING
+
+REPOSITORY := randogelist/Methboke
+TESTED_COMMIT_ABBREVIATION := 0ddd2d67
+TESTED_FULL_COMMIT := PENDING_SOURCE_REPORT_MATCH
+RUN := https://github.com/randogelist/Methboke/actions/runs/44543421609
+RUN_ATTEMPT := PENDING
+RUN_CONCLUSION := PENDING_REVIEW
+ARTIFACT_URL := PENDING
+ARTIFACT_SHA256 := PENDING
+REPORT_SHA256 := PENDING
+RETAINED_EVIDENCE_PATH := PENDING
+SOURCE_MANIFEST_AND_REQUIRED_ENDPOINT_MATCH := PENDING
+DECLARED_SCOPE := 317 modules; 31 endpoint packages; 154 declarations plus QFB cutout
+VERIFIED_SCOPE := PENDING
+EXPECTED_COMPILER := leanprover/lean4:v4.33.0
+OBSERVED_COMPILER_AND_PLATFORM := PENDING
+EXPECTED_MATHLIB := db584cd6d46c92f209a44c0f1c829460d327499d
+EXPECTED_QFB_VENDOR := randogelist/Methlib@96033dd69c994bec337a87369a6c27256e724980
+OBSERVED_DEPENDENCY_IDENTITIES := PENDING
+EXACT_PRINCIPAL_TYPE_AUDITS := PENDING
+ALL_REQUIRED_FRESH_DECLARATION_AUDITS := PENDING
+QFB_CUTOUT := PENDING
+PER_DECLARATION_AXIOM_AUDITS := PENDING
+PERMITTED_STANDARD_AXIOMS := {propext, Classical.choice, Quot.sound}
+NO_SORRYAX_OR_ADDED_AXIOMS := PENDING_EXTERNAL_AUDIT
+OBJECTS_REUSED_AND_FRESH := PENDING
+EXTERNAL_CONTROL_RESULTS := PENDING
+INDEPENDENT_ARTIFACT_AND_TYPE_REVIEW := PENDING
+ACCEPTED_ROOT_SCOPE := PENDING
+
+The legacy report boolean new_finite_cap_theorem_included is hardcoded false
+in Material/ci/native_build.py and Material/ci/build.py. It is stale metadata,
+not declaration evidence. Determine actual scope from the source manifest,
+registered endpoint identifiers, exact audited types and fresh axiom logs.
+No driver, cache context or accepted source identity is altered by this record.
+CI status or cache reuse alone cannot fill the acceptance fields.
+
+4. BOUNDARY
+
+R0 is conditional admission from an actual classical cap, with the analytic
+forward cap as a sufficient input. R1, the universal extension of every local
+analytic germ through the required cap, remains unresolved. These roots do
+not construct the admitted cap from arbitrary smooth data, a formal Taylor
+recursion, spatial analyticity alone, or a finite Galerkin solution.
+The full Weak_Fourierman_B root and WFB-03 physical local H1 existence are
+not promoted by this record. No local Lean, Lake, kernel audit or executable
+project/control test was run. No native-Windows evidence is claimed.
+
+COMPILATION_UPDATE_2026_11_19:
+Run44543421609 at0ddd2d67 FAILED before audits on two rewrite matches.303
+accepted modules were reused; no root was accepted. Corrected source remains
+pending external verification. The next scope321/33/161 additionally includes
+the literal two-sided cap and exact D_Q subset R_nu theorem.
