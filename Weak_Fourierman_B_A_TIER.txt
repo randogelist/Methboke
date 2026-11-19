@@ -1,0 +1,72 @@
+DOCUMENT := WEAK_FOURIERMAN_B_A_TIER_REGISTER
+DATE := 2026-11-19
+ROOT_STATUS := NOT_ESTABLISHED
+ACCEPTED_CONTEXTUAL_OBLIGATIONS := {WFB-01, WFB-02}
+LOCAL_LEAN_EXECUTIONS := 0
+
+MATCHING_EXTERNAL_EVIDENCE
+REPOSITORY := randogelist/Methboke
+COMMIT := 0402aa37ea09f90a216e63e5fe67c3f58bb2b844
+RUN := https://github.com/randogelist/Methboke/actions/runs/44537934256
+ARTIFACT := https://github.com/randogelist/Methboke/actions/runs/44537934256/artifacts/14536214135
+ARTIFACT_SHA256 := 3aa117b43368b4a0c30f03dc8081e11e37042438f489af47d59ac73a250269b6
+REPORT_SHA256 := 56d07aa5ac87b785b65770255b321b9eb5290e072734854e32c496e96b743051
+COMPILER := Lean 4.33.0, d8b18978322de05a8f3dba51ef03cf5461676c17
+MATHLIB := db584cd6d46c92f209a44c0f1c829460d327499d
+PLATFORM := Linux x86_64
+AXIOMS := {propext, Classical.choice, Quot.sound}
+FRESH_ENDPOINT_PACKAGES := 18
+FRESH_DECLARATION_AUDITS := 98
+QFB_CUTOUT := FRESH_PASS
+OBJECTS_REUSED := 283
+MODULES_FRESH := 8
+EXTERNAL_CONTROL_TESTS := 183_PASS
+INDEPENDENT_REVIEW := archive/report/log hashes + exact principal types + axiom scope
+DETAILS := audits/material-0402aa37/summary.json
+
+WFB-01
+DECLARATION := MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin
+PREMISES :=
+  actual LocalPhysicalNSEFront nu T a u p
+  AND FourierBudgetFinite (t -> datumFourierCoeff (u t)) T
+CONCLUSION :=
+  MemLp (t -> criticalSpatialNorm 6 (u t)) 4
+    (volume.restrict (Ioo 0 T))
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+SCOPE := same physical finite front; viscosity, physical equations, regularity
+  and strong initial trace remain in the genuine local-front premise.
+
+WFB-02
+DECLARATION := MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin
+PREMISES :=
+  joint smoothness on the open finite front
+  AND periodicity AND physical mean zero of each slice
+  AND FourierBudgetFinite (t -> datumFourierCoeff (u t)) T
+CONCLUSION :=
+  MemLp (t -> criticalSpatialNorm 6 (u t)) 4
+    (volume.restrict (Ioo 0 T))
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+SCOPE := no assumed energy bound, initial trace or globally existing solution.
+
+BOUNDARY
+The finite Fourier budget is an explicit hypothesis, not universally proved.
+WFB-03 through WFB-10 are not promoted by this evidence.
+The exact Weak_Fourierman_B root, arbitrary-data regularity and universal
+analytic-germ-to-cap admission remain unresolved.
+The subsequent finite-front identification and finite-cap proof sources need
+their own matching external verification. No Linux evidence is labeled native
+Windows evidence. No local Lean, Lake wrapper or kernel audit was executed.
+
+SECOND_LAYER_ACCEPTANCE
+COMMIT := 67f766330918577e714e326be82eebfe29f5f2f7
+RUN := https://github.com/randogelist/Methboke/actions/runs/44540921991
+EVIDENCE := audits/material-67f7663/summary.json
+REPORT_SHA256 := 3bbabf9b65551344d5c1514c17d24d1823638e70f6ac9f05ecab603b3e4c9600
+SCOPE :=22 additional actual datum-admission/localized physical comparison declarations
+FRESH_DECLARATION_AUDITS :=120 plus QFB cutout
+OBJECTS_REUSED :=291
+MODULES_FRESH :=12
+PRINCIPAL := MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
+ADDITIONAL_WHOLE_WFB_OBLIGATION_PROMOTED := false
+R0_ROOT := PREPARED_PENDING_SEPARATE_EXTERNAL_VERIFICATION
+WFB_ROOT := NOT_ESTABLISHED

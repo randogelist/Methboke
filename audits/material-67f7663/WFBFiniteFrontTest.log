@@ -1,0 +1,133 @@
+WFBFiniteFrontTest/Audit.lean:17:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:17:30: warning: Variable name `houter` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _houter
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:18:13: warning: Variable name `hr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:24:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:25:13: warning: Variable name `ht0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:25:27: warning: Variable name `htT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:32:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:33:15: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:33:28: warning: Variable name `hst` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hst
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:33:42: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteFrontTest/Audit.lean:39:38: warning: Variable name `h` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_contDiff
+MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_contDiff : ∀ (c : ℝ) (b : ContDiffBump.{0} 0),
+  ContDiff.{0, 0, 0} ℝ ∞ (MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp c b)
+TYPE_END:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_contDiff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_contDiff
+'MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_contDiff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_contDiff
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_mem_Ioo
+@MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_mem_Ioo : ∀ {c T : ℝ} (b : ContDiffBump.{0} 0),
+  Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) c →
+    LT.lt.{0} (ContDiffBump.rOut.{0} b) T →
+      ∀ (r : ℝ),
+        LT.lt.{0} 0 r →
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) (MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp c b r)
+TYPE_END:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_mem_Ioo
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_mem_Ioo
+'MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_mem_Ioo' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.finiteFrontTimeClamp_mem_Ioo
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_through
+MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_through : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    ∀ (t : ℝ),
+      LT.lt.{0} 0 t →
+        LT.lt.{0} t T →
+          ∃ φ,
+            SingularClosure.CriticalPositiveSolenoidalTest φ ∧
+              (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 t) r → Filter.EventuallyEq.{0, 0} (nhds.{0} r) φ u) ∧
+                Filter.EventuallyEq.{0, 0} (nhds.{0} 0) φ u
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_through
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_through
+'MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_through' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_through
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_on_compact
+MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_on_compact : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    ∀ (s t : ℝ),
+      LT.lt.{0} 0 s →
+        LE.le.{0} s t →
+          LT.lt.{0} t T →
+            ∃ φ,
+              SingularClosure.CriticalPositiveSolenoidalTest φ ∧
+                ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} s t) r → Filter.EventuallyEq.{0, 0} (nhds.{0} r) φ u
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_on_compact
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_on_compact
+'MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_on_compact' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_exists_global_test_on_compact
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_test_timeDerivative_eq_of_eventuallyEq
+@MethbokeAddon.WeakFouriermanB.local_test_timeDerivative_eq_of_eventuallyEq : ∀ {φ u : SingularClosure.Velocity}
+  {r : ℝ},
+  Filter.EventuallyEq.{0, 0} (nhds.{0} r) φ u →
+    ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.timeDerivative φ r x) (SingularClosure.timeDerivative u r x)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_test_timeDerivative_eq_of_eventuallyEq
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_test_timeDerivative_eq_of_eventuallyEq
+'MethbokeAddon.WeakFouriermanB.local_test_timeDerivative_eq_of_eventuallyEq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_test_timeDerivative_eq_of_eventuallyEq

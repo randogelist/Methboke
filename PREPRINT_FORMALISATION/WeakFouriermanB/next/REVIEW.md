@@ -98,6 +98,20 @@ Serrin conclusion is assumed. The closed-cylinder continuity premise is
 precisely the regularity supplied by an admitted analytic cylinder. These
 four lemmas remain candidates pending matching external verification.
 
+`InitialFrontAdmission.lean` prepares the actual admission adapter for the
+literal `InitialClassicalFront` contract in `FiniteCapGluing.lean`. Spatial
+restriction at zero derives `SmoothSigmaZero a`. Compact domination proves
+continuity of the actual integral `E(t)=integral |u(t)-a|^2` down to zero,
+where the initial equation gives `E(0)=0`. Finite slice L2 membership and the
+existing exact norm-square identity give
+`eLpNorm(u(t)-a,2)=ofReal(sqrt(E(t)))`, proving the literal strong initial
+trace. The conversion to `LocalPhysicalNSEFront` therefore adds no trace
+premise. Compact Serrin and finite-window comparison then identify every
+original LH path with the admitted front before its cap. Q01 provides one
+such original path. These nine prepared theorems assume existence of the
+actual initial classical pair; they do not construct it from arbitrary
+smooth data or assert universal admission.
+
 ## Independent prepared WFB-08 input adapter
 
 `SmoothDatum.lean` is a small, independent source candidate. It uses actual

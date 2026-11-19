@@ -11,7 +11,7 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   [B-tier derivation](Weak_Fourierman_B_B_TIER.txt), ten-obligation register and
   four exact source modules are registered with 57 new declaration audits.
   Six subsequent datum-admission and finite-front comparison modules bring the
-  next full run to 24 packages, 120 declarations and the QFB cutout.
+  accepted second run to24 packages,120 declarations and the QFB cutout.
   **WFB-01 and WFB-02 are externally verified** at `0402aa37`;
   [matching evidence](audits/material-0402aa37/summary.json) includes all 98 fresh
   declaration audits, 283 reused modules and eight freshly compiled additions.
@@ -41,8 +41,9 @@ The working branch is **`main`**. The fixed mathematical goal is unchanged.
   [the baseline review](audits/material-43530b7/summary.json).
 - **Main consolidation is complete:** the candidate history is preserved and
   `Clay-Admission-Candidate-01` has been retired.
-- **The new analytic finite-cap theorem is B-tier only.** Universal extension
-  of an arbitrary analytic germ to the QFB cap remains unresolved.
+- **The finite-cap root is now prepared for external verification.** The
+  complete classical and analytic admission chain has source proofs; its
+  actual finite-cap premise remains explicit. Universal germ extension remains open.
 
 ## Fixed scope and useful identities
 
@@ -214,4 +215,13 @@ The next prepared layer identifies an actual finite NSE front with the original
 Leray–Hopf path under compact Serrin bounds (or the accepted Fourier-budget
 criterion). Its global object is a smooth weak test constructed by changing
 time outside the relevant interval; it is not an assumed global NSE solution.
-These22 additional declarations still need matching external verification.
+These22 additional declarations passed at67f7663;
+[matching evidence](audits/material-67f7663/summary.json) covers all120 fresh
+audits and291 reused objects, with12 additions compiled.
+
+The next R0 verification covers34 additional declarations and the exact
+classical/analytic finite-cap admission roots:317 modules,31 packages,154 audits
+plus cutout. The proof derives the initial trace and compact Serrin bounds,
+identifies one original weak path, derives velocity and normalized-pressure
+agreement with its QFB tail, and constructs the global smooth splice.
+No arbitrary-data cap or universal germ-to-cap extension is asserted.

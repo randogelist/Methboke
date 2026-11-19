@@ -2,7 +2,7 @@
   "date": "2026-11-19",
   "repository": "randogelist/Methboke",
   "branch": "main",
-  "mode": "GITHUB_WFB_ACTIVE_VERIFICATION_PREPARATION",
+  "mode": "GITHUB_R0_FINITE_CAP_VERIFICATION_PREPARATION",
   "initial_commit": "8b8a62ed30d36df990e407fd98bb692b5ce8a468",
   "source_pins": {
     "methlib_qfb": "96033dd69c994bec337a87369a6c27256e724980",
@@ -63,7 +63,7 @@
   "target_hierarchy": {
     "macroscopic": "Fixed analytic finite-cap admission goal; universal germ-to-cap continuation remains unresolved",
     "mesoscopic": "Repository-first Weak_Fourierman_B workstream, preserving fixed analytic finite-cap goal and cached external verification",
-    "microscopic": "Verify four active WFB modules and all57 fresh audits with compatible legacy reuse; assess WFB03 physical local H1 obstruction"
+    "microscopic": "Verify R0 classical/analytic finite-cap roots and34 supporting declarations; preserve explicit actualcap premise and WFB03/R1 obligations"
   },
   "ci_handoff": "CONTINUE_INDEPENDENT_IMPLEMENTATION_WHILE_EXTERNAL_CI_RUNS; inspect available results; preserve tested commit",
   "latest_material_run": {
@@ -790,12 +790,12 @@
     "promotes_wfb": false
   },
   "wfb_activation": {
-    "status": "FIRST_LAYER_ACCEPTED_SECOND_LAYER_PENDING",
-    "owned_modules": 10,
-    "new_wrappers": 10,
-    "full_module_count": 303,
-    "endpoint_packages": 24,
-    "declaration_audits": 120,
+    "status": "FIRST_TWO_LAYERS_ACCEPTED_R0_LAYER_PENDING",
+    "owned_modules": 17,
+    "new_wrappers": 17,
+    "full_module_count": 317,
+    "endpoint_packages": 31,
+    "declaration_audits": 154,
     "cutout_audit_required": true,
     "baseline_review": "audits/material-43530b7/summary.json",
     "pins_changed": false,
@@ -827,8 +827,19 @@
         "LocalFrontIdentification"
       ],
       "new_declarations": 22,
-      "status": "PREPARED_PENDING_EXTERNAL_VERIFICATION",
-      "scope": "actual datum admission, finite-window identities and same-path identification; no strong local existence or root"
+      "status": "PASS_AT_67f7663_RUN_44540921991",
+      "scope": "actual datum admission, finite-window identities and same-path identification; no strong local existence or root",
+      "evidence": "audits/material-67f7663/summary.json"
     }
+  },
+  "r0_admission_preparation": {
+    "status": "PREPARED_PENDING_EXTERNAL_VERIFICATION",
+    "classical_principal": "MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission",
+    "analytic_principal": "MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff",
+    "packages": 7,
+    "public_declarations": 34,
+    "universal_germ_extension_proved": false,
+    "actual_cap_premise_retained": true,
+    "local_lean_executions": 0
   }
 }

@@ -1,6 +1,6 @@
 # Material
 
-`STATUS = FIRST_WFB_LAYER_PASS_AT_0402aa37; FINITE_FRONT_IDENTIFICATION_PENDING`.
+`STATUS = FINITE_FRONT_PASS_AT_67f7663; R0_ADMISSION_PENDING`.
 The retained baseline has matching evidence at `43530b7`; the first four WFB modules have their own matching pass at `0402aa37`.
 See [the acceptance record](../audits/material-0402aa37/summary.json). `NO_LOCAL_LEAN` applies to preparation.
 The universal analytic admission theorem is outside these endpoint containers.
@@ -139,7 +139,7 @@ These containers preserve original theorem premises. They do not prove the new f
 
 Four owned sources are registered separately in `owned-sources.json`; they are
 not attributed to the pinned Methlib vendor snapshot. The complete native scope
-is 303 modules, 24 audit packages, 120 declaration entries and the QFB cutout.
+is 317 modules, 31 audit packages, 154 declaration entries and the QFB cutout.
 Principal WFB theorem types are explicitly asserted before their fresh audits.
 Native direct compilation needs no Lake target change. Standalone exports add
 the required owned libraries and preserve both provenance classes.
@@ -155,3 +155,9 @@ WFBFiniteWindowRelativeEnergy, WFBFiniteWindowSerrinComparison and
 WFBLocalFrontIdentification carry the actual finite-front comparison chain.
 Their source proofs and exact signature assertions require external acceptance;
 no physical local-existence or global-root conclusion is hidden in a field.
+
+Seven R0 packages register actual compact-cylinder estimates, pressure
+uniqueness, finite-cap gluing/overlap, initial-front admission, and the classical
+and analytic finite-cap roots. Their34 public declarations have explicit type
+assertions and fresh axiom audits. Root admission is a real finite solution
+premise; universal extension and arbitrary-data regularity remain outside scope.

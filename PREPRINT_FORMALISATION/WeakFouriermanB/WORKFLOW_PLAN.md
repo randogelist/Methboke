@@ -238,3 +238,12 @@ plus cutout. It prepares genuine same-path finite-front identification without
 assuming a global classical NSE solution. No CI driver or dependency pins change.
 Physical local H1 existence and the full root remain unresolved; later
 compact-cylinder and gluing candidates are excluded from this run.
+
+## R0 final source layer
+
+The second layer passed at67f7663/run44540921991 with all120 fresh audits and
+291 reused/12 freshly built modules. The third registered layer contains seven
+R0 packages and34 declarations, including exact classical and analytic finitecap
+admission roots. Scope317 modules/31 packages/154 audits plus cutout. Actualcap
+admission remains explicit; WFB-03 and R1 are not discharged. All initial
+compiler/dependency/Lake/CI identities and passed source bytes are preserved.
