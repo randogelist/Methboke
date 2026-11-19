@@ -1,6 +1,6 @@
 # Probable Lean layout for EHRENFEST-OBSTRUCTION
 
-**B-tier design, version 0.3.0.** The current plan has 31 owned modules, with only nine in the scalar root closure. The inventory retains ten full milestone scopes and an optional full import bundle. No new `.lean` source is created or activated. All proposed names and signatures await external elaboration.
+**Historical B-tier design, version0.3.0; activation updated at0.5.0.** The design retains31 proposed modules and nine logical fast-root blocks, ten full milestone scopes and an optional bundle. Concrete helper splitting is recorded in [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json):18 owned sources are active, and the held scalar-root closure has25 owned dependencies. E07 and23 scoped first-layer declarations are accepted; the second layer and all remaining full milestones await their own matching evidence.
 
 The [shortest identified route](FAST_ROUTE.md) supersedes the v0.2 implementation order below: one-cutoff mean-value contradiction and a new H1 error bound avoid hitting/escape and full H2 convergence in the root. [FAST_INTERFACES.lean.txt](FAST_INTERFACES.lean.txt) gives its minimal contracts.
 
@@ -24,7 +24,7 @@ The final node is the optional All import bundle. Root itself imports only Dynam
 
 ## Ten milestones and their implementation units
 
-All source paths in this table are **planned**, under `Material/MethbokeAddon/EhrenfestObstruction/`. Helper modules may be audited before their enclosing milestone is complete.
+Source paths in this table are **historical design names**, under `Material/MethbokeAddon/EhrenfestObstruction/`. The activation register gives actual modules and helper splits. Helpers may be accepted before their enclosing milestone is complete.
 
 | Step | Planned modules | Precise output / gate |
 |---|---|---|
@@ -104,7 +104,7 @@ The unitary norm bound makes these Bochner integrals converge. Prove the domain 
 ## Implementation and acceptance order
 
 1. Prepare literal definitions, reciprocal identities and independent `SlabDescent`; develop the H1 error estimate in parallel.
-2. Complete the actual-reference eventual bound, then the single-cutoff `DynamicalRoot` and frozen `Root` using only their nine-module closure.
+2. Complete the actual-reference eventual bound, then the single-cutoff `DynamicalRoot` and frozen `Root` using their concrete scalar-only dependency closure (25 owned sources after splitting).
 3. Build the independent native test-core commutator early; zero-order terms cancel without needing a unitary group.
 4. Complete the full flow/generator/domain/localization construction and canonical rate identification.
 5. Complete the original hitting, threshold-escape and full H2-convergence milestones separately. Use `All` only as an optional import bundle after its dependencies exist.

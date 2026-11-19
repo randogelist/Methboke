@@ -1,0 +1,137 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt
+MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt : ∀ (N : ℕ)
+  (c : ℝ → SingularClosure.FourierCoeff) (d : SingularClosure.FourierCoeff) {s : Set.{0} ℝ} {t : ℝ},
+  (∀ (k : SingularClosure.Frequency),
+      Membership.mem.{0, 0} (SingularClosure.cutoffModes N) k →
+        ∀ (i : Fin 3), HasDerivWithinAt.{0, 0} (fun r => c r k i) (d k i) s t) →
+    HasDerivWithinAt.{0, 0} (fun r => SingularClosure.coefficientDissipation N (c r))
+      (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N (c t) d) s t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt
+'MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt
+MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt : ∀ (N : ℕ)
+  (c v : ℝ → SingularClosure.FourierCoeff) (dc dv : SingularClosure.FourierCoeff) {s : Set.{0} ℝ} {t : ℝ},
+  (∀ (k : SingularClosure.Frequency),
+      Membership.mem.{0, 0} (SingularClosure.cutoffModes N) k →
+        ∀ (i : Fin 3), HasDerivWithinAt.{0, 0} (fun r => c r k i) (dc k i) s t) →
+    (∀ (k : SingularClosure.Frequency),
+        Membership.mem.{0, 0} (SingularClosure.cutoffModes N) k →
+          ∀ (i : Fin 3), HasDerivWithinAt.{0, 0} (fun r => v r k i) (dv k i) s t) →
+      HasDerivWithinAt.{0, 0} (fun r => SingularClosure.coefficientDissipation N (HSub.hSub.{0, 0, 0} (c r) (v r)))
+        (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N (HSub.hSub.{0, 0, 0} (c t) (v t))
+          (HSub.hSub.{0, 0, 0} dc dv))
+        s t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt
+'MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right : ∀ (N : ℕ) (c d f : SingularClosure.FourierCoeff),
+  Eq.{1} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c (HAdd.hAdd.{0, 0, 0} d f))
+    (HAdd.hAdd.{0, 0, 0} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c d)
+      (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c f))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right : ∀ (N : ℕ) (c d f : SingularClosure.FourierCoeff),
+  Eq.{1} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c (HSub.hSub.{0, 0, 0} d f))
+    (HSub.hSub.{0, 0, 0} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c d)
+      (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c f))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs
+MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs : ∀ (ν : ℝ) (N : ℕ)
+  (c : SingularClosure.FourierCoeff),
+  Eq.{1} (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N c (SingularClosure.galerkinRhs ν N c))
+    (HSub.hSub.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) ν) (SingularClosure.coefficientLaplacianSquare N c))
+      (HMul.hMul.{0, 0, 0} 2 (SingularClosure.coefficientEnstrophyNonlinearPower N c)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs
+'MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity
+MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity : ∀ (ν : ℝ) (N : ℕ)
+  (c : ℝ → SingularClosure.FourierCoeff) (f : SingularClosure.FourierCoeff) {s : Set.{0} ℝ} {t : ℝ},
+  (∀ (k : SingularClosure.Frequency),
+      Membership.mem.{0, 0} (SingularClosure.cutoffModes N) k →
+        ∀ (i : Fin 3),
+          HasDerivWithinAt.{0, 0} (fun r => c r k i)
+            (HAdd.hAdd.{0, 0, 0} (SingularClosure.galerkinRhs ν N (c t) k i) (f k i)) s t) →
+    HasDerivWithinAt.{0, 0} (fun r => SingularClosure.coefficientDissipation N (c r))
+      (HAdd.hAdd.{0, 0, 0}
+        (HSub.hSub.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) ν) (SingularClosure.coefficientLaplacianSquare N (c t)))
+          (HMul.hMul.{0, 0, 0} 2 (SingularClosure.coefficientEnstrophyNonlinearPower N (c t))))
+        (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N (c t) f))
+      s t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity
+'MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION
+MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION : ∃ C,
+  LT.lt.{0} 0 C ∧
+    ∀ (ν : ℝ),
+      LT.lt.{0} 0 ν →
+        ∀ (N : ℕ) (c : SingularClosure.FourierCoeff),
+          (∀ k ∉ SingularClosure.cutoffModes N, ∀ (i : Fin 3), Eq.{1} (c k i) 0) →
+            SingularClosure.SpectralReality c →
+              SingularClosure.SpectralSolenoidal c →
+                LE.le.{0} (HMul.hMul.{0, 0, 0} (-2) (SingularClosure.coefficientEnstrophyNonlinearPower N c))
+                  (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} ν (SingularClosure.coefficientLaplacianSquare N c))
+                    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C (HPow.hPow.{0, 0, 0} ν 3))
+                      (HPow.hPow.{0, 0, 0} (SingularClosure.coefficientDissipation N c) 3)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION
+'MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY
+MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY : ∃ C,
+  LT.lt.{0} 0 C ∧
+    ∀ (ν : ℝ),
+      LT.lt.{0} 0 ν →
+        ∀ (N : ℕ) (c : ℝ → SingularClosure.FourierCoeff) (f : SingularClosure.FourierCoeff) (s : Set.{0} ℝ) (t : ℝ),
+          (∀ k ∉ SingularClosure.cutoffModes N, ∀ (i : Fin 3), Eq.{1} (c t k i) 0) →
+            SingularClosure.SpectralReality (c t) →
+              SingularClosure.SpectralSolenoidal (c t) →
+                (∀ (k : SingularClosure.Frequency),
+                    Membership.mem.{0, 0} (SingularClosure.cutoffModes N) k →
+                      ∀ (i : Fin 3),
+                        HasDerivWithinAt.{0, 0} (fun r => c r k i)
+                          (HAdd.hAdd.{0, 0, 0} (SingularClosure.galerkinRhs ν N (c t) k i) (f k i)) s t) →
+                  ∃ d,
+                    HasDerivWithinAt.{0, 0} (fun r => SingularClosure.coefficientDissipation N (c r)) d s t ∧
+                      LE.le.{0}
+                        (HAdd.hAdd.{0, 0, 0} d
+                          (HMul.hMul.{0, 0, 0} ν (SingularClosure.coefficientLaplacianSquare N (c t))))
+                        (HAdd.hAdd.{0, 0, 0}
+                          (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C (HPow.hPow.{0, 0, 0} ν 3))
+                            (HPow.hPow.{0, 0, 0} (SingularClosure.coefficientDissipation N (c t)) 3))
+                          (MethbokeAddon.EhrenfestObstruction.dissipationRatePairing N (c t) f))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY
+'MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY

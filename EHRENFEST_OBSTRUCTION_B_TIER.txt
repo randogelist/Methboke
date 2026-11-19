@@ -1,6 +1,6 @@
 DOCUMENT := EHRENFEST_OBSTRUCTION_B_TIER
 FROZEN_NAME := EHRENFEST-OBSTRUCTION
-VERSION := 0.4.0
+VERSION := 0.5.0
 DATE := 2026-11-19
 MODE := B_TIER_DERIVATION
 REPOSITORY := randogelist/Methboke
@@ -8,9 +8,9 @@ BRANCH := main
 SOURCE_REVIEW_REVISION := 42cbbf404b50cd578cb9d648f1e3d388513dbf1a
 MACROSCOPIC_GOAL := Weak_Fourierman_B; unchanged
 LOCAL_TARGET := bottom-up formalization and matching external verification
-STATUS := COMPLETE_CONDITIONAL_MATHEMATICAL_DERIVATION; NOT_LEAN_VERIFIED
+STATUS := CONDITIONAL_B_TIER_ROOT; E07_AND23_SCOPED_DECLARATIONS_ACCEPTED; SECOND_LAYER_PENDING
 NEW_LOCAL_LEAN_EXECUTIONS := 0
-NEW_EXTERNAL_LEAN_RUNS := 3_FAILED; AUDIT_FORMAT_REPAIR_PENDING
+NEW_EXTERNAL_LEAN_RUNS := 4; THREE_RETAINED_FAILURES_AND_FIRST_LAYER_ACCEPTED
 NEW_GLOBAL_AXIOM_DECLARATIONS := 0
 
 1. NAMESPACE, SCOPE, AND STATUS BOUNDARY
@@ -18,8 +18,9 @@ NEW_GLOBAL_AXIOM_DECLARATIONS := 0
 Proposed namespace: MethbokeAddon.EhrenfestObstruction.
 The frozen mathematical theorem name is EHRENFEST-OBSTRUCTION. A future Lean
 identifier may be EHRENFEST_OBSTRUCTION; this does not rename the theorem.
-The complete mathematical derivation below is preserved. Section17 records
-first implementation candidates, separately from external acceptance.
+The complete mathematical derivation below is preserved. Section17 retains
+implementation attempts; section18 records accepted E07/scoped helpers and
+the pending second layer. Earlier status statements are historical snapshots.
 
 The initial datum is smooth. The proposed stopped-commutator condition is
 a singularity-forcing dynamical premise, not rough or singular initial data.
@@ -776,3 +777,38 @@ Independent new consumers ran and23 raw axiom blocks used only the approved
 standard axioms. The audit parser rejected abbreviated theorem names.
 The correction sets explicit full-name output; it changes no proof or type,
 no audit scope or parser policy. No A-tier marker before full acceptance.
+
+
+18. FIRST ACCEPTED LAYER AND PENDING SECOND LAYER (v0.5.0)
+
+Matching source40686414/run44626474631 passed compiler, all required fresh
+audits, publication and final acceptance. Primary job135921536065 and final
+job135928742922 succeeded.374 modules passed (365 reused,9 fresh),58 package
+audits and288 named exact-type/axiom audits plus QFB were fresh. Approved
+axioms only. Evidence: audits/material-40686414-accepted/summary.json.
+
+FORMAL_ACCEPTANCE: E07 stopped scalar hitting is complete. Its four scalar
+declarations and the separately scoped canonical11/error-calculus8 declarations
+are accepted:23 in total. E06.scalar and E07.slab are accepted helpers; the
+canonical eventual-bound barrier and arbitrary forced coefficient identities
+are also accepted. None proves the full operator E06, full E09 or root E10.
+
+NEXT_MILESTONE: E08. The second layer activates12 additional owned sources
+in6 packages, with85 named audit candidates: reference34, escape19, core
+algebra3, physical forcing9, bootstrap7 and cross transport13. No acceptance
+is claimed for this layer. Current activation has18 owned sources/9 packages/
+108 named audits; whole registry64/373. Every accepted first-layer proof and
+audit byte remains unchanged. Compiler, dependency, vendor and CI pins remain.
+
+COUNT_BOUNDARY: historical31 modules and nine logical fast-root blocks are
+design counts. The separately held concrete scalar-root dependency closure
+contains25 owned sources; three prepared layers total30. Five retained helper
+sources lie outside that root: StoppedScalar, ReciprocalThreshold, StoppedFamily,
+SlabSupremum and CoreAlgebra. COUNT_RECONCILIATION.json records the split.
+
+OPEN: external acceptance of the second layer; later activation/verification
+of actual-reference evolution, error reconstruction, eventual bound and root;
+full operator/domain realization; the stronger H2 convergence milestone; and
+existence of any fixed smooth datum satisfying the stopped premise. The exact
+conditional B-tier root, main Weak_Fourierman_B goal and accepted finite-budget
+WFB scope are unchanged. No new global axiom or local Lean execution.

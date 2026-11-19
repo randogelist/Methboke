@@ -1,0 +1,142 @@
+{
+  "historical_full_plan_modules": 31,
+  "historical_fast_root_blocks": 9,
+  "published_owned_modules": 6,
+  "second_additional_owned_modules": 12,
+  "separate_third_additional_owned_modules": 12,
+  "prospective_third_owned_modules": 30,
+  "concrete_root_dependency_owned_modules": 25,
+  "concrete_root_dependencies": [
+    "CanonicalBarrier",
+    "CanonicalErrorInequality",
+    "CoefficientError",
+    "CrossTransport",
+    "Definitions",
+    "DynamicalRoot",
+    "ErrorEquation",
+    "ErrorSlabBound",
+    "ErrorState",
+    "EventualEnstrophyBound",
+    "FourierL1",
+    "FourierTail",
+    "PhysicalForcing",
+    "PhysicalReferenceTail",
+    "PressureFourier",
+    "ProjectedC1",
+    "ProjectedReferenceEvolution",
+    "ReciprocalDrift",
+    "ReferenceC1Norm",
+    "ReferenceCoefficientEvolution",
+    "Root",
+    "SlabDescent",
+    "SmallForcingBootstrap",
+    "SmoothReference",
+    "SmoothSobolevNorm"
+  ],
+  "helpers_outside_concrete_root": [
+    "StoppedScalar",
+    "ReciprocalThreshold",
+    "StoppedFamily",
+    "SlabSupremum",
+    "CoreAlgebra"
+  ],
+  "responsibility_mapping": [
+    {
+      "historical_blocks": [
+        "Definitions"
+      ],
+      "concrete_modules": [
+        "Definitions"
+      ]
+    },
+    {
+      "historical_blocks": [
+        "ReciprocalDrift"
+      ],
+      "concrete_modules": [
+        "ReciprocalDrift"
+      ]
+    },
+    {
+      "historical_blocks": [
+        "SlabDescent",
+        "ClosedSlab"
+      ],
+      "concrete_modules": [
+        "SlabDescent",
+        "CanonicalBarrier"
+      ],
+      "note": "No dedicated ClosedSlab file. Compact-slab continuity and bounds are also discharged in reference modules."
+    },
+    {
+      "historical_blocks": [
+        "SmoothReference"
+      ],
+      "concrete_modules": [
+        "FourierL1",
+        "SmoothSobolevNorm",
+        "ProjectedC1",
+        "SmoothReference",
+        "FourierTail",
+        "PhysicalReferenceTail",
+        "PressureFourier",
+        "ReferenceCoefficientEvolution",
+        "ProjectedReferenceEvolution",
+        "ReferenceC1Norm"
+      ]
+    },
+    {
+      "historical_blocks": [
+        "H1Error"
+      ],
+      "concrete_modules": [
+        "CoefficientError",
+        "PhysicalForcing",
+        "CrossTransport",
+        "ErrorState",
+        "ErrorSlabBound",
+        "ErrorEquation",
+        "CanonicalErrorInequality",
+        "SmallForcingBootstrap"
+      ]
+    },
+    {
+      "historical_blocks": [
+        "EventualEnstrophyBound"
+      ],
+      "concrete_modules": [
+        "EventualEnstrophyBound"
+      ]
+    },
+    {
+      "historical_blocks": [
+        "DynamicalRoot"
+      ],
+      "concrete_modules": [
+        "DynamicalRoot"
+      ]
+    },
+    {
+      "historical_blocks": [
+        "Root"
+      ],
+      "concrete_modules": [
+        "Root"
+      ]
+    }
+  ],
+  "count_semantics": "Historical counts describe a design; concrete helper splitting is not an increased milestone count. Source preparation, activation and formal acceptance are separate. The separately held E01 phase-space sources are excluded from both activation stages.",
+  "status": "FIRST_LAYER_ACCEPTED_SECOND_LAYER_ACTIVE_PENDING",
+  "accepted_owned_modules": 6,
+  "active_owned_modules": 18,
+  "active_ehrenfest_packages": 9,
+  "accepted_ehrenfest_packages": 3,
+  "active_named_audits": 108,
+  "accepted_named_audits": 23,
+  "pending_named_audits": 85,
+  "active_total_ehrenfest_lean_files": 36,
+  "active_registry_packages": 64,
+  "active_registry_named_audits": 373,
+  "accepted_evidence": "../../audits/material-40686414-accepted/summary.json",
+  "held_root_status": "Source-prepared, not activated or accepted."
+}

@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "date": "2026-11-19",
   "frozen_name": "EHRENFEST-OBSTRUCTION",
   "source_review_revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
-  "scope": "PROPOSED_LAYOUT_WITH_SEPARATE_ACTIVATION_REGISTER",
+  "scope": "HISTORICAL_LAYOUT_WITH_CURRENT_ACTIVATION_REGISTER",
   "fixed_project_goal": "Weak_Fourierman_B",
-  "actual_new_lean_files": 6,
-  "new_formal_acceptances": 0,
+  "actual_new_lean_files": 18,
+  "new_formal_acceptances": 23,
   "local_lean_executions": 0,
-  "external_compiler_runs": 2,
+  "external_compiler_runs": 4,
   "module_count": 31,
   "module_dependency_semantics": "Only proposed owned imports are listed. Exact Mathlib/vendor imports must be resolved against pinned sources during implementation; anchor IDs are not import directives.",
   "modules": [
@@ -25,13 +25,14 @@
         "MLB12"
       ],
       "role": "SmoothDatum, canonicalFamily at n+1, e, Vrec, literal drift, PreHit, StoppedForDatum, StoppedCommutatorBound and actual NSE_B.",
-      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": true,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "MLB08",
         "MLB12"
-      ]
+      ],
+      "evidence": "../../audits/material-40686414-accepted/summary.json"
     },
     {
       "name": "PhaseSpace",
@@ -71,7 +72,7 @@
         "ML06"
       ],
       "role": "Exact canonical reciprocal derivative with coefficient sign and positive denominator; no operator imports.",
-      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": true,
       "required_for_fast_root": true,
       "available_cutout_ids": [
@@ -84,7 +85,8 @@
         "AUX05",
         "AUX06",
         "AUX07"
-      ]
+      ],
+      "evidence": "../../audits/material-40686414-accepted/summary.json"
     },
     {
       "name": "StoppedScalar",
@@ -99,12 +101,13 @@
         "ML13"
       ],
       "role": "Continuous scalar pre-hit comparison and explicit hitting-time bound; no assumed finite hitting time.",
-      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": true,
       "required_for_fast_root": false,
       "available_cutout_ids": [
         "ML13"
-      ]
+      ],
+      "evidence": "../../audits/material-40686414-accepted/summary.json"
     },
     {
       "name": "StoppedFamily",
@@ -122,7 +125,7 @@
         "MLB12"
       ],
       "role": "One fixed smooth datum; divergent thresholds and uniform initial bound imply explicit threshold hits before 1/gamma.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "activated": false,
       "required_for_fast_root": false,
       "available_cutout_ids": [
@@ -165,7 +168,7 @@
         "MLB11"
       ],
       "role": "Uniform H4 control gives cutoff H3 tail O(1/N); Sobolev contraction of Fourier/Leray projections.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "activated": false,
       "required_for_fast_root": false,
       "available_cutout_ids": [
@@ -256,7 +259,7 @@
         "MLB15"
       ],
       "role": "Single-cutoff full-slab contradiction: choose R_n>C using eventual thresholds/bounds, derive PreHit on all interior times, contradict positive terminal reciprocal via mean value.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "status": "SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
@@ -614,7 +617,7 @@
         "MLB15"
       ],
       "role": "Frozen EHRENFEST_OBSTRUCTION with unchanged explicit stopped premise; imports only the minimal dynamical proof, not All or operator infrastructure.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "status": "SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
@@ -632,14 +635,15 @@
         "ML21"
       ],
       "role": "Real mean-value endpoint comparison with an explicit rate and interior derivatives; no NSE, hitting times or operator imports.",
-      "status": "IMPLEMENTED_EXTERNAL_AUDIT_PENDING",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
       "activated": true,
       "required_for_fast_root": true,
       "available_cutout_ids": [
         "ML21",
         "AUX05",
         "AUX07"
-      ]
+      ],
+      "evidence": "../../audits/material-40686414-accepted/summary.json"
     },
     {
       "name": "SmoothReference",
@@ -656,7 +660,7 @@
         "FAST05"
       ],
       "role": "Uniform projected C1 and H1 Fourier-tail estimates from the actual smooth closed slab; finite coefficient l1 estimate and multiplier norm bound.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
@@ -703,7 +707,7 @@
         "ML03"
       ],
       "role": "Bootstrap error D<=1 using D prime <= C(D+D^3)+C/N^2; expose only an eventual uniform Galerkin enstrophy bound.",
-      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "status": "SOURCE_PREPARED_NOT_ACTIVATED_NOT_VERIFIED",
       "activated": false,
       "required_for_fast_root": true,
       "available_cutout_ids": [
@@ -736,70 +740,84 @@
       "id": "EhrenfestPhaseSpace",
       "planned_path": "Material/EhrenfestPhaseSpace",
       "root_module": "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E02",
       "id": "EhrenfestCompleteFlow",
       "planned_path": "Material/EhrenfestCompleteFlow",
       "root_module": "MethbokeAddon.EhrenfestObstruction.CanonicalOrbit",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E03",
       "id": "EhrenfestHalfDensity",
       "planned_path": "Material/EhrenfestHalfDensity",
       "root_module": "MethbokeAddon.EhrenfestObstruction.HalfDensity",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E04",
       "id": "EhrenfestGenerator",
       "planned_path": "Material/EhrenfestGenerator",
       "root_module": "MethbokeAddon.EhrenfestObstruction.TransportCore",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E05",
       "id": "EhrenfestHeisenberg",
       "planned_path": "Material/EhrenfestHeisenberg",
       "root_module": "MethbokeAddon.EhrenfestObstruction.Translation",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E06",
       "id": "EhrenfestInverseEnstrophy",
       "planned_path": "Material/EhrenfestInverseEnstrophy",
       "root_module": "MethbokeAddon.EhrenfestObstruction.ReciprocalCommutator",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E07",
       "id": "EhrenfestStoppedScalar",
       "planned_path": "Material/EhrenfestStoppedScalar",
       "root_module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true,
+      "implemented_package": "EhrenfestScalar",
+      "formal_milestone_status": "ACCEPTED"
     },
     {
       "step": "E08",
       "id": "EhrenfestStoppedFamily",
       "planned_path": "Material/EhrenfestStoppedFamily",
       "root_module": "MethbokeAddon.EhrenfestObstruction.StoppedFamily",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true,
+      "implemented_package": "EhrenfestEscape",
+      "formal_milestone_status": "PENDING_EXTERNAL_CI"
     },
     {
       "step": "E09",
       "id": "EhrenfestSpectralStability",
       "planned_path": "Material/EhrenfestSpectralStability",
       "root_module": "MethbokeAddon.EhrenfestObstruction.SpectralStability",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     },
     {
       "step": "E10",
       "id": "EhrenfestObstruction",
       "planned_path": "Material/EhrenfestObstruction",
       "root_module": "MethbokeAddon.EhrenfestObstruction.Root",
-      "activated": false
+      "activated": false,
+      "historical_package_proposal": true
     }
   ],
   "early_helper_package": {
@@ -815,7 +833,7 @@
     },
     {
       "id": "W2",
-      "scope": "ClosedSlab, SmoothReference, H1Error, EventualEnstrophyBound; then DynamicalRoot and Root. Activate only the nine coherent root modules and its exact audit package when ready."
+      "scope": "Actual-reference and H1 error helpers are concretely split; use COUNT_RECONCILIATION.json. The eventual bound and conditional root remain a separately held layer. Historical nine-block count is not a literal file limit."
     },
     {
       "id": "W3",
@@ -855,21 +873,134 @@
   "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
   "activation_register": "IMPLEMENTATION_STATUS.json",
   "current_external_run": {
-    "commit": "72a09b32b64ff0a481bc3ba678dcf4d3b898bc66",
-    "run_id": 44622642427,
-    "status": "PENDING"
+    "commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
+    "run_id": 44626474631,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
+    "status": "ACCEPTED",
+    "primary_job_id": 135921536065,
+    "acceptance_job_id": 135928742922,
+    "publication_passed": true,
+    "compiled_modules": 374,
+    "reused_modules": 365,
+    "fresh_compiler_passes": 9,
+    "fresh_package_audits": 58,
+    "named_type_axiom_audits": 288,
+    "qfb_cutout_audit_passed": true,
+    "new_ehrenfest_declarations": 23,
+    "standard_axioms_only": true,
+    "evidence": "../../audits/material-40686414-accepted/summary.json",
+    "local_lean_executions": 0
   },
-  "planned_count_semantics": "Historical v0.3 design has31 proposed modules and9-module fast root. Actual helper splits and activation are recorded separately; activation is not full milestone acceptance.",
+  "planned_count_semantics": "Historical design:31 proposed modules and9 logical fast-root blocks. Concrete activation:18 owned sources. The separately held scalar-root closure uses25 owned sources after helper splitting; counts do not assert milestone acceptance.",
   "additional_active_helpers": [
     {
       "name": "CanonicalBarrier",
-      "scope": "Rejects eventual slab bound under literal stopped premise",
-      "status": "EXTERNAL_AUDIT_PENDING"
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "evidence": "../../audits/material-40686414-accepted/summary.json"
     },
     {
       "name": "CoefficientError",
-      "scope": "Arbitrary finite coefficient error differentiation and forced self-interaction inequality",
-      "status": "EXTERNAL_AUDIT_PENDING"
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "evidence": "../../audits/material-40686414-accepted/summary.json"
+    },
+    {
+      "name": "FourierL1",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "SmoothSobolevNorm",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "ProjectedC1",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "ReciprocalThreshold",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "SlabSupremum",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "CoreAlgebra",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "PhysicalForcing",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "SmallForcingBootstrap",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
+    },
+    {
+      "name": "CrossTransport",
+      "status": "ACTIVATED_PENDING_EXTERNAL_CI",
+      "evidence": null
     }
-  ]
+  ],
+  "actual_new_lean_files_semantics": "Owned Ehrenfest sources only; nine Endpoint/Audit pairs contribute18 additional wrapper Lean files.",
+  "accepted_full_milestones": [
+    "E07"
+  ],
+  "next_external_run": {
+    "status": "SECOND_LAYER_PENDING",
+    "commit": null,
+    "run_id": null
+  },
+  "actual_active_owned_modules": [
+    "SlabDescent",
+    "StoppedScalar",
+    "Definitions",
+    "ReciprocalDrift",
+    "CanonicalBarrier",
+    "CoefficientError",
+    "FourierL1",
+    "SmoothSobolevNorm",
+    "ProjectedC1",
+    "SmoothReference",
+    "FourierTail",
+    "ReciprocalThreshold",
+    "StoppedFamily",
+    "SlabSupremum",
+    "CoreAlgebra",
+    "PhysicalForcing",
+    "SmallForcingBootstrap",
+    "CrossTransport"
+  ],
+  "actual_active_endpoint_packages": {
+    "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
+    "EhrenfestCoreAlgebra": 3,
+    "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
+    "EhrenfestEscape": 19,
+    "EhrenfestPhysicalForcing": 9,
+    "EhrenfestReference": 34,
+    "EhrenfestScalar": 4
+  },
+  "accepted_endpoint_packages": {
+    "EhrenfestScalar": 4,
+    "EhrenfestCanonical": 11,
+    "EhrenfestErrorCalculus": 8
+  },
+  "pending_endpoint_packages": {
+    "EhrenfestBootstrap": 7,
+    "EhrenfestCoreAlgebra": 3,
+    "EhrenfestCrossTransport": 13,
+    "EhrenfestEscape": 19,
+    "EhrenfestPhysicalForcing": 9,
+    "EhrenfestReference": 34
+  },
+  "concrete_count_reconciliation": "COUNT_RECONCILIATION.json"
 }

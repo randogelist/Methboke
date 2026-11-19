@@ -8,7 +8,7 @@
 | GERM-REDUCTION | `FB_nu iff (D_germ(nu) subset D_Q(nu))` | B-tier under recorded foundation interfaces; section 5 |
 | BELTRAMI | Arbitrary-amplitude finite Fourier Beltrami admission | Explicit B-tier solution; section 7 and index I02 |
 | WEAK-FOURIERMAN-B | Full finite squared Fourier budget implies global smooth continuation of the same trajectory | Accepted at `fdb515d8`, run `44566880192`; [exact evidence](../audits/material-fdb515d8/summary.json); finite budget retained |
-| EHRENFEST-OBSTRUCTION | A stopped negative-commutator bound for one fixed smooth datum implies failure of NSE-B | [Conditional B-tier derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt); [ten mid-tier steps](EhrenfestObstruction/CHECKLIST.md); [nine-module root route](EhrenfestObstruction/FAST_ROUTE.md) and [identity cutouts](../LEAN_CUTOUTS/EhrenfestObstruction/README.md) within the preserved full workstream; no new formal acceptance |
+| EHRENFEST-OBSTRUCTION | A stopped negative-commutator bound for one fixed smooth datum implies failure of NSE-B | [Conditional B-tier derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt); [ten mid-tier steps](EhrenfestObstruction/CHECKLIST.md); [historical nine-block root route](EhrenfestObstruction/FAST_ROUTE.md), [concrete count mapping](EhrenfestObstruction/COUNT_RECONCILIATION.json) and [identity cutouts](../LEAN_CUTOUTS/EhrenfestObstruction/README.md); E07 and23 scoped declarations accepted, second layer pending |
 | UNIVERSAL-ADMISSION | `D_germ(nu) subset D_Q(nu)` | Open |
 
 The [cumulative derivation](../CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt) is the
@@ -43,6 +43,6 @@ run. A later PDF belongs in
 
 ## Current supporting source index
 
-The [Ehrenfest package](EhrenfestObstruction/README.md) records 35 pinned source anchors and ten unverified formalization targets. Its conditional mathematical proof preserves the one stopped-bound premise. No global custom axiom or actual singular witness is introduced.
+The [Ehrenfest package](EhrenfestObstruction/README.md) records53 pinned source anchors and ten full formalization targets. E07 and23 scoped first-layer declarations are [accepted](../audits/material-40686414-accepted/summary.json); the other full milestones remain unchecked. The second layer has85 additional named audit candidates. Its conditional mathematical proof preserves the unproved stopped-bound premise; no global custom axiom or singular witness is introduced.
 
 The R0 evidence described above is historical to that scope. Whole WFB was subsequently accepted at `fdb515d8`; see [index I17](../INDEX-WORTHY.txt) and the [current root evidence](../audits/material-fdb515d8/summary.json).

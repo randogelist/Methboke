@@ -1,6 +1,6 @@
 # EHRENFEST-OBSTRUCTION: ten mid-tier steps
 
-The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) contains all ten mathematical derivations. **E08 and E10 consume the explicit stopped-bound premise**; E01–E07 and E09 establish the underlying analytic constructions and implications. Cutoffs satisfy `N ≥ 1`. The boxes below record future external formal acceptance; none is checked by mathematical exposition or source review.
+The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) contains all ten mathematical derivations. **E08 and E10 consume the explicit stopped-bound premise**; E01–E07 and E09 establish the underlying analytic constructions and implications. Cutoffs satisfy `N ≥ 1`. The boxes record matching external formal acceptance. E07 is accepted; every other full milestone remains unchecked. Mathematical exposition or source review alone never checks a box.
 
 **Root:** `StoppedCommutatorBound ν → ¬ NSE_B ν`, for `ν > 0`. The premise is an explicit argument, not a global custom axiom. Its existence for a fixed smooth datum remains open.
 
@@ -28,9 +28,9 @@ The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) conta
   With e_N=||grad q||^2/2 and Vrec_N=(1+e_N/e_*)^(-1), prove c_N=-(W_N-nu*Z_N)/(e_*(1+e_N/e_*)^2), and its exact bounded-multiplier commutator.
   B-tier: derived. Sources: ML05, ML06, ML08, MLB08, MLB09, MLB18. New formal work: Coefficient/physical normalization, sign, inverse chain rule and bounded commutator extension to the generator domain.
 
-- [ ] **E07 — STOPPED_SCALAR_HITTING_BOUND**
+- [x] **E07 — STOPPED_SCALAR_HITTING_BOUND**
   For 0<r<v(0)<=1 and gamma>0, pre-hit drift v prime<=-gamma up to 1/gamma forces a hit of r by (v(0)-r)/gamma<1/gamma.
-  B-tier: derived. Sources: ML13. New formal work: Continuity and pre-hit guard, finite/empty hitting-set cases, derivative comparison without assuming a hit already exists.
+  Accepted: `stopped_scalar_hitting` and three scalar support declarations in `EhrenfestScalar`, at `40686414`, [run44626474631](https://github.com/randogelist/Methboke/actions/runs/44626474631). [Matching evidence](../../audits/material-40686414-accepted/summary.json) includes exact types, standard axioms and publication acceptance.
 
 - [ ] **E08 — CUTOFF_UNIFORM_THRESHOLD_ESCAPE**
   From the explicit StoppedCommutatorBound premise for one fixed smooth datum, derive t_N<1/gamma with e_N(u_N(t_N))>=R_N and hence divergent slab suprema.
@@ -50,7 +50,7 @@ The [source index](ANCHOR_INDEX.md) has 53 exact anchors: 33 pinned source-only 
 
 The current shortest schedule is in [FAST_ROUTE.md](FAST_ROUTE.md): literal data/reciprocal interfaces, a generic slab comparison, and the E09 H1/eventual-bound helper precede the exact scalar root. E04 (unbounded generator/core) and E09 (full-slab Galerkin stability) are substantial new work. No suitable already accepted Stone/core endpoint has been located.
 
-Later acceptance requires the matching external cached compiler, exact endpoint type and theorem-level axiom audit. No local Lean, Lake or kernel execution is permitted. This documentation-only update dispatches no verification run.
+The first layer has23 accepted declarations: E07 scalar hitting (4), canonical reciprocal/barrier helpers (11), and arbitrary coefficient/error calculus helpers (8). The helpers do not complete E06, E09 or E10. The second layer activates12 additional sources and6 packages with85 audit candidates; E08 is the next full milestone. The root and operator milestones remain open. Every new acceptance requires matching external cached compiler, exact types, standard axioms and publication evidence. No local Lean, Lake or kernel execution is permitted.
 
 Machine ledger: [obligations.json](obligations.json). Exact pinned signatures: [ANCHOR_INDEX_v0_3.json](ANCHOR_INDEX_v0_3.json).
 
@@ -67,3 +67,7 @@ The front-based bound requires T<S; the root takes T=1/gamma and S=T+1. All plan
 ## First implementation batch (v0.4.0)
 
 Six owned sources and three packages are prepared for external CI: full E07 scalar hitting, E06.scalar reciprocal identities, E07.slab comparison, the one-cutoff rejection helper, and arbitrary forced-error calculus. All boxes remain open until matching evidence. Full E09 stability and the root are not supplied by the error-calculus helper. See [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). Historical no-activation statements above describe v0.3.
+
+## Concrete activation counts
+
+The historical31-module design and nine logical fast-root blocks are preserved. Current activation has18 owned sources and9 Ehrenfest packages;23 declarations are accepted and85 remain pending. The separately held complete scalar-root closure uses25 owned sources after helper splitting. See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json) and [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json).

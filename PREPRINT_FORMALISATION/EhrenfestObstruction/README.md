@@ -8,12 +8,12 @@ This supporting workstream develops the frozen **conditional** theorem
 
 It combines an exact Galerkin–Heisenberg representation with a stopped negative commutator rate for a bounded reciprocal-enstrophy observable. The initial datum is smooth and fixed across every cutoff. The proposed rate condition remains an explicit, unproved hypothesis.
 
-The ten-step mathematical derivation is complete as a conditional argument. **The first six source modules and three package candidates are prepared; external acceptance is pending.** No global custom axiom is added. The existing WFB theorem and fixed repository goal retain their original finite-budget scope.
+The ten-step mathematical derivation is complete as a conditional argument. **E07 and23 first-layer declarations are externally accepted. The second layer is activated with85 further audit candidates, pending its own verification.** No global custom axiom is added. The existing WFB theorem and fixed repository goal retain their original finite-budget scope.
 
 - [Cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt)
 - [Ten mid-tier checklist](CHECKLIST.md)
 - [Source-exact identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/README.md) and [fast-route reading order](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md)
-- [Shortest identified Lean route: nine-module scalar root](FAST_ROUTE.md)
+- [Historical nine-block scalar-root route](FAST_ROUTE.md) and [concrete count mapping](COUNT_RECONCILIATION.json)
 - [Five minimal interfaces](FAST_INTERFACES.lean.txt)
 - [Full 31-module proposed layout](LEAN_LAYOUT.md)
 - [Machine module DAG](MODULE_PLAN.json) and [eight schematic interfaces](INTERFACES.lean.txt)
@@ -33,4 +33,4 @@ Version 0.3 shortens the root further: use one-cutoff mean-value contradiction a
 
 The initial identity-gathering stage is now available: 60 existing declarations/definitions, comprising the 53 indexed anchors and seven companion identities, with complete source/proof slices and 36 full pinned module snapshots. This is source extraction, not new implementation or formal acceptance. See the cutout catalog for original imports, contextual hypotheses and new adapters still required.
 
-Current activation and exact package scopes: [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). E07 and helpers are candidates; the full root and full operator milestones remain open.
+Current activation and exact package scopes: [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). [First-layer evidence](../../audits/material-40686414-accepted/summary.json) accepts E07 plus canonical-reciprocal/barrier and coefficient-calculus helpers at `40686414`. E08 is next. Current activation has18 owned sources/9 packages/108 named audits:23 accepted and85 pending. The full root, full H2 stability and full operator milestones remain open.

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "status": "A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS",
+  "run_id": 44626474631,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44626474631",
+  "tested_commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
+  "job_id": 135921536065,
+  "accepted_job_id": 135928742922,
+  "final_gate": "PASS",
+  "required_publication": "PASS",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "vendor_commit": "96033dd69c994bec337a87369a6c27256e724980",
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "runner_label": "ubuntu-24.04",
+  "source_pin_integrity": true,
+  "metrics": {
+    "audit_fresh_count": 58,
+    "audit_reused_count": 0,
+    "audit_seconds": 305.168,
+    "build_seconds": 91.079,
+    "cache_seconds": 48.927,
+    "fresh_loc": 581,
+    "fresh_module_count": 9,
+    "module_count": 374,
+    "rerun_receipt_seconds": 0.64,
+    "reused_loc": 46524,
+    "reused_module_count": 365,
+    "target_loc": 47105
+  },
+  "fresh_required_audits": true,
+  "required_packages": 58,
+  "named_declaration_audits": 288,
+  "cutout": {
+    "audit_log": "registry/logs/cutouts-audit.log",
+    "audit_origin_commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
+    "audit_reused": false,
+    "audit_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+    "axioms": {
+      "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "seconds": 3.936,
+    "source_sha256": "b67344ddb9e509d7224b529bcd1022181360b973a17602aca8a66d4cdc273f7b",
+    "status": "PASS",
+    "types": {
+      "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanB.QuasiFeffermanBStatement"
+    }
+  },
+  "accepted_new_declarations": 23,
+  "accepted_new_packages": [
+    {
+      "package": "EhrenfestCanonical",
+      "declarations": 11,
+      "type_and_axiom_pass": true,
+      "audit_sha256": "865f76cce25781319093d815e2a74d46013ae286e2a5a303e2882820a736ede7",
+      "names": [
+        "MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_nonneg",
+        "MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_bounds",
+        "MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_continuousOn_Icc",
+        "MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_continuousOn_Ici",
+        "MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_hasDerivAt",
+        "MethbokeAddon.EhrenfestObstruction.canonical_reciprocal_hasDerivWithinAt",
+        "MethbokeAddon.EhrenfestObstruction.galerkin_reciprocal_hasDerivWithinAt",
+        "MethbokeAddon.EhrenfestObstruction.halfEnstrophy_nonneg",
+        "MethbokeAddon.EhrenfestObstruction.reciprocalValue_bounds",
+        "MethbokeAddon.EhrenfestObstruction.reciprocal_denominator_pos",
+        "MethbokeAddon.EhrenfestObstruction.stopped_rejects_eventual_slab_bound"
+      ]
+    },
+    {
+      "package": "EhrenfestErrorCalculus",
+      "declarations": 8,
+      "type_and_axiom_pass": true,
+      "audit_sha256": "7494882d47ac04f09569902e9b33a2cfd028cee4b784e9b746da519187633e56",
+      "names": [
+        "MethbokeAddon.EhrenfestObstruction.FINITE_ERROR_NONLINEAR_ABSORPTION",
+        "MethbokeAddon.EhrenfestObstruction.FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY",
+        "MethbokeAddon.EhrenfestObstruction.coefficient_dissipation_hasDerivWithinAt",
+        "MethbokeAddon.EhrenfestObstruction.coefficient_error_dissipation_hasDerivWithinAt",
+        "MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_add_right",
+        "MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_galerkinRhs",
+        "MethbokeAddon.EhrenfestObstruction.dissipationRatePairing_sub_right",
+        "MethbokeAddon.EhrenfestObstruction.forced_coefficient_dissipation_identity"
+      ]
+    },
+    {
+      "package": "EhrenfestScalar",
+      "declarations": 4,
+      "type_and_axiom_pass": true,
+      "audit_sha256": "44c4b80e4cbeee031c5a671222606deb2f495b047a6dfacc8343c82b3c4b678d",
+      "names": [
+        "MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction",
+        "MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting",
+        "MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline",
+        "MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le"
+      ]
+    }
+  ],
+  "full_milestones_accepted": [
+    "E07"
+  ],
+  "scoped_helpers_accepted": [
+    "E06.scalar",
+    "E07.slab",
+    "stopped_rejects_eventual_slab_bound",
+    "E09.forced_coefficient_calculus"
+  ],
+  "root_proved": false,
+  "full_operator_translation_proved": false,
+  "stopped_witness_proved": false,
+  "approved_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "dependency_cache": "EXACT",
+  "project_cache": "PREFIX",
+  "artifact_id": 14579733148,
+  "artifact_sha256": "e26a1f7a8ca9f22f4edd8654a53db7663b8101d849d5b6e7ec8f2bada58d702f",
+  "artifact_bytes": 171232,
+  "report_sha256": "20bed2934c6d240ae91a8b7c3bc6593195b04dd0cc3b6d7161a3f360205421fe",
+  "local_lean_executions": 0,
+  "module_workers": 2,
+  "lean_threads": 2,
+  "independent_nonexecuting_review": {
+    "status": "CHECKED_EVIDENCE_CONSISTENT",
+    "checked_items": 2419,
+    "optional_unperformed_items": 116,
+    "review_sha256": "f425821bc36c0f8e219fbf529642719e816f85f1b4d82f51811f7749a5f54214",
+    "final_gate_observed_separately_by_root": true
+  }
+}

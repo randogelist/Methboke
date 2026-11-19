@@ -1,0 +1,68 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le
+MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le : ∀ (v rate : ℝ → ℝ) (T gamma : ℝ),
+  LT.lt.{0} 0 T →
+    ContinuousOn.{0, 0} v (Set.Icc.{0} 0 T) →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → HasDerivAt.{0, 0} v (rate t) t) →
+        (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → LE.le.{0} (rate t) (Neg.neg.{0} gamma)) →
+          LE.le.{0} (v T) (HSub.hSub.{0, 0, 0} (v 0) (HMul.hMul.{0, 0, 0} gamma T))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le
+'MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction
+MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction : ∀ (v rate : ℝ → ℝ) (T gamma : ℝ),
+  LT.lt.{0} 0 T →
+    ContinuousOn.{0, 0} v (Set.Icc.{0} 0 T) →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → HasDerivAt.{0, 0} v (rate t) t) →
+        (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → LE.le.{0} (rate t) (Neg.neg.{0} gamma)) →
+          LE.le.{0} (v 0) (HMul.hMul.{0, 0, 0} gamma T) → LT.lt.{0} 0 (v T) → False
+TYPE_END:MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction
+'MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline
+MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline : ∀ (v rate : ℝ → ℝ) (gamma r : ℝ),
+  LT.lt.{0} 0 gamma →
+    LT.lt.{0} 0 r →
+      LT.lt.{0} r (v 0) →
+        LE.le.{0} (v 0) 1 →
+          ContinuousOn.{0, 0} v (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} 1 gamma)) →
+            (∀ (t : ℝ),
+                LE.le.{0} 0 t →
+                  LT.lt.{0} t (HDiv.hDiv.{0, 0, 0} 1 gamma) →
+                    (∀ (s : ℝ), LE.le.{0} 0 s → LE.le.{0} s t → LT.lt.{0} r (v s)) →
+                      HasDerivWithinAt.{0, 0} v (rate t) (Set.Ici.{0} 0) t ∧ LE.le.{0} (rate t) (Neg.neg.{0} gamma)) →
+              ∃ t,
+                Membership.mem.{0, 0} (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (v 0) r) gamma)) t ∧
+                  LE.le.{0} (v t) r
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline
+'MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_scalar_le_by_deadline
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting
+MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting : ∀ (v rate : ℝ → ℝ) (gamma r : ℝ),
+  LT.lt.{0} 0 gamma →
+    LT.lt.{0} 0 r →
+      LT.lt.{0} r (v 0) →
+        LE.le.{0} (v 0) 1 →
+          ContinuousOn.{0, 0} v (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} 1 gamma)) →
+            (∀ (t : ℝ),
+                LE.le.{0} 0 t →
+                  LT.lt.{0} t (HDiv.hDiv.{0, 0, 0} 1 gamma) →
+                    (∀ (s : ℝ), LE.le.{0} 0 s → LE.le.{0} s t → LT.lt.{0} r (v s)) →
+                      HasDerivWithinAt.{0, 0} v (rate t) (Set.Ici.{0} 0) t ∧ LE.le.{0} (rate t) (Neg.neg.{0} gamma)) →
+              ∃ t,
+                Membership.mem.{0, 0} (Set.Icc.{0} 0 (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (v 0) r) gamma)) t ∧
+                  Eq.{1} (v t) r
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting
+'MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting

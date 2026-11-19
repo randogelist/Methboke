@@ -3,7 +3,7 @@
   "document": "EHRENFEST_OBSTRUCTION_LEAN_PACKAGING_LAYOUT_REVIEW",
   "reviewed_repository": "randogelist/Methboke",
   "reviewed_revision": "9ae4429b9c218c109bddaac2f993f1cc5bd66aa8",
-  "scope": "Static layout review for B-tier planning; no implementation, registration, compiler execution, workflow dispatch or repository mutation.",
+  "scope": "Historical native-layout review plus current accepted-first/pending-second activation register; no CI policy change.",
   "frozen_display_name": "EHRENFEST-OBSTRUCTION",
   "proposed_lean_root": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
   "main_goal_preserved": "Weak_Fourierman_B",
@@ -100,15 +100,21 @@
     "vendor_commit": "96033dd69c994bec337a87369a6c27256e724980",
     "module_workers": 2,
     "lean_threads": 2,
-    "baseline_modules": 365,
-    "baseline_endpoint_packages": 55,
-    "baseline_declaration_audits": 265,
+    "baseline_modules": 374,
+    "baseline_endpoint_packages": 58,
+    "baseline_declaration_audits": 288,
     "baseline_extra_audit": "QFB cutout",
     "allowed_axioms": [
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ]
+    ],
+    "historical_WFB_baseline": {
+      "modules": 365,
+      "packages": 55,
+      "named_audits": 265
+    },
+    "accepted_revision": "4068641471b9b9324a5d138cacfa37a94a648bf1"
   },
   "steps": [
     {
@@ -301,7 +307,7 @@
       "Actual-reference H1 error and eventual bound",
       "Native TestCore/CoreCommutator, independent of complete flow and self-adjointness"
     ],
-    "helper_module_policy": "MODULE_PLAN.json is authoritative: 31 proposed modules in total, nine in the minimal Root closure. Stronger and operator modules remain staged outside active discovery until ready.",
+    "helper_module_policy": "Historical design has31 proposed modules and nine logical fast-root blocks. Actual helper splitting and18 active owned sources are recorded in COUNT_RECONCILIATION.json; held scalar root has25 dependencies.",
     "caution": "No planned file is activated or compiled; each full milestone retains all its analytic and audit requirements."
   },
   "observed_stale_metadata": {
@@ -334,5 +340,29 @@
     "endpoint_package": "EhrenfestObstruction",
     "preserve_all_existing_accepted_packages": true,
     "new_operator_or_full_stability_activation_required": false
+  },
+  "historical_review_scope": "Static layout review for B-tier planning; no implementation, registration, compiler execution, workflow dispatch or repository mutation.",
+  "current_activation": {
+    "metadata_basis": "4068641471b9b9324a5d138cacfa37a94a648bf1",
+    "accepted_packages": {
+      "EhrenfestScalar": 4,
+      "EhrenfestCanonical": 11,
+      "EhrenfestErrorCalculus": 8
+    },
+    "pending_packages": {
+      "EhrenfestBootstrap": 7,
+      "EhrenfestCoreAlgebra": 3,
+      "EhrenfestCrossTransport": 13,
+      "EhrenfestEscape": 19,
+      "EhrenfestPhysicalForcing": 9,
+      "EhrenfestReference": 34
+    },
+    "owned_sources": 18,
+    "accepted_named_declarations": 23,
+    "pending_named_declarations": 85,
+    "actual_registry_packages": 64,
+    "actual_registry_named_audits": 373,
+    "count_mapping": "COUNT_RECONCILIATION.json",
+    "accepted_evidence": "../../audits/material-40686414-accepted/summary.json"
   }
 }

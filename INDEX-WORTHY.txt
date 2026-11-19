@@ -464,12 +464,14 @@ BOUNDARY: snippets are contextual references, not newly compiled standalone
   modules. Existing QFB cutout, active Material and all accepted WFB scope stay
   unchanged. No local/external Lean run or stopped-bound witness.
 
-IMPLEMENTATION_POINTER_EHRENFEST (not a verified-result entry)
-STATUS: PREPARED_PENDING_EXTERNAL_CI; six owned sources, three packages,23
-  declaration candidates. No new A-tier result indexed before exact evidence.
-SOURCE: PREPRINT_FORMALISATION/EhrenfestObstruction/IMPLEMENTATION_STATUS.json.
-BOUNDARY: E07 scalar hitting is prepared; E06.scalar and forced-error calculus
-  are helpers. The smooth-front bound, root and full operators remain open.
+IMPLEMENTATION_POINTER_EHRENFEST_SECOND_LAYER (not a verified-result entry)
+STATUS: SECOND_LAYER_PENDING_EXTERNAL_CI;18 active owned sources,9 packages,
+  108 named audits:23 accepted in the first layer and85 pending in the second.
+SOURCE: PREPRINT_FORMALISATION/EhrenfestObstruction/IMPLEMENTATION_STATUS.json
+  and COUNT_RECONCILIATION.json.
+BOUNDARY: E07 is accepted; E08 is next. Full E06/operator interpretation, full
+  E09/H2 stability and the exact E10 root remain unchecked. Pending layers
+  are excluded from accepted counts. Historical failed attempts follow.
 EXTERNAL_ATTEMPT_1: run44621109994 failed reciprocal-instance normalization;
   no fresh package audits and no acceptance. Repair pending matching replay.
   Evidence: audits/material-d1cce38f-failed/summary.json.
@@ -480,3 +482,26 @@ EXTERNAL_ATTEMPT_3: run44624844949 compiled374 modules; all23 new raw
   type/axiom blocks produced. Audit parser rejected shortened theorem names;
   no acceptance. Audit-format-only repair preserves every proof source.
   Evidence: audits/material-70a8a5ce-failed/summary.json.
+
+
+I26 EHRENFEST_E07_STOPPED_SCALAR_HITTING_ACCEPTED
+STATUS: A_TIER_ACCEPTED_EXTERNAL_CACHED.
+SOURCE:4068641471b9b9324a5d138cacfa37a94a648bf1; run44626474631.
+ENDPOINT: MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting, with
+  terminal_le_of_rate_le, positive_terminal_contradiction and
+  stopped_scalar_le_by_deadline in EhrenfestScalar.
+EVIDENCE: audits/material-40686414-accepted/summary.json; publication and
+  final acceptance passed; exact type/standard-axiom audits passed.
+SCOPE: E07 checked. The same run freshly audited all58 packages/288 named
+  declarations plus QFB, with374 modules passing. No stopped-bound witness.
+
+I27 EHRENFEST_CANONICAL_AND_ERROR_CALCULUS_HELPERS_ACCEPTED
+STATUS: A_TIER_ACCEPTED_SCOPED_HELPERS; SAME40686414 EVIDENCE.
+PACKAGES: EhrenfestCanonical11; EhrenfestErrorCalculus8. Together with E07,
+  23 new declarations are accepted. Exact inventories are in endpoint.json
+  and IMPLEMENTATION_STATUS.json.
+SCOPE: reciprocal bounds/drift/continuity and the eventual-bound barrier;
+  arbitrary coefficient/error derivatives, signed pairing, forced enstrophy
+  balance and nonlinear absorption. These do not complete full E06, E09 or E10.
+BOUNDARY: no acceptance for the85 newly activated second-layer declarations,
+  the separately held final bound/root, or the full operator realization.

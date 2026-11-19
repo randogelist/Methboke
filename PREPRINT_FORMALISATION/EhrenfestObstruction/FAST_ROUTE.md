@@ -2,7 +2,7 @@
 
 **Version 0.3.0 — B-tier derivation and proposed layout only.** The frozen implication and its stopped premise are unchanged. This is a reduction in new proof infrastructure; no compiler timing or global runtime optimality is claimed.
 
-The scalar root needs **nine of the 31 planned modules**. The 31-file inventory includes the original stronger milestones, the new shorter proof and an optional full import bundle. Only the nine-module source closure should enter the first root activation. No Lean source is activated by this document.
+The historical scalar-root design has **nine logical blocks within31 proposed modules**. Concrete helper splitting now gives25 owned dependencies for the separately held root. Current activation has18 owned sources; E07 and23 first-layer declarations are accepted, while85 second-layer audit candidates remain pending. See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json) and [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). The stronger milestones and optional full bundle retain their original scope.
 
 The [existing identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md) provide the initial reusable inputs, including original proof bodies and imports. [Remaining adapters](../../LEAN_CUTOUTS/EhrenfestObstruction/REMAINING_ADAPTERS.md) records what the sources do not yet prove.
 
@@ -92,7 +92,7 @@ A reference H2 bound is mathematically sufficient if one instead uses H2-to-Linf
 
 ## Minimal source closure
 
-All paths below are proposed under `Material/MethbokeAddon/EhrenfestObstruction/`.
+The historical logical paths below are under `Material/MethbokeAddon/EhrenfestObstruction/`. They are not the concrete file inventory; consult the count mapping for implemented splits.
 
 | Module | New output | Reuse / scope |
 |---|---|---|
@@ -128,4 +128,4 @@ The shortest proposed order is: scalar definitions/comparison and H1 error work 
 
 Do not activate all 31 planned sources for the first root run. The native pipeline indexes every Lean file under `Material`; activate only a coherent registered closure with exact hashes, imports, package manifests and fresh public-declaration audits. Preserve the existing cache identity, compiler, vendor and Mathlib pin. Use narrow imports and the existing native workflow. No local Lean, Lake or kernel run is allowed.
 
-E10's literal implication can be accepted while other milestones remain open. Full workstream acceptance still means every one of the ten original scopes has passed. E09's full H2-convergence statement has not been silently weakened: its shorter `E09.bound` helper is separately tracked. All current results are written B-tier arguments; no new Lean endpoint is accepted and no stopped-bound witness is constructed.
+E10's literal implication can be accepted while other milestones remain open. Full workstream acceptance still means every one of the ten original scopes has passed. E09's full H2-convergence statement has not been silently weakened: its shorter `E09.bound` helper is separately tracked. E07 and23 scoped first-layer declarations are accepted at `40686414`; the second layer and root remain pending. No stopped-bound witness is constructed.
