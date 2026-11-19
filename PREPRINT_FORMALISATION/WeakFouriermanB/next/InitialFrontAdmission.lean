@@ -102,9 +102,10 @@ theorem initial_front_strong_initial_trace
         (fun r x => ‖u r x - a x‖ ^ 2) hF τ hτT
   have hE0 : physicalEnergy (u 0 - a) = 0 := by
     simp [H.initial, physicalEnergy_eq_integral_norm_sq]
+  have hτevent : ∀ᶠ r : ℝ in 𝓝[>] (0 : ℝ), r < τ :=
+    nhdsWithin_le_nhds (Iio_mem_nhds hτ)
   have hwindow : Icc (0 : ℝ) τ ∈ 𝓝[>] (0 : ℝ) := by
-    filter_upwards [self_mem_nhdsWithin,
-      (Iio_mem_nhds hτ).filter_mono nhdsWithin_le_nhds] with r hr hrτ
+    filter_upwards [self_mem_nhdsWithin, hτevent] with r hr hrτ
     exact ⟨hr.le, hrτ.le⟩
   have hfilter : 𝓝[>] (0 : ℝ) ≤ 𝓝[Icc (0 : ℝ) τ] (0 : ℝ) :=
     le_inf nhdsWithin_le_nhds (le_principal_iff.mpr hwindow)
@@ -118,10 +119,12 @@ theorem initial_front_strong_initial_trace
       (fun r => ENNReal.ofReal (Real.sqrt (physicalEnergy (u r - a))))
       (𝓝[>] (0 : ℝ)) (𝓝 0) := by
     have hsqrt := (Real.continuous_sqrt.tendsto (0 : ℝ)).comp hEtrace
-    simpa only [Real.sqrt_zero, ENNReal.ofReal_zero] using ENNReal.tendsto_ofReal hsqrt
+    simpa only [Function.comp_def, Real.sqrt_zero, ENNReal.ofReal_zero] using
+      ENNReal.tendsto_ofReal hsqrt
+  have hTevent : ∀ᶠ r : ℝ in 𝓝[>] (0 : ℝ), r < T :=
+    nhdsWithin_le_nhds (Iio_mem_nhds hT)
   apply hlimit.congr'
-  filter_upwards [self_mem_nhdsWithin,
-    (Iio_mem_nhds hT).filter_mono nhdsWithin_le_nhds] with r hr hrT
+  filter_upwards [self_mem_nhdsWithin, hTevent] with r hr hrT
   have hur := initial_front_smooth_slices ν T a u p H r ⟨hr.le, hrT⟩
   have hmem : MemLp (u r - a) 2 (volume.restrict unitCube) :=
     (smooth_datum_memLp hur).sub (smooth_datum_memLp ha)

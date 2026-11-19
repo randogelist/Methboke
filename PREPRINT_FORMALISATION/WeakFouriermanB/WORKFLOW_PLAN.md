@@ -252,3 +252,9 @@ The first R0 run0ddd2d67 failed before audits on two syntactic rewrites.
 Corrections and the literal D_Q data-class adapter are prepared for321 modules,
 33 packages and161 declarations pluscutout. The303-module accepted baseline
 remains intact; no recovery/full rebuild was selected by the proof failure.
+
+The c6e039da recheck compiled the earlier gluing/pressure corrections but
+stopped in initial-trace filter notation and composition normalization. Those
+expressions are corrected; statements and321/33/161 scope are unchanged.
+[Retained failed-run evidence](https://github.com/randogelist/Methboke/actions/runs/44545010863)
+confirms303 baseline objects reused and recovery skipped. Acceptance is pending.

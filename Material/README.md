@@ -166,3 +166,9 @@ Next R0 recheck:321 modules/33 packages/161 declaration audits pluscutout.
 The two source rewrite failures at0ddd2d67 are corrected without statement or
 driver changes. Literal two-sided analytic-cap and D_Q subset R_nu packages
 are included. All root acceptance remains pending matching external evidence.
+
+The c6e039da recheck compiled the earlier gluing/pressure corrections but
+stopped in initial-trace filter notation and composition normalization. Those
+expressions are corrected; statements and321/33/161 scope are unchanged.
+[Retained failed-run evidence](https://github.com/randogelist/Methboke/actions/runs/44545010863)
+confirms303 baseline objects reused and recovery skipped. Acceptance is pending.
