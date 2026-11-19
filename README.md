@@ -8,42 +8,32 @@ The working branch is **`main`**.
 
 ## Current state
 
-- **Full WFB chain prepared:** 22 new proof modules and 104 theorem candidates
-  now cover physical H1 local existence, maximality, actual-budget continuation,
-  strict cutoff overlap and the exact same-path WFB root. External scope:
-  **365 modules / 55 fresh packages / 265 declarations plus cutout**.
-  The latest run compiled 343 modules (321 reused) and found errors in three
-  new modules; 19 dependencies were blocked and audits were not reached.
-  [Exact failure evidence](audits/material-8318b7a6-failed/summary.json) is retained.
-  Repairs preserve all statements; full external verification remains pending.
+**Weak_Fourierman_B is implemented and externally verified.**
+[Run 44566880192](https://github.com/randogelist/Methboke/actions/runs/44566880192) at `fdb515d8bde35ec8021bbc26f360aca8dfa2855c` passed all **365 modules**, all **55 fresh endpoint packages**,
+**265 declaration audits plus the QFB cutout**, and **183 controls**.
+All audited theorems use only `propext`, `Classical.choice`, and `Quot.sound`.
+321 accepted modules were reused and 44 additions compiled. Publication and
+the final acceptance job succeeded. No local Lean execution occurred.
 
-- **Latest accepted package and exact R0 root:** [run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
-  at `93ca8a57536512556ec36717ee933ea52db283bf` verified 321 source modules
-  (303 reused, 18 freshly compiled), all 33 fresh endpoint packages and all
-  161 declaration audits plus the QFB cutout. All 183 controls passed; every
-  audited theorem uses only approved standard axioms. The
-  [matching evidence](audits/material-93ca8a5/summary.json) accepts
-  `MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu` and the classical and
-  two-sided analytic finite-cap roots, preserving both velocity and normalized
-  pressure on the admitted front. The actual finite cap remains explicit;
-  universal analytic germ extension R1 remains open.
-- **WFB-01 and WFB-02 are accepted**, first at `0402aa37` with
-  [matching evidence](audits/material-0402aa37/summary.json) and freshly audited
-  in the current package. The complete WFB root and the remaining eight
-  contextual obligations remain unresolved; accepted helpers retain their
-  exact scope.
-- **Remaining WFB route indexed at B-tier:** [ten-step route and source register](WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt), with [126 pinned anchors and exact evidence levels](PREPRINT_FORMALISATION/WeakFouriermanB/ANCHOR_INDEX_v0_2.json). The first formal gap is cutoff-independent physical H¹ local existence; subsequent entries are prospective. Accepted R0 comparison/pressure/gluing is explicitly reused. No new theorem status follows from this index.
-- **Cached external verification remains mandatory.** Explicit current cache
-  rejection may select recovery; proof, audit, static and publication failures
-  preserve the accepted baseline. Independent implementation may continue
-  while an exact commit is checked. No local Lean or scheduled monitor is used.
-- **Chat-only progress signs:** `<->` is reserved for an accepted complete WFB
-  contextual obligation or exact root, not a helper pass or CI status alone.
+The [exact root](Material/MethbokeAddon/WeakFouriermanB/WeakFouriermanB.lean)
+proves that the full finite squared Fourier budget up to the smaller of the
+maximal lifetime and QFB cutoff gives infinite lifetime and a global smooth
+pair preserving the original velocity and normalized pressure.
+Actual maximal existence for every smooth datum is proved separately.
+**The finite budget remains a hypothesis.** Universal budget finiteness and
+universal analytic germ extension R1 remain outside this result.
 
-The 269 pinned vendor modules remain unchanged. Main consolidation is complete;
-the retired `Clay-Admission-Candidate-01` branch history is preserved. Docker Hub
-work remains paused. Earlier infrastructure measurements are retained below
-and in [INDEX-WORTHY.txt](INDEX-WORTHY.txt).
+All ten [contextual obligations](PREPRINT_FORMALISATION/WeakFouriermanB/obligations.json)
+are accepted. Their [matching evidence](audits/material-fdb515d8/summary.json) retains the 22 new audit logs;
+[the A-tier register](Weak_Fourierman_B_A_TIER.txt) and
+[cumulative mathematical chain](Weak_Fourierman_B_B_TIER.txt) give exact scope.
+The earlier 126-anchor source index remains a historical foundation.
+
+The 269 pinned vendor modules, compiler, dependency lock and CI/cache drivers
+are unchanged. R0 and original QFB acceptance remain valid. The two failed
+implementation attempts are retained at
+[4bd466f1](audits/material-4bd466f1-failed/summary.json) and
+[8318b7a6](audits/material-8318b7a6-failed/summary.json).
 
 ## Fixed scope and useful identities
 
@@ -201,28 +191,16 @@ actual cap premise; universal germ-to-cap extension R1 remains open.
 
 ## Current mathematical boundary
 
-The [WFB B-tier chain](Weak_Fourierman_B_B_TIER.txt) derives global regularity of
-the same trajectory from a finite full squared Fourier budget. It does not prove
-that budget for every datum. Its two Fourier-to-Serrin bridges are accepted,
-and the second accepted layer supplies smooth-datum admission and genuine
-finite-front comparison with the original weak path. The globally positive-time smooth
-object used in weak testing is a constructed test; it is not an assumed global
-NSE solution.
+The exact WFB finite-budget implication and all ten contextual obligations are
+accepted. Its physical H1 local construction uses cutoff-uniform bounds and an
+actual Galerkin limit. Its continuation theorem consumes the actual physical
+dissipation-square integral and constructs a longer front preserving velocity
+and normalized pressure. Strict cutoff overlap includes the equality case;
+the accepted R0 theorem then supplies the same-path global pair.
 
-Physical periodic H1 local existence with a norm-controlled lifespan now has
-a complete source candidate derived from cutoff-uniform estimates and an actual
-Galerkin limit. The maximal-trajectory, physical-budget continuation and exact
-WFB root are also prepared. Their external acceptance remains separate from
-the previously accepted comparison helpers.
-
-The accepted R0 layer derives initial trace and compact Serrin bounds from
-an actual admitted front, identifies the original weak path, proves velocity
-and normalized-pressure agreement with its QFB tail, and constructs a global
-smooth splice. `D_Q_subset_R_nu` includes the explicit zero solution and an
-actual two-sided analytic NSE cap for nonzero data. The classical and analytic
-roots preserve the admitted velocity and pressure on `[0,T)`. Their matching
-external acceptance is recorded at `93ca8a5`; no arbitrary-data cap or universal
-germ-to-cap extension is asserted.
+No universal budget bound, arbitrary-data global regularity or universal
+analytic germ-to-cap extension is asserted. The actual R0 cap condition remains
+explicit in its own theorem and is supplied by the WFB continuation chain.
 
 ### Historical R0 verification attempts
 

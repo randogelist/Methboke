@@ -2,7 +2,7 @@
   "date": "2026-11-19",
   "repository": "randogelist/Methboke",
   "branch": "main",
-  "mode": "A_TIER_WFB_FULL_CHAIN_EXTERNAL_VERIFICATION",
+  "mode": "A_TIER_WFB_MATCHING_EXTERNAL_ACCEPTANCE",
   "initial_commit": "8b8a62ed30d36df990e407fd98bb692b5ce8a468",
   "source_pins": {
     "methlib_qfb": "96033dd69c994bec337a87369a6c27256e724980",
@@ -27,43 +27,39 @@
     "scope": "inherited QFB root only; not new root; not native Windows"
   },
   "new_root": {
+    "principal": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
+    "a_tier": true,
+    "formal_closure": true,
+    "unconditional_closure": true,
+    "unconditional_closure_scope": "The exact finite-full-Fourier-budget implication is proved without extra local-existence, continuation, gluing or custom-axiom premises. The budget itself remains a hypothesis.",
+    "full_WFB_proved": true,
+    "universal_budget_finiteness_proved": false,
+    "universal_admission_proved": false,
+    "R1_universal_germ_extension_proved": false,
     "local_lean_executions": 0,
     "external_compiler_evidence": {
-      "tested_commit": "93ca8a57536512556ec36717ee933ea52db283bf",
-      "run_id": 44549257770,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44549257770",
-      "summary": "audits/material-93ca8a5/summary.json",
-      "compiled_modules": 321
+      "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "run_id": 44566880192,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+      "evidence": "audits/material-fdb515d8/summary.json",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "platform": "Linux x86_64; Lean 4.33.0"
     },
     "theorem_axiom_audit": {
       "status": "PASS_STANDARD_AXIOMS_ONLY",
-      "fresh_endpoint_packages": 33,
-      "audited_declarations": 161,
-      "R0_packages": 9,
-      "R0_declarations": 41,
+      "fresh_endpoint_packages": 55,
+      "audited_declarations": 265,
       "standard_axioms": [
         "propext",
         "Classical.choice",
         "Quot.sound"
       ],
       "custom_axioms": [],
-      "summary": "audits/material-93ca8a5/summary.json"
-    },
-    "a_tier": true,
-    "formal_closure": true,
-    "unconditional_closure": true,
-    "principal": "MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu",
-    "exact_statement": "forall nu>0, D_Q nu subset R_nu nu",
-    "formal_closure_scope": "R0 finite-cap admission, including classical, forward analytic and literal two-sided analytic roots",
-    "unconditional_closure_scope": "The proved R0 implication forall nu > 0, D_Q nu subset R_nu nu. Membership of nonzero data in D_Q retains existence of an actual two-sided analytic NSE cap through the prescribed physical horizon; this is not universal admission of all smooth data.",
-    "actual_cap_premise_retained": true,
-    "universal_admission_proved": false,
-    "R1_universal_germ_extension_proved": false,
-    "full_WFB_proved": false,
-    "legacy_metadata_note": {
-      "field": "new_finite_cap_theorem_included",
-      "emitted_value": false,
-      "reason": "Legacy native/build report emitters hardcode false. Actual root inclusion and acceptance are established by exact manifest/closure signatures, matching compiled modules and fresh root type/axiom logs recorded above. Drivers left unchanged to preserve verified receipt context."
+      "summary": "audits/material-fdb515d8/summary.json"
     }
   },
   "mathematical_derivations": {
@@ -91,98 +87,41 @@
   "historical_candidate_branch": "Clay-Admission-Candidate-01",
   "resume_mode": "A_TIER_DERIVATION",
   "main_consolidation": "COMPLETED_AT_670de211b2787bdbd1a208210c1efd0ac313c2f4",
-  "current_material_external_verification": "PASS_AT_93ca8a57536512556ec36717ee933ea52db283bf_RUN_44549257770",
+  "current_material_external_verification": "PASS_AT_fdb515d8bde35ec8021bbc26f360aca8dfa2855c_RUN_44566880192",
   "target_hierarchy": {
-    "macroscopic": "Exact WFB: full finite Fourier-square budget implies global same-path smoothness",
-    "mesoscopic": "Close the ten contextual WFB obligations, largest open analytic gap first",
-    "microscopic": "Verify and repair the constructed physical local existence and complete same-path WFB chain on cached external CI",
+    "macroscopic": "Exact Weak_Fourierman_B: ACCEPTED with its explicit full finite Fourier-budget premise",
+    "mesoscopic": "All ten contextual WFB obligations accepted",
+    "microscopic": "Acceptance evidence recorded; no remaining in-scope obligation",
     "suggested_next_goal": {
-      "description": "Cutoff-independent short-time Galerkin H1/H2 bounds feeding the existing generic compactness interface",
-      "adopted": false,
-      "scope": "Remaining WFB local theory within unchanged project goal; no claim of completed physical construction"
+      "description": "No new goal adopted; universal budget finiteness and R1 remain outside completed WFB scope",
+      "adopted": false
     }
   },
   "ci_handoff": "CONTINUE_INDEPENDENT_IMPLEMENTATION_WHILE_EXTERNAL_CI_RUNS; inspect available results; preserve tested commit",
   "latest_material_run": {
-    "run_id": 44549257770,
-    "run_attempt": null,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44549257770",
-    "tested_commit": "93ca8a57536512556ec36717ee933ea52db283bf",
+    "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+    "run_id": 44566880192,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+    "evidence": "audits/material-fdb515d8/summary.json",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "platform": "Linux x86_64; Lean 4.33.0",
+    "tested_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
     "overall_conclusion": "SUCCESS",
-    "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
-    "compiler_commit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
-    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
-    "platform": {
-      "machine": "x86_64",
-      "system": "Linux"
-    },
-    "module_compilation": "PASS",
-    "passed_modules": 321,
-    "reused_modules": 303,
-    "fresh_modules": 18,
-    "vendored_modules": 269,
-    "endpoint_wrappers": 33,
-    "owned_source_modules": 19,
-    "verification_driver_seconds": 263.017,
-    "job_seconds": null,
-    "audit_conclusion": "PASS_STANDARD_AXIOMS_ONLY",
-    "fresh_audit_files": 33,
-    "audited_declaration_entries": 161,
-    "cutout_audit": "FRESH_PASS",
-    "artifact_id": 14543236124,
-    "artifact_sha256": "e549583f0c337690993a9ad176c8b9b39c49cabc6acab8fc6bf3ea69da8f72fd",
-    "report_sha256": "edb591aac17061cfeb6639e7caf6702cc96e9f16af9e09d795b5140020054475",
-    "fresh_audit_log_hashes_checked": 34,
-    "accepted_package_type_axiom_pass": true,
-    "native_windows_evidence": false,
-    "evidence_artifact_url": "https://github.com/randogelist/Methboke/actions/runs/44549257770/artifacts/14543236124",
-    "evidence_summary": "audits/material-93ca8a5/summary.json",
-    "metrics": {
-      "audit_fresh_count": 33,
-      "audit_reused_count": 0,
-      "audit_seconds": 111.962,
-      "build_seconds": 118.141,
-      "cache_seconds": 27.759,
-      "fresh_loc": 1305,
-      "fresh_module_count": 18,
-      "module_count": 321,
-      "rerun_receipt_seconds": 0.397,
-      "reused_loc": 41843,
-      "reused_module_count": 303,
-      "target_loc": 43148
-    },
-    "external_control_tests_passed": 183,
+    "status": "PASS_STANDARD_AXIOMS_ONLY",
     "record_role": "LATEST_ACCEPTED_VERIFICATION",
-    "accepted_scope": {
-      "compiled_modules": 321,
-      "endpoint_packages": 33,
-      "declaration_audits": 161,
-      "cutout_audit": "FRESH_PASS",
-      "R0_new_packages": 9,
-      "R0_new_declarations": 41,
-      "principal": "MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu",
-      "exact_statement": "forall nu>0, D_Q nu subset R_nu nu",
-      "actual_two_sided_analytic_cap_premise_retained": true,
-      "classical_cap_root_and_pressure_preservation": true
-    },
-    "R0_root_accepted": true,
-    "WFB_root_accepted": false,
-    "additional_whole_WFB_obligation_promoted": false,
-    "R1_universal_germ_extension_proved": false,
-    "publication": {
-      "binary_artifact_id": 14542023381,
-      "binary_archive_bytes": 26894511,
-      "binary_archive_sha256": "d1832bed1a7a89e58a91d40e308f9ddbf1b6e3834c0d27699e33b13ef5ffe588",
-      "identity_source": "EXTERNAL_PUBLICATION_LOG; BINARY_MEMBERS_NOT_REDOWNLOADED_LOCALLY",
-      "project_cache": "SAVED_AND_PUBLISHED_IDENTITY_CHECKED",
-      "dependencies": "EXACT_COMPATIBLE_CACHE_PRESERVED",
-      "recovery": "SKIPPED"
-    },
-    "legacy_metadata_note": {
-      "field": "new_finite_cap_theorem_included",
-      "emitted_value": false,
-      "reason": "Legacy native/build report emitters hardcode false. Actual root inclusion and acceptance are established by exact manifest/closure signatures, matching compiled modules and fresh root type/axiom logs recorded above. Drivers left unchanged to preserve verified receipt context."
-    }
+    "passed_modules": 365,
+    "reused_modules": 321,
+    "fresh_modules": 44,
+    "fresh_audit_files": 55,
+    "audited_declaration_entries": 265,
+    "fresh_cutout": "PASS",
+    "external_control_tests_passed": 183,
+    "publication_complete": true,
+    "evidence_summary": "audits/material-fdb515d8/summary.json"
   },
   "ci_reference_observations": [
     {
@@ -742,6 +681,87 @@
       "R0_root_accepted": false,
       "WFB_root_accepted": false,
       "additional_whole_WFB_obligation_promoted": false
+    },
+    {
+      "run_id": 44549257770,
+      "run_attempt": null,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44549257770",
+      "tested_commit": "93ca8a57536512556ec36717ee933ea52db283bf",
+      "overall_conclusion": "SUCCESS",
+      "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+      "compiler_commit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "platform": {
+        "machine": "x86_64",
+        "system": "Linux"
+      },
+      "module_compilation": "PASS",
+      "passed_modules": 321,
+      "reused_modules": 303,
+      "fresh_modules": 18,
+      "vendored_modules": 269,
+      "endpoint_wrappers": 33,
+      "owned_source_modules": 19,
+      "verification_driver_seconds": 263.017,
+      "job_seconds": null,
+      "audit_conclusion": "PASS_STANDARD_AXIOMS_ONLY",
+      "fresh_audit_files": 33,
+      "audited_declaration_entries": 161,
+      "cutout_audit": "FRESH_PASS",
+      "artifact_id": 14543236124,
+      "artifact_sha256": "e549583f0c337690993a9ad176c8b9b39c49cabc6acab8fc6bf3ea69da8f72fd",
+      "report_sha256": "edb591aac17061cfeb6639e7caf6702cc96e9f16af9e09d795b5140020054475",
+      "fresh_audit_log_hashes_checked": 34,
+      "accepted_package_type_axiom_pass": true,
+      "native_windows_evidence": false,
+      "evidence_artifact_url": "https://github.com/randogelist/Methboke/actions/runs/44549257770/artifacts/14543236124",
+      "evidence_summary": "audits/material-93ca8a5/summary.json",
+      "metrics": {
+        "audit_fresh_count": 33,
+        "audit_reused_count": 0,
+        "audit_seconds": 111.962,
+        "build_seconds": 118.141,
+        "cache_seconds": 27.759,
+        "fresh_loc": 1305,
+        "fresh_module_count": 18,
+        "module_count": 321,
+        "rerun_receipt_seconds": 0.397,
+        "reused_loc": 41843,
+        "reused_module_count": 303,
+        "target_loc": 43148
+      },
+      "external_control_tests_passed": 183,
+      "record_role": "LATEST_ACCEPTED_VERIFICATION",
+      "accepted_scope": {
+        "compiled_modules": 321,
+        "endpoint_packages": 33,
+        "declaration_audits": 161,
+        "cutout_audit": "FRESH_PASS",
+        "R0_new_packages": 9,
+        "R0_new_declarations": 41,
+        "principal": "MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu",
+        "exact_statement": "forall nu>0, D_Q nu subset R_nu nu",
+        "actual_two_sided_analytic_cap_premise_retained": true,
+        "classical_cap_root_and_pressure_preservation": true
+      },
+      "R0_root_accepted": true,
+      "WFB_root_accepted": false,
+      "additional_whole_WFB_obligation_promoted": false,
+      "R1_universal_germ_extension_proved": false,
+      "publication": {
+        "binary_artifact_id": 14542023381,
+        "binary_archive_bytes": 26894511,
+        "binary_archive_sha256": "d1832bed1a7a89e58a91d40e308f9ddbf1b6e3834c0d27699e33b13ef5ffe588",
+        "identity_source": "EXTERNAL_PUBLICATION_LOG; BINARY_MEMBERS_NOT_REDOWNLOADED_LOCALLY",
+        "project_cache": "SAVED_AND_PUBLISHED_IDENTITY_CHECKED",
+        "dependencies": "EXACT_COMPATIBLE_CACHE_PRESERVED",
+        "recovery": "SKIPPED"
+      },
+      "legacy_metadata_note": {
+        "field": "new_finite_cap_theorem_included",
+        "emitted_value": false,
+        "reason": "Legacy native/build report emitters hardcode false. Actual root inclusion and acceptance are established by exact manifest/closure signatures, matching compiled modules and fresh root type/axiom logs recorded above. Drivers left unchanged to preserve verified receipt context."
+      }
     }
   ],
   "warm_container_observations": {
@@ -1024,24 +1044,32 @@
   },
   "weak_fourierman_b": {
     "b_tier_document": "Weak_Fourierman_B_B_TIER.txt",
-    "b_tier_version": "0.7.0",
-    "b_tier_status": "COMPOSED_FROM_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
+    "b_tier_version": "0.8.0",
+    "b_tier_status": "COMPLETE_WITH_MATCHING_EXTERNAL_LEAN_VERIFICATION",
     "scope": "Finite full squared Fourier budget implies global smooth continuation of the same maximal trajectory; finite budget remains a hypothesis",
     "workflow_plan": "PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md",
     "obligation_register": "PREPRINT_FORMALISATION/WeakFouriermanB/obligations.json",
     "candidate_manifest": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate-sources.json",
-    "candidate_modules": 4,
-    "candidate_lines": 1255,
-    "required_candidate_declarations": 57,
+    "candidate_modules": 41,
+    "candidate_lines": 6722,
+    "required_candidate_declarations": 224,
     "active_material_registration": true,
     "repository_external_run": {
-      "run_id": 44537934256,
-      "commit": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
-      "scope": "first four modules only; 18 packages/98 declarations plus cutout",
+      "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "run_id": 44566880192,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+      "evidence": "audits/material-fdb515d8/summary.json",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "platform": "Linux x86_64; Lean 4.33.0",
+      "scope": "365 modules; 55 fresh packages; 265 declarations plus cutout",
       "status": "PASS_STANDARD_AXIOMS_ONLY_REVIEWED"
     },
-    "a_tier_obligations": 2,
-    "root_a_tier": false,
+    "a_tier_obligations": 10,
+    "root_a_tier": true,
     "chat_sign": "<->",
     "monitoring_enabled": false,
     "preparation_ci_policy": "ACTIVE_REGISTRATION_REQUIRES_EXTERNAL_COMPILER_AND_FRESH_AUDITS",
@@ -1059,37 +1087,41 @@
       "downstream_status": "PROSPECTIVE",
       "new_a_tier_promotions": 0,
       "local_lean_executions": 0,
-      "new_external_runs": 0
+      "new_external_runs": 0,
+      "record_role": "HISTORICAL_PRE_IMPLEMENTATION_ROUTE_INDEX"
     },
     "prepared_remaining_modules": 22,
-    "prepared_remaining_declarations": 104
+    "prepared_remaining_declarations": 104,
+    "budget_remains_explicit_hypothesis": true
   },
   "latest_main_ci_metadata_observation": {
-    "source_sha": "8318b7a6e5e0a44161eab5d041ace375c1379a68",
+    "source_sha": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
     "run_ids": [
-      "44564405380"
+      44566880192
     ],
-    "latest_run_url": "https://github.com/randogelist/Methboke/actions/runs/44564405380",
+    "latest_run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
     "observed_status": "completed",
-    "overall_conclusion": "failure",
-    "acceptance": "NONE",
-    "evidence": "audits/material-8318b7a6-failed/summary.json",
-    "latest_accepted_source_sha": "93ca8a57536512556ec36717ee933ea52db283bf",
-    "latest_accepted_run_id": 44549257770,
-    "WFB_root_accepted": false
+    "overall_conclusion": "success",
+    "acceptance": "PASS_STANDARD_AXIOMS_ONLY",
+    "evidence": "audits/material-fdb515d8/summary.json",
+    "latest_accepted_source_sha": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+    "latest_accepted_run_id": 44566880192,
+    "WFB_root_accepted": true,
+    "R0_root_accepted": true,
+    "budget_hypothesis_retained": true
   },
   "wfb_activation": {
-    "status": "FIRST_TWO_WFB_LAYERS_AND_R0_FINITE_CAP_ROOT_ACCEPTED",
-    "owned_modules": 19,
-    "new_wrappers": 19,
-    "full_module_count": 321,
-    "endpoint_packages": 33,
-    "declaration_audits": 161,
+    "status": "ALL_TEN_CONTEXTUAL_OBLIGATIONS_AND_EXACT_WFB_ROOT_ACCEPTED",
+    "owned_modules": 41,
+    "new_wrappers": 41,
+    "full_module_count": 365,
+    "endpoint_packages": 55,
+    "declaration_audits": 265,
     "cutout_audit_required": true,
     "baseline_review": "audits/material-43530b7/summary.json",
     "pins_changed": false,
     "local_lean_executions": 0,
-    "formal_obstruction": "WFB-03 cutoff-uniform physical local H1 existence",
+    "formal_obstruction": null,
     "independent_prepared_helper": "Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean",
     "accepted_first_layer": {
       "commit": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
@@ -1133,6 +1165,18 @@
       "WFB_root_accepted": false,
       "additional_whole_WFB_obligation_promoted": false,
       "R1_universal_germ_extension_proved": false
+    },
+    "external_acceptance": {
+      "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "run_id": 44566880192,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+      "evidence": "audits/material-fdb515d8/summary.json",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "platform": "Linux x86_64; Lean 4.33.0"
     }
   },
   "r0_admission_preparation": {
@@ -1249,7 +1293,8 @@
     "source": "Explicit current user instruction: main goal is WFB",
     "budget_hypothesis_retained": true,
     "R0_role": "accepted foundation",
-    "universal_R1_in_scope": false
+    "universal_R1_in_scope": false,
+    "status": "ACCEPTED_CONDITIONAL_WFB_ROOT"
   },
   "wfb_implementation_layer_1": {
     "status": "FIRST_ATTEMPT_FAILED_THREE_PROOF_EXPRESSIONS_REPAIRED",
@@ -1316,7 +1361,7 @@
     }
   },
   "wfb_full_chain_preparation": {
-    "status": "FULL_CHAIN_REPAIR_PENDING_EXTERNAL_VERIFICATION",
+    "status": "ACCEPTED_MATCHING_EXTERNAL_VERIFICATION",
     "modules": [
       "LocalCubicBarrier",
       "LocalGalerkinBounds",
@@ -1394,7 +1439,7 @@
       "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
     },
     "local_lean_executions": 0,
-    "new_acceptance_signals": 0,
+    "new_acceptance_signals": 8,
     "root_candidate": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
     "budget_remains_explicit_hypothesis": true,
     "latest_attempt": {
@@ -1437,6 +1482,58 @@
       "statements_changed": false,
       "local_lean_executions": 0,
       "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
+    },
+    "external_acceptance": {
+      "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "run_id": 44566880192,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+      "evidence": "audits/material-fdb515d8/summary.json",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "platform": "Linux x86_64; Lean 4.33.0"
+    }
+  },
+  "accepted_r0_root_record": {
+    "local_lean_executions": 0,
+    "external_compiler_evidence": {
+      "tested_commit": "93ca8a57536512556ec36717ee933ea52db283bf",
+      "run_id": 44549257770,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44549257770",
+      "summary": "audits/material-93ca8a5/summary.json",
+      "compiled_modules": 321
+    },
+    "theorem_axiom_audit": {
+      "status": "PASS_STANDARD_AXIOMS_ONLY",
+      "fresh_endpoint_packages": 33,
+      "audited_declarations": 161,
+      "R0_packages": 9,
+      "R0_declarations": 41,
+      "standard_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "custom_axioms": [],
+      "summary": "audits/material-93ca8a5/summary.json"
+    },
+    "a_tier": true,
+    "formal_closure": true,
+    "unconditional_closure": true,
+    "principal": "MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu",
+    "exact_statement": "forall nu>0, D_Q nu subset R_nu nu",
+    "formal_closure_scope": "R0 finite-cap admission, including classical, forward analytic and literal two-sided analytic roots",
+    "unconditional_closure_scope": "The proved R0 implication forall nu > 0, D_Q nu subset R_nu nu. Membership of nonzero data in D_Q retains existence of an actual two-sided analytic NSE cap through the prescribed physical horizon; this is not universal admission of all smooth data.",
+    "actual_cap_premise_retained": true,
+    "universal_admission_proved": false,
+    "R1_universal_germ_extension_proved": false,
+    "full_WFB_proved": false,
+    "legacy_metadata_note": {
+      "field": "new_finite_cap_theorem_included",
+      "emitted_value": false,
+      "reason": "Legacy native/build report emitters hardcode false. Actual root inclusion and acceptance are established by exact manifest/closure signatures, matching compiled modules and fresh root type/axiom logs recorded above. Drivers left unchanged to preserve verified receipt context."
     }
   }
 }

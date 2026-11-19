@@ -1,14 +1,14 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 2.1
+DOCUMENT_VERSION = 2.2
 DATE = 2026-11-19
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
-ACTIVE_TASK = Implement WFB as the explicit main goal; largest unresolved gap first; continue independent preparation during external cached verification
+ACTIVE_TASK = Completed exact WFB; preserve accepted evidence and explicit budget scope
 RESUME_MODE = A_TIER_DERIVATION
-CURRENT_MILESTONE = A_TIER_R0_D_Q_SUBSET_R_NU_AT_93ca8a57536512556ec36717ee933ea52db283bf
-CURRENT_ACCEPTANCE = 321_MODULES_33_FRESH_PACKAGES_161_DECLARATIONS_PLUS_QFB_CUTOUT; STANDARD_AXIOMS_ONLY
-STATUS_AUTHORITY = SECTION_19 for current WFB implementation; SECTION_16 for accepted R0; earlier scope/preparation labels are historical
+CURRENT_MILESTONE = A_TIER_WEAK_FOURIERMAN_B_AT_fdb515d8bde35ec8021bbc26f360aca8dfa2855c
+CURRENT_ACCEPTANCE = 365_MODULES_55_FRESH_PACKAGES_265_DECLARATIONS_PLUS_QFB_CUTOUT; STANDARD_AXIOMS_ONLY
+STATUS_AUTHORITY = SECTION_20 for accepted WFB; earlier preparation/obstruction records are historical
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 
 1. CURRENT MAIN GOAL: WEAK_FOURIERMAN_B
@@ -29,10 +29,10 @@ CURRENT TARGET HIERARCHY
 MACROSCOPIC: exact Weak_Fourierman_B with its finite full Fourier-budget premise.
 MESOSCOPIC: close the ten contextual WFB obligations using unchanged pinned
 Mathlib/Methlib anchors, compatible object reuse and external-only Lean.
-MICROSCOPIC: externally verify the complete constructed local-to-global WFB
-chain: 22 new modules / 104 theorem candidates; scope 365 / 55 / 265.
-The accepted scope is 321 modules/33 fresh packages/161 declaration audits plus
-QFB cutout; 303 modules reused and 18 freshly compiled; 183 external controls passed.
+MICROSCOPIC: complete. All ten contextual obligations and the exact WFB root
+are accepted at fdb515d8/run44566880192. No new goal is adopted.
+The accepted scope is 365 modules/55 fresh packages/265 declaration audits plus
+QFB cutout; 321 modules reused and 44 freshly compiled; 183 external controls passed.
 The explicit current user instruction makes this conditional Fourier criterion
 the main goal. It does not establish universal budget/admission.
 Chat-only <-> is reserved for accepted complete obligations and separately the
@@ -937,3 +937,39 @@ no new contextual obligation or root is accepted. Scope remains365 modules,
 55 fresh packages and265 declarations plus QFB cutout. Accepted93ca8a5 inputs,
 compiler, dependencies, vendor and CI/cache drivers are unchanged. No local Lean.
 Evidence: audits/material-8318b7a6-failed/summary.json.
+
+20. COMPLETE WFB ACCEPTANCE AND EXACT SCOPE
+WFB_ACCEPTANCE_2026_11_19
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+TESTED_COMMIT := fdb515d8bde35ec8021bbc26f360aca8dfa2855c
+RUN := https://github.com/randogelist/Methboke/actions/runs/44566880192
+EVIDENCE := audits/material-fdb515d8/summary.json
+SCOPE := 365 modules; 321 reused; 44 fresh; 55 fresh packages;
+  265 exact declaration audits plus fresh QFB cutout; 183 external controls.
+AXIOMS := propext, Classical.choice, Quot.sound only
+LOCAL_LEAN_EXECUTIONS := 0
+CONTEXTUAL_OBLIGATIONS := WFB-01 through WFB-10 ACCEPTED
+PRINCIPAL := MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+For nu>0 and smooth periodic solenoidal mean-zero a, actual unique maximal
+classical trajectories exist. On such a trajectory, the full finite squared
+Fourier budget on (0,(min Tmax (ofReal tau_Q)).toReal) implies Tmax=infinity
+and one GlobalSmoothNSE pair preserving the entire original velocity and
+normalized pressure, including time zero. tau_Q=||a||_2^4/(8*pi^2*nu^5).
+The finite budget remains explicit. No universal budget finiteness or
+universal analytic-germ extension R1 is claimed. Local existence, uniqueness,
+maximality, actual enstrophy evolution, physical-budget continuation, strict
+cutoff overlap, fixed weak-path identification and normalized gluing are now
+proved with standard axioms; no additional analytic certificate remains.
+Compatible caches and binary/evidence artifacts were published successfully;
+the final Material accepted job succeeded and recovery was skipped.
+
+NEWLY ACCEPTED PRINCIPALS
+WFB-03: MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+WFB-04: MethbokeAddon.WeakFouriermanB.initial_classical_front_unique
+WFB-05: MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+WFB-06: MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square
+WFB-07: MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+WFB-08: MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+WFB-09: MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+WFB-10: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B

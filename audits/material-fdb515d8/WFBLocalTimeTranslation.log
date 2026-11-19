@@ -1,0 +1,156 @@
+WFBLocalTimeTranslation/Audit.lean:13:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:14:13: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:20:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:20:43: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:21:13: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:27:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:27:43: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:34:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:34:43: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:35:13: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:41:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:41:43: warning: Variable name `hs` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hs
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalTimeTranslation/Audit.lean:42:13: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_time_hasDerivAt
+MethbokeAddon.WeakFouriermanB.initial_front_time_hasDerivAt : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        ∀ (x : SingularClosure.Vec), HasDerivAt.{0, 0} (fun r => u r x) (SingularClosure.timeDerivative u t x) t
+TYPE_END:MethbokeAddon.WeakFouriermanB.initial_front_time_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_time_hasDerivAt
+'MethbokeAddon.WeakFouriermanB.initial_front_time_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.initial_front_time_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_translate
+MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_translate : ∀ (ν T s : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+    LE.le.{0} 0 s →
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 (HSub.hSub.{0, 0, 0} T s)) t →
+          ∀ (x : SingularClosure.Vec),
+            Eq.{1} (SingularClosure.timeDerivative (fun r => u (HAdd.hAdd.{0, 0, 0} s r)) t x)
+              (SingularClosure.timeDerivative u (HAdd.hAdd.{0, 0, 0} s t) x)
+TYPE_END:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_translate
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_translate
+'MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_translate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_translate
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_time_translate
+MethbokeAddon.WeakFouriermanB.initial_front_time_translate : ∀ (ν T s : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+    LE.le.{0} 0 s →
+      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν (HSub.hSub.{0, 0, 0} T s) (u s)
+        (fun t => u (HAdd.hAdd.{0, 0, 0} s t)) fun t => p (HAdd.hAdd.{0, 0, 0} s t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.initial_front_time_translate
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_time_translate
+'MethbokeAddon.WeakFouriermanB.initial_front_time_translate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.initial_front_time_translate
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_shift_back
+MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_shift_back : ∀ (ν T s : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+    LE.le.{0} 0 s →
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ioo.{0} s (HAdd.hAdd.{0, 0, 0} s T)) t →
+          ∀ (x : SingularClosure.Vec),
+            Eq.{1} (SingularClosure.timeDerivative (fun r => u (HSub.hSub.{0, 0, 0} r s)) t x)
+              (SingularClosure.timeDerivative u (HSub.hSub.{0, 0, 0} t s) x)
+TYPE_END:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_shift_back
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_shift_back
+'MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_shift_back' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.initial_front_timeDerivative_shift_back
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_shift_back_equation
+MethbokeAddon.WeakFouriermanB.initial_front_shift_back_equation : ∀ (ν T s : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+    LE.le.{0} 0 s →
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ioo.{0} s (HAdd.hAdd.{0, 0, 0} s T)) t →
+          ∀ (x : SingularClosure.Vec),
+            Eq.{1}
+              (HAdd.hAdd.{0, 0, 0}
+                (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative (fun r => u (HSub.hSub.{0, 0, 0} r s)) t x)
+                  (SingularClosure.convection (u (HSub.hSub.{0, 0, 0} t s)) x))
+                (SingularClosure.gradient (p (HSub.hSub.{0, 0, 0} t s)) x))
+              (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u (HSub.hSub.{0, 0, 0} t s)) x))
+TYPE_END:MethbokeAddon.WeakFouriermanB.initial_front_shift_back_equation
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_shift_back_equation
+'MethbokeAddon.WeakFouriermanB.initial_front_shift_back_equation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.initial_front_shift_back_equation

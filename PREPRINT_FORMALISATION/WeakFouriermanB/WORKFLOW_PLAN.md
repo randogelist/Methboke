@@ -1,5 +1,15 @@
 # Weak_Fourierman_B repository workflow plan
 
+## Completed WFB scope
+
+All ten contextual obligations and the exact root passed the matching external
+compiler/type/axiom gate at `fdb515d8`, run `44566880192`. Source scope is
+365 modules / 55 fresh packages / 265 declarations plus cutout. The budget
+remains explicit; no new main goal is adopted. Prior stages below are retained
+as workflow and implementation history.
+
+[Acceptance evidence](../../audits/material-fdb515d8/summary.json)
+
 Date: 2026-11-19. Repository: `randogelist/Methboke`, working branch `main`.
 Historical inspected base: `43530b70d044624cbf83a3480840187a567549a5`.
 Current state: **exact R0 finite-cap admission accepted at `93ca8a5`; WFB-01
@@ -374,3 +384,42 @@ no new contextual obligation or root is accepted. Scope remains365 modules,
 55 fresh packages and265 declarations plus QFB cutout. Accepted93ca8a5 inputs,
 compiler, dependencies, vendor and CI/cache drivers are unchanged. No local Lean.
 Evidence: audits/material-8318b7a6-failed/summary.json.
+
+## Exact completed endpoints
+
+```text
+WFB_ACCEPTANCE_2026_11_19
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+TESTED_COMMIT := fdb515d8bde35ec8021bbc26f360aca8dfa2855c
+RUN := https://github.com/randogelist/Methboke/actions/runs/44566880192
+EVIDENCE := audits/material-fdb515d8/summary.json
+SCOPE := 365 modules; 321 reused; 44 fresh; 55 fresh packages;
+  265 exact declaration audits plus fresh QFB cutout; 183 external controls.
+AXIOMS := propext, Classical.choice, Quot.sound only
+LOCAL_LEAN_EXECUTIONS := 0
+CONTEXTUAL_OBLIGATIONS := WFB-01 through WFB-10 ACCEPTED
+PRINCIPAL := MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+For nu>0 and smooth periodic solenoidal mean-zero a, actual unique maximal
+classical trajectories exist. On such a trajectory, the full finite squared
+Fourier budget on (0,(min Tmax (ofReal tau_Q)).toReal) implies Tmax=infinity
+and one GlobalSmoothNSE pair preserving the entire original velocity and
+normalized pressure, including time zero. tau_Q=||a||_2^4/(8*pi^2*nu^5).
+The finite budget remains explicit. No universal budget finiteness or
+universal analytic-germ extension R1 is claimed. Local existence, uniqueness,
+maximality, actual enstrophy evolution, physical-budget continuation, strict
+cutoff overlap, fixed weak-path identification and normalized gluing are now
+proved with standard axioms; no additional analytic certificate remains.
+Compatible caches and binary/evidence artifacts were published successfully;
+the final Material accepted job succeeded and recovery was skipped.
+
+NEWLY ACCEPTED PRINCIPALS
+WFB-03: MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+WFB-04: MethbokeAddon.WeakFouriermanB.initial_classical_front_unique
+WFB-05: MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+WFB-06: MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square
+WFB-07: MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+WFB-08: MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+WFB-09: MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+WFB-10: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+```

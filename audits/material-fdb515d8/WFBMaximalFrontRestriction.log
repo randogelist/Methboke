@@ -1,0 +1,29 @@
+WFBMaximalFrontRestriction/Audit.lean:13:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalFrontRestriction/Audit.lean:13:46: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalFrontRestriction/Audit.lean:14:5: warning: Variable name `hTmax` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hTmax
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_restrict_le
+MethbokeAddon.WeakFouriermanB.maximal_classical_front_restrict_le : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+  MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+    LT.lt.{0} 0 T → LE.le.{0} (ENNReal.ofReal T) Tmax → MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_restrict_le
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_restrict_le
+'MethbokeAddon.WeakFouriermanB.maximal_classical_front_restrict_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_restrict_le

@@ -2,14 +2,14 @@ METHBOKE_SUBSTANTIATED_RESULT_REGISTER
 DATE = 2026-11-19
 WORKING_BRANCH = main
 CURRENT_MAIN_GOAL = Weak_Fourierman_B; explicit finite-budget premise retained
-PREPARED_NOT_ACCEPTED = 22 new modules / 104 theorem candidates; external 365/55/265 full-chain scope pending
-LATEST_ACCEPTED_PACKAGE = 93ca8a57536512556ec36717ee933ea52db283bf
-LATEST_ACCEPTED_RUN = 44549257770
-LATEST_ACCEPTED_SCOPE = 321 modules; 33 fresh packages; 161 declarations plus QFB cutout
-LATEST_ACCEPTED_REUSE = 303 reused modules; 18 freshly compiled modules; 183 controls passed
+WFB_STATUS = A_TIER_MATCHING_EXTERNAL_PASS; ALL_TEN_OBLIGATIONS_AND_ROOT
+LATEST_ACCEPTED_PACKAGE = fdb515d8bde35ec8021bbc26f360aca8dfa2855c
+LATEST_ACCEPTED_RUN = 44566880192
+LATEST_ACCEPTED_SCOPE = 365 modules; 55 fresh packages; 265 declarations plus QFB cutout
+LATEST_ACCEPTED_REUSE = 321 reused modules; 44 freshly compiled modules; 183 controls passed
 R0_STATUS = A_TIER_MATCHING_EXTERNAL_PASS; STANDARD_AXIOMS_ONLY
 R0_EVIDENCE = audits/material-93ca8a5/summary.json
-OPEN_SCOPE = Universal R1; remaining eight WFB obligations and exact WFB root
+OPEN_SCOPE = Universal budget finiteness and universal R1 remain unproved and outside completed WFB
 
 I01 ORIGINAL_QFB_COMPOSED
 ROLE: RETAINED_SOURCE_SPECIFIC_BASELINE; later package evidence is recorded separately.
@@ -285,3 +285,87 @@ no new contextual obligation or root is accepted. Scope remains365 modules,
 55 fresh packages and265 declarations plus QFB cutout. Accepted93ca8a5 inputs,
 compiler, dependencies, vendor and CI/cache drivers are unchanged. No local Lean.
 Evidence: audits/material-8318b7a6-failed/summary.json.
+
+CURRENT WFB ACCEPTANCE (supersedes historical preparation notes)
+WFB_ACCEPTANCE_2026_11_19
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+TESTED_COMMIT := fdb515d8bde35ec8021bbc26f360aca8dfa2855c
+RUN := https://github.com/randogelist/Methboke/actions/runs/44566880192
+EVIDENCE := audits/material-fdb515d8/summary.json
+SCOPE := 365 modules; 321 reused; 44 fresh; 55 fresh packages;
+  265 exact declaration audits plus fresh QFB cutout; 183 external controls.
+AXIOMS := propext, Classical.choice, Quot.sound only
+LOCAL_LEAN_EXECUTIONS := 0
+CONTEXTUAL_OBLIGATIONS := WFB-01 through WFB-10 ACCEPTED
+PRINCIPAL := MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+For nu>0 and smooth periodic solenoidal mean-zero a, actual unique maximal
+classical trajectories exist. On such a trajectory, the full finite squared
+Fourier budget on (0,(min Tmax (ofReal tau_Q)).toReal) implies Tmax=infinity
+and one GlobalSmoothNSE pair preserving the entire original velocity and
+normalized pressure, including time zero. tau_Q=||a||_2^4/(8*pi^2*nu^5).
+The finite budget remains explicit. No universal budget finiteness or
+universal analytic-germ extension R1 is claimed. Local existence, uniqueness,
+maximality, actual enstrophy evolution, physical-budget continuation, strict
+cutoff overlap, fixed weak-path identification and normalized gluing are now
+proved with standard axioms; no additional analytic certificate remains.
+Compatible caches and binary/evidence artifacts were published successfully;
+the final Material accepted job succeeded and recovery was skipped.
+
+NEWLY ACCEPTED PRINCIPALS
+WFB-03: MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+WFB-04: MethbokeAddon.WeakFouriermanB.initial_classical_front_unique
+WFB-05: MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+WFB-06: MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square
+WFB-07: MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+WFB-08: MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+WFB-09: MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+WFB-10: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+I10 WFB-03 Physical local H1 existence
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+SCOPE: For nu>0 and smooth periodic solenoidal mean-zero data with H1 norm bounded by R, construct a physical smooth local solution with normalized pressure for a positive duration depending only on nu and R.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I11 WFB-04 Local strong uniqueness
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.initial_classical_front_unique
+SCOPE: Physical local strong solutions with the same datum agree on their common finite front; normalized pressures agree as well.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I12 WFB-05 Maximal same-path trajectory
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+SCOPE: Construct the same unique maximal strong trajectory with positive extended lifetime, finite-front regularity, initial smoothness and the physical maximal-extension property.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I13 WFB-06 Physical endpoint continuation
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square
+SCOPE: A finite integral of actual physical dissipation squared up to a finite maximal endpoint yields a bounded H1 norm and same-path physical continuation beyond that endpoint.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I14 WFB-07 Strict cutoff overlap
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+SCOPE: For nonzero datum, the finite budget up to min(Tmax,Tf) implies Tf<Tmax; construct finite strict overlap times, including equality/infinite-lifetime cases.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I15 WFB-08 Leray-Hopf identification
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+SCOPE: Embed the smooth physical datum into EnergySigmaZero, use Q01 actual weak existence, and identify the same weak path with the strong trajectory on every compact pre-endpoint interval.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I16 WFB-09 Same-path tail and pressure gluing
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+SCOPE: Use Q09 on that same weak path; prove pointwise velocity and normalized-pressure agreement and glue a pair satisfying every GlobalSmoothNSE field.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192
+
+I17 WFB-10 Weak_Fourierman_B root
+STATUS: A_TIER_MATCHING_EXTERNAL_PASS_AT_fdb515d8; standard axioms only.
+DECLARATION: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+SCOPE: For all nu>0 and smooth periodic divergence-free mean-zero a, the full squared Fourier budget on (0,min(Tmax,Tf)), Tf=||a||_L2^4/(8*pi^2*nu^5), implies actual GlobalSmoothNSE nu a U P agreeing with the same maximal path, including zero datum and all lifetime cases.
+EVIDENCE: audits/material-fdb515d8/summary.json; https://github.com/randogelist/Methboke/actions/runs/44566880192

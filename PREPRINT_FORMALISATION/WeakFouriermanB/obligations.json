@@ -86,9 +86,9 @@
       "title": "Physical local H1 existence",
       "intended_claim": "For nu>0 and smooth periodic solenoidal mean-zero data with H1 norm bounded by R, construct a physical smooth local solution with normalized pressure for a positive duration depending only on nu and R.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier",
         "MethbokeAddon.WeakFouriermanB.LocalGalerkinBounds",
@@ -100,23 +100,42 @@
       ],
       "depends_on": [],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null,
-      "formal_obstruction": {
-        "blocked_edge": "matching external compiler/type/axiom verification of constructed physical local existence",
-        "cause": "full source candidate prepared; no matching complete accepted run yet",
-        "required": "fresh exact audit of uniform_H1_local_initial_classical_front_exists and its actual source closure"
-      }
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists",
+        "audit_log": "audits/material-fdb515d8/WFBLocalExistence.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+          "formal_obstruction": {
+            "blocked_edge": "matching external compiler/type/axiom verification of constructed physical local existence",
+            "cause": "full source candidate prepared; no matching complete accepted run yet",
+            "required": "fresh exact audit of uniform_H1_local_initial_classical_front_exists and its actual source closure"
+          }
+        }
+      ]
     },
     {
       "id": "WFB-04",
       "title": "Local strong uniqueness",
       "intended_claim": "Physical local strong solutions with the same datum agree on their common finite front; normalized pressures agree as well.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.initial_classical_front_unique",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness"
       ],
@@ -124,18 +143,37 @@
         "WFB-03"
       ],
       "dependency_note": "The uniqueness proof takes supplied actual fronts and compiles independently; contextual obligation promotion also awaits the registered local construction.",
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.initial_classical_front_unique",
+        "audit_log": "audits/material-fdb515d8/WFBLocalClassicalUniqueness.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
+      ]
     },
     {
       "id": "WFB-05",
       "title": "Maximal same-path trajectory",
       "intended_claim": "Construct the same unique maximal strong trajectory with positive extended lifetime, finite-front regularity, initial smoothness and the physical maximal-extension property.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront",
         "MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction",
@@ -146,18 +184,37 @@
         "WFB-04"
       ],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists",
+        "audit_log": "audits/material-fdb515d8/WFBWeakFouriermanB.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
+      ]
     },
     {
       "id": "WFB-06",
       "title": "Physical endpoint continuation",
       "intended_claim": "A finite integral of actual physical dissipation squared up to a finite maximal endpoint yields a bounded H1 norm and same-path physical continuation beyond that endpoint.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
         "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
@@ -173,18 +230,37 @@
         "WFB-05"
       ],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square",
+        "audit_log": "audits/material-fdb515d8/WFBPhysicalEndpointContinuation.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
+      ]
     },
     {
       "id": "WFB-07",
       "title": "Strict cutoff overlap",
       "intended_claim": "For nonzero datum, the finite budget up to min(Tmax,Tf) implies Tf<Tmax; construct finite strict overlap times, including equality/infinite-lifetime cases.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.StrictCutoff"
       ],
@@ -193,18 +269,37 @@
         "WFB-06"
       ],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff",
+        "audit_log": "audits/material-fdb515d8/WFBStrictCutoff.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
+      ]
     },
     {
       "id": "WFB-08",
       "title": "Leray-Hopf identification",
       "intended_claim": "Embed the smooth physical datum into EnergySigmaZero, use Q01 actual weak existence, and identify the same weak path with the strong trajectory on every compact pre-endpoint interval.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification"
       ],
@@ -214,9 +309,22 @@
         "WFB-05"
       ],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null,
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf",
+        "audit_log": "audits/material-fdb515d8/WFBMaximalLerayHopfIdentification.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
       "independent_preparation": {
         "path": "Material/MethbokeAddon/WeakFouriermanB/SmoothDatum.lean",
         "declaration_count": 7,
@@ -224,16 +332,22 @@
         "status": "A_TIER_INPUT_AND_FINITE_FRONT_IDENTIFICATION_ONLY",
         "evidence": "audits/material-67f7663/summary.json",
         "complete_contextual_obligation": false
-      }
+      },
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
+      ]
     },
     {
       "id": "WFB-09",
       "title": "Same-path tail and pressure gluing",
       "intended_claim": "Use Q09 on that same weak path; prove pointwise velocity and normalized-pressure agreement and glue a pair satisfying every GlobalSmoothNSE field.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.MaximalTailGluing"
       ],
@@ -242,18 +356,37 @@
         "WFB-08"
       ],
       "dependency_note": null,
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf",
+        "audit_log": "audits/material-fdb515d8/WFBMaximalTailGluing.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
+      ]
     },
     {
       "id": "WFB-10",
       "title": "Weak_Fourierman_B root",
       "intended_claim": "For all nu>0 and smooth periodic divergence-free mean-zero a, the full squared Fourier budget on (0,min(Tmax,Tf)), Tf=||a||_L2^4/(8*pi^2*nu^5), implies actual GlobalSmoothNSE nu a U P agreeing with the same maximal path, including zero datum and all lifetime cases.",
       "b_tier_status": "COMPOSED_RELATIVE_TO_INDEXED_QFB_AND_CITED_CLASSICAL_LOCAL_THEORY",
-      "a_tier_status": "NOT_VERIFIED",
+      "a_tier_status": "A_TIER_MATCHING_EXTERNAL_VERIFICATION",
       "principal_declaration": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
-      "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION",
+      "candidate_source_status": "ACTIVE_EXTERNALLY_VERIFIED",
       "required_candidate_modules": [
         "MethbokeAddon.WeakFouriermanB.WFBRootAssembly",
         "MethbokeAddon.WeakFouriermanB.WeakFouriermanB"
@@ -266,9 +399,22 @@
         "WFB-09"
       ],
       "dependency_note": "Obligations01/02 are alternative analytic bridges; direct continuation uses dissipation-square integrability. Root checklist tracks all ten without implying both bridges are logically necessary.",
-      "external_acceptance": null,
-      "chat_sign_announced": false,
-      "chat_sign_announced_at": null,
+      "external_acceptance": {
+        "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+        "run_id": 44566880192,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+        "evidence": "audits/material-fdb515d8/summary.json",
+        "axioms": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "platform": "Linux x86_64; Lean 4.33.0",
+        "principal_declaration": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
+        "audit_log": "audits/material-fdb515d8/WFBWeakFouriermanB.log"
+      },
+      "chat_sign_announced": true,
+      "chat_sign_announced_at": "2026-11-19T16:50:59.379985+00:00",
       "review_checklist": [
         "WFB-01",
         "WFB-02",
@@ -279,6 +425,12 @@
         "WFB-07",
         "WFB-08",
         "WFB-09"
+      ],
+      "prior_preparation_records": [
+        {
+          "a_tier_status": "NOT_VERIFIED",
+          "candidate_source_status": "ACTIVE_FULL_PROOF_CANDIDATE_PENDING_EXTERNAL_VERIFICATION"
+        }
       ]
     }
   ],
@@ -352,7 +504,7 @@
     "whole_obligations_promoted": []
   },
   "prepared_full_chain": {
-    "status": "FULL_CHAIN_REPAIR_PENDING_EXTERNAL_VERIFICATION",
+    "status": "ACCEPTED_MATCHING_EXTERNAL_VERIFICATION",
     "modules": [
       "LocalCubicBarrier",
       "LocalGalerkinBounds",
@@ -430,7 +582,7 @@
       "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
     },
     "local_lean_executions": 0,
-    "new_acceptance_signals": 0,
+    "new_acceptance_signals": 8,
     "root_candidate": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
     "budget_remains_explicit_hypothesis": true,
     "latest_attempt": {
@@ -473,6 +625,22 @@
       "statements_changed": false,
       "local_lean_executions": 0,
       "prior_accepted_source": "93ca8a57536512556ec36717ee933ea52db283bf"
+    },
+    "external_acceptance": {
+      "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "run_id": 44566880192,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+      "evidence": "audits/material-fdb515d8/summary.json",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "platform": "Linux x86_64; Lean 4.33.0"
     }
-  }
+  },
+  "root_a_tier": true,
+  "accepted_contextual_obligations": 10,
+  "current_status": "ALL_TEN_CONTEXTUAL_OBLIGATIONS_AND_EXACT_WFB_ROOT_ACCEPTED",
+  "remaining_in_scope_obligations": []
 }
