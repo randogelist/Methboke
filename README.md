@@ -49,6 +49,11 @@ Version 1.1 adds the precise weak-solution class, the numerical cutoff derivatio
 primary-source positioning and the analytic characterization `W_nu = R_nu^smooth`;
 the converse is an analytic corollary, not a new audited Lean declaration.
 
+## Supporting conditional obstruction workstream
+
+The frozen **EHRENFEST-OBSTRUCTION** now has a [complete conditional B-tier derivation](EHRENFEST_OBSTRUCTION_B_TIER.txt), a [ten mid-tier checklist](PREPRINT_FORMALISATION/EhrenfestObstruction/CHECKLIST.md), and [35 pinned Mathlib/Methlib/Methboke source anchors](PREPRINT_FORMALISATION/EhrenfestObstruction/ANCHOR_INDEX.md).
+Its target is `StoppedCommutatorBound ν → ¬ NSE_B ν`: the stopped commutator condition is an explicit unproved hypothesis for one fixed smooth datum. No singular witness, new global axiom, new Lean endpoint or formal acceptance is claimed. The accepted WFB implication and fixed project goal remain unchanged.
+
 ## Fixed scope and useful identities
 
 Let `nu > 0`, `a` be smooth, divergence-free and mean-zero on the unit
@@ -237,3 +242,4 @@ The one-line audit setup repair preserved every proof and signature assertion.
 These failed attempts did not promote the root or replace accepted caches;
 recovery was skipped. The complete compiler/type/axiom gate and publication
 subsequently passed in run `44549257770` at `93ca8a5`.
+

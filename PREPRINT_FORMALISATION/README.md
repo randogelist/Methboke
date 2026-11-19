@@ -7,7 +7,8 @@
 | FINITE-CAP | `D_Q(nu) subset R_nu` | Exact two-sided analytic data-class root accepted with matching external compiler, type and axiom evidence at `93ca8a5`; B-tier derivation in section 4 |
 | GERM-REDUCTION | `FB_nu iff (D_germ(nu) subset D_Q(nu))` | B-tier under recorded foundation interfaces; section 5 |
 | BELTRAMI | Arbitrary-amplitude finite Fourier Beltrami admission | Explicit B-tier solution; section 7 and index I02 |
-| WEAK-FOURIERMAN-B | Full finite squared Fourier budget implies global smooth continuation of the same trajectory | [B-tier v0.4.0](../Weak_Fourierman_B_B_TIER.txt); [candidate sources and workflow plan](WeakFouriermanB/README.md); Lean pending |
+| WEAK-FOURIERMAN-B | Full finite squared Fourier budget implies global smooth continuation of the same trajectory | Accepted at `fdb515d8`, run `44566880192`; [exact evidence](../audits/material-fdb515d8/summary.json); finite budget retained |
+| EHRENFEST-OBSTRUCTION | A stopped negative-commutator bound for one fixed smooth datum implies failure of NSE-B | [Conditional B-tier derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt); [ten mid-tier steps](EhrenfestObstruction/CHECKLIST.md); no new formal acceptance |
 | UNIVERSAL-ADMISSION | `D_germ(nu) subset D_Q(nu)` | Open |
 
 The [cumulative derivation](../CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt) is the
@@ -38,3 +39,10 @@ Weak_Fourierman_B closure or a completed preprint. No local Lean or tests were
 run. A later PDF belongs in
 [PAPER_PREPRINT_PDF](../PAPER_PREPRINT_PDF/).
 
+
+
+## Current supporting source index
+
+The [Ehrenfest package](EhrenfestObstruction/README.md) records 35 pinned source anchors and ten unverified formalization targets. Its conditional mathematical proof preserves the one stopped-bound premise. No global custom axiom or actual singular witness is introduced.
+
+The R0 evidence described above is historical to that scope. Whole WFB was subsequently accepted at `fdb515d8`; see [index I17](../INDEX-WORTHY.txt) and the [current root evidence](../audits/material-fdb515d8/summary.json).

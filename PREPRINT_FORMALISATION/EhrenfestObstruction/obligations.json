@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "frozen_name": "EHRENFEST-OBSTRUCTION",
+  "date": "2026-11-19",
+  "version": "0.1.0",
+  "project_goal_changed": false,
+  "fixed_project_goal": "Weak_Fourierman_B",
+  "local_target": "Ten mid-tier conditional obstruction endpoints",
+  "root_hypothesis": "StoppedCommutatorBound nu",
+  "global_custom_axiom_added": false,
+  "existential_premise_proved": false,
+  "mathematical_chain_complete_conditionally": true,
+  "new_formal_accepted_count": 0,
+  "obligations": [
+    {
+      "id": "E01",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.REAL_SOLENOIDAL_GALERKIN_ALGEBRA",
+      "existing_declaration": false,
+      "dependencies": [],
+      "mathematical_statement": "Identify the real, mean-zero, solenoidal finite Fourier state with V_N; derive polynomial smoothness, projection laws, positive A_N and exact nonlinear energy cancellation.",
+      "derivation_section": "E01",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML08",
+        "ML12",
+        "MLB01"
+      ],
+      "new_formal_work": "Real orthonormal coordinate/volume adapter preserving the existing invariant-state and physical-synthesis semantics.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E02",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.COMPLETE_GALERKIN_FLOW",
+      "existing_declaration": false,
+      "dependencies": [
+        "E01"
+      ],
+      "mathematical_statement": "Construct a complete jointly smooth flow on R x V_N, inverse/group law and nonsingular Jacobian. Derive forward decay and backward exponential bound with lambda_max(A_N).",
+      "derivation_section": "E02",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML01",
+        "ML02",
+        "ML03",
+        "MLB02",
+        "MLB03",
+        "MLB04",
+        "MLB05",
+        "MLB06",
+        "MLB07",
+        "MLB13"
+      ],
+      "new_formal_work": "Backward continuation, smooth dependence and Jacobian identities; current forward existence alone is insufficient.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E03",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.HALF_DENSITY_UNITARY_GROUP",
+      "existing_declaration": false,
+      "dependencies": [
+        "E02"
+      ],
+      "mathematical_statement": "Construct U_N(t)f=|det D Phi_N^(-t)|^(1/2) f composed with Phi_N^(-t) on L2(V_N;C); prove unitarity, group law, strong continuity and Cc-infinity invariance.",
+      "derivation_section": "E03",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML16",
+        "ML17"
+      ],
+      "new_formal_work": "Actual L2 operator construction, Jacobian change of variables, density and compact-support continuity.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E04",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.SELF_ADJOINT_TRANSPORT_GENERATOR",
+      "existing_declaration": false,
+      "dependencies": [
+        "E03"
+      ],
+      "mathematical_statement": "Prove H0_N=-i*hbar*(b_N dot grad+div(b_N)/2) on Cc-infinity is essentially self-adjoint; its closure generates U_N with the specified sign.",
+      "derivation_section": "E04",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML15",
+        "ML20"
+      ],
+      "new_formal_work": "Unbounded domains, Stone realization and graph-core proof; no replacement by bounded/everywhere-defined symmetric maps.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E05",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.EXACT_HEISENBERG_EHRENFEST_CORRESPONDENCE",
+      "existing_declaration": false,
+      "dependencies": [
+        "E04"
+      ],
+      "mathematical_statement": "Prove U_N(t)^* M_g U_N(t)=M_(g composed with Phi_N^t) with natural domains and (i/hbar)[H0_N,M_g]=M_(Dg[b_N]) on the common core; recover observable and localized-state identities.",
+      "derivation_section": "E05",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML05",
+        "ML10",
+        "ML12",
+        "ML17",
+        "ML18",
+        "ML19"
+      ],
+      "new_formal_work": "Domain equality, common-core product rule, L2-normalized smooth packets and fixed-N-first localization.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E06",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.RECIPROCAL_ENSTROPHY_COMMUTATOR",
+      "existing_declaration": false,
+      "dependencies": [
+        "E01",
+        "E05"
+      ],
+      "mathematical_statement": "With e_N=||grad q||^2/2 and Vrec_N=(1+e_N/e_*)^(-1), prove c_N=-(W_N-nu*Z_N)/(e_*(1+e_N/e_*)^2), and its exact bounded-multiplier commutator.",
+      "derivation_section": "E06",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML05",
+        "ML06",
+        "ML08",
+        "MLB08",
+        "MLB09",
+        "MLB18"
+      ],
+      "new_formal_work": "Coefficient/physical normalization, sign, inverse chain rule and bounded commutator extension to the generator domain.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E07",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.STOPPED_SCALAR_HITTING_BOUND",
+      "existing_declaration": false,
+      "dependencies": [],
+      "mathematical_statement": "For 0<r<v(0)<=1 and gamma>0, pre-hit drift v prime<=-gamma up to 1/gamma forces a hit of r by (v(0)-r)/gamma<1/gamma.",
+      "derivation_section": "E07",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML13"
+      ],
+      "new_formal_work": "Continuity and pre-hit guard, finite/empty hitting-set cases, derivative comparison without assuming a hit already exists.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E08",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.CUTOFF_UNIFORM_THRESHOLD_ESCAPE",
+      "existing_declaration": false,
+      "dependencies": [
+        "E06",
+        "E07"
+      ],
+      "mathematical_statement": "From the explicit StoppedCommutatorBound premise for one fixed smooth datum, derive t_N<1/gamma with e_N(u_N(t_N))>=R_N and hence divergent slab suprema.",
+      "derivation_section": "E08",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML13",
+        "MLB10",
+        "MLB12"
+      ],
+      "new_formal_work": "Keep a, gamma and e_* independent of N, R_N tending to infinity, and the first-hit stopping rule.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": true
+    },
+    {
+      "id": "E09",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.SMOOTH_FRONT_GALERKIN_STABILITY",
+      "existing_declaration": false,
+      "dependencies": [
+        "E01",
+        "E02"
+      ],
+      "mathematical_statement": "An actual smooth solution U on [0,T] implies exact P_Na Galerkin convergence in C([0,T];H2) and uniform H1 there.",
+      "derivation_section": "E09",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML03",
+        "ML08",
+        "MLB11",
+        "MLB14",
+        "MLB17",
+        "MLB19",
+        "MLB20"
+      ],
+      "new_formal_work": "New H2 residual/error estimate and first-exit Gronwall bootstrap. Existing conditional H2-budget and local bounds do not supply this full-slab implication.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false
+    },
+    {
+      "id": "E10",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+      "existing_declaration": false,
+      "dependencies": [
+        "E08",
+        "E09"
+      ],
+      "mathematical_statement": "For nu>0, StoppedCommutatorBound nu implies not NSE_B nu; its fixed smooth datum has no smooth continuation through 1/gamma.",
+      "derivation_section": "E10",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "MLB15",
+        "MLB16"
+      ],
+      "new_formal_work": "Literal universal-global-smooth statement and existential counterexample semantics; explicit premise argument; exact endpoint and standard-axiom audit.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": true
+    }
+  ],
+  "cutoff_minimum": 1
+}
