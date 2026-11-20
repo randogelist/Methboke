@@ -75,4 +75,6 @@ contains the physicists' reason trace: balance law, reciprocal observable,
 formal normalized commutator, stopped quantifiers and the conditional
 contradiction. The edited Lean text differs only in comments. Previous
 proof acceptance remains pinned to `22431f`; fresh source validation of
-this revision is pending under `CI_RUN_PLAN.json`.
+this revision passed at `3335bbc5` in [run 44645541035](https://github.com/randogelist/Methboke/actions/runs/44645541035).
+The [retained receipt](../../audits/material-3335bbc5-comments/summary.json) records complete
+type/axiom coverage. No new theorem or stopped-bound witness is added.
