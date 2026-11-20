@@ -850,3 +850,79 @@ No local Lean, Lake or kernel execution was performed. No new matching
 external compiler result or theorem-level axiom audit is supplied.
 
 
+
+
+15. NSE-A FINITE SIX-CHARGE REGULARITY CLASS
+Date: 2026-11-20
+Status: B_TIER_CLASS_DEFINITION_AND_EQUIVALENCE
+Repository entry: R3_NSE/A-Regularity-class/README.md
+Complete cumulative class derivation:
+  R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt
+Machine-readable status: R3_NSE/A-Regularity-class/STATUS.json
+
+E17 -- REGISTER THE DATUM CLASS
+For fixed nu>0 and real a in S_sigma(R3), use the same canonical maximal
+H1 strong solution U, lifetime T_max and b_A=min(T_max,tau_A) as E08--E10.
+Keep tau_A=8||a||_2^4/(27*pi^4*nu^5). Define
+  L_A(a,nu)^4 = 4*nu*J_A(a,nu),
+  C_A_nu = {a in S_sigma(R3): L_A(a,nu)<infinity}.
+The budget is the full extended nonnegative improper integral; J_A=L_A=0
+for the zero datum. E13 gives L_A^4=64*pi^4*nu*B_A.
+Identifier: NSE_A_FINITE_CHARGE_CLASS.
+
+E18 -- FIX SIX CONCRETE WHOLE-SPACE PROJECTIONS
+List the six permutations of (1,2,3) lexicographically. Each frequency xi
+belongs to the permutation that orders |xi_j| in descending order, breaking
+every tie by increasing coordinate index. These six Borel sets Gamma_alpha
+are disjoint, cover R3, and are even under xi -> -xi. Set
+  Fourier(Q_alpha f)=1_{Gamma_alpha} Fourier(f).
+They are mutually orthogonal L2 projections resolving the identity, preserve
+real solenoidal fields, are bounded on H1, and commute with weak derivatives.
+The complete derivation proves these facts using bounded Fourier multipliers.
+The periodic coordinate-zero channels are not imported as these R3 sectors.
+
+E19 -- SIX-CHARGE CHARACTERIZATION
+For the same U and same b_A, put
+  q_{alpha,A}(t)=||grad Q_alpha U(t)||_2^2,
+  J_{6,A}=lim_{r up to b_A} integral_0^r sum_{alpha=1}^6 q_{alpha,A}(t)^2 dt.
+The zero-datum convention is J_{6,A}=0. Plancherel and orthogonality give
+  sum_alpha q_{alpha,A}(t)=Y(t)=||grad U(t)||_2^2.
+Positivity and finite-dimensional Cauchy--Schwarz give pointwise
+  sum_alpha q_{alpha,A}^2 <= Y^2 <= 6 sum_alpha q_{alpha,A}^2.
+Monotone integration to the complete endpoint therefore gives
+  J_{6,A} <= J_A <= 6 J_{6,A},
+  4*nu*J_{6,A} <= L_A^4 <= 24*nu*J_{6,A},
+  a in C_A_nu <==> J_{6,A}<infinity.
+Identifier: NSE_A_SIX_CHARGE_CHARACTERIZATION.
+The scalar charges are already squared gradient norms. Their squares are
+fourth powers; no spatial fourth-power integral is substituted.
+
+E20 -- GLOBAL REGULARITY CLASS IDENTITY
+E09--E10 already show
+  J_A<infinity <==> T_max=infinity.
+Combining E17 and E19 yields
+  a in C_A_nu <==> J_{6,A}<infinity <==> T_max(a,nu)=infinity.
+Identifier: NSE_A_FINITE_CHARGE_IFF_GLOBAL.
+The forward implication uses bounded-H1 continuation to cross tau_A strictly,
+then the small-product restart of the same trajectory. The reverse uses
+H1 continuity on the finite compact interval [0,tau_A]. The literal smooth
+finite-energy Fefferman-A interpretation retains A4 and the source locations
+already recorded in E10; it is not obtained by redefining regularity.
+
+E21 -- SUBLEVELS AND THE UNIVERSAL OBLIGATION
+For each positive integer m let C_A_nu,m={a:L_A(a,nu)<=m}. Then
+  C_A_nu,m subseteq C_A_nu,m+1,
+  C_A_nu=union_{m>=1} C_A_nu,m.
+For the literal Fefferman-A category identified in E20,
+  Fefferman A <==> for every nu>0, C_A_nu=S_sigma(R3).
+This is a reformulation. Universal class equality and universal budget
+finiteness remain OPEN. No common numerical bound over all data is required.
+
+The class is defined through the canonical nonlinear trajectory. It is not
+an initial-Fourier-norm-only admission test. No linear-space, norm, closedness,
+compactness or uniform whole-space Galerkin-limit theorem is asserted.
+These endpoints are B-tier mathematical derivations, not new Lean declarations.
+No matching compiler/type/axiom evidence for the complete class equivalence
+is claimed. Prior native QFA foundations retain their own exact acceptance
+at afd67db4/run44788963412, with the physical formal root gaps unchanged.
+No local Lean, Lake, kernel audit or project runner was executed.

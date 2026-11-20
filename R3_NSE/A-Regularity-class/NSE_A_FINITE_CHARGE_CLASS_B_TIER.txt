@@ -1,0 +1,551 @@
+NSE-A FINITE-CHARGE REGULARITY CLASS
+CUMULATIVE B-TIER ANALYTIC DERIVATION
+VERSION: 1.0
+DATE: 2026-11-20
+REPOSITORY: randogelist/Methboke
+BRANCH: AC-Integration
+PROJECT_GOAL: Fefferman_D (unchanged)
+
+REGISTER NAMES
+  NSE_A_FINITE_CHARGE_CLASS
+  NSE_A_SIX_CHARGE_CHARACTERIZATION
+  NSE_A_FINITE_CHARGE_IFF_GLOBAL
+
+STATUS
+  B-tier analytic definitions, derivation and datumwise equivalence.
+  No new Lean declaration, compiler result, axiom audit or CI acceptance.
+  Existing accepted QFA foundations retain their separate exact scopes.
+  Universal membership of all admissible data remains OPEN.
+
+PURPOSE
+Register the displayed whole-space regularity class
+  C_nu^A = {a : L_A(a,nu) < infinity},
+with L_A^4 = 4nu J_A, and prove its equivalent characterization by
+the full improper integral of six squared enstrophy charges.
+The class is defined through the canonical maximal evolution from the datum.
+It is not a claim of a terminating initial-data-only membership test.
+
+
+1. DATA, EQUATION AND CANONICAL EVOLUTION
+
+Fix nu>0 and
+  D_A = S_sigma(R^3;R^3)
+      = {real Schwartz vector fields a : div a=0}.
+All norms and Fourier integrals use full ordinary Lebesgue measure on R^3.
+Vector norms are Euclidean; gradient/tensor norms are Frobenius.
+No periodicity or mean-zero condition is imposed.
+
+The unforced equations are
+  partial_t U + (U . grad)U + grad p = nu Delta U,
+  div U = 0,
+  U(0)=a.
+
+Let U=U^{a,nu} be the unique canonical maximal H^1 strong/mild solution,
+with lifespan T_max(a,nu) in (0,infinity]. On every compact subinterval
+of [0,T_max), it is continuous into H^1 and belongs to L^2_t H^2_x.
+The trajectory is defined from local theory, before any globality claim.
+No value U(T_max) is assumed when T_max is finite.
+
+For Schwartz datum the canonical velocity and normalized pressure are smooth
+on every closed finite slab strictly before T_max, including the initial time.
+One pressure normalization is
+  p = sum_{i,j} R_i R_j(U_i U_j).
+The usual freedom is addition of a smooth function of time.
+
+The canonical trajectory and its budget are independent of that pressure gauge.
+Strong uniqueness identifies any overlapping canonical strong developments.
+No uniqueness assertion is made for unrestricted distributional solutions.
+
+
+2. ANALYTIC PREREQUISITES AND THEIR STATUS
+
+The starting analytic chain is the cumulative finite-window specification [S1],
+especially its A0-A4 inputs, E01-E10, Sections 13.2-13.6 and soundness review.
+The present class registration uses:
+
+  A0: local H^1 existence, uniqueness and Schwartz-data smoothness;
+  A1: continuation past a finite maximal time when the H^1 norm stays bounded;
+  the strong energy identity/inequality and enstrophy differential estimate;
+  the whole-space Sobolev inequality with the displayed admissible constant;
+  the small-product continuation argument E05;
+  A4: the closed-slab identification of literal smooth finite-energy
+      Fefferman solutions with the canonical H^1 trajectory, when making
+      the converse assertion in that literal category.
+
+The precise whole-space Sobolev normalization used in [S1] is
+  ||f||_6 <= S_6 ||grad f||_2,
+  S_6 = 2^(2/3)/(sqrt(3) pi^(2/3)),
+  S_6^6 = 16/(27pi^4).
+The same constant applies to Euclidean vector/tensor norms by the scalar
+inequality for the norm and the corresponding gradient inequality.
+Plancherel supplies ||D^2 U||_2=||Delta U||_2 where these derivatives are L^2.
+
+These are established analytic ingredients cited in [S1], not a new
+assumption that all initial data generate a global regular solution.
+This document does not claim that their complete physical Lean adapters
+have already been constructed in this repository.
+
+The separate global Leray-Hopf existence/restart route supports QFA in [S1].
+The finite-budget implication below can use strong continuation directly;
+it need not assume a globally regular solution or an unexplained gluing step.
+
+
+3. THE COMPLETE FINITE-WINDOW BUDGET
+
+Write
+  E(t)=||U(t)||_2^2,
+  Y(t)=||grad U(t)||_2^2,
+  E_0=||a||_2^2.
+
+Define the datum-dependent cutoff
+  tau_A(a,nu) = 8||a||_2^4/(27pi^4 nu^5)
+             = S_6^6 ||a||_2^4/(2nu^5),
+and the finite endpoint
+  b_A(a,nu)=min{T_max(a,nu),tau_A(a,nu)}.
+
+For a nonzero datum, both T_max and tau_A are positive, so b_A>0. Define
+  J_A(a,nu)
+    = lim_{r upward to b_A} integral_0^r Y(t)^2 dt
+    = lim_{r upward to b_A} integral_0^r ||grad U(t)||_2^4 dt
+    in [0,infinity].
+
+The limit is monotone and retains possible infinity. It is equivalently
+the extended nonnegative integral on the entire open interval (0,b_A).
+If tau_A<T_max, it is the ordinary integral on [0,tau_A].
+If T_max<=tau_A, it includes possible divergence at T_max.
+It is not sufficient to have a finite integral on each smaller compact interval.
+Local H^1 continuity already gives that weaker statement.
+
+For a=0, use the canonical global zero solution and set
+  tau_A=0, b_A=0, J_A=0.
+This convention avoids a left-limit notation at a zero endpoint.
+
+
+4. THE NORMALIZED GAUGE AND REGISTERED CLASS
+
+Define the extended nonnegative quantity
+  L_A(a,nu) = (4nu J_A(a,nu))^(1/4),
+where the fourth root of infinity is infinity.
+Since nu>0,
+  L_A^4 = 4nu J_A,
+  L_A<infinity iff J_A<infinity.
+
+NSE_A_FINITE_CHARGE_CLASS
+  C_nu^A = {a in D_A : L_A(a,nu)<infinity}.
+
+In displayed mathematical notation this is mathfrak C_nu^A.
+It is a class of initial data whose membership is determined by their
+canonical maximal evolution. L_A is a trajectory-defined gauge.
+No triangle inequality, homogeneity under arbitrary scalar multiplication,
+linear-space structure, completeness or norm characterization is asserted.
+
+
+5. FULL FOURIER NORMALIZATION
+
+Use the Fourier convention
+  U_hat(t,xi)=integral_R3 exp(-2pi i x.xi) U(t,x) dx,
+understood by L^2 extension where the literal integral need not exist.
+
+Define the full Fourier charge
+  Q_A[U](t)=integral_R3 |xi|^2 |U_hat(t,xi)|^2 dxi.
+The norm inside is the full vector norm. Every frequency participates.
+Plancherel gives
+  Y(t)=4pi^2 Q_A[U](t).
+
+The WFA Fourier budget of [S1] is therefore
+  B_A(a,nu)=lim_{r upward to b_A} integral_0^r Q_A[U](t)^2 dt
+           =J_A(a,nu)/(16pi^4).
+Set B_A(0,nu)=0. Thus
+  L_A(a,nu)^4=64pi^4 nu B_A(a,nu).
+
+The square is outside the entire frequency integral. This is not
+integral_time integral_frequency |xi|^4 |U_hat|^4.
+Finiteness of the initial spatial charge alone does not give this time budget;
+that initial finiteness is already automatic for Schwartz data.
+
+For comparison, on the unit torus the corresponding charge is
+  sum_{k in Z^3} |k|^2 |u_hat(k)|^2,
+with all vector components and a zero contribution at k=0.
+The Laplacian eigenvalue is lambda_k=4pi^2|k|^2. A linear eigenvalue
+weight therefore corresponds to a squared wavenumber weight. A weight
+|k| instead gives the different homogeneous H^(1/2) squared charge.
+No periodic cutoff or mean-zero requirement is transferred to R3.
+
+
+6. SIX FIXED, REAL-PRESERVING WHOLE-SPACE PROJECTIONS
+
+Fix the coordinate frame once, independently of a, nu, U and time.
+For each xi in R^3, sort the three pairs
+  (-|xi_1|,1), (-|xi_2|,2), (-|xi_3|,3)
+in increasing lexicographic order. Equivalently, sort absolute coordinates
+in decreasing order and put the smaller coordinate index first in a tie.
+
+Enumerate the resulting six permutations as
+  pi_1=(1,2,3), pi_2=(1,3,2), pi_3=(2,1,3),
+  pi_4=(2,3,1), pi_5=(3,1,2), pi_6=(3,2,1).
+Let C_alpha contain exactly those xi whose selected permutation is pi_alpha.
+The origin belongs to C_1 under this rule.
+
+The sectors C_alpha are Borel: they are finite combinations of comparisons
+of continuous absolute-coordinate functions, with the prescribed tie rule.
+They are pairwise disjoint and cover R^3 exactly.
+Each has nonempty interior, and each is invariant under xi -> -xi.
+The tie boundaries have Lebesgue measure zero, but the explicit rule makes
+the partition and the multiplier sum exact at every frequency.
+
+For a complex or real vector field f in L^2, define Q_alpha by
+  Fourier(Q_alpha f)(xi)=1_{C_alpha}(xi) Fourier(f)(xi).
+The bounded multipliers and the L^2 Fourier transform define bounded
+linear operators on full-volume L^2.
+
+Projection proof:
+  1_{C_alpha}^2=1_{C_alpha}, hence Q_alpha^2=Q_alpha.
+  1_{C_alpha}1_{C_beta}=0 for alpha!=beta, hence Q_alpha Q_beta=0.
+  sum_alpha 1_{C_alpha}=1, hence sum_alpha Q_alpha=I.
+  The indicators are real, so each projection is self-adjoint.
+  Plancherel transfers frequency disjointness to L^2 orthogonality.
+
+Real-field proof:
+  For real f, Fourier(f)(-xi)=conjugate(Fourier(f)(xi)) almost everywhere.
+  Since 1_{C_alpha}(-xi)=1_{C_alpha}(xi), the same identity holds after
+  multiplication. Thus Q_alpha preserves real L^2 vector fields.
+
+Derivative and solenoidal proof:
+  Each spatial derivative is the Fourier multiplier 2pi i xi_j.
+  Scalar multiplier products commute, so for f in H^1,
+    partial_j Q_alpha f=Q_alpha partial_j f in L^2.
+  The same argument gives the available higher weak derivative identities.
+  Multiplication by the scalar indicator preserves xi . Fourier(f)=0;
+  consequently each Q_alpha preserves divergence-freeness.
+  It also gives ||Q_alpha f||_{H^1}<=||f||_{H^1}.
+
+These operators need not preserve the Schwartz class: the sharp frequency
+boundaries need not preserve smoothness of the Fourier transform.
+Only their H^1 boundedness and the derivative identities are needed here.
+No claim says that Q_alpha U separately solves the nonlinear NSE.
+
+This is a concrete whole-space construction. The periodic six-channel
+construction [S3] instead uses coordinate-zero Fourier modes and coordinate
+averages. Directly replacing integer frequencies there by continuous
+frequencies would collapse those coordinate-zero channels almost everywhere.
+The present sectors do not make that domain transfer.
+
+
+7. SIX CHARGES, EXACT ADDITIVITY AND THE FACTOR SIX
+
+For 0<=t<T_max define
+  q_{alpha,A}(t)=||grad Q_alpha U^{a,nu}(t)||_2^2 >=0.
+These are six enstrophy charges of the same actual canonical trajectory.
+H^1 continuity of U and boundedness of Q_alpha imply continuity of each
+charge on compact subintervals of [0,T_max).
+
+By the derivative multiplier identity and Plancherel,
+  q_{alpha,A}(t)
+    =4pi^2 integral_{C_alpha} |xi|^2 |U_hat(t,xi)|^2 dxi.
+The complete partition therefore gives
+  sum_{alpha=1}^6 q_{alpha,A}(t)=Y(t).
+
+For any six nonnegative real numbers q_1,...,q_6,
+  sum_alpha q_alpha^2 <= (sum_alpha q_alpha)^2
+                      <= 6 sum_alpha q_alpha^2.
+The first inequality follows by expanding the nonnegative cross terms.
+The second is Cauchy-Schwarz against the vector (1,1,1,1,1,1).
+Consequently
+  sum_alpha q_{alpha,A}(t)^2 <= Y(t)^2
+                            <= 6 sum_alpha q_{alpha,A}(t)^2.
+
+For a!=0 define
+  J_{6,A}(a,nu)
+    =lim_{r upward to b_A} integral_0^r
+        sum_{alpha=1}^6 q_{alpha,A}(t)^2 dt
+    in [0,infinity],
+and set J_{6,A}(0,nu)=0.
+Integrate the inequalities on every (0,r), then pass to the increasing
+limits. They remain valid when one of the budgets is infinite:
+  J_{6,A} <= J_A <= 6 J_{6,A}.
+In terms of the normalized gauge,
+  4nu J_{6,A} <= L_A^4 <= 24nu J_{6,A}.
+There is no claimed equality J_{6,A}=J_A.
+
+NSE_A_SIX_CHARGE_CHARACTERIZATION
+  For every nu>0 and a in D_A,
+    a in C_nu^A
+      iff J_A(a,nu)<infinity
+      iff J_{6,A}(a,nu)<infinity.
+Equivalently, membership is the finiteness of the displayed full improper
+integral of sum_alpha q_{alpha,A}(t)^2 up to b_A.
+
+The same comparison holds for any fixed six orthogonal Fourier projections
+resolving the identity and commuting with derivatives on H^1.
+The numerical channel budgets may depend on the partition, but their
+finiteness class agrees with J_A and is therefore independent of that choice.
+The concrete construction above supplies one real-preserving nondegenerate
+family without assuming an unconstructed projector witness.
+
+
+8. FINITE BUDGET EXCLUDES A FINITE ENDPOINT BEFORE THE CUTOFF
+
+This restates E09 of [S1] with all terminal quantifiers retained.
+The enstrophy estimate there is
+  Y' + nu||Delta U||_2^2 <= pi^(-4)nu^(-3)Y^3.
+Gronwall gives, for t<T_max,
+  Y(t)<=Y(0) exp[pi^(-4)nu^(-3) integral_0^t Y(r)^2 dr].
+
+Suppose a!=0, J_A<infinity and T_max<=tau_A.
+Then b_A=T_max and the COMPLETE improper budget controls the exponent
+uniformly as t upward to T_max. The energy estimate bounds ||U(t)||_2.
+Thus the H^1 norm stays bounded up to this finite maximal time.
+The H^1 continuation theorem extends the solution past T_max, a contradiction.
+
+It follows that
+  J_A<infinity implies T_max>tau_A.
+This strict conclusion excludes T_max=tau_A by the same argument.
+It does not assume a pre-existing regular trace U(T_max).
+For a=0 the canonical solution is already global.
+
+
+9. CROSSING THE CUTOFF GIVES GLOBAL STRONG CONTINUATION
+
+For nonzero a with J_A<infinity, the preceding step makes U available on
+the full compact interval [0,tau_A]. The strong energy/product estimate
+E06 of [S1] gives
+  integral_0^tau_A E(t)Y(t) dt <= E_0^2/(4nu).
+Put
+  theta=nu^4/S_6^6.
+By the definition of tau_A,
+  theta*tau_A=E_0^2/(2nu).
+Hence a positive-measure set of times in (0,tau_A) satisfies E(t)Y(t)<theta;
+in particular choose s strictly inside that interval with this inequality.
+
+The E05 small-product argument applies to the H^1 datum U(s).
+Its nonlinear estimate is
+  |integral (U . grad)U . Delta U|
+    <= S_6^(3/2)(E Y)^(1/4)||Delta U||_2^2.
+At the selected time, S_6^(3/2)(E(s)Y(s))^(1/4)<nu.
+Energy monotonicity and the resulting positive dissipation margin keep
+enstrophy bounded along the restarted strong solution; the standard
+continuation criterion then makes that solution global.
+This is the invariant small-product bootstrap proved in E05 of [S1].
+
+Strong uniqueness identifies the restarted solution with the original U
+on their common interval. Maximality therefore gives T_max=infinity.
+No independent trajectory or unproved weak-solution gluing is substituted.
+
+
+10. CONVERSE AND THE REGISTERED GLOBALITY EQUIVALENCE
+
+If T_max=infinity, H^1 continuity bounds Y on [0,tau_A], and
+  J_A <= tau_A * max_{0<=t<=tau_A} Y(t)^2 < infinity
+for nonzero a. For zero datum the budget is zero by definition.
+
+Combining this with Sections 7-9 gives:
+
+NSE_A_FINITE_CHARGE_IFF_GLOBAL
+  For every nu>0 and a in D_A,
+    a in C_nu^A
+      iff L_A(a,nu)<infinity
+      iff J_A(a,nu)<infinity
+      iff J_{6,A}(a,nu)<infinity
+      iff B_A(a,nu)<infinity
+      iff T_max(a,nu)=infinity.
+
+For a member of the class, the canonical velocity and normalized pressure
+are smooth on every finite closed time slab, including t=0, and
+  sup_{t>=0}||U(t)||_2^2 <= ||a||_2^2.
+This gives the datumwise Fefferman-A conclusion.
+
+For the converse from an arbitrary literal smooth finite-energy Fefferman
+pair, retain input A4 of [S1]: on each closed finite slab, the established
+bounded-enstrophy and normalized-mild identification theorems identify its
+velocity with U. This implies T_max=infinity.
+The pressure identification first uses equality of pressure gradients;
+no smooth gauge difference is presumed before that identification.
+The globality equivalence in the literal category uses this analytic input,
+not an already completed Lean adapter.
+
+
+11. SUBLEVEL CLASSES AND THEIR EXHAUSTION
+
+For each finite R>=0 define
+  C_{nu,R}^A = {a in D_A : L_A(a,nu)<=R}
+            = {a in D_A : J_A(a,nu)<=R^4/(4nu)}.
+
+Then
+  R<=S implies C_{nu,R}^A subseteq C_{nu,S}^A,
+and
+  C_nu^A = union_{n=1}^infinity C_{nu,n}^A.
+The first assertion follows from transitivity of <=.
+For the second, every finite nonnegative L_A lies below some positive integer,
+and every member of an integer sublevel has a finite gauge.
+The zero datum belongs to every sublevel.
+
+The six-charge sublevels
+  {a : J_{6,A}(a,nu)<=K}, K>=0 finite,
+also exhaust the same class and satisfy the precise comparisons in Section 7.
+No equality between equally labelled J_A and J_{6,A} sublevels is inferred.
+
+This is a monotone set-theoretic exhaustion. It is not a compact exhaustion,
+a proof of closedness, or a Banach-space construction.
+No uniform bound over all admissible data is needed for datumwise finiteness.
+
+
+12. UNIVERSAL OBLIGATION AND FIRST UNRESOLVED EDGE
+
+For each fixed positive viscosity, the universal assertion is
+  C_nu^A = D_A.
+For all positive viscosities, this is equivalently
+  for every nu>0 and every a in D_A, J_A(a,nu)<infinity,
+and also equivalently the corresponding universal six-charge finiteness.
+By the established datumwise identification, this is the full global
+regularity obligation in the recorded Fefferman-A solution category.
+It remains OPEN.
+
+FIRST UNRESOLVED EDGE:
+  known energy and weighted-product estimates
+    -> finite full J_A for arbitrary Schwartz solenoidal data.
+Energy controls integral Y; the stronger weighted estimate controls
+integral E Y. The present class requires integral Y^2.
+The six-channel inequalities re-express that requirement; they do not
+derive it for every datum or remove a potentially singular middle interval.
+
+The initial charge Q_A[a] is finite for every Schwartz datum.
+That fact does not prove J_A<infinity and does not make the present class
+equal to D_A. The class characterization is an equivalence, not a solution
+of the universal regularity problem.
+
+
+13. ENDPOINT REGISTER
+
+RC01  Canonical datum, equation, viscosity and pressure convention
+      Status: established analytic setup from [S1].
+RC02  Full improper endpoint; zero-datum convention; Fourier factors
+      Status: B-tier definitions and Plancherel normalization.
+RC03  Concrete six symmetric sectors and their orthogonal projections
+      Status: B-tier construction; no new Lean implementation.
+RC04  Derivative commutation, real preservation and solenoidal preservation
+      Status: B-tier multiplier/Plancherel proof.
+RC05  Charge additivity and factor-six budget comparison
+      Status: B-tier derivation.
+RC06  Finite budget implies strict cutoff crossing and globality
+      Status: B-tier composition of existing [S1] E05-E10.
+RC07  Globality implies finite budget; literal-class identification
+      Status: B-tier; A4 is retained for the literal converse.
+RC08  Monotone sublevels and exhaustion
+      Status: B-tier set-theoretic consequence.
+
+STABLE REGISTERS
+  NSE_A_FINITE_CHARGE_CLASS
+    Sections 3-5 and 11: class, normalization and sublevels.
+  NSE_A_SIX_CHARGE_CHARACTERIZATION
+    Sections 6-7: concrete fixed projections and equivalent finiteness.
+  NSE_A_FINITE_CHARGE_IFF_GLOBAL
+    Sections 8-10: canonical globality and the explicit literal-class bridge.
+
+These are documentary register names, not claimed Lean declaration names.
+No new numerical Sobolev constant or continuation theorem is introduced
+without the explicit analytic dependencies above.
+
+
+14. FORMAL EVIDENCE BOUNDARY
+
+The existing QFA foundations were accepted for their exact tested source at
+  commit afd67db40e71bd1412c82247a78598288deb611e,
+  external run 44788963412.
+Their record is R3_NSE/QFA/INTEGRATION_STATUS.json and their name register is
+R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt.
+
+Those foundations include actual full-volume contracts, weighted energy
+and strong-trace consequences for supplied LH paths, scalar-window selection,
+and a spectral endpoint from actual distributional derivative witnesses.
+They do not constitute a formal proof of the full physical QFA/WFA roots,
+these new whole-space sector projections, or this class equivalence.
+
+In particular:
+  - LerayHopf.energy_product_budget_Ioo bounds integral E Y, not integral Y^2.
+  - wholeSpaceSpectralEndpoint retains its actual derivative-witness input;
+    it does not create H^1 local theory, a global solution, or these projectors.
+  - Periodic six-channel endpoints retain their torus domain.
+  - A numerical scalar identity for S does not prove Sobolev admissibility.
+
+For this class registration:
+  New Lean declarations: NONE.
+  New matching external compiler/type/axiom evidence: NONE.
+  New CI acceptance: NONE.
+  Local Lean/Lake/kernel execution: NONE.
+  Universal regularity or universal class membership proved: NO.
+
+
+15. SOURCES AND EXACT REUSE
+
+[S1] Existing cumulative whole-space B-tier specification:
+  Temp-folder/specification/
+    FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt
+  Use Section 0 for the solution category and inputs A0-A4;
+  E01-E06 for constants, enstrophy, the restart threshold and weighted budget;
+  E08-E10 for the full endpoint and globality equivalence;
+  Sections 13.2-13.6 for WFA Fourier normalization and logical scope;
+  Section 14 for the endpoint/solution-class review.
+  This document extends that analytic record by the registered class and
+  its concrete six-charge characterization.
+
+[S2] Existing periodic full-budget and class precedents:
+  Material/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean
+    FourierEnstrophyTerm; ExtendedFourierEnstrophy;
+    smoothSigmaZero_dissipation_eq_fourierEnstrophy.
+  Material/MethbokeAddon/WeakFouriermanB/FourierBudget.lean
+    FourierBudgetFinite.
+  Material/MethbokeAddon/WeakFouriermanB/PhysicalBudgetContinuation.lean
+    MaximalFourierBudgetFinite.
+  Material/MethbokeAddon/WeakFouriermanB/WeakFouriermanB.lean
+    Weak_Fourierman_B.
+  T3_NSE/B-Regularity-class/WFB/
+    WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER.txt
+    "THE PRECISE PUBLICATION-TO-WFB RELATION" records the periodic
+    trajectory-defined class equality and B-tier converse.
+  These are structural/domain-specific precedents, not an R3 theorem import.
+
+[S3] Existing periodic six-channel construction:
+  Material/_vendor/SingularClosure/SixChannels.lean
+    channelOf; spectralChannel; SIX_CHANNEL_SPECTRAL_PROJECTIONS;
+    spectralChannel_commutes_multiplier;
+    spectralChannel_orthogonal_frequency;
+    spectralChannel_preserves_reality.
+  Material/_vendor/SingularClosure/SmoothSixChannels.lean
+    smoothSixChannel; SMOOTH_SIX_CHANNEL_RECONSTRUCTION.
+  Material/_vendor/SingularClosure/SmoothSixEnstrophy.lean
+    SIX_CHANNEL_REAL_ENSTROPHY_EQ; SIX_CHANNEL_ENSTROPHY_EQ.
+  The present R3 sectors are specified and proved separately in Section 6.
+
+[S4] Accepted whole-space foundation scope and receipt:
+  R3_NSE/QFA/README.md
+  R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt
+  R3_NSE/QFA/INTEGRATION_STATUS.json
+  audits/material-afd67db4-qfa-accepted/summary.json
+  Material/MethbokeAddon/QuasiFeffermanA/Spectral.lean
+    MethbokeAddon.QuasiFeffermanA.wholeSpaceSpectralEndpoint.
+  Material/MethbokeAddon/QuasiFeffermanA/Energy.lean
+    MethbokeAddon.QuasiFeffermanA.LerayHopf.energy_product_budget_Ioo.
+  Their exact accepted scopes are described in Section 14.
+
+[S5] Primary analytic sources already indexed by [S1]:
+  Giorgio Talenti, "Best constant in Sobolev inequality",
+  Annali di Matematica Pura ed Applicata 110 (1976), 353-372.
+  Opening theorem/formula (2), specialized to dimension 3 and p=2:
+  https://math.jhu.edu/~js/Math646/talenti.sobolev.pdf
+
+  Terence Tao, "Localisation and compactness properties of the
+  Navier-Stokes global regularity problem", Analysis & PDE 6(1) (2013),
+  25-107. Theorem 5.4 and Corollary 5.8 supply the H^1 development,
+  uniqueness, Schwartz-data smoothness and continuation framework.
+  Corollaries 4.3 and 11.1 supply the normalized-mild and bounded-enstrophy
+  steps used for the literal smooth finite-energy converse in [S1] A4.
+  https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf
+
+  Charles L. Fefferman, "Existence and smoothness of the Navier-Stokes
+  equation", Clay Mathematics Institute problem statement, statement (A)
+  and equations (4), (6), (7), for the literal whole-space target:
+  https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+
+These source attributions retain the roles recorded in [S1]. The names
+of this class and its documentary registers are project terminology,
+not names attributed to those authors.

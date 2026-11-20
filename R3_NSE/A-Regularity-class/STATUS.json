@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "repository": "randogelist/Methboke",
+  "branch": "AC-Integration",
+  "status": "B_TIER_CLASS_DEFINITION_AND_EQUIVALENCE",
+  "class_id": "NSE_A_FINITE_CHARGE_CLASS",
+  "class_notation": "C^A_nu = {a in S_sigma(R3;R3): L_A(a,nu) < infinity}",
+  "identifiers": [
+    "NSE_A_FINITE_CHARGE_CLASS",
+    "NSE_A_SIX_CHARGE_CHARACTERIZATION",
+    "NSE_A_FINITE_CHARGE_IFF_GLOBAL"
+  ],
+  "scope": "Unforced three-dimensional NSE on R3; fixed nu>0; real solenoidal Schwartz initial data; canonical maximal H1 strong solution.",
+  "project_goal": "Fefferman_D",
+  "project_goal_changed": false,
+  "retained_branch_local_target": "QFA_QFB_A_TIER_INTEGRATION",
+  "source_basis_commit": "05988d7a0d02981200dfeb07ad52d8f8455c5305",
+  "source_basis_specification": "Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt",
+  "source_basis_specification_sha256": "6d87cbe4f2b051fd595349b41753047b2f4df37ae7776bc15cf46831c4852ae7",
+  "entry_point": "R3_NSE/A-Regularity-class/README.md",
+  "derivation": "R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt",
+  "cumulative_specification_addendum": "Section 15, E17--E21",
+  "definitions": {
+    "cutoff": "tau_A = 8 ||a||_2^4 / (27 pi^4 nu^5)",
+    "endpoint": "b_A = min(T_max(a,nu), tau_A(a,nu))",
+    "trajectory": "The same canonical maximal H1 strong solution U^{a,nu} is used in every charge and budget.",
+    "zero_datum": "J_A = J_6,A = B_A = L_A = 0",
+    "projectors": "Six even Borel Fourier sectors, lexicographically indexed by permutations of (1,2,3), ordering absolute coordinates descending with increasing-index tie breaking.",
+    "charge": "q_alpha,A(t) = ||grad Q_alpha U(t)||_2^2",
+    "enstrophy": "Y(t) = ||grad U(t)||_2^2 = sum_alpha q_alpha,A(t)",
+    "six_charge_budget": "J_6,A = lim_(r up to b_A) integral_0^r sum_(alpha=1)^6 q_alpha,A(t)^2 dt",
+    "enstrophy_budget": "J_A = lim_(r up to b_A) integral_0^r Y(t)^2 dt",
+    "gauge": "L_A^4 = 4 nu J_A = 64 pi^4 nu B_A",
+    "integral_convention": "Extended nonnegative improper integral over the complete endpoint interval; no value at a terminal b_A is assumed.",
+    "fourier_convention": "exp(-2 pi i x dot xi); gradient symbol 2 pi i xi"
+  },
+  "proved_b_tier": [
+    "Concrete projections are orthogonal, resolve the identity, preserve real solenoidal H1 fields, and commute with weak derivatives.",
+    "J_6,A <= J_A <= 6 J_6,A and 4 nu J_6,A <= L_A^4 <= 24 nu J_6,A.",
+    "a belongs to C^A_nu iff J_6,A < infinity iff T_max(a,nu)=infinity.",
+    "Class sublevels L_A<=m increase and their union is C^A_nu.",
+    "With the recorded A4 solution-class identification, Fefferman A iff for every nu>0 the class equals all solenoidal Schwartz data."
+  ],
+  "analytic_dependencies": {
+    "canonical_local_theory": "Existing specification A0 and E01--E03",
+    "continuation": "A1 and E09",
+    "global_restart": "E05--E07 and E10 on the original strong trajectory",
+    "literal_fefferman_class": "A4 and E10 closed-slab/normalized-mild solution-class identification",
+    "six_sector_argument": "Plancherel, bounded even scalar Fourier multipliers, positivity, finite Cauchy--Schwarz, and monotone integration"
+  },
+  "universal_class_equality_proved": false,
+  "universal_budget_finiteness_proved": false,
+  "a_tier_class_equivalence_proved": false,
+  "new_lean_declarations": 0,
+  "new_external_compiler_runs": 0,
+  "new_axiom_audits": 0,
+  "local_lean_executions": 0,
+  "existing_foundation_evidence": {
+    "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+    "run_id": 44788963412,
+    "record": "R3_NSE/QFA/INTEGRATION_STATUS.json",
+    "scope": "Existing exact QFA foundation helpers only; not the complete six-charge class or physical WFA root."
+  },
+  "boundaries": [
+    "Class membership depends on the canonical nonlinear evolution; no initial-norm-only decision test is asserted.",
+    "No norm, linear-space, closedness or compactness assertion.",
+    "No uniform whole-space Galerkin limit or automatic periodic-to-R3 transfer.",
+    "All existing accepted proof, audit, compiler/dependency and workflow bytes are retained."
+  ],
+  "static_validation": {
+    "status": "PASS_STATIC_REVIEW_ONLY",
+    "kind": "Nonexecuting source, statement, JSON, link and repository-consistency review; not a Lean/kernel check.",
+    "changed_or_added_files": 11,
+    "local_markdown_links_checked": 54,
+    "mathematical_review": "PASS; independent written-proof review, with the squared-charge wording clarified.",
+    "checks": [
+      "All eleven changed/new paths are the authorized documentation and status files.",
+      "All edited JSON records parse; all local Markdown links in the changed pages resolve.",
+      "All pre-existing source acceptance/evidence objects and D-ledger values are unchanged.",
+      "The previous cumulative specification is byte-preserved as an exact prefix; its recorded SHA256 matches.",
+      "The QFA formal integration record and all tracked proof/build/dependency/workflow/audit files are unchanged.",
+      "README and cumulative TXT independently reviewed for six-sector projections, factor-six inequalities, normalization, endpoints, same-trajectory globality, A4 and sublevels.",
+      "No Lean/Lake/kernel execution or project runner; this is static review only."
+    ],
+    "document_sha256": {
+      "README.md": "77796c3004c21722e93604401b91af5fdbf0c3bdb212ec8bf51bc44c48f79c27",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "0675d202c31d7ec333e3906538aaaaa9c3543acfcf3a05617f6cbcaa72c301bf"
+    }
+  }
+}

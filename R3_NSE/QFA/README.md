@@ -1,7 +1,12 @@
 # QFA: accepted whole-space foundation integration
 
 **Status: A-tier accepted for the exact foundation scopes below.**
-The complete physical QFA and WFA theorems remain open.
+The complete physical QFA and WFA theorems remain formally open in this project.
+
+The [NSE-A finite-charge regularity class](../A-Regularity-class/README.md)
+separately registers the B-tier six-charge characterization and datumwise
+global-regularity equivalence from the written WFA chain. That registration
+adds no theorem to the accepted native scope described here.
 
 Tested commit: `afd67db40e71bd1412c82247a78598288deb611e` on `AC-Integration`.
 Matching [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412) passed compilation, fresh

@@ -1,5 +1,5 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 5.8
+DOCUMENT_VERSION = 5.9
 DATE = 2026-11-20
 WORKING_BRANCH = AC-Integration
 MAIN_PROGRAM_BRANCH = main
@@ -127,6 +127,25 @@ PASS:463modules,77freshpackages,698namedreports,fresh QFB cutout, 183 controls.
 POLICY:standard axioms only;publication/final acceptance passed;no local Lean.
 BOUNDARY:full physical QFA/WFA remains open; prior scopes and main goal preserved.
 This accepted entry supersedes prior pending-attempt activity for current status.
+
+NSE_A_FINITE_CHARGE_CLASS
+STATUS: B_TIER_CLASS_DEFINITION_AND_EQUIVALENCE; no additional audited declaration.
+SOURCE:R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt.
+INDEX:R3_NSE/A-Regularity-class/README.md;STATUS.json.
+DATA:real Schwartz solenoidal fields on R3;nu>0;canonical maximal H1 strong U.
+WINDOW:b_A=min(Tmax,tau_A);tau_A=8||a||_2^4/(27*pi^4*nu^5);zero budget at a=0.
+CLASS:C_A_nu={a:L_A<infinity},where L_A^4=4*nu*J_A and J_A=integral Y^2.
+SIX_CHARGE:NSE_A_SIX_CHARGE_CHARACTERIZATION; fixed even Fourier sectors;
+q_alpha=||grad Q_alpha U||_2^2;J_6=integral sum_alpha q_alpha^2;
+J_6<=J_A<=6J_6,with full extended nonnegative terminal integrals.
+GLOBAL:NSE_A_FINITE_CHARGE_IFF_GLOBAL;C_A_nu equals the global canonical
+strong-solution class by existing E08--E10;literal Fefferman A also uses A4.
+BOUNDS:L_A^4=64*pi^4*nu*B_A;4*nu*J_6<=L_A^4<=24*nu*J_6.
+BOUNDARY:universal class equality with all Schwartz data remains OPEN;
+no initial-norm-only test,norm/linear-space claim,or R3 Galerkin transfer.
+EVIDENCE:complete written B-tier chain and static review; no new Lean,
+compiler/axiom report or A-tier result. Accepted foundations retain afd67db4.
+Project goal and every D implementation/evidence status remain unchanged.
 
 RETAINED FEFFERMAN-D IMPLEMENTATION
 

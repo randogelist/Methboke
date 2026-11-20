@@ -1,5 +1,13 @@
 # Whole-space three-dimensional Navier–Stokes
 
+[NSE-A finite-charge regularity class](A-Regularity-class/README.md) registers
+the B-tier equivalence between a finite six-charge budget and global canonical
+strong regularity for solenoidal Schwartz data. Its
+[derivation](A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt) fixes the
+six projections, full improper endpoint and factor-six enstrophy comparison.
+Universal membership of every admissible datum remains open; this class
+registration is separate from formal foundation acceptance.
+
 [QFA native integration](QFA/README.md) indexes the scoped whole-space
 `AC-Integration` work: concrete full-volume contracts, recovered source
 foundations, weighted energy, traces, finite-window selection and the spectral endpoint.

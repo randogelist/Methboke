@@ -38,6 +38,22 @@ The [whole-space integration page](R3_NSE/QFA/README.md),
 record the scope and remaining edges. The Fefferman-D goal, prior periodic
 QFB/WFB conclusions and their original evidence remain preserved.
 
+## NSE-A regularity class: finite six-charge budget
+
+The [whole-space regularity class](R3_NSE/A-Regularity-class/README.md)
+is registered at **B-tier**. A real solenoidal Schwartz datum belongs to the
+class exactly when its canonical maximal strong solution has a finite full-window
+integral of the sum of the six squared gradient charges. The six
+projections are explicitly constructed from even Fourier sectors.
+
+The [complete derivation](R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt)
+proves the factor-six comparison with squared enstrophy and records the existing
+WFA equivalence to global canonical regularity, including the zero datum and
+terminal endpoint. The [status record](R3_NSE/A-Regularity-class/STATUS.json)
+keeps this analytic class characterization separate from the accepted native
+foundations. Universal finiteness for every Schwartz datum remains open.
+This registration adds no Lean declaration or new A-tier acceptance.
+
 ## Retained Fefferman-D implementation
 
 The native family layers are in
@@ -127,6 +143,7 @@ the previous research-file locations.
 | [INDEX-WORTHY.txt](INDEX-WORTHY.txt) | Substantiated results with source-specific scope and evidence |
 | [SOURCE_STATUS.json](SOURCE_STATUS.json) | Goal, implementation and accepted-evidence identities |
 | [T3_NSE](T3_NSE/README.md) / [R3_NSE](R3_NSE/README.md) | Periodic programs and reserved whole-space work |
+| [NSE-A regularity class](R3_NSE/A-Regularity-class/README.md) | B-tier finite six-charge class and datumwise global-regularity equivalence |
 | [T3_NSE/D-Family-Obstruction](T3_NSE/D-Family-Obstruction/README.md) | Current periodic-family route and ledger |
 | [Material](Material/README.md) | Native sources, endpoint packages and complete audits |
 | [Ehrenfest package](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/PREPRINT_FORMALISATION/README.md) | Preserved conditional proof and stronger open operator milestones |
