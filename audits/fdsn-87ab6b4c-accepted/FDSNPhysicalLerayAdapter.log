@@ -1,0 +1,120 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection
+MethbokeAddon.FDSN.physicalLerayProjection : SingularClosure.Field → SingularClosure.Field
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection
+'MethbokeAddon.FDSN.physicalLerayProjection' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_rapid
+@MethbokeAddon.FDSN.physicalLerayProjection_rapid : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (i : Fin 3),
+        SingularClosure.RapidScalarFourier fun k =>
+          SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff v k) i
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_rapid
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_rapid
+'MethbokeAddon.FDSN.physicalLerayProjection_rapid' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_rapid
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_smooth
+@MethbokeAddon.FDSN.physicalLerayProjection_smooth : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v → ContDiff.{0, 0, 0} ℝ ∞ (MethbokeAddon.FDSN.physicalLerayProjection v)
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_smooth
+'MethbokeAddon.FDSN.physicalLerayProjection_smooth' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_smooth
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_periodic
+MethbokeAddon.FDSN.physicalLerayProjection_periodic : ∀ (v : SingularClosure.Field),
+  SingularClosure.SpatialPeriodic.{0} (MethbokeAddon.FDSN.physicalLerayProjection v)
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_periodic
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_periodic
+'MethbokeAddon.FDSN.physicalLerayProjection_periodic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_periodic
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_coeff
+@MethbokeAddon.FDSN.physicalLerayProjection_coeff : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      Eq.{1} (SingularClosure.datumFourierCoeff (MethbokeAddon.FDSN.physicalLerayProjection v)) fun k =>
+        SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff v k)
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_coeff
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_coeff
+'MethbokeAddon.FDSN.physicalLerayProjection_coeff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_coeff
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_zero_mode
+@MethbokeAddon.FDSN.physicalLerayProjection_zero_mode : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      Eq.{1} (SingularClosure.datumFourierCoeff (MethbokeAddon.FDSN.physicalLerayProjection v) 0)
+        (SingularClosure.datumFourierCoeff v 0)
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_zero_mode
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_zero_mode
+'MethbokeAddon.FDSN.physicalLerayProjection_zero_mode' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_zero_mode
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_helmholtz
+@MethbokeAddon.FDSN.physicalLerayProjection_helmholtz : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      Eq.{1} (MethbokeAddon.FDSN.physicalLerayProjection v)
+        (HAdd.hAdd.{0, 0, 0} v
+          (SingularClosure.gradient (SingularClosure.infiniteTransportPressure (SingularClosure.datumFourierCoeff v))))
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_helmholtz
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_helmholtz
+'MethbokeAddon.FDSN.physicalLerayProjection_helmholtz' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_helmholtz
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_divergence_free
+@MethbokeAddon.FDSN.physicalLerayProjection_divergence_free : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (x : SingularClosure.Vec),
+        Eq.{1} (SingularClosure.divergence (MethbokeAddon.FDSN.physicalLerayProjection v) x) 0
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_divergence_free
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_divergence_free
+'MethbokeAddon.FDSN.physicalLerayProjection_divergence_free' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_divergence_free
+TYPE_BEGIN:MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous
+MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous : ∀ (v w : SingularClosure.Field),
+  Continuous.{0, 0} v →
+    Continuous.{0, 0} w →
+      Eq.{1} (SingularClosure.datumFourierCoeff (HSub.hSub.{0, 0, 0} v w))
+        (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff v) (SingularClosure.datumFourierCoeff w))
+TYPE_END:MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous
+AXIOMS_BEGIN:MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous
+'MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero
+@MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ {k : SingularClosure.Frequency} {i : Fin 3},
+        Ne.{1} (SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff v k) i) 0 →
+          Ne.{1} (MethbokeAddon.FDSN.physicalLerayProjection v) 0
+TYPE_END:MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero
+'MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero
+TYPE_BEGIN:MethbokeAddon.FDSN.projectedForceSeparation_physical
+@MethbokeAddon.FDSN.projectedForceSeparation_physical : ∀ {T ε : ℝ} {G : ℝ → SingularClosure.Velocity},
+  (∀ (lambda : ℝ), LT.lt.{0} (abs.{0} lambda) ε → MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce (G lambda)) →
+    MethbokeAddon.FDSN.ProjectedForceSeparation T ε G →
+      ∀ (lambda eta : ℝ),
+        LT.lt.{0} (abs.{0} lambda) ε →
+          LT.lt.{0} (abs.{0} eta) ε →
+            Ne.{1} lambda eta →
+              ∃ t,
+                Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t ∧
+                  ∃ x,
+                    Ne.{1} (MethbokeAddon.FDSN.physicalLerayProjection (HSub.hSub.{0, 0, 0} (G lambda) (G eta) t) x) 0
+TYPE_END:MethbokeAddon.FDSN.projectedForceSeparation_physical
+AXIOMS_BEGIN:MethbokeAddon.FDSN.projectedForceSeparation_physical
+'MethbokeAddon.FDSN.projectedForceSeparation_physical' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.projectedForceSeparation_physical

@@ -1,0 +1,131 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.spectralSolenoidal_sub
+MethbokeAddon.FDSN.spectralSolenoidal_sub : ∀ (c d : SingularClosure.FourierCoeff),
+  SingularClosure.SpectralSolenoidal c →
+    SingularClosure.SpectralSolenoidal d → SingularClosure.SpectralSolenoidal (HSub.hSub.{0, 0, 0} c d)
+TYPE_END:MethbokeAddon.FDSN.spectralSolenoidal_sub
+AXIOMS_BEGIN:MethbokeAddon.FDSN.spectralSolenoidal_sub
+'MethbokeAddon.FDSN.spectralSolenoidal_sub' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.spectralSolenoidal_sub
+TYPE_BEGIN:MethbokeAddon.FDSN.coefficientLeray_sub_arg
+MethbokeAddon.FDSN.coefficientLeray_sub_arg : ∀ (k : SingularClosure.Frequency) (v w : Fin 3 → ℂ),
+  Eq.{1} (SingularClosure.coefficientLeray k (HSub.hSub.{0, 0, 0} v w))
+    (HSub.hSub.{0, 0, 0} (SingularClosure.coefficientLeray k v) (SingularClosure.coefficientLeray k w))
+TYPE_END:MethbokeAddon.FDSN.coefficientLeray_sub_arg
+AXIOMS_BEGIN:MethbokeAddon.FDSN.coefficientLeray_sub_arg
+'MethbokeAddon.FDSN.coefficientLeray_sub_arg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.coefficientLeray_sub_arg
+TYPE_BEGIN:MethbokeAddon.FDSN.projectedTransport_pair_difference
+MethbokeAddon.FDSN.projectedTransport_pair_difference : ∀ (c d : SingularClosure.TorusSobolev 0)
+  (a : SingularClosure.Frequency) (i : Fin 3),
+  SingularClosure.SpectralSolenoidal ↑c →
+    SingularClosure.SpectralSolenoidal ↑d →
+      MethbokeAddon.FDSN.PairSupported a (HSub.hSub.{0, 0, 0} ↑d ↑c) →
+        Eq.{1}
+          (HSub.hSub.{0, 0, 0} (SingularClosure.coefficientLeray a (SingularClosure.fullTransportCoefficients d a) i)
+            (SingularClosure.coefficientLeray a (SingularClosure.fullTransportCoefficients c a) i))
+          (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.meanTransportFactor (↑c) a) (HSub.hSub.{0, 0, 0} (↑d a i) (↑c a i)))
+TYPE_END:MethbokeAddon.FDSN.projectedTransport_pair_difference
+AXIOMS_BEGIN:MethbokeAddon.FDSN.projectedTransport_pair_difference
+'MethbokeAddon.FDSN.projectedTransport_pair_difference' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.projectedTransport_pair_difference
+TYPE_BEGIN:MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt
+@MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt : ∀ {ν T : ℝ} {u v F G : SingularClosure.Velocity}
+  {p q : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.PreterminalNSE ν T u p F →
+    MethbokeAddon.FDSN.PreterminalNSE ν T v q G →
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+          Continuous.{0, 0} (F t) →
+            Continuous.{0, 0} (G t) →
+              ∀ (a : SingularClosure.Frequency) (i : Fin 3),
+                MethbokeAddon.FDSN.PairSupported a
+                    (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff (v t))
+                      (SingularClosure.datumFourierCoeff (u t))) →
+                  Eq.{1} (SingularClosure.coefficientLeray a (SingularClosure.datumFourierCoeff (G t) a) i)
+                      (SingularClosure.coefficientLeray a (SingularClosure.datumFourierCoeff (F t) a) i) →
+                    HasDerivAt.{0, 0}
+                      (fun r =>
+                        HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff (v r) a i)
+                          (SingularClosure.datumFourierCoeff (u r) a i))
+                      (HMul.hMul.{0, 0, 0}
+                        (Neg.neg.{0}
+                          (HAdd.hAdd.{0, 0, 0} (↑(HMul.hMul.{0, 0, 0} ν (SingularClosure.laplacianFrequency a)))
+                            (MethbokeAddon.FDSN.meanTransportFactor (SingularClosure.datumFourierCoeff (u t)) a)))
+                        (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff (v t) a i)
+                          (SingularClosure.datumFourierCoeff (u t) a i)))
+                      t
+TYPE_END:MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt
+'MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc
+@MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc : ∀ {ν T : ℝ} {u v F G : SingularClosure.Velocity}
+  {p q : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.PreterminalNSE ν T u p F →
+    MethbokeAddon.FDSN.PreterminalNSE ν T v q G →
+      LE.le.{0} 0 ν →
+        ∀ (s t : ℝ),
+          LT.lt.{0} 0 s →
+            LE.le.{0} s t →
+              LT.lt.{0} t T →
+                ∀ (a : SingularClosure.Frequency) (i : Fin 3),
+                  (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} s t) r → Continuous.{0, 0} (F r)) →
+                    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} s t) r → Continuous.{0, 0} (G r)) →
+                      (∀ (r : ℝ),
+                          Membership.mem.{0, 0} (Set.Ioo.{0} s t) r →
+                            MethbokeAddon.FDSN.PairSupported a
+                              (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff (v r))
+                                (SingularClosure.datumFourierCoeff (u r)))) →
+                        (∀ (r : ℝ),
+                            Membership.mem.{0, 0} (Set.Ioo.{0} s t) r →
+                              Eq.{1} (SingularClosure.coefficientLeray a (SingularClosure.datumFourierCoeff (G r) a) i)
+                                (SingularClosure.coefficientLeray a (SingularClosure.datumFourierCoeff (F r) a) i)) →
+                          Eq.{1} (SingularClosure.datumFourierCoeff (v s) a i)
+                              (SingularClosure.datumFourierCoeff (u s) a i) →
+                            ∀ (r : ℝ),
+                              Membership.mem.{0, 0} (Set.Icc.{0} s t) r →
+                                Eq.{1} (SingularClosure.datumFourierCoeff (v r) a i)
+                                  (SingularClosure.datumFourierCoeff (u r) a i)
+TYPE_END:MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc
+'MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc
+TYPE_BEGIN:MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne
+@MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne : ∀ {ν T : ℝ} {u v F G : SingularClosure.Velocity}
+  {p q : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.PreterminalNSE ν T u p F →
+    MethbokeAddon.FDSN.PreterminalNSE ν T v q G →
+      LE.le.{0} 0 ν →
+        ∀ (s t : ℝ),
+          LT.lt.{0} 0 s →
+            LE.le.{0} s t →
+              LT.lt.{0} t T →
+                ∀ (a : SingularClosure.Frequency) (i : Fin 3),
+                  (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} s t) r → Continuous.{0, 0} (F r)) →
+                    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} s t) r → Continuous.{0, 0} (G r)) →
+                      (∀ (r : ℝ),
+                          Membership.mem.{0, 0} (Set.Ioo.{0} s t) r →
+                            MethbokeAddon.FDSN.PairSupported a
+                              (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff (v r))
+                                (SingularClosure.datumFourierCoeff (u r)))) →
+                        Eq.{1} (SingularClosure.datumFourierCoeff (v s) a i)
+                            (SingularClosure.datumFourierCoeff (u s) a i) →
+                          Ne.{1} (SingularClosure.datumFourierCoeff (v t) a i)
+                              (SingularClosure.datumFourierCoeff (u t) a i) →
+                            ∃ r,
+                              Membership.mem.{0, 0} (Set.Ioo.{0} s t) r ∧
+                                Ne.{1}
+                                  (SingularClosure.coefficientLeray a (SingularClosure.datumFourierCoeff (G r) a) i)
+                                  (SingularClosure.coefficientLeray a (SingularClosure.datumFourierCoeff (F r) a) i)
+TYPE_END:MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne
+'MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne

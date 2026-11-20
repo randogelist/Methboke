@@ -1,0 +1,75 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.native_laplacian_zero
+MethbokeAddon.FDSN.native_laplacian_zero : Eq.{1} (SingularClosure.laplacian 0) 0
+TYPE_END:MethbokeAddon.FDSN.native_laplacian_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_laplacian_zero
+'MethbokeAddon.FDSN.native_laplacian_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_laplacian_zero
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_eq_of_zero_germ
+MethbokeAddon.FDSN.residualForce_eq_of_zero_germ : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity) (t : ℝ)
+  (x : SingularClosure.Vec),
+  Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => h z.1 z.2) 0 →
+    Eq.{1} (MethbokeAddon.FDSN.residualForce ν U F h t x) (F t x)
+TYPE_END:MethbokeAddon.FDSN.residualForce_eq_of_zero_germ
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_eq_of_zero_germ
+'MethbokeAddon.FDSN.residualForce_eq_of_zero_germ' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_eq_of_zero_germ
+TYPE_BEGIN:MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport
+MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport : ∀ (h : SingularClosure.Velocity) {t : ℝ},
+  t ∉ tsupport.{0, 0} h →
+    ∀ (x : SingularClosure.Vec), Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => h z.1 z.2) 0
+TYPE_END:MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport
+'MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport
+MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity) {t : ℝ},
+  t ∉ tsupport.{0, 0} h → Eq.{1} (MethbokeAddon.FDSN.residualForce ν U F h t) (F t)
+TYPE_END:MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport
+'MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport
+TYPE_BEGIN:MethbokeAddon.FDSN.tsupport_residualForce_sub_subset
+MethbokeAddon.FDSN.tsupport_residualForce_sub_subset : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity),
+  tsupport.{0, 0} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.residualForce ν U F h) F) ⊆ tsupport.{0, 0} h
+TYPE_END:MethbokeAddon.FDSN.tsupport_residualForce_sub_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSN.tsupport_residualForce_sub_subset
+'MethbokeAddon.FDSN.tsupport_residualForce_sub_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.tsupport_residualForce_sub_subset
+TYPE_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub
+MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity),
+  HasCompactSupport.{0, 0} h →
+    HasCompactSupport.{0, 0} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.residualForce ν U F h) F)
+TYPE_END:MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub
+AXIOMS_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub
+'MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_eq_off_time_interval
+MethbokeAddon.FDSN.residualForce_eq_off_time_interval : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity) (a b : ℝ),
+  tsupport.{0, 0} h ⊆ Set.Icc.{0} a b →
+    ∀ {t : ℝ}, t ∉ Set.Icc.{0} a b → Eq.{1} (MethbokeAddon.FDSN.residualForce ν U F h t) (F t)
+TYPE_END:MethbokeAddon.FDSN.residualForce_eq_off_time_interval
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_eq_off_time_interval
+'MethbokeAddon.FDSN.residualForce_eq_off_time_interval' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_eq_off_time_interval
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_positive_time_support
+MethbokeAddon.FDSN.residualForce_positive_time_support : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity),
+  (∃ a b, LT.lt.{0} 0 a ∧ LT.lt.{0} a b ∧ ∀ t ∉ Set.Icc.{0} a b, Eq.{1} (F t) 0) →
+    (∃ a b, LT.lt.{0} 0 a ∧ LT.lt.{0} a b ∧ tsupport.{0, 0} h ⊆ Set.Icc.{0} a b) →
+      ∃ a b,
+        LT.lt.{0} 0 a ∧ LT.lt.{0} a b ∧ ∀ t ∉ Set.Icc.{0} a b, Eq.{1} (MethbokeAddon.FDSN.residualForce ν U F h t) 0
+TYPE_END:MethbokeAddon.FDSN.residualForce_positive_time_support
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_positive_time_support
+'MethbokeAddon.FDSN.residualForce_positive_time_support' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_positive_time_support

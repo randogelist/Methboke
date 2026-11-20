@@ -4,7 +4,7 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
-The current local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The full construction and canonical root are now prepared in 36 pending packages (296 named declarations); full FDSN remains externally unverified.
+The current local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
 
 The preserved prescribed-site route is **Fefferman_D_Family_obstruction**. It strengthens the
 existence target to every positive viscosity and every finite configuration
@@ -139,7 +139,11 @@ precise statement and allow only `propext`, `Classical.choice` and `Quot.sound`.
 Missing official Mathlib objects do not authorize a source rebuild.
 
 
-The second FDSN run stopped at a finite-sum congruence elaboration error. Its statement-preserving repair is prepared; [failure evidence](audits/fdsn-1cb76bc0-failed/summary.json) is retained.
+## Historical FDSN verification attempts
+
+The following repairs are superseded by the current full acceptance recorded below.
+
+The second FDSN run stopped at a finite-sum congruence elaboration error. Its statement-preserving repair was prepared and subsequently accepted; [failure evidence](audits/fdsn-1cb76bc0-failed/summary.json) is retained.
 
 The next full-chain candidate includes the repaired localized spacetime wrapper and the actual active-triad, residual-force, smallness and separation arguments. [The preceding failed-run evidence](audits/fdsn-dbbfe1e9-failed/summary.json) is retained; it gives no new acceptance.
 
@@ -154,3 +158,7 @@ FDSN verification repair after run44808681563: Specify the exact inner and outer
 FDSN verification repair after run44809750811: Normalize the actual correction value in the initial-time vanishing-germ equality before rewriting; one proof line changed, all theorem contracts preserved. [Failure record](audits/fdsn-fe0ba0f3-failed/summary.json).
 
 FDSN verification repair after run44810618725: Give all compact force-correction proof components explicit types and scope a larger elaboration budget to that single declaration; exact theorem and consumer contract unchanged. [Failure record](audits/fdsn-a75f3f0c-failed/summary.json).
+
+## Current FDSN acceptance
+
+The exact conditional theorem on the unit three-torus passed at `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`. The same family satisfies all five canonical clauses; the physical presentation gives a literal nonzero Leray-projected force difference. The [construction and acceptance note](T3_NSE/D-Family-Obstruction/FDSN/FDSN_CONSTRUCTION_AND_ACCEPTANCE.txt) records the proof route. Historical repair entries above are superseded by this acceptance; their evidence remains preserved.

@@ -1,0 +1,84 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn
+MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn : ∀ (j : Fin 3) (m : ℕ)
+  (u : SingularClosure.Velocity) (S : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => SingularClosure.iteratedCoordinateDerivative j m (u z.1) z.2)
+      (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S)
+TYPE_END:MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn
+'MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc
+MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc : ∀ (j : Fin 3) (m : ℕ)
+  (u : SingularClosure.Velocity) (S : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S) →
+    ∀ (i : Fin 3) (τ : ℝ),
+      LT.lt.{0} τ S →
+        ContinuousOn.{0, 0} (fun t => SingularClosure.coordinateDerivativeL1 j m (u t) i) (Set.Icc.{0} 0 τ)
+TYPE_END:MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc
+'MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc
+MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc : ∀ (m : ℕ) (u : SingularClosure.Velocity) (S : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S) →
+    ∀ (τ : ℝ),
+      LT.lt.{0} τ S → ContinuousOn.{0, 0} (fun t => SingularClosure.fourierDecayConstant m (u t)) (Set.Icc.{0} 0 τ)
+TYPE_END:MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc
+'MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc
+MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc : ∀ (s : ℕ) (u : SingularClosure.Velocity) (S : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S) →
+    ∀ (τ : ℝ),
+      LT.lt.{0} τ S → ContinuousOn.{0, 0} (fun t => SingularClosure.smoothDatumDecayConstant s (u t)) (Set.Icc.{0} 0 τ)
+TYPE_END:MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc
+'MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound
+@MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound : ∀ {F : SingularClosure.Velocity},
+  MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce F →
+    ∀ (T : ℝ) (s : ℕ),
+      ∃ C,
+        LE.le.{0} 0 C ∧
+          ∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+              ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+                LE.le.{0}
+                  (HMul.hMul.{0, 0, 0}
+                    (HPow.hPow.{0, 0, 0} (SingularClosure.torusSobolevWeight k) (HAdd.hAdd.{0, 0, 0} s 2))
+                    (Norm.norm.{0} (SingularClosure.datumFourierCoeff (F t) k i)))
+                  C
+TYPE_END:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound
+'MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound
+TYPE_BEGIN:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope
+@MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope : ∀ {F : SingularClosure.Velocity},
+  MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce F →
+    ∀ (T : ℝ),
+      ∃ C,
+        LE.le.{0} 0 C ∧
+          ∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+              ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+                LE.le.{0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff (F t) k i))
+                  (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))
+TYPE_END:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope
+AXIOMS_BEGIN:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope
+'MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope

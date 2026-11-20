@@ -1,0 +1,59 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset
+@MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset : ∀ {f g : ℝ → ℂ} {S : Set.{0} ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ f →
+    ContDiffOn.{0, 0, 0} ℝ ∞ g S →
+      IsOpen.{0} S → tsupport.{0, 0} f ⊆ S → ContDiff.{0, 0, 0} ℝ ∞ fun t => HMul.hMul.{0, 0, 0} (f t) (g t)
+TYPE_END:MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset
+'MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint
+@MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint : ∀ {β : ℝ → ℝ} {a : ℝ → ℂ} {s T : ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β →
+    ContDiffOn.{0, 0, 0} ℝ ∞ a (Set.Ioo.{0} s T) →
+      tsupport.{0, 0} β ⊆ Set.Ioo.{0} s T →
+        ContDiff.{0, 0, 0} ℝ ∞ fun q => HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β q.1 q.2) (a q.2)
+TYPE_END:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint
+'MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint
+TYPE_BEGIN:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset
+MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset : ∀ (β : ℝ → ℝ) (a : ℝ → ℂ) (lambda : ℝ),
+  (tsupport.{0, 0} fun t => HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda t) (a t)) ⊆
+    tsupport.{0, 0} β
+TYPE_END:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset
+'MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset
+TYPE_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient
+@MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient : ∀ {β : ℝ → ℝ},
+  HasCompactSupport.{0, 0} β →
+    ∀ (a : ℝ → ℂ) (lambda : ℝ),
+      HasCompactSupport.{0, 0} fun t => HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda t) (a t)
+TYPE_END:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient
+AXIOMS_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient
+'MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient
+TYPE_BEGIN:MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound
+@MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound : ∀ {β : ℝ → ℝ} {a : ℝ → ℂ} {s T : ℝ},
+  HasCompactSupport.{0, 0} β →
+    (∀ (t : ℝ), LE.le.{0} 0 (β t) ∧ LE.le.{0} (β t) 1) →
+      tsupport.{0, 0} β ⊆ Set.Ioo.{0} s T →
+        ContinuousOn.{0, 0} a (Set.Ioo.{0} s T) →
+          ∃ C,
+            LE.le.{0} 0 C ∧
+              ∀ (lambda t : ℝ),
+                LE.le.{0} (Norm.norm.{0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda t) (a t)))
+                  (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound
+'MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound

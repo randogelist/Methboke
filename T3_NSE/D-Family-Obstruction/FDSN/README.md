@@ -1,7 +1,7 @@
-# FDSN on the unit three-torus
+# FDSN: helical spectral nonrigidity on the unit three-torus
 
-The current local main theorem is `FEFFERMAN_D_SPECTRAL_NONRIGIDITY`: every exact admissible periodic preterminal seed produces one localized family with the five common-witness clauses fixed in `FDSN_B_TIER.txt`. The universal implication does not require a seed-existence theorem.
+The canonical theorem `Seed → Family` and the same-witness physical presentation are A-tier accepted. Tested source: `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`; [external run](https://github.com/randogelist/Methboke/actions/runs/44811785125).
 
-The first native packages are `Material/FDSNPhase` and `Material/FDSNBump`. Their proof sources and complete consumer/type/axiom audits are prepared for the existing external cached CI. No newly prepared statement is accepted before matching evidence is inspected.
+See `FDSN_B_TIER.txt` for the frozen v1.0 statement, `FDSN_CONSTRUCTION_AND_ACCEPTANCE.txt` for the actual native proof route, `A_TIER_REGISTER.txt` for exact accepted declarations, and `IMPLEMENTATION_STATUS.json` for complete evidence history.
 
-Implementation proceeds through the eighteen recorded checkpoints. While CI tests one exact commit, subsequent sources may be prepared locally without executing Lean or superseding the running commit.
+The singular seed remains the input. All five family clauses share their interval, time, parameter radius and actual velocity/force families. The native compiler, Mathlib pin and standard-only axiom policy are unchanged. No Lean was run locally.

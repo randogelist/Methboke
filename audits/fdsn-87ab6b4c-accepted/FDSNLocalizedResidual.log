@@ -1,0 +1,109 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForce
+MethbokeAddon.FDSN.localizedPairForce : ℝ →
+  SingularClosure.Frequency →
+    (ℝ → ℝ) → SingularClosure.Velocity → SingularClosure.Velocity → ℝ → SingularClosure.Velocity
+TYPE_END:MethbokeAddon.FDSN.localizedPairForce
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForce
+'MethbokeAddon.FDSN.localizedPairForce' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForce
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction
+MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction : ∀ (a : SingularClosure.Frequency) (β : ℝ → ℝ)
+  (u : SingularClosure.Velocity) (lambda : ℝ),
+  Eq.{1} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairVelocity a β u lambda) u)
+    (MethbokeAddon.FDSN.localizedPairCorrection a β u lambda)
+TYPE_END:MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction
+'MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForce_zero_parameter
+MethbokeAddon.FDSN.localizedPairForce_zero_parameter : ∀ (ν : ℝ) (a : SingularClosure.Frequency) (β : ℝ → ℝ)
+  (u F : SingularClosure.Velocity), Eq.{1} (MethbokeAddon.FDSN.localizedPairForce ν a β u F 0) F
+TYPE_END:MethbokeAddon.FDSN.localizedPairForce_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForce_zero_parameter
+'MethbokeAddon.FDSN.localizedPairForce_zero_parameter' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForce_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForce_joint_smooth
+@MethbokeAddon.FDSN.localizedPairForce_joint_smooth : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+          ContDiff.{0, 0, 0} ℝ ∞ fun q => MethbokeAddon.FDSN.localizedPairForce ν a β u F q.1 q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSN.localizedPairForce_joint_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForce_joint_smooth
+'MethbokeAddon.FDSN.localizedPairForce_joint_smooth' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForce_joint_smooth
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth
+@MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+          ContDiff.{0, 0, 0} ℝ ∞ fun q =>
+            HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairForce ν a β u F q.1) F q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth
+'MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset
+MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset : ∀ (ν : ℝ) (a : SingularClosure.Frequency) (β : ℝ → ℝ)
+  (u F : SingularClosure.Velocity) (lambda : ℝ),
+  tsupport.{0, 0} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda) F) ⊆ tsupport.{0, 0} β
+TYPE_END:MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset
+'MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport
+MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport : ∀ (ν : ℝ) (a : SingularClosure.Frequency)
+  {β : ℝ → ℝ},
+  HasCompactSupport.{0, 0} β →
+    ∀ (u F : SingularClosure.Velocity) (lambda : ℝ),
+      HasCompactSupport.{0, 0} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda) F)
+TYPE_END:MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport
+'MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForce_admissible
+@MethbokeAddon.FDSN.localizedPairForce_admissible : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        HasCompactSupport.{0, 0} β →
+          tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+            ∀ (lambda : ℝ),
+              MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce
+                (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda)
+TYPE_END:MethbokeAddon.FDSN.localizedPairForce_admissible
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForce_admissible
+'MethbokeAddon.FDSN.localizedPairForce_admissible' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForce_admissible
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_periodic
+@MethbokeAddon.FDSN.localizedPairForceCorrection_periodic : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        HasCompactSupport.{0, 0} β →
+          tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+            ∀ (lambda t : ℝ),
+              SingularClosure.SpatialPeriodic.{0}
+                (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda) F t)
+TYPE_END:MethbokeAddon.FDSN.localizedPairForceCorrection_periodic
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForceCorrection_periodic
+'MethbokeAddon.FDSN.localizedPairForceCorrection_periodic' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForceCorrection_periodic

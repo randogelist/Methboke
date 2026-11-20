@@ -1,0 +1,33 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.exists_nonvanishing_closed_slab
+@MethbokeAddon.FDSN.exists_nonvanishing_closed_slab : ∀ {s t T : ℝ} {g : ℝ → ℂ},
+  LT.lt.{0} s t →
+    LT.lt.{0} t T →
+      ContinuousAt.{0, 0} g t →
+        Ne.{1} (g t) 0 →
+          ∃ a b,
+            LT.lt.{0} s a ∧
+              LT.lt.{0} a t ∧
+                LT.lt.{0} t b ∧ LT.lt.{0} b T ∧ ∀ (u : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} a b) u → Ne.{1} (g u) 0
+TYPE_END:MethbokeAddon.FDSN.exists_nonvanishing_closed_slab
+AXIOMS_BEGIN:MethbokeAddon.FDSN.exists_nonvanishing_closed_slab
+'MethbokeAddon.FDSN.exists_nonvanishing_closed_slab' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.exists_nonvanishing_closed_slab
+TYPE_BEGIN:MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab
+@MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab : ∀ {s t T : ℝ} {g : ℝ → ℂ},
+  LT.lt.{0} s t →
+    LT.lt.{0} t T →
+      ContinuousAt.{0, 0} g t →
+        Ne.{1} (g t) 0 →
+          ∃ β,
+            ContDiff.{0, 0, 0} ℝ ∞ β ∧
+              HasCompactSupport.{0, 0} β ∧
+                tsupport.{0, 0} β ⊆ Set.Ioo.{0} s T ∧
+                  Eq.{1} (β t) 1 ∧
+                    (∀ (u : ℝ), LE.le.{0} 0 (β u) ∧ LE.le.{0} (β u) 1) ∧
+                      ∀ (u : ℝ), Membership.mem.{0, 0} (tsupport.{0, 0} β) u → Ne.{1} (g u) 0
+TYPE_END:MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab
+AXIOMS_BEGIN:MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab
+'MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab

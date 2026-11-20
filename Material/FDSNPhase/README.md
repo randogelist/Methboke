@@ -1,7 +1,5 @@
 # FDSNPhase
 
-Scalar unit phases and nonzero triad-correlation separation under resonant translation characters. Coefficient-level helper, not physical FDSN.
+Exact source, independent consumer types and all named axiom reports accepted at `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`, [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125).
 
-Native pin: Lean 4.33.0 / Mathlib `db584cd6d46c92f209a44c0f1c829460d327499d`.
-
-20 declarations have independent explicit consumers and ordered named type/axiom audit coverage. Sources are prepared; matching external verification is pending. The full FDSN root remains open. No local Lean or Lake execution.
+20 named declarations; standard axioms only. See [accepted evidence](../../audits/fdsn-87ab6b4c-accepted/summary.json) and the canonical FDSN register for precise scope. The endpoint metadata remains the frozen verification input; acceptance is recorded by this external receipt.

@@ -1,0 +1,38 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad
+@MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) a →
+        (∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Ico.{0} a T) t →
+              ¬MethbokeAddon.FDSN.HasActiveNoncollinearTriad (SingularClosure.datumFourierCoeff (u t))) →
+          ∃ C,
+            LE.le.{0} 0 C ∧
+              ∀ (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ico.{0} a T) t →
+                  ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+                    LE.le.{0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff (u t) k i))
+                      (HMul.hMul.{0, 0, 0} C
+                        (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))
+TYPE_END:MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad
+'MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after
+@MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (s : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) s →
+        ∃ t,
+          Membership.mem.{0, 0} (Set.Ioo.{0} s T) t ∧
+            MethbokeAddon.FDSN.HasActiveNoncollinearTriad (SingularClosure.datumFourierCoeff (u t))
+TYPE_END:MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after
+'MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after

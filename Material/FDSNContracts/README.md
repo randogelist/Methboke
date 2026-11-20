@@ -1,5 +1,5 @@
 # FDSNContracts
 
-Faithful arbitrary-viscosity and terminal-time Seed contract with actual periodic forced NSE, energy, dissipation and cofinal blowup; basic late-agreement and force-admission transport.
+Exact source, independent consumer types and all named axiom reports accepted at `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`, [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125).
 
-13 named declarations have explicit consumer statements and complete ordered audits. Matching external verification is pending. This package does not assert the full FDSN root.
+13 named declarations; standard axioms only. See [accepted evidence](../../audits/fdsn-87ab6b4c-accepted/summary.json) and the canonical FDSN register for precise scope. The endpoint metadata remains the frozen verification input; acceptance is recorded by this external receipt.

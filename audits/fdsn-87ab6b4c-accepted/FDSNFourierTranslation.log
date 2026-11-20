@@ -1,0 +1,189 @@
+FDSNFourierTranslation/Audit.lean:32:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:37:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:46:25: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:47:5: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:53:17: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:53:39: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:59:36: warning: Variable name `htriad` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htriad
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:61:17: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:61:39: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:66:36: warning: Variable name `htriad` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htriad
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:68:19: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:68:41: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNFourierTranslation/Audit.lean:69:5: warning: Variable name `hne` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hne
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.FDSN.fourierCharacter_add_argument
+MethbokeAddon.FDSN.fourierCharacter_add_argument : ∀ (k : SingularClosure.Frequency) (x a : SingularClosure.Vec),
+  Eq.{1} (SingularClosure.fourierCharacter k (HAdd.hAdd.{0, 0, 0} x a))
+    (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k x) (SingularClosure.fourierCharacter k a))
+TYPE_END:MethbokeAddon.FDSN.fourierCharacter_add_argument
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fourierCharacter_add_argument
+'MethbokeAddon.FDSN.fourierCharacter_add_argument' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fourierCharacter_add_argument
+TYPE_BEGIN:MethbokeAddon.FDSN.translatedCoefficients
+MethbokeAddon.FDSN.translatedCoefficients : SingularClosure.Vec →
+  SingularClosure.FourierCoeff → SingularClosure.FourierCoeff
+TYPE_END:MethbokeAddon.FDSN.translatedCoefficients
+AXIOMS_BEGIN:MethbokeAddon.FDSN.translatedCoefficients
+'MethbokeAddon.FDSN.translatedCoefficients' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.translatedCoefficients
+TYPE_BEGIN:MethbokeAddon.FDSN.translatedCoefficients_reality
+MethbokeAddon.FDSN.translatedCoefficients_reality : ∀ (a : SingularClosure.Vec) (c : SingularClosure.FourierCoeff),
+  SingularClosure.SpectralReality c → SingularClosure.SpectralReality (MethbokeAddon.FDSN.translatedCoefficients a c)
+TYPE_END:MethbokeAddon.FDSN.translatedCoefficients_reality
+AXIOMS_BEGIN:MethbokeAddon.FDSN.translatedCoefficients_reality
+'MethbokeAddon.FDSN.translatedCoefficients_reality' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.translatedCoefficients_reality
+TYPE_BEGIN:MethbokeAddon.FDSN.translatedCoefficients_rapid
+MethbokeAddon.FDSN.translatedCoefficients_rapid : ∀ (a : SingularClosure.Vec) (c : SingularClosure.FourierCoeff),
+  (∀ (i : Fin 3), SingularClosure.RapidScalarFourier fun k => c k i) →
+    ∀ (i : Fin 3), SingularClosure.RapidScalarFourier fun k => MethbokeAddon.FDSN.translatedCoefficients a c k i
+TYPE_END:MethbokeAddon.FDSN.translatedCoefficients_rapid
+AXIOMS_BEGIN:MethbokeAddon.FDSN.translatedCoefficients_rapid
+'MethbokeAddon.FDSN.translatedCoefficients_rapid' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.translatedCoefficients_rapid
+TYPE_BEGIN:MethbokeAddon.FDSN.smoothFourierSynthesis_translation
+MethbokeAddon.FDSN.smoothFourierSynthesis_translation : ∀ (a : SingularClosure.Vec) (c : SingularClosure.FourierCoeff),
+  Eq.{1} (SingularClosure.smoothFourierSynthesis (MethbokeAddon.FDSN.translatedCoefficients a c)) fun x =>
+    SingularClosure.smoothFourierSynthesis c (HAdd.hAdd.{0, 0, 0} x a)
+TYPE_END:MethbokeAddon.FDSN.smoothFourierSynthesis_translation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smoothFourierSynthesis_translation
+'MethbokeAddon.FDSN.smoothFourierSynthesis_translation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smoothFourierSynthesis_translation
+TYPE_BEGIN:MethbokeAddon.FDSN.datumFourierCoeff_translation
+MethbokeAddon.FDSN.datumFourierCoeff_translation : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (a : SingularClosure.Vec),
+        Eq.{1} (SingularClosure.datumFourierCoeff fun x => v (HAdd.hAdd.{0, 0, 0} x a))
+          (MethbokeAddon.FDSN.translatedCoefficients a (SingularClosure.datumFourierCoeff v))
+TYPE_END:MethbokeAddon.FDSN.datumFourierCoeff_translation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.datumFourierCoeff_translation
+'MethbokeAddon.FDSN.datumFourierCoeff_translation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.datumFourierCoeff_translation
+TYPE_BEGIN:MethbokeAddon.FDSN.modalObservation
+MethbokeAddon.FDSN.modalObservation : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ →
+  SingularClosure.Field → SingularClosure.Frequency → ℂ
+TYPE_END:MethbokeAddon.FDSN.modalObservation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.modalObservation
+'MethbokeAddon.FDSN.modalObservation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.modalObservation
+TYPE_BEGIN:MethbokeAddon.FDSN.modalObservation_translation
+MethbokeAddon.FDSN.modalObservation_translation : ∀ (L : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ)
+  (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (a : SingularClosure.Vec) (k : SingularClosure.Frequency),
+        Eq.{1} (MethbokeAddon.FDSN.modalObservation L (fun x => v (HAdd.hAdd.{0, 0, 0} x a)) k)
+          (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k a) (MethbokeAddon.FDSN.modalObservation L v k))
+TYPE_END:MethbokeAddon.FDSN.modalObservation_translation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.modalObservation_translation
+'MethbokeAddon.FDSN.modalObservation_translation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.modalObservation_translation
+TYPE_BEGIN:MethbokeAddon.FDSN.fieldTriadCorrelation
+MethbokeAddon.FDSN.fieldTriadCorrelation : SingularClosure.Frequency →
+  SingularClosure.Frequency →
+    SingularClosure.Frequency →
+      LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ →
+        LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ →
+          LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ → SingularClosure.Field → ℂ
+TYPE_END:MethbokeAddon.FDSN.fieldTriadCorrelation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fieldTriadCorrelation
+'MethbokeAddon.FDSN.fieldTriadCorrelation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fieldTriadCorrelation
+TYPE_BEGIN:MethbokeAddon.FDSN.fieldTriadCorrelation_translation
+MethbokeAddon.FDSN.fieldTriadCorrelation_translation : ∀ (k1 k2 k3 : SingularClosure.Frequency),
+  Eq.{1} (HAdd.hAdd.{0, 0, 0} k1 k2) k3 →
+    ∀ (L1 L2 L3 : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ) (v : SingularClosure.Field),
+      ContDiff.{0, 0, 0} ℝ ∞ v →
+        SingularClosure.SpatialPeriodic.{0} v →
+          ∀ (a : SingularClosure.Vec),
+            Eq.{1} (MethbokeAddon.FDSN.fieldTriadCorrelation k1 k2 k3 L1 L2 L3 fun x => v (HAdd.hAdd.{0, 0, 0} x a))
+              (MethbokeAddon.FDSN.fieldTriadCorrelation k1 k2 k3 L1 L2 L3 v)
+TYPE_END:MethbokeAddon.FDSN.fieldTriadCorrelation_translation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fieldTriadCorrelation_translation
+'MethbokeAddon.FDSN.fieldTriadCorrelation_translation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fieldTriadCorrelation_translation
+TYPE_BEGIN:MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne
+MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne : ∀ (k1 k2 k3 : SingularClosure.Frequency),
+  Eq.{1} (HAdd.hAdd.{0, 0, 0} k1 k2) k3 →
+    ∀ (L1 L2 L3 : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ) (u v : SingularClosure.Field),
+      ContDiff.{0, 0, 0} ℝ ∞ u →
+        SingularClosure.SpatialPeriodic.{0} u →
+          Ne.{1} (MethbokeAddon.FDSN.fieldTriadCorrelation k1 k2 k3 L1 L2 L3 u)
+              (MethbokeAddon.FDSN.fieldTriadCorrelation k1 k2 k3 L1 L2 L3 v) →
+            ¬∃ a, ∀ (x : SingularClosure.Vec), Eq.{1} (u (HAdd.hAdd.{0, 0, 0} x a)) (v x)
+TYPE_END:MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne
+'MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne

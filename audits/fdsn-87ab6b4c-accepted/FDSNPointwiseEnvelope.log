@@ -1,0 +1,82 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.torusEnvelopeMass
+MethbokeAddon.FDSN.torusEnvelopeMass : ℝ
+TYPE_END:MethbokeAddon.FDSN.torusEnvelopeMass
+AXIOMS_BEGIN:MethbokeAddon.FDSN.torusEnvelopeMass
+'MethbokeAddon.FDSN.torusEnvelopeMass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.torusEnvelopeMass
+TYPE_BEGIN:MethbokeAddon.FDSN.torusEnvelopeMass_nonneg
+MethbokeAddon.FDSN.torusEnvelopeMass_nonneg : LE.le.{0} 0 MethbokeAddon.FDSN.torusEnvelopeMass
+TYPE_END:MethbokeAddon.FDSN.torusEnvelopeMass_nonneg
+AXIOMS_BEGIN:MethbokeAddon.FDSN.torusEnvelopeMass_nonneg
+'MethbokeAddon.FDSN.torusEnvelopeMass_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.torusEnvelopeMass_nonneg
+TYPE_BEGIN:MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope
+@MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∃ C,
+        LE.le.{0} 0 C ∧
+          ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+            LE.le.{0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff v k i))
+              (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))
+TYPE_END:MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope
+'MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope
+TYPE_BEGIN:MethbokeAddon.FDSN.component_bound_of_fourier_envelope
+@MethbokeAddon.FDSN.component_bound_of_fourier_envelope : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (C : ℝ),
+        (∀ (k : SingularClosure.Frequency) (i : Fin 3),
+            LE.le.{0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff v k i))
+              (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))) →
+          ∀ (x : SingularClosure.Vec) (i : Fin 3),
+            LE.le.{0} (Norm.norm.{0} (WithLp.ofLp.{0} (v x) i))
+              (HMul.hMul.{0, 0, 0} C MethbokeAddon.FDSN.torusEnvelopeMass)
+TYPE_END:MethbokeAddon.FDSN.component_bound_of_fourier_envelope
+AXIOMS_BEGIN:MethbokeAddon.FDSN.component_bound_of_fourier_envelope
+'MethbokeAddon.FDSN.component_bound_of_fourier_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.component_bound_of_fourier_envelope
+TYPE_BEGIN:MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope
+@MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope : ∀ {v : SingularClosure.Field},
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ {C : ℝ},
+        LE.le.{0} 0 C →
+          (∀ (k : SingularClosure.Frequency) (i : Fin 3),
+              LE.le.{0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff v k i))
+                (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))) →
+            ∀ (x : SingularClosure.Vec),
+              LE.le.{0} (Norm.norm.{0} (v x))
+                (HMul.hMul.{0, 0, 0} 3 (HMul.hMul.{0, 0, 0} C MethbokeAddon.FDSN.torusEnvelopeMass))
+TYPE_END:MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope
+'MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope
+@MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (s : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) s →
+        ¬∃ C,
+            LE.le.{0} 0 C ∧
+              ∀ (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} s T) t →
+                  ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+                    LE.le.{0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff (u t) k i))
+                      (HMul.hMul.{0, 0, 0} C
+                        (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))
+TYPE_END:MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope
+'MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope

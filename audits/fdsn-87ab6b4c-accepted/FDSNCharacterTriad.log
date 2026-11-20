@@ -1,0 +1,102 @@
+FDSNCharacterTriad/Audit.lean:30:5: warning: Variable name `htriad` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htriad
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNCharacterTriad/Audit.lean:36:36: warning: Variable name `htriad` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htriad
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNCharacterTriad/Audit.lean:37:17: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNCharacterTriad/Audit.lean:38:22: warning: Variable name `hlambda` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlambda
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNCharacterTriad/Audit.lean:39:5: warning: Variable name `heta` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _heta
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNCharacterTriad/Audit.lean:39:34: warning: Variable name `hne` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hne
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.FDSN.characterAngle
+MethbokeAddon.FDSN.characterAngle : SingularClosure.Frequency → SingularClosure.Vec → ℝ
+TYPE_END:MethbokeAddon.FDSN.characterAngle
+AXIOMS_BEGIN:MethbokeAddon.FDSN.characterAngle
+'MethbokeAddon.FDSN.characterAngle' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.characterAngle
+TYPE_BEGIN:MethbokeAddon.FDSN.fourierCharacter_eq_phase
+MethbokeAddon.FDSN.fourierCharacter_eq_phase : ∀ (k : SingularClosure.Frequency) (x : SingularClosure.Vec),
+  Eq.{1} (SingularClosure.fourierCharacter k x) (MethbokeAddon.FDSN.phase (MethbokeAddon.FDSN.characterAngle k x))
+TYPE_END:MethbokeAddon.FDSN.fourierCharacter_eq_phase
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fourierCharacter_eq_phase
+'MethbokeAddon.FDSN.fourierCharacter_eq_phase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fourierCharacter_eq_phase
+TYPE_BEGIN:MethbokeAddon.FDSN.characterAngle_add
+MethbokeAddon.FDSN.characterAngle_add : ∀ (k l : SingularClosure.Frequency) (x : SingularClosure.Vec),
+  Eq.{1} (MethbokeAddon.FDSN.characterAngle (HAdd.hAdd.{0, 0, 0} k l) x)
+    (HAdd.hAdd.{0, 0, 0} (MethbokeAddon.FDSN.characterAngle k x) (MethbokeAddon.FDSN.characterAngle l x))
+TYPE_END:MethbokeAddon.FDSN.characterAngle_add
+AXIOMS_BEGIN:MethbokeAddon.FDSN.characterAngle_add
+'MethbokeAddon.FDSN.characterAngle_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.characterAngle_add
+TYPE_BEGIN:MethbokeAddon.FDSN.fourierCharacter_add_frequency
+MethbokeAddon.FDSN.fourierCharacter_add_frequency : ∀ (k l : SingularClosure.Frequency) (x : SingularClosure.Vec),
+  Eq.{1} (SingularClosure.fourierCharacter (HAdd.hAdd.{0, 0, 0} k l) x)
+    (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k x) (SingularClosure.fourierCharacter l x))
+TYPE_END:MethbokeAddon.FDSN.fourierCharacter_add_frequency
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fourierCharacter_add_frequency
+'MethbokeAddon.FDSN.fourierCharacter_add_frequency' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fourierCharacter_add_frequency
+TYPE_BEGIN:MethbokeAddon.FDSN.triadCorrelation_native_character
+MethbokeAddon.FDSN.triadCorrelation_native_character : ∀ (k1 k2 k3 : SingularClosure.Frequency),
+  Eq.{1} (HAdd.hAdd.{0, 0, 0} k1 k2) k3 →
+    ∀ (x : SingularClosure.Vec) (a b c : ℂ),
+      Eq.{1}
+        (MethbokeAddon.FDSN.triadCorrelation (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k1 x) a)
+          (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k2 x) b)
+          (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k3 x) c))
+        (MethbokeAddon.FDSN.triadCorrelation a b c)
+TYPE_END:MethbokeAddon.FDSN.triadCorrelation_native_character
+AXIOMS_BEGIN:MethbokeAddon.FDSN.triadCorrelation_native_character
+'MethbokeAddon.FDSN.triadCorrelation_native_character' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.triadCorrelation_native_character
+TYPE_BEGIN:MethbokeAddon.FDSN.triad_phase_not_character_translation
+MethbokeAddon.FDSN.triad_phase_not_character_translation : ∀ (k1 k2 k3 : SingularClosure.Frequency),
+  Eq.{1} (HAdd.hAdd.{0, 0, 0} k1 k2) k3 →
+    ∀ {a b c : ℂ},
+      Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0 →
+        ∀ {lambda eta : ℝ},
+          LT.lt.{0} (abs.{0} lambda) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+            LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+              Ne.{1} lambda eta →
+                ∀ (x : SingularClosure.Vec),
+                  ¬(Eq.{1} (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k1 x) a) a ∧
+                      Eq.{1} (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k2 x) b) b ∧
+                        Eq.{1}
+                          (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter k3 x)
+                            (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase lambda) c))
+                          (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase eta) c))
+TYPE_END:MethbokeAddon.FDSN.triad_phase_not_character_translation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.triad_phase_not_character_translation
+'MethbokeAddon.FDSN.triad_phase_not_character_translation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.triad_phase_not_character_translation

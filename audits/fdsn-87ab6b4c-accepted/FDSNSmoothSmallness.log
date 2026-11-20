@@ -1,0 +1,86 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv
+@MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv.{u_3,
+    u_4} : ∀ {E : Type u_3} {F : Type u_4} [inst : NormedAddCommGroup.{u_3} E] [inst_1 : NormedSpace.{0, u_3} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_4} F] [inst_3 : NormedSpace.{0, u_4} ℝ F] (G : Prod.{0, u_3} ℝ E → F),
+  ContDiff.{0, u_3, u_4} ℝ ∞ G →
+    ∀ (n : ℕ),
+      ContDiff.{0, u_3, max u_4 u_3} ℝ ∞ fun p =>
+        iteratedFDeriv.{0, u_3, u_4} ℝ n (fun z => G (Prod.mk.{0, u_3} p.1 z)) p.2
+TYPE_END:MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv
+'MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv
+TYPE_BEGIN:MethbokeAddon.FDSN.smooth_family_uniform_linear_bound
+@MethbokeAddon.FDSN.smooth_family_uniform_linear_bound.{u_3,
+    u_4} : ∀ {E : Type u_3} {F : Type u_4} [inst : NormedAddCommGroup.{u_3} E] [inst_1 : NormedSpace.{0, u_3} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_4} F] [inst_3 : NormedSpace.{0, u_4} ℝ F] (G : Prod.{0, u_3} ℝ E → F),
+  ContDiff.{0, u_3, u_4} ℝ ∞ G →
+    (∀ (z : E), Eq.{u_4 + 1} (G (Prod.mk.{0, u_3} 0 z)) 0) →
+      ∀ (K : Set.{u_3} E),
+        IsCompact.{u_3} K →
+          ∃ C,
+            LE.le.{0} 0 C ∧
+              ∀ (lambda : ℝ),
+                LE.le.{0} (Norm.norm.{0} lambda) 1 →
+                  ∀ (z : E),
+                    Membership.mem.{u_3, u_3} K z →
+                      LE.le.{0} (Norm.norm.{u_4} (G (Prod.mk.{0, u_3} lambda z)))
+                        (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.smooth_family_uniform_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smooth_family_uniform_linear_bound
+'MethbokeAddon.FDSN.smooth_family_uniform_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smooth_family_uniform_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound
+@MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound.{u_3,
+    u_4} : ∀ {E : Type u_3} {F : Type u_4} [inst : NormedAddCommGroup.{u_3} E] [inst_1 : NormedSpace.{0, u_3} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_4} F] [inst_3 : NormedSpace.{0, u_4} ℝ F] (G : Prod.{0, u_3} ℝ E → F),
+  ContDiff.{0, u_3, u_4} ℝ ∞ G →
+    (∀ (z : E), Eq.{u_4 + 1} (G (Prod.mk.{0, u_3} 0 z)) 0) →
+      ∀ (K : Set.{u_3} E),
+        IsCompact.{u_3} K →
+          ∀ (n : ℕ),
+            ∃ C,
+              LE.le.{0} 0 C ∧
+                ∀ (lambda : ℝ),
+                  LE.le.{0} (Norm.norm.{0} lambda) 1 →
+                    ∀ (z : E),
+                      Membership.mem.{u_3, u_3} K z →
+                        LE.le.{0}
+                          (Norm.norm.{max u_4 u_3}
+                            (iteratedFDeriv.{0, u_3, u_4} ℝ n (fun y => G (Prod.mk.{0, u_3} lambda y)) z))
+                          (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound
+'MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound
+@MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound.{u_3,
+    u_4} : ∀ {E : Type u_3} {F : Type u_4} [inst : NormedAddCommGroup.{u_3} E] [inst_1 : NormedSpace.{0, u_3} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_4} F] [inst_3 : NormedSpace.{0, u_4} ℝ F] (G : Prod.{0, u_3} ℝ E → F),
+  ContDiff.{0, u_3, u_4} ℝ ∞ G →
+    (∀ (z : E), Eq.{u_4 + 1} (G (Prod.mk.{0, u_3} 0 z)) 0) →
+      ∀ (K : Set.{u_3} E),
+        IsCompact.{u_3} K →
+          ∀ (r : ℕ),
+            ∃ C,
+              LE.le.{0} 0 C ∧
+                ∀ (lambda : ℝ),
+                  LE.le.{0} (Norm.norm.{0} lambda) 1 →
+                    ∀ (n : ℕ),
+                      LE.le.{0} n r →
+                        ∀ (z : E),
+                          Membership.mem.{u_3, u_3} K z →
+                            LE.le.{0}
+                              (Norm.norm.{max u_4 u_3}
+                                (iteratedFDeriv.{0, u_3, u_4} ℝ n (fun y => G (Prod.mk.{0, u_3} lambda y)) z))
+                              (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound
+'MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound

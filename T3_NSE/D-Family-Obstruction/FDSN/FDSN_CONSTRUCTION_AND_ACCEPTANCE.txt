@@ -1,0 +1,512 @@
+29. NATIVE T^3 FDSN CONSTRUCTION AND EXTERNAL VERIFICATION
+Date: 20 November 2026. Canonical statement: Section 26, FDSN v1.0.
+
+29.1 The one root
+
+  FEFFERMAN_D_SPECTRAL_NONRIGIDITY:
+    forall nu,T,U,p,F, Seed_(nu,T)(U,p,F) -> Family_(nu,T)(U,p,F).
+
+The native namespace is MethbokeAddon.FDSN. The spatial torus is represented
+by genuinely unit-periodic real fields on Vec, with Fourier frequencies
+Fin 3 -> Z. The viscosity, terminal time, initial datum, and spatial mean
+are unrestricted subject to the original Seed hypotheses. No polynomial
+terminal derivative-growth condition, desired family, or fixed-force
+nonuniqueness premise has been added to Seed.
+
+The formal Family uses one interval (a,b), one tstar, one epsilon, and the
+same U_lambda and F_lambda in all five clauses. The helical coordinate is
+the literal Hermitian coordinate in an explicitly specified orthonormal
+curl-eigenframe. A stronger construction proves the conclusion for every
+array of complex-linear coordinate observations; genuine helical frames
+are then an explicit specialization. The mean is preserved separately.
+
+29.2 Active triads from actual forced evolution
+
+The native proof uses modewise estimates instead of differentiating an
+infinite weighted energy sum. Write c_k(t)=Fourier(U(t))(k). Suppose no
+active noncollinear triad exists throughout a final interval. On every
+active output k, every nonzero-input convection term either has a vanishing
+input, or has collinear frequencies and vanishes by incompressibility.
+The remaining term is the exact mean-advection term
+
+  N_k = 2*pi*i*(k . c_0)*c_k.
+
+Reality makes c_0 real, so this term has zero real modal energy transfer.
+For an inactive output, the real energy transfer vanishes because c_k=0.
+The actual Fourier-projected forced NSE consequently gives, componentwise,
+
+  d/dt |c_(k,j)|^2 <= |c_(k,j)|^2 + |P_k Fhat_(k,j)|^2.
+
+Smooth periodic forcing on the compact slab [0,T] has a common fourth-order
+Fourier envelope. A single strictly preterminal smooth slice has the same
+kind of envelope. Native finite-dimensional Leray contraction controls the
+projected force, including its zero mode. Scalar Gronwall propagates a
+uniform summable envelope through the final interval. Actual Fourier
+reconstruction then bounds the physical velocity uniformly, contradicting
+the cofinal sup-velocity blowup in Seed.
+
+Thus every (s,T), s in [0,T), contains a time tstar and nonzero p,q,p+q
+with all three vector coefficients nonzero and p,q noncollinear. This is
+derived from the original Seed, rather than supplied as a new hypothesis.
+
+29.3 One concrete localized pair
+
+Choose k=p+q and a smooth real beta with beta(tstar)=1 and compact support
+inside one interval (a,b) compactly contained in (s,T). The same beta and
+the same selected k serve all parameter values. Set epsilon=pi/4 and
+
+  h_lambda(t,x) = 2 Re [ exp(2*pi*i*k.x)
+                        (exp(i*lambda*beta(t))-1) c_k(t) ],
+  U_lambda = U + h_lambda,
+
+  F_lambda = F + partial_t h_lambda - nu*Delta h_lambda
+                 + (U.grad)h_lambda + (h_lambda.grad)U
+                 + (h_lambda.grad)h_lambda.
+
+The construction rotates exactly the conjugate pair +/-k. It is real,
+periodic, and divergence-free. Actual Fourier reconstruction identifies
+the finite correction with the pair multiplier. Every complex-linear
+observation of each affected vector coefficient is multiplied by a unit
+complex number; all other modes are unchanged. Hence every helical modal
+power and the complete zero mode are exactly preserved.
+
+The coefficient c_k is only required to be smooth on the preterminal open
+interval. Compact interior support of beta extends the correction smoothly
+by zero in time. The proof derives global joint smoothness in parameter,
+time and space; no extension of the blowing-up seed through T is assumed.
+
+Native differential identities prove that the displayed residual force
+gives the actual forced NSE with the original pressure. Locality proves
+that the force correction has no larger closed temporal support than h.
+Thus F_lambda remains globally smooth, periodic, and compactly supported
+in positive time. Initial data and exact terminal velocity/force germs
+agree with the seed, and the same terminal blowup is retained.
+
+29.4 Translation separation at the same time
+
+Noncollinearity implies that p and q are different from both k and -k.
+Choose nonzero Cartesian coordinates of the three active vector modes.
+Their resonant correlation is a nonzero scalar product. Under translation
+by y the three Fourier characters cancel because p+q=k. Rotating only k
+multiplies this correlation by a parameter phase. At beta(tstar)=1,
+distinct lambda,eta with |lambda|,|eta|<pi/4 have distinct phases. Therefore
+the full spatial fields U_lambda(tstar) and U_eta(tstar) cannot be translates.
+Cartesian coordinates are used only for this certificate; helical power
+preservation is established independently for all complex-linear modal
+observations and hence for the prescribed helical coordinates.
+
+29.5 Actual projected-force separation
+
+For two members let h=U_eta-U_lambda. Its Fourier support is contained in
+the same pair +/-k. At output k the exact nonlinear difference reduces to
+mean advection; all other mixed terms vanish by incompressibility and
+frequency collinearity. If the corresponding projected force component
+agreed throughout the interval before tstar, the selected difference z
+would satisfy the actual scalar equation
+
+  z' = -(nu*4*pi^2*|k|^2 + 2*pi*i*(k.mean(U))) z.
+
+Its norm square is nonincreasing since nu>0. At a positive time before
+the bump it is zero, so it remains zero through tstar. This contradicts
+the distinct selected Fourier coefficients at tstar. Consequently the
+projected force histories differ at an interior time. The projector used
+here is the native coefficientLeray applied to actual force Fourier
+coefficients, with P_0 the identity. No pressure-recovery assumption or
+unforced uniqueness theorem is substituted for the forced comparison.
+
+29.6 Every fixed smooth order
+
+For a jointly smooth correction G(lambda,z) with G(0,z)=0, each actual
+iterated Frechet derivative in z remains jointly smooth. On a compact
+spacetime slab and a compact parameter interval, its parameter derivative
+is bounded. The mean-value inequality gives a bound C_n*|lambda| for
+the n-th derivative. A finite sum supplies one constant for all n<=r.
+Applying this argument to both actual corrections proves FDSN.5 in the
+literal C^r convention: the sum of the suprema of full time-space Frechet
+derivatives through order r over the compact unit-cell slab. The constant
+may depend on r, the seed, and the chosen interval.
+
+29.7 Physical Leray presentation
+
+The native physicalLerayProjection is the actual smooth Fourier synthesis
+of coefficientLeray applied to the Fourier coefficients of a smooth
+periodic vector field. Its companion lemmas prove smoothness, periodicity,
+divergence freedom, exact Fourier recovery, and preservation of the zero
+mode. The Helmholtz identity identifies it as v + grad(pi) for a smooth
+periodic scalar pi, with the sign fixed by this definition.
+
+The presentation theorem retains the same interval, comparison time,
+parameter radius, velocities, forces, and all five original clauses. It
+also states that for each pair of distinct admitted parameters there are
+a preterminal time t and a point x where
+
+  physicalLerayProjection((F_lambda - F_eta)(t))(x) != 0.
+
+This follows from the unequal actual projected Fourier coefficient: an
+identically zero physical field would have every Fourier coefficient zero.
+It introduces no additional seed hypothesis or seed-existence claim.
+
+29.8 Evidence discipline
+
+Source preparation does not promote a theorem. Exact accepted commits,
+fresh independent consumer checks, ordered named type/axiom reports,
+successful final CI acceptance, and retained matching evidence determine
+A-tier status. Only propext, Classical.choice and Quot.sound are allowed.
+No local Lean, Lake invoking Lean, or local kernel audit is used.
+
+The canonical theorem is conditional on Seed. Its verification does not
+assert the existence of an admitted singular seed or a new unconditional
+Navier--Stokes blowup theorem. Separate corollaries or literature-novelty
+claims must retain their own statements and evidence.
+
+29.9 Matching external acceptance
+
+FDSN on T^3: exact accepted theorem register
+
+ROOT: A_TIER_ACCEPTED — FEFFERMAN_D_SPECTRAL_NONRIGIDITY, canonical v1.0.
+STATEMENT: forall nu,T,U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F).
+TESTED_SOURCE:87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef
+RUN:44811785125
+RUN_URL:https://github.com/randogelist/Methboke/actions/runs/44811785125
+EVIDENCE_URL:https://github.com/randogelist/Methboke/blob/main/audits/fdsn-87ab6b4c-accepted/summary.json
+ACCEPTED_DECLARATIONS:317
+DECLARATION_KINDS:{"def": 45, "definition": 2, "structure": 2, "theorem": 268}
+EVIDENCE:audits/fdsn-87ab6b4c-accepted/summary.json and complete FDSN named audit logs.
+ARTIFACT_SHA256:f4a3a178e03d2af8470ae2ac2762447bebeb53b9b59a74637d07d1d81c5a4774
+AXIOMS:propext,Classical.choice,Quot.sound only. LOCAL_LEAN_EXECUTIONS:0.
+
+CORE_ENDPOINTS:
+  Seed.exists_active_noncollinear_triad_after
+  exists_normalized_time_bump
+  LOCALIZED_PAIR_VELOCITY_PRESERVES_SPECTRAL_DATA
+  localizedPair_front
+  localizedPairVelocity_helicalPower
+  Seed.active_triad_separation_data
+  localizedPairForce_projectedSeparation
+  localizedPair_family_smallness
+  FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+  FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical
+
+BOUNDARIES:the seed is an input. No seed-existence theorem or optional C1/C2
+corollary is promoted here. Separation uses a Cartesian correlation at tstar;
+the interval-wide helical-product helper is not separately asserted.
+
+FULL_NAMED_REGISTER:
+MethbokeAddon.FDSN.BoundedCellEnergy
+MethbokeAddon.FDSN.CofinalVelocityBlowup
+MethbokeAddon.FDSN.CompactTemporalCorrection
+MethbokeAddon.FDSN.CompleteHelicalPowerPreservation
+MethbokeAddon.FDSN.ExactRealizationAndAgreement
+MethbokeAddon.FDSN.FDSN
+MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame
+MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical
+MethbokeAddon.FDSN.Family
+MethbokeAddon.FDSN.Family.for_fixed_helical_frame
+MethbokeAddon.FDSN.FamilyFor
+MethbokeAddon.FDSN.FiniteDissipation
+MethbokeAddon.FDSN.FrequencyParallel
+MethbokeAddon.FDSN.HasActiveNoncollinearTriad
+MethbokeAddon.FDSN.IsHelicalFrame
+MethbokeAddon.FDSN.LOCALIZED_PAIR_VELOCITY_PRESERVES_SPECTRAL_DATA
+MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS
+MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION
+MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_DATA
+MethbokeAddon.FDSN.PairSupported
+MethbokeAddon.FDSN.PreterminalNSE
+MethbokeAddon.FDSN.PreterminalNSE.convection_coeff
+MethbokeAddon.FDSN.PreterminalNSE.fourierCoeff_hasDerivAt
+MethbokeAddon.FDSN.PreterminalNSE.fourier_balance
+MethbokeAddon.FDSN.PreterminalNSE.fourier_solenoidal
+MethbokeAddon.FDSN.PreterminalNSE.pair_difference_hasDerivAt
+MethbokeAddon.FDSN.PreterminalNSE.pair_mode_eq_on_Icc
+MethbokeAddon.FDSN.PreterminalNSE.pressure_slice_smooth
+MethbokeAddon.FDSN.PreterminalNSE.projected_force_ne_of_pair_mode_ne
+MethbokeAddon.FDSN.PreterminalNSE.projected_fourier_balance
+MethbokeAddon.FDSN.PreterminalNSE.projected_fourier_hasDerivAt
+MethbokeAddon.FDSN.PreterminalNSE.sobolevSlice
+MethbokeAddon.FDSN.PreterminalNSE.sobolevSlice_coeff
+MethbokeAddon.FDSN.PreterminalNSE.timeDerivative_fourier_solenoidal
+MethbokeAddon.FDSN.PreterminalNSE.triad_free_mode_energy_bound
+MethbokeAddon.FDSN.PreterminalNSE.velocity_slice_smooth
+MethbokeAddon.FDSN.ProjectedForceSeparation
+MethbokeAddon.FDSN.Seed
+MethbokeAddon.FDSN.Seed.active_triad_separation_data
+MethbokeAddon.FDSN.Seed.exists_active_noncollinear_triad_after
+MethbokeAddon.FDSN.Seed.familyFor
+MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn
+MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc
+MethbokeAddon.FDSN.Seed.initial_divergence_free
+MethbokeAddon.FDSN.Seed.initial_periodic
+MethbokeAddon.FDSN.Seed.no_final_uniform_fourier_envelope
+MethbokeAddon.FDSN.Seed.uniform_fourier_envelope_of_no_active_triad
+MethbokeAddon.FDSN.Seed.velocity_slice_smooth
+MethbokeAddon.FDSN.SmoothSmallness
+MethbokeAddon.FDSN.TranslationSeparation
+MethbokeAddon.FDSN.admissibleForce_uniform_fourier_envelope
+MethbokeAddon.FDSN.admissibleForce_uniform_fourier_weight_bound
+MethbokeAddon.FDSN.admissiblePeriodicForce_add
+MethbokeAddon.FDSN.admissiblePeriodicForce_residual
+MethbokeAddon.FDSN.cellDissipation
+MethbokeAddon.FDSN.characterAngle
+MethbokeAddon.FDSN.characterAngle_add
+MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope
+MethbokeAddon.FDSN.coefficientLeray_sub_arg
+MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq
+MethbokeAddon.FDSN.collinear_derivativeSum_zero
+MethbokeAddon.FDSN.compact_timeSupport_positive_interval
+MethbokeAddon.FDSN.complex_damped_energy_antitone
+MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt
+MethbokeAddon.FDSN.complex_damped_zero_on_Icc
+MethbokeAddon.FDSN.complex_forced_energy_bound
+MethbokeAddon.FDSN.complex_normSq_hasDerivAt
+MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le
+MethbokeAddon.FDSN.complex_work_le_normSq
+MethbokeAddon.FDSN.component_bound_of_fourier_envelope
+MethbokeAddon.FDSN.conj_phase
+MethbokeAddon.FDSN.contDiff_mul_of_tsupport_subset
+MethbokeAddon.FDSN.contDiff_phase
+MethbokeAddon.FDSN.contDiff_spatial_iteratedFDeriv
+MethbokeAddon.FDSN.contDiff_timePhase
+MethbokeAddon.FDSN.contDiff_timePhaseIncrement
+MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint
+MethbokeAddon.FDSN.contDiff_timePhaseIncrement_mul_localCoefficient_joint
+MethbokeAddon.FDSN.contDiff_timePhase_joint
+MethbokeAddon.FDSN.coordinateObservation
+MethbokeAddon.FDSN.datumFourierCoeff_sub_continuous
+MethbokeAddon.FDSN.datumFourierCoeff_translation
+MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum
+MethbokeAddon.FDSN.divergenceTransport_pair_left
+MethbokeAddon.FDSN.divergenceTransport_pair_right
+MethbokeAddon.FDSN.exists_localized_time_phase_family
+MethbokeAddon.FDSN.exists_nonvanishing_closed_slab
+MethbokeAddon.FDSN.exists_nonzero_coordinate
+MethbokeAddon.FDSN.exists_normalized_bump_on_nonvanishing_slab
+MethbokeAddon.FDSN.exists_normalized_time_bump
+MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn
+MethbokeAddon.FDSN.family_laplacian_contDiffOn
+MethbokeAddon.FDSN.family_of_all_frame_arrays
+MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt
+MethbokeAddon.FDSN.family_timeDerivative_contDiffOn
+MethbokeAddon.FDSN.family_transport_contDiffOn
+MethbokeAddon.FDSN.fieldTriadCorrelation
+MethbokeAddon.FDSN.fieldTriadCorrelation_translation
+MethbokeAddon.FDSN.fields_not_translation_of_triadCorrelation_ne
+MethbokeAddon.FDSN.fourierCharacter_add_argument
+MethbokeAddon.FDSN.fourierCharacter_add_frequency
+MethbokeAddon.FDSN.fourierCharacter_eq_phase
+MethbokeAddon.FDSN.frequencyLength
+MethbokeAddon.FDSN.frequency_ne_neg_self
+MethbokeAddon.FDSN.fullTransportCoefficients_eq_mean
+MethbokeAddon.FDSN.fullTransportCoefficients_hasSum
+MethbokeAddon.FDSN.fullTransport_pair_difference
+MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero
+MethbokeAddon.FDSN.gradientSquare
+MethbokeAddon.FDSN.gradientSquare_nonneg
+MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement
+MethbokeAddon.FDSN.hasCompactSupport_residualForce_sub
+MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement
+MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement_mul_coefficient
+MethbokeAddon.FDSN.helicalCoefficient
+MethbokeAddon.FDSN.helicalCurl
+MethbokeAddon.FDSN.helicalObservation
+MethbokeAddon.FDSN.helicitySign
+MethbokeAddon.FDSN.initial_coordinateDerivativeL1_continuousOn_Icc
+MethbokeAddon.FDSN.initial_fourierDecayConstant_continuousOn_Icc
+MethbokeAddon.FDSN.initial_iteratedCoordinateDerivative_contDiffOn
+MethbokeAddon.FDSN.initial_smoothDatumDecayConstant_continuousOn_Icc
+MethbokeAddon.FDSN.laplacianFrequency_nonneg
+MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn
+MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat
+MethbokeAddon.FDSN.localizedPairCorrection
+MethbokeAddon.FDSN.localizedPairCorrection_eq_zero_off_support
+MethbokeAddon.FDSN.localizedPairCorrection_hasCompactSupport
+MethbokeAddon.FDSN.localizedPairCorrection_joint_smooth
+MethbokeAddon.FDSN.localizedPairCorrection_periodic
+MethbokeAddon.FDSN.localizedPairCorrection_smooth
+MethbokeAddon.FDSN.localizedPairCorrection_tsupport_subset
+MethbokeAddon.FDSN.localizedPairCorrection_zero_parameter
+MethbokeAddon.FDSN.localizedPairForce
+MethbokeAddon.FDSN.localizedPairForceCorrection_hasCompactSupport
+MethbokeAddon.FDSN.localizedPairForceCorrection_joint_smooth
+MethbokeAddon.FDSN.localizedPairForceCorrection_periodic
+MethbokeAddon.FDSN.localizedPairForceCorrection_tsupport_subset
+MethbokeAddon.FDSN.localizedPairForce_admissible
+MethbokeAddon.FDSN.localizedPairForce_compactCorrection
+MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound
+MethbokeAddon.FDSN.localizedPairForce_joint_smooth
+MethbokeAddon.FDSN.localizedPairForce_projectedSeparation
+MethbokeAddon.FDSN.localizedPairForce_projected_separates
+MethbokeAddon.FDSN.localizedPairForce_zero_parameter
+MethbokeAddon.FDSN.localizedPairVelocity
+MethbokeAddon.FDSN.localizedPairVelocity_coeff
+MethbokeAddon.FDSN.localizedPairVelocity_coeff_at
+MethbokeAddon.FDSN.localizedPairVelocity_coeff_ne_of_parameter_ne
+MethbokeAddon.FDSN.localizedPairVelocity_coeff_off
+MethbokeAddon.FDSN.localizedPairVelocity_compactCorrection
+MethbokeAddon.FDSN.localizedPairVelocity_coordinate_triadCorrelation
+MethbokeAddon.FDSN.localizedPairVelocity_difference_pairSupported
+MethbokeAddon.FDSN.localizedPairVelocity_eq_physicalPairRotation
+MethbokeAddon.FDSN.localizedPairVelocity_eq_seed_off_support
+MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound
+MethbokeAddon.FDSN.localizedPairVelocity_helicalPower
+MethbokeAddon.FDSN.localizedPairVelocity_initial
+MethbokeAddon.FDSN.localizedPairVelocity_joint_smooth
+MethbokeAddon.FDSN.localizedPairVelocity_not_translation
+MethbokeAddon.FDSN.localizedPairVelocity_sub_eq_correction
+MethbokeAddon.FDSN.localizedPairVelocity_terminal_blowup
+MethbokeAddon.FDSN.localizedPairVelocity_zero_parameter
+MethbokeAddon.FDSN.localizedPair_exactRealization
+MethbokeAddon.FDSN.localizedPair_family_smallness
+MethbokeAddon.FDSN.localizedPair_front
+MethbokeAddon.FDSN.localizedPair_momentum
+MethbokeAddon.FDSN.localized_coefficient_uniform_linear_bound
+MethbokeAddon.FDSN.meanTransportFactor
+MethbokeAddon.FDSN.meanTransportFactor_re_zero
+MethbokeAddon.FDSN.mixedTransportModeTerm
+MethbokeAddon.FDSN.mixedTransportModeTerm_factored
+MethbokeAddon.FDSN.modalObservation
+MethbokeAddon.FDSN.modalObservation_translation
+MethbokeAddon.FDSN.modal_power_phase_mul
+MethbokeAddon.FDSN.native_coordinateDerivative_add
+MethbokeAddon.FDSN.native_coordinateDerivative_contDiff
+MethbokeAddon.FDSN.native_divergence_add
+MethbokeAddon.FDSN.native_divergence_add_zero
+MethbokeAddon.FDSN.native_laplacian_add
+MethbokeAddon.FDSN.native_laplacian_zero
+MethbokeAddon.FDSN.native_residual_momentum_at
+MethbokeAddon.FDSN.native_residual_momentum_on_open_slab
+MethbokeAddon.FDSN.native_timeDerivative_add
+MethbokeAddon.FDSN.noncollinear_triad_inputs_off_output
+MethbokeAddon.FDSN.norm_phase
+MethbokeAddon.FDSN.norm_phase_mul
+MethbokeAddon.FDSN.norm_phase_mul_sub_le
+MethbokeAddon.FDSN.norm_phase_sub_one_le
+MethbokeAddon.FDSN.norm_timePhase
+MethbokeAddon.FDSN.norm_timePhaseIncrement_le
+MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter
+MethbokeAddon.FDSN.pairMultiplier
+MethbokeAddon.FDSN.pairMultiplier_at
+MethbokeAddon.FDSN.pairMultiplier_at_neg
+MethbokeAddon.FDSN.pairMultiplier_at_zero
+MethbokeAddon.FDSN.pairMultiplier_neg
+MethbokeAddon.FDSN.pairMultiplier_norm
+MethbokeAddon.FDSN.pairMultiplier_off
+MethbokeAddon.FDSN.pairMultiplier_one
+MethbokeAddon.FDSN.pairRotate
+MethbokeAddon.FDSN.pairRotate_at
+MethbokeAddon.FDSN.pairRotate_at_neg
+MethbokeAddon.FDSN.pairRotate_component_norm
+MethbokeAddon.FDSN.pairRotate_mean
+MethbokeAddon.FDSN.pairRotate_observable_norm
+MethbokeAddon.FDSN.pairRotate_off
+MethbokeAddon.FDSN.pairRotate_one
+MethbokeAddon.FDSN.pairRotate_rapid
+MethbokeAddon.FDSN.pairRotate_reality
+MethbokeAddon.FDSN.pairRotate_solenoidal
+MethbokeAddon.FDSN.pairRotate_weighted_power_sum
+MethbokeAddon.FDSN.phase
+MethbokeAddon.FDSN.phase_add
+MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi
+MethbokeAddon.FDSN.phase_injective_small
+MethbokeAddon.FDSN.phase_mul_neg
+MethbokeAddon.FDSN.phase_ne_zero
+MethbokeAddon.FDSN.phase_neg
+MethbokeAddon.FDSN.phase_zero
+MethbokeAddon.FDSN.physicalLerayProjection
+MethbokeAddon.FDSN.physicalLerayProjection_coeff
+MethbokeAddon.FDSN.physicalLerayProjection_divergence_free
+MethbokeAddon.FDSN.physicalLerayProjection_helmholtz
+MethbokeAddon.FDSN.physicalLerayProjection_ne_zero_of_coefficient_ne_zero
+MethbokeAddon.FDSN.physicalLerayProjection_periodic
+MethbokeAddon.FDSN.physicalLerayProjection_rapid
+MethbokeAddon.FDSN.physicalLerayProjection_smooth
+MethbokeAddon.FDSN.physicalLerayProjection_zero_mode
+MethbokeAddon.FDSN.physicalPairCorrection
+MethbokeAddon.FDSN.physicalPairCorrection_one
+MethbokeAddon.FDSN.physicalPairCorrection_periodic
+MethbokeAddon.FDSN.physicalPairCorrection_smooth
+MethbokeAddon.FDSN.physicalPairRotation
+MethbokeAddon.FDSN.physicalPairRotation_coeff
+MethbokeAddon.FDSN.physicalPairRotation_divergence_free
+MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction
+MethbokeAddon.FDSN.physicalPairRotation_mean
+MethbokeAddon.FDSN.physicalPairRotation_mean_coeff
+MethbokeAddon.FDSN.physicalPairRotation_observable_norm
+MethbokeAddon.FDSN.physicalPairRotation_one
+MethbokeAddon.FDSN.physicalPairRotation_periodic
+MethbokeAddon.FDSN.physicalPairRotation_smooth
+MethbokeAddon.FDSN.pointwise_bound_of_fourier_envelope
+MethbokeAddon.FDSN.preterminalSpacetime
+MethbokeAddon.FDSN.projectedForceSeparation_physical
+MethbokeAddon.FDSN.projectedTransport_pair_difference
+MethbokeAddon.FDSN.real_star_mul_imaginary
+MethbokeAddon.FDSN.residualForce
+MethbokeAddon.FDSN.residualForce_contDiffOn_front
+MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside
+MethbokeAddon.FDSN.residualForce_eq_of_notMem_timeSupport
+MethbokeAddon.FDSN.residualForce_eq_of_zero_germ
+MethbokeAddon.FDSN.residualForce_eq_off_time_interval
+MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front
+MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport
+MethbokeAddon.FDSN.residualForce_positive_time_support
+MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside
+MethbokeAddon.FDSN.residualForce_zero_correction
+MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn
+MethbokeAddon.FDSN.residual_local_transport_contDiffOn
+MethbokeAddon.FDSN.residual_transport_spatialPeriodic
+MethbokeAddon.FDSN.scalarFourierSeries_pairRotate
+MethbokeAddon.FDSN.smoothFourierSynthesis_translation
+MethbokeAddon.FDSN.smoothPeriodic_exists_fourier_envelope
+MethbokeAddon.FDSN.smoothPeriodic_fourier_rapid
+MethbokeAddon.FDSN.smoothPeriodic_fourier_reconstruction
+MethbokeAddon.FDSN.smoothPeriodic_fourier_solenoidal
+MethbokeAddon.FDSN.smooth_corrections_imply_smallness
+MethbokeAddon.FDSN.smooth_family_finite_order_linear_bound
+MethbokeAddon.FDSN.smooth_family_iteratedFDeriv_linear_bound
+MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound
+MethbokeAddon.FDSN.smooth_family_uniform_linear_bound
+MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double
+MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative
+MethbokeAddon.FDSN.spacetimeCrNorm
+MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound
+MethbokeAddon.FDSN.spectralReality_mean_im_zero
+MethbokeAddon.FDSN.spectralSolenoidal_sub
+MethbokeAddon.FDSN.timePhase
+MethbokeAddon.FDSN.timePhaseIncrement
+MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter
+MethbokeAddon.FDSN.timePhase_at_normalization
+MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport
+MethbokeAddon.FDSN.timePhase_triad_separates
+MethbokeAddon.FDSN.timePhase_zero_parameter
+MethbokeAddon.FDSN.torusEnvelopeMass
+MethbokeAddon.FDSN.torusEnvelopeMass_nonneg
+MethbokeAddon.FDSN.translatedCoefficients
+MethbokeAddon.FDSN.translatedCoefficients_rapid
+MethbokeAddon.FDSN.translatedCoefficients_reality
+MethbokeAddon.FDSN.transportModeTerm
+MethbokeAddon.FDSN.transportModeTerm_factored
+MethbokeAddon.FDSN.transportModeTerm_mean
+MethbokeAddon.FDSN.transportModeTerm_nonzero_input_zero
+MethbokeAddon.FDSN.transportModeTerm_zero_left
+MethbokeAddon.FDSN.transportModeTerm_zero_output
+MethbokeAddon.FDSN.transportModeTerm_zero_right
+MethbokeAddon.FDSN.triadCorrelation
+MethbokeAddon.FDSN.triadCorrelation_native_character
+MethbokeAddon.FDSN.triadCorrelation_ne_zero
+MethbokeAddon.FDSN.triadCorrelation_phase
+MethbokeAddon.FDSN.triadCorrelation_phase_separates
+MethbokeAddon.FDSN.triadCorrelation_translation
+MethbokeAddon.FDSN.triad_free_finite_weighted_transfer_zero
+MethbokeAddon.FDSN.triad_free_modal_transfer_zero
+MethbokeAddon.FDSN.triad_free_projected_modal_transfer_zero
+MethbokeAddon.FDSN.triad_phase_not_character_translation
+MethbokeAddon.FDSN.triad_phase_not_translation
+MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset
+MethbokeAddon.FDSN.tsupport_residualForce_sub_subset
+MethbokeAddon.FDSN.tsupport_timePhaseIncrement_mul_coefficient_subset
+MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset
+MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le
+MethbokeAddon.FDSN.velocity_zero_germ_of_notMem_timeSupport
+MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le
+

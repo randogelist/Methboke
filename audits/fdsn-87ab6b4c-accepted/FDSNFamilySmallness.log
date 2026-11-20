@@ -1,0 +1,51 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound
+MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound : ∀ (r : ℕ) (a b : ℝ),
+  LE.le.{0} a b →
+    ∀ (V : SingularClosure.Velocity) (C : ℝ),
+      (∀ (n : ℕ),
+          LE.le.{0} n r →
+            ∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec),
+              Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Set.Icc.{0} a b) SingularClosure.unitCube) z →
+                LE.le.{0} (Norm.norm.{0} (iteratedFDeriv.{0, 0, 0} ℝ n (fun y => V y.1 y.2) z)) C) →
+        LE.le.{0} (MethbokeAddon.FDSN.spacetimeCrNorm r a b V) (HMul.hMul.{0, 0, 0} (↑(HAdd.hAdd.{0, 0, 0} r 1)) C)
+TYPE_END:MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound
+'MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.spacetimeCrNorm_le_of_derivative_bound
+TYPE_BEGIN:MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound
+MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound : ∀
+  (G : Prod.{0, 0} ℝ (Prod.{0, 0} ℝ SingularClosure.Vec) → SingularClosure.Vec),
+  ContDiff.{0, 0, 0} ℝ ∞ G →
+    (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (G (Prod.mk.{0, 0} 0 z)) 0) →
+      ∀ (a b : ℝ),
+        LE.le.{0} a b →
+          ∀ (r : ℕ),
+            ∃ C,
+              LE.le.{0} 0 C ∧
+                ∀ (lambda : ℝ),
+                  LE.le.{0} (Norm.norm.{0} lambda) 1 →
+                    LE.le.{0}
+                      (MethbokeAddon.FDSN.spacetimeCrNorm r a b fun t x =>
+                        G (Prod.mk.{0, 0} lambda (Prod.mk.{0, 0} t x)))
+                      (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound
+'MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smooth_family_spacetimeCrNorm_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSN.smooth_corrections_imply_smallness
+MethbokeAddon.FDSN.smooth_corrections_imply_smallness : ∀ (a b ε : ℝ),
+  LE.le.{0} a b →
+    ∀ (u F : SingularClosure.Velocity) (U G : ℝ → SingularClosure.Velocity),
+      (ContDiff.{0, 0, 0} ℝ ∞ fun q => HSub.hSub.{0, 0, 0} (U q.1) u q.2.1 q.2.2) →
+        (ContDiff.{0, 0, 0} ℝ ∞ fun q => HSub.hSub.{0, 0, 0} (G q.1) F q.2.1 q.2.2) →
+          Eq.{1} (U 0) u → Eq.{1} (G 0) F → MethbokeAddon.FDSN.SmoothSmallness a b ε u F U G
+TYPE_END:MethbokeAddon.FDSN.smooth_corrections_imply_smallness
+AXIOMS_BEGIN:MethbokeAddon.FDSN.smooth_corrections_imply_smallness
+'MethbokeAddon.FDSN.smooth_corrections_imply_smallness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.smooth_corrections_imply_smallness

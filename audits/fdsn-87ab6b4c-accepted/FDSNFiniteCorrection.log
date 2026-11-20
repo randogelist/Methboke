@@ -1,0 +1,73 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.scalarFourierSeries_pairRotate
+@MethbokeAddon.FDSN.scalarFourierSeries_pairRotate : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ (z : ℂ) (c : SingularClosure.FourierCoeff) (i : Fin 3),
+      (Summable.{0, 0} fun k => Norm.norm.{0} (c k i)) →
+        ∀ (x : SingularClosure.Vec),
+          Eq.{1} (SingularClosure.scalarFourierSeries (fun k => MethbokeAddon.FDSN.pairRotate a z c k i) x)
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} (SingularClosure.scalarFourierSeries (fun k => c k i) x)
+                (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter a x)
+                  (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} z 1) (c a i))))
+              (HMul.hMul.{0, 0, 0} (SingularClosure.fourierCharacter (Neg.neg.{0} a) x)
+                (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} (Star.star.{0} z) 1) (c (Neg.neg.{0} a) i))))
+TYPE_END:MethbokeAddon.FDSN.scalarFourierSeries_pairRotate
+AXIOMS_BEGIN:MethbokeAddon.FDSN.scalarFourierSeries_pairRotate
+'MethbokeAddon.FDSN.scalarFourierSeries_pairRotate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.scalarFourierSeries_pairRotate
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection
+MethbokeAddon.FDSN.physicalPairCorrection : SingularClosure.Frequency →
+  ℂ → SingularClosure.Field → SingularClosure.Field
+TYPE_END:MethbokeAddon.FDSN.physicalPairCorrection
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection
+'MethbokeAddon.FDSN.physicalPairCorrection' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalPairCorrection
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection_one
+MethbokeAddon.FDSN.physicalPairCorrection_one : ∀ (a : SingularClosure.Frequency) (v : SingularClosure.Field),
+  Eq.{1} (MethbokeAddon.FDSN.physicalPairCorrection a 1 v) 0
+TYPE_END:MethbokeAddon.FDSN.physicalPairCorrection_one
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection_one
+'MethbokeAddon.FDSN.physicalPairCorrection_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalPairCorrection_one
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection_smooth
+MethbokeAddon.FDSN.physicalPairCorrection_smooth : ∀ (a : SingularClosure.Frequency) (z : ℂ)
+  (v : SingularClosure.Field), ContDiff.{0, 0, 0} ℝ ∞ (MethbokeAddon.FDSN.physicalPairCorrection a z v)
+TYPE_END:MethbokeAddon.FDSN.physicalPairCorrection_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection_smooth
+'MethbokeAddon.FDSN.physicalPairCorrection_smooth' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalPairCorrection_smooth
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection_periodic
+MethbokeAddon.FDSN.physicalPairCorrection_periodic : ∀ (a : SingularClosure.Frequency) (z : ℂ)
+  (v : SingularClosure.Field), SingularClosure.SpatialPeriodic.{0} (MethbokeAddon.FDSN.physicalPairCorrection a z v)
+TYPE_END:MethbokeAddon.FDSN.physicalPairCorrection_periodic
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalPairCorrection_periodic
+'MethbokeAddon.FDSN.physicalPairCorrection_periodic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalPairCorrection_periodic
+TYPE_BEGIN:MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction
+@MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ (z : ℂ) {v : SingularClosure.Field},
+      ContDiff.{0, 0, 0} ℝ ∞ v →
+        SingularClosure.SpatialPeriodic.{0} v →
+          Eq.{1} (MethbokeAddon.FDSN.physicalPairRotation a z v)
+            (HAdd.hAdd.{0, 0, 0} v (MethbokeAddon.FDSN.physicalPairCorrection a z v))
+TYPE_END:MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction
+AXIOMS_BEGIN:MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction
+'MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.physicalPairRotation_eq_add_correction
+TYPE_BEGIN:MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION
+@MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ (z : ℂ) {v : SingularClosure.Field},
+      ContDiff.{0, 0, 0} ℝ ∞ v →
+        SingularClosure.SpatialPeriodic.{0} v →
+          Eq.{1} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.physicalPairRotation a z v) v)
+            (MethbokeAddon.FDSN.physicalPairCorrection a z v)
+TYPE_END:MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION
+'MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PHYSICAL_PAIR_ROTATION_IS_FINITE_CORRECTION
