@@ -6,15 +6,15 @@
   "reviewer": "package_assessment",
   "review_kind": "READ_ONLY_SOURCE_SEMANTICS_AND_INDEPENDENT_CONSUMER_REVIEW",
   "scope": "Original G05 parent completion clause, prior accepted P01-P03, and new prepared P04-P06",
-  "status": "PROSPECTIVE_FULL_G05_SCOPE_COVERED_PENDING_MATCHING_EXTERNAL_CI",
+  "status": "FULL_ORIGINAL_G05_SCOPE_MATCHING_EXTERNAL_ACCEPTED",
   "conclusion": {
     "g05_all_original_clauses_covered_by_source": true,
     "g05_can_close_after_matching_ci": true,
-    "g05_accepted_now": false,
-    "new_a_tier_acceptance": false,
+    "g05_accepted_now": true,
+    "new_a_tier_acceptance": true,
     "remaining_mathematical_or_implementation_clause": [],
-    "remaining_gate": "Exact matching authorized external cached compilation, independent full-type consumers, named theorem-level allowed-axiom evidence, and matching source/evidence publication.",
-    "summary": "Prior accepted P01-P03 and the new prepared P04-P06 cover every clause in the original G05 target. No PDE construction, canonical evolution or weighted-membership reconstruction clause may be added to this parent. Successful matching verification can close G05 itself."
+    "remaining_gate": null,
+    "summary": "All original G05 clauses are covered by unchanged prior P01-P03 and the accepted P04-P06 construction. Matching external source/type/axiom/publication evidence now discharges the final gate."
   },
   "original_contract": {
     "source": "R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt",
@@ -278,7 +278,7 @@
     }
   ],
   "independent_consumer_review": {
-    "status": "SOURCE_SEMANTICS_AND_NAMED_REPORT_COVERAGE_CHECKED_NOT_EXECUTED",
+    "status": "STATIC_CONTRACT_REVIEW_AND_MATCHING_EXTERNAL_CONSUMER_PASS",
     "checked_packages": [
       {
         "id": "QFAPhysicalH1Sectors",
@@ -303,11 +303,13 @@
       "Actual projected velocity and gradient components.",
       "Literal cone-restricted 4*pi^2 physical charge and exact finite sum."
     ],
-    "no_projected_gradient_or_solenoidality_assumption": true
+    "no_projected_gradient_or_solenoidality_assumption": true,
+    "static_review_status": "SOURCE_SEMANTICS_AND_NAMED_REPORT_COVERAGE_CHECKED_NOT_EXECUTED",
+    "external_execution_evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json"
   },
   "corrected_scope_assessment": {
     "previous_blanket_parent_open_statement": "G05 remains formally unaccepted while matching CI is pending, but it is no longer accurate to claim that its original implementation scope still has an uncovered clause.",
-    "prospective_parent_closure": "G05 may be promoted to complete once its matching external source/type/axiom/publication gates pass.",
+    "prospective_parent_closure": "The prospective G05 closure has now been realized by the matching accepted external evidence.",
     "extra_requirements_not_in_G05": [
       "Construction of a local or maximal canonical NSE solution.",
       "Sharp Sobolev admission.",
@@ -330,9 +332,9 @@
   },
   "worktree_snapshot": {
     "base_commit": "7b4e02ad7a8056b84ed334c55e56dab74ab74d58",
-    "includes_prepared_uncommitted_sources": true,
+    "includes_prepared_uncommitted_sources": false,
     "source_identity_recheck": {
-      "current_commit": "5342389c4e2964b9ab051ba9c324dcfd355f9b6b",
+      "current_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
       "all_twelve_recorded_source_hashes_unchanged": true,
       "all_named_clause_witnesses_located_in_listed_sources": true,
       "prior_P01_P03_source_diff_rechecked_exit_code": 0,
@@ -351,7 +353,8 @@
       "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Divergence.lean": "e17ac1d4552d8c96c99f7c3f73f4e782ec97715508bf4edb8bfafb1eb1c7710f",
       "Material/MethbokeAddon/QuasiFeffermanA/SixSectorNaturality.lean": "f6aa35dceed0891edea42bf690ee9f213124c5d2bed4aca97dffc5cc6d12a9f3",
       "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1SigmaSectors.lean": "a8cc4afcad490a04fde09877b9f04a64baba385348de7a4b9862a322e03cda49"
-    }
+    },
+    "accepted_source": "09bcf25110020760d3d93100b8105d2ffba85e61"
   },
   "verification_limits": {
     "local_lean_executed": false,
@@ -382,5 +385,6 @@
       "description": "Explicit ENNReal top annotations on one spatial finiteness consumer and four physical sector budget comparisons; intended full contracts and all public source declarations unchanged.",
       "semantic_scope_changed": false
     }
-  ]
+  ],
+  "matching_external_evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json"
 }

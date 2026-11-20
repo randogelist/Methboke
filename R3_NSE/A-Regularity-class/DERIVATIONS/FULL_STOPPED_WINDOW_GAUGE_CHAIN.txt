@@ -489,3 +489,14 @@ it infer finite J merely from T=infinity. The first implication needs an
 actual evolution/continuation theorem. For the second, continuity of a
 supplied global path on [0,tau] would give finiteness by compactness, but
 that temporal premise does not follow from the scalar value T=infinity.
+
+
+SUPPLEMENT: LITERAL LEFT LIMIT SOURCE MAP
+For H(r)=integral^-_(0<t<r) f(t), r in Real, set inclusion proves Monotone H.
+For r<=0 the interval is empty and H(r)=0. The proved full supremum therefore
+equals sSup(H '' Iio b) as well as the supremum over 0<=r<b. Pinned
+Mathlib/Topology/Order/Monotone.lean, Monotone.tendsto_nhdsLT, gives the literal
+left limit at b with this value in ENNReal, including an infinite value. At
+b=0 the image on Iio b is {0}. Mathlib/Topology/Order/MonotoneConvergence.lean,
+tendsto_atTop_iSup, gives the corresponding increasing-sequence limit. Neither
+argument assumes finiteness of the budget or continuity at the terminal time.

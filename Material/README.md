@@ -2,10 +2,9 @@
 
 ## Current accepted NSE-A tranche
 
-**Accepted at `3dec32be`**, [external run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232): 481 modules, 86 fresh package audits and 853 named reports passed, including 155 declarations in nine new helper packages (126 theorems and 29 lower definitions/instances). Only standard axioms occur; publication and the final acceptance gate passed. P01–P03 are complete in their original scope. All six parent targets and the physical class root remain open. No local Lean was executed.
+**G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.
 
-The tested endpoint/closure manifests are retained byte-for-byte. Their original preparation labels are historical; acceptance is recorded separately in [the accepted scope register](../R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt).
-
+The tested source, audit, endpoint and closure bytes are retained unchanged. Original preparation labels in those manifests are historical; acceptance is recorded in [the current scope register](../R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt).
 
 The current goal is **Fefferman D**, through the finite periodic forced-family
 route. The first [foundation package](FeffermanFamilyFoundation/README.md) adds
@@ -60,18 +59,16 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) contains81 packages:77 previously accepted
-packages at the QFA foundation baseline and4 new scoped candidates pending external verification. It lists their
-exact declaration requests. Each package contains its import boundary, consumer
-type assertions, theorem-level axiom audit, recursive dependency closure and
-source provenance.
+The [endpoint registry](endpoints.json) contains **93 accepted packages** and
+**987 named reports**. Each package records its exact import boundary,
+independent full-type consumers, named axiom audit and recursive source closure.
 
 | Source group | Count | Role |
 |---|---:|---|
-| `_vendor` | 302 modules | Pinned Methlib foundation sources |
-| `MethbokeAddon` | 84 previously accepted plus4 prepared owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers | 77 previously accepted plus4 prepared modules | Independently audited import boundaries |
-| Accepted compiled baseline | 463 modules | Shared source closure, without duplicate foundation rebuilding |
+| `_vendor` | 302 compiled modules | Selected from 304 tracked pinned Methlib foundation sources |
+| `MethbokeAddon` | 101 modules | Owned additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers | 93 modules | Independently audited import boundaries |
+| Accepted full run | 496 modules | Exact compiled closure |
 
 | Package family | Exact role |
 |---|---|
@@ -174,11 +171,12 @@ No unconditional stopped witness, full operator construction or full H2
 Galerkin-convergence result is inferred from this acceptance.
 
 
-## NSE-A first construction batch
+## NSE-A accepted construction batches
 
-[Physical H1](QFAPhysicalH1/README.md), [AC scalar budget](QFAACBudget/README.md), [six-charge budgets](QFASixChargeBudget/README.md), and [forward H1 Fourier](QFAH1Fourier/README.md) prepare79 new named declarations. Expected complete coverage is81 fresh package audits and777 named reports; source and audit preparation is pending matching external acceptance. The old accepted QFA baseline is463 modules/77 packages/698 reports at afd67db4.
-
-
-## NSE-A second construction batch
-
-QFAH1FourierReverse, QFAPhysicalH1Budget, QFASixSectors, QFAEnstrophyCoefficient and QFASixSectorL2 add 76 named declarations (68 theorems, 8 definitions). The intended registry now contains 86 packages and 853 named reports. These are registration counts; external acceptance is tracked separately in the [six-gap record](../R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json). Compiler/dependency/audit/cache policies are unchanged.
+The first two batches contribute nine packages and155 names, accepted at
+3dec32be/run44810272232 and rechecked by the current full run. The third batch
+adds seven packages and134 names, completing the original G05 and P04–P07
+scopes. Across all three batches there are289 accepted names. The
+[exact scope register](../R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt)
+and [implementation history](../R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json)
+retain all source/type/axiom identities and earlier attempt outcomes.

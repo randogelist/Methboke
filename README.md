@@ -16,28 +16,29 @@ branch. The [project context](GPT.txt) records both scopes. The
 [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
-## AC-Integration: next physical H1 sector layer
+## AC-Integration: accepted physical H1/Fourier/six-projector target
 
-The continuing six-target construction prepares **134 declarations in 7 packages**
-(116 theorems, 18 definitions). It adds constructive real Fourier range,
-actual real L2/H1 six projections, physical charges with exact cone integrals,
-the native divergence-trace criterion, actual solenoidal projection restriction,
-and the strict small-product coefficient.
-Matching cached external verification is pending. The first spectral attempt
-found one explicit type argument missing; [the exact failed evidence](audits/material-3375a8dc-nse-a-failed/summary.json)
-is retained and the source is repaired. Independent B-tier work also derives
-the physical energy/enstrophy and same-path cutoff chain. Prior P01–P03
-acceptance is unchanged, and all six parent targets remain open. The combined
-[second attempt](audits/material-7b4e02ad-nse-a-failed/summary.json) compiled the real-L2
-layer and exposed two proof-script residuals in the H1 bridge; both are repaired
-with unchanged public statements and independent consumers.
-The [third attempt](audits/material-5342389c-nse-a-failed/summary.json) passed all496 source modules. Its audit phase found an ambiguous infinity type in one independent consumer; the explicit ENNReal annotation is prepared for fresh verification.
+**G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.
 
-## AC-Integration: accepted NSE-A construction
+[Six targets and remaining edges](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) · [All accepted names](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Exact evidence](audits/material-09bcf251-nse-a-accepted/independent-review.json)
 
-**Accepted at `3dec32be`**, [external run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232): 481 modules, 86 fresh package audits and 853 named reports passed, including 155 declarations in nine new helper packages (126 theorems and 29 lower definitions/instances). Only standard axioms occur; publication and the final acceptance gate passed. P01–P03 are complete in their original scope. All six parent targets and the physical class root remain open. No local Lean was executed.
+The construction now supplies actual real Fourier range, six real L2 and H1
+orthogonal projections, derivative and native solenoidal preservation, and
+physical gradient charges equal to the literal cone integrals with factor
+$4\pi^2$. P07 supplies the exact pointwise factor-six comparison. The
+small-product coefficient result is a separately scoped scalar helper.
 
-[Six targets and remaining native edges](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) · [Exact accepted helper register](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Evidence](audits/material-3dec32be-nse-a-accepted/independent-review.json)
+Independent reviewed B-tier work develops the physical energy/enstrophy and
+cutoff chain, the actual H2 graph and Hessian/Laplacian reconstruction, and the
+full ENNReal stopped-window/gauge interface. The next native endpoint is P08;
+its window and gauge statements use supplied H1 paths and do not require an
+NSE existence theorem. The [cumulative derivation](R3_NSE/A-Regularity-class/NSE_A_A_TIER_STEPLIST_B_TIER.txt)
+and [package/source assessment](R3_NSE/A-Regularity-class/SIX_GAP_PACKAGE_ASSESSMENT.txt)
+record all hypotheses and remaining edges.
+
+Prior accepted source `3dec32be` and its 155 names remain unchanged and are
+rechecked by this full run. Across the three NSE-A batches, 16 packages contain
+289 accepted names:242 theorems and47 definitions/instances.
 
 ## AC-Integration: accepted native QFA foundations
 
@@ -81,7 +82,8 @@ The [twenty-endpoint A-tier construction plan](R3_NSE/A-Regularity-class/A_TIER_
 now separates the pathwise six-charge theorem, actual canonical NSE
 continuation, and the literal Fefferman-A solution-class bridge. It is a
 B-tier step list with source anchors and explicit completion criteria;
-the user has now authorized construction, and the first scoped native batch is prepared for matching external verification.
+the authorized construction has now reached original P01–P07/G05 acceptance.
+The next native step is P08; later canonical PDE/class obligations remain open.
 
 The [Lean gap and cutout collection](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md)
 now supplies 51 exact reference blocks, complete pinned source snapshots and
@@ -91,7 +93,12 @@ missing adapters and adds no native theorem or A-tier acceptance.
 
 ## NSE-A six-gap native construction
 
-The [six closure targets](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) are registered. Four new scoped packages prepare 79 named declarations: physical H1 and Schwartz admission, forward first-derivative Fourier identification, AC scalar comparison, and full six-charge budget inequalities. [Implementation and evidence status](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json) is **pending matching external verification**. No parent gap or regularity root is marked complete. The [first external attempt](audits/material-1f83d62b-nse-a-failed/summary.json) found elaboration issues in two new modules; The [second attempt](audits/material-053147fc-nse-a-failed/summary.json) compiled the forward Fourier and scalar modules and isolated one reflexive H1 proof goal; its final repair awaits matching full verification.
+The [six closure targets](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt)
+retain their original contracts. **G05 is complete**; G01,G02,G03,G04,G06
+remain open. The [implementation and evidence register](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json)
+records 16 accepted packages and289 names, with the full named audits and all
+historical failed attempts preserved. Reviewed B-tier chains identify the
+remaining spatial, time-evolution and canonical-class constructions.
 
 ## Retained Fefferman-D implementation
 
@@ -203,10 +210,12 @@ precise statement and allow only `propext`, `Classical.choice` and `Quot.sound`.
 Missing official Mathlib objects do not authorize a source rebuild.
 
 
-## Further NSE-A construction
+## Further NSE-A native work
 
-Five further packages prepare **76 additional named declarations**, including actual complex L2 Fourier projections, reverse first-derivative identification, physical H1 budget bounds and exact conditional cubic coefficient extraction. [Scoped construction register](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json). These sources await matching external acceptance; all six parent gaps remain open.
-
-The [first-batch source pass](audits/material-abd35c43-nse-a-audit-failed/summary.json) compiled all 471 modules. The independent audits required type qualification; their repair and the second batch await matching full verification.
-
-Independent B-tier derivations now include an explicit whole-space H1 local/maximal construction, terminal square-budget divergence, the literal closed-slab Fefferman-A bridge, and a real-H1 sector-lift construction. Native parents remain open; see R3_NSE/A-Regularity-class/DERIVATIONS/.
+The accepted six-target register now marks G05 complete. The remaining five
+parents require native local/maximal NSE, sharp spatial admission, physical
+energy/enstrophy evolution, the literal smooth class bridge and the canonical
+full-budget equivalence. Reviewed B-tier derivations are retained in
+[R3_NSE/A-Regularity-class/DERIVATIONS](R3_NSE/A-Regularity-class/DERIVATIONS/).
+The exact failed attempts remain in the implementation history and evidence
+archives; they are superseded by the matching current acceptance above.

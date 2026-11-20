@@ -2,10 +2,9 @@
 
 ## Current native construction
 
-**Accepted at `3dec32be`**, [external run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232): 481 modules, 86 fresh package audits and 853 named reports passed, including 155 declarations in nine new helper packages (126 theorems and 29 lower definitions/instances). Only standard axioms occur; publication and the final acceptance gate passed. P01–P03 are complete in their original scope. All six parent targets and the physical class root remain open. No local Lean was executed.
+**G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.
 
 [Six targets](SIX_GAP_A_TIER_TARGETS.txt) · [Accepted scopes and names](SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Current implementation status](SIX_GAP_IMPLEMENTATION_STATUS.json)
-
 
 **Status: B-tier analytic class equivalence.** This page registers a class of
 whole-space initial data through the finite budget of their canonical maximal
@@ -223,8 +222,9 @@ Fefferman-A identification. It separates the first pathwise spectral milestone
 from the substantive NSE local theory and continuation proofs.
 The [complete step-list derivation](NSE_A_A_TIER_STEPLIST_B_TIER.txt) records
 source anchors and completion criteria; [A_TIER_PLAN.json](A_TIER_PLAN.json)
-records dependencies and current status. These are proposed endpoints for
-review. The plan adds no native Lean source or new A-tier acceptance.
+records dependencies and current status. The authorized plan has now reached
+full P01–P07/G05 acceptance; P08 and the later PDE/class endpoints retain their
+exact native obligations.
 
 ## Collected Lean sources for the missing proofs
 
@@ -239,23 +239,24 @@ all hypotheses and the separation between source availability and acceptance.
 
 [Six target register](SIX_GAP_A_TIER_TARGETS.txt) · [Current implementation](SIX_GAP_IMPLEMENTATION_STATUS.json) · [Package assessment](SIX_GAP_PACKAGE_ASSESSMENT.txt).
 
-Four scoped native packages are prepared with79 named declarations and independent literal type checks. They construct the physical H1 foundation, the forward H1-only Fourier bridge, AC scalar comparison and full six-charge budget inequalities. Matching external evidence is pending; none of the six parent gaps is marked complete. The B-tier chains are preserved in the cumulative steplist TXT Addendum1.2.
+G05 and the original P01–P07 scopes are complete. The three NSE-A batches
+contain 16 accepted packages and289 names. P08's complete stopped-window,
+improper-limit, Fourier normalization and gauge/sublevel interface is the
+next native endpoint. G01,G02,G03,G04,G06 remain open.
 
-## First construction attempt
+## Construction and derivation record
 
-[Source1f83d62 / run44804484780](../../audits/material-1f83d62b-nse-a-failed/summary.json) compiled the two scalar modules, then failed on physical-H1 and Fourier elaboration. Public statements and independent consumers are retained; source repairs require another matching external run. No new A-tier acceptance is inferred from partial compilation.
+The implementation register preserves every failed source/audit attempt,
+its original evidence and its statement-preserving repair. The first nine
+packages reached acceptance at3dec32be/run44810272232; the current seven-package
+layer is accepted at the exact source and run displayed above.
 
-## Second construction attempt
-
-[Source 053147fc / run 44805438456](../../audits/material-053147fc-nse-a-failed/summary.json) compiled the forward Fourier bridge and scalar budget modules. One reflexive Schwartz-admission proof goal remained in PhysicalH1. Its repair preserves all public statements; no additional endpoint is accepted yet.
-
-
-## Second independent batch
-
-Five further packages prepare **76 named declarations**: reverse Fourier characterization (8), physical H1 budgets (15), six Borel sectors (17), exact scalar enstrophy coefficient (8), and actual complex L2 Fourier projections (28). Each has a prior written derivation, independent complete consumer signatures and named audit sentinels. [Batch record](BATCH2_STATIC_REVIEW.json). Matching external acceptance is pending. Real-range preservation and physical H1/solenoidal projector transport remain separate.
-
-## Source compilation completed; audit qualification pending
-
-The [third external attempt](../../audits/material-abd35c43-nse-a-audit-failed/summary.json) compiled all 471 modules. Independent consumer audits required explicit native-space and real-scalar annotations. Those qualifications preserve every assertion. Matching complete external acceptance remains pending for the combined construction.
-
-Independent B-tier follow-up: [actual local/maximal H1 construction](DERIVATIONS/H1_LOCAL_FIXED_POINT_CHAIN.txt), [literal closed-slab identification](DERIVATIONS/FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt), and [real H1 sector lift](DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt). These do not promote native parent targets. The latest failed source attempt is retained with its original evidence archive; the two localized proof repairs await matching external verification.
+Reviewed mathematical chains include [local/maximal H1](DERIVATIONS/H1_LOCAL_FIXED_POINT_CHAIN.txt),
+[sharp spatial admission](DERIVATIONS/SHARP_SPATIAL_ADMISSION_CHAIN.txt),
+[physical energy/enstrophy](DERIVATIONS/PHYSICAL_ENERGY_ENSTROPHY_CHAIN.txt),
+[actual H2 graph reconstruction](DERIVATIONS/PHYSICAL_H2_GRAPH_CHAIN.txt),
+[full stopped-window/gauge](DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt), and
+[the literal closed-slab bridge](DERIVATIONS/FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt).
+Their native boundaries remain explicit. The real-H1 sector chain has reached
+the accepted original G05 scope; the remaining analytical chains retain
+B-tier status pending their own native construction and external evidence.

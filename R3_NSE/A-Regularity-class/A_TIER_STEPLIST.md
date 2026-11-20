@@ -1,8 +1,8 @@
 # NSE-A finite-charge class: B-tier step list toward A-tier
 
-**Status: P01–P03 are A-tier accepted; nine scoped helper packages are accepted.** Matching external [run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232) checked source `3dec32be2868f4a798e442d3516fb810d97db737`. P04–P19 retain their exact remaining obligations, and M1–M3 are not yet complete. P20’s verification rule has been satisfied for the accepted scopes. The user’s assent to the twenty endpoints is recorded.
+**G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.
 
-See the [accepted helper register](SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) and [exact evidence](../../audits/material-3dec32be-nse-a-accepted/independent-review.json).
+M1 awaits P08; M2 and M3 retain their exact native obligations. P20 verification is satisfied for the accepted scopes. The twenty-endpoint assent remains recorded.
 
 Repository: randogelist/Methboke. Branch: **AC-Integration**.
 Source basis: **a1dea65c8eb1344b5d55157162db2d38a8d78ff3**.
@@ -65,7 +65,7 @@ tail theorem are separate work, not prerequisites for this class theorem.
 ## The 20 contextual endpoints
 
 Each item below specifies its output, dependency order, existing anchors,
-new obligation and completion criterion. **P01–P03 are accepted; the remaining items retain their open portions.** An accepted helper does not mark its whole parent endpoint done.
+new obligation and completion criterion. **P01–P07 are accepted; P08–P19 retain their open portions.** An accepted helper does not mark its whole parent endpoint done.
 
 ### P01. Physical H1 carrier and Schwartz admission
 
@@ -337,11 +337,11 @@ can replace that proof.
 
 ### First formal obstruction
 
-The first missing accepted adapter is the physical compact-real-test
-weak-gradient to **H1-only, two-way Fourier derivative** bridge in P01–P02.
-The later independent substantial requirements are the actual R3
-norm-controlled H1 IVP constructor, physical balances/continuation and A4.
-These are formalization gaps in established analytic theory.
+P08: construct the ENNReal lifetime/finite-cutoff adapter, exact observation set, full partial-budget supremum and gauge/sublevel interface for supplied actual H1 paths.
+
+The physical H1/Fourier/six-projector chain P01–P07 is accepted. The later
+independent native requirements remain actual R3 local/maximal H1 NSE, sharp
+spatial admission, physical balances/continuation and the literal class bridge.
 
 For this conditional class theorem, the open universal budget assertion is
 not an input to discharge. The separate universal-regularity edge remains
@@ -475,4 +475,8 @@ status. Addendum 1.1 of the cumulative step-list TXT gives every cutout path.
 
 ## Authorized six-gap construction
 
-[Six parent targets](SIX_GAP_A_TIER_TARGETS.txt) now group the existing twenty endpoints. The user authorized B-tier-first native construction and matching cached external runs. The first four scoped packages prepare the physical H1 carrier, AC full-budget comparison, scalar six-charge comparison, and forward first-derivative Fourier identification. [Implementation status](SIX_GAP_IMPLEMENTATION_STATUS.json) retains exact scope and pending evidence. The cumulative TXT includes all four prior mathematical chains in Addendum1.2.
+The [six parent targets](SIX_GAP_A_TIER_TARGETS.txt) group the unchanged twenty
+endpoints. G05 is accepted; G01,G02,G03,G04,G06 remain open. The
+[implementation register](SIX_GAP_IMPLEMENTATION_STATUS.json) records the exact
+accepted scopes and historical attempts. The cumulative TXT retains every
+prior derivation and the later H2/full-window chains.

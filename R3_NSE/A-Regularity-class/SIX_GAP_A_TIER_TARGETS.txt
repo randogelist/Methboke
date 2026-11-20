@@ -1,5 +1,5 @@
 NSE_A_SIX_GAP_A_TIER_TARGETS
-VERSION = 1.2
+VERSION = 1.3
 DATE = 2026-11-20
 REPOSITORY = randogelist/Methboke
 BRANCH = AC-Integration
@@ -22,12 +22,16 @@ PIN_POLICY = Lean4.33.0, Mathlib db584cd6 and all existing dependency/audit
   owned adaptation and new matching evidence.
 
 CURRENT ACCEPTANCE
-Source 3dec32be2868f4a798e442d3516fb810d97db737; external run44810272232.
-!=! P01 physical H1/H1_sigma and Schwartz admission.
-!=! P02 two-way first-derivative Fourier bridge without H2.
-!=! P03 exact six even Borel sectors.
-Nine helper packages /155 names are accepted; the complete name/scope
-register is SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt. G01--G06 remain OPEN.
+Source 09bcf25110020760d3d93100b8105d2ffba85e61; external run44820225574.
+!=! G05 complete original physical H1/Fourier/six-projector target.
+!=! P01--P07 complete original contextual endpoint scopes.
+Full run:496 modules,93 fresh package audits,987 named reports; publication
+and final acceptance PASS. Standard axioms only. New batch:7 packages,
+134 names=116 theorems+18 definitions. Across the three NSE-A batches:
+16 packages,289 names=242 theorems+47 definitions/instances.
+Exact evidence:audits/material-09bcf251-nse-a-accepted/independent-review.json.
+Full names:SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt.
+G01,G02,G03,G04,G06 remain OPEN. The canonical class root remains OPEN.
 
 SIX PARENT TARGETS
 
@@ -79,7 +83,7 @@ SIX PARENT TARGETS
     as R tends to a finite Tmax. That terminal admission must be proved.
     Status: OPEN; no parent closure signal.
 
-[ ] G05  NSE_A_PHYSICAL_H1_FOURIER_SIX_PROJECTORS
+[!=!] G05  NSE_A_PHYSICAL_H1_FOURIER_SIX_PROJECTORS
     Plan: P01--P06. This is the first implementation dependency layer.
     Exact completion: Construct the complete native real compact-test H1
     carrier and Schwartz admission; prove the two-way first-derivative Fourier
@@ -89,11 +93,13 @@ SIX PARENT TARGETS
     Existing inputs: SP01--SP10,SP17--SP21.
     First native batch: actual weak-gradient uniqueness; closed physical
     gradient graph, Hilbert norm/completeness and solenoidal restriction.
-    Further independent work: first-derivative-only Fourier adaptation using
-    the existing accepted generic multiplier helper and project source leads.
-    Open boundary: a complete physical H1 carrier does not alone construct
-    the Fourier equivalence or all six physical projectors.
-    Status: OPEN; full P01--P03 and complex-L2 sublayer accepted; real/H1 lift remains.
+    Accepted Fourier layer: first-derivative-only adaptation using the
+    existing generic multiplier helper and the actual real-range construction.
+    Discharged boundary: the carrier, two-way first-derivative equivalence
+    and all six actual real/H1/solenoidal physical projectors are constructed.
+    Status: !=! A_TIER_ACCEPTED in the exact original G05 scope.
+    Complete source/contract mapping:BATCH3_SEMANTIC_REVIEW.json.
+    The actual real/H1/solenoidal lift and physical cone charges are proved.
 
 [ ] G06  NSE_A_FULL_SIX_CHARGE_CLASS_EQUIVALENCE
     Plan: P07,P08,P18, with P15 scalar inputs.
@@ -104,9 +110,10 @@ SIX PARENT TARGETS
     Existing inputs: SP10--SP16,ES03,ES05,ES06.
     Independent native batch: full stopped square-budget scalar estimates;
     factor-six and finite-budget equivalence for explicit nonnegative charges.
-    Open boundary: abstract charge inequalities need the constructed physical
-    projections and canonical trajectory before the datum-class root follows.
-    Status: OPEN; scalar/measure helper subscopes accepted; physical root remains.
+    Open boundary: the physical projections are now constructed. Full-window
+    gauge packaging and the actual canonical trajectory/class proof remain.
+    Status: OPEN; full physical pointwise P07 and physical budget comparison
+    are accepted. P08 full-window/gauge and canonical P18 remain open.
 
 DEPENDENCY AND WORK ORDER
 
@@ -136,47 +143,23 @@ PROOF AND EVIDENCE RECORDS
 - The universal assertion C^A_nu=Schwartz_sigma(R3) remains OPEN. It is
   separate from the conditional finite-budget class equivalence.
 
-No six-gap parent is complete. The accepted helper scopes have matching
-external evidence recorded above; remaining implementations are still open. No local Lean, Lake, kernel audit or included runner is used.
+CURRENT REMAINING WORK
+G01: actual R3 H1 local/maximal solution, uniqueness and same-path continuation.
+G02: native sharp scalar S6 admission and actual H2 graph/Laplacian adapter.
+G03: actual PDE time-space AC, cancellations, invariant and restart application.
+G04: literal all-order closed-slab pressure/smoothness bridge and converse.
+G06: P08 lifetime/cutoff/full-window/gauge interface, then canonical P18 instance.
 
-
-SECOND BATCH -- SCOPED CONSTRUCTION
-QFAH1FourierReverse:8 supplied-gradient equivalence theorems(G05/P02).
-QFAPhysicalH1Budget:15 physical energy/enstrophy/full-slab helpers(G03,G06).
-QFASixSectors:17 actual even Borel sector declarations(G05/P03).
-QFAEnstrophyCoefficient:8 conditional scalar coefficient theorems(G02,G03).
-QFASixSectorL2:28 actual complex-vector L2 projection declarations(G05/P04).
-All76 second-batch names are accepted at the exact source and run above. Native real-range
-preservation,H1/solenoidal transport and physical charge additivity remain open.
-No parent target is completed or weakened by these sublayers.
+NEXT SCOPED NATIVE EDGE
+P08: construct the ENNReal lifetime/finite-cutoff adapter, exact observation set, full partial-budget supremum and gauge/sublevel interface for supplied actual H1 paths.
 
 INDEPENDENT B-TIER ADVANCEMENT DURING EXTERNAL VERIFICATION
-G01: complete explicit local/maximal H1 construction, with nonsharp lifespan
-  27*nu^3/(2^24*||grad a||_2^4) and direct terminal-budget divergence.
-G04: exact closed-slab literal-category bridge using Tao Corollary11.1,
-  pressure normalization, strong/mild uniqueness and Schwartz persistence.
-G05: real-H1 projector lift by projecting the already supplied physical
-  gradient components; real Fourier-range transport is the next native edge.
-These are mathematical/source-mapped derivations, not native parent closure.
-G02 follow-up: the exact sharp scalar primary theorem is identified, and the
-vector/tensor physical-H1 and H2/convection transfer is derived at B-tier.
-The first native missing edge remains actual sharp scalar admissibility.
+The cumulative TXT contains complete scoped chains for local/maximal H1,
+sharp spatial vector/tensor transfer, the literal Fefferman-A bridge,
+physical energy/enstrophy/cutoff, actual H2 graph reconstruction, and the
+full stopped-window Fourier/gauge/sublevel interface. Their native boundaries
+are explicit. The real-H1 sector chain has now reached the accepted G05 scope.
+New analytical notes:DERIVATIONS/PHYSICAL_H2_GRAPH_CHAIN.txt and
+DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt received independent review.
 
-BATCH3_H1_SPECTRAL_PROGRESS
-13 prepared H1-only Fourier norm/integrability theorems support P06.
-Matching external verification pending. P04 real range/P05 physical H1
-sector transport are being constructed; all six parent targets remain open.
-
-BATCH3_REAL_H1_SECTOR_PROGRESS
-Prepared 102 exact named declarations across 6 packages.
-Potential full scopes P04/P06/P07 and H1 portion of P05; solenoidal
-naturality still separate. No !=! promotion before exact matching
-external source/full type/axiom/publication acceptance.
-P12--P17 physical energy/enstrophy and cutoff B-tier chain now explicit;
-native parent G03 remains open.
-
-BATCH3_SOLENOIDAL_EXTENSION
-Full seven-package candidate134names includes actual solenoidal preservation
-and bounded projectors on PhysicalH1Sigma. Original P04--P07 scopes are
-prepared with full independent consumers. G05 is reviewed clause by clause
-for prospective closure, but all promotion awaits matching external evidence.
+No local Lean, Lake, kernel audit or included runner is used.

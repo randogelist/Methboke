@@ -52,9 +52,9 @@
   "universal_class_equality_proved": false,
   "universal_budget_finiteness_proved": false,
   "a_tier_class_equivalence_proved": false,
-  "new_lean_declarations": 155,
-  "new_external_compiler_runs": 6,
-  "new_axiom_audits": 155,
+  "new_lean_declarations": 289,
+  "new_external_compiler_runs": 10,
+  "new_axiom_audits": 289,
   "local_lean_executions": 0,
   "existing_foundation_evidence": {
     "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
@@ -68,23 +68,6 @@
     "No uniform whole-space Galerkin limit or automatic periodic-to-R3 transfer.",
     "All existing accepted proof, audit, compiler/dependency and workflow bytes are retained."
   ],
-  "static_validation": {
-    "status": "PASS_STATIC_ONLY_PENDING_EXTERNAL",
-    "kind": "Native source/manifest/consumer scope preparation; not compiler or kernel acceptance.",
-    "record": "R3_NSE/A-Regularity-class/BATCH1_STATIC_REVIEW.json",
-    "new_formal_acceptance": false,
-    "document_sha256": {
-      "README.md": "f38468001cb85f8be5d64fa2d54149b2eef1daccf1690dd30b7e7eaa64ed76b2",
-      "A_TIER_PLAN.json": "0061655bd72fd23f23e950c3d26702af4b3df58fc5fd601a3df735cbc76ee8c2",
-      "A_TIER_STEPLIST.md": "aef36a57f31c0937db6067ad4f565858e0d04f52e47520d0b3ec26d63901ae84",
-      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "5dc4e5f03afaba489441ac44698ad03a4a3f3050effefa200ba2e26abc471daf",
-      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "404dcbd70c2177ddfaf7bb69a340013fdb9e0edfacc64c8909c407d6499c7a2f",
-      "SIX_GAP_A_TIER_TARGETS.txt": "7bfe967256c21f5c0dbaa8d3c60061267611fbf2f4acbb1e65e4327853191159",
-      "SIX_GAP_IMPLEMENTATION_STATUS.json": "bc001ed1900710916e71fefbf0b094f1f957942ff1e23053a41d4e7da8cb2c63",
-      "SIX_GAP_PACKAGE_ASSESSMENT.txt": "da5db9cf74f2db6044b3ed43cc721e2675118dbee604449ac00aa1e3ee8b3396",
-      "BATCH1_STATIC_REVIEW.json": "4ecd7744dc46060d7d46ebcb8c85e016bee961dd6770312aabb411a82ec7055a"
-    }
-  },
   "prior_class_registration_review": {
     "source_commit": "a1dea65c8eb1344b5d55157162db2d38a8d78ff3",
     "review": {
@@ -109,14 +92,50 @@
     }
   },
   "a_tier_steplist": {
-    "status": "B_TIER_TWENTY_ENDPOINT_PLAN_PREPARED",
+    "status": "PARTIAL_A_TIER_P01_TO_P07_AND_G05_ACCEPTED",
     "endpoint_count": 20,
     "entry_point": "R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md",
     "derivation": "R3_NSE/A-Regularity-class/NSE_A_A_TIER_STEPLIST_B_TIER.txt",
     "plan_record": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
     "source_basis_commit": "a1dea65c8eb1344b5d55157162db2d38a8d78ff3",
-    "formalization_started": false,
-    "new_a_tier_acceptance": false
+    "formalization_started": true,
+    "new_a_tier_acceptance": true,
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "acceptance": {
+      "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+      "run_id": 44820225574,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+      "package_count": 93,
+      "module_count": 496,
+      "named_reports": 987,
+      "new_packages": 7,
+      "new_named_declarations": 134,
+      "new_theorems": 116,
+      "new_definitions_and_instances": 18,
+      "local_lean_executions": 0,
+      "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+      "accepted_plan_endpoints": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07"
+      ],
+      "parent_targets_closed": 1,
+      "closed_parent_ids": [
+        "G05"
+      ]
+    }
   },
   "prior_a_tier_steplist_review": {
     "source_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
@@ -177,19 +196,23 @@
     "local_lean_executions": 0
   },
   "six_gap_construction": {
-    "status": "PARTIAL_A_TIER_NINE_HELPER_PACKAGES_ACCEPTED",
+    "status": "A_TIER_G05_AND_P01_P07_ACCEPTED_FIVE_PARENTS_OPEN",
     "target_register": "SIX_GAP_A_TIER_TARGETS.txt",
     "implementation_register": "SIX_GAP_IMPLEMENTATION_STATUS.json",
-    "accepted_parent_count": 0,
+    "accepted_parent_count": 1,
     "local_lean_executions": 0,
-    "accepted_helper_packages": 9,
-    "accepted_named_declarations": 155,
+    "accepted_helper_packages": 16,
+    "accepted_named_declarations": 289,
     "accepted_plan_endpoints": [
       "P01",
       "P02",
-      "P03"
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
     ],
-    "evidence": "../../audits/material-3dec32be-nse-a-accepted/independent-review.json"
+    "evidence": "../../audits/material-09bcf251-nse-a-accepted/independent-review.json"
   },
   "prior_lean_cutout_collection_validation": {
     "source_commit": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
@@ -218,18 +241,22 @@
     }
   },
   "scoped_construction": {
-    "status": "PARTIAL_A_TIER_NINE_HELPER_PACKAGES_ACCEPTED",
+    "status": "A_TIER_G05_AND_P01_P07_ACCEPTED_FIVE_PARENTS_OPEN",
     "record": "SIX_GAP_IMPLEMENTATION_STATUS.json",
-    "parent_gaps_closed": 0,
+    "parent_gaps_closed": 1,
     "local_lean_executions": 0,
-    "accepted_helper_packages": 9,
-    "accepted_named_declarations": 155,
+    "accepted_helper_packages": 16,
+    "accepted_named_declarations": 289,
     "accepted_plan_endpoints": [
       "P01",
       "P02",
-      "P03"
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
     ],
-    "evidence": "../../audits/material-3dec32be-nse-a-accepted/independent-review.json"
+    "evidence": "../../audits/material-09bcf251-nse-a-accepted/independent-review.json"
   },
   "independent_b_tier_derivations": [
     {
@@ -245,65 +272,171 @@
     {
       "file": "DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
       "scope": "Real H1 sector projection construction by transport of supplied physical weak gradients",
-      "native_status": "OPEN"
+      "native_status": "A_TIER_ORIGINAL_G05_SCOPE_ACCEPTED",
+      "acceptance": {
+        "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "run_id": 44820225574,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+        "package_count": 93,
+        "module_count": 496,
+        "named_reports": 987,
+        "new_packages": 7,
+        "new_named_declarations": 134,
+        "new_theorems": 116,
+        "new_definitions_and_instances": 18,
+        "local_lean_executions": 0,
+        "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07"
+        ],
+        "parent_targets_closed": 1,
+        "closed_parent_ids": [
+          "G05"
+        ]
+      }
     },
     {
       "file": "DERIVATIONS/SHARP_SPATIAL_ADMISSION_CHAIN.txt",
       "scope": "Exact sharp scalar normalization, vector/tensor Kato transfer and physical H2/convection admission relative to the established scalar theorem",
       "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/PHYSICAL_ENERGY_ENSTROPHY_CHAIN.txt",
+      "scope": "Actual-path energy/enstrophy AC, weighted product identity, invariant and exact cutoff, with native analytical obligations explicit",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/PHYSICAL_H2_GRAPH_CHAIN.txt",
+      "scope": "Actual thirteen-component H2 graph, reconstruction from real L2 Laplacian and exact Hessian/Laplacian norm",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt",
+      "scope": "Full ENNReal stopped window, uniform partial-budget criterion, exact Fourier factors and gauge/sublevels",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/REAL_LERAY_PROJECTION_CHAIN.txt",
+      "scope": "Actual real whole-space Leray projection on L2/H1, native solenoidal range and conditional H2 transport",
+      "native_status": "OPEN",
+      "mathematical_review": "COMPLETE_WITHIN_STATED_SCOPE"
     }
   ],
   "native_helper_acceptance": {
-    "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
-    "run_id": 44810272232,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
-    "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
-    "package_count": 86,
-    "module_count": 481,
-    "named_reports": 853,
-    "new_packages": 9,
-    "new_named_declarations": 155,
-    "new_theorems": 126,
-    "new_definitions_and_instances": 29,
+    "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+    "run_id": 44820225574,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+    "package_count": 93,
+    "module_count": 496,
+    "named_reports": 987,
+    "new_packages": 7,
+    "new_named_declarations": 134,
+    "new_theorems": 116,
+    "new_definitions_and_instances": 18,
+    "local_lean_executions": 0,
+    "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
     "accepted_plan_endpoints": [
       "P01",
       "P02",
-      "P03"
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
     ],
-    "parent_targets_closed": 0,
-    "local_lean_executions": 0
+    "parent_targets_closed": 1,
+    "closed_parent_ids": [
+      "G05"
+    ]
   },
   "physical_class_root_a_tier_proved": false,
-  "parent_targets_closed": 0,
-  "new_declaration_scope": "Nine scoped helper packages; the physical canonical/literal class root remains open.",
+  "parent_targets_closed": 1,
+  "new_declaration_scope": "Sixteen accepted NSE-A packages and the complete original G05/P01-P07 scopes; the canonical/literal class roots remain open.",
   "current_construction_artifacts": [
     {
       "path": "A_TIER_PLAN.json",
-      "sha256": "dde76004a4aa880c4a188ac4a1caf6f206ff0b267bb0427e8f4964b06074b20b"
+      "sha256": "4e84b3a088caa065da94ee4d13361210b835e8181c51c1aa885895dc2c6603e8"
     },
     {
       "path": "A_TIER_STEPLIST.md",
-      "sha256": "6046feec27f92d974f5d6ba874d337bce944dbe2de0a104f20f03a94f156ecf6"
+      "sha256": "fd098621ff237fe8a93235f99583f81d1bef2027bc75d4bc813871fdbde011dc"
     },
     {
       "path": "SIX_GAP_A_TIER_TARGETS.txt",
-      "sha256": "223b7c57c572d9c26b0a004f5fdebe9e2987ccbe72767bcc498a71d21ac9f1d6"
+      "sha256": "d4486302819bd822c58e022d38f3f96ab8d0feca8b5120f669f714887c2eb7d3"
     },
     {
       "path": "SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt",
-      "sha256": "e19b404c2612ca11c4327f09572e5aa9a3cd167e06a1a071dac3de80c77e666a"
+      "sha256": "ed35ec2da14829d1a3be3a6d7f0b98e03c5d6d4fc5bbf54f329a2b2af215f4a5"
     },
     {
       "path": "SIX_GAP_IMPLEMENTATION_STATUS.json",
-      "sha256": "9c8ddb4b44563b409ebb23e25f44df7bfcbfefda946ad1404241e307b373684d"
+      "sha256": "62cab208bfb84325042c0b777e07f3e351e6b74ff985086bfc9eceab3cb93241"
     },
     {
       "path": "NSE_A_A_TIER_STEPLIST_B_TIER.txt",
-      "sha256": "ee5066b4006c48008c482f9e1d641a20aa9225ceb3a27c4121f835298815f111"
+      "sha256": "7e3c91975324fcc32c271810befe77a951c2e44f0ea12607a133884eb657b4f4"
     },
     {
       "path": "SIX_GAP_PACKAGE_ASSESSMENT.txt",
-      "sha256": "61747fade727c571b0849a3710fc89acf561bdc4af816994473148c04e2bab60"
+      "sha256": "dfd1d731bfe6b65e52d723136e8cef1e9245ee5c5d51bfcd5e6cd62daae5ee91"
+    },
+    {
+      "path": "BATCH3_SEMANTIC_REVIEW.json",
+      "sha256": "dfcb3a2f6e71cb329658274436ea3d14fa940cfc6845204bda49b2b0fd202097"
     }
-  ]
+  ],
+  "closed_parent_ids": [
+    "G05"
+  ],
+  "prior_static_validation": {
+    "status": "PASS_STATIC_ONLY_PENDING_EXTERNAL",
+    "kind": "Native source/manifest/consumer scope preparation; not compiler or kernel acceptance.",
+    "record": "R3_NSE/A-Regularity-class/BATCH1_STATIC_REVIEW.json",
+    "new_formal_acceptance": false,
+    "document_sha256": {
+      "README.md": "f38468001cb85f8be5d64fa2d54149b2eef1daccf1690dd30b7e7eaa64ed76b2",
+      "A_TIER_PLAN.json": "0061655bd72fd23f23e950c3d26702af4b3df58fc5fd601a3df735cbc76ee8c2",
+      "A_TIER_STEPLIST.md": "aef36a57f31c0937db6067ad4f565858e0d04f52e47520d0b3ec26d63901ae84",
+      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "5dc4e5f03afaba489441ac44698ad03a4a3f3050effefa200ba2e26abc471daf",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "404dcbd70c2177ddfaf7bb69a340013fdb9e0edfacc64c8909c407d6499c7a2f",
+      "SIX_GAP_A_TIER_TARGETS.txt": "7bfe967256c21f5c0dbaa8d3c60061267611fbf2f4acbb1e65e4327853191159",
+      "SIX_GAP_IMPLEMENTATION_STATUS.json": "bc001ed1900710916e71fefbf0b094f1f957942ff1e23053a41d4e7da8cb2c63",
+      "SIX_GAP_PACKAGE_ASSESSMENT.txt": "da5db9cf74f2db6044b3ed43cc721e2675118dbee604449ac00aa1e3ee8b3396",
+      "BATCH1_STATIC_REVIEW.json": "4ecd7744dc46060d7d46ebcb8c85e016bee961dd6770312aabb411a82ec7055a"
+    }
+  },
+  "current_external_verification": {
+    "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+    "run_id": 44820225574,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+    "package_count": 93,
+    "module_count": 496,
+    "named_reports": 987,
+    "new_packages": 7,
+    "new_named_declarations": 134,
+    "new_theorems": 116,
+    "new_definitions_and_instances": 18,
+    "local_lean_executions": 0,
+    "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "parent_targets_closed": 1,
+    "closed_parent_ids": [
+      "G05"
+    ]
+  }
 }

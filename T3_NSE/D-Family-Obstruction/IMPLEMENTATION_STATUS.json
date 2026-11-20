@@ -655,11 +655,21 @@
   },
   "nse_a_steplist_branch_context": {
     "plan_record": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
-    "scope": "B-tier twenty-endpoint plan toward the NSE-A conditional class theorem on AC-Integration.",
+    "scope": "Authorized NSE-A twenty-endpoint plan: G05/P01-P07 accepted, canonical class root open.",
     "D_implementation_or_evidence_statuses_changed": false,
     "project_goal_changed": false,
-    "new_lean_declarations": 0,
-    "new_a_tier_acceptance": false
+    "new_lean_declarations": 289,
+    "new_a_tier_acceptance": true,
+    "status": "PARTIAL_A_TIER_P01_TO_P07_AND_G05_ACCEPTED",
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ]
   },
   "nse_a_cutout_collection_branch_context": {
     "entry_point": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md",
@@ -672,46 +682,83 @@
   },
   "nse_a_six_gap_branch_context": {
     "branch": "AC-Integration",
-    "status": "SCOPED_CONSTRUCTION_PENDING_EXTERNAL",
+    "status": "A_TIER_G05_AND_P01_P07_ACCEPTED_FIVE_PARENTS_OPEN",
     "implementation": "R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json",
     "main_goal_and_all_existing_D_statuses_unchanged": true,
     "local_lean_executions": 0,
     "latest_construction_attempt": {
-      "source_commit": "abd35c4341545790bfd45e5e3cea8348d75f1bf9",
-      "run_id": 44806540815,
-      "status": "ALL_SOURCE_MODULES_COMPILE_INDEPENDENT_AUDIT_ELABORATION_FAILED",
-      "evidence": "audits/material-abd35c43-nse-a-audit-failed/summary.json",
-      "new_acceptance": false
+      "source_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+      "run_id": 44820225574,
+      "status": "ACCEPTED",
+      "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+      "new_acceptance": true
     },
-    "second_batch_prepared_names": 76
-  },
-  "nse_a_scoped_branch_progress": {
+    "second_batch_prepared_names": 76,
     "acceptance": {
-      "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
-      "run_id": 44810272232,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
-      "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
-      "package_count": 86,
-      "module_count": 481,
-      "named_reports": 853,
-      "new_packages": 9,
-      "new_named_declarations": 155,
-      "new_theorems": 126,
-      "new_definitions_and_instances": 29,
+      "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+      "run_id": 44820225574,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+      "package_count": 93,
+      "module_count": 496,
+      "named_reports": 987,
+      "new_packages": 7,
+      "new_named_declarations": 134,
+      "new_theorems": 116,
+      "new_definitions_and_instances": 18,
+      "local_lean_executions": 0,
+      "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
       "accepted_plan_endpoints": [
         "P01",
         "P02",
-        "P03"
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07"
       ],
-      "parent_targets_closed": 0,
-      "local_lean_executions": 0
+      "parent_targets_closed": 1,
+      "closed_parent_ids": [
+        "G05"
+      ]
+    },
+    "closed_parent_ids": [
+      "G05"
+    ]
+  },
+  "nse_a_scoped_branch_progress": {
+    "acceptance": {
+      "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+      "run_id": 44820225574,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+      "package_count": 93,
+      "module_count": 496,
+      "named_reports": 987,
+      "new_packages": 7,
+      "new_named_declarations": 134,
+      "new_theorems": 116,
+      "new_definitions_and_instances": 18,
+      "local_lean_executions": 0,
+      "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+      "accepted_plan_endpoints": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07"
+      ],
+      "parent_targets_closed": 1,
+      "closed_parent_ids": [
+        "G05"
+      ]
     },
     "main_goal_changed": false,
     "D_family_proof_status_changed": false,
-    "six_parent_targets_closed": 0,
+    "six_parent_targets_closed": 1,
     "next_batch": {
       "batch": "NSE_A_SIX_GAP_BATCH_3",
-      "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED",
       "packages": [
         "QFAH1Spectral",
         "QFARealFourier",
@@ -725,14 +772,47 @@
       "new_theorems": 116,
       "new_definitions": 18,
       "prior_accepted_source": "3dec32be2868f4a798e442d3516fb810d97db737",
-      "parent_targets_closed": 0,
+      "parent_targets_closed": 1,
       "main_goal_changed": false,
       "D_family_proof_status_changed": false,
       "local_lean_executions": 0,
       "latest_failed_run": 44818300007,
       "proof_only_repairs_pending_verification": false,
       "source_modules_passed": 496,
-      "audit_type_annotation_repair_pending_verification": true
-    }
+      "audit_type_annotation_repair_pending_verification": false,
+      "acceptance": {
+        "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "run_id": 44820225574,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+        "package_count": 93,
+        "module_count": 496,
+        "named_reports": 987,
+        "new_packages": 7,
+        "new_named_declarations": 134,
+        "new_theorems": 116,
+        "new_definitions_and_instances": 18,
+        "local_lean_executions": 0,
+        "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07"
+        ],
+        "parent_targets_closed": 1,
+        "closed_parent_ids": [
+          "G05"
+        ]
+      },
+      "closed_parent_ids": [
+        "G05"
+      ]
+    },
+    "closed_parent_ids": [
+      "G05"
+    ]
   }
 }
