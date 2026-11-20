@@ -69,3 +69,10 @@ Only authorized external cached verification is permitted; no local Lean, Lake
 or kernel execution is allowed. Failed attempts and earlier accepted evidence
 remain recorded in the implementation ledger. No new verification run is
 needed merely to rewrite this documentation around unchanged audited sources.
+
+The [definition docstring](../../Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean)
+contains the physicists' reason trace: balance law, reciprocal observable,
+formal normalized commutator, stopped quantifiers and the conditional
+contradiction. The edited Lean text differs only in comments. Previous
+proof acceptance remains pinned to `22431f`; fresh source validation of
+this revision is pending under `CI_RUN_PLAN.json`.

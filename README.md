@@ -37,6 +37,13 @@ continuity proof without changing statements, audits or dependency pins.
 
 ## Conditional proof and its scope
 
+The [StoppedCommutatorBound docstring](Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean)
+now explains the physics motivation: enstrophy production, a bounded
+reciprocal observable, the Heisenberg/Koopman commutator and stopped uniform
+descent. It separates that interpretation from the unproved witness and
+full operator realization. This comment-only Lean revision preserves all
+declarations; its fresh external source validation is pending.
+
 Assume the stopped bound and a global smooth solution for its fixed datum.
 Smooth-front Galerkin stability gives an eventual uniform enstrophy bound on
 `[0,1/γ]`. Choose one sufficiently large cutoff whose threshold exceeds that
