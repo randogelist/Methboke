@@ -1,0 +1,71 @@
+NSE_A_PHYSICAL_H1_BUDGET_CHAIN
+DATE = 2026-11-20
+SOURCE_BASIS = 053147fc75677f3b086a7a2da740ccc95fed5b8f
+MODE = B_TIER_DERIVATION_BEFORE_NATIVE_EXTERNAL_VERIFICATION
+PARENT_TARGETS = G03,G06
+PLAN_ENDPOINTS = P08,P15
+NATIVE_MODULE = MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget
+PUBLIC_SCOPE = Two physical observables and thirteen helper theorems.
+STATUS = PREPARED_PENDING_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_EVIDENCE
+LOCAL_LEAN_EXECUTION = NONE
+
+1. ACTUAL PHYSICAL OBSERVABLES
+
+For u in the native complete compact-test PhysicalH1 graph on R3, define
+  E(u) = ||velocity(u)||_L2^2,
+  Y(u) = sum_{j=0}^2 ||gradient_j(u)||_L2^2.
+Both quantities are nonnegative. The graph-coordinate maps are continuous
+linear maps, so E and Y are continuous. The native graph norm gives exactly
+  ||u||_H1^2 = E(u)+Y(u).
+Consequently E(u),Y(u)<=||u||_H1^2 and
+  E(u)<=E0, Y(u)<=B -> ||u||_H1^2<=E0+B.
+The same implication applies uniformly to any supplied path on any time set.
+No whole-space Poincare inequality is required or asserted.
+
+2. FULL CLOSED-SLAB CONTINUITY GIVES A FULL FINITE BUDGET
+
+Let U:R->PhysicalH1 and suppose U is continuous on the actual full closed
+finite slab [0,b]. Then t->Y(U(t))^2 is continuous there and thus integrable.
+Restriction gives genuine integrability on (0,b). Since the integrand is
+nonnegative, the ordinary/extended integral identity is
+  J(U,b):=integral^+_{(0,b)} ofReal(Y(U(t))^2) dt
+        =ofReal(integral_{(0,b)} Y(U(t))^2 dt)<infinity.
+Empty or zero-length windows are covered without an additional assumption.
+No derivative or PDE premise is needed for this supplied-path result.
+
+3. FULL FINITE BUDGET PLUS ACTUAL SCALAR EVOLUTION CONTROLS H1
+
+Fix kappa>=0. Assume, explicitly for the same supplied U:
+  E(U(t))<=E0 for 0<=t<b;
+  Y(U(.)) is absolutely continuous on every [0,R], 0<=R<b;
+  d/dt Y(U(t)) <= kappa*Y(U(t))^3 almost everywhere on (0,b);
+  J(U,b)<infinity, with the full stopped integral used above.
+The independently constructed AC/cubic scalar theorem then yields
+  Y(U(t))<=Y(U(0))*exp(kappa*J(U,b).toReal), 0<=t<b.
+The explicit full-budget finiteness premise justifies toReal. Combining with
+step 1 proves a common preterminal bound on the actual full H1 norm:
+  ||U(t)||_H1^2<=E0+Y(U(0))*exp(kappa*J(U,b).toReal).
+This is a physical-carrier adaptation of the scalar comparison, with all
+energy, differential and budget premises visible in the statement.
+
+4. FIRST REMAINING PDE AND ENDPOINT EDGES
+
+The supplied-path subchains above are complete mathematically. To apply
+them to the canonical NSE trajectory, the actual whole-space local/maximal
+solution, its energy bound and its AC enstrophy inequality still have to be
+constructed. This module contains no continuation or PDE-existence port.
+Continuity on every shorter closed interval does not supply the full closed
+slab premise in step 2, nor does it establish full-budget finiteness.
+The module does not identify the literal Fefferman-A class, provide the
+sharp spatial coefficient, or prove universal budget finiteness.
+
+5. PINNED REUSE AND VERIFICATION
+
+Native inputs: PhysicalH1.lean (actual complete graph and exact norm),
+ACBudget.lean (full ENNReal integral and AC/Gronwall scalar estimates), and
+the pinned Mathlib continuous-integrability and nonnegative-integral APIs.
+The new packages preserve the existing native compiler/dependency policy.
+The source basis is a development baseline, not provenance for new bytes.
+Fresh exact consumer types and named standard-only axiom reports are required
+from authorized cached external CI. No local Lean, Lake or kernel audit is
+permitted or performed.

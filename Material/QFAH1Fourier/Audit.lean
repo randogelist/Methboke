@@ -17,108 +17,108 @@ namespace QFAH1Fourier.ExpectedTypes
 
 open MethbokeAddon.QuasiFeffermanA
 open MethbokeAddon.QuasiFeffermanA.H1Fourier
-open QFA.Endpoints.Agmon
+open QFA.Endpoints.Agmon (ComplexL2 ComplexVector)
 open QFA.Endpoints.Representation
 
 -- Literal physical carriers and compact-test semantics.
-example : Space = EuclideanSpace ℝ (Fin 3) := rfl
+example : MethbokeAddon.QuasiFeffermanA.Space = EuclideanSpace ℝ (Fin 3) := rfl
 example : RealL2 = Lp (EuclideanSpace ℝ (Fin 3)) 2
     (volume : Measure (EuclideanSpace ℝ (Fin 3))) := rfl
 example : ComplexL2 = Lp (EuclideanSpace ℂ (Fin 3)) 2
     (volume : Measure (EuclideanSpace ℝ (Fin 3))) := rfl
 
-example (u du : RealL2) (e : Space) :
+example (u du : RealL2) (e : MethbokeAddon.QuasiFeffermanA.Space) :
     RealTestWeakDirectionalDerivative u du e ↔
-      ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-        (∫ x : Space, (fderiv ℝ ψ x e) • u x) =
-          -(∫ x : Space, ψ x • du x) := Iff.rfl
+      ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+        (∫ x : MethbokeAddon.QuasiFeffermanA.Space, (fderiv ℝ ψ x e) • u x) =
+          -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • du x) := Iff.rfl
 
-example (u du : ComplexL2) (e : Space) :
+example (u du : ComplexL2) (e : MethbokeAddon.QuasiFeffermanA.Space) :
     RealTestWeakDirectionalDerivative u du e ↔
-      ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-        (∫ x : Space, (fderiv ℝ ψ x e) • u x) =
-          -(∫ x : Space, ψ x • du x) := Iff.rfl
+      ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+        (∫ x : MethbokeAddon.QuasiFeffermanA.Space, (fderiv ℝ ψ x e) • u x) =
+          -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • du x) := Iff.rfl
 
 example (u : SpatialL2) (G : Fin 3 → SpatialL2) :
     SpatialWeakGradient u G ↔
-      ∀ (j : Fin 3) (ψ : Space → ℝ),
+      ∀ (j : Fin 3) (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ),
         ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-        (∫ x : Space, (fderiv ℝ ψ x (EuclideanSpace.single j 1)) • u x) =
-          -(∫ x : Space, ψ x • G j x) := Iff.rfl
+        (∫ x : MethbokeAddon.QuasiFeffermanA.Space, (fderiv ℝ ψ x (EuclideanSpace.single j (1 : ℝ))) • u x) =
+          -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • G j x) := Iff.rfl
 
 -- F01: only a Schwartz scalar function and one direction.
-example (ψ : 𝓢(Space, ℝ)) (e : Space) :
+example (ψ : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, ℝ)) (e : MethbokeAddon.QuasiFeffermanA.Space) :
     ∂_{e} (ψ.postcompCLM Complex.ofRealCLM) =
       (∂_{e} ψ).postcompCLM Complex.ofRealCLM :=
   lineDeriv_postcomp_ofReal ψ e
 
 -- F02/F03: complete literal compact-real-test premise, no density port.
-example (u du : ComplexL2) (e : Space)
-    (h : ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ x : Space, fderiv ℝ ψ x e • u x) =
-        -(∫ x : Space, ψ x • du x)) :
-    (du : 𝓢'(Space, ComplexVector)) =
-      ∂_{e} (u : 𝓢'(Space, ComplexVector)) :=
+example (u du : ComplexL2) (e : MethbokeAddon.QuasiFeffermanA.Space)
+    (h : ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      (∫ x : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ x e • u x) =
+        -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • du x)) :
+    (du : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) =
+      ∂_{e} (u : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) :=
   temperedDerivative_of_realTestWeakDirectionalDerivative h
 
 -- F06: actual real L2 weak derivative transported by actual complexification.
-example (u du : RealL2) (e : Space)
-    (h : ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ x : Space, fderiv ℝ ψ x e • u x) =
-        -(∫ x : Space, ψ x • du x)) :
-    (complexifyL2 du : 𝓢'(Space, ComplexVector)) =
-      ∂_{e} (complexifyL2 u : 𝓢'(Space, ComplexVector)) :=
+example (u du : RealL2) (e : MethbokeAddon.QuasiFeffermanA.Space)
+    (h : ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      (∫ x : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ x e • u x) =
+        -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • du x)) :
+    (complexifyL2 du : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) =
+      ∂_{e} (complexifyL2 u : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) :=
   complexify_temperedDerivative_of_realTestWeakDirectionalDerivative h
 
 -- F04: the actual supplied directional derivative distribution identity.
-example (u du : ComplexL2) (e : Space)
-    (h : (du : 𝓢'(Space, ComplexVector)) =
-      ∂_{e} (u : 𝓢'(Space, ComplexVector))) :
-    ((𝓕 du : ComplexL2) : 𝓢'(Space, ComplexVector)) =
+example (u du : ComplexL2) (e : MethbokeAddon.QuasiFeffermanA.Space)
+    (h : (du : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) =
+      ∂_{e} (u : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector))) :
+    ((𝓕 du : ComplexL2) : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) =
       (2 * Real.pi * Complex.I) •
         TemperedDistribution.smulLeftCLM ComplexVector
-          (fun ξ : Space => (inner ℝ ξ e : ℂ))
-          ((𝓕 u : ComplexL2) : 𝓢'(Space, ComplexVector)) :=
+          (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => (inner ℝ ξ e : ℂ))
+          ((𝓕 u : ComplexL2) : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) :=
   fourier_directionalDerivative_distribution h
 
 -- F05: no derivative-density, frequency-integrability or H2 premise.
-example (u du : ComplexL2) (e : Space)
-    (h : (du : 𝓢'(Space, ComplexVector)) =
-      ∂_{e} (u : 𝓢'(Space, ComplexVector))) :
-    (fun ξ : Space => (𝓕 du : ComplexL2) ξ) =ᵐ[volume]
-      (fun ξ : Space => ((2 * Real.pi * Complex.I) *
+example (u du : ComplexL2) (e : MethbokeAddon.QuasiFeffermanA.Space)
+    (h : (du : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector)) =
+      ∂_{e} (u : 𝓢'(MethbokeAddon.QuasiFeffermanA.Space, ComplexVector))) :
+    (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => (𝓕 du : ComplexL2) ξ) =ᵐ[volume]
+      (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => ((2 * Real.pi * Complex.I) *
         (inner ℝ ξ e : ℂ)) • (𝓕 u : ComplexL2) ξ) :=
   fourier_directionalDerivative_ae h
 
 -- Compact-real-test version of the complex L2 identity.
-example (u du : ComplexL2) (e : Space)
-    (h : ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ x : Space, fderiv ℝ ψ x e • u x) =
-        -(∫ x : Space, ψ x • du x)) :
-    (fun ξ : Space => (𝓕 du : ComplexL2) ξ) =ᵐ[volume]
-      (fun ξ : Space => ((2 * Real.pi * Complex.I) *
+example (u du : ComplexL2) (e : MethbokeAddon.QuasiFeffermanA.Space)
+    (h : ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      (∫ x : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ x e • u x) =
+        -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • du x)) :
+    (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => (𝓕 du : ComplexL2) ξ) =ᵐ[volume]
+      (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => ((2 * Real.pi * Complex.I) *
         (inner ℝ ξ e : ℂ)) • (𝓕 u : ComplexL2) ξ) :=
   fourier_of_realTestWeakDirectionalDerivative h
 
 -- Compact-real-test version for native real L2 fields.
-example (u du : RealL2) (e : Space)
-    (h : ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ x : Space, fderiv ℝ ψ x e • u x) =
-        -(∫ x : Space, ψ x • du x)) :
-    (fun ξ : Space => (𝓕 (complexifyL2 du) : ComplexL2) ξ) =ᵐ[volume]
-      (fun ξ : Space => ((2 * Real.pi * Complex.I) *
+example (u du : RealL2) (e : MethbokeAddon.QuasiFeffermanA.Space)
+    (h : ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      (∫ x : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ x e • u x) =
+        -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • du x)) :
+    (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => (𝓕 (complexifyL2 du) : ComplexL2) ξ) =ᵐ[volume]
+      (fun ξ : MethbokeAddon.QuasiFeffermanA.Space => ((2 * Real.pi * Complex.I) *
         (inner ℝ ξ e : ℂ)) • (𝓕 (complexifyL2 u) : ComplexL2) ξ) :=
   complexify_fourier_of_realTestWeakDirectionalDerivative h
 
 -- F07: all three actual native coordinate derivatives; no Laplacian witness.
 example (u : SpatialL2) (G : Fin 3 → SpatialL2)
-    (h : ∀ (j : Fin 3) (ψ : Space → ℝ),
+    (h : ∀ (j : Fin 3) (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ),
       ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ x : Space, fderiv ℝ ψ x (EuclideanSpace.single j 1) • u x) =
-        -(∫ x : Space, ψ x • G j x)) :
-    ∀ᵐ ξ : Space ∂volume, ∀ j : Fin 3,
+      (∫ x : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ x (EuclideanSpace.single j (1 : ℝ)) • u x) =
+        -(∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • G j x)) :
+    ∀ᵐ ξ : MethbokeAddon.QuasiFeffermanA.Space ∂volume, ∀ j : Fin 3,
       (𝓕 (complexifyL2 (G j)) : ComplexL2) ξ =
-        ((2 * Real.pi * Complex.I) * (inner ℝ ξ (EuclideanSpace.single j 1) : ℂ)) •
+        ((2 * Real.pi * Complex.I) * (inner ℝ ξ (EuclideanSpace.single j (1 : ℝ)) : ℂ)) •
           (𝓕 (complexifyL2 u) : ComplexL2) ξ :=
   spatialWeakGradient_fourier_ae h
 

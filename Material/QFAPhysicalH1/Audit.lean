@@ -15,7 +15,7 @@ open QFA.Endpoints.Representation
 namespace PhysicalH1ExpectedTypes
 
 -- Explicit consumers: every argument and conclusion is written independently.
-example : ∀ {v G H : SpatialL2} {e : Space},
+example : ∀ {v G H : SpatialL2} {e : MethbokeAddon.QuasiFeffermanA.Space},
     RealTestWeakDirectionalDerivative v G e →
     RealTestWeakDirectionalDerivative v H e → G = H :=
   @realTestWeakDirectionalDerivative_unique
@@ -24,11 +24,11 @@ example : ∀ {v : SpatialL2} {G H : Fin 3 → SpatialL2},
     SpatialWeakGradient v G → SpatialWeakGradient v H → G = H :=
   @spatialWeakGradient_unique
 
-example : ∀ (ψ : Space → ℝ), Continuous ψ → HasCompactSupport ψ →
-    SpatialL2 →L[ℝ] Space := @compactPairingCLM
+example : ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), Continuous ψ → HasCompactSupport ψ →
+    SpatialL2 →L[ℝ] MethbokeAddon.QuasiFeffermanA.Space := @compactPairingCLM
 
-example : ∀ (ψ : Space → ℝ) (hψ : Continuous ψ) (hc : HasCompactSupport ψ)
-    (v : SpatialL2), compactPairingCLM ψ hψ hc v = ∫ x : Space, ψ x • v x :=
+example : ∀ (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ) (hψ : Continuous ψ) (hc : HasCompactSupport ψ)
+    (v : SpatialL2), compactPairingCLM ψ hψ hc v = ∫ x : MethbokeAddon.QuasiFeffermanA.Space, ψ x • v x :=
   @compactPairingCLM_apply
 
 example : Type := CompactSmoothScalarTest
@@ -45,13 +45,13 @@ example : ∀ (v : SpatialL2) (G : Fin 3 → SpatialL2), h1Pack v G 0 = v :=
 example : ∀ (v : SpatialL2) (G : Fin 3 → SpatialL2) (j : Fin 3),
     h1Pack v G j.succ = G j := @h1Pack_succ
 
-example : Fin 3 → CompactSmoothScalarTest → H1Ambient →L[ℝ] Space :=
+example : Fin 3 → CompactSmoothScalarTest → H1Ambient →L[ℝ] MethbokeAddon.QuasiFeffermanA.Space :=
   @weakGradientResidual
 
 example : ∀ (j : Fin 3) (φ : CompactSmoothScalarTest) (x : H1Ambient),
     weakGradientResidual j φ x =
-      (∫ y : Space, fderiv ℝ φ.value y (coordinateVector j) • x 0 y) +
-      ∫ y : Space, φ.value y • x j.succ y := @weakGradientResidual_apply
+      (∫ y : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ φ.value y (coordinateVector j) • x 0 y) +
+      ∫ y : MethbokeAddon.QuasiFeffermanA.Space, φ.value y • x j.succ y := @weakGradientResidual_apply
 
 example : ClosedSubmodule ℝ H1Ambient := physicalH1Graph
 
@@ -89,10 +89,10 @@ example : ∀ (v : SpatialL2) (G : Fin 3 → SpatialL2) (h : SpatialWeakGradient
     (j : Fin 3), physicalH1Gradient j (physicalH1OfWeakGradient v G h) = G j :=
   @physicalH1OfWeakGradient_gradient
 
-example : ∀ {ψ : Space → ℝ}, ContDiff ℝ ∞ ψ → Continuous (scalarGradient ψ) :=
+example : ∀ {ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ}, ContDiff ℝ ∞ ψ → Continuous (scalarGradient ψ) :=
   @scalarGradient_continuous
 
-example : ∀ {ψ : Space → ℝ}, HasCompactSupport ψ →
+example : ∀ {ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ}, HasCompactSupport ψ →
     HasCompactSupport (scalarGradient ψ) := @scalarGradient_hasCompactSupport
 
 example : CompactSmoothScalarTest → SpatialL2 := scalarTestGradientL2
@@ -104,11 +104,11 @@ example : ∀ φ : CompactSmoothScalarTest,
 example : CompactSmoothScalarTest → SpatialL2 →L[ℝ] ℝ := solenoidalTestCLM
 
 example : ∀ (φ : CompactSmoothScalarTest) (v : SpatialL2),
-    solenoidalTestCLM φ v = ∫ x : Space, inner ℝ (v x) (scalarGradient φ.value x) :=
+    solenoidalTestCLM φ v = ∫ x : MethbokeAddon.QuasiFeffermanA.Space, inner ℝ (v x) (scalarGradient φ.value x) :=
   @solenoidalTestCLM_apply
 
 example : ∀ (φ : CompactSmoothScalarTest) (v : SpatialL2),
-    Integrable (fun x : Space => inner ℝ (v x) (scalarGradient φ.value x)) volume :=
+    Integrable (fun x : MethbokeAddon.QuasiFeffermanA.Space => inner ℝ (v x) (scalarGradient φ.value x)) volume :=
   @integrable_solenoidalTest
 
 example : ∀ v : SpatialL2,
@@ -140,25 +140,25 @@ example : ∀ u : PhysicalH1Sigma,
 example : Function.Injective (fun u : PhysicalH1Sigma => u.val 0) :=
   physicalH1Sigma_velocity_injective
 
-example : ∀ a : 𝓢(Space, Space), SpatialWeakGradient (a.toLp 2 volume)
+example : ∀ a : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space), SpatialWeakGradient (a.toLp 2 volume)
     (fun j => (∂_{coordinateVector j} a).toLp 2 volume) := @schwartz_spatialWeakGradient
 
-example : 𝓢(Space, Space) → PhysicalH1 := schwartzToPhysicalH1
+example : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space) → PhysicalH1 := schwartzToPhysicalH1
 
-example : ∀ a : 𝓢(Space, Space),
+example : ∀ a : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space),
     physicalH1Velocity (schwartzToPhysicalH1 a) = a.toLp 2 volume :=
   @schwartzToPhysicalH1_velocity
 
-example : ∀ a : 𝓢(Space, Space), Solenoidal (a.toLp 2 volume) → PhysicalH1Sigma :=
+example : ∀ a : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space), Solenoidal (a.toLp 2 volume) → PhysicalH1Sigma :=
   @schwartzToPhysicalH1Sigma
 
-example : ∀ (a : 𝓢(Space, Space)) (hsol : Solenoidal (a.toLp 2 volume)),
+example : ∀ (a : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space)) (hsol : Solenoidal (a.toLp 2 volume)),
     (schwartzToPhysicalH1Sigma a hsol).val 0 = a.toLp 2 volume :=
   @schwartzToPhysicalH1Sigma_velocity
 
 -- Literal physical-contract checks. These explicitly retain full R3 volume,
 -- all compact real tests, actual derivatives, and the physical norm.
-example (ψ : Space → ℝ) (hψ : ContDiff ℝ ∞ ψ) (hc : HasCompactSupport ψ) :
+example (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ) (hψ : ContDiff ℝ ∞ ψ) (hc : HasCompactSupport ψ) :
     CompactSmoothScalarTest := ⟨ψ, hψ, hc⟩
 
 example (φ : CompactSmoothScalarTest) :
@@ -166,35 +166,35 @@ example (φ : CompactSmoothScalarTest) :
   ⟨φ.smooth, φ.compact_support⟩
 
 example (x : H1Ambient) : x ∈ physicalH1Graph ↔
-    ∀ (j : Fin 3) (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ y : Space, fderiv ℝ ψ y (EuclideanSpace.single j 1) • x 0 y) =
-      -(∫ y : Space, ψ y • x j.succ y) := mem_physicalH1Graph_iff x
+    ∀ (j : Fin 3) (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      (∫ y : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ y (EuclideanSpace.single j (1 : ℝ)) • x 0 y) =
+      -(∫ y : MethbokeAddon.QuasiFeffermanA.Space, ψ y • x j.succ y) := mem_physicalH1Graph_iff x
 
 example (x : H1Ambient) : x ∈ physicalH1SigmaGraph ↔
-    (∀ (j : Fin 3) (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      (∫ y : Space, fderiv ℝ ψ y (EuclideanSpace.single j 1) • x 0 y) =
-      -(∫ y : Space, ψ y • x j.succ y)) ∧
-    (∀ ψ : Space → ℝ, ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
-      Integrable (fun y : Space => inner ℝ (x 0 y)
+    (∀ (j : Fin 3) (ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      (∫ y : MethbokeAddon.QuasiFeffermanA.Space, fderiv ℝ ψ y (EuclideanSpace.single j (1 : ℝ)) • x 0 y) =
+      -(∫ y : MethbokeAddon.QuasiFeffermanA.Space, ψ y • x j.succ y)) ∧
+    (∀ ψ : MethbokeAddon.QuasiFeffermanA.Space → ℝ, ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+      Integrable (fun y : MethbokeAddon.QuasiFeffermanA.Space => inner ℝ (x 0 y)
         (WithLp.toLp 2 (fun j : Fin 3 =>
-          fderiv ℝ ψ y (EuclideanSpace.single j 1)))) volume ∧
-      (∫ y : Space, inner ℝ (x 0 y)
+          fderiv ℝ ψ y (EuclideanSpace.single j (1 : ℝ))))) volume ∧
+      (∫ y : MethbokeAddon.QuasiFeffermanA.Space, inner ℝ (x 0 y)
         (WithLp.toLp 2 (fun j : Fin 3 =>
-          fderiv ℝ ψ y (EuclideanSpace.single j 1)))) = 0) :=
+          fderiv ℝ ψ y (EuclideanSpace.single j (1 : ℝ))))) = 0) :=
   mem_physicalH1SigmaGraph_iff x
 
 example : InnerProductSpace ℝ PhysicalH1 := inferInstance
 example : InnerProductSpace ℝ PhysicalH1Sigma := inferInstance
 example : CompleteSpace H1Ambient := inferInstance
 
-example (a : 𝓢(Space, Space)) (j : Fin 3) :
+example (a : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space)) (j : Fin 3) :
     physicalH1Gradient j (schwartzToPhysicalH1 a) =
-      (∂_{EuclideanSpace.single j 1} a).toLp 2 volume := rfl
+      (∂_{EuclideanSpace.single j (1 : ℝ)} a).toLp 2 volume := rfl
 
-example (a : 𝓢(Space, Space)) (hsol : Solenoidal (a.toLp 2 volume)) :
+example (a : 𝓢(MethbokeAddon.QuasiFeffermanA.Space, MethbokeAddon.QuasiFeffermanA.Space)) (hsol : Solenoidal (a.toLp 2 volume)) :
     ‖schwartzToPhysicalH1Sigma a hsol‖ ^ 2 =
       ‖a.toLp 2 volume‖ ^ 2 +
-      ∑ j : Fin 3, ‖(∂_{EuclideanSpace.single j 1} a).toLp 2 volume‖ ^ 2 :=
+      ∑ j : Fin 3, ‖(∂_{EuclideanSpace.single j (1 : ℝ)} a).toLp 2 volume‖ ^ 2 :=
   physicalH1Sigma_norm_sq (schwartzToPhysicalH1Sigma a hsol)
 
 end PhysicalH1ExpectedTypes

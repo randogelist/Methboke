@@ -1,0 +1,107 @@
+{
+  "status": "PASS_STATIC_ONLY_PENDING_EXTERNAL",
+  "packages": [
+    {
+      "package": "QFAH1FourierReverse",
+      "module": "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean",
+      "sha256": "ff3ea4e617028a35e3645a7b8d869b5598def0646953d1ef256d82fececdaa3a",
+      "declarations": 8,
+      "theorems": 8,
+      "definitions": 0,
+      "scope": "Two-way first-derivative Fourier identification of supplied actual real L2 velocity and gradient fields, without Laplacian, H2, NSE, or extra spectral-integrability premises.",
+      "plan_endpoints": [
+        "P02"
+      ],
+      "parent_gaps": [
+        "G05"
+      ],
+      "status": "PREPARED_PENDING_MATCHING_EXTERNAL_EVIDENCE",
+      "b_tier_chain": "DERIVATIONS/H1_REVERSE_CHAIN.txt"
+    },
+    {
+      "package": "QFAPhysicalH1Budget",
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Budget.lean",
+      "sha256": "be0fdfa70d83feae2bbe93a5cbff0ca66718ccf56ce8584c43db6c08709d1223",
+      "declarations": 15,
+      "theorems": 13,
+      "definitions": 2,
+      "scope": "Actual physical H1 energy/enstrophy observables and norm identity; finite full budgets from full closed-slab path continuity; uniform H1 bounds under explicit energy, AC/cubic, and finite full-budget premises.",
+      "plan_endpoints": [
+        "P08",
+        "P15"
+      ],
+      "parent_gaps": [
+        "G03",
+        "G06"
+      ],
+      "status": "PREPARED_PENDING_MATCHING_EXTERNAL_EVIDENCE",
+      "b_tier_chain": "DERIVATIONS/PHYSICAL_H1_BUDGET_CHAIN.txt"
+    },
+    {
+      "package": "QFASixSectors",
+      "module": "MethbokeAddon.QuasiFeffermanA.SixSectors",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/SixSectors.lean",
+      "sha256": "e75ecb15c39b455b5d23336cd2404e6663fa02dc64345d30716dfecbcd4efcf3",
+      "declarations": 17,
+      "theorems": 15,
+      "definitions": 2,
+      "scope": "Exact six even Borel cones on physical Euclidean R3 with lower-index tie priority, unique pointwise partition, nonempty interiors and actual real indicator algebra; no physical Fourier projector or NSE construction.",
+      "plan_endpoints": [
+        "P03"
+      ],
+      "parent_gaps": [
+        "G05"
+      ],
+      "status": "PREPARED_PENDING_MATCHING_EXTERNAL_EVIDENCE",
+      "b_tier_chain": "DERIVATIONS/SIX_SECTORS_CHAIN.txt"
+    },
+    {
+      "package": "QFAEnstrophyCoefficient",
+      "module": "MethbokeAddon.QuasiFeffermanA.EnstrophyCoefficient",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean",
+      "sha256": "80b534f95a566ea2f8062f4485bd9069221cbbdb2709dfe5401fc45074e8428e",
+      "declarations": 8,
+      "theorems": 8,
+      "definitions": 0,
+      "scope": "Exact scalar fourth-power Young coefficient extraction and conditional AC/full-stopped-budget composition; actual spatial and PDE admission remains explicit.",
+      "plan_endpoints": [
+        "P09",
+        "P12",
+        "P15"
+      ],
+      "parent_gaps": [
+        "G03"
+      ],
+      "status": "PREPARED_PENDING_MATCHING_EXTERNAL_EVIDENCE",
+      "b_tier_chain": "DERIVATIONS/ENSTROPHY_COEFFICIENT_CHAIN.txt"
+    },
+    {
+      "package": "QFASixSectorL2",
+      "module": "MethbokeAddon.QuasiFeffermanA.SixSectorMultipliers",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean",
+      "sha256": "830745b5e48c929752518b14e4ebea6d8563d9846697cc6c23a7b42ec036fa0c",
+      "declarations": 28,
+      "theorems": 24,
+      "definitions": 4,
+      "scope": "Constructed complex-vector full-volume L2 sector restrictions and Fourier-conjugate projections: bounded linearity, idempotence, orthogonality, reconstruction, exact norm splitting and supplied scalar multiplier commutation. Native real-range/H1/solenoidal adapters remain open.",
+      "plan_endpoints": [
+        "P04_COMPLEX_L2_SUBLAYER"
+      ],
+      "parent_gaps": [
+        "G05"
+      ],
+      "status": "PREPARED_PENDING_MATCHING_EXTERNAL_EVIDENCE",
+      "b_tier_chain": "DERIVATIONS/SIX_SECTOR_L2_CHAIN.txt"
+    }
+  ],
+  "total_packages": 86,
+  "named_reports_expected": 853,
+  "new_named_reports": 76,
+  "new_theorems": 68,
+  "new_definitions": 8,
+  "prior_records_preserved": true,
+  "local_lean_executions": 0,
+  "new_formal_acceptance": false
+}

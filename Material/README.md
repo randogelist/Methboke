@@ -170,3 +170,8 @@ Galerkin-convergence result is inferred from this acceptance.
 ## NSE-A first construction batch
 
 [Physical H1](QFAPhysicalH1/README.md), [AC scalar budget](QFAACBudget/README.md), [six-charge budgets](QFASixChargeBudget/README.md), and [forward H1 Fourier](QFAH1Fourier/README.md) prepare79 new named declarations. Expected complete coverage is81 fresh package audits and777 named reports; source and audit preparation is pending matching external acceptance. The old accepted QFA baseline is463 modules/77 packages/698 reports at afd67db4.
+
+
+## NSE-A second construction batch
+
+QFAH1FourierReverse, QFAPhysicalH1Budget, QFASixSectors, QFAEnstrophyCoefficient and QFASixSectorL2 add 76 named declarations (68 theorems, 8 definitions). The intended registry now contains 86 packages and 853 named reports. These are registration counts; external acceptance is tracked separately in the [six-gap record](../R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json). Compiler/dependency/audit/cache policies are unchanged.

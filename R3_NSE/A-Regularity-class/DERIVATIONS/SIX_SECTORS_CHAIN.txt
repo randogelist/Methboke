@@ -1,0 +1,78 @@
+NSE_A_SIX_SECTORS_B_TIER_CHAIN
+VERSION = 1.0
+DATE = 2026-11-20
+MODE = B_TIER_DERIVATION_BEFORE_NATIVE_EXTERNAL_VERIFICATION
+TARGET = P03, within G05 NSE_A_PHYSICAL_H1_FOURIER_SIX_PROJECTORS
+SOURCE_BASIS = 053147fc75677f3b086a7a2da740ccc95fed5b8f
+LOCAL_LEAN_EXECUTION = NONE; STRICTLY_FORBIDDEN
+
+1. FIXED PHYSICAL DOMAIN AND EXACT TIE RULE
+
+Let xi in R^3 and a_j = |xi_j| for j=0,1,2. Order coordinates by decreasing
+a_j, and let the smaller index win ties. The six permutation sectors are:
+
+C_0 = {a_1 <= a_0 and a_2 <= a_1}       (012)
+C_1 = {a_2 <= a_0 and a_1 < a_2}        (021)
+C_2 = {a_0 < a_1 and a_2 <= a_0}        (102)
+C_3 = {a_2 <= a_1 and a_0 < a_2}        (120)
+C_4 = {a_0 < a_2 and a_1 <= a_0}        (201)
+C_5 = {a_1 < a_2 and a_0 < a_1}         (210).
+
+In particular, zero lies in C_0 only; there is no omitted boundary or
+arbitrary almost-everywhere choice. These match the registered six even cones.
+
+2. BOREL ADMISSION
+
+Each coordinate map xi -> xi_j is continuous on the actual Euclidean carrier.
+Absolute value is continuous, and <= comparison is closed while < comparison
+is open. Each C_i is a finite intersection of such comparisons, hence Borel.
+No smoothness of the discontinuous indicator is asserted or needed.
+
+3. EXHAUSTION
+
+Split first on a_1 <= a_0. If true, split on a_2 <= a_1: the affirmative
+case lies in C_0. Otherwise a_1 < a_2; splitting on a_2 <= a_0 gives C_1
+or C_4. If a_1 > a_0, split on a_2 <= a_0: this gives C_2. In the remaining
+case a_0 < a_2, split on a_2 <= a_1: this gives C_3 or C_5.
+Thus every xi lies in at least one C_i.
+
+4. EXACT DISJOINTNESS AND UNIQUE MEMBERSHIP
+
+For each distinct pair of the six listed orders, their inequalities force a
+contradiction in the linear order on the a_j. In particular all equalities are
+assigned by the lower-index priority and cannot belong to a second sector.
+Therefore C_i intersect C_j is empty for i != j. Combined with step 3 this
+proves existence and uniqueness of the sector index and union_i C_i = R^3.
+
+5. EVENNESS AND NONTRIVIALITY
+
+The replacement xi -> -xi preserves every |xi_j| and all inequalities.
+Consequently -xi in C_i iff xi in C_i. Replace every weak inequality in C_i
+by a strict inequality to obtain an open subset. The points (3,2,1),(3,1,2),
+(2,3,1),(1,3,2),(2,1,3),(1,2,3), respectively, lie in these open subsets.
+Each C_i therefore has nonempty interior; none of the six sectors is empty.
+
+6. ACTUAL SYMBOL ALGEBRA
+
+Define m_i(xi) = 1_{C_i}(xi), a real scalar symbol. Steps 2 and 5 imply
+measurability and m_i(-xi)=m_i(xi). As an actual indicator it obeys |m_i|<=1,
+m_i^2=m_i. Exact disjointness yields m_i*m_j=0 for i!=j. At every xi exactly
+one indicator equals one, so sum_i m_i(xi)=1, including zero and all ties.
+
+7. NATIVE PREPARATION AND EXACT SCOPE
+
+Owned source: Material/MethbokeAddon/QuasiFeffermanA/SixSectors.lean.
+Package: Material/QFASixSectors. The complete independent expected-type
+consumers also expand the six literal inequalities and indicator definition.
+Seventeen named declarations (two definitions and fifteen theorems) are
+submitted for matching cached external type/kernel/axiom verification.
+Static source preparation is not an A-tier result.
+
+8. FIRST REMAINING EDGE / STOP OF THIS CHAIN
+
+The Borel-symbol chain is complete as a written derivation. Its next physical
+edge is construction of the L2 multiplier operators and their Fourier
+conjugates. The symbol algebra alone does not prove real inverse-Fourier range,
+weak-gradient or solenoidal commutation, spatial H1 admission or charge
+additivity. Those are distinct P04--P06 obligations within G05; this P03
+package does not mark the parent gap closed or assert NSE regularity.

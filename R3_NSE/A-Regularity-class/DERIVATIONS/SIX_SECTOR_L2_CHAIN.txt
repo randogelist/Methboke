@@ -1,0 +1,73 @@
+NSE_A_SIX_SECTOR_L2_B_TIER_CHAIN
+VERSION = 1.0
+DATE = 2026-11-20
+PARENT = G05, P04 complex-vector L2 layer
+STATUS = B_TIER_CHAIN_AND_PREPARED_NATIVE_CANDIDATE
+LOCAL_LEAN_EXECUTION = NONE; STRICTLY_FORBIDDEN
+
+1. ACTUAL FREQUENCY CARRIER
+
+Use H=L2(R3;C3) with full Lebesgue volume and Euclidean vector norm. Let C_i
+be the six concrete Borel sectors from SIX_SECTORS_CHAIN.txt. For f in H,
+1_{C_i} f is strongly measurable almost everywhere, and its pointwise norm
+is at most ||f(xi)||. It belongs to L2. Define P_i f to be its actual L2
+equivalence class through Mathlib's MemLp.indicator and MemLp.toLp.
+This is a construction, with no supplied operator or projection premise.
+
+2. REPRESENTATIVE AND LINEARITY
+
+By the Lp constructor, P_i f(xi)=1_{C_i}(xi) f(xi) almost everywhere.
+Indicators distribute over vector addition and complex scalar multiplication;
+the a.e. identities prove L2 equality. P_i is complex-linear, and the norm
+comparison proves ||P_i f||_2 <= ||f||_2. Package it as a continuous linear map.
+
+3. PROJECTION ALGEBRA
+
+Applying the representative identity twice gives P_i(P_i f)=P_i f. Exact
+sector disjointness gives P_i(P_j f)=0 for i!=j. For a finite family, take the
+common full-measure intersection of all representative identities. At each
+frequency exactly one sector is present, hence sum_i P_i f=f in L2.
+
+4. SELF-ADJOINTNESS, ORTHOGONALITY AND NORM SPLITTING
+
+By the actual L2 inner-product integral, <P_i f,g>=<f,P_i g>: on C_i both
+integrands equal <f,g>, and on its complement both vanish. Disjoint sectors
+have <P_i f,P_j g>=0. Using idempotence and self-adjointness,
+||P_i f||_2^2=<f,P_i f>. Summing and reconstructing yields
+sum_i ||P_i f||_2^2=||f||_2^2. All statements hold for complex vector fields,
+with no finite-volume assumption or scalar component loss.
+
+5. ACTUAL FOURIER CONJUGATION
+
+Mathlib's L2 Fourier transform F:H->H is a complex-linear isometric
+equivalence. Define Q_i f = F^{-1}(P_i(F f)). This gives actual bounded
+complex-linear operators. Conjugating step 3 yields Q_i^2=Q_i,
+Q_i Q_j=0 for i!=j and sum_i Q_i=I. Plancherel transports the norm bound,
+self-adjointness, orthogonality and exact squared-norm decomposition.
+
+6. SUPPLIED MULTIPLIER COMMUTATION
+
+If actual L2 classes f,g satisfy g(xi)=m(xi)f(xi) almost everywhere, their
+sector projections satisfy P_i g(xi)=m(xi)P_i f(xi) almost everywhere.
+This follows by multiplication of the indicator, without smoothness or
+boundedness of m: L2 membership of f,g is already supplied. This is useful
+for the coordinate derivative symbols but does not construct a missing
+weighted derivative representative.
+
+7. FIRST REMAINING PHYSICAL EDGE / STOP OF THIS CHAIN
+
+The exact complex-vector L2 construction does not by itself prove that Q_i
+maps the real-valued physical L2 range into itself. The missing adapter is
+Fourier Hermitian symmetry/reflection or an equivalent actual real-range
+proof. Only after that and the two-way weak-derivative bridge can these Q_i
+be promoted to physical real H1 projectors and charge additivity. Solenoidal
+commutation, canonical NSE construction and regularity remain separate.
+No parent gap or NSE-A root is closed by this scoped complex L2 package.
+
+NATIVE PATHS
+
+Material/MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean
+Material/QFASixSectorL2/Endpoint.lean
+Material/QFASixSectorL2/Audit.lean
+Matching cached external compilation, independent exact type consumers and
+named standard-only axiom reports are required before any A-tier signal.

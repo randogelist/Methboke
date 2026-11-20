@@ -389,3 +389,189 @@ The source statements, full expected-type consumers and native pins were
 independently inspected. Source derivations are retained in DERIVATIONS/.
 New source references: LEAN_CUTOUTS/project_recovery/README.md.
 No six-gap parent is marked complete. No local Lean was executed.
+
+
+12. SECOND-BATCH REUSE FOLLOW-UP
+NSE-A G01--G04 REUSE FOLLOW-UP AND INDEPENDENT SCALAR PROGRESS
+Date: 2026-11-20
+Reviewer scope: source inspection, B-tier reasoning, source preparation.
+Local Lean/Lake/kernel/runner executions: NONE.
+Project goal retained: Fefferman_D. Branch scope: AC-Integration NSE-A helpers.
+
+1. CURRENT EVIDENCE AND REUSE BASIS
+
+Read current AGENTS.md, GPT.txt, source gap register, source leads, existing
+package assessment, and relevant physical/scalar native sources. The existing
+review already records the complete 51-cutout source collection plus the
+matched historical FRONTIER_A projector package. These remain the canonical
+prior provenance records; no older evidence is relabeled as native 4.33.
+
+Native target environment:
+  Lean 4.33.0;
+  Mathlib db584cd6d46c92f209a44c0f1c829460d327499d.
+Inspected external leads:
+  uda-lab/leray-hopf e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc;
+  tristanbuckmaster/navier-stokes ad53419de079eb8f95f60313473374624a348546.
+
+The latter's RegLocal.lean:12--34 was reread directly. Its actual theorem
+Breakdown.SmoothFlow.exists_local_varConst assumes m>=3, an H^m Fourier norm
+bound, measurable solenoidal Fourier data, and constructs a Duhamel solution.
+The theorem does not have an arbitrary H1 input or H1-controlled lifespan.
+Whole-source searches for local/H1/fixed-point constructors did not identify a
+new matching H1 theorem in these two inspected snapshots. This is a bounded
+search finding, not a global claim that such a theorem exists nowhere.
+
+The actual local Galerkin ODE constructors in uda-lab are finite-dimensional.
+They cannot be promoted to the desired infinite-dimensional H1 evolution
+without uniform bounds, convergence and physical solution admission.
+
+2. FURTHER GPT-PROJECT MATERIAL READ
+
+Library title searches recovered additional FRONTIER_A packages and three
+relevant written reviews. Only read content is used as substantive evidence:
+
+(a) FRONTIER_A_PACKAGE_REVIEW_B_TIER.txt, version 4, lines1--180,
+    libfile_248284b335408191809f2356a49c2745.
+    https://chatgpt.com/library?file_id=libfile_248284b335408191809f2356a49c2745&account_id=personal
+    The review of 15 archives explicitly separates physical constructors
+    from abstract ports and identifies multiple equivalent-condition wrappers.
+    For example WholeSpaceAPhysicalPort.globalZeroForce supplies the root
+    conclusion; the port-equivalence does not construct it. This corroborates
+    the existing caution about the older MASTERAC/ABCD archives.
+
+(b) FRONTIER_A_AUDITED_PHYSICAL_CHAIN_B_TIER.txt, lines1--220,
+    libfile_8f885760d51c8191b388bd05a4ed5ade.
+    https://chatgpt.com/library?file_id=libfile_8f885760d51c8191b388bd05a4ed5ade&account_id=personal
+    It describes historical STANDARD_ONLY_457_NAMED_THEOREMS evidence for
+    ENERGY_SLICING_SQUARE_2REPAIR and explicitly limits acceptance to its
+    written hypotheses. Useful named leads include
+      FrontierSlicingEnergyClass.pair_locallyIntegrable_of_memLp,
+      FrontierSeparatedWeakSlicing.weak_at_ae_of_separated_tests,
+      FrontierPublishedFieldSymbols.published_symbols_of_weak_gradient,
+      FrontierGradientOnlyFinalEnergy.gram_of_matrix_energy,
+      FrontierGradientOnlyFinalEnergy.gram_halfline_of_matrix_budgets.
+    They concern Bochner/slice/helical Gram inputs, not construction of a
+    canonical NSE trajectory or its enstrophy time derivative.
+    The document marks the independent Stokes-square-root identification and
+    physical spacetime-to-Bochner realization separately. The historical run
+    is reported by this review; no fresh source/hash/log matching was performed
+    for those 457 reports in this follow-up.
+
+(c) FRONTIER_A_PHYSICAL_BRIDGES_B_TIER.txt, lines1--160,
+    libfile_01eee19995548191bbdb266d9f800408.
+    https://chatgpt.com/library?file_id=libfile_01eee19995548191bbdb266d9f800408&account_id=personal
+    Supplies an explicit B-tier product-space section and countable-test
+    slicing route. A closed weak-gradient graph transports measurable
+    (u,grad u) into H1-valued measurability. The physical H1 foundation being
+    constructed now therefore has a second use in later PDE time spaces.
+    It assumes standard energy-class and initial energy-inequality inputs.
+
+(d) A_DAGGER_R3_EPSILON_LAMBDA_REGULARITY_B_TIER.txt, lines1--260,
+    libfile_26a7cb204180819184059e0c519dd504.
+    https://chatgpt.com/library?file_id=libfile_26a7cb204180819184059e0c519dd504&account_id=personal
+    It records the same sharp S6^6=16/(27pi^4), a Hilbert-valued extension
+    through |grad|F||<=|grad F|, and local H1 theory as literature input.
+    This is useful B-tier analysis, not a newly recovered sharp Lean theorem.
+
+3. G01: NEXT NONCIRCULAR CONSTRUCTION LAYERS
+
+The current H^m constructor lead can inspire the fixed-point architecture.
+It does not eliminate the need for H1 heat/Leray bilinear estimates, initial
+trace, uniqueness, H1 lifetime control, and L2_t H2 regularity.
+
+An independent exact viscosity adapter is mathematically available:
+  v_tau + (v.grad)v + grad q = Delta v,
+  v(0)=a/nu
+  ==> u(t,x)=nu v(nu t,x), p(t,x)=nu^2 q(nu t,x)
+      solves viscosity-nu NSE with u(0)=a.
+Every PDE term acquires the common factor nu^2. If a viscosity-one H1 local
+theorem gives T_1(b)>=c||grad b||_2^(-4), the transported time is
+  T_nu(a)>=c nu^3 ||grad a||_2^(-4).
+This exact adapter is useful after an actual viscosity-one theorem exists.
+It cannot repair the lead's stronger H^m input or create H1 lifetime control.
+
+FIRST G01 BLOCKED EDGE: H1-controlled whole-space fixed point/energy-class
+constructor on the actual native real weak-gradient carrier.
+
+4. G02/G03: NEW CLOSED SCALAR SUBCHAIN PREPARED
+
+Prepared after the B-tier derivation:
+  Material/MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean
+  Material/QFAEnstrophyCoefficient/{Endpoint.lean,Audit.lean,endpoint.json,README.md}
+  R3_NSE/A-Regularity-class/DERIVATIONS/ENSTROPHY_COEFFICIENT_CHAIN.txt
+
+The eight public theorem names, in exact manifest order, are
+  enstrophy_young_polynomial_identity
+  enstrophy_young_polynomial_bound
+  enstrophy_fourth_power_young_bound
+  enstrophy_cubic_of_fourth_power
+  enstrophy_coefficient_eq_pi
+  enstrophy_cubic_pi_of_fourth_power
+  enstrophy_cubic_pi_without_dissipation
+  enstrophy_uniform_of_fourth_power_finite_budget
+all in namespace MethbokeAddon.QuasiFeffermanA.
+
+The new scalar route uses the polynomial identity
+ (3N-2V)^2(3N^2+4NV+4V^2)=27N^4-32NV^3+16V^4.
+From N^4<=S^6Y^3Z^3 and d+2nu Z<=2N it proves
+  d+nu Z <= (27S^6/(16nu^3))Y^3.
+With the explicit supplied sixth-power equality it recovers precisely
+  d+nu Z <= Y^3/(pi^4nu^3).
+The zero-Z branch is proved before cancellation. The final theorem takes
+actual scalar AC, a.e. nonnegativity/evolution estimates and finite full
+stopped square budget J, then proves
+  Y(t)<=Y(0) exp[J.toReal/(pi^4nu^3)] for every 0<=t<b.
+
+Eight independent full consumer types were prepared; each named theorem has
+matching TYPE_BEGIN/END and AXIOMS_BEGIN/END sentinels. Nonexecuting checks
+confirmed exactly eight declarations, eight consumers and all 32 unique
+marker pairs/entries. No placeholder proof or custom axiom occurs in source.
+This is source preparation and static inspection, not formal acceptance.
+
+FIRST G02 BLOCKED EDGE: actual admissibility of the registered sharp spatial
+constant and vector/tensor transport on the same physical H1/H2 spaces.
+FIRST G03 PHYSICAL BLOCKED EDGE: actual solution -> time AC, physical F4 and
+physical enstrophy inequality. The scalar conclusion is conditional on them.
+
+5. G04: WHY TERMINAL CONTROL MUST REMAIN AN EXPLICIT PDE LEMMA
+
+Mere joint smoothness on R3 x [0,T] plus uniform L2 energy does not, by
+functional analysis alone, imply a uniform global H1 norm. This can be seen
+without asserting any NSE counterexample:
+
+Choose a nonzero smooth compactly supported divergence-free F on R3 with
+||F||_2=1 and support in the unit ball. For n>=1 set
+  x_n=(n,0,0), F_n(x)=n^(3/2) F(n(x-x_n)).
+Then ||F_n||_2=1 and ||grad F_n||_2=n||grad F||_2.
+Take t_n=1-2^(-n), pairwise disjoint time bumps beta_n centered at t_n,
+supported in (t_n-2^(-n-3),t_n+2^(-n-3)), with beta_n(t_n)=1 and
+0<=beta_n<=1. Define U(t,x)=sum_n beta_n(t)F_n(x), extending by zero
+outside the bump intervals and for t>=1. This sum is locally finite in
+space, including in every neighborhood of each finite point at t=1.
+Thus U is jointly smooth and divergence-free, sup_t||U(t)||_2<=1, yet
+||grad U(t_n)||_2=n||grad F||_2 -> infinity.
+
+This is a general field example, not an NSE solution. It proves that a
+literal competitor's terminal H1 control must use the PDE and its global
+spatial estimates, not only the wording smooth plus finite energy.
+Agreement with a canonical trajectory on every shorter slab does not supply
+this missing uniform estimate by itself.
+
+FIRST G04 BLOCKED EDGE: physical all-order/pressure recovery and then a PDE
+closed-slab H1 admission for the literal competitor sufficient for canonical
+continuation. Existing bounded-reference comparison is useful, but its
+shorter-slab hypotheses cannot be silently made uniform at the endpoint.
+
+6. RECOMMENDED NEXT SCOPED ENDPOINTS
+
+(i) Externally compile/audit the new eight-name scalar module with unchanged
+    native pins and policy; root integrates owned-source and closure metadata.
+(ii) Finish real-preserving physical six-sector projectors and H1 commutation.
+(iii) Derive H1-valued trajectory measurability from the actual closed graph,
+      reusing the explicit product/slice lead while retaining its hypotheses.
+(iv) Construct physical H2/Hessian-Laplacian identification separately from
+     the sharp Sobolev admission and actual time-energy evolution.
+(v) Keep whole-space H1 local existence as the principal physical dependency,
+    even though independent scalar and spatial helpers can advance now.
+
+No parent gap or NSE-A root is declared closed by this follow-up.

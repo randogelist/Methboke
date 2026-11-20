@@ -178,3 +178,10 @@ required exact-type and theorem-axiom audit freshly. New source preparation
 or a green workflow alone is not A-tier. Matching evidence must cover the
 precise statement and allow only `propext`, `Classical.choice` and `Quot.sound`.
 Missing official Mathlib objects do not authorize a source rebuild.
+
+
+## Further NSE-A construction
+
+Five further packages prepare **76 additional named declarations**, including actual complex L2 Fourier projections, reverse first-derivative identification, physical H1 budget bounds and exact conditional cubic coefficient extraction. [Scoped construction register](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json). These sources await matching external acceptance; all six parent gaps remain open.
+
+The [first-batch source pass](audits/material-abd35c43-nse-a-audit-failed/summary.json) compiled all 471 modules. The independent audits required type qualification; their repair and the second batch await matching full verification.

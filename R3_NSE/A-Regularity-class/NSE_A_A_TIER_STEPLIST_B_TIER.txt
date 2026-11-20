@@ -1737,3 +1737,627 @@ unchanged public statements and independent consumers. Acceptance is pending.
 The blocked elaboration goal was literal reflexivity after the complete
 integration-by-parts argument. Its closing proof changes no mathematical
 premise, conclusion or independent audit consumer. No local Lean executed.
+
+
+ADDENDUM 1.5 -- SECOND INDEPENDENT NATIVE BATCH
+DATE:2026-11-20. Five packages prepare76 named declarations:68theorems,8definitions.
+First batch is frozen at abd35c434/run44806540815 during this independent work.
+No six-gap parent or canonical regularity root is closed by these helpers.
+
+SOURCE:DERIVATIONS/H1_REVERSE_CHAIN.txt
+
+NSE_A_H1_REVERSE_FOURIER_CHAIN
+DATE = 2026-11-20
+SOURCE_BASIS = 053147fc75677f3b086a7a2da740ccc95fed5b8f
+MODE = B_TIER_DERIVATION_BEFORE_NATIVE_EXTERNAL_VERIFICATION
+PARENT_TARGET = G05
+PLAN_ENDPOINT = P02
+NATIVE_MODULE = MethbokeAddon.QuasiFeffermanA.H1FourierReverse
+PUBLIC_SCOPE = Eight first-derivative identification theorems.
+STATUS = PREPARED_PENDING_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_EVIDENCE
+LOCAL_LEAN_EXECUTION = NONE
+
+1. EXACT CARRIERS AND GIVEN DATA
+
+Space is actual Euclidean R3 with full Lebesgue volume. RealL2 and ComplexL2
+are actual real-vector and complex-vector L2 equivalence classes. The native
+complexification is the already constructed isometric real-linear map.
+Let u, du be supplied ComplexL2 fields and e a supplied real direction.
+Assume, almost everywhere in frequency,
+  F(du)(xi) = (2*pi*i)*<xi,e>*F(u)(xi).
+No Laplacian, second derivative, PDE, or norm identity is assumed.
+
+2. FROM AN ACTUAL L2 MULTIPLIER REPRESENTATIVE TO DISTRIBUTIONS
+
+More generally, suppose q,h are ComplexL2 and
+  q(x) = c*m(x)*h(x) almost everywhere,
+with m real and of temperate growth. Pair with an arbitrary complex Schwartz
+test phi. The supplied L2 q has the actual tempered-distribution pairing
+  <q,phi> = integral phi(x)*q(x) dx
+          = c*integral [m(x)*phi(x)]*h(x) dx.
+The product m*phi is Schwartz by temperate growth, hence the last expression
+is exactly c times the distributional multiplier applied to h and phi.
+Equality on every Schwartz test gives the distribution identity. This uses
+the representative hypothesis, not an assumed distribution identity.
+
+3. FOURIER INVERSION RECOVERS THE FIRST DERIVATIVE
+
+For m(xi)=<xi,e>, the native Fourier differentiation theorem identifies the
+right side of step 2 with F(partial_e u). Compatibility of L2 Fourier with
+tempered distributions identifies its left side with F(du).
+Apply the actual inverse Fourier transform on tempered distributions:
+  F(du)=F(partial_e u) -> du=partial_e u.
+No surjectivity of an assumed gradient record is used.
+
+4. RESTRICT TO LITERAL COMPACT REAL TESTS
+
+For every smooth compactly supported real psi, use its actual Schwartz
+representative and complexify it. Evaluation of the distribution identity
+and the derivative definition gives
+  integral psi*du = - integral (partial_e psi)*u.
+Negating and reversing this equality gives precisely the native predicate
+  integral (partial_e psi)*u = - integral psi*du.
+The real/complex scalar actions agree on ComplexVector. The directional
+derivative commutes with scalar complexification by the proved chain rule.
+
+5. REFLECT TO REAL FIELDS BY INJECTIVE COMPLEXIFICATION
+
+Now let u,du be actual RealL2 fields. Before transporting compact-test
+integrals, prove both integrands integrable using compact support and L2
+local integrability. The accepted integral/complexification identities and
+injectivity of the actual real-to-complex isometry reflect the compact-test
+equation from complexify(u),complexify(du) to u,du.
+
+6. TWO-WAY DIRECTIONAL AND THREE-COMPONENT CHARACTERIZATION
+
+Combine steps 2--5 with the separately proved native forward direction:
+  RealTestWeakDirectionalDerivative(u,du,e)
+    iff F(complexify du)=(2*pi*i)*<xi,e>*F(complexify u) almost everywhere.
+Apply this to the three actual coordinate vectors. The finite conjunction
+commutes with the almost-everywhere quantifier, so for supplied real G_j:
+  SpatialWeakGradient(u,G)
+    iff almost every xi satisfies all three Fourier derivative identities.
+The same real u and the same real G occur on both sides.
+
+7. FIRST REMAINING CONSTRUCTION EDGE
+
+This exact supplied-gradient equivalence is a completed mathematical
+subchain. It does not yet prove that weighted Fourier integrability alone
+constructs a real gradient witness, establish its weighted norm identity,
+or construct the six real H1 projections. Those are separate G05 edges.
+No G05 parent closure, NSE existence, sharp Sobolev estimate or regularity
+root follows from these eight declarations alone.
+
+8. PINNED REUSE AND VERIFICATION
+
+Native inputs: H1Fourier.lean (compact-test forward direction), Contracts.lean,
+the accepted QFA complexification and native multiplier ports, and Mathlib
+db584cd6 tempered-distribution and Fourier-inversion APIs.
+The source basis above is a derivation baseline, not a claim that these new
+proof bytes existed at that commit. Exact source closure, complete independent
+consumer signatures, and named standard-only axiom reports must be checked
+by the existing authorized cached external workflow. No local Lean or Lake
+execution is permitted or performed.
+
+SOURCE:DERIVATIONS/PHYSICAL_H1_BUDGET_CHAIN.txt
+
+NSE_A_PHYSICAL_H1_BUDGET_CHAIN
+DATE = 2026-11-20
+SOURCE_BASIS = 053147fc75677f3b086a7a2da740ccc95fed5b8f
+MODE = B_TIER_DERIVATION_BEFORE_NATIVE_EXTERNAL_VERIFICATION
+PARENT_TARGETS = G03,G06
+PLAN_ENDPOINTS = P08,P15
+NATIVE_MODULE = MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget
+PUBLIC_SCOPE = Two physical observables and thirteen helper theorems.
+STATUS = PREPARED_PENDING_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_EVIDENCE
+LOCAL_LEAN_EXECUTION = NONE
+
+1. ACTUAL PHYSICAL OBSERVABLES
+
+For u in the native complete compact-test PhysicalH1 graph on R3, define
+  E(u) = ||velocity(u)||_L2^2,
+  Y(u) = sum_{j=0}^2 ||gradient_j(u)||_L2^2.
+Both quantities are nonnegative. The graph-coordinate maps are continuous
+linear maps, so E and Y are continuous. The native graph norm gives exactly
+  ||u||_H1^2 = E(u)+Y(u).
+Consequently E(u),Y(u)<=||u||_H1^2 and
+  E(u)<=E0, Y(u)<=B -> ||u||_H1^2<=E0+B.
+The same implication applies uniformly to any supplied path on any time set.
+No whole-space Poincare inequality is required or asserted.
+
+2. FULL CLOSED-SLAB CONTINUITY GIVES A FULL FINITE BUDGET
+
+Let U:R->PhysicalH1 and suppose U is continuous on the actual full closed
+finite slab [0,b]. Then t->Y(U(t))^2 is continuous there and thus integrable.
+Restriction gives genuine integrability on (0,b). Since the integrand is
+nonnegative, the ordinary/extended integral identity is
+  J(U,b):=integral^+_{(0,b)} ofReal(Y(U(t))^2) dt
+        =ofReal(integral_{(0,b)} Y(U(t))^2 dt)<infinity.
+Empty or zero-length windows are covered without an additional assumption.
+No derivative or PDE premise is needed for this supplied-path result.
+
+3. FULL FINITE BUDGET PLUS ACTUAL SCALAR EVOLUTION CONTROLS H1
+
+Fix kappa>=0. Assume, explicitly for the same supplied U:
+  E(U(t))<=E0 for 0<=t<b;
+  Y(U(.)) is absolutely continuous on every [0,R], 0<=R<b;
+  d/dt Y(U(t)) <= kappa*Y(U(t))^3 almost everywhere on (0,b);
+  J(U,b)<infinity, with the full stopped integral used above.
+The independently constructed AC/cubic scalar theorem then yields
+  Y(U(t))<=Y(U(0))*exp(kappa*J(U,b).toReal), 0<=t<b.
+The explicit full-budget finiteness premise justifies toReal. Combining with
+step 1 proves a common preterminal bound on the actual full H1 norm:
+  ||U(t)||_H1^2<=E0+Y(U(0))*exp(kappa*J(U,b).toReal).
+This is a physical-carrier adaptation of the scalar comparison, with all
+energy, differential and budget premises visible in the statement.
+
+4. FIRST REMAINING PDE AND ENDPOINT EDGES
+
+The supplied-path subchains above are complete mathematically. To apply
+them to the canonical NSE trajectory, the actual whole-space local/maximal
+solution, its energy bound and its AC enstrophy inequality still have to be
+constructed. This module contains no continuation or PDE-existence port.
+Continuity on every shorter closed interval does not supply the full closed
+slab premise in step 2, nor does it establish full-budget finiteness.
+The module does not identify the literal Fefferman-A class, provide the
+sharp spatial coefficient, or prove universal budget finiteness.
+
+5. PINNED REUSE AND VERIFICATION
+
+Native inputs: PhysicalH1.lean (actual complete graph and exact norm),
+ACBudget.lean (full ENNReal integral and AC/Gronwall scalar estimates), and
+the pinned Mathlib continuous-integrability and nonnegative-integral APIs.
+The new packages preserve the existing native compiler/dependency policy.
+The source basis is a development baseline, not provenance for new bytes.
+Fresh exact consumer types and named standard-only axiom reports are required
+from authorized cached external CI. No local Lean, Lake or kernel audit is
+permitted or performed.
+
+SOURCE:DERIVATIONS/SIX_SECTORS_CHAIN.txt
+
+NSE_A_SIX_SECTORS_B_TIER_CHAIN
+VERSION = 1.0
+DATE = 2026-11-20
+MODE = B_TIER_DERIVATION_BEFORE_NATIVE_EXTERNAL_VERIFICATION
+TARGET = P03, within G05 NSE_A_PHYSICAL_H1_FOURIER_SIX_PROJECTORS
+SOURCE_BASIS = 053147fc75677f3b086a7a2da740ccc95fed5b8f
+LOCAL_LEAN_EXECUTION = NONE; STRICTLY_FORBIDDEN
+
+1. FIXED PHYSICAL DOMAIN AND EXACT TIE RULE
+
+Let xi in R^3 and a_j = |xi_j| for j=0,1,2. Order coordinates by decreasing
+a_j, and let the smaller index win ties. The six permutation sectors are:
+
+C_0 = {a_1 <= a_0 and a_2 <= a_1}       (012)
+C_1 = {a_2 <= a_0 and a_1 < a_2}        (021)
+C_2 = {a_0 < a_1 and a_2 <= a_0}        (102)
+C_3 = {a_2 <= a_1 and a_0 < a_2}        (120)
+C_4 = {a_0 < a_2 and a_1 <= a_0}        (201)
+C_5 = {a_1 < a_2 and a_0 < a_1}         (210).
+
+In particular, zero lies in C_0 only; there is no omitted boundary or
+arbitrary almost-everywhere choice. These match the registered six even cones.
+
+2. BOREL ADMISSION
+
+Each coordinate map xi -> xi_j is continuous on the actual Euclidean carrier.
+Absolute value is continuous, and <= comparison is closed while < comparison
+is open. Each C_i is a finite intersection of such comparisons, hence Borel.
+No smoothness of the discontinuous indicator is asserted or needed.
+
+3. EXHAUSTION
+
+Split first on a_1 <= a_0. If true, split on a_2 <= a_1: the affirmative
+case lies in C_0. Otherwise a_1 < a_2; splitting on a_2 <= a_0 gives C_1
+or C_4. If a_1 > a_0, split on a_2 <= a_0: this gives C_2. In the remaining
+case a_0 < a_2, split on a_2 <= a_1: this gives C_3 or C_5.
+Thus every xi lies in at least one C_i.
+
+4. EXACT DISJOINTNESS AND UNIQUE MEMBERSHIP
+
+For each distinct pair of the six listed orders, their inequalities force a
+contradiction in the linear order on the a_j. In particular all equalities are
+assigned by the lower-index priority and cannot belong to a second sector.
+Therefore C_i intersect C_j is empty for i != j. Combined with step 3 this
+proves existence and uniqueness of the sector index and union_i C_i = R^3.
+
+5. EVENNESS AND NONTRIVIALITY
+
+The replacement xi -> -xi preserves every |xi_j| and all inequalities.
+Consequently -xi in C_i iff xi in C_i. Replace every weak inequality in C_i
+by a strict inequality to obtain an open subset. The points (3,2,1),(3,1,2),
+(2,3,1),(1,3,2),(2,1,3),(1,2,3), respectively, lie in these open subsets.
+Each C_i therefore has nonempty interior; none of the six sectors is empty.
+
+6. ACTUAL SYMBOL ALGEBRA
+
+Define m_i(xi) = 1_{C_i}(xi), a real scalar symbol. Steps 2 and 5 imply
+measurability and m_i(-xi)=m_i(xi). As an actual indicator it obeys |m_i|<=1,
+m_i^2=m_i. Exact disjointness yields m_i*m_j=0 for i!=j. At every xi exactly
+one indicator equals one, so sum_i m_i(xi)=1, including zero and all ties.
+
+7. NATIVE PREPARATION AND EXACT SCOPE
+
+Owned source: Material/MethbokeAddon/QuasiFeffermanA/SixSectors.lean.
+Package: Material/QFASixSectors. The complete independent expected-type
+consumers also expand the six literal inequalities and indicator definition.
+Seventeen named declarations (two definitions and fifteen theorems) are
+submitted for matching cached external type/kernel/axiom verification.
+Static source preparation is not an A-tier result.
+
+8. FIRST REMAINING EDGE / STOP OF THIS CHAIN
+
+The Borel-symbol chain is complete as a written derivation. Its next physical
+edge is construction of the L2 multiplier operators and their Fourier
+conjugates. The symbol algebra alone does not prove real inverse-Fourier range,
+weak-gradient or solenoidal commutation, spatial H1 admission or charge
+additivity. Those are distinct P04--P06 obligations within G05; this P03
+package does not mark the parent gap closed or assert NSE regularity.
+
+SOURCE:DERIVATIONS/ENSTROPHY_COEFFICIENT_CHAIN.txt
+
+NSE-A ENSTROPHY COEFFICIENT EXTRACTION
+DATE: 2026-11-20
+MODE: B_TIER_DERIVATION
+PARENT_GAPS: G02 (scalar coefficient only), G03 (scalar comparison only)
+PLAN: P09 arithmetic consequence, P12 scalar consequence, P15 composition
+STATUS: EXACT CONDITIONAL SCALAR CHAIN; NATIVE SOURCE PREPARATION FOLLOWS
+LOCAL_LEAN_EXECUTION: NONE; MATCHING_EXTERNAL_EVIDENCE: REQUIRED
+
+1. SCOPE AND EXACT INPUTS
+
+Let S,Y,Z,N be nonnegative real numbers, nu>0 and d real. Assume
+  N^4 <= S^6 Y^3 Z^3,                              (F4)
+  d + 2 nu Z <= 2N.                               (EN)
+The intended physical identifications are Y=||grad u||_2^2,
+Z=||Delta u||_2^2, N=absolute convection pairing, d=Y'. They
+are not definitions of a supplied NSE solution or assumptions hidden in a
+port; they remain separate physical realization obligations.
+
+For a genuine H2 vector field, the intended spatial route is Holder,
+||u||_6 <= S||grad u||_2,
+||grad u||_3 <= ||grad u||_2^(1/2)||grad u||_6^(1/2),
+||grad u||_6 <= S||D2 u||_2, and ||D2u||_2=||Delta u||_2.
+These yield N <= S^(3/2)Y^(3/4)Z^(3/4), hence (F4).
+This file does not prove their physical admission. Its closed chain begins
+with the explicitly stated scalar (F4) and (EN).
+
+2. EXACT POLYNOMIAL CERTIFICATE
+
+For arbitrary real N,V,
+ (3N-2V)^2 (3N^2+4NV+4V^2)
+   = 27N^4 - 32NV^3 + 16V^4.
+For N,V>=0 both factors on the left are nonnegative. Therefore
+  32NV^3 <= 27N^4 + 16V^4.                        (P)
+This is an exact rational polynomial identity, not a rounded estimate.
+
+3. FOURTH-POWER YOUNG ESTIMATE
+
+More generally let K>=0 and N^4<=K Z^3, with Z>=0, nu>0.
+If Z=0, then N^4=0 and N=0, so the claim below holds.
+If Z>0, put V=nu Z in (P) and substitute the fourth-power bound:
+  32N nu^3 Z^3 <= 27K Z^3 + 16nu^4 Z^4.
+Divide by the positive 16nu^3 Z^3 to obtain
+  2N <= nu Z + 27K/(16nu^3).                      (Y)
+No division by zero or positivity of Y is concealed.
+
+4. CUBIC ENSTROPHY COEFFICIENT
+
+Use K=S^6Y^3 in (Y), and combine with (EN):
+  d + nu Z <= [27S^6/(16nu^3)]Y^3.               (C)
+When the explicit sixth-power equality
+  S^6=16/(27pi^4)                                (S6)
+is supplied, arithmetic alone gives
+  27S^6/(16nu^3)=1/(pi^4nu^3),
+  d + nu Z <= Y^3/(pi^4nu^3),
+  d <= Y^3/(pi^4nu^3).                           (Cpi)
+Thus the registered pi^(-4)nu^(-3) coefficient is recovered exactly.
+Equality (S6) is not a proof that S is an admissible Sobolev constant.
+
+5. FINITE FULL BUDGET COMPOSITION
+
+Let b be a real stopping time and Y,Z,N real time profiles. Assume
+Y(0)>=0, nu>0, S>=0, (S6), and Y absolutely continuous on every
+closed [0,R] with 0<=R<b. Assume Y,Z,N>=0 and (F4),(EN), with d=Y',
+almost everywhere on (0,b). No value or derivative at b is required.
+For the full extended budget
+  J = integral^+_(0,b) ofReal(Y(t)^2),
+assume J != infinity before converting it to a real number.
+Pointwise application of (Cpi) yields the a.e. cubic derivative bound.
+The existing ACBudget scalar theorem then yields the single uniform bound
+  Y(t) <= Y(0) exp[J.toReal/(pi^4nu^3)]
+for every 0<=t<b.
+This consumes the full stopped budget, not separate compact-window finiteness.
+
+6. FIRST UNRESOLVED PHYSICAL EDGE
+
+BLOCKED_EDGE: constructed physical whole-space NSE evolution -> the actual
+time-AC property, convection fourth-power estimate and enstrophy inequality
+with the registered admissible sharp S6 on that same trajectory.
+CAUSE: existing exact scalar and Fourier packages do not construct the H1
+IVP, prove the registered sharp spatial inequality, or derive PDE time balance.
+REQUIREMENT: complete G01 local/maximal evolution, G02 actual sharp spatial
+admission, and the corresponding G03 physical AC/balance adapter.
+STOP: no PDE continuation theorem, Fefferman-A theorem, six-parent closure,
+or universal datum-budget assertion follows from this scoped module alone.
+
+SOURCE MAP
+- Mathlib pinned db584cd6d46c92f209a44c0f1c829460d327499d: ordered real-field
+  polynomial arithmetic, positivity, field cancellation, nonnegative integrals.
+- Material/MethbokeAddon/QuasiFeffermanA/ACBudget.lean:
+  ac_cubic_uniform_of_finite_stopped_budget. Existing source, separate exact
+  compilation and audit scope; no reuse claim beyond that scoped implication.
+- R3_NSE/A-Regularity-class/LEAN_CUTOUTS/cards/ES01.md and ES13.md identify
+  the explicit remaining gap between Sobolev membership and sharp admission.
+
+NATIVE TARGET: Material/QFAEnstrophyCoefficient, eight named scalar theorems.
+The source must receive matching external cached compilation, independent full
+consumer type checks, and theorem-level standard-only axiom reports.
+
+SOURCE:DERIVATIONS/SIX_SECTOR_L2_CHAIN.txt
+
+NSE_A_SIX_SECTOR_L2_B_TIER_CHAIN
+VERSION = 1.0
+DATE = 2026-11-20
+PARENT = G05, P04 complex-vector L2 layer
+STATUS = B_TIER_CHAIN_AND_PREPARED_NATIVE_CANDIDATE
+LOCAL_LEAN_EXECUTION = NONE; STRICTLY_FORBIDDEN
+
+1. ACTUAL FREQUENCY CARRIER
+
+Use H=L2(R3;C3) with full Lebesgue volume and Euclidean vector norm. Let C_i
+be the six concrete Borel sectors from SIX_SECTORS_CHAIN.txt. For f in H,
+1_{C_i} f is strongly measurable almost everywhere, and its pointwise norm
+is at most ||f(xi)||. It belongs to L2. Define P_i f to be its actual L2
+equivalence class through Mathlib's MemLp.indicator and MemLp.toLp.
+This is a construction, with no supplied operator or projection premise.
+
+2. REPRESENTATIVE AND LINEARITY
+
+By the Lp constructor, P_i f(xi)=1_{C_i}(xi) f(xi) almost everywhere.
+Indicators distribute over vector addition and complex scalar multiplication;
+the a.e. identities prove L2 equality. P_i is complex-linear, and the norm
+comparison proves ||P_i f||_2 <= ||f||_2. Package it as a continuous linear map.
+
+3. PROJECTION ALGEBRA
+
+Applying the representative identity twice gives P_i(P_i f)=P_i f. Exact
+sector disjointness gives P_i(P_j f)=0 for i!=j. For a finite family, take the
+common full-measure intersection of all representative identities. At each
+frequency exactly one sector is present, hence sum_i P_i f=f in L2.
+
+4. SELF-ADJOINTNESS, ORTHOGONALITY AND NORM SPLITTING
+
+By the actual L2 inner-product integral, <P_i f,g>=<f,P_i g>: on C_i both
+integrands equal <f,g>, and on its complement both vanish. Disjoint sectors
+have <P_i f,P_j g>=0. Using idempotence and self-adjointness,
+||P_i f||_2^2=<f,P_i f>. Summing and reconstructing yields
+sum_i ||P_i f||_2^2=||f||_2^2. All statements hold for complex vector fields,
+with no finite-volume assumption or scalar component loss.
+
+5. ACTUAL FOURIER CONJUGATION
+
+Mathlib's L2 Fourier transform F:H->H is a complex-linear isometric
+equivalence. Define Q_i f = F^{-1}(P_i(F f)). This gives actual bounded
+complex-linear operators. Conjugating step 3 yields Q_i^2=Q_i,
+Q_i Q_j=0 for i!=j and sum_i Q_i=I. Plancherel transports the norm bound,
+self-adjointness, orthogonality and exact squared-norm decomposition.
+
+6. SUPPLIED MULTIPLIER COMMUTATION
+
+If actual L2 classes f,g satisfy g(xi)=m(xi)f(xi) almost everywhere, their
+sector projections satisfy P_i g(xi)=m(xi)P_i f(xi) almost everywhere.
+This follows by multiplication of the indicator, without smoothness or
+boundedness of m: L2 membership of f,g is already supplied. This is useful
+for the coordinate derivative symbols but does not construct a missing
+weighted derivative representative.
+
+7. FIRST REMAINING PHYSICAL EDGE / STOP OF THIS CHAIN
+
+The exact complex-vector L2 construction does not by itself prove that Q_i
+maps the real-valued physical L2 range into itself. The missing adapter is
+Fourier Hermitian symmetry/reflection or an equivalent actual real-range
+proof. Only after that and the two-way weak-derivative bridge can these Q_i
+be promoted to physical real H1 projectors and charge additivity. Solenoidal
+commutation, canonical NSE construction and regularity remain separate.
+No parent gap or NSE-A root is closed by this scoped complex L2 package.
+
+NATIVE PATHS
+
+Material/MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean
+Material/QFASixSectorL2/Endpoint.lean
+Material/QFASixSectorL2/Audit.lean
+Matching cached external compilation, independent exact type consumers and
+named standard-only axiom reports are required before any A-tier signal.
+
+ADDITIONAL SOURCE REVIEW
+NSE-A G01--G04 REUSE FOLLOW-UP AND INDEPENDENT SCALAR PROGRESS
+Date: 2026-11-20
+Reviewer scope: source inspection, B-tier reasoning, source preparation.
+Local Lean/Lake/kernel/runner executions: NONE.
+Project goal retained: Fefferman_D. Branch scope: AC-Integration NSE-A helpers.
+
+1. CURRENT EVIDENCE AND REUSE BASIS
+
+Read current AGENTS.md, GPT.txt, source gap register, source leads, existing
+package assessment, and relevant physical/scalar native sources. The existing
+review already records the complete 51-cutout source collection plus the
+matched historical FRONTIER_A projector package. These remain the canonical
+prior provenance records; no older evidence is relabeled as native 4.33.
+
+Native target environment:
+  Lean 4.33.0;
+  Mathlib db584cd6d46c92f209a44c0f1c829460d327499d.
+Inspected external leads:
+  uda-lab/leray-hopf e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc;
+  tristanbuckmaster/navier-stokes ad53419de079eb8f95f60313473374624a348546.
+
+The latter's RegLocal.lean:12--34 was reread directly. Its actual theorem
+Breakdown.SmoothFlow.exists_local_varConst assumes m>=3, an H^m Fourier norm
+bound, measurable solenoidal Fourier data, and constructs a Duhamel solution.
+The theorem does not have an arbitrary H1 input or H1-controlled lifespan.
+Whole-source searches for local/H1/fixed-point constructors did not identify a
+new matching H1 theorem in these two inspected snapshots. This is a bounded
+search finding, not a global claim that such a theorem exists nowhere.
+
+The actual local Galerkin ODE constructors in uda-lab are finite-dimensional.
+They cannot be promoted to the desired infinite-dimensional H1 evolution
+without uniform bounds, convergence and physical solution admission.
+
+2. FURTHER GPT-PROJECT MATERIAL READ
+
+Library title searches recovered additional FRONTIER_A packages and three
+relevant written reviews. Only read content is used as substantive evidence:
+
+(a) FRONTIER_A_PACKAGE_REVIEW_B_TIER.txt, version 4, lines1--180,
+    libfile_248284b335408191809f2356a49c2745.
+    https://chatgpt.com/library?file_id=libfile_248284b335408191809f2356a49c2745&account_id=personal
+    The review of 15 archives explicitly separates physical constructors
+    from abstract ports and identifies multiple equivalent-condition wrappers.
+    For example WholeSpaceAPhysicalPort.globalZeroForce supplies the root
+    conclusion; the port-equivalence does not construct it. This corroborates
+    the existing caution about the older MASTERAC/ABCD archives.
+
+(b) FRONTIER_A_AUDITED_PHYSICAL_CHAIN_B_TIER.txt, lines1--220,
+    libfile_8f885760d51c8191b388bd05a4ed5ade.
+    https://chatgpt.com/library?file_id=libfile_8f885760d51c8191b388bd05a4ed5ade&account_id=personal
+    It describes historical STANDARD_ONLY_457_NAMED_THEOREMS evidence for
+    ENERGY_SLICING_SQUARE_2REPAIR and explicitly limits acceptance to its
+    written hypotheses. Useful named leads include
+      FrontierSlicingEnergyClass.pair_locallyIntegrable_of_memLp,
+      FrontierSeparatedWeakSlicing.weak_at_ae_of_separated_tests,
+      FrontierPublishedFieldSymbols.published_symbols_of_weak_gradient,
+      FrontierGradientOnlyFinalEnergy.gram_of_matrix_energy,
+      FrontierGradientOnlyFinalEnergy.gram_halfline_of_matrix_budgets.
+    They concern Bochner/slice/helical Gram inputs, not construction of a
+    canonical NSE trajectory or its enstrophy time derivative.
+    The document marks the independent Stokes-square-root identification and
+    physical spacetime-to-Bochner realization separately. The historical run
+    is reported by this review; no fresh source/hash/log matching was performed
+    for those 457 reports in this follow-up.
+
+(c) FRONTIER_A_PHYSICAL_BRIDGES_B_TIER.txt, lines1--160,
+    libfile_01eee19995548191bbdb266d9f800408.
+    https://chatgpt.com/library?file_id=libfile_01eee19995548191bbdb266d9f800408&account_id=personal
+    Supplies an explicit B-tier product-space section and countable-test
+    slicing route. A closed weak-gradient graph transports measurable
+    (u,grad u) into H1-valued measurability. The physical H1 foundation being
+    constructed now therefore has a second use in later PDE time spaces.
+    It assumes standard energy-class and initial energy-inequality inputs.
+
+(d) A_DAGGER_R3_EPSILON_LAMBDA_REGULARITY_B_TIER.txt, lines1--260,
+    libfile_26a7cb204180819184059e0c519dd504.
+    https://chatgpt.com/library?file_id=libfile_26a7cb204180819184059e0c519dd504&account_id=personal
+    It records the same sharp S6^6=16/(27pi^4), a Hilbert-valued extension
+    through |grad|F||<=|grad F|, and local H1 theory as literature input.
+    This is useful B-tier analysis, not a newly recovered sharp Lean theorem.
+
+3. G01: NEXT NONCIRCULAR CONSTRUCTION LAYERS
+
+The current H^m constructor lead can inspire the fixed-point architecture.
+It does not eliminate the need for H1 heat/Leray bilinear estimates, initial
+trace, uniqueness, H1 lifetime control, and L2_t H2 regularity.
+
+An independent exact viscosity adapter is mathematically available:
+  v_tau + (v.grad)v + grad q = Delta v,
+  v(0)=a/nu
+  ==> u(t,x)=nu v(nu t,x), p(t,x)=nu^2 q(nu t,x)
+      solves viscosity-nu NSE with u(0)=a.
+Every PDE term acquires the common factor nu^2. If a viscosity-one H1 local
+theorem gives T_1(b)>=c||grad b||_2^(-4), the transported time is
+  T_nu(a)>=c nu^3 ||grad a||_2^(-4).
+This exact adapter is useful after an actual viscosity-one theorem exists.
+It cannot repair the lead's stronger H^m input or create H1 lifetime control.
+
+FIRST G01 BLOCKED EDGE: H1-controlled whole-space fixed point/energy-class
+constructor on the actual native real weak-gradient carrier.
+
+4. G02/G03: NEW CLOSED SCALAR SUBCHAIN PREPARED
+
+Prepared after the B-tier derivation:
+  Material/MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean
+  Material/QFAEnstrophyCoefficient/{Endpoint.lean,Audit.lean,endpoint.json,README.md}
+  R3_NSE/A-Regularity-class/DERIVATIONS/ENSTROPHY_COEFFICIENT_CHAIN.txt
+
+The eight public theorem names, in exact manifest order, are
+  enstrophy_young_polynomial_identity
+  enstrophy_young_polynomial_bound
+  enstrophy_fourth_power_young_bound
+  enstrophy_cubic_of_fourth_power
+  enstrophy_coefficient_eq_pi
+  enstrophy_cubic_pi_of_fourth_power
+  enstrophy_cubic_pi_without_dissipation
+  enstrophy_uniform_of_fourth_power_finite_budget
+all in namespace MethbokeAddon.QuasiFeffermanA.
+
+The new scalar route uses the polynomial identity
+ (3N-2V)^2(3N^2+4NV+4V^2)=27N^4-32NV^3+16V^4.
+From N^4<=S^6Y^3Z^3 and d+2nu Z<=2N it proves
+  d+nu Z <= (27S^6/(16nu^3))Y^3.
+With the explicit supplied sixth-power equality it recovers precisely
+  d+nu Z <= Y^3/(pi^4nu^3).
+The zero-Z branch is proved before cancellation. The final theorem takes
+actual scalar AC, a.e. nonnegativity/evolution estimates and finite full
+stopped square budget J, then proves
+  Y(t)<=Y(0) exp[J.toReal/(pi^4nu^3)] for every 0<=t<b.
+
+Eight independent full consumer types were prepared; each named theorem has
+matching TYPE_BEGIN/END and AXIOMS_BEGIN/END sentinels. Nonexecuting checks
+confirmed exactly eight declarations, eight consumers and all 32 unique
+marker pairs/entries. No placeholder proof or custom axiom occurs in source.
+This is source preparation and static inspection, not formal acceptance.
+
+FIRST G02 BLOCKED EDGE: actual admissibility of the registered sharp spatial
+constant and vector/tensor transport on the same physical H1/H2 spaces.
+FIRST G03 PHYSICAL BLOCKED EDGE: actual solution -> time AC, physical F4 and
+physical enstrophy inequality. The scalar conclusion is conditional on them.
+
+5. G04: WHY TERMINAL CONTROL MUST REMAIN AN EXPLICIT PDE LEMMA
+
+Mere joint smoothness on R3 x [0,T] plus uniform L2 energy does not, by
+functional analysis alone, imply a uniform global H1 norm. This can be seen
+without asserting any NSE counterexample:
+
+Choose a nonzero smooth compactly supported divergence-free F on R3 with
+||F||_2=1 and support in the unit ball. For n>=1 set
+  x_n=(n,0,0), F_n(x)=n^(3/2) F(n(x-x_n)).
+Then ||F_n||_2=1 and ||grad F_n||_2=n||grad F||_2.
+Take t_n=1-2^(-n), pairwise disjoint time bumps beta_n centered at t_n,
+supported in (t_n-2^(-n-3),t_n+2^(-n-3)), with beta_n(t_n)=1 and
+0<=beta_n<=1. Define U(t,x)=sum_n beta_n(t)F_n(x), extending by zero
+outside the bump intervals and for t>=1. This sum is locally finite in
+space, including in every neighborhood of each finite point at t=1.
+Thus U is jointly smooth and divergence-free, sup_t||U(t)||_2<=1, yet
+||grad U(t_n)||_2=n||grad F||_2 -> infinity.
+
+This is a general field example, not an NSE solution. It proves that a
+literal competitor's terminal H1 control must use the PDE and its global
+spatial estimates, not only the wording smooth plus finite energy.
+Agreement with a canonical trajectory on every shorter slab does not supply
+this missing uniform estimate by itself.
+
+FIRST G04 BLOCKED EDGE: physical all-order/pressure recovery and then a PDE
+closed-slab H1 admission for the literal competitor sufficient for canonical
+continuation. Existing bounded-reference comparison is useful, but its
+shorter-slab hypotheses cannot be silently made uniform at the endpoint.
+
+6. RECOMMENDED NEXT SCOPED ENDPOINTS
+
+(i) Externally compile/audit the new eight-name scalar module with unchanged
+    native pins and policy; root integrates owned-source and closure metadata.
+(ii) Finish real-preserving physical six-sector projectors and H1 commutation.
+(iii) Derive H1-valued trajectory measurability from the actual closed graph,
+      reusing the explicit product/slice lead while retaining its hypotheses.
+(iv) Construct physical H2/Hessian-Laplacian identification separately from
+     the sharp Sobolev admission and actual time-energy evolution.
+(v) Keep whole-space H1 local existence as the principal physical dependency,
+    even though independent scalar and spatial helpers can advance now.
+
+No parent gap or NSE-A root is declared closed by this follow-up.
+
+ADDENDUM 1.6 -- EXTERNAL SOURCE PASS AND INDEPENDENT AUDIT REPAIR
+THIRD EXTERNAL ATTEMPT:abd35c434/run44806540815 compiled all471modules.
+Fresh expected-type audits exposed ambiguous Space and unconstrained coordinate
+numerals in two new audit files. All statements/assertions are retained with
+explicit native types. Evidence:audits/material-abd35c43-nse-a-audit-failed/.
+No new A-tier acceptance; the next combined batch requires full verification.

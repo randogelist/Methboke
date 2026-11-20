@@ -241,3 +241,12 @@ Four scoped native packages are prepared with79 named declarations and independe
 ## Second construction attempt
 
 [Source 053147fc / run 44805438456](../../audits/material-053147fc-nse-a-failed/summary.json) compiled the forward Fourier bridge and scalar budget modules. One reflexive Schwartz-admission proof goal remained in PhysicalH1. Its repair preserves all public statements; no additional endpoint is accepted yet.
+
+
+## Second independent batch
+
+Five further packages prepare **76 named declarations**: reverse Fourier characterization (8), physical H1 budgets (15), six Borel sectors (17), exact scalar enstrophy coefficient (8), and actual complex L2 Fourier projections (28). Each has a prior written derivation, independent complete consumer signatures and named audit sentinels. [Batch record](BATCH2_STATIC_REVIEW.json). Matching external acceptance is pending. Real-range preservation and physical H1/solenoidal projector transport remain separate.
+
+## Source compilation completed; audit qualification pending
+
+The [third external attempt](../../audits/material-abd35c43-nse-a-audit-failed/summary.json) compiled all 471 modules. Independent consumer audits required explicit native-space and real-scalar annotations. Those qualifications preserve every assertion. Matching complete external acceptance remains pending for the combined construction.
