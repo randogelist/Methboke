@@ -1,6 +1,10 @@
 # Preprint statement anchors
 
-The current goal is the accepted conditional **EHRENFEST-OBSTRUCTION** theorem:
+The current goal is **Fefferman D**, through the [finite periodic-family route](D-Family-Obstruction/README.md).
+Its first foundation package is prepared pending matching external verification;
+the complete family and literal D endpoint remain unproved in this repository.
+
+The prior accepted conditional **EHRENFEST-OBSTRUCTION** theorem is:
 
 ```text
 forall nu > 0, StoppedCommutatorBound nu -> not (NSE_B nu).
@@ -16,6 +20,7 @@ the exact hypothesis and endpoint scope.
 
 | Anchor | Statement | Present evidence |
 |---|---|---|
+| FEFFERMAN-D-FAMILY | Smooth compact-force finite prescribed-site construction | B-tier from the cited seed; native foundation package pending external verification; full formal root open |
 | EHRENFEST-OBSTRUCTION | The literal stopped negative-drift premise for one fixed smooth datum implies failure of NSE-B | A-tier at `22431f03`; exact root/type/standard-axiom audits and final acceptance passed |
 | EHRENFEST-E09-BOUND | An actual smooth front gives eventual cutoff-uniform canonical Galerkin enstrophy boundedness on a strict compact subslab | A-tier at `22431f03`; separately scoped helper, not full H2 convergence |
 | EHRENFEST-E07 / E08 | Stopped scalar hitting and cutoff-uniform threshold escape | Accepted at `40686414` and `7908890a`; freshly audited again at `22431f03` |

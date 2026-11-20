@@ -1,6 +1,12 @@
 # Material
 
-The current goal is the accepted conditional theorem
+The current goal is **Fefferman D**, through the finite periodic forced-family
+route. The first [foundation package](FeffermanFamilyFoundation/README.md) adds
+local blowup, disjoint-carrier and native contract helpers, pending matching
+external cached verification. The complete D family root remains unproved; see
+the [implementation ledger](../T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json).
+
+The prior accepted conditional theorem is
 `MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION`:
 
 ```text
@@ -29,7 +35,8 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) lists all 71 current packages and their
+The [endpoint registry](endpoints.json) extends the 71 accepted baseline packages
+with the new FeffermanFamilyFoundation package. It lists their
 exact declaration requests. Each package contains its import boundary, consumer
 type assertions, theorem-level axiom audit, recursive dependency closure and
 source provenance.
@@ -37,9 +44,9 @@ source provenance.
 | Source group | Count | Role |
 |---|---:|---|
 | `_vendor` | 269 modules | Pinned Methlib foundation sources |
-| `MethbokeAddon` | 71 owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers | 71 modules | Independently audited import boundaries |
-| Total compiled scope | 411 modules | Shared source closure, without duplicate foundation rebuilding |
+| `MethbokeAddon` baseline | 71 accepted owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers baseline | 71 accepted modules | Independently audited import boundaries |
+| Accepted baseline compiled scope | 411 modules | Shared source closure, without duplicate foundation rebuilding |
 
 | Package family | Exact role |
 |---|---|
@@ -121,9 +128,9 @@ Missing or duplicate required reports, unknown axioms and `sorryAx` fail
 acceptance. Static inspection and CI status alone are not theorem acceptance.
 Missing official Mathlib objects do not authorize a Mathlib source rebuild.
 
-The current matching successful receipt already supplies the requested check;
-an unchanged documentation-only update does not require an identical full rerun.
-Future proof or audit changes require fresh matching external evidence. See
+The retained receipt covers the prior accepted baseline. The new family proof
+and audit sources require fresh matching external evidence; a documentation-only
+update alone would not require an identical rerun. See
 [CI controls](ci/README.md) and the [registry guide](registry/README.md).
 
 ## Retained history
@@ -134,6 +141,8 @@ failures and source-specific scope boundaries, is preserved
 Earlier timing measurements describe their original source scopes and do not
 predict current performance. Failed attempts remain retained in `audits/`.
 
-The current selected implication is closed with its stopped-bound premise.
+The prior conditional Ehrenfest implication remains closed with its stopped-bound premise.
+The current Fefferman-D family root remains open in this repository.
 No unconditional stopped witness, full operator construction or full H2
 Galerkin-convergence result is inferred from this acceptance.
+

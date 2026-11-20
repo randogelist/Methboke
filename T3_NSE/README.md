@@ -6,8 +6,13 @@ The layout was validated on `codex/reorganize-nse-domains` for integration into
 
 | Program | Entry point |
 |---|---|
+| D forced family obstruction — current goal | [Fefferman D route](D-Family-Obstruction/README.md) |
 | B regularity classes | [WFB](B-Regularity-class/WFB/README.md) and [QFB](B-Regularity-class/QFB/README.md) |
 | B Heisenberg obstruction | [StoppedCommutatorBound](B-Heisenberg-Obstruction/StoppedCommutatorBound/README.md) |
+
+The current user-selected goal is Fefferman D, using the finite prescribed-site
+family route. Its first native foundations are prepared pending matching
+external verification; the full family witness remains unproved here.
 
 The program folders contain their derivations, registers, plans and publication
 material. [Material](../Material/README.md) remains the shared verified Lean

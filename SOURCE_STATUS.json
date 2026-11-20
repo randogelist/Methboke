@@ -1,35 +1,40 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
   "branch": "main",
-  "mode": "VALIDATED_LAYOUT_MAIN_INTEGRATION",
+  "mode": "A_TIER_DERIVATION_FEFFERMAN_D_FAMILY",
   "resume_mode": "A_TIER_DERIVATION",
   "main_goal": {
-    "name": "EHRENFEST_OBSTRUCTION",
-    "program_name": "EHRENFEST-OBSTRUCTION",
-    "source": "Explicit user selection of the exact conditional root; subsequent authorization to apply amendments and complete A-tier verification",
-    "exact_statement": "forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu",
-    "stopped_bound_hypothesis_retained": true,
-    "stopped_bound_witness_proved": false,
-    "status": "ACHIEVED_EXACT_CONDITIONAL_ROOT_A_TIER",
-    "previous_goal": "Weak_Fourierman_B",
-    "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
+    "name": "Fefferman_D",
+    "source": "Explicit user selection: The Goal Is Fefferman D; implement T3 family on Methboke main, 2026-11-20",
+    "status": "IN_PROGRESS_NOT_FORMALLY_PROVED",
+    "construction_route": "Fefferman_D_Family_obstruction",
+    "previous_goal": {
+      "name": "EHRENFEST_OBSTRUCTION",
+      "program_name": "EHRENFEST-OBSTRUCTION",
+      "source": "Explicit user selection of the exact conditional root; subsequent authorization to apply amendments and complete A-tier verification",
+      "exact_statement": "forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu",
+      "stopped_bound_hypothesis_retained": true,
+      "stopped_bound_witness_proved": false,
+      "status": "ACHIEVED_EXACT_CONDITIONAL_ROOT_A_TIER",
+      "previous_goal": "Weak_Fourierman_B",
+      "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
+    },
+    "family_witness_constructed": false,
+    "literal_force_decay_adapter_proved": false
   },
   "target_hierarchy": {
-    "macroscopic": "Exact conditional EHRENFEST_OBSTRUCTION root",
-    "mesoscopic": "Integrate the externally validated T3_NSE/R3_NSE layout into main",
-    "microscopic": "Deliver validated layout and main-branch guidance while preserving exact accepted evidence",
-    "suggested_next_goal": {
-      "description": "No further goal adopted; full operator realization and full H2 convergence remain separately tracked",
-      "adopted": false
-    }
+    "macroscopic": "Fefferman D, classical forced periodic obstruction",
+    "mesoscopic": "Fefferman_D_Family_obstruction with prescribed finite torus sites",
+    "microscopic": "First local blowup, finite disjoint-carrier and native contract foundation package",
+    "next_scoped_endpoint": "Compatible compact seed admission and growth-sequence selection; finite placement/locality adapters"
   },
   "goal_transition": {
-    "authorized_by": "Explicit user goal selection and authorization to apply proposed amendments",
-    "source_revision": "22431f032c868b8de1526767d7d32a2639f6a9ee",
-    "historical_register_manifest": "audits/goal-transition-22431f/registers-manifest.json",
-    "proof_statements_changed": false,
+    "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
+    "source_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
+    "historical_register_manifest": "audits/goal-transition-fefferman-d/manifest.json",
+    "prior_accepted_statements_changed": false,
     "compiler_dependency_or_ci_policy_changed": false,
     "local_lean_executions": 0
   },
@@ -47,7 +52,7 @@
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
   "ci_handoff": "CONTINUE_INDEPENDENT_IMPLEMENTATION_WHILE_EXTERNAL_CI_RUNS; inspect available results; preserve tested commit",
-  "current_material_external_verification": "PASS_AT_b730e52ca1e4a661a83a09110378db542455097b_RUN_44651224180",
+  "current_material_external_verification": "NEW_FAMILY_SOURCES_PENDING_MATCHING_EXTERNAL_CACHED_CI",
   "latest_material_run": {
     "commit": "b730e52ca1e4a661a83a09110378db542455097b",
     "tested_commit": "b730e52ca1e4a661a83a09110378db542455097b",
@@ -210,7 +215,8 @@
       "E10 EHRENFEST_OBSTRUCTION <->"
     ],
     "source_refresh_new_declarations": 0,
-    "branch_revalidation_new_declarations": 0
+    "branch_revalidation_new_declarations": 0,
+    "record_role": "ACCEPTED_PRIOR_GOAL_PRESERVED_WITH_EXPLICIT_STOPPED_PREMISE"
   },
   "ehrenfest_latest_repair": {
     "status": "ACCEPTED_AT_22431f_RUN_44641040255",
@@ -1938,7 +1944,8 @@
     "local_lean_executions": 0,
     "new_theorems": 0,
     "validated_on_branch": "codex/reorganize-nse-domains",
-    "main_unchanged_during_branch_preparation": true
+    "main_unchanged_during_branch_preparation": true,
+    "fefferman_d_family": "T3_NSE/D-Family-Obstruction"
   },
   "branch_ci_validation": {
     "status": "ACCEPTED_EXTERNAL_BRANCH_VERIFICATION",
@@ -1999,6 +2006,31 @@
     "post_verification_changes": "Documentation and evidence only; exact proof/build/audit inputs unchanged",
     "merge_status_authority": "GitHub pull request and main branch history",
     "new_theorems": 0,
+    "local_lean_executions": 0
+  },
+  "fefferman_d_family": {
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_CACHED_CI",
+    "a_tier": false,
+    "root_proved": false,
+    "package": "FeffermanFamilyFoundation",
+    "implementation_ledger": "T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json",
+    "literature_seed_imported": false,
+    "literal_force_decay_adapter_proved": false,
+    "local_lean_executions": 0,
+    "recalibrated_main_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
+    "layout_main_run_observation": {
+      "run_id": 44652940559,
+      "tested_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
+      "workflow_status": "success",
+      "role": "Prior layout/baseline run; no new-family acceptance inferred"
+    }
+  },
+  "prior_goal_transition": {
+    "authorized_by": "Explicit user goal selection and authorization to apply proposed amendments",
+    "source_revision": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "historical_register_manifest": "audits/goal-transition-22431f/registers-manifest.json",
+    "proof_statements_changed": false,
+    "compiler_dependency_or_ci_policy_changed": false,
     "local_lean_executions": 0
   }
 }

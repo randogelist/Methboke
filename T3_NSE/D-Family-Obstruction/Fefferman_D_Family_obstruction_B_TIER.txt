@@ -1,0 +1,540 @@
+DOCUMENT := Fefferman_D_Family_obstruction_B_TIER
+VERSION := 1.1
+DATE := 2026-11-20
+MODE := B_TIER_DERIVATION
+EXACT_ENDPOINT := Fefferman_D_Family_obstruction
+COMPANION_INDEX := FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt
+SIBLING := Fefferman_C_Family_obstruction_B_TIER.txt
+PROJECT_GOAL := Fefferman_D; explicitly selected by the user on 2026-11-20
+LOCAL_TARGET := A finite-family periodic obstruction with prescribed distinct singular sites
+STATUS := Complete seed-dependent B-tier derivation; first formal foundation layer prepared, pending external verification
+LOCAL_LEAN_EXECUTION := NONE; STRICTLY_FORBIDDEN
+EXTERNAL_COMPILER_AND_AXIOM_AUDIT := NOT_RUN
+GIT_MUTATION := NONE
+A_TIER_PROMOTION := NONE
+
+NAMESPACE AND SCOPE
+===================
+The exact mathematical endpoint is Fefferman_D_Family_obstruction.
+It is the selected construction route to the current Fefferman_D project goal.
+It concerns the classical smooth-force periodic alternative (D), not the
+energy-orthogonal Gaussian family COUNTER_EXAMPLE_FAMILY_B and not unforced B.
+The construction below uses a published smooth-force seed, translations,
+delayed parabolic compression, finite disjoint assembly, and periodization.
+It adds family organization and prescribed sites; it is not a new seed-level
+blowup mechanism. No novelty claim against the entire literature is made.
+
+All proposed declarations and modules below are NEW TARGETS unless explicitly
+listed as existing pinned source declarations. Static source inspection is
+not a new compiler or theorem-level axiom audit.
+
+DEFINITIONS
+============
+Let Torus3=R^3/Z^3 with its flat quotient metric d_T and unit-volume measure.
+Velocity, pressure, and force may equivalently be represented by unit-periodic
+lifts on R^3. Time is written first: u(t,x), p(t,x), f(t,x).
+
+NSE_nu(u,p,f) means
+  partial_t u+(u dot grad)u-nu*Delta u+grad p=f,   div u=0,
+with nu>0. Pressure is scalar. The viscosity multiplies only the Laplacian.
+Initial datum is u(0,x)=0.
+
+For a unit-periodic lift U define
+  E_T(U,t)=integral_{[0,1]^3} |U(t,x)|^2 dx.
+The value is independent of the fundamental cube. Integrability is part of
+the energy assertion; no totalized integral is used to conceal divergence.
+
+For c in Torus3, define LocalBlowup(U,c,1) by:
+  for every M>0, epsilon>0 and delta>0, there exist 0<t<1 and x in Torus3
+  such that 1-t<delta, d_T(x,c)<epsilon, and |U(t,x)|>M.
+This is local unboundedness in every left spacetime neighborhood of (c,1).
+It does not assert that c is the only singular point.
+
+AdmissiblePeriodicForce(F) means:
+  F is C-infinity on Torus3 times R;
+  for some 0<a<b<infinity, F(t,x)=0 whenever t is outside [a,b].
+Equivalently its periodic lift is globally smooth and compactly supported in
+time. A nonzero periodic lift is NOT compactly supported in space on R^3.
+All mixed derivatives therefore satisfy, for each multi-index alpha, m>=0
+and k>=0,
+  |partial_x^alpha partial_t^m F(t,x)|
+    <= C_(alpha,m,k)*(1+t)^(-k),  t>=0,
+with finite constants allowed to depend on the constructed finite family.
+
+A GlobalPeriodicCompetitor(nu,F) consists of velocity V and pressure Q,
+both smooth on Torus3 times [0,infinity), both periodic as lifts, satisfying
+NSE_nu(V,Q,F) and V(0)=0. No global-in-time energy bound, spatial support
+condition, energy inequality, pressure normalization, or derivative-growth
+assumption is added to this competitor definition.
+
+THE EXACT ROOT STATEMENT
+========================
+Fefferman_D_Family_obstruction :=
+  for every nu>0, every integer N>=1, and every injective map
+    c : Fin N -> Torus3,
+  there exist a prescribed force F and preterminal fields U,P_press such that:
+
+  (D.a) AdmissiblePeriodicForce(F).
+  (D.b) U,P_press are jointly C-infinity on Torus3 times [0,1).
+  (D.c) The lifts of U,P_press,F are all unit-periodic in space.
+  (D.d) NSE_nu(U,P_press,F) holds for 0<=t<1, and U(0)=0.
+  (D.e) Every preterminal slice is square-integrable, and
+        sup_{0<=t<1} E_T(U,t)<infinity.
+  (D.f) For every j in Fin N, LocalBlowup(U,c(j),1).
+  (D.g) There is no GlobalPeriodicCompetitor(nu,F).
+
+The theorem promises AT LEAST N prescribed simultaneous singular locations.
+It makes no claim of exactly N singular points, an injective parameterization
+modulo symmetries, countable-copy closure, or a common force for all families.
+
+PINNED INPUT
+============
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+Toolchain: leanprover/lean4:v4.34.0-rc2
+Mathlib: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+Evidence in this construction: exact source declarations and bodies read;
+no local Lean process and no new external build or axiom audit.
+
+The seed input is the viscosity-one case of
+  NavierStokesR3.theorem_1_1_with_initial_rest
+in NavierStokes/R3/Theorem.lean:26.
+It supplies one tuple (u,p,f,K) with CandidateProperties 1 u p f K and
+u=p=0 whenever |t|<=3/8. CandidateProperties includes smooth preterminal
+velocity and pressure, one compact spatial carrier K for those two fields,
+globally smooth force with CompactPositiveTimeSupport, zero initial velocity,
+the exact PDE, bounded finite energy, and SpeedUnboundedAtOne.
+
+Two interface distinctions are retained:
+  * The exported K need not contain every time slice of f. Enlarge it.
+  * SpeedUnboundedAtOne is global in space. A local singular point must be
+    extracted before prescribing the sites of the new family.
+
+The seed theorem is a literature input, not a new axiom introduced to replace
+an unresolved analytic step. The adapters specific to this family still need
+implementation and authorized external cached verification for A-tier status.
+
+DEPENDENCY INDEX
+================
+F00  Classical smoothness and exact periodic competitor semantics.
+F01  Literature seed, initial rest, and common compact carrier.
+F02  Extract a local blowup point and recenter the seed.
+F03  Translate a delayed parabolic copy at fixed viscosity, with lambda>1.
+F04  Pack finitely many copies around prescribed sites with positive gaps.
+F05  Finite-sum smoothness and local single-copy germ identity.
+F06  Exact nonlinear NSE and incompressibility of the assembled field.
+F07  Smooth compact-time force admission and zero initial datum.
+F08  Preterminal finite energy and its uniform bound.
+F09  Transfer local growth to every prescribed site.
+D10  Physical-viscosity construction and generic-radius periodization.
+D11  Periodic candidate package and exclusion of any smooth competitor.
+D12  Assemble the quantified endpoint Fefferman_D_Family_obstruction.
+X13  Deduce the literal classical Fefferman D statement by taking N=1.
+
+Dependency skeleton:
+  F00 -> F01 -> F02 -> F03 -> F04 -> F05 -> F06
+  F03+F04+F05 -> F07
+  F01+F03+F04 -> F08
+  F02+F03+F04 -> F09
+  F00+F04+F05+F06+F07+F08+F09 -> D10 -> D11 -> D12 -> X13.
+D10's physical-viscosity normalization is carried out before packing and
+periodization in the actual construction; its ID groups the D-specific
+transport/packaging obligations rather than changing that dependency order.
+
+COMPLETE B-TIER DERIVATION
+==========================
+
+F00. Classical semantics.
+-------------------------
+Use ordinary C-infinity regularity, meaning every finite derivative order.
+In the inspected source this is ContDiff/ContDiffOn at scoped infinity,
+with "open scoped ContDiff". Do not silently substitute analytic regularity
+or an unrelated wrapper using a different top element.
+
+Periodic pressure is explicitly required. The competitor class is precisely
+the smooth periodic class described above. On each compact time interval a
+smooth periodic competitor has finite energy automatically, but no uniform
+bound as t tends to infinity is imposed.
+
+F01. A common compact carrier and early rest.
+---------------------------------------------
+Take the seed tuple. Let
+  K_star = K union pr_x(tsupport f).
+The projection of compact spacetime support is compact, so K_star is compact.
+It contains every preterminal spatial support of u and p and every spatial
+slice of f at ALL times. This is the carrier used for separation below.
+
+The source gives u=p=0 on an initial time interval. The PDE implies f=0 on
+its positive-time interior because all derivatives of u and p vanish there.
+Globally f already vanishes at nonpositive times by its positive-time support.
+Extend u and p by zero to t<0. Early rest makes the extension smooth across
+zero. This operation makes no claim about extending u or p across t=1.
+
+F02. Local growth extraction and recentering.
+--------------------------------------------
+For each integer n>=1 use SpeedUnboundedAtOne with size n and remaining
+time less than 1/n to obtain (t_n,x_n) such that
+  0<t_n<1, 1-t_n<1/n, |u(t_n,x_n)|>n.
+The nonzero velocity implies x_n in K. Compactness provides a subsequence
+x_(n_k) converging to a_star in K, with n_k tending to infinity. Consequently
+t_(n_k) tends to one and |u(t_(n_k),x_(n_k))| tends to infinity.
+This proves local unboundedness at (a_star,1).
+
+Translate the seed by setting
+  u_c(t,y)=u(t,y+a_star),
+  p_c(t,y)=p(t,y+a_star), f_c(t,y)=f(t,y+a_star).
+Translations preserve every term of NSE, Lebesgue energy, smoothness and rest.
+Its common carrier is K_c=K_star-a_star, and its singular accumulation point
+is now zero. The extraction/recentering is a new family adapter; it is not
+already part of the exported SpeedUnboundedAtOne interface.
+
+Physical viscosity, BEFORE periodic identification.
+----------------------------------------------------
+For the requested nu>0 define on the whole space
+  u_nu(t,y)=sqrt(nu)*u_c(t,y/sqrt(nu)),
+  p_nu(t,y)=nu*p_c(t,y/sqrt(nu)),
+  f_nu(t,y)=sqrt(nu)*f_c(t,y/sqrt(nu)).
+Direct chain rules, or the source's candidate_at_viscosity, give NSE_nu.
+The common carrier is K_nu=sqrt(nu)*K_c. Early rest and local blowup at zero
+are preserved. The squared L2 energy is multiplied by nu^(5/2).
+
+All viscosity lifting takes place on R^3. Applying x -> x/sqrt(nu) to an
+already unit-periodic field would generally change its period and is not
+a valid fixed-unit-torus step.
+
+F03. Delayed copies.
+--------------------
+For each future copy choose lambda_j>1 and a physical center a_j. Define
+  t_j=1-lambda_j^(-2),
+  s_j(t)=lambda_j^2*(t-1)+1,
+  y_j(x)=lambda_j*(x-a_j),
+  u_j(t,x)=lambda_j*u_nu(s_j(t),y_j(x)),
+  p_j(t,x)=lambda_j^2*p_nu(s_j(t),y_j(x)),
+  f_j(t,x)=lambda_j^3*f_nu(s_j(t),y_j(x)).
+Use the negative-time zero extension for u_nu,p_nu; use the given globally
+smooth f_nu for the force. The velocity and pressure are needed only for t<1,
+where s_j(t)<1. The force is defined for every t.
+
+Temporal derivative, advection, viscous Laplacian, and pressure gradient all
+acquire the factor lambda_j^3, with the viscosity unchanged. Divergence
+acquires factor lambda_j^2. Hence each copy solves the same NSE_nu and is
+solenoidal. Its carrier is K_j=a_j+lambda_j^(-1)*K_nu.
+
+The initial datum is zero because s_j(0)=1-lambda_j^2<0. Smoothness across
+t=t_j follows from the seed's open interval of rest. The strict inequality
+lambda_j>1 matches compressedCandidate's existing formal interface.
+
+F04. Finite placement on the torus.
+-----------------------------------
+Choose b in R^3 such that no coordinate face of
+  Q_b=b+(-1/2,1/2)^3
+passes through any of the finitely many requested torus sites. For each
+coordinate there are only finitely many forbidden cut values modulo one,
+so such a choice exists. Each site c(j) has a unique representative a_j
+in Q_b. The representatives are distinct.
+
+Their distances to the boundary of Q_b have a positive minimum. Their
+pairwise torus distances also have a positive minimum when N>1; for N=1
+only the boundary margin is needed. Choose a positive epsilon smaller than
+one fourth of both applicable minima. The epsilon-balls around the a_j are
+contained in Q_b and pairwise disjoint, including modulo lattice translates.
+
+The compact K_nu lies in a finite ball about zero. By choosing each lambda_j
+sufficiently large, arrange K_j inside the epsilon-ball around a_j.
+All velocity, pressure, and ALL-TIME force supports are then separated.
+In centered coordinates z=x-b their finite union lies in [-r,r]^3 for
+some 0<r<1/2. Such an r exists by the positive boundary margin.
+No quarter-cube assumption is imposed on the prescribed sites.
+
+F05. Smooth finite sums and local germs.
+----------------------------------------
+Set
+  U_R=sum_j u_j, P_R=sum_j p_j, F_R=sum_j f_j.
+There are only finitely many terms. Smoothness is preserved on the relevant
+time domains. The union K_R=union_j K_j is compact.
+
+At any spatial point at most one K_j is active. The finitely many other
+closed carriers have a neighborhood on which their fields vanish for every
+time. Thus near every preterminal spacetime point the summed triple equals
+one copy, or equals zero. This is a local equality of germs, strong enough
+to transfer time and spatial derivatives of every required order.
+
+F06. Exact PDE, including the nonlinear term.
+---------------------------------------------
+Locality now gives
+  div U_R=0,
+  partial_t U_R+(U_R dot grad)U_R-nu*Delta U_R+grad P_R=F_R.
+Equivalently, every cross term (u_i dot grad)u_j for i!=j vanishes because
+the derivative of a smooth supported function has support in the same
+closed carrier. Hence advection is exactly the sum of the individual
+advections. No interaction force has been omitted.
+
+For Lean, local-germ transfer is the shorter route: the existing
+residual_viscosity_congr and spatialDivergence_congr can be applied after
+the new finite disjoint-germ lemma, avoiding a large nonlinear sum expansion.
+
+F07. Force admission and initial conditions.
+--------------------------------------------
+Each f_j is globally smooth with compact support in a positive finite time
+interval and in K_j. Their finite sum has the same properties. Since the
+source force's time support is separated from zero and t_j>0, so is F_R's.
+
+The velocity and pressure vanish on a common positive initial interval:
+take the minimum over finitely many activation/rest times. Therefore the
+equation extends to t=0 as well: both residual and force vanish there.
+This discharges the closed-time-boundary formulation without differentiating
+an arbitrary negative-time extension.
+
+F08. Energy.
+-------------
+Supports are disjoint. At each t<1,
+  integral_R3 |U_R(t,x)|^2 dx
+    =sum_j lambda_j^(-1)*integral_R3 |u_nu(s_j(t),y)|^2 dy.
+For s_j(t)<0 the corresponding summand is zero. Otherwise s_j(t)<1 and
+the seed uniform bound applies. Every integral is finite, and
+  sup_{0<=t<1} ||U_R(t)||_2^2
+    <= (sum_j lambda_j^(-1))*sup_{0<=s<1} ||u_nu(s)||_2^2 < infinity.
+Exact additivity is available; a weaker finite-sum bound would already
+suffice for the root theorem.
+
+F09. Local growth at each site.
+--------------------------------
+Let (s_n,y_n) tend to (1,0) along the recentered physical-viscosity seed's
+growth sequence. For copy j put
+  t_(j,n)=1+(s_n-1)/lambda_j^2,
+  x_(j,n)=a_j+y_n/lambda_j.
+Then (t_(j,n),x_(j,n)) tends to (1,a_j), and
+  |U_R(t_(j,n),x_(j,n))|
+     =lambda_j*|u_nu(s_n,y_n)| -> infinity.
+The equality holds because this point belongs to the j-th carrier when
+the seed value is nonzero and the other carriers are disjoint. This proves
+the prescribed local blowup property before taking the quotient.
+
+D10. Generic-radius periodization.
+-----------------------------------
+First center the cube:
+  U_0(t,z)=U_R(t,z+b), P_0(t,z)=P_R(t,z+b), F_0(t,z)=F_R(t,z+b).
+Their supports lie in [-r,r]^3 with r<1/2. Define the velocity and pressure
+to be zero for t>=1 solely as total functions used in the following lattice
+sum; no smoothness or PDE across t=1 is asserted for these two extensions.
+The force retains its actual smooth all-time definition.
+
+Now put
+  U_per(t,z)=sum_{k in Z^3} U_0(t,z+k),      t<1,
+  P_per(t,z)=sum_{k in Z^3} P_0(t,z+k),      t<1,
+  F_per(t,z)=sum_{k in Z^3} F_0(t,z+k),      all t.
+The sums are locally finite because the supports are bounded. Moreover the
+different translated spatial carriers are disjoint and separated by a gap.
+Locally each sum equals a single translated field, or zero. Therefore all
+three fields have unit periods, smoothness on the asserted domains, and
+the exact periodic NSE_nu. Pressure is periodized along with velocity.
+
+On a fundamental cube, the energy of U_per equals the whole-space energy
+of U_0. Thus F08 supplies the required uniform torus energy bound. The force
+is smooth and has compact positive time support. Each mixed derivative is
+bounded on the compact torus times that support; multiplication by any
+(1+t)^k is bounded there, proving the required rapid time decay.
+
+Finally translate back:
+  U(t,[x])=U_per(t,x-b),
+  P_press(t,[x])=P_per(t,x-b), F(t,[x])=F_per(t,x-b).
+Unit periods make these definitions independent of the representative x.
+They solve the same equation and send a_j-b back to c(j). F09 therefore
+proves LocalBlowup(U,c(j),1) for every j.
+
+Formal interface boundary: the existing of_compact_candidate packages only
+supports bounded by 1/4 in each coordinate. It must not be applied directly
+to arbitrary sites across a fundamental cube. Reuse the generic r<1/2
+periodization lemmas and build the corresponding generic-radius packaging
+adapter. Translation back is covered by the real-translation adapter F03.
+
+D11. Excluding a global smooth periodic competitor.
+----------------------------------------------------
+Suppose V,Q were a GlobalPeriodicCompetitor(nu,F). Fix 0<S<1 and let w=V-U.
+On the compact torus the two smooth solutions have bounded derivatives on
+[0,S], and the common force cancels. Their difference equation is
+  w_t+(V dot grad)w+(w dot grad)U-nu*Delta w+grad(Q-P_press)=0,
+  div w=div V=0, w(0)=0.
+Pairing with w and integrating over the torus yields
+  (1/2)*d/dt ||w||_2^2+nu*||grad w||_2^2
+    =-integral (w dot grad)U dot w
+    <= ||grad U||_infinity*||w||_2^2.
+Transport and pressure integrate to zero by periodicity and divergence.
+Gronwall gives w=0 on [0,S]. Since S<1 was arbitrary, V=U for all t<1.
+
+A smooth V is bounded on a compact spacetime neighborhood of (c(j),1);
+F09 contradicts this boundedness. Thus no competitor exists.
+No global energy hypothesis was used for V. This is exactly the periodic
+competitor scope, not the whole-space bounded-energy comparison class.
+
+For formal reuse, the centered generic-radius CandidateProperties package
+can invoke PeriodicPaper.CandidateProperties.no_global_solution directly.
+A competitor for the final translated force would translate back to one
+for that centered force. Alternatively the displayed periodic difference
+argument is the same generic source endpoint applied after translation.
+
+D12. Root assembly.
+--------------------
+Start with arbitrary nu>0, N>=1 and injective c. F01-F04 provide the seed,
+local point, physical viscosity, representatives, and admissible scales.
+F05-F07 give smoothness, exact PDE and force admission; F08 gives bounded
+preterminal energy; F09-D10 give every prescribed local singular site and
+periodicity of velocity, pressure and force; D11 excludes all competitors.
+These are (D.a)-(D.g), with the original quantifiers arbitrary. Therefore
+Fefferman_D_Family_obstruction follows as a B-tier corollary of the seed.
+
+X13. Literal Fefferman D.
+-------------------------
+Take N=1 and any site. The zero initial datum is smooth and divergence-free.
+AdmissiblePeriodicForce supplies the force condition and derivative decay.
+The periodic lifts of velocity and pressure satisfy the pressure-periodicity
+erratum. D11 excludes every global smooth periodic solution with the same
+force and initial datum. Hence the classical alternative (D) follows from
+the family endpoint. This is inheritance from the literature seed, not an
+independent rediscovery of the published seed theorem.
+
+SOURCE INDEX: EXISTING DECLARATIONS
+====================================
+All entries below use repository openai/NavierStokesAndEuler at
+f9e8bc5b38b6e212696e8a30e3e91517af887bbd.
+URL pattern:
+  https://github.com/openai/NavierStokesAndEuler/blob/REVISION/PATH#Lline
+Status of every entry: STATIC_SOURCE_INSPECTED; no fresh compiler/axiom audit.
+The companion index and family_route_research/seed_index.json record exact
+signatures and reuse classifications.
+
+SEED01 | NavierStokes/R3/Theorem.lean:26
+  NavierStokesR3.theorem_1_1_with_initial_rest
+  F01 seed and initial rest.
+SEED02 | NavierStokes/R3/ProblemStatement.lean:92
+  NavierStokesR3.ProblemStatement.CandidateProperties
+  F00/F01 exact smooth-force and finite-energy contract.
+SCALE02 | NavierStokes/R3/ParabolicScaling.lean:95
+  NavierStokesR3.ParabolicScaling.compressedCandidate
+  F03 delayed fixed-viscosity compression, strict lambda>1.
+VISC01 | NavierStokes/R3/ViscosityScaling.lean:172
+  NavierStokesR3.ViscosityScaling.candidate_at_viscosity
+  Lift the whole-space seed before periodization.
+GERM01 | NavierStokes/PeriodizePDE.lean:100
+  NavierStokes.PeriodicLocalization.residual_viscosity_congr
+  F06 nonlinear residual locality.
+GERM02 | NavierStokes/PeriodizePDE.lean:111
+  NavierStokes.PeriodicLocalization.spatialDivergence_congr
+  F06 divergence locality.
+PER01 | NavierStokes/PeriodizePDE.lean:133
+  NavierStokes.PeriodicLocalization.navier_stokes_periodize
+  D10 generic-r periodization of the PDE.
+PER02 | NavierStokes/PeriodizePDE.lean:117
+  NavierStokes.PeriodicLocalization.divergence_free_periodize
+  D10 generic-r incompressibility.
+PER03 | NavierStokes/PeriodicLocalization.lean:155
+  NavierStokes.PeriodicLocalization.contDiff_periodize
+  D10 globally smooth periodic force.
+PER04 | NavierStokes/PeriodicLocalization.lean:207
+  NavierStokes.PeriodicLocalization.unitSpatialPeriodsOn_periodize
+  D10 unit periods for all three fields.
+PER05 | NavierStokes/PeriodicPaperTheorem.lean:92
+  NavierStokes.PeriodicPaper.of_compact_candidate
+  A proof template only: hardcoded quarter-cube packaging needs generalization.
+PER06 | NavierStokes/PeriodicPaperTheorem.lean:65
+  NavierStokes.PeriodicPaper.CandidateProperties.no_global_solution
+  D11 generic all-positive-viscosity periodic comparison and obstruction.
+PER07 | NavierStokes/PeriodicPaperTheorem.lean:77
+  NavierStokes.PeriodicPaper.CandidateProperties.force_derivative_decay
+  D10/X13 all-order force decay.
+PER08 | NavierStokes/PeriodicPaperTheorem.lean:155
+  NavierStokes.PeriodicPaper.periodic_corollary
+  Literature one-witness endpoint; not the new prescribed-site family theorem.
+
+Supporting Mathlib anchors, at revision
+85e3a25e006c35636f0e53b0e9296caca2685bc0:
+ML13 | Mathlib/Topology/Sequences.lean:298
+  IsCompact.tendsto_subseq; also tendsto_subseq' at line 293.
+  F02 compact subsequence extraction in Euclidean space.
+ML14 | Mathlib/Topology/Compactness/Compact.lean:125,514
+  IsCompact.image, IsCompact.union; continuous_snd in
+  Mathlib/Topology/Constructions/SumProd.lean:104.
+  F01 compact all-time force projection and common carrier.
+ML15 | Mathlib/MeasureTheory/Group/Integral.lean:102,109
+  MeasureTheory.integral_add_right_eq_self,
+  MeasureTheory.integral_sub_right_eq_self.
+  F02/F08 Lebesgue translation invariance. These additive names are
+  generated by to_additive from the inspected multiplicative declarations.
+These are static source anchors, not a fresh kernel verification.
+
+Primary mathematical reference:
+  OpenAI, Finite Time Blowup for Navier-Stokes, Theorem 1.1 and Corollary 10.6.
+  https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf
+Classical target:
+  https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+  Alternative (D), forcing condition (9), and pressure-periodicity erratum.
+
+PLANNED FORMAL LAYOUT AND OPEN IMPLEMENTATION OBLIGATIONS
+=========================================================
+The following paths and declarations are PROPOSED, not existing checked code:
+FeffermanFamily/FamilyContracts.lean [F00]
+  LocalBlowup, GlobalPeriodicCompetitor, PeriodicFamilyWitness.
+FeffermanFamily/SeedAdapter.lean [F01]
+  seed_common_carrier, seed_with_initial_rest.
+FeffermanFamily/SeedLocalization.lean [F02]
+  seed_local_blowup_point, recentered_seed.
+FeffermanFamily/CopyPlacement.lean [F03]
+  real_translation_residual, delayed_copy, copy_local_blowup.
+FeffermanFamily/FinitePacking.lean [F04]
+  shifted_cube_choice, finite_disjoint_pack.
+FeffermanFamily/DisjointGerms.lean [F05]
+  finite_sum_eventuallyEq_active.
+FeffermanFamily/DisjointNSE.lean [F06]
+  finite_glue_navier_stokes, finite_glue_divergence.
+FeffermanFamily/ForceAdmission.lean [F07]
+  finite_glue_force_admissible, finite_glue_initial_rest.
+FeffermanFamily/FamilyEnergy.lean [F08]
+  finite_glue_energy_identity, finite_glue_energy_bound.
+FeffermanFamily/FamilySiteGrowth.lean [F09]
+  finite_glue_local_blowup.
+FeffermanFamily/FamilyPeriodization.lean [D10]
+  physical_viscosity_periodic_family, periodize_local_blowup.
+FeffermanFamily/PeriodicFamilyCandidate.lean [D11]
+  of_compact_candidate_generic_radius, periodic_family_no_global.
+FeffermanFamily/PeriodicEndpoint.lean [D12]
+  Fefferman_D_Family_obstruction.
+FeffermanFamily/LiteralFeffermanAdapters.lean [X13]
+  family_implies_classical_D.
+
+Fast route: do not reprove the source's periodic uniqueness theorem. Discharge
+the exact generic CandidateProperties interface, then reuse PER06. Do not
+expand all nonlinear sums if the local single-copy germ lemma suffices.
+The local blowup extraction and generic-r packaging are genuine new adapters.
+
+Mathlib support, finite-sum calculus, compactness, and local-germ anchors are
+indexed in the companion index at their inspected revisions. Methlib analytic
+wrappers are not substituted for the classical C-infinity target. Methboke's
+unforced periodic regularity statements are not used as forced uniqueness
+theorems without a separately correct interface.
+
+No implementation has been compiled in this task. A-tier requires matching
+authorized external cached compilation and a theorem-level axiom audit at
+the exact endpoint, with no sorryAx and only approved standard axioms.
+Local Lean, Lake invoking Lean, and local kernel audits remain forbidden.
+Toolchain and Mathlib pins must be preserved or explicitly reconciled during
+a later authorized formalization phase.
+
+CLOSURE BOUNDARY AND ENDPOINT STATUS
+====================================
+B-tier root: CLOSED relative to the cited smooth-force seed theorem.
+Seed source: inspected at the stated immutable revision.
+First foundation implementation: LocalBlowup, DisjointGerms, FamilyContracts
+prepared in Material/MethbokeAddon/FeffermanFamily; not yet externally verified.
+Remaining family construction and literal force-decay adapters: NOT IMPLEMENTED.
+See IMPLEMENTATION_STATUS.json for source-specific formal status.
+Fresh external CI or native-Windows verification: NONE.
+A-tier status: NOT CLAIMED.
+Repository implementation: first-layer sources and complete audit requests
+prepared for the explicitly requested main-branch update; no root acceptance.
+
+No analytic obstruction remains in this finite disjoint B-tier construction.
+This does not establish infinite-copy closure, support accumulation limits,
+overlapping-copy gluing, arbitrary internal seed parameters, global spacetime
+analyticity, or membership in the zero-power Gaussian class.
+The earlier Gaussian force-admission obstruction is unaffected.
+

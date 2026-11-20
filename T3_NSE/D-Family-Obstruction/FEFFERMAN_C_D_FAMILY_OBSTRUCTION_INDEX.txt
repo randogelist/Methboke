@@ -1,0 +1,901 @@
+DOCUMENT := FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX
+VERSION := 1.1
+DATE := 2026-11-20
+MODE := B_TIER_DERIVATION
+LOCAL_TARGETS := {Fefferman_C_Family_obstruction, Fefferman_D_Family_obstruction}
+MACRO_GOAL := Fefferman_D; user selection 2026-11-20
+IMPLEMENTATION_SCOPE := T3 family only; whole-space route retained as reference
+SCOPE := Supporting forced-NSE family corollaries using the published compact seed
+STATUS := Mathematical B-tier derivation and static source index; no new formal verification
+LOCAL_LEAN_EXECUTION := STRICTLY_FORBIDDEN; NOT_PERFORMED
+EXTERNAL_COMPILER_OR_AXIOM_AUDIT := NOT_RUN
+GIT_MUTATION := NONE
+SOURCE_INSPECTION != A_TIER
+
+DELIVERABLE REGISTER
+====================
+C := Fefferman_C_Family_obstruction_B_TIER.txt
+D := Fefferman_D_Family_obstruction_B_TIER.txt
+INDEX := FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt
+CUMULATIVE_CONTEXT := COUNTER_EXAMPLE_FAMILY_B_R3_B_TIER.txt, version 1.5
+The two root names are the exact user-specified targets. Their mathematical
+meaning is fixed below; proposed Lean declarations are not yet implemented.
+No claim is made that these named endpoint theorems already exist in a repository.
+The T3 first-layer implementation is recorded in IMPLEMENTATION_STATUS.json.
+LocalBlowup/DisjointGerms/FamilyContracts are prepared native sources, not
+formal completion of the full seed-dependent family route.
+
+ROOT CONTRACTS
+==============
+Fefferman_C_Family_obstruction:
+  For every nu>0, every finite N>=1, and every injective a:Fin N -> R3,
+  there exist ONE common tuple (U,p,F,K) for that configuration such that:
+  F is globally C-infinity and compactly supported in R3 x (0,infinity);
+  U,p are C-infinity on R3 x [0,1), solve NSE with viscosity nu and force F,
+  div U=0 and U(0)=0;
+  one compact K contains all preterminal velocity/pressure supports;
+  sup_{0<=t<1} ||U(t)||_2^2 is finite;
+  for each j, U is unbounded in every preterminal spacetime neighborhood
+  of (a_j,1);
+  no global smooth uniformly finite-energy solution exists with the SAME
+  viscosity, zero datum and prescribed force F.
+
+Fefferman_D_Family_obstruction:
+  The corresponding statement for injective a:Fin N -> T3, with globally
+  smooth periodic F compactly supported in time; U,p periodic and smooth
+  before time one; zero datum; bounded preterminal cell energy; local blowup
+  at every (a_j,1); and no global smooth periodic velocity/PRESSURE pair
+  solving the same data and force. The competitor class has no additional
+  uniform-in-time energy premise.
+
+The force may depend on N and a: forall configuration, exists F,U,p.
+Neither root asserts one fixed force works for every configuration.
+The conclusion is at least N prescribed singular locations, not exactly N.
+These are finite-configuration existence statements, not injective or
+continuous parametrizations modulo scaling, rotations or permutations.
+
+ONE-WAY LITERAL ADAPTERS
+========================
+Fefferman_C_Family_obstruction -> classical Fefferman C:
+  choose N=1 and center0; initial datum0 is Schwartz and divergence-free.
+Fefferman_D_Family_obstruction -> classical Fefferman D:
+  choose N=1 and torus center0; datum0 is smooth periodic.
+Compact force support gives all required derivative/decay bounds.
+Pressure periodicity is retained for D, including the official erratum.
+No reverse implication from bare C/D to the stronger compact-seed family
+structure is asserted.
+
+PRIMARY MATHEMATICAL DEPENDENCY
+===============================
+Published compact/rest/blowup seed
+  -> compact local growth point + recentering
+  -> delayed compressed/translated copies
+  -> finite separated placement
+  -> smooth disjoint assembly + exact PDE + admitted force
+  -> bounded energy + growth at each prescribed point
+  -> [generic whole-space comparison -> C family]
+     [physical-space packing + periodization + periodic comparison -> D family].
+
+The literature seed is a substantive imported mathematical theorem.
+The family closure is our B-tier corollary of that theorem, not a reconstruction
+of the seed proof and not a new singularity mechanism.
+
+SHARED ENDPOINT MATRIX
+======================
+Every mathematical row below is derived in the companion C/D documents.
+NEW means a proposed formal adapter, not an unresolved mathematical premise.
+SOURCE means an inspected existing declaration, not a fresh compiler audit.
+
+F00 | Classical smooth-family contract
+Input: physical NSE, domains, viscosity, finite site map, literal C/D semantics.
+Output: FamilyWitnessC / FamilyWitnessD / LocalVelocityBlowup contracts.
+Sources: SEED02,SEED03,SEED04; ML01.
+New adapter: FamilyContracts.lean.
+Check: ordinary ContDiff order infinity, not analytic top/omega; same witness
+tuple and same force in the nonexistence conclusion.
+
+F01 | Published seed with common carrier and initial rest
+Input: SEED05 (viscosity1), or SEED01 when arbitrary viscosity is convenient.
+Output: seed plus compact H containing u,p and ALL-TIME f spatial supports.
+Sources: SEED01-05, SUPPORT01; ML14.
+New adapter: SeedAdapter.lean.
+Construction: H=K union spatial_projection(tsupport f); finite compact union.
+Retain initial rest. A zero extension to negative time is justified by rest.
+Exported K alone need not contain all-time force support.
+
+F02 | Local blowup extraction and recentering
+Input: compact carrier and SpeedUnboundedAtOne.
+Output: some x* in H and a sequence (t_n,x_n)->(1,x*) with speed->infinity;
+translate x* to0.
+Sources: SEED02,SCALE04; ML13.
+New adapter: SeedLocalization.lean.
+Check: global spatial speed unboundedness does not itself name the origin.
+Choose speed levels n and t_n>1-1/(n+1), extract a compact subsequence.
+This avoids depending on the seed's deeper explicit profile-growth machinery.
+
+F03 | Delayed compressed and real-translated copy
+Input: localized seed and lambda>1.
+Output: same-viscosity copy, common terminal time1, transported support/force.
+Sources: SCALE01,SCALE02,SUPPORT02; ML02,ML09.
+New adapter: CopyPlacement.lean (arbitrary real translation and local growth).
+Clock: s_lambda(t)=1+lambda^2*(t-1).
+Velocity/pressure/force weights: lambda,lambda^2,lambda^3.
+Use zero on inactive times. The inspected compressedCandidate requires
+strict lambda>1; the family may choose such scales without loss.
+Rotations are optional and excluded from the shortest root proof.
+
+F04 | Finite support packing
+Input: injective finite site map and compact carrier.
+Output: scales large enough and pairwise disjoint compact carriers around
+each prescribed site, with explicit positive neighborhood margins.
+Sources: SUPPORT01 as a central-cube model; ML11,ML14.
+New adapter: FinitePacking.lean.
+Check: finite positive separation, carrier boundedness, and, for D, boundary
+margins of a suitable shifted fundamental cube. No infinite packing claim.
+
+F05 | Finite-sum local smoothness and germ identity
+Input: placed fields with fixed disjoint compact carriers.
+Output: sum locally equals one copy or zero, with velocity AND pressure
+controlled on the same neighborhood; force has the same property.
+Sources: ML02,ML04,ML05,ML07.
+New adapter: DisjointGerms.lean.
+Check: use carriers/tsupport, not only pointwise nonzero sets. At carrier
+boundaries, separation from all other carriers still gives local equality.
+
+F06 | Exact NSE and divergence for the assembled fields
+Input: F05 and the equations of each copy.
+Output: exact same-viscosity forced NSE for the finite sum.
+Sources: GERM01,GERM02; optional ML03,ML04.
+New adapter: DisjointNSE.lean.
+Fast route: transfer residual/divergence through local eventual equality.
+Equivalent mathematical identity: all cross terms (u_i dot grad)u_j vanish
+for i!=j. No interaction force is introduced.
+
+F07 | Classical force admission and zero datum
+Input: finite smooth copy forces and activation support.
+Output: compact positive-time force support, global C-infinity, derivative
+decay and U(0)=0.
+Sources: SEED04,SUPPORT02,ML02,ML05; periodic decay PER07 after packaging.
+New adapter: ForceAdmission.lean.
+Check: retain prescribed force beyond time1; do not zero-extend an unknown
+singular literature velocity past its terminal time.
+
+F08 | Uniform preterminal energy
+Input: each copy's finite energy and finite N.
+Output: UniformFiniteEnergy for the sum.
+Sources: SCALE03,ML08,ML09,ML15.
+New adapter: FamilyEnergy.lean.
+A finite triangle/Cauchy bound is sufficient for the root.
+Exact disjoint-support additivity and frequency-variance identities are
+optional strengthening, not blockers for comparison.
+
+F09 | Transported growth at every site
+Input: F02 growth sequence and F03-F05 support separation.
+Output: LocalVelocityBlowup U a_j 1 for every j.
+Sources: SCALE04 supplies only global growth; local adapter is new.
+New adapter: FamilySiteGrowth.lean.
+Transform time and position along the seed sequence; near a_j all other
+copies vanish. Use N>=1 to deduce the source's global speed predicate.
+
+C BRANCH
+========
+C10 | Assemble viscosity-one candidate and exclude its global competitor
+Dependencies: F00-F09.
+Sources: SEED02,COMPARE01,COMPARE02,COMPARE03.
+New adapter: WholeSpaceFamily.lean (package assembled CandidateProperties1).
+Reuse CandidateProperties.no_global_solution_one directly after packaging.
+No new pressure-at-infinity uniqueness argument is required.
+
+C11 | Viscosity lift and Fefferman_C_Family_obstruction
+Dependencies: C10, F04/F09 with normalized target centers.
+Sources: VISC01,VISC02.
+New adapter: WholeSpaceEndpoint.lean.
+For requested physical nu and centers a_j, first use centers a_j/sqrt(nu)
+at viscosity1. Apply u_nu(t,x)=sqrt(nu)*u(t,x/sqrt(nu)),
+p_nu=nu*p and f_nu=sqrt(nu)*f. Energy scales by nu^(5/2).
+A global nu-competitor normalizes to a forbidden viscosity1 competitor.
+This yields the exact forall-nu family root.
+
+D BRANCH
+========
+D10 | Physical packing and generic-radius periodization
+Dependencies: F00-F09, viscosity scaling applied BEFORE periodization.
+Sources: PER01,PER02,PER03,PER04; SUPPORT01; ML06,ML07.
+New adapter: FamilyPeriodization.lean.
+Choose a shifted fundamental cube avoiding the finitely many target sites.
+Lift sites into its interior, shrink physical carriers into disjoint patches,
+then recenter the cube; choose r<1/2 containing the finite union.
+Use generic-r PDE/divergence periodization. The force is globally smooth;
+the singular velocity/pressure are smooth only on the preterminal slab.
+Do not apply a global ContDiff theorem to these latter fields across time1.
+
+D11 | Periodic candidate packaging and comparison
+Dependencies: D10 plus force admission and transported local growth.
+Sources: PER05 as a proof template only; PER06,PER07 directly after packaging.
+New adapter: PeriodicFamilyCandidate.lean.
+The inspected of_compact_candidate hardcodes support radius1/4.
+For arbitrary sites use a generic-r packaging proof, not that lemma unchanged.
+Alternative implementation: periodize each tiny central copy, torus-translate
+it, then use finite disjoint assembly intrinsically on the torus.
+Pressure periodicity and compact-in-time force support must be explicit.
+Reuse periodic CandidateProperties.no_global_solution for all nu>0.
+
+D12 | Fefferman_D_Family_obstruction
+Dependencies: D11.
+New adapter: PeriodicEndpoint.lean.
+Package every finite prescribed torus configuration with the same actual
+U,p,F. The no-global class is global smooth periodic solutions; do not add
+a uniform global-energy premise not present in classical D.
+
+X13 | Literal C/D projections
+Dependencies: C11 or D12.
+New adapter: LiteralFeffermanAdapters.lean.
+Specialize N=1, keep data0 and admitted F, and forget extra family properties.
+Output: the official classical C/D predicates, or their source-native exact
+contracts. The existing analytic-order Methlib wrappers are not the target.
+
+FAST FORMAL DEPENDENCY CHOICE
+=============================
+Mandatory main spine: literature-native definitions and comparison +
+the pinned Mathlib + new finite-family adapters.
+Methlib/Methboke are indexed as optional narrow adapters, not forced imports.
+Do not rebuild the seed, whole-space pressure comparison, or periodic
+comparison when their matching source endpoints can be reused.
+Do not require rotations, exact energy additivity, Fourier coordinates,
+arbitrary terminal time, or infinite limits to close the named roots.
+
+PROPOSED FILE LAYOUT — NO LEAN FILES CREATED
+===========================================
+FeffermanFamily/FamilyContracts.lean
+FeffermanFamily/SeedAdapter.lean
+FeffermanFamily/SeedLocalization.lean
+FeffermanFamily/CopyPlacement.lean
+FeffermanFamily/FinitePacking.lean
+FeffermanFamily/DisjointGerms.lean
+FeffermanFamily/DisjointNSE.lean
+FeffermanFamily/ForceAdmission.lean
+FeffermanFamily/FamilyEnergy.lean
+FeffermanFamily/FamilySiteGrowth.lean
+FeffermanFamily/WholeSpaceFamily.lean
+FeffermanFamily/WholeSpaceEndpoint.lean
+FeffermanFamily/FamilyPeriodization.lean
+FeffermanFamily/PeriodicFamilyCandidate.lean
+FeffermanFamily/PeriodicEndpoint.lean
+FeffermanFamily/LiteralFeffermanAdapters.lean
+FeffermanFamily/Coordinates.lean                    optional
+FeffermanFamily/Audit.lean                          future external audit only
+
+SOURCE / TOOLCHAIN BOUNDARIES
+=============================
+Literature source:
+  repository openai/NavierStokesAndEuler
+  commit f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+  Lean leanprover/lean4:v4.34.0-rc2
+  Mathlib 85e3a25e006c35636f0e53b0e9296caca2685bc0.
+Methlib source:
+  repository randogelist/Methlib
+  commit 4813604a46179c745b82f51bee51a186e9f4cc2d.
+Methboke source:
+  repository randogelist/Methboke
+  current inspected commit 4068641471b9b9324a5d138cacfa37a94a648bf1;
+  historical conversation snapshot42cbbf404b50cd578cb9d648f1e3d388513dbf1a
+  is not substituted for this newer inspected source.
+Methlib/Methboke inspected environments:
+  Lean4.33.0, Mathlib db584cd6d46c92f209a44c0f1c829460d327499d.
+The pins are not interchangeable. No toolchain was changed in this task.
+An isolated source-native future implementation is the shortest proposed route.
+Optional older-package adapters require an explicit compatible source port;
+do not mix incompatible compiled objects or infer compatibility from names.
+
+SEMANTIC EXCLUSIONS
+===================
+1. At the inspected Mathlib pins, ContDiff infinity is ordinary C-infinity.
+   ContDiff omega/top means analytic. Methlib's concrete C/D smooth predicates
+   use top, so their existing *_BREAKDOWN_IFF_* endpoints cannot admit the
+   nonzero compactly supported smooth-force seed unchanged.
+2. Methboke's unforced InitialClassicalFront uniqueness and unforced energy
+   identity do not apply to a nonzero prescribed force. A common-force
+   difference equation cancels forcing only after both equations are supplied.
+3. Pure Gaussian COUNTER_EXAMPLE_FAMILY_B still fails smooth-force admission.
+   The present roots use the independent published smooth-force seed.
+4. Family coordinates are diagnostics, not a replacement for the full field.
+   Global force orthogonality cannot hold throughout a nontrivial flow from rest.
+5. Arbitrary time, rotations, overlapping sums, infinite sums, exact singular-set
+   cardinality and quotient-cardinality novelty are outside the named roots.
+
+INDEX-WORTHY B-TIER ENTRIES
+===========================
+I-C | Fefferman_C_Family_obstruction
+Scope: every viscosity, every finite injective whole-space site configuration,
+smooth compact forcing, at least all designated singular sites, no global
+smooth uniformly finite-energy competitor.
+Evidence: companion C derivation + literature seed + source registry below.
+Status: B_TIER_DERIVED_USING_CITED_LITERATURE; NEW_A_TIER_NOT_ESTABLISHED.
+
+I-D | Fefferman_D_Family_obstruction
+Scope: every viscosity, every finite injective torus site configuration,
+smooth periodic compact-time forcing, periodic pressure, prescribed site
+blowup and no global smooth periodic competitor.
+Evidence: companion D derivation + literature seed + source registry below.
+Status: B_TIER_DERIVED_USING_CITED_LITERATURE; NEW_A_TIER_NOT_ESTABLISHED.
+
+I-G | Finite disjoint NSE closure and coordinate addition
+Scope: fixed separated compact carriers; exact finite PDE summation; bounded
+energy; L=sum(E_j/E)L_j; Q=sum[Q_j+E_j(L_j-L)^2].
+Status: B_TIER; finite only. Optional diagnostic strengthening.
+
+OPEN FORMAL OBLIGATIONS AND NEXT SCOPED ENDPOINT
+===============================================
+No extra unresolved analytical premise is introduced into the finite B-tier
+corollary beyond the cited seed theorem and standard analysis recorded here.
+The new Lean family predicates, finite glue and adapters have not been written.
+First formal layer: faithful FamilyContracts plus a seed adapter recording
+all-time force carrier and initial rest.
+First nontrivial new analytic/topological adapter: SeedLocalization (F02).
+Then real translations + finite packing + local-germ assembly, followed by
+the already available comparison endpoints.
+A-tier work would require the separately authorized endpoint/implementation
+workflow and matching EXTERNAL cached compiler and theorem-level axiom audit.
+Prepared names, inspected source and B-tier proofs are not A-tier evidence.
+
+PRIMARY SPECIFICATION
+======================
+Charles L. Fefferman, Existence and Smoothness of the Navier-Stokes Equation:
+https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+Use alternatives C/D with the pressure-periodicity erratum.
+OpenAI, Finite Time Blowup for Navier-Stokes:
+https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf
+Use the supplied compact seed and established comparison/periodization; the
+new finite-family derivation is recorded separately in the companion files.
+
+PINNED SOURCE REGISTRY
+======================
+The following records are static source inspections. An existing declaration
+may be usable unchanged, require a new adapter, or be excluded by its premises.
+No record is a fresh compiler or kernel result.
+
+[SEED01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/Theorem.lean:26
+Declaration: NavierStokesR3.theorem_1_1_with_initial_rest
+Role: Seed existence for every viscosity plus velocity/pressure rest on |t|<=3/8.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/Theorem.lean#L26
+
+[SEED02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ProblemStatement.lean:92
+Declaration: NavierStokesR3.ProblemStatement.CandidateProperties
+Role: Shared velocity/pressure/force contract; scoped ∞ means C∞.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ProblemStatement.lean#L92
+
+[SEED03]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ProblemStatement.lean:125
+Declaration: NavierStokesR3.ProblemStatement.GlobalFiniteEnergySolution
+Role: Competitor class without extra pressure/derivative-growth assumptions.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ProblemStatement.lean#L125
+
+[SEED04]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ProblemStatement.lean:66
+Declaration: NavierStokesR3.ProblemStatement.CompactPositiveTimeSupport
+Role: Compact spacetime force support separated from t=0.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ProblemStatement.lean#L66
+
+[SEED05]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ActualCandidate.lean:143
+Declaration: NavierStokesR3.ActualCandidate.selected_candidate_one_with_initial_rest
+Role: Direct viscosity-one seed.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ActualCandidate.lean#L143
+
+[SCALE01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ParabolicDefinitions.lean:11
+Declaration: NavierStokesR3.ParabolicScaling.clock
+Role: Clock l²(t−1)+1 preserves singular time1.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ParabolicDefinitions.lean#L11
+
+[SCALE02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ParabolicScaling.lean:95
+Declaration: NavierStokesR3.ParabolicScaling.compressedCandidate
+Role: Full delayed parabolic compression, l>1 and initial rest.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ParabolicScaling.lean#L95
+
+[SCALE03]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ParabolicEnergy.lean:17
+Declaration: NavierStokesR3.ParabolicScaling.velocity_energy_bounded
+Role: Uniform compressed energy.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ParabolicEnergy.lean#L17
+
+[SCALE04]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ParabolicEnergy.lean:34
+Declaration: NavierStokesR3.ParabolicScaling.velocity_speed_unbounded
+Role: Global speed blowup after compression, not a named point.
+Reuse: LOCAL_BLOWUP_ADAPTER_NEEDED
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ParabolicEnergy.lean#L34
+
+[SUPPORT01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicPaperScalingSupport.lean:82
+Declaration: NavierStokes.PeriodicPaper.exists_compression_scale
+Role: Compact union K ∪ spatial projection of tsupport f controls all supports.
+Reuse: DIRECT_REUSE_FOR_CENTRAL_CUBE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperScalingSupport.lean#L82
+
+[SUPPORT02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ParabolicSupport.lean:26
+Declaration: NavierStokesR3.ProblemStatement.CompactPositiveTimeSupport.affineScale
+Role: Affine positive-time support preservation.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ParabolicSupport.lean#L26
+
+[COMPARE01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/WholeSpaceUniqueness.lean:30
+Declaration: NavierStokesR3.WholeSpaceUniqueness.classical_uniqueness_on_Icc
+Role: Generic compact-reference whole-space comparison, ν=1.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/WholeSpaceUniqueness.lean#L30
+
+[COMPARE02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/WholeSpaceUniqueness.lean:104
+Declaration: NavierStokesR3.WholeSpaceUniqueness.candidate_global_agrees_before_one
+Role: Any candidate1 agrees with any global finite-energy competitor.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/WholeSpaceUniqueness.lean#L104
+
+[COMPARE03]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/CandidateBreakdown.lean:43
+Declaration: NavierStokesR3.ProblemStatement.CandidateProperties.no_global_solution_one
+Role: Any assembled candidate1 excludes global competitor.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/CandidateBreakdown.lean#L43
+
+[VISC01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ViscosityScaling.lean:172
+Declaration: NavierStokesR3.ViscosityScaling.candidate_at_viscosity
+Role: Lift assembled viscosity-one candidate to ν>0.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ViscosityScaling.lean#L172
+
+[VISC02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/ViscosityScaling.lean:182
+Declaration: NavierStokesR3.ViscosityScaling.normalized_global_solution
+Role: Pull ν competitor back to viscosity1.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ViscosityScaling.lean#L182
+
+[GERM01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodizePDE.lean:100
+Declaration: NavierStokes.PeriodicLocalization.residual_viscosity_congr
+Role: Residual equality from local equality, for disjoint gluing.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodizePDE.lean#L100
+
+[GERM02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodizePDE.lean:111
+Declaration: NavierStokes.PeriodicLocalization.spatialDivergence_congr
+Role: Divergence equality from local equality.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodizePDE.lean#L111
+
+[PER01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodizePDE.lean:133
+Declaration: NavierStokes.PeriodicLocalization.navier_stokes_periodize
+Role: Generic r<1/2 periodization preserves NSE.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodizePDE.lean#L133
+
+[PER02]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodizePDE.lean:117
+Declaration: NavierStokes.PeriodicLocalization.divergence_free_periodize
+Role: Generic r<1/2 divergence preservation.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodizePDE.lean#L117
+
+[PER03]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicLocalization.lean:155
+Declaration: NavierStokes.PeriodicLocalization.contDiff_periodize
+Role: Smooth periodized supported fields.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicLocalization.lean#L155
+
+[PER04]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicLocalization.lean:207
+Declaration: NavierStokes.PeriodicLocalization.unitSpatialPeriodsOn_periodize
+Role: Unit periods of all fields.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicLocalization.lean#L207
+
+[PER05]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicPaperTheorem.lean:92
+Declaration: NavierStokes.PeriodicPaper.of_compact_candidate
+Role: Hardcoded support1/4; generic-r candidate packaging required for arbitrary sites.
+Reuse: ADAPTER_NEEDED
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean#L92
+
+[PER06]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicPaperTheorem.lean:65
+Declaration: NavierStokes.PeriodicPaper.CandidateProperties.no_global_solution
+Role: Generic periodic obstruction at all ν>0.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean#L65
+
+[PER07]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicPaperTheorem.lean:77
+Declaration: NavierStokes.PeriodicPaper.CandidateProperties.force_derivative_decay
+Role: Arbitrary polynomial time decay of every force derivative.
+Reuse: DIRECT_REUSE
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean#L77
+
+[PER08]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicPaperTheorem.lean:155
+Declaration: NavierStokes.PeriodicPaper.periodic_corollary
+Role: Existing one-witness periodic endpoint, not finite family.
+Reuse: LITERATURE_ENDPOINT
+Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean#L155
+
+[ML01]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Analysis/Calculus/ContDiff/Defs.lean
+Declaration: contDiff_infty (line 1115)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L1115
+Declaration: contDiff_omega_iff_analyticOnNhd (line 1196)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L1196
+Role: Semantic admission: genuine C-infinity uses ContDiff with ∞; top/ω means analytic. A compactly supported nonzero smooth force must not be silently assigned analytic regularity.
+Limit: These give the interpretation of regularity orders, not a bridge from the stronger analytic-wrapper predicates.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML02]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Analysis/Calculus/ContDiff/Operations.lean
+Declaration: ContDiff.sum (line 387)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/ContDiff/Operations.lean#L387
+Declaration: ContDiff.const_smul (line 636)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/ContDiff/Operations.lean#L636
+Role: Finite sum and fixed scalar scaling of smooth fields and forces.
+Limit: Compose with affine coordinate maps; actual NSE scaling remains a project-specific adapter.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML03]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Analysis/Calculus/ContDiff/Operations.lean
+Declaration: iteratedFDeriv_fun_sum_apply (line 417)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/ContDiff/Operations.lean#L417
+Role: Commute any finite-order derivative with a finite family sum.
+Limit: Supply ContDiffAt at the derivative order; turn field coordinate derivatives into fderiv/iteratedFDeriv interfaces.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML04]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Analysis/Calculus/FDeriv/Const.lean
+Declaration: fderiv_of_notMem_tsupport (line 375)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/FDeriv/Const.lean#L375
+Declaration: tsupport_fderiv_subset (line 383)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/FDeriv/Const.lean#L383
+Declaration: HasCompactSupport.fderiv (line 389)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/FDeriv/Const.lean#L389
+Role: Eliminate nonlinear cross terms using separated topological supports; derivatives retain support.
+Limit: The bilinear transport sum identity itself is still a new elementary lemma.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML05]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Topology/Algebra/Support.lean
+Declaration: HasCompactSupport.finset_sum (line 429)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Algebra/Support.lean#L429
+Role: Finite sums preserve compact support.
+Limit: Generated by @[to_additive] on HasCompactMulSupport.finset_prod at line429; source generation inspected, no compiler symbol query performed.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML06]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Topology/Algebra/Support.lean
+Declaration: LocallyFinite.exists_finset_nhds_support_subset (line 512)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Algebra/Support.lean#L512
+Role: Reduce locally finite periodization to a finite sum in a neighborhood.
+Limit: Generated by @[to_additive] from LocallyFinite.exists_finset_nhds_mulSupport_subset. Must independently prove local finiteness of translated supports. Can take auxiliary open sets U_i=univ.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML07]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Analysis/Calculus/ContDiff/Defs.lean
+Declaration: ContDiffAt.congr_of_eventuallyEq (line 967)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/Calculus/ContDiff/Defs.lean#L967
+Role: Transfer finite-neighborhood smoothness to a locally finite periodic sum; glue through zero-rest intervals.
+Limit: Eventual equality in a neighborhood is the required premise.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML08]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/MeasureTheory/Integral/Bochner/Basic.lean
+Declaration: MeasureTheory.integral_finsetSum (line 246)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/MeasureTheory/Integral/Bochner/Basic.lean#L246
+Role: Sum energy and dissipation integrals after pointwise disjoint-support identities.
+Limit: Requires integrability of each summand. integral_finset_sum is only a deprecated alias at this revision.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML09]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/MeasureTheory/Measure/Haar/NormedSpace.lean
+Declaration: MeasureTheory.Measure.integral_comp_smul (line 92)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/MeasureTheory/Measure/Haar/NormedSpace.lean#L92
+Declaration: MeasureTheory.Measure.integral_comp_smul_of_nonneg (line 115)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/MeasureTheory/Measure/Haar/NormedSpace.lean#L115
+Role: Compute R3 spatial scaling factor lambda^-3 and hence energy lambda^-1.
+Limit: Finite-dimensional real normed domain, Borel measurable space, additive Haar measure; for our route lambda>0. Time-shift/activation and PDE scaling remain separate obligations.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML10]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/MeasureTheory/Measure/Haar/NormedSpace.lean
+Declaration: MeasureTheory.integral_comp (line 234)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/MeasureTheory/Measure/Haar/NormedSpace.lean#L234
+Role: Preserve Lebesgue integrals under the linear-isometry equivalence encoding a rotation.
+Limit: Finite-dimensional real inner-product spaces; translation invariance needs its usual separate Haar/volume step.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML11]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Topology/MetricSpace/Pseudo/Defs.lean
+Declaration: Metric.closedBall_disjoint_closedBall (line 498)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/MetricSpace/Pseudo/Defs.lean#L498
+Role: Turn strict pairwise radius-distance inequalities into disjoint support balls.
+Limit: Finite positive distance minimum and compact-support boundedness still need packaging in the FamilyConfig packing lemma; no preexisting all-in-one packing theorem asserted.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML12]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Analysis/ODE/Gronwall.lean
+Declaration: le_gronwallBound_of_liminf_deriv_right_le (line 112)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/ODE/Gronwall.lean#L112
+Declaration: gronwallBound_ε0_δ0 (line 83)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Analysis/ODE/Gronwall.lean#L83
+Role: Zero-difference uniqueness and localized whole-space comparison once the signed energy differential inequality is supplied.
+Limit: Use signed derivative upper bound, not the stronger absolute-derivative hypothesis of eq_zero_of_abs_deriv_le_mul_abs_self_of_eq_zero_right. Pressure identification and cutoff estimates are not supplied by Gronwall.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML13]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Topology/Sequences.lean
+Declaration: IsCompact.tendsto_subseq (line 298)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Sequences.lean#L298
+Declaration: IsCompact.tendsto_subseq' (line 293)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Sequences.lean#L293
+Role: Mandatory F02 localization: turn a divergent-speed witness sequence x_n in compact K into a subsequence converging to a single point x_star in K.
+Limit: Requires FirstCountableTopology X (available for Euclidean space). Separately choose times t_n -> 1 and speed thresholds -> infinity from SpeedUnboundedAtOne; StrictMono extraction preserves these limits. No designated singular location is assumed in the seed endpoint.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML14]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/Topology/Compactness/Compact.lean
+Declaration: IsCompact.image (line 125)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Compactness/Compact.lean#L125
+Declaration: IsCompact.union (line 514)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Compactness/Compact.lean#L514
+Declaration: continuous_snd (line 104)
+Declaration file: Mathlib/Topology/Constructions/SumProd.lean
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/Topology/Constructions/SumProd.lean#L104
+Role: Construct a common compact spatial container Kstar=K union (Prod.snd '' tsupport f) when spacetime is Time × Space. Compact support of f and continuous_snd give compact projected force support; compact union includes the velocity/pressure support.
+Limit: Choose Prod.fst instead if the concrete spacetime order is Space × Time. This common support construction removes the need to import a stronger same-K-for-all-time-force seed property.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML15]
+Repository: leanprover-community/mathlib4
+Revision: 85e3a25e006c35636f0e53b0e9296caca2685bc0
+File: Mathlib/MeasureTheory/Group/Integral.lean
+Declaration: MeasureTheory.integral_add_right_eq_self (line 102)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/MeasureTheory/Group/Integral.lean#L102
+Declaration: MeasureTheory.integral_sub_right_eq_self (line 109)
+URL: https://github.com/leanprover-community/mathlib4/blob/85e3a25e006c35636f0e53b0e9296caca2685bc0/Mathlib/MeasureTheory/Group/Integral.lean#L109
+Role: Translate the localized singular point to the origin, and move copies to prescribed centers without changing Lebesgue energy integrals.
+Limit: Additive declarations are generated by @[to_additive] from integral_mul_right_eq_self and integral_div_right_eq_self. Requires measurable additive group and right-invariant measure; Euclidean Lebesgue measure supplies these. No kernel symbol query was run.
+Status: STATIC_SOURCE_INSPECTED_NOT_COMPILED
+
+[ML-FAM-01]
+Repository: randogelist/Methlib
+Revision: 4813604a46179c745b82f51bee51a186e9f4cc2d
+File: NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_C/Fefferman/Statements.lean:19-74
+Declarations: Fefferman.admissibleInitial; Fefferman.admissibleForce; Fefferman.globalSolution; Fefferman.breakdownAt; Fefferman.C; Fefferman.D
+Role: Abstract contract schema for admissibility plus nonexistence, arbitrary viscosity explicit
+Classification: SCHEMA_REUSE_ONLY
+Remaining obligation: Instantiate Analysis with actual classical C-infinity semantics and prove physical/semantic adapters. Main route may use native literature contract instead.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methlib/blob/4813604a46179c745b82f51bee51a186e9f4cc2d/NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_C/Fefferman/Statements.lean
+
+[ML-FAM-02]
+Repository: randogelist/Methlib
+Revision: 4813604a46179c745b82f51bee51a186e9f4cc2d
+File: NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_B_D_ostruct/PeriodicShearUniqueness.lean:105-146
+Declarations: CondFeffB.cellEnergy_zero_of_differential_ineq; CondFeffB.origin_eq_of_periodic_energy_ineq
+Role: Scalar Gronwall conclusion on a finite periodic comparison interval
+Classification: OPTIONAL_REUSABLE_ANALYSIS
+Remaining obligation: Derive the actual same-force difference-energy inequality and continuity. Cell energy is on centered cube; pointwise/full-domain adapter needed. No whole-space result.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methlib/blob/4813604a46179c745b82f51bee51a186e9f4cc2d/NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_B_D_ostruct/PeriodicShearUniqueness.lean
+
+[ML-FAM-03]
+Repository: randogelist/Methlib
+Revision: 4813604a46179c745b82f51bee51a186e9f4cc2d
+File: NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_B_D_ostruct/PeriodicShearEnergyTime.lean:118-123
+Declarations: CondFeffB.cellEnergy_hasDerivAt
+Role: Differentiate squared difference energy under a compact-cell integral
+Classification: OPTIONAL_REUSABLE_ANALYSIS
+Remaining obligation: Joint continuity, component time derivatives, positive-time derivative continuity. Finite-front localization/extension needed because source premises cover positive half-line.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methlib/blob/4813604a46179c745b82f51bee51a186e9f4cc2d/NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_B_D_ostruct/PeriodicShearEnergyTime.lean
+
+[ML-FAM-04]
+Repository: randogelist/Methlib
+Revision: 4813604a46179c745b82f51bee51a186e9f4cc2d
+File: NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_C/ConcreteABCDUnifiedClosure.lean:33-38,2706-2831
+Declarations: Fefferman.ConcreteReal.smoothSpatialReal; Fefferman.ConcreteReal.smoothClosedHalfSpaceReal; Fefferman.ConcreteReal.WholeSpaceSourceSemanticPort; Fefferman.ConcreteReal.WholeSpaceSourceSemanticPort.implies_C; Fefferman.ConcreteReal.WHOLESPACE_FORCED_BREAKDOWN_IFF_C
+Role: Whole-space logical wrapper and explicit source-port architecture
+Classification: EXCLUDE_UNCHANGED_FROM_CLASSICAL_ROOT
+Remaining obligation: Both smooth predicates use ContDiff order top, which at pinned Mathlib denotes analytic omega. Nonzero compactly supported literature seed is C-infinity; no direct admission. Wrapper does not produce a witness.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methlib/blob/4813604a46179c745b82f51bee51a186e9f4cc2d/NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_C/ConcreteABCDUnifiedClosure.lean
+
+[ML-FAM-05]
+Repository: randogelist/Methlib
+Revision: 4813604a46179c745b82f51bee51a186e9f4cc2d
+File: NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_D/ConcreteABCDUnifiedClosure.lean:33-38,2523-2582
+Declarations: Fefferman.ConcreteReal.PeriodicForcedBreakdown; Fefferman.ConcreteReal.periodicForcedBreakdown_implies_D; Fefferman.ConcreteReal.PERIODIC_FORCED_BREAKDOWN_IFF_D
+Role: Periodic logical wrapper
+Classification: EXCLUDE_UNCHANGED_FROM_CLASSICAL_ROOT
+Remaining obligation: Same analytic-order mismatch as ML-FAM-04; exact force admissibility and no-global premise remain required.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methlib/blob/4813604a46179c745b82f51bee51a186e9f4cc2d/NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_D/ConcreteABCDUnifiedClosure.lean
+
+[ML-FAM-06]
+Repository: randogelist/Methlib
+Revision: 4813604a46179c745b82f51bee51a186e9f4cc2d
+File: NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_D/ConcreteABCDUnifiedClosure.lean:64-95
+Declarations: Fefferman.ConcreteReal.rescaleForce; Fefferman.ConcreteReal.integerPeriodizeForce; Fefferman.ConcreteReal.corollary106PeriodicForce; Fefferman.ConcreteReal.rescaleForce_apply; Fefferman.ConcreteReal.corollary106PeriodicForce_apply
+Role: Literal formula templates for force scaling and integer periodization
+Classification: DEFINITION_TEMPLATE_ONLY
+Remaining obligation: No derivative covariance, local finiteness, nonlinear sum law or support-packing theorem follows from these rfl declarations.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methlib/blob/4813604a46179c745b82f51bee51a186e9f4cc2d/NSE_ABCD_UNCONDITIONAL_IMPLICATION/v0_25_0/Fefferman_D/ConcreteABCDUnifiedClosure.lean
+
+[MB-FAM-01]
+Repository: randogelist/Methboke
+Revision: 4068641471b9b9324a5d138cacfa37a94a648bf1
+File: Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean:189-195
+Declarations: MethbokeAddon.WeakFouriermanB.local_physicalDissipation_hasDerivAt
+Role: Periodic kinematic enstrophy derivative; independent of unforced NSE admission
+Classification: OPTIONAL_COORDINATE_ADAPTER
+Remaining obligation: ContDiffOn Real infinity on open front and periodic slices. Supply forced NSE substitution separately, retaining force term. Not a whole-space theorem.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methboke/blob/4068641471b9b9324a5d138cacfa37a94a648bf1/Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean
+
+[MB-FAM-02]
+Repository: randogelist/Methboke
+Revision: 4068641471b9b9324a5d138cacfa37a94a648bf1
+File: Material/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean:121-142
+Declarations: MethbokeAddon.WeakFouriermanB.smoothSigmaZero_fourierEnstrophy_summable; MethbokeAddon.WeakFouriermanB.smoothSigmaZero_dissipation_eq_fourierEnstrophy
+Role: Optional Fourier representation D=(4*pi^2)*FourierEnstrophy for periodic slices
+Classification: OPTIONAL_DIAGNOSTIC_ONLY
+Remaining obligation: Prove SmoothSigmaZero for each constructed periodic slice, including mean zero and coordinate/norm conversion. Not needed for family existence/nonexistence spine.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methboke/blob/4068641471b9b9324a5d138cacfa37a94a648bf1/Material/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean
+
+[MB-FAM-03]
+Repository: randogelist/Methboke
+Revision: 4068641471b9b9324a5d138cacfa37a94a648bf1
+File: Material/MethbokeAddon/WeakFouriermanB/LocalClassicalUniqueness.lean:135-140
+Declarations: MethbokeAddon.WeakFouriermanB.initial_classical_front_unique
+Role: Existing uniqueness architecture for supplied initial classical fronts
+Classification: EXCLUDE_DIRECT_FOR_FORCED_ROUTE
+Remaining obligation: InitialClassicalFront (FiniteCapGluing.lean:35-46) imposes unforced NSE; this endpoint cannot be applied to nonzero forcing. A same-force forced adapter/theorem is new.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methboke/blob/4068641471b9b9324a5d138cacfa37a94a648bf1/Material/MethbokeAddon/WeakFouriermanB/LocalClassicalUniqueness.lean
+
+[MB-FAM-04]
+Repository: randogelist/Methboke
+Revision: 4068641471b9b9324a5d138cacfa37a94a648bf1
+File: Material/MethbokeAddon/WeakFouriermanB/FiniteWindowRelativeEnergy.lean:68-79
+Declarations: MethbokeAddon.WeakFouriermanB.finite_window_smooth_nse_energy_identity
+Role: Finite-window periodic energy-identity proof pattern
+Classification: EXCLUDE_DIRECT_FOR_FORCED_ROUTE
+Remaining obligation: hNSE explicitly has zero forcing. Retain +2 integral <f,u> in new forced identity; source cannot justify zero-power for literature flow.
+Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
+URL: https://github.com/randogelist/Methboke/blob/4068641471b9b9324a5d138cacfa37a94a648bf1/Material/MethbokeAddon/WeakFouriermanB/FiniteWindowRelativeEnergy.lean
+
+REGISTRY_TOTAL := 51 source groups
+ENDPOINT_MATRIX_TOTAL := 16 named common/branched/projection rows
+END_OF_INDEX
+

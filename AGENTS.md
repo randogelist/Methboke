@@ -1,83 +1,74 @@
 # Repository instructions
 
 Read [GPT.txt](GPT.txt), [README.md](README.md) and
-[INDEX-WORTHY.txt](INDEX-WORTHY.txt) before continuing work. `GPT.txt` is the
-single current project context document. Use [SOURCE_STATUS.json](SOURCE_STATUS.json)
-and the matching source-specific receipts to distinguish preparation from
-accepted endpoints. Archived register copies are historical evidence.
+[INDEX-WORTHY.txt](INDEX-WORTHY.txt). GPT is the current context authority;
+[SOURCE_STATUS.json](SOURCE_STATUS.json) and source-specific receipts distinguish
+prepared sources from accepted results. Archived registers are historical.
 
 ## Directory layout
 
-Research documents live under `T3_NSE/B-Regularity-class/WFB`,
-`T3_NSE/B-Regularity-class/QFB`, and
-`T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound`.
-`R3_NSE` is reserved for whole-space work. These are ordinary folders,
-not Lean namespaces. `Material/`, the standalone `LEAN_CUTOUTS/Cutouts.lean`,
-CI configuration and historical audits retain their verified build paths.
-Use `REORGANIZATION_MAP.json` to resolve historical research-document paths.
+`T3_NSE` and `R3_NSE` are ordinary research folders. Existing WFB/QFB material
+lives in `T3_NSE/B-Regularity-class/`; the prior stopped-commutator program is
+in `T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/`. The new family
+route lives in `T3_NSE/D-Family-Obstruction/`. `Material/` remains the shared
+Lean build, with unchanged namespace and import paths. Preserve
+`REORGANIZATION_MAP.json`, historical receipts and the standalone audited
+`LEAN_CUTOUTS/Cutouts.lean`.
 
 ## Current goal
 
-Use `main` as the project integration branch. The T3_NSE/R3_NSE layout was
-validated on `codex/reorganize-nse-domains` at `b730e52c`, run `44651224180`;
-the user has authorized integrating that branch. Preserve its retained evidence. The user explicitly selected the conditional
-`MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION` root as the project goal:
-`ν > 0 → StoppedCommutatorBound ν → ¬ NSE_B ν`.
-Preserve its exact actual-NSE semantics and explicit stopped-bound premise.
-The stopped witness is unproved. Do not introduce a global custom axiom.
+Work from `main`. The user explicitly selected **Fefferman D** and requested
+implementation of the T3 family on main. The local construction route is
+`Fefferman_D_Family_obstruction`; its first foundation package is
+`Material/FeffermanFamilyFoundation/`.
 
-Weak_Fourierman_B, R0 and QFB remain accepted foundations in their recorded
-scopes. Preserve WFB's finite Fourier-budget hypothesis and its evidence.
-Universal budget finiteness and analytic germ extension R1 are separate open
-questions. The full operator/domain/core construction and full E09 H2
-convergence retain their original milestone scopes; E09.bound or scalar-root
-acceptance cannot complete those stronger obligations.
+Preserve actual forced-NSE semantics, classical smoothness, periodic velocity
+AND pressure, distinct sites modulo the integer lattice, and the SAME prescribed
+force in the witness and competitor. Do not add a global energy premise to the
+periodic competitor. The complete family root and literal force-decay adapter
+remain unproved here. Prepared contracts or projections from assumed witnesses
+are not a constructed counterexample.
 
-The conditional root and E09.bound are accepted at
-`22431f032c868b8de1526767d7d32a2639f6a9ee`, run `44641040255`, with complete
-retained compiler/type/axiom evidence. The exact current goal is achieved.
-Consult `audits/material-22431f03-accepted/summary.json` and the Ehrenfest
-ledger before changing sources or starting another verification. Preserve the
-accepted root and await explicit scope selection before treating a separate
-operator, H2-convergence or witness program as the new project goal. Never infer
-a new proof obligation from a superseded historical priority.
+The previous conditional EHRENFEST_OBSTRUCTION theorem is an accepted
+foundation. Preserve its explicit StoppedCommutatorBound premise and exact
+source/evidence; its witness remains unproved. WFB retains its finite full
+Fourier-budget hypothesis; R0 and QFB retain their original scopes. Their
+unforced uniqueness theorems cannot silently replace forced comparison.
+Prior current-goal documents are byte-preserved in
+`audits/goal-transition-fefferman-d/`; they no longer assign the project goal.
 
 ## Execution and evidence
 
 - Never execute Lean locally, directly or indirectly through Lake, wrappers,
-  subprocesses, containers or subagents. Local work is reading, file preparation
-  and nonexecuting static inspection. Use authorized cached external CI or
-  external native Windows replay; no local fallback.
-- Preserve the pinned compiler, dependency lock, vendor sources and audit policy.
+  subprocesses, containers or subagents. Only reading, preparation and
+  nonexecuting static inspection are local. Use authorized cached external CI
+  or external native Windows; no local fallback.
+- Preserve the compiler, dependency lock, vendor sources and audit policy.
   Restore compatible objects, rebuild affected owned modules and freshly audit
-  every required endpoint/type/theorem-axiom on each new verification run.
-- Never rebuild Mathlib from source because its official object cache is
-  unavailable. Report the obstruction and preserve compatible accepted caches.
-- Publish passed caches or containers only after all required verification
-  succeeds. Keep inherited evidence separate from new matching verification.
-- A green workflow, prepared files, source inspection or a cache hit alone is
-  not A-tier. Acceptance requires matching compiler/type/axiom/source identities,
-  the full intended audit scope and no unapproved axioms or sorryAx.
-- Reuse sufficient accepted evidence; documentation-only updates do not require
-  an identical full rerun. Linux evidence is not native Windows evidence.
-- Continue independent authorized preparation while external CI runs. Preserve
-  its exact tested commit; do not supersede active work with unrelated pushes.
-- The user authorizes cancellation of identified failed or stalled obsolete CI
-  runs, including force cancellation when needed. Preserve accepted images and
-  objects and do not cancel unrelated runs.
-- Use the chat-only `<->` sign for each exact accepted intermediate endpoint
-  and separately the root. Name a helper as a helper; do not promote its parent
-  milestone. No scheduled monitoring, polling automation or webhook notification.
+  every required exact type and theorem-level axiom on a new verification run.
+- Never rebuild Mathlib from source because official objects are unavailable.
+  Report that obstruction and preserve compatible accepted caches.
+- Publish passed caches only after complete required verification succeeds.
+  Source preparation, cache hits and workflow status alone are not A-tier.
+  Acceptance requires exact source/type/axiom/policy identity, complete audit
+  coverage and no sorryAx or unapproved axiom.
+- Existing Linux evidence is not native-Windows evidence. Avoid repeating
+  accepted verification solely for documentation changes.
+- Preserve the exact tested commit during external verification. Do not cancel
+  or supersede unrelated runs. The user's existing authorization for identified
+  failed/stalled obsolete runs does not extend to unrelated work.
+- Use chat-only `<->` for each exactly accepted intermediate scope. Name a
+  helper as a helper; do not promote the whole family or D root from its audit.
+  No scheduled monitors, polling automations or webhook notifications.
 
 ## Workflow and documentation
 
 Follow the user's current BASE_LOOP. Discussion creates no artifacts. Parser
-collection defers execution until the relevant compilation command. Emit removes
-only the last uncompiled request; it never deletes files or branches.
-Preserve the current project goal unless the user explicitly changes it.
+collection defers work until compilation; Emit removes only the last request.
+Preserve the selected goal unless the user explicitly changes it.
 
-Before commits, constructively synchronize GPT, README, INDEX-WORTHY,
-SOURCE_STATUS and relevant Ehrenfest ledgers. Rewrite current sections coherently;
-retain historical source/evidence records in clearly identified archives rather
-than appending contradictory current-status paragraphs. No mathematical scope,
-explicit premise or accepted historical theorem is discarded by the goal change.
+Before commits synchronize GPT, README, INDEX-WORTHY, SOURCE_STATUS and the
+T3 implementation ledger. Keep prior accepted proof bytes and evidence intact.
+Record formal gaps explicitly, including seed/toolchain compatibility, force
+admission, periodization and same-force comparison. Do not add a global custom
+axiom, hide a missing witness in a definition, or claim prepared code is verified.

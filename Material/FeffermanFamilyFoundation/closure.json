@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "endpoint": "FeffermanFamilyFoundation",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "c483fe0683e443b42c93c6bf00d37613567b0d03",
+  "original_development_basis": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FeffermanFamily.LocalBlowup",
+    "MethbokeAddon.FeffermanFamily.DisjointGerms",
+    "MethbokeAddon.FeffermanFamily.FamilyContracts"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FeffermanFamily.DisjointGerms",
+      "path": "MethbokeAddon/FeffermanFamily/DisjointGerms.lean",
+      "sha256": "a18d5402a1ac2cf6e28b32b4a1dd80b945cad245d6e8b282f49f9c1ea203b5d8",
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Order.Filter.Finite",
+        "Mathlib.Topology.Neighborhoods",
+        "Mathlib.Topology.Constructions.SumProd"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.FamilyContracts",
+      "path": "MethbokeAddon/FeffermanFamily/FamilyContracts.lean",
+      "sha256": "5529bb338538e00d8c98d60bb603f5e648a4a9204941199c9ee31a290f07d0fa",
+      "imports": [
+        "SingularClosure.Contracts",
+        "MethbokeAddon.FeffermanFamily.LocalBlowup"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.LocalBlowup",
+      "path": "MethbokeAddon/FeffermanFamily/LocalBlowup.lean",
+      "sha256": "09c85375133998e98e7f35886563176415918f09535f6109be6744dc6a451a7a",
+      "imports": [
+        "Mathlib.Analysis.Normed.Group.Basic",
+        "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+        "Mathlib.Topology.Sequences",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "imports": [
+        "Mathlib"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "revision": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Analysis.Normed.Group.Basic",
+    "Mathlib.Order.Filter.Finite",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Topology.Constructions.SumProd",
+    "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+    "Mathlib.Topology.Neighborhoods",
+    "Mathlib.Topology.Sequences"
+  ],
+  "local_module_count": 4,
+  "owned_module_count": 3,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "7ef2e1933f48c674b75a231e2c1deaaba44090cb913f190205b5dae702dff6b7",
+  "validation_boundary": "Metadata closure reconstructed from immutable source manifests and actual new source bytes. Full retained-source validation and Lean verification remain external.",
+  "dependency_boundary": "No vendor, compiler, Mathlib, lockfile, lakefile or workflow modification."
+}

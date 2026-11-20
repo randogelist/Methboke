@@ -1,302 +1,188 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 4.0
+DOCUMENT_VERSION = 5.0
 DATE = 2026-11-20
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
-VALIDATED_LAYOUT_BRANCH = codex/reorganize-nse-domains
-PROJECT_GOAL = EHRENFEST_OBSTRUCTION
-FROZEN_PROGRAM_NAME = EHRENFEST-OBSTRUCTION
-ACTIVE_MODE = VALIDATED_LAYOUT_MAIN_INTEGRATION; accepted mathematical goal preserved
+PROJECT_GOAL = Fefferman_D
+LOCAL_TARGET = Fefferman_D_Family_obstruction
+ACTIVE_MODE = A_TIER_DERIVATION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
-CURRENT_ROOT_STATUS = A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
-CURRENT_GOAL_STATUS = ACHIEVED_EXACT_CONDITIONAL_ROOT
-STATUS_AUTHORITY = THIS_CURRENT_DOCUMENT_AND_MATCHING_SOURCE_SPECIFIC_EVIDENCE
-HISTORICAL_REGISTERS = audits/goal-transition-22431f/README-registers.md
+CURRENT_ROOT_STATUS = NOT_FORMALLY_PROVED_IN_THIS_PROJECT
+CURRENT_HELPER_STATUS = PREPARED_PENDING_MATCHING_EXTERNAL_CACHED_VERIFICATION
+STATUS_AUTHORITY = THIS_DOCUMENT_AND_SOURCE_SPECIFIC_EVIDENCE
+HISTORICAL_REGISTERS = audits/goal-transition-fefferman-d/
 
-1. PROJECT GOAL AND CURRENT TARGET HIERARCHY
+1. GOAL AND TARGET HIERARCHY
 
-The user explicitly selected the exact conditional EHRENFEST_OBSTRUCTION root
-as the project goal and authorized applying the documentation amendments and
-finishing its A-tier verification in GitHub. This replaces Weak_Fourierman_B
-as the active project goal. WFB remains an accepted foundation with its full
-finite Fourier-budget hypothesis and every original theorem scope preserved.
+The user explicitly stated on2026-11-20: The Goal Is Fefferman D, and requested
+implementation of the T3 family on Methboke main. This selects the classical
+forced periodic obstruction as the project goal. The earlier conditional
+EHRENFEST_OBSTRUCTION result remains an accepted foundation; its stopped
+hypothesis, evidence and independent open obligations are unchanged.
 
-MACROSCOPIC: establish the exact conditional theorem
-  forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu.
-MESOSCOPIC: integrate the externally validated T3_NSE/R3_NSE layout into
-  main, preserving all accepted theorem scopes and source-specific evidence.
-MICROSCOPIC: deliver the validated layout with current main-branch guidance;
-  no additional mathematical goal or duplicate compiler run is introduced.
-SUGGESTED_NEXT_GOAL: none adopted. A new goal requires an explicit user change.
-
-The complete retained evidence and exact root/bound types are independently
-reviewed. E09.bound and E10 are accepted at22431f/run44641040255. The run adds75
-accepted Ehrenfest declarations to108 earlier ones, totaling183. The exact
-conditional project goal is achieved. No stopped-bound witness is proved.
-No new Lean execution is needed solely to restate this accepted evidence.
-
-The current goal is the conditional dynamical implication. The original ten
-E01--E10 milestone scopes remain recorded separately. Completing the root does
-not complete the operator/domain/core interpretation or full E09 H2 convergence.
-
-BRANCH VERIFICATION
-
-The explicitly requested dedicated branch run44651224180 is accepted at
-b730e52ca1e4a661a83a09110378db542455097b.
-https://github.com/randogelist/Methboke/actions/runs/44651224180
-All411 modules passed (411 reused,0 fresh), with71 fresh package
-audits,448 unique named type/axiom reports plusQFB and183 external controls.
-Publication and final acceptance passed; theorem axioms are standard only.
-Evidence: audits/material-b730e52c-branch/summary.json and independent-review.json.
-Plan: audits/layout-t3-r3/CI_RUN_PLAN.json.
-The exact branch push trigger is the only executable configuration change.
-Compiler/dependency pins, Lean sources, module receipt validation and all
-audit/acceptance jobs remain unchanged. Main was unchanged during branch
-verification; the user subsequently authorized main integration.
-Later evidence/documentation-only commits retain the tested checkout above;
-they are not additional compiler runs. Historical3335bbc and22431f evidence
-remain source-specific. No new theorem, stopped witness or local Lean run.
+MACROSCOPIC: Fefferman_D, the classical smooth-force periodic obstruction.
+MESOSCOPIC: construct Fefferman_D_Family_obstruction, then specialize one site
+  and prove the literal forcing/data/nonexistence adapters.
+MICROSCOPIC: first owned foundation package: local blowup, finite disjoint
+  carrier germs, native forced-NSE contracts, complete exact-type/axiom audits.
+NEXT_SCOPED_ENDPOINT: compatible compact seed admission and selected growth
+  sequence; continue finite packing/locality adapters without assuming a witness.
+A prepared contract or implication from an assumed witness does not prove D.
 
 DIRECTORY ORGANIZATION
 
-T3_NSE/B-Regularity-class/WFB contains WFB derivations, finite-cap/R0
-research records, formalisation plans and the WFB paper.
-T3_NSE/B-Regularity-class/QFB indexes the accepted QFB sources and evidence.
-T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound contains the
-Ehrenfest derivations, current registers, formalisation plans and source cutouts.
-R3_NSE is reserved; no whole-space theorem or transfer is claimed.
-Material remains the shared verified Lean build. The domain folders do not
-change module names, theorem types or premises. The standalone audited
-LEAN_CUTOUTS/Cutouts.lean and all historical audit receipts remain fixed.
-REORGANIZATION_MAP.json maps original research-document paths to their
-current locations. Pinned source snapshots and historical provenance retain
-their original bytes and revision-specific path meanings.
+T3_NSE/D-Family-Obstruction is the current research-program folder.
+T3_NSE/B-Regularity-class/{WFB,QFB} and
+T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound retain prior programs.
+R3_NSE remains reserved. Material is the shared verified build workspace;
+research-folder names are not Lean namespaces. REORGANIZATION_MAP.json records
+legacy paths; historical pinned provenance is not rewritten. The main layout
+was freshly checked by run44652940559 atc483fe0 (workflow success observed;
+that baseline run contains none of the newly prepared family sources).
 
-2. EXACT DEFINITIONS AND EXPLICIT PREMISE
+2. EXACT DEFINITIONS AND EXPLICIT INPUTS
 
-Domain: the unit three-torus, force zero, viscosity nu>0. SmoothSigmaZero a
-means the actual smooth periodic, divergence-free, mean-zero datum. Pressure
-has zero spatial mean. NSE_B nu is the literal universal statement
-  forall a, SmoothSigmaZero a -> exists U,P, GlobalSmoothNSE nu a U P.
+Domain: unit three-torus represented by unit-periodic functions on native
+SingularClosure.Vec = EuclideanSpace Real (Fin3). Pressure is periodic too.
+For each nu>0 and finite N>0, sites a:FinN->Vec represent pairwise distinct
+classes modulo the integer lattice. Distinct Euclidean representatives alone
+are not sufficient.
 
-SmoothDatum is {a : Field // SmoothSigmaZero a}. For one fixed a and nu,
-canonicalFamily nu hnu a n is canonicalGalerkinSolution at cutoff N=n+1;
-cutoff zero is never used. All cutoffs share the same datum and viscosity.
+Forcing F is a single globally C-infinity periodic function of spacetime,
+supported in a compact positive-time slab. It remains prescribed at and after
+time1. The family force may depend on the configuration; there is no claim of
+one force for all configurations. Ordinary smoothness uses ContDiff order
+infinity, not analytic omega/top.
 
-For coefficient state c, define
-  e_N(c) = coefficientDissipation N c / 2,
-  v_N(c) = (1 + e_N(c)/eStar)^(-1),
-  c_N(c) = (nu*coefficientLaplacianSquare N c
-             + coefficientEnstrophyNonlinearPower N c)
-             / (eStar*(1 + e_N(c)/eStar)^2).
-The native balance is D'=-2*nu*Z-2*P. Thus W=-P gives
-  e'=W-nu*Z,  v'=-(W-nu*Z)/(eStar*(1+e/eStar)^2).
-The sign and the factor1/2 are part of the fixed definition.
+Preterminal U,P solve the actual native forced PDE on0<=t<1:
+  timeDerivative U + convection U + gradient P = nu*laplacian U + F,
+  divergence U=0, U(0)=0.
+Velocity and pressure are jointly smooth and periodic on that domain.
+Every preterminal slice has an integrable squared norm on unitCube, with one
+uniform bound. LocalVelocityBlowup means arbitrary velocity size in every
+left spacetime neighborhood of the specified terminal point.
 
-PreHit(e,R,T,t) means
-  0<=t and t<T and forall s, 0<=s -> s<=t -> e(s)<R.
-It contains no assumed hitting time, regularity conclusion or singularity.
+The excluded competitor is a global smooth periodic velocity AND pressure
+pair with the SAME viscosity, zero datum and prescribed force. No extra
+uniform energy, mean-zero, pressure gauge, compactness or energy inequality
+is imposed on that competitor.
 
-StoppedForDatum nu hnu a eStar gamma R means
-  eStar>0, gamma>0, forall n R(n)>0, R(n)->infinity,
-  and exists n0, forall n>=n0, forall t,
-    PreHit(e_n,R(n),1/gamma,t) -> c_n(t)<=-gamma.
-StoppedCommutatorBound nu existentially supplies hnu, the single smooth a,
-eStar, gamma and R satisfying precisely that predicate.
+PeriodicFamilyObstructionStatement is a Prop contract, not a proved theorem.
+The final family theorem name Fefferman_D_Family_obstruction remains reserved.
+SmoothCompactForceObstruction is the current forgetful target. Its adapter to
+the literal official Fefferman-D force-decay conditions remains to be proved.
 
-This is the one explicit stopped-bound hypothesis, not a new global custom
-axiom. Its existential witness remains unproved. Root acceptance establishes
-an implication, not the premise or an unconditional Navier--Stokes counterexample.
+3. CONSTRUCTIVE B-TIER ROUTE
 
-The docstring at StoppedCommutatorBound now traces the physical reading:
-enstrophy production versus viscosity -> bounded reciprocal observable ->
-formal Heisenberg/Koopman commutator -> stopped uniform descent -> the
-smooth-front contradiction. It distinguishes pointwise core algebra from
-the open Hilbert-space realization and the unproved stopped witness.
-Only comments in Definitions.lean change; all executable Lean text is
-identical. The owned-source manifest is synchronized. The previous proof
-acceptance stays pinned to22431f; the commented source is freshly revalidated
-at3335bbc/run44645541035. Evidence: audits/material-3335bbc5-comments/summary.json.
+The exact cumulative derivation and source index are in
+  T3_NSE/D-Family-Obstruction/.
+They use the pinned compact smooth-force literature seed as a substantive
+mathematical input. Its Lean package is not yet ported into this project.
 
-3. CONSTRUCTIVE CONDITIONAL B-TIER CHAIN
+F00: classical contracts, periodic pressure and same-force competitor.
+F01: literature seed at rest; enlarge carrier to contain all-time force support.
+F02: select a diverging-speed sequence, extract a compact local point, recenter.
+F03: translate delayed parabolic copies with lambda>1 and terminal time1.
+F04: pack their fixed compact carriers at the finite prescribed sites.
+F05: sum locally equals one copy or zero, including carrier boundaries.
+F06: transfer exact residual and divergence through that local equality.
+F07: finite smooth force sum, positive-time support and zero initial datum.
+F08: bound the preterminal energy; disjoint supports give exact additivity.
+F09: transport a growth sequence to each prescribed point.
+D10: lift viscosity before periodization; use a shifted cube with margin r<1/2.
+D11: package the periodic candidate and prove same-force comparison/no-global.
+D12: assemble the arbitrary-viscosity arbitrary-finite-configuration statement.
+X13: specialize N=1 and derive literal all-order force decay/admissible data.
 
-The cumulative derivation is T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_B_TIER.txt. The following
-interior chain is the source-grounded route to its exact conditional root.
+The force and pressure supports must be included when assembling copies.
+The source's hardcoded quarter-cube wrapper cannot handle arbitrary torus sites
+unchanged; generic-radius periodization is needed. No infinite-copy closure,
+exact singular-point count, unforced obstruction or analytic-force admission
+is asserted. The original orthogonal response-force family has a separate
+smooth-force obstruction that this construction does not remove.
 
-B01. Use actual canonical Galerkin trajectories for the fixed datum and nu.
-B02. Nonnegative half-enstrophy and eStar>0 give 0<v_n(t)<=1 on nonnegative time.
-B03. Differentiate the reciprocal observable: v_n'=c_n on the slab interior;
-     obtain closed-slab continuity from the actual coefficient trajectory.
-B04. Assume for contradiction an actual global smooth NSE pair for the stopped
-     datum. Set T=1/gamma>0 and choose S=T+1. Its restriction is an
-     InitialClassicalFront nu S; T<S supplies a genuinely closed comparison slab.
-B05. Compact smooth-reference Sobolev bounds give uniform projected C1/H1
-     estimates and decaying Fourier tails for that actual reference.
-B06. Differentiate the actual projected reference coefficients, cancel the
-     pressure/Leray term and derive the canonical error equation. Arbitrary
-     finite-coefficient calculus is used for the error; the error is not
-     falsely treated as an unforced NSE solution.
-B07. Physical nonlinear absorption, mixed-transport bounds and small tail
-     forcing give the H1 error differential inequality. The interior small-forcing
-     comparison starting at zero controls the error on the entire slab.
-B08. Combine reference and error bounds to derive an eventual enstrophy bound:
-       exists C, forall sufficiently large n, forall t in[0,T], e_n(t)<=C.
-     This is E09.bound. It is derived from the actual front, not an added
-     stability certificate and not the full E09 H2-convergence statement.
-B09. Choose one n satisfying the eventual drift and bound conditions with
-     R(n)>C. Then PreHit holds for every t in[0,T), so v_n'(t)<=-gamma.
-B10. Closed-slab mean-value comparison gives
-       v_n(T)<=v_n(0)-gamma*T=v_n(0)-1<=0,
-     contradicting v_n(T)>0. Therefore the stopped datum admits no global
-     smooth pair; unpacking the existential premise proves not NSE_B nu.
+4. LEAN DEPENDENCIES AND CURRENT IMPLEMENTATION
 
-No whole-cutoff supremum limit, hitting theorem, Stone theorem, self-adjoint
-operator or full H2 convergence is required for this minimal root. E07/E08
-remain accepted stronger scalar escape results. The quantum/operator
-interpretation is separately tracked, without modifying the literal premise.
+Owned sources:
+  Material/MethbokeAddon/FeffermanFamily/LocalBlowup.lean
+  Material/MethbokeAddon/FeffermanFamily/DisjointGerms.lean
+  Material/MethbokeAddon/FeffermanFamily/FamilyContracts.lean
+Package:
+  Material/FeffermanFamilyFoundation/
 
-4. LEAN-ORIENTED DEPENDENCY CHAIN AND EXACT ENDPOINTS
+The local-growth layer proves terminal positivity, congruence on the left
+slab, failure of local boundedness/continuous extension, sequence admission
+and compact-carrier extraction from an explicit sequence. It does not yet
+select that sequence from the literature speed predicate.
+The disjoint-germ layer proves pointwise and neighborhood active/zero sum
+identities and their uniform-spatial-carrier spacetime versions.
+The native contracts use existing actual differential operators, admit the
+zero solution for zero force, preserve the same fields under restriction and
+site selection, and project an explicitly assumed family statement to the
+single-force compact-time obstruction. They do not construct a family witness.
 
-Active owned source directory:
-  Material/MethbokeAddon/EhrenfestObstruction/
+Every new helper and key contract has an independent full exact-type or
+literal-definition consumer check and theorem-level axiom report in Audit.lean.
+Keep all previous package audits. Full root acceptance requires more than
+acceptance of these helpers or definitions.
 
-Canonical branch:
-  Definitions -> ReciprocalDrift -> CanonicalBarrier,
-  with SlabDescent supplying the direct mean-value contradiction.
-Reference branch:
-  FourierL1, SmoothSobolevNorm, ProjectedC1, SmoothReference, FourierTail,
-  ReferenceCoefficientEvolution, PhysicalReferenceTail,
-  ProjectedReferenceEvolution, ReferenceC1Norm, PressureFourier.
-Error branch:
-  CoefficientError, PhysicalForcing, CrossTransport, SmallForcingBootstrap,
-  ErrorState, ErrorSlabBound, ErrorEquation, CanonicalErrorInequality.
-Assembly:
-  EventualEnstrophyBound -> DynamicalRoot -> Root.
+5. SOURCE IDENTITIES AND COMPATIBILITY
 
-Required bound declaration:
-  MethbokeAddon.EhrenfestObstruction.initial_front_eventual_canonical_enstrophy_bound.
-Root package declarations:
-  MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front,
-  MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth,
-  MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL,
-  MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION.
+Preparation basis:aacfe7c4b0dc9f1642269823c174de74d7097fcb.
+Recalibrated main:c483fe0683e443b42c93c6bf00d37613567b0d03.
+Compiler:leanprover/lean4:v4.33.0.
+Mathlib:db584cd6d46c92f209a44c0f1c829460d327499d.
+Vendor Methlib:96033dd69c994bec337a87369a6c27256e724980.
+Dependency lock:Material/lake-manifest.json.
+Vendor identity:Material/_vendor/source-manifest.json.
 
-The front obstruction requires 1/gamma<S explicitly. The global wrapper uses
-S=1/gamma+1. This does not silently claim a theorem on an endpoint-closed front
-whose regularity is only available on[0,S).
+Literature:openai/NavierStokesAndEuler@
+  f9e8bc5b38b6e212696e8a30e3e91517af887bbd,
+Lean4.34.0-rc2,Mathlib85e3a25e006c35636f0e53b0e9296caca2685bc0.
+This is a mathematical/source-index input, not an active dependency or a new
+axiom. Objects from the two pins must not be mixed. No pin/vendor change is
+needed or authorized merely by preparing the first foundation layer.
 
-The concrete root has25 owned dependencies.30 owned Ehrenfest sources are
-active in16 packages with183 named audits. The historical31-module design and
-nine logical fast-route blocks are not current compiled-module counts.
-COUNT_RECONCILIATION.json preserves this distinction. PreparedE01 is inactive.
+6. ACCEPTED PRIOR FOUNDATIONS
 
-5. ASSOCIATED SOURCE IDENTITIES AND ACCEPTED FOUNDATIONS
+EHRENFEST_OBSTRUCTION is accepted as the exact conditional statement
+  nu>0 -> StoppedCommutatorBound nu -> not NSE_B nu.
+The stopped witness remains unproved. Original root evidence22431f/run44641040255;
+comment-only refresh3335bbc/run44645541035. The latter passed411 modules,
+71 fresh packages,448 named audits plusQFB, standard axioms only.
+Evidence:audits/material-3335bbc5-comments/summary.json and prior root archive.
+E09.bound is a scoped actual-front eventual bound, not full H2 convergence.
 
-Compiler: leanprover/lean4:v4.33.0.
-Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
-Vendor Methlib source:96033dd69c994bec337a87369a6c27256e724980.
-Dependency identity: Material/lake-manifest.json and Material/_vendor/source-manifest.json.
-Approved theorem axioms: propext, Classical.choice, Quot.sound only.
+WFB is accepted atfdb515d8/run44566880192 with its full finite Fourier-budget
+hypothesis. R0 retains actual finite-cap admission; QFB retains eventual-tail
+energy and post-cutoff uniqueness. These unforced statements do not directly
+supply forced same-force comparison. Their original evidence is retained.
+Full operator realization, stopped witness, full H2 convergence and universal
+WFB budget/R1 remain separate open programs, not the active D root.
 
-QFB: the literal QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED establishes its
-original eventual smooth-tail/energy/trace-uniqueness contract. It does not
-supply pre-cutoff regularity. QFBAdmissions.OneRestartOverlapAxiom and its
-QFB_ONE_RESTART_OVERLAP custom axiom remain excluded.
+7. OPEN OBLIGATIONS AND STATUS
 
-R0: exact finite classical/two-sided analytic cap admission accepted at
-93ca8a57536512556ec36717ee933ea52db283bf/run44549257770. Actual cap admission
-and strict cutoff overlap remain explicit in those theorems. Universal R1 is open.
+Current family root:NOT_FORMALLY_PROVED.
+Foundation sources:PREPARED_PENDING_MATCHING_EXTERNAL_CACHED_VERIFICATION.
+Imported seed at current pin:ABSENT; compatibility/port still required.
+Actual force-decay adapter:OPEN.
+Packing/scaling/exact nonlinear glue/energy/periodization/comparison:OPEN.
+The complete B-tier seed-dependent construction is not new A-tier evidence.
+No sorry, global custom axiom or hidden witness premise may close these gaps.
 
-WFB: all ten contextual obligations and exact Weak_Fourierman_B accepted at
-fdb515d8bde35ec8021bbc26f360aca8dfa2855c/run44566880192. Its full finite squared
-Fourier budget up to min(Tmax,tau_Q) implies infinite maximal lifetime and one
-global smooth pair preserving the entire velocity and normalized pressure.
-Actual maximal existence is established separately. The budget remains a
-hypothesis, with tau_Q=||a||_2^4/(8*pi^2*nu^5). No universal budget bound follows.
-Evidence: audits/material-fdb515d8/summary.json and accepted-evidence.zip.
-Scope:365 modules,55 fresh packages,265 named audits plusQFB,183 controls.
+8. OPERATING RULES
 
-These accepted source foundations are preserved by the new goal. Their use does
-not add WFB's finite-budget hypothesis to the obstruction root. The source-exact
-Ehrenfest identity collection has53 indexed anchors plus7 companions and36
-pinned full-source snapshots; copied source is not new formal acceptance.
+Work on main as explicitly requested. Never execute Lean locally, directly or
+through Lake, scripts, subprocesses, containers or subagents. Only source
+reading/preparation and nonexecuting static inspection are local. Use authorized
+cached external CI or external native Windows; report cache obstruction without
+local fallback or Mathlib source rebuilding. Preserve successful compatible
+objects and every existing required audit.
 
-6. CURRENT VERIFIED ENDPOINTS AND EVIDENCE
-
-Accepted E07:
-  stopped_scalar_hitting and scalar comparison support at4068641471b9b9324a5d138cacfa37a94a648bf1,
-  run44626474631, audits/material-40686414-accepted/summary.json.
-Accepted E08 and second-layer helpers:
- 7908890a0afb1746ec43f127792a7e0cc667dca6/run44635322649,
- audits/material-7908890a-accepted/summary.json.
-Together these give108 accepted Ehrenfest declarations; the latter complete
-run covered392 modules/64 fresh packages/373 named audits plusQFB.
-
-Original conditional-root acceptance:
-  source22431f032c868b8de1526767d7d32a2639f6a9ee,
-  https://github.com/randogelist/Methboke/actions/runs/44641040255,
-  fast job135971854575; final acceptance job135978130987.
-Complete411-module build passed:392 reused and19 fresh. All71 package audits
-were fresh (zero reused), covering448 unique expected declarations plusQFB.
-All183 external controls passed; required publication and final acceptance
-passed. Every audited theorem uses only the approved standard axioms.
-Independent review passed1488 consistency checks against pinned manifests,
-all expected declaration names, retained log hashes and fresh22431f audit origins.
-Evidence: audits/material-22431f03-accepted/summary.json, independent-review.json
-and evidence.zip; root/bound logs are retained alongside the complete report.
-T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_A_TIER.txt records the exact accepted types and boundary.
-The two chat-only <-> signals for E09.bound and E10 have been emitted.
-E07/E08/E10 are accepted full checklist milestones; E09.bound is a scoped helper.
-Full operator realization, full H2 convergence and the stopped witness remain open.
-
-Comment-only source refresh:3335bbc52ec58fc080577143863b9ad5e4cc3edb,
-https://github.com/randogelist/Methboke/actions/runs/44645541035. Complete411-module build,71 fresh package audits and448 named
-type/axiom reports plusQFB passed with standard axioms only. No new theorem
-or stopped witness is supplied. Evidence: audits/material-3335bbc5-comments/summary.json.
-
-The preceding failed attempt d6e74ba8/run44639459376 compiled406 modules but
-failed EventualEnstrophyBound before audits.22431f changes only the diagnosed
-continuity-proof normalization; it preserves theorem statements, audit scope,
-compiler/dependency pins and CI policy. Retained failed evidence remains at
-audits/material-d6e74ba8-failed/summary.json.
-
-7. OPEN OBLIGATIONS AND ACCEPTANCE BOUNDARIES
-
-The exact conditional root and its actual-front bound are accepted. No additional
-analytic certificate remains in that implication. The stopped premise stays explicit.
-Independently unresolved:
-  - existence of a StoppedCommutatorBound witness;
-  - real phase-space/volume adapter and full two-sided complete smooth flow;
-  - half-density L2 unitary group and self-adjoint generator/domain/core;
-  - exact full Heisenberg/Ehrenfest operator translation;
-  - full E09 C([0,T];H2) Galerkin convergence.
-These preserve the original E01--E10 checklist scopes. Root acceptance does
-not tick unfinished full milestones or establish a physical quantum model.
-Universal WFB-budget finiteness and universal analytic germ extension R1 remain
-outside this goal and unproved. No singularity witness is claimed.
-
-8. OPERATING RULES AND DOCUMENT AUTHORITY
-
-No local Lean, Lake invoking Lean, compiler, kernel audit, subprocess or
-container fallback. Local work is source reading, file preparation and
-nonexecuting static inspection. Only authorized cached external CI or external
-native Windows may supply verification. A Linux pass is not Windows evidence.
-Preserve compiler/Mathlib/lock/vendor identity, compatible successful objects,
-all required fresh endpoint/type/axiom audits and the exact acceptance policy.
-Mathlib source rebuilds are not permitted when official objects are unavailable.
-
-Use main as the integration branch. Preserve the source-specific evidence
-from codex/reorganize-nse-domains. Continue independent authorized preparation while an exact
-external source revision runs; do not supersede it with unrelated pushes.
-Do not repeat an accepted verification solely because documentation changed.
-Do not introduce scheduled monitors. Emit chat-only <-> for each exact accepted
-intermediate endpoint and for the root, naming helper scope where applicable.
-Prepared files, static inspection, cache hits and workflow success alone do
-not earn an acceptance signal. User goal changes remain explicit.
-
-Before any commit synchronize this document, README, INDEX-WORTHY,
-SOURCE_STATUS and relevant Ehrenfest ledgers. Current operative content is
-rewritten coherently here. The original registers at22431f are retained
-byte-for-byte under audits/goal-transition-22431f/; old current-goal, pending
-status and runner-handoff passages there are historical evidence, not instructions.
-The existing failed-run archives and accepted proof receipts remain intact.
+Before commits synchronize README,GPT,INDEX-WORTHY,SOURCE_STATUS and the T3
+implementation ledger. Keep prior proof bytes and evidence intact. Historical
+records are not current instructions. New status must match exact tested source,
+consumer type, dependency pins, policy and theorem-level axioms.
+Use chat-only <-> for precisely accepted helper scopes; do not promote their
+parent family root. No scheduled monitors. New goals require explicit user
+selection. The user's current Fefferman-D selection is authoritative.
