@@ -25,8 +25,8 @@ example
     (G : ℝ × (ℝ × Vec) → Vec) (hG : ContDiff ℝ ∞ G)
     (hzero : ∀ z : ℝ × Vec, G (0, z) = 0)
     (a b : ℝ) (hab : a ≤ b) (r : ℕ) :
-    ∃ C : ℝ, 0 ≤ C ∧ ∀ λ : ℝ, ‖λ‖ ≤ 1 →
-      spacetimeCrNorm r a b (fun t x => G (λ, (t, x))) ≤ C * ‖λ‖ :=
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ lambda : ℝ, ‖lambda‖ ≤ 1 →
+      spacetimeCrNorm r a b (fun t x => G (lambda, (t, x))) ≤ C * ‖lambda‖ :=
   smooth_family_spacetimeCrNorm_linear_bound G hG hzero a b hab r
 
 example

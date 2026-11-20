@@ -41,16 +41,16 @@ theorem smooth_family_spacetimeCrNorm_linear_bound
     (G : ℝ × (ℝ × Vec) → Vec) (hG : ContDiff ℝ ∞ G)
     (hzero : ∀ z : ℝ × Vec, G (0, z) = 0)
     (a b : ℝ) (hab : a ≤ b) (r : ℕ) :
-    ∃ C : ℝ, 0 ≤ C ∧ ∀ λ : ℝ, ‖λ‖ ≤ 1 →
-      spacetimeCrNorm r a b (fun t x => G (λ, (t, x))) ≤ C * ‖λ‖ := by
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ lambda : ℝ, ‖lambda‖ ≤ 1 →
+      spacetimeCrNorm r a b (fun t x => G (lambda, (t, x))) ≤ C * ‖lambda‖ := by
   obtain ⟨C, hC, hb⟩ := smooth_family_finite_order_linear_bound
     G hG hzero (Icc a b ×ˢ unitCube) (isCompact_Icc.prod isCompact_unitCube) r
   refine ⟨((r + 1 : ℕ) : ℝ) * C, mul_nonneg (by positivity) hC, ?_⟩
-  intro λ hλ
+  intro lambda hlambda
   calc
-    _ ≤ ((r + 1 : ℕ) : ℝ) * (C * ‖λ‖) :=
-      spacetimeCrNorm_le_of_derivative_bound r a b hab _ _ (hb λ hλ)
-    _ = (((r + 1 : ℕ) : ℝ) * C) * ‖λ‖ := by ring
+    _ ≤ ((r + 1 : ℕ) : ℝ) * (C * ‖lambda‖) :=
+      spacetimeCrNorm_le_of_derivative_bound r a b hab _ _ (hb lambda hlambda)
+    _ = (((r + 1 : ℕ) : ℝ) * C) * ‖lambda‖ := by ring
 
 /-- The literal C^r clause follows from global joint smoothness and vanishing
 of both actual corrections at parameter zero. The radius is the explicit 1;
@@ -71,11 +71,11 @@ theorem smooth_corrections_imply_smallness
     (fun q : ℝ × (ℝ × Vec) => (G q.1 - F) q.2.1 q.2.2)
     hG (by intro z; simp only [hG0, sub_self, Pi.zero_apply]) a b hab r
   refine ⟨C₁ + C₂, 1, add_nonneg hC₁ hC₂, zero_lt_one, ?_⟩
-  intro λ hλ
-  have hλ1 : ‖λ‖ ≤ 1 := by
+  intro lambda hlambda
+  have hlambda1 : ‖lambda‖ ≤ 1 := by
     rw [Real.norm_eq_abs]
-    exact (lt_of_lt_of_le hλ (min_le_right ε 1)).le
-  have hb := add_le_add (hb₁ λ hλ1) (hb₂ λ hλ1)
+    exact (lt_of_lt_of_le hlambda (min_le_right ε 1)).le
+  have hb := add_le_add (hb₁ lambda hlambda1) (hb₂ lambda hlambda1)
   simpa only [Real.norm_eq_abs, add_mul] using hb
 
 end

@@ -18,24 +18,24 @@ example
     {ν T : ℝ} {u F : Velocity} {p : Pressure} (h : Seed ν T u p F)
     (k : Frequency) {β : ℝ → ℝ} (hβ : ContDiff ℝ ∞ β)
     (hβc : HasCompactSupport β) (hβ0 : tsupport β ⊆ Ioo (0 : ℝ) T)
-    (a b : ℝ) (hβI : tsupport β ⊆ Ioo a b) (λ : ℝ) :
-    CompactTemporalCorrection a b (localizedPairVelocity k β u λ - u) :=
-  localizedPairVelocity_compactCorrection h k hβ hβc hβ0 a b hβI λ
+    (a b : ℝ) (hβI : tsupport β ⊆ Ioo a b) (lambda : ℝ) :
+    CompactTemporalCorrection a b (localizedPairVelocity k β u lambda - u) :=
+  localizedPairVelocity_compactCorrection h k hβ hβc hβ0 a b hβI lambda
 
 example
     {ν T : ℝ} {u F : Velocity} {p : Pressure} (h : Seed ν T u p F)
     (k : Frequency) {β : ℝ → ℝ} (hβ : ContDiff ℝ ∞ β)
     (hβc : HasCompactSupport β) (hβ0 : tsupport β ⊆ Ioo (0 : ℝ) T)
-    (a b : ℝ) (hβI : tsupport β ⊆ Ioo a b) (λ : ℝ) :
-    CompactTemporalCorrection a b (localizedPairForce ν k β u F λ - F) :=
-  localizedPairForce_compactCorrection h k hβ hβc hβ0 a b hβI λ
+    (a b : ℝ) (hβI : tsupport β ⊆ Ioo a b) (lambda : ℝ) :
+    CompactTemporalCorrection a b (localizedPairForce ν k β u F lambda - F) :=
+  localizedPairForce_compactCorrection h k hβ hβc hβ0 a b hβI lambda
 
 example
     {ν T : ℝ} {u F : Velocity} {p : Pressure} (h : Seed ν T u p F)
     (k : Frequency) {β : ℝ → ℝ} (a b : ℝ) (hbT : b < T)
-    (hβI : tsupport β ⊆ Ioo a b) (λ : ℝ) :
-    CofinalVelocityBlowup T (localizedPairVelocity k β u λ) :=
-  localizedPairVelocity_terminal_blowup h k a b hbT hβI λ
+    (hβI : tsupport β ⊆ Ioo a b) (lambda : ℝ) :
+    CofinalVelocityBlowup T (localizedPairVelocity k β u lambda) :=
+  localizedPairVelocity_terminal_blowup h k a b hbT hβI lambda
 
 example
     {ν T : ℝ} {u F : Velocity} {p : Pressure} (h : Seed ν T u p F)

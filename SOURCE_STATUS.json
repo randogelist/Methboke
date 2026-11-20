@@ -52,8 +52,8 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Full-chain exact source candidate authorized for cached external verification; no local Lean.",
-  "current_material_external_verification": "FDSN_FIRST_INTERMEDIATES_ACCEPTED_FULL_CHAIN_PENDING",
+  "ci_handoff": "Normalize pointwise functions and native vector/slice coercions, replace the reserved lambda token with an alpha-equivalent identifier, and repair one malformed audit consumer; add a separate physical Leray interpretation adapter. Full exact cached external verification authorized; no local Lean.",
+  "current_material_external_verification": "FDSN_FIRST_INTERMEDIATES_ACCEPTED_FULL_CHAIN_REPAIR_PENDING",
   "latest_material_run": {
     "tested_commit": "f19531bca6816cea31c687629b9ab73ee6868169",
     "run_id": 44663707207,
@@ -2226,7 +2226,7 @@
     "domain": "T^3",
     "root_statement": "forall nu,T>0, forall U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F)",
     "b_tier_status": "CONDITIONAL_SEED_TO_FAMILY_ARGUMENT_RECORDED",
-    "a_tier_status": "FIRST_INTERMEDIATES_ACCEPTED_FULL_FDSN_CHAIN_PREPARED_PENDING_EXTERNAL_CI",
+    "a_tier_status": "FIRST_INTERMEDIATES_ACCEPTED_FULL_FDSN_CHAIN_EXTERNAL_REPAIR_PENDING",
     "implementation_base": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
     "packages": [
       "FDSNPhase",
@@ -2264,7 +2264,8 @@
       "FDSNFamilySmallness",
       "FDSNFamilyRealization",
       "FDSNLocalizedForceSeparation",
-      "FDSNMain"
+      "FDSNMain",
+      "FDSNPhysicalLerayAdapter"
     ],
     "new_named_declarations": [
       "MethbokeAddon.FDSN.phase",
@@ -2326,7 +2327,7 @@
         "Quot.sound"
       ],
       "promotion_requires": "exact source, full consumer type, fresh axiom report and successful retained external evidence",
-      "pending_scope": "34 pending packages, including canonical FDSNMain; no new A-tier promotion before matching accepted evidence."
+      "pending_scope": "35pending packages/295named declarations including canonical FDSNMain; no promotion before complete matching acceptance."
     },
     "scope_boundaries": [
       "No seed existence asserted.",
@@ -2375,9 +2376,10 @@
       "FDSNFamilySmallness",
       "FDSNFamilyRealization",
       "FDSNLocalizedForceSeparation",
-      "FDSNMain"
+      "FDSNMain",
+      "FDSNPhysicalLerayAdapter"
     ],
-    "pending_named_declarations": 284,
+    "pending_named_declarations": 295,
     "failed_attempts": [
       {
         "status": "FAILED_EXTERNAL_ELABORATION_SUPERSEDED_BY_PREPARED_REPAIR",
@@ -2405,9 +2407,28 @@
         "local_lean_executions": 0,
         "artifact_id": 14662212566,
         "artifact_sha256": "02a7dc21107880910579381a9a703664872bb1175af9c64e8ffb51f79227a719"
+      },
+      {
+        "status": "FAILED_EXTERNAL_ELABORATION_REPAIR_PREPARED",
+        "commit": "25c5a4e3f7ba85eb1861ad8bc7ab19b52da68761",
+        "run_id": 44805483799,
+        "job_id": 136528240094,
+        "cause": "ModalEnergy function operations; SmoothSmallness composition and compact-bound inference; FamilyContracts reserved lambda token and identity scalar; ResidualForce native derivative/slice coercions.",
+        "failed_modules": [
+          "ModalEnergy",
+          "SmoothSmallness",
+          "FamilyContracts",
+          "ResidualForce"
+        ],
+        "artifact_id": 14662548018,
+        "artifact_sha256": "670eb3373864614c37af5fe9fcbd784305f8d81b5d7c86edaa6eef87fb13c5d0",
+        "statement_changed": false,
+        "axiom_policy_changed": false,
+        "new_acceptance": false,
+        "local_lean_executions": 0
       }
     ],
-    "current_repair": "LocalizedPair elaboration-only repair; full analytic and actual family chain prepared for its first external run.",
+    "current_repair": "Normalize pointwise functions and native vector/slice coercions, replace the reserved lambda token with an alpha-equivalent identifier, and repair one malformed audit consumer; add a separate physical Leray interpretation adapter.",
     "root_source_prepared": true,
     "root_external_acceptance": false
   },

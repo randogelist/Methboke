@@ -7,8 +7,8 @@ import Mathlib.Tactic.Ring
 # Scalar complex modal energy and damped uniqueness
 
 These time-calculus endpoints apply to the actual coefficient derivatives
-once the PDE/Fourier adapter has been supplied. The damped uniqueness
-theorem needs no pressure reconstruction and no continuity of the phase
+once the PDE/Fourier adapter has been supplied. Damped uniqueness needs
+no pressure reconstruction and no continuity of the phase
 coefficient beyond the stated derivative and energy conditions.
 -/
 
@@ -30,7 +30,8 @@ theorem complex_normSq_hasDerivAt {z : ℝ → ℂ} {dz : ℂ} {t : ℝ}
       2 * (star (z t) * dz).re := by
     simp only [Complex.star_def, Complex.mul_re, Complex.conj_re, Complex.conj_im]
     ring
-  simpa only [Complex.normSq_apply, hv] using (hre.mul hre).add (him.mul him)
+  simpa only [Pi.add_apply, Pi.mul_apply, Complex.normSq_apply, hv]
+    using! (hre.mul hre).add (him.mul him)
 
 theorem complex_damped_normSq_hasDerivAt {z : ℝ → ℂ} {a : ℂ} {t : ℝ}
     (hz : HasDerivAt z (-a * z t) t) :

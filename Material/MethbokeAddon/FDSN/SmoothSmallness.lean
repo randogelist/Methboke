@@ -32,7 +32,7 @@ theorem contDiff_spatial_iteratedFDeriv
       iteratedFDeriv ℝ n (fun z : E => G (p.1, z)) p.2) := by
   induction n with
   | zero =>
-      simpa only [iteratedFDeriv_zero_eq_comp, Function.comp_apply] using
+      simpa only [iteratedFDeriv_zero_eq_comp, Function.comp_def] using
         (continuousMultilinearCurryFin0 ℝ E F).symm.contDiff.comp hG
   | succ n ih =>
       have haux : ContDiff ℝ ∞ (fun q : (ℝ × E) × E =>
@@ -42,7 +42,7 @@ theorem contDiff_spatial_iteratedFDeriv
           fderiv ℝ (fun z : E =>
             iteratedFDeriv ℝ n (fun y : E => G (p.1, y)) z) p.2) :=
         haux.fderiv contDiff_snd (by simp)
-      simpa only [iteratedFDeriv_succ_eq_comp_left, Function.comp_apply] using
+      simpa only [iteratedFDeriv_succ_eq_comp_left, Function.comp_def] using
         (continuousMultilinearCurryLeftEquiv ℝ
           (fun _ : Fin (n + 1) => E) F).symm.contDiff.comp hd
 
@@ -59,8 +59,8 @@ theorem smooth_family_uniform_linear_bound
   have hd : ContDiff ℝ ∞ (fun p : ℝ × E =>
       fderiv ℝ (fun lambda : ℝ => G (lambda, p.2)) p.1) :=
     haux.fderiv contDiff_fst (by simp)
-  obtain ⟨B, hB⟩ := ((isCompact_Icc : IsCompact (Icc (-1 : ℝ) 1)).prod hK)
-    .exists_bound_of_continuousOn hd.continuous.continuousOn
+  have hcompact : IsCompact (Icc (-1 : ℝ) 1 ×ˢ K) := isCompact_Icc.prod hK
+  obtain ⟨B, hB⟩ := hcompact.exists_bound_of_continuousOn hd.continuous.continuousOn
   refine ⟨max B 0, le_max_right _ _, ?_⟩
   intro lambda hlambda z hz
   have hlam : lambda ∈ Icc (-1 : ℝ) 1 := by

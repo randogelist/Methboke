@@ -103,7 +103,7 @@ theorem PreterminalNSE.pair_difference_hasDerivAt
           (datumFourierCoeff (v t) a i - datumFourierCoeff (u t) a i) := by
     rw [hforce]
     linear_combination -hN
-  simpa only [hrate] using hd
+  simpa only [Pi.sub_apply, hrate] using! hd
 
 /-- A one-pair difference cannot first develop a nonzero selected mode while
 the corresponding projected-force component remains equal. -/
@@ -129,8 +129,9 @@ theorem PreterminalNSE.pair_mode_eq_on_Icc
     ⟨lt_of_lt_of_le hs hr.1, lt_of_le_of_lt hr.2 ht⟩
   have hc : ContinuousOn z (Icc s t) := by
     intro r hr
-    exact ((K.fourierCoeff_hasDerivAt r (hinside r hr) a i).sub
-      (H.fourierCoeff_hasDerivAt r (hinside r hr) a i)).continuousAt.continuousWithinAt
+    simpa only [z, Pi.sub_apply] using!
+      ((K.fourierCoeff_hasDerivAt r (hinside r hr) a i).sub
+        (H.fourierCoeff_hasDerivAt r (hinside r hr) a i)).continuousAt.continuousWithinAt
   have hd : ∀ r ∈ Ioo s t, HasDerivAt z (-damping r * z r) r := by
     intro r hr
     exact H.pair_difference_hasDerivAt K r (hinside r ⟨hr.1.le, hr.2.le⟩)

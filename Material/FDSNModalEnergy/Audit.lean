@@ -10,21 +10,6 @@ noncomputable section
 open Set
 open MethbokeAddon.FDSN
 
-example : ∀ no pressure reconstruction and no continuity of the phase
-coefficient beyond the stated derivative and energy conditions.
--/
-
-noncomputable section
-open Set
-
-namespace MethbokeAddon.FDSN
-
-theorem complex_normSq_hasDerivAt {z : ℝ → ℂ} {dz : ℂ} {t : ℝ}
-    (hz : HasDerivAt z dz t),
-    HasDerivAt (fun s => Complex.normSq (z s))
-      (2 * (star (z t) * dz).re) t :=
-  @MethbokeAddon.FDSN.needs
-
 example : ∀ {z : ℝ → ℂ} {dz : ℂ} {t : ℝ}
     (hz : HasDerivAt z dz t),
     HasDerivAt (fun s => Complex.normSq (z s))

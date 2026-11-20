@@ -66,8 +66,8 @@ theorem Seed.familyFor {ν T : ℝ} {u F : Velocity} {p : Pressure}
     localizedPair_family_smallness h k hβ hβ0 a b (Real.pi / 4) hab.le⟩
   · simpa only [localizedPairVelocity_sub_eq_correction] using
       (localizedPairCorrection_joint_smooth h k hβ hβ0).contDiffOn
-  · intro λ η hλ hη hλη
-    exact (hseparate β hβt λ η hλ hη hλη).2
+  · intro lambda η hlambda hη hlambdaη
+    exact (hseparate β hβt lambda η hlambda hη hlambdaη).2
 
 /-- Canonical FDSN: every admitted periodic seed generates the one common
 family satisfying exact realization, helical powers, translation separation,

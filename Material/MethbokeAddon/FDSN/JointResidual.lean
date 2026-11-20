@@ -42,8 +42,8 @@ theorem family_coordinateDerivative_contDiffOn
   have hopen : IsOpen {q : ℝ × (ℝ × Vec) | q.2.1 ∈ Ioo (0 : ℝ) T} :=
     isOpen_Ioo.preimage (continuous_fst.comp continuous_snd)
   intro q hq
-  exact ((family_spatial_fderiv_contDiffAt H q (hH.contDiffAt (hopen.mem_nhds hq)))
-    .clm_apply contDiffAt_const).contDiffWithinAt
+  have hD := family_spatial_fderiv_contDiffAt H q (hH.contDiffAt (hopen.mem_nhds hq))
+  exact (hD.clm_apply contDiffAt_const).contDiffWithinAt
 
 theorem family_laplacian_contDiffOn
     (H : ℝ → Velocity) (T : ℝ)
@@ -70,8 +70,8 @@ theorem family_transport_contDiffOn
   have hopen : IsOpen {q : ℝ × (ℝ × Vec) | q.2.1 ∈ Ioo (0 : ℝ) T} :=
     isOpen_Ioo.preimage (continuous_fst.comp continuous_snd)
   intro q hq
-  exact ((family_spatial_fderiv_contDiffAt B q (hB.contDiffAt (hopen.mem_nhds hq)))
-    .clm_apply (hA.contDiffAt (hopen.mem_nhds hq))).contDiffWithinAt
+  have hD := family_spatial_fderiv_contDiffAt B q (hB.contDiffAt (hopen.mem_nhds hq))
+  exact (hD.clm_apply (hA.contDiffAt (hopen.mem_nhds hq))).contDiffWithinAt
 
 theorem family_timeDerivative_contDiffOn
     (H : ℝ → Velocity) (T : ℝ)
@@ -139,8 +139,8 @@ theorem residualForce_joint_contDiff_of_common_timeSupport
   rw [contDiff_iff_contDiffAt]
   intro q
   by_cases hq : q.2.1 ∈ S
-  · exact (residualForce_joint_contDiffOn_front ν U F H T hU hF.contDiffOn hH)
-      .contDiffAt (hopen.mem_nhds (hST hq))
+  · have hlocal := residualForce_joint_contDiffOn_front ν U F H T hU hF.contDiffOn hH
+    exact hlocal.contDiffAt (hopen.mem_nhds (hST hq))
   · have hneigh : ∀ᶠ r : ℝ × (ℝ × Vec) in 𝓝 q, r.2.1 ∉ S :=
       (continuous_fst.comp continuous_snd).continuousAt.tendsto.eventually
         (hS.isOpen_compl.mem_nhds hq)

@@ -62,14 +62,14 @@ theorem native_divergence_add
     divergence (a + b) x = divergence a x + divergence b x := by
   unfold divergence
   simp_rw [native_coordinateDerivative_add a b ha hb]
-  simp only [Pi.add_apply, Finset.sum_add_distrib]
+  simp only [Pi.add_apply, PiLp.add_apply, Finset.sum_add_distrib]
 
 theorem native_timeDerivative_add
     (U h : Velocity) (t : ℝ) (x : Vec)
     (hU : DifferentiableWithinAt ℝ (fun r => U r x) (Ici (0 : ℝ)) t)
     (hh : DifferentiableWithinAt ℝ (fun r => h r x) (Ici (0 : ℝ)) t) :
     timeDerivative (U + h) t x = timeDerivative U t x + timeDerivative h t x := by
-  simpa only [timeDerivative, Pi.add_apply] using derivWithin_add hU hh
+  simpa only [timeDerivative, Pi.add_apply, Pi.add_def] using derivWithin_add hU hh
 
 /-- Exact momentum-equation realization at a point, with actual spatial
 smoothness and actual one-sided time differentiability as hypotheses. -/
@@ -130,14 +130,14 @@ theorem native_residual_momentum_on_open_slab
   intro t ht x
   have hopen : IsOpen {z : ℝ × Vec | z.1 ∈ Ioo s T} :=
     isOpen_Ioo.preimage continuous_fst
+  have hslice : ContDiff ℝ ∞ (fun y : Vec => (t, y)) :=
+    contDiff_const.prodMk contDiff_id
+  have hmaps : ∀ y : Vec, (t, y) ∈ {z : ℝ × Vec | z.1 ∈ Ioo s T} :=
+    fun _ => ht
   have hUsp : ContDiff ℝ ∞ (U t) := by
-    rw [← contDiffOn_univ]
-    exact hU.comp (g := fun y : Vec => (t, y))
-      (contDiff_const.prodMk contDiff_id).contDiffOn (fun _ _ => ht)
+    simpa only [Function.comp_def] using hU.comp_contDiff hslice hmaps
   have hhsp : ContDiff ℝ ∞ (h t) := by
-    rw [← contDiffOn_univ]
-    exact hh.comp (g := fun y : Vec => (t, y))
-      (contDiff_const.prodMk contDiff_id).contDiffOn (fun _ _ => ht)
+    simpa only [Function.comp_def] using hh.comp_contDiff hslice hmaps
   have hUat : ContDiffAt ℝ ∞ (fun z : ℝ × Vec => U z.1 z.2) (t, x) :=
     hU.contDiffAt (hopen.mem_nhds ht)
   have hhat : ContDiffAt ℝ ∞ (fun z : ℝ × Vec => h z.1 z.2) (t, x) :=

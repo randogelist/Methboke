@@ -52,7 +52,7 @@ def helicalObservation (h : Fin 3 → ℂ) : (Fin 3 → ℂ) →ₗ[ℂ] ℂ whe
   toFun v := ∑ i : Fin 3, star (h i) * v i
   map_add' v w := by simp only [Pi.add_apply, mul_add, Finset.sum_add_distrib]
   map_smul' c v := by
-    simp only [Pi.smul_apply, smul_eq_mul, Finset.mul_sum]
+    simp only [Pi.smul_apply, smul_eq_mul, Finset.mul_sum, RingHom.id_apply]
     apply Finset.sum_congr rfl
     intro i _
     ring
@@ -75,41 +75,41 @@ def spacetimeCrNorm (r : ℕ) (a b : ℝ) (V : Velocity) : ℝ :=
 def ExactRealizationAndAgreement (ν T a b ε : ℝ)
     (u : Velocity) (p : Pressure) (F : Velocity)
     (U G : ℝ → Velocity) : Prop :=
-  ∀ λ : ℝ, |λ| < ε →
-    PreterminalNSE ν T (U λ) p (G λ) ∧
-    MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce (G λ) ∧
-    U λ 0 = u 0 ∧
-    CompactTemporalCorrection a b (U λ - u) ∧
-    CompactTemporalCorrection a b (G λ - F) ∧
-    CofinalVelocityBlowup T (U λ)
+  ∀ lambda : ℝ, |lambda| < ε →
+    PreterminalNSE ν T (U lambda) p (G lambda) ∧
+    MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce (G lambda) ∧
+    U lambda 0 = u 0 ∧
+    CompactTemporalCorrection a b (U lambda - u) ∧
+    CompactTemporalCorrection a b (G lambda - F) ∧
+    CofinalVelocityBlowup T (U lambda)
 
 def CompleteHelicalPowerPreservation (h : HelicalFrameArray)
     (T ε : ℝ) (u : Velocity) (U : ℝ → Velocity) : Prop :=
-  ∀ λ : ℝ, |λ| < ε → ∀ t ∈ Ico (0 : ℝ) T,
+  ∀ lambda : ℝ, |lambda| < ε → ∀ t ∈ Ico (0 : ℝ) T,
     (∀ k : Frequency, k ≠ 0 → ∀ σ : Fin 2,
-      Complex.normSq (helicalCoefficient h (U λ t) k σ) =
+      Complex.normSq (helicalCoefficient h (U lambda t) k σ) =
         Complex.normSq (helicalCoefficient h (u t) k σ)) ∧
-    datumFourierCoeff (U λ t) 0 = datumFourierCoeff (u t) 0
+    datumFourierCoeff (U lambda t) 0 = datumFourierCoeff (u t) 0
 
 def TranslationSeparation (tstar ε : ℝ) (U : ℝ → Velocity) : Prop :=
-  ∀ λ η : ℝ, |λ| < ε → |η| < ε → λ ≠ η →
-    ¬ ∃ y : Vec, ∀ x : Vec, U λ tstar x = U η tstar (x + y)
+  ∀ lambda η : ℝ, |lambda| < ε → |η| < ε → lambda ≠ η →
+    ¬ ∃ y : Vec, ∀ x : Vec, U lambda tstar x = U η tstar (x + y)
 
 /-- A literal unequal coefficient of the actual periodic Leray-projected
 force histories, retaining frequency zero. Linearity makes this exactly a
 nonzero coefficient of the projected force difference. -/
 def ProjectedForceSeparation (T ε : ℝ) (G : ℝ → Velocity) : Prop :=
-  ∀ λ η : ℝ, |λ| < ε → |η| < ε → λ ≠ η →
+  ∀ lambda η : ℝ, |lambda| < ε → |η| < ε → lambda ≠ η →
     ∃ t ∈ Ico (0 : ℝ) T, ∃ k : Frequency, ∃ i : Fin 3,
-      coefficientLeray k (datumFourierCoeff (G λ t) k) i ≠
+      coefficientLeray k (datumFourierCoeff (G lambda t) k) i ≠
         coefficientLeray k (datumFourierCoeff (G η t) k) i
 
 def SmoothSmallness (a b ε : ℝ) (u F : Velocity)
     (U G : ℝ → Velocity) : Prop :=
   ∀ r : ℕ, ∃ C δ : ℝ, 0 ≤ C ∧ 0 < δ ∧
-    ∀ λ : ℝ, |λ| < min ε δ →
-      spacetimeCrNorm r a b (U λ - u) +
-        spacetimeCrNorm r a b (G λ - F) ≤ C * |λ|
+    ∀ lambda : ℝ, |lambda| < min ε δ →
+      spacetimeCrNorm r a b (U lambda - u) +
+        spacetimeCrNorm r a b (G lambda - F) ≤ C * |lambda|
 
 /-- FDSN.1--FDSN.5 for a prescribed array of helical coordinate vectors. -/
 def FamilyFor (h : HelicalFrameArray) (ν T : ℝ)
