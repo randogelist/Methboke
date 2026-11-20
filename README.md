@@ -55,7 +55,9 @@ at 4.33.0. It explicitly reuses the upstream proof; verification is pending.
 
 The next native family package, `FeffermanFamilyAssembly`, prepares 22 further
 helpers and 1 predicate for growth selection, copy transport and exact disjoint
-NSE assembly. These candidates preserve all existing accepted foundations.
+NSE assembly. These candidates preserve all existing accepted foundations. The first external
+assembly attempt exposed elaboration errors; source repairs are prepared for
+reverification, with [failure evidence](audits/material-dd0e355-assembly-failure/summary.json) retained.
 
 ## Accepted foundations
 

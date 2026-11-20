@@ -58,9 +58,9 @@ theorem terminal_pos (hU : SpeedUnboundedAt U T) : 0 < T := by
 The two limiting conclusions are derived, not additional input hypotheses. -/
 theorem exists_growth_sequence (hU : SpeedUnboundedAt U T) :
     ∃ t : ℕ → ℝ, ∃ x : ℕ → X,
-      (∀ n, 0 < t n ∧ t n < T) ∧
-      (∀ n, T - t n < 1 / ((n : ℝ) + 1)) ∧
-      (∀ n, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
+      (∀ n : ℕ, 0 < t n ∧ t n < T) ∧
+      (∀ n : ℕ, T - t n < 1 / ((n : ℝ) + 1)) ∧
+      (∀ n : ℕ, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
       Tendsto t atTop (𝓝 T) ∧
       Tendsto (fun n => ‖U (t n) (x n)‖) atTop atTop := by
   have hchoice : ∀ n : ℕ, ∃ t : ℝ, ∃ x : X,
@@ -102,14 +102,14 @@ theorem exists_growth_sequence_in_carrier (hU : SpeedUnboundedAt U T)
     (K : Set X)
     (hzero : ∀ t, 0 < t → t < T → ∀ x, x ∉ K → U t x = 0) :
     ∃ t : ℕ → ℝ, ∃ x : ℕ → X,
-      (∀ n, 0 < t n ∧ t n < T) ∧
-      (∀ n, x n ∈ K) ∧
-      (∀ n, T - t n < 1 / ((n : ℝ) + 1)) ∧
-      (∀ n, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
+      (∀ n : ℕ, 0 < t n ∧ t n < T) ∧
+      (∀ n : ℕ, x n ∈ K) ∧
+      (∀ n : ℕ, T - t n < 1 / ((n : ℝ) + 1)) ∧
+      (∀ n : ℕ, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
       Tendsto t atTop (𝓝 T) ∧
       Tendsto (fun n => ‖U (t n) (x n)‖) atTop atTop := by
   obtain ⟨t, x, ht, hgap, hlarge, htend, hnorm⟩ := hU.exists_growth_sequence
-  have hxK : ∀ n, x n ∈ K := by
+  have hxK : ∀ n : ℕ, x n ∈ K := by
     intro n
     by_contra hx
     have hz : U (t n) (x n) = 0 := hzero (t n) (ht n).1 (ht n).2 (x n) hx

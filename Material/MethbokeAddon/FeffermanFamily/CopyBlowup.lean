@@ -132,14 +132,14 @@ variable {U : ℝ → X → E}
 /-- The velocity of a delayed compressed copy has local blowup at its chosen
 center. This is geometric transport only, not a PDE-preservation theorem. -/
 theorem parabolic_copy (hU : LocalVelocityBlowup U 0 1)
-    (λ : ℝ) (hλ : 1 < λ) (a : X) :
+    (scale : ℝ) (hscale : 1 < scale) (a : X) :
     LocalVelocityBlowup
-      (fun t x => λ • U (1 + λ ^ 2 * (t - 1)) (λ • (x - a))) a 1 := by
-  have hλpos : 0 < λ := lt_trans zero_lt_one hλ
-  have hλsq : 1 ≤ λ ^ 2 := by nlinarith [sq_nonneg (λ - 1)]
-  have htime := hU.time_compress_at_one (λ ^ 2) hλsq
-  have hspace := htime.positive_spatial_scale λ hλpos
-  have hamp := hspace.positive_smul λ hλpos
+      (fun t x => scale • U (1 + scale ^ 2 * (t - 1)) (scale • (x - a))) a 1 := by
+  have hscalepos : 0 < scale := lt_trans zero_lt_one hscale
+  have hscalesq : 1 ≤ scale ^ 2 := by nlinarith [sq_nonneg (scale - 1)]
+  have htime := hU.time_compress_at_one (scale ^ 2) hscalesq
+  have hspace := htime.positive_spatial_scale scale hscalepos
+  have hamp := hspace.positive_smul scale hscalepos
   simpa only [zero_add] using hamp.spatial_translate a
 
 end ParabolicCopy

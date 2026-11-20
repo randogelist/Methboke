@@ -33,9 +33,9 @@ example {U : ℝ → X → E} {T : ℝ}
 
 example {U : ℝ → X → E} {T : ℝ} (hU : SpeedUnboundedAt U T) :
     ∃ t : ℕ → ℝ, ∃ x : ℕ → X,
-      (∀ n, 0 < t n ∧ t n < T) ∧
-      (∀ n, T - t n < 1 / ((n : ℝ) + 1)) ∧
-      (∀ n, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
+      (∀ n : ℕ, 0 < t n ∧ t n < T) ∧
+      (∀ n : ℕ, T - t n < 1 / ((n : ℝ) + 1)) ∧
+      (∀ n : ℕ, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
       Tendsto t atTop (𝓝 T) ∧
       Tendsto (fun n => ‖U (t n) (x n)‖) atTop atTop :=
   SpeedUnboundedAt.exists_growth_sequence hU
@@ -44,10 +44,10 @@ example {U : ℝ → X → E} {T : ℝ} (hU : SpeedUnboundedAt U T)
     (K : Set X)
     (hzero : ∀ t, 0 < t → t < T → ∀ x, x ∉ K → U t x = 0) :
     ∃ t : ℕ → ℝ, ∃ x : ℕ → X,
-      (∀ n, 0 < t n ∧ t n < T) ∧
-      (∀ n, x n ∈ K) ∧
-      (∀ n, T - t n < 1 / ((n : ℝ) + 1)) ∧
-      (∀ n, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
+      (∀ n : ℕ, 0 < t n ∧ t n < T) ∧
+      (∀ n : ℕ, x n ∈ K) ∧
+      (∀ n : ℕ, T - t n < 1 / ((n : ℝ) + 1)) ∧
+      (∀ n : ℕ, (n : ℝ) + 1 < ‖U (t n) (x n)‖) ∧
       Tendsto t atTop (𝓝 T) ∧
       Tendsto (fun n => ‖U (t n) (x n)‖) atTop atTop :=
   SpeedUnboundedAt.exists_growth_sequence_in_carrier hU K hzero
@@ -105,10 +105,10 @@ example {X : Type u_copy} {E : Type v_copy}
     [NormedAddCommGroup X] [NormedSpace ℝ X]
     [NormedAddCommGroup E] [NormedSpace ℝ E]
     {U : ℝ → X → E}
-    (hU : LocalVelocityBlowup U 0 1) (λ : ℝ) (hλ : 1 < λ) (a : X) :
+    (hU : LocalVelocityBlowup U 0 1) (scale : ℝ) (hscale : 1 < scale) (a : X) :
     LocalVelocityBlowup
-      (fun t x => λ • U (1 + λ ^ 2 * (t - 1)) (λ • (x - a))) a 1 :=
-  LocalVelocityBlowup.parabolic_copy hU λ hλ a
+      (fun t x => scale • U (1 + scale ^ 2 * (t - 1)) (scale • (x - a))) a 1 :=
+  LocalVelocityBlowup.parabolic_copy hU scale hscale a
 
 end FeffermanFamilyAssembly.CopyTypeChecks
 

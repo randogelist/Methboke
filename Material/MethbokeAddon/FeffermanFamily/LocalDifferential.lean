@@ -82,7 +82,9 @@ theorem nativeLaplacian_congr {u v : Velocity} {t : ℝ} {x : Vec}
     exact nativeCoordinateDerivative_congr hz i
   have hd : fderiv ℝ (coordinateDerivative (u t) i) x =
       fderiv ℝ (coordinateDerivative (v t) i) x :=
-    nativeSpatialFDeriv_congr hi
+    nativeSpatialFDeriv_congr
+      (f := fun s y => coordinateDerivative (u s) i y)
+      (g := fun s y => coordinateDerivative (v s) i y) hi
   exact congrArg (fun L : Vec →L[ℝ] Vec => L (unitVector i)) hd
 
 /-- The nonlinear convection term depends only on the velocity germ. -/
@@ -108,8 +110,9 @@ theorem nativeForcedEquation_congr (ν : ℝ)
       ν • laplacian (u t) x + F t x) ↔
     (timeDerivative v t x + convection (v t) x + SingularClosure.gradient (q t) x =
       ν • laplacian (v t) x + G t x) := by
+  have hFx : F t x = G t x := hF.self_of_nhds
   rw [nativeTimeDerivative_congr hu, nativeConvection_congr hu,
-    nativeGradient_congr hp, nativeLaplacian_congr hu, hF.self_of_nhds]
+    nativeGradient_congr hp, nativeLaplacian_congr hu, hFx]
 
 /-- The zero fields satisfy the native forced equation for every real time. -/
 theorem nativeForcedEquation_zero (ν t : ℝ) (x : Vec) :

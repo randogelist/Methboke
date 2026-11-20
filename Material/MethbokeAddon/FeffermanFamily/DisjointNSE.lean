@@ -39,10 +39,13 @@ theorem finite_sum_native_divergence_free
   · obtain ⟨i, hxi⟩ := hx
     have hu := finite_sum_spacetime_eventuallyEq_active
       hclosed hdisjoint hzero hxi t
-    exact (nativeDivergence_congr hu).trans (hdiv i t ht x)
+    exact (nativeDivergence_congr
+      (u := fun s y => ∑ j, u j s y) (v := u i) (t := t) (x := x) hu).trans
+      (hdiv i t ht x)
   · have hout : ∀ i, x ∉ K i := fun i hi => hx ⟨i, hi⟩
     have hu := finite_sum_spacetime_eventuallyEq_zero hclosed hzero hout t
-    rw [nativeDivergence_congr (v := (0 : Velocity)) hu]
+    rw [nativeDivergence_congr (u := fun s y => ∑ j, u j s y)
+      (v := (0 : Velocity)) (t := t) (x := x) hu]
     simp [divergence, coordinateDerivative]
 
 /-- Finite disjoint assembly solves the same-viscosity forced equation with
@@ -74,14 +77,20 @@ theorem finite_sum_native_forcedNSE
       hclosed hdisjoint hpzero hxi t
     have hF := finite_sum_spacetime_eventuallyEq_active
       hclosed hdisjoint hFzero hxi t
-    exact (nativeForcedEquation_congr ν hu hp hF).mpr (hNS i t ht x)
+    exact (nativeForcedEquation_congr ν
+      (u := fun s y => ∑ j, u j s y) (v := u i)
+      (p := fun s y => ∑ j, p j s y) (q := p i)
+      (F := fun s y => ∑ j, F j s y) (G := F i)
+      (t := t) (x := x) hu hp hF).mpr (hNS i t ht x)
   · have hout : ∀ i, x ∉ K i := fun i hi => hx ⟨i, hi⟩
     have hu := finite_sum_spacetime_eventuallyEq_zero hclosed huzero hout t
     have hp := finite_sum_spacetime_eventuallyEq_zero hclosed hpzero hout t
     have hF := finite_sum_spacetime_eventuallyEq_zero hclosed hFzero hout t
-    exact (nativeForcedEquation_congr ν (v := (0 : Velocity))
-      (q := (0 : Pressure)) (G := (0 : Velocity)) hu hp hF).mpr
-      (nativeForcedEquation_zero ν t x)
+    exact (nativeForcedEquation_congr ν
+      (u := fun s y => ∑ j, u j s y) (v := (0 : Velocity))
+      (p := fun s y => ∑ j, p j s y) (q := (0 : Pressure))
+      (F := fun s y => ∑ j, F j s y) (G := (0 : Velocity))
+      (t := t) (x := x) hu hp hF).mpr (nativeForcedEquation_zero ν t x)
 
 end
 

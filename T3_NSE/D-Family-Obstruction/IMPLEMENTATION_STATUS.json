@@ -116,7 +116,7 @@
   "shared_build_paths_unchanged": true,
   "next_layer": {
     "package": "FeffermanFamilyAssembly",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+    "status": "SOURCE_REPAIRS_PREPARED_PENDING_EXTERNAL_RETRY",
     "source_modules": [
       "GrowthSequence",
       "CopyBlowup",
@@ -131,7 +131,39 @@
       "Native differential locality including derivWithin at0",
       "Exact conditional finite disjoint-sum forcedNSE/divergence"
     ],
-    "root_proved": false
+    "root_proved": false,
+    "first_external_attempt": {
+      "schema_version": 1,
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "tested_commit": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
+      "run_id": 44663007972,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663007972",
+      "artifact_id": 14595514055,
+      "artifact_sha256": "010241260eddbe3ccf17f20f75c738f6164ad42d2b1f60ebc51a7e728565e5b8",
+      "passed_modules": 415,
+      "failed_modules": [
+        "MethbokeAddon.FeffermanFamily.CopyBlowup",
+        "MethbokeAddon.FeffermanFamily.GrowthSequence",
+        "MethbokeAddon.FeffermanFamily.LocalDifferential"
+      ],
+      "blocked_modules": [
+        "FeffermanFamilyAssembly.Endpoint",
+        "MethbokeAddon.FeffermanFamily.DisjointNSE"
+      ],
+      "fresh_required_audits_completed": false,
+      "verified_cache_published": false,
+      "accepted_helpers": 0,
+      "root_proved": false,
+      "local_lean_executions": 0,
+      "repairs": [
+        "Explicit Nat sequence-bound binders in source and independent consumers",
+        "Replace reserved lambda token as a variable identifier",
+        "Explicit curried spatial derivative arguments and beta-reduced force equality",
+        "Explicit finite-sum curry arguments in downstream native assembly bodies"
+      ],
+      "mathematical_statements_changed": false,
+      "direct_D_run_unaffected": 44663007873
+    }
   },
   "direct_D_route": "UpstreamSeed/CI_RUN_PLAN.json"
 }
