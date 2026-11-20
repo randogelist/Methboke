@@ -31,11 +31,15 @@ The layout branch is `codex/reorganize-nse-domains`; `main` is unchanged.
 
 ## Current evidence
 
-A dedicated cached verification of `codex/reorganize-nse-domains` is prepared.
-The [run plan](audits/layout-t3-r3/CI_RUN_PLAN.json) preserves the complete
-411-module build, 71 fresh package audits and QFB cutout. The existing workflow
-now runs on pushes to this exact branch; its verification and acceptance jobs
-are unchanged. The branch result is pending.
+The dedicated branch [run 44651224180](https://github.com/randogelist/Methboke/actions/runs/44651224180) passed at `b730e52ca1e4a661a83a09110378db542455097b`.
+Its [reviewed evidence](audits/material-b730e52c-branch/summary.json) covers all **411 modules**
+(411 reused, 0 fresh), **71 fresh package audits**, **448 named
+type/axiom reports plus QFB**, and **183 external controls**. Publication
+and final acceptance passed with standard axioms only. The existing workflow
+now runs on pushes to this exact branch; verification jobs and pins are unchanged.
+The [run plan](audits/layout-t3-r3/CI_RUN_PLAN.json) records the tested checkout. Subsequent evidence-only
+documentation commits carry this receipt and are not additional compiler runs.
+This branch verification adds no theorem or stopped-bound witness.
 
 The comment-only definition update at `3335bbc5` passed [fresh external
 verification](https://github.com/randogelist/Methboke/actions/runs/44645541035) with all 411 modules, 71 fresh package audits and
