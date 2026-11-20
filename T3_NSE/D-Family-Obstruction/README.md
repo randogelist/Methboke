@@ -6,7 +6,40 @@ configuration of distinct unit-torus sites, construct a smooth prescribed
 periodic force and a solution from rest that is smooth before time one, has
 bounded preterminal cell energy, and blows up locally at every prescribed
 site. The same force and datum must have no global smooth periodic velocity
-and pressure competitor. **This family witness remains unproved.**
+and pressure competitor, without an additional global energy premise.
+**The family is derived at B-tier from the pinned compact seed; its A-tier
+formalization remains open.** The separate direct Fefferman-D endpoint is
+already accepted at A-tier.
+
+## Cumulative family derivation
+
+The [B-tier derivation, version 1.6](Fefferman_D_Family_obstruction_B_TIER.txt)
+periodizes each compressed seed inside the existing quarter-cube interface,
+translates each periodic copy to its prescribed torus site, and sums copies
+with disjoint closed carriers. Exact nonlinear cross terms vanish. Existing
+same-force periodic comparison excludes a global competitor. This preferred
+route needs no generic-radius packaging wrapper; the earlier common-cube
+construction remains a documented alternative.
+
+For any prescribed neighborhoods and `0 < tau < 1`, the witnesses can have
+their spatial supports in those neighborhoods, force support in
+`(1-tau, 1+tau)`, and initial rest through `1-tau`. One common compression
+scale makes the sum of the velocity energy norm, viscosity-weighted
+dissipation norm, and `L1_t L2_x` force norm arbitrarily small. It also meets
+any finite list of positive mixed-norm force budgets with `3/p + 2/q > 3`.
+The same sequence of times witnesses blowup at every prescribed site.
+
+The zero-force specialization is obstructed: zero datum and identically zero
+force imply zero velocity by the energy identity. For these spatially
+localized witnesses, the projected force has positive squared time integral
+on every terminal interval; removing it there would contradict positive-time
+spatial analyticity and the fixed open region of zero velocity. No unforced
+counterexample follows from the small-force limit.
+
+[Cao, Chi and Nie, arXiv:2609.10262v4](https://arxiv.org/abs/2609.10262)
+provide close direct precedents: Lemma 2.2 for seed energy/dissipation,
+Proposition 3.3 for scaling, and Proposition 3.16 for simultaneous blowup in
+finitely many disjoint regions. This derivation makes no novelty claim.
 
 ## Accepted native implementation
 
@@ -43,23 +76,35 @@ hypothesis, geometric transport of an existing blowup point, operator locality,
 and conditional PDE assembly from supplied copy equations and fixed disjoint
 carriers. They do not construct the singular seed or the actual placed copies.
 
-Remaining obligations are singular-seed admission; full transformed-PDE and
-support laws; finite prescribed-site packing; smooth force and initial-data
-admission; energy bounds; viscosity transport and generic-radius periodization;
-same-force comparison; the family witness; and the literal family-to-D adapter.
-The [B-tier derivation](Fefferman_D_Family_obstruction_B_TIER.txt) and
-[source index](FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt) retain that route.
+Remaining formal obligations are singular-seed admission; full transformed-PDE
+and support laws; finite prescribed-site packing; per-copy periodization and
+torus translation; smooth force and initial-data admission; quantitative norm
+bounds; same-force comparison; the family witness; and its literal family-to-D
+adapter. The next scoped endpoint is admission of the same compact seed and
+the full delayed-copy contract. The
+[source index](FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt) distinguishes these
+open formal adapters from the closed B-tier chain.
 
 ## Separate direct-D verification
 
-`UpstreamSeed/Endpoint.lean` prepares direct reuse of the pinned upstream
-periodic theorem under its isolated Lean `4.34.0-rc2` environment. Its external
-[run 44663007873](https://github.com/randogelist/Methboke/actions/runs/44663007873)
+`UpstreamSeed/Endpoint.lean` explicitly reuses the pinned upstream periodic
+theorem under its isolated Lean `4.34.0-rc2` environment. The direct endpoint
+`Methboke.FeffermanD.Fefferman_D` is **accepted at A-tier** at
+`66a529248d3198ed70dc5489d82868bc33a37796` by
+[run 44768857811](https://github.com/randogelist/Methboke/actions/runs/44768857811):
+605 modules, literal contract/type checks and five fresh named axiom reports
+(three predicates and two theorems) passed, using only
+`propext`, `Classical.choice` and `Quot.sound`. Evidence retention, cache
+publication and final acceptance passed. See
+[the acceptance receipt](UpstreamSeed/ACCEPTANCE.json) and
+[retained artifact 14649221097](https://github.com/randogelist/Methboke/actions/runs/44768857811/artifacts/14649221097).
+
+The earlier [run 44663007873](https://github.com/randogelist/Methboke/actions/runs/44663007873)
 at `dd0e3550f7c662e3251d48194f4f70f3f6d9f628` passed verification but failed
-evidence retention. The hidden-folder upload repair awaits a matching external rerun.
-**Native assembly acceptance does not accept that direct-D endpoint.** Its
-source-specific authority is `UpstreamSeed/CI_RUN_PLAN.json` and matching evidence.
-The stronger prescribed-site family is separate from that direct route.
+evidence retention; the accepted rerun supersedes that obstruction.
+Direct-D acceptance does not certify the stronger prescribed-site family.
+The bare existential D theorem does not imply its compact seed or family;
+the B-tier derivation explicitly uses the stronger upstream compact-seed theorem.
 
 ## Source and verification boundary
 

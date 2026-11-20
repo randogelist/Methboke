@@ -25,9 +25,12 @@ implementation of the T3 family on main. The local construction route is
 Preserve actual forced-NSE semantics, classical smoothness, periodic velocity
 AND pressure, distinct sites modulo the integer lattice, and the SAME prescribed
 force in the witness and competitor. Do not add a global energy premise to the
-periodic competitor. The complete family root and literal force-decay adapter
-remain unproved here. Prepared contracts or projections from assumed witnesses
-are not a constructed counterexample.
+periodic competitor. The cumulative family TXT is complete at B-tier relative
+to the pinned compact seed; the native family root and its literal force-decay
+adapter remain formally open. The separate direct D endpoint is accepted at
+66a5292/run44768857811; see UpstreamSeed/ACCEPTANCE.json inside the family folder.
+That direct acceptance does not prove the prescribed-site family. Prepared
+contracts or projections from assumed witnesses are not a constructed family.
 
 The previous conditional EHRENFEST_OBSTRUCTION theorem is an accepted
 foundation. Preserve its explicit StoppedCommutatorBound premise and exact

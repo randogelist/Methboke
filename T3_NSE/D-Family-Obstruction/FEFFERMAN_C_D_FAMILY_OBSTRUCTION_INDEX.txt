@@ -1,16 +1,24 @@
 DOCUMENT := FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX
-VERSION := 1.3
+VERSION := 1.6
 DATE := 2026-11-20
 MODE := B_TIER_DERIVATION
 LOCAL_TARGETS := {Fefferman_C_Family_obstruction, Fefferman_D_Family_obstruction}
 MACRO_GOAL := Fefferman_D; user selection 2026-11-20
 IMPLEMENTATION_SCOPE := T3 family only; whole-space route retained as reference
 SCOPE := Supporting forced-NSE family corollaries using the published compact seed
-STATUS := B-tier derivation and source index; T3 foundation helpers externally accepted; family roots open
+STATUS := D-family and quantitative refinement closed at B-tier; direct D accepted at A-tier; family A-tier open
 LOCAL_LEAN_EXECUTION := STRICTLY_FORBIDDEN; NOT_PERFORMED
-EXTERNAL_COMPILER_OR_AXIOM_AUDIT := T3 foundations at 77a64245; run 44655638162
-GIT_MUTATION := T3 first implementation committed to main at 77a64245
+EXTERNAL_COMPILER_OR_AXIOM_AUDIT := Existing foundation 77a64245/run44655638162; assembly f19531bc/run44663707207; direct D 66a5292/run44768857811
+CURRENT_UPDATE := Documentation and cumulative B-tier publication; no new Lean execution or audit
 SOURCE_INSPECTION != A_TIER
+
+CURRENT D-ROUTE AUTHORITY
+=========================
+Use the D companionv1.6 and the D10/D11/Q14 rows in this revision for current
+planning: per-copy quarter-cube periodization, torus translation, disjoint
+assembly and existing same-force comparison. The former generic-radius route
+is retained only as an alternative. Historical source-revision records below
+retain their original inspection identity and do not override current status.
 
 DELIVERABLE REGISTER
 ====================
@@ -18,13 +26,17 @@ C := Fefferman_C_Family_obstruction_B_TIER.txt
 D := Fefferman_D_Family_obstruction_B_TIER.txt
 INDEX := FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt
 CUMULATIVE_CONTEXT := COUNTER_EXAMPLE_FAMILY_B_R3_B_TIER.txt, version 1.5
-The two root names are the exact user-specified targets. Their mathematical
-meaning is fixed below; proposed Lean declarations are not yet implemented.
-No claim is made that these named endpoint theorems already exist in a repository.
-The T3 first-layer implementation is recorded in IMPLEMENTATION_STATUS.json.
-LocalBlowup/DisjointGerms/FamilyContracts have28 accepted helper theorems and 11
-contract declarations. This is not formal completion of the seed-dependent
-family route. See FEFFERMAN_D_FOUNDATION_A_TIER.txt and the retained evidence.
+The two family root names retain the exact scopes below. Their named Lean
+family endpoints are not yet implemented. The separate literal direct-D
+endpoint Methboke.FeffermanD.Fefferman_D is accepted; it is not the family root.
+The D companion is now version1.6 and controls the preferred per-copy route,
+localized quantitative refinement and zero-force obstruction. The C/R3 entries
+and their original provenance are retained; this update does not extend that
+implementation scope.
+IMPLEMENTATION_STATUS.json records the native implementation:50 accepted helper
+theorems and12 definitions/contracts, combining the foundation and assembly.
+See FEFFERMAN_D_FOUNDATION_A_TIER.txt and FEFFERMAN_D_ASSEMBLY_A_TIER.txt.
+The direct endpoint has its separate UpstreamSeed/ACCEPTANCE.json receipt.
 
 ROOT CONTRACTS
 ==============
@@ -75,7 +87,8 @@ Published compact/rest/blowup seed
   -> smooth disjoint assembly + exact PDE + admitted force
   -> bounded energy + growth at each prescribed point
   -> [generic whole-space comparison -> C family]
-     [physical-space packing + periodization + periodic comparison -> D family].
+     [per-copy quarter-cube periodization + torus translations + finite disjoint
+      assembly + same-force periodic comparison -> D family].
 
 The literature seed is a substantive imported mathematical theorem.
 The family closure is our B-tier corollary of that theorem, not a reconstruction
@@ -131,8 +144,10 @@ Output: scales large enough and pairwise disjoint compact carriers around
 each prescribed site, with explicit positive neighborhood margins.
 Sources: SUPPORT01 as a central-cube model; ML11,ML14.
 New adapter: FinitePacking.lean.
-Check: finite positive separation, carrier boundedness, and, for D, boundary
-margins of a suitable shifted fundamental cube. No infinite packing claim.
+Check: finite positive separation and carrier boundedness. For D, choose small
+disjoint closed torus balls and fit each origin-centered compressed copy in
+the quarter cube BEFORE torus translation. Shifted-cube boundary margins are
+needed only by the retained whole-assembly alternative. No infinite packing claim.
 
 F05 | Finite-sum local smoothness and germ identity
 Input: placed fields with fixed disjoint compact carriers.
@@ -199,27 +214,30 @@ This yields the exact forall-nu family root.
 
 D BRANCH
 ========
-D10 | Physical packing and generic-radius periodization
-Dependencies: F00-F09, viscosity scaling applied BEFORE periodization.
-Sources: PER01,PER02,PER03,PER04; SUPPORT01; ML06,ML07.
+D10 | Per-copy quarter-cube periodization and torus translation
+Dependencies in the preferred D route: F01-F04; viscosity fixed BEFORE periodization.
+Sources: PER01,PER02,PER03,PER04,PER05; SUPPORT01; ML06,ML07.
 New adapter: FamilyPeriodization.lean.
-Choose a shifted fundamental cube avoiding the finitely many target sites.
-Lift sites into its interior, shrink physical carriers into disjoint patches,
-then recenter the cube; choose r<1/2 containing the finite union.
-Use generic-r PDE/divergence periodization. The force is globally smooth;
-the singular velocity/pressure are smooth only on the preterminal slab.
+Compress each recentered seed into the quarter cube, including its all-time
+force carrier. Apply of_compact_candidate separately before site translation.
+Retain local-blowup, cell-energy and all-time force-support facts alongside
+its output. Translate each periodic copy to its site; fixed disjoint closed
+carriers then permit F05/F06 directly on the torus.
+The force is globally smooth; singular velocity/pressure are smooth only
+on the preterminal slab. No generic-radius packaging wrapper is required.
 Do not apply a global ContDiff theorem to these latter fields across time1.
+The earlier whole-assembly route remains valid: choose a shifted fundamental
+cube avoiding the sites, pack within its boundary margin, assemble on R3,
+then use generic-r periodization for r<1/2. It is an alternative, not a blocker.
 
 D11 | Periodic candidate packaging and comparison
-Dependencies: D10 plus force admission and transported local growth.
-Sources: PER05 as a proof template only; PER06,PER07 directly after packaging.
+Dependencies: D10,F05-F09, actual forced equations and transported local growth.
+Sources: PER09 directly; PER06,PER07 when its candidate record is used.
 New adapter: PeriodicFamilyCandidate.lean.
-The inspected of_compact_candidate hardcodes support radius1/4.
-For arbitrary sites use a generic-r packaging proof, not that lemma unchanged.
-Alternative implementation: periodize each tiny central copy, torus-translate
-it, then use finite disjoint assembly intrinsically on the torus.
 Pressure periodicity and compact-in-time force support must be explicit.
-Reuse periodic CandidateProperties.no_global_solution for all nu>0.
+Reuse PeriodicViscosity.excludes_global_solution for all nu>0. The final
+comparison has no support-in-a-fixed-cube or competitor-energy premise.
+The bare direct-D existential theorem is not used to infer the compact seed.
 
 D12 | Fefferman_D_Family_obstruction
 Dependencies: D11.
@@ -235,6 +253,23 @@ Specialize N=1, keep data0 and admitted F, and forget extra family properties.
 Output: the official classical C/D predicates, or their source-native exact
 contracts. The existing analytic-order Methlib wrappers are not the target.
 
+Q14 | Localized simultaneous quantitative refinement of the D family
+Dependencies: same-seed ENERGY01, F03,F04,D10,F05-F09,D11.
+For any open site neighborhoods,0<tau<1,eta>0, choose one common lambda>1.
+Obtain U=P=0 through1-tau and full force support in
+  (1-tau,1+tau) x union(site neighborhoods).
+With M=sup||u||2,D=||grad u||L2_tL2_x,A=||f||L1_tL2_x for the SAME seed:
+  ||U||Linf_tL2_x=sqrt(N/lambda)*M,
+  ||grad U||L2_tL2_x=sqrt(N/lambda)*D,
+  ||F||L1_tL2_x=sqrt(N/lambda)*A,
+  M<=A and sqrt(2*nu)*D<=A.
+Thus the sum of these norms, with sqrt(2*nu) on dissipation, can be below eta.
+For any finite list of positive budgets with sigma=3/p+2/q-3>0:
+  ||F||Lq_tLp_x=N^(1/p)*lambda^(-sigma)*||f||Lq_tLp_x,
+so all budgets can hold simultaneously. Velocity norms use(0,1); force norms
+use(0,infinity). A common time sequence witnesses every prescribed local blowup.
+Source: D companion Section11. Mathematical closure is B-tier; A-tier open.
+
 FAST FORMAL DEPENDENCY CHOICE
 =============================
 Mandatory main spine: literature-native definitions and comparison +
@@ -245,8 +280,12 @@ comparison when their matching source endpoints can be reused.
 Do not require rotations, exact energy additivity, Fourier coordinates,
 arbitrary terminal time, or infinite limits to close the named roots.
 
-PROPOSED FILE LAYOUT — NO LEAN FILES CREATED
-===========================================
+ORIGINAL PROPOSED FILE LAYOUT AND CURRENT IMPLEMENTATION
+======================================================
+This retained proposal is not a claim that every listed file exists. Native
+LocalBlowup,DisjointGerms,FamilyContracts,GrowthSequence,CopyBlowup,
+LocalDifferential and DisjointNSE are implemented and accepted in their exact
+helper scopes. Remaining adapters and the family endpoint are open.
 FeffermanFamily/FamilyContracts.lean
 FeffermanFamily/SeedAdapter.lean
 FeffermanFamily/SeedLocalization.lean
@@ -278,13 +317,15 @@ Methlib source:
   commit 4813604a46179c745b82f51bee51a186e9f4cc2d.
 Methboke source:
   repository randogelist/Methboke
-  current inspected commit 4068641471b9b9324a5d138cacfa37a94a648bf1;
+  original source-registry inspection4068641471b9b9324a5d138cacfa37a94a648bf1;
+  current D-companion/direct-endpoint basis66a529248d3198ed70dc5489d82868bc33a37796;
   historical conversation snapshot42cbbf404b50cd578cb9d648f1e3d388513dbf1a
   is not substituted for this newer inspected source.
 Methlib/Methboke inspected environments:
   Lean4.33.0, Mathlib db584cd6d46c92f209a44c0f1c829460d327499d.
 The pins are not interchangeable. No toolchain was changed in this task.
-An isolated source-native future implementation is the shortest proposed route.
+An isolated source-native implementation is available for the accepted direct D.
+The native family still needs explicit compatible seed/copy adapters.
 Optional older-package adapters require an explicit compatible source port;
 do not mix incompatible compiled objects or infer compatibility from names.
 
@@ -320,6 +361,26 @@ blowup and no global smooth periodic competitor.
 Evidence: companion D derivation + literature seed + source registry below.
 Status: B_TIER_DERIVED_USING_CITED_LITERATURE; NEW_A_TIER_NOT_ESTABLISHED.
 
+I-DQ | Localized quantitative Fefferman-D family
+Scope: Q14; arbitrary prescribed neighborhoods and terminal window, initial
+rest, simultaneous small energy/dissipation/L1L2 force and finite positive-sigma
+mixed force budgets. Same common terminal-time sequence for all sites.
+Evidence: D companionv1.6 Sections11-12; same compact seed and ENERGY01.
+Status: B_TIER_CLOSED; FAMILY_REFINEMENT_A_TIER_OPEN.
+
+I-D0 | Zero-force specialization obstruction
+Scope: zero initial datum + zero force on[0,1) implies U=0 by periodic energy.
+For the current spatially localized family, every0<=s<1 also satisfies
+  0<integral_s^1 ||Pi F(t)||2^2 dt<infinity,
+where Pi is the Leray projection with the constant mode removed.
+Its preterminal mean force is zero. A vanishing terminal integral would remove
+the force into periodic pressure; unforced spatial analyticity and the fixed
+open zero-velocity region would give U=0, contradicting blowup.
+This is not a pointwise claim about F(1), not a uniform lower bound, and not
+an unforced counterexample. The zero-force specialization stops here.
+Evidence: D companionv1.6 Section13; Cao-Chi-Nie Proposition3.17; Biswas2005.
+Status: B_TIER_ESTABLISHED; NO_NEW_A_TIER_AUDIT.
+
 I-G | Finite disjoint NSE closure and coordinate addition
 Scope: fixed separated compact carriers; exact finite PDE summation; bounded
 energy; L=sum(E_j/E)L_j; Q=sum[Q_j+E_j(L_j-L)^2].
@@ -329,12 +390,12 @@ OPEN FORMAL OBLIGATIONS AND NEXT SCOPED ENDPOINT
 ===============================================
 No extra unresolved analytical premise is introduced into the finite B-tier
 corollary beyond the cited seed theorem and standard analysis recorded here.
-The new Lean family predicates, finite glue and adapters have not been written.
-First formal layer: faithful FamilyContracts plus a seed adapter recording
-all-time force carrier and initial rest.
-First nontrivial new analytic/topological adapter: SeedLocalization (F02).
-Then real translations + finite packing + local-germ assembly, followed by
-the already available comparison endpoints.
+Faithful native contracts, local-growth helpers and conditional finite glue
+are accepted in the scopes registered below. No complete family is formalized.
+Next scoped endpoint: admit the SAME compact initial-rest seed and derive the
+full delayed-copy PDE/support/norm contract, including the all-time force carrier.
+Then finite packing, per-copy quarter-cube periodization and torus translations,
+followed by the accepted native helper applications and existing comparison.
 A-tier work would require the separately authorized endpoint/implementation
 workflow and matching EXTERNAL cached compiler and theorem-level axiom audit.
 Prepared names, inspected source and B-tier proofs are not A-tier evidence.
@@ -348,6 +409,25 @@ OpenAI, Finite Time Blowup for Navier-Stokes:
 https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf
 Use the supplied compact seed and established comparison/periodization; the
 new finite-family derivation is recorded separately in the companion files.
+
+LITERATURE PRECEDENT FOR THE REFINEMENT AND OBSTRUCTION
+=====================================================
+Cao,Chi,Nie, Density of Forces Producing Navier-Stokes Blowup,
+arXiv:2609.10262v4,22September2026:
+https://arxiv.org/html/2609.10262v4
+Lemma2.2: seed energy/dissipation and early rest.
+Proposition3.3: exact parabolic energy/dissipation/mixed-norm scaling.
+Proposition3.16: finite disjoint-region simultaneous blowup.
+Proposition3.17: zero-data conservative-force obstruction.
+The prescribed-point extraction/common-scale presentation and pinned-source
+mapping in the D companion make no novelty claim for these constructions.
+Biswas, Local existence and Gevrey regularity of3-D Navier-Stokes equations
+with l_p initial data, JDE215(2005),429-447,Theorem3 and Remark4:
+https://userpages.umbc.edu/~abiswas/researchpage/Bi-littlelp.pdf
+DOI:10.1016/j.jde.2004.12.012.
+Its p=1,zero-projected-force case supplies spatial analyticity after a local
+restart, used in D companion Section13. This is mathematical source support,
+not a new local or external Lean audit.
 
 PINNED SOURCE REGISTRY
 ======================
@@ -580,8 +660,8 @@ Repository: openai/NavierStokesAndEuler
 Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
 File: NavierStokes/PeriodicPaperTheorem.lean:92
 Declaration: NavierStokes.PeriodicPaper.of_compact_candidate
-Role: Hardcoded support1/4; generic-r candidate packaging required for arbitrary sites.
-Reuse: ADAPTER_NEEDED
+Role: Hardcoded support1/4; apply separately to each compressed central copy BEFORE torus site translation.
+Reuse: DIRECT_PER_COPY_REUSE; retain stronger support/local-blowup/energy side facts separately
 Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
 URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean#L92
 
@@ -614,6 +694,31 @@ Role: Existing one-witness periodic endpoint, not finite family.
 Reuse: LITERATURE_ENDPOINT
 Status: STATIC_SOURCE_INSPECTED; no local Lean; no fresh external audit
 URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean#L155
+
+[PER09]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/PeriodicViscosity.lean
+Declaration: NavierStokes.PeriodicViscosity.excludes_global_solution
+Role: Same-force periodic comparison with no fixed-cube support or competitor-energy premise.
+Reuse: DIRECT_REUSE after full family solution admission
+Status: STATIC_SOURCE_INSPECTED; no new theorem-level audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicViscosity.lean
+
+[ENERGY01]
+Repository: openai/NavierStokesAndEuler
+Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+File: NavierStokes/R3/IntegratedDissipation.lean
+Namespace: NavierStokesR3.CompactEnergy
+Declarations: candidate_energy_estimates; candidate_integrable_dissipation;
+  candidate_l2Norm_le_cumulativeForceNorm; candidate_energy_dissipation_le;
+  candidate_total_dissipation_le.
+Role: Actual dissipation integrability and sharp bounds for the SAME compact seed.
+Inputs: positive viscosity and that candidate's CandidateProperties; no second
+existential seed or assumed dissipation estimate.
+Reuse: DIRECT_REUSE; D companion SOURCE S11
+Status: STATIC_SOURCE_INSPECTED; no new theorem-level audit
+URL: https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/IntegratedDissipation.lean
 
 [ML01]
 Repository: leanprover-community/mathlib4
@@ -896,21 +1001,23 @@ Remaining obligation: hNSE explicitly has zero forcing. Retain +2 integral <f,u>
 Status: STATIC_SOURCE_INSPECTED_ONLY; NO_LOCAL_LEAN; NO_NEW_EXTERNAL_COMPILER_OR_AXIOM_AUDIT
 URL: https://github.com/randogelist/Methboke/blob/4068641471b9b9324a5d138cacfa37a94a648bf1/Material/MethbokeAddon/WeakFouriermanB/FiniteWindowRelativeEnergy.lean
 
-REGISTRY_TOTAL := 51 source groups
-ENDPOINT_MATRIX_TOTAL := 16 named common/branched/projection rows
-END_OF_INDEX
+REGISTRY_TOTAL := 53 source groups
+ENDPOINT_MATRIX_TOTAL := 17 named common/branched/projection/refinement rows
+END_OF_SOURCE_REGISTRY
 
 
-DIRECT GOAL ROUTE AND NEXT NATIVE LAYER
-======================================
+DIRECT GOAL ROUTE AND NATIVE LAYER STATUS
+========================================
 NavierStokes.ComparatorBridge.navier_stokes_breakdown_periodic, from the same
 immutable upstream revision, already has the full periodicD signature.
-UpstreamSeed/ prepares its explicit reuse with independent literal physical
-contract audits and isolated 4.34rc2 external verification; no root accepted yet.
-Material/FeffermanFamilyAssembly prepares 22 helpers and 1 predicate for native
+UpstreamSeed/ explicitly reuses it with independent literal physical-contract
+audits. Its direct root is accepted at66a5292/run44768857811; see the receipt
+and exact direct-D addendum below. This does not supply the stronger family.
+Material/FeffermanFamilyAssembly has22 accepted helpers and1 predicate for native
 growth-sequence selection, geometric copy transport and exact finite disjoint
-NSE/divergence assembly. External4.33 verification pending.
-The prescribed-site family remains a stronger separate unfinished target.
+NSE/divergence assembly atf19531bc/run44663707207.
+The prescribed-site family is a stronger separate target: B-tier closed;
+A-tier formalization open.
 
 
 NATIVE ASSEMBLY ACCEPTANCE ADDENDUM -- 2026-11-20
@@ -948,5 +1055,31 @@ Verification: 420 modules (415 reused,5 fresh),73 fresh package audits,
 only; publication and final acceptance passed. Actual cache profile compatible:
 dependency EXACT, project PREFIX. No exact-cache benchmark or local Lean run.
 
-Separate direct-D route: run44663007873 atdd0e3550f7c662e3251d48194f4f70f3f6d9f628
-remains pending in this record. Native assembly acceptance does not promote it.
+Historical separate direct-D attempt: run44663007873 at
+dd0e3550f7c662e3251d48194f4f70f3f6d9f628 passed verification but failed evidence
+retention. The accepted rerun below supersedes that obstruction. Its acceptance
+is independent of native assembly acceptance.
+
+DIRECT-D ACCEPTANCE AND CUMULATIVE D-FAMILY UPDATE --2026-11-20
+============================================================
+Endpoint: Methboke.FeffermanD.Fefferman_D.
+Tested revision:66a529248d3198ed70dc5489d82868bc33a37796.
+Run:https://github.com/randogelist/Methboke/actions/runs/44768857811.
+Artifact:https://github.com/randogelist/Methboke/actions/runs/44768857811/artifacts/14649221097.
+Artifact SHA256:f01b81cc50619bf79e45eb8620f0ef29ef0927f1808a153f40854194e666727b.
+Receipt:UpstreamSeed/ACCEPTANCE.json.
+Scope:605 modules,literal contract/type checks and5 fresh named axiom reports
+(3 predicates and2 theorems); standard axioms
+propext,Classical.choice,Quot.sound only; no sorryAx. Evidence retention,
+cache publication and final acceptance passed. This is prior external evidence,
+not a new verification run or a native4.33 seed port.
+
+D companionv1.6 now supplies the current B-tier route and complete localized
+quantitative refinement. Per-copy quarter-cube periodization removes the need
+for the previously proposed generic-radius wrapper. Same-force comparison
+already has the required support-free periodic signature.
+The zero-force specialization is obstructed for these witnesses; no unforced
+root follows. Native helpers retain exactly50 theorems and12 definitions/contracts.
+FAMILY_AND_QUANTITATIVE_REFINEMENT_A_TIER := OPEN.
+NEXT_SCOPED_FORMAL_ENDPOINT := Same compact seed admission and full delayed-copy contract.
+PRESERVED := Original C/R3 entries, source revisions and historical acceptance records.

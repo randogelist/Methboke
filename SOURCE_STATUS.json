@@ -3,12 +3,12 @@
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
   "branch": "main",
-  "mode": "A_TIER_DERIVATION_FEFFERMAN_D_FAMILY",
-  "resume_mode": "A_TIER_DERIVATION",
+  "mode": "B_TIER_DERIVATION_FEFFERMAN_D_FAMILY",
+  "resume_mode": "B_TIER_DERIVATION",
   "main_goal": {
     "name": "Fefferman_D",
     "source": "Explicit user selection: The Goal Is Fefferman D; implement T3 family on Methboke main, 2026-11-20",
-    "status": "IN_PROGRESS_NOT_FORMALLY_PROVED",
+    "status": "ACHIEVED_DIRECT_D_A_TIER_FAMILY_EXTENSION_OPEN",
     "construction_route": "Fefferman_D_Family_obstruction",
     "previous_goal": {
       "name": "EHRENFEST_OBSTRUCTION",
@@ -22,13 +22,14 @@
       "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
     },
     "family_witness_constructed": false,
-    "literal_force_decay_adapter_proved": false
+    "literal_force_decay_adapter_proved": false,
+    "literal_force_decay_adapter_scope": "Native family route; the separate direct theorem already uses the literal admissible-force contract."
   },
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
     "mesoscopic": "Fefferman_D_Family_obstruction with prescribed finite torus sites",
-    "microscopic": "Verify direct periodic D through exact pinned upstream proof in isolated4.34 CI; native growth/locality/conditional finite-assembly helpers accepted",
-    "next_scoped_endpoint": "Matching external compiler, literal-type and standard-axiom evidence for direct Fefferman D"
+    "microscopic": "Publish cumulative B-tier family derivation version1.6 and synchronize exact status boundaries.",
+    "next_scoped_endpoint": "Admit the same compact seed and prove the full delayed-copy PDE/support/norm contract; then per-copy periodization and family assembly."
   },
   "goal_transition": {
     "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
@@ -51,7 +52,7 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed.",
+  "ci_handoff": "Documentation publication only; no new Lean verification required. Direct D acceptance is recorded in T3_NSE/D-Family-Obstruction/UpstreamSeed/ACCEPTANCE.json. Native family A-tier construction remains open.",
   "current_material_external_verification": "A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS_SCOPED_ASSEMBLY_HELPERS",
   "latest_material_run": {
     "tested_commit": "f19531bca6816cea31c687629b9ab73ee6868169",
@@ -2001,7 +2002,7 @@
     "local_lean_executions": 0
   },
   "fefferman_d_family": {
-    "status": "FOUNDATION_AND_ASSEMBLY_HELPERS_ACCEPTED_FAMILY_ROOT_OPEN",
+    "status": "B_TIER_CLOSED_FOUNDATION_AND_ASSEMBLY_HELPERS_ACCEPTED_FAMILY_A_TIER_OPEN",
     "a_tier": false,
     "root_proved": false,
     "package": "FeffermanFamilyFoundation",
@@ -2073,7 +2074,27 @@
       "run_url": "https://github.com/randogelist/Methboke/actions/runs/44655638162",
       "evidence": "audits/material-77a64245-family/summary.json"
     },
-    "assembly_a_tier": true
+    "assembly_a_tier": true,
+    "b_tier_derivation": {
+      "status": "CLOSED_RELATIVE_TO_PINNED_COMPACT_SEED",
+      "document": "T3_NSE/D-Family-Obstruction/Fefferman_D_Family_obstruction_B_TIER.txt",
+      "document_version": "1.6",
+      "sha256": "12bd7a786c1802dffd34eb7a17534b95bdab253821ae13c16a11b78bad195d52",
+      "seed_repository": "openai/NavierStokesAndEuler",
+      "seed_revision": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd",
+      "seed_declaration": "NavierStokesR3.theorem_1_1_with_initial_rest",
+      "preferred_periodization": "Compress and periodize each origin-centered copy inside the quarter cube, translate on the torus, assemble disjoint copies, apply direct same-force comparison.",
+      "quantitative_refinements": [
+        "Prescribed finite singular sites and spatial neighborhoods",
+        "Arbitrarily short force window around terminal time one",
+        "Arbitrarily small preterminal energy and dissipation and L1_t L2_x force",
+        "Any finite set of mixed-force budgets with 3/p+2/q>3"
+      ],
+      "zero_force_specialization": "OBSTRUCTED for current zero-data localized family; no unforced counterexample",
+      "family_a_tier": false,
+      "new_lean_verification": false,
+      "local_lean_executions": 0
+    }
   },
   "prior_goal_transition": {
     "authorized_by": "Explicit user goal selection and authorization to apply proposed amendments",
@@ -2118,8 +2139,8 @@
     "documentation_commit_note": "Receipt records the tested b730e52c checkout; later evidence/documentation-only commits are not new compiler runs."
   },
   "direct_fefferman_d": {
-    "status": "CI_EVIDENCE_RETENTION_REPAIR_PREPARED_PENDING_EXTERNAL_RERUN",
-    "root_proved": false,
+    "status": "A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS",
+    "root_proved": true,
     "theorem": "Methboke.FeffermanD.Fefferman_D",
     "upstream_theorem": "NavierStokes.ComparatorBridge.navier_stokes_breakdown_periodic",
     "upstream_repository": "openai/NavierStokesAndEuler",
@@ -2132,6 +2153,21 @@
     "plan": "T3_NSE/D-Family-Obstruction/UpstreamSeed/CI_RUN_PLAN.json",
     "local_lean_executions": 0,
     "external_run": {
+      "run_id": 44768857811,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44768857811",
+      "tested_commit": "66a529248d3198ed70dc5489d82868bc33a37796",
+      "job_id": 136400799602,
+      "artifact_id": 14649221097,
+      "artifact_url": "https://github.com/randogelist/Methboke/actions/runs/44768857811/artifacts/14649221097",
+      "artifact_sha256": "f01b81cc50619bf79e45eb8620f0ef29ef0927f1808a153f40854194e666727b",
+      "status": "ACCEPTED",
+      "fresh_type_and_axiom_audit": "PASS",
+      "evidence_upload": "success",
+      "final_acceptance": "success",
+      "standard_axioms_only": true
+    },
+    "ci_repair": "Hidden-evidence retention repair accepted by matching run44768857811; earlier failed run remains recorded as history.",
+    "previous_external_run": {
       "run_id": 44663007873,
       "tested_commit": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
       "status": "FAILED_EVIDENCE_RETENTION_NOT_ACCEPTED",
@@ -2140,7 +2176,9 @@
       "final_acceptance": "failure",
       "failure_cause": "Hidden evidence directory excluded by upload-artifact default"
     },
-    "ci_repair": "Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed."
+    "a_tier": true,
+    "verified_total_modules": 605,
+    "acceptance_record": "T3_NSE/D-Family-Obstruction/UpstreamSeed/ACCEPTANCE.json"
   },
   "prior_family_foundation_verification": {
     "tested_commit": "77a64245f3c5ac42e7c647739f3e88182771391c",
@@ -2171,5 +2209,12 @@
     "new_helper_theorems": 28,
     "new_contract_declarations": 11,
     "root_proved": false
+  },
+  "documentation_publication": {
+    "scope": "B-tier family TXT and synchronized navigation/status only",
+    "source_revision": "66a529248d3198ed70dc5489d82868bc33a37796",
+    "new_verification_run": false,
+    "accepted_proof_inputs_changed": false,
+    "local_lean_executions": 0
   }
 }

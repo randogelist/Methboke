@@ -8,8 +8,9 @@ The selected route is **Fefferman_D_Family_obstruction**. It strengthens the
 existence target to every positive viscosity and every finite configuration
 of distinct torus sites, with zero initial velocity, bounded preterminal cell
 energy, and local velocity blowup at all prescribed sites at time one. Taking
-one site gives the intended obstruction; the literal all-order force-decay
-adapter is an explicit formal obligation.
+one site gives the intended obstruction. The cumulative B-tier construction is
+complete relative to the pinned compact seed; its native Lean family theorem
+and literal all-order force-decay adapter remain formal obligations.
 
 The working branch is `main`. The [project context](GPT.txt) records the exact
 scope. The [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
@@ -35,13 +36,22 @@ passed matching external verification at `77a64245`:
 **28 helper theorems and 11 contract declarations**, standard axioms only.
 [Run44655638162](https://github.com/randogelist/Methboke/actions/runs/44655638162) covered 415 modules,72 fresh package audits and 487 named
 reports plus QFB. [Retained evidence](audits/material-77a64245-family/summary.json)
-records the exact scope. The family witness and Fefferman-D root remain unproved.
+records the exact scope. This package alone supplies no family witness or D root;
+the separate direct-D endpoint has since been accepted as recorded below.
 
 The [T³ route](T3_NSE/D-Family-Obstruction/README.md),
 [B-tier derivation](T3_NSE/D-Family-Obstruction/Fefferman_D_Family_obstruction_B_TIER.txt),
 [source index](T3_NSE/D-Family-Obstruction/FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt)
 and [implementation ledger](T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json)
 separate the mathematical construction from completed formal adapters.
+
+The cumulative TXT is now **version 1.6**. It derives prescribed-site blowup,
+arbitrarily small energy, dissipation and `L1_t L2_x` forcing, spatial localization,
+an arbitrarily short force window around time one, and finite mixed-force budgets
+when `3/p + 2/q > 3`. It also records why zero force cannot retain this zero-data
+blowup family. These are **B-tier** conclusions, not new Lean acceptance.
+The preferred route periodizes each compressed copy before torus translation;
+the final same-force comparison needs no generic-radius candidate wrapper.
 
 The remaining native family route includes the compact literature seed and its
 compatibility with this project, transformed-copy PDE and support identities,
@@ -51,13 +61,17 @@ or newly verified under Methboke's `4.33.0` pin.
 
 ## Current build toward Fefferman D
 
-The [direct endpoint](T3_NSE/D-Family-Obstruction/UpstreamSeed/README.md) is
-prepared for isolated external verification of the pinned upstream periodic-D
-proof. Its literal force and competitor contracts receive independent checks.
-This 604-module route keeps its original Lean4.34.0-rc2 pin and leaves Material
-at 4.33.0. It explicitly reuses the upstream proof; complete acceptance is pending.
-
-Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed.
+The [direct endpoint](T3_NSE/D-Family-Obstruction/UpstreamSeed/README.md)
+`Methboke.FeffermanD.Fefferman_D` is **A-tier accepted** at `66a5292`,
+[run 44768857811](https://github.com/randogelist/Methboke/actions/runs/44768857811).
+The matching run passed 605 modules, independent literal-contract checks and
+fresh named axiom audits, with standard axioms only; evidence retention,
+cache publication and final acceptance passed. The
+[acceptance record](T3_NSE/D-Family-Obstruction/UpstreamSeed/ACCEPTANCE.json)
+pins the source and artifact. It explicitly reuses the upstream proof at
+Lean 4.34.0-rc2 and leaves native Material at 4.33.0.
+The earlier evidence-retention failure in run 44663007873 is superseded.
+This direct existential theorem does not establish the stronger family root.
 
 The [native assembly package](Material/FeffermanFamilyAssembly/README.md) is
 accepted at `f19531bc`: **22 additional helper theorems and 1 predicate**.

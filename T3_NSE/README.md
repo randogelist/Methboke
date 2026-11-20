@@ -10,18 +10,36 @@ The layout was validated on `codex/reorganize-nse-domains` for integration into
 | B regularity classes | [WFB](B-Regularity-class/WFB/README.md) and [QFB](B-Regularity-class/QFB/README.md) |
 | B Heisenberg obstruction | [StoppedCommutatorBound](B-Heisenberg-Obstruction/StoppedCommutatorBound/README.md) |
 
-The current user-selected goal is Fefferman D, using the finite prescribed-site
-family route. Its native foundations and assembly helpers are accepted:
+The current user-selected goal is Fefferman D. The
+[direct literal endpoint](D-Family-Obstruction/UpstreamSeed/README.md) is
+**accepted at A-tier** at `66a529248d3198ed70dc5489d82868bc33a37796` by
+[run 44768857811](https://github.com/randogelist/Methboke/actions/runs/44768857811):
+605 modules, literal contract/type checks and five fresh named axiom reports
+(three predicates and two theorems), standard axioms only, with retained evidence
+and final acceptance. It explicitly reuses the
+upstream proof in the isolated Lean `4.34.0-rc2` project.
+
+The stronger local target remains the finite prescribed-site family. Its native
+foundations and assembly helpers are accepted:
 **50 helper theorems and 12 contract/predicate declarations**. The first layer
 was accepted at 77a64245; the second at f19531bc. See the
 [foundation register](D-Family-Obstruction/FEFFERMAN_D_FOUNDATION_A_TIER.txt) and
 [assembly register](D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt).
-The full family witness remains unproved.
+The family is closed at B-tier from the pinned compact seed, while its full
+A-tier formalization remains open.
 
-A direct literal D endpoint is also prepared in
-[UpstreamSeed](D-Family-Obstruction/UpstreamSeed/README.md), using explicit
-upstream proof reuse and isolated external 4.34 verification, which remains
-pending. Native 4.33 acceptance covers growth extraction, geometric parabolic
+The [cumulative version 1.6 derivation](D-Family-Obstruction/Fefferman_D_Family_obstruction_B_TIER.txt)
+uses per-copy quarter-cube periodization, torus translations, disjoint assembly
+and same-force comparison; no generic-radius wrapper is needed. It also places
+supports in prescribed neighborhoods and an arbitrarily short window around
+time one, makes energy/dissipation/force norms arbitrarily small, and meets
+finite mixed-norm force budgets with `3/p + 2/q > 3`. Identically zero forcing
+is incompatible with its zero-data blowup; these localized witnesses also
+require nonzero projected force on every terminal interval. No unforced
+counterexample or novelty claim follows. Close literature precedents are
+recorded in the derivation and [route index](D-Family-Obstruction/FEFFERMAN_C_D_FAMILY_OBSTRUCTION_INDEX.txt).
+
+Native 4.33 acceptance covers growth extraction, geometric parabolic
 blowup transport, operator locality including time zero, and conditional finite
 disjoint NSE assembly. It does not supply seed admission, transformed-copy PDE,
 packing, energy, force admission, periodization or same-force comparison.

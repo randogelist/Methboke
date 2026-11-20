@@ -1,10 +1,12 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 5.4
+DOCUMENT_VERSION = 5.5
 DATE = 2026-11-20
 WORKING_BRANCH = main
 VALIDATED_LAYOUT_BRANCH = codex/reorganize-nse-domains
 CURRENT_MAIN_GOAL = Fefferman_D; periodic forced family route
-CURRENT_ROOT_STATUS = NOT_FORMALLY_PROVED_IN_THIS_PROJECT
+CURRENT_ROOT_STATUS = DIRECT_FEFFERMAN_D_A_TIER_ACCEPTED_AT_66a5292
+CURRENT_FAMILY_STATUS = B_TIER_CLOSED_RELATIVE_TO_PINNED_STRONG_SEED; A_TIER_OPEN
+ACTIVE_MODE = B_TIER_DERIVATION
 LATEST_ACCEPTED_EHRENFEST_COMMIT = b730e52ca1e4a661a83a09110378db542455097b
 LATEST_ACCEPTED_EHRENFEST_RUN = 44651224180
 LATEST_ACCEPTED_EHRENFEST_SCOPE = E07/E08/E10 andE09.bound;183 Ehrenfest declarations;411 modules/71 fresh packages/448 named audits plus QFB
@@ -40,10 +42,10 @@ All 415 modules,72 fresh package audits,487 named reports plus fresh QFB and 183
 controls passed. Independent source/type/axiom review and publication passed.
 Evidence:audits/material-77a64245-family/summary.json.
 Register:T3_NSE/D-Family-Obstruction/FEFFERMAN_D_FOUNDATION_A_TIER.txt.
-The full Fefferman_D_Family_obstruction endpoint remains unproved.
+The full Fefferman_D_Family_obstruction Lean endpoint remains unproved.
 SOURCE: T3_NSE/D-Family-Obstruction/README.md and IMPLEMENTATION_STATUS.json.
-B_TIER_REFERENCE: the twelve-stage finite-family derivation from the pinned
-compact literature seed is recorded alongside the source index in that folder.
+B_TIER_REFERENCE: cumulative v1.6 of Fefferman_D_Family_obstruction_B_TIER.txt
+records the finite-family construction and its quantitative refinements.
 BOUNDARY: helper acceptance supplies no family witness, imported seed object,
 literal D adapter or stopped-bound witness. Prior conditional theorem unchanged.
 
@@ -64,11 +66,75 @@ and 183 controls passed; standard axioms only; matching evidence reviewed.
 BOUNDARY: no seed or family witness, no transformed-copy PDE/scaling theorem,
 no packing, energy, force admission, periodization or same-force uniqueness.
 
-CURRENT CANDIDATES (NOT ACCEPTED RESULTS)
-DIRECT_FEFFERMAN_D: explicit application of the immutable upstream full periodic D
-proof, isolated Lean4.34rc2, exact physical-contract audit; external verification
-pending. File:T3_NSE/D-Family-Obstruction/UpstreamSeed/Endpoint.lean.
-The full prescribed-site family remains open.
+DIRECT_FEFFERMAN_D: A_TIER_ACCEPTED_EXACT_ROOT; STANDARD_AXIOMS_ONLY.
+DECLARATION:Methboke.FeffermanD.Fefferman_D.
+STATEMENT: for every nu>0 there exist smooth periodic admissible initial data
+and force with no global smooth periodic velocity AND pressure solution for
+that same viscosity, datum and force. The force has all-order time-decay bounds.
+No extra energy, mean-zero, pressure-gauge or smallness premise is imposed on
+the excluded competitor. Only viscosity positivity is an explicit premise.
+SOURCE:66a529248d3198ed70dc5489d82868bc33a37796;
+T3_NSE/D-Family-Obstruction/UpstreamSeed/Endpoint.lean and Audit.lean.
+RUN:https://github.com/randogelist/Methboke/actions/runs/44768857811.
+EVIDENCE:T3_NSE/D-Family-Obstruction/UpstreamSeed/ACCEPTANCE.json;
+artifact14649221097, SHA256 f01b81cc50619bf79e45eb8620f0ef29ef0927f1808a153f40854194e666727b.
+SCOPE:605 modules (604 upstream plus the local endpoint), five fresh required
+declaration type/axiom reports (three predicates and two theorems) and literal
+contract consumers. Compiler
+leanprover/lean4:v4.34.0-rc2; Mathlib85e3a25e006c35636f0e53b0e9296caca2685bc0.
+AXIOMS:propext,Classical.choice,Quot.sound only; no sorryAx or custom axiom.
+Evidence retention, cache publication and final acceptance:PASS.
+PROVENANCE: explicit application of NavierStokes.ComparatorBridge.navier_stokes_breakdown_periodic
+from openai/NavierStokesAndEuler@f9e8bc5b38b6e212696e8a30e3e91517af887bbd.
+BOUNDARY: reuses the upstream proof; not a new seed mechanism or a verification
+of the prescribed-site family. Documentation cites existing matching evidence;
+no new Lean run, native4.33 seed import or family promotion is claimed.
+
+T3_FAMILY_QUANTITATIVE_B_TIER
+STATUS: COMPLETE_B_TIER_DERIVATION_RELATIVE_TO_PINNED_STRONG_SEED; A_TIER_OPEN.
+STATEMENT: for every nu>0 and finite nonempty distinct torus-site tuple, construct one
+smooth periodic compact-positive-time force, zero-data preterminal smooth
+velocity/pressure, finite cell energy, local velocity blowup at every prescribed
+site at time one, and exclusion of every same-force global smooth competitor.
+REFINEMENT: given open neighborhoods of the sites, 0<tau<1 and eta>0, choose
+force support inside (1-tau,1+tau) times those neighborhoods, with U=P=0 through
+1-tau and ||U||_(L-infinity_t L2_x)+sqrt(2nu)||grad U||_(L2_t L2_x)
+  +||F||_(L1_t L2_x)<eta. Velocity norms are preterminal; force norms use all
+positive times. Any finite list of positive budgets in Lq_t Lp_x, p,q>=1, with
+3/p+2/q>3 can be met simultaneously, with one common sequence witnessing
+local blowup at all sites.
+SOURCE:T3_NSE/D-Family-Obstruction/Fefferman_D_Family_obstruction_B_TIER.txt
+v1.6, Sections4-12; pinned compact initial-rest seed and candidate-level energy
+estimates at the upstream revision recorded above.
+IDENTITIES: E_cell=(N/lambda)E_seed(s_lambda),
+||grad U||_(L2 L2)=sqrt(N/lambda)||grad u||_(L2 L2),
+||F||_(Lq Lp)=N^(1/p)*lambda^(3-3/p-2/q)||f||_(Lq Lp).
+ROUTE: periodize EACH compressed origin-centered seed in the existing quarter
+cube, translate to its torus site, and assemble through disjoint closed carriers.
+Final PeriodicViscosity.excludes_global_solution has no fixed-cube premise.
+BOUNDARY: the bare direct-D existential theorem does not imply the stronger
+seed. No countable-copy closure, exactly-N singularity claim, arbitrary-small
+critical forcing, or unforced NSE-B counterexample follows. The family and
+refinement have no matching formal-root receipt; no novelty claim is made.
+
+T3_FAMILY_ZERO_FORCE_OBSTRUCTION_B_TIER
+STATUS: ESTABLISHED_B_TIER_EXCLUSION; NO_NEW_LEAN_ENDPOINT.
+STATEMENT: zero datum and F=0, or a purely periodic gradient force, force U=0
+by the energy identity. Disjoint carriers cannot cancel their forces to zero.
+For this spatially localized family, every terminal interval satisfies
+0<integral_s^1 ||Pi F(t)||_2^2 dt<infinity, 0<=s<1, where Pi is the mean-zero
+Leray projection. Preterminal mean F=0 is derived from mean U=0 and the PDE.
+Otherwise pressure absorption and positive-time spatial analyticity contradict
+the fixed open zero region and terminal blowup. No mean-force assertion after
+one, nonzero endpoint value F(1), or uniform positive tail bound is asserted.
+SOURCE: same cumulative v1.6, Section13 and its cited analytic references.
+BOUNDARY: the requested zero-force specialization is blocked; further unforced
+transfer stops here. A different nonzero-data trajectory and a proved
+blowup-preserving correction or independent argument remain unresolved.
+
+CURRENT FORMAL CANDIDATE: the full prescribed-site family remains open.
+NEXT_SCOPED_FORMAL_ENDPOINT: compact-seed admission and full delayed-copy
+PDE/support/norm contract. General mixed-norm transport can follow the base root.
 
 ACCEPTED PRIOR EHRENFEST PROGRAM
 
@@ -224,11 +290,14 @@ Those identifiers retain their original source/evidence meanings. Omitted
 repetition is not theorem retraction. Old statements calling WFB unverified
 or assigning it current priority are historical and superseded by I17 above.
 Existing failed-run archives are retained; no failed attempt is promoted.
-Unproved: stopped witness; arbitrary-data global regularity/counterexample;
+Unproved: stopped witness; arbitrary-data unforced global regularity/counterexample;
 full operator interpretation; full E09 H2 convergence; universal budget/R1.
 No source preparation or successful workflow color alone yields a <-> signal.
 
 HISTORICAL_ASSEMBLY_ATTEMPT:run 44663007972 failed compilation. Its source-only
 elaboration repairs preserved statements and passed run 44663707207 at f19531bc.
 The failed archive is retained; current native acceptance is T3_FAMILY_ASSEMBLY.
-Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed.
+HISTORICAL_DIRECT_D_ATTEMPT:run44663007873 compiled and freshly audited, but
+excluded its hidden evidence directory from upload and failed final acceptance.
+The repaired run44768857811 at66a5292 retained the evidence and passed final
+acceptance; the failed attempt is superseded history, not a pending rerun.
