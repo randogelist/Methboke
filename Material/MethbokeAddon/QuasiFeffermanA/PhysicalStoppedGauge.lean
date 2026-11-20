@@ -263,7 +263,7 @@ theorem physicalStoppedGauge_le_iff_fourier (ν : ℝ) (hν : 0 < ν)
   have hc : 0 < 64 * Real.pi ^ 4 * ν := by positivity
   have hp : physicalStoppedGauge ν U T τ ≤ ENNReal.ofReal R ↔
       physicalStoppedGauge ν U T τ ^ (4 : ℕ) ≤ (ENNReal.ofReal R) ^ (4 : ℕ) := by
-    simpa only [ENNReal.rpow_natCast] using
+    simpa only [ENNReal.rpow_ofNat] using
       (ENNReal.rpow_le_rpow_iff (x := physicalStoppedGauge ν U T τ)
         (y := ENNReal.ofReal R) (by norm_num : 0 < (4 : ℝ))).symm
   rw [hp, physicalStoppedGauge_pow_four_fourier ν hν.le,

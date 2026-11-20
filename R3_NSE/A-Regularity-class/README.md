@@ -1,5 +1,17 @@
 # NSE-A regularity class: finite six-charge budget
 
+## External compilation repair
+
+[Run 44826537985](https://github.com/randogelist/Methboke/actions/runs/44826537985)
+at source `e6a233aa` passed 499 of 512 scheduled modules. Four newly prepared
+sources failed elaboration and nine dependents were blocked. The retry adds an
+explicit H1 import, makes bounded Fourier-isometry conversions and pointwise
+coercions explicit, and corrects the fourth-power rewrite. Public statements
+and independent consumers are unchanged. All 99 package audits, 1,294 named
+reports, publication and final acceptance remain required. No new A-tier
+acceptance follows from this attempt.
+
+
 ## Current candidate: H2, Leray and real multipliers
 
 The next external candidate adds **202 declarations** in four packages:

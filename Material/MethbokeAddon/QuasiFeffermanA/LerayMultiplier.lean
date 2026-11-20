@@ -44,6 +44,7 @@ theorem leraySymbol_formula (ξ : Space) (z : ComplexVector) :
   change (Submodule.span ℂ {complexifyVectorLI ξ}).orthogonal.starProjection z = _
   rw [Submodule.starProjection_orthogonal_val, Submodule.starProjection_singleton,
     complexifyVectorLI_norm]
+  rfl
 
 /-- The frequency contraction is the literal finite coordinate sum. -/
 theorem inner_complexifyVector_eq_sum (ξ : Space) (z : ComplexVector) :
@@ -106,7 +107,7 @@ theorem conjugate_leraySymbol (ξ : Space) (z : ComplexVector) :
       leraySymbol ξ (conjugateVectorLI z) := by
   apply PiLp.ext
   intro j
-  simp only [conjugateVectorLI_apply, leraySymbol_coordinate, map_sub, map_div,
+  simp only [conjugateVectorLI_apply, leraySymbol_coordinate, map_sub, map_div₀,
     map_sum, map_mul, Complex.conj_ofReal]
 
 private theorem leraySymbol_aestronglyMeasurable (f : ComplexL2) :
@@ -116,8 +117,11 @@ private theorem leraySymbol_aestronglyMeasurable (f : ComplexL2) :
   have hd : AEStronglyMeasurable (fun ξ : Space => ((‖ξ‖ ^ 2 : ℝ) : ℂ)) volume :=
     (by fun_prop : Continuous (fun ξ : Space => ((‖ξ‖ ^ 2 : ℝ) : ℂ))).aestronglyMeasurable
   have hc := (hξ.inner (Lp.aestronglyMeasurable f)).div₀ hd
-  simpa only [leraySymbol_formula] using
-    (Lp.aestronglyMeasurable f).sub (hc.smul hξ)
+  have hraw := (Lp.aestronglyMeasurable f).sub (hc.smul hξ)
+  change AEStronglyMeasurable (fun ξ : Space => f ξ -
+    (inner ℂ (complexifyVectorLI ξ) (f ξ) / ((‖ξ‖ ^ 2 : ℝ) : ℂ)) •
+      complexifyVectorLI ξ) volume at hraw
+  simpa only [leraySymbol_formula] using hraw
 
 private theorem leraySymbol_memLp (f : ComplexL2) :
     MemLp (fun ξ : Space => leraySymbol ξ (f ξ)) 2 volume :=
@@ -160,7 +164,9 @@ def frequencyLerayCLM : ComplexL2 →L[ℂ] ComplexL2 :=
   ({ toFun := frequencyLeray
      map_add' := frequencyLeray_add
      map_smul' := frequencyLeray_smul } : ComplexL2 →ₗ[ℂ] ComplexL2).mkContinuous 1
-    (fun f => by simpa only [one_mul] using norm_frequencyLeray_le f)
+    (fun f => by
+      change ‖frequencyLeray f‖ ≤ 1 * ‖f‖
+      simpa only [one_mul] using norm_frequencyLeray_le f)
 
 @[simp] theorem frequencyLerayCLM_apply (f : ComplexL2) :
     frequencyLerayCLM f = frequencyLeray f := rfl
@@ -216,8 +222,9 @@ def fourierLeray (f : ComplexL2) : ComplexL2 := 𝓕⁻ (frequencyLeray (𝓕 f)
   fourier_fourierInv_eq _
 
 def fourierLerayCLM : ComplexL2 →L[ℂ] ComplexL2 :=
-  (Lp.fourierTransformₗᵢ Space ComplexVector).symm.toContinuousLinearMap.comp
-    (frequencyLerayCLM.comp (Lp.fourierTransformₗᵢ Space ComplexVector).toContinuousLinearMap)
+  (Lp.fourierTransformₗᵢ Space ComplexVector).symm.toLinearIsometry.toContinuousLinearMap.comp
+    (frequencyLerayCLM.comp
+      (Lp.fourierTransformₗᵢ Space ComplexVector).toLinearIsometry.toContinuousLinearMap)
 
 @[simp] theorem fourierLerayCLM_apply (f : ComplexL2) :
     fourierLerayCLM f = fourierLeray f := rfl
@@ -318,6 +325,7 @@ theorem realLeray_eq_self_iff_fourier_transverse (v : SpatialL2) :
   · intro h
     apply complexifyL2LI.injective
     apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
+    change (𝓕 (complexifyL2 (realLeray v)) : ComplexL2) = 𝓕 (complexifyL2 v)
     apply Lp.ext
     filter_upwards [realLeray_fourier_ae v, h] with ξ hp ht
     rw [hp]

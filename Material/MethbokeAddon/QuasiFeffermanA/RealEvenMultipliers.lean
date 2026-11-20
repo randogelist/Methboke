@@ -48,9 +48,10 @@ theorem memLp_symbol_smul (m : RealEvenSymbol) (f : ComplexL2) :
     MemLp (fun ξ : Space => (m.value ξ : ℂ) • f ξ) 2 volume := by
   have hm : Measurable (fun ξ : Space => (m.value ξ : ℂ)) :=
     Complex.continuous_ofReal.measurable.comp m.measurable
-  apply (Lp.memLp f).of_le_mul
+  apply (Lp.memLp f).of_le_mul (c := (m.bound : ℝ))
     (hm.aestronglyMeasurable.smul (Lp.aestronglyMeasurable f))
   filter_upwards with ξ
+  change ‖(m.value ξ : ℂ) • f ξ‖ ≤ (m.bound : ℝ) * ‖f ξ‖
   rw [norm_smul, Complex.norm_real]
   exact mul_le_mul_of_nonneg_right (m.norm_le ξ) (norm_nonneg _)
 
@@ -140,9 +141,9 @@ theorem fourier_complexify_realFourierMultiplier_ae (m : RealEvenSymbol) (u : Sp
   exact frequencyMultiplier_ae m (𝓕 (complexifyL2 u))
 
 private def complexFourierMultiplierCLM (m : RealEvenSymbol) : ComplexL2 →L[ℂ] ComplexL2 :=
-  (Lp.fourierTransformₗᵢ Space ComplexVector).symm.toContinuousLinearMap.comp
+  (Lp.fourierTransformₗᵢ Space ComplexVector).symm.toLinearIsometry.toContinuousLinearMap.comp
     ((frequencyMultiplierCLM m).comp
-      (Lp.fourierTransformₗᵢ Space ComplexVector).toContinuousLinearMap)
+      (Lp.fourierTransformₗᵢ Space ComplexVector).toLinearIsometry.toContinuousLinearMap)
 
 def realFourierMultiplierCLM (m : RealEvenSymbol) : SpatialL2 →L[ℝ] SpatialL2 :=
   realPartL2CLM.comp (((complexFourierMultiplierCLM m).restrictScalars ℝ).comp

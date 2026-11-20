@@ -1,3 +1,4 @@
+import MethbokeAddon.QuasiFeffermanA.PhysicalH1
 import MethbokeAddon.QuasiFeffermanA.H1Fourier
 import Mathlib.Analysis.Distribution.TemperedDistribution
 

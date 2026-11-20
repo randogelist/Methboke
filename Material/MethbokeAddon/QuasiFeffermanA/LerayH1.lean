@@ -205,7 +205,9 @@ def physicalH1LerayCLM : PhysicalH1 →L[ℝ] PhysicalH1 :=
   ({ toFun := physicalH1Leray
      map_add' := physicalH1Leray_add
      map_smul' := physicalH1Leray_smul } : PhysicalH1 →ₗ[ℝ] PhysicalH1).mkContinuous 1
-    (fun u => by simpa only [one_mul] using norm_physicalH1Leray_le u)
+    (fun u => by
+      change ‖physicalH1Leray u‖ ≤ 1 * ‖u‖
+      simpa only [one_mul] using norm_physicalH1Leray_le u)
 
 @[simp] theorem physicalH1LerayCLM_apply (u : PhysicalH1) :
     physicalH1LerayCLM u = physicalH1Leray u := rfl

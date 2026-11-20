@@ -1,0 +1,9 @@
+MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean:266:4: error: Type mismatch: After simplification, term
+  Iff.symm
+    (ENNReal.rpow_le_rpow_iff
+      (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 4)) (Eq.refl false)))
+ has type
+  physicalStoppedGauge ν U T τ ≤ ENNReal.ofReal R ↔ physicalStoppedGauge ν U T τ ^ (4 : ℝ) ≤ ENNReal.ofReal R ^ 4
+but is expected to have type
+  physicalStoppedGauge ν U T τ ≤ ENNReal.ofReal R ↔ physicalStoppedGauge ν U T τ ^ (4 : ℕ) ≤ ENNReal.ofReal R ^ 4
