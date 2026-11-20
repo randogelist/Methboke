@@ -568,15 +568,16 @@
       "accepted": false
     },
     "latest_failed_attempt": {
-      "commit": "c0cb56f8199cd44c3123e64fcb99e5959c83c10b",
-      "run_id": 44785924181,
-      "evidence": "audits/material-c0cb56f8-qfa-failed/summary.json",
+      "commit": "76376e085d1cf5e383f702ea6462f456edcb03a2",
+      "run_id": 44787324841,
+      "evidence": "audits/material-76376e08-qfa-index-rejected/summary.json",
       "prior_modules_reused": 420,
-      "fresh_modules_compiled": 41,
+      "fresh_modules_compiled": 43,
       "accepted": false,
-      "remaining_failure": "Spectral scalar norm simplification and elaboration timeout; FourierMultipliers now compiles successfully."
+      "compiler_and_fresh_audits_passed": true,
+      "remaining_failure": "Final evidence gate rejected the stale73-entry index; four new registrations are prepared without proof changes."
     },
-    "proof_repair": "Spectral proof-only normalization through direct squared complex norms; every public theorem type, audit name and verification policy is preserved.",
+    "proof_repair": "All proof and audit sources now compile. Only the four missing publication-index rows are added; matching final acceptance remains pending.",
     "failed_attempt_history": [
       {
         "commit": "73501cdecf9e53266920651bee6b2788e11e95be",
@@ -603,7 +604,23 @@
         "fresh_modules_compiled": 41,
         "accepted": false,
         "remaining_failure": "Spectral scalar norm simplification and elaboration timeout; FourierMultipliers now compiles successfully."
+      },
+      {
+        "commit": "76376e085d1cf5e383f702ea6462f456edcb03a2",
+        "run_id": 44787324841,
+        "evidence": "audits/material-76376e08-qfa-index-rejected/summary.json",
+        "prior_modules_reused": 420,
+        "fresh_modules_compiled": 43,
+        "accepted": false,
+        "compiler_and_fresh_audits_passed": true,
+        "remaining_failure": "Final evidence gate rejected the stale73-entry index; four new registrations are prepared without proof changes."
       }
-    ]
+    ],
+    "publication_index": {
+      "packages": 77,
+      "declarations": 698,
+      "prior_rows_preserved": 73,
+      "added_qfa_rows": 4
+    }
   }
 }

@@ -97,6 +97,12 @@ Spectral failure consists of scalar normalization and an elaboration timeout.
 The proof-only repair keeps its three public theorem types and every audit
 requirement unchanged. No new A-tier acceptance has yet occurred.
 
+The [fourth attempt](../../audits/material-76376e08-qfa-index-rejected/summary.json)
+passed all 463 modules, 77 fresh package audits, 698 named reports and the QFB
+cutout. The final evidence gate rejected the four missing package-index entries.
+The index now includes all 77 packages while retaining its 73 prior rows.
+Proofs and audit sources are unchanged; full matching acceptance is still pending.
+
 ## Verification boundary
 
 Only authorized external cached compilation and fresh exact-type/axiom audits

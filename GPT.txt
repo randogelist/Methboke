@@ -1,5 +1,5 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 5.9
+DOCUMENT_VERSION = 6.0
 DATE = 2026-11-20
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = AC-Integration
@@ -74,6 +74,14 @@ including the corrected FourierMultipliers port. Spectral failed on one scalar
 normalization and an elaboration timeout; its endpoint wrapper was blocked.
 Evidence:audits/material-c0cb56f8-qfa-failed/. No new acceptance. The spectral
 repair preserves every public type,188named reports and all verification gates.
+
+Fourth attempt76376e08/run44787324841 compiled all463modules and freshly
+audited77packages/698named declarations plus the standalone QFB cutout.
+All new proof sources and consumers passed. The evidence/publication gate
+correctly rejected Material/endpoints.json because it omitted the four new
+packages. No A-tier acceptance or cache publication. Exact evidence:
+audits/material-76376e08-qfa-index-rejected/. The index repair appends four
+registrations, preserves73existing rows, and changes no proof or audit source.
 
 NEXT BRANCH STEP: inspect matching external compilation, independent literal
 contract/type consumers, fresh named axiom reports and complete policy gates.
