@@ -232,7 +232,8 @@ def physicalH2ToH1 : PhysicalH2 →L[ℝ] PhysicalH1 :=
      map_smul' := by
        intro r u
        apply physicalH1Velocity_injective
-       simp only [physicalH2ToH1Fn, physicalH1OfWeakGradient_velocity, map_smul] } :
+       simp only [physicalH2ToH1Fn, physicalH1OfWeakGradient_velocity, map_smul,
+         RingHom.id_apply] } :
     PhysicalH2 →ₗ[ℝ] PhysicalH1).mkContinuous 1 (by
       intro u
       change ‖physicalH2ToH1Fn u‖ ≤ 1 * ‖u‖
@@ -251,6 +252,7 @@ private def physicalH2GradientH1Fn (j : Fin 3) (u : PhysicalH2) : PhysicalH1 :=
   physicalH1OfWeakGradient (physicalH2Gradient j u)
     (fun k => physicalH2Hessian j k u) (physicalH2_weakHessian u j)
 
+set_option maxHeartbeats 800000 in
 private theorem physicalH2GradientH1Fn_norm_le (j : Fin 3) (u : PhysicalH2) :
     ‖physicalH2GradientH1Fn j u‖ ≤ ‖u‖ := by
   apply (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mp
@@ -260,10 +262,13 @@ private theorem physicalH2GradientH1Fn_norm_le (j : Fin 3) (u : PhysicalH2) :
       ∑ a : Fin 3, ∑ k : Fin 3, ‖physicalH2Hessian a k u‖ ^ 2
   have hG : ‖physicalH2Gradient j u‖ ^ 2 ≤
       ∑ a : Fin 3, ‖physicalH2Gradient a u‖ ^ 2 :=
-    Finset.single_le_sum (fun _ _ => sq_nonneg _) (Finset.mem_univ j)
+    Finset.single_le_sum (f := fun a : Fin 3 => ‖physicalH2Gradient a u‖ ^ 2)
+      (fun a _ => sq_nonneg ‖physicalH2Gradient a u‖) (Finset.mem_univ j)
   have hH : (∑ k : Fin 3, ‖physicalH2Hessian j k u‖ ^ 2) ≤
       ∑ a : Fin 3, ∑ k : Fin 3, ‖physicalH2Hessian a k u‖ ^ 2 :=
-    Finset.single_le_sum (fun _ _ => Finset.sum_nonneg fun _ _ => sq_nonneg _)
+    Finset.single_le_sum
+      (f := fun a : Fin 3 => ∑ k : Fin 3, ‖physicalH2Hessian a k u‖ ^ 2)
+      (fun a _ => Finset.sum_nonneg fun k _ => sq_nonneg ‖physicalH2Hessian a k u‖)
       (Finset.mem_univ j)
   linarith [sq_nonneg ‖physicalH2Velocity u‖]
 
@@ -277,7 +282,8 @@ def physicalH2GradientH1 (j : Fin 3) : PhysicalH2 →L[ℝ] PhysicalH1 :=
      map_smul' := by
        intro r u
        apply physicalH1Velocity_injective
-       simp only [physicalH2GradientH1Fn, physicalH1OfWeakGradient_velocity, map_smul] } :
+       simp only [physicalH2GradientH1Fn, physicalH1OfWeakGradient_velocity, map_smul,
+         RingHom.id_apply] } :
     PhysicalH2 →ₗ[ℝ] PhysicalH1).mkContinuous 1 (by
       intro u
       change ‖physicalH2GradientH1Fn j u‖ ≤ 1 * ‖u‖
@@ -370,6 +376,7 @@ def physicalH2SigmaToH2LI : PhysicalH2Sigma →ₗᵢ[ℝ] PhysicalH2 where
   map_smul' r u := rfl
   norm_map' u := rfl
 
+set_option maxHeartbeats 800000 in
 @[simp] theorem physicalH2SigmaToH2LI_val (u : PhysicalH2Sigma) :
     (physicalH2SigmaToH2LI u).val = u.val := rfl
 

@@ -2,15 +2,16 @@
 
 ## External compilation repair
 
-[Run 44826537985](https://github.com/randogelist/Methboke/actions/runs/44826537985)
-at source `e6a233aa` passed 499 of 512 scheduled modules. Four newly prepared
-sources failed elaboration and nine dependents were blocked. The retry adds an
-explicit H1 import, makes bounded Fourier-isometry conversions and pointwise
-coercions explicit, and corrects the fourth-power rewrite. Public statements
-and independent consumers are unchanged. All 99 package audits, 1,294 named
-reports, publication and final acceptance remain required. No new A-tier
-acceptance follows from this attempt.
-
+[Run 44828091157](https://github.com/randogelist/Methboke/actions/runs/44828091157)
+at source `e4eb9f5f` passed 504 of 512 scheduled modules, including both full
+stopped-budget sources, the physical gauge, real-even multipliers and the
+Leray multiplier. Three new sources still failed elaboration and five
+dependents were blocked. The next repair makes function/coercion reductions
+explicit in the H1 heat and Leray proofs, and supplies explicit finite-sum
+types and bounded declaration-local heartbeat budgets in two H2 proofs.
+Public mathematical statements and independent consumers are unchanged.
+All 99 fresh audits, 1,294 named reports, publication and final acceptance
+remain required. No new A-tier acceptance follows from these partial results.
 
 ## Current candidate: H2, Leray and real multipliers
 

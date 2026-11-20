@@ -322,6 +322,11 @@ theorem heatH1_continuous (ν : ℝ≥0) (u : PhysicalH1) :
       ‖heatL2 ν t (physicalH1Gradient j u) - heatL2 ν s (physicalH1Gradient j u)‖ ^ 2) :=
     continuous_finsetSum Finset.univ (fun j _ =>
       ((heatL2_continuous ν (physicalH1Gradient j u)).sub continuous_const).norm.pow 2)
-  simpa only [physicalH1_norm_sq, map_sub, heatH1_velocity, heatH1_gradient] using hv.add hG
+  have hsum := hv.add hG
+  change Continuous (fun t : ℝ≥0 =>
+    ‖heatL2 ν t (physicalH1Velocity u) - heatL2 ν s (physicalH1Velocity u)‖ ^ 2 +
+      ∑ j : Fin 3,
+        ‖heatL2 ν t (physicalH1Gradient j u) - heatL2 ν s (physicalH1Gradient j u)‖ ^ 2) at hsum
+  simpa only [physicalH1_norm_sq, map_sub, heatH1_velocity, heatH1_gradient] using hsum
 
 end MethbokeAddon.QuasiFeffermanA.HeatSemigroup

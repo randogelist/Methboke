@@ -1,0 +1,28 @@
+MethbokeAddon/QuasiFeffermanA/LerayH1.lean:45:2: error: Type mismatch: After simplification, term
+  hp
+ has type
+  (fun ξ => ↑↑(frequencyLeray (𝓕 (complexifyL2 (G j)))) ξ) =ᵐ[volume] fun ξ =>
+    (2 * ↑Real.pi * Complex.I * ↑(inner ℝ ξ (coordinateVector j))) • ↑↑(frequencyLeray (𝓕 (complexifyL2 v))) ξ
+but is expected to have type
+  ∀ᵐ (a : Space),
+    ↑↑(frequencyLeray (𝓕 (complexifyL2 (G j)))) a =
+      (2 * ↑Real.pi * Complex.I * ↑(inner ℝ a (coordinateVector j))) • ↑↑(frequencyLeray (𝓕 (complexifyL2 v))) a
+MethbokeAddon/QuasiFeffermanA/LerayH1.lean:119:6: error: Type mismatch: After simplification, term
+  Eq.symm hcoord
+ has type
+  (2 * ↑Real.pi * Complex.I * inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) * if True then 1 else 0) =
+    (0 ξ).ofLp 0
+but is expected to have type
+  2 * ↑Real.pi * Complex.I * inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) = 0
+MethbokeAddon/QuasiFeffermanA/LerayH1.lean:128:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (Lp.fourierTransformₗᵢ Space ComplexVector) 0
+in the target expression
+  𝓕 (complexifyL2 (spatialGradientTrace G)) = 𝓕 0
+
+case mpr
+v : ↥SpatialL2
+G : Fin 3 → ↥SpatialL2
+h : SpatialWeakGradient v G
+hρ : 2 * ↑Real.pi * Complex.I ≠ 0
+ht : ∀ᵐ (ξ : Space), inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) = 0
+⊢ 𝓕 (complexifyL2 (spatialGradientTrace G)) = 𝓕 0

@@ -42,6 +42,10 @@ theorem spatialWeakGradient_realLeray
     (fun ξ : Space => (2 * Real.pi * Complex.I) *
       (inner ℝ ξ (coordinateVector j) : ℂ))
     (ae_all_iff.mp hfreq j)
+  change ∀ᵐ ξ : Space ∂volume,
+    frequencyLeray (𝓕 (complexifyL2 (G j)) : ComplexL2) ξ =
+      ((2 * Real.pi * Complex.I) * (inner ℝ ξ (coordinateVector j) : ℂ)) •
+        frequencyLeray (𝓕 (complexifyL2 v) : ComplexL2) ξ at hp
   simpa only [complexify_realLeray, fourier_fourierLeray] using hp
 
 /-- The actual L2 divergence trace has the literal first-order Fourier contraction. -/
@@ -116,8 +120,8 @@ theorem spatialWeakGradient_solenoidal_iff_fourier_transverse
     have hcoord := congrArg (fun z : ComplexVector => z (0 : Fin 3)) ht
     have hprod : (2 * (Real.pi : ℂ) * Complex.I) *
         inner ℂ (complexifyVectorLI ξ) ((𝓕 (complexifyL2 v) : ComplexL2) ξ) = 0 := by
-      simpa only [PiLp.zero_apply, PiLp.smul_apply, PiLp.single_apply,
-        if_pos rfl, smul_eq_mul, mul_one] using hcoord.symm
+      simpa only [Pi.zero_apply, PiLp.zero_apply, PiLp.smul_apply, PiLp.single_apply,
+        if_pos rfl, ite_true, smul_eq_mul, mul_one] using hcoord.symm
     exact (mul_eq_zero.mp hprod).resolve_left hρ
   · intro ht
     apply complexifyL2LI.injective
@@ -125,7 +129,7 @@ theorem spatialWeakGradient_solenoidal_iff_fourier_transverse
     rw [complexifyL2_zero]
     apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
     change (𝓕 (complexifyL2 (spatialGradientTrace G)) : ComplexL2) = 𝓕 (0 : ComplexL2)
-    rw [(Lp.fourierTransformₗᵢ Space ComplexVector).map_zero]
+    rw [FourierTransform.fourier_zero]
     apply Lp.ext
     filter_upwards [spatialGradientTrace_fourier_ae h, ht,
       Lp.coeFn_zero ComplexVector 2 (volume : Measure Space)] with ξ htrace hξ hzero
