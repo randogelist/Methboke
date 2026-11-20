@@ -1,0 +1,9 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:74:6: error: Type mismatch: After simplification, term
+  LinearIsometry.integral_comp_comm (continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E).toLinearIsometry fun a =>
+    p a q (n + 1)
+ has type
+  @Eq (P →L[ℝ] P [×n]→L[ℝ] E)
+    (∫ (x : A), (continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E).toLinearIsometry (p x q (n + 1)) ∂μ)
+    ((continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E).toLinearIsometry (∫ (x : A), p x q (n + 1) ∂μ))
+but is expected to have type
+  @Eq (P →L[ℝ] P [×n]→L[ℝ] E) (∫ (a : A), (p a q (n + 1)).curryLeft ∂μ) (∫ (a : A), p a q (n + 1) ∂μ).curryLeft

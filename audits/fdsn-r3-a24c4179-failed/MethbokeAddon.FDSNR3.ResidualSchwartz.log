@@ -1,0 +1,17 @@
+MethbokeAddon/FDSNR3/ResidualSchwartz.lean:49:8: error: Application type mismatch: The argument
+  HasFDerivAt.prodMk (hasFDerivAt_const t x) (hasFDerivAt_id x)
+has type
+  HasFDerivAt (fun x => (t, id x)) (ContinuousLinearMap.prod 0 (ContinuousLinearMap.id ?m.95 Vec)) x
+but is expected to have type
+  HasFDerivAt ?m.67 ?m.68 x
+in the application
+  HasFDerivAt.prodMk (hasFDerivAt_const lam x) (HasFDerivAt.prodMk (hasFDerivAt_const t x) (hasFDerivAt_id x))
+MethbokeAddon/FDSNR3/ResidualSchwartz.lean:70:54: error: unsolved goals
+H : 𝓢(FamilySpacetime, Vec)
+lam t : ℝ
+x : Vec
+i : Fin 3
+a✝ : i ∈ Finset.univ
+heq : schwartzFamilyVelocity (familySpaceDerivative H i) lam t = coordinateDerivative (schwartzFamilyVelocity H lam t) i
+⊢ coordinateDerivative (coordinateDerivative (schwartzFamilyVelocity H lam t) i) i x =
+    (fderiv ℝ (coordinateDerivative (schwartzFamilyVelocity H lam t) i) x) (unitVector i)

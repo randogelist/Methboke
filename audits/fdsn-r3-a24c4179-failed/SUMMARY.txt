@@ -1,0 +1,32 @@
+FDSN_R3 FULL CANDIDATE THIRD REPAIR — REJECTED
+
+Source commit: a24c41799218cc07d683250f9a6a669279eb6107
+Source tree: 1cf9aaaa16472587d1825f8338fc68191dc677a6
+External run: https://github.com/randogelist/Methboke/actions/runs/44839269539
+Fast job: 136643323119 — failure
+Final acceptance job: 136644949048 — failure
+Recovery job: 136644950148 — skipped
+Evidence artifact: 14680650444
+ZIP SHA256: 064fc0e79e405cce0d97eaeb5f997e99a599ead08413d8bbf03c6a2255104bef
+The downloaded ZIP was independently hashed and matched the artifact digest before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Source-pin integrity was confirmed.
+Module receipts record 528 PASS, 2 FAIL, and 16 BLOCKED_BY_DEPENDENCY.
+SchwartzJets and ForceSeparation now compile. All previously passing
+source modules continue to compile. Fresh named audits did not run.
+
+The remaining exposed source failures were:
+- ParametricFourier: line74, the integral/curry theorem accepts its
+  instantiated isometry, but the value-level rewrite does not identify
+  that transported map with the literal curryLeft function.
+- ResidualSchwartz: line49, nested derivative products need an explicit
+  scalar annotation for their inferred continuous linear maps; line70,
+  the coordinateDerivative definition remains to be unfolded.
+The two full compiler logs are retained verbatim beside current.json.
+
+All downstream modules remain unaccepted until their sources compile and
+the independent exact/literal consumers and named type/axiom reports pass.
+Successful source compilation alone does not establish endpoint acceptance.
+No mathematical statement, dependency pin, or acceptance criterion was
+changed by this evidence archive. No local Lean, Lake, compiler or kernel
+audit was executed.

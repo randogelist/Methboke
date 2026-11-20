@@ -68,17 +68,19 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
         ((hTaylor a).fderivWithin n hn y hy).hasFDerivAt (hs.mem_nhds hy)))
     have heq : (∫ a, (p a q (n + 1)).curryLeft ∂μ) =
         (∫ a, p a q (n + 1) ∂μ).curryLeft := by
-      have hcurry (v : ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E) :
-          (continuousMultilinearCurryLeftEquiv ℝ
-            (fun _ : Fin (n + 1) => P) E).toLinearIsometry v = v.curryLeft := rfl
-      simpa only [hcurry] using
-        (LinearIsometry.integral_comp_comm (μ := μ) (𝕜 := ℝ)
-          (E := ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E)
-          (F := P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E)
-          (by simpa using!
-            (continuousMultilinearCurryLeftEquiv ℝ
-              (fun _ : Fin (n + 1) => P) E).toLinearIsometry)
-          (fun a => p a q (n + 1)))
+      have hIntc : Integrable (fun a => (p a q (n + 1)).curryLeft) μ :=
+        hB.mono' hMeas' (ae_of_all _ (fun a => by
+          simpa only [ContinuousMultilinearMap.curryLeft_norm] using hbound a q hq))
+      apply ContinuousLinearMap.ext
+      intro v
+      apply ContinuousMultilinearMap.ext
+      intro m
+      rw [ContinuousLinearMap.integral_apply hIntc v]
+      rw [ContinuousMultilinearMap.integral_apply
+        ((ContinuousLinearMap.apply ℝ
+          (ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E) v).integrable_comp hIntc) m]
+      simpa only [ContinuousMultilinearMap.curryLeft_apply] using
+        (ContinuousMultilinearMap.integral_apply (hInt (n + 1) q hq) (Fin.cons v m)).symm
     rw [heq] at hd
     exact hd.hasFDerivWithinAt
   · intro n hn
