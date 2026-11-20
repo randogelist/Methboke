@@ -1,39 +1,71 @@
 # EHRENFEST-OBSTRUCTION
 
-**Current activation0.6.0:** E07/E08 and108 scoped declarations accepted at790;75 third-layer audits pending. 30 owned sources are active; historical31 modules/nine logical blocks are design counts, and the scalar-root closure has25 owned dependencies. E09.bound/E10 are pending; full operator and H2 milestones remain open. [Ledger](IMPLEMENTATION_STATUS.json).
-
-
-This supporting workstream develops the frozen **conditional** theorem
+The project goal is the exact conditional theorem
 
 ```text
-ν > 0 → StoppedCommutatorBound ν → ¬ NSE_B ν.
+∀ ν > 0, StoppedCommutatorBound ν → ¬ NSE_B ν.
 ```
 
-It combines an exact Galerkin–Heisenberg representation with a stopped negative commutator rate for a bounded reciprocal-enstrophy observable. The initial datum is smooth and fixed across every cutoff. The proposed rate condition remains an explicit, unproved hypothesis.
+`StoppedCommutatorBound` is an explicit existential premise about one fixed
+smooth datum and its actual canonical Fourier–Galerkin family. No witness of
+that premise or unconditional NSE counterexample is asserted. The coefficient
+predicate is defined directly; the full Hilbert-space commutator interpretation
+remains a separate construction.
 
-The ten-step mathematical derivation is complete as a conditional argument. **E07, E08 and 108 scoped declarations are externally accepted. The third layer is activated with 75 further audit candidates, pending its own verification.** No global custom axiom is added. The existing WFB theorem and fixed repository goal retain their original finite-budget scope.
+## Current evidence
 
-- [Cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt)
-- [Ten mid-tier checklist](CHECKLIST.md)
-- [Source-exact identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/README.md) and [fast-route reading order](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md)
-- [Historical nine-block scalar-root route](FAST_ROUTE.md) and [concrete count mapping](COUNT_RECONCILIATION.json)
-- [Five minimal interfaces](FAST_INTERFACES.lean.txt)
-- [Full 31-module proposed layout](LEAN_LAYOUT.md)
-- [Machine module DAG](MODULE_PLAN.json) and [eight schematic interfaces](INTERFACES.lean.txt)
-- [Operator/domain construction](OPERATOR_LAYOUT.txt) and [native package contract](NATIVE_PACKAGE_PLAN.json)
-- [Machine endpoint ledger](obligations.json)
-- [Readable source index](ANCHOR_INDEX.md)
-- [53 exact pinned source records](ANCHOR_INDEX_v0_3.json)
-- [Static package validation](VALIDATION.json)
+**E09.bound and the exact conditional E10 theorem are A-tier accepted** at
+`22431f032c868b8de1526767d7d32a2639f6a9ee`,
+[run 44641040255](https://github.com/randogelist/Methboke/actions/runs/44641040255).
+The [matching receipt](../../audits/material-22431f03-accepted/summary.json) records
+411 modules (392 reused, 19 fresh), all 71 fresh package audits, all 448 named
+audits plus QFB, 183 controls, publication and final acceptance. The theorem
+audits use only `propext`, `Classical.choice` and `Quot.sound`. The 75 new scoped
+declarations bring the accepted Ehrenfest total to 183. E07/E08 retain their
+earlier acceptance; full E09 and the operator milestones remain open.
 
-The main new formal obligations are the unbounded generator/domain/core realization and the full-slab smooth-solution-to-Galerkin stability estimate. The mathematical proof of the latter uses an H2 residual estimate and first-exit bootstrap; it does not assume a uniform Galerkin budget.
+The accepted Ehrenfest portion is 30 owned sources, 16 packages and 183 named
+declarations; its scalar-root source closure has 25 owned modules. The original
+31-module design and nine logical blocks are historical counts.
 
-Verification is external and cached only. No local Lean, Lake or kernel execution is permitted. The implementation uses the unchanged compiler, dependency, vendor and CI configuration. The authorized push-main workflow supplies full cached compilation and fresh audits.
+## Internal proof chain
 
-The v0.2 refinement separates the coefficient-only conditional obstruction from its full Heisenberg interpretation. It records the same-datum canonical-family adapter, explicit real-time no-hit predicate, safe `T<S` front semantics, and a direct unitary-generator/resolvent route to self-adjointness. The ten milestones keep their full scope. No local or external compiler was run for this refinement.
+| Step | Exact role |
+|---|---|
+| INT01 | One fixed smooth datum and the canonical cutoff `N=n+1` |
+| INT02 | Positive reciprocal, closed-slab continuity and exact signed drift |
+| INT03 | Hypothetical global solution supplies a front with `T=1/γ<S=T+1` |
+| INT04 | Cutoff-independent reference bounds and physical H1 tail |
+| INT05 | Actual Fourier coefficient evolution and forced error equation |
+| INT06 | Physical residual and signed error-energy estimates |
+| INT07 | `D′ ≤ C(D+D³)+A/N²`, with zero initial error |
+| INT08 | Interior exponential comparison derives eventual `D≤1` |
+| INT09 | Smooth front implies eventual canonical enstrophy bound: E09.bound |
+| INT10 | One large cutoff makes the literal `PreHit` guard hold |
+| INT11 | Mean-value descent contradicts the positive terminal reciprocal |
+| INT12 | Discharge hypothetical global smoothness and export E10 |
 
-Version 0.3 shortens the root further: use one-cutoff mean-value contradiction and an eventual H1 enstrophy bound, supported by existing physical absorption and Fourier estimates. Hitting/escape and full H2 convergence remain separate stronger milestones. The root source closure excludes every operator module and the optional All bundle. This is a source-grounded proof-plan optimization, not a measured compiler-speed claim.
+The actual reference bounds and error bootstrap are proved inside the chain;
+no stability certificate or finite Fourier budget is added to the root. Root
+imports only DynamicalRoot. Full H2 convergence and the operator construction
+retain their original scopes in the ten-step checklist.
 
-The initial identity-gathering stage is now available: 60 existing declarations/definitions, comprising the 53 indexed anchors and seven companion identities, with complete source/proof slices and 36 full pinned module snapshots. This is source extraction, not new implementation or formal acceptance. See the cutout catalog for original imports, contextual hypotheses and new adapters still required.
+## Navigation
 
-Current activation and exact package scopes: [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). [Second-layer evidence](../../audits/material-7908890a-accepted/summary.json) accepts E08 and 85 scoped declarations at `7908890a`, giving 108 accepted in total. Current activation has 30 owned sources, 16 packages and 183 named audits: 108 accepted and 75 pending. E09.bound, E10, full H2 stability and full operator milestones remain pending or open.
+- [Cumulative mathematical derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt)
+- [Exact original ten-milestone checklist and root facets](CHECKLIST.md)
+- [Implemented scalar proof route](FAST_ROUTE.md) and [current interfaces](FAST_INTERFACES.lean.txt)
+- [Source-exact cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/README.md) and [identity reading order](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md)
+- [Implementation/evidence ledger](IMPLEMENTATION_STATUS.json), [obligations](obligations.json), [module design and actual mapping](MODULE_PLAN.json), [count reconciliation](COUNT_RECONCILIATION.json)
+- [Original full layout](LEAN_LAYOUT.md), [operator/domain extension](OPERATOR_LAYOUT.txt), [original schematic interfaces](INTERFACES.lean.txt)
+- [53 pinned source anchors](ANCHOR_INDEX_v0_3.json) and [readable index](ANCHOR_INDEX.md)
+
+Weak_Fourierman_B, R0 and QFB are accepted foundations with unchanged statements
+and evidence. In particular, WFB retains its finite-budget hypothesis. WFB is
+not an extra hypothesis of the obstruction theorem.
+
+Verification uses the unchanged compiler, dependencies, vendor and CI policies.
+Only authorized external cached verification is permitted; no local Lean, Lake
+or kernel execution is allowed. Failed attempts and earlier accepted evidence
+remain recorded in the implementation ledger. No new verification run is
+needed merely to rewrite this documentation around unchanged audited sources.

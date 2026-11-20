@@ -1,48 +1,62 @@
 # Preprint statement anchors
 
+The current goal is the accepted conditional **EHRENFEST-OBSTRUCTION** theorem:
+
+```text
+forall nu > 0, StoppedCommutatorBound nu -> not (NSE_B nu).
+```
+
+Its exact root and E09.bound helper were accepted at
+`22431f032c868b8de1526767d7d32a2639f6a9ee`,
+[run 44641040255](https://github.com/randogelist/Methboke/actions/runs/44641040255).
+The [A-tier register](../EHRENFEST_OBSTRUCTION_A_TIER.txt),
+[cumulative derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt) and
+[matching evidence](../audits/material-22431f03-accepted/summary.json) preserve
+the exact hypothesis and endpoint scope.
+
 | Anchor | Statement | Present evidence |
 |---|---|---|
-| QFB-ROOT | Literal original eventual-tail contract | Inherited external Lean evidence; see index I01 |
-| ANALYTIC-CYLINDER | Compact-cylinder bounds and strong initial trace | Actual compact Serrin integrability and initial trace accepted at `93ca8a5`; the separate numerical integral bounds in section 3 remain B-tier |
-| FINITE-CAP | `D_Q(nu) subset R_nu` | Exact two-sided analytic data-class root accepted with matching external compiler, type and axiom evidence at `93ca8a5`; B-tier derivation in section 4 |
-| GERM-REDUCTION | `FB_nu iff (D_germ(nu) subset D_Q(nu))` | B-tier under recorded foundation interfaces; section 5 |
-| BELTRAMI | Arbitrary-amplitude finite Fourier Beltrami admission | Explicit B-tier solution; section 7 and index I02 |
-| WEAK-FOURIERMAN-B | Full finite squared Fourier budget implies global smooth continuation of the same trajectory | Accepted at `fdb515d8`, run `44566880192`; [exact evidence](../audits/material-fdb515d8/summary.json); finite budget retained |
-| EHRENFEST-OBSTRUCTION | A stopped negative-commutator bound for one fixed smooth datum implies failure of NSE-B | [Conditional B-tier derivation](../EHRENFEST_OBSTRUCTION_B_TIER.txt); [ten mid-tier steps](EhrenfestObstruction/CHECKLIST.md); [historical nine-block root route](EhrenfestObstruction/FAST_ROUTE.md), [concrete count mapping](EhrenfestObstruction/COUNT_RECONCILIATION.json) and [identity cutouts](../LEAN_CUTOUTS/EhrenfestObstruction/README.md); E07, E08 and 108 scoped declarations accepted; 75 third-layer audits pending |
+| EHRENFEST-OBSTRUCTION | The literal stopped negative-drift premise for one fixed smooth datum implies failure of NSE-B | A-tier at `22431f03`; exact root/type/standard-axiom audits and final acceptance passed |
+| EHRENFEST-E09-BOUND | An actual smooth front gives eventual cutoff-uniform canonical Galerkin enstrophy boundedness on a strict compact subslab | A-tier at `22431f03`; separately scoped helper, not full H2 convergence |
+| EHRENFEST-E07 / E08 | Stopped scalar hitting and cutoff-uniform threshold escape | Accepted at `40686414` and `7908890a`; freshly audited again at `22431f03` |
+| QFB-ROOT | Literal original eventual-tail contract | Inherited external evidence; fresh QFB audit in the current run |
+| ANALYTIC-CYLINDER | Compact-cylinder bounds and strong initial trace | Accepted at `93ca8a5`; separate numerical integral estimates remain B-tier |
+| FINITE-CAP | `D_Q(nu) subset R_nu` | Exact classical/two-sided analytic admission accepted at `93ca8a5`; actual cap premise retained |
+| WEAK-FOURIERMAN-B | Finite full squared Fourier budget implies global smooth continuation of the same maximal trajectory | Accepted at `fdb515d8`, run `44566880192`; finite-budget premise retained |
+| GERM-REDUCTION | `FB_nu iff (D_germ(nu) subset D_Q(nu))` | B-tier under recorded foundation interfaces |
+| BELTRAMI | Arbitrary-amplitude finite Fourier Beltrami admission | Explicit B-tier solution |
 | UNIVERSAL-ADMISSION | `D_germ(nu) subset D_Q(nu)` | Open |
 
-The [cumulative derivation](../CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt) is the
-mathematical source. [GPT.txt](../GPT.txt) identifies the dependency layers for
-formalization. The exact accepted declaration is
+The [Ehrenfest package](EhrenfestObstruction/README.md) preserves the original
+[ten full milestones](EhrenfestObstruction/CHECKLIST.md), its
+[implemented scalar route](EhrenfestObstruction/FAST_ROUTE.md),
+[count reconciliation](EhrenfestObstruction/COUNT_RECONCILIATION.json) and
+[pinned source cutouts](../LEAN_CUTOUTS/EhrenfestObstruction/README.md).
+The 183 registered Ehrenfest declarations are now accepted. The full operator
+realization and full E09 H2 convergence remain separate open milestones.
+
+The stopped-bound witness is unproved. The root is an implication with a defined
+Prop argument, not an unconditional counterexample and not a new global custom
+axiom. WFB and R0 remain accepted in their original scopes.
+
+## Retained R0 and WFB foundation
+
+The [finite-cap cumulative derivation](../CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt)
+records R0's mathematical chain. Its exact data-class endpoint is
 `MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu` in
 [R0DataAdmission.lean](../Material/MethbokeAddon/WeakFouriermanB/R0DataAdmission.lean).
-Its admitted class contains zero, handled by the explicit zero solution, and
-nonzero smooth data with an actual two-sided analytic NSE cap at `2*tau_Q`.
-That cap remains an explicit admission premise; its equation uses the ordinary time
-derivative throughout that cap. The general cap theorem also preserves both
-the supplied forward velocity and normalized pressure. Initial trace, compact
-Serrin integrability, finite-window comparison and smooth gluing have matching
-external verification. R1, extending every local analytic germ through the
-required cap, remains open. The BAMBUS/Beltrami construction and universal
-germ reduction remain B-tier, as do the separate numerical integral bounds.
+Zero data are handled explicitly; nonzero admitted data supply an actual
+two-sided analytic NSE cap at `2*tau_Q`. Velocity and normalized pressure are
+preserved by the continuation/gluing theorem. Universal germ-to-cap extension
+R1 remains open.
 
-[Accepted external run 44549257770](https://github.com/randogelist/Methboke/actions/runs/44549257770)
-checked `93ca8a57536512556ec36717ee933ea52db283bf`. The
-[retained evidence](../audits/material-93ca8a5/summary.json) records 321 modules,
-303 objects reused, 18 additions built, 33 fresh endpoint-package audits,
-161 declaration audits plus the QFB cutout, and 183 passed external controls.
-The exact root uses only `propext`, `Classical.choice` and `Quot.sound`.
-Historical runs `44543421609` at `0ddd2d67` and `44545010863` at `c6e039da`
-failed before the accepted proof-syntax and inference corrections; neither
-is acceptance evidence. This R0 acceptance does not assert full
-Weak_Fourierman_B closure or a completed preprint. No local Lean or tests were
-run. A later PDF belongs in
-[PAPER_PREPRINT_PDF](../PAPER_PREPRINT_PDF/).
+R0's [matching evidence](../audits/material-93ca8a5/summary.json) records its
+321-module/33-package/161-name scope plus QFB. WFB was subsequently accepted
+with its full finite-budget premise; see its
+[A-tier register](../Weak_Fourierman_B_A_TIER.txt) and
+[retained evidence](../audits/material-fdb515d8/summary.json).
 
-
-
-## Current supporting source index
-
-The [Ehrenfest package](EhrenfestObstruction/README.md) records53 pinned source anchors and ten full formalization targets. E07, E08 and 108 scoped declarations are [accepted](../audits/material-7908890a-accepted/summary.json); the other full milestones remain unchecked. The third layer has 75 additional pending named audit candidates. Its conditional mathematical proof preserves the unproved stopped-bound premise; no global custom axiom or singular witness is introduced.
-
-The R0 evidence described above is historical to that scope. Whole WFB was subsequently accepted at `fdb515d8`; see [index I17](../INDEX-WORTHY.txt) and the [current root evidence](../audits/material-fdb515d8/summary.json).
+The previous anchor index and historical R0 detail are preserved
+[verbatim](../audits/goal-transition-22431f/secondary/PREPRINT_FORMALISATION/README.md).
+Current source and target authority is [GPT.txt](../GPT.txt). No local Lean
+execution accompanied this evidence/documentation amendment.

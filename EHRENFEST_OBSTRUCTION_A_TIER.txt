@@ -1,0 +1,131 @@
+DOCUMENT := EHRENFEST_OBSTRUCTION_A_TIER
+VERSION := 1.0
+DATE := 2026-11-20
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+PROJECT_GOAL := EHRENFEST_OBSTRUCTION
+FROZEN_NAME := EHRENFEST-OBSTRUCTION
+REPOSITORY := randogelist/Methboke
+BRANCH := main
+TESTED_COMMIT := 22431f032c868b8de1526767d7d32a2639f6a9ee
+RUN := https://github.com/randogelist/Methboke/actions/runs/44641040255
+EVIDENCE := audits/material-22431f03-accepted/summary.json
+
+1. EXACT ACCEPTED ROOT
+
+MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION :
+  forall (nu : Real), 0 < nu ->
+    MethbokeAddon.EhrenfestObstruction.StoppedCommutatorBound nu ->
+      Not (MethbokeAddon.EhrenfestObstruction.NSE_B nu).
+
+For positive viscosity, the explicit stopped reciprocal-enstrophy drift
+condition for one fixed smooth periodic divergence-free mean-zero datum
+excludes universal global smooth NSE existence at that viscosity.
+
+The hypothesis quantifies the actual canonical cutoff-(n+1) Galerkin family,
+fixed positive eStar and gamma, thresholds R_n tending to infinity, and an
+eventual-index drift bound under the literal no-hit prefix guard up to
+1/gamma. It is a defined Prop passed as an argument, not a global custom
+axiom. Its existence is not proved.
+
+SOURCE:
+  Material/MethbokeAddon/EhrenfestObstruction/Root.lean.
+EXACT INDEPENDENT CONSUMER:
+  Material/EhrenfestObstructionRoot/Audit.lean.
+RETAINED RAW AUDIT:
+  audits/material-22431f03-accepted/EhrenfestObstructionRoot.log.
+
+2. NEW ACCEPTED INTERMEDIATE SCOPE
+
+E09.bound:
+  MethbokeAddon.EhrenfestObstruction.initial_front_eventual_canonical_enstrophy_bound
+
+For nu>0, a smooth datum a, an actual InitialClassicalFront nu S a U P,
+and T<S, there exists C such that eventually in n, for every t in [0,T],
+the actual canonical cutoff-(n+1) Galerkin half-enstrophy is at most C.
+
+The consumer expands this conclusion to coefficientDissipation/2 of the
+literal canonicalGalerkinSolution. No uniform Galerkin bound, error bound,
+residual certificate or extra stability assumption is supplied as an input.
+
+SOURCE:
+  Material/MethbokeAddon/EhrenfestObstruction/EventualEnstrophyBound.lean.
+EXACT INDEPENDENT CONSUMER:
+  Material/EhrenfestEventualEnstrophyBound/Audit.lean.
+RETAINED RAW AUDIT:
+  audits/material-22431f03-accepted/EhrenfestEventualEnstrophyBound.log.
+
+The same run accepts the actual-reference/error prerequisites, continuity
+repair, and the following three root-package declarations:
+  stopped_forbids_initial_front;
+  stopped_forbids_global_smooth;
+  EHRENFEST_OBSTRUCTION_DYNAMICAL.
+
+The data-specific front theorem excludes every actual front with horizon
+S>1/gamma. A maximal-lifetime corollary is not a separately registered
+accepted endpoint in this record.
+
+3. EXACT EXTERNAL EVIDENCE
+
+Fast cached job 135971854575: SUCCESS.
+Final Material accepted job 135978130987: SUCCESS.
+Required publication: PASS.
+Recovery: SKIPPED.
+
+Modules: 411 PASS, consisting of392 reused and19 fresh.
+Required package audits:71 fresh,0 reused.
+Named declaration audits:448, plus a fresh QFB cutout audit.
+External non-Lean controls:183 PASS.
+Newly accepted third-layer Ehrenfest declarations:75.
+Cumulative accepted Ehrenfest declarations:183.
+
+Lean: leanprover/lean4:v4.33.0.
+Compiler commit: d8b18978322de05a8f3dba51ef03cf5461676c17.
+Compiler platform: x86_64-unknown-linux-gnu.
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Vendor Methlib:96033dd69c994bec337a87369a6c27256e724980.
+Runner: Ubuntu24.04; module workers2; Lean threads2.
+Dependency cache: EXACT. Project cache: PREFIX.
+Required source-pin integrity: PASS.
+
+Root theorem axiom report:
+  {propext, Classical.choice, Quot.sound}.
+No sorryAx and no additional custom axiom.
+
+Complete original evidence artifact:
+  artifact14587751135;
+  212745 bytes;
+  SHA256 ba080a4d4348de6e2dfe78facf777bb3b74d3aa3f10bd4757163b39f13c35532;
+  audits/material-22431f03-accepted/evidence.zip.
+
+The complete report, extracted principal logs, final acceptance log and
+independent nonexecuting source/log/coverage review are retained beside it.
+The later documentation/evidence commit preserves all active proof, audit,
+manifest, dependency and runner bytes. The tested SHA remains22431f03.
+
+4. SCOPE AND AXIOM ACCOUNTING
+
+FORMAL_CLOSURE: exact conditional implication accepted.
+FULL_MILESTONES_ACCEPTED: E07,E08,E10.
+SCOPED_HELPER_ACCEPTED: E09.bound.
+STOPPED_BOUND_WITNESS: OPEN.
+UNCONDITIONAL_NSE_COUNTEREXAMPLE: NOT ESTABLISHED.
+FULL_HILBERT_OPERATOR_REALIZATION: OPEN.
+FULL_E09_H2_CONVERGENCE: OPEN.
+
+The standard-only axiom audit certifies the implication with its explicit
+hStopped argument; it does not discharge that mathematical hypothesis.
+Weak_Fourierman_B remains accepted with its finite Fourier-budget premise.
+
+5. REPRODUCTION AND FUTURE CHANGES
+
+The matching accepted run already supplies the requested external check.
+No duplicate run is required for this source-identical evidence amendment.
+Future proof/audit changes require fresh matching external verification.
+Preserve compatible cached objects and all required audits. No local Lean,
+Lake, kernel, wrapper, container or subprocess execution is permitted.
+Material/run.cmd is the existing external replay entrypoint; it was not run
+locally. Linux evidence is not native-Windows evidence.
+
+LOCAL_LEAN_EXECUTIONS := 0
+NEW_LEAN_SOURCE_CHANGES_IN_ACCEPTANCE_AMENDMENT := 0
+ROOT_GOAL_STATUS := COMPLETE_WITH_EXPLICIT_STOPPED_BOUND_PREMISE

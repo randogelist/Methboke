@@ -1,0 +1,719 @@
+HISTORICAL_PLAN_NOTICE := This v1.0 pre-amendment plan is retained unchanged below.
+CURRENT_AUTHORITY := EHRENFEST_OBSTRUCTION_B_TIER.txt and EHRENFEST_OBSTRUCTION_A_TIER.txt.
+CURRENT_ACCEPTANCE := E09.bound and E10 accepted at22431f03/run44641040255; pending labels below describe the earlier snapshot.
+
+DOCUMENT := EHRENFEST_OBSTRUCTION_INTERIOR_AMENDMENTS_B_TIER
+VERSION := 1.0
+DATE := 2026-11-20
+MODE := B_TIER_DERIVATION
+NAMESPACE := MethbokeAddon.EhrenfestObstruction
+FROZEN_NAME := EHRENFEST-OBSTRUCTION
+PROJECT_GOAL := EHRENFEST_OBSTRUCTION
+EXACT_ROOT := forall nu > 0, StoppedCommutatorBound(nu) -> not NSE_B(nu)
+LOCAL_TARGET := source-grounded interior proof chain and proposed amendments
+REPOSITORY := randogelist/Methboke
+BRANCH := main
+INSPECTED_REVISION := 22431f032c868b8de1526767d7d32a2639f6a9ee
+DOCUMENT_ROLE := cumulative scalar-root B-tier companion and amendment plan
+MATHEMATICAL_STATUS := complete conditional derivation below
+FORMAL_STATUS := existing accepted helpers retained; E09.bound/E10 pending
+GITHUB_MUTATIONS_IN_THIS_TASK := 0
+LOCAL_LEAN_EXECUTIONS := 0
+NEW_EXTERNAL_VERIFICATION_RUNS := 0
+
+1. TARGET AND PRECISE CLOSURE BOUNDARY
+
+The selected goal is the conditional implication
+
+  EHRENFEST_OBSTRUCTION:
+    forall nu : Real, 0 < nu ->
+      StoppedCommutatorBound nu -> Not (NSE_B nu).
+
+The stopped condition remains an explicit hypothesis. Proving that an actual
+smooth datum satisfies it is a separate, unresolved existential problem.
+Acceptance of this implication therefore does not establish an unconditional
+Navier--Stokes counterexample.
+
+Weak_Fourierman_B becomes an accepted foundation/reference in the proposed
+project organization. Its finite Fourier-budget hypothesis and existing
+evidence remain intact. Neither WFB nor its finite-budget hypothesis is an
+additional premise of the displayed obstruction theorem.
+
+The mathematical proof uses the actual canonical Fourier--Galerkin family.
+The complete Hilbert-space Heisenberg interpretation is a separately tracked
+stronger construction. Its self-adjointness, domain and unitary-flow results
+are not premises of this scalar root. The name StoppedCommutatorBound retains
+its literal coefficient definition until that interpretation is also proved.
+
+This document proposes amendments. It does not apply them to GitHub, launch
+verification, or change any recorded accepted theorem status.
+
+2. EXACT DATA, DEFINITIONS AND EXPLICIT PREMISES
+
+Spatial setting: the unit-volume periodic three-torus; unforced NSE; nu > 0.
+A := -Delta. Leray projection is denoted L. P_N is the existing orthogonal
+Fourier cutoff, commuting with derivatives and L. Put Pi_N := P_N L.
+The logical index n : Nat always denotes physical cutoff N := n+1 > 0.
+
+SmoothDatum := {a : Field // SmoothSigmaZero a}.
+Here SmoothSigmaZero means the actual real, smooth, periodic, divergence-free,
+mean-zero physical datum. The same a and nu are used at every cutoff.
+
+u_n := canonicalGalerkinSolution nu hnu a.val a.property (n+1).
+Its physical field and coefficient realization are related by the existing
+finite Fourier synthesis and Parseval identities. For the trajectory define
+
+  e_n(t) := coefficientDissipation(N, u_n.coeff(t))/2
+          = ||grad u_n(t)||_2^2/2,
+  Z_n(t) := coefficientLaplacianSquare(N, u_n.coeff(t)),
+  Pwr_n(t) := coefficientEnstrophyNonlinearPower(N, u_n.coeff(t)).
+
+Pwr is the native nonlinear-power symbol, not pressure or a projection.
+The actual coefficient identity is
+
+  (2 e_n)' = -2 nu Z_n - 2 Pwr_n,
+  e_n' = -nu Z_n - Pwr_n.
+
+For eStar > 0 put
+
+  V_n(t) := (1 + e_n(t)/eStar)^(-1),
+  c_n(t) := (nu Z_n(t) + Pwr_n(t)) /
+             [eStar (1 + e_n(t)/eStar)^2].
+
+The literal no-hit guard is
+
+  PreHit(e,R,T,t) :=
+    0 <= t AND t < T AND
+    forall s, 0 <= s -> s <= t -> e(s) < R.
+
+StoppedForDatum(nu,hnu,a,eStar,gamma,R) means
+
+  eStar > 0; gamma > 0; R_n > 0 for every n; R_n -> +infinity;
+  exists n0, forall n >= n0, forall t,
+    PreHit(e_n,R_n,1/gamma,t) -> c_n(t) <= -gamma.
+
+StoppedCommutatorBound(nu) :=
+  exists hnu : 0 < nu, exists a : SmoothDatum,
+  exists eStar gamma : Real, exists R : Nat -> Real,
+    StoppedForDatum(nu,hnu,a,eStar,gamma,R).
+
+NSE_B(nu) :=
+  forall a : Field, SmoothSigmaZero a ->
+    exists U : Velocity, exists P : Pressure,
+      GlobalSmoothNSE nu a U P.
+
+No datum, eStar or gamma may depend on n. No uniform Galerkin estimate,
+singularity conclusion, or operator certificate is hidden inside the stopped
+predicate. It is a defined Prop, not a global Lean axiom declaration.
+
+3. GENERAL INTERIOR CHAIN
+
+INT01  Literal canonical datum and cutoff semantics
+INT02  Reciprocal positivity, continuity and exact signed derivative
+INT03  Hypothetical global solution supplies a strict smooth comparison slab
+INT04  Cutoff-independent reference bounds and physical Fourier-tail decay
+INT05  Actual reference coefficient evolution and exact forced error equation
+INT06  Physical residual estimate and signed error-energy estimate
+INT07  Cutoff-uniform cubic differential inequality
+INT08  Closed-slab continuity and interior small-forcing comparison
+INT09  Actual smooth front implies eventual canonical enstrophy bound
+INT10  One large cutoff makes the literal PreHit guard hold on the slab
+INT11  Mean-value descent contradicts positive terminal reciprocal
+INT12  Discharge hypothetical global smoothness and export the exact root
+
+DEPENDENCIES:
+  INT01 -> INT02;
+  INT03 -> INT04 -> INT05 -> INT06 -> INT07;
+  INT01 + INT05 -> continuity/zero initial error in INT08;
+  INT07 + INT08 + INT04 -> INT09;
+  stopped premise + INT09 -> INT10;
+  INT02 + INT10 -> INT11;
+  INT03 + INT11 -> INT12.
+
+INT03 is a temporary assumption inside a contradiction proof. It is discharged
+in INT12; it is not an additional hypothesis of EHRENFEST_OBSTRUCTION.
+
+4. DEPENDENCY-ORDERED DERIVATIONS AND PROPOSED AMENDMENTS
+
+INT01 -- LITERAL CANONICAL FAMILY
+
+Fix nu > 0 and a stopped witness (a,eStar,gamma,R). For every n set N=n+1
+and use the exact native canonical solution with initial coefficient
+cutoffCoeff N (datumFourierCoeff a). Its finite support, reality, zero mode
+and solenoidality are the actual invariant-state properties.
+
+The selected family is never replaced by arbitrary approximate solutions.
+All constants introduced later are independent of n, although they may
+depend on nu, the hypothetical smooth front and its finite comparison slab.
+
+SOURCE: Definitions.lean; SingularClosure.CanonicalGalerkin.
+AMENDMENT: retain definitions and all quantifier order; make this literal
+family the first semantic contract in the cumulative text and root checklist.
+Do not introduce another datum or cutoff convention in a wrapper.
+
+INT02 -- RECIPROCAL CALCULUS
+
+Nonnegativity of coefficientDissipation gives e_n(t) >= 0 for t >= 0.
+Since eStar > 0,
+
+  0 < V_n(t) <= 1.
+
+Differentiate the native enstrophy identity through the real reciprocal:
+
+  V_n' = -e_n' / [eStar (1 + e_n/eStar)^2]
+       = (nu Z_n + Pwr_n) / [eStar (1 + e_n/eStar)^2]
+       = c_n.
+
+For t>0 this is an ordinary HasDerivAt statement. At the initial endpoint
+one may use the within-Ici derivative; the final comparison only requires
+ordinary derivatives on the open interval. The canonical reciprocal is
+continuous on every closed nonnegative time slab.
+
+SIGN CHECK: for an exact caloric shear, Pwr_n=0, so c_n>=0. Such a trajectory
+cannot provide the negative-rate witness. Changing this sign would change
+the premise and invalidate the chain.
+
+SOURCES: ReciprocalDrift.lean:
+  canonical_reciprocal_bounds;
+  canonical_reciprocal_hasDerivAt;
+  canonical_reciprocal_continuousOn_Icc.
+AMENDMENT: reuse the accepted identities with their exact normalizations.
+Record them as E06.scalar; do not mark the generator-domain E06 complete.
+
+INT03 -- STRICT SMOOTH COMPARISON SLAB
+
+Assume NSE_B(nu) temporarily. Apply it to the same stopped datum a to obtain
+an actual pair (U,P) with GlobalSmoothNSE nu a U P. Put
+
+  T := 1/gamma > 0,
+  S := T+1 > T.
+
+The global pair restricts to InitialClassicalFront nu S a U P. The strict
+inequality T<S permits compact estimates on [0,T], including continuity at
+both ends, without asserting regularity at an open front's terminal point.
+
+SOURCE: global_smooth_to_initial_front, used in DynamicalRoot.lean.
+AMENDMENT: make T<S explicit in every smooth-front consumer. Keep S=T+1
+in the root wrapper. An endpoint accepting only an open front through S
+must not be described as regularity at time S.
+
+INT04 -- REFERENCE BOUNDS AND PHYSICAL TAIL
+
+For N=n+1 define
+
+  v_n := P_N U,
+  r_n := U-v_n,
+  w_n := u_n-v_n.
+
+Smoothness of U on the strict compact slab supplies Sobolev and spatial
+derivative bounds. Finite Fourier l1 control, applied to the coefficients
+and first-derivative coefficients, yields a number M>=1, independent of n,
+such that for t in [0,T], x in the fundamental cube,
+
+  |v_n(t,x)| <= M,
+  ||D_x v_n(t,x)||_op <= M,
+  ||D_x U(t,x)||_op <= M.
+
+These pointwise derivative bounds use the operator norm of the spatial
+differential (the source's fderiv). Integrated gradient-square expressions
+use the sum of squared component derivatives. The constants below retain
+the source's distinction between these two norms.
+
+The cutoff-complement Sobolev estimate supplies K>=1, independent of n,
+such that
+
+  ||r_n(t)||_2^2 + ||grad r_n(t)||_2^2 <= 12 K^2/N^2.
+
+Separately retain a finite projected-dissipation bound K_D satisfying
+
+  ||grad v_n(t)||_2^2 <= K_D.
+
+K_D, K and M are distinct constants. Their existence follows from the
+actual smooth front; none is supplied as a new root premise.
+
+SOURCES: FourierL1.lean, SmoothSobolevNorm.lean, ProjectedC1.lean,
+SmoothReference.lean, FourierTail.lean, PhysicalReferenceTail.lean,
+ReferenceC1Norm.lean. Principal interfaces:
+  initial_front_uniform_C1_norms;
+  initial_front_uniform_physical_H1_tail;
+  initial_front_uniform_projected_dissipation.
+AMENDMENT: document the physical squared-tail normalization explicitly.
+Keep a source-backed estimate distinct from an unimplemented H2-convergence
+claim; only the displayed bounds are needed for this root.
+
+INT05 -- ACTUAL PROJECTED-REFERENCE AND ERROR EVOLUTION
+
+Let B(x,y)=(x dot grad)y. Differentiate the actual reference Fourier
+coefficients using its smooth PDE and the spatial integral. Projection of
+the pressure gradient vanishes under Leray projection. Subtract the
+projected-reference equation from the canonical Galerkin equation:
+
+  w_n' + nu A w_n
+    + Pi_N[B(w_n,w_n)+B(v_n,w_n)+B(w_n,v_n)] = Pi_N Rres_n,
+
+  Rres_n := B(r_n,U)+B(v_n,r_n),
+  w_n(0)=0.
+
+The residual identity follows by expanding
+  B(U,U)-B(v_n,v_n)=B(r_n,U)+B(v_n,r_n).
+The physical error is finite, real, mean-zero and solenoidal. The zero
+initial error follows from the identical initial cutoff P_N a.
+
+SOURCES: ReferenceCoefficientEvolution.lean,
+ProjectedReferenceEvolution.lean, PressureFourier.lean, ErrorState.lean,
+ErrorEquation.lean. Principal interfaces:
+  initial_front_galerkin_error_hasDerivAt;
+  canonical_error_initial_dissipation;
+  canonicalErrorCoeff_support;
+  canonicalErrorCoeff_reality;
+  canonicalErrorCoeff_solenoidal_front.
+AMENDMENT: preserve the literal PDE and coefficient consumers. The forced
+error w_n is not an unforced NSE trajectory; its evolution must be derived
+by subtraction rather than assumed through a trajectory-specific theorem.
+
+INT06 -- RESIDUAL AND SIGNED ERROR ESTIMATE
+
+The elementary physical transport estimate, with the established vector
+normalizations, gives
+
+  ||Rres_n||_2^2
+    <= 6 M^2 (||r_n||_2^2+||grad r_n||_2^2)
+    <= 72 M^2 K^2/N^2.
+
+Set
+  D_n := ||grad w_n||_2^2 >= 0,
+  Zerr_n := ||A w_n||_2^2.
+
+Differentiate the finite weighted coefficient sum defining D_n. Orthogonal
+cutoff/Leray projection disappears when paired with A w_n. Thus
+
+  D_n' + 2 nu Zerr_n
+    = -2 <B(w_n,w_n),A w_n>
+      -2 <B(v_n,w_n)+B(w_n,v_n),A w_n>
+      +2 <Rres_n,A w_n>.
+
+The first signed term equals twice the integral of convection(w_n) against
+Delta w_n. Apply the existing arbitrary-field nonlinear absorption estimate,
+which requires a smooth mean-zero field, not an unforced solution. Bound the
+mixed terms using M and mean-zero Poincare; apply Young inequalities with
+positive viscosity fractions to absorb the Laplacian-square terms. The
+accepted native cross estimate has a universal C0>0 and yields
+
+  D_n' <= (C0/nu^3) D_n^3 + (24 M^2/nu) D_n
+           +(6/nu)||Rres_n||_2^2.
+
+SOURCES: CoefficientError.lean, PhysicalForcing.lean, CrossTransport.lean:
+  FORCED_COEFFICIENT_ENSTROPHY_INEQUALITY;
+  physicalReferenceResidual_l2_le;
+  FINITE_ERROR_CROSS_ENSTROPHY_INEQUALITY.
+AMENDMENT: retain the signed arbitrary-field estimate and every reality,
+support and solenoidality premise. Do not replace it by a formally stronger
+absolute-value estimate or apply actual-solution calculus to the error.
+
+INT07 -- CUBIC DIFFERENTIAL INEQUALITY WITH VANISHING FORCING
+
+Choose, exactly as in the inspected implementation,
+
+  C := C0/nu^3 + 24 M^2/nu + 1 > 0,
+  A0 := 432 M^2 K^2/nu > 0,
+  epsilon_n := A0/(n+1)^2 > 0.
+
+Since 6*72=432, INT06 and D_n>=0 imply on (0,T)
+
+  D_n' <= C(D_n+D_n^3)+epsilon_n,
+  D_n(0)=0,
+  epsilon_n -> 0.
+
+The derivative is supplied as an actual HasDerivAt rate; the estimate is
+not an assumed bound on a freely chosen error curve.
+
+SOURCE: CanonicalErrorInequality.lean:
+  initial_front_canonical_error_differential_inequality.
+AMENDMENT: include the explicit constants and their dependency boundary in
+the B-tier text. Preserve the theorem's actual-front-only analytic input.
+
+INT08 -- CLOSED-SLAB CONTINUITY AND INTERIOR COMPARISON
+
+Every canonical coefficient is continuous on [0,T]. Every projected
+reference coefficient is continuous there because T<S. Their difference
+and its finite weighted norm-square sum are therefore continuous. This
+supplies ContinuousOn D_n [0,T] independently of interior differentiation.
+
+For an index n satisfying
+  2 epsilon_n exp((2C+1)T) <= 1,
+define the positive comparison function
+  F_n(t) := 2 epsilon_n exp((2C+1)t).
+
+Then F_n(0)>D_n(0), 2 epsilon_n<=F_n(t)<=1 on [0,T], and
+  F_n'=(2C+1)F_n.
+At a possible boundary contact D_n=F_n in the interior, D_n^3<=D_n, hence
+
+  D_n' <= 2C F_n + epsilon_n
+        < (2C+1)F_n = F_n'.
+
+The scalar boundary comparison prevents crossing. Continuity near zero
+provides a positive interior starting time; continuity at T gives the
+terminal bound. No derivative at either endpoint is required. Consequently
+
+  D_n(t) <= F_n(t) <= 1 for every t in [0,T].
+
+Because epsilon_n->0, the smallness test holds eventually in n. Therefore
+  eventually n, forall t in [0,T], D_n(t)<=1.
+
+SOURCES: SmallForcingBootstrap.lean:
+  guarded_cubic_small_forcing_bound_interior;
+  eventually_guarded_cubic_unit_bound_interior.
+EventualEnstrophyBound.lean:
+  canonicalErrorCoeff_continuousOn_Icc;
+  canonical_error_dissipation_continuousOn_Icc;
+  forcing_div_nat_succ_sq_tendsto_zero.
+
+CONCRETE PROOF AMENDMENT ALREADY PRESENT AT THE INSPECTED REVISION:
+  change ContinuousOn
+    (fun t => (canonicalFamily nu hnu a n).coeff t k i -
+      cutoffCoeff (n+1) (datumFourierCoeff (u t)) k i)
+    (Icc 0 T)
+  convert! hc.sub hv using 1
+
+The previous failure was the normalization of function subtraction versus
+pointwise subtraction. The committed repair changes the proof expression,
+not the statement. Further source changes are proposed only if the matching
+external diagnostic identifies a remaining failure.
+
+INT09 -- ACTUAL SMOOTH FRONT IMPLIES EVENTUAL ENSTROPHY BOUND
+
+The physical reconstruction u_n=v_n+w_n gives
+
+  e_n(t) = (1/2)||grad(v_n+w_n)||_2^2
+         <= ||grad v_n||_2^2+||grad w_n||_2^2
+         <= K_D+1
+
+eventually in n and uniformly on [0,T]. Thus
+
+  exists Cstar : Real, eventually n,
+    forall t in [0,T], canonicalEnstrophy nu hnu a n t <= Cstar.
+
+This is E09.bound. It is derived from the actual smooth front, with T<S.
+No uniform Galerkin bound is an input. Only eventual cutoffs are required;
+there is no need to take a maximum over finitely many remaining cutoffs.
+
+SOURCES: ErrorSlabBound.lean:
+  smooth_front_eventual_slab_bound_of_unit_error;
+EventualEnstrophyBound.lean:
+  initial_front_eventual_canonical_enstrophy_bound.
+AMENDMENT: audit the expanded coefficientDissipation/2 conclusion for the
+actual canonicalGalerkinSolution. Track E09.bound separately from full E09
+C([0,T];H2) convergence. Passing this bound cannot check the latter box.
+
+INT10 -- SELECT ONE CUTOFF AND DERIVE THE GUARD
+
+From INT09 take its Cstar and eventual bound. Intersect three eventual
+conditions on Nat:
+  (i)  the slab bound holds;
+  (ii) n>=n0 from the stopped premise;
+  (iii) Cstar<R_n, from R_n->infinity.
+
+Choose one n in the intersection. For any t in (0,T) and any 0<=s<=t,
+  e_n(s)<=Cstar<R_n.
+Thus PreHit(e_n,R_n,T,t) holds literally, and the stopped hypothesis gives
+  c_n(t)<=-gamma for every t in (0,T).
+
+SOURCE: CanonicalBarrier.lean: stopped_rejects_eventual_slab_bound.
+AMENDMENT: use one eventual index, keeping the quantifier order visible.
+Threshold hitting times, divergent slab suprema and uniform initial-energy
+estimates are not required by this shortened root.
+
+INT11 -- POSITIVE TERMINAL RECIPROCAL CONTRADICTION
+
+For the selected n, INT02 provides continuity of V_n on [0,T], its derivative
+c_n on (0,T), V_n(0)<=1 and V_n(T)>0. INT10 gives c_n<=-gamma. The real
+mean-value comparison therefore yields
+
+  V_n(T) <= V_n(0)-gamma T <= 1-1 = 0,
+
+since T=1/gamma and gamma>0. This contradicts V_n(T)>0.
+No drift assertion at T and no continuation of the stopped inequality past
+a threshold are used.
+
+SOURCES: SlabDescent.lean:
+  terminal_le_of_rate_le;
+  positive_terminal_contradiction;
+CanonicalBarrier.lean: stopped_rejects_eventual_slab_bound.
+AMENDMENT: reuse the accepted explicit-rate mean-value proof. Keep this
+E07.slab facet distinct from the full E07 hitting theorem, although both are
+already accepted within their recorded scopes.
+
+INT12 -- DISCHARGE THE ASSUMPTION AND EXPORT THE ROOT
+
+For any stopped datum a, the contradiction excludes every actual
+InitialClassicalFront nu S a U P with 1/gamma<S. In particular, a global
+smooth pair would supply such a front with S=1/gamma+1 and is impossible.
+
+Assuming NSE_B(nu) would supply that global pair for the same a. Therefore
+
+  StoppedCommutatorBound(nu) -> not NSE_B(nu).
+
+The exact exported Lean type remains
+
+  theorem EHRENFEST_OBSTRUCTION
+      (nu : Real) (hnu : 0 < nu)
+      (hStopped : StoppedCommutatorBound nu) : Not (NSE_B nu).
+
+SOURCES: DynamicalRoot.lean:
+  stopped_forbids_initial_front;
+  stopped_forbids_global_smooth;
+  EHRENFEST_OBSTRUCTION_DYNAMICAL;
+Root.lean: EHRENFEST_OBSTRUCTION.
+
+AMENDMENT: Root imports only DynamicalRoot. Keep the four independent exact
+consumer types and theorem-level axiom reports in EhrenfestObstructionRoot.
+Do not add an operator certificate, assumed stability bound or new global
+axiom to make assembly easier. A maximal-lifetime corollary may be separately
+registered later; it is not needed for acceptance of this literal root.
+
+5. PROPOSED REPOSITORY AMENDMENT SET
+
+The following are planned edits, not changes performed by this document.
+
+AM01 -- GPT.txt
+Rewrite the opening goal, target hierarchy, definitions, current proof chain
+and remaining obligations around EHRENFEST_OBSTRUCTION. Place accepted WFB
+under a named foundation/reference section. Consolidate superseded status
+paragraphs into dated history instead of appending another conflicting goal.
+
+AM02 -- README.md
+Lead with the exact conditional theorem, explicit stopped premise, current
+accepted evidence and next verification edge. Present E09.bound/E10 as the
+minimal closure target. Retain WFB/R0 and their evidence in the repository
+map. Separate the full operator program and witness-existence problem.
+
+AM03 -- AGENTS.md
+Replace the obsolete WFB H1 priority with the current conditional root.
+Retain no-local-Lean execution, compatible cached external verification,
+unchanged pins, all required fresh audits and exact chat-only milestone
+signals. Preserve accepted evidence and avoid unrelated pushes during an
+active verification run.
+
+AM04 -- INDEX-WORTHY.txt
+Rewrite current-goal and latest-accepted selectors. Keep all accepted WFB,
+E07/E08 and scoped helper entries. Mark superseded present-tense preparation
+claims as historical. Add E09.bound and E10 only after matching acceptance;
+neither a prepared proof nor this B-tier derivation earns an accepted entry.
+
+AM05 -- SOURCE_STATUS.json
+Update main_goal, target_hierarchy, mode and current-status selectors.
+Keep WFB's accepted record under its own name. Add an explicitly named
+Ehrenfest conditional-root record rather than silently changing the meaning
+of a generic new_root field consumed elsewhere.
+
+AM06 -- EHRENFEST_OBSTRUCTION_B_TIER.txt
+Reorganize the cumulative text into the definitions and INT01--INT12 chain
+above. Preserve the complete operator derivation as a separate extension,
+and retain prior accepted/failed evidence in a dated appendix. Distinguish
+source review revision, tested revision and document revision.
+
+AM07 -- PREPRINT_FORMALISATION/EhrenfestObstruction/README.md,
+CHECKLIST.md and obligations.json
+Identify the exact conditional root as the active goal. Preserve original
+E01--E10 identifiers and statements. Add a separately identified root-facet
+list: E01.data, E06.scalar, E07.slab, E09.bound and E10. Do not relabel full
+operator milestones or full H2 convergence as closed by weaker helpers.
+Update goal selectors coherently; retain accepted evidence unchanged.
+
+AM08 -- FAST_ROUTE.md, FAST_INTERFACES.lean.txt, MODULE_PLAN.json,
+COUNT_RECONCILIATION.json
+Present the actual implemented root route and clearly label schematic versus
+implemented signatures. Preserve the count distinction:
+  31 historical design modules;
+  9 historical logical proof blocks;
+  25 owned modules in the concrete scalar-root dependency closure;
+  30 active Ehrenfest owned sources;
+  16 active Ehrenfest packages.
+Choosing this goal alone changes none of those counts.
+
+AM09 -- IMPLEMENTATION_STATUS.json and CI_RUN_PLAN.json
+Retain previous attempts as immutable history. Separate source_prepared,
+run_in_progress, compiler_pass, full_audit_pass and final_acceptance.
+Record an observed tested SHA/run only from external evidence. Do not
+overwrite a previous tested SHA with a candidate SHA or infer success from
+the existence of a run. This plan does not launch or duplicate a workflow.
+
+AM10 -- PROOF SOURCES AND PACKAGE REGISTRATION
+The scalar root and the diagnosed continuity repair are already present.
+Reuse accepted proof bytes and inspect the existing run before proposing
+further proof-body repairs. If a repair is needed, preserve all public types,
+explicit premises and complete audit coverage. Synchronize exact owned-source
+hashes, endpoint manifests and transitive closures for every affected source.
+Avoid unrelated import, compiler, lockfile or runner changes.
+
+AM11 -- EXACT ACCEPTANCE RECORD
+When complete matching evidence arrives, record source SHA, compiler/Mathlib
+pins, full endpoint types, theorem-level axioms, package coverage and final
+acceptance. Promote E09.bound and E10 individually only for their exact
+scopes. Synchronize the main registers constructively before a later commit.
+
+6. EVIDENCE SNAPSHOT AND REQUIRED VERIFICATION
+
+This is the evidence snapshot inspected while drafting, not a prediction of
+the in-progress run's eventual result.
+
+Accepted first Ehrenfest layer:
+  commit 4068641471b9b9324a5d138cacfa37a94a648bf1;
+  run 44626474631;
+  E07 and 23 scoped declarations.
+
+Accepted second Ehrenfest layer:
+  commit 7908890a0afb1746ec43f127792a7e0cc667dca6;
+  run 44635322649;
+  E08 plus 85 further scoped declarations;
+  cumulative 108 accepted Ehrenfest declarations;
+  full run scope 392 modules / 64 packages / 373 named audits plus QFB.
+
+Current candidate:
+  commit 22431f032c868b8de1526767d7d32a2639f6a9ee;
+  existing run 44641040255: IN_PROGRESS at the recorded inspection;
+  activated scope 411 modules / 71 packages / 448 named audits plus QFB;
+  75 additional Ehrenfest audit declarations pending acceptance.
+
+Last diagnosed failed edge:
+  d6e74ba8b1c6d18ae17b595d7829b7cce8987f81 / run 44639459376;
+  EventualEnstrophyBound.lean: closed-slab coefficient continuity;
+  406 modules passed, one failed, four dependants blocked;
+  no required package audits reached in that attempt.
+
+The continuity repair is already in the current candidate. Its success is
+unverified until the matching external result is reviewed. The failed-run
+diagnostic does not prove that every subsequent audit will pass.
+
+Verification contract retained:
+  Lean: leanprover/lean4:v4.33.0;
+  Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d;
+  vendor Methlib: 96033dd69c994bec337a87369a6c27256e724980;
+  external runner: Ubuntu 24.04;
+  module workers: 2; Lean threads: 2;
+  complete required fresh exact-type and theorem-level axiom audits;
+  approved axioms: propext, Classical.choice, Quot.sound;
+  sorryAx and additional custom axioms: forbidden;
+  compatible dependency/project objects retained;
+  no Mathlib source rebuild on cache unavailability;
+  no local Lean/Lake/kernel execution.
+
+A-tier acceptance requires matching sources, compiler/dependencies, complete
+consumer-type and axiom checks, and the required final acceptance evidence.
+An unavailable external cache or failed proof remains an explicit formal
+obstruction; it does not authorize local fallback.
+
+6.1 INTERNAL NODE EVIDENCE MAP
+
+The INT labels organize this B-tier argument. They are not newly registered
+or newly accepted A-tier packages. Existing formal evidence attaches only
+to the literal declarations and package scopes below.
+
+INT01: canonical definitions/semantics checked by the existing canonical
+       consumer audit; reuse the inspected definition bytes.
+INT02: accepted EhrenfestCanonical reciprocal identities (first layer).
+INT03: existing source adapter from the WFB development; the current root
+       consumer and its new composition still require matching acceptance.
+INT04: accepted reference helpers plus pending physical-tail/C1-norm adapters.
+INT05: pending actual-reference, pressure and error-equation packages.
+INT06: generic finite-error, forcing and cross estimates accepted; their
+       actual-front instantiation is part of the pending third layer.
+INT07: pending EhrenfestCanonicalErrorInequality package.
+INT08: generic interior bootstrap accepted; canonical closed-slab continuity
+       and its current repaired proof remain pending external acceptance.
+INT09: pending EhrenfestEventualEnstrophyBound package (E09.bound).
+INT10: accepted EhrenfestCanonical eventual-bound rejection helper.
+INT11: accepted EhrenfestScalar comparison and canonical composition helper.
+INT12: pending EhrenfestObstructionRoot package (conditional E10).
+
+7. FIRST OBSTRUCTION AND STOPPING BOUNDARY
+
+B_TIER_ROOT_DERIVATION:
+  No unresolved mathematical edge remains in INT01--INT12 under the literal
+  stopped premise and the standard finite Fourier/calculus facts explicitly
+  used above. The hypothetical smooth front is discharged by contradiction.
+
+FIRST_FORMAL_VERIFICATION_OBSTRUCTION:
+  Matching acceptance of the repaired continuity proof and the complete
+  downstream E09.bound/E10 source/type/axiom closure is pending.
+
+UNCONDITIONAL_COUNTEREXAMPLE_OBSTRUCTION:
+  No witness of StoppedCommutatorBound(nu) is constructed here. This is not a
+  missing premise-proof for the selected implication; it is the additional
+  requirement for deriving an unconditional nonregular datum.
+
+FULL_OPERATOR_PROGRAM:
+  Real phase-space/volume adapter, complete two-sided flow, half-density
+  unitary group, self-adjoint generator/core, domain-sensitive correspondence
+  and full reciprocal multiplier interpretation remain separately tracked.
+  Full E09 H2 convergence is also separate. These scopes are neither removed
+  nor promoted by closing the shorter scalar root.
+
+8. SOURCE REFERENCES AND PROVENANCE
+
+All Methboke source paths below are relative to repository randogelist/Methboke
+at the inspected revision stated at the top. For a path PATH its pinned URL is
+  https://github.com/randogelist/Methboke/blob/22431f032c868b8de1526767d7d32a2639f6a9ee/PATH
+
+Owned proof module prefix used in Sections 4--5:
+  Material/MethbokeAddon/EhrenfestObstruction/
+
+Primary mathematical and planning sources:
+  EHRENFEST_OBSTRUCTION_B_TIER.txt, especially Sections 10, 13--15 and 19;
+  PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_ROUTE.md;
+  PREPRINT_FORMALISATION/EhrenfestObstruction/CHECKLIST.md;
+  PREPRINT_FORMALISATION/EhrenfestObstruction/IMPLEMENTATION_STATUS.json;
+  PREPRINT_FORMALISATION/EhrenfestObstruction/COUNT_RECONCILIATION.json.
+
+Independent exact consumer audits:
+  Material/EhrenfestCanonical/Audit.lean;
+  Material/EhrenfestEventualEnstrophyBound/Audit.lean;
+  Material/EhrenfestObstructionRoot/Audit.lean.
+
+Accepted receipts:
+  audits/material-40686414-accepted/summary.json;
+  audits/material-7908890a-accepted/summary.json.
+Failed receipt and literal diagnostic:
+  audits/material-d6e74ba8-failed/summary.json;
+  audits/material-d6e74ba8-failed/EventualEnstrophyBound.log.
+
+Current external run:
+  https://github.com/randogelist/Methboke/actions/runs/44641040255
+Accepted second-layer run:
+  https://github.com/randogelist/Methboke/actions/runs/44635322649
+Accepted first-layer run:
+  https://github.com/randogelist/Methboke/actions/runs/44626474631
+
+Native reference identities are reused through their original imports and
+literal hypotheses. Source-only review, compiled modules, accepted theorem
+audits and written B-tier derivation remain distinct evidence categories.
+
+9. ENDPOINT STATUS
+
+PROJECT_GOAL:
+  forall nu > 0, StoppedCommutatorBound(nu) -> not NSE_B(nu).
+
+B_TIER:
+  Complete interior conditional chain INT01--INT12 recorded above.
+
+PROPOSED_AMENDMENTS:
+  AM01--AM11 specify document, semantic, proof and evidence amendments.
+  The current continuity repair and root implementation are reused, not
+  represented as new work performed by this TXT.
+
+RETAINED_A_TIER:
+  E07, E08 and 108 scoped Ehrenfest declarations with their recorded evidence.
+
+PENDING_A_TIER:
+  E09.bound, E10 and the 75 additional registered declaration audits.
+
+OPEN_SEPARATE_TARGETS:
+  Stopped-bound witness; full operator realization; full E09 H2 convergence.
+
+NEW_A_TIER_PROMOTIONS := 0
+SIGNAL_POLICY := emit <-> only for each exact newly accepted endpoint/helper,
+  naming its scope and matching external evidence; never for B-tier prose.
+
+NEXT_SCOPED_ACTION := inspect the existing candidate run's complete evidence;
+  then either accept exact verified endpoints or record and repair the first
+  diagnosed failure without changing the theorem or its explicit premise.

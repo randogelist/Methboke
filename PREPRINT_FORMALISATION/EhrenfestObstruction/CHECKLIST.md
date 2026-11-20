@@ -1,8 +1,17 @@
-# EHRENFEST-OBSTRUCTION: ten mid-tier steps
+# EHRENFEST-OBSTRUCTION: original milestones and scalar-root facets
 
-The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) contains all ten mathematical derivations. **E08 and E10 consume the explicit stopped-bound premise**; E01–E07 and E09 establish the underlying analytic constructions and implications. Cutoffs satisfy `N ≥ 1`. The boxes record matching external formal acceptance. E07 and E08 are accepted; all other full milestones remain unchecked. Mathematical exposition or source review alone never checks a box.
+The project goal is `∀ ν>0, StoppedCommutatorBound ν → ¬ NSE_B ν`.
+The stopped hypothesis remains explicit and no satisfying datum is constructed.
+E07/E08 retain their earlier acceptance. E09.bound and the exact conditional
+E10 theorem are accepted at `22431f032c868b8de1526767d7d32a2639f6a9ee`,
+[run 44641040255](https://github.com/randogelist/Methboke/actions/runs/44641040255),
+with [matching full evidence](../../audits/material-22431f03-accepted/summary.json).
+All 183 scoped Ehrenfest declarations are accepted. This checks three original
+full milestones: E07, E08 and E10; it leaves full E09 and E01–E06 unchecked.
 
-**Root:** `StoppedCommutatorBound ν → ¬ NSE_B ν`, for `ν > 0`. The premise is an explicit argument, not a global custom axiom. Its existence for a fixed smooth datum remains open.
+The original E01–E10 statements below keep their full scopes. A helper does not
+check its parent milestone. E10 can close independently of the full operator
+construction and full E09 H2-convergence claim.
 
 - [ ] **E01 — REAL_SOLENOIDAL_GALERKIN_ALGEBRA**
   Identify the real, mean-zero, solenoidal finite Fourier state with V_N; derive polynomial smoothness, projection laws, positive A_N and exact nonlinear energy cancellation.
@@ -40,38 +49,42 @@ The [cumulative B-tier derivation](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) conta
   An actual smooth solution U on [0,T] implies exact P_Na Galerkin convergence in C([0,T];H2) and uniform H1 there.
   B-tier: derived. Sources: ML03, ML08, MLB11, MLB14, MLB17, MLB19, MLB20. New formal work: New H2 residual/error estimate and first-exit Gronwall bootstrap. Existing conditional H2-budget and local bounds do not supply this full-slab implication.
 
-- [ ] **E10 — EHRENFEST_OBSTRUCTION**
+- [x] **E10 — EHRENFEST_OBSTRUCTION**
   For nu>0, StoppedCommutatorBound nu implies not NSE_B nu; its fixed smooth datum has no smooth continuation through 1/gamma.
-  B-tier: derived. Sources: MLB15, MLB16. New formal work: Literal universal-global-smooth statement and existential counterexample semantics; explicit premise argument; exact endpoint and standard-axiom audit.
+  Exact front scope: every actual `InitialClassicalFront` with horizon `S>1/gamma` is excluded.
+  Accepted: `EHRENFEST_OBSTRUCTION`, `EHRENFEST_OBSTRUCTION_DYNAMICAL`, `stopped_forbids_initial_front` and `stopped_forbids_global_smooth` in `EhrenfestObstructionRoot`, at `22431f03` / [run 44641040255](https://github.com/randogelist/Methboke/actions/runs/44641040255). [Matching evidence](../../audits/material-22431f03-accepted/summary.json). The explicit stopped premise remains unproved; full operator translation is not asserted.
 
-## Evidence and execution
+## Minimal root facets
 
-The [source index](ANCHOR_INDEX.md) has 53 exact anchors: 33 pinned source-only records (28 Mathlib, 5 native), 13 source-reviewed declarations in accepted native modules, and the same 7 named external type/axiom audits. These statuses belong to the listed anchors, not the ten new endpoints.
+| Facet | Exact scope | Current status |
+|---|---|---|
+| E01.data | Literal fixed-datum canonical cutoff family | Accepted scoped helper |
+| E06.scalar | Reciprocal bounds, exact scalar drift and continuity | Accepted scoped helper |
+| E07.slab | Closed-slab mean-value comparison | Accepted scoped helper |
+| E09.bound | Actual smooth front implies eventual canonical enstrophy bound | Accepted at 22431f03/run 44641040255 |
+| E10 | Exact conditional universal-statement obstruction | Accepted at 22431f03/run 44641040255 |
 
-The current shortest schedule is in [FAST_ROUTE.md](FAST_ROUTE.md): literal data/reciprocal interfaces, a generic slab comparison, and the E09 H1/eventual-bound helper precede the exact scalar root. E04 (unbounded generator/core) and E09 (full-slab Galerkin stability) are substantial new work. No suitable already accepted Stone/core endpoint has been located.
+The internal INT01–INT12 chain in the [cumulative B-tier text](../../EHRENFEST_OBSTRUCTION_B_TIER.txt)
+and [implemented route](FAST_ROUTE.md) establishes the mathematical composition.
+Its source closure has 25 owned modules and excludes hitting/escape and operator
+modules not used by the literal root. The hypothetical front has T<S; the root
+uses T=1/gamma and S=T+1. The eventual H1 bound is derived from actual error
+calculus and the interior small-forcing comparison, not supplied as a premise.
 
-The first 23 and second 85 declarations are accepted. E07 and E08 are checked; reference bounds, pointwise core algebra, forcing and bootstrap are scoped helpers. The third layer adds 75 pending named audits for actual-front E09.bound and conditional E10. Full H2 convergence and full operator milestones remain open. Matching external compilation, types, standard axioms and publication are required; no local Lean, Lake or kernel execution is permitted.
+## Evidence and counts
 
-Machine ledger: [obligations.json](obligations.json). Exact pinned signatures: [ANCHOR_INDEX_v0_3.json](ANCHOR_INDEX_v0_3.json).
+[IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json) retains every failed
+attempt and accepted receipt. [obligations.json](obligations.json) records exact
+milestone and facet gates. [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json)
+distinguishes 31 historical proposed modules, nine logical root blocks, 25
+concrete root modules, 30 active owned sources and 16 Ehrenfest packages.
 
-## Refined module and acceptance map
+The active registry has 411 modules, 71 packages and 448 named audits plus QFB.
+All 183 Ehrenfest declarations are accepted: 108 earlier plus 75 in the new run. No source-only or inactive PreparedE01 record adds
+formal acceptance. Full original-workstream closure still requires all ten
+original scopes; the stopped witness remains a separate open existence problem.
 
-[MODULE_PLAN.json](MODULE_PLAN.json) records 31 historical proposed modules and **nine** logical scalar-root blocks; the concrete root now has 25 owned dependencies. [FAST_ROUTE.md](FAST_ROUTE.md) and [FAST_INTERFACES.lean.txt](FAST_INTERFACES.lean.txt) are the current minimal route; [LEAN_LAYOUT.md](LEAN_LAYOUT.md) also retains the full workstream.
-
-The root no longer depends on E07's hitting theorem or E08's escape theorem. A hypothetical smooth solution gives an eventual enstrophy bound C; choose one large cutoff with R_n>C, make PreHit hold throughout the slab, and use mean value to contradict positive terminal reciprocal. E09.bound uses an H1 error bootstrap and existing arbitrary-field nonlinear absorption. It does not prove the retained full E09 H2-convergence statement.
-
-E06.scalar, E07.slab and E09.bound are separately tracked helpers. Passing a helper does not check its enclosing full milestone. E10's exact implication can pass independently of the full operator construction; complete workstream acceptance still requires all ten original boxes. Root imports only DynamicalRoot; All is an optional full bundle.
-
-The front-based bound requires T<S; the root takes T=1/gamma and S=T+1. The current activation register distinguishes accepted sources, pending sources and the still-unactivated operator design.
-
-## First implementation batch (v0.4.0)
-
-Six owned sources and three packages are prepared for external CI: full E07 scalar hitting, E06.scalar reciprocal identities, E07.slab comparison, the one-cutoff rejection helper, and arbitrary forced-error calculus. All boxes remain open until matching evidence. Full E09 stability and the root are not supplied by the error-calculus helper. See [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). Historical no-activation statements above describe v0.3.
-
-## Concrete activation counts
-
-The historical31-module design and nine logical fast-root blocks are preserved. Current activation has 30 owned sources and 16 Ehrenfest packages; 108 declarations are accepted and 75 remain pending. The active scalar-root closure uses 25 owned sources after helper splitting. See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json) and [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json).
-
-## Second acceptance and third activation
-
-E08 and85 second-layer scoped declarations are accepted at7908890a/run44635322649; [matching receipt](../../audits/material-7908890a-accepted/summary.json). Together with E07 and the first helpers,108 declarations are accepted. The third layer adds75 pending audits, including E09.bound and the exact E10 root. Full E09 H2 convergence and all operator milestones remain unchecked. The PreparedE01 archive is inactive source only.
+Verification is external and cached only, preserving compiler/dependency pins
+and complete fresh consumer-type/axiom coverage. No local Lean, Lake or kernel
+execution is permitted. WFB, R0 and QFB retain their accepted statements and
+evidence as foundations; WFB's finite-budget premise is not added to this root.

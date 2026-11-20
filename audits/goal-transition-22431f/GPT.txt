@@ -1,0 +1,1307 @@
+METHBOKE_AGENT_CONTEXT
+DOCUMENT_VERSION = 3.1
+DATE = 2026-11-19
+REPOSITORY = randogelist/Methboke
+WORKING_BRANCH = main
+HISTORICAL_CANDIDATE_BRANCH = Clay-Admission-Candidate-01
+ACTIVE_TASK = EHRENFEST-OBSTRUCTION bottom-up implementation and external cached verification
+RESUME_MODE = A_TIER_DERIVATION
+CURRENT_MILESTONE = A_TIER_EHRENFEST_E08_AND_SCOPED_HELPERS_AT_7908890a0afb1746ec43f127792a7e0cc667dca6; WFB_MAIN_GOAL_PRESERVED
+CURRENT_ACCEPTANCE = 392_MODULES_64_FRESH_PACKAGES_373_NAMED_AUDITS_PLUS_QFB; THIRD_LAYER_PENDING
+STATUS_AUTHORITY = SECTION_20 for accepted WFB; SECTIONS_25_TO_30 for historical plans, failed attempts and first acceptance; SECTION_31 for accepted second layer and pending third layer
+LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
+
+1. CURRENT MAIN GOAL: WEAK_FOURIERMAN_B
+
+The user explicitly states that WFB is the main goal and authorizes its full
+implementation, largest unresolved gap first. This replaces the former R0
+main-goal hierarchy while preserving every accepted R0 theorem and its scope.
+For nu>0 and smooth periodic solenoidal mean-zero a, construct the unique
+maximal strong trajectory and prove: the full finite squared Fourier budget
+on(0,min(Tmax,tau_Q(a,nu))) implies Tmax=infinity and a GlobalSmoothNSE pair
+agreeing with the entire original velocity and normalized pressure.
+The finite budget remains an explicit hypothesis. Universal budget finiteness
+and universal analytic germ-to-cap extension R1 are not the WFB target.
+R0 is accepted at93ca8a5/run44549257770 and supplies the final classical
+finite-cap-to-global implication once strict cutoff overlap has been derived.
+
+CURRENT TARGET HIERARCHY
+MACROSCOPIC: exact Weak_Fourierman_B with its finite full Fourier-budget premise.
+MESOSCOPIC: implement the frozen EHRENFEST-OBSTRUCTION chain with exact external audits.
+MICROSCOPIC: verify activated E09.bound and E10 root, preserving the stronger unchecked E09/operator milestones. No local Lean execution.
+All ten contextual WFB obligations and its exact root remain accepted at
+fdb515d8/run44566880192. The fixed main goal is preserved.
+The accepted scope is 365 modules/55 fresh packages/265 declaration audits plus
+QFB cutout; 321 modules reused and 44 freshly compiled; 183 external controls passed.
+The explicit current user instruction makes this conditional Fourier criterion
+the main goal. It does not establish universal budget/admission.
+Chat-only <-> is reserved for accepted complete obligations and separately the
+root. No monitoring automation. The prior scheduled watch is disabled.
+Accepted source gate: owned-source registration, exact legacy receipt
+reconstruction, complete audits and classified failure routing. The finite-front
+layer is accepted at 67f7663; the complete exact R0 root is accepted at 93ca8a5.
+All ten WFB obligations and the exact root are accepted. Preserve all passed
+baseline objects. Earlier partial-acceptance records below are historical.
+SUGGESTED_NEXT_GOAL (not adopted): no new goal adopted. Universal budget
+finiteness and R1 remain outside the completed exact WFB scope.
+The user authorizes continued independent implementation while external CI runs.
+Inspect available results and continue without awaiting another go on.
+Docker Hub work remains paused.
+
+2. DEFINITIONS AND PREMISES
+
+Domain T^3=R^3/Z^3, volume one, viscosity nu>0, force zero.
+Initial data D_inf=C^infinity_{sigma,0}(T^3). Pressure has zero spatial mean.
+NSE: partial_t U+(U dot grad)U+grad p=nu Delta U, div U=0.
+R_nu consists of data with a global classical solution smooth up to t=0.
+FB_nu means D_inf subset R_nu.
+
+G_nu(a;epsilon,L): epsilon,L>0 and an actual jointly real analytic NSE
+solution (U,p) on (-epsilon,L) x T^3 with U(0)=a and zero spatial mean.
+D_germ(nu): exists epsilon>0, G_nu(a;epsilon,epsilon).
+tau_Q(a,nu)=||a||_2^4/(8*pi^2*nu^5).
+T_Q(a,nu)=2*tau_Q(a,nu).
+D_Q(nu): {0} union {nonzero a: exists epsilon>0,G_nu(a;epsilon,T_Q)}.
+The analytic cap is open. For a!=0, tau_Q<3*tau_Q/2<T_Q.
+
+Foundation interfaces of the mathematical chain:
+F_LH: global Leray-Hopf existence with the original initial trace.
+F_LOCAL: local classical existence and uniqueness for smooth data.
+F_ANALYTIC: joint positive-time analytic regularization of an existing
+  classical unforced periodic solution and its normalized pressure.
+F_RELATIVE_ENERGY: finite-interval weak-strong relative-energy comparison.
+F_QFB: for each original LH trajectory, actual smooth tails from every
+  delta>tau_Q, with agreement, energy and trace-uniqueness semantics.
+These interfaces were tracked as distinct Lean adapter obligations; their
+accepted WFB composition is recorded in Section 20.
+
+3. CONSTRUCTIVE B-TIER DERIVATION
+
+Authoritative cumulative argument:
+CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt, Sections 1-8.
+
+3.1 Finite cylinder bounds.
+If G_nu(a;epsilon,L) and 0<T<L, continuity of U and grad U on the compact
+cylinder gives finite M_T=max|U| and G_T=max||grad U||_op. Volume one gives
+  integral_0^T ||U(t)||_6^4 dt <= T*M_T^4,
+  integral_0^T ||grad U(t)||_infinity dt <= T*G_T.
+Uniform continuity gives U(t)->a uniformly, hence strongly in L2.
+
+3.2 Identification with the original weak trajectory.
+For an LH solution u with the same datum, F_RELATIVE_ENERGY gives
+  E(t)<=2*integral_0^t g(s)E(s)ds,
+  E(t)=||u(t)-U(t)||_2^2, g(t)<=G_T, E(0)=0.
+Gronwall yields equality. Weak continuity and the continuous comparison
+identify representatives at every time. Arbitrary T<L covers [0,L).
+
+3.3 Finite-cap closure R0.
+Zero has the explicit zero solution. Otherwise choose delta=3*tau_Q/2.
+F_QFB supplies a smooth tail V,q for the same LH trajectory from delta.
+On (delta,T_Q), U and V agree in L2, hence pointwise by spatial continuity.
+Their pressure gradients agree by NSE; normalized pressures therefore agree.
+Choose eta strictly inside the overlap. Patching before/after eta preserves
+all derivatives, NSE and the initial trace. Thus D_Q(nu) subset R_nu.
+The same proof works for any analytic cap L>tau_Q. L=tau_Q has no guaranteed
+open overlap and is not silently included.
+
+3.4 Remaining universal admission R1.
+COVER_nu means D_germ(nu) subset D_Q(nu).
+Under the five recorded foundation interfaces, FB_nu iff COVER_nu:
+  Forward: identify an admitted analytic germ with the global classical
+  solution, use positive-time analyticity and patch the negative germ.
+  Reverse: advance any smooth local solution to an interior positive time.
+  Its analytic neighborhood supplies a germ. COVER supplies finite-cap
+  admission; 3.3 supplies a global solution; local uniqueness patches back
+  to the original initial time.
+This reduction does not prove either universal assertion.
+
+3.5 Explicit admissible family.
+For a finite Fourier Beltrami datum curl a=mu*a, div a=0, mean a=0,
+Delta a=-mu^2*a. Set U(t)=exp(-nu*mu^2*t)*a and
+p=-|U|^2/2+mean(|U|^2/2). Since U cross curl U=0, the convection term is
+exactly cancelled by grad p. This actual solution is jointly analytic for
+all real t and has arbitrary amplitude. The ABC/BAMBUS family is a concrete
+three-parameter example. This B-tier statement needs no QFB premise.
+
+3.6 Analyticity distinction.
+Spatially analytic shear data with coefficients exp(-rho*k) can have
+zero time-Taylor radius at t=0 under heat evolution. Thus spatial analytic
+input alone does not supply the required jointly space-time analytic germ.
+No formal Taylor recursion is counted as a convergence certificate.
+
+4. LEAN-ORIENTED DEPENDENCY CHAIN
+
+Prepared source reuse (not a declaration of new theorem verification):
+L01 actual physical datum/trajectory semantics;
+L02 literal cutoff and safeCutoff;
+L03 original LH existence;
+L04 exact QFB tail theorem and composed root;
+L05 finite-cylinder jointly analytic admission definition;
+L06 compact-cylinder boundedness;
+L07 strong initial trace;
+L08 finite Serrin/gradient bounds;
+L09 finite-window physical relative-energy localization;
+L10 Gronwall identification of the same LH trajectory;
+L11 pointwise overlap and normalized-pressure equality;
+L12 smooth patching across strict overlap;
+L13 assembled finite-cap root R0;
+L14 constructive Beltrami admission certificate;
+L15 further certified input families;
+L16 universal analytic germ-to-cap admission R1 (open).
+
+L01-L04 have selected pinned source interfaces in Material, externally
+compiled and freshly audited at b1178b8 (run 44086819243, attempt 2). L05-L14 still require exact adapter
+construction and matching external audits for the new root. L16 is not supplied by a structure field or an identity theorem.
+A-tier activation follows presentation of the relevant mid-tier endpoints
+and user assent. Current setup does not change unresolved mathematical scope.
+
+Material has 14 endpoint folders and 41 declaration audit entries; its shared
+source closure contains 74 QuasiFeffermanB and 195 SingularClosure modules.
+Each endpoint retains a declaration list, exact source provenance, audit and
+recursive local dependency closure. Native sources require no private
+Methlib checkout during CI. Public dependencies remain pinned in the lock.
+LEAN_CUTOUTS/Cutouts.lean is the single-file selected interface aggregation;
+its provenance explains the preserved modular dependencies. Standalone
+endpoint exports retain the complete local source closure.
+
+5. ASSOCIATED SOURCE IDENTITIES
+
+Methlib source: 96033dd69c994bec337a87369a6c27256e724980.
+Lean: leanprover/lean4:v4.33.0.
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Complete nine-package lock: Material/lake-manifest.json.
+Exact upstream source bytes/blob/SHA256: Material/_vendor/source-manifest.json.
+Original root: Material/_vendor/QuasiFeffermanB/Endpoints/Root.lean.
+Original contract: Material/_vendor/QuasiFeffermanB/RootContract.lean.
+Original cutoff: Material/_vendor/QuasiFeffermanB/Semantics.lean.
+
+Original root declaration and full proof body:
+  theorem QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanBStatement :=
+    Quasi_Fefferman_B_of_LH_existence Q01_LERAY_HOPF_EXISTENCE
+This uses the original TailChain and EXACT_H1_ADMISSION_UNCONDITIONAL.
+It does not assume QFB_ONE_RESTART_OVERLAP.
+
+The literal root quantifies nu>0, every CriticalPhysicalL2 datum with
+EnergySigmaZero, and every CriticalLerayHopf trajectory. It provides LH
+existence, HasSmoothTail at safeCutoff, and for every delta>cutoff:
+HasSmoothTail, TailEnergyEquality and UniqueFuture. Its semantics are not
+silently replaced with an unrestricted Fefferman-B statement.
+
+6. VERIFIED ENDPOINTS AND INDEX REFERENCES
+
+INDEX-WORTHY.txt records inherited QFB evidence separately from new builds.
+QFB reference run:
+https://github.com/randogelist/Methlib/actions/runs/43801307847
+Observed configuration: Ubuntu 24.04, Lean 4.33.0, 74/74 project objects
+reused, fresh audits, 4m40s job. Root axioms are exactly the approved standard
+set {propext, Classical.choice, Quot.sound}; literal theorem scope retained.
+
+H12 runner reference (performance configuration, not a new theorem claim):
+https://github.com/randogelist/Methlib/actions/runs/43361151038
+Observed configuration: Ubuntu 24.04, Lean 4.33.0, dependency/project cache
+restoration, frontier regressions and sixteen checkpoints, 3m03s job.
+The two observations have different target scopes and are not speed ratios.
+
+First accepted cold Methboke baseline:
+https://github.com/randogelist/Methboke/actions/runs/44052579373
+Tested source: 6440270ffe9b05b2956cd34c59c65f2fe341e8b8.
+Compiler: Lean 4.33.0, x86_64-unknown-linux-gnu, commit
+d8b18978322de05a8f3dba51ef03cf5461676c17.
+Overall run: PASS. All 283 own-module receipts passed: 269 vendored modules
+and 14 wrappers, 39,619 physical source lines. Source pin integrity was true.
+All 14 endpoint audit files passed freshly, covering 41 declaration audit
+entries with exact type and axiom records; the standalone QFB root cutout
+also passed freshly. All recorded theorem axioms belong to
+{propext, Classical.choice, Quot.sound}. Existing theorem premises remain.
+The external Python control suite passed all 87 tests.
+
+Both caches were MISS; this was a native-host cold seed, with 0/283 modules
+reused. Job: 37m51s. Driver: 1479.602s; cache phase: 146.587s; own compilation:
+1293.421s; all fresh audits: 39.296s; publication step: 534s. The 0.252s
+no-op receipt recheck is not another Lean verification or a warm job timing.
+Dependency and freshly audited project caches were saved. Immutable aggregate
+and 14 endpoint tags were published, and the compatible main pointer updated.
+Image: ghcr.io/randogelist/methboke-material@sha256:faadfe0f93ebda8ae9bbb34f5f632456400e25197b4636fb5436a86afbe90f1d
+Evidence: audits/material-6440270/summary.json, current.json,
+registry-entry.json, transport.json and original fresh audit logs.
+Acceptance attaches to the exact tested source and identity, not every later
+commit. Frozen endpoint manifest status fields describe preparation; these
+source-specific receipts govern acceptance.
+
+Prior accepted warm baseline:
+https://github.com/randogelist/Methboke/actions/runs/44066821232
+Tested source: 73c2e98e68b4f2f53a7de4d0be622e5739066fc3.
+Same pinned compiler, Mathlib revision and standard-only axiom policy.
+PASS: 282/283 own module receipts reused; QFBRoot.Endpoint rebuilt after the
+requested comment change. All 14 audit files covering 41 declarations and the
+standalone QFB cutout passed freshly. All 100 external Python control tests passed.
+Job: 487s (8m07s), excluding queue time; restore: 212s; SDK cleanup: 48s;
+verification step: 141s; publication: 55s. Driver: 129.974s, comprising cache
+27.462s, own build work 37.694s and fresh audits 63.615s. The 0.476s no-op receipt
+recheck did not execute Lean again. Snapshot context: 73,327,527 bytes (BuildKit
+transfer display about 73.42 MB), with 52,160 inherited external .olean* objects.
+Image: ghcr.io/randogelist/methboke-material@sha256:f5e043ed22085029f59aa7ca76d63cb01d4b43d109304bcce54e21584e03245a
+The compatible main pointer advanced. Retained exact evidence:
+audits/material-73c2e98/summary.json, current.json, registry-entry.json,
+snapshot-plan.json and original fresh audit logs.
+
+Earlier accepted container-native baseline:
+https://github.com/randogelist/Methboke/actions/runs/44071830091
+Tested source: 04fbd79f3eb90ae2ea3ce62934da83bf10eecd9d.
+PASS: 283/283 own modules reused, with zero fresh modules; all 14 endpoint
+files covering 41 declarations and the QFB cutout audited freshly. Exact types
+and standard-only axioms match the prior accepted baseline. All 125 external
+Python control tests passed. Job: 446s (7m26s), excluding queue time; restore
+117s; SDK cleanup 77s; verification step 159s; publication 61s. Driver 142.146s:
+cache 29.160s, own build work 0.463s, fresh audits 110.849s. Dependencies stayed
+inside the passed image (zero exported dependency bytes); all 283 exported own
+receipts were hash-checked. Container-native transport was VERIFIED.
+Image: ghcr.io/randogelist/methboke-material@sha256:0f959897e0a6c45c7012bda92377a3e3b13625d616471eaabeddfb21d4ed6cd6
+Compatible main pointer updated; immutable aggregate and 14 endpoint tags
+published. Matching artifact: https://github.com/randogelist/Methboke/actions/runs/44071830091/artifacts/14322868702
+Artifact SHA256: 4d947b3ecb90249f42f529e13583bbe910ed96e44b7728916f122076c7571f92.
+The artifact, report and all 15 fresh audit-log hashes were checked. The 41s
+job improvement is one observation; the prior run rebuilt one wrapper while
+this run rebuilt none. Cleanup deleted Android because free space was below
+the 20 GiB budget. Fresh audits took longer; stable runtime is not established.
+
+Latest accepted GHCR baseline:
+https://github.com/randogelist/Methboke/actions/runs/44073883524/attempts/2
+Tested source: 68e9f8ad8663ebfcc0b84ca5b927908dfe5e1602.
+Attempt 1 tested the MAYBE ;AYBE comment: PASS in 548s (9m08s), with 282/283
+objects reused and only QFBRoot.Endpoint rebuilt (45.999s). Attempt 2 manually
+repeated the same commit: PASS in 493s (8m13s), with 283/283 objects reused and
+zero modules compiled. Both retained all 14 fresh endpoint audits covering 41
+declarations and the fresh QFB cutout, exact types and standard-only axioms.
+All 125 external control tests passed. Attempt 2 timings: cleanup 78s, restore
+160s, toolchain 17s, verification step 151s, publication 70s. Driver 133.550s:
+cache 29.880s, own build 0.464s, fresh audits 101.865s, receipt recheck 0.506s.
+Image: ghcr.io/randogelist/methboke-material@sha256:c9263b3679086bc2874e1cd5ecaa721be41a02d28dfbf1abea070bb9a2d17ba4
+Main pointer updated. Matching artifact: https://github.com/randogelist/Methboke/actions/runs/44073883524/artifacts/14324548770
+Artifact SHA256: e238380738d2520eae343939e06a750a54b815a8e1f97effb0b47503446fa60a.
+ZIP, current report and all 15 fresh audit-log hashes were verified. These
+measurements describe GHCR execution, not the separate native binary baseline.
+
+Accepted warm native binary baseline:
+https://github.com/randogelist/Methboke/actions/runs/44080437531
+Tested source: 66052f498614c8b3dc31f5331f5bfdd4667fa87c; attempt 1.
+PASS in 299s (4m59s): all 283 own modules reused, zero fresh modules; all 14
+endpoint audit files covering 41 declarations and the QFB cutout audited freshly.
+Exact types and standard-only axiom records match the prior baseline. All 139
+external control tests passed. Cleanup 43s, dependency restoration 66s, project
+restoration 2s, toolchain 18s, verification 137s, packaging 8s, upload 3s.
+Driver 128.521s: cache 31.037s, own work 0.404s, fresh audits 96.004s.
+No Docker operations were performed. The project archive is 25,391,076 bytes;
+compressed project Actions cache 19,904,940 bytes; dependency cache
+2,527,746,970 bytes. The archive excludes dependencies. Its SHA256 is
+f6971ee9ff8e101ef8e3ce5aa94301228fd3ae1406966cb9b77ea123d8b11950.
+Matching evidence: https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14327621291
+Binary artifact: https://github.com/randogelist/Methboke/actions/runs/44080437531/artifacts/14326982454
+Artifact, manifest, report, all 299 archive member hashes and 283 own receipts
+were checked without executing Lean locally. This verifies the first native
+binary round, not automatic recovery or standalone archive restoration.
+
+Historical failure: run 44046225468 at 670de211 compiled all 283 modules,
+then failed on unsupported pp.width; no caches or container were published.
+The corrected run removed that option and passed its early compatibility
+probe without altering the native proof bodies or dropping audit targets.
+Warm publication obstruction (infrastructure evidence, not theorem acceptance):
+Run 44059698760, source fa803419ae1f3d7d91da1e0709193ac928057a02,
+completed FAILURE. GitHub job 133958054680 reports passed-container restoration
+success in 264s, compilation/fresh-audit step success in 157s, and cache saves
+success. The supplied publication log shows 7.67 GB context transfer and
+COPY Material failing with no space left on device. The artifact list was empty
+and the completed job-log fetch returned 404. Accordingly, no exact reused
+module count, new axiom receipt, or new published snapshot is claimed.
+Run 44061664660 at 5f0e7b72d4612657df7dfbd8191391026e871320 was observed
+stalled in publication after restoration success (317s) and verification-step
+success (162s). It is not an accepted package result. The user authorized its
+cancellation; recovery targets only that exact run, with force cancellation
+if ordinary cancellation does not finish it.
+The no-change commit 799b55142f04895f9d3a45bd40f4aac54ce9b85f had pending
+run 44061003809 cancelled by queue replacement; its timing remains unmeasured.
+
+Disk repair: VERIFIED_AT_73c2e98. Warm publication uses a generated Dockerfile
+FROM the exact passed image, inherits .lake/packages after matching compiler,
+pins, platform, retained-cache and external .olean* identities, and copies
+current sources, own outputs, cutouts and fresh evidence. Stale own files are
+replaced. Snapshot.Dockerfile remains unchanged to preserve compatibility.
+Disk headroom is checked; evidence uploads before publication; redundant
+dependency archives are skipped on registry hits; publication timeout is 15m.
+
+Container-native runtime optimization: VERIFIED_AT_04fbd79.
+The registry prepare step extracts only the authenticated parent report.
+container_workspace.py overlays current source under /workspace in an isolated
+container from the exact passed digest, preserving inherited .lake dependencies
+and own objects. The pinned host Lean installation is mounted read-only; no
+host workspace, home, credentials or Docker socket is mounted. The container
+uses its own root identity to avoid ownership changes to inherited dependencies.
+Fresh registry evidence and successful own .lake/build outputs are exported;
+all exported object hashes must match the current module receipts before
+acceptance. The transport code identity is recorded separately. native_build.py,
+build.py, verify-external.sh, Snapshot.Dockerfile, compiler/dependency pins and
+module receipt checks remain unchanged. Native fallback and exact-cache paths
+remain available. Every endpoint and cutout audit remains fresh.
+
+SDK reclamation is conditional on free space, applies only to disposable
+GitHub-hosted runners, and stops after enough allowlisted SDK space is freed.
+Warm and cold budgets are explicit and bounded (defaults 20/40 GiB). Binary
+recovery now selects the existing 32 GiB cold minimum through a step-local
+MATERIAL_COLD_MIN_FREE_GIB override; the registry cold path stays at 40 GiB
+and the fast path at 20 GiB. No workspace, toolchain, object cache or passed
+image is deleted. The unchanged proof-source runs at 04fbd79 and 68e9f8a
+attempt 2 verified 283/283 reuse in 7m26s and 8m13s respectively.
+
+Native binary-cache pilot: ROUND_1_EXTERNALLY_VERIFIED_AT_66052f4.
+Pushes and default manual runs use binary_cache; backend=registry preserves
+GHCR and its passed images. Fast binary verification restores compatible Actions
+dependency/project objects and a prior PASS report. Ordinary fast runs prefer
+new recovered cache generations before canonical keys; compatible project
+prefixes support amendment builds. Strict exact_cache_benchmark bypasses those
+probes, requires canonical exact hits and never starts recovery.
+
+Automatic recovery: EXTERNALLY_VERIFIED_AT_b1178b8_ATTEMPT_2.
+Normal cached routing: REPAIR_PREPARED_PENDING_EXTERNAL_CI.
+The fast worker may fail without accepting the workflow. For ordinary binary
+runs, failure to obtain its final accepted output launches a separate Ubuntu
+24.04 recovery worker at the same source SHA, unless the workflow is cancelled.
+The recovery runner restores no Actions caches or passed image. It obtains the
+pinned official Mathlib objects, compiles all own modules and performs every
+fresh endpoint/type/axiom/cutout audit. Missing official objects stop recovery;
+Mathlib source compilation and all local Lean execution remain forbidden.
+A recovery archive must show all current own modules freshly passed and zero
+reused receipts. Proof sources, compiler drivers, pins and receipt identities
+remain unchanged. No Docker operations are used by either binary worker.
+
+Successful recovery saves new append-only dependency/project cache generations
+and publishes its receipt-verified archive. Fast/recovery artifact names are
+distinct, preventing a partly uploaded fast result from blocking recovery.
+Cache availability is checked after publication. A final verdict fails unless
+one worker finishes verification, cache publication, archive upload and final
+evidence upload successfully. The manual registry backend retains its own path.
+
+binary_bundle.py binds own .olean* receipt hashes, fresh evidence and exact
+source/run/attempt/compiler/dependency identity in a gzip-level-1 project archive
+and manifest. Artifact retention is 90 days; dependency packages are excluded.
+Actions caches remain the restoration input, so artifact expiry alone does not
+trigger recovery while usable caches remain. Recovery recreates missing caches
+and the project archive; no durable dependency-release backup or Git binary
+store is asserted. Existing successful images and cache entries are retained.
+The first drill at c461671d604903df0d1a4c05dc12c63332126db2, run 44085694998,
+correctly handed the deliberately unsuccessful fast worker to recovery. All
+146 external control tests passed in 1.388s and source validation passed. Recovery
+then stopped before toolchain setup or Lean execution: the inherited 40 GiB cold
+guard required 42,949,672,960 bytes but the allowed SDK cleanup left
+36,011,274,240 bytes (33.54 GiB), up from 13,504,372,736 bytes in 67.433s.
+Only allowlisted Android, dotnet and ghcup SDKs were removed; caches were intact.
+No project compilation, fresh theorem audit, binary or cache publication occurred.
+The terminal acceptance job correctly failed. Failure evidence:
+https://github.com/randogelist/Methboke/actions/runs/44085694998/artifacts/14328628908
+Artifact SHA256 f88ed4967c521b7bb1c8eb6eade5cb27a540dad747cf52f450f163b4ddb9e630.
+The existing bounded 32 GiB cold setting passed in both recovery attempts at
+b1178b843bbaa62d4b3c2fba2fc8f8b0c5a95120, run 44086819243. Attempt 1
+recovery job 134051396564 passed in 2016s (33m36s); attempt 2 job 134071441340
+passed in 2107s (35m07s). Both passed all 147 controls, freshly compiled all 283
+own modules with zero reuse, and freshly audited all 14 endpoint files/41
+declarations plus the QFB cutout. Both published replacement binary artifacts
+and recovered dependency/project cache keys, confirmed available by exact lookup.
+Attempt 2 driver: 1896.043s; dependencies 177.751s; own build 1672.854s; audits
+44.929s. The 66052f4 4m59s result remains the separate warm-reuse benchmark.
+Matching attempt 2 evidence:
+https://github.com/randogelist/Methboke/actions/runs/44086819243/attempts/2
+https://github.com/randogelist/Methboke/actions/runs/44086819243/artifacts/14334074369
+The downloaded evidence ZIP SHA256 is
+7cf24ea25a35af497bc9d3d5c28fe0eda20801e02385ebd20dc70c3ccd0f377b;
+current.json SHA256 is 9394970471201efffee390e15a6145d5b4f46cff34c2711f77fbc07137885aa9.
+Both hashes and all fifteen fresh audit-log hashes were checked without Lean.
+All recorded axioms are standard-only and the source pin is intact. The published
+attempt 2 binary archive is 25,391,070 bytes, SHA256
+165fc6e24ae079cbea83456c0ab04302ea78e0e5b7c76001d901a0bf44bf4f25,
+artifact 14334004520; archive size/hash come from publication evidence, not a new
+independent download of its binary members. No new mathematical closure follows.
+
+The first worker was red because the commit carried [material-recovery-drill],
+not because these two recovery builds crashed. That trigger repeats on every
+manual rerun of the same commit and makes another full rebuild unavoidable.
+The routing repair removes commit-message triggers: normal pushes and reruns
+try the fast cached worker; actual unaccepted fast results retain fallback.
+Explicit manual force_rebuild=true skips the fast job cleanly and selects recovery.
+Strict benchmark/registry exclusions remain: force_rebuild combined with either
+fails explicitly at preflight without recovery. Only a new push attempt supersedes
+older active work; manual reruns remain queued and retain their old configuration.
+Revised routing and fast reuse of recovered caches await matching receipt review
+and acceptance;
+existing verified evidence is retained.
+Docker Hub configuration remains paused until the CI work is resolved.
+Each resumed round stops once CI starts; go on resumes inspection.
+
+New finite-cap root A-tier: NOT_ESTABLISHED.
+New root formal/unconditional closure: NOT_ESTABLISHED.
+Do not promote pending source preparation or an unrelated green run.
+
+7. OPEN OBLIGATIONS AND EVIDENCE RULES
+
+- Formalize the actual analytic-cylinder input and its representation adapter.
+- Localize relative-energy comparison to an existing finite classical cylinder.
+- Prove pressure-normalized smooth patching and assemble the exact R0 endpoint.
+- Produce external compiler, exact type and theorem-level axiom evidence for
+  the exact source/dependency/toolchain/policy identity of each new endpoint.
+- Leave universal germ-to-cap extension explicitly open.
+- Do not import QFBAdmissions.OneRestartOverlapAxiom or add custom closure
+  axioms. Naming local_overlap_closes does not prove it.
+- Retain every small-data threshold and existing analytic/semantic premise.
+- A Linux pass cannot satisfy an explicit native Windows evidence requirement.
+
+8. CURRENT TARGET AND OPERATING RULES
+
+Main consolidation and native source preparation are complete. The candidate
+history is preserved by 670de211b2787bdbd1a208210c1efd0ac313c2f4; cleanup run
+44046225564 retired that branch. The native package, original QFB root and
+single-file cutout passed cold at 6440270 and warm through 66052f4.
+68e9f8a remains the accepted GHCR base; 66052f4 is the accepted native binary
+base, with matching object/audit/archive evidence. Historical infrastructure target: separate-runner
+full-project recovery and replacement cache/archive publication. Current target
+is the WFB migration recorded in section 9. Preserve proof bodies, pins, endpoint
+manifests and all audit gates. Stop once CI starts;
+go on resumes receipt/artifact inspection and any necessary repair.
+The upstream timing anchors guide scheduling; they do not guarantee runtime.
+
+CI contract: restore compatible dependency/foundation/project objects;
+validate source/compiler/lock/policy identity; use two dependency workers
+where supported; compile amendments and affected own dependencies; audit
+all required declarations freshly; publish only passed registry records.
+Registry cold seeds and binary recovery may request the exact official Mathlib
+cache, never a Mathlib source rebuild. Fast binary failure starts recovery only
+outside strict benchmark mode; recovery remains blocked if official dependencies
+are unavailable. Warm cache-required measurements must
+report cache misses honestly. Record module workers separately from Lean
+threads. No direct or indirect local Lean execution, including Lake wrappers,
+kernel audits, subprocesses, containers and subagents. Local work is source
+reading, file preparation and nonexecuting static inspection. External
+verification unavailability never authorizes a local fallback. Preserve prior
+successful compatible objects. The user authorizes cancellation, including
+force cancellation, of identified failed or stalled obsolete runs. This is not
+authorization to delete their passed images or cancel unrelated runs.
+
+CI HANDOFF: once the external runner has started, finish the agent turn without
+waiting or monitoring. The user's go on resumes inspection and any necessary
+repair. A launched run is not a PASS; retain candidate status until matching
+external compiler, exact-type and axiom evidence is accepted.
+
+Work from main; do not create a new working branch unless explicitly asked.
+The historical candidate theorem/document names remain stable.
+The user's current BASE_LOOP 1.3 takes precedence. Init reads README, GPT and
+INDEX-WORTHY before reporting checks. Discussion creates no artifacts.
+Parse records ordered input and replies ok; compile processes that buffer.
+Emit removes only the last uncompiled buffer request; it never deletes files
+or branches or undoes compiled changes. Local target changes the user-stated
+mesoscopic target while preserving the project goal; no argument displays the
+target hierarchy. A suggested next target is not an adopted user target.
+Compile branch reparses accessible context without implicit Git mutation or
+Lean execution. Commit updates this document and relevant indices before
+committing/pushing the current branch. CHANGE alone changes the fixed goal.
+
+The earlier suggested finite-analytic-cylinder L05-L08 work remains compatible
+with the fixed goal. The current user-requested local workstream is section 9.
+
+
+9. WEAK_FOURIERMAN_B REPOSITORY WORKSTREAM (2026-11-19)
+
+Authoritative cumulative mathematical composition: Weak_Fourierman_B_B_TIER.txt,
+version0.4.0. Scope: nu>0, smooth periodic solenoidal mean-zero datum a, same
+maximal strong trajectory; finite full integral of Q(t)^2 up to min(Tmax,Tf)
+with Q=sum_(k!=0)|k|^2|u_hat_k|^2 and Tf=||a||_2^4/(8*pi^2*nu^5) implies actual
+GlobalSmoothNSE nu a U P and agreement with the original trajectory. Budget
+finiteness remains explicit. B-tier uses indexed Q01/Q09 and cited classical
+periodic H1 local theory; no new Lean root or universal finiteness is claimed.
+
+Repository plan and sources:
+  PREPRINT_FORMALISATION/WeakFouriermanB/WORKFLOW_PLAN.md
+  PREPRINT_FORMALISATION/WeakFouriermanB/obligations.json
+  PREPRINT_FORMALISATION/WeakFouriermanB/candidate-sources.json
+  PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/
+The four exact sources are PhysicalFourier, repaired FourierBudget, repaired
+LocalFront and HomogeneousBudget. They total1255 physical lines and57 required
+declaration audit pairs (13+5+29+10). They are now copied byte-for-byte into active Material discovery with four
+wrapper/audit packages; the original staged sources remain as provenance. The original failed
+FourierBudget bytes are not staged; all source hashes are recorded.
+
+Latest supplied WSL diagnostic20261119T034237Z-yqfcoqmc: whole BUILD_FAIL at
+original LocalFront; PhysicalFourier13 and repaired FourierBudget5 reported
+accepted cached COMPILE_PASS with PASS_STANDARD_ONLY. Repaired LocalFront29
+and HomogeneousBudget10 have no supplied matching pass. CLI448.786seconds,
+addoncompile402.652seconds. This historical partial evidence is distinct from
+new repository acceptance; no local .olean/cache receipt is assumed portable.
+
+Ten contextual obligations: WFB-01 and WFB-02 accepted (section12); eight
+remain pending matching repository A-tier evidence:
+WFB-01 local-front Fourier to Serrin; WFB-02 homogeneous Fourier to Serrin;
+WFB-03 physical local H1 existence; WFB-04 local strong uniqueness;
+WFB-05 maximal same-path trajectory; WFB-06 physical endpoint continuation;
+WFB-07 strict cutoff overlap; WFB-08 actual Leray-Hopf identification;
+WFB-09 same-path tail and normalized-pressure gluing; WFB-10 exact root.
+The first two have prepared principal declarations; the remaining eight need
+substantive formal development. A classical published theorem in B-tier prose
+is not a Lean theorem. Preserve every explicit premise and genuine physical
+semantics; do not add continuation/certificate fields to conceal the work.
+
+Planning findings: material.yml triggers on every main push. This prep-only
+commit explicitly skips CI. Native cache keys and every module receipt include
+Lake/configuration/driver context; a naive new lean_lib may invalidate all283
+baseline receipts. Existing automatic recovery follows any fast-worker failure,
+including theorem/audit/publication failure. Before activation, distinguish
+cache infrastructure failures from proof failures; only appropriate cache
+failures may select recovery. Preserve all41 existing declaration audits and
+QFB cutout, add all57 fresh WFB audits, and model first-party sources separately
+from pinned vendor provenance. Do not weaken receipt checks or rebuild Mathlib.
+
+Read-only current-run observation: main43530b7 has successful workflow runs
+44101003716 and44126844972. Latest job metadata shows fastsuccess, acceptance
+success, recovery skipped, and retained evidence/binary artifacts. This round
+did not read their full theorem audit artifacts; the earlier source-specific
+accepted ledger remains distinct. See the plan for links and the next gate.
+
+SIGNAL_POLICY_WFB: user requests <-> in this chat after each exact complete
+contextual obligation reaches A-tier, and separately for the root. Require
+matching successful authorized external compiler, exact-type and complete fresh
+standard-only axiom evidence, source/compiler/dependency/policy identity and
+all intended analytic obligations discharged. A helper pass or CI green alone
+is insufficient. Record evidence and scope, then record the actual announcement.
+No scheduled monitoring, polling automation or webhook. Watch disabled.
+The 2026-11-19 sustained-work instruction supersedes the earlier runner-start
+handoff: continue independent obligations while CI runs and inspect results when
+available. No scheduled watcher is introduced. Preserve each tested commit.
+
+10. WFB ACTIVATION AND FIRST FORMAL OBSTRUCTION (2026-11-19)
+
+Active source layer: PhysicalFourier, FourierBudget, LocalFront,
+HomogeneousBudget. Four owned modules plus four wrappers add eight modules;
+expected full scope291, packages18, declaration audit entries98 plus QFB cutout.
+All57 WFB declarations retain their exact source names and initial proof bytes.
+Principal endpoint types are asserted independently in fresh audit inputs.
+Material/owned-sources.json separates first-party provenance from269 unchanged
+vendored source modules. Compiler, Lake file, dependency lock and cache contract
+are unchanged. No new proof acceptance is claimed before matching external run.
+
+The versioned receipt adapter reconstructs the exact legacy context from
+43530b7, validates unchanged source/import identities recursively, and checks
+actual restored object bytes externally. Static reconstruction matches all283
+legacy identities. Unknown contexts cannot trigger an implicit whole rebuild.
+Automatic recovery requires an explicit current-run cache rejection; proof,
+type, axiom, static, publication, cancellation and unknown failures fail closed.
+All fresh audit requirements and publication gates are retained.
+
+Baseline evidence now inspected: run44126844972 at43530b7,283 reused,0 fresh,
+14 fresh endpoint audits with41 declarations plus cutout. The downloaded ZIP,
+current report and all15 audit-log hashes match; source/type/standard-axiom scope
+is recorded in audits/material-43530b7/summary.json. Object bytes were not
+downloaded or reverified in this inspection; external migration still checks them.
+
+FIRST FORMAL OBSTRUCTION WFB-03:
+finiteGalerkinRhs_uniform_local_time has quantifiers forall nu,N,R exists delta;
+its lifespan may depend on cutoff N. The infinite Fourier RHS loses two
+derivatives. Neither supplies norm-controlled physical periodic H1 local
+existence with pressure. Required: an actual uniform local construction and
+physical realization, or a matching already proved theorem. Stop downstream
+root assembly at this missing formal edge; do not encode it as an assumed field.
+The previously recorded classical B-tier implication retains its cited premises.
+
+Independent prepared WFB-08 input helper:
+PREPRINT_FORMALISATION/WeakFouriermanB/next/SmoothDatum.lean contains seven
+source candidates for actual EnergySigmaZero admission, representative/cutoff
+identities and original Q01 weak existence. It is outside active Material,
+unaudited and does not complete WFB-08. next/REVIEW.md identifies the separate
+R0 gap: existing finite-window Serrin comparison assumes global-positive
+smoothness/NSE, so genuine finite-front localization is still required.
+
+User authorization: continue independent work after commits and during external
+CI; no scheduled monitor, no local Lean, no theorem status from prepared files.
+
+11. INDEPENDENT DATUM-ADMISSION LAYER (prepared 2026-11-19)
+
+While external run44537934256 verifies0402aa37 and the four-module layer,
+SmoothDatum is registered with7 fresh audits and independent exact existence/
+cutoff signature assertions. The next complete scope is293 modules,19 endpoint
+packages,105 declaration entries plus QFB cutout. No driver/compiler/Lake/lock
+changes are needed. The four preceding proof sources remain unchanged.
+A small proof-body equality-transitivity repair is recorded against the staged
+0402aa37 source; theorem types and premises are unchanged.
+This is WFB-08 datum admission and original weak existence only; strong-path
+identification is still unresolved, so no whole-obligation sign follows.
+
+12. FIRST TWO WFB OBLIGATIONS ACCEPTED (2026-11-19)
+
+Matching external run44537934256 at0402aa37 passed all183 controls,291 module
+receipts,18 fresh endpoint audits with98 declarations and the QFB cutout.
+All283 baseline modules were reused after exact legacy-context reconstruction;
+eight new modules were compiled. Build88.742s; fresh audits71.988s; dependency
+validation30.284s. Every retained audit-log hash and exact principal type was
+reviewed. Evidence: audits/material-0402aa37/summary.json and WFB audit logs.
+Accepted WFB-01 local-front Fourier-to-Serrin and WFB-02 homogeneous bridge;
+chat-only signs have been announced and recorded. Standard axioms only.
+No budget finiteness for arbitrary data, root, native Windows result or
+remaining contextual obligation is inferred. SmoothDatum remains pending its
+own verification. No local Lean or executable control tests were run.
+
+13. FINITE-FRONT IDENTIFICATION SOURCE LAYER (prepared 2026-11-19)
+
+Six additions are now registered: SmoothDatum, FiniteFrontTest,
+FiniteWindowCrossIdentity, FiniteWindowRelativeEnergy,
+FiniteWindowSerrinComparison, LocalFrontIdentification. Their22 public
+declarations have fresh type/axiom audits and exact principal signatures.
+The next external scope is303 compiled modules,24 audit packages,120 declaration
+entries and QFB cutout. All four first-layer proof files and291 accepted
+module inputs remain unchanged. Compiler, dependency lock, Lake and CI driver
+are unchanged; compatible first-layer receipts should therefore be reused.
+
+The new physical construction uses a smooth time map into the available front
+to form a global admissible weak test equal to the original velocity on every
+shorter positive interval and near the initial time. Only the original front
+solves NSE. Cross and relative-energy identities require pressure/NSE only on
+the integration window. The explicit admissible-time/Gronwall argument then
+identifies the same original weak path under actual compact Serrin bounds;
+the already accepted Fourier bridge supplies an alternative budget corollary.
+These are prepared proofs, not accepted endpoints. They do not construct the
+front, prove cutoff-uniform H1 local theory, or establish either full root.
+Compact-cylinder bounds, normalized-pressure uniqueness and finite-cap gluing
+are being prepared separately; they are not in this verification layer.
+
+14. FINITE-FRONT COMPARISON ACCEPTED; R0 ROOT PREPARED (2026-11-19)
+
+Run44540921991 at67f7663 accepted all303 module receipts,24 fresh endpoint
+audits covering120 declarations and QFB cutout. All291 previously accepted
+objects were reused;12 additions compiled. Build81.469s; audits64.203s; cache
+validation20.236s. All25 retained audit-log hashes and principal types checked.
+Evidence: audits/material-67f7663/summary.json. The22 new declarations provide
+actual datum admission and localized physical same-path comparison. No further
+whole WFB contextual obligation is promoted: maximal local theory remains absent.
+
+Seven R0 packages now register34 more declarations: CompactCylinderSerrin,
+PressureUniqueness, FiniteCapGluing, FiniteCapOverlap, InitialFrontAdmission,
+FiniteCapAdmission and AnalyticCapAdmission. Next scope317 compiled modules,
+31 audit packages,154 declaration entries plus cutout. All existing sources,
+compiler/lock/Lake/CI driver inputs remain unchanged.
+
+Exact classical target:
+  nu>0, InitialClassicalFront nu T a u p,
+  cutoff(criticalL2Representative a,nu)<T
+  -> exists U,P, GlobalSmoothNSE nu a U P
+       and U=u,P=p on[0,T).
+InitialClassicalFront is the actual finite solution with all physical fields
+and smoothness up to zero. It is not inferred from arbitrary smooth data.
+The source derives smooth datum admission, strongL2 initial trace and compact
+Serrin bounds from that front. Original Q01 provides the same weak path; Q09
+provides its tail at delta=(cutoff+T)/2. Continuous-periodic Fourier injectivity
+and normalized-pressure uniqueness derive both overlap equalities. The actual
+splice proves every GlobalSmoothNSE field and preserves the entire finite cap.
+
+AnalyticForwardNSECap supplies actual AnalyticOnNhd velocity/pressure on
+(-epsilon,T), with the physical NSE equation on[0,T). Epsilon>0,nu>0 and strict
+cap admission remain explicit. This correctly avoids using derivWithin(Ici0)
+as a negative-time NSE derivative. It is sufficient for the frozen analytic
+admission implication; it is not a renamed negative-time solution predicate.
+The physical-cutoff corollary uses(physicalEnergy a)^2/(8*pi^2*nu^5).
+These roots are prepared candidates pending their own external acceptance.
+Universal germ-to-cap R1, universal Fourier-budget finiteness and WFB-03
+cutoff-uniform physical localH1 existence remain unresolved. No goal change.
+
+15. HISTORICAL R0 COMPILATION FEEDBACK (superseded by acceptance in Section16)
+
+Run44543421609 at0ddd2d67 failed two source rewrites: Iio membership did not
+match an if simplification in FiniteCapGluing; lambda subtraction did not
+match fderiv_sub in PressureUniqueness. Both are corrected by explicit goal
+normalization. Statements and premises are unchanged. The run reused303
+accepted modules and compiled CompactCylinderSerrin plus its wrapper; audits
+were not reached. No R0 acceptance. Typed proof failure correctly skipped
+recovery and preserved the accepted baseline. Evidence is retained at
+audits/material-0ddd2d67-failed/summary.json.
+
+The next run also includes AnalyticTwoSidedCap and R0DataAdmission,7 further
+public theorem audits. The literal analytic cap uses ordinary deriv throughout
+(-epsilon,T), including negative time; actual analyticity proves the conversion
+to the original forward derivative, including t=0. D_Q uses the frozen zero
+union nonzero smooth-data definition with this cap at2*cutoff. Nonzero physical
+L2 representative and positive cutoff are derived; the zero case uses the
+explicit zero solution. Exact next root: nu>0 -> D_Q(nu) subset R_nu(nu).
+This proves only admitted-data regularity if externally accepted. R1 remains
+open. Full next scope321 modules/33 packages/161 declaration audits pluscutout.
+
+R0_RECHECK_44545010863:
+Atc6e039da the gluing and pressure corrections compiled;311 modules passed,
+including303 reused baseline objects. The only direct failure was the strong
+initial-trace proof: two filter-membership field projections and one unexpanded
+composition. Typed eventual bounds and Function.comp_def now correct these
+expressions without changing statements. Required audits were not reached,
+recovery was skipped, and no accepted cache was replaced. Evidence:
+audits/material-c6e039da-failed/summary.json. Full321/33/161 recheck pending.
+
+R0_RECHECK_44547124107:
+Atd2c0259 ALL321 modules compiled;303 accepted objects were reused and18
+compiled.19 audit packages passed, including the exact D_Q and classical/
+two-sided analytic roots, but the required pressure audit failed because its
+open command named an unused namespace absent from its imports. The repair
+removes that namespace only. All9 pressure signature assertions, type/axiom
+sentinels and proof sources are unchanged. No aggregate acceptance or cache
+publication yet. Recovery correctly skipped. Evidence:
+audits/material-d2c0259-failed/summary.json. Full321/33/161 recheck pending.
+
+16. EXACT R0 FINITE-CAP ANALYTIC ADMISSION ACCEPTED (2026-11-19)
+
+AUTHORITATIVE_CURRENT_STATUS: A_TIER; PASS_STANDARD_AXIOMS_ONLY.
+Exact principal declaration:
+  MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu
+    (nu : Real) (hnu : 0 < nu) : D_Q nu subset R_nu nu.
+The whole fixed R0 admission implication has matching external acceptance.
+This section supersedes earlier preparation, pending-run and failed-run statuses
+for these exact R0 sources; historical evidence remains retained separately.
+
+TESTED_COMMIT = 93ca8a57536512556ec36717ee933ea52db283bf
+RUN = https://github.com/randogelist/Methboke/actions/runs/44549257770
+RUN_CONCLUSION = SUCCESS
+EVIDENCE = audits/material-93ca8a5/summary.json
+ARTIFACT = https://github.com/randogelist/Methboke/actions/runs/44549257770/artifacts/14543236124
+REPORT_SHA256 = edb591aac17061cfeb6639e7caf6702cc96e9f16af9e09d795b5140020054475
+COMPILER = Lean 4.33.0, x86_64-unknown-linux-gnu,
+  commit d8b18978322de05a8f3dba51ef03cf5461676c17
+MATHLIB = db584cd6d46c92f209a44c0f1c829460d327499d
+AXIOMS = {propext, Classical.choice, Quot.sound}; no sorryAx or custom admission axiom.
+
+Acceptance covers 321 compiled module receipts, 33 freshly executed endpoint
+audit packages with 161 declaration entries, and the fresh QFB cutout. All 34
+retained audit-log hashes, principal exact types and standard-only axiom outputs
+were reviewed. The run reused 303 accepted module objects and freshly compiled 18;
+all 183 external control tests passed. The R0 addition comprises 9 endpoint
+packages and 41 public declarations. No required audit was reused or skipped.
+Build 118.141s; fresh audits 111.962s; cache validation 27.759s;
+verification total 263.017s. These are single-run observations.
+
+The actual accepted data classes preserve the frozen theorem scope:
+  tau_Q(a,nu) = ||a||_2^4/(8*pi^2*nu^5)
+              = (physicalEnergy a)^2/(8*pi^2*nu^5) for smooth physical data;
+  D_Q(nu) = {0} union the nonzero SmoothSigmaZero data with epsilon>0
+    and an actual AnalyticTwoSidedNSECap through the open cap 2*tau_Q;
+  R_nu(nu) = SmoothSigmaZero data with actual GlobalSmoothNSE witnesses.
+The two-sided cap requires jointly analytic velocity and pressure, the ordinary
+time-derivative NSE equation on (-epsilon,T), periodicity, divergence freedom,
+mean-zero velocity, normalized pressure and the literal initial field.
+The forward derivative conversion is proved, including at t=0. Nonzero
+smooth data imply a nonzero physical L2 representative and positive cutoff;
+the zero branch uses the proved explicit zero solution.
+
+The accepted classical cap root additionally preserves both original velocity
+and normalized pressure at every time in [0,T). Its chain derives the initial
+strong L2 trace and compact Serrin bounds, obtains an original weak path by Q01,
+identifies the finite front and Q09 tail with that same path, derives pointwise
+velocity/pressure equality on the strict overlap, and constructs the smooth
+splice with every GlobalSmoothNSE field. Analytic cap wrappers discharge the
+classical-front regularity by the pinned analytic-to-smooth theorem.
+
+BOUNDARY: R0 is proved for the admitted class. Universal germ-to-cap R1,
+universal Fourier-budget finiteness, WFB-03 physical H1 local existence with a
+cutoff-independent lifespan, and the full Weak_Fourierman_B root remain open.
+Exactly two complete WFB obligations are accepted: WFB-01 and WFB-02. The new
+R0 helper and root passes do not promote any other whole WFB obligation.
+No native-Windows acceptance or local Lean execution is claimed.
+
+PUBLICATION: verified project cache saved and publication identity checked;
+compatible exact dependency cache preserved; recovery skipped. Binary artifact
+14542023381 is 26,894,511 bytes, SHA256
+d1832bed1a7a89e58a91d40e308f9ddbf1b6e3834c0d27699e33b13ef5ffe588.
+This binary identity comes from external publication logs; its members were not
+redownloaded locally. The legacy report flag new_finite_cap_theorem_included=false
+is hardcoded in the unchanged driver; actual root inclusion is established by
+the current manifests, compiled sources and fresh exact root/type/axiom logs.
+
+SUGGESTION_ONLY: an explicit analytic shear admission certificate is a compatible
+next constructive-certificate endpoint. It is not an adopted local target and
+does not modify the fixed project goal or resolve R1.
+
+17. CURRENT B-TIER WFB ROUTE ANCHOR INDEX (2026-11-19)
+
+The user's current request is source-grounded B-tier indexing, not new Lean
+execution or a change to the fixed project goal. The completed route document
+is WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt; the exact machine-readable companion is
+PREPRINT_FORMALISATION/WeakFouriermanB/ANCHOR_INDEX_v0_2.json. The cumulative
+Weak_Fourierman_B_B_TIER.txt is v0.5.0 with its current scope in Section20.
+There are126 unique anchors:33 current named fresh type/axiom audits,67
+compiled source-only references and26 pinned Mathlib source-only references.
+
+The ten route packages are R01 local physical H1 lifespan;R02 pressure/trace/
+smooth persistence;R03 actual local uniqueness;R04 maximal path;R05 physical
+enstrophy identity;R06 physical nonlinear/cubic estimate;R07 full budget to
+uniform H1;R08 restart/continuation;R09 strict cutoff overlap;R10 classical R0
+and whole-path agreement. These do not replace or promote the original ten
+WFB contextual obligations. Only WFB-01 andWFB-02 remain accepted as whole
+obligations; all existing R0 evidence and explicit premises remain unchanged.
+
+The first formal derivation edge remains blocked atR01/WFB-03: fixed-N ODE
+local existence and a derivative-losing Fourier RHS do not supply an actual
+physical solution with a cutoff-independent H1-controlled lifespan. Generic
+finite-window compactness without AX6 is available; uniform local bounds,
+finite-window smooth realization and compatible restart still need proof.
+Downstream entries are a prospective dependency inventory. No root closure
+is inferred from the number or acceptance of source anchors.
+
+Accepted original-LH comparison, periodic ae-to-pointwise injectivity and
+normalized-pressure uniqueness substantially reduce R03. Use one weak witness
+for both fronts and extend pressure equality tozero by continuity. Accepted
+classical R0 already proves finite-cap attachment and full physical gluing;
+R10 must supply its cap from strict cutoff<Tmax and retain one global witness
+for agreement throughout the maximal trajectory. No analytic cap or2*cutoff
+extension is inserted. The scalar budget theorem requires z=||Delta u||_2,
+continuous derivative data on closed slabs strictly beforeTmax, and an actual
+physical cubic inequality. Actual-path budget does not imply AX6.
+
+No proof, audit, manifest, compiler, lock or CI source is changed by this index.
+No local Lean/project tests or new external run. No new acceptance signals.
+
+18. CURRENT MAIN-GOAL IMPLEMENTATION AND FIRST EXTERNAL LAYER
+
+WFB_LOCAL_THEORY_LAYER_1_PREPARED_2026_11_19
+The user explicitly identifies WFB as the main goal and authorizes sustained
+implementation, largest open gap first, with independent work between commits
+and external runs. This supersedes the former supporting-workstream role.
+The exact WFB conclusion retains the finite full Fourier-square budget; no
+universal budget bound or universal analytic germ-extension claim is added.
+Accepted R0 remains a reusable foundation, not the current main target.
+
+Seven new owned modules provide40 public theorem candidates: a scalar cubic
+short-time barrier; cutoff-uniform actual Galerkin H1/H2 estimates; local
+all-order/RHS/time-modulus bounds; genuine finite-window compactness; actual
+local classical velocity/pressure uniqueness including0; physical time
+translation; arbitrary-field Hessian/nonlinear/absorption estimates.
+The square budget in the local Galerkin construction is derived, not assumed.
+The explicit lifespan is1/(16*(C/nu^3+1)*(R+1)^2), withR an upper bound for
+initial physicalDissipation. It is independent of cutoff and higher norms.
+The final physical solution construction still needs its limit/recovery layer.
+
+Prepared external scope:335 compiled modules (269 vendor+26owned+40wrappers),
+40 fresh endpoint packages,201 declaration type/axiom audits plusQFBcutout.
+All321 accepted module inputs are unchanged and eligible forcompatible reuse.
+All previously required audits rerun freshly. Compiler,dependencylock,Lake,
+CI drivers,cachecompatibility policy andvendor bytes remain unchanged.
+No local Lean,Lake,kernel audit orproject tests. No new acceptance signal.
+OnlyWFB-01/02 currentlywhole-obligation accepted;WFB04uniqueness is a candidate
+pendingmatchingexternalverification. The completeWFBroot remains unverified.
+Nextindependentpreparation: finite-windowSobolevlimit/physicalrecovery and
+uniformphysicalexistence, maximaltrajectory, finite restartgluing, physical
+enstrophytimeidentity, budgettouniformH1, strictcutoff andR0rootassembly.
+
+19. FULL WFB CHAIN AND FIRST COMPILER FEEDBACK
+
+WFB_FULL_CHAIN_PREPARED_2026_11_19
+The largest gap now has a complete source candidate: a cubic barrier gives
+cutoff-uniform local Galerkin bounds, all-order compactness yields an actual
+Sobolev flow, and physical recovery constructs a normalized classical NSE front
+with duration controlled only by viscosity and the physical H1 bound. The
+local square budget is derived; no AX6 or local-existence premise is retained.
+
+Actual-front uniqueness fixes one maximal velocity/pressure pair. Finite
+restart gluing gives uniform-H1 continuation. The physical enstrophy derivative
+and arbitrary-field nonlinear estimate yield a common H1 bound from the whole
+open-interval integral of actual dissipation squared. A literal physical-budget
+extension theorem preserves the entire original velocity and pressure.
+
+The Fourier budget up to min(Tmax,cutoff) supplies that integral. If Tmax is at
+most the cutoff, including equality, continuation contradicts finite maximality.
+Thus cutoff<Tmax. Accepted classical R0 then yields one global smooth pair
+preserving the whole maximal trajectory, and maximality gives Tmax=infinity.
+The exact root is MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B.
+Separate contextual adapters retain one original Leray-Hopf witness through
+all pre-endpoint intervals, Q09, normalized tail overlap and global gluing.
+
+22 new owned modules / 104 public theorem candidates since accepted R0 are now
+registered: 365 compiled modules = 269 vendor + 41 owned + 55 wrappers;
+55 fresh endpoint packages / 265 declaration audits plus fresh QFB cutout.
+All 321 accepted module sources remain unchanged. Compiler, Mathlib, vendor,
+Lake, dependency lock, CI and cache drivers remain unchanged. No local Lean.
+
+First external attempt 4bd466f1 / run44560978167 failed at three proof
+expressions: addition order, explicit Ici positivity, and scalar zero after
+vector extensionality. All three repairs preserve statements. Native cached
+verification reached those failures after container OOM fallback; required
+audits were not reached. Evidence: audits/material-4bd466f1-failed/summary.json.
+The complete prepared chain requires matching external compiler/type/axiom
+verification. Only WFB-01/02 are currently whole-obligation accepted. No new
+acceptance sign, universal budget bound or universal analytic extension follows.
+
+
+WFB_FULL_CHAIN_COMPILER_FEEDBACK_8318b7a6
+External run44564405380:343 modules passed (321 reused,22 fresh), three modules
+failed and19 were blocked by dependencies. All three earlier source repairs
+compiled. New failures are explicit neighborhood/filter notation in local
+Sobolev recovery, calculus expression normalization in physical enstrophy,
+and the qualified namespace of WeakGradientTrajectory in maximal identification.
+Corrections preserve theorem statements. No required audits were reached;
+no new contextual obligation or root is accepted. Scope remains365 modules,
+55 fresh packages and265 declarations plus QFB cutout. Accepted93ca8a5 inputs,
+compiler, dependencies, vendor and CI/cache drivers are unchanged. No local Lean.
+Evidence: audits/material-8318b7a6-failed/summary.json.
+
+20. COMPLETE WFB ACCEPTANCE AND EXACT SCOPE
+WFB_ACCEPTANCE_2026_11_19
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+TESTED_COMMIT := fdb515d8bde35ec8021bbc26f360aca8dfa2855c
+RUN := https://github.com/randogelist/Methboke/actions/runs/44566880192
+EVIDENCE := audits/material-fdb515d8/summary.json
+SCOPE := 365 modules; 321 reused; 44 fresh; 55 fresh packages;
+  265 exact declaration audits plus fresh QFB cutout; 183 external controls.
+AXIOMS := propext, Classical.choice, Quot.sound only
+LOCAL_LEAN_EXECUTIONS := 0
+CONTEXTUAL_OBLIGATIONS := WFB-01 through WFB-10 ACCEPTED
+PRINCIPAL := MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+For nu>0 and smooth periodic solenoidal mean-zero a, actual unique maximal
+classical trajectories exist. On such a trajectory, the full finite squared
+Fourier budget on (0,(min Tmax (ofReal tau_Q)).toReal) implies Tmax=infinity
+and one GlobalSmoothNSE pair preserving the entire original velocity and
+normalized pressure, including time zero. tau_Q=||a||_2^4/(8*pi^2*nu^5).
+The finite budget remains explicit. No universal budget finiteness or
+universal analytic-germ extension R1 is claimed. Local existence, uniqueness,
+maximality, actual enstrophy evolution, physical-budget continuation, strict
+cutoff overlap, fixed weak-path identification and normalized gluing are now
+proved with standard axioms; no additional analytic certificate remains.
+Compatible caches and binary/evidence artifacts were published successfully;
+the final Material accepted job succeeded and recovery was skipped.
+
+NEWLY ACCEPTED PRINCIPALS
+WFB-03: MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+WFB-04: MethbokeAddon.WeakFouriermanB.initial_classical_front_unique
+WFB-05: MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+WFB-06: MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square
+WFB-07: MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+WFB-08: MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+WFB-09: MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+WFB-10: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+
+21. PUBLICATION-TO-WFB DERIVATION
+The ten-step exposition in WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER.txt and cumulative B-tier Section24
+connects Zenodo24185514 (13Nov2026 small-H1/2 paper) to the accepted WFB root.
+Paper Prop3.1 and Lem5.1 supply the local/continuation core; Lem4.2 supplies
+the small-data quartic budget. Exact Fourier conversion gives
+B_L<=h0^4/(64*pi^4*(nu-P*h0)) when nu-P*h0>0. Arbitrary smooth data retain
+B_L<infinity as the WFB premise. The QFB cutoff and same-witness tail/gluing
+are additional accepted inputs, not results of that paper. The paper uses
+E=Hhalf norm squared, Y=gradient norm squared, Z=Hthreehalf norm squared,
+W=Laplacian norm squared. Its independent analytic route was not itself the
+paper's fixed-constant audited proof. This is B-tier exposition only; no new
+Lean run, axiom audit or theorem promotion; WFB acceptance is unchanged.
+
+22. WFB COMPANION PAPER
+PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.{tex,pdf} presents the
+ten-step publication-to-WFB chain as a mathematical preprint draft. It states
+the exact finite-budget theorem, gives complete analytic proofs and the
+small-data certificate h0^4/(64*pi^4*delta), then maps the exposition to
+accepted formal declarations and source identities. The direct root uses
+finite_cap_classical_admission; the same-original-witness tail theorem is a
+separately audited contextual realization. The arbitrary-admissible-constant
+paper reconstruction is not a new Lean endpoint. Proof source, compiler,
+dependencies, audit policy and accepted evidence are unchanged. Document
+typesetting only; no local Lean execution or new external compiler run.
+
+23. COMPLETE ACCEPTED EVIDENCE ARCHIVE
+For scholarly reproducibility, audits/material-fdb515d8/accepted-evidence.zip
+retains byte-identical external artifact14553501775 (129 members, all55 fresh
+package audits, current.json, cutout audit and execution manifests).
+archive-manifest.json records the exact SHA256 and source provenance.
+This evidence retention is distinct from both proof revision fdb515d8 and
+the paper revision. No Lean execution or new formal acceptance occurred.
+
+24. PREPRINT v1.1 AND ANALYTIC CONVERSE
+The manuscript is revised for preprint circulation: standalone abstract and
+author/date, primary-source positioning, precise LH representatives, proof
+of all-times weak-strong comparison, explicit QFB cutoff derivation with
+separate caloric threshold 2*pi*nu^2, full literal root type and pinned
+complete evidence. The analytic corollary W_nu=R_nu^smooth follows from
+compact-time boundedness of the gradient of a global smooth solution. It is
+B-tier only and is not another audited endpoint. S_nu subseteq W_nu remains
+non-strict as stated. Universal budget finiteness remains open.
+Cumulative B-tier v0.10.0 and ten-step exposition v1.1 are synchronized.
+
+
+25. EHRENFEST-OBSTRUCTION: CONDITIONAL B-TIER WORKSTREAM
+
+Frozen name: EHRENFEST-OBSTRUCTION. User local request: build the ten mid-tier
+checklist, derive the B-tier chain, and index useful Mathlib/Methlib identities
+in GitHub. This is a supporting local target; the WFB main goal is unchanged.
+
+Canonical source: EHRENFEST_OBSTRUCTION_B_TIER.txt v0.3.1.
+Package: PREPRINT_FORMALISATION/EhrenfestObstruction/.
+The formal target is StoppedCommutatorBound(nu) -> not NSE_B(nu), for nu>0.
+The proposed axiom label AX_EHRENFEST_STOPPED_COMMUTATOR is represented as
+a defined Prop and explicit hypothesis, not a global custom axiom. One fixed
+smooth datum, fixed gamma>0 and e_*>0, and thresholds R_N->infinity must
+satisfy the drift through min(first-hit,1/gamma). No such witness is proved.
+
+E01 real invariant finite phase; E02 complete two-sided smooth flow;
+E03 half-density unitary group; E04 self-adjoint generator and core;
+E05 exact Heisenberg/Ehrenfest translation; E06 reciprocal-enstrophy symbol;
+E07 stopped scalar hitting; E08 uniform threshold escape;
+E09 smooth-front Galerkin stability; E10 conditional obstruction root.
+All ten mathematical steps are derived. All ten new formal boxes remain open.
+
+The source index has 47 anchors: 27 pinned Mathlib source-only references,
+13 source-reviewed declarations in accepted modules, and 7 named external
+type/axiom-audited declarations. Preserve each literal signature and evidence.
+E04 has no identified accepted unbounded Stone/core interface. E09 is a new
+H2 error-bootstrap proof, not an existing conditional Galerkin-budget theorem.
+
+Normalization: e_N=coefficientDissipation/2; W_N is minus nonlinear enstrophy
+power; Z_N is the Laplacian square. The commutator multiplier is
+  c_N=-(W_N-nu Z_N)/(e_*(1+e_N/e_*)^2).
+Its assumed negative bound gives threshold escape before 1/gamma. A smooth
+solution on that slab would uniformly bound the same fixed-data Galerkin
+approximations, yielding the conditional contradiction. No infinite-dimensional
+global quantum generator, physical quantum identification or QFB premise is used.
+
+No proof, compiler, lock, vendor, CI or cache driver changes. No local Lean,
+new external verification, global axiom or A-tier promotion. Documentation
+commit uses [skip ci]. The accepted fdb515d8 evidence remains the proof baseline.
+The refined proposed implementation order is recorded in Section 26;
+new formalization follows the user's assent process and external-only checks.
+
+26. EHRENFEST v0.2 LAYOUT REFINEMENT
+
+Authoritative proposed DAG: PREPRINT_FORMALISATION/EhrenfestObstruction/MODULE_PLAN.json.
+LEAN_LAYOUT.md explains 26 planned owned modules, ten full milestone packages
+and an optional early scalar audit package. INTERFACES.lean.txt has eight
+uncompiled signatures; OPERATOR_LAYOUT.txt details the explicit domain/core
+construction. NATIVE_PACKAGE_PLAN.json records current source-reviewed native
+registration/closure/audit rules. No new .lean or active manifest is introduced.
+
+The dynamical root depends on literal coefficient drift, E07/E08 and the new
+E09 spectral stability proof. It does not require Stone or a self-adjoint
+operator. E06.scalar is independently scoped; full E06 still needs the exact
+commutator interpretation. Full E05/E10 acceptance requires actual constructed
+operators and canonical-family rate equality, not only the scalar implication.
+The actual canonical family uses cutoff n+1 and one fixed datum/viscosity.
+StoppedCommutatorBound binds explicit existential data; no desired conclusion
+is built into it. PreHit uses real times, an all-prefix guard and t<1/gamma.
+
+Use T<S to restrict InitialClassicalFront nu S to a closed comparison slab.
+The root uses T=1/gamma, S=T+1. Do not audit a stronger closed-slab declaration
+from that wrapper alone. Native LinearPMap/adjoint/closure/HasCore and test-
+function density are located at the pinned Mathlib revision (OP01--OP12).
+A direct C0-unitary generator/resolvent route can prove self-adjointness;
+its Bochner/domain/surjectivity/core lemmas remain new formal work.
+
+All ten new formal boxes remain open; no local or external Lean run, no stopped
+witness and no global custom axiom. Preserve accepted WFB receipts and pins.
+Proposed implementation order: scalar interfaces/E07 and E09; scalar root;
+complete flow/unitary/operator construction; semantic bridge and full audits.
+
+27. EHRENFEST v0.3: SHORTEST IDENTIFIED ROOT ROUTE
+
+Current route: PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_ROUTE.md.
+Minimal contracts: FAST_INTERFACES.lean.txt. MODULE_PLAN.json now records 31
+planned modules with exactly nine in Root's transitive closure; older 26-module
+counts in Section 26 describe v0.2. Root imports only DynamicalRoot. The optional
+All bundle collects the full operator and stronger mathematical milestones.
+
+Under hypothetical global smoothness, prove only eventual uniform enstrophy
+on [0,T], T=1/gamma. Choose one index beyond every eventual condition and with
+R_n>C. PreHit then holds throughout the interior slab. The exact derivative
+and a direct HasDerivAt mean-value theorem give v_n(T)<=v_n(0)-1<=0, contrary
+to positivity. No stopped threshold hit, divergent supremum, initial uniform
+enstrophy bound or finite-small-cutoff maximum is needed in this root proof.
+
+The shortest source-grounded E09 helper uses an H1 error equation: actual smooth
+reference -> uniform projected C1 and H1 tail via finite Fourier l1/multiplier
+estimates -> arbitrary-field PHYSICAL_NONLINEAR_ABSORPTION plus elementary
+mixed L2 bounds and Poincare -> D'<=C(D+D^3)+C/N^2 -> first-exit Gronwall ->
+eventual enstrophy bound. Prove the finite-coefficient forced-error identity;
+do not apply an actual-NSE evolution theorem to the error field. An H3 reference
+is automatic under the hypothetical smooth front. Use T<S, with S=T+1.
+
+E06.scalar, E07.slab and E09.bound are helpers, not acceptance of their full
+parent milestones. The unchanged scalar E10 implication can be audited before
+E07/E08 hitting/escape or full E09 H2 convergence. Full workstream acceptance
+still requires all ten original scopes and the complete operator interpretation.
+Early native test-core commutator algebra can proceed independently; its smooth
+zero-order coefficient cancels before the half-divergence specialization.
+
+No source activation or compiler run. No local Lean. Preserve cached external
+verification and existing accepted WFB scope, sources and receipts. The stopped
+witness remains open. Speed means reduced proof infrastructure, not benchmarked
+compiler runtime or a theorem of design optimality.
+
+Current v0.3 source index: 53 anchors (28 Mathlib,25 native); 33 source-only,
+13 accepted-module source reviews and the same7 named external audits.
+New FAST01--FAST05 and ML21 are source-only. Historical counts above retain
+their original version scope. No new named theorem audit was performed.
+
+28. EHRENFEST SOURCE-EXACT IDENTITY CUTOUTS
+
+User local request: first gather the existing identities and cut them out for
+GitHub access. Collection: LEAN_CUTOUTS/EhrenfestObstruction/README.md.
+60 raw .lean.txt cutouts and readable cards cover all53 existing indexed
+anchors plus7 companion derivative/norm identities. Full source snapshots
+preserve36 pinned modules, original imports, license headers, namespace/section
+context and earlier helpers. IDENTITIES.json records ranges/hashes/evidence;
+SOURCES.json records every full source; FAST_IDENTITIES.md gives the reading
+order; import/check reference files remain nonexecuting text.
+
+Seven companion identities include arbitrary-coefficient
+finiteSobolev_H1_physical_norm_sq and within-interval inverse/norm-square,
+restriction, interior-derivative and continuity facts. They are source-only
+records and do not alter the earlier53-anchor index. The whole collection has
+40 source-only records,13 accepted-module source reviews and the same7 named
+external audits of original declarations. Copying a proof adds no acceptance.
+
+Important reuse boundary: use original module imports; do not import a defining
+module then redeclare the same theorem. Raw excerpts depend on earlier helpers
+and ambient parameters and are not standalone proof modules. Exact contextual
+wrappers are retained where part of the excerpt; complete source snapshots and
+review notes expose hidden premises/local instances. The actual forced-error
+coefficient derivative and its physical pairing, tail/C1 adapters, signed
+Gronwall slope bridge and root composition still require implementation.
+
+The existing audited QFB LEAN_CUTOUTS/Cutouts.lean and provenance remain
+unchanged. No active Material source, compiler/dependency/vendor/workflow file
+changed; no Lean execution, new endpoint acceptance or stopped witness.
+Cumulative B-tier v0.3.1 records this source-gathering stage; the shorter proof
+and literal frozen hypothesis/root are unchanged.
+
+29. EHRENFEST FIRST IMPLEMENTATION BATCH (v0.4.0)
+
+User authorizes sustained implementation and the chat-only <-> sign after each
+accepted intermediate goal. Exact external compiler/type/axiom evidence is
+required. A helper pass is named as such, never as a completed parent milestone.
+
+Six new owned modules: Definitions, ReciprocalDrift, SlabDescent, StoppedScalar,
+CanonicalBarrier and CoefficientError. Three native packages: EhrenfestScalar
+(4 declarations), EhrenfestCanonical (11), EhrenfestErrorCalculus (8). Every
+public theorem has an independent consumer type and ordered fresh audit. The
+canonical package additionally checks the literal data, drift and predicates.
+Status before external result: PREPARED_PENDING_EXTERNAL_CI. No new A-tier
+acceptance, root proof, singular witness or global custom axiom is claimed.
+
+Scalar E07 includes the exact guarded hitting equality. CanonicalBarrier
+rejects eventual slab enstrophy bounds under the literal stopped premise.
+CoefficientError differentiates arbitrary coefficient curves, proves literal
+forced balance and absorbs self-interaction. Its coordinate forced equation
+is explicit; identifying the actual projected reference error remains open.
+
+The root still requires actual smooth-front uniform reference estimates, the
+projected residual equation and mixed-term estimates, a first-exit bootstrap,
+and final composition. Existing torusSobolevInclusion_tail supplies H2-to-H1
+Fourier decay directly. Full operator/core/domain milestones remain separate.
+
+External run plan: existing push-main cached worker, Lean4.33.0, Mathlib
+db584cd6d46c92f209a44c0f1c829460d327499d, unchanged vendor and CI drivers,
+two module workers/two Lean threads, complete required fresh package audits.
+No local Lean/Lake/kernel execution. Preserve prior WFB evidence.
+
+First external attempt d1cce38f/run44621109994 failed at reciprocal inverse
+instance normalization.365 modules reused;6 new module compiles passed;
+required audits were not reached. No new acceptance. Full evidence retained
+in audits/material-d1cce38f-failed/evidence.zip. Repair changes the inverse
+chain-rule proof only; exact theorem and hypothesis types remain unchanged.
+Next verification retries the same23 theorem scopes before adding next layer.
+
+Second attempt72a09b32/run44622642427 again failed only the final reciprocal
+instance conversion. Source now uses Mathlib convert! with default transparency;
+all theorem/audit types unchanged. Retained evidence: audits/material-72a09b32-failed.
+No new acceptance; the complete next analytic layers and root are prepared
+separately and remain unactivated pending ordered external verification.
+
+Third attempt70a8a5ce/run44624844949 compiled all374 modules, including all
+new proof modules. Three new exact consumer/audit files ran and printed23
+standard-axiom blocks, but the parser rejected shortened theorem names.
+No full required-audit acceptance. Next change is audit output/options only:
+pp.fullNames, pp.universes and autoImplicit false before consumer examples.
+Proof source bytes remain unchanged; audit parser/policy is unchanged.
+Evidence: audits/material-70a8a5ce-failed/evidence.zip and summary.json.
+
+
+30. EHRENFEST FIRST ACCEPTANCE AND SECOND LAYER (v0.5.0)
+
+ACCEPTED_SOURCE = 4068641471b9b9324a5d138cacfa37a94a648bf1
+ACCEPTED_RUN = 44626474631
+PRIMARY_JOB = 135921536065; FINAL_ACCEPTANCE_JOB = 135928742922; both success.
+Publication passed. Root reviewed the complete retained archive.374 modules
+passed:365 reused and9 fresh. All58 fresh endpoint packages,288 named type/axiom
+audits and the QFB cutout passed with standard axioms only. No local Lean.
+EVIDENCE = audits/material-40686414-accepted/summary.json
+
+E07 STOPPED_SCALAR_HITTING_BOUND is checked.23 new named declarations are
+accepted: EhrenfestScalar4, EhrenfestCanonical11, EhrenfestErrorCalculus8.
+The canonical package covers reciprocal positivity/drift/continuity and the
+eventual-bound contradiction; the error package covers arbitrary finite
+coefficient calculus, literal forced balance and self-interaction absorption.
+These accepted helpers do not check full E06, full E09 or E10. The next full
+milestone is E08. All three failed attempts above remain historical evidence.
+
+SECOND_LAYER = ACTIVATED_PENDING_EXTERNAL_CI; no second-layer acceptance.
+12 additional owned sources,6 packages and85 named audits (82 theorems,3 defs):
+EhrenfestReference34, EhrenfestEscape19, EhrenfestCoreAlgebra3,
+EhrenfestPhysicalForcing9, EhrenfestBootstrap7, EhrenfestCrossTransport13.
+Current Ehrenfest activation:18 owned sources,9 packages,108 named audits;
+23 accepted and85 pending. Whole registry:64 packages/373 audits.
+Existing accepted proof/audit bytes, pins and CI policy are preserved.
+
+Historical design counts remain31 modules and9 fast-root logical blocks.
+Concrete source splitting gives25 owned dependencies for the complete held
+scalar root; first three prepared layers total30 owned sources. The third
+layer has12 sources/7 packages/75 audit candidates and is not activated.
+COUNT_RECONCILIATION.json records the mapping. The full operator realization,
+full H2 convergence, exact obstruction root and stopped-condition witness
+remain unaccepted. Main goal Weak_Fourierman_B and its finite-budget scope
+are preserved. No new global custom axiom is introduced.
+
+SECOND_LAYER_ATTEMPT_1:9595d354/run44629764703 failed before all package
+audits.380 modules passed (374 reused,6 fresh),4 failed and8 were dependency
+blocked. FourierL1, SmoothSobolevNorm, PhysicalForcing and
+SmallForcingBootstrap receive proof elaboration repairs only. Public statements
+and all audit files are unchanged; same64 packages/373 named audits will replay.
+First-layer E07 and23 scoped declarations remain accepted at406. No new
+acceptance. The third layer stays held and must be rebased after this repair.
+Evidence: audits/material-9595d354-failed/summary.json. No local Lean.
+
+SECOND_LAYER_ATTEMPT_2:976b4460/run44631562429 failed before audits.385
+modules passed (374 reused,11 fresh),3 failed and4 were dependency-blocked.
+SmallForcingBootstrap, SmoothReference and CrossTransport receive three
+proof/parser repairs only; all public statements and audit signatures remain.
+Same64 packages/373 named audits/392 modules; first23 accepted declarations
+and E07 are preserved. No new acceptance; third activation remains held.
+Evidence: audits/material-976b4460-failed/summary.json. No local Lean.
+
+SECOND_LAYER_ATTEMPT_3:e184374e/run44633131323 passed390 modules
+(374 reused,16 fresh), with only SmallForcingBootstrap failing and its endpoint
+blocked. All other active source modules compiled; no audits were reached.
+The next repair changes only the fence-derivative proof, retaining exact
+statements/audit files and64 packages/373 names/392 modules. First23 accepted
+declarations and E07 remain; no second acceptance or third activation.
+Evidence: audits/material-e184374e-failed/summary.json. No local Lean.
+
+
+31. EHRENFEST SECOND ACCEPTANCE AND THIRD ACTIVATION
+
+Source7908890a/run44635322649: full matching compiler, fresh64-package/373-name
+plusQFB audits, publication and final acceptance passed. E07/E08 checked;108
+Ehrenfest declarations accepted. Scalar/analytic/core helpers remain scoped.
+Third activation:12 new sources/7 packages/75 pending audits, including actual
+E09.bound and conditional E10. Active total411 modules/71 packages/448 names.
+No third acceptance, full H2/operator proof or stopped witness is claimed.
+PreparedE01 is an inactive ZIP plus reference documents, excluded from Material.
+Evidence: audits/material-7908890a-accepted/summary.json. Failed attempts above
+remain historical. No local Lean; WFB main goal and finite-budget scope preserved.
+
+
+THIRD_LAYER_ATTEMPT_1: 1c69828a/run44637424868 failed before audits.
+395 modules passed (392 reused,3 fresh),2 failed,14 blocked. PressureFourier
+and ErrorState receive only diagnosed proof-body repairs; public interfaces
+and consumer audits remain unchanged. Scope stays411 modules/71 packages/448
+named audits plusQFB. No third-layer acceptance; E07/E08 and108 declarations
+remain accepted at790. The conditional root and E09.bound remain pending.
+Evidence: audits/material-1c69828a-failed/summary.json. No local Lean.
+
+THIRD_LAYER_ATTEMPT_2: d6e74ba8/run44639459376 passed406 modules
+(392 reused,14 fresh); only EventualEnstrophyBound failed, with4 dependants
+blocked. PressureFourier and ErrorState repairs compiled. The sole remaining
+diagnostic is function-subtraction normalization in closed-slab continuity.
+The repair uses an explicit pointwise target and default-transparency convert!;
+all public statements and all71-package/448-name audits remain unchanged.
+No new acceptance: E07/E08 and108 declarations remain accepted; E09.bound
+and E10 remain pending. Evidence: audits/material-d6e74ba8-failed/summary.json.
+No local Lean execution.

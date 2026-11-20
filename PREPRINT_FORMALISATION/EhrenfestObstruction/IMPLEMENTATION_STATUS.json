@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "version": "0.6.0",
-  "status": "SECOND_LAYER_ACCEPTED_THIRD_LAYER_REPAIR_PENDING",
-  "metadata_basis": "7908890a0afb1746ec43f127792a7e0cc667dca6",
-  "accepted_new_declarations": 108,
+  "version": "0.7.0",
+  "status": "A_TIER_CONDITIONAL_ROOT_ACCEPTED",
+  "metadata_basis": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+  "accepted_new_declarations": 183,
   "local_lean_executions": 0,
   "public_declarations": 183,
   "packages": {
@@ -56,12 +56,12 @@
     "DynamicalRoot",
     "Root"
   ],
-  "milestone_candidate": "E10",
-  "remaining_root_edge": "Matching verification of the activated actual-front E09.bound helper and conditional E10 root; full E09 H2 convergence and operator realization remain separate.",
+  "milestone_candidate": null,
+  "remaining_root_edge": null,
   "stopped_witness_proved": false,
-  "root_proved": false,
+  "root_proved": true,
   "full_operator_translation_proved": false,
-  "full_checklist_unchanged": false,
+  "full_checklist_unchanged": true,
   "attempts": [
     {
       "commit": "d1cce38f4fd240c927c42893d23907dd3158e100",
@@ -221,40 +221,74 @@
       "project_cache_class": "PREFIX",
       "local_lean_executions": 0,
       "artifact_sha256": "2aae0da3656620483f9b1e87c5b72e171d106bbeefe7feb50bdd2e208499bb35"
+    },
+    {
+      "commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+      "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+      "run_id": 44641040255,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44641040255",
+      "status": "ACCEPTED",
+      "conclusion": "PASS",
+      "evidence": "../../audits/material-22431f03-accepted/summary.json",
+      "primary_job_id": 135971854575,
+      "acceptance_job_id": 135978130987,
+      "publication_passed": true,
+      "compiled_modules": 411,
+      "reused_modules": 392,
+      "fresh_compiler_passes": 19,
+      "fresh_package_audits": 71,
+      "named_type_axiom_audits": 448,
+      "qfb_cutout_audit_passed": true,
+      "external_controls_passed": 183,
+      "new_third_layer_declarations": 75,
+      "cumulative_ehrenfest_declarations": 183,
+      "standard_axioms_only": true,
+      "local_lean_executions": 0,
+      "full_milestones_accepted": [
+        "E07",
+        "E08",
+        "E10"
+      ],
+      "scoped_helper_accepted": "E09.bound",
+      "stopped_witness_proved": false,
+      "full_operator_translation_proved": false,
+      "full_E09_H2_convergence_proved": false
     }
   ],
   "repair": {
-    "status": "CONTINUITY_PROOF_REPAIR_PREPARED_FOR_EXTERNAL_REPLAY",
+    "status": "VERIFIED_BY_MATCHING_EXTERNAL_ACCEPTANCE",
     "failed_commit": "d6e74ba8b1c6d18ae17b595d7829b7cce8987f81",
     "failed_run": 44639459376,
     "sources": [
       "EventualEnstrophyBound"
     ],
     "scope": "Only the diagnosed function-subtraction normalization in one proof body; public statements and every exact consumer audit unchanged.",
-    "new_audits_passed": 0,
-    "prior_accepted_declarations_preserved": 108
+    "new_audits_passed": 75,
+    "prior_accepted_declarations_preserved": 108,
+    "repaired_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "evidence": "../../audits/material-22431f03-accepted/summary.json"
   },
-  "pending_new_declarations": 75,
+  "pending_new_declarations": 0,
   "accepted_packages": {
     "EhrenfestBootstrap": 7,
     "EhrenfestCanonical": 11,
+    "EhrenfestCanonicalErrorInequality": 1,
     "EhrenfestCoreAlgebra": 3,
     "EhrenfestCrossTransport": 13,
     "EhrenfestErrorCalculus": 8,
-    "EhrenfestEscape": 19,
-    "EhrenfestPhysicalForcing": 9,
-    "EhrenfestReference": 34,
-    "EhrenfestScalar": 4
-  },
-  "pending_packages": {
-    "EhrenfestCanonicalErrorInequality": 1,
     "EhrenfestErrorEquation": 6,
     "EhrenfestErrorState": 17,
+    "EhrenfestEscape": 19,
     "EhrenfestEventualEnstrophyBound": 4,
     "EhrenfestObstructionRoot": 4,
+    "EhrenfestPhysicalForcing": 9,
     "EhrenfestPressureFourier": 10,
-    "EhrenfestReferenceEvolution": 33
+    "EhrenfestReference": 34,
+    "EhrenfestReferenceEvolution": 33,
+    "EhrenfestScalar": 4
   },
+  "pending_packages": {},
   "owned_module_count": 30,
   "accepted_owned_modules": [
     "SlabDescent",
@@ -274,9 +308,7 @@
     "CoreAlgebra",
     "PhysicalForcing",
     "SmallForcingBootstrap",
-    "CrossTransport"
-  ],
-  "pending_owned_modules": [
+    "CrossTransport",
     "ReferenceCoefficientEvolution",
     "PhysicalReferenceTail",
     "ProjectedReferenceEvolution",
@@ -290,9 +322,11 @@
     "DynamicalRoot",
     "Root"
   ],
+  "pending_owned_modules": [],
   "accepted_full_milestones": [
     "E07",
-    "E08"
+    "E08",
+    "E10"
   ],
   "first_layer_acceptance": {
     "commit": "4068641471b9b9324a5d138cacfa37a94a648bf1",
@@ -406,10 +440,10 @@
     "new_owned_modules": 12,
     "new_packages": 7,
     "named_audits": 75,
-    "status": "ACTIVE_REPAIR_PENDING_EXTERNAL_CI"
+    "status": "ACTIVATED_AND_ACCEPTED"
   },
   "counts_file": "COUNT_RECONCILIATION.json",
-  "next_required_helper": "E09.bound",
+  "next_required_helper": null,
   "second_layer_acceptance": {
     "commit": "7908890a0afb1746ec43f127792a7e0cc667dca6",
     "run_id": 44635322649,
@@ -433,6 +467,61 @@
     "named_audits": 373
   },
   "third_layer": {
+    "status": "ACCEPTED",
+    "new_owned_modules": 12,
+    "new_packages": 7,
+    "named_audits": 75,
+    "theorems": 74,
+    "definitions": 1,
+    "accepted_declarations": 75,
+    "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "evidence": "../../audits/material-22431f03-accepted/summary.json"
+  },
+  "inactive_E01_retention": {
+    "path": "PreparedE01",
+    "status": "PREPARED_SOURCE_ONLY",
+    "registered_modules": 0,
+    "archive_sha256": "e08599a79d0328c004060604ea102a29f37e90365f1edb66f86accc4fcd4b121",
+    "formal_acceptance": false
+  },
+  "date": "2026-11-20",
+  "project_goal": "EHRENFEST_OBSTRUCTION",
+  "retained_foundation": "Weak_Fourierman_B",
+  "source_review_revision": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+  "current_external_result": {
+    "commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44641040255",
+    "status": "ACCEPTED",
+    "conclusion": "PASS",
+    "evidence": "../../audits/material-22431f03-accepted/summary.json",
+    "primary_job_id": 135971854575,
+    "acceptance_job_id": 135978130987,
+    "publication_passed": true,
+    "compiled_modules": 411,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 19,
+    "fresh_package_audits": 71,
+    "named_type_axiom_audits": 448,
+    "qfb_cutout_audit_passed": true,
+    "external_controls_passed": 183,
+    "new_third_layer_declarations": 75,
+    "cumulative_ehrenfest_declarations": 183,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0,
+    "full_milestones_accepted": [
+      "E07",
+      "E08",
+      "E10"
+    ],
+    "scoped_helper_accepted": "E09.bound",
+    "stopped_witness_proved": false,
+    "full_operator_translation_proved": false,
+    "full_E09_H2_convergence_proved": false
+  },
+  "historical_third_layer_failure": {
     "status": "FAILED_COMPILATION_REPAIR_PENDING",
     "new_owned_modules": 12,
     "new_packages": 7,
@@ -444,11 +533,60 @@
     "run_id": 44639459376,
     "evidence": "../../audits/material-d6e74ba8-failed/summary.json"
   },
-  "inactive_E01_retention": {
-    "path": "PreparedE01",
-    "status": "PREPARED_SOURCE_ONLY",
-    "registered_modules": 0,
-    "archive_sha256": "e08599a79d0328c004060604ea102a29f37e90365f1edb66f86accc4fcd4b121",
-    "formal_acceptance": false
-  }
+  "historical_continuity_repair": {
+    "status": "CONTINUITY_PROOF_REPAIR_PREPARED_FOR_EXTERNAL_REPLAY",
+    "failed_commit": "d6e74ba8b1c6d18ae17b595d7829b7cce8987f81",
+    "failed_run": 44639459376,
+    "sources": [
+      "EventualEnstrophyBound"
+    ],
+    "scope": "Only the diagnosed function-subtraction normalization in one proof body; public statements and every exact consumer audit unchanged.",
+    "new_audits_passed": 0,
+    "prior_accepted_declarations_preserved": 108
+  },
+  "conditional_root_proved": true,
+  "full_E09_H2_convergence_proved": false,
+  "project_goal_status": "EXACT_CONDITIONAL_ROOT_ACCEPTED",
+  "third_layer_acceptance": {
+    "commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44641040255",
+    "status": "ACCEPTED",
+    "conclusion": "PASS",
+    "evidence": "../../audits/material-22431f03-accepted/summary.json",
+    "primary_job_id": 135971854575,
+    "acceptance_job_id": 135978130987,
+    "publication_passed": true,
+    "compiled_modules": 411,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 19,
+    "fresh_package_audits": 71,
+    "named_type_axiom_audits": 448,
+    "qfb_cutout_audit_passed": true,
+    "external_controls_passed": 183,
+    "new_third_layer_declarations": 75,
+    "cumulative_ehrenfest_declarations": 183,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0,
+    "full_milestones_accepted": [
+      "E07",
+      "E08",
+      "E10"
+    ],
+    "scoped_helper_accepted": "E09.bound",
+    "stopped_witness_proved": false,
+    "full_operator_translation_proved": false,
+    "full_E09_H2_convergence_proved": false
+  },
+  "accepted_registry_at_third_layer": {
+    "modules": 411,
+    "packages": 71,
+    "named_audits": 448
+  },
+  "open_separate_obligations": [
+    "StoppedCommutatorBound witness existence",
+    "Full operator/domain realization E01-E06",
+    "Full E09 H2 convergence"
+  ]
 }

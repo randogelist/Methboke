@@ -1,0 +1,546 @@
+EhrenfestReferenceEvolution/Audit.lean:153:28: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+EhrenfestReferenceEvolution/Audit.lean:234:26: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+EhrenfestReferenceEvolution/Audit.lean:235:7: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+EhrenfestReferenceEvolution/Audit.lean:240:28: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+EhrenfestReferenceEvolution/Audit.lean:241:7: warning: Variable name `hx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.local_hasDerivAt_complex_cube_integral
+MethbokeAddon.EhrenfestObstruction.local_hasDerivAt_complex_cube_integral : ∀ (S : ℝ)
+  (F D : ℝ → SingularClosure.Vec → ℂ),
+  ContinuousOn.{0, 0} (fun z => F z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime S) →
+    ContinuousOn.{0, 0} (fun z => D z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime S) →
+      (∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+            ∀ (x : SingularClosure.Vec), HasDerivAt.{0, 0} (fun r => F r x) (D t x) t) →
+        ∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+            HasDerivAt.{0, 0} (fun r => ∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, F r x)
+              (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, D t x) t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.local_hasDerivAt_complex_cube_integral
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.local_hasDerivAt_complex_cube_integral
+'MethbokeAddon.EhrenfestObstruction.local_hasDerivAt_complex_cube_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.local_hasDerivAt_complex_cube_integral
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_complex_cube_integral_continuousOn_Icc
+MethbokeAddon.EhrenfestObstruction.initial_complex_cube_integral_continuousOn_Icc : ∀ (S : ℝ)
+  (F : ℝ → SingularClosure.Vec → ℂ),
+  ContinuousOn.{0, 0} (fun z => F z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S) →
+    ∀ (T : ℝ),
+      LT.lt.{0} T S →
+        ContinuousOn.{0, 0} (fun r => ∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, F r x) (Set.Icc.{0} 0 T)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_complex_cube_integral_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_complex_cube_integral_continuousOn_Icc
+'MethbokeAddon.EhrenfestObstruction.initial_complex_cube_integral_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_complex_cube_integral_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierIntegrand_continuousOn_spacetime
+MethbokeAddon.EhrenfestObstruction.datumFourierIntegrand_continuousOn_spacetime : ∀ (u : SingularClosure.Velocity)
+  (s : Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)),
+  ContinuousOn.{0, 0} (fun z => u z.1 z.2) s →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+      ContinuousOn.{0, 0} (fun z => SingularClosure.datumFourierIntegrand (u z.1) k i z.2) s
+TYPE_END:MethbokeAddon.EhrenfestObstruction.datumFourierIntegrand_continuousOn_spacetime
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierIntegrand_continuousOn_spacetime
+'MethbokeAddon.EhrenfestObstruction.datumFourierIntegrand_continuousOn_spacetime' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.datumFourierIntegrand_continuousOn_spacetime
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt
+MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt : ∀ (u : SingularClosure.Velocity) (S : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ (↑Top.top.{0}) (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime S) →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3) (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        HasDerivAt.{0, 0} (fun r => SingularClosure.datumFourierCoeff (u r) k i)
+          (SingularClosure.datumFourierCoeff (SingularClosure.timeDerivative u t) k i) t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt
+'MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_hasDerivAt
+MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_hasDerivAt : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3) (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        HasDerivAt.{0, 0} (fun r => SingularClosure.datumFourierCoeff (u r) k i)
+          (SingularClosure.datumFourierCoeff (SingularClosure.timeDerivative u t) k i) t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_hasDerivAt
+'MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_continuousOn_Icc
+MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_continuousOn_Icc : ∀ (ν S : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3) (T : ℝ),
+      LT.lt.{0} T S → ContinuousOn.{0, 0} (fun t => SingularClosure.datumFourierCoeff (u t) k i) (Set.Icc.{0} 0 T)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_continuousOn_Icc
+'MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_datumFourierCoeff_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_solenoidal
+MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_solenoidal : ∀ (ν S : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        SingularClosure.SpectralSolenoidal (SingularClosure.datumFourierCoeff (SingularClosure.timeDerivative u t))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_solenoidal
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_solenoidal
+'MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_solenoidal' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_solenoidal
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_leray
+MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_leray : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        ∀ (k : SingularClosure.Frequency),
+          Eq.{1}
+            (SingularClosure.coefficientLeray k
+              (SingularClosure.datumFourierCoeff (SingularClosure.timeDerivative u t) k))
+            (SingularClosure.datumFourierCoeff (SingularClosure.timeDerivative u t) k)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_leray
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_leray
+'MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_leray' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_timeDerivative_fourier_leray
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.torusSobolev_H0_component_tsum_norm_sq_le
+MethbokeAddon.EhrenfestObstruction.torusSobolev_H0_component_tsum_norm_sq_le : ∀ (c : SingularClosure.TorusSobolev 0)
+  (i : Fin 3),
+  LE.le.{0} (∑' (k : SingularClosure.Frequency), HPow.hPow.{0, 0, 0} (Norm.norm.{0} (↑c k i)) 2)
+    (HPow.hPow.{0, 0, 0} (Norm.norm.{0} c) 2)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.torusSobolev_H0_component_tsum_norm_sq_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.torusSobolev_H0_component_tsum_norm_sq_le
+'MethbokeAddon.EhrenfestObstruction.torusSobolev_H0_component_tsum_norm_sq_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.torusSobolev_H0_component_tsum_norm_sq_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval
+MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (i : Fin 3),
+        Eq.{1}
+          (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, HPow.hPow.{0, 0, 0} (WithLp.ofLp.{0} (v x) i) 2)
+          (∑' (k : SingularClosure.Frequency),
+            HPow.hPow.{0, 0, 0} (Norm.norm.{0} (SingularClosure.datumFourierCoeff v k i)) 2)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval
+'MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H0_norm_sq
+MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H0_norm_sq : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (c : SingularClosure.TorusSobolev 0),
+        Eq.{1} (↑c) (SingularClosure.datumFourierCoeff v) →
+          LE.le.{0} (SingularClosure.physicalEnergy v) (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} (Norm.norm.{0} c) 2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H0_norm_sq
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H0_norm_sq
+'MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H0_norm_sq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H0_norm_sq
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H1_norm_sq
+MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H1_norm_sq : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (c : SingularClosure.TorusSobolev 1),
+        Eq.{1} (↑c) (SingularClosure.datumFourierCoeff v) →
+          LE.le.{0} (SingularClosure.physicalEnergy v) (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} (Norm.norm.{0} c) 2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H1_norm_sq
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H1_norm_sq
+'MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H1_norm_sq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalEnergy_le_H1_norm_sq
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalDissipation_le_H1_norm_sq
+MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalDissipation_le_H1_norm_sq : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (c : SingularClosure.TorusSobolev 1),
+        Eq.{1} (↑c) (SingularClosure.datumFourierCoeff v) →
+          LE.le.{0} (SingularClosure.physicalDissipation v)
+            (HMul.hMul.{0, 0, 0} 9 (HPow.hPow.{0, 0, 0} (Norm.norm.{0} c) 2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalDissipation_le_H1_norm_sq
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalDissipation_le_H1_norm_sq
+'MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalDissipation_le_H1_norm_sq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physicalDissipation_le_H1_norm_sq
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physical_H1_le_torusSobolev
+MethbokeAddon.EhrenfestObstruction.smooth_periodic_physical_H1_le_torusSobolev : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (c : SingularClosure.TorusSobolev 1),
+        Eq.{1} (↑c) (SingularClosure.datumFourierCoeff v) →
+          LE.le.{0}
+            (HAdd.hAdd.{0, 0, 0}
+              (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (v x)) 2)
+              (SingularClosure.physicalDissipation v))
+            (HMul.hMul.{0, 0, 0} 12 (HPow.hPow.{0, 0, 0} (Norm.norm.{0} c) 2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physical_H1_le_torusSobolev
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physical_H1_le_torusSobolev
+'MethbokeAddon.EhrenfestObstruction.smooth_periodic_physical_H1_le_torusSobolev' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smooth_periodic_physical_H1_le_torusSobolev
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.ehrenfest_datumFourierCoeff_sub
+MethbokeAddon.EhrenfestObstruction.ehrenfest_datumFourierCoeff_sub : ∀ (a b : SingularClosure.Field),
+  Continuous.{0, 0} a →
+    Continuous.{0, 0} b →
+      Eq.{1} (SingularClosure.datumFourierCoeff (HSub.hSub.{0, 0, 0} a b))
+        (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff a) (SingularClosure.datumFourierCoeff b))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.ehrenfest_datumFourierCoeff_sub
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.ehrenfest_datumFourierCoeff_sub
+'MethbokeAddon.EhrenfestObstruction.ehrenfest_datumFourierCoeff_sub' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.ehrenfest_datumFourierCoeff_sub
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail
+MethbokeAddon.EhrenfestObstruction.physicalReferenceTail : ℕ → SingularClosure.Field → SingularClosure.Field
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail
+'MethbokeAddon.EhrenfestObstruction.physicalReferenceTail' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_smooth
+MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_smooth : ∀ (N : ℕ) (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail N v)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_smooth
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_smooth
+'MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_smooth
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_periodic
+MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_periodic : ∀ (N : ℕ) (v : SingularClosure.Field),
+  SingularClosure.SpatialPeriodic.{0} v →
+    SingularClosure.SpatialPeriodic.{0} (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail N v)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_periodic
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_periodic
+'MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_periodic' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_periodic
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_coeff
+MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_coeff : ∀ (N : ℕ) (v : SingularClosure.Field),
+  Continuous.{0, 0} v →
+    Eq.{1} (SingularClosure.datumFourierCoeff (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail N v))
+      (HSub.hSub.{0, 0, 0} (SingularClosure.datumFourierCoeff v)
+        (SingularClosure.cutoffCoeff N (SingularClosure.datumFourierCoeff v)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_coeff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_coeff
+'MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_coeff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_coeff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le
+MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le : ∀ (n : ℕ) (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (c : SingularClosure.TorusSobolev 2),
+        Eq.{1} (↑c) (SingularClosure.datumFourierCoeff v) →
+          (∀ (i : Fin 3), Eq.{1} (↑c 0 i) 0) →
+            LE.le.{0}
+              (HAdd.hAdd.{0, 0, 0}
+                (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+                  HPow.hPow.{0, 0, 0}
+                    (Norm.norm.{0}
+                      (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) v x))
+                    2)
+                (SingularClosure.physicalDissipation
+                  (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) v)))
+              (HMul.hMul.{0, 0, 0} 12
+                (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (MethbokeAddon.EhrenfestObstruction.referenceH1Tail n c)) 2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le
+'MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le_rate
+MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le_rate : ∀ (n : ℕ) (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      ∀ (c : SingularClosure.TorusSobolev 2),
+        Eq.{1} (↑c) (SingularClosure.datumFourierCoeff v) →
+          (∀ (i : Fin 3), Eq.{1} (↑c 0 i) 0) →
+            LE.le.{0}
+              (HAdd.hAdd.{0, 0, 0}
+                (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+                  HPow.hPow.{0, 0, 0}
+                    (Norm.norm.{0}
+                      (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) v x))
+                    2)
+                (SingularClosure.physicalDissipation
+                  (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) v)))
+              (HMul.hMul.{0, 0, 0} 12
+                (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Inv.inv.{0} ↑(HAdd.hAdd.{0, 0, 0} n 1)) (Norm.norm.{0} c))
+                  2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le_rate
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le_rate
+'MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le_rate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.physicalReferenceTail_physical_H1_le_rate
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smoothDatum_physicalReferenceTail_physical_H1_le_rate
+MethbokeAddon.EhrenfestObstruction.smoothDatum_physicalReferenceTail_physical_H1_le_rate : ∀ (n : ℕ)
+  (v : SingularClosure.Field) (hv : ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) v) (hp : SingularClosure.SpatialPeriodic.{0} v),
+  SingularClosure.SpectralMeanZero (SingularClosure.datumFourierCoeff v) →
+    LE.le.{0}
+      (HAdd.hAdd.{0, 0, 0}
+        (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+          HPow.hPow.{0, 0, 0}
+            (Norm.norm.{0} (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) v x)) 2)
+        (SingularClosure.physicalDissipation
+          (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) v)))
+      (HMul.hMul.{0, 0, 0} 12
+        (HPow.hPow.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (Inv.inv.{0} ↑(HAdd.hAdd.{0, 0, 0} n 1))
+            (Norm.norm.{0} (SingularClosure.smoothDatumSobolev 2 v hv hp)))
+          2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smoothDatum_physicalReferenceTail_physical_H1_le_rate
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smoothDatum_physicalReferenceTail_physical_H1_le_rate
+'MethbokeAddon.EhrenfestObstruction.smoothDatum_physicalReferenceTail_physical_H1_le_rate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smoothDatum_physicalReferenceTail_physical_H1_le_rate
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_physical_H1_tail
+MethbokeAddon.EhrenfestObstruction.initial_front_uniform_physical_H1_tail : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (T : ℝ),
+      LT.lt.{0} T S →
+        ∃ K,
+          LE.le.{0} 1 K ∧
+            ∀ (n : ℕ) (t : ℝ),
+              Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                LE.le.{0}
+                  (HAdd.hAdd.{0, 0, 0}
+                    (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,
+                      HPow.hPow.{0, 0, 0}
+                        (Norm.norm.{0}
+                          (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) (u t) x))
+                        2)
+                    (SingularClosure.physicalDissipation
+                      (MethbokeAddon.EhrenfestObstruction.physicalReferenceTail (HAdd.hAdd.{0, 0, 0} n 1) (u t))))
+                  (HMul.hMul.{0, 0, 0} 12
+                    (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Inv.inv.{0} ↑(HAdd.hAdd.{0, 0, 0} n 1)) K) 2))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_physical_H1_tail
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_physical_H1_tail
+'MethbokeAddon.EhrenfestObstruction.initial_front_uniform_physical_H1_tail' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_physical_H1_tail
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_rhs
+MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_rhs : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3) (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        Eq.{1} (SingularClosure.datumFourierCoeff (SingularClosure.timeDerivative u t) k i)
+          (HSub.hSub.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0}
+              (Neg.neg.{0}
+                ↑(HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} ν (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) 2))
+                    ↑(SingularClosure.galerkinFreqSq k)))
+              (SingularClosure.datumFourierCoeff (u t) k i))
+            (SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff (SingularClosure.convection (u t)) k)
+              i))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_rhs
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_rhs
+'MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_rhs' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_rhs
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_hasDerivAt
+MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_hasDerivAt : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3) (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        HasDerivAt.{0, 0} (fun r => SingularClosure.datumFourierCoeff (u r) k i)
+          (HSub.hSub.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0}
+              (Neg.neg.{0}
+                ↑(HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} ν (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) 2))
+                    ↑(SingularClosure.galerkinFreqSq k)))
+              (SingularClosure.datumFourierCoeff (u t) k i))
+            (SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff (SingularClosure.convection (u t)) k)
+              i))
+          t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_hasDerivAt
+'MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_projected_fourier_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_hasDerivAt
+MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_hasDerivAt : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (N : ℕ) (k : SingularClosure.Frequency) (i : Fin 3) (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 S) t →
+        HasDerivAt.{0, 0} (fun r => SingularClosure.cutoffCoeff N (SingularClosure.datumFourierCoeff (u r)) k i)
+          (SingularClosure.cutoffCoeff N
+            (fun q j =>
+              HSub.hSub.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0}
+                  (Neg.neg.{0}
+                    ↑(HMul.hMul.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} ν (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) 2))
+                        ↑(SingularClosure.galerkinFreqSq q)))
+                  (SingularClosure.datumFourierCoeff (u t) q j))
+                (SingularClosure.coefficientLeray q
+                  (SingularClosure.datumFourierCoeff (SingularClosure.convection (u t)) q) j))
+            k i)
+          t
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_hasDerivAt
+'MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_continuousOn_Icc
+MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_continuousOn_Icc : ∀ (ν S : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (N : ℕ) (k : SingularClosure.Frequency) (i : Fin 3) (T : ℝ),
+      LT.lt.{0} T S →
+        ContinuousOn.{0, 0} (fun t => SingularClosure.cutoffCoeff N (SingularClosure.datumFourierCoeff (u t)) k i)
+          (Set.Icc.{0} 0 T)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_continuousOn_Icc
+'MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_cutoff_fourier_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.vec_norm_le_two_mul_of_component_abs_le
+MethbokeAddon.EhrenfestObstruction.vec_norm_le_two_mul_of_component_abs_le : ∀ (v : SingularClosure.Vec) (B : ℝ),
+  LE.le.{0} 0 B →
+    (∀ (i : Fin 3), LE.le.{0} (abs.{0} (WithLp.ofLp.{0} v i)) B) → LE.le.{0} (Norm.norm.{0} v) (HMul.hMul.{0, 0, 0} 2 B)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.vec_norm_le_two_mul_of_component_abs_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.vec_norm_le_two_mul_of_component_abs_le
+'MethbokeAddon.EhrenfestObstruction.vec_norm_le_two_mul_of_component_abs_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.vec_norm_le_two_mul_of_component_abs_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_sum_coordinate_norm
+MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_sum_coordinate_norm : ∀ (v : SingularClosure.Field)
+  (x : SingularClosure.Vec),
+  LE.le.{0} (Norm.norm.{0} (fderiv.{0, 0, 0} ℝ v x)) (∑ j, Norm.norm.{0} (SingularClosure.coordinateDerivative v j x))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_sum_coordinate_norm
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_sum_coordinate_norm
+'MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_sum_coordinate_norm' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_sum_coordinate_norm
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_three_mul_of_coordinate_norm_le
+MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_three_mul_of_coordinate_norm_le : ∀ (v : SingularClosure.Field)
+  (x : SingularClosure.Vec) (B : ℝ),
+  (∀ (j : Fin 3), LE.le.{0} (Norm.norm.{0} (SingularClosure.coordinateDerivative v j x)) B) →
+    LE.le.{0} (Norm.norm.{0} (fderiv.{0, 0, 0} ℝ v x)) (HMul.hMul.{0, 0, 0} 3 B)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_three_mul_of_coordinate_norm_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_three_mul_of_coordinate_norm_le
+'MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_three_mul_of_coordinate_norm_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_three_mul_of_coordinate_norm_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_six_mul_of_component_abs_le
+MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_six_mul_of_component_abs_le : ∀ (v : SingularClosure.Field)
+  (x : SingularClosure.Vec) (B : ℝ),
+  LE.le.{0} 0 B →
+    (∀ (j i : Fin 3), LE.le.{0} (abs.{0} (WithLp.ofLp.{0} (SingularClosure.coordinateDerivative v j x) i)) B) →
+      LE.le.{0} (Norm.norm.{0} (fderiv.{0, 0, 0} ℝ v x)) (HMul.hMul.{0, 0, 0} 6 B)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_six_mul_of_component_abs_le
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_six_mul_of_component_abs_le
+'MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_six_mul_of_component_abs_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.fderiv_norm_le_six_mul_of_component_abs_le
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_joint_smooth_uniform_fderiv_norm
+MethbokeAddon.EhrenfestObstruction.initial_joint_smooth_uniform_fderiv_norm : ∀ (u : SingularClosure.Velocity) (S : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ (↑Top.top.{0}) (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime S) →
+    ∀ (T : ℝ),
+      LT.lt.{0} T S →
+        ∃ C,
+          LE.le.{0} 1 C ∧
+            ∀ (t : ℝ),
+              Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                ∀ (x : SingularClosure.Vec),
+                  Membership.mem.{0, 0} SingularClosure.unitCube x →
+                    LE.le.{0} (Norm.norm.{0} (fderiv.{0, 0, 0} ℝ (u t) x)) C
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_joint_smooth_uniform_fderiv_norm
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_joint_smooth_uniform_fderiv_norm
+'MethbokeAddon.EhrenfestObstruction.initial_joint_smooth_uniform_fderiv_norm' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_joint_smooth_uniform_fderiv_norm
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_C1_norms
+MethbokeAddon.EhrenfestObstruction.initial_front_uniform_C1_norms : ∀ (ν S : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a u p →
+    ∀ (T : ℝ),
+      LT.lt.{0} T S →
+        ∃ M,
+          LE.le.{0} 1 M ∧
+            ∀ (N : ℕ) (t : ℝ),
+              Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                ∀ (x : SingularClosure.Vec),
+                  Membership.mem.{0, 0} SingularClosure.unitCube x →
+                    LE.le.{0}
+                        (Norm.norm.{0} (SingularClosure.finiteSynthesis N (SingularClosure.datumFourierCoeff (u t)) x))
+                        M ∧
+                      LE.le.{0}
+                          (Norm.norm.{0}
+                            (fderiv.{0, 0, 0} ℝ
+                              (SingularClosure.finiteSynthesis N (SingularClosure.datumFourierCoeff (u t))) x))
+                          M ∧
+                        LE.le.{0} (Norm.norm.{0} (fderiv.{0, 0, 0} ℝ (u t) x)) M
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_C1_norms
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_C1_norms
+'MethbokeAddon.EhrenfestObstruction.initial_front_uniform_C1_norms' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_uniform_C1_norms

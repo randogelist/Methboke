@@ -1,134 +1,140 @@
-# Shortest identified Lean route
+# Implemented scalar-root route
 
-**Current activation0.6.0:** E07/E08 and108 scoped declarations accepted at790;75 third-layer audits pending. 30 owned sources are active; historical31 modules/nine logical blocks are design counts, and the scalar-root closure has25 owned dependencies. E09.bound/E10 are pending; full operator and H2 milestones remain open. [Ledger](IMPLEMENTATION_STATUS.json).
+The project goal is `∀ ν>0, StoppedCommutatorBound ν → ¬ NSE_B ν`.
+The literal stopped premise and all public theorem types are unchanged.
+At `22431f032c868b8de1526767d7d32a2639f6a9ee`, the scalar implementation is complete;
+[run 44641040255](https://github.com/randogelist/Methboke/actions/runs/44641040255)
+passed the full compiler/type/axiom and publication/final-acceptance gates.
+[Matching evidence](../../audits/material-22431f03-accepted/summary.json) accepts
+E09.bound and exact conditional E10, including 75 new declarations; all 183
+scoped Ehrenfest declarations are now accepted. The full operator and H2
+milestones and the stopped witness remain separate and open.
 
+## Same datum and exact drift
 
-**Version 0.3.0 — B-tier derivation and proposed layout only.** The frozen implication and its stopped premise are unchanged. This is a reduction in new proof infrastructure; no compiler timing or global runtime optimality is claimed.
-
-The historical scalar-root design has **nine logical blocks within31 proposed modules**. Concrete helper splitting now gives25 owned dependencies for the activated root. Current activation has 30 owned sources; E07, E08 and 108 scoped declarations are accepted, while 75 third-layer audit candidates remain pending. See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json) and [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json). The stronger milestones and optional full bundle retain their original scope.
-
-The [existing identity cutouts](../../LEAN_CUTOUTS/EhrenfestObstruction/FAST_IDENTITIES.md) provide the initial reusable inputs, including original proof bodies and imports. [Remaining adapters](../../LEAN_CUTOUTS/EhrenfestObstruction/REMAINING_ADAPTERS.md) records what the sources do not yet prove.
-
-## Two mathematical reductions
-
-### 1. One cutoff and one mean-value comparison
-
-Suppose the stopped premise holds for one fixed smooth datum. Set `T=1/gamma`. Under a hypothetical global smooth solution, prove only
-
-```text
-exists C, eventually n,
-  forall t in [0,T], e_n(t) <= C.
-```
-
-Choose one index beyond the stopped and stability indices with `R_n>C`. For every `t<T`, all earlier times satisfy `e_n(s)<=C<R_n`, so the literal `PreHit` guard holds. Consequently `v_n'=c_n<=-gamma` throughout `(0,T)`. The pinned Mathlib theorem `exists_hasDerivAt_eq_slope` gives
+Use the canonical solution `u_n` at physical cutoff `N=n+1`. Fix one smooth
+solenoidal mean-zero datum `a`, viscosity `ν>0`, `e_*>0`, `γ>0`, and positive
+thresholds `R_n→∞`. Define
 
 ```text
-v_n(T) <= v_n(0)-gamma*T <= 0,
+e_n = coefficientDissipation(N,u_n)/2,
+V_n = (1+e_n/e_*)^(-1),
+c_n = (ν Z_n + Pwr_n)/(e_* (1+e_n/e_*)^2),
+T = 1/γ.
 ```
 
-contradicting `0<v_n(T)`. Both endpoint continuity and `v_n(0)<=1` follow from the actual canonical reciprocal. There is no need for the stopped inequality or an ordinary derivative at `T`.
+The native identity is `e_n′=-ν Z_n-Pwr_n`, so `V_n′=c_n` and `0<V_n≤1`.
+The stopped predicate asserts `c_n≤−γ` eventually in cutoff, only for
+`t<T` when all `e_n(s)<R_n` for `0≤s≤t`. No hitting-time construction is needed.
 
-This proof uses no threshold hitting-time definition, initial bound uniform in cutoff, divergent supremum, or finite maximum over small cutoffs. E07's hitting theorem and E08's threshold escape remain valid independent milestones.
+## Actual-front H1 error bound
 
-### 2. Eventual H1 control instead of full H2 error convergence
-
-For an actual smooth solution `U` on a front `[0,S)`, take `0<=T<S`. Write
+Assume an actual `InitialClassicalFront ν S a U P` with `T<S`. Define
+`v_n=P_N U`, `r_n=U−v_n`, `w_n=u_n−v_n`, and `D_n=||∇w_n||₂²`.
+The spatial differential below uses the operator norm; the integrated
+gradient-square quantities use the summed component norm. The actual smooth
+front supplies `M,K≥1` and finite `K_D`, independent of cutoff, such that
 
 ```text
-v_N=P_N U,  r_N=U-v_N,  w_N=u_N-v_N,  N=n+1,
-f_N=P_N P_Leray(B(r_N,U)+B(v_N,r_N)).
+||v_n||∞, ||d v_n||∞, ||d U||∞ ≤ M,
+||r_n||₂²+||∇r_n||₂² ≤ 12 K²/N²,
+||∇v_n||₂² ≤ K_D.
 ```
 
-The exact error equation is
+For `B(x,y)=(x·∇)y` and `Π_N=P_N P_Leray`, the residual and error equation are
 
 ```text
-w_N' + nu*A*w_N
-  + P_N P_Leray(B(w_N,w_N)+B(v_N,w_N)+B(w_N,v_N)) = f_N,
-w_N(0)=0.
+R_n^res = B(r_n,U)+B(v_n,r_n) = B(U,U)−B(v_n,v_n),
+w_n′+ν A w_n+Π_N[B(w_n,w_n)+B(v_n,w_n)+B(w_n,v_n)] = Π_N R_n^res,
+w_n(0)=0.
 ```
 
-For the primary source-grounded route choose finite `K>=1` controlling the actual reference's H3 norm and first spatial derivatives on `[0,T]`. Smoothness gives this on the strict subslab; it is no new hypothesis on the stopped datum. Use the existing finite Fourier H2-to-coefficient-l1 estimate on coefficients and their first-derivative multipliers to get
+The coefficient derivatives and Leray pressure cancellation are derived from
+the actual equations. The forced error is not treated as an unforced NSE
+solution. The physical residual estimate gives
 
 ```text
-||v_N||_infinity + ||grad v_N||_infinity <= C*K.
+||R_n^res||₂² ≤ 6 M² (||r_n||₂²+||∇r_n||₂²) ≤ 72 M² K²/N².
 ```
 
-Use the existing Sobolev multiplier norm estimate with the actual cutoff complement to prove
+Arbitrary-field nonlinear absorption, Poincare and Young inequalities give
 
 ```text
-||r_N||_H1 <= C*K/N,   ||f_N||_2 <= C*K^2/N.
+D_n′ ≤ (C₀/ν³)D_n³ + (24 M²/ν)D_n + (6/ν)||R_n^res||₂².
+C = C₀/ν³ + 24 M²/ν + 1 > 0,
+A₀ = 432 M² K²/ν > 0,
+ε_n = A₀/N² → 0,
+D_n′ ≤ C(D_n+D_n³)+ε_n.
 ```
 
-For the residual, use only `||B(r,U)||2 <= ||r||2 ||grad U||infinity` and `||B(v,r)||2 <= ||v||infinity ||grad r||2`. The coefficient-l1 and tail sources still need finite-mode, componentwise and physical-normalization adapters; they are not already the displayed final estimates.
-
-Put `D_N=||grad w_N||2^2` and `Z_N=||A w_N||2^2`. Pair the finite error equation with `A w_N`; Fourier and Leray projections disappear under this pairing. Its self-interaction has exactly the sign of
+Closed-slab coefficient continuity and finite summation give continuity of
+`D_n`; the derivatives are required only on `(0,T)`. For sufficiently large
+`n`, `2 ε_n exp((2C+1)T)≤1`. Use the positive comparison function
+`F_n(t)=2 ε_n exp((2C+1)t)`. At a potential contact `D_n=F_n≤1`,
 
 ```text
-integral convection(w_N) dot laplacian(w_N).
+D_n′ ≤ 2C F_n+ε_n < (2C+1)F_n = F_n′.
 ```
 
-Apply the existing **arbitrary-field** `PHYSICAL_NONLINEAR_ABSORPTION`, with a viscosity fraction, to bound that self-interaction by a small multiple of `nu*Z_N` plus `C_nu*D_N^3`. Its hypotheses are smoothness, periodicity and mean zero; `w_N` need not solve NSE. The source theorem is one-sided, which is exactly sufficient for this signed term.
-
-The two mixed terms are bounded by
+Initial continuity supplies an interior starting point and terminal
+continuity gives the endpoint. Thus `D_n≤F_n≤1` on the whole closed slab.
+The unit error bound is a conclusion, not an input. Reconstruction yields
 
 ```text
-(||grad v_N||infinity ||w_N||2
- + ||v_N||infinity ||grad w_N||2) * sqrt(Z_N).
+e_n(t) ≤ D_n(t)+||∇v_n(t)||₂² ≤ 1+K_D,
+exists Cstar, eventually n, forall t in [0,T], e_n(t)≤Cstar.
 ```
 
-Mean-zero Poincare and Young absorb them, together with the residual, into the remaining viscosity budget. Thus
+This is exactly `E09.bound`. No full H2 convergence, all-cutoff maximum or
+uniform initial enstrophy estimate is needed by the root.
+
+## One cutoff and one scalar contradiction
+
+Intersect the eventual stability bound, the stopped-index bound, and
+`R_n>Cstar`. For one resulting index every earlier time stays below `R_n`,
+so the literal `PreHit` guard holds at every `t∈(0,T)`. Consequently
+`V_n′≤−γ`. Mean-value comparison gives
 
 ```text
-D_N' <= C_(nu,K)*(D_N+D_N^3) + C_(nu,K)/N^2,
-D_N(0)=0.
+0 < V_n(T) ≤ V_n(0)−γT ≤ 1−1 = 0.
 ```
 
-On `D_N<=1`, apply Gronwall to obtain `D_N(t)<=C_(nu,K,T)/N^2`. For sufficiently large `N` the bound is strictly below one, so continuity excludes an error-bootstrap exit at `D_N=1`. This is an internal scalar bootstrap; it is not construction of the stopped condition's threshold hit. Therefore
+No derivative or stopped-rate assertion at either endpoint is needed.
+A hypothetical global smooth pair for the same datum supplies the strict
+front `S=T+1`, yielding the exact conditional E10 theorem.
 
-```text
-e_N(u_N(t)) <= ||grad v_N(t)||2^2 + D_N(t) <= K^2+1
-```
+## Source and internal-step mapping
 
-eventually in cutoff and uniformly on `[0,T]`. This is exactly the missing bound in the scalar contradiction.
+All modules below are under `Material/MethbokeAddon/EhrenfestObstruction/`.
+The [cumulative text](../../EHRENFEST_OBSTRUCTION_B_TIER.txt) records the full
+INT01–INT12 derivation and explicit assumptions.
 
-A reference H2 bound is mathematically sufficient if one instead uses H2-to-Linfinity, H1-to-L6 and gradient-H2-to-L3 estimates. The primary plan uses the located finite Fourier l1 infrastructure because it avoids adding that embedding layer. Actual smoothness supplies H3 without changing the theorem's input class. No runtime comparison has been measured.
+| Internal steps | Concrete modules |
+|---|---|
+| INT01–INT02 | Definitions, ReciprocalDrift |
+| INT03–INT04 | SmoothSobolevNorm, FourierL1, ProjectedC1, SmoothReference, FourierTail, PhysicalReferenceTail, ReferenceC1Norm |
+| INT05 | ReferenceCoefficientEvolution, ProjectedReferenceEvolution, PressureFourier, ErrorState, ErrorEquation |
+| INT06–INT07 | CoefficientError, PhysicalForcing, CrossTransport, CanonicalErrorInequality |
+| INT08–INT09 | SmallForcingBootstrap, EventualEnstrophyBound, ErrorSlabBound |
+| INT10–INT11 | CanonicalBarrier, SlabDescent |
+| INT12 | DynamicalRoot, Root |
 
-## Minimal source closure
+The concrete root closure has 25 owned sources. The active Ehrenfest scope
+has 30 owned sources and 16 packages; the five additional sources support
+hitting/escape or pointwise algebra. The 31 proposed modules and nine logical
+blocks in the original design remain historical, not current file counts.
+See [COUNT_RECONCILIATION.json](COUNT_RECONCILIATION.json).
 
-The historical logical paths below are under `Material/MethbokeAddon/EhrenfestObstruction/`. They are not the concrete file inventory; consult the count mapping for implemented splits.
+## Preserved independent scopes
 
-| Module | New output | Reuse / scope |
-|---|---|---|
-| `Definitions.lean` | Literal canonical family, reciprocal, drift, guard and public predicates | Preserve viscosity, one fixed datum and cutoff `n+1`. |
-| `ReciprocalDrift.lean` | Exact derivative and `0<V<=1` | Existing coefficient enstrophy identity; inverse chain rule. |
-| `SlabDescent.lean` | Terminal comparison from interior rate bound | Narrow import `Mathlib.Analysis.Calculus.Deriv.MeanValue`; explicit derivative rate. |
-| `ClosedSlab.lean` | Actual smooth reference on `[0,T]` from a front with `T<S` | Actual physical PDE and compact trace bounds, no Galerkin conclusion in the definition. |
-| `SmoothReference.lean` | Uniform projected C1 bound, H1 tail and L2 residual | Finite Fourier l1, multiplier norm and componentwise adapters. |
-| `H1Error.lean` | Finite-coefficient error enstrophy identity and scalar differential inequality | Physical nonlinear absorption, Poincare, elementary mixed L2 estimates. |
-| `EventualEnstrophyBound.lean` | Eventual slab bound from the actual front | Scalar bootstrap/Gronwall only; omit the finite-small-cutoff maximum. |
-| `DynamicalRoot.lean` | Single-cutoff contradiction | Mean value and literal stopped predicate; no E08 or full E09 imports. |
-| `Root.lean` | Frozen `EHRENFEST_OBSTRUCTION` | Imports only `DynamicalRoot`. |
+E07 hitting and E08 escape remain accepted independent results. Full E09
+still means `C([0,T];H2)` convergence and its stronger stability statement.
+E01–E06 retain the real phase-space/volume adapter, complete flow, half-density
+unitary group, generator/core, domain equality and full reciprocal-commutator
+interpretation. Pointwise commutator algebra alone does not establish them.
+No stopped-bound witness is constructed by the conditional root.
 
-Differentiate the finite weighted coefficient sum for `D_N`. Derive each actual-reference Fourier coefficient derivative from its smooth PDE and the spatial integral. Then use physical Parseval identities. This avoids introducing a general Sobolev-valued time-differentiation API. The actual-NSE enstrophy theorem cannot simply be applied to the forced error `w_N`; its finite-coefficient error identity is new work.
-
-[FAST_INTERFACES.lean.txt](FAST_INTERFACES.lean.txt) gives the exact proposed contracts. [MODULE_PLAN.json](MODULE_PLAN.json) records all imports, critical-path flags and package mappings. `Root.lean` must never import the optional `All.lean` bundle.
-
-## Early exact operator theorem and full translation
-
-The first operator theorem can be proved on native `TestFunction` complex-linear maps. For smooth real vector field `b` and any smooth zero-order coefficient `a`, define
-
-```text
-H0 psi = -i*hbar*(D psi[b] + a*psi).
-```
-
-The product rule gives `(i/hbar)[H0,M_g]=M_(Dg[b])`; the zero-order term cancels. Specialize to `a=div(b)/2` later. This removes divergence, a unitary group and self-adjointness from the early algebra proof. The finite-N reciprocal multiplier is the literal rational drift already used by the scalar theorem.
-
-The full Hilbert-space milestone still requires the actual dense core embedding, complete flow, Jacobian half-density transport, strong continuity, self-adjoint generator and domain equality. Fixed-cutoff multiplier bounds and core algebra do not establish these results. Preserve the v0.2 direct generator/resolvent and time-convolution core construction.
-
-## Activation and acceptance
-
-The shortest proposed order is: scalar definitions/comparison and H1 error work in parallel; exact scalar root; independent core commutator; full operator translation; retained stronger hitting/escape/H2-convergence results.
-
-Do not activate all 31 planned sources for the first root run. The native pipeline indexes every Lean file under `Material`; activate only a coherent registered closure with exact hashes, imports, package manifests and fresh public-declaration audits. Preserve the existing cache identity, compiler, vendor and Mathlib pin. Use narrow imports and the existing native workflow. No local Lean, Lake or kernel run is allowed.
-
-E10's literal implication can be accepted while other milestones remain open. Full workstream acceptance still means every one of the ten original scopes has passed. E09's full H2-convergence statement has not been silently weakened: its shorter `E09.bound` helper is separately tracked. E07 and23 scoped first-layer declarations are accepted at `40686414`; the second layer and root remain pending. No stopped-bound witness is constructed.
+The direct generator/resolvent and time-convolution core design remains in
+[OPERATOR_LAYOUT.txt](OPERATOR_LAYOUT.txt). The root source does not import
+those optional modules or `All`. Compiler/dependency/audit policies are
+unchanged; no local Lean, Lake or kernel execution is permitted.
