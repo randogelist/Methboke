@@ -146,3 +146,5 @@ The next full-chain candidate includes the repaired localized spacetime wrapper 
 FDSN verification repair after run44805483799: Normalize pointwise functions and native vector/slice coercions, replace the reserved lambda token with an alpha-equivalent identifier, and repair one malformed audit consumer; add a separate physical Leray interpretation adapter. [Failure record](audits/fdsn-25c5a4e3-failed/summary.json).
 
 FDSN verification repair after run44806525675: Resolve the finite-norm estimate elaboration, explicit zero-velocity germs, inequality addition orientation and pointwise coefficient coercions; include the same-witness physical presentation corollary. [Failure record](audits/fdsn-bfddc915-failed/summary.json).
+
+FDSN verification repair after run44807597711: Make residual smoothness subterms explicit with a scoped elaboration allowance, and normalize subtraction in the physical Leray coefficient identity. All theorem contracts are unchanged. [Failure record](audits/fdsn-38dd6ec5-failed/summary.json).

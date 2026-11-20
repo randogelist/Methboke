@@ -49,6 +49,7 @@ theorem residual_local_transport_contDiffOn
   intro z _
   exact critical_matrix_apply_eq_sum _ _
 
+set_option maxHeartbeats 800000 in
 theorem residualForce_contDiffOn_front
     (ν : ℝ) (U F h : Velocity) (T : ℝ)
     (hU : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => U z.1 z.2) (localFrontSpacetime T))
@@ -56,12 +57,38 @@ theorem residualForce_contDiffOn_front
     (hh : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => h z.1 z.2) (localFrontSpacetime T)) :
     ContDiffOn ℝ ∞ (fun z : ℝ × Vec => residualForce ν U F h z.1 z.2)
       (localFrontSpacetime T) := by
-  have htime := local_timeDerivative_contDiffOn h T hh
-  have hlap := residual_local_laplacian_contDiffOn h T hh
-  have hUh := residual_local_transport_contDiffOn U h T hU hh
-  have hhU := residual_local_transport_contDiffOn h U T hh hU
-  have hconv := residual_local_transport_contDiffOn h h T hh hh
-  exact ((((hF.add htime).sub (contDiffOn_const.smul hlap)).add hUh).add hhU).add hconv
+  have htime : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => timeDerivative h z.1 z.2)
+      (localFrontSpacetime T) := local_timeDerivative_contDiffOn h T hh
+  have hlap : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => laplacian (h z.1) z.2)
+      (localFrontSpacetime T) := residual_local_laplacian_contDiffOn h T hh
+  have hviscous : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => ν • laplacian (h z.1) z.2)
+      (localFrontSpacetime T) :=
+    (contDiffOn_const : ContDiffOn ℝ ∞ (fun _ : ℝ × Vec => ν)
+      (localFrontSpacetime T)).smul hlap
+  have hUh : ContDiffOn ℝ ∞
+      (fun z : ℝ × Vec => physicalTransport (U z.1) (h z.1) z.2)
+      (localFrontSpacetime T) := residual_local_transport_contDiffOn U h T hU hh
+  have hhU : ContDiffOn ℝ ∞
+      (fun z : ℝ × Vec => physicalTransport (h z.1) (U z.1) z.2)
+      (localFrontSpacetime T) := residual_local_transport_contDiffOn h U T hh hU
+  have hconv : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => convection (h z.1) z.2)
+      (localFrontSpacetime T) := residual_local_transport_contDiffOn h h T hh hh
+  have hlinear : ContDiffOn ℝ ∞ (fun z : ℝ × Vec =>
+      F z.1 z.2 + timeDerivative h z.1 z.2 - ν • laplacian (h z.1) z.2)
+      (localFrontSpacetime T) := (hF.add htime).sub hviscous
+  have hfirst : ContDiffOn ℝ ∞ (fun z : ℝ × Vec =>
+      F z.1 z.2 + timeDerivative h z.1 z.2 - ν • laplacian (h z.1) z.2 +
+        physicalTransport (U z.1) (h z.1) z.2)
+      (localFrontSpacetime T) := hlinear.add hUh
+  have hsecond : ContDiffOn ℝ ∞ (fun z : ℝ × Vec =>
+      F z.1 z.2 + timeDerivative h z.1 z.2 - ν • laplacian (h z.1) z.2 +
+        physicalTransport (U z.1) (h z.1) z.2 + physicalTransport (h z.1) (U z.1) z.2)
+      (localFrontSpacetime T) := hfirst.add hhU
+  change ContDiffOn ℝ ∞ (fun z : ℝ × Vec =>
+    F z.1 z.2 + timeDerivative h z.1 z.2 - ν • laplacian (h z.1) z.2 +
+      physicalTransport (U z.1) (h z.1) z.2 + physicalTransport (h z.1) (U z.1) z.2 +
+      convection (h z.1) z.2) (localFrontSpacetime T)
+  exact hsecond.add hconv
 
 /-- Global smoothness of the actual new forcing follows from preterminal
 seed regularity and support strictly inside the regular time domain. -/

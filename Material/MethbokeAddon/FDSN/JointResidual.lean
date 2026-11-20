@@ -98,6 +98,7 @@ theorem family_timeDerivative_contDiffOn
   rw [derivWithin_of_mem_nhds (Ici_mem_nhds hr.1)]
   rfl
 
+set_option maxHeartbeats 800000 in
 theorem residualForce_joint_contDiffOn_front
     (ν : ℝ) (U F : Velocity) (H : ℝ → Velocity) (T : ℝ)
     (hU : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => U z.1 z.2) (localFrontSpacetime T))
@@ -113,12 +114,49 @@ theorem residualForce_joint_contDiffOn_front
   have hF' : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) => F q.2.1 q.2.2)
       {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
     hF.comp contDiffOn_snd (fun _ hq => hq)
-  have htime := family_timeDerivative_contDiffOn H T hH
-  have hlap := family_laplacian_contDiffOn H T hH
-  have hUh := family_transport_contDiffOn (fun _ => U) H T hU' hH
-  have hhU := family_transport_contDiffOn H (fun _ => U) T hH hU'
-  have hconv := family_transport_contDiffOn H H T hH hH
-  exact ((((hF'.add htime).sub (contDiffOn_const.smul hlap)).add hUh).add hhU).add hconv
+  have htime : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      timeDerivative (H q.1) q.2.1 q.2.2) {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    family_timeDerivative_contDiffOn H T hH
+  have hlap : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      laplacian (H q.1 q.2.1) q.2.2) {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    family_laplacian_contDiffOn H T hH
+  have hviscous : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      ν • laplacian (H q.1 q.2.1) q.2.2) {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    (contDiffOn_const : ContDiffOn ℝ ∞ (fun _ : ℝ × (ℝ × Vec) => ν)
+      {q | q.2.1 ∈ Ioo (0 : ℝ) T}).smul hlap
+  have hUh : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      physicalTransport (U q.2.1) (H q.1 q.2.1) q.2.2)
+      {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    family_transport_contDiffOn (fun _ => U) H T hU' hH
+  have hhU : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      physicalTransport (H q.1 q.2.1) (U q.2.1) q.2.2)
+      {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    family_transport_contDiffOn H (fun _ => U) T hH hU'
+  have hconv : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      convection (H q.1 q.2.1) q.2.2) {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    family_transport_contDiffOn H H T hH hH
+  have hlinear : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      F q.2.1 q.2.2 + timeDerivative (H q.1) q.2.1 q.2.2 -
+        ν • laplacian (H q.1 q.2.1) q.2.2) {q | q.2.1 ∈ Ioo (0 : ℝ) T} :=
+    (hF'.add htime).sub hviscous
+  have hfirst : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      F q.2.1 q.2.2 + timeDerivative (H q.1) q.2.1 q.2.2 -
+        ν • laplacian (H q.1 q.2.1) q.2.2 +
+        physicalTransport (U q.2.1) (H q.1 q.2.1) q.2.2)
+      {q | q.2.1 ∈ Ioo (0 : ℝ) T} := hlinear.add hUh
+  have hsecond : ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+      F q.2.1 q.2.2 + timeDerivative (H q.1) q.2.1 q.2.2 -
+        ν • laplacian (H q.1 q.2.1) q.2.2 +
+        physicalTransport (U q.2.1) (H q.1 q.2.1) q.2.2 +
+        physicalTransport (H q.1 q.2.1) (U q.2.1) q.2.2)
+      {q | q.2.1 ∈ Ioo (0 : ℝ) T} := hfirst.add hhU
+  change ContDiffOn ℝ ∞ (fun q : ℝ × (ℝ × Vec) =>
+    F q.2.1 q.2.2 + timeDerivative (H q.1) q.2.1 q.2.2 -
+      ν • laplacian (H q.1 q.2.1) q.2.2 +
+      physicalTransport (U q.2.1) (H q.1 q.2.1) q.2.2 +
+      physicalTransport (H q.1 q.2.1) (U q.2.1) q.2.2 +
+      convection (H q.1 q.2.1) q.2.2) {q | q.2.1 ∈ Ioo (0 : ℝ) T}
+  exact hsecond.add hconv
 
 /-- Common closed support inside the regular time interval yields global joint
 parameter-time-space smoothness of the actual residual force. -/

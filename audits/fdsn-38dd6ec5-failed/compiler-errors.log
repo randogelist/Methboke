@@ -1,0 +1,120 @@
+MethbokeAddon/FDSN/ResidualAdmission.lean:52:0: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+MethbokeAddon/FDSN/ResidualAdmission.lean:68:8: error: (kernel) unknown constant 'MethbokeAddon.FDSN.residualForce_contDiffOn_front'
+MATERIAL_MODULE MethbokeAddon.FDSN.ResidualAdmission FAIL
+MATERIAL_MODULE MethbokeAddon.FDSN.UniformForceDecay PASS
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.AnalyticCapAdmission PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteFrontGluing PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalClassicalFront PASS REUSED
+MATERIAL_MODULE R0FiniteCapAdmission.Endpoint PASS REUSED
+MATERIAL_MODULE WFBLocalClassicalUniqueness.Endpoint PASS REUSED
+MATERIAL_MODULE WFBPhysicalEnstrophyEvolution.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNUniformForceDecay/Endpoint.olean", "FDSNUniformForceDecay/Endpoint.lean"]
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/CoefficientSmooth.olean", "MethbokeAddon/FDSN/CoefficientSmooth.lean"]
+MethbokeAddon/FDSN/CoefficientSmooth.lean:55:39: warning: Variable name `z` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _z
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/FDSN/CoefficientSmooth.lean:62:9: warning: Variable name `t` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _t
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MATERIAL_MODULE FDSNUniformForceDecay.Endpoint PASS
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ErrorSlabBound PASS REUSED
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.FourierTail PASS REUSED
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ProjectedReferenceEvolution PASS REUSED
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ReferenceC1Norm PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/ForcedFourierEvolution.olean", "MethbokeAddon/FDSN/ForcedFourierEvolution.lean"]
+MATERIAL_MODULE MethbokeAddon.FDSN.CoefficientSmooth PASS
+MethbokeAddon/FDSN/ForcedFourierEvolution.lean:33:33: warning: Variable name `z` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _z
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/FDSN/ForcedFourierEvolution.lean:85:33: warning: Variable name `z` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _z
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MATERIAL_MODULE MethbokeAddon.FDSN.ForcedFourierEvolution PASS
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.AnalyticTwoSidedCap PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.StrongContinuation PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.WFBRootAssembly PASS REUSED
+MATERIAL_MODULE R0AnalyticCapAdmission.Endpoint PASS REUSED
+MATERIAL_MODULE WFBFiniteFrontGluing.Endpoint PASS REUSED
+MATERIAL_MODULE WFBMaximalClassicalFront.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestErrorState.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestReference.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNCoefficientSmooth/Endpoint.olean", "FDSNCoefficientSmooth/Endpoint.lean"]
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNForcedFourierEvolution/Endpoint.olean", "FDSNForcedFourierEvolution/Endpoint.lean"]
+MethbokeAddon/FDSN/PhysicalLerayAdapter.lean:81:42: error: unsolved goals
+v w : SingularClosure.Field
+hv : Continuous v
+hw : Continuous w
+⊢ v - w = v + -w
+MethbokeAddon/FDSN/PhysicalLerayAdapter.lean:80:77: error: unsolved goals
+v w : SingularClosure.Field
+hv : Continuous v
+hw : Continuous w
+hsub : v - w = v + -1 • w
+⊢ datumFourierCoeff v + -datumFourierCoeff w = datumFourierCoeff v - datumFourierCoeff w
+MATERIAL_MODULE MethbokeAddon.FDSN.PhysicalLerayAdapter FAIL
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.StrictCutoff PASS REUSED
+MATERIAL_MODULE R0DataAdmission.Endpoint PASS REUSED
+MATERIAL_MODULE WFBMaximalTailGluing.Endpoint PASS REUSED
+MATERIAL_MODULE WFBPhysicalBudgetContinuation.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNLocalizedPairSeparation/Endpoint.olean", "FDSNLocalizedPairSeparation/Endpoint.lean"]
+MATERIAL_MODULE EhrenfestCanonicalErrorInequality.Endpoint PASS REUSED
+MATERIAL_MODULE FDSNLocalizedPairSeparation.Endpoint PASS
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.WeakFouriermanB PASS REUSED
+MATERIAL_MODULE WFBPhysicalEndpointContinuation.Endpoint PASS REUSED
+MATERIAL_MODULE WFBStrictCutoff.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestEventualEnstrophyBound.Endpoint PASS REUSED
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.DynamicalRoot PASS REUSED
+MATERIAL_MODULE WFBWeakFouriermanB.Endpoint PASS REUSED
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.Root PASS REUSED
+MATERIAL_MODULE EhrenfestObstructionRoot.Endpoint PASS REUSED
+MATERIAL_NATIVE_FAILURE own module compilation failed; see module receipts
+{
+  "status": "FAIL",
+  "error": "own module compilation failed; see module receipts",
+  "total_seconds": 135.474
+}
+##[error]Process completed with exit code 1.
+##[end-action id=worker.verify;outcome=failure;conclusion=failure;duration_ms=150784]
+##[start-action display=Preserve verified evidence before snapshot publication;id=worker.verified_evidence]
+##[end-action id=worker.verified_evidence;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Preserve passing dependency cache;id=worker.save_dependencies]
+##[end-action id=worker.save_dependencies;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Package verified own binary objects and fresh evidence;id=worker.binary_package]
+##[end-action id=worker.binary_package;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Preserve freshly audited project cache;id=worker.save_project]
+##[end-action id=worker.save_project;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Confirm published dependency cache is available;id=worker.published-dependencies]
+##[end-action id=worker.published-dependencies;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Confirm published project cache is available;id=worker.published-project]
+##[end-action id=worker.published-project;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Require exact published cache identities;id=worker.published_identities]
+##[end-action id=worker.published_identities;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Publish binary archive and manifest;id=worker.publish_binary]
+##[end-action id=worker.publish_binary;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Publish immutable passed snapshot and endpoint registry;id=worker.publish_registry]
+##[end-action id=worker.publish_registry;outcome=skipped;conclusion=skipped;duration_ms=0]
+##[start-action display=Preserve compiler, fresh audit and runtime evidence;id=worker.final_evidence]
+##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+with:
+  name: material-evidence-38dd6ec5b49730bc998a9280b213f38c554a437a-44807597711-1-fast
+  path: Material/registry/

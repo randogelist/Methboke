@@ -78,10 +78,11 @@ theorem physicalLerayProjection_divergence_free {v : Field}
 theorem datumFourierCoeff_sub_continuous (v w : Field)
     (hv : Continuous v) (hw : Continuous w) :
     datumFourierCoeff (v - w) = datumFourierCoeff v - datumFourierCoeff w := by
-  have hsub : v - w = v + (-1 : ℝ) • w := by simp
+  have hsub : v - w = v + (-1 : ℝ) • w := by
+    simp only [neg_one_smul, sub_eq_add_neg]
   rw [hsub, datumFourierCoeff_add _ _ hv (hw.const_smul (-1)),
     datumFourierCoeff_real_smul]
-  simp
+  simp [sub_eq_add_neg]
 
 theorem physicalLerayProjection_ne_zero_of_coefficient_ne_zero
     {v : Field} (hv : ContDiff ℝ ∞ v) (hp : SpatialPeriodic v)
