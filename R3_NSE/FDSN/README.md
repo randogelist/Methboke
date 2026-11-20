@@ -54,3 +54,7 @@ fresh type/axiom audits and canonical root acceptance remain pending.
 Run44837788551 cleared four analytic source failures. Three remaining source errors have prepared coercion and literal zero-integral repairs; fresh audits remain pending.
 [Retained external diagnostics](../../audits/fdsn-r3-f44d4e1f-failed/SUMMARY.txt) accompany the
 prepared statement-preserving repair. Full fresh audits remain required.
+
+Run 44838626146 compiled the spectral generator and narrowed the next reported failures to three source proofs. Exact curry-isometry, slice-jet conversion and scalar-divergence repairs are prepared; full fresh audits remain pending.
+[Retained external diagnostics](../../audits/fdsn-r3-afa16302-failed/SUMMARY.txt) accompany the
+prepared statement-preserving repair. Full fresh audits remain required.

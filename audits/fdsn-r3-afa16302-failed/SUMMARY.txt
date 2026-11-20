@@ -1,0 +1,35 @@
+FDSN_R3 FULL CANDIDATE SECOND REPAIR — REJECTED
+
+Source commit: afa163021e4649c9cbd7b671e27e14e2bd333edf
+Source tree: 30ae597ce5955073dcf7ce828ae9f2ead3606bea
+External run: https://github.com/randogelist/Methboke/actions/runs/44838626146
+Fast job: 136641195572 — failure
+Final acceptance job: 136642424558 — failure
+Recovery job: 136642425582 — skipped
+Evidence artifact: 14678599594
+ZIP SHA256: ead90d3b55694082f977f365614361a0f96de48d9c56d76c58d6a4b6631cfdf8
+The downloaded ZIP was independently hashed and matched the artifact digest before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Source-pin integrity was confirmed.
+Module receipts record 524 PASS, 3 FAIL, and 19 BLOCKED_BY_DEPENDENCY.
+SpectralGenerator now compiles. All previously passing source modules
+continue to compile, including the six stage-two modules and their wrappers.
+Fresh named audits did not run.
+
+The remaining exposed source failures were:
+- ParametricFourier: line76, a normed/seminormed instance adapter is needed
+  for the curry isometry supplied to integral_comp_comm.
+- SchwartzJets: line57, the base conversion needs reflexivity after its
+  stated simplifications; line68, the spatial inclusion derivative needs
+  explicit normalization of the identity function.
+- ForceSeparation: line53, the scalar derivative proof produces a
+  pointwise function product instead of the displayed lambda; line61,
+  divergence must be unfolded before applying the finite-sum identity.
+The three full compiler logs are retained verbatim beside current.json.
+
+All downstream modules remain unaccepted until their sources compile and
+the independent exact/literal consumers and named type/axiom reports pass.
+Successful source compilation alone does not establish endpoint acceptance.
+No mathematical statement, dependency pin, or acceptance criterion was
+changed by this evidence archive. No local Lean, Lake, compiler or kernel
+audit was executed.

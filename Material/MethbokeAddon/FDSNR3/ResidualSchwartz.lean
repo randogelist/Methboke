@@ -44,7 +44,7 @@ theorem familySpatialJacobian_apply (H : 𝓢(FamilySpacetime, Vec))
       fderiv ℝ (schwartzFamilyVelocity H lam t) x := by
   have hmap : HasFDerivAt (fun y : Vec => (lam, (t, y))) familySpaceInclusion x := by
     simpa only [familySpaceInclusion, familySpatialInclusion, spatialSliceCLM,
-      ContinuousLinearMap.comp_zero, ContinuousLinearMap.id_comp] using
+      ContinuousLinearMap.comp_zero, ContinuousLinearMap.id_comp, id_eq] using
       (hasFDerivAt_const lam x).prodMk
         ((hasFDerivAt_const t x).prodMk (hasFDerivAt_id x))
   exact ((H.hasFDerivAt (lam, (t, x))).comp x hmap).fderiv.symm
@@ -145,7 +145,7 @@ theorem liftedSeedJacobian_apply {B : ℝ × Vec → Vec}
     (hB : Function.HasTemperateGrowth B) (lam t : ℝ) (x : Vec) :
     liftedSeedJacobian B (lam, (t, x)) = fderiv ℝ (fun y : Vec => B (t, y)) x := by
   have hmap : HasFDerivAt (fun y : Vec => (t, y)) spatialSliceCLM x := by
-    simpa only [spatialSliceCLM] using
+    simpa only [spatialSliceCLM, id_eq] using
       (hasFDerivAt_const t x).prodMk (hasFDerivAt_id x)
   exact (((hB.1.differentiable (by norm_num)) (t, x)).hasFDerivAt.comp x hmap).fderiv.symm
 

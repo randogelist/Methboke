@@ -1,0 +1,22 @@
+MethbokeAddon/FDSNR3/SchwartzJets.lean:57:9: error: unsolved goals
+case zero
+E : Type u_1
+F : Type u_2
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : NormedAddCommGroup F
+inst✝ : NormedSpace ℝ F
+G : 𝓢(ℝ × E, F)
+q : ℝ × E
+⊢ (continuousMultilinearCurryFin0 ℝ E F).symm.toLinearIsometry.toContinuousLinearMap (G q) =
+    (continuousMultilinearCurryFin0 ℝ E F).symm (G (q.1, q.2))
+MethbokeAddon/FDSNR3/SchwartzJets.lean:68:8: error: Type mismatch: After simplification, term
+  HasFDerivAt.prodMk (hasFDerivAt_const q.1 q.2) (hasFDerivAt_id q.2)
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField E inst✝³.toAddCommGroup inst✝².toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (ℝ × E) Prod.instAddCommGroup Prod.instModule
+    instTopologicalSpaceProd (fun x => (q.1, id x)) (ContinuousLinearMap.prod 0 (ContinuousLinearMap.id ℝ E)) q.2
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField E inst✝³.toAddCommGroup inst✝².toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace (ℝ × E) Prod.instAddCommGroup Prod.instModule
+    instTopologicalSpaceProd (fun z => (q.1, z)) (ContinuousLinearMap.prod 0 (ContinuousLinearMap.id ℝ E)) q.2

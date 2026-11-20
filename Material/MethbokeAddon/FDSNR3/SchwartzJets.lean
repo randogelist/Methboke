@@ -57,6 +57,7 @@ theorem schwartzSliceJet_apply (G : 𝓢(ℝ × E, F)) (n : ℕ) (q : ℝ × E) 
   | zero =>
       simp only [schwartzSliceJet, SchwartzMap.postcompCLM_apply,
         iteratedFDeriv_zero_eq_comp, Function.comp_def]
+      rfl
   | succ n ih =>
       change (continuousMultilinearCurryLeftEquiv ℝ
         (fun _ : Fin (n + 1) => E) F).symm
@@ -65,7 +66,7 @@ theorem schwartzSliceJet_apply (G : 𝓢(ℝ × E, F)) (n : ℕ) (q : ℝ × E) 
       apply congrArg (continuousMultilinearCurryLeftEquiv ℝ
         (fun _ : Fin (n + 1) => E) F).symm
       have hmap : HasFDerivAt (fun z : E => (q.1, z)) familySpatialInclusion q.2 := by
-        simpa only [familySpatialInclusion] using
+        simpa only [familySpatialInclusion, id_eq] using
           (hasFDerivAt_const q.1 q.2).prodMk (hasFDerivAt_id q.2)
       have hd := ((schwartzSliceJet G n).hasFDerivAt q).comp q.2 hmap
       have heq : (fun z : E => schwartzSliceJet G n (q.1, z)) =

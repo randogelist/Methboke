@@ -72,9 +72,12 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
           (continuousMultilinearCurryLeftEquiv ℝ
             (fun _ : Fin (n + 1) => P) E).toLinearIsometry v = v.curryLeft := rfl
       simpa only [hcurry] using
-        (LinearIsometry.integral_comp_comm (μ := μ)
-          (continuousMultilinearCurryLeftEquiv ℝ
-            (fun _ : Fin (n + 1) => P) E).toLinearIsometry
+        (LinearIsometry.integral_comp_comm (μ := μ) (𝕜 := ℝ)
+          (E := ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E)
+          (F := P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E)
+          (by simpa using!
+            (continuousMultilinearCurryLeftEquiv ℝ
+              (fun _ : Fin (n + 1) => P) E).toLinearIsometry)
           (fun a => p a q (n + 1)))
     rw [heq] at hd
     exact hd.hasFDerivWithinAt

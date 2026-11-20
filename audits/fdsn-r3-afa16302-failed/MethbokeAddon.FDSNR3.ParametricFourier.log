@@ -1,0 +1,14 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:76:10: error: Application type mismatch: The argument
+  (continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E).toLinearIsometry
+has type
+  @LinearIsometry ℝ ℝ Field.toSemifield.toDivisionSemiring.toSemiring Field.toSemifield.toDivisionSemiring.toSemiring
+    (RingHom.id ℝ) (ContinuousMultilinearMap ℝ (fun x => P) E) (P →L[ℝ] P [×n]→L[ℝ] E)
+    ContinuousMultilinearMap.seminormedAddCommGroup ContinuousLinearMap.toSeminormedAddCommGroup
+    ContinuousMultilinearMap.instModule ContinuousLinearMap.module
+but is expected to have type
+  @LinearIsometry ?m.554 ?m.554 Field.toSemifield.toDivisionSemiring.toSemiring
+    Field.toSemifield.toDivisionSemiring.toSemiring (RingHom.id ?m.554) (P [×n + 1]→L[ℝ] E) ?m.552
+    NormedAddCommGroup.toSeminormedAddCommGroup NormedAddCommGroup.toSeminormedAddCommGroup NormedSpace.toModule
+    NormedSpace.toModule
+in the application
+  LinearIsometry.integral_comp_comm (continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E).toLinearIsometry

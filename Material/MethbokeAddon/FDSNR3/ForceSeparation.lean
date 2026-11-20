@@ -50,7 +50,7 @@ theorem divergence_free_schwartz_const_smul
   intro x
   have hfd : fderiv ℝ (fun y : Vec => c • f y) x =
       c • fderiv ℝ (f : Field) x := by
-    simpa using ((hasFDerivAt_const c x).smul f.differentiableAt.hasFDerivAt).fderiv
+    exact fderiv_fun_const_smul f.differentiableAt c
   calc
     divergence (c • f : 𝓢(Vec, Vec)) x =
         ∑ i : Fin 3, c * (fderiv ℝ (f : Field) x (unitVector i)) i := by
@@ -58,7 +58,7 @@ theorem divergence_free_schwartz_const_smul
       rw [hfd]
       simp only [ContinuousLinearMap.smul_apply, PiLp.smul_apply, smul_eq_mul]
     _ = c * divergence (f : Field) x := by
-      rw [Finset.mul_sum] <;> rfl
+      simp only [divergence, coordinateDerivative, Finset.mul_sum]
     _ = 0 := by rw [hf x, mul_zero]
 
 theorem physicalLeray_const_smul_solenoidal_schwartz

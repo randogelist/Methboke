@@ -1,0 +1,28 @@
+MethbokeAddon/FDSNR3/ForceSeparation.lean:53:4: error: Type mismatch: After simplification, term
+  HasFDerivAt.fderiv
+    (HasFDerivAt.smul (hasFDerivAt_const c x) (DifferentiableAt.hasFDerivAt (SchwartzMap.differentiableAt f)))
+ has type
+  @Eq (Vec →L[ℝ] Vec) (fderiv ℝ ((fun x => c) • ⇑f) x) (c • fderiv ℝ (⇑f) x)
+but is expected to have type
+  @Eq (Vec →L[ℝ] Vec) (fderiv ℝ (fun y => c • f y) x) (c • fderiv ℝ (⇑f) x)
+MethbokeAddon/FDSNR3/ForceSeparation.lean:59:17: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+MethbokeAddon/FDSNR3/ForceSeparation.lean:61:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a * ∑ i ∈ ?s, ?f i
+in the target expression
+  ∑ i, c * ((fderiv ℝ (⇑f) x) (unitVector i)).ofLp i = c * divergence (⇑f) x
+
+c : ℝ
+f : 𝓢(Vec, Vec)
+hf : ∀ (x : Vec), divergence (⇑f) x = 0
+x : Vec
+hfd : fderiv ℝ (fun y => c • f y) x = c • fderiv ℝ (⇑f) x
+⊢ ∑ i, c * ((fderiv ℝ (⇑f) x) (unitVector i)).ofLp i = c * divergence (⇑f) x
+MethbokeAddon/FDSNR3/ForceSeparation.lean:114:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
