@@ -223,7 +223,7 @@ theorem solenoidal_fourier_transverse
         𝓢'(Space, ComplexVector))) = 0 := by
     have hcancel := congrArg
       (fun T : 𝓢'(Space, ComplexVector) => (2 * (Real.pi : ℂ) * Complex.I)⁻¹ • T) hF
-    simpa only [smul_smul, inv_mul_cancel₀ hρ, one_smul, smul_zero] using hcancel
+    simpa only [smul_smul, inv_mul_cancel₀ hρ, one_smul, _root_.smul_zero] using hcancel
   have hfreq := ae_sum_multiplier_eq_zero
     (fun j : Fin 3 => (𝓕 (complexifyL2 (coordinateSliceL2 j v)) : ComplexL2))
     (fun j ξ => inner ℝ ξ (coordinateVector j))
@@ -250,7 +250,7 @@ theorem solenoidal_fourier_transverse
     rw [hcoord j, hξ, complexCoordinateSliceVectorCLM_apply, smul_smul]
   rw [heq] at hzero
   have hz := congrArg (fun z : ComplexVector => z (0 : Fin 3)) hzero
-  simpa only [PiLp.smul_apply, PiLp.single_apply, if_pos rfl, smul_eq_mul,
+  simpa only [PiLp.smul_apply, PiLp.single_apply, if_pos rfl, ite_true, smul_eq_mul,
     mul_one, PiLp.zero_apply] using hz
 
 /-- Exact all-L2 equivalence for the original compact-test predicate. -/
