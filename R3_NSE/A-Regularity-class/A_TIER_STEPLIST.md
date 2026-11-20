@@ -473,3 +473,8 @@ The new spectral, multiplier and convection source narrows P01-P05/P12-P13,
 while the sharp constant, actual H1 local/maximal theory and literal A4
 terminal control remain explicit. All plan endpoints retain their proposed
 status. Addendum 1.1 of the cumulative step-list TXT gives every cutout path.
+
+
+## Authorized six-gap construction
+
+[Six parent targets](SIX_GAP_A_TIER_TARGETS.txt) now group the existing twenty endpoints. The user authorized B-tier-first native construction and matching cached external runs. The first four scoped packages prepare the physical H1 carrier, AC full-budget comparison, scalar six-charge comparison, and forward first-derivative Fourier identification. [Implementation status](SIX_GAP_IMPLEMENTATION_STATUS.json) retains exact scope and pending evidence. The cumulative TXT includes all four prior mathematical chains in Addendum1.2.

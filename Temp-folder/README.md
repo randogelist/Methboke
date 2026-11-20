@@ -83,3 +83,8 @@ pins, dependencies and workflows remain as inherited from the branch base.
 The optional compiled cache is catalogued in [EXTERNAL_CACHE.json](EXTERNAL_CACHE.json).
 It remains an external Linux-CI artifact; it is not needed to inspect these
 sources, and it is not a native Windows cache.
+
+
+## Six-gap project-package recovery
+
+Two additional original GPT-project archives are retained: [FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1.zip](archives/FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1.zip) and [FRONTIER_A_JOINT_L2_GRAPH_RC1_FIX1.zip](archives/FRONTIER_A_JOINT_L2_GRAPH_RC1_FIX1.zip). Selected complete modules, historical user logs and exact hashes are in the [supplementary source collection](../R3_NSE/A-Regularity-class/LEAN_CUTOUTS/project_recovery/README.md). The first archive has matching historical source/payload and named-axiom output under Windows4.34rc1; native4.33 adaptations still require fresh matching external evidence.

@@ -1,0 +1,140 @@
+import FrontierJointResidualL2
+import FrontierFrozenRoot
+
+/-! Candidate specialization of the joint residual L² estimate to Schwartz
+spatial tests and smooth compactly supported time tests. The velocity and
+gradient-column functions on spacetime are explicitly supplied in L². The
+result establishes the `hint` premise of `FrontierSpacetimeFubiniSlicing`
+for the concrete residual defined below. The spatial-marginal representation,
+weak-test vanishing, Bochner section construction, and physical realization
+remain separate obligations. No local Lean run or theorem audit. -/
+
+noncomputable section
+open MeasureTheory Filter
+open HelicalConcreteSymbol FeffermanHelicalOrthogonal
+
+namespace FrontierJointSchwartzHint
+
+abbrev Space := FrontierSpacetimeFubiniSlicing.Space
+abbrev Fiber := FrontierSpacetimeFubiniSlicing.Fiber
+abbrev SpatialTest := FrontierSpacetimeFubiniSlicing.SpatialTest
+abbrev JointResidual := FrontierSpacetimeFubiniSlicing.JointResidual
+abbrev RealVelocity := FrontierSpacetimeFubiniSlicing.RealVelocity
+abbrev Gradient := FrontierSpacetimeFubiniSlicing.Gradient
+abbrev PhysicalL2 := FrontierFrozenRoot.PhysicalL2
+abbrev Frequency := FrontierFrozenRoot.Frequency
+abbrev timeMeasure := FrontierFrozenRoot.timeMeasure
+
+local instance physicalRealL2 : InnerProductSpace ℝ PhysicalL2 :=
+  InnerProductSpace.rclikeToReal ℂ PhysicalL2
+
+/-- Concrete product-test residual for the weak spatial gradient. The joint
+fields are supplied; no identification with an L²-valued trajectory is made. -/
+def residual (U : ℝ × Space → Fiber) (G : Fin 3 → ℝ × Space → Fiber) :
+    JointResidual :=
+  fun j ψ tx => ψ tx.2 • G j tx +
+    (LineDeriv.lineDerivOp (FrontierAWeakRieszBridge.unitDirection j) ψ) tx.2 • U tx
+
+/-- Joint L² fields supply the Fubini product-integrability premise for all
+smooth compactly supported time tests and Schwartz spatial tests. -/
+theorem hint_of_joint_l2
+    (μ : Measure ℝ) [IsFiniteMeasure μ]
+    (U : ℝ × Space → Fiber) (G : Fin 3 → ℝ × Space → Fiber)
+    (hU : MemLp U 2 (μ.prod (volume : Measure Space)))
+    (hG : ∀ j, MemLp (G j) 2 (μ.prod (volume : Measure Space))) :
+    ∀ (φ : ℝ → ℝ), ContDiff ℝ (⊤ : ℕ∞) φ → HasCompactSupport φ →
+      ∀ (j : Fin 3) (ψ : SpatialTest),
+        Integrable (fun tx => φ tx.1 • residual U G j ψ tx)
+          (μ.prod (volume : Measure Space)) := by
+  intro φ hφ hφc j ψ
+  obtain ⟨C, hC⟩ := hφc.exists_bound_of_continuous hφ.continuous
+  change Integrable (fun tx => φ tx.1 •
+    (ψ tx.2 • G j tx +
+      (LineDeriv.lineDerivOp (FrontierAWeakRieszBridge.unitDirection j) ψ) tx.2 • U tx))
+    (μ.prod (volume : Measure Space))
+  exact FrontierJointResidualL2.integrable_weighted_joint_residual
+    μ U (G j) ψ (LineDeriv.lineDerivOp (FrontierAWeakRieszBridge.unitDirection j) ψ)
+    hU (hG j) (ψ.memLp 2 (volume : Measure Space))
+    ((LineDeriv.lineDerivOp (FrontierAWeakRieszBridge.unitDirection j) ψ).memLp
+      2 (volume : Measure Space)) φ hφ.continuous C hC
+
+/-- Product-space L² integrability discharges the `hint` input of the
+existing Fubini-to-slice bridge. The spatial marginal `hrep` and the
+spacetime weak identities `hweak` are still explicit assumptions. -/
+theorem weak_at_ae_of_joint_l2
+    (u : ℝ → RealVelocity) (g : ℝ → Gradient) (μ : Measure ℝ)
+    [IsFiniteMeasure μ]
+    (hu : MemLp u (⊤ : ENNReal) μ) (hg : MemLp g 2 μ)
+    (U : ℝ × Space → Fiber) (G : Fin 3 → ℝ × Space → Fiber)
+    (hU : MemLp U 2 (μ.prod (volume : Measure Space)))
+    (hG : ∀ j, MemLp (G j) 2 (μ.prod (volume : Measure Space)))
+    (hrep : ∀ (j : Fin 3) (ψ : SpatialTest),
+      ∀ᵐ t ∂μ, (∫ x, residual U G j ψ (t, x) ∂(volume : Measure Space)) =
+        (FrontierWeakGradientSubspace.residual j (u t, g t)) ψ)
+    (hweak : ∀ (φ : ℝ → ℝ), ContDiff ℝ (⊤ : ℕ∞) φ → HasCompactSupport φ →
+      ∀ (j : Fin 3) (ψ : SpatialTest),
+        (∫ tx, φ tx.1 • residual U G j ψ tx
+          ∂(μ.prod (volume : Measure Space))) = 0) :
+    ∀ᵐ t ∂μ, FrontierAEProjectedGraphEnergy.WeakAt
+      (FrontierRealVelocityEmbedding.complexifyL2 (u t)) (g t) := by
+  letI : IsLocallyFiniteMeasure μ := IsFiniteMeasure.toIsLocallyFiniteMeasure μ
+  exact FrontierSpacetimeFubiniSlicing.weak_at_ae_of_energy_and_joint_integrals
+    u g μ hu hg (residual U G) hrep (hint_of_joint_l2 μ U G hU hG) hweak
+
+/-- Finite-time physical-field implication with the separated-test premise
+derived from joint L² data, supplied spatial marginals, and spacetime weak
+identities. The energy and physical helical-symbol premises remain explicit;
+this theorem does not construct standard Leray--Hopf data, identify an
+independent Stokes operator, or establish those premises. -/
+theorem physical_frontierA_from_joint_l2
+    [MeasurableSpace Gradient] [BorelSpace Gradient]
+    [MeasurableSpace FrontierAWeakTimeGram.MatrixL2]
+    [BorelSpace FrontierAWeakTimeGram.MatrixL2]
+    [MeasurableSpace FrontierAMatrixFourier.FrequencyMatrix]
+    [BorelSpace FrontierAMatrixFourier.FrequencyMatrix]
+    [MeasurableSpace FrontierAConcreteFourier.ComplexField]
+    [BorelSpace FrontierAConcreteFourier.ComplexField]
+    [MeasurableSpace FrontierAWeakTimeGram.CoordinateL2]
+    [BorelSpace FrontierAWeakTimeGram.CoordinateL2]
+    (u : ℝ → RealVelocity) (u0 : RealVelocity) (g : ℝ → Gradient)
+    (vp vm : ℝ → PhysicalL2) (T nu : ℝ)
+    (hT : 0 ≤ T) (hnu : 0 < nu)
+    (hu : MemLp u (⊤ : ENNReal) (timeMeasure T))
+    (hg : MemLp g 2 (timeMeasure T))
+    (hbudget : 2 * nu * (∫ t, ‖g t‖ ^ 2 ∂(timeMeasure T)) ≤ ‖u0‖ ^ 2)
+    (U : ℝ × Space → Fiber) (G : Fin 3 → ℝ × Space → Fiber)
+    (hU : MemLp U 2 ((timeMeasure T).prod (volume : Measure Space)))
+    (hG : ∀ j, MemLp (G j) 2 ((timeMeasure T).prod (volume : Measure Space)))
+    (hrep : ∀ (j : Fin 3) (ψ : SpatialTest),
+      ∀ᵐ t ∂(timeMeasure T),
+        (∫ x, residual U G j ψ (t, x) ∂(volume : Measure Space)) =
+          (FrontierWeakGradientSubspace.residual j (u t, g t)) ψ)
+    (hweak : ∀ (φ : ℝ → ℝ), ContDiff ℝ (⊤ : ℕ∞) φ → HasCompactSupport φ →
+      ∀ (j : Fin 3) (ψ : SpatialTest),
+        (∫ tx, φ tx.1 • residual U G j ψ tx
+          ∂((timeMeasure T).prod (volume : Measure Space))) = 0)
+    (hp : ∀ᵐ t ∂(timeMeasure T),
+      (FrontierPhysicalGramTransport.fourierCoordinateReal (vp t) : Frequency → Fiber) =ᵐ[volume]
+        fun ξ => plusOp ξ (FrontierMultiplierBridge.velocitySymbol
+          (FrontierRealVelocityEmbedding.complexifyL2 (u t)) ξ))
+    (hm : ∀ᵐ t ∂(timeMeasure T),
+      (FrontierPhysicalGramTransport.fourierCoordinateReal (vm t) : Frequency → Fiber) =ᵐ[volume]
+        fun ξ => minusOp ξ (FrontierMultiplierBridge.velocitySymbol
+          (FrontierRealVelocityEmbedding.complexifyL2 (u t)) ξ)) :
+    Integrable (FeffermanAHopfGramIntegral.gramSqrt vp vm) (timeMeasure T) ∧
+      FeffermanAHopfGramIntegral.gramSqrtIntegral (timeMeasure T) vp vm ≤
+        ‖u0‖ ^ 2 / (4 * nu) := by
+  letI : IsFiniteMeasure (timeMeasure T) := by
+    change IsFiniteMeasure ((volume : Measure ℝ).restrict (Set.Icc 0 T))
+    exact Real.isFiniteMeasure_restrict_Icc 0 T
+  have hsep := FrontierSpacetimeFubiniSlicing.separated_tests_of_joint_integrals
+    u g (timeMeasure T) (residual U G) hrep
+    (hint_of_joint_l2 (timeMeasure T) U G hU hG) hweak
+  exact FrontierFrozenRoot.physical_frontierA_from_separated_tests
+    u u0 g vp vm T nu hT hnu hu hg hbudget hsep hp hm
+
+end FrontierJointSchwartzHint
+
+#print axioms FrontierJointSchwartzHint.hint_of_joint_l2
+#print axioms FrontierJointSchwartzHint.weak_at_ae_of_joint_l2
+#print axioms FrontierJointSchwartzHint.physical_frontierA_from_joint_l2

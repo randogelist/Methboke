@@ -1,0 +1,55 @@
+import FrontierAWeightedDistributionBridge
+
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierAWeightedCancellation
+
+open FrontierAWeightedDistributionBridge
+
+/-- Cancel a nonzero weight from an equality of weighted L² classes.
+The only assumptions are boundedness of the two multipliers and the weighted
+class equality; no pointwise relation between `x` and `y` is assumed. -/
+theorem ae_of_weighted_l2
+    (x y : Field) (q w : Space → ℂ)
+    (hwtop : MemLp w ⊤ (volume : Measure Space))
+    (hqwt : MemLp (q * w) ⊤ (volume : Measure Space))
+    (hnz : ∀ᵐ t ∂(volume : Measure Space), w t ≠ 0)
+    (hweighted : (MemLp.toLp w hwtop • y : Field) =
+      (MemLp.toLp (q * w) hqwt • x : Field)) :
+    ∀ᵐ t ∂(volume : Measure Space), y t = q t • x t := by
+  have hl := Lp.coeFn_lpSMul (r := (2 : ENNReal)) (MemLp.toLp w hwtop) y
+  have hr := Lp.coeFn_lpSMul (r := (2 : ENNReal)) (MemLp.toLp (q * w) hqwt) x
+  have heq := congrArg (fun f : Field => (f : Space → Fiber)) hweighted
+  filter_upwards [hl, hr, hwtop.coeFn_toLp, hqwt.coeFn_toLp, hnz] with t hl hr hw hqw ht
+  have he : w t • y t = (q t * w t) • x t := by
+    calc
+      w t • y t = (MemLp.toLp w hwtop) t • y t := by rw [hw]
+      _ = (MemLp.toLp w hwtop • y : Field) t := hl.symm
+      _ = (MemLp.toLp (q * w) hqwt • x : Field) t := congrFun heq t
+      _ = (MemLp.toLp (q * w) hqwt) t • x t := hr
+      _ = (q t * w t) • x t := by rw [hqw]; rfl
+  have he' : w t • y t = w t • (q t • x t) := by
+    simpa only [mul_comm (q t) (w t), mul_smul] using he
+  have hcancel := congrArg (fun z : Fiber => (w t)⁻¹ • z) he'
+  simpa [smul_smul, ht] using hcancel
+
+/-- A distributional multiplier identity implies the corresponding a.e. identity
+once a nonvanishing bounded regularizer and bounded regularized multiplier are given. -/
+theorem ae_from_distribution
+    (x y : Field) (q w : Space → ℂ)
+    (hq : Function.HasTemperateGrowth q)
+    (hw : Function.HasTemperateGrowth w)
+    (hwtop : MemLp w ⊤ (volume : Measure Space))
+    (hqwt : MemLp (q * w) ⊤ (volume : Measure Space))
+    (hnz : ∀ᵐ t ∂(volume : Measure Space), w t ≠ 0)
+    (hdis : Lp.toTemperedDistribution y =
+      (TemperedDistribution.smulLeftCLM Fiber q) (Lp.toTemperedDistribution x)) :
+    ∀ᵐ t ∂(volume : Measure Space), y t = q t • x t :=
+  ae_of_weighted_l2 x y q w hwtop hqwt hnz
+    (weighted_l2_from_distribution x y q w hq hw hwtop hqwt hdis)
+
+end FrontierAWeightedCancellation
+
+#print axioms FrontierAWeightedCancellation.ae_of_weighted_l2
+#print axioms FrontierAWeightedCancellation.ae_from_distribution

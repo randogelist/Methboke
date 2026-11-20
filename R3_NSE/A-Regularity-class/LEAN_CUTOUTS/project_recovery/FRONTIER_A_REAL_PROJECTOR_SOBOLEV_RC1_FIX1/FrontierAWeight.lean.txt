@@ -1,0 +1,84 @@
+import Mathlib.Analysis.Distribution.TemperedDistribution
+
+/-! A-TIER CANDIDATE: an explicit positive bounded tempered cutoff useful
+for proving almost-everywhere Fourier derivative identities. No weak
+derivative or physical Navier--Stokes solution is constructed. The import
+API and all statements require external Lean 4.33.0 compilation/auditing. -/
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierAWeight
+
+abbrev Space := EuclideanSpace ℝ (Fin 3)
+
+def weight (x : Space) : ℂ := (((1 + ‖x‖ ^ 2 : ℝ)⁻¹ : ℝ) : ℂ)
+
+def coordinate (m x : Space) : ℂ := (inner ℝ x m : ℂ)
+
+def weightedCoordinate (m x : Space) : ℂ := coordinate m x * weight x
+
+theorem weight_ne_zero (x : Space) : weight x ≠ 0 := by
+  have hp : (0 : ℝ) < 1 + ‖x‖ ^ 2 := by positivity
+  have hreal : (1 + ‖x‖ ^ 2 : ℝ)⁻¹ ≠ 0 := inv_ne_zero (ne_of_gt hp)
+  change (((1 + ‖x‖ ^ 2 : ℝ)⁻¹ : ℝ) : ℂ) ≠ 0
+  exact_mod_cast hreal
+
+theorem weight_temperate : Function.HasTemperateGrowth weight := by
+  have h := (ContinuousLinearMap.hasTemperateGrowth Complex.ofRealCLM).comp
+    (Function.hasTemperateGrowth_one_add_norm_sq_rpow Space (-1))
+  first
+  | simpa only [weight, Function.comp_def, Complex.ofRealCLM_apply, Real.rpow_neg_one] using! h
+  | with_unfolding_all
+      simpa only [weight, Function.comp_def, Complex.ofRealCLM_apply, Real.rpow_neg_one] using! h
+
+theorem coordinate_temperate (m : Space) : Function.HasTemperateGrowth (coordinate m) := by
+  have h := (ContinuousLinearMap.hasTemperateGrowth Complex.ofRealCLM).comp
+    (Function.hasTemperateGrowth_inner_left m)
+  first
+  | simpa only [coordinate, Function.comp_def, Complex.ofRealCLM_apply] using! h
+  | with_unfolding_all
+      simpa only [coordinate, Function.comp_def, Complex.ofRealCLM_apply] using! h
+
+theorem weightedCoordinate_temperate (m : Space) :
+    Function.HasTemperateGrowth (weightedCoordinate m) := by
+  exact (coordinate_temperate m).fun_mul weight_temperate
+
+theorem weight_norm_le_one (x : Space) : ‖weight x‖ ≤ 1 := by
+  have hp : (0 : ℝ) < 1 + ‖x‖ ^ 2 := by positivity
+  have hd : (1 : ℝ) ≤ 1 + ‖x‖ ^ 2 := by nlinarith [sq_nonneg ‖x‖]
+  have hinv : (1 + ‖x‖ ^ 2 : ℝ)⁻¹ ≤ 1 := by
+    rw [inv_le_one₀ hp]
+    exact hd
+  simpa only [weight, Complex.norm_real, Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hp)] using hinv
+
+theorem weightedCoordinate_norm_le (m x : Space) : ‖weightedCoordinate m x‖ ≤ ‖m‖ := by
+  have hp : (0 : ℝ) < 1 + ‖x‖ ^ 2 := by positivity
+  have hx : ‖x‖ ≤ 1 + ‖x‖ ^ 2 := by nlinarith [sq_nonneg (‖x‖ - (1 / 2 : ℝ))]
+  have hm : 0 ≤ ‖m‖ := norm_nonneg m
+  have habs := abs_real_inner_le_norm x m
+  have hmul := mul_le_mul_of_nonneg_right hx hm
+  have hnum : |inner ℝ x m| ≤ ‖m‖ * (1 + ‖x‖ ^ 2) := by nlinarith
+  have hdiv : |inner ℝ x m| / (1 + ‖x‖ ^ 2) ≤ ‖m‖ :=
+    (div_le_iff₀ hp).2 hnum
+  simpa only [weightedCoordinate, coordinate, weight, norm_mul, Complex.norm_real,
+    Real.norm_eq_abs, abs_of_pos (inv_pos.mpr hp), div_eq_mul_inv] using hdiv
+
+theorem weight_memLp_top (μ : Measure Space) : MemLp weight ⊤ μ := by
+  apply memLp_top_of_bound weight_temperate.1.continuous.aestronglyMeasurable 1
+  exact Filter.Eventually.of_forall weight_norm_le_one
+
+theorem weightedCoordinate_memLp_top (μ : Measure Space) (m : Space) :
+    MemLp (weightedCoordinate m) ⊤ μ := by
+  apply memLp_top_of_bound (weightedCoordinate_temperate m).1.continuous.aestronglyMeasurable ‖m‖
+  exact Filter.Eventually.of_forall (weightedCoordinate_norm_le m)
+
+end FrontierAWeight
+
+#print axioms FrontierAWeight.weight_ne_zero
+#print axioms FrontierAWeight.weight_temperate
+#print axioms FrontierAWeight.coordinate_temperate
+#print axioms FrontierAWeight.weightedCoordinate_temperate
+#print axioms FrontierAWeight.weight_norm_le_one
+#print axioms FrontierAWeight.weightedCoordinate_norm_le
+#print axioms FrontierAWeight.weight_memLp_top
+#print axioms FrontierAWeight.weightedCoordinate_memLp_top

@@ -226,3 +226,10 @@ blocks and 60 full pinned source snapshots. Its [gap assessment](LEAN_CUTOUTS/GA
 identifies the largest missing native statements and the improved integral
 Gronwall route. The cumulative step-list TXT links every cutout, retaining
 all hypotheses and the separation between source availability and acceptance.
+
+
+## Six closure targets and native construction
+
+[Six target register](SIX_GAP_A_TIER_TARGETS.txt) · [Current implementation](SIX_GAP_IMPLEMENTATION_STATUS.json) · [Package assessment](SIX_GAP_PACKAGE_ASSESSMENT.txt).
+
+Four scoped native packages are prepared with79 named declarations and independent literal type checks. They construct the physical H1 foundation, the forward H1-only Fourier bridge, AC scalar comparison and full six-charge budget inequalities. Matching external evidence is pending; none of the six parent gaps is marked complete. The B-tier chains are preserved in the cumulative steplist TXT Addendum1.2.

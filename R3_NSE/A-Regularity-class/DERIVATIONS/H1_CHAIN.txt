@@ -1,0 +1,115 @@
+NSE-A P01 PHYSICAL H1 FOUNDATION — B-TIER DERIVATION
+Source basis: cb3bafdc71c7eb10e57996af6111ba6c24f6865c.
+Status: exact constructive chain; native implementation candidate pending matching external evidence.
+No local Lean, Lake, kernel audit, or project runner is permitted or executed.
+
+C01. Native carriers. V = L2(R3;R3) with full Lebesgue measure. For e in R3,
+D_e(v,g) means integral (partial_e psi) v = - integral psi g for every real
+C-infinity compact scalar test psi. All terms are integrable because compact
+continuous tests and their derivatives are L2 and L2 times L2 is L1.
+
+C02. Derivative uniqueness. If D_e(v,g) and D_e(v,h), their identities give
+integral psi g = integral psi h for every compact smooth psi. Both g and h are
+locally integrable by their L2 membership. The real compact-test separation
+lemma yields g=h almost everywhere, hence equality in V. Coordinatewise this
+proves uniqueness of the three native SpatialWeakGradient witnesses.
+Anchor: SP03 ae_eq_of_integral_contDiff_smul_eq; no Fourier or H2 premise.
+
+C03. Continuous test functionals. A compact continuous scalar psi belongs to
+L2. The continuous bilinear Holder pairing from L2 scalar times L2 vector into
+R3 gives T_psi(v)=integral psi v as a continuous real linear map on V. The
+statement identifies the actual Bochner integral, rather than a formal symbol.
+Anchor: Continuous.memLp_of_hasCompactSupport; ContinuousLinearMap.lpPairing.
+
+C04. Ambient physical norm. Let X = l2(Fin 4; V). Store velocity at coordinate
+0 and its three gradient witnesses at successor coordinates. Then
+||x||_X^2 = ||x_0||_2^2 + sum_j ||x_(j+1)||_2^2.
+X is a complete real Hilbert space. No maximum-product norm is substituted.
+Anchor: PiLp 2 and PiLp.norm_sq_eq_of_L2.
+
+C05. Closed gradient graph. For each coordinate j and compact smooth psi,
+R_(j,psi)(x)=T_(partial_j psi)(x_0)+T_psi(x_(j+1)) is continuous linear.
+Its kernel is closed. Intersect all these kernels. The resulting closed real
+subspace H1Graph consists exactly of the actual native weak-gradient pairs.
+Closedness follows from continuity of the actual test pairings. This constructs
+the carrier directly and does not assume a closed derivative graph.
+Anchor: ContinuousLinearMap.isClosed_ker; ClosedSubmodule indexed infimum.
+
+C06. Complete carrier and uniqueness of representation. The closed graph
+inherits the Hilbert norm and is complete. Projection to velocity is injective
+by C02. Thus the gradient coordinates are determined by the physical L2 field.
+The velocity and gradient projections are bounded real linear maps.
+
+C07. Solenoidal closed restriction. The smooth compact scalar test gradient
+is continuous and compactly supported, hence is a vector L2 field. The actual
+pairing S_psi(v)=integral inner(v,grad psi) is a continuous real linear functional.
+Intersect its kernels with H1Graph at the velocity coordinate. Membership is
+exactly SpatialWeakGradient plus the existing native Solenoidal predicate,
+including genuine integrability. The resulting PhysicalH1Sigma is complete
+and inherits the same physical sum-of-squares norm.
+
+C08. Schwartz admission. For a real vector Schwartz field a, each partial_j a
+is again Schwartz and L2. Schwartz integration by parts against the compact
+smooth test proves D_j(a,partial_j a), after identifying L2 representatives
+almost everywhere. Therefore a and its actual derivatives construct an
+inhabitant of the graph; if its native Solenoidal predicate holds it inhabits
+the solenoidal carrier. No NSE solution or physical Fourier bridge is assumed.
+Anchor: SchwartzMap.integral_smul_lineDerivOp_right_eq_neg_left.
+
+ENDPOINT SCOPE: actual physical H1 and solenoidal H1 Hilbert carriers, compact
+weak-gradient uniqueness, physical norm, completeness, and Schwartz admission.
+This does not construct NSE evolution, Fourier multipliers, sharp Sobolev
+constants, or a global regularity/class theorem. Exact external compiler,
+expected-type and named axiom reports are required before formal acceptance.
+
+FIRST NEXT EDGE: P02 two-way H1-only physical/Fourier derivative identification.
+This is not supplied by P01 and is not inferred from the existing combined
+first/second-derivative spectral interface. No downstream conclusion is claimed.
+
+PREPARED DECLARATION REGISTER (external acceptance pending)
+theorem MethbokeAddon.QuasiFeffermanA.realTestWeakDirectionalDerivative_unique
+theorem MethbokeAddon.QuasiFeffermanA.spatialWeakGradient_unique
+def MethbokeAddon.QuasiFeffermanA.compactPairingCLM
+theorem MethbokeAddon.QuasiFeffermanA.compactPairingCLM_apply
+structure MethbokeAddon.QuasiFeffermanA.CompactSmoothScalarTest
+abbrev MethbokeAddon.QuasiFeffermanA.H1Ambient
+def MethbokeAddon.QuasiFeffermanA.h1Pack
+theorem MethbokeAddon.QuasiFeffermanA.h1Pack_zero
+theorem MethbokeAddon.QuasiFeffermanA.h1Pack_succ
+def MethbokeAddon.QuasiFeffermanA.weakGradientResidual
+theorem MethbokeAddon.QuasiFeffermanA.weakGradientResidual_apply
+def MethbokeAddon.QuasiFeffermanA.physicalH1Graph
+theorem MethbokeAddon.QuasiFeffermanA.mem_physicalH1Graph_iff
+abbrev MethbokeAddon.QuasiFeffermanA.PhysicalH1
+instance MethbokeAddon.QuasiFeffermanA.physicalH1CompleteSpace
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1_isClosed
+def MethbokeAddon.QuasiFeffermanA.physicalH1Velocity
+def MethbokeAddon.QuasiFeffermanA.physicalH1Gradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1_weakGradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1_norm_sq
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Velocity_injective
+def MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient_velocity
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient_gradient
+theorem MethbokeAddon.QuasiFeffermanA.scalarGradient_continuous
+theorem MethbokeAddon.QuasiFeffermanA.scalarGradient_hasCompactSupport
+def MethbokeAddon.QuasiFeffermanA.scalarTestGradientL2
+theorem MethbokeAddon.QuasiFeffermanA.scalarTestGradientL2_ae
+def MethbokeAddon.QuasiFeffermanA.solenoidalTestCLM
+theorem MethbokeAddon.QuasiFeffermanA.solenoidalTestCLM_apply
+theorem MethbokeAddon.QuasiFeffermanA.integrable_solenoidalTest
+theorem MethbokeAddon.QuasiFeffermanA.solenoidal_iff_testCLM
+def MethbokeAddon.QuasiFeffermanA.physicalH1SigmaGraph
+theorem MethbokeAddon.QuasiFeffermanA.mem_physicalH1SigmaGraph_iff
+abbrev MethbokeAddon.QuasiFeffermanA.PhysicalH1Sigma
+instance MethbokeAddon.QuasiFeffermanA.physicalH1SigmaCompleteSpace
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_isClosed
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_weakGradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_solenoidal
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_norm_sq
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_velocity_injective
+theorem MethbokeAddon.QuasiFeffermanA.schwartz_spatialWeakGradient
+def MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1
+theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1_velocity
+def MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1Sigma
+theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1Sigma_velocity

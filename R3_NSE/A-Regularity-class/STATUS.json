@@ -69,28 +69,20 @@
     "All existing accepted proof, audit, compiler/dependency and workflow bytes are retained."
   ],
   "static_validation": {
-    "status": "PASS_STATIC_REVIEW_ONLY",
-    "kind": "Nonexecuting source acquisition, gap, exact excerpt, JSON, link and repository-consistency review; not a Lean/kernel check.",
-    "total_changed_or_added_files": 202,
-    "json_records_checked": 18,
-    "local_markdown_links_checked": 377,
-    "cutouts_checked": 51,
-    "full_source_snapshots_checked": 60,
-    "source_snapshots_matched_to_accepted_commit": 23,
-    "prior_reviews_preserved": true,
+    "status": "PASS_STATIC_ONLY_PENDING_EXTERNAL",
+    "kind": "Native source/manifest/consumer scope preparation; not compiler or kernel acceptance.",
+    "record": "R3_NSE/A-Regularity-class/BATCH1_STATIC_REVIEW.json",
     "new_formal_acceptance": false,
-    "validation_record": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/VALIDATION.json",
     "document_sha256": {
-      "README.md": "dc4dd90b36a778c7bbe6ff18bfcd0fa7c67840969d2c2d4a7de8fa90f98012fc",
-      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "d09b14c5d65008cdd58034bb5cf97e624693f2bc42fa2f228afc77926a07f884",
-      "A_TIER_STEPLIST.md": "84800371ae3f44f78796335b71086b5427d1bceaa49da78924faea563a1318a7",
-      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "226e6177349becb8553b9dc2fe1fc6731e63907fec339eb898a8fa6e4034a335",
-      "A_TIER_PLAN.json": "639aa29bb6ce9fa3c4a61573bcc688ac0fff399c7434a2b995de30b4065eaf16",
-      "LEAN_CUTOUTS/README.md": "18f0453640177a92a139326edf6949c2fc100e17c53acadeb85f372767d6e795",
-      "LEAN_CUTOUTS/GAPS.md": "f06c3a487874bdd366c0a40d844320fe7a4bd329c577a8ed627c6bbcfa0de755",
-      "LEAN_CUTOUTS/IDENTITIES.json": "f3eded3bf622981c8fa70e31ad0fb7e1ae5b1b16e035cc94626f58fdd1e09541",
-      "LEAN_CUTOUTS/SOURCES.json": "999f9400e7945b59df3f9fc9a4f3d84c8c3cdc2024dbeaf475a59d491b1fdcd1",
-      "LEAN_CUTOUTS/VALIDATION.json": "582daf66668cb9ff1ee609c5306e9a33a68bdd0733d1d6ad8b19fb6822892800"
+      "README.md": "8a8dfbe16c508949b923fa8455f4e490fc2fadea10a01b17d0c628578265c8d3",
+      "A_TIER_PLAN.json": "0061655bd72fd23f23e950c3d26702af4b3df58fc5fd601a3df735cbc76ee8c2",
+      "A_TIER_STEPLIST.md": "aef36a57f31c0937db6067ad4f565858e0d04f52e47520d0b3ec26d63901ae84",
+      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "234da68d8267730232c2761363a0373072e8b04d576a42414e6ecb7465f4524e",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "404dcbd70c2177ddfaf7bb69a340013fdb9e0edfacc64c8909c407d6499c7a2f",
+      "SIX_GAP_A_TIER_TARGETS.txt": "ec75e018ae5cb96a5ca8bb7539e75dd607d8e4e2748b246efdbd3d58a07755e0",
+      "SIX_GAP_IMPLEMENTATION_STATUS.json": "256df9b9294ec17d2a16cfe6464af445cee18c164db7b346c0456a82985aeee6",
+      "SIX_GAP_PACKAGE_ASSESSMENT.txt": "a39a19d789a22412b80060d69b1cbd3e02ac257ed9203948979ec9cc28d5fb57",
+      "BATCH1_STATIC_REVIEW.json": "9ddfd7de0c48e756ce43de69518dcd3bc36cd9136587630f30ca4a8a52a2bdc4"
     }
   },
   "prior_class_registration_review": {
@@ -183,5 +175,38 @@
     "new_axiom_audits": 0,
     "new_a_tier_acceptance": false,
     "local_lean_executions": 0
+  },
+  "six_gap_construction": {
+    "status": "FOUR_SCOPED_PACKAGES_PREPARED_PENDING_EXTERNAL",
+    "target_register": "SIX_GAP_A_TIER_TARGETS.txt",
+    "implementation_register": "SIX_GAP_IMPLEMENTATION_STATUS.json",
+    "accepted_parent_count": 0,
+    "local_lean_executions": 0
+  },
+  "prior_lean_cutout_collection_validation": {
+    "source_commit": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+    "status": "PASS_STATIC_REVIEW_ONLY",
+    "kind": "Nonexecuting source acquisition, gap, exact excerpt, JSON, link and repository-consistency review; not a Lean/kernel check.",
+    "total_changed_or_added_files": 202,
+    "json_records_checked": 18,
+    "local_markdown_links_checked": 377,
+    "cutouts_checked": 51,
+    "full_source_snapshots_checked": 60,
+    "source_snapshots_matched_to_accepted_commit": 23,
+    "prior_reviews_preserved": true,
+    "new_formal_acceptance": false,
+    "validation_record": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/VALIDATION.json",
+    "document_sha256": {
+      "README.md": "dc4dd90b36a778c7bbe6ff18bfcd0fa7c67840969d2c2d4a7de8fa90f98012fc",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "d09b14c5d65008cdd58034bb5cf97e624693f2bc42fa2f228afc77926a07f884",
+      "A_TIER_STEPLIST.md": "84800371ae3f44f78796335b71086b5427d1bceaa49da78924faea563a1318a7",
+      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "226e6177349becb8553b9dc2fe1fc6731e63907fec339eb898a8fa6e4034a335",
+      "A_TIER_PLAN.json": "639aa29bb6ce9fa3c4a61573bcc688ac0fff399c7434a2b995de30b4065eaf16",
+      "LEAN_CUTOUTS/README.md": "18f0453640177a92a139326edf6949c2fc100e17c53acadeb85f372767d6e795",
+      "LEAN_CUTOUTS/GAPS.md": "f06c3a487874bdd366c0a40d844320fe7a4bd329c577a8ed627c6bbcfa0de755",
+      "LEAN_CUTOUTS/IDENTITIES.json": "f3eded3bf622981c8fa70e31ad0fb7e1ae5b1b16e035cc94626f58fdd1e09541",
+      "LEAN_CUTOUTS/SOURCES.json": "999f9400e7945b59df3f9fc9a4f3d84c8c3cdc2024dbeaf475a59d491b1fdcd1",
+      "LEAN_CUTOUTS/VALIDATION.json": "582daf66668cb9ff1ee609c5306e9a33a68bdd0733d1d6ad8b19fb6822892800"
+    }
   }
 }

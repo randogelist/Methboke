@@ -1,0 +1,391 @@
+NSE-A SIX-GAP SOURCE AND EXTERNAL VERIFICATION REVIEW
+Date: 2026-11-20
+Repository: randogelist/Methboke
+Branch: AC-Integration
+Source basis: cb3bafdc71c7eb10e57996af6111ba6c24f6865c
+Review kind: read-only/nonexecuting static review; no Lean/Lake/kernel/runner execution.
+Scope: six registered NSE-A gaps; no change to Fefferman_D project goal.
+
+1. EXECUTIVE FINDING
+
+The existing Material workflow can verify the new owned sources without
+changing the toolchain, lockfile, lakefile, drivers or policy. The initially
+proposed two-package batch has grown to four independently scoped packages:
+  QFAPhysicalH1
+  QFAACBudget
+  QFASixChargeBudget
+  QFAH1Fourier
+This preserves existing accepted proof/audit bytes and keeps physical H1
+foundation, first-derivative Fourier and conditional scalar-budget scopes
+distinct. None of these packages by itself closes a complete NSE-A root.
+
+The currently inspected October, Methlib and external code does not yet supply
+an actual native R3 H1-controlled local/maximal constructor, the registered
+sharp Sobolev inequality, or the literal Fefferman-A terminal admission.
+The retrieved Library projector/Sobolev package supplies a useful H1-only
+first-derivative Fourier template. Its separate historical log matches its
+payload and 414 named axiom reports; see sections 9-10 for exact scope.
+
+2. MINIMAL REGISTRATION CHANGES
+
+For each new package add:
+  Material/<Package>/Endpoint.lean
+    Explicit imports of the selected new owned module(s); no new axiom/port.
+  Material/<Package>/Audit.lean
+    Independent full consumer signatures and literal expansion checks for
+    public carriers/predicates/operators, followed by exact named type/axiom
+    sentinels for every registered public declaration.
+  Material/<Package>/endpoint.json
+    schema_version=1; id; endpoint_module=<Package>.Endpoint;
+    audit_module=<Package>.Audit; imports exactly equal Endpoint.lean imports;
+    source_roots recording new owned development; unique nonempty declarations;
+    allowed_axioms=[propext,Classical.choice,Quot.sound]; precise helper scope;
+    pending status until matching accepted external evidence exists.
+  Material/<Package>/closure.json
+    Source roots, recursive local import closure, exact SHA256/imports/origins,
+    external imports and current pinned compiler/dependency identity.
+  Material/<Package>/README.md
+    Mathematical statement, actual hypotheses, source provenance and frontier.
+
+Update Material/owned-sources.json with each new owned module, exact path,
+SHA256 and import list. Use source basis cb3bafdc71c7eb10e57996af6111ba6c24f6865c
+as the development-origin baseline, explicitly stating that new proof bytes
+were developed after that snapshot. Do not fabricate a source revision in
+which the new file supposedly already existed.
+
+Update Material/endpoints.json with every new package row, endpoint_count,
+declaration_count, local source count and source_closure_sha256. The published
+endpoint set is checked against this index. Omitting new rows can cause a
+publication rejection even after source compilation and all audits pass.
+
+No lakefile addition is required. Material/ci/native_build.py discovers
+registered packages through */endpoint.json and invokes exact modules through
+the explicit closure schedule. Existing additional packages already follow
+this route despite not appearing in lakefile default targets.
+
+Synchronize GPT.txt, README.md, INDEX-WORTHY.txt, SOURCE_STATUS.json and the
+T3 D ledger without changing previous accepted goal/status objects. Also amend
+Material/README.md: its old 73-package/420-module table predates the accepted
+QFA additions and is stale relative to the 77-package/463-module baseline.
+
+3. INDEPENDENT AUDIT REQUIREMENTS
+
+Audit.lean should retain the existing options:
+  set_option pp.universes true
+  set_option pp.explicit true
+  set_option pp.fullNames true
+  set_option autoImplicit false
+
+Each theorem needs an independently written complete consumer signature
+checked by assigning the named theorem to that signature. Each new physical
+carrier or predicate needs a literal expansion tying it to actual full-volume
+Lp classes, compact tests, gradients and integral identities. Avoid audits
+that merely restate the theorem's type through an alias or accept an assumed
+port containing its conclusion.
+
+For each registered fully qualified name, in manifest order, emit exactly:
+  TYPE_BEGIN:<name>
+  #check @<name>
+  TYPE_END:<name>
+  AXIOMS_BEGIN:<name>
+  #print axioms <name>
+  AXIOMS_END:<name>
+using the existing #eval IO.println string convention. The parser rejects
+missing, duplicated, reordered or unlisted sentinels, empty type reports,
+compiler errors, sorry admissions and axioms outside the unchanged allowlist.
+
+PhysicalH1 acceptance must state which actual constructions are present:
+weak-gradient uniqueness, closed graph, complete carrier, real/vector norms,
+solenoidal subspace as applicable. It must not be labeled the full Fourier or
+six-projector endpoint unless those extra physical theorems are constructed.
+
+ACBudget acceptance must retain its actual scalar assumptions: nonnegative
+profile, relevant continuity/absolute continuity, a.e. differential bound,
+finite closed interval and any terminal-budget measurability/integrability.
+It does not prove that an NSE solution has these properties.
+
+4. EXISTING EXTERNAL ROUTE AND EXACT COMMIT DISCIPLINE
+
+.github/workflows/material.yml already triggers on pushes to AC-Integration.
+No workflow edit or new permission is necessary for this authorized scope.
+A proof-bearing commit must not use [skip ci].
+
+IMPORTANT: same-branch push runs use cancel-in-progress on a new push.
+Freeze the tested commit while its run is active. Derive independent pieces
+locally during the run, then publish after the run result is collected.
+Do not accidentally cancel a run by publishing documentation mid-flight.
+
+The fast binary path restores exact pinned dependency objects and compatible
+passed own objects, rebuilds changed owned modules, and freshly runs every
+configured package type/axiom audit plus the standalone QFB cutout audit.
+The compiler remains Lean 4.33.0; Mathlib remains
+  db584cd6d46c92f209a44c0f1c829460d327499d.
+No Mathlib source rebuild is allowed. Cache recovery, when selected by the
+unchanged failure router, uses official pinned dependency binaries and a fresh
+owned-module build. Source/theorem/audit/publication/unknown failures do not
+justify a cold-cache retry or policy relaxation.
+
+Required acceptance review includes:
+  exact tested source SHA, matching toolchain and dependency lock;
+  PASS module receipts for all scheduled modules;
+  full current endpoint set and declaration counts;
+  audit_reused=false and audit_origin_commit=tested SHA for every package;
+  type and axiom records matching the fresh log bytes/hashes;
+  no sorryAx or unapproved axiom;
+  standalone QFB cutout evidence and retained control gates;
+  publication of exact passed dependency/project cache identities;
+  terminal Material accepted job success;
+  independent review of the new consumer types and physical scope.
+
+Green source compilation alone is not enough. A later documentation commit
+must point to the exact proof-bearing tested commit, not claim itself tested.
+Existing Linux CI evidence is not native-Windows evidence.
+
+5. G01: ACTUAL R3 H1 LOCAL/MAXIMAL EVOLUTION
+
+October package FEF_NSE_MASTERAC_TWO_LAYER_LEAN_v0_11_0:
+- Master_R3_derivation.lean:R3_full_dissipation_bound takes an existing
+  R3StorageWitness and FullLedgerReadout. It is a ledger consequence; it does
+  not construct the physical field or prove native R3 norm admission.
+- Fefferman/KernelCritical.lean:kernel_critical_to_serrin takes
+  KernelCriticalControl and KernelSerrinInterpolation. It does not establish
+  physical Sobolev interpolation or an actual NSE solution.
+- Fefferman/IntrinsicIdentification.lean:R3IntrinsicGlobalClosure has a solve
+  field that supplies the global PDE conclusion. Its projection theorems do
+  not discharge that field.
+- LayerA_Mathematics.lean:LAYER_A_MASTER_AC_TO_FEFFERMAN_AC takes a model,
+  MasterAC and MasterACProjection. Preserve the conditional scope.
+
+October v0.25 ConcreteABCDUnifiedClosure.lean proves semantic equivalences
+and an endpoint atlas. Its own text calls it a closure/equivalence collection,
+not an unconditional proof of any open NSE endpoint.
+
+Native WFB EV02-EV08 provides genuine periodic local/maximal/restart proofs.
+It remains useful construction architecture but retains periodic smooth data.
+
+External EVL01 exists_local_varConst provides an actual R3 Fourier fixed-point
+construction at H^m, m>=3, viscosity 1; the lifespan depends on the stronger
+norm. EVL02 extends under an explicit uniform homogeneous-H1 bound. These do
+not directly prove arbitrary physical H1 local existence with H1 lifespan.
+
+FIRST MISSING G01 EDGE: a constructed whole-space physical H1 IVP with proved
+heat/Leray/bilinear estimates, trace, uniqueness and H1-controlled lifespan.
+Do not replace it by a supplied-solution record.
+
+6. G02: SHARP SPATIAL CONSTANT
+
+Native Cutoff.safeCutoff_eq_pi_formula_of_sixth_power assumes
+  S^6 = 16/(27*pi^4).
+It rewrites safeCutoff; its comments explicitly disclaim sharp Sobolev proof.
+
+Pinned Mathlib ES01 proves a compact-C1 Gagliardo-Nirenberg-Sobolev inequality
+with its own explicit eLpNormLESNormFDerivOfEqInnerConst. This is useful actual
+analysis, but the inspected theorem does not identify its constant with the
+registered sharp S6. External ES13 proves H1-to-L6 membership, not that value.
+ES16 has an L-infinity Schwartz-test factor, not the missing sharp estimate.
+
+Current Methlib QFA corrected root still takes WholeSpaceSpectralEndpoint and
+WholeSpaceAgmonEndpoint, plus CorrectedReferenceConstructionFromAbsorption.
+The source explicitly calls the latter an unresolved physical backend.
+
+FIRST MISSING G02 EDGE: prove admissibility of the specified S6 for the same
+physical H1 carrier (with vector/tensor transport), rather than assume it,
+compute an extremal value, or substitute a distinct admissible constant.
+A generalized constant-dependent theorem may be a sound separate helper but
+must not silently alter the frozen tau_A.
+
+7. G04: LITERAL FEFFERMAN-A CATEGORY AND TERMINAL CONTROL
+
+EV10-EV13 concern an already supplied H3 strong solution and its comparison.
+They are useful pressure and uniqueness material, not H1 IVP construction.
+EVL03 recovers physical smooth velocity and pressure from all Sobolev orders
+plus the actual Duhamel equation; all-order propagation must still be proved.
+EVL04 compares literal smooth finite-energy solutions when the reference has
+uniform velocity and gradient bounds. This gives agreement on each shorter
+slab; it does not give an H1 bound uniform as a finite canonical endpoint is
+approached. EVL05 smooths an existing mild trajectory under explicit analytic
+premises; it does not construct that trajectory.
+
+FIRST MISSING G04 EDGE AFTER G01: all-order/pressure recovery for actual native
+Schwartz evolution, then finite-closed-slab H1/enstrophy admission for the
+literal competitor sufficient for continuation at a finite canonical endpoint.
+Smoothness is lifetime-qualified until globality is proved.
+
+8. REMAINING THREE GAPS AND PARALLEL WORK
+
+G05: SP02/SP03 give an immediate native physical-H1 foundation route; SP17-21
+supply spectral and multiplier source templates. The next bridge must be
+H1-only; existing combined gradient/Laplacian witnesses cannot add H2 silently.
+
+G03: ES02 AC FTC and the already accepted ES03 integral Gronwall support a
+useful independent ACBudget helper. Actual PDE AC/balance derivation remains.
+External LerayHopf/Experimental.lean specifically excludes unfinished Bochner
+TimeSobolevAC and TimeSobolevExperimental components from its release surface;
+those modules should not be imported as proved time-regularity anchors.
+
+G06: SP10-SP16 supply finite-sum/nonnegative-integration material. A separate
+six-charge extended-budget comparison can be developed while physical H1 and
+ACBudget are externally checked. Keep full endpoint ENNReal integrals and
+zero-data cases; do not replace global budget finiteness by compact finiteness.
+
+No new A-tier result is asserted in this report. Sections 1-10 arose from a
+read-only source review. The separately authorized new H1Fourier source is
+described in section 11. This report is an intermediate source for root integration.
+
+9. NEW GPT-PROJECT SOURCE: FRONTIER_A REAL PROJECTOR/SOBOLEV FIX1
+
+Retrieved archive: FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1.zip
+SHA256: beb3cf4461055ca00e1f37a34b709cf294169f43370a730f8ea095010c9e2120
+Expanded source directory:
+  nse_a_work/library_sources/Navier-Stokes-Final/
+  FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1/
+  FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1/
+115 Lean source modules. Nested payload.zip has 120 entries: those Lean
+sources plus C# scheduler/audit helpers, graph.tsv and targets.txt.
+No compiler logs, axiom logs, receipts or pinned dependency lock are present
+in either outer source directory or nested payload.zip.
+The TXT explicitly calls FIX1 uncompiled; the original candidate failed before
+root/audit. Its run.cmd requests native Windows Lean 4.34.0-rc1 and a supplied
+precompiled compatible Mathlib tree. Strings echoing PASS in run.cmd are code,
+not successful run evidence. No runner/helper was executed during review.
+
+G05 REUSE:
+- FrontierAWeakFourierDistribution.fourier_weak_derivative_distribution:
+  actual supplied L2 distributional directional derivative gives the Fourier
+  derivative identity; no Laplacian or H2 premise.
+- FrontierAWeightedDistributionBridge.weighted_l2_from_distribution:
+  injectivity of Lp-to-tempered-distribution maps plus bounded regularizers
+  converts an unbounded-symbol distribution equality to weighted L2 equality.
+- FrontierAWeightedCancellation.ae_from_distribution and
+  FrontierAWeight.weight: explicit everywhere-nonzero (1+|x|^2)^(-1) weight,
+  bounded symbol-times-weight and a.e. cancellation.
+- FrontierAWeakFourierAE.fourier_weak_derivative_ae: composes these into
+  F(du)(xi)=2*pi*i*<xi,m>*F(u)(xi) almost everywhere.
+- FrontierRealVelocityNorm.complexifyL2_norm: actual real-to-complex L2 norm
+  preservation.
+- FrontierRealHelicalOperators: realify/complexify inverse relations,
+  injectivity, actual real L2 helical maps and idempotence.
+- FrontierRealHelicalSplit: orthogonality/cross-zero plus split/energy under
+  explicit Fourier transversality. Its physical-divergence equivalence is not
+  supplied. These are two helical projections, not our six scalar cone sectors.
+- FrontierForwardSobolev.real_weak_gradient_graph_bridge: a supplied real
+  weak-gradient matrix gives spectral graph membership and a one-sided norm
+  bound. The source explicitly leaves reverse inclusion, norm equality and
+  independent Stokes realization open.
+
+SMALLER NATIVE ADAPTATION:
+Current accepted native FourierMultipliers already contains
+  ae_eq_of_const_smul_real_multiplier_distribution
+with a generic continuous temperate real multiplier and no H2 hypothesis.
+A new directional first-derivative theorem can use Mathlib Fourier derivative
+compatibility and then that existing generic helper. The new Library package
+therefore supports a short owned H1-only adapter without transporting its
+entire weighted-regularizer subtree or changing native pins.
+Compact-test-to-Schwartz/distribution admission and the reverse native H1
+membership direction still require proofs. Existing accepted native
+first-derivative wrappers happen to take the stronger combined gradient and
+Laplacian witness; the new wrapper must avoid propagating that stronger premise.
+
+G01/G02/G04 BOUNDARIES:
+The archive does not construct an NSE solution. Its finite-time root uses a
+supplied weak gradient, time integrability and energy inequality. Its word
+Sobolev refers to forward H1 graph admission; it contains no proof of the
+registered sharp L6 spatial constant. Full reverse H1 identification, physical
+Leray-Hopf realization, native local/maximal theory and regularity remain open.
+
+Detailed source hashes and declaration line locations are retained in
+nse_a_work/FRONTIER_A_SOURCE_REVIEW.json for root integration. This review
+narrows source work but adds no native accepted theorem or A-tier marker.
+
+10. HISTORICAL USER-LOG MATCH FOUND AFTER SECTION 9
+
+The source package TXT reflects preparation time. A separately retrieved user
+log now supersedes its uncompiled status for the exact historical package:
+  Pasted text(20261104-000421).txt
+  SHA256 0420271ddae760a7c98ed206138c31bfa038053761ccb85c31f4d9ad2b0c5e83
+It reports native Windows4.34rc1 package completion, 115/115 modules (112 reused,
+3 built), fresh SignaturesR2 and AuditR2 exit0, OBJECT_SNAPSHOT_MATCH,
+PASS_STANDARD_ONLY for 414 named theorems, SORRYAX=NONE and RUN=PASS.
+
+Static matching confirmed:
+- CANONICAL_SHA256 eb0c8f0e154b8b11c9816af00e236bd47144e1b11349c791cd424a02053988b6
+  equals the acquired FrontierCanonicalGradientBudgetRoot.lean bytes.
+- BUILD_INPUTS_SHA256 7f450342fb32d517235756b25c92d5c7a30311c1573c28e5cc2a10ef7b672578
+  equals the acquired payload.zip bytes.
+- All 115 acquired outer Lean source files match their payload.zip entries.
+- The 414 named reports exactly match targets.txt in order; every reported
+  axiom is within propext, Classical.choice, Quot.sound.
+
+Evidence classification is now HISTORICAL_USER_LOG_PASS_MATCHED_SOURCE_AND_NAMED_AXIOMS.
+The provided pasted output begins near the end of compilation; it does not
+contain the full independent expected-type assertions, full printed type log,
+compiler-version/Mathlib dependency fingerprint or individual cached receipts.
+The historical source is substantially supported by matching user evidence;
+it is not accepted native4.33 adaptation and does not close the larger physical
+NSE obligations. The current module's matching native CI is still mandatory.
+
+A second user log, Pasted text(20261104-123306).txt, identifies a later
+FRONTIER_A_JOINT_L2_GRAPH_RC1_FIX1 package with 143 modules and 484 named reports.
+Its canonical/payload hashes differ. Do not use that later log to assert new
+source-specific acceptance for the 115-module archive.
+
+11. OWNED NATIVE H1-ONLY FORWARD ADAPTATION AND INDEPENDENT REVIEW
+
+After parent authorization, this reviewer prepared only the new owned module
+Material/MethbokeAddon/QuasiFeffermanA/H1Fourier.lean. The exact B-tier chain
+was recorded first in nse_a_work/H1_FOURIER_CHAIN.txt. No Lean execution or
+local kernel audit occurred. The source is frozen for parent CI integration.
+
+The module constructs the previously missing compact-real-test admission:
+real Schwartz tests complexify by the actual derivative chain rule; arbitrary
+compact complex Schwartz tests split into real and imaginary parts; accepted
+compact-Schwartz density gives the tempered-distribution weak derivative.
+Mathlib Fourier compatibility and the accepted generic native multiplier
+helper then give the a.e. first-derivative Fourier identity. The real-vector
+version uses the actual accepted L2 complexification. The simultaneous native
+gradient theorem needs only SpatialWeakGradient, with no Laplacian field.
+
+Eight public declarations are independently consumed in the passive fragment
+nse_a_work/H1_FOURIER_EXPECTED_TYPES.lean.txt. Literal full-volume real/complex
+Lp carriers, both compact-real-test predicate expansions and SpatialWeakGradient
+with actual coordinate vectors are checked there. Parent supplies the package
+import, full-printer options and all eight named type/axiom sentinel groups.
+
+Independent static peer review by h1_foundation confirms the intended forward
+scope: sign, real/imaginary decomposition, compact-test density and multiplier
+steps are correct mathematically and introduce no H2 or PDE hypothesis.
+External source/type/axiom verification is still required.
+
+SixChargeBudget.lean was independently inspected against the exact pinned
+Mathlib source. The finite Cauchy--Schwarz and nonnegative-cross-term bounds
+use actual library proofs with coefficient six. lintegral_const_mul' explicitly
+requires only that the constant is not infinity, so the nonmeasurable upper
+comparison is legitimate. The exact finite-sum integral identity separately
+keeps charge measurability; finite budget equivalences retain ENNReal infinity.
+The stopped-profile adapter explicitly assumes a.e. Y=sum(q), and the scalar
+AC/cubic conclusion explicitly retains its evolution and finite full-budget
+hypotheses. No actual physical projections or additivity are manufactured.
+All sixteen public names and literal integrands/windows have independent
+consumers in SIX_CHARGE_EXPECTED_TYPES.lean.txt. No mathematical or obvious API
+issue was found in this static review; compilation remains externally pending.
+
+The separate second-batch H1FourierReverse.lean candidate by h1_foundation was
+also statically reviewed. A supplied L2 multiplier representative identifies
+its distribution by arbitrary Schwartz evaluation. Actual Fourier inversion
+recovers the distributional derivative. Compact-real tests and injectivity of
+the actual real-to-complex isometry reflect it to the native physical derivative.
+This gives a sound two-way characterization for supplied real u and gradient G.
+It does not construct gradient witnesses from weighted integrability alone,
+prove weighted H1 norm equality, or close six-projector or evolution gaps.
+
+
+11. CURRENT FIRST NATIVE BATCH
+
+The initial two-package proposal has been extended to four scoped packages:
+QFAPhysicalH1 (46 names), QFAACBudget (9), QFASixChargeBudget (16),
+QFAH1Fourier (8). Total79 new named declarations:58 theorem statements and
+21 definitions/structures/instances. All are pending matching external evidence.
+The source statements, full expected-type consumers and native pins were
+independently inspected. Source derivations are retained in DERIVATIONS/.
+New source references: LEAN_CUTOUTS/project_recovery/README.md.
+No six-gap parent is marked complete. No local Lean was executed.

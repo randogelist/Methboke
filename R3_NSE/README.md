@@ -29,3 +29,8 @@ this folder organization. R0 finite-cap admission is periodic too.
 
 [GPT.txt](../GPT.txt) retains Fefferman D as the project goal and records the
 AC branch's local integration target separately.
+
+
+## Six-gap construction
+
+The authorized [NSE-A six-target program](A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) has four scoped native packages prepared for matching cached external verification. [Status](A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json) preserves all open physical obligations.

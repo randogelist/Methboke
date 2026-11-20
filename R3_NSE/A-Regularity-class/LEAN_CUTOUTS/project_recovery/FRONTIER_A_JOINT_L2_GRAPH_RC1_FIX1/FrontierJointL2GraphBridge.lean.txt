@@ -1,0 +1,87 @@
+import FrontierJointProjectedBridge
+import FrontierJointSchwartzHint
+
+/-! Conditional adapter combining the audited joint projected bridge with the
+not-yet-audited joint-L2 Schwartz product-test estimate. The spacetime fields,
+representative identity, vanishing product tests, energy budget, and Bochner
+trajectories remain explicit hypotheses. No Lean compiler has been run locally. -/
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierJointL2GraphBridge
+
+abbrev RealVelocity := FrontierSpacetimeFubiniSlicing.RealVelocity
+abbrev Gradient := FrontierSpacetimeFubiniSlicing.Gradient
+abbrev Space := FrontierSpacetimeFubiniSlicing.Space
+abbrev SpatialTest := FrontierSpacetimeFubiniSlicing.SpatialTest
+abbrev JointResidual := FrontierSpacetimeFubiniSlicing.JointResidual
+
+local instance physicalRealL2 : InnerProductSpace ℝ FrontierSpectralOperator.PhysicalL2 :=
+  InnerProductSpace.rclikeToReal ℂ FrontierSpectralOperator.PhysicalL2
+
+/-- The product-test hypotheses supply the weak-gradient slices needed by
+the existing projected graph energy theorem.  The result is conditional on
+the displayed physical inputs. -/
+theorem finite_interval_graph_of_joint_l2
+    [MeasurableSpace Gradient] [BorelSpace Gradient]
+    [MeasurableSpace FrontierAWeakTimeGram.MatrixL2] [BorelSpace FrontierAWeakTimeGram.MatrixL2]
+    [MeasurableSpace FrontierAMatrixFourier.FrequencyMatrix]
+    [BorelSpace FrontierAMatrixFourier.FrequencyMatrix]
+    [MeasurableSpace FrontierAConcreteFourier.ComplexField]
+    [BorelSpace FrontierAConcreteFourier.ComplexField]
+    [MeasurableSpace FrontierAWeakTimeGram.CoordinateL2]
+    [BorelSpace FrontierAWeakTimeGram.CoordinateL2]
+    (u : ℝ → RealVelocity) (g : ℝ → Gradient) (T nu : ℝ)
+    [IsFiniteMeasure (FrontierFiniteIntervalEnergy.timeMeasure T)]
+    [SFinite (FrontierFiniteIntervalEnergy.timeMeasure T)]
+    [IsLocallyFiniteMeasure (FrontierFiniteIntervalEnergy.timeMeasure T)]
+    (hnu : 0 < nu)
+    (hu : MemLp u (⊤ : ENNReal) (FrontierFiniteIntervalEnergy.timeMeasure T))
+    (hg : MemLp g 2 (FrontierFiniteIntervalEnergy.timeMeasure T))
+    (henergy : ‖u T‖ ^ 2 + 2 * nu *
+      (∫ t, ‖g t‖ ^ 2 ∂(FrontierFiniteIntervalEnergy.timeMeasure T)) ≤ ‖u 0‖ ^ 2)
+    (U : ℝ × Space → FrontierSpacetimeFubiniSlicing.Fiber)
+    (G : Fin 3 → ℝ × Space → FrontierSpacetimeFubiniSlicing.Fiber)
+    (hU : MemLp U 2 ((FrontierFiniteIntervalEnergy.timeMeasure T).prod (volume : Measure Space)))
+    (hG : ∀ j, MemLp (G j) 2 ((FrontierFiniteIntervalEnergy.timeMeasure T).prod (volume : Measure Space)))
+    (hrep : ∀ (j : Fin 3) (ψ : SpatialTest),
+      ∀ᵐ t ∂(FrontierFiniteIntervalEnergy.timeMeasure T),
+        (∫ x, FrontierJointSchwartzHint.residual U G j ψ (t, x) ∂(volume : Measure Space)) =
+          (FrontierWeakGradientSubspace.residual j (u t, g t)) ψ)
+    (hjoint : ∀ (φ : ℝ → ℝ), ContDiff ℝ (⊤ : ℕ∞) φ → HasCompactSupport φ →
+      ∀ (j : Fin 3) (ψ : SpatialTest),
+        (∫ tx, φ tx.1 • FrontierJointSchwartzHint.residual U G j ψ tx
+          ∂((FrontierFiniteIntervalEnergy.timeMeasure T).prod (volume : Measure Space))) = 0) :
+    (∀ᵐ t ∂(FrontierFiniteIntervalEnergy.timeMeasure T),
+      (FrontierAEProjectedGraphEnergy.graphLift
+        (FrontierRealVelocityEmbedding.complexifyL2 (u t)) (g t)).val =
+          FrontierRealVelocityEmbedding.complexifyL2 (u t)) ∧
+    Integrable (FeffermanAHopfGramIntegral.gramSqrt
+      (fun t => FrontierSpectralOperator.dissipation
+        (FrontierProjectedDissipation.plusDomain
+          (FrontierAEProjectedGraphEnergy.graphLift
+            (FrontierRealVelocityEmbedding.complexifyL2 (u t)) (g t))))
+      (fun t => FrontierSpectralOperator.dissipation
+        (FrontierProjectedDissipation.minusDomain
+          (FrontierAEProjectedGraphEnergy.graphLift
+            (FrontierRealVelocityEmbedding.complexifyL2 (u t)) (g t)))))
+      (FrontierFiniteIntervalEnergy.timeMeasure T) ∧
+    FeffermanAHopfGramIntegral.gramSqrtIntegral (FrontierFiniteIntervalEnergy.timeMeasure T)
+      (fun t => FrontierSpectralOperator.dissipation
+        (FrontierProjectedDissipation.plusDomain
+          (FrontierAEProjectedGraphEnergy.graphLift
+            (FrontierRealVelocityEmbedding.complexifyL2 (u t)) (g t))))
+      (fun t => FrontierSpectralOperator.dissipation
+        (FrontierProjectedDissipation.minusDomain
+          (FrontierAEProjectedGraphEnergy.graphLift
+            (FrontierRealVelocityEmbedding.complexifyL2 (u t)) (g t)))) ≤
+      ‖u 0‖ ^ 2 / (4 * nu) := by
+  exact FrontierJointProjectedBridge.finite_interval_projected_graph_of_joint_integrals
+    u g T nu hnu hu hg henergy (FrontierJointSchwartzHint.residual U G) hrep
+    (FrontierJointSchwartzHint.hint_of_joint_l2
+      (FrontierFiniteIntervalEnergy.timeMeasure T) U G hU hG) hjoint
+
+end FrontierJointL2GraphBridge
+
+#print FrontierJointL2GraphBridge.finite_interval_graph_of_joint_l2
+#print axioms FrontierJointL2GraphBridge.finite_interval_graph_of_joint_l2

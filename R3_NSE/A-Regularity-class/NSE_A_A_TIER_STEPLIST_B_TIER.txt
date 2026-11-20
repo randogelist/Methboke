@@ -1290,3 +1290,429 @@ source/type/axiom scope; copied proofs do not promote a parent root.
 No local Lean/Lake/kernel/project runner, external compiler or axiom run was
 executed. The next native preparation step is the physical H1 graph and its
 H1-only two-way Fourier bridge, followed by the six-projector milestone.
+
+
+ADDENDUM 1.2 — SIX CLOSURE TARGETS AND FIRST NATIVE CONSTRUCTION BATCH
+Date:2026-11-20. User assented to the six open targets and the existing
+twenty contextual endpoints. Parent goal and retained local target unchanged.
+Target register:SIX_GAP_A_TIER_TARGETS.txt. Status:SIX_GAP_IMPLEMENTATION_STATUS.json.
+Package assessment:SIX_GAP_PACKAGE_ASSESSMENT.txt. Source recovery:
+LEAN_CUTOUTS/project_recovery/README.md and ARCHIVE_EVIDENCE.json.
+The !=! signal is reserved for exact externally accepted scopes. An
+accepted helper does not complete its parent gap. All six parents remain open.
+
+SUBCHAIN: P01 actual physical H1 construction
+SOURCE: DERIVATIONS/H1_CHAIN.txt
+
+NSE-A P01 PHYSICAL H1 FOUNDATION — B-TIER DERIVATION
+Source basis: cb3bafdc71c7eb10e57996af6111ba6c24f6865c.
+Status: exact constructive chain; native implementation candidate pending matching external evidence.
+No local Lean, Lake, kernel audit, or project runner is permitted or executed.
+
+C01. Native carriers. V = L2(R3;R3) with full Lebesgue measure. For e in R3,
+D_e(v,g) means integral (partial_e psi) v = - integral psi g for every real
+C-infinity compact scalar test psi. All terms are integrable because compact
+continuous tests and their derivatives are L2 and L2 times L2 is L1.
+
+C02. Derivative uniqueness. If D_e(v,g) and D_e(v,h), their identities give
+integral psi g = integral psi h for every compact smooth psi. Both g and h are
+locally integrable by their L2 membership. The real compact-test separation
+lemma yields g=h almost everywhere, hence equality in V. Coordinatewise this
+proves uniqueness of the three native SpatialWeakGradient witnesses.
+Anchor: SP03 ae_eq_of_integral_contDiff_smul_eq; no Fourier or H2 premise.
+
+C03. Continuous test functionals. A compact continuous scalar psi belongs to
+L2. The continuous bilinear Holder pairing from L2 scalar times L2 vector into
+R3 gives T_psi(v)=integral psi v as a continuous real linear map on V. The
+statement identifies the actual Bochner integral, rather than a formal symbol.
+Anchor: Continuous.memLp_of_hasCompactSupport; ContinuousLinearMap.lpPairing.
+
+C04. Ambient physical norm. Let X = l2(Fin 4; V). Store velocity at coordinate
+0 and its three gradient witnesses at successor coordinates. Then
+||x||_X^2 = ||x_0||_2^2 + sum_j ||x_(j+1)||_2^2.
+X is a complete real Hilbert space. No maximum-product norm is substituted.
+Anchor: PiLp 2 and PiLp.norm_sq_eq_of_L2.
+
+C05. Closed gradient graph. For each coordinate j and compact smooth psi,
+R_(j,psi)(x)=T_(partial_j psi)(x_0)+T_psi(x_(j+1)) is continuous linear.
+Its kernel is closed. Intersect all these kernels. The resulting closed real
+subspace H1Graph consists exactly of the actual native weak-gradient pairs.
+Closedness follows from continuity of the actual test pairings. This constructs
+the carrier directly and does not assume a closed derivative graph.
+Anchor: ContinuousLinearMap.isClosed_ker; ClosedSubmodule indexed infimum.
+
+C06. Complete carrier and uniqueness of representation. The closed graph
+inherits the Hilbert norm and is complete. Projection to velocity is injective
+by C02. Thus the gradient coordinates are determined by the physical L2 field.
+The velocity and gradient projections are bounded real linear maps.
+
+C07. Solenoidal closed restriction. The smooth compact scalar test gradient
+is continuous and compactly supported, hence is a vector L2 field. The actual
+pairing S_psi(v)=integral inner(v,grad psi) is a continuous real linear functional.
+Intersect its kernels with H1Graph at the velocity coordinate. Membership is
+exactly SpatialWeakGradient plus the existing native Solenoidal predicate,
+including genuine integrability. The resulting PhysicalH1Sigma is complete
+and inherits the same physical sum-of-squares norm.
+
+C08. Schwartz admission. For a real vector Schwartz field a, each partial_j a
+is again Schwartz and L2. Schwartz integration by parts against the compact
+smooth test proves D_j(a,partial_j a), after identifying L2 representatives
+almost everywhere. Therefore a and its actual derivatives construct an
+inhabitant of the graph; if its native Solenoidal predicate holds it inhabits
+the solenoidal carrier. No NSE solution or physical Fourier bridge is assumed.
+Anchor: SchwartzMap.integral_smul_lineDerivOp_right_eq_neg_left.
+
+ENDPOINT SCOPE: actual physical H1 and solenoidal H1 Hilbert carriers, compact
+weak-gradient uniqueness, physical norm, completeness, and Schwartz admission.
+This does not construct NSE evolution, Fourier multipliers, sharp Sobolev
+constants, or a global regularity/class theorem. Exact external compiler,
+expected-type and named axiom reports are required before formal acceptance.
+
+FIRST NEXT EDGE: P02 two-way H1-only physical/Fourier derivative identification.
+This is not supplied by P01 and is not inferred from the existing combined
+first/second-derivative spectral interface. No downstream conclusion is claimed.
+
+PREPARED DECLARATION REGISTER (external acceptance pending)
+theorem MethbokeAddon.QuasiFeffermanA.realTestWeakDirectionalDerivative_unique
+theorem MethbokeAddon.QuasiFeffermanA.spatialWeakGradient_unique
+def MethbokeAddon.QuasiFeffermanA.compactPairingCLM
+theorem MethbokeAddon.QuasiFeffermanA.compactPairingCLM_apply
+structure MethbokeAddon.QuasiFeffermanA.CompactSmoothScalarTest
+abbrev MethbokeAddon.QuasiFeffermanA.H1Ambient
+def MethbokeAddon.QuasiFeffermanA.h1Pack
+theorem MethbokeAddon.QuasiFeffermanA.h1Pack_zero
+theorem MethbokeAddon.QuasiFeffermanA.h1Pack_succ
+def MethbokeAddon.QuasiFeffermanA.weakGradientResidual
+theorem MethbokeAddon.QuasiFeffermanA.weakGradientResidual_apply
+def MethbokeAddon.QuasiFeffermanA.physicalH1Graph
+theorem MethbokeAddon.QuasiFeffermanA.mem_physicalH1Graph_iff
+abbrev MethbokeAddon.QuasiFeffermanA.PhysicalH1
+instance MethbokeAddon.QuasiFeffermanA.physicalH1CompleteSpace
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1_isClosed
+def MethbokeAddon.QuasiFeffermanA.physicalH1Velocity
+def MethbokeAddon.QuasiFeffermanA.physicalH1Gradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1_weakGradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1_norm_sq
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Velocity_injective
+def MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient_velocity
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient_gradient
+theorem MethbokeAddon.QuasiFeffermanA.scalarGradient_continuous
+theorem MethbokeAddon.QuasiFeffermanA.scalarGradient_hasCompactSupport
+def MethbokeAddon.QuasiFeffermanA.scalarTestGradientL2
+theorem MethbokeAddon.QuasiFeffermanA.scalarTestGradientL2_ae
+def MethbokeAddon.QuasiFeffermanA.solenoidalTestCLM
+theorem MethbokeAddon.QuasiFeffermanA.solenoidalTestCLM_apply
+theorem MethbokeAddon.QuasiFeffermanA.integrable_solenoidalTest
+theorem MethbokeAddon.QuasiFeffermanA.solenoidal_iff_testCLM
+def MethbokeAddon.QuasiFeffermanA.physicalH1SigmaGraph
+theorem MethbokeAddon.QuasiFeffermanA.mem_physicalH1SigmaGraph_iff
+abbrev MethbokeAddon.QuasiFeffermanA.PhysicalH1Sigma
+instance MethbokeAddon.QuasiFeffermanA.physicalH1SigmaCompleteSpace
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_isClosed
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_weakGradient
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_solenoidal
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_norm_sq
+theorem MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_velocity_injective
+theorem MethbokeAddon.QuasiFeffermanA.schwartz_spatialWeakGradient
+def MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1
+theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1_velocity
+def MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1Sigma
+theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH1Sigma_velocity
+
+
+SUBCHAIN: P15 AC and full stopped budget
+SOURCE: DERIVATIONS/AC_BUDGET_CHAIN.txt
+
+NSE-A AC CUBIC / FULL STOPPED SQUARE BUDGET
+VERSION: 1.0
+DATE: 2026-11-20
+STATUS: B_TIER_SCALAR_CHAIN_COMPLETE; NATIVE_LEAN_CANDIDATE_PENDING_EXTERNAL
+SCOPE: Independent G03/P15 and G06 scalar foundation; no actual NSE trajectory is constructed.
+SOURCE BASIS: Methboke AC-Integration cb3bafdc71c7eb10e57996af6111ba6c24f6865c.
+
+1. Exact input on a finite closed interval [0,R].
+Let Y: R -> R, R>=0, and kappa>=0. Assume Y absolutely continuous on
+[0,R], and Y'(r)<=kappa Y(r)^3 for almost every r in (0,R). Endpoints
+need no classical derivative. Absolute continuity supplies continuity and
+an integrable a.e. derivative on every closed subinterval [0,t].
+
+2. Restriction to each closed subinterval.
+For t in [0,R], absolute continuity restricts to [0,t]. Restrict the a.e.
+cubic inequality to (0,t); singleton-nullity transfers it to [0,t].
+Both Y' and kappa Y^3 are integrable on [0,t]. The first follows from AC;
+the second follows from continuity. Thus integral monotonicity is valid.
+
+3. Actual AC-to-Volterra edge.
+The AC fundamental theorem gives
+  Y(t)-Y(0) = integral_0^t Y'(r) dr
+           <= integral_0^t kappa Y(r)^3 dr.
+Consequently Y(t)<=Y(0)+integral_0^t kappa Y(r)^3 dr. This integral
+inequality is derived, not placed in the input contract.
+
+4. Existing named-audited Gronwall application.
+Take a(r)=kappa Y(r)^2, e(r)=Y(r), delta=Y(0). The coefficient is continuous
+and nonnegative. The product a(r)e(r)=kappa Y(r)^3 is integrable. ES03,
+QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL, therefore gives
+  Y(t)<=Y(0) exp(kappa integral_0^t Y(r)^2 dr).
+ES02 and ES03 are the exact source anchors. No continuity of a separate
+classical derivative or Laplacian function is required.
+
+5. Closed-window uniform bound.
+If Y(0)>=0 and integral_0^R Y^2<=M, nonnegative integral monotonicity gives
+integral_0^t Y^2<=M. Monotonicity of exp and multiplication by Y(0) yield
+  Y(t)<=Y(0) exp(kappa M), 0<=t<=R.
+There is no assumption of monotonicity of Y itself.
+
+6. Full stopped budget, preserving infinity.
+For real b define
+  J(Y,b) := lintegral_{(0,b)} ENNReal.ofReal(Y(r)^2) dr : ENNReal.
+At b=0 and for the zero function this is zero. Suppose J(Y,b) is finite.
+For 0<=t<b, if Y is continuous on [0,t], the ordinary nonnegative integral
+on [0,t] has ofReal equal to its nonnegative integral on (0,t]. Since
+(0,t] is contained in (0,b), monotonicity gives
+  ofReal(integral_0^t Y^2)<=J(Y,b).
+Only after using the explicit J(Y,b)!=infinity premise do we apply toReal:
+  integral_0^t Y^2 <= J(Y,b).toReal.
+No finiteness is inferred from compact-subinterval finiteness alone.
+
+7. Bound uniform up to the full open endpoint.
+Assume for every R with 0<=R<b that Y is absolutely continuous on [0,R],
+and assume the a.e. cubic inequality on (0,b), kappa>=0, Y(0)>=0, and
+J(Y,b)!=infinity. For each t in [0,b), apply step 4 to [0,t] and step 6.
+The SAME finite number
+  B = Y(0) exp(kappa J(Y,b).toReal)
+satisfies B>=0 and Y(t)<=B for every t in [0,b).
+This endpoint is valid even if Y has no value or regularity at b.
+
+8. First remaining physical obstruction.
+For NSE, the intended substitution is Y(t)=||grad U(t)||_2^2 and
+kappa=pi^(-4)*nu^(-3), nu>0. Constructing U and proving AC and the a.e.
+cubic inequality with the registered spatial constant remain G01/G02/G03
+obligations. A scalar bound does not prove an H1 continuation criterion,
+full QFA/WFA, the literal Fefferman-A bridge, or universal budget finiteness.
+No derivation beyond that obstruction is claimed.
+
+NATIVE CANDIDATE
+  Material/MethbokeAddon/QuasiFeffermanA/ACBudget.lean
+Expected namespace: MethbokeAddon.QuasiFeffermanA
+Expected public statements:
+  ac_cubic_volterra
+  ac_cubic_square_budget_bound
+  ac_cubic_uniform_of_square_integral
+  stoppedSquareBudget
+  stoppedSquareBudget_zero_window
+  stoppedSquareBudget_zero_function
+  square_integral_le_stopped_budget
+  ac_cubic_uniform_of_finite_stopped_budget
+  ac_cubic_bounded_of_finite_stopped_budget
+
+STATIC SOURCE ANCHORS
+- Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun:
+  AbsolutelyContinuousOnInterval.integral_deriv_eq_sub.
+- Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable:
+  AbsolutelyContinuousOnInterval.intervalIntegrable_deriv.
+- Mathlib.MeasureTheory.Function.AbsolutelyContinuous:
+  AbsolutelyContinuousOnInterval.mono, continuousOn.
+- Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic:
+  intervalIntegral.integral_mono_ae_restrict, integral_mono_interval,
+  integral_of_le, integral_const_mul.
+- Mathlib.MeasureTheory.Measure.Restrict:
+  ae_restrict_congr_set, Measure.restrict_mono.
+- Mathlib.MeasureTheory.Measure.Typeclasses.NullSingletonClass:
+  Ioo_ae_eq_Icc.
+- Mathlib.MeasureTheory.Integral.Bochner.Basic:
+  ofReal_integral_eq_lintegral_ofReal.
+- Mathlib.MeasureTheory.Integral.Lebesgue.Basic:
+  lintegral_mono_set.
+- QFA.Endpoints.Comparison.RelativeEnergy:
+  CRITICAL_RELATIVE_ENERGY_GRONWALL.
+
+VALIDATION BOUNDARY
+Static inspection only. No local Lean, Lake, kernel audit, subprocess or
+wrapper execution. Native compiler, independent literal type checks and named
+axiom audits must match the final candidate source before A-tier acceptance.
+
+
+SUBCHAIN: P07/P08 scalar six-charge comparison
+SOURCE: DERIVATIONS/SIX_CHARGE_CHAIN.txt
+
+NSE-A SIX-CHARGE FULL-BUDGET SCALAR FOUNDATION
+VERSION: 1.0
+DATE: 2026-11-20
+STATUS: B_TIER_SCALAR_CHAIN_COMPLETE; NATIVE_CANDIDATE_PENDING_EXTERNAL
+SCOPE: G06/P07-P08 factor-six and terminal-budget assembly; supplied charge
+additivity remains explicit. No physical projector identity is asserted.
+
+1. Pointwise finite-six algebra.
+For q:Fin 6 -> R with all q_i>=0,
+  sum_i q_i^2 <= (sum_i q_i)^2.
+The cross terms in the square are nonnegative. Mathlib anchor:
+  Finset.sum_sq_le_sq_sum_of_nonneg.
+For arbitrary real q, finite Cauchy-Schwarz applied to (1,...,1) and q gives
+  (sum_i q_i)^2 <= (sum_i 1^2)(sum_i q_i^2)=6 sum_i q_i^2.
+Anchor: Finset.sum_mul_sq_le_sq_mul_sq.
+The lower bound uses the nonnegative-charge hypothesis. The upper bound
+does not require it.
+
+2. Actual extended budgets for an arbitrary measure.
+For a measurable carrier A, measure mu, and q:Fin 6 -> A -> R define
+  J6(q,mu)=lintegral ofReal(sum_i q_i(t)^2) dmu,
+  J(q,mu)=lintegral ofReal((sum_i q_i(t))^2) dmu.
+No conversion to real is made in either definition.
+If all six charges are nonnegative mu-a.e., monotonicity and step 1 give
+  J6 <= J <= 6 J6.
+The constant six is finite, so Mathlib lintegral_const_mul' moves it
+outside the integral without a measurability premise on the integrand.
+The bounds therefore also hold for infinite budgets.
+
+3. Full-budget finiteness equivalence.
+From step 2,
+  J6 != infinity <-> J != infinity.
+Right-to-left uses J6<=J. Left-to-right uses J<=6 J6 and finite constant
+multiplication. There is no replacement of the full measure by separate
+compact-interval finiteness.
+
+4. Measurable charge splitting.
+If each real charge q_i is ae measurable, its squared ofReal integrand is
+ae measurable. ofReal preserves the finite sum of nonnegative squares and
+lintegral_finsetSum' then yields
+  J6 = sum_i lintegral ofReal(q_i(t)^2) dmu.
+Hence J6 finite iff each of the six individual full budgets is finite.
+Measurability is used for this exact splitting identity, not imposed on the
+bounds in step 2 where it is unnecessary.
+
+5. Supplied same-path charge additivity.
+If a real scalar Y obeys Y(t)=sum_i q_i(t) mu-a.e., then
+  J(q,mu)=lintegral ofReal(Y(t)^2) dmu.
+This is an explicit hypothesis of the scalar adapter. In the NSE application
+it must later be proved from the actual six orthogonal physical projectors
+and the actual weak-gradient/Fourier identities; it is not a new axiom or
+an established physical projection theorem here.
+
+6. Full stopped window.
+Set mu=volume.restrict (Ioo 0 b). The identity in step 5 identifies J with
+ACBudget.stoppedSquareBudget Y b. Thus
+  J6 <= stoppedSquareBudget Y b <= 6 J6,
+and the two full budgets are finite exactly together. The zero tuple and
+the zero window have zero budget.
+
+7. Quantitative connection to the AC cubic bound.
+Suppose kappa>=0, Y(0)>=0, Y is AC on every [0,R], 0<=R<b, and
+Y'<=kappa Y^3 almost everywhere on (0,b). Under the nonnegative-charge
+and additivity inputs above, finite J6 implies finite J. Only then use
+monotonicity of toReal to get
+  J.toReal <= 6 J6.toReal.
+The ACBudget scalar theorem gives the SAME bound for all t in [0,b):
+  Y(t) <= Y(0) exp(kappa * (6 J6.toReal)).
+This is a scalar composition with the complete terminal budget; no local
+NSE solution or continuation property is asserted.
+
+8. First remaining physical obstruction.
+The six q_i must be constructed as ||grad Q_i U||_2^2 with the fixed
+native real-preserving projections. Their physical additivity with
+Y=||grad U||_2^2, measurability, actual NSE AC/cubic inputs, and maximal
+continuation remain G05/G01/G02/G03. No class root or universal charge
+finiteness follows from the scalar package alone.
+
+NATIVE CANDIDATE
+  Material/MethbokeAddon/QuasiFeffermanA/SixChargeBudget.lean
+Public names are recorded with the prepared source. Root supplies independent
+literal type audits and matching authorized cached external compilation.
+No local Lean, Lake, kernel audit or wrapper execution is permitted or used.
+
+
+SUBCHAIN: P02 forward H1-only Fourier bridge
+SOURCE: DERIVATIONS/H1_FOURIER_CHAIN.txt
+
+H1-ONLY PHYSICAL WEAK-DERIVATIVE TO FOURIER CHAIN
+Date: 2026-11-20
+Source basis: cb3bafdc71c7eb10e57996af6111ba6c24f6865c
+Scope: G05/P02 forward first-derivative Fourier identification.
+Status: B_TIER_COMPLETE_FOR_THE_STATED_FORWARD_HELPER; Lean candidate pending.
+No local Lean/Lake/kernel execution.
+
+DATA
+Space=EuclideanSpace R (Fin 3), full Lebesgue volume.
+RealL2=Lp Space 2 volume; ComplexL2=Lp (EuclideanSpace C (Fin 3)) 2 volume.
+A supplied weak directional derivative is the native literal predicate:
+  for every real compact C-infinity scalar psi,
+  integral D_e psi * u = - integral psi * du.
+The data are L2 equivalence classes. No H2/Laplacian, time trajectory, global
+solution, spectral-norm identity or PDE estimate is assumed.
+
+EXACT CHAIN
+F01. Every compact real Schwartz test is a legitimate native test. Its
+complexification has directional derivative equal to complexification of its
+real derivative, by the real chain rule for Complex.ofRealCLM. Real scalar
+multiplication of a complex vector equals multiplication by its complex cast.
+Thus the native weak-test identity gives equality of the two candidate
+complex tempered distributions on complexified compact real Schwartz tests.
+
+F02. Every compact complex Schwartz test phi equals
+  complexify(Re phi) + I * complexify(Im phi).
+The real and imaginary postcompositions are Schwartz and retain compact
+support. Complex linearity extends F01 to every compact complex Schwartz test.
+No density of a smaller radial family is used.
+
+F03. Previously accepted QFA.LC005.denseCompactSchwartzTests and
+CompactSchwartz.tempered_eq_of_eq_on_compactSchwartz extend that equality to
+all Schwartz tests. Hence du = partial_e u as actual tempered distributions.
+
+F04. Mathlib L2/distribution Fourier compatibility and
+TemperedDistribution.fourier_lineDerivOp_eq yield
+  F(du) = (2*pi*i) M_{<xi,e>} F(u)
+as actual complex tempered distributions.
+
+F05. The previously accepted native
+FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution applies
+to the continuous temperate coordinate multiplier <xi,e>. Local integrability
+of the resulting pointwise product is enough for this identification. It
+proves the literal a.e. representative identity
+  F(du)(xi) = (2*pi*i*<xi,e>) F(u)(xi).
+No Laplacian field is introduced.
+
+F06. The accepted actual complexifyL2_weakDirectionalDerivative transports a
+real physical weak derivative into the complex predicate. F01-F05 therefore
+give the a.e. Fourier identity for complexifications of real L2 fields.
+The complexification is the native norm-preserving real-to-complex embedding.
+
+F07. Apply F06 to each native coordinateVector j under SpatialWeakGradient.
+This produces all three first-derivative identities on the actual physical
+H1 gradient data, still with no H2 or Laplacian premise.
+
+FIRST REMAINING EDGE
+This chain stops after the forward a.e. identities. It does not yet construct
+inverse-Fourier gradient witnesses from finite spectral H1 norm, prove the
+full two-way physical H1 norm equivalence, or construct the six projectors.
+Those require separate derived and externally verified endpoints.
+
+SOURCE USE
+- Native Contracts.lean and QFA Complexification.lean give literal tests and
+  actual real L2 complexification.
+- QFALC004/CompactSchwartz.lean and QFALC005/Density.lean give the already
+  accepted all-compact-Schwartz density argument.
+- Native FourierMultipliers.lean gives the generic distribution-to-a.e. bridge.
+- Pinned Mathlib SchwartzSpace.Basic/Deriv and TemperedDistribution provide
+  linear postcomposition, derivative chain rule and Fourier compatibility.
+- Retrieved FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1 supplies a corroborating
+  H1-only architecture. Its old user log reports PASS for 414 named theorems
+  under native Windows4.34rc1. It is not directly imported or promoted into
+  this pinned native4.33 tree. We use the shorter accepted generic multiplier
+  bridge, so no foreign regularizer subtree or changed dependency pin is needed.
+
+VALIDATION GATE
+Independent complete consumer signatures and literal test semantics,
+matching cached external compiler and named standard-only axiom audits.
+Prepared source does not mark G05 or P02 accepted.
+
+
+FIRST BATCH: four owned modules, four independently typed packages,79
+named declarations. Existing compiled source and accepted scopes retained.
+MATCHING EXTERNAL EVIDENCE: pending. No new A-tier result at preparation.
+PARALLEL NEXT WORK: reverse supplied-gradient Fourier characterization
+and the six fixed even Borel sectors may be derived while this exact first
+batch is checked externally. No same-branch push supersedes its active run.
+Remaining full physical edges:G01 H1 IVP;G02 sharp spatial admission;
+G03 actual PDE AC/evolution and continuation;G04 literal terminal admission;
+G05 inverse spectral witness/projector construction;G06 canonical class root.

@@ -1,0 +1,146 @@
+import FrontierRealHelicalOperators
+import FrontierNonzeroFrequency
+import FrontierDivergence
+
+/-! Orthogonality, cross-composition, and a transverse split for the project's
+real L² helicity operators. The Fourier dot-product hypothesis is explicit;
+its equivalence with an independently defined physical divergence predicate
+is not asserted. No local Lean run. -/
+noncomputable section
+open MeasureTheory Filter
+open FrontierRealVelocityEmbedding FrontierRealHelicalOperators
+open HelicalConcreteSymbol FeffermanHelicalOrthogonal
+
+namespace FrontierRealHelicalSplit
+
+abbrev Frequency := HelicalConcreteSymbol.Frequency
+abbrev Fiber := FeffermanHelicalOrthogonal.Fiber
+abbrev CoordinateL2 := HelicalCoordinateBridge.CoordinateL2
+
+local instance physicalRealL2 : InnerProductSpace ℝ Field :=
+  InnerProductSpace.rclikeToReal ℂ Field
+
+/-- The real velocity embedding is an isometry into complex physical L². -/
+def realEmbedding : RealField →ₗᵢ[ℝ] Field where
+  toLinearMap := complexifyL2.toLinearMap
+  norm_map' := FrontierRealVelocityNorm.complexifyL2_norm
+
+/-- The real helical projector ranges are orthogonal for arbitrary L² inputs. -/
+theorem real_ranges_orthogonal (u v : RealField) :
+    inner ℝ (plusReal u) (minusReal v) = 0 := by
+  have h := (realEmbedding.inner_map_map (plusReal u) (minusReal v)).symm
+  change inner ℝ (plusReal u) (minusReal v) =
+    (inner ℂ (complexifyL2 (plusReal u)) (complexifyL2 (minusReal v))).re at h
+  rw [h, complexify_plusReal, complexify_minusReal,
+    FrontierPhysicalProjectors.plus_matches_pullback,
+    FrontierPhysicalProjectors.minus_matches_pullback,
+    FrontierACoordinateEquiv.pullback_orthogonal]
+  rfl
+
+/-- Both finite-frequency matrix products vanish. -/
+theorem negative_positive_matrix_zero (x y z : ℝ) :
+    FeffermanHelicalFrequency.minus x y z * FeffermanHelicalFrequency.plus x y z = 0 := by
+  have hp : (FeffermanHelicalFrequency.plus x y z).conjTranspose =
+      FeffermanHelicalFrequency.plus x y z := by
+    ext i j
+    exact FeffermanHelicalFrequency.plus_hermitian x y z i j
+  have hm : (FeffermanHelicalFrequency.minus x y z).conjTranspose =
+      FeffermanHelicalFrequency.minus x y z := by
+    ext i j
+    exact FeffermanHelicalFrequency.minus_hermitian x y z i j
+  have h := congrArg Matrix.conjTranspose (FeffermanHelicalFrequency.cross_zero x y z)
+  simp only [Matrix.conjTranspose_mul, hp, hm] at h
+  simpa using h
+
+theorem plus_op_minus_zero (ξ : Frequency) (v : Fiber) :
+    plusOp ξ (minusOp ξ v) = 0 := by
+  have hm := congrArg
+    (fun M : Matrix (Fin 3) (Fin 3) ℂ => Matrix.toEuclideanLin M)
+    (FeffermanHelicalFrequency.cross_zero (ξ 0) (ξ 1) (ξ 2))
+  have hv := congrArg (fun F : Fiber →ₗ[ℂ] Fiber => F v) hm
+  simpa only [plus_action, minus_action, FeffermanHelicalFiberFrequency.plusMap,
+    FeffermanHelicalFiberFrequency.minusMap, Matrix.toLpLin_mul_same,
+    LinearMap.comp_apply, map_zero, LinearMap.zero_apply, Matrix.toEuclideanLin] using hv
+
+theorem minus_op_plus_zero (ξ : Frequency) (v : Fiber) :
+    minusOp ξ (plusOp ξ v) = 0 := by
+  have hm := congrArg
+    (fun M : Matrix (Fin 3) (Fin 3) ℂ => Matrix.toEuclideanLin M)
+    (negative_positive_matrix_zero (ξ 0) (ξ 1) (ξ 2))
+  have hv := congrArg (fun F : Fiber →ₗ[ℂ] Fiber => F v) hm
+  simpa only [plus_action, minus_action, FeffermanHelicalFiberFrequency.plusMap,
+    FeffermanHelicalFiberFrequency.minusMap, Matrix.toLpLin_mul_same,
+    LinearMap.comp_apply, map_zero, LinearMap.zero_apply, Matrix.toEuclideanLin] using hv
+
+theorem plus_multiplier_minus_zero (f : CoordinateL2) :
+    plusMultiplier volume (minusMultiplier volume f) = 0 := by
+  apply Lp.ext
+  filter_upwards [plus_multiplier_ae (volume : Measure Frequency) (minusMultiplier volume f),
+    minus_multiplier_ae (volume : Measure Frequency) f,
+    Lp.coeFn_zero Fiber 2 (volume : Measure Frequency)] with ξ hp hm hz
+  rw [hp, hm, hz]
+  exact plus_op_minus_zero ξ ((f : Frequency → Fiber) ξ)
+
+theorem minus_multiplier_plus_zero (f : CoordinateL2) :
+    minusMultiplier volume (plusMultiplier volume f) = 0 := by
+  apply Lp.ext
+  filter_upwards [minus_multiplier_ae (volume : Measure Frequency) (plusMultiplier volume f),
+    plus_multiplier_ae (volume : Measure Frequency) f,
+    Lp.coeFn_zero Fiber 2 (volume : Measure Frequency)] with ξ hm hp hz
+  rw [hm, hp, hz]
+  exact minus_op_plus_zero ξ ((f : Frequency → Fiber) ξ)
+
+/-- The project-defined real projectors annihilate each other. -/
+theorem plusReal_after_minusReal (u : RealField) : plusReal (minusReal u) = 0 := by
+  apply complexify_injective
+  simp only [complexify_plusReal, complexify_minusReal, map_zero,
+    FrontierPhysicalProjectors.plus_matches_pullback,
+    FrontierPhysicalProjectors.minus_matches_pullback]
+  apply FrontierACoordinateEquiv.fourierCoordinate.injective
+  simp only [FrontierACoordinateEquiv.plus_intertwines,
+    FrontierACoordinateEquiv.minus_intertwines, map_zero, plus_multiplier_minus_zero]
+
+theorem minusReal_after_plusReal (u : RealField) : minusReal (plusReal u) = 0 := by
+  apply complexify_injective
+  simp only [complexify_plusReal, complexify_minusReal, map_zero,
+    FrontierPhysicalProjectors.plus_matches_pullback,
+    FrontierPhysicalProjectors.minus_matches_pullback]
+  apply FrontierACoordinateEquiv.fourierCoordinate.injective
+  simp only [FrontierACoordinateEquiv.plus_intertwines,
+    FrontierACoordinateEquiv.minus_intertwines, map_zero, minus_multiplier_plus_zero]
+
+/-- Fourier transversality is the sole additional hypothesis for the split. -/
+theorem split_of_fourier_divergence_zero (u : RealField)
+    (hdot : ∀ᵐ ξ ∂(volume : Measure Frequency),
+      let v := (FrontierPhysicalGramTransport.fourierCoordinateReal
+        (complexifyL2 u) : Frequency → Fiber) ξ
+      (ξ 0 : ℂ) * v 0 + (ξ 1 : ℂ) * v 1 + (ξ 2 : ℂ) * v 2 = 0) :
+    plusReal u + minusReal u = u := by
+  apply complexify_injective
+  rw [map_add, complexify_plusReal, complexify_minusReal]
+  exact FrontierDivergence.split_of_fourier_dot (complexifyL2 u)
+    FrontierNonzeroFrequency.lengthSq_pos_ae hdot
+
+/-- Real-L² energy decomposes exactly whenever the Fourier divergence is zero. -/
+theorem energy_of_fourier_divergence_zero (u : RealField)
+    (hdot : ∀ᵐ ξ ∂(volume : Measure Frequency),
+      let v := (FrontierPhysicalGramTransport.fourierCoordinateReal
+        (complexifyL2 u) : Frequency → Fiber) ξ
+      (ξ 0 : ℂ) * v 0 + (ξ 1 : ℂ) * v 1 + (ξ 2 : ℂ) * v 2 = 0) :
+    ‖plusReal u‖ ^ 2 + ‖minusReal u‖ ^ 2 = ‖u‖ ^ 2 := by
+  have h := norm_add_sq_real (plusReal u) (minusReal u)
+  rw [split_of_fourier_divergence_zero u hdot, real_ranges_orthogonal] at h
+  linarith
+
+end FrontierRealHelicalSplit
+
+#print axioms FrontierRealHelicalSplit.real_ranges_orthogonal
+#print axioms FrontierRealHelicalSplit.negative_positive_matrix_zero
+#print axioms FrontierRealHelicalSplit.plus_op_minus_zero
+#print axioms FrontierRealHelicalSplit.minus_op_plus_zero
+#print axioms FrontierRealHelicalSplit.plus_multiplier_minus_zero
+#print axioms FrontierRealHelicalSplit.minus_multiplier_plus_zero
+#print axioms FrontierRealHelicalSplit.plusReal_after_minusReal
+#print axioms FrontierRealHelicalSplit.minusReal_after_plusReal
+#print axioms FrontierRealHelicalSplit.split_of_fourier_divergence_zero
+#print axioms FrontierRealHelicalSplit.energy_of_fourier_divergence_zero

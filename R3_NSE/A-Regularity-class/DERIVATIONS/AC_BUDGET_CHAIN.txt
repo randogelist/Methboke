@@ -1,0 +1,108 @@
+NSE-A AC CUBIC / FULL STOPPED SQUARE BUDGET
+VERSION: 1.0
+DATE: 2026-11-20
+STATUS: B_TIER_SCALAR_CHAIN_COMPLETE; NATIVE_LEAN_CANDIDATE_PENDING_EXTERNAL
+SCOPE: Independent G03/P15 and G06 scalar foundation; no actual NSE trajectory is constructed.
+SOURCE BASIS: Methboke AC-Integration cb3bafdc71c7eb10e57996af6111ba6c24f6865c.
+
+1. Exact input on a finite closed interval [0,R].
+Let Y: R -> R, R>=0, and kappa>=0. Assume Y absolutely continuous on
+[0,R], and Y'(r)<=kappa Y(r)^3 for almost every r in (0,R). Endpoints
+need no classical derivative. Absolute continuity supplies continuity and
+an integrable a.e. derivative on every closed subinterval [0,t].
+
+2. Restriction to each closed subinterval.
+For t in [0,R], absolute continuity restricts to [0,t]. Restrict the a.e.
+cubic inequality to (0,t); singleton-nullity transfers it to [0,t].
+Both Y' and kappa Y^3 are integrable on [0,t]. The first follows from AC;
+the second follows from continuity. Thus integral monotonicity is valid.
+
+3. Actual AC-to-Volterra edge.
+The AC fundamental theorem gives
+  Y(t)-Y(0) = integral_0^t Y'(r) dr
+           <= integral_0^t kappa Y(r)^3 dr.
+Consequently Y(t)<=Y(0)+integral_0^t kappa Y(r)^3 dr. This integral
+inequality is derived, not placed in the input contract.
+
+4. Existing named-audited Gronwall application.
+Take a(r)=kappa Y(r)^2, e(r)=Y(r), delta=Y(0). The coefficient is continuous
+and nonnegative. The product a(r)e(r)=kappa Y(r)^3 is integrable. ES03,
+QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL, therefore gives
+  Y(t)<=Y(0) exp(kappa integral_0^t Y(r)^2 dr).
+ES02 and ES03 are the exact source anchors. No continuity of a separate
+classical derivative or Laplacian function is required.
+
+5. Closed-window uniform bound.
+If Y(0)>=0 and integral_0^R Y^2<=M, nonnegative integral monotonicity gives
+integral_0^t Y^2<=M. Monotonicity of exp and multiplication by Y(0) yield
+  Y(t)<=Y(0) exp(kappa M), 0<=t<=R.
+There is no assumption of monotonicity of Y itself.
+
+6. Full stopped budget, preserving infinity.
+For real b define
+  J(Y,b) := lintegral_{(0,b)} ENNReal.ofReal(Y(r)^2) dr : ENNReal.
+At b=0 and for the zero function this is zero. Suppose J(Y,b) is finite.
+For 0<=t<b, if Y is continuous on [0,t], the ordinary nonnegative integral
+on [0,t] has ofReal equal to its nonnegative integral on (0,t]. Since
+(0,t] is contained in (0,b), monotonicity gives
+  ofReal(integral_0^t Y^2)<=J(Y,b).
+Only after using the explicit J(Y,b)!=infinity premise do we apply toReal:
+  integral_0^t Y^2 <= J(Y,b).toReal.
+No finiteness is inferred from compact-subinterval finiteness alone.
+
+7. Bound uniform up to the full open endpoint.
+Assume for every R with 0<=R<b that Y is absolutely continuous on [0,R],
+and assume the a.e. cubic inequality on (0,b), kappa>=0, Y(0)>=0, and
+J(Y,b)!=infinity. For each t in [0,b), apply step 4 to [0,t] and step 6.
+The SAME finite number
+  B = Y(0) exp(kappa J(Y,b).toReal)
+satisfies B>=0 and Y(t)<=B for every t in [0,b).
+This endpoint is valid even if Y has no value or regularity at b.
+
+8. First remaining physical obstruction.
+For NSE, the intended substitution is Y(t)=||grad U(t)||_2^2 and
+kappa=pi^(-4)*nu^(-3), nu>0. Constructing U and proving AC and the a.e.
+cubic inequality with the registered spatial constant remain G01/G02/G03
+obligations. A scalar bound does not prove an H1 continuation criterion,
+full QFA/WFA, the literal Fefferman-A bridge, or universal budget finiteness.
+No derivation beyond that obstruction is claimed.
+
+NATIVE CANDIDATE
+  Material/MethbokeAddon/QuasiFeffermanA/ACBudget.lean
+Expected namespace: MethbokeAddon.QuasiFeffermanA
+Expected public statements:
+  ac_cubic_volterra
+  ac_cubic_square_budget_bound
+  ac_cubic_uniform_of_square_integral
+  stoppedSquareBudget
+  stoppedSquareBudget_zero_window
+  stoppedSquareBudget_zero_function
+  square_integral_le_stopped_budget
+  ac_cubic_uniform_of_finite_stopped_budget
+  ac_cubic_bounded_of_finite_stopped_budget
+
+STATIC SOURCE ANCHORS
+- Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun:
+  AbsolutelyContinuousOnInterval.integral_deriv_eq_sub.
+- Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable:
+  AbsolutelyContinuousOnInterval.intervalIntegrable_deriv.
+- Mathlib.MeasureTheory.Function.AbsolutelyContinuous:
+  AbsolutelyContinuousOnInterval.mono, continuousOn.
+- Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic:
+  intervalIntegral.integral_mono_ae_restrict, integral_mono_interval,
+  integral_of_le, integral_const_mul.
+- Mathlib.MeasureTheory.Measure.Restrict:
+  ae_restrict_congr_set, Measure.restrict_mono.
+- Mathlib.MeasureTheory.Measure.Typeclasses.NullSingletonClass:
+  Ioo_ae_eq_Icc.
+- Mathlib.MeasureTheory.Integral.Bochner.Basic:
+  ofReal_integral_eq_lintegral_ofReal.
+- Mathlib.MeasureTheory.Integral.Lebesgue.Basic:
+  lintegral_mono_set.
+- QFA.Endpoints.Comparison.RelativeEnergy:
+  CRITICAL_RELATIVE_ENERGY_GRONWALL.
+
+VALIDATION BOUNDARY
+Static inspection only. No local Lean, Lake, kernel audit, subprocess or
+wrapper execution. Native compiler, independent literal type checks and named
+axiom audits must match the final candidate source before A-tier acceptance.

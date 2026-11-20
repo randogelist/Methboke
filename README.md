@@ -58,13 +58,17 @@ The [twenty-endpoint A-tier construction plan](R3_NSE/A-Regularity-class/A_TIER_
 now separates the pathwise six-charge theorem, actual canonical NSE
 continuation, and the literal Fefferman-A solution-class bridge. It is a
 B-tier step list with source anchors and explicit completion criteria;
-formalization and new external acceptance have not started for these endpoints.
+the user has now authorized construction, and the first scoped native batch is prepared for matching external verification.
 
 The [Lean gap and cutout collection](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md)
 now supplies 51 exact reference blocks, complete pinned source snapshots and
 [a ranked gap assessment](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/GAPS.md).
 The cumulative TXT references every cutout. Source acquisition narrows the
 missing adapters and adds no native theorem or A-tier acceptance.
+
+## NSE-A six-gap native construction
+
+The [six closure targets](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) are registered. Four new scoped packages prepare79 named declarations: physical H1 and Schwartz admission, forward first-derivative Fourier identification, AC scalar comparison, and full six-charge budget inequalities. [Implementation and evidence status](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json) is **pending matching external verification**. No parent gap or regularity root is marked complete.
 
 ## Retained Fefferman-D implementation
 

@@ -53,18 +53,18 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) contains 73 accepted packages: the 71
-prior packages plus FeffermanFamilyFoundation and FeffermanFamilyAssembly. It lists their
+The [endpoint registry](endpoints.json) contains81 packages:77 previously accepted
+packages at the QFA foundation baseline and4 new scoped candidates pending external verification. It lists their
 exact declaration requests. Each package contains its import boundary, consumer
 type assertions, theorem-level axiom audit, recursive dependency closure and
 source provenance.
 
 | Source group | Count | Role |
 |---|---:|---|
-| `_vendor` | 269 modules | Pinned Methlib foundation sources |
-| `MethbokeAddon` | 78 accepted owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers | 73 accepted modules | Independently audited import boundaries |
-| Accepted compiled scope | 420 modules | Shared source closure, without duplicate foundation rebuilding |
+| `_vendor` | 302 modules | Pinned Methlib foundation sources |
+| `MethbokeAddon` | 84 previously accepted plus4 prepared owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers | 77 previously accepted plus4 prepared modules | Independently audited import boundaries |
+| Accepted compiled baseline | 463 modules | Shared source closure, without duplicate foundation rebuilding |
 
 | Package family | Exact role |
 |---|---|
@@ -166,3 +166,7 @@ The current Fefferman-D family root remains open in this repository.
 No unconditional stopped witness, full operator construction or full H2
 Galerkin-convergence result is inferred from this acceptance.
 
+
+## NSE-A first construction batch
+
+[Physical H1](QFAPhysicalH1/README.md), [AC scalar budget](QFAACBudget/README.md), [six-charge budgets](QFASixChargeBudget/README.md), and [forward H1 Fourier](QFAH1Fourier/README.md) prepare79 new named declarations. Expected complete coverage is81 fresh package audits and777 named reports; source and audit preparation is pending matching external acceptance. The old accepted QFA baseline is463 modules/77 packages/698 reports at afd67db4.
