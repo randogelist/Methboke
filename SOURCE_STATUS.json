@@ -52,7 +52,7 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Stage1 accepted44801643103; next exact source commit authorized for cached external verification. No local Lean.",
+  "ci_handoff": "Run44803036617 failed in FiniteCorrection proof elaboration; a statement-preserving repair is prepared for the complete external audit. Stage1 acceptance remains44801643103.",
   "current_material_external_verification": "FDSN_PHASE_BUMP_ACCEPTED_NEXT_STAGE_PENDING",
   "latest_material_run": {
     "tested_commit": "f19531bca6816cea31c687629b9ab73ee6868169",
@@ -2226,7 +2226,7 @@
     "domain": "T^3",
     "root_statement": "forall nu,T>0, forall U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F)",
     "b_tier_status": "CONDITIONAL_SEED_TO_FAMILY_ARGUMENT_RECORDED",
-    "a_tier_status": "FIRST_PHASE_AND_BUMP_INTERMEDIATES_ACCEPTED_NEXT_PHYSICAL_STAGE_PREPARED",
+    "a_tier_status": "FIRST_INTERMEDIATES_ACCEPTED_PHYSICAL_STAGE_ELABORATION_REPAIR_PREPARED",
     "implementation_base": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
     "packages": [
       "FDSNPhase",
@@ -2334,7 +2334,22 @@
       "FDSNCoefficientSmooth",
       "FDSNLocalizedPair"
     ],
-    "pending_named_declarations": 119
+    "pending_named_declarations": 119,
+    "failed_attempts": [
+      {
+        "status": "FAILED_EXTERNAL_ELABORATION_SUPERSEDED_BY_PREPARED_REPAIR",
+        "commit": "1cb76bc054d4c1c0812dda63985d3f6ba37ded72",
+        "run_id": 44803036617,
+        "job_id": 136519787720,
+        "cause": "HasSum/Tendsto.congr generated finite partial-sum equality; proof treated its Finset binder as a single frequency.",
+        "repair": "Apply Finset.sum_congr before the frequency case split.",
+        "statement_changed": false,
+        "axiom_policy_changed": false,
+        "new_acceptance": false,
+        "local_lean_executions": 0
+      }
+    ],
+    "current_repair": "FiniteCorrection finite-sum congruence; statement unchanged."
   },
   "fdsn_latest_accepted_material_run": {
     "status": "A_TIER_ACCEPTED_EXACT_INTERMEDIATE_SCOPES",
@@ -2377,7 +2392,7 @@
         "source_drift": [],
         "status": "PASS",
         "types": {
-          "MethbokeAddon.FDSN.exists_normalized_time_bump": "@MethbokeAddon.FDSN.exists_normalized_time_bump : ∀ {s t T : ℝ},\n  LT.lt.{0} s t →\n    LT.lt.{0} t T →\n      ∃ β,\n        ContDiff.{0, 0, 0} ℝ ∞ β ∧\n          HasCompactSupport.{0, 0} β ∧\n            tsupport.{0, 0} β ⊆ Set.Ioo.{0} s T ∧ Eq.{1} (β t) 1 ∧ ∀ (u : ℝ), LE.le.{0} 0 (β u) ∧ LE.le.{0} (β u) 1"
+          "MethbokeAddon.FDSN.exists_normalized_time_bump": "@MethbokeAddon.FDSN.exists_normalized_time_bump : \u2200 {s t T : \u211d},\n  LT.lt.{0} s t \u2192\n    LT.lt.{0} t T \u2192\n      \u2203 \u03b2,\n        ContDiff.{0, 0, 0} \u211d \u221e \u03b2 \u2227\n          HasCompactSupport.{0, 0} \u03b2 \u2227\n            tsupport.{0, 0} \u03b2 \u2286 Set.Ioo.{0} s T \u2227 Eq.{1} (\u03b2 t) 1 \u2227 \u2200 (u : \u211d), LE.le.{0} 0 (\u03b2 u) \u2227 LE.le.{0} (\u03b2 u) 1"
         }
       },
       {
@@ -2494,26 +2509,26 @@
         "source_drift": [],
         "status": "PASS",
         "types": {
-          "MethbokeAddon.FDSN.conj_phase": "MethbokeAddon.FDSN.conj_phase : ∀ (theta : ℝ),\n  Eq.{1} ((starRingEnd.{0} ℂ) (MethbokeAddon.FDSN.phase theta)) (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta))",
-          "MethbokeAddon.FDSN.modal_power_phase_mul": "MethbokeAddon.FDSN.modal_power_phase_mul : ∀ (theta : ℝ) (z : ℂ),\n  Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) z)) 2)\n    (HPow.hPow.{0, 0, 0} (Norm.norm.{0} z) 2)",
-          "MethbokeAddon.FDSN.norm_phase": "MethbokeAddon.FDSN.norm_phase : ∀ (theta : ℝ), Eq.{1} (Norm.norm.{0} (MethbokeAddon.FDSN.phase theta)) 1",
-          "MethbokeAddon.FDSN.norm_phase_mul": "MethbokeAddon.FDSN.norm_phase_mul : ∀ (theta : ℝ) (z : ℂ),\n  Eq.{1} (Norm.norm.{0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) z)) (Norm.norm.{0} z)",
-          "MethbokeAddon.FDSN.norm_phase_mul_sub_le": "MethbokeAddon.FDSN.norm_phase_mul_sub_le : ∀ (theta : ℝ) (z : ℂ),\n  LE.le.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) z) z))\n    (HMul.hMul.{0, 0, 0} (Norm.norm.{0} theta) (Norm.norm.{0} z))",
-          "MethbokeAddon.FDSN.norm_phase_sub_one_le": "MethbokeAddon.FDSN.norm_phase_sub_one_le : ∀ (theta : ℝ),\n  LE.le.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) 1)) (Norm.norm.{0} theta)",
-          "MethbokeAddon.FDSN.phase": "MethbokeAddon.FDSN.phase : ℝ → ℂ",
-          "MethbokeAddon.FDSN.phase_add": "MethbokeAddon.FDSN.phase_add : ∀ (theta eta : ℝ),\n  Eq.{1} (MethbokeAddon.FDSN.phase (HAdd.hAdd.{0, 0, 0} theta eta))\n    (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase eta))",
-          "MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi": "@MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi : ∀ {theta eta : ℝ},\n  LT.lt.{0} (abs.{0} theta) Real.pi →\n    LT.lt.{0} (abs.{0} eta) Real.pi →\n      Eq.{1} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase eta) → Eq.{1} theta eta",
-          "MethbokeAddon.FDSN.phase_injective_small": "@MethbokeAddon.FDSN.phase_injective_small : ∀ {theta eta : ℝ},\n  LT.lt.{0} (abs.{0} theta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →\n    LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →\n      Eq.{1} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase eta) → Eq.{1} theta eta",
-          "MethbokeAddon.FDSN.phase_mul_neg": "MethbokeAddon.FDSN.phase_mul_neg : ∀ (theta : ℝ),\n  Eq.{1} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta))) 1",
-          "MethbokeAddon.FDSN.phase_ne_zero": "MethbokeAddon.FDSN.phase_ne_zero : ∀ (theta : ℝ), Ne.{1} (MethbokeAddon.FDSN.phase theta) 0",
-          "MethbokeAddon.FDSN.phase_neg": "MethbokeAddon.FDSN.phase_neg : ∀ (theta : ℝ),\n  Eq.{1} (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta)) ((starRingEnd.{0} ℂ) (MethbokeAddon.FDSN.phase theta))",
+          "MethbokeAddon.FDSN.conj_phase": "MethbokeAddon.FDSN.conj_phase : \u2200 (theta : \u211d),\n  Eq.{1} ((starRingEnd.{0} \u2102) (MethbokeAddon.FDSN.phase theta)) (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta))",
+          "MethbokeAddon.FDSN.modal_power_phase_mul": "MethbokeAddon.FDSN.modal_power_phase_mul : \u2200 (theta : \u211d) (z : \u2102),\n  Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) z)) 2)\n    (HPow.hPow.{0, 0, 0} (Norm.norm.{0} z) 2)",
+          "MethbokeAddon.FDSN.norm_phase": "MethbokeAddon.FDSN.norm_phase : \u2200 (theta : \u211d), Eq.{1} (Norm.norm.{0} (MethbokeAddon.FDSN.phase theta)) 1",
+          "MethbokeAddon.FDSN.norm_phase_mul": "MethbokeAddon.FDSN.norm_phase_mul : \u2200 (theta : \u211d) (z : \u2102),\n  Eq.{1} (Norm.norm.{0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) z)) (Norm.norm.{0} z)",
+          "MethbokeAddon.FDSN.norm_phase_mul_sub_le": "MethbokeAddon.FDSN.norm_phase_mul_sub_le : \u2200 (theta : \u211d) (z : \u2102),\n  LE.le.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) z) z))\n    (HMul.hMul.{0, 0, 0} (Norm.norm.{0} theta) (Norm.norm.{0} z))",
+          "MethbokeAddon.FDSN.norm_phase_sub_one_le": "MethbokeAddon.FDSN.norm_phase_sub_one_le : \u2200 (theta : \u211d),\n  LE.le.{0} (Norm.norm.{0} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) 1)) (Norm.norm.{0} theta)",
+          "MethbokeAddon.FDSN.phase": "MethbokeAddon.FDSN.phase : \u211d \u2192 \u2102",
+          "MethbokeAddon.FDSN.phase_add": "MethbokeAddon.FDSN.phase_add : \u2200 (theta eta : \u211d),\n  Eq.{1} (MethbokeAddon.FDSN.phase (HAdd.hAdd.{0, 0, 0} theta eta))\n    (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase eta))",
+          "MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi": "@MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi : \u2200 {theta eta : \u211d},\n  LT.lt.{0} (abs.{0} theta) Real.pi \u2192\n    LT.lt.{0} (abs.{0} eta) Real.pi \u2192\n      Eq.{1} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase eta) \u2192 Eq.{1} theta eta",
+          "MethbokeAddon.FDSN.phase_injective_small": "@MethbokeAddon.FDSN.phase_injective_small : \u2200 {theta eta : \u211d},\n  LT.lt.{0} (abs.{0} theta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) \u2192\n    LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) \u2192\n      Eq.{1} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase eta) \u2192 Eq.{1} theta eta",
+          "MethbokeAddon.FDSN.phase_mul_neg": "MethbokeAddon.FDSN.phase_mul_neg : \u2200 (theta : \u211d),\n  Eq.{1} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta))) 1",
+          "MethbokeAddon.FDSN.phase_ne_zero": "MethbokeAddon.FDSN.phase_ne_zero : \u2200 (theta : \u211d), Ne.{1} (MethbokeAddon.FDSN.phase theta) 0",
+          "MethbokeAddon.FDSN.phase_neg": "MethbokeAddon.FDSN.phase_neg : \u2200 (theta : \u211d),\n  Eq.{1} (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta)) ((starRingEnd.{0} \u2102) (MethbokeAddon.FDSN.phase theta))",
           "MethbokeAddon.FDSN.phase_zero": "MethbokeAddon.FDSN.phase_zero : Eq.{1} (MethbokeAddon.FDSN.phase 0) 1",
-          "MethbokeAddon.FDSN.triadCorrelation": "MethbokeAddon.FDSN.triadCorrelation : ℂ → ℂ → ℂ → ℂ",
-          "MethbokeAddon.FDSN.triadCorrelation_ne_zero": "@MethbokeAddon.FDSN.triadCorrelation_ne_zero : ∀ {a b c : ℂ},\n  Ne.{1} a 0 → Ne.{1} b 0 → Ne.{1} c 0 → Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0",
-          "MethbokeAddon.FDSN.triadCorrelation_phase": "MethbokeAddon.FDSN.triadCorrelation_phase : ∀ (a b c : ℂ) (theta : ℝ),\n  Eq.{1} (MethbokeAddon.FDSN.triadCorrelation a b (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) c))\n    (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta)) (MethbokeAddon.FDSN.triadCorrelation a b c))",
-          "MethbokeAddon.FDSN.triadCorrelation_phase_separates": "@MethbokeAddon.FDSN.triadCorrelation_phase_separates : ∀ {a b c : ℂ},\n  Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0 →\n    ∀ {lambda eta : ℝ},\n      LT.lt.{0} (abs.{0} lambda) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →\n        LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →\n          Ne.{1} lambda eta →\n            Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase lambda) c))\n              (MethbokeAddon.FDSN.triadCorrelation a b (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase eta) c))",
-          "MethbokeAddon.FDSN.triadCorrelation_translation": "MethbokeAddon.FDSN.triadCorrelation_translation : ∀ (a b c : ℂ) (alpha beta : ℝ),\n  Eq.{1}\n    (MethbokeAddon.FDSN.triadCorrelation (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase alpha) a)\n      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase beta) b)\n      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase (HAdd.hAdd.{0, 0, 0} alpha beta)) c))\n    (MethbokeAddon.FDSN.triadCorrelation a b c)",
-          "MethbokeAddon.FDSN.triad_phase_not_translation": "@MethbokeAddon.FDSN.triad_phase_not_translation : ∀ {a b c : ℂ},\n  Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0 →\n    ∀ {lambda eta : ℝ},\n      LT.lt.{0} (abs.{0} lambda) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →\n        LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →\n          Ne.{1} lambda eta →\n            ∀ (alpha beta : ℝ),\n              ¬(Eq.{1} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase alpha) a) a ∧\n                  Eq.{1} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase beta) b) b ∧\n                    Eq.{1}\n                      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase (HAdd.hAdd.{0, 0, 0} alpha beta))\n                        (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase lambda) c))\n                      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase eta) c))"
+          "MethbokeAddon.FDSN.triadCorrelation": "MethbokeAddon.FDSN.triadCorrelation : \u2102 \u2192 \u2102 \u2192 \u2102 \u2192 \u2102",
+          "MethbokeAddon.FDSN.triadCorrelation_ne_zero": "@MethbokeAddon.FDSN.triadCorrelation_ne_zero : \u2200 {a b c : \u2102},\n  Ne.{1} a 0 \u2192 Ne.{1} b 0 \u2192 Ne.{1} c 0 \u2192 Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0",
+          "MethbokeAddon.FDSN.triadCorrelation_phase": "MethbokeAddon.FDSN.triadCorrelation_phase : \u2200 (a b c : \u2102) (theta : \u211d),\n  Eq.{1} (MethbokeAddon.FDSN.triadCorrelation a b (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase theta) c))\n    (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase (Neg.neg.{0} theta)) (MethbokeAddon.FDSN.triadCorrelation a b c))",
+          "MethbokeAddon.FDSN.triadCorrelation_phase_separates": "@MethbokeAddon.FDSN.triadCorrelation_phase_separates : \u2200 {a b c : \u2102},\n  Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0 \u2192\n    \u2200 {lambda eta : \u211d},\n      LT.lt.{0} (abs.{0} lambda) (HDiv.hDiv.{0, 0, 0} Real.pi 4) \u2192\n        LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) \u2192\n          Ne.{1} lambda eta \u2192\n            Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase lambda) c))\n              (MethbokeAddon.FDSN.triadCorrelation a b (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase eta) c))",
+          "MethbokeAddon.FDSN.triadCorrelation_translation": "MethbokeAddon.FDSN.triadCorrelation_translation : \u2200 (a b c : \u2102) (alpha beta : \u211d),\n  Eq.{1}\n    (MethbokeAddon.FDSN.triadCorrelation (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase alpha) a)\n      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase beta) b)\n      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase (HAdd.hAdd.{0, 0, 0} alpha beta)) c))\n    (MethbokeAddon.FDSN.triadCorrelation a b c)",
+          "MethbokeAddon.FDSN.triad_phase_not_translation": "@MethbokeAddon.FDSN.triad_phase_not_translation : \u2200 {a b c : \u2102},\n  Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0 \u2192\n    \u2200 {lambda eta : \u211d},\n      LT.lt.{0} (abs.{0} lambda) (HDiv.hDiv.{0, 0, 0} Real.pi 4) \u2192\n        LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) \u2192\n          Ne.{1} lambda eta \u2192\n            \u2200 (alpha beta : \u211d),\n              \u00ac(Eq.{1} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase alpha) a) a \u2227\n                  Eq.{1} (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase beta) b) b \u2227\n                    Eq.{1}\n                      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase (HAdd.hAdd.{0, 0, 0} alpha beta))\n                        (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase lambda) c))\n                      (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.phase eta) c))"
         }
       }
     ],

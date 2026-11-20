@@ -7,7 +7,7 @@
   "domain": "T^3",
   "root_statement": "forall nu,T>0, forall U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F)",
   "b_tier_status": "CONDITIONAL_SEED_TO_FAMILY_ARGUMENT_RECORDED",
-  "a_tier_status": "FIRST_PHASE_AND_BUMP_INTERMEDIATES_ACCEPTED_NEXT_PHYSICAL_STAGE_PREPARED",
+  "a_tier_status": "FIRST_INTERMEDIATES_ACCEPTED_PHYSICAL_STAGE_ELABORATION_REPAIR_PREPARED",
   "implementation_base": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
   "packages": [
     "FDSNPhase",
@@ -115,5 +115,20 @@
     "FDSNCoefficientSmooth",
     "FDSNLocalizedPair"
   ],
-  "pending_named_declarations": 119
+  "pending_named_declarations": 119,
+  "failed_attempts": [
+    {
+      "status": "FAILED_EXTERNAL_ELABORATION_SUPERSEDED_BY_PREPARED_REPAIR",
+      "commit": "1cb76bc054d4c1c0812dda63985d3f6ba37ded72",
+      "run_id": 44803036617,
+      "job_id": 136519787720,
+      "cause": "HasSum/Tendsto.congr generated finite partial-sum equality; proof treated its Finset binder as a single frequency.",
+      "repair": "Apply Finset.sum_congr before the frequency case split.",
+      "statement_changed": false,
+      "axiom_policy_changed": false,
+      "new_acceptance": false,
+      "local_lean_executions": 0
+    }
+  ],
+  "current_repair": "FiniteCorrection finite-sum congruence; statement unchanged."
 }

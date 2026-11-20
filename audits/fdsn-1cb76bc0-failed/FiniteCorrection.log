@@ -1,0 +1,105 @@
+MethbokeAddon/FDSN/FiniteCorrection.lean:36:20: error: Type mismatch
+  a
+has type
+  Frequency
+but is expected to have type
+  Finset Frequency
+MethbokeAddon/FDSN/FiniteCorrection.lean:37:4: error: Tactic `subst` failed: did not find equation for eliminating 'k'
+
+case pos
+a : Frequency
+ha : a ≠ 0
+z : ℂ
+c : FourierCoeff
+i : Fin 3
+hc : Summable fun k => ‖c k i‖
+x : Vec
+hbase : HasSum (fun k => fourierCharacter k x * c k i) (∑' (b : Frequency), fourierCharacter b x * c b i)
+hpos :
+  HasSum (fun b' => if b' = a then fourierCharacter a x * ((z - 1) * c a i) else 0)
+    (fourierCharacter a x * ((z - 1) * c a i))
+hneg :
+  HasSum (fun b' => if b' = -a then fourierCharacter (-a) x * ((star z - 1) * c (-a) i) else 0)
+    (fourierCharacter (-a) x * ((star z - 1) * c (-a) i))
+k : Finset Frequency
+hk : sorry
+⊢ ∑ b ∈ k,
+      (fun b =>
+          (fourierCharacter b x * c b i + if b = a then fourierCharacter a x * ((z - 1) * c a i) else 0) +
+            if b = -a then fourierCharacter (-a) x * ((star z - 1) * c (-a) i) else 0)
+        b =
+    ∑ b ∈ k, (fun b => fourierCharacter b x * (fun k => pairRotate a z c k i) b) b
+MethbokeAddon/FDSN/FiniteCorrection.lean:39:23: error: Type mismatch
+  -a
+has type
+  Frequency
+but is expected to have type
+  Finset Frequency
+MethbokeAddon/FDSN/FiniteCorrection.lean:40:6: error: Tactic `subst` failed: did not find equation for eliminating 'k'
+
+case pos
+a : Frequency
+ha : a ≠ 0
+z : ℂ
+c : FourierCoeff
+i : Fin 3
+hc : Summable fun k => ‖c k i‖
+x : Vec
+hbase : HasSum (fun k => fourierCharacter k x * c k i) (∑' (b : Frequency), fourierCharacter b x * c b i)
+hpos :
+  HasSum (fun b' => if b' = a then fourierCharacter a x * ((z - 1) * c a i) else 0)
+    (fourierCharacter a x * ((z - 1) * c a i))
+hneg :
+  HasSum (fun b' => if b' = -a then fourierCharacter (-a) x * ((star z - 1) * c (-a) i) else 0)
+    (fourierCharacter (-a) x * ((star z - 1) * c (-a) i))
+k : Finset Frequency
+hk : ¬sorry
+hkn : sorry
+⊢ ∑ b ∈ k,
+      (fun b =>
+          (fourierCharacter b x * c b i + if b = a then fourierCharacter a x * ((z - 1) * c a i) else 0) +
+            if b = -a then fourierCharacter (-a) x * ((star z - 1) * c (-a) i) else 0)
+        b =
+    ∑ b ∈ k, (fun b => fourierCharacter b x * (fun k => pairRotate a z c k i) b) b
+MethbokeAddon/FDSN/FiniteCorrection.lean:42:4: error: unsolved goals
+case neg
+a : Frequency
+ha : a ≠ 0
+z : ℂ
+c : FourierCoeff
+i : Fin 3
+hc : Summable fun k => ‖c k i‖
+x : Vec
+hbase : HasSum (fun k => fourierCharacter k x * c k i) (∑' (b : Frequency), fourierCharacter b x * c b i)
+hpos :
+  HasSum (fun b' => if b' = a then fourierCharacter a x * ((z - 1) * c a i) else 0)
+    (fourierCharacter a x * ((z - 1) * c a i))
+hneg :
+  HasSum (fun b' => if b' = -a then fourierCharacter (-a) x * ((star z - 1) * c (-a) i) else 0)
+    (fourierCharacter (-a) x * ((star z - 1) * c (-a) i))
+k : Finset Frequency
+hk : ¬sorry
+hkn : ¬sorry
+⊢ ∑ x_1 ∈ k,
+      ((fourierCharacter x_1 x * c x_1 i + if x_1 = a then fourierCharacter a x * ((z - 1) * c a i) else 0) +
+        if x_1 = -a then fourierCharacter (-a) x * (((starRingEnd ℂ) z - 1) * c (-a) i) else 0) =
+    ∑ x_1 ∈ k,
+      if x_1 = a then fourierCharacter x_1 x * (z * c x_1 i)
+      else if x_1 = -a then fourierCharacter x_1 x * ((starRingEnd ℂ) z * c x_1 i) else fourierCharacter x_1 x * c x_1 i
+MethbokeAddon/FDSN/FiniteCorrection.lean:42:40: warning: This simp argument is unused:
+  hk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairRotate, pairMultiplier, hkn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSN/FiniteCorrection.lean:42:44: warning: This simp argument is unused:
+  hkn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairRotate, pairMultiplier, hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MATERIAL_MODULE FDSNPhysicalPair.Endpoint PASS
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.FourierL1 PASS REUSED
+

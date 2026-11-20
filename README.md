@@ -138,3 +138,5 @@ or a green workflow alone is not A-tier. Matching evidence must cover the
 precise statement and allow only `propext`, `Classical.choice` and `Quot.sound`.
 Missing official Mathlib objects do not authorize a source rebuild.
 
+
+The second FDSN run stopped at a finite-sum congruence elaboration error. Its statement-preserving repair is prepared; [failure evidence](audits/fdsn-1cb76bc0-failed/summary.json) is retained.

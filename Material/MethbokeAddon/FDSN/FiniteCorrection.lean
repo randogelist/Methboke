@@ -32,7 +32,9 @@ theorem scalarFourierSeries_pairRotate {a : Frequency} (ha : a ≠ 0)
   have hneg := hasSum_ite_eq (-a)
     (fourierCharacter (-a) x * ((star z - 1) * c (-a) i))
   apply ((hbase.add hpos).add hneg).congr
-  intro k
+  intro S
+  apply Finset.sum_congr rfl
+  intro k hkS
   by_cases hk : k = a
   · subst k
     simp [pairRotate, pairMultiplier, frequency_ne_neg_self ha] <;> ring
