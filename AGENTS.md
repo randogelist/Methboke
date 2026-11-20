@@ -18,7 +18,9 @@ Use `REORGANIZATION_MAP.json` to resolve historical research-document paths.
 
 ## Current goal
 
-Work from `codex/reorganize-nse-domains` for this directory reorganization; keep `main` unchanged. The user explicitly selected the conditional
+Use `main` as the project integration branch. The T3_NSE/R3_NSE layout was
+validated on `codex/reorganize-nse-domains` at `b730e52c`, run `44651224180`;
+the user has authorized integrating that branch. Preserve its retained evidence. The user explicitly selected the conditional
 `MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION` root as the project goal:
 `ν > 0 → StoppedCommutatorBound ν → ¬ NSE_B ν`.
 Preserve its exact actual-NSE semantics and explicit stopped-bound premise.

@@ -27,7 +27,8 @@ for unforced periodic three-dimensional Navier--Stokes:
 divergence-free, mean-zero data on the unit three-torus. The stopped bound is
 one explicit hypothesis on the canonical Galerkin family of a fixed smooth
 datum. **Its witness remains unproved.** No global custom axiom is added.
-The layout branch is `codex/reorganize-nse-domains`; `main` is unchanged.
+The project integration branch is `main`. The layout was validated on
+`codex/reorganize-nse-domains`; the exact branch-run evidence is retained below.
 
 ## Current evidence
 

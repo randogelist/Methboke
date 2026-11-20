@@ -2,8 +2,8 @@
   "schema_version": 2,
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
-  "branch": "codex/reorganize-nse-domains",
-  "mode": "DEDICATED_BRANCH_CI_ACCEPTED",
+  "branch": "main",
+  "mode": "VALIDATED_LAYOUT_MAIN_INTEGRATION",
   "resume_mode": "A_TIER_DERIVATION",
   "main_goal": {
     "name": "EHRENFEST_OBSTRUCTION",
@@ -18,8 +18,8 @@
   },
   "target_hierarchy": {
     "macroscopic": "Exact conditional EHRENFEST_OBSTRUCTION root",
-    "mesoscopic": "Verify the reorganized branch with cached external CI",
-    "microscopic": "Completed full branch verification; retain exact matching evidence, no new goal adopted",
+    "mesoscopic": "Integrate the externally validated T3_NSE/R3_NSE layout into main",
+    "microscopic": "Deliver validated layout and main-branch guidance while preserving exact accepted evidence",
     "suggested_next_goal": {
       "description": "No further goal adopted; full operator realization and full H2 convergence remain separately tracked",
       "adopted": false
@@ -1921,9 +1921,8 @@
     "new_ehrenfest_accepted_declarations": 75
   },
   "repository_layout": {
-    "branch": "codex/reorganize-nse-domains",
+    "branch": "main",
     "base_commit": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
-    "main_unchanged": true,
     "periodic_root": "T3_NSE",
     "whole_space_root": "R3_NSE",
     "whole_space_status": "RESERVED_NO_THEOREM_CLAIM",
@@ -1937,7 +1936,9 @@
     "compiler_dependency_or_ci_policy_changed": false,
     "new_lean_execution_required": false,
     "local_lean_executions": 0,
-    "new_theorems": 0
+    "new_theorems": 0,
+    "validated_on_branch": "codex/reorganize-nse-domains",
+    "main_unchanged_during_branch_preparation": true
   },
   "branch_ci_validation": {
     "status": "ACCEPTED_EXTERNAL_BRANCH_VERIFICATION",
@@ -1986,5 +1987,18 @@
     "publication_complete": true,
     "cumulative_ehrenfest_accepted_declarations": 183,
     "new_ehrenfest_accepted_declarations": 0
+  },
+  "main_integration": {
+    "authorized": true,
+    "destination_branch": "main",
+    "source_branch": "codex/reorganize-nse-domains",
+    "base_main_revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+    "accepted_source_revision": "b730e52ca1e4a661a83a09110378db542455097b",
+    "accepted_run_id": 44651224180,
+    "evidence": "audits/material-b730e52c-branch/summary.json",
+    "post_verification_changes": "Documentation and evidence only; exact proof/build/audit inputs unchanged",
+    "merge_status_authority": "GitHub pull request and main branch history",
+    "new_theorems": 0,
+    "local_lean_executions": 0
   }
 }

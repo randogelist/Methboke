@@ -1,8 +1,8 @@
 # Periodic three-dimensional Navier–Stokes
 
 This folder organizes the project on the unit three-torus `T³ = R³/Z³`.
-The organization branch is `codex/reorganize-nse-domains`; the mathematical
-goal and the premises of every accepted theorem are preserved.
+The layout was validated on `codex/reorganize-nse-domains` for integration into
+`main`; the mathematical goal and every accepted theorem premise are preserved.
 
 | Program | Entry point |
 |---|---|
