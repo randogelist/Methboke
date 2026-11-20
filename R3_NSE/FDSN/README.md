@@ -33,3 +33,16 @@ separation using a signed time-phase zero crossing.
 Stage2 has compiled its Fourier, helical, cutoff and translation sources.
 The nonzero-patch proof repair is prepared after run44835174661; all new
 stage2 scopes still await the complete fresh external audits.
+
+## Complete prepared root
+
+`MethbokeAddon.FDSNR3.FDSN_R3` now constructs the full `Family` from the
+original `Seed`. The physical correction is the actual partial inverse
+Fourier transform of a compact joint spectrum. Its nonlinear residual is
+an actual joint Schwartz map, using a proved time-localization of the seed.
+The same velocity and force witnesses establish every required clause.
+
+The exact root consumer and an independent fully expanded literal consumer
+are prepared. Sixteen new packages add288declarations; the complete registry
+has136packages and1316named declarations. These sources remain candidates
+until matching external compiler and fresh theorem-level evidence pass.

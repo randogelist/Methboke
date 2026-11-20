@@ -1,0 +1,27 @@
+FDSN_R3 STAGE TWO THIRD REPAIR — REJECTED CANDIDATE
+
+Source commit: 0f68d4a1af6328f8160a5c6e438fd748d3f61d53
+Source tree: a762a26b6b7ca989ae7089418d0500941208bc67
+External run: https://github.com/randogelist/Methboke/actions/runs/44835804706
+Fast job: 136631788797 — failure
+Final acceptance job: 136633064457 — failure
+Recovery job: 136633065736 — skipped
+Evidence artifact: 14679230691
+ZIP SHA256: b7559fc12988d8825d0dc5c3f3ac5a5c730f9c94ea5a422259d52b9a8f0ba2a2
+The downloaded ZIP was independently hashed and matched the artifact digest before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Fourier, FrequencyCutoff, Helical,
+NonzeroPatch and TranslationRigidity sources and their wrappers compiled
+successfully. SliceSchwartz was newly reached and failed. The retained
+current.json records all module results and exact source provenance.
+
+Exact source diagnostic in SliceSchwartz.lean:
+- 40:4: the change tactic fails in the spatialSliceAffine.map_vadd' proof.
+  The affine map law receives its point binder before its vector binder;
+  the proof introduced these binders in the opposite order.
+The complete compiler message is retained verbatim in the module log.
+
+No package audits ran. Successful source compilation alone does not
+establish package or endpoint acceptance. No statement, dependency pin,
+or acceptance criterion was changed. No local Lean, Lake, compiler or
+kernel audit was executed.

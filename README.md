@@ -4,7 +4,7 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
-The current local target is **FDSN_R3**, the user-assented whole-space extension of spectral nonrigidity. The [complete B-tier construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) and [sixteen-endpoint implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) state the explicit local-Schwartz seed and rapid-decay force scope. The exact R3 contracts and compact-carrier admission passed [run44831894933](https://github.com/randogelist/Methboke/actions/runs/44831894933); [matching evidence](audits/fdsn-r3-4d00e260-accepted/summary.json) also covers the phase helpers. The next Fourier/helical stage is prepared; the R3 root remains open. The domain-independent normalized time bump and exact residual identity reuse matching accepted evidence.
+The current local target is **FDSN_R3**, the user-assented whole-space extension of spectral nonrigidity. The [complete B-tier construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) and [sixteen-endpoint implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) state the explicit local-Schwartz seed and rapid-decay force scope. The exact R3 contracts and compact-carrier admission passed [run44831894933](https://github.com/randogelist/Methboke/actions/runs/44831894933); [matching evidence](audits/fdsn-r3-4d00e260-accepted/summary.json) also covers the phase helpers. The complete original-Seed-to-Family R3 construction is now prepared in [Main.lean](Material/MethbokeAddon/FDSNR3/Main.lean), with fully literal independent consumers. The full candidate awaits matching external verification; the R3 root is not yet accepted. The domain-independent normalized time bump and exact residual identity reuse matching accepted evidence.
 
 The preserved accepted local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
 
@@ -188,3 +188,17 @@ The next stage2 run compiled the Fourier, helical, cutoff and translation
 sources. A proof-only nonzero-patch repair follows its
 [retained diagnostics](audits/fdsn-r3-a568ec75-failed/SUMMARY.txt).
 Acceptance still requires the complete fresh type and axiom audits.
+
+## Full R3 construction candidate
+
+The prepared construction now includes actual joint Fourier differentiation
+and inverse reconstruction, a globally Schwartz velocity correction and its
+native nonlinear residual, force admission, common compact temporal support,
+all weighted finite-order parameter estimates, and the canonical root.
+One family supplies every clause. The registry contains136packages and1316
+named declarations;417stage2/stage3 declarations still await acceptance.
+
+The latest completed run reached the spatial-slice affine-law proof. Its
+[retained diagnostics](audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt) are addressed
+by a binder-order correction with unchanged theorem statements. Full external
+compilation and fresh exact-type/axiom reports remain required.

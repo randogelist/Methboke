@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNR3CrossingTimePhase",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSNR3.CrossingTimePhase"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.TimeBump",
+      "path": "MethbokeAddon/FDSN/TimeBump.lean",
+      "sha256": "8b1ee3376b39accf26e5c2c599eaf03e5534f779aa0f9dfa3ccbe4e82007d333",
+      "imports": [
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Contracts",
+      "path": "MethbokeAddon/FDSNR3/Contracts.lean",
+      "sha256": "5e7888bdd634107334c466a93e79bd4b448b47f7ac55bb8bec3316ce1bcf036f",
+      "imports": [
+        "SingularClosure.Contracts",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.LinearAlgebra.CrossProduct"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.CrossingTimePhase",
+      "path": "MethbokeAddon/FDSNR3/CrossingTimePhase.lean",
+      "sha256": "026c3519a4b9b51cb7852a7e8eb784fb8f619312b252d25f7155186532aa900e",
+      "imports": [
+        "MethbokeAddon.FDSN.TimeBump",
+        "MethbokeAddon.FDSNR3.Contracts"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "local_path": "_vendor/SingularClosure/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean",
+      "git_blob_sha": "7d64a61a47bedb2bd7a2801641c5959178837f04",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "size_bytes": 6043,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+    "Mathlib.LinearAlgebra.CrossProduct",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity"
+  ],
+  "local_module_count": 4,
+  "owned_module_count": 3,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "9f0bf40b70d34dde6fc8197ef77243e53773d7f5129fd0bb3ea362d956000a6a",
+  "validation_boundary": "Static current candidate bytes and pinned dependency-manifest records; full retained source and compiler validation run externally.",
+  "dependency_boundary": "Existing vendor, pins, lock, lakefile, workflow and earlier audits are unchanged."
+}

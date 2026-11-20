@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNR3LocalizedSeed",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSNR3.LocalizedSeed"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSNR3.CompactSchwartz",
+      "path": "MethbokeAddon/FDSNR3/CompactSchwartz.lean",
+      "sha256": "6f732a479793bb175823a604509579544f7950f36a0300b48c47372bdf837714",
+      "imports": [
+        "MethbokeAddon.FDSNR3.Contracts",
+        "Mathlib.Analysis.Calculus.TangentCone.Real",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Contracts",
+      "path": "MethbokeAddon/FDSNR3/Contracts.lean",
+      "sha256": "5e7888bdd634107334c466a93e79bd4b448b47f7ac55bb8bec3316ce1bcf036f",
+      "imports": [
+        "SingularClosure.Contracts",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.LinearAlgebra.CrossProduct"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.LocalizedSeed",
+      "path": "MethbokeAddon/FDSNR3/LocalizedSeed.lean",
+      "sha256": "2e53229cb68b34114151c6c400f39412e116eca28a6170b73fc4c8a424916c8e",
+      "imports": [
+        "MethbokeAddon.FDSNR3.CompactSchwartz",
+        "Mathlib.Analysis.Distribution.TemperateGrowth",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Topology.Order.Compact"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "local_path": "_vendor/SingularClosure/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean",
+      "git_blob_sha": "7d64a61a47bedb2bd7a2801641c5959178837f04",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "size_bytes": 6043,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.TangentCone.Real",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+    "Mathlib.Analysis.Distribution.TemperateGrowth",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.LinearAlgebra.CrossProduct",
+    "Mathlib.Topology.Order.Compact"
+  ],
+  "local_module_count": 4,
+  "owned_module_count": 3,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "d6b0eda80f247024b88fd01c2b6236e47dc069def025b2c397fef0be7f5a93a3",
+  "validation_boundary": "Static current candidate bytes and pinned dependency-manifest records; full retained source and compiler validation run externally.",
+  "dependency_boundary": "Existing vendor, pins, lock, lakefile, workflow and earlier audits are unchanged."
+}

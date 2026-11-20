@@ -36,7 +36,7 @@ def spatialSliceAffine (t : ℝ) : Vec →ᴬ[ℝ] (ℝ × Vec) where
   toFun x := (t, x)
   linear := spatialSliceCLM.toLinearMap
   map_vadd' := by
-    intro v x
+    intro x v
     change (t, v + x) = ((0 : ℝ), v) + (t, x)
     simp
   cont := continuous_const.prodMk continuous_id

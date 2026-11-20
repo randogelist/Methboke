@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNR3ParametricFourier",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSNR3.ParametricFourier"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.Phase",
+      "path": "MethbokeAddon/FDSN/Phase.lean",
+      "sha256": "2014856f14cf40a3a6ca4479da3f0308c254aa326ab5a653aa7336c4ac108e0f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.CompactSchwartz",
+      "path": "MethbokeAddon/FDSNR3/CompactSchwartz.lean",
+      "sha256": "6f732a479793bb175823a604509579544f7950f36a0300b48c47372bdf837714",
+      "imports": [
+        "MethbokeAddon.FDSNR3.Contracts",
+        "Mathlib.Analysis.Calculus.TangentCone.Real",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Contracts",
+      "path": "MethbokeAddon/FDSNR3/Contracts.lean",
+      "sha256": "5e7888bdd634107334c466a93e79bd4b448b47f7ac55bb8bec3316ce1bcf036f",
+      "imports": [
+        "SingularClosure.Contracts",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.LinearAlgebra.CrossProduct"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Fourier",
+      "path": "MethbokeAddon/FDSNR3/Fourier.lean",
+      "sha256": "4ebcab055b58c57ce9317bb7453e1a11275c15a8d96be9be1efe3bf6315def55",
+      "imports": [
+        "MethbokeAddon.FDSNR3.Contracts",
+        "MethbokeAddon.FDSN.Phase",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.NonzeroPatch",
+      "path": "MethbokeAddon/FDSNR3/NonzeroPatch.lean",
+      "sha256": "dc7af4edafad696a7a69b29b807b3366ef0f54142630259f0e4e02dd74100bf2",
+      "imports": [
+        "MethbokeAddon.FDSNR3.Fourier"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.ParametricFourier",
+      "path": "MethbokeAddon/FDSNR3/ParametricFourier.lean",
+      "sha256": "9af4b4f212b3007dc5fcccd1e3e7c100a230d76180a5584279de212d6bd79aac",
+      "imports": [
+        "MethbokeAddon.FDSNR3.SliceSchwartz",
+        "Mathlib.Analysis.Calculus.ParametricIntegral",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Fourier.FourierTransformDeriv"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.SliceSchwartz",
+      "path": "MethbokeAddon/FDSNR3/SliceSchwartz.lean",
+      "sha256": "90913d368cc80d3f3736aa19612af07297b5d4dffd4f0776a0690740691546c2",
+      "imports": [
+        "MethbokeAddon.FDSNR3.CompactSchwartz",
+        "MethbokeAddon.FDSNR3.NonzeroPatch",
+        "Mathlib.Analysis.Calculus.ContDiff.Basic",
+        "Mathlib.Analysis.Normed.Module.Multilinear.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "local_path": "_vendor/SingularClosure/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean",
+      "git_blob_sha": "7d64a61a47bedb2bd7a2801641c5959178837f04",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "size_bytes": 6043,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.ContDiff.Basic",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.ParametricIntegral",
+    "Mathlib.Analysis.Calculus.TangentCone.Real",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+    "Mathlib.Analysis.Fourier.FourierTransformDeriv",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.Analysis.Normed.Module.Multilinear.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+    "Mathlib.LinearAlgebra.CrossProduct",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring"
+  ],
+  "local_module_count": 8,
+  "owned_module_count": 7,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "d9ce9fde8d114dee6695d69c45235ef9cd3f812bc906b065046e853ba4d24903",
+  "validation_boundary": "Static current candidate bytes and pinned dependency-manifest records; full retained source and compiler validation run externally.",
+  "dependency_boundary": "Existing vendor, pins, lock, lakefile, workflow and earlier audits are unchanged."
+}

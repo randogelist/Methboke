@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "repository": "randogelist/Methboke",
   "branch": "main",
   "mode": "A_TIER_DERIVATION_FDSN_R3",
@@ -29,8 +29,8 @@
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
     "mesoscopic": "FDSN_R3: explicit local-Schwartz whole-space spectral nonrigidity",
-    "microscopic": "External stage2 Fourier/helical/patch/translation verification; genuine forward/inverse Fourier joint regularity and weighted residual bounds",
-    "next_scoped_endpoint": "User-assented R3-01 through R3-16; same-witness root remains open"
+    "microscopic": "External verification of the complete original-Seed-to-Family R3 construction and all analytic, residual, support, separation and weighted-smallness bridges.",
+    "next_scoped_endpoint": "User-assented R3-01 through R3-16; all remaining exact scopes prepared, external acceptance pending."
   },
   "goal_transition": {
     "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
@@ -53,24 +53,24 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Stage2 run44835174661 compiled Fourier, helical, cutoff and translation modules; NonzeroPatch proof-only repair prepared. Fresh audits remain required.",
-  "current_material_external_verification": "FDSN_R3_STAGE2_THIRD_REPAIR_PREPARED",
+  "ci_handoff": "Complete R3 root candidate with sixteen new packages and the repaired spatial affine law; all136packages/1316named declarations require matching fresh external verification.",
+  "current_material_external_verification": "FDSN_R3_FULL_CHAIN_CANDIDATE_PREPARED",
   "latest_material_run": {
     "status": "FAILED_NO_NEW_ACCEPTANCE",
-    "source_commit": "a568ec75d12b403ccbffbd54b1fba89dbbbd32f0",
-    "run_id": 44835174661,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44835174661",
-    "artifact_id": 14677544961,
-    "artifact_sha256": "a7b45b58528728bfb4e0d9dfe286dea8f2f009286de010dab7094776335e6bb8",
+    "source_commit": "0f68d4a1af6328f8160a5c6e438fd748d3f61d53",
+    "run_id": 44835804706,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44835804706",
+    "artifact_id": 14679230691,
+    "artifact_sha256": "b7559fc12988d8825d0dc5c3f3ac5a5c730f9c94ea5a422259d52b9a8f0ba2a2",
     "artifact_download_and_hash_verified": true,
     "failed_sources": [
-      "MethbokeAddon.FDSNR3.NonzeroPatch"
+      "MethbokeAddon.FDSNR3.SliceSchwartz"
     ],
     "fresh_package_audits_executed": false,
     "new_a_tier_acceptance": false,
     "failure_class": "PROOF_OR_TYPE_FAILURE",
-    "evidence": "audits/fdsn-r3-a568ec75-failed/SUMMARY.txt",
-    "repair": "Use the open nonzero set preimage, normalize the positive-radius scalar norm, and preserve whole-vector realification equality in NonzeroPatch. Exact theorem statements and consumers unchanged.",
+    "evidence": "audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt",
+    "repair": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
     "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
@@ -3144,7 +3144,7 @@
   },
   "fdsn_r3": {
     "schema_version": 1,
-    "date": "2026-11-20",
+    "date": "2026-11-21",
     "repository": "randogelist/Methboke",
     "branch": "main",
     "project_goal": "Fefferman_D",
@@ -3153,7 +3153,7 @@
     "endpoint_assent": "User explicitly assented to R3-01 through R3-16 and requested continued work and per-endpoint acceptance signals.",
     "implementation_basis": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
     "b_tier_status": "COMPLETE_CONDITIONAL_LOCAL_SCHWARTZ_COMPACT_LOCAL_SEED_CONSTRUCTION",
-    "a_tier_root_status": "OPEN",
+    "a_tier_root_status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
     "root_statement": "forall nu T u p F, Seed nu T u p F -> Family nu T u p F",
     "local_lean_executions": 0,
     "compiler": "leanprover/lean4:v4.33.0",
@@ -3183,22 +3183,22 @@
       {
         "id": "R3-03",
         "scope": "Actual Fourier inversion, conjugacy, divergence, translation and Plancherel",
-        "status": "PREPARED_PENDING_STAGE2_EXTERNAL_VERIFICATION"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-04",
         "scope": "Intrinsic helical projector algebra",
-        "status": "PREPARED_PENDING_STAGE2_EXTERNAL_VERIFICATION"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-05",
         "scope": "Nonzero continuous Fourier region after any regular cutoff",
-        "status": "PREPARED_PENDING_STAGE2_EXTERNAL_VERIFICATION"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-06",
         "scope": "Separated active and untouched frequency regions and odd cutoff",
-        "status": "PREPARED_PENDING_STAGE2_EXTERNAL_VERIFICATION"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-07",
@@ -3208,17 +3208,17 @@
       {
         "id": "R3-08",
         "scope": "Actual phase family and joint Schwartz regularity",
-        "status": "PENDING_ANALYTIC_BRIDGE"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-09",
         "scope": "Reality, divergence freedom and low-frequency preservation",
-        "status": "PENDING_PHYSICAL_BRIDGE"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-10",
         "scope": "Complete helical powers, energy and dissipation preservation",
-        "status": "PENDING_PHYSICAL_BRIDGE"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-11",
@@ -3228,29 +3228,28 @@
       {
         "id": "R3-12",
         "scope": "Global rapid-decay force admission and smooth zero extension",
-        "status": "PENDING"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-13",
         "scope": "Common-time separation modulo every spatial translation",
-        "status": "ACTUAL_FOURIER_CONDITIONAL_HELPER_PREPARED",
-        "remaining": "Apply to the constructed physical family after its actual Fourier identity is established."
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-14",
         "scope": "Physical Leray-projected force separation",
-        "status": "PENDING",
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
         "proof_method": "Signed time-phase zero crossing; actual nonzero real solenoidal Schwartz generator; physical Leray fixes the force difference."
       },
       {
         "id": "R3-15",
         "scope": "All finite-order weighted O(parameter) estimates",
-        "status": "PENDING"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       },
       {
         "id": "R3-16",
         "scope": "Canonical same-witness FDSN_R3 root",
-        "status": "PENDING"
+        "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
       }
     ],
     "stage_1": {
@@ -3297,7 +3296,7 @@
       "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
       "Definition/consumer checks do not construct a family."
     ],
-    "next": "Verify continuous Fourier/helical/patch/translation sources externally; complete actual joint phase regularity, weighted residual bounds, zero-crossing force separation and same-witness root.",
+    "next": "Verify the complete same-witness R3 construction with all required fresh literal type and axiom audits; repair exact external diagnostics without changing the original Seed or Family.",
     "failed_attempts": [
       {
         "status": "FAILED_NO_NEW_ACCEPTANCE",
@@ -3373,10 +3372,28 @@
         "evidence": "audits/fdsn-r3-a568ec75-failed/SUMMARY.txt",
         "repair": "Use the open nonzero set preimage, normalize the positive-radius scalar norm, and preserve whole-vector realification equality in NonzeroPatch. Exact theorem statements and consumers unchanged.",
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_NO_NEW_ACCEPTANCE",
+        "source_commit": "0f68d4a1af6328f8160a5c6e438fd748d3f61d53",
+        "run_id": 44835804706,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44835804706",
+        "artifact_id": 14679230691,
+        "artifact_sha256": "b7559fc12988d8825d0dc5c3f3ac5a5c730f9c94ea5a422259d52b9a8f0ba2a2",
+        "artifact_download_and_hash_verified": true,
+        "failed_sources": [
+          "MethbokeAddon.FDSNR3.SliceSchwartz"
+        ],
+        "fresh_package_audits_executed": false,
+        "new_a_tier_acceptance": false,
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "evidence": "audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt",
+        "repair": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
+        "local_lean_executions": 0
       }
     ],
     "stage_2": {
-      "status": "THIRD_STATEMENT_PRESERVING_REPAIR_PREPARED",
+      "status": "FOURTH_PROOF_REPAIR_INCLUDED_IN_FULL_CHAIN_CANDIDATE",
       "source_basis": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
       "sources": [
         "MethbokeAddon.FDSNR3.Fourier",
@@ -3391,8 +3408,8 @@
       "all_packages": 120,
       "all_declarations": 1028,
       "new_acceptance_claimed": false,
-      "previous_failed_run": 44835174661,
-      "repair_scope": "Use the open nonzero set preimage, normalize the positive-radius scalar norm, and preserve whole-vector realification equality in NonzeroPatch. Exact theorem statements and consumers unchanged."
+      "previous_failed_run": 44835804706,
+      "repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged."
     },
     "accepted_evidence": {
       "stage_1": {
@@ -3474,7 +3491,44 @@
       }
     },
     "b_tier_version": "1.1",
-    "b_tier_refinement": "Section17 derives direct projected-force separation at a common signed-phase zero crossing; unchanged Seed and Family. Original difference-energy proof retained as an alternative."
+    "b_tier_refinement": "Section17 derives direct projected-force separation at a common signed-phase zero crossing; unchanged Seed and Family. Original difference-energy proof retained as an alternative.",
+    "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
+    "root_source": "Material/MethbokeAddon/FDSNR3/Main.lean",
+    "stage_3": {
+      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+      "source_basis": "0f68d4a1af6328f8160a5c6e438fd748d3f61d53",
+      "sources": [
+        "MethbokeAddon.FDSNR3.SchwartzPhase",
+        "MethbokeAddon.FDSNR3.ParametricFourier",
+        "MethbokeAddon.FDSNR3.ForwardFourierSmooth",
+        "MethbokeAddon.FDSNR3.SpectralGenerator",
+        "MethbokeAddon.FDSNR3.CrossingTimePhase",
+        "MethbokeAddon.FDSNR3.ForceSeparation",
+        "MethbokeAddon.FDSNR3.CrossingDerivative",
+        "MethbokeAddon.FDSNR3.JointPacket",
+        "MethbokeAddon.FDSNR3.Realization",
+        "MethbokeAddon.FDSNR3.SchwartzJets",
+        "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+        "MethbokeAddon.FDSNR3.ResidualSchwartz",
+        "MethbokeAddon.FDSNR3.LocalizedSeed",
+        "MethbokeAddon.FDSNR3.PhysicalFamily",
+        "MethbokeAddon.FDSNR3.CorrectionAdmission",
+        "MethbokeAddon.FDSNR3.Main"
+      ],
+      "new_packages": 16,
+      "new_declarations": 288,
+      "all_packages": 136,
+      "all_declarations": 1316,
+      "pending_stage_2_and_3_declarations": 417,
+      "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
+      "root_premise": "Original Seed nu T u p F only; all spectral, multiplier, regularity, force and separation witnesses constructed.",
+      "independent_root_consumers": [
+        "Exact Seed-to-Family implication",
+        "Fully expanded quantified Family conclusion, actual native PDE/force fields and weighted iterated derivatives"
+      ],
+      "new_acceptance_claimed": false,
+      "local_lean_executions": 0
+    }
   },
   "fdsn_r3_latest_accepted_material_run": {
     "status": "A_TIER_ACCEPTED_EXACT_FDSN_R3_STAGE1_SCOPES",
