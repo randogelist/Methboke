@@ -1,5 +1,21 @@
 # NSE-A regularity class: finite six-charge budget
 
+## Active construction: full stopped budgets and gauge
+
+The selected scoped goal is **`NSE_A_FINITE_CHARGE_IFF_GLOBAL`**. The next
+candidate adds **105 declarations: 91 theorems and 14 definitions**, in
+`QFAStoppedBudget` and `QFAPhysicalStoppedGauge`. It supplies the actual finite
+observation window, complete endpoint budget limits including infinity,
+physical/Fourier normalization, fourth-root gauge and integer sublevels.
+These additions are **prepared pending matching external verification**.
+The new registry contains 95 packages and 1092 named reports; the previously
+accepted G05/P01–P07 proof and audit bytes are preserved.
+
+The native H2, real Leray, local solution, sharp spatial estimate, evolution,
+continuation and literal solution-category layers remain separate obligations.
+The canonical class theorem and universal budget finiteness remain open.
+
+
 ## Current native construction
 
 **G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.

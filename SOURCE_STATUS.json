@@ -3,7 +3,7 @@
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
   "branch": "AC-Integration",
-  "mode": "A_TIER_NSE_A_SIX_GAP_CONSTRUCTION",
+  "mode": "A_TIER_NSE_A_FINITE_CHARGE_IFF_GLOBAL_CONSTRUCTION",
   "resume_mode": "A_TIER_DERIVATION",
   "main_goal": {
     "name": "Fefferman_D",
@@ -27,8 +27,8 @@
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
     "mesoscopic": "QFA/QFB native A-tier integration on AC-Integration; retained D-family program on main",
-    "microscopic": "Actual real Fourier range, H1 sector transport, and H1-only physical spectral identities for the six open targets.",
-    "next_scoped_endpoint": "P04 real sector preservation, P05 actual H1 transport, P06 physical charges with exact Fourier normalization"
+    "microscopic": "P08 full stopped-window limits and actual physical gauge; independent actual H2 and real Leray construction.",
+    "next_scoped_endpoint": "Matching cached external compiler/full types/named axioms for P08; then native PDE analytic layers."
   },
   "goal_transition": {
     "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
@@ -53,7 +53,7 @@
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
   "ci_handoff": "QFA foundation integration accepted at afd67db4/run44788963412 after matching compiler/type/axiom, index, publication and final acceptance gates. Full physical QFA/WFA roots remain open.",
-  "current_material_external_verification": "A_TIER_G05_AND_P01_P07_ACCEPTED_FIVE_PARENTS_OPEN",
+  "current_material_external_verification": "PRIOR_G05_P01_P07_ACCEPTED_P08_CANDIDATE_PENDING",
   "latest_material_run": {
     "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
     "run_id": 44820225574,
@@ -2746,5 +2746,26 @@
       "physical_qfa_root_proved": false,
       "wfa_proved": false
     }
-  ]
+  ],
+  "active_scoped_request": "NSE_A_FINITE_CHARGE_IFF_GLOBAL",
+  "current_material_candidate": {
+    "id": "NSE_A_ROOT_BATCH_4",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "request": "Build NSE_A_FINITE_CHARGE_IFF_GLOBAL and make it A-Tier",
+    "packages": [
+      "QFAStoppedBudget",
+      "QFAPhysicalStoppedGauge"
+    ],
+    "new_named_declarations": 105,
+    "new_theorems": 91,
+    "new_definitions": 14,
+    "total_packages": 95,
+    "named_reports_expected": 1092,
+    "local_lean_executions": 0,
+    "previous_accepted_source": "09bcf25110020760d3d93100b8105d2ffba85e61",
+    "previous_accepted_run": 44820225574,
+    "p08_formally_accepted": false,
+    "canonical_root_proved": false,
+    "universal_budget_finiteness_proved": false
+  }
 }

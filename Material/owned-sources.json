@@ -1720,6 +1720,61 @@
         "role": "Accepted-source/B-tier dependency baseline; new proof bytes are not claimed at that baseline."
       },
       "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.StoppedWindow",
+      "path": "MethbokeAddon/QuasiFeffermanA/StoppedWindow.lean",
+      "sha256": "07512bb83ed7c49e61c2a93f22ca81e00a2b00ecc1ce5a8e3f599bb38b6d1375",
+      "imports": [
+        "Mathlib.Data.ENNReal.Real",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+        "Mathlib.Tactic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4dcf71c10bfab60b670cc5d35c68c8c46bfcaebd",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt",
+        "role": "Reviewed supplied-path P08 stopping/full-budget chain; every new source requires matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.FullStoppedBudget",
+      "path": "MethbokeAddon/QuasiFeffermanA/FullStoppedBudget.lean",
+      "sha256": "177d13bb4d6fedcdd133ae06f7fd04fb13c1bf7bda90baea3578fd6e61273219",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.StoppedWindow",
+        "Mathlib.Analysis.SpecificLimits.Basic",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+        "Mathlib.Topology.Order.Monotone",
+        "Mathlib.Topology.Order.MonotoneConvergence"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4dcf71c10bfab60b670cc5d35c68c8c46bfcaebd",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt",
+        "role": "Reviewed supplied-path P08 stopping/full-budget chain; every new source requires matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalStoppedGauge",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "sha256": "c0dd0aaf72da09b7cab4d4dfb444377b4ee2326bb186d0c8ae5ada7126bd7892",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.FullStoppedBudget",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
+        "Mathlib.Analysis.SpecialFunctions.Pow.NNReal"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt",
+        "role": "Accepted physical H1/Fourier basis and reviewed stopped-window B-tier chain; new proof bytes require their own verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
     }
   ]
 }

@@ -1,5 +1,21 @@
 # Methboke
 
+## Active construction: full stopped budgets and gauge
+
+The selected scoped goal is **`NSE_A_FINITE_CHARGE_IFF_GLOBAL`**. The next
+candidate adds **105 declarations: 91 theorems and 14 definitions**, in
+`QFAStoppedBudget` and `QFAPhysicalStoppedGauge`. It supplies the actual finite
+observation window, complete endpoint budget limits including infinity,
+physical/Fourier normalization, fourth-root gauge and integer sublevels.
+These additions are **prepared pending matching external verification**.
+The new registry contains 95 packages and 1092 named reports; the previously
+accepted G05/P01–P07 proof and audit bytes are preserved.
+
+The native H2, real Leray, local solution, sharp spatial estimate, evolution,
+continuation and literal solution-category layers remain separate obligations.
+The canonical class theorem and universal budget finiteness remain open.
+
+
 The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
