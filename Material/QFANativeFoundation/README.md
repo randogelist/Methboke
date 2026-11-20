@@ -4,7 +4,8 @@ Status: **prepared, pending matching cached external compiler/type/axiom evidenc
 
 Six owned modules contribute **35 public helper theorem candidates and 19
 contract/definition declarations**, each named in the fresh audit. Four private
-spectral algebra lemmas are checked transitively by their public consumers.
+spectral algebra lemmas and two private scalar-conversion lemmas are checked
+transitively by their public consumers.
 
 The native contract uses full-volume vector L2 on Euclidean R3, actual weak
 derivatives, all compact scalar tests, smooth compact solenoidal spacetime

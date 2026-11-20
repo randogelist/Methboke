@@ -43,6 +43,11 @@ and [historical evidence review](Temp-folder/anchors/SOURCE_REVIEW.json)
 preserve the recovery record. The Fefferman-D main goal and all its existing
 proof/evidence statuses retain their original scope.
 
+The [second external attempt](audits/material-62acb4de-qfa-failed/summary.json)
+passed the repaired cutoff and finite-window integration modules. Its two
+remaining multiplier scalar conversions are now prepared as explicit
+pointwise identities, with unchanged public statements.
+
 ## Retained Fefferman-D implementation
 
 The native family layers are in

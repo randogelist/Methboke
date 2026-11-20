@@ -6,8 +6,8 @@ import QFALC001Reduction.NativeFromAENorms
 This module preserves the five mathematical statements of the recovered
 distribution-to-representative bridge. It makes distribution evaluation and
 real-to-complex scalar conversions explicit, repairing the elaboration failures
-reported by external run 44782428295. The preserved upstream source is not
-imported here and remains unchanged.
+reported by external runs 44782428295 and 44784484976. The preserved upstream
+source is not imported here and remains unchanged.
 
 Matching external compilation and exact declaration/axiom auditing are required.
 No local Lean, Lake, kernel or project runner was executed.
@@ -25,6 +25,21 @@ namespace MethbokeAddon.QuasiFeffermanA.FourierMultipliers
 open QFA.Endpoints.Agmon
 
 noncomputable section
+
+private theorem real_smul_complexVector (r : ℝ) (z : ComplexVector) :
+    r • z = (r : ℂ) • z := by
+  apply PiLp.ext
+  intro j
+  change r • z j = (r : ℂ) * z j
+  exact Complex.real_smul
+
+private theorem real_smul_distribution (r : ℝ)
+    (T : 𝓢'(Space, ComplexVector)) :
+    r • T = (r : ℂ) • T := by
+  apply UniformConvergenceCLM.ext
+  intro test
+  change r • T test = (r : ℂ) • T test
+  exact real_smul_complexVector r (T test)
 
 /-- A scalar multiplier equality of actual L2 distributions determines the
 chosen locally integrable representatives almost everywhere. -/
@@ -59,8 +74,11 @@ theorem ae_eq_of_const_smul_real_multiplier_distribution
         using hEval
     calc
       (∫ x : Space, g x • q x) =
-          c • ∫ x : Space, ((m x : ℂ) * (g x : ℂ)) • h x := by
-        simpa only [RCLike.real_smul_eq_coe_smul (K := ℂ)] using hPair
+          ∫ x : Space, (g x : ℂ) • q x := by
+        apply integral_congr_ae
+        filter_upwards with x
+        exact real_smul_complexVector (g x) (q x)
+      _ = c • ∫ x : Space, ((m x : ℂ) * (g x : ℂ)) • h x := hPair
       _ = ∫ x : Space, c • (((m x : ℂ) * (g x : ℂ)) • h x) := by
         rw [integral_smul]
       _ = ∫ x : Space, g x • ((c * (m x : ℂ)) • h x) := by
@@ -76,7 +94,7 @@ theorem ae_eq_of_const_smul_real_multiplier_distribution
           _ = (g x : ℂ) • ((c * (m x : ℂ)) • h x) :=
             mul_smul (g x : ℂ) (c * (m x : ℂ)) (h x)
           _ = g x • ((c * (m x : ℂ)) • h x) :=
-            (RCLike.real_smul_eq_coe_smul (K := ℂ) (g x)
+            (real_smul_complexVector (g x)
               ((c * (m x : ℂ)) • h x)).symm
 
 /-- Fourier transform of each supplied first derivative, as an exact
@@ -192,9 +210,24 @@ theorem laplacian_fourier_ae
         c • TemperedDistribution.smulLeftCLM ComplexVector
           (fun k : Space => ((‖k‖ ^ 2 : ℝ) : ℂ))
           ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)) := by
-    simpa only [c, RCLike.real_smul_eq_coe_smul (K := ℂ), Complex.ofReal_neg,
-      Complex.ofReal_pow, Complex.ofReal_mul, Complex.ofReal_ofNat]
-      using (laplacian_fourier_distribution_eq h)
+    calc
+      ((𝓕 L : ComplexL2) : 𝓢'(Space, ComplexVector)) =
+          (-((2 * Real.pi) ^ 2) : ℝ) •
+            TemperedDistribution.smulLeftCLM ComplexVector
+              (fun k : Space => (‖k‖ ^ 2 : ℂ))
+              ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)) :=
+        laplacian_fourier_distribution_eq h
+      _ = c • TemperedDistribution.smulLeftCLM ComplexVector
+          (fun k : Space => (‖k‖ ^ 2 : ℂ))
+          ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)) :=
+        real_smul_distribution (-((2 * Real.pi) ^ 2))
+          (TemperedDistribution.smulLeftCLM ComplexVector
+            (fun k : Space => (‖k‖ ^ 2 : ℂ))
+            ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)))
+      _ = c • TemperedDistribution.smulLeftCLM ComplexVector
+          (fun k : Space => ((‖k‖ ^ 2 : ℝ) : ℂ))
+          ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)) := by
+        simp only [Complex.ofReal_pow]
   have hAE :
       (fun k : Space => (𝓕 L : ComplexL2) k) =ᵐ[volume]
         (fun k : Space =>

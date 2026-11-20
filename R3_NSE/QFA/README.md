@@ -84,6 +84,13 @@ multiplier file and its barrel remain byte-identical but are outside active
 imports; the corrected five-proof port belongs to an explicitly owned namespace.
 Its proofs feed the native Spectral module and receive fresh named audits.
 
+The [second attempt](../../audits/material-62acb4de-qfa-failed/summary.json)
+passed460module receipts, including Cutoff and Integration. Two owned
+FourierMultipliers scalar conversions still failed. They are repaired using
+explicit coordinatewise vector and distribution-evaluation identities; all
+five public statement types are preserved. Matching external acceptance
+remains pending.
+
 ## Verification boundary
 
 Only authorized external cached compilation and fresh exact-type/axiom audits
