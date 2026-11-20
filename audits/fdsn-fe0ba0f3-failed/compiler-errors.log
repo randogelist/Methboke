@@ -1,0 +1,26 @@
+MethbokeAddon/FDSN/LocalizedFront.lean:46:10: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun z => localizedPairCorrection a β u lambda z.1 z.2) z
+in the target expression
+  u z.1 z.2 + localizedPairCorrection a β u lambda z.1 z.2 = u z.1 z.2
+
+ν T : ℝ
+u F : Velocity
+p : Pressure
+h : Seed ν T u p F
+a : Frequency
+β : ℝ → ℝ
+hβ : ContDiff ℝ ∞ β
+hβs : tsupport β ⊆ Ioo 0 T
+lambda : ℝ
+x : Vec
+ht : 0 ∈ Ico 0 T
+hβzero : 0 ∉ tsupport β
+hc : (fun z => localizedPairCorrection a β u lambda z.1 z.2) =ᶠ[𝓝 (0, x)] 0
+z : ℝ × Vec
+hz : (fun z => localizedPairCorrection a β u lambda z.1 z.2) z = 0 z
+⊢ u z.1 z.2 + localizedPairCorrection a β u lambda z.1 z.2 = u z.1 z.2
+MATERIAL_MODULE FDSNPhysicalLerayAdapter.Endpoint PASS
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/LocalizedSmallness.olean", "MethbokeAddon/FDSN/LocalizedSmallness.lean"]
+MATERIAL_MODULE MethbokeAddon.FDSN.LocalizedFront FAIL
+

@@ -150,3 +150,5 @@ FDSN verification repair after run44806525675: Resolve the finite-norm estimate 
 FDSN verification repair after run44807597711: Make residual smoothness subterms explicit with a scoped elaboration allowance, and normalize subtraction in the physical Leray coefficient identity. All theorem contracts are unchanged. [Failure record](audits/fdsn-38dd6ec5-failed/summary.json).
 
 FDSN verification repair after run44808681563: Specify the exact inner and outer maps in both joint residual derivative compositions; theorem statements and audit consumers unchanged. [Failure record](audits/fdsn-6f02f8b7-failed/summary.json).
+
+FDSN verification repair after run44809750811: Normalize the actual correction value in the initial-time vanishing-germ equality before rewriting; one proof line changed, all theorem contracts preserved. [Failure record](audits/fdsn-fe0ba0f3-failed/summary.json).

@@ -42,6 +42,7 @@ theorem localizedPair_momentum
         =ᶠ[𝓝 (0, x)] (fun z => u z.1 z.2) := by
       apply hc.mono
       intro z hz
+      change localizedPairCorrection a β u lambda z.1 z.2 = 0 at hz
       change u z.1 z.2 + localizedPairCorrection a β u lambda z.1 z.2 = u z.1 z.2
       rw [hz, add_zero]
     have hforce : localizedPairForce ν a β u F lambda 0 x = F 0 x :=
