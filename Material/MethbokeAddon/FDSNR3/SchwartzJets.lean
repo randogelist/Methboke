@@ -36,14 +36,17 @@ def familySpatialInclusion : E →L[ℝ] (ℝ × E) :=
 /-- Full product-space Schwartz representatives of the slice derivatives. -/
 def schwartzSliceJet (G : 𝓢(ℝ × E, F)) :
     (n : ℕ) → 𝓢(ℝ × E, ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)
-  | 0 => SchwartzMap.postcompCLM
+  | 0 => SchwartzMap.postcompCLM (𝕜 := ℝ)
       (continuousMultilinearCurryFin0 ℝ E F).symm.toLinearIsometry.toContinuousLinearMap G
-  | n + 1 => SchwartzMap.postcompCLM
+  | n + 1 => SchwartzMap.postcompCLM (𝕜 := ℝ)
       ((continuousMultilinearCurryLeftEquiv ℝ
         (fun _ : Fin (n + 1) => E) F).symm.toLinearIsometry.toContinuousLinearMap)
-      (SchwartzMap.postcompCLM
-        ((ContinuousLinearMap.compL ℝ E (ℝ × E)
-          (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)).flip familySpatialInclusion)
+      (SchwartzMap.postcompCLM (𝕜 := ℝ)
+        (F := (ℝ × E) →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)
+        (G := E →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)
+        (by simpa using!
+          ((ContinuousLinearMap.compL ℝ E (ℝ × E)
+            (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)).flip familySpatialInclusion))
         (SchwartzMap.fderivCLM ℝ (ℝ × E)
           (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F) (schwartzSliceJet G n)))
 
@@ -103,8 +106,10 @@ theorem schwartz_weighted_value_linear_bound
     have hmap : HasDerivAt (fun r : ℝ => (r, z)) ((1 : ℝ), (0 : E)) l :=
       (hasDerivAt_id l).prodMk (hasDerivAt_const l z)
     have h := (G.hasFDerivAt (l, z)).comp_hasDerivAt l hmap
-    simpa only [D, SchwartzMap.lineDerivOp_apply_eq_fderiv,
-      Function.comp_def, Pi.smul_apply] using h.const_smul w
+    have hs : HasDerivAt (fun r : ℝ => w • G (r, z))
+        (w • (fderiv ℝ (G : ℝ × E → F) (l, z) ((1 : ℝ), (0 : E)))) l := by
+      simpa only [Function.comp_def] using! h.const_smul w
+    exact hs
   have hb : ∀ l ∈ (univ : Set ℝ), ‖w • D (l, z)‖ ≤ C := by
     intro l _
     simpa only [norm_smul, Real.norm_eq_abs, abs_of_nonneg hw, w] using hbound l z

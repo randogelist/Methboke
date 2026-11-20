@@ -50,3 +50,7 @@ until matching external compiler and fresh theorem-level evidence pass.
 The first full candidate run compiled all stage2 sources. Its six newly
 reached analytic proof failures are repaired for the next external run;
 fresh type/axiom audits and canonical root acceptance remain pending.
+
+Run44837788551 cleared four analytic source failures. Three remaining source errors have prepared coercion and literal zero-integral repairs; fresh audits remain pending.
+[Retained external diagnostics](../../audits/fdsn-r3-f44d4e1f-failed/SUMMARY.txt) accompany the
+prepared statement-preserving repair. Full fresh audits remain required.

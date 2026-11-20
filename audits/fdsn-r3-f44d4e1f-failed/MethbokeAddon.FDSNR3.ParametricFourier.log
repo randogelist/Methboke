@@ -1,0 +1,20 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:71:6: error: Type mismatch
+  LinearIsometry.integral_comp_comm ?m.533 fun a => p a q (n + 1)
+has type
+  ∫ (x : A), ?m.533 (p x q (n + 1)) ∂?m.522 = ?m.533 (∫ (x : A), p x q (n + 1) ∂?m.522)
+but is expected to have type
+  ∫ (a : A), (p a q (n + 1)).curryLeft ∂μ = (∫ (a : A), p a q (n + 1) ∂μ).curryLeft
+MethbokeAddon/FDSNR3/ParametricFourier.lean:259:2: error: Type mismatch
+  ContinuousAt.comp (continuousAt_fourierVelocity hu ht ξ) ?m.42
+has type
+  ContinuousAt ((fun q => fourierVelocity (u q.1) q.2) ∘ Prod.mk t) ξ
+but is expected to have type
+  ContinuousAt (fun r => fourierVelocity (u r) ξ) t
+MethbokeAddon/FDSNR3/ParametricFourier.lean:260:4: error: Application type mismatch: The argument
+  ContinuousAt.prodMk continuousAt_id continuousAt_const
+has type
+  ContinuousAt (fun x => (id x, ?m.41)) ?m.40
+but is expected to have type
+  ContinuousAt (Prod.mk t) ξ
+in the application
+  ContinuousAt.comp (continuousAt_fourierVelocity hu ht ξ) (ContinuousAt.prodMk continuousAt_id continuousAt_const)

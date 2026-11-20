@@ -55,7 +55,7 @@ theorem realSchwartzInverse_ne_zero
   rw [hz] at h
   have hzero : fourierVelocity (0 : 𝓢(Vec, Vec)) ξ = 0 := by
     change 𝓕 (0 : Vec → CVec) ξ = 0
-    simp
+    simp only [Real.fourier_eq, Pi.zero_apply, smul_zero, integral_zero]
   exact hξ (h.symm.trans hzero)
 
 /-- A genuine compactly supported scalar Schwartz multiplier. -/

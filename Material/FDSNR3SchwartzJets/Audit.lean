@@ -19,16 +19,19 @@ example : (familySpatialInclusion : E →L[ℝ] (ℝ × E)) =
     (0 : E →L[ℝ] ℝ).prod (ContinuousLinearMap.id ℝ E) := rfl
 
 example (G : 𝓢(ℝ × E, F)) : schwartzSliceJet G 0 =
-    SchwartzMap.postcompCLM
+    SchwartzMap.postcompCLM (𝕜 := ℝ)
       (continuousMultilinearCurryFin0 ℝ E F).symm.toLinearIsometry.toContinuousLinearMap G := rfl
 
 example (G : 𝓢(ℝ × E, F)) (n : ℕ) : schwartzSliceJet G (n+1) =
-    SchwartzMap.postcompCLM
+    SchwartzMap.postcompCLM (𝕜 := ℝ)
       ((continuousMultilinearCurryLeftEquiv ℝ
         (fun _ : Fin (n + 1) => E) F).symm.toLinearIsometry.toContinuousLinearMap)
-      (SchwartzMap.postcompCLM
-        ((ContinuousLinearMap.compL ℝ E (ℝ × E)
-          (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)).flip familySpatialInclusion)
+      (SchwartzMap.postcompCLM (𝕜 := ℝ)
+        (F := (ℝ × E) →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)
+        (G := E →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)
+        (by simpa using!
+          ((ContinuousLinearMap.compL ℝ E (ℝ × E)
+            (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)).flip familySpatialInclusion))
         (SchwartzMap.fderivCLM ℝ (ℝ × E)
           (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F) (schwartzSliceJet G n))) := rfl
 

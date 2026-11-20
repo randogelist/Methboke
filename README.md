@@ -207,3 +207,7 @@ The first full R3 run compiled every second-stage source. Six new analytic
 modules required proof/coercion repairs, now prepared with unchanged
 mathematical scope. [The complete diagnostics](audits/fdsn-r3-54f6c70b-failed/SUMMARY.txt)
 are retained; no new A-tier acceptance follows from this failed run.
+
+Run44837788551 cleared four analytic source failures. Three remaining source errors have prepared coercion and literal zero-integral repairs; fresh audits remain pending.
+[Retained external diagnostics](audits/fdsn-r3-f44d4e1f-failed/SUMMARY.txt) accompany the
+prepared statement-preserving repair. Full fresh audits remain required.

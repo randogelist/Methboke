@@ -381,7 +381,7 @@ theorem partialFourierInverse_zero_fiber (A : 𝓢(P × Vec, E)) {p : P}
     (hp : ∀ ξ : Vec, A (p, ξ) = 0) (x : Vec) : partialFourierInverse A (p, x) = 0 := by
   rw [partialFourierInverse_apply]
   have h : (fun ξ : Vec => A (p, ξ)) = 0 := funext hp
-  rw [h, FourierTransform.fourierInv_zero] <;> rfl
+  simp only [h, Real.fourierInv_eq, Pi.zero_apply, smul_zero, integral_zero]
 
 end Fourier
 

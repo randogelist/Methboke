@@ -61,7 +61,7 @@ theorem jointPhysicalCorrection_zero_parameter
   rw [jointPhysicalCorrection_apply]
   have hz : (fun ξ : Vec => jointSpectralCorrection β ψ u ((0, z.1), ξ)) = 0 :=
     funext (jointSpectralCorrection_zero_parameter β ψ u z.1)
-  simpa only [hz, FourierTransform.fourierInv_zero] using
+  simpa only [hz, Real.fourierInv_eq, Pi.zero_apply, smul_zero, integral_zero] using
     (show realify (0 : CVec) = 0 from realifyCLM.map_zero)
 
 def physicalPhaseCorrection
@@ -121,7 +121,7 @@ theorem physicalPhaseCorrection_eq_zero_of_beta_zero
   rw [physicalPhaseCorrection_apply]
   have hz : (fun ξ : Vec => jointSpectralCorrection β ψ u ((lam, t), ξ)) = 0 :=
     funext (jointSpectralCorrection_eq_zero_of_beta_zero ψ u lam ht)
-  simpa only [hz, FourierTransform.fourierInv_zero] using
+  simpa only [hz, Real.fourierInv_eq, Pi.zero_apply, smul_zero, integral_zero] using
     (show realify (0 : CVec) = 0 from realifyCLM.map_zero)
 
 theorem physicalPhaseCorrection_tsupport_subset

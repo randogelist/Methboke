@@ -1,0 +1,33 @@
+FDSN_R3 FULL CANDIDATE FIRST REPAIR — REJECTED
+
+Source commit: f44d4e1f2ea6c37e5760f8f8c8df9dba7b1326c9
+Source tree: ee3106cc493a130f8ba3b55393a3e6776e455fbc
+External run: https://github.com/randogelist/Methboke/actions/runs/44837788551
+Fast job: 136638412289 — failure
+Final acceptance job: 136639854340 — failure
+Recovery job: 136639856548 — skipped
+Evidence artifact: 14679916194
+ZIP SHA256: fd5172469b2e4a0125b7189b3ee7c8d067530d8dba91e30634c6449d8c5b7744
+The downloaded ZIP was independently hashed and matched the artifact digest before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Source-pin integrity was confirmed.
+Module receipts record 522 PASS, 3 FAIL, and 21 BLOCKED_BY_DEPENDENCY.
+CrossingTimePhase, LocalizedSeed, Realization and SchwartzPhase now compile,
+as do all stage-two sources and wrappers. Fresh named audits did not run.
+
+The remaining exposed source failures were:
+- ParametricFourier: line71, the linear-isometry integral identity does not
+  identify its map with curryLeft; lines259/260, continuous composition
+  infers the spatial inclusion instead of the intended time inclusion.
+- SchwartzJets: line45, continuous-linear-map instance mismatch in
+  postcomposition; lines54/58, dependent recursion consequences of that
+  failed definition; line106, pointwise scalar-function normalization.
+- SpectralGenerator: line58, a simplification step makes no progress.
+The three full compiler logs are retained verbatim beside current.json.
+
+All downstream modules remain unaccepted until their sources compile and
+the independent exact/literal consumers and named type/axiom reports pass.
+Successful source compilation alone does not establish endpoint acceptance.
+No mathematical statement, dependency pin, or acceptance criterion was
+changed by this evidence archive. No local Lean, Lake, compiler or kernel
+audit was executed.

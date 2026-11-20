@@ -67,9 +67,15 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
       (ae_of_all _ (fun a y hy =>
         ((hTaylor a).fderivWithin n hn y hy).hasFDerivAt (hs.mem_nhds hy)))
     have heq : (∫ a, (p a q (n + 1)).curryLeft ∂μ) =
-        (∫ a, p a q (n + 1) ∂μ).curryLeft :=
-      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P) E).toLinearIsometry.integral_comp_comm
-        (fun a => p a q (n + 1))
+        (∫ a, p a q (n + 1) ∂μ).curryLeft := by
+      have hcurry (v : ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E) :
+          (continuousMultilinearCurryLeftEquiv ℝ
+            (fun _ : Fin (n + 1) => P) E).toLinearIsometry v = v.curryLeft := rfl
+      simpa only [hcurry] using
+        (LinearIsometry.integral_comp_comm (μ := μ)
+          (continuousMultilinearCurryLeftEquiv ℝ
+            (fun _ : Fin (n + 1) => P) E).toLinearIsometry
+          (fun a => p a q (n + 1)))
     rw [heq] at hd
     exact hd.hasFDerivWithinAt
   · intro n hn
@@ -256,7 +262,7 @@ component while choosing the phase's zero-crossing time. -/
 theorem LocalSchwartz.continuousAt_fourier_time {T t : ℝ} {u : Velocity}
     (hu : LocalSchwartz T u) (ht : t ∈ Ioo (0 : ℝ) T) (ξ : Vec) :
     ContinuousAt (fun r : ℝ => fourierVelocity (u r) ξ) t :=
-  (hu.continuousAt_fourierVelocity ht ξ).comp
+  (hu.continuousAt_fourierVelocity ht ξ).comp (f := fun r : ℝ => (r, ξ))
     (continuousAt_id.prodMk continuousAt_const)
 
 end FourierContinuity

@@ -145,7 +145,8 @@ theorem inversePhaseCorrection_eq_zero_of_beta_zero
   funext x
   change realify (𝓕⁻ (fun ξ : Vec => packetPhaseIncrement β ψ lam t ξ •
       fourierVelocity (u t) ξ) x) = 0
-  rw [hz, FourierTransform.fourierInv_zero] <;> rfl
+  rw [hz]
+  simp only [Real.fourierInv_eq, Pi.zero_apply, smul_zero, integral_zero] <;> rfl
 
 theorem hasDerivAt_packetPhaseIncrement_at_crossing
     {β : ℝ → ℝ} (ψ : Vec → ℝ) (lam : ℝ) {t slope : ℝ}
