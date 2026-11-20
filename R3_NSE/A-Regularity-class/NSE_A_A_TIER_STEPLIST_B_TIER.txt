@@ -5204,3 +5204,369 @@ The native source includes the full mathematical chain already derived there,
 with compact closed-slab continuity retained for the ordinary finite-budget
 bridge. The physical finite class is defined by the gauge, independently of
 global lifetime. No canonical NSE solution family is supplied as a hidden port.
+
+
+NATIVE CONSTRUCTION RECORD: ROOT BATCH5
+The first P08 attempt1a97b564/run44824925503 stopped on missing NNReal
+notation scope in FullStoppedBudget. It passed497 of501 scheduled modules;
+no new fresh-audit/publication acceptance followed. Original artifact and
+diagnostics:audits/material-1a97b564-nse-a-failed/. The source and full audit
+now open NNReal explicitly, without changing any public statement or consumer.
+
+Batch5 adds202 names (161 theorems,41 definitions/instances) in
+QFAPhysicalH2,QFARealLeray,QFARealEvenMultipliers,QFAHeatSemigroup. It constructs the actual
+13-component closed H2 graph, native L2 Laplacian and exact nine-term Hessian
+norm identity; the actual variable matrix Leray projection, real L2/H1
+transport and original compact-test solenoidal range; and reusable real even
+bounded multipliers with actual derivative preservation; and the exact real
+L2/H1 heat semigroup with norm contraction and strong continuity at all
+nonnegative times. Together with the repaired P08 batch, this schedules512
+modules,99 fresh package audits and1294 named reports. All307 new names remain
+PREPARED_PENDING_MATCHING_EXTERNAL. The H2-to-Mathlib-Sobolev bridge and
+positive-time heat smoothing/generator remain subsequent constructions. G01,G02,G03,G04,G06 and the canonical/literal class root remain OPEN.
+Main goal Fefferman_D, retained branch scope, accepted proof/audit bytes and
+compiler/dependency/verification policies are unchanged. No local execution.
+
+
+
+========================================================================
+APPENDIX: REAL_EVEN_MULTIPLIER_CHAIN.txt
+========================================================================
+
+DOCUMENT := REAL_EVEN_MULTIPLIER_CHAIN
+STATUS := B_TIER_DERIVED_NATIVE_PORT_PREPARED_NEXT
+PARENT_SCOPE := NSE_A_FINITE_CHARGE_IFF_GLOBAL
+FOUNDATION := ACCEPTED_REAL_L2_FOURIER_RANGE_AND_H1_TWO_WAY_DERIVATIVE_BRIDGE
+LOCAL_LEAN_EXECUTION := NONE
+
+1. INPUT SYMBOL AND ACTUAL FREQUENCY MULTIPLICATION
+
+Let m : R^3 -> R be measurable and even, m(-xi)=m(xi), with a specified
+finite nonnegative bound C satisfying |m(xi)|<=C everywhere. These are
+properties of an explicitly supplied scalar function, not a multiplier,
+reality, derivative, or norm conclusion assumed in a premise.
+
+For an actual complex-vector L2 class f, the representative
+xi |-> (m(xi):C) f(xi) is a.e. strongly measurable. Its norm is bounded by
+C|f(xi)|. Native MemLp.of_le_mul therefore constructs its L2 class M_m f;
+MemLp.toLp supplies the exact a.e. representative identity. Native Lp norm
+monotonicity gives ||M_m f||_2<=C||f||_2. Pointwise linearity on a common
+full-measure set, followed by Lp.ext, gives an actual bounded complex-linear
+map, independent of the chosen representatives.
+
+2. REALITY IS PROVED BY THE ACCEPTED HERMITIAN INVOLUTION
+
+Write Jf(xi)=conj(f(-xi)), using the accepted actual L2 conjugate-reflection
+operator. Evenness and reality of m imply
+
+  J(M_m f)(xi) = conj(m(-xi)f(-xi))
+              = m(xi)conj(f(-xi)) = M_m(Jf)(xi).
+
+Reflection preserves the full-volume null sets. Thus the displayed
+calculation is an equality of actual L2 classes. For a real L2 field u,
+the accepted theorem J(F(cu))=F(cu) proves J(M_m F(cu))=M_m F(cu).
+The accepted real Fourier-range criterion then proves that F^{-1}M_m F(cu)
+is fixed by physical conjugation. Its actual real preimage is constructed
+by the already defined realPartL2CLM. Set
+
+  Q_m u := realPartL2CLM(F^{-1}(M_m F(cu))).
+
+The proved range theorem gives c(Q_m u)=F^{-1}M_m F(cu), not merely equality
+of a projected real part. Fourier isometry and isometric complexification
+give ||Q_m u||_2<=C||u||_2. Actual CLM composition gives linearity. The
+Fourier representative of c(Q_m u) is exactly m(xi)F(cu)(xi) a.e.
+
+3. UNIQUENESS AND SYMBOL ALGEBRA
+
+If a supplied real L2 field v has F(cv)(xi)=m(xi)F(cu)(xi) a.e., native
+Lp.ext, Fourier injectivity and complexification injectivity prove v=Q_m u.
+Consequently identity, composition and equality of scalar symbols may be
+proved directly at the representative level. This avoids adding assumed
+semigroup, projection or analytic evolution laws to a symbol record.
+
+4. ACTUAL WEAK-DERIVATIVE TRANSPORT
+
+If supplied real L2 fields G_j are the native compact-test weak gradient of
+u, their accepted Fourier identity is F(cG_j)=2*pi*i*xi_j F(cu) a.e.
+Scalar multiplication by m commutes with this scalar coordinate factor.
+The actual Q_m G_j are L2 fields by step 1. The accepted reverse first-
+derivative theorem therefore proves
+
+  SpatialWeakGradient (Q_m u) (j |-> Q_m G_j).
+
+No Schwartz preservation, derivative of m, H2 premise or assumed derivative
+commutation is used. Applying the same theorem to each actual H2 gradient
+row gives second-derivative transport whenever a separate H2 graph lift is
+constructed.
+
+5. NEXT SPECIALIZATIONS, NOT CONCLUSIONS OF THIS MODULE
+
+The heat symbol exp(-4*pi^2*nu*t*|xi|^2), for nu,t>=0, has C=1. Its
+strong continuity and semigroup evolution require their own native proofs.
+The elliptic Hessian-recovery symbol xi_j*xi_k/|xi|^2 (zero at xi=0) has
+C=1. Its measured/even/bounded proofs and cancellation against the native
+distributional Laplacian symbol are a separate H2 reconstruction module.
+Neither specialization is silently assumed or counted as completed here.
+
+ENDPOINT_STATUS := B_TIER_CHAIN_COMPLETE_FOR_GENERAL_MULTIPLIER_CONSTRUCTION
+A_TIER_STATUS := REQUIRES_MATCHING_EXTERNAL_SOURCE_TYPE_AXIOM_EVIDENCE
+
+
+========================================================================
+APPENDIX: REAL_HEAT_SEMIGROUP_CHAIN.txt
+========================================================================
+
+NSE-A ACTUAL REAL FOURIER HEAT SEMIGROUP
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: the free linear heat edge of G01/P10, on actual real L2 and physical H1
+Project goal: Fefferman_D (unchanged)
+Branch target: QFA_QFB_A_TIER_INTEGRATION (unchanged)
+Local Lean/Lake/kernel/runner executions: NONE
+Formal status: DERIVATION_COMPLETE_FOR_THE_SCOPED_LINEAR_TARGET;
+               NATIVE_SOURCE_PREPARATION_PENDING_EXTERNAL_VERIFICATION
+Accepted foundation: 09bcf25110020760d3d93100b8105d2ffba85e61,
+                     external run44820225574
+Concurrent frozen P08 candidate: 1a97b5648c71d8600c7593053758e947af89161b,
+                                 external run44824925503; no result assumed
+
+0. EXACT TARGET AND CARRIERS
+
+Construct, rather than assume, operators H_nu(t) on the actual full-volume
+real vector L2 space SpatialL2 and on the accepted physical weak-gradient
+graph PhysicalH1. Viscosity nu and time t are nonnegative reals. The Lean
+interface may use NNReal; the real exponent always uses their real casts.
+This covers nu=0 and t=0 explicitly. Positive viscosity is needed only for
+strictly positive-time smoothing, not for this semigroup or its continuity.
+
+The Fourier convention is exp(-2*pi*i*x.xi). Set
+  lambda(xi)=4*pi^2*|xi|^2,
+  h_nu(t,xi)=exp(-nu*t*lambda(xi)).                         (0.1)
+The target identities and estimates are
+  F(complexify(H_nu(t)u))(xi)
+     = h_nu(t,xi) F(complexify u)(xi)                  a.e., (0.2)
+  H_nu(0)=Id,  H_0(t)=Id,
+  H_nu(s+t)=H_nu(s) H_nu(t),
+  ||H_nu(t)u||_2 <= ||u||_2,
+  t |-> H_nu(t)u is strongly continuous on [0,infinity),   (0.3)
+and the same laws and norm contraction on PhysicalH1, with literal
+commutation of all three actual weak-gradient components.
+
+Only the native real L2 class is supplied for the L2 result. Only the native
+physical H1 element, carrying its already proved actual derivatives, is
+supplied for the H1 result. No Fourier-range, spectral norm identity,
+strong-continuity, PDE evolution or higher-derivative premise is inserted.
+
+1. SYMBOL AND CONSTRUCTED REAL MULTIPLIER
+
+For every nu,t>=0, the symbol h is a continuous real function of xi, hence
+measurable. It is even because |-xi|=|xi|, and
+  0 < h_nu(t,xi) <= 1.                                     (1.1)
+Indeed the exponent is nonpositive. At zero time, zero viscosity or zero
+frequency it equals one. The same symbol is continuous jointly in its
+three arguments (nu,t,xi), including the boundary nu*t=0.
+
+The shared RealEvenMultipliers construction takes a measurable even real
+symbol m with proved finite uniform bound and constructs multiplication on
+actual ComplexL2. Its action on representatives is (m(xi):Complex) smul f(xi)
+a.e. The existing conjugate-reflection criterion proves that the inverse
+Fourier transform of m times the Fourier transform of a real input is real.
+Taking the constructed real part therefore gives an actual SpatialL2 field
+whose complexification equals that inverse transform. Bound one gives the
+actual real L2 contraction; bounded real linearity follows by composition.
+
+Applying that construction to (0.1) defines H_nu(t), and immediately proves
+(0.2), real additivity, real scalar homogeneity, zero-input preservation and
+the L2 estimate in (0.3). No representative is selected pointwise as a new
+physical field without a proved L2 and reality witness.
+
+2. ZERO AND SEMIGROUP LAWS
+
+The scalar identities are
+  h_nu(0,xi)=1,  h_0(t,xi)=1,
+  h_nu(s+t,xi)=h_nu(s,xi)*h_nu(t,xi).                       (2.1)
+The last follows by distributing the real exponent and exp(a+b)=exp(a)exp(b).
+Applying (0.2) twice gives the product symbol for the composition. Equality
+of the actual ComplexL2 Fourier classes follows by a.e. equality; Fourier
+injectivity and injective actual complexification then give all operator
+laws on SpatialL2. The commutation of H_nu(s) and H_nu(t) is a consequence
+of s+t=t+s. There is no time-order or positivity exception at zero.
+
+3. STRONG CONTINUITY ON L2, WITH A GENUINE INTEGRABLE MAJORANT
+
+Fix u in SpatialL2, nu>=0 and a reference time s>=0. Put
+  f=F(complexify u),
+  D(t,xi)=(h_nu(t,xi)-h_nu(s,xi))^2 |f(xi)|^2.
+The actual L2 energy theorem gives
+  integral |f(xi)|^2 dxi=||u||_2^2 < infinity.              (3.1)
+Since both symbol values lie in [0,1],
+  0<=D(t,xi)<=|f(xi)|^2                                  (3.2)
+for every t,xi. Each D(t,.) is measurable, and for every fixed xi its
+dependence on t is continuous. Dominated convergence therefore proves
+continuity of t |-> integral D(t,xi)dxi on NNReal. At t=s that integral is
+zero. Actual Fourier isometry and (0.2) identify, for every t,
+  ||H_nu(t)u-H_nu(s)u||_2^2=integral D(t,xi)dxi.            (3.3)
+Taking the continuous nonnegative square root gives strong continuity at s.
+This includes strong convergence to the original datum as t decreases to
+zero. It does not use operator-norm continuity; no such claim is made.
+
+The proof needs no uniform compact Fourier support, no L1 hypothesis on u,
+no Schwartz datum, no uniform frequency bound and no integral of a bare
+constant over R3. The integrable majorant is the input's L2 energy density.
+
+4. ACTUAL WEAK-GRADIENT TRANSPORT
+
+Let u in PhysicalH1, write v for its actual L2 velocity and G_j for its
+three actual weak-gradient fields. The accepted forward/reverse native H1
+Fourier bridge says, simultaneously for all j,
+  F(complexify G_j)(xi)
+    =(2*pi*i*xi_j) F(complexify v)(xi)                  a.e. (4.1)
+The scalar symbol commutes with this coordinate derivative multiplier.
+Multiplying (4.1) by h_nu(t,xi) and using (0.2) proves the same identity for
+  v_t=H_nu(t)v,   (G_t)_j=H_nu(t)G_j.
+The reverse bridge gives the actual compact-test weak-gradient equations
+for (v_t,G_t), hence a constructed physical H1 element. Denote it H1_nu(t)u.
+Its velocity and derivative maps are literally those displayed fields.
+
+The physical norm is inhomogeneous:
+  ||u||_H1^2=||v||_2^2+sum_j||G_j||_2^2.
+Applying L2 contraction to all four fields gives
+  ||H1_nu(t)u||_H1 <= ||u||_H1,                            (4.2)
+and separately
+  E(H1_nu(t)u)<=E(u),  Y(H1_nu(t)u)<=Y(u).                (4.3)
+Thus the low-frequency velocity term is retained. No whole-space Poincare
+inequality is used. Additivity, real homogeneity, zero time, zero viscosity
+and semigroup laws follow from the corresponding velocity laws and the
+accepted injectivity of the physical H1 velocity map.
+
+5. STRONG CONTINUITY ON THE ACTUAL H1 GRAPH
+
+For fixed u and reference time s, expand the squared H1 norm of
+H1_nu(t)u-H1_nu(s)u by its actual velocity and three gradient components.
+Every term tends to zero by Section 3 applied to v or G_j. The sum is finite,
+so the total squared H1 norm tends to zero. Taking its nonnegative square
+root proves t |-> H1_nu(t)u is strongly continuous, including at t=0.
+This is continuity in the complete accepted physical graph; it does not
+replace the graph with an assumed weighted Fourier domain.
+
+6. IMMEDIATE LINEAR CONSEQUENCES AND FORMAL BOUNDARY
+
+For every finite T>=0, the restriction t in [0,T] of H1_nu(t)u is an actual
+continuous H1 path whose norm and enstrophy are bounded by their initial
+values. In particular its squared-enstrophy budget, integral Y^2 (the fourth
+power of the gradient norm), is bounded by T*Y(u)^2. This does not assert an
+NSE solution: the nonlinear term is absent.
+
+The following next edges are separate from this scoped construction:
+  - positive-time construction of actual second derivatives from polynomial
+    times heat symbols, with H2 smoothing bounds;
+  - the free-heat time-integrated Laplacian bound;
+  - Bochner convolution with an actual time-dependent L2 forcing, the weak
+    time derivative and maximal-regularity estimates;
+  - the actual nonlinear contraction map, local uniqueness and restart;
+  - canonical maximal NSE evolution and the finite-charge iff-global root.
+All are derived analytically in the larger H1_LOCAL_FIXED_POINT_CHAIN, but
+none follows merely from preparing this semigroup source. The first next
+native analytic edge after this layer is actual H2 heat smoothing and the
+time-integrated estimate. No conclusion is supplied as its own hypothesis.
+
+7. PINNED SOURCE MAP AND IMPLEMENTATION ORDER
+
+Pinned Mathlib tree:
+  /workspace/scratch/9d4dc6f7f47a/anchor_sources/mathlib4-db584cd6
+
+Mathlib/Analysis/Complex/Exponential.lean:
+  Real.exp_add, Real.exp_pos, Real.exp_nonneg, Real.exp_le_one_iff.
+Mathlib/MeasureTheory/Integral/Bochner/Basic.lean:
+  MeasureTheory.continuous_of_dominated and continuousAt_of_dominated;
+  the former takes a measurable integrand for every parameter, an a.e.
+  majorant for every parameter, its Integrable proof and a.e. parameter
+  continuity. NNReal has the required first-countable topology.
+Mathlib/Analysis/Real/Sqrt.lean:
+  Real.continuous_sqrt and Real.sqrt_sq (nonnegative argument).
+Mathlib/Analysis/Normed/Group/Continuity.lean:
+  tendsto_iff_norm_sub_tendsto_zero (generated additive theorem).
+Mathlib/Topology/Algebra/Monoid.lean:
+  continuous_finsetSum, for the three gradient contributions.
+Mathlib/Algebra/Order/Ring/Abs.lean:
+  sq_le_one_iff_abs_le_one, abs_le and sq_abs.
+
+Accepted project sources:
+  PhysicalH1.lean: actual complete graph, gradient maps, literal norm and
+    velocity injectivity; physicalH1OfWeakGradient.
+  H1FourierReverse.lean: spatialWeakGradient_iff_fourier_ae.
+  H1Spectral.lean: actual integrable Fourier energy and exact norm identity.
+  RealFourier.lean: actual real range and complexification transport.
+  _vendor/QFALC001Reduction/NativeFromAENorms.lean:
+    integrable_norm_sq and integral_norm_sq_eq_norm_sq on actual ComplexL2.
+  _vendor/QFA/Endpoints/Representation/Complexification.lean:
+    complexifyL2LI, its injectivity, linearity and exact norm preservation.
+New coordinated candidate:
+  RealEvenMultipliers.lean: bounded real even symbols, actual real L2
+    multiplier construction and supplied-gradient commutation.
+
+Implementation order:
+  1. literal symbol and scalar identities;
+  2. constructed real L2 multiplier, laws and contraction;
+  3. exact squared Fourier-difference integral and dominated continuity;
+  4. actual H1 lift, laws, contraction and strong continuity;
+  5. complete independent type/literal consumers and named axiom sentinels;
+  6. matching authorized external compilation and fresh named audit evidence.
+
+Prepared code is not A-tier. This note records the complete B-tier argument
+for the stated linear target, and leaves every later native edge explicit.
+
+
+========================================================================
+APPENDIX: H2_BESSEL_SOBOLEV_CHAIN.txt
+========================================================================
+
+ACTUAL H2 TO NATIVE MATHLIB BESSEL SOBOLEV ADMISSION
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G01/G02 lower native spatial infrastructure; no sharp S6 admission
+Local Lean/Lake/kernel execution: NONE
+
+1. Start with the actual thirteen-component physical H2 graph on full R3.
+Its real L2 velocity v and diagonal Hessian sum L satisfy the literal
+tempered-distribution equality cL = Delta(cv), proved from compact tests.
+Here c is the constructed isometric real-to-complex L2 inclusion.
+
+2. Under Mathlib's exp(-2*pi*i*x.xi) convention its order-two Bessel
+potential is the Fourier multiplier 1+|xi|^2. Therefore, for every actual
+tempered distribution f,
+  B_2 f = f - (2*pi)^(-2) Delta f.
+Proof: split the multiplier into 1 and |xi|^2; the native Laplacian
+multiplier equals -(2*pi)^2 |xi|^2. This is an operator identity, not a
+new input premise and not the differently normalized operator 1-Delta.
+
+3. The actual L2 vector w=cv-(2*pi)^(-2)cL thus represents B_2(cv).
+It supplies the witness in native TemperedDistribution.MemSobolev 2 2.
+Native MemSobolev.mono gives every order s<=2. Native derivative and
+Laplacian transport may subsequently be used with their exact order losses.
+
+4. Since dim(R3)=3<4, native MemSobolev.fourier_memL1 supplies an actual
+L1 representative of Fourier(cv) as a tempered distribution. Equality of
+the L1 and existing L2 Fourier distributions implies equality of their
+locally integrable representatives: pair against every compact smooth
+real scalar test, complexify that test, and apply native local test
+separation. Hence the existing actual L2 Fourier representative is
+genuinely integrable, without assuming a Fourier-L1 admission.
+
+5. This proves a native spatial admission useful for later bounded inverse
+Fourier representatives. It does not yet identify that pointwise inverse
+with the L2 velocity, prove a quantitative L-infinity bound, prove sharp
+H1-to-L6 Sobolev, construct a nonlinear trajectory, or close G01/G02.
+Those statements remain separate exact obligations.
+
+Pinned primary sources: Mathlib db584cd6;
+ Analysis/Distribution/Sobolev.lean (Bessel potential, MemSobolev.mono,
+   MemSobolev.fourier_memL1);
+ Analysis/Distribution/FourierMultiplier.lean (native Laplacian symbol);
+ Analysis/Distribution/TemperedDistribution.lean (smulLeftCLM_add,
+   Lp embedding and compact tests);
+ MeasureTheory/Function/LocallyIntegrable.lean / Distribution/AE.lean
+   (local compact smooth test separation, as used by accepted H1 proofs).
+
+B-tier conclusion: complete for the stated admission and integrability scope.
+Native acceptance: pending new exact external source/type/axiom evidence.

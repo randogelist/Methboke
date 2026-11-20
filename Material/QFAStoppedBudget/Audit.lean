@@ -8,7 +8,7 @@ set_option autoImplicit false
 noncomputable section
 
 open Set MeasureTheory Filter
-open scoped ENNReal Topology
+open scoped ENNReal NNReal Topology
 
 namespace QFAStoppedBudget.ExpectedTypes
 

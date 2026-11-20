@@ -1741,7 +1741,7 @@
     {
       "module": "MethbokeAddon.QuasiFeffermanA.FullStoppedBudget",
       "path": "MethbokeAddon/QuasiFeffermanA/FullStoppedBudget.lean",
-      "sha256": "177d13bb4d6fedcdd133ae06f7fd04fb13c1bf7bda90baea3578fd6e61273219",
+      "sha256": "bd682d2b196befdb3cf444b307ab234d0797cb3872e523b34fa63594b81b9616",
       "imports": [
         "MethbokeAddon.QuasiFeffermanA.StoppedWindow",
         "Mathlib.Analysis.SpecificLimits.Basic",
@@ -1773,6 +1773,124 @@
         "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
         "path": "R3_NSE/A-Regularity-class/DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt",
         "role": "Accepted physical H1/Fourier basis and reviewed stopped-window B-tier chain; new proof bytes require their own verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean",
+      "sha256": "33fee6b660b4b3530437c23907704ddfea68fc13de4f4a549ff3baf36f2e097a",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+        "Mathlib.Analysis.Distribution.TemperedDistribution"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/PHYSICAL_H2_GRAPH_CHAIN.txt",
+        "role": "Reviewed B-tier native H2 derivation at the accepted H1/P01-P07 baseline; new H2 proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H2Spectral",
+      "path": "MethbokeAddon/QuasiFeffermanA/H2Spectral.lean",
+      "sha256": "62e119c73801e56d4a544e49568a426f360d16d3322bbccfb1ee94d2969d1bc4",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+        "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+        "MethbokeAddon.QuasiFeffermanA.Spectral"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/PHYSICAL_H2_GRAPH_CHAIN.txt",
+        "role": "Reviewed B-tier native H2 derivation at the accepted H1/P01-P07 baseline; new H2 proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LerayMultiplier",
+      "path": "MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean",
+      "sha256": "b7bce760681f3595a151d60714476b379d43201ed8ee5177b2cccf015c7260e4",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealSectorMultipliers",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Inner",
+        "Mathlib.Tactic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_LERAY_PROJECTION_CHAIN.txt",
+        "role": "Accepted native L2/H1/Fourier dependency baseline and subsequent reviewed B-tier chain; these new proof bytes are not claimed at the baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LerayH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/LerayH1.lean",
+      "sha256": "0b7d75c55ecdab57a1b87eeab838f1a566f18356be397263de5f347fbad1f529",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.LerayMultiplier",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1SigmaSectors"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_LERAY_PROJECTION_CHAIN.txt",
+        "role": "Accepted native L2/H1/Fourier dependency baseline and subsequent reviewed B-tier chain; these new proof bytes are not claimed at the baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LeraySolenoidal",
+      "path": "MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean",
+      "sha256": "0752a16be59976d233f0edd44a1d29485f3ec087a38a6c223a30e33c554c7879",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.LerayH1"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_LERAY_PROJECTION_CHAIN.txt",
+        "role": "Accepted native L2/H1/Fourier dependency baseline and subsequent reviewed B-tier chain; these new proof bytes are not claimed at the baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean",
+      "sha256": "98ae7f5a856cf4fa74d9d9ba944d4c4ea45bbb9ae714226c533c6bb6bea2d31a",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealFourier",
+        "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "Material/MethbokeAddon/QuasiFeffermanA/RealFourier.lean",
+        "role": "Accepted actual real Fourier-range criterion and native L2 foundation; the general scalar multiplier proof bytes are new."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.HeatSemigroup",
+      "path": "MethbokeAddon/QuasiFeffermanA/HeatSemigroup.lean",
+      "sha256": "bf5ce7432eab1504fb203168ee8b5726bdd2f8bb0ca283bc86db6f5b5e120104",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+        "Mathlib.Analysis.SpecialFunctions.Exp",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4dcf71c10bfab60b670cc5d35c68c8c46bfcaebd",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_HEAT_SEMIGROUP_CHAIN.txt",
+        "role": "Complete scoped B-tier heat derivation; accepted actual real L2/H1/Fourier basis and coordinated new bounded even multiplier construction. New proof bytes require matching external verification."
       },
       "origin_kind": "new_owned_development_against_pinned_native_basis"
     }

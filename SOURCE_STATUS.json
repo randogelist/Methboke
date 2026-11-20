@@ -27,8 +27,8 @@
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
     "mesoscopic": "QFA/QFB native A-tier integration on AC-Integration; retained D-family program on main",
-    "microscopic": "P08 full stopped-window limits and actual physical gauge; independent actual H2 and real Leray construction.",
-    "next_scoped_endpoint": "Matching cached external compiler/full types/named axioms for P08; then native PDE analytic layers."
+    "microscopic": "Verify P08 plus native H2/Leray/real-multiplier layer; construct actual heat and native Sobolev adapters in parallel.",
+    "next_scoped_endpoint": "Cached external compiler and complete named audits for 512 modules / 99 packages / 1294 reports."
   },
   "goal_transition": {
     "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
@@ -53,46 +53,16 @@
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
   "ci_handoff": "QFA foundation integration accepted at afd67db4/run44788963412 after matching compiler/type/axiom, index, publication and final acceptance gates. Full physical QFA/WFA roots remain open.",
-  "current_material_external_verification": "PRIOR_G05_P01_P07_ACCEPTED_P08_CANDIDATE_PENDING",
+  "current_material_external_verification": "P08_NOTATION_REPAIRED_H2_LERAY_REAL_MULTIPLIERS_PENDING",
   "latest_material_run": {
-    "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
-    "run_id": 44820225574,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
-    "package_count": 93,
-    "module_count": 496,
-    "named_reports": 987,
-    "new_packages": 7,
-    "new_named_declarations": 134,
-    "new_theorems": 116,
-    "new_definitions_and_instances": 18,
-    "local_lean_executions": 0,
-    "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
-    "accepted_plan_endpoints": [
-      "P01",
-      "P02",
-      "P03",
-      "P04",
-      "P05",
-      "P06",
-      "P07"
-    ],
-    "parent_targets_closed": 1,
-    "closed_parent_ids": [
-      "G05"
-    ],
-    "status": "A_TIER_G05_AND_P01_P07_MATCHING_EXTERNAL_ACCEPTED",
-    "evidence_archive": "audits/material-09bcf251-nse-a-accepted/evidence.zip",
-    "independent_review": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
-    "full_new_types_and_axioms": "audits/material-09bcf251-nse-a-accepted/new-declaration-evidence.json.gz",
-    "publication_complete": true,
-    "matching_evidence_review_complete": true,
-    "standard_axioms_only": true,
-    "passed_modules": 496,
-    "fresh_package_audits": 93,
-    "unique_named_reports": 987,
-    "fresh_qfb_cutout": true,
-    "physical_qfa_root_proved": false,
-    "wfa_proved": false
+    "tested_commit": "1a97b5648c71d8600c7593053758e947af89161b",
+    "run_id": 44824925503,
+    "status": "FAILED_OWNED_MODULE_COMPILATION",
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44824925503",
+    "evidence": "audits/material-1a97b564-nse-a-failed/summary.json",
+    "new_a_tier_acceptance": false,
+    "statement_preserving_repair": "Explicit NNReal notation scope in candidate source and independent audit.",
+    "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
     "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
@@ -2749,23 +2719,26 @@
   ],
   "active_scoped_request": "NSE_A_FINITE_CHARGE_IFF_GLOBAL",
   "current_material_candidate": {
-    "id": "NSE_A_ROOT_BATCH_4",
+    "id": "NSE_A_ROOT_BATCH_5",
     "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
-    "request": "Build NSE_A_FINITE_CHARGE_IFF_GLOBAL and make it A-Tier",
     "packages": [
+      "QFAPhysicalH2",
+      "QFARealLeray",
+      "QFARealEvenMultipliers",
+      "QFAHeatSemigroup"
+    ],
+    "new_named_declarations": 202,
+    "new_theorems": 161,
+    "new_definitions": 41,
+    "retry_packages": [
       "QFAStoppedBudget",
       "QFAPhysicalStoppedGauge"
     ],
-    "new_named_declarations": 105,
-    "new_theorems": 91,
-    "new_definitions": 14,
-    "total_packages": 95,
-    "named_reports_expected": 1092,
-    "local_lean_executions": 0,
-    "previous_accepted_source": "09bcf25110020760d3d93100b8105d2ffba85e61",
-    "previous_accepted_run": 44820225574,
-    "p08_formally_accepted": false,
-    "canonical_root_proved": false,
-    "universal_budget_finiteness_proved": false
+    "total_packages": 99,
+    "named_reports_expected": 1294,
+    "expected_compiled_modules": 512,
+    "new_a_tier_acceptance": false,
+    "root_proved": false,
+    "local_lean_executions": 0
   }
 }

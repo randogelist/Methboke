@@ -23,7 +23,7 @@ set_option maxHeartbeats 800000
 noncomputable section
 
 open Set MeasureTheory Filter
-open scoped ENNReal Topology
+open scoped ENNReal NNReal Topology
 
 namespace MethbokeAddon.QuasiFeffermanA
 

@@ -1,5 +1,19 @@
 # Material
 
+## Current candidate: H2, Leray and real multipliers
+
+The next external candidate adds **202 declarations** in four packages:
+the actual closed H2 graph and its exact Hessian–Laplacian norm identity;
+the constructed real Leray projection and its native L2/H1 solenoidal range;
+bounded real even Fourier multipliers with actual weak-gradient transport;
+and the exact real L2/H1 heat semigroup with contraction and strong continuity.
+It also repairs the missing `NNReal` notation scope exposed by
+[the first stopped-budget run](https://github.com/randogelist/Methboke/actions/runs/44824925503).
+The combined candidate requires **512 modules, 99 fresh package audits and
+1294 named reports**. The 307 additions across these two batches are pending
+matching external verification. The full canonical NSE-A theorem remains open.
+
+
 ## Active construction: full stopped budgets and gauge
 
 The selected scoped goal is **`NSE_A_FINITE_CHARGE_IFF_GLOBAL`**. The next
@@ -75,15 +89,15 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) contains **95 registered packages** and
-**1092 named reports**, including two pending packages with105 new names. Each package records its exact import boundary,
+The [endpoint registry](endpoints.json) contains **99 registered packages** and
+**1294 named reports**, including six pending packages with307 new names. Each package records its exact import boundary,
 independent full-type consumers, named axiom audit and recursive source closure.
 
 | Source group | Count | Role |
 |---|---:|---|
 | `_vendor` | 302 compiled modules | Selected from 304 tracked pinned Methlib foundation sources |
-| `MethbokeAddon` | 104 modules | Owned additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers | 95 modules | Independently audited import boundaries |
+| `MethbokeAddon` | 111 modules | Owned additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers | 99 modules | Independently audited import boundaries |
 | Accepted full run | 496 modules | Exact compiled closure |
 
 | Package family | Exact role |

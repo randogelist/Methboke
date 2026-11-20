@@ -1,0 +1,49 @@
+ACTUAL H2 TO NATIVE MATHLIB BESSEL SOBOLEV ADMISSION
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G01/G02 lower native spatial infrastructure; no sharp S6 admission
+Local Lean/Lake/kernel execution: NONE
+
+1. Start with the actual thirteen-component physical H2 graph on full R3.
+Its real L2 velocity v and diagonal Hessian sum L satisfy the literal
+tempered-distribution equality cL = Delta(cv), proved from compact tests.
+Here c is the constructed isometric real-to-complex L2 inclusion.
+
+2. Under Mathlib's exp(-2*pi*i*x.xi) convention its order-two Bessel
+potential is the Fourier multiplier 1+|xi|^2. Therefore, for every actual
+tempered distribution f,
+  B_2 f = f - (2*pi)^(-2) Delta f.
+Proof: split the multiplier into 1 and |xi|^2; the native Laplacian
+multiplier equals -(2*pi)^2 |xi|^2. This is an operator identity, not a
+new input premise and not the differently normalized operator 1-Delta.
+
+3. The actual L2 vector w=cv-(2*pi)^(-2)cL thus represents B_2(cv).
+It supplies the witness in native TemperedDistribution.MemSobolev 2 2.
+Native MemSobolev.mono gives every order s<=2. Native derivative and
+Laplacian transport may subsequently be used with their exact order losses.
+
+4. Since dim(R3)=3<4, native MemSobolev.fourier_memL1 supplies an actual
+L1 representative of Fourier(cv) as a tempered distribution. Equality of
+the L1 and existing L2 Fourier distributions implies equality of their
+locally integrable representatives: pair against every compact smooth
+real scalar test, complexify that test, and apply native local test
+separation. Hence the existing actual L2 Fourier representative is
+genuinely integrable, without assuming a Fourier-L1 admission.
+
+5. This proves a native spatial admission useful for later bounded inverse
+Fourier representatives. It does not yet identify that pointwise inverse
+with the L2 velocity, prove a quantitative L-infinity bound, prove sharp
+H1-to-L6 Sobolev, construct a nonlinear trajectory, or close G01/G02.
+Those statements remain separate exact obligations.
+
+Pinned primary sources: Mathlib db584cd6;
+ Analysis/Distribution/Sobolev.lean (Bessel potential, MemSobolev.mono,
+   MemSobolev.fourier_memL1);
+ Analysis/Distribution/FourierMultiplier.lean (native Laplacian symbol);
+ Analysis/Distribution/TemperedDistribution.lean (smulLeftCLM_add,
+   Lp embedding and compact tests);
+ MeasureTheory/Function/LocallyIntegrable.lean / Distribution/AE.lean
+   (local compact smooth test separation, as used by accepted H1 proofs).
+
+B-tier conclusion: complete for the stated admission and integrability scope.
+Native acceptance: pending new exact external source/type/axiom evidence.
