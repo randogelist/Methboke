@@ -1,5 +1,5 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 5.3
+DOCUMENT_VERSION = 5.4
 DATE = 2026-11-20
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
@@ -245,5 +245,4 @@ Material run 44663707207 at f19531bc accepted the repaired assembly layer and
 all retained required audits. The earlier run 44663007972 at dd0e355 is retained
 as failed history; its elaboration repairs changed no theorem statement.
 Failure archive:audits/material-dd0e355-assembly-failure/summary.json.
-The separate direct-D run 44663007873 remains pending at its original dd0e355
-commit; native helper acceptance is not direct-root acceptance.
+Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed.

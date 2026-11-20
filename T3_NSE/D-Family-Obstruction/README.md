@@ -55,7 +55,8 @@ The [B-tier derivation](Fefferman_D_Family_obstruction_B_TIER.txt) and
 `UpstreamSeed/Endpoint.lean` prepares direct reuse of the pinned upstream
 periodic theorem under its isolated Lean `4.34.0-rc2` environment. Its external
 [run 44663007873](https://github.com/randogelist/Methboke/actions/runs/44663007873)
-at `dd0e3550f7c662e3251d48194f4f70f3f6d9f628` remains pending in this record.
+at `dd0e3550f7c662e3251d48194f4f70f3f6d9f628` passed verification but failed
+evidence retention. The hidden-folder upload repair awaits a matching external rerun.
 **Native assembly acceptance does not accept that direct-D endpoint.** Its
 source-specific authority is `UpstreamSeed/CI_RUN_PLAN.json` and matching evidence.
 The stronger prescribed-site family is separate from that direct route.

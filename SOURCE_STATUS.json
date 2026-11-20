@@ -51,7 +51,7 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Native assembly accepted; isolated direct Fefferman-D run44663007873 pending full matching evidence review",
+  "ci_handoff": "Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed.",
   "current_material_external_verification": "A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS_SCOPED_ASSEMBLY_HELPERS",
   "latest_material_run": {
     "tested_commit": "f19531bca6816cea31c687629b9ab73ee6868169",
@@ -2118,7 +2118,7 @@
     "documentation_commit_note": "Receipt records the tested b730e52c checkout; later evidence/documentation-only commits are not new compiler runs."
   },
   "direct_fefferman_d": {
-    "status": "CANDIDATE_PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+    "status": "CI_EVIDENCE_RETENTION_REPAIR_PREPARED_PENDING_EXTERNAL_RERUN",
     "root_proved": false,
     "theorem": "Methboke.FeffermanD.Fefferman_D",
     "upstream_theorem": "NavierStokes.ComparatorBridge.navier_stokes_breakdown_periodic",
@@ -2134,8 +2134,13 @@
     "external_run": {
       "run_id": 44663007873,
       "tested_commit": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
-      "status": "IN_PROGRESS_NOT_ACCEPTED"
-    }
+      "status": "FAILED_EVIDENCE_RETENTION_NOT_ACCEPTED",
+      "verification_step": "success",
+      "evidence_upload": "failure",
+      "final_acceptance": "failure",
+      "failure_cause": "Hidden evidence directory excluded by upload-artifact default"
+    },
+    "ci_repair": "Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed."
   },
   "prior_family_foundation_verification": {
     "tested_commit": "77a64245f3c5ac42e7c647739f3e88182771391c",

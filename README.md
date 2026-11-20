@@ -55,7 +55,9 @@ The [direct endpoint](T3_NSE/D-Family-Obstruction/UpstreamSeed/README.md) is
 prepared for isolated external verification of the pinned upstream periodic-D
 proof. Its literal force and competitor contracts receive independent checks.
 This 604-module route keeps its original Lean4.34.0-rc2 pin and leaves Material
-at 4.33.0. It explicitly reuses the upstream proof; verification is pending.
+at 4.33.0. It explicitly reuses the upstream proof; complete acceptance is pending.
+
+Run 44663007873 completed compilation and fresh audits, but evidence upload excluded the hidden .fefferman-d-evidence directory and final acceptance failed. The workflow now includes hidden evidence files; a matching external rerun is required. No theorem, compiler pin or audit policy changed.
 
 The [native assembly package](Material/FeffermanFamilyAssembly/README.md) is
 accepted at `f19531bc`: **22 additional helper theorems and 1 predicate**.
