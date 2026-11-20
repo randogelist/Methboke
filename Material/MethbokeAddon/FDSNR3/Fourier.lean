@@ -49,7 +49,8 @@ def complexifySchwartz (f : 𝓢(Vec, Vec)) : 𝓢(Vec, CVec) :=
     complexifySchwartz f x = complexify (f x) := rfl
 
 theorem fourierVelocity_eq_schwartz (f : 𝓢(Vec, Vec)) :
-    fourierVelocity f = (𝓕 (complexifySchwartz f) : Vec → CVec) := rfl
+    fourierVelocity f =
+      ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec) := rfl
 
 theorem schwartz_fourierInv_fourier (f : 𝓢(Vec, CVec)) :
     𝓕⁻ (𝓕 f) = f :=
@@ -212,9 +213,13 @@ theorem fourier_directionalDerivative (f : 𝓢(Vec, CVec)) (m ξ : Vec) :
         ((inner ℝ ξ m) • 𝓕 f ξ) := by
   have hg : (inner ℝ · m).HasTemperateGrowth :=
     ((innerSL ℝ).flip m).hasTemperateGrowth
+  have hderiv : ((∂_{m} f : 𝓢(Vec, CVec)) : Vec → CVec) =
+      (fun x : Vec => fderiv ℝ (f : Vec → CVec) x m) := by
+    funext x
+    exact SchwartzMap.lineDerivOp_apply_eq_fderiv m f x
   have h := congrArg (fun g : 𝓢(Vec, CVec) => g ξ)
     (SchwartzMap.fourier_lineDerivOp_eq f m)
-  simpa only [SchwartzMap.fourier_coe, SchwartzMap.lineDerivOp_apply_eq_fderiv,
+  simpa only [SchwartzMap.fourier_coe, hderiv,
     SchwartzMap.smulLeftCLM_apply_apply hg, smul_apply] using h
 
 /-- Actual trace of the spatial derivative, as a Schwartz scalar field. -/
@@ -236,9 +241,13 @@ theorem fourier_schwartzDivergence (f : 𝓢(Vec, CVec)) (ξ : Vec) :
   rw [Finset.mul_sum]
   apply Finset.sum_congr rfl
   intro i _
+  have hderiv : ((∂_{unitVector i} f : 𝓢(Vec, CVec)) : Vec → CVec) =
+      (fun x : Vec => fderiv ℝ (f : Vec → CVec) x (unitVector i)) := by
+    funext x
+    exact SchwartzMap.lineDerivOp_apply_eq_fderiv (unitVector i) f x
   have hd := fourier_directionalDerivative f (unitVector i) ξ
   have hdi := congrArg (fun z : CVec => z i) hd
-  simpa [SchwartzMap.fourier_coe, SchwartzMap.lineDerivOp_apply_eq_fderiv,
+  simpa [SchwartzMap.fourier_coe, hderiv,
     unitVector, EuclideanSpace.inner_single_right, smul_smul, mul_assoc] using hdi
 
 theorem fderiv_complexify {v : Field} {x : Vec} (hv : DifferentiableAt ℝ v x) :
@@ -263,7 +272,8 @@ theorem fourierVelocity_divergence_free (f : 𝓢(Vec, Vec))
   have hz : schwartzDivergence (complexifySchwartz f) = 0 := by
     apply SchwartzMap.ext
     intro x
-    simp [schwartzDivergence_complexify, hf x]
+    change schwartzDivergence (complexifySchwartz f) x = 0
+    rw [schwartzDivergence_complexify, hf x, Complex.ofReal_zero]
   have h := fourier_schwartzDivergence (complexifySchwartz f) ξ
   rw [hz, FourierTransform.fourier_zero] at h
   have hc : (2 * (Real.pi : ℂ) * Complex.I) ≠ 0 := by

@@ -175,3 +175,7 @@ Fourier calculus, Schwartz slice admission, nonzero frequency patches, helical
 projectors, odd cutoffs and translation rigidity. These candidates await
 matching external verification. B-tier v1.1 adds a direct force-separation
 proof at a signed time-phase zero crossing, preserving the exact theorem.
+
+Stage2 verification found proof elaboration errors in Fourier, helical and
+cutoff sources. [Failure evidence](audits/fdsn-r3-d2ec178-failed/SUMMARY.txt)
+is retained; statement-preserving repairs are prepared for the next external run.

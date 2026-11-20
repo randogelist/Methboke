@@ -38,8 +38,13 @@ def oddFrequencyCutoff (c : Vec) (r : ℝ) (hr : 0 < r) (ξ : Vec) : ℝ :=
 
 theorem dist_frequencyAnchor (c : Vec) {r : ℝ} (hr : 0 ≤ r) :
     dist (frequencyAnchor c r) c = r / 2 := by
-  simp [frequencyAnchor, dist_eq_norm, norm_smul, Real.norm_eq_abs,
-    abs_of_nonneg (div_nonneg hr (by norm_num)), unitVector]
+  have hr2 : 0 ≤ r / 2 := div_nonneg hr (by norm_num)
+  have hu : ‖unitVector (0 : Fin 3)‖ = 1 := by simp [unitVector]
+  calc
+    dist (frequencyAnchor c r) c = ‖(r / 2) • unitVector (0 : Fin 3)‖ := by
+      simp only [frequencyAnchor, dist_eq_norm, add_sub_cancel_left]
+    _ = r / 2 := by
+      rw [norm_smul, Real.norm_eq_abs, abs_of_nonneg hr2, hu, mul_one]
 
 theorem dist_self_neg_frequency (c : Vec) :
     dist c (-c) = 2 * ‖c‖ := by

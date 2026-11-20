@@ -53,41 +53,27 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Stage1 accepted at4d00e260/run44831894933 with72new declarations; stage2 adds6packages/129declarations pending fresh external verification.",
-  "current_material_external_verification": "FDSN_R3_STAGE1_ACCEPTED_STAGE2_PREPARED",
+  "ci_handoff": "Stage2 run44833516127 failed in three new owned sources before fresh audits; exact statement-preserving proof repairs prepared. Stage1 acceptance remains4d00e260/run44831894933.",
+  "current_material_external_verification": "FDSN_R3_STAGE2_REPAIR_PREPARED",
   "latest_material_run": {
-    "status": "A_TIER_ACCEPTED_EXACT_FDSN_R3_STAGE1_SCOPES",
-    "tested_commit": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
-    "run_id": 44831894933,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44831894933",
-    "final_acceptance": "success",
-    "final_acceptance_job": 136622713717,
-    "workflow_conclusion": "success",
-    "artifact_id": 14676323408,
-    "artifact_sha256": "2e28e10064ded91677ca1a173cdd19ade16554bfc8bcc8fcbde04f044b53b729",
+    "status": "FAILED_NO_NEW_ACCEPTANCE",
+    "source_commit": "d2ec17816baeb176e3589f1cf7e7b55a84166e9f",
+    "run_id": 44833516127,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44833516127",
+    "artifact_id": 14676429418,
+    "artifact_sha256": "c20b0e98394fa4c4cf1e695aba356017492e6111eb59adaa4157bed5648f9dbc",
     "artifact_download_and_hash_verified": true,
-    "accepted_named_declarations": 72,
-    "all_required_fresh_named_audits": 899,
-    "all_required_packages": 114,
-    "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
-    "toolchain": "leanprover/lean4:v4.33.0",
-    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
-    "allowed_axioms": [
-      "propext",
-      "Classical.choice",
-      "Quot.sound"
+    "failed_sources": [
+      "MethbokeAddon.FDSNR3.Fourier",
+      "MethbokeAddon.FDSNR3.Helical",
+      "MethbokeAddon.FDSNR3.FrequencyCutoff"
     ],
-    "local_lean_executions": 0,
-    "record": "audits/fdsn-r3-4d00e260-accepted/summary.json",
-    "root_proved": false,
-    "root_scope": "R3 exact contracts and compact-carrier admission plus phase helpers; the R3 family root remains open. Prior T3 canonical root remains accepted.",
-    "passed_modules": 502,
-    "reused_modules": 496,
-    "fresh_modules": 6,
-    "fresh_audit_files": 114,
-    "reused_audit_files": 0,
-    "fresh_cutout": "PASS",
-    "record_role": "LATEST_MATCHING_ACCEPTED_MATERIAL_VERIFICATION"
+    "fresh_package_audits_executed": false,
+    "new_a_tier_acceptance": false,
+    "failure_class": "PROOF_OR_TYPE_FAILURE",
+    "evidence": "audits/fdsn-r3-d2ec178-failed/SUMMARY.txt",
+    "repair": "Explicit Fourier/Schwartz coercions and directional-derivative function equality; coordinate divergence rewrite; native dotProduct and conjugation normalization; exact norm-square and cutoff-distance proof normalization. Mathematical statements preserved.",
+    "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
     "status": "A_TIER_ACCEPTED_EXACT_FDSN_R3_STAGE1_SCOPES",
@@ -3332,10 +3318,30 @@
         "fresh_package_audits_executed": false,
         "new_a_tier_acceptance": false,
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_NO_NEW_ACCEPTANCE",
+        "source_commit": "d2ec17816baeb176e3589f1cf7e7b55a84166e9f",
+        "run_id": 44833516127,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44833516127",
+        "artifact_id": 14676429418,
+        "artifact_sha256": "c20b0e98394fa4c4cf1e695aba356017492e6111eb59adaa4157bed5648f9dbc",
+        "artifact_download_and_hash_verified": true,
+        "failed_sources": [
+          "MethbokeAddon.FDSNR3.Fourier",
+          "MethbokeAddon.FDSNR3.Helical",
+          "MethbokeAddon.FDSNR3.FrequencyCutoff"
+        ],
+        "fresh_package_audits_executed": false,
+        "new_a_tier_acceptance": false,
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "evidence": "audits/fdsn-r3-d2ec178-failed/SUMMARY.txt",
+        "repair": "Explicit Fourier/Schwartz coercions and directional-derivative function equality; coordinate divergence rewrite; native dotProduct and conjugation normalization; exact norm-square and cutoff-distance proof normalization. Mathematical statements preserved.",
+        "local_lean_executions": 0
       }
     ],
     "stage_2": {
-      "status": "PREPARED_PENDING_EXTERNAL_VERIFICATION",
+      "status": "STATEMENT_PRESERVING_REPAIR_PREPARED",
       "source_basis": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
       "sources": [
         "MethbokeAddon.FDSNR3.Fourier",
@@ -3349,7 +3355,9 @@
       "new_declarations": 129,
       "all_packages": 120,
       "all_declarations": 1028,
-      "new_acceptance_claimed": false
+      "new_acceptance_claimed": false,
+      "previous_failed_run": 44833516127,
+      "repair_scope": "Explicit Fourier/Schwartz coercions and directional-derivative function equality; coordinate divergence rewrite; native dotProduct and conjugation normalization; exact norm-square and cutoff-distance proof normalization. Mathematical statements preserved."
     },
     "accepted_evidence": {
       "stage_1": {

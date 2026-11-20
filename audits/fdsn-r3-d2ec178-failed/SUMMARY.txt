@@ -1,0 +1,31 @@
+FDSN_R3 STAGE TWO — REJECTED CANDIDATE
+
+Source commit: d2ec17816baeb176e3589f1cf7e7b55a84166e9f
+Source tree: 57c2a00e5535af2b56d01deb25a6aa254a32e9fa
+External run: https://github.com/randogelist/Methboke/actions/runs/44833516127
+Fast job: 136624098436 — failure
+Final acceptance job: 136625215294 — failure
+Recovery job: 136625217546 — skipped
+Evidence artifact: 14676429418
+ZIP SHA256: c20b0e98394fa4c4cf1e695aba356017492e6111eb59adaa4157bed5648f9dbc
+The downloaded ZIP was independently hashed before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Fourier, FrequencyCutoff, and Helical failed
+source elaboration. The other three new sources and all six wrappers were
+blocked by dependencies. No package audits ran; current.json contains zero
+endpoint results. No stage-two acceptance is established. The retained
+accepted stage-one evidence remains independently valid for its exact source.
+
+Diagnostics:
+- Fourier: ambiguous Schwartz/function Fourier output coercion; missing
+  explicit derivative-function coercion rewrites; an overbroad simp step
+  expanded the divergence target before the exact complexification lemma.
+- FrequencyCutoff: missing explicit nonnegative-radius instantiation in the
+  elementary reflected-ball support estimate.
+- Helical: dotProduct namespace mismatch; normalization/unfolding and
+  redundant rewrite issues; conjugation algebra; power-versus-product
+  notation in the orthogonal norm identity.
+
+Next step: repair the three proof implementations without changing theorem
+statements or dependency pins, then obtain a matching fresh external run.
+No local Lean, Lake, compiler, or kernel audit was executed.

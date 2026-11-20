@@ -177,7 +177,7 @@ theorem complexCross_complexify (ξ : Vec) :
 
 theorem frequencyDot_complexCross (ξ : Vec) (z : CVec) :
     frequencyDot ξ (complexCross ξ z) = 0 := by
-  change Matrix.dotProduct (fun i : Fin 3 => (ξ i : ℂ))
+  change dotProduct (fun i : Fin 3 => (ξ i : ℂ))
     (crossProduct (fun i : Fin 3 => (ξ i : ℂ)) (fun i : Fin 3 => z i)) = 0
   exact dot_self_cross _ _
 
@@ -194,7 +194,7 @@ theorem complexCross_twice (ξ : Vec) (z : CVec) :
     complexCross ξ (complexCross ξ z) =
       frequencyDot ξ z • complexify ξ - ((‖ξ‖ ^ 2 : ℝ) : ℂ) • z := by
   have hn :
-      Matrix.dotProduct (fun i : Fin 3 => (ξ i : ℂ))
+      dotProduct (fun i : Fin 3 => (ξ i : ℂ))
         (fun i : Fin 3 => (ξ i : ℂ)) = ((‖ξ‖ ^ 2 : ℝ) : ℂ) :=
     frequencyDot_complexify ξ
   ext i
@@ -229,7 +229,7 @@ theorem transverseSymbol_helicityOperator (ξ : Vec) (z : CVec) :
 
 theorem helicityOperator_transverseSymbol (ξ : Vec) (z : CVec) :
     helicityOperator ξ (transverseSymbol ξ z) = helicityOperator ξ z := by
-  rw [helicityOperator, complexCross_transverseSymbol]
+  simp only [helicityOperator, complexCross_transverseSymbol]
 
 theorem helicityOperator_sq {ξ : Vec} (hξ : ξ ≠ 0) (z : CVec) :
     helicityOperator ξ (helicityOperator ξ z) = transverseSymbol ξ z := by
@@ -253,9 +253,8 @@ theorem helicityOperator_helicalSymbol
     (σ : Fin 2) {ξ : Vec} (hξ : ξ ≠ 0) (z : CVec) :
     helicityOperator ξ (helicalSymbol σ ξ z) =
       (helicitySign σ : ℂ) • helicalSymbol σ ξ z := by
-  rw [helicalSymbol_eq, helicityOperator_smul, helicityOperator_add,
-    helicityOperator_smul, helicityOperator_transverseSymbol, helicityOperator_sq hξ,
-    helicalSymbol_eq]
+  simp only [helicalSymbol_eq, helicityOperator_smul, helicityOperator_add,
+    helicityOperator_transverseSymbol, helicityOperator_sq hξ]
   by_cases hσ : σ = 0 <;> simp only [helicitySign, hσ, ite_true, ite_false,
     Complex.ofReal_one, Complex.ofReal_neg]
   all_goals
@@ -357,7 +356,8 @@ theorem transverseSymbol_selfAdjoint (ξ : Vec) (z w : CVec) :
     inner ℂ (transverseSymbol ξ z) w = inner ℂ z (transverseSymbol ξ w) := by
   rw [transverseSymbol_eq, transverseSymbol_eq, inner_sub_left, inner_sub_right,
     inner_smul_left, inner_smul_right, frequencyDot_eq_inner, frequencyDot_eq_inner]
-  simp only [map_div, Complex.conj_ofReal, inner_conj_symm]
+  simp only [div_eq_mul_inv, map_mul, Complex.conj_inv, Complex.conj_ofReal,
+    inner_conj_symm]
   ring
 
 theorem complexCross_skewAdjoint (ξ : Vec) (z w : CVec) :
@@ -372,14 +372,16 @@ theorem complexCross_skewAdjoint (ξ : Vec) (z w : CVec) :
 theorem helicityOperator_selfAdjoint (ξ : Vec) (z w : CVec) :
     inner ℂ (helicityOperator ξ z) w = inner ℂ z (helicityOperator ξ w) := by
   simp only [helicityOperator, inner_smul_left, inner_smul_right,
-    complexCross_skewAdjoint, map_div, Complex.conj_I, Complex.conj_ofReal]
+    complexCross_skewAdjoint, div_eq_mul_inv, map_mul, Complex.conj_inv,
+    Complex.conj_I, Complex.conj_ofReal]
   ring
 
 theorem helicalSymbol_selfAdjoint (σ : Fin 2) (ξ : Vec) (z w : CVec) :
     inner ℂ (helicalSymbol σ ξ z) w = inner ℂ z (helicalSymbol σ ξ w) := by
   simp only [helicalSymbol_eq, inner_smul_left, inner_smul_right,
     inner_add_left, inner_add_right, transverseSymbol_selfAdjoint,
-    helicityOperator_selfAdjoint, map_div, map_ofNat, Complex.conj_ofReal]
+    helicityOperator_selfAdjoint, div_eq_mul_inv, map_mul, Complex.conj_inv,
+    map_one, map_ofNat, Complex.conj_ofReal]
   ring
 
 theorem helicalSymbol_orthogonal {ξ : Vec} (hξ : ξ ≠ 0) (z w : CVec) :
@@ -390,8 +392,9 @@ theorem helicalSymbol_norm_decomposition {ξ : Vec} (hξ : ξ ≠ 0) (z : CVec) 
     ‖transverseSymbol ξ z‖ ^ 2 =
       ‖helicalSymbol 0 ξ z‖ ^ 2 + ‖helicalSymbol 1 ξ z‖ ^ 2 := by
   rw [← helicalSymbol_sum]
-  exact norm_add_sq_eq_norm_sq_add_norm_sq_of_inner_eq_zero _ _
-    (helicalSymbol_orthogonal hξ z z)
+  simpa only [pow_two] using
+    norm_add_sq_eq_norm_sq_add_norm_sq_of_inner_eq_zero _ _
+      (helicalSymbol_orthogonal hξ z z)
 
 theorem helicalSymbol_norm_decomposition_of_solenoidal
     {ξ : Vec} (hξ : ξ ≠ 0) {z : CVec} (hz : frequencyDot ξ z = 0) :

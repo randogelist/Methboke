@@ -1,0 +1,106 @@
+MethbokeAddon/FDSNR3/Helical.lean:180:9: error(lean.unknownIdentifier): Unknown constant `Matrix.dotProduct`
+MethbokeAddon/FDSNR3/Helical.lean:197:6: error(lean.unknownIdentifier): Unknown constant `Matrix.dotProduct`
+MethbokeAddon/FDSNR3/Helical.lean:231:72: error: unsolved goals
+ξ : Vec
+z : CVec
+⊢ (Complex.I / ↑‖ξ‖) • complexCross ξ z = helicityOperator ξ z
+MethbokeAddon/FDSNR3/Helical.lean:244:18: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+MethbokeAddon/FDSNR3/Helical.lean:244:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+MethbokeAddon/FDSNR3/Helical.lean:244:59: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+MethbokeAddon/FDSNR3/Helical.lean:258:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  helicalSymbol ?σ ?ξ ?z
+in the target expression
+  (1 / 2) • (helicityOperator ξ z + ↑(helicitySign σ) • transverseSymbol ξ z) =
+    ↑(helicitySign σ) • (1 / 2) • (transverseSymbol ξ z + ↑(helicitySign σ) • helicityOperator ξ z)
+
+σ : Fin 2
+ξ : Vec
+hξ : ξ ≠ 0
+z : CVec
+⊢ (1 / 2) • (helicityOperator ξ z + ↑(helicitySign σ) • transverseSymbol ξ z) =
+    ↑(helicitySign σ) • (1 / 2) • (transverseSymbol ξ z + ↑(helicitySign σ) • helicityOperator ξ z)
+MethbokeAddon/FDSNR3/Helical.lean:287:26: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/FDSNR3/Helical.lean:287:26: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/FDSNR3/Helical.lean:360:2: error: `simp` made no progress
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+MethbokeAddon/FDSNR3/Helical.lean:373:75: error: unsolved goals
+ξ : Vec
+z w : CVec
+⊢ -((starRingEnd ℂ) (Complex.I * (↑‖ξ‖)⁻¹) * inner ℂ z (complexCross ξ w)) =
+    Complex.I * (↑‖ξ‖)⁻¹ * inner ℂ z (complexCross ξ w)
+MethbokeAddon/FDSNR3/Helical.lean:375:30: warning: This simp argument is unused:
+  map_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [helicityOperator, inner_smul_left, inner_smul_right, complexCross_skewAdjoint, Complex.conj_I,
+    Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/Helical.lean:375:39: warning: This simp argument is unused:
+  Complex.conj_I
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [helicityOperator, inner_smul_left, inner_smul_right, complexCross_skewAdjoint, map_div,
+    Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/Helical.lean:375:55: warning: This simp argument is unused:
+  Complex.conj_ofReal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [helicityOperator, inner_smul_left, inner_smul_right, complexCross_skewAdjoint, map_div,
+    Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+MethbokeAddon/FDSNR3/Helical.lean:379:73: error: unsolved goals
+σ : Fin 2
+ξ : Vec
+z w : CVec
+⊢ (starRingEnd ℂ) (1 / 2) * inner ℂ z (transverseSymbol ξ w) +
+      (starRingEnd ℂ) (1 / 2) * ↑(helicitySign σ) * inner ℂ z (helicityOperator ξ w) =
+    inner ℂ z (transverseSymbol ξ w) * (1 / 2) + ↑(helicitySign σ) * inner ℂ z (helicityOperator ξ w) * (1 / 2)
+MethbokeAddon/FDSNR3/Helical.lean:382:34: warning: This simp argument is unused:
+  map_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [helicalSymbol_eq, inner_smul_left, inner_smul_right, inner_add_left, inner_add_right,
+    transverseSymbol_selfAdjoint, helicityOperator_selfAdjoint, map_ofNat, Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/Helical.lean:382:43: warning: This simp argument is unused:
+  map_ofNat
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [helicalSymbol_eq, inner_smul_left, inner_smul_right, inner_add_left, inner_add_right,
+    transverseSymbol_selfAdjoint, helicityOperator_selfAdjoint, map_div, Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/Helical.lean:393:2: error: Type mismatch
+  norm_add_sq_eq_norm_sq_add_norm_sq_of_inner_eq_zero (helicalSymbol 0 ξ z) (helicalSymbol 1 ξ z)
+    (helicalSymbol_orthogonal hξ z z)
+has type
+  ‖helicalSymbol 0 ξ z + helicalSymbol 1 ξ z‖ * ‖helicalSymbol 0 ξ z + helicalSymbol 1 ξ z‖ =
+    ‖helicalSymbol 0 ξ z‖ * ‖helicalSymbol 0 ξ z‖ + ‖helicalSymbol 1 ξ z‖ * ‖helicalSymbol 1 ξ z‖
+but is expected to have type
+  ‖helicalSymbol 0 ξ z + helicalSymbol 1 ξ z‖ ^ 2 = ‖helicalSymbol 0 ξ z‖ ^ 2 + ‖helicalSymbol 1 ξ z‖ ^ 2

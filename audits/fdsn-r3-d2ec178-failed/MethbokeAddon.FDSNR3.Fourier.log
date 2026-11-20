@@ -1,0 +1,55 @@
+MethbokeAddon/FDSNR3/Fourier.lean:52:25: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FourierTransform 𝓢(Vec, CVec) (Vec → CVec)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/Fourier.lean:52:67: error: Type mismatch
+  rfl
+has type
+  ?m.12 = ?m.12
+but is expected to have type
+  fourierVelocity ⇑f = 𝓕 (complexifySchwartz f)
+MethbokeAddon/FDSNR3/Fourier.lean:65:6: error(lean.unknownIdentifier): Unknown identifier `fourierVelocity_eq_schwartz`
+MethbokeAddon/FDSNR3/Fourier.lean:64:48: error: unsolved goals
+f : 𝓢(Vec, Vec)
+x : Vec
+⊢ realify (𝓕⁻ (fourierVelocity ⇑f) x) = f x
+MethbokeAddon/FDSNR3/Fourier.lean:217:2: error: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq CVec (𝓕 (⇑(∂_{m} f)) ξ) ((2 * ↑Real.pi * Complex.I) • inner ℝ ξ m • 𝓕 (⇑f) ξ)
+but is expected to have type
+  @Eq CVec (𝓕 (fun x => (fderiv ℝ (⇑f) x) m) ξ) ((2 * ↑Real.pi * Complex.I) • inner ℝ ξ m • 𝓕 (⇑f) ξ)
+MethbokeAddon/FDSNR3/Fourier.lean:241:2: error: Type mismatch: After simplification, term
+  hdi
+ has type
+  @Eq ℂ ((𝓕 (fun x => (fderiv ℝ (⇑f) x) (EuclideanSpace.single i 1)) ξ).ofLp i)
+    (2 * (↑Real.pi * (Complex.I * (↑(ξ.ofLp i) * (𝓕 (⇑f) ξ).ofLp i))))
+but is expected to have type
+  @Eq ℂ ((𝓕 (⇑(∂_{EuclideanSpace.single i 1} f)) ξ).ofLp i)
+    (2 * (↑Real.pi * (Complex.I * (↑(ξ.ofLp i) * (𝓕 (⇑f) ξ).ofLp i))))
+MethbokeAddon/FDSNR3/Fourier.lean:263:61: error: unsolved goals
+f : 𝓢(Vec, Vec)
+hf : ∀ (x : Vec), divergence (⇑f) x = 0
+ξ x : Vec
+⊢ ∑ x_1, ((fderiv ℝ (⇑(complexifySchwartz f)) x) (unitVector x_1)).ofLp x_1 = 0
+MethbokeAddon/FDSNR3/Fourier.lean:266:10: warning: This simp argument is unused:
+  schwartzDivergence_complexify
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hf x]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/Fourier.lean:266:41: warning: This simp argument is unused:
+  hf x
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [schwartzDivergence_complexify]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/Fourier.lean:282:14: error(lean.unknownIdentifier): Unknown identifier `fourierVelocity_eq_schwartz`
+MethbokeAddon/FDSNR3/Fourier.lean:282:2: error: Type mismatch: After simplification, term
+  schwartz_plancherel (complexifySchwartz f)
+ has type
+  @Eq ℝ (∫ (ξ : Vec), ‖(𝓕 (complexifySchwartz f)) ξ‖ ^ 2) (∫ (x : Vec), ‖f x‖ ^ 2)
+but is expected to have type
+  @Eq ℝ (∫ (ξ : Vec), ‖fourierVelocity (⇑f) ξ‖ ^ 2) (∫ (x : Vec), ‖f x‖ ^ 2)
