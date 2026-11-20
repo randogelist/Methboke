@@ -307,6 +307,7 @@ theorem schwartz_spatialWeakGradient (a : 𝓢(Space, Space)) :
       filter_upwards [(∂_{coordinateVector j} a).coeFn_toLp 2 volume] with x hx
       rw [hx]
       rfl
+  all_goals rfl
 
 /-- Actual Schwartz data admission into the physical H1 graph. -/
 def schwartzToPhysicalH1 (a : 𝓢(Space, Space)) : PhysicalH1 :=

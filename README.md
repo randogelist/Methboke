@@ -68,7 +68,7 @@ missing adapters and adds no native theorem or A-tier acceptance.
 
 ## NSE-A six-gap native construction
 
-The [six closure targets](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) are registered. Four new scoped packages prepare 79 named declarations: physical H1 and Schwartz admission, forward first-derivative Fourier identification, AC scalar comparison, and full six-charge budget inequalities. [Implementation and evidence status](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json) is **pending matching external verification**. No parent gap or regularity root is marked complete. The [first external attempt](audits/material-1f83d62b-nse-a-failed/summary.json) found elaboration issues in two new modules; their scoped repairs await the next matching run.
+The [six closure targets](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) are registered. Four new scoped packages prepare 79 named declarations: physical H1 and Schwartz admission, forward first-derivative Fourier identification, AC scalar comparison, and full six-charge budget inequalities. [Implementation and evidence status](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json) is **pending matching external verification**. No parent gap or regularity root is marked complete. The [first external attempt](audits/material-1f83d62b-nse-a-failed/summary.json) found elaboration issues in two new modules; The [second attempt](audits/material-053147fc-nse-a-failed/summary.json) compiled the forward Fourier and scalar modules and isolated one reflexive H1 proof goal; its final repair awaits matching full verification.
 
 ## Retained Fefferman-D implementation
 

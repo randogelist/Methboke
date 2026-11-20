@@ -237,3 +237,7 @@ Four scoped native packages are prepared with79 named declarations and independe
 ## First construction attempt
 
 [Source1f83d62 / run44804484780](../../audits/material-1f83d62b-nse-a-failed/summary.json) compiled the two scalar modules, then failed on physical-H1 and Fourier elaboration. Public statements and independent consumers are retained; source repairs require another matching external run. No new A-tier acceptance is inferred from partial compilation.
+
+## Second construction attempt
+
+[Source 053147fc / run 44805438456](../../audits/material-053147fc-nse-a-failed/summary.json) compiled the forward Fourier bridge and scalar budget modules. One reflexive Schwartz-admission proof goal remained in PhysicalH1. Its repair preserves all public statements; no additional endpoint is accepted yet.
