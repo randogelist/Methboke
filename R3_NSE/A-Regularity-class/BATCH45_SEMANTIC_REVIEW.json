@@ -1,0 +1,78 @@
+{
+  "status": "SEMANTIC_REVIEW_COMPLETED_MATCHING_EXTERNAL_ACCEPTANCE_STILL_REQUIRED",
+  "candidate": "NEXT_FROZEN_REPAIR_AFTER_6b1e654a7c3e6e488b8f7d2f5c375abeff72447b",
+  "p08_original_target": "For supplied concrete H1 paths define ENNReal budgets, prove improper-endpoint equivalence, zero-window formulas, J6<=J<=6J6, gauge/Fourier finiteness equivalences and sublevels.",
+  "p08_original_completion_criterion": "Take the minimum with the finite cutoff before toReal. No finite budget is assumed to define the budget. Canonical datum instantiation waits for P11/P18.",
+  "p08_semantic_coverage_complete": true,
+  "root_proved": false,
+  "new_parent_targets_closed": [],
+  "standard_axioms_only_insufficient_without_premise_review": true,
+  "local_lean_executions": 0,
+  "packages": [
+    {
+      "package": "QFAStoppedBudget",
+      "review": "The minimum is taken in ENNReal before toReal. The literal open observation domain, zero windows, countable cofinal and full left-filter improper limits include infinite budgets. One common finite bound on all partial budgets is required; individual partial finiteness is not substituted.",
+      "declarations": 63,
+      "source_sha256": {
+        "MethbokeAddon/QuasiFeffermanA/StoppedWindow.lean": "07512bb83ed7c49e61c2a93f22ca81e00a2b00ecc1ce5a8e3f599bb38b6d1375",
+        "MethbokeAddon/QuasiFeffermanA/FullStoppedBudget.lean": "bd682d2b196befdb3cf444b307ab234d0797cb3872e523b34fa63594b81b9616"
+      },
+      "audit_sha256": "e5b608c229c1731e0e8f979534665802c0811a8eeaea7c4b5e440972e1b3880b"
+    },
+    {
+      "package": "QFAPhysicalStoppedGauge",
+      "review": "Budgets use actual native physical H1 enstrophy and the six original projections. Positivity of viscosity is explicit in finiteness/sublevel equivalences. Normalizations Y=4*pi^2*F, J=16*pi^4*B and L^4=4*nu*J=64*pi^4*nu*B are preserved. Finite-gauge membership is defined independently of global lifetime; no canonical solution family is constructed.",
+      "declarations": 42,
+      "source_sha256": {
+        "MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean": "9cf980cfc700fa0f30bd6912a3e1c4353851606cb1ac910174ecc7e3d9066886"
+      },
+      "audit_sha256": "6b87a2f8ef9872d37b11ef63a26b9c767d68932d31603e67643c927254113b46"
+    },
+    {
+      "package": "QFAPhysicalH2",
+      "review": "The carrier is the literal thirteen-component real Hilbert graph with every original compact smooth test at both derivative levels. Actual Hessians and diagonal Laplacian yield full ordered-pair norm identity. Higher derivatives are constructed fields on this graph; no PDE evolution or sharp Sobolev estimate is claimed.",
+      "declarations": 65,
+      "source_sha256": {
+        "MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean": "de5b5c612dbae66afa1191be8f202604adbb4fb949091117adb72921ab5d52bd",
+        "MethbokeAddon/QuasiFeffermanA/H2Spectral.lean": "62e119c73801e56d4a544e49568a426f360d16d3322bbccfb1ee94d2969d1bc4"
+      },
+      "audit_sha256": "e6b5900d1ba5b46cd9217262c0e6cdd1e3de029e1881ac59bc0121d1ac4a8d62"
+    },
+    {
+      "package": "QFARealLeray",
+      "review": "The frequency symbol is the actual orthogonal projection onto the complement of the frequency span, with explicit formula including zero. MemLp construction and Hermitian symmetry give a real L2 operator. The all-L2 range is the original compact-test Solenoidal predicate, including the reverse implication without an H1 premise.",
+      "declarations": 72,
+      "source_sha256": {
+        "MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean": "1e82a009126f8c5a833589a38be016fa852e48e78e81f3f649eedad2ddcaddd5",
+        "MethbokeAddon/QuasiFeffermanA/LerayH1.lean": "21767ebb684c63c67cb67fdec78784c13708ccc2d09655d8e06ada658b6cd134",
+        "MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean": "0752a16be59976d233f0edd44a1d29485f3ec087a38a6c223a30e33c554c7879"
+      },
+      "audit_sha256": "490988b94e9790c2c5bd667c56cdb1d332438f2e8bfb62b29a29a55469d39366"
+    },
+    {
+      "package": "QFARealEvenMultipliers",
+      "review": "Only elementary scalar-symbol data are inputs: measurability, evenness and a finite bound. Actual L2 multiplication, real transport, and weak-gradient commutation are proved. Real range or derivative identities are not input fields.",
+      "declarations": 24,
+      "source_sha256": {
+        "MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean": "63aa431ed95e456c40f023ddb9cdb7ed10e23143486f7e3bdeccedceec45b876"
+      },
+      "audit_sha256": "beb7ec966c6ad81e69e8e401a3ce416fb71e06ecf3ce6a74851efd78b0e4b97f"
+    },
+    {
+      "package": "QFAHeatSemigroup",
+      "review": "The native symbol is exp(-4*pi^2*nu*t*norm(xi)^2). The actual L2 and H1 operators, zero time, semigroup, contractions and strong continuity are constructed. No solution-existence, positive-time H2, forced evolution, or nonlinear PDE premise is inserted.",
+      "declarations": 41,
+      "source_sha256": {
+        "MethbokeAddon/QuasiFeffermanA/HeatSemigroup.lean": "dc08288d5bf1d21213c785bc321b36b70ce90599365e5b65ca3b904d18b2b458"
+      },
+      "audit_sha256": "43484fe0cb889836cbe2c8e77b78d4af90a10484d1eadb4328920106ddfcbbf3"
+    }
+  ],
+  "remaining_root_edges": [
+    "Native sharp spatial inequality with frozen S6^6=16/(27*pi^4).",
+    "Actual forced-heat maximal regularity and nonlinear local H1 constructor.",
+    "Canonical maximality, restart uniqueness and bounded-H1 continuation.",
+    "Actual PDE energy/enstrophy absolute continuity, smallness propagation and cutoff bridge.",
+    "Canonical datum instantiation, global iff finite-budget conclusion and literal Fefferman-A category identification."
+  ]
+}

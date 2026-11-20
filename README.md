@@ -2,16 +2,16 @@
 
 ## External compilation repair
 
-[Run 44828091157](https://github.com/randogelist/Methboke/actions/runs/44828091157)
-at source `e4eb9f5f` passed 504 of 512 scheduled modules, including both full
-stopped-budget sources, the physical gauge, real-even multipliers and the
-Leray multiplier. Three new sources still failed elaboration and five
-dependents were blocked. The next repair makes function/coercion reductions
-explicit in the H1 heat and Leray proofs, and supplies explicit finite-sum
-types and bounded declaration-local heartbeat budgets in two H2 proofs.
-Public mathematical statements and independent consumers are unchanged.
-All 99 fresh audits, 1,294 named reports, publication and final acceptance
-remain required. No new A-tier acceptance follows from these partial results.
+[Run 44829344090](https://github.com/randogelist/Methboke/actions/runs/44829344090)
+at source `6b1e654a` passed 506 of 512 scheduled modules. The real L2/H1 heat
+semigroup now compiles. Two failures remain: kernel reduction of the H2
+sigma-inclusion value theorem, and an explicit zero-function reduction in
+LerayH1. Four dependents were blocked. The candidate repair factors the H2
+inclusion through a generic proved submodule isometry and normalizes the
+remaining function zero. Public statements and every audit are unchanged.
+All 99 fresh package audits, 1,294 named reports, publication and final
+acceptance remain required. The last accepted source remains `09bcf251`.
+No new A-tier acceptance follows from these partial results.
 
 ## Current candidate: H2, Leray and real multipliers
 

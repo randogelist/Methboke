@@ -133,7 +133,7 @@ theorem spatialWeakGradient_solenoidal_iff_fourier_transverse
     apply Lp.ext
     filter_upwards [spatialGradientTrace_fourier_ae h, ht,
       Lp.coeFn_zero ComplexVector 2 (volume : Measure Space)] with ξ htrace hξ hzero
-    rw [htrace, hξ, mul_zero, zero_smul, hzero]
+    rw [htrace, hξ, mul_zero, zero_smul, hzero, Pi.zero_apply]
 
 /-- Native solenoidality of the projected actual H1 field is a conclusion. -/
 theorem solenoidal_realLeray_of_weakGradient

@@ -369,20 +369,32 @@ instance physicalH2SigmaCompleteSpace : CompleteSpace PhysicalH2Sigma :=
 theorem physicalH2Sigma_isClosed : IsClosed (physicalH2SigmaGraph : Set H2Ambient) :=
   physicalH2SigmaGraph.isClosed
 
-def physicalH2SigmaToH2LI : PhysicalH2Sigma →ₗᵢ[ℝ] PhysicalH2 where
-  toFun u := ⟨u.val, (mem_physicalH2Graph_iff u.val).mpr
-    ((mem_physicalH2SigmaGraph_iff u.val).mp u.property).1⟩
-  map_add' u v := rfl
-  map_smul' r u := rfl
-  norm_map' u := rfl
+private def h2SubmoduleInclusionLI (p q : Submodule ℝ H2Ambient) (hpq : p ≤ q) :
+    p →ₗᵢ[ℝ] q where
+  toLinearMap := Submodule.inclusion hpq
+  norm_map' _ := rfl
 
-set_option maxHeartbeats 800000 in
+private theorem h2SubmoduleInclusionLI_val (p q : Submodule ℝ H2Ambient)
+    (hpq : p ≤ q) (u : p) : (h2SubmoduleInclusionLI p q hpq u).val = u.val :=
+  Submodule.coe_inclusion hpq u
+
+private theorem physicalH2Sigma_le :
+    physicalH2SigmaGraph.toSubmodule ≤ physicalH2Graph.toSubmodule := by
+  intro x hx
+  exact (mem_physicalH2Graph_iff x).mpr ((mem_physicalH2SigmaGraph_iff x).mp hx).1
+
+def physicalH2SigmaToH2LI : PhysicalH2Sigma →ₗᵢ[ℝ] PhysicalH2 :=
+  h2SubmoduleInclusionLI _ _ physicalH2Sigma_le
+
 @[simp] theorem physicalH2SigmaToH2LI_val (u : PhysicalH2Sigma) :
-    (physicalH2SigmaToH2LI u).val = u.val := rfl
+    (physicalH2SigmaToH2LI u).val = u.val :=
+  h2SubmoduleInclusionLI_val _ _ physicalH2Sigma_le u
 
 theorem physicalH2Sigma_solenoidal (u : PhysicalH2Sigma) :
-    Solenoidal (physicalH2Velocity (physicalH2SigmaToH2LI u)) :=
-  ((mem_physicalH2SigmaGraph_iff u.val).mp u.property).2
+    Solenoidal (physicalH2Velocity (physicalH2SigmaToH2LI u)) := by
+  change Solenoidal ((physicalH2SigmaToH2LI u).val (Sum.inl 0))
+  rw [physicalH2SigmaToH2LI_val]
+  exact ((mem_physicalH2SigmaGraph_iff u.val).mp u.property).2
 
 /-- Actual Schwartz derivatives supply all nine weak Hessian entries. -/
 theorem schwartz_spatialWeakHessian (a : 𝓢(Space, Space)) :

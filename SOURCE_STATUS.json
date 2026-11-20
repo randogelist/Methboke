@@ -27,7 +27,7 @@
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
     "mesoscopic": "QFA/QFB native A-tier integration on AC-Integration; retained D-family program on main",
-    "microscopic": "Verify P08 plus native H2/Leray/real-multiplier layer; construct actual heat and native Sobolev adapters in parallel.",
+    "microscopic": "Complete matching verification of P08 and native H2/Leray/heat layer; prepare actual H2 reconstruction, spatial estimates and forced/free heat foundations in parallel.",
     "next_scoped_endpoint": "Cached external compiler and complete named audits for 512 modules / 99 packages / 1294 reports."
   },
   "goal_transition": {
@@ -53,15 +53,20 @@
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
   "ci_handoff": "QFA foundation integration accepted at afd67db4/run44788963412 after matching compiler/type/axiom, index, publication and final acceptance gates. Full physical QFA/WFA roots remain open.",
-  "current_material_external_verification": "P08_NOTATION_REPAIRED_H2_LERAY_REAL_MULTIPLIERS_PENDING",
+  "current_material_external_verification": "H2_SIGMA_INCLUSION_AND_LERAY_ZERO_REPAIRED_PENDING_MATCHING_EXTERNAL",
   "latest_material_run": {
-    "tested_commit": "1a97b5648c71d8600c7593053758e947af89161b",
-    "run_id": 44824925503,
-    "status": "FAILED_OWNED_MODULE_COMPILATION",
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44824925503",
-    "evidence": "audits/material-1a97b564-nse-a-failed/summary.json",
-    "new_a_tier_acceptance": false,
-    "statement_preserving_repair": "Explicit NNReal notation scope in candidate source and independent audit.",
+    "source_commit": "6b1e654a7c3e6e488b8f7d2f5c375abeff72447b",
+    "run_id": 44829344090,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44829344090",
+    "status": "FAILED_EXTERNAL_ELABORATION",
+    "passed_modules": 506,
+    "scheduled_modules": 512,
+    "failed_owned_modules": 2,
+    "dependency_blocked_modules": 4,
+    "evidence": "audits/material-6b1e654a-nse-a-failed/summary.json",
+    "public_statement_changes_in_repair": false,
+    "new_acceptance": false,
+    "statement_preserving_repair": "Factor sigma inclusion through a private generic submodule isometry and opaque value lemma; explicitly normalize the remaining function zero in LerayH1.",
     "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
