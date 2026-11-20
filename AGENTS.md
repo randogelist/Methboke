@@ -15,26 +15,27 @@ Lean build, with unchanged namespace and import paths. Preserve
 `REORGANIZATION_MAP.json`, historical receipts and the standalone audited
 `LEAN_CUTOUTS/Cutouts.lean`.
 
-## AC-Integration branch exception
+## AC-Integration branch scope
 
-The user authorized `AC-Integration` for QFA/WFA source and evidence staging.
-For this scoped preparation, work on `AC-Integration`; the main-branch direction
-below remains the retained Fefferman-D program context. The project goal stays
-`Fefferman_D`, with `Fefferman_D_Family_obstruction` as the main-program target.
-The branch name does not adopt a Fefferman-C theorem or authorize additional
-formalization. Read [Temp-folder/README.md](Temp-folder/README.md), its
-[manifest](Temp-folder/MANIFEST.json), [endpoint map](Temp-folder/ENDPOINTS.md),
-and the user-requested [ten-step QFA/QFB construction plan](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md).
-The current planning task uses accepted QFB as the periodic reference for QFA
-and fills the ten steps with exact existing Lean anchors. Read the
-[anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md) and its
-[source review](Temp-folder/anchors/SOURCE_REVIEW.json). Prepared passive
-check files are outside the active build; they are not verified new results.
+The user authorized native A-tier integration of the QFA/QFB construction
+anchors on `AC-Integration`, including matching cached external verification.
+The previously reviewed ten-step endpoint plan supplies the local scope.
+The project goal remains `Fefferman_D`, with the D-family program on `main`.
+The branch name does not adopt a Fefferman-C theorem.
 
-This is preparation only: no new A-tier acceptance, verification run, compiler
-pin change or workflow change is claimed. Preserve all existing D-ledger
-statuses, accepted source identities and historical evidence. Every execution,
-proof-audit and documentation safeguard below still applies.
+Read [R3_NSE/QFA/README.md](R3_NSE/QFA/README.md) and its integration record,
+the [ten-step checklist](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md), and the
+[anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md). Native
+QFA helpers are in `Material/MethbokeAddon/QuasiFeffermanA/`; exact recovered
+QFA sources are added to the vendor manifest with per-file provenance.
+
+The existing Material workflow admits `AC-Integration` pushes. Compiler,
+Mathlib, lockfile, lakefile, drivers, cache admission and axiom policies stay
+unchanged. Exact matching external compilation, full type checks and named
+axiom audits are mandatory. Prepared code is pending, never accepted by label.
+Physical existence, continuation, comparison, sharp spatial estimates and the
+complete QFA/WFA conclusions remain explicit until actually constructed.
+Every existing D-ledger status and accepted source/evidence scope is preserved.
 
 ## Current goal
 

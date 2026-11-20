@@ -16,30 +16,29 @@ branch. The [project context](GPT.txt) records both scopes. The
 [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
-## AC-Integration preparation
+## AC-Integration: native QFA foundations
 
-This branch stages the QFA/WFA inputs in [Temp-folder](Temp-folder/README.md):
-the October v0.11 and selected v0.25 sources, the tested Methboke source at
-`fdb515d8bde35ec8021bbc26f360aca8dfa2855c`, and matching external evidence
-artifact `14553501775` from run `44566880192`. The
-[manifest](Temp-folder/MANIFEST.json) records source identities; the
-[endpoint map](Temp-folder/ENDPOINTS.md) records proposed dependencies and gaps.
-The [ten-step QFA/QFB checklist](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
-now gives the construction order: actual whole-space analysis and solution
-theory, admissible restart, weighted energy, the smooth tail, and future
-uniqueness. QFB is the accepted periodic reference; WFA remains a follow-on.
+The user authorized integrating the reviewed [ten-step QFA/QFB plan](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
+into the native build and obtaining matching cached external verification.
+The [whole-space integration page](R3_NSE/QFA/README.md) records the exact
+scope and the [integration status](R3_NSE/QFA/INTEGRATION_STATUS.json).
 
-The [Lean anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md)
-now fills all ten rows with exact Mathlib, Methlib and native declarations.
-The recovered Methlib QFA branch supplies the exact weighted-energy theorem,
-full-volume L2 representation, trace and comparison helpers. Physical R3
-solution/continuation/comparison instances and the sharp target constant remain
-open. [Source/evidence checks](Temp-folder/anchors/SOURCE_REVIEW.json) retain
-108 named historical endpoint audits and the conditional-root boundary.
+The integration adds exact recovered QFA sources and new whole-space
+contract, weighted-energy, trace and safe-cutoff helpers. The finite window
+selects an actual weak-gradient energy start strictly before its cutoff and
+retains a half-window measure estimate. The scalar Sobolev parameter remains
+explicit. Physical weak/strong existence, continuation, comparison, sharp
+spatial admissibility and the complete QFA/WFA roots remain open.
 
-This is source/evidence preparation with three passive check files, no new
-theorem or A-tier verification. The branch name adopts no Fefferman-C theorem. The Fefferman-D
-goal, D-ledger statuses and accepted prior proof/evidence scopes remain intact.
+**Current status: prepared, pending matching external compilation and fresh
+exact-type/axiom audits.** The standard native workflow now includes this
+branch. Its pins, lockfile, lakefile, drivers and verification policies are
+unchanged. Existing periodic QFB remains the accepted reference.
+
+[Staged archives](Temp-folder/README.md), the [source anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md)
+and [historical evidence review](Temp-folder/anchors/SOURCE_REVIEW.json)
+preserve the recovery record. The Fefferman-D main goal and all its existing
+proof/evidence statuses retain their original scope.
 
 ## Retained Fefferman-D implementation
 

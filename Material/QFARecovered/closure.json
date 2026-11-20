@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "endpoint": "QFARecovered",
+  "source_revision_status": "FIRST_MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "QFA"
+  ],
+  "files": [
+    {
+      "module": "QFA",
+      "path": "_vendor/QFA.lean",
+      "sha256": "2132d6f04c87d34d021c5cdd2307a1e62a696e420d6402275c724c1ee3d88b68",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "QFA.Endpoints.Agmon.Scalar",
+        "QFA.Endpoints.Comparison.AdmissibleTimes",
+        "QFA.Endpoints.Comparison.RelativeEnergy",
+        "QFA.Endpoints.Composition.GoodTimeAndTrace",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Basic",
+        "QFA.Endpoints.GoodTime.Cutoff",
+        "QFA.Endpoints.GoodTime.Interval",
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile",
+        "QFA.Endpoints.Restart.EnergyShift",
+        "QFA.Endpoints.Restart.HilbertTrace",
+        "QFA.Endpoints.Restart.TimeTranslate",
+        "QFA.Assembly"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly",
+      "path": "_vendor/QFA/Assembly.lean",
+      "sha256": "6d6faee1174df2b8394d575f452817e4b9b661e6461b81cb6fac7e34b8448ef9",
+      "imports": [
+        "QFA.Assembly.Representation",
+        "QFA.Assembly.Restart",
+        "QFA.Assembly.AnalyticInputs",
+        "QFA.Assembly.Comparison",
+        "QFA.Assembly.AnalyticChain",
+        "QFA.Assembly.TailComparison",
+        "QFA.Assembly.Chain",
+        "QFA.Assembly.Integrated"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.AnalyticChain",
+      "path": "_vendor/QFA/Assembly/AnalyticChain.lean",
+      "sha256": "9851c03b8eb692d69636eb9b73b9ecc85fbe40bf436b8d9b60448494f770fa30",
+      "imports": [
+        "QFA.Assembly.AnalyticInputs",
+        "QFA.Assembly.Representation",
+        "Mathlib.Algebra.QuadraticDiscriminant"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticChain.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.AnalyticInputs",
+      "path": "_vendor/QFA/Assembly/AnalyticInputs.lean",
+      "sha256": "a5c53dafbc179bd35f810a6b3051e561ce5ebd507d9b6923b04e54265dec7451",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "QFA.Endpoints.Agmon.Scalar",
+        "QFA.Endpoints.Representation.Complexification"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticInputs.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Chain",
+      "path": "_vendor/QFA/Assembly/Chain.lean",
+      "sha256": "51efca53b57728326cd81c1b8b2581ec4f2dd4ad64b560f14181726c23e1bdcf",
+      "imports": [
+        "QFA.Assembly.TailComparison"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Comparison",
+      "path": "_vendor/QFA/Assembly/Comparison.lean",
+      "sha256": "fd138e6f4bd91f9e55e6624f9cf99b5d6c0a6ba344770fda5ba421d9b6c1ef92",
+      "imports": [
+        "QFA.Endpoints.Comparison.AdmissibleTimes",
+        "QFA.Endpoints.Comparison.RelativeEnergy"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Integrated",
+      "path": "_vendor/QFA/Assembly/Integrated.lean",
+      "sha256": "1b560d0c9cfc2248175720e9fe1dcfd4a668eaf66d998e0a77113aceb307d0cd",
+      "imports": [
+        "QFA.Assembly.Chain",
+        "QFA.Assembly.AnalyticChain"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Integrated.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Representation",
+      "path": "_vendor/QFA/Assembly/Representation.lean",
+      "sha256": "83ad5c89c278f5ed43686a6aa2e0294fb6494875a08f55acecffb03f0eaae3e3",
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Representation.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Restart",
+      "path": "_vendor/QFA/Assembly/Restart.lean",
+      "sha256": "e07d862aa284d0f1c488f7344ac0c0a5ccc8bcc99ad6ecae2f796644cedfa347",
+      "imports": [
+        "QFA.Endpoints.Composition.GoodTimeAndTrace",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.TailComparison",
+      "path": "_vendor/QFA/Assembly/TailComparison.lean",
+      "sha256": "526677a5971b5ed4c75f0d9f965d67e8810f7ced0c4397817cbd61919f9493d3",
+      "imports": [
+        "QFA.Assembly.Comparison",
+        "QFA.Assembly.Restart"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Scalar",
+      "path": "_vendor/QFA/Endpoints/Agmon/Scalar.lean",
+      "sha256": "bc4f1169867d0cc94fbd8865b0f29a6417ed9f11c94be2900ae3e0fa25d1b3e6",
+      "imports": [
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.AdmissibleTimes",
+      "path": "_vendor/QFA/Endpoints/Comparison/AdmissibleTimes.lean",
+      "sha256": "ced4416fb261e3a08a45b321ea13d1c4051641e06f5b7d7ef2b49d4ab556f3a9",
+      "imports": [
+        "Mathlib"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/AdmissibleTimes.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+      "imports": [
+        "Mathlib"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeAndTrace",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeAndTrace.lean",
+      "sha256": "27170ebd29b091e4d93cbecee1ae8e7d5860acbe03988d7c5fa090e73e24655e",
+      "imports": [
+        "QFA.Endpoints.Representation.EnergyProfile",
+        "QFA.Endpoints.Restart.HilbertTrace"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeAndTrace.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d",
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+      "imports": [
+        "Mathlib"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5",
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Basic.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9",
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Cutoff.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Interval",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Interval.lean",
+      "sha256": "c0a528c3f98a9c611dfb4fbaaf969ac0328a5448bc313c259d173cbd1b6570ec",
+      "imports": [
+        "QFA.Endpoints.GoodTime.Cutoff",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Interval.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a",
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Restart.EnergyShift",
+      "path": "_vendor/QFA/Endpoints/Restart/EnergyShift.lean",
+      "sha256": "0111c14a6ab440f9623e0f419e199cbf981622a35a00a774d55f67fd26c9f68e",
+      "imports": [
+        "QFA.Endpoints.Restart.TimeTranslate"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/EnergyShift.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Restart.HilbertTrace",
+      "path": "_vendor/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "sha256": "2715d102af4ac35b4e52a4f145792c75a67d39c16f41ee03f2ad6a58f1156727",
+      "imports": [
+        "QFA.Endpoints.Restart.EnergyShift",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Restart.TimeTranslate",
+      "path": "_vendor/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "sha256": "ec4370573c9dbdcb482c9ce732f5c6ebed2a1eed2711c5361a4c307906080e7d",
+      "imports": [
+        "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Algebra.QuadraticDiscriminant",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs",
+    "Mathlib.Analysis.Calculus.FDeriv.Const",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.Basic",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Real.Sqrt",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
+  ],
+  "local_module_count": 25,
+  "owned_module_count": 0,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "ff92fb421006ea2ac6e332ce57e5bec5b73c014a22c526ff42dc262b321c8098",
+  "validation_boundary": "Pure source and metadata preparation; matching external compiler/types/axioms remain required."
+}

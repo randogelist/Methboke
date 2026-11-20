@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "repository": "randogelist/Methboke",
+  "branch": "AC-Integration",
+  "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+  "preparation_basis": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+  "authorization": "Integrate the reviewed QFA/QFB construction anchors at A-tier, with matching cached external verification.",
+  "main_goal": "Fefferman_D",
+  "main_goal_changed": false,
+  "retained_main_program_local_target": "Fefferman_D_Family_obstruction",
+  "local_target": "QFA_QFB_A_TIER_INTEGRATION",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "recovered_source": {
+    "repository": "randogelist/Methlib",
+    "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+    "vendored_modules": 35,
+    "proof_bytes": "EXACT_UPSTREAM",
+    "historical_audit_names": 129,
+    "additional_multiplier_audit_names": 5,
+    "conditional_contract_audit_names": 5
+  },
+  "packages": [
+    "QFARecovered",
+    "QFARepresentation",
+    "QFAConditionalRoot",
+    "QFANativeFoundation"
+  ],
+  "native_sources": [
+    "Contracts",
+    "Energy",
+    "Cutoff",
+    "Integration",
+    "Spectral"
+  ],
+  "external_verification": {
+    "status": "PENDING",
+    "required": [
+      "matching compiler and source identity",
+      "independent full-type and literal-contract consumers",
+      "fresh complete named axiom reports",
+      "standard axioms only; no sorryAx",
+      "all retained package and negative-control gates",
+      "passed-cache publication and final workflow acceptance"
+    ]
+  },
+  "local_lean_executions": 0,
+  "compiler_lock_lakefile_drivers_policy_unchanged": true,
+  "workflow_change": "Only add AC-Integration to the existing Material push branch allowlist.",
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "open_edges": [
+    "Sharp Sobolev constant and physical interpolation/Agmon admissibility",
+    "Global R3 Leray-Hopf existence for every original L2-sigma datum",
+    "R3 H1 strong local existence and continuation",
+    "Full physical restart membership",
+    "Physical weak-strong relative-energy comparison",
+    "Closed smooth tail with pressure and tail energy equality",
+    "Unique future from each tail trace and current-cutoff QFA assembly",
+    "WFA budget construction and full Fefferman-A bridge"
+  ],
+  "mathematical_boundary": "Each selected path is assumed to satisfy the concrete LH contract. No nonempty solution class is inferred from that definition. The cutoff scalar S requires a separate spatial estimate.",
+  "zero_data_boundary": "Zero initial datum forces any supplied LH velocity to vanish at all nonnegative times; this rigidity result does not construct a solution.",
+  "new_named_audit_reports": 188,
+  "native_named_audit_reports": 49,
+  "native_public_theorem_candidates": 30,
+  "native_contract_definition_declarations": 19,
+  "static_validation": "R3_NSE/QFA/STATIC_VALIDATION.json",
+  "spectral_candidate": "WholeSpaceSpectralEndpoint derived from actual Schwartz derivative witnesses; no assumed Fourier norm identities."
+}

@@ -246,7 +246,9 @@ theorem parameter or record field. Preserve the existing Lean 4.33.0 and
 Mathlib db584cd6d46c92f209a44c0f1c829460d327499d identities.
 
 Local Lean, Lake invoking Lean, local kernel audits and archived runners
-remain prohibited. No new verification run is part of this planning update.
+remain prohibited. The original planning update made no verification claim. The user has since
+authorized native integration and matching cached external verification;
+current status is [R3_NSE/QFA](../R3_NSE/QFA/README.md).
 Implementation follows the user's endpoint-assent workflow.
 
 ## Separate follow-on work

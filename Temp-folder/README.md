@@ -3,7 +3,8 @@
 This folder contains the source and evidence inputs requested for the QFA/WFA
 whole-space integration. The working branch is `AC-Integration`, created from
 Methboke `66a529248d3198ed70dc5489d82868bc33a37796`. The retained project goal
-is **Fefferman_D**; this branch's immediate task is source and evidence preparation.
+is **Fefferman_D**. The active native integration is indexed in
+[R3_NSE/QFA](../R3_NSE/QFA/README.md); this folder preserves its source/evidence inputs.
 
 ## Start here
 
@@ -57,6 +58,11 @@ AGENTS, goal documents and runner instructions are archival context; current
 branch instructions and status are in the repository's root documents.
 
 ## Integration status
+
+The user has now authorized native A-tier integration. Current source and
+verification status is recorded in [R3_NSE/QFA](../R3_NSE/QFA/README.md).
+The statements below describe the retained staging boundary.
+
 
 This folder is reference staging outside the active `Material` build. Source
 copies and existing periodic audit results do not verify new QFA/WFA declarations.

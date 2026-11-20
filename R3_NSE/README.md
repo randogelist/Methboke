@@ -1,12 +1,14 @@
 # Whole-space three-dimensional Navier–Stokes
 
-This folder reserves the `R³` domain for future whole-space NSE material.
-No whole-space theorem or source package is assigned here by this reorganization.
+[QFA native integration](QFA/README.md) indexes the scoped whole-space
+`AC-Integration` work: concrete full-volume contracts, recovered source
+foundations, weighted energy, traces and the safe cutoff. Its machine-readable
+[status](QFA/INTEGRATION_STATUS.json) distinguishes prepared code from matching
+external acceptance and from the still-open physical QFA root.
 
-The currently indexed WFB, QFB and stopped-commutator programs concern the
-periodic unit three-torus and live under [T3_NSE](../T3_NSE/README.md).
-Their torus conclusions are not transferred to `R³` by this folder split.
+The WFB, QFB and stopped-commutator programs remain periodic and live under
+[T3_NSE](../T3_NSE/README.md). Their conclusions are not transferred to R3 by
+this folder organization. R0 finite-cap admission is periodic too.
 
-The existing R0 finite-cap admission result is also periodic; its label does
-not denote the whole-space domain. [GPT.txt](../GPT.txt) retains the current
-project goal and authoritative status.
+[GPT.txt](../GPT.txt) retains Fefferman D as the project goal and records the
+AC branch's local integration target separately.
