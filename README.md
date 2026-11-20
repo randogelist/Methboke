@@ -183,3 +183,8 @@ is retained; statement-preserving repairs are prepared for the next external run
 The stage2 retry narrowed the remaining errors to two proof details; the
 cutoff source and wrapper compiled. [Retained evidence](audits/fdsn-r3-db246dbe-failed/SUMMARY.txt)
 records the failed run. The next repair changes no theorem statement.
+
+The next stage2 run compiled the Fourier, helical, cutoff and translation
+sources. A proof-only nonzero-patch repair follows its
+[retained diagnostics](audits/fdsn-r3-a568ec75-failed/SUMMARY.txt).
+Acceptance still requires the complete fresh type and axiom audits.

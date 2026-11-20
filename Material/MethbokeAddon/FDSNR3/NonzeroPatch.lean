@@ -25,11 +25,13 @@ theorem continuous_exists_nonzero_point {g : Vec → ℂ}
   by_cases hx0 : x = 0
   · subst x
     have hn : {y : Vec | g y ≠ 0} ∈ 𝓝 (0 : Vec) :=
-      (isOpen_ne hg continuous_const).mem_nhds hx
+      ((isOpen_ne : IsOpen {z : ℂ | z ≠ 0}).preimage hg).mem_nhds hx
     obtain ⟨r, hr, hball⟩ := Metric.mem_nhds_iff.mp hn
     let y : Vec := (r / 2) • unitVector (0 : Fin 3)
     have hyn : ‖y‖ = r / 2 := by
-      simp [y, norm_smul, Real.norm_eq_abs, abs_of_pos (half_pos hr), unitVector]
+      change ‖(r / 2) • unitVector (0 : Fin 3)‖ = r / 2
+      rw [norm_smul, Real.norm_eq_abs, abs_of_pos (half_pos hr)]
+      simp [unitVector]
     have hy0 : y ≠ 0 := by
       apply norm_pos_iff.mp
       rw [hyn]
@@ -48,7 +50,7 @@ theorem continuous_exists_nonzero_ball {g : Vec → ℂ}
       ∀ ξ ∈ Metric.ball ξ₀ r, g ξ ≠ 0 := by
   obtain ⟨ξ₀, hξ₀, hgξ₀⟩ := continuous_exists_nonzero_point hg hx
   have hn : {ξ : Vec | g ξ ≠ 0} ∈ 𝓝 ξ₀ :=
-    (isOpen_ne hg continuous_const).mem_nhds hgξ₀
+    ((isOpen_ne : IsOpen {z : ℂ | z ≠ 0}).preimage hg).mem_nhds hgξ₀
   obtain ⟨d, hd, hball⟩ := Metric.mem_nhds_iff.mp hn
   have hnorm : 0 < ‖ξ₀‖ := norm_pos_iff.mpr hξ₀
   refine ⟨ξ₀, min (d / 2) (‖ξ₀‖ / 2), hξ₀,
@@ -94,7 +96,12 @@ theorem complexifySchwartz_ne_zero {f : 𝓢(Vec, Vec)} (hf : f ≠ 0) :
   apply SchwartzMap.ext
   intro x
   have hx := congrArg (fun g : 𝓢(Vec, CVec) => realify (g x)) h
-  simpa [complexifySchwartz_apply, realify_complexify, realify] using hx
+  change realify (complexify (f x)) = realify (0 : CVec) at hx
+  rw [realify_complexify] at hx
+  have hzero : realify (0 : CVec) = (0 : Vec) := by
+    ext i
+    rfl
+  exact hx.trans hzero
 
 /-- Physical version of the nonzero-frequency-patch conclusion. -/
 theorem real_schwartz_exists_nonzero_fourier_ball

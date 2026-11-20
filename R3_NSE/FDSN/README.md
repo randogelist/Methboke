@@ -29,3 +29,7 @@ source, independent contract consumers and all required fresh type/axiom reports
 The six-package Fourier/helical/patch/translation stage is prepared for external
 verification. Section17 of B-tier v1.1 gives the selected direct proof of force
 separation using a signed time-phase zero crossing.
+
+Stage2 has compiled its Fourier, helical, cutoff and translation sources.
+The nonzero-patch proof repair is prepared after run44835174661; all new
+stage2 scopes still await the complete fresh external audits.

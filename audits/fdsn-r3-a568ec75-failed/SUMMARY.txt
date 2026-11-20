@@ -1,0 +1,30 @@
+FDSN_R3 STAGE TWO SECOND REPAIR — REJECTED CANDIDATE
+
+Source commit: a568ec75d12b403ccbffbd54b1fba89dbbbd32f0
+Source tree: 4d02728b2b2e6a07522f769950fcb943a766c678
+External run: https://github.com/randogelist/Methboke/actions/runs/44835174661
+Fast job: 136629621733 — failure
+Final acceptance job: 136630780341 — failure
+Recovery job: 136630782549 — skipped
+Evidence artifact: 14677544961
+ZIP SHA256: a7b45b58528728bfb4e0d9dfe286dea8f2f009286de010dab7094776335e6bb8
+The downloaded ZIP was independently hashed before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Fourier, FrequencyCutoff, Helical and
+TranslationRigidity sources and their wrappers compiled successfully.
+NonzeroPatch was newly reached and failed; SliceSchwartz remains blocked
+by that dependency. The retained current.json records all module results.
+
+Exact source diagnostics in NonzeroPatch.lean:
+- 28:7 and 51:5: isOpen_ne is a theorem asserting an open nonzero set,
+  not a function taking two continuity proofs.
+- 31:30: the elementary norm computation leaves the obligation 0 <= r
+  despite the available positive-radius assumption hr.
+- 97:2: simplification expands realify to a coordinate-function equality
+  that does not directly match the required equality in Euclidean Vec.
+The complete compiler messages are retained verbatim in the module log.
+
+No package audits ran. Successful source compilation alone does not
+establish package or endpoint acceptance. No statement, dependency pin,
+or acceptance criterion was changed. No local Lean, Lake, compiler or
+kernel audit was executed.

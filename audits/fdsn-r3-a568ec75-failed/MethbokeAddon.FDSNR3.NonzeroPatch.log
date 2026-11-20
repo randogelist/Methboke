@@ -1,0 +1,37 @@
+MethbokeAddon/FDSNR3/NonzeroPatch.lean:28:7: error: Function expected at
+  isOpen_ne
+but this term has type
+  IsOpen[?m.51] {y | y ≠ ?m.53}
+
+Note: Expected a function because this term is being applied to the argument
+  hg
+MethbokeAddon/FDSNR3/NonzeroPatch.lean:31:30: error: unsolved goals
+g : Vec → ℂ
+hg : Continuous g
+hx : g 0 ≠ 0
+hn : {y | g y ≠ 0} ∈ 𝓝 0
+r : ℝ
+hr : r > 0
+hball : ball 0 r ⊆ {y | g y ≠ 0}
+y : Vec := (r / 2) • unitVector 0
+⊢ 0 ≤ r
+MethbokeAddon/FDSNR3/NonzeroPatch.lean:32:44: warning: This simp argument is unused:
+  abs_of_pos (half_pos hr)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [y, norm_smul, Real.norm_eq_abs, unitVector]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/NonzeroPatch.lean:51:5: error: Function expected at
+  isOpen_ne
+but this term has type
+  IsOpen[?m.63] {y | y ≠ ?m.65}
+
+Note: Expected a function because this term is being applied to the argument
+  hg
+MethbokeAddon/FDSNR3/NonzeroPatch.lean:97:2: error: Type mismatch: After simplification, term
+  hx
+ has type
+  (fun i => ((complexify (f x)).ofLp i).re) = fun i => 0
+but is expected to have type
+  f x = 0
