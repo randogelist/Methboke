@@ -7,6 +7,11 @@ contract declarations, accepted at 77a64245 by [external run 44655638162](https:
 The complete D family root remains unproved; see
 the [implementation ledger](../T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json).
 
+The new `FeffermanFamilyAssembly` package prepares 22 additional helper theorems
+and 1 predicate for growth selection, copy transport and exact disjoint NSE
+assembly. Verification is pending. The directFefferman-D upstream proof is
+prepared for separate verification under its own 4.34rc2 pin; Material remains4.33.0.
+
 The prior accepted conditional theorem is
 `MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION`:
 

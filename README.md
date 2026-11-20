@@ -45,6 +45,18 @@ nonlinear assembly, energy, periodization, smooth-force decay, and same-force
 comparison. The seed reference uses Lean `4.34.0-rc2`; it has not been imported
 or newly verified under Methboke's `4.33.0` pin.
 
+## Current build toward Fefferman D
+
+The [direct endpoint](T3_NSE/D-Family-Obstruction/UpstreamSeed/README.md) is
+prepared for isolated external verification of the pinned upstream periodic-D
+proof. Its literal force and competitor contracts receive independent checks.
+This 604-module route keeps its original Lean4.34.0-rc2 pin and leaves Material
+at 4.33.0. It explicitly reuses the upstream proof; verification is pending.
+
+The next native family package, `FeffermanFamilyAssembly`, prepares 22 further
+helpers and 1 predicate for growth selection, copy transport and exact disjoint
+NSE assembly. These candidates preserve all existing accepted foundations.
+
 ## Accepted foundations
 
 The previous exact conditional theorem

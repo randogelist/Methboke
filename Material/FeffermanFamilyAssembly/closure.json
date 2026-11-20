@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "endpoint": "FeffermanFamilyAssembly",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "279a0547508299dbd9164e31f3f59ce8558016cb",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FeffermanFamily.GrowthSequence",
+    "MethbokeAddon.FeffermanFamily.CopyBlowup",
+    "MethbokeAddon.FeffermanFamily.LocalDifferential",
+    "MethbokeAddon.FeffermanFamily.DisjointNSE"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FeffermanFamily.CopyBlowup",
+      "path": "MethbokeAddon/FeffermanFamily/CopyBlowup.lean",
+      "sha256": "f7c9cb5668ea94908a6b6826246731d0d38850751c624746cf05d324a1f62f88",
+      "imports": [
+        "MethbokeAddon.FeffermanFamily.LocalBlowup",
+        "Mathlib.Analysis.Normed.Module.Basic",
+        "Mathlib.Tactic.FieldSimp",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "279a0547508299dbd9164e31f3f59ce8558016cb",
+        "path": "GPT.txt",
+        "role": "accepted project basis for new owned development; not a claim that these new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.DisjointGerms",
+      "path": "MethbokeAddon/FeffermanFamily/DisjointGerms.lean",
+      "sha256": "a18d5402a1ac2cf6e28b32b4a1dd80b945cad245d6e8b282f49f9c1ea203b5d8",
+      "imports": [
+        "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+        "Mathlib.Order.Filter.Finite",
+        "Mathlib.Topology.Neighborhoods",
+        "Mathlib.Topology.Constructions.SumProd"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.DisjointNSE",
+      "path": "MethbokeAddon/FeffermanFamily/DisjointNSE.lean",
+      "sha256": "54c16c9bfe16dddb2b9dd4dbff5048688c5bab46633fd1bd085258ab36dc7395",
+      "imports": [
+        "MethbokeAddon.FeffermanFamily.DisjointGerms",
+        "MethbokeAddon.FeffermanFamily.LocalDifferential"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "279a0547508299dbd9164e31f3f59ce8558016cb",
+        "path": "GPT.txt",
+        "role": "accepted project basis for new owned development; not a claim that these new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.GrowthSequence",
+      "path": "MethbokeAddon/FeffermanFamily/GrowthSequence.lean",
+      "sha256": "f57d345a0144b0ba68ef4d2907e2a707ac3d651de7d8776741b0640bb134fb8c",
+      "imports": [
+        "MethbokeAddon.FeffermanFamily.LocalBlowup",
+        "Mathlib.Analysis.SpecificLimits.Basic",
+        "Mathlib.Tactic.Choose"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "279a0547508299dbd9164e31f3f59ce8558016cb",
+        "path": "GPT.txt",
+        "role": "accepted project basis for new owned development; not a claim that these new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.LocalBlowup",
+      "path": "MethbokeAddon/FeffermanFamily/LocalBlowup.lean",
+      "sha256": "09c85375133998e98e7f35886563176415918f09535f6109be6744dc6a451a7a",
+      "imports": [
+        "Mathlib.Analysis.Normed.Group.Basic",
+        "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+        "Mathlib.Topology.Sequences",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.LocalDifferential",
+      "path": "MethbokeAddon/FeffermanFamily/LocalDifferential.lean",
+      "sha256": "13a80830f9e08a6d60cef041200cb920c92822c09226c8ce14394da311707c9c",
+      "imports": [
+        "SingularClosure.Contracts"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "279a0547508299dbd9164e31f3f59ce8558016cb",
+        "path": "GPT.txt",
+        "role": "accepted project basis for new owned development; not a claim that these new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "imports": [
+        "Mathlib"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "revision": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "Mathlib.Analysis.Normed.Group.Basic",
+    "Mathlib.Analysis.Normed.Module.Basic",
+    "Mathlib.Analysis.SpecificLimits.Basic",
+    "Mathlib.Order.Filter.Finite",
+    "Mathlib.Tactic.Choose",
+    "Mathlib.Tactic.FieldSimp",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Constructions.SumProd",
+    "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+    "Mathlib.Topology.Neighborhoods",
+    "Mathlib.Topology.Sequences"
+  ],
+  "local_module_count": 7,
+  "owned_module_count": 4,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "3db1c16f1a32cd8ab5ab3d3b44174c93fe07ba996785b09abd7fe1e7a805ccc2",
+  "validation_boundary": "Static metadata closure from pinned manifests and new source bytes. Complete retained-source and compiler verification are external.",
+  "dependency_boundary": "No vendor, toolchain, dependency lock, lakefile, workflow or previous audit changes."
+}

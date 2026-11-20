@@ -1,0 +1,190 @@
+name: Fefferman D / isolated upstream verification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fefferman-d-upstream.yml'
+      - 'T3_NSE/D-Family-Obstruction/UpstreamSeed/**'
+  workflow_dispatch:
+
+concurrency:
+  group: fefferman-d-upstream-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+env:
+  SEED_TASK: T3_NSE/D-Family-Obstruction/UpstreamSeed
+  SEED_WORK: .fefferman-d-ci
+  SEED_EVIDENCE: .fefferman-d-evidence
+  PYTHONUNBUFFERED: '1'
+  LEAN_NUM_THREADS: '2'
+
+jobs:
+  verify-periodic-d:
+    name: Exact periodic D source, type and axiom verification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Checkout exact Methboke revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Pin upstream checkout and derive exact cache identities
+        id: prepare
+        run: >-
+          python "$SEED_TASK/ci/verify.py" prepare
+          --task "$SEED_TASK" --work "$SEED_WORK" --evidence "$SEED_EVIDENCE"
+
+      - name: Restore isolated official compiler
+        id: compiler-restore
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .fefferman-d-ci/toolchain
+          key: ${{ steps.prepare.outputs.compiler_key }}
+
+      - name: Restore exact isolated dependencies
+        id: dependencies-restore
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .fefferman-d-ci/upstream/.lake/packages
+          key: ${{ steps.prepare.outputs.dependency_key }}
+
+      - name: Restore exact proof objects and passed receipts
+        id: project-restore
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            .fefferman-d-ci/upstream/.lake/build
+            .fefferman-d-ci/receipts.json
+          key: ${{ steps.prepare.outputs.project_key }}
+
+      - name: Install pinned official compiler archive when absent
+        run: >-
+          python "$SEED_TASK/ci/verify.py" install
+          --task "$SEED_TASK" --work "$SEED_WORK" --evidence "$SEED_EVIDENCE"
+
+      - name: Retrieve official dependencies, compile selected closure and freshly audit
+        id: verify
+        env:
+          DEPENDENCY_CACHE_HIT: ${{ steps.dependencies-restore.outputs.cache-hit }}
+          PROJECT_CACHE_HIT: ${{ steps.project-restore.outputs.cache-hit }}
+        run: >-
+          python "$SEED_TASK/ci/verify.py" verify
+          --task "$SEED_TASK" --work "$SEED_WORK" --evidence "$SEED_EVIDENCE"
+          --time-budget-seconds 9000
+
+      - name: Publish compiler only after complete verification
+        id: compiler-save
+        if: ${{ success() && steps.compiler-restore.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .fefferman-d-ci/toolchain
+          key: ${{ steps.prepare.outputs.compiler_key }}
+
+      - name: Publish dependencies only after complete verification
+        id: dependencies-save
+        if: ${{ success() && steps.dependencies-restore.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .fefferman-d-ci/upstream/.lake/packages
+          key: ${{ steps.prepare.outputs.dependency_key }}
+
+      - name: Publish audited proof objects and receipts
+        id: project-save
+        if: ${{ success() && steps.project-restore.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            .fefferman-d-ci/upstream/.lake/build
+            .fefferman-d-ci/receipts.json
+          key: ${{ steps.prepare.outputs.project_key }}
+
+      - name: Confirm published compiler cache is available
+        id: compiler-confirm
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .fefferman-d-ci/toolchain
+          key: ${{ steps.prepare.outputs.compiler_key }}
+          lookup-only: true
+
+      - name: Confirm published dependency cache is available
+        id: dependencies-confirm
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .fefferman-d-ci/upstream/.lake/packages
+          key: ${{ steps.prepare.outputs.dependency_key }}
+          lookup-only: true
+
+      - name: Confirm published project cache is available
+        id: project-confirm
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            .fefferman-d-ci/upstream/.lake/build
+            .fefferman-d-ci/receipts.json
+          key: ${{ steps.prepare.outputs.project_key }}
+          lookup-only: true
+
+      - name: Record verification and publication outcomes
+        if: ${{ always() }}
+        env:
+          VERIFY_RESULT: ${{ steps.verify.outcome }}
+          COMPILER_REUSED: ${{ steps.compiler-restore.outputs.cache-hit }}
+          DEPENDENCIES_REUSED: ${{ steps.dependencies-restore.outputs.cache-hit }}
+          PROJECT_REUSED: ${{ steps.project-restore.outputs.cache-hit }}
+          COMPILER_SAVED: ${{ steps.compiler-save.outcome }}
+          DEPENDENCIES_SAVED: ${{ steps.dependencies-save.outcome }}
+          PROJECT_SAVED: ${{ steps.project-save.outcome }}
+          COMPILER_AVAILABLE: ${{ steps.compiler-confirm.outputs.cache-hit }}
+          DEPENDENCIES_AVAILABLE: ${{ steps.dependencies-confirm.outputs.cache-hit }}
+          PROJECT_AVAILABLE: ${{ steps.project-confirm.outputs.cache-hit }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ['SEED_EVIDENCE'])
+          p.mkdir(parents=True, exist_ok=True)
+          names = ['COMPILER', 'DEPENDENCIES', 'PROJECT']
+          publication = {n.lower(): os.environ[n + '_AVAILABLE'] == 'true' for n in names}
+          save_outcomes = {n.lower(): os.environ[n + '_SAVED'] for n in names}
+          restore_hits = {n.lower(): os.environ[n + '_REUSED'] == 'true' for n in names}
+          record = {'tested_commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'], 'verification_step': os.environ['VERIFY_RESULT'], 'cache_publication': publication, 'cache_save_outcomes': save_outcomes, 'initial_cache_hits': restore_hits, 'publication_basis': 'Fresh exact-key lookup-only confirmations after verification/publication', 'all_caches_available': all(publication.values()), 'artifact_upload_verified': False, 'local_lean_executions': 0}
+          (p / 'publication.json').write_text(json.dumps(record, indent=2) + '\n')
+          PY
+
+      - name: Retain complete evidence and diagnostic logs
+        id: evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: fefferman-d-upstream-${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .fefferman-d-evidence
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+
+      - name: Accept only verified, published and retained result
+        if: ${{ always() }}
+        env:
+          VERIFY_RESULT: ${{ steps.verify.outcome }}
+          EVIDENCE_RESULT: ${{ steps.evidence.outcome }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p = Path(os.environ['SEED_EVIDENCE'])
+          report = json.loads((p / 'current.json').read_text()) if (p / 'current.json').is_file() else {}
+          publication = json.loads((p / 'publication.json').read_text()) if (p / 'publication.json').is_file() else {}
+          accepted = (os.environ['VERIFY_RESULT'] == 'success' and os.environ['EVIDENCE_RESULT'] == 'success' and report.get('status') == 'PASS' and publication.get('all_caches_available') is True)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('Isolated Fefferman D verification ' + ('accepted' if accepted else 'rejected') + '.\n')
+          if not accepted:
+              raise SystemExit('No complete verified, published and retained result')
+          print('FEFFERMAN_D_EXTERNAL_ACCEPTED: exact source, fresh types/axioms, caches and evidence passed.')
+          PY

@@ -4,6 +4,10 @@ The current goal is **Fefferman D**, through the [finite periodic-family route](
 Its first foundation package is accepted at 77a64245 (28 helpers,11 contracts);
 the complete family and literal D endpoint remain unproved in this repository.
 
+Direct D candidate: [isolated upstream proof adapter](D-Family-Obstruction/UpstreamSeed/README.md),
+pending exact external verification. Stronger native family candidates add22
+helpers and 1 predicate; no family witness claimed.
+
 The prior accepted conditional **EHRENFEST-OBSTRUCTION** theorem is:
 
 ```text
@@ -20,7 +24,7 @@ the exact hypothesis and endpoint scope.
 
 | Anchor | Statement | Present evidence |
 |---|---|---|
-| FEFFERMAN-D-FAMILY | Smooth compact-force finite prescribed-site construction | B-tier from the cited seed; native28 helpers/11 contracts externally accepted at 77a64245; full formal root open |
+| FEFFERMAN-D-FAMILY | Smooth compact-force finite prescribed-site construction | B-tier from the cited seed; native 28 helpers/11 contracts externally accepted at 77a64245; full formal root open |
 | EHRENFEST-OBSTRUCTION | The literal stopped negative-drift premise for one fixed smooth datum implies failure of NSE-B | A-tier at `22431f03`; exact root/type/standard-axiom audits and final acceptance passed |
 | EHRENFEST-E09-BOUND | An actual smooth front gives eventual cutoff-uniform canonical Galerkin enstrophy boundedness on a strict compact subslab | A-tier at `22431f03`; separately scoped helper, not full H2 convergence |
 | EHRENFEST-E07 / E08 | Stopped scalar hitting and cutoff-uniform threshold escape | Accepted at `40686414` and `7908890a`; freshly audited again at `22431f03` |

@@ -1,0 +1,49 @@
+DOCUMENT := FEFFERMAN_D_DIRECT_B_TIER
+VERSION := 1.0
+PROJECT_GOAL := Fefferman_D
+MODE := SOURCE_REUSE_AND_EXACT_FORMAL_ADAPTER
+STATUS := Source-dependent proof application; external formal verification pending
+SOURCE_REPOSITORY := openai/NavierStokesAndEuler
+SOURCE_REVISION := f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+SOURCE_ROOT := NavierStokes.ComparatorBridge.navier_stokes_breakdown_periodic
+SOURCE_MODULE := NavierStokes.ComparatorTheorem
+TARGET := Methboke.FeffermanD.Fefferman_D
+
+EXACT CLAIM
+For every nu>0, there exist smooth divergence-free unit-periodic initial data u0
+and smooth unit-periodic force f on nonnegative spacetime, with all finite-order
+spacetime derivatives decaying faster than every polynomial in time, such that
+no global smooth unit-periodic velocity AND pressure pair satisfies the forced
+Navier-Stokes equation with that viscosity, datum and force. No extra uniform
+energy or pressure-normalization restriction is placed on the competitor.
+
+DERIVATION AND PREMISE
+The substantive mathematical input is the full existing upstream periodic-D
+proof. Applying that theorem to nu and hnu gives exactly the target conclusion.
+No new blowup mechanism, finite-family existence or independent reconstruction
+of the upstream analytic proof is claimed by this adapter. Kernel acceptance
+requires the complete source proof closure to compile under its exact pins and
+the fresh root axiom audit to contain only the three approved standard axioms.
+The theorem is never introduced as a custom axiom or an unproved declaration.
+
+VERIFICATION OBLIGATIONS
+01. Pin immutable upstream commit and dependency lock.
+02. Preserve original source bytes and module import closure.
+03. Use upstream Lean4.34.0-rc2 separately from Material4.33.0.
+04. Restore officially cached matching Mathlib/dependency objects.
+05. Reject missing official objects without rebuilding dependency theorems.
+06. Validate reusable own objects or compile the 604-module source closure.
+07. Compile the explicit provenance-preserving Methboke endpoint.
+08. Check literal smoothness, divergence and periodic initial-data conditions.
+09. Check every-order force smoothness, periodicity and time-decay conditions.
+10. Check literal NSE, right time derivative at 0 and periodic velocity/pressure.
+11. Run complete fresh exact-type and standard-axiom audits.
+12. Retain matching source/objects/logs evidence and publish only passed caches.
+
+CURRENT STATUS
+Source/interface inspection: complete; no observed upstream execution receipt.
+Endpoint and independent semantic consumers: prepared, not yet A-tier.
+Official Mathlib release-cache publishing run 32529010777 succeeded at the exact
+Mathlib pin, but actual retrieval/object completeness remains an external gate.
+Local Lean/Lake/kernel executions:0.
+Prescribed-site family: remains a stronger separate unfinished construction.

@@ -29,6 +29,20 @@ standard axioms. See the [A-tier helper register](FEFFERMAN_D_FOUNDATION_A_TIER.
 [evidence summary](../../audits/material-77a64245-family/summary.json) and
 [implementation ledger](IMPLEMENTATION_STATUS.json) for exact scope.
 
+## Current implementation step
+
+The direct Fefferman-D endpoint is now prepared in an isolated source project:
+`UpstreamSeed/Endpoint.lean` reuses the exact pinned upstream periodic theorem.
+Its independent audit expands the initial-data, force-decay and global-solution
+contracts. Matching external compiler/type/axiom verification is pending.
+The existing Material project keeps Lean4.33.0; the isolated upstream proof uses
+its own Lean4.34.0-rc2 and exact Mathlib lock. No objects cross that boundary.
+
+The prescribed-site family remains a stronger, unfinished local target. Its
+next native layer adds explicit growth-sequence selection, geometric blowup
+transport, operator locality and exact finite disjoint-sum forced-NSE assembly.
+These 22 helper theorems and 1 predicate are candidates pending the Material run.
+
 ## Route and remaining work
 
 The [B-tier derivation](Fefferman_D_Family_obstruction_B_TIER.txt) gives the full
