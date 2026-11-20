@@ -1,0 +1,1347 @@
+FDSN: canonical torus proof, statement, checklist and anchors
+Extract of Sections25-28 of the cumulative pressure-force gauge B-tier derivation.
+Project goal: Fefferman_D. Local target: FEFFERMAN_D_SPECTRAL_NONRIGIDITY.
+All formal-status statements below describe the pre-implementation anchor inspection.
+Current implementation evidence is tracked separately in IMPLEMENTATION_STATUS.json.
+
+25. Attainable local target: FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+
+Date: 20 November 2026
+Project goal retained: Fefferman_D
+Proposed local endpoint: a short periodic refinement with exact full helical
+modal-power histories and a certificate of inequivalence under translations.
+Tier: ordinary mathematical B-tier, conditional on an admissible blowup seed.
+No local Lean execution, new compiler evidence, or A-tier claim is involved.
+
+25.1 Why this is the selected minimal target
+
+The existing Section 24.3 already gives a compact-time spectral family without
+(PG). The present target sharpens its nontriviality: distinct members have a
+different translation-invariant third-order Fourier correlation, while every
+individual helical modal power remains fixed. One scalar parameter suffices.
+
+The nearest 2026 result is Cao--Chi--Nie, arXiv:2609.10262v4,
+Proposition 3.15:
+  https://arxiv.org/html/2609.10262v4
+It supplies compact spacetime perturbations of the whole-space seed and
+absorbs their equation error into the force. The periodic adaptation uses
+the same identity. It already includes infinite-dimensional families and
+smooth non-isolation. The present target adds a joint spectral constraint
+and an explicit nontranslation certificate. It does not retain localization
+inside a prescribed spatial ball: a Fourier-pair perturbation is global on
+the torus.
+
+Spectral phase preservation is itself older. Yoshimatsu, Okamoto, Schneider,
+Kaneda and Farge, Physical Review E 79, 026303 (2009), Section II, randomize
+helical coefficient phases while preserving energy and helicity spectra:
+  https://www.i2m.univ-amu.fr/perso/kai.schneider/PDF-FILES/yoskf_pre2009_final.pdf
+  DOI: 10.1103/PhysRevE.79.026303
+Wang, Fang, Wang and Xu, Physical Review Fluids 9, 114603 (2024), describe
+Fourier-phase control through designed forcing:
+  https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.9.114603
+
+Thus the candidate literature contribution is the exact joint realization
+inside a classical blowup family with fixed initial and terminal histories.
+Neither phase ambiguity nor the residual-compensation mechanism is claimed
+new. Liu's 2026 observation-fiber framework remains relevant as already
+recorded in Section 23. Global priority and publication significance have
+not been established.
+
+25.2 Exact minimal theorem statement
+
+Assume (S1)--(S3) of Section 24.1. Thus nu>0, 0<T<infinity, (U,p,F) is a real
+smooth periodic forced NSE solution for 0<=t<T, the force is globally smooth
+and admissible, the initial datum a is fixed, energy and dissipation are
+finite, and limsup_(t up T)||U(t)||_infinity=infinity.
+
+No hypothesis (PG) is imposed.
+
+For every prescribed s with 0<=s<T, there exist an open interval
+I=(a_I,b_I) with s<a_I<b_I<T, a time t_* in I, epsilon>0, and a smooth
+one-parameter family (U_lambda,p,F_lambda), |lambda|<epsilon, such that:
+
+(N1) The family solves the same periodic NSE at viscosity nu; lambda=0
+     is the original seed. For t outside I,
+         U_lambda(t)=U(t)  (where t<T),
+         F_lambda(t)=F(t)  (for all globally defined times).
+     Consequently the initial datum, exact late velocity history, and
+     exact late force history agree. Each member blows up at the same T.
+
+(N2) Fix orthonormal helical frames once and write c_sigma(k,t) for the
+     velocity coefficients, sigma in {+,-}. For all k!=0 and all t<T,
+         |c_(lambda,sigma)(k,t)|^2=|c_sigma(k,t)|^2,
+     and the mean is unchanged.
+
+(N3) At the single fixed time t_*, distinct parameters are not related
+     by any spatial translation:
+         for lambda!=eta and every y in T^3,
+         U_lambda(t_*, .) != U_eta(t_*, .+y).
+     No claim of inequivalence under all possible rotations or symmetries
+     is included.
+
+(N4) Distinct parameters have different effective force histories:
+         Leray(F_lambda) != Leray(F_eta) on T^3 x [0,T).
+     Equivalently, their full force difference is not a periodic
+     pressure-gradient change.
+
+(N5) For every fixed nonnegative integer r,
+         ||U_lambda-U||_(C^r(T^3 x closure(I)))
+          + ||F_lambda-F||_(C^r(T^3 x closure(I)))
+             <= C_r |lambda|
+     for sufficiently small lambda. The constant may depend on r,
+     the seed, the chosen interval, and the chosen phase bump.
+     This gives arbitrary closeness for every prescribed finite
+     collection of smooth seminorms.
+
+Here every member has its own force. The fixed-force uniqueness theorem
+is respected.
+
+25.3 Active-triad lemma: no additional seed obligation
+
+For every s<T there is some t_* in (s,T) and a noncollinear triad
+         k_1+k_2=k_3
+with all three Fourier coefficients of U nonzero at t_*.
+
+Proof. Write A_n(t)=Fourier(U)(n,t). The Fourier convection term is
+         Fourier((U.grad)U)(n)
+            = 2 pi i sum_(p+q=n) (A_p . q) A_q.
+
+Suppose no active noncollinear triad occurs at any time in (s,T).
+In a real modal energy-transfer summand, all of A_p,A_q,A_n must be
+nonzero to contribute. When p,q are nonzero and noncollinear, that
+would be a forbidden triad. When p,q are collinear,
+A_p.q=0 by p.A_p=0. When q=0 the derivative factor is zero. When
+p=0 the summand paired with conjugate(A_n) is
+         2 pi i (A_0.n) |A_n|^2,
+which is purely imaginary since A_0 is real. The zero output mode
+also has zero convection contribution.
+
+Therefore every real nonlinear modal energy-transfer term vanishes.
+The pressure term is orthogonal to the divergence-free coefficients.
+Summing with the H^2 weights yields
+         (1/2) d_t ||U||_(H^2)^2
+           + nu ||grad U||_(H^2)^2
+             = Re <F,U>_(H^2).
+By the norm inequality (or its regularized zero-norm version),
+         ||U(t)||_(H^2)
+            <= ||U(s)||_(H^2) + integral_s^t ||F(r)||_(H^2) dr.
+The right side stays finite up to T, since F is smooth through T.
+The embedding H^2(T^3) -> L-infinity(T^3) contradicts the assumed blowup.
+
+Every Fourier sum and differentiation above is justified on a compact
+preterminal slab by smoothness. The argument allows the Fourier support
+to vary with time; no persistent-support assumption was made. QED.
+
+Choose helicities sigma_j for which c_(sigma_j)(k_j,t_*)!=0.
+Continuity supplies I compactly contained in (s,T), containing t_*,
+on which their product
+         B_U(t)=c_(sigma_1)(k_1,t)c_(sigma_2)(k_2,t)
+                    conjugate(c_(sigma_3)(k_3,t))
+never vanishes. Noncollinearity ensures that the three mode pairs
+{+/- k_j} are distinct. This triad is obtained from the seed hypotheses,
+not assumed as an unverified extra property of the published seed.
+
+25.4 Explicit one-pair construction
+
+Choose a real bump beta in C_c^infinity(I) with
+         0<=beta<=1,   beta(t_*)=1.
+Take epsilon=pi/4. Rotate only the conjugate pair +/- k_3:
+         Fourier(U_lambda)(k_3,t)
+             = exp(i lambda beta(t)) Fourier(U)(k_3,t),
+         Fourier(U_lambda)(-k_3,t)
+             = exp(-i lambda beta(t)) Fourier(U)(-k_3,t).
+Every other Fourier coefficient, including the mean, is left unchanged.
+
+Reality and incompressibility follow immediately. The scalar multiplier
+acts on both helicities equally, so (N2) holds for every individual
+helical modal power. The correction
+         h_lambda=U_lambda-U
+has only the two spatial Fourier frequencies +/- k_3 and has smooth
+time support compactly inside I.
+
+Keep p_lambda=p and define for t<T
+         F_lambda=F + partial_t h_lambda - nu Delta h_lambda
+                    + (U.grad)h_lambda + (h_lambda.grad)U
+                    + (h_lambda.grad)h_lambda.              (MN1)
+Define F_lambda=F outside the correction time support, including t>=T.
+
+Expanding the momentum equation proves the NSE exactly. Every correction
+in (MN1) vanishes outside the fixed compact regular time slab and is
+smooth there to all orders. The zero extension is therefore globally
+smooth. All globally stipulated temporal support/decay conditions of the
+seed force are retained. No estimate as t approaches T is needed.
+
+The exact late velocity agreement preserves the original unbounded-speed
+limsup. Classical uniqueness on every shorter time interval rules out
+a global smooth competitor with the same initial datum and F_lambda.
+
+25.5 Explicit nontranslation and force-gauge certificates
+
+Under a translation x -> x+y, every helical coefficient at k gains the
+phase exp(2 pi i k.y). The phases cancel in B_U because k_1+k_2=k_3.
+Thus B_U is invariant under spatial translations, in the fixed helical
+frame convention.
+
+In the constructed family,
+         B_(U_lambda)(t)=exp(-i lambda beta(t)) B_U(t).
+At t=t_* this is
+         B_(U_lambda)(t_*)=exp(-i lambda) B_U(t_*).
+The base product is nonzero and |lambda-eta|<pi/2. Distinct parameters
+give distinct products, proving (N3). In particular, even a time-dependent
+spatial translation cannot identify the complete trajectories.
+
+If Leray(F_lambda)=Leray(F_eta) throughout the preterminal interval, then
+the two velocities solve the same projected NSE with the same initial
+datum. The classical difference-energy estimate and Gronwall, on every
+compact subinterval, imply U_lambda=U_eta. This contradicts (N3), so (N4)
+holds. The Leray projector retains the zero mode; equality of projections
+is precisely equality modulo gradients of globally defined periodic
+scalar pressures.
+
+25.6 Exact budgets, smooth smallness, and optional infinite family
+
+For every real q and every t<T, (N2) and the unchanged mean imply
+         ||U_lambda(t)||_(H^q)=||U(t)||_(H^q).
+Thus kinetic energy, enstrophy, helicity, dissipation history and
+         Q_(U_lambda)(t)=||grad U_lambda(t)||_2^2/(4 pi^2)=Q_U(t)
+agree exactly. Their time integrals agree, including as extended
+nonnegative integrals where necessary.
+
+The instantaneous total force work also agrees:
+         integral_(T^3) F_lambda.U_lambda
+             = (1/2) d_t ||U_lambda||_2^2
+                    + nu ||grad U_lambda||_2^2
+             = integral_(T^3) F.U.                          (MN2)
+This follows from the classical energy identity for each smooth slice.
+No unforced continuation theorem is being applied to these forced flows.
+
+For each fixed r, time differentiation of
+exp(i lambda beta)-1 and the finite Fourier-pair expression gives
+||h_lambda||_(C^(r+2)) <= C'_r |lambda| on the compact slab.
+The coefficients of U and their required derivatives are bounded there.
+Formula (MN1) yields (N5). No uniform constant across all derivative
+orders is asserted.
+
+An infinite-dimensional version is immediate but is not needed for the
+minimal target: replace lambda beta by theta in the fixed-support space
+         E_K={theta in C^infinity(R;R): supp theta subset K},
+where K is a compact interval with nonempty interior and K subset I,
+and restrict ||theta||_infinity<pi/4. Distinct theta,eta differ at some
+time in K, where B_U!=0, so the same bispectral argument distinguishes
+their translation classes. The time distinguishing a pair may depend
+on that pair. Every neighborhood defined by finitely many smooth
+seminorms contains the image of a sufficiently small neighborhood of
+zero in E_K. No open subset of the entire force space is asserted.
+
+25.7 Endpoint status and limits
+
+B_TIER_IMPLICATION:
+  (S1)--(S3) imply FEFFERMAN_D_SPECTRAL_NONRIGIDITY (N1)--(N5),
+  with the exact budget consequences (MN2).
+  The active-triad lemma and the deformation proof above close the
+  conditional chain. No new polynomial growth or source-specific
+  triad-check obligation remains for this target.
+
+CANDIDATE_LITERATURE_EXTENSION:
+  The reviewed sources do not state this exact joint result: fixed
+  initial and late histories, full helical modal-power histories,
+  force-work history, and pairwise distinct translation classes of
+  the intermediate velocity. A modest constrained corollary is the
+  appropriate proposed contribution. Novelty is not certified.
+
+RELATION_TO_PREVIOUS_TARGET:
+  Section 24.4's distinct-terminal-germ theorem remains a separate,
+  stronger-in-that-respect conditional statement with its recorded
+  (PG) source-instantiation obstruction. The present target is
+  deliberately compact in time and preserves the exact terminal germ.
+  It does not resolve, erase, or assume away that older obstruction.
+
+LIMITS:
+  Every family member is singular; no regular/singular indistinguishable
+  pair is produced. The force varies and its norms or full residual
+  charges need not agree. No unforced result, fixed-force nonuniqueness,
+  spatial localization, distinct leading blowup mechanism, or A-tier
+  certification follows.
+
+
+26. Canonical main theorem and dependency register: FDSN v1.0
+
+Canonical date: 20 November 2026
+Main theorem name: FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+Short reference: FDSN
+Presentation title:
+  Helical spectral nonrigidity of forced periodic Navier--Stokes blowup
+
+Target hierarchy:
+  Project goal: Fefferman_D (unchanged).
+  Single local main theorem: FEFFERMAN_D_SPECTRAL_NONRIGIDITY.
+  Supporting work: verify and maintain the lemmas and clauses below.
+  The present step fixes the statement and its references; it does not
+  change the source hypothesis, the theorem's scope, or its evidence tier.
+
+An unqualified reference to FDSN means the complete seed-conditional
+one-parameter theorem in this section, including its quantifier order.
+Use FDSN.1 through FDSN.5 for individual clauses, FDSN.L1 through FDSN.L6
+for supporting lemmas, and FDSN.C1/FDSN.C2 for the stated corollaries.
+A stronger or altered assertion needs an explicit new statement or
+version; it must not silently acquire the unqualified name FDSN.
+
+26.1 Frozen source predicate: Seed_(nu,T)(U,p,F)
+
+The predicate Seed contains all of the following:
+
+(H1) nu>0, 0<T<infinity, and the spatial domain is the unit three-torus.
+     U and p are real and smooth on T^3 x [0,T), with periodic pressure.
+
+(H2) F belongs to C_c^infinity(T^3 x (0,infinity);R^3), and
+       partial_t U - nu Delta U + (U.grad)U + grad p = F,
+       div U=0.
+     The initial datum a=U(0) is smooth and divergence free.
+     No zero-mean assumption on a is required.
+
+(H3) The seed has bounded preterminal kinetic energy and finite integrated
+     dissipation:
+       sup_(0<=t<T) ||U(t)||_2^2
+         + integral_0^T ||grad U(t)||_2^2 dt < infinity.
+
+(H4) The seed has velocity blowup at T:
+       limsup_(t up T) ||U(t)||_infinity = infinity.
+
+The seed predicate does not contain (PG), a phase family, a fixed-force
+nonuniqueness assumption, or the desired spectral-nonrigidity conclusion.
+The admissible source seed is the external input to the theorem.
+The full proof of the cited source's existence theorem is not re-audited
+merely by assembling this conditional implication.
+
+For definiteness, the canonical v1.0 statement uses compact temporal
+support of F. The already-discussed broader temporal-decay variant can
+be cited separately; it is not silently substituted for (H2).
+
+26.2 Frozen conclusion predicate: Family_(nu,T)(U,p,F)
+
+Fix orthonormal helical frames h_sigma(k), sigma in {+1,-1}, k!=0, with
+       2 pi i k cross h_sigma(k)=sigma 2 pi |k| h_sigma(k),
+and compatible conjugacy between k and -k. Write c_sigma(k,t) for the
+helical coefficients of U and c_(lambda,sigma)(k,t) for those of U_lambda.
+Let Leray denote the periodic Leray projector retaining its zero mode.
+
+Family means:
+  For every s in [0,T), there exist one open interval I compactly
+  contained in (s,T), one t_* in I, one epsilon>0, and one smooth family
+       (U_lambda,p,F_lambda),   |lambda|<epsilon,
+  such that (U_0,F_0)=(U,F), and FDSN.1--FDSN.5 all hold for this SAME
+  interval, comparison time, and family.
+
+FDSN.1 -- EXACT_REALIZATION_AND_AGREEMENT
+
+  Each (U_lambda,p,F_lambda) solves the periodic NSE at viscosity nu,
+  with U_lambda(0)=U(0) and globally admissible
+       F_lambda in C_c^infinity(T^3 x (0,infinity);R^3).
+  The difference U_lambda-U extends by zero to a member of
+       C_c^infinity(T^3 x I;R^3),
+  and F_lambda-F belongs to the same space.
+  Thus the pressure is unchanged, the initial and exact late velocity
+  and force histories agree, and each member blows up at the same T.
+
+FDSN.2 -- COMPLETE_HELICAL_POWER_PRESERVATION
+
+  For all |lambda|<epsilon, all k!=0, all sigma, and all 0<=t<T,
+       |c_(lambda,sigma)(k,t)|^2=|c_sigma(k,t)|^2,
+       Fourier(U_lambda)(0,t)=Fourier(U)(0,t).
+
+FDSN.3 -- TRANSLATION_SEPARATION
+
+  For all lambda!=eta in the parameter interval and every y in T^3,
+       U_lambda(t_*,.) is not identical to U_eta(t_*,.+y).
+  This is a distinction between entire spatial fields at the common
+  time t_*, not an assertion of pointwise inequality at every x.
+
+FDSN.4 -- PROJECTED_FORCE_SEPARATION
+
+  For all distinct lambda,eta,
+       Leray(F_lambda-F_eta) is not identically zero
+       on T^3 x [0,T).
+  This is separation of the complete force histories, not necessarily
+  inequality at every time or point.
+
+FDSN.5 -- SMOOTH_SMALLNESS
+
+  For every integer r>=0 there exist finite C_r and delta_r>0 such that,
+  for |lambda|<min(epsilon,delta_r),
+       ||U_lambda-U||_(C^r(T^3 x closure(I)))
+        + ||F_lambda-F||_(C^r(T^3 x closure(I)))
+           <= C_r |lambda|.
+  There is no claim of a constant uniform over all derivative orders.
+
+The quantifier order is part of the theorem:
+  forall seed, forall s, exists I,t_*,epsilon,family,
+  followed by the universal parameter/mode/time requirements.
+It must not be weakened to separate families satisfying separate clauses.
+
+26.3 The one main theorem
+
+FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN):
+
+  For every nu,T,U,p,F,
+       Seed_(nu,T)(U,p,F) ==> Family_(nu,T)(U,p,F).
+
+This is the single root endpoint for the current spectral-nonrigidity
+chain. The following statements are supporting lemmas for that endpoint,
+not separately adopted project goals.
+
+26.4 Supporting lemma register
+
+FDSN.L1 -- ACTIVE_TRIAD
+  Input: Seed_(nu,T)(U,p,F) and any s in [0,T).
+  Output: a time t_* in (s,T) and noncollinear k_1,k_2 with
+          k_1+k_2=k_3 and all three Fourier coefficients nonzero.
+  Proof location: Section 25.3.
+  Argument: absence of an active noncollinear triad throughout (s,T)
+  makes every real nonlinear modal energy transfer zero. The resulting
+  forced linear H^2 bound contradicts the L-infinity blowup.
+
+FDSN.L2 -- LOCAL_PHASE_FAMILY
+  Inputs: L1 and seed smoothness.
+  Output: an interval I, nonvanishing helical triad product on I, a
+  compactly supported bump beta with beta(t_*)=1, and the family formed
+  by rotating only +/- k_3 by exp(+/- i lambda beta(t)).
+  The mean and every individual helical modal power are preserved.
+  The correction h_lambda has compact time support in I.
+  Supplies: FDSN.2 and the velocity part of FDSN.1.
+  Proof locations: Sections 25.3--25.4.
+
+FDSN.L3 -- RESIDUAL_REALIZATION
+  Inputs: L2, the seed equation, and the compact regular time slab.
+  Define:
+       F_lambda=F + partial_t h_lambda - nu Delta h_lambda
+                  + (U.grad)h_lambda + (h_lambda.grad)U
+                  + (h_lambda.grad)h_lambda.
+  Output: exact NSE realization, unchanged pressure, smooth admissible
+  forcing, common initial datum, and exact late agreement/blowup.
+  Supplies: FDSN.1.
+  Proof location: Section 25.4.
+
+FDSN.L4 -- BISPECTRAL_SEPARATION
+  Input: the family and nonzero triad product from L2.
+  Define:
+       B_U(t)=c_(sigma_1)(k_1,t)c_(sigma_2)(k_2,t)
+                    conjugate(c_(sigma_3)(k_3,t)).
+  Translation phases cancel because k_1+k_2=k_3, but
+       B_(U_lambda)(t_*)=exp(-i lambda) B_U(t_*).
+  Choosing epsilon<=pi/4 gives pairwise distinct translation classes.
+  Supplies: FDSN.3.
+  Proof location: Section 25.5.
+
+FDSN.L5 -- PROJECTED_FORCE_SEPARATION
+  Inputs: L3, L4, and classical uniqueness on compact preterminal slabs.
+  If two projected force histories agreed, the common initial datum
+  would give identical velocities, contradicting L4.
+  Supplies: FDSN.4.
+  Proof location: Section 25.5.
+
+FDSN.L6 -- SMOOTH_PARAMETER_ESTIMATE
+  Inputs: the finite Fourier-pair construction in L2 and residual in L3.
+  Differentiate exp(i lambda beta)-1 at each fixed order on the compact
+  slab, and estimate the residual using bounded seed derivatives there.
+  Supplies: FDSN.5.
+  Proof location: Section 25.6.
+
+Dependency register:
+  Seed + s       -> L1
+  L1 + smoothness -> L2
+  L2 + seed NSE  -> L3
+  L2             -> L4
+  L3 + L4 + classical uniqueness -> L5
+  L2 + L3        -> L6
+  L2 + L3 + L4 + L5 + L6 -> FDSN.1--FDSN.5 -> FDSN.
+
+Assembly checks:
+  The seed hypotheses supply the classical identities and smoothness.
+  All lemmas use the same selected triad, interval, bump, and family.
+  A single small parameter interval, e.g. |lambda|<pi/4, serves all
+  separation claims; fixed-order smallness is quantified as in FDSN.5.
+  No derivative-growth premise near T is introduced at any edge.
+
+26.5 Consequence register
+
+FDSN.C1 -- QUADRATIC_SPECTRAL_OBSERVATIONS
+  From FDSN.2:
+    - every real-order H^q norm history agrees;
+    - energy, enstrophy, helicity, and dissipation histories agree;
+    - the defined Q_U(t)=||grad U(t)||_2^2/(4 pi^2) agrees;
+    - the corresponding nonnegative time integrals agree, including
+      as extended integrals where necessary.
+  This is an observation identity for forced solutions, not an
+  application of an unforced regularity criterion.
+
+FDSN.C2 -- TOTAL_POWER_INPUT
+  From FDSN.1, FDSN.C1, and the classical energy identity:
+       integral F_lambda.U_lambda
+          = (1/2) d_t ||U_lambda||_2^2
+              + nu ||grad U_lambda||_2^2
+          = integral F.U.
+  Integrals are over T^3 and the identity holds for every t<T.
+
+FDSN.E1 -- FUNCTIONAL_PARAMETER_EXTENSION (construction extension)
+  Section 25.6 replaces lambda beta by a small arbitrary smooth phase
+  supported in a fixed compact interval K inside I and reuses L3--L6.
+  This yields an infinite-dimensional parameter family.
+  E1 depends on that stronger construction, not on the bare existential
+  one-parameter statement FDSN alone. Pairwise translation separation
+  may occur at a time depending on the parameter pair.
+  E1 is not needed to invoke or establish the canonical root theorem.
+
+The distinct-terminal-germ construction of Section 24.4 is outside FDSN.
+Its separate (PG) source-instantiation obstruction remains recorded.
+It must not be imported into the FDSN hypotheses or treated as a
+consequence of FDSN.
+
+26.6 Stable references and endpoint status
+
+Examples of precise references:
+  "Assume Seed_(nu,T); apply FDSN."
+  "By FDSN.2, the complete helical modal-power histories coincide."
+  "FDSN.3 separates the velocity fields modulo translations."
+  "FDSN.4 separates the forces modulo periodic pressure gradients."
+  "By FDSN.C2, instantaneous total force work is unchanged."
+  "The argument required here is FDSN.L1, the active-triad lemma."
+
+B_TIER_STATUS:
+  The implication Seed -> Family is closed by the mathematical proof
+  in Section 25, organized by the six lemmas above.
+  This status is conditional on the seed input and uses no (PG).
+  The current restructuring adds stable references; it is not a new
+  source-existence proof or an increase in formal verification tier.
+
+LITERATURE_STATUS:
+  Candidate constrained refinement; global priority and publication
+  significance remain unverified, as recorded in Section 25.1.
+
+FORMAL_STATUS:
+  No local Lean execution or new external compiler/axiom audit.
+  No A-tier claim.
+
+PROJECT_STATUS:
+  Fefferman_D remains the project goal.
+  FEFFERMAN_D_SPECTRAL_NONRIGIDITY is the single main theorem for
+  the current local chain.
+
+
+27. Construction checklist for the single FDSN main theorem
+
+Date: 20 November 2026
+Root: FEFFERMAN_D_SPECTRAL_NONRIGIDITY, canonical v1.0 in Section 26.
+Purpose: an ordered construction/checklist and a map for subsequent Lean
+anchoring. This does not change the root's Seed -> Family statement.
+
+Status legend:
+  [B] The ordinary mathematical argument is present in Sections 25--26.
+      This is not a Lean compiler or kernel claim.
+  [P] A formal implementation/adapter remains to be established.
+  [E] Verification evidence is a separate obligation.
+  Exact source anchors and their checked scope are registered in Section 28.
+  A source declaration, a structure field assumed as input, and a cached
+  theorem-level compiler/axiom receipt are different kinds of evidence.
+
+K01. Freeze the actual input and output predicates. [B; P]
+  Define the arbitrary-nu, arbitrary-T periodic Seed with the exact
+  hypotheses H1--H4 in Section 26.1. Define Family with the shared witnesses
+  I,t_*,epsilon and one family satisfying FDSN.1--FDSN.5 simultaneously.
+  Output: faithful FDSN statement; no assumed Family hidden inside Seed.
+  Universal theorem construction does not require proving that a Seed
+  exists. Adapting a concrete published seed is a separate application.
+
+K02. Fix Fourier, realness and helical conventions. [B; P]
+  Use exp(2 pi i k.x), k in Z^3; preserve the zero mode.
+  Fix orthonormal helicity frames h_sigma(k) with
+    2 pi i k cross h_sigma(k)=sigma 2 pi |k| h_sigma(k),
+  and conjugate frames at -k.
+  Output: precise coefficient maps, conjugacy, divergence-free modal
+  constraints, and a linear decomposition into the two helicities.
+
+K03. Connect the classical PDE to Fourier and energy identities. [B; P]
+  On every compact preterminal time slab, justify differentiation,
+  Fourier convolution, projection of pressure, and weighted energy sums.
+  Output: the genuine infinite-mode coefficient equation and a weighted
+  Sobolev energy identity for the actual smooth periodic velocity.
+  Finite-mode/Galerkin identities alone do not meet this endpoint.
+
+K04. Prove the triad-free cancellation identity. [B; P]
+  If no active noncollinear triad occurs at a time, each real nonlinear
+  modal energy-transfer summand is zero.
+  Check separately: zero inputs/output, collinear inputs, and mean
+  advection (purely imaginary). Keep the spatial mean in the projector.
+  Output: zero nonlinear contribution for every required real weight.
+
+K05. Deduce an active noncollinear triad after every s<T. [B; P]
+  Apply K04 on a hypothetical triad-free final interval. The forced
+  H^2 energy estimate and H^2 -> L-infinity embedding contradict blowup.
+  A formal proof may instead use an existing H^3 embedding and the same
+  weighted cancellation; this changes the proof route, not the lemma.
+  Output: FDSN.L1 with k_1+k_2=k_3, noncollinearity, and three nonzero
+  coefficients at a common time t_* in (s,T).
+  Depends on K01--K04.
+
+K06. Choose helicities and a common nonvanishing interval. [B; P]
+  Select sigma_j with c_(sigma_j)(k_j,t_*)!=0. By continuity shrink to
+  one I compactly contained in (s,T) on which their product stays nonzero.
+  Output: a single nonzero triad product and a common regular time slab.
+  Depends on K02,K05.
+
+K07. Construct the normalized smooth time bump. [B; P]
+  Choose beta in C_c^infinity(I;R) with 0<=beta<=1 and beta(t_*)=1.
+  Output: exact support, smoothness, and normalization certificates.
+  Depends on K06.
+
+K08. Define and admit the one-pair phase deformation. [B; P]
+  For |lambda|<pi/4 rotate only +/- k_3 by exp(+/-i lambda beta(t)).
+  Leave every other coefficient and the mean unchanged.
+  Prove jointly smooth dependence, real-valued reconstruction,
+  incompressibility, and compact time support of h_lambda=U_lambda-U.
+  Output: the velocity part of FDSN.L2.
+  Depends on K02,K06,K07.
+
+K09. Prove complete modal-power preservation. [B; P]
+  Use |exp(i theta)|=1, the linear helicity decomposition, and exact
+  coefficient identification for the finite Fourier-pair correction.
+  Output: FDSN.2 for all modes, both helicities, all preterminal times,
+  together with mean preservation.
+  Depends on K08.
+
+K10. Define the residual force and prove the NSE exactly. [B; P]
+  Keep p_lambda=p. Define
+    F_lambda=F+partial_t h_lambda-nu Delta h_lambda
+               +(U.grad)h_lambda+(h_lambda.grad)U
+               +(h_lambda.grad)h_lambda.
+  Expand the equation using actual derivative operators.
+  Output: FDSN.L3's exact forced momentum equation.
+  A theorem conditional on arbitrary "operator laws" is not by itself
+  a construction of these laws for the chosen fields.
+  Depends on K01,K08.
+
+K11. Prove global force admission and exact initial/late agreement. [B; P]
+  Each residual correction has support compactly inside I. Extend it
+  by zero; prove smoothness and admissible temporal compact support.
+  The initial datum and exact terminal velocity/force histories agree.
+  Transfer the seed blowup and finite energy/dissipation.
+  Output: FDSN.1.
+  Depends on K09,K10.
+
+K12. Prove the explicit translation-separation certificate. [B; P]
+  For
+    B_U=c_(sigma_1)(k_1)c_(sigma_2)(k_2)conj(c_(sigma_3)(k_3)),
+  establish translation invariance from k_1+k_2=k_3.
+  Establish B_(U_lambda)(t_*)=exp(-i lambda)B_U(t_*).
+  Use nonvanishing and the small parameter interval to exclude phase
+  wrapping, giving separation for every lambda!=eta at the same t_*.
+  Output: FDSN.L4 and FDSN.3.
+  Depends on K06,K08.
+
+K13. Prove separation of projected forcing histories. [B; P]
+  Assume Leray(F_lambda)=Leray(F_eta) on [0,T).
+  Supply a periodic projected-force uniqueness theorem, or construct
+  the smooth periodic pressure correction needed to apply a same-force
+  classical uniqueness theorem on every compact subinterval.
+  Contradict K12.
+  Output: FDSN.L5 and FDSN.4.
+  Depends on K10--K12; includes the pressure/projection adapter.
+
+K14. Prove fixed-order smooth smallness. [B; P]
+  Differentiate exp(i lambda beta)-1 and the finite-pair correction.
+  Bound the required seed derivatives on the fixed compact time slab.
+  Estimate the linear and quadratic residual terms at each fixed r.
+  Output: FDSN.L6 and FDSN.5 with constants allowed to depend on r.
+  Depends on K08,K10,K11.
+
+K15. Derive exact quadratic-observation consequences. [B; P]
+  Use actual Fourier coefficient/norm identities, not only formal
+  weighted sequence equality, to preserve every H^q norm, helicity,
+  energy, enstrophy, dissipation and the defined Q(t) budgets.
+  Output: FDSN.C1.
+  Depends on K02,K03,K09.
+
+K16. Derive identical instantaneous total force work. [B; P]
+  Apply the classical periodic forced energy equality to each member:
+    integral F_lambda.U_lambda
+      =(1/2)d_t||U_lambda||_2^2+nu||grad U_lambda||_2^2.
+  Substitute K15.
+  Output: FDSN.C2.
+  Depends on K10,K11,K15.
+
+K17. Assemble the single root without changing quantifiers. [B; P]
+  Reuse the same triad, interval, bump, parameter family, and t_*.
+  Assemble FDSN.1--FDSN.5 under the exact Section 26 Seed predicate.
+  Recheck forall seed, forall s, exists common witnesses, forall
+  parameters/modes/times. Attach C1/C2 as consequences.
+  Output: FEFFERMAN_D_SPECTRAL_NONRIGIDITY.
+  Depends on K01--K14; K15--K16 supply the named corollaries.
+
+K18. Match formal evidence to exact endpoints and source pins. [E]
+  Inventory exact existing declarations, hypotheses, imports, compiler
+  and Mathlib revisions, and cached theorem-level type/axiom reports.
+  Keep imported accepted theorems separate from unimplemented adapters.
+  An empty module, structure field, successful repository workflow, or
+  prepared Lean text alone does not certify the new FDSN endpoint.
+  Verification remains cached external evidence only in this task.
+  Missing external evidence leaves the candidate prepared/unverified;
+  it does not permit a local Lean or Lake fallback.
+
+Recommended implementation grouping, preserving the single root:
+  A. Contracts and scalar/finite-phase leaves: K01,K02,K06--K09,K12.
+  B. PDE realization and admission: K10,K11,K14.
+  C. Analytic bridges: K03--K05,K13,K15,K16.
+  D. Shared-witness assembly and exact evidence: K17,K18.
+
+The mathematical order and the efficient formalization order differ:
+low-level phase/bump algebra can be prepared before the harder infinite
+Fourier-energy adapter, while all required premises remain explicit.
+
+END OF FDSN CONSTRUCTION CHECKLIST
+
+
+28. Existing Lean anchors for FDSN: pinned source and cached-evidence register
+
+Inspection date: 20 November 2026
+Scope: the eighteen construction checkpoints in Section 27.
+Method: static source reads, repository metadata, retained external compiler
+receipts, and retained theorem-level type/axiom reports. No local Lean,
+Lake, local kernel audit, repository build script, external CI dispatch,
+or Git mutation was performed.
+
+28.1 Result and evidence labels
+
+Reusable formal foundations exist. No declaration implementing the complete
+FDSN root, its active-triad theorem, or its helical/bispectral family was
+found in the inspected pins. The ordinary B-tier proof is unaffected.
+
+Use these evidence labels:
+  SOURCE: exact declaration and its source proof inspected at a pinned revision.
+  MODULE_PASS: matching cached external module compiler receipt inspected.
+  NAMED_PASS: retained acceptance/type/axiom evidence identifies the exact
+              declaration at its tested source revision.
+  NEW_ADAPTER: a faithful specialization, bridge, or new FDSN lemma remains.
+These labels describe existing anchors, not certification of a new endpoint.
+
+A successful compiler receipt for an imported file does not by itself
+supply a fresh named FDSN axiom report. A structure with useful fields is a
+contract, not a construction of an inhabitant. Statements from different
+toolchain/dependency pins cannot be combined by reusing incompatible objects.
+
+28.2 Source and compiler pins
+
+NATIVE:
+  Repository: randogelist/Methboke.
+  Inspected main source: 37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3.
+  Its parent is 66a529248d3198ed70dc5489d82868bc33a37796.
+  The main-head change contains documentation/records, with no Lean file
+  changes relative to that parent.
+  Material toolchain: leanprover/lean4:v4.33.0.
+  Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+  Vendored SingularClosure source:
+    randogelist/Methlib@96033dd69c994bec337a87369a6c27256e724980.
+
+UPSTREAM:
+  Repository: openai/NavierStokesAndEuler.
+  Revision: f9e8bc5b38b6e212696e8a30e3e91517af887bbd.
+  Toolchain: leanprover/lean4:v4.34.0-rc2.
+  Mathlib: 85e3a25e006c35636f0e53b0e9296caca2685bc0.
+  The isolated Methboke direct-D project uses this environment.
+
+HODGE:
+  Repository: randogelist/Methlib.
+  Tested proof revision: f927f1e31196f0be71b2581dc85f6e3fd19e0746.
+  Branch: FourierHodgeLaws_inhabitant.
+  Evidence/documentation head:
+    eac159c5f7bf5a99a00d994da34c4760ea8335d0.
+  Toolchain: leanprover/lean4:v4.34.0-rc1.
+  Mathlib: de5ce8a9a66a4aa68a9bdbb35b63a06d34d9ca11.
+
+QFA:
+  Repository: randogelist/Methboke, AC-Integration.
+  Tested proof revision: afd67db40e71bd1412c82247a78598288deb611e.
+  Inspected evidence/documentation head:
+    a1dea65c8eb1344b5d55157162db2d38a8d78ff3.
+  Toolchain/mathlib: same native 4.33.0/db584 pin above.
+  This is a separate branch/integration input, not an assertion that all
+  of its modules already occur in main.
+
+A single chosen build environment must own the eventual FDSN proof.
+Cross-pin source porting requires its own matching external verification.
+This inspection selects no new compiler and performs no such port.
+
+28.3 Anchor catalogue
+
+A01 -- Faithful input contracts. Checkpoint K01.
+  File (NATIVE):
+    Material/MethbokeAddon/FeffermanFamily/FamilyContracts.lean
+  Namespace: MethbokeAddon.FeffermanFamily.
+  Existing declarations:
+    AdmissiblePeriodicForce
+    PreterminalPeriodicNSE
+    BoundedPreterminalCellEnergy
+    PeriodicFamilyWitness
+  Actual content: joint smoothness, unit spatial periodicity, compact
+  positive-time force support, literal native PDE, and cell energy.
+  Scope mismatch: PreterminalPeriodicNSE fixes T=1 and zero initial datum;
+  FDSN quantifies arbitrary T and smooth initial datum.
+  Evidence: SOURCE; these are contracts/definitions, not a seed witness.
+  NEW_ADAPTER: faithful arbitrary-(nu,T,a) FDSN Seed/Family definitions
+  and explicit dissipation/blowup fields. Do not assume Family inside Seed.
+
+A02 -- Actual periodic Fourier coordinates and reconstruction. K02,K08,K09.
+  Files (NATIVE, Material/_vendor/SingularClosure):
+    Galerkin.lean
+    SixChannels.lean
+    FourierSobolevOperators.lean
+    TorusSobolev.lean
+    PeriodicFourierInjective.lean
+  Namespace: SingularClosure.
+  Existing declarations:
+    datumFourierCoeff
+    fourierCharacter
+    coefficientLeray
+    SpectralReality
+    SpectralSolenoidal
+    torusSobolevMultiplier
+    torusSobolevMultiplier_coeff
+    torusSobolevMultiplierLinear_norm_le
+    torusSobolev_norm_sq
+    datumFourierCoeff_injective_continuous_periodic
+  Additional reconstruction:
+    MethbokeAddon.WeakFouriermanB.smoothFourierSynthesis_datum_eq
+  in Material/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean.
+  Actual content: coefficient integrals over the unit cube, weighted
+  l2 multipliers and exact norms, and actual Fourier reconstruction.
+  The Leray symbol retains the mean: coefficientLeray 0 v=v by definition.
+  Evidence: SOURCE; MODULE_PASS for the multiplier, norm, and injectivity
+  modules, with matching source blobs at the inspected main pin.
+  NEW_ADAPTER: selected conjugate-pair multiplier, helical coordinates,
+  exact unitary norm preservation and actual translation covariance.
+  Important: SixChannels is axis/component bookkeeping, not helicity.
+  Several finite-cutoff APIs omit the zero mode; FDSN does not.
+
+A03 -- Infinite convection coefficients and coefficient time derivative.
+  Checkpoints K03--K05.
+  SingularClosure.smoothFourierSynthesis_convection_coeff
+    in Material/_vendor/SingularClosure/FourierProduct.lean.
+  Inputs: c:TorusSobolev 0, all-natural-order weighted summability,
+  SpectralReality c.val, and SpectralSolenoidal c.val.
+  Conclusion: the actual coefficients of convection(synthesis c.val)
+  equal fullTransportCoefficients c. This is an infinite-mode statement.
+  Evidence: SOURCE + MODULE_PASS.
+
+  MethbokeAddon.EhrenfestObstruction.local_datumFourierCoeff_hasDerivAt
+    in Material/MethbokeAddon/EhrenfestObstruction/
+       ReferenceCoefficientEvolution.lean.
+  Inputs: joint smoothness on localFrontSpacetime S and t in (0,S).
+  Conclusion: differentiation of a coefficient equals the coefficient
+  of the actual time derivative.
+  No unforced-NSE premise is needed for this general declaration.
+  Evidence: SOURCE + NAMED_PASS at 22431f032c868b8de1526767d7d32a2639f6a9ee.
+
+  NEW_ADAPTER: full weighted Sobolev energy differentiation on compact
+  time slabs, triad-free termwise cancellation with summability, forcing
+  estimate, and the active-triad contradiction. Neither anchor already
+  proves FDSN.L1.
+
+A04 -- Scalar phase algebra. K08,K09,K12,K14.
+  Mathlib native pin db584cd6d46c92f209a44c0f1c829460d327499d.
+  Exact declarations:
+    Complex.norm_exp_ofReal_mul_I
+      Mathlib/Analysis/Complex/Trigonometric.lean
+      For real x: norm(exp(x*I))=1.
+    Complex.exp_conj, Complex.exp_neg, Complex.exp_add
+      Mathlib/Analysis/Complex/Exponential.lean
+      Conjugation, inverse, and product identities.
+    Complex.exp_inj_of_neg_pi_lt_of_le_pi
+      Mathlib/Analysis/SpecialFunctions/Complex/Log.lean
+      exp(x)=exp(y) implies x=y when both imaginary parts are in (-pi,pi].
+    Real.norm_exp_I_mul_ofReal_sub_one_le
+      Mathlib/Analysis/SpecialFunctions/Trigonometric/Bounds.lean
+      For real x: norm(exp(I*x)-1)<=norm(x).
+      The namespace of this bound is Real, not Complex.
+  Evidence: SOURCE. Core unit-phase/injectivity declarations were also
+  located at the upstream Mathlib85e3 pin.
+  NEW_ADAPTER: specialize x=lambda*beta(t), prove conjugate-pair realness,
+  and cancel the nonzero triad correlation in the no-wrapping interval.
+  These are the most directly anchored first leaves.
+
+A05 -- Smooth bump, local nonvanishing, support and parameter calculus.
+  Checkpoints K06--K08,K11,K14.
+  Exact Mathlib declarations at the native pin:
+    ContDiffBump.contDiff
+    ContDiffBump.one_of_mem_closedBall
+    ContDiffBump.tsupport_eq
+    ContDiffBump.hasCompactSupport
+    ContDiffBump.nonneg
+    ContDiffBump.le_one
+      Mathlib/Analysis/Calculus/BumpFunction/Basic.lean
+    hasContDiffBump_of_innerProductSpace
+      Mathlib/Analysis/Calculus/BumpFunction/InnerProduct.lean
+    ContinuousAt.eventually_ne
+      Mathlib/Topology/Separation/Basic.lean
+    Complex.contDiff_exp, ContDiff.cexp
+      Mathlib/Analysis/SpecialFunctions/ExpDeriv.lean
+    tsupport_deriv_subset, HasCompactSupport.deriv
+      Mathlib/Analysis/Calculus/Deriv/Support.lean
+    tsupport_fderiv_subset, HasCompactSupport.fderiv
+      Mathlib/Analysis/Calculus/FDeriv/Const.lean
+    tsupport_mul_subset_left/right, tsupport_smul_subset_left/right
+      Mathlib/Topology/Algebra/Support.lean
+    IsCompact.exists_bound_of_continuousOn
+      Mathlib/Analysis/Normed/Group/Bounded.lean
+    Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le
+      Mathlib/Analysis/Calculus/MeanValue.lean
+  Evidence: SOURCE.
+  NEW_ADAPTER: choose radii with closed outer ball contained in I,
+  assemble the actual finite Fourier pair, and apply support/derivative
+  bounds to the native differential operators and fixed-order seminorms.
+  These anchors do not require any terminal growth estimate.
+
+A06 -- Exact nonlinear residual algebra. K10.
+  MethbokeAddon.EhrenfestObstruction.convection_add_eq_transport
+    Material/MethbokeAddon/EhrenfestObstruction/CrossTransport.lean
+  For arbitrary smooth fields w,v, expands the actual convection of w+v
+  into the two pure and two mixed transport terms.
+  Evidence: SOURCE + NAMED_PASS at
+    7908890a0afb1746ec43f127792a7e0cc667dca6.
+  NEW_ADAPTER: time-derivative and Laplacian linearity, the compensated
+  force definition, and joint compact-time admission.
+  A spatially disjoint-copy assembly theorem is not directly applicable:
+  the Fourier-pair perturbation is spatially global.
+
+  Supporting locality declarations in
+    Material/MethbokeAddon/FeffermanFamily/LocalDifferential.lean:
+    nativeTimeDerivative_congr, nativeLaplacian_congr,
+    nativeConvection_congr, nativeForcedEquation_congr.
+  These provide local equality of actual operators, not construction of
+  the cutoff/phase field itself.
+
+A07 -- Actual periodic Parseval and physical quadratic observations.
+  Checkpoints K09,K15,K16.
+  MethbokeAddon.EhrenfestObstruction.smooth_periodic_component_parseval
+    Material/MethbokeAddon/EhrenfestObstruction/PhysicalReferenceTail.lean
+  Inputs: smooth periodic real vector field v, component i.
+  Conclusion:
+    integral_unitCube (v(x)_i)^2
+      = sum'_k norm(datumFourierCoeff v k i)^2.
+  No mean-zero premise is imposed.
+  Evidence: SOURCE + NAMED_PASS at
+    22431f032c868b8de1526767d7d32a2639f6a9ee.
+  NEW_ADAPTER: sum the components, apply to derivatives, and connect
+  helical modal data to helicity and the chosen physical observations.
+  Native TorusSobolev is naturally indexed by N. The all-real-index
+  H^q consequence needs its own definition/weight adapter; it is not
+  silently covered by the natural-index declaration.
+
+A08 -- Periodic pressure recovery. K13.
+  SingularClosure.infiniteTransportPressure_recovery
+    Material/_vendor/SingularClosure/InfiniteFourierPressure.lean.
+  Input: generic rapid vector Fourier coefficients b (not restricted
+  to coefficients of convection).
+  Conclusion:
+    smoothFourierSynthesis b + grad(infiniteTransportPressure b)
+      = smoothFourierSynthesis(fun k => coefficientLeray k (b k)).
+  Evidence: SOURCE + MODULE_PASS.
+  Forward gradient annihilation anchors:
+    MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient
+    MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero
+    in .../EhrenfestObstruction/PressureFourier.lean.
+  NEW_ADAPTER: forcing-difference specialization with the retained mean,
+  and joint time smoothness of the recovered pressure on each compact
+  preterminal slab. Fixed-time smoothness alone is not this adapter.
+
+A09 -- Actual smooth forced periodic uniqueness. K13.
+  NavierStokes.PeriodicViscosityUniqueness.classical_uniqueness_on_Icc
+    UPSTREAM/NavierStokes/PeriodicViscosityUniqueness.lean.
+  Inputs: arbitrary nu>0, closed time slab [a,b], jointly smooth periodic
+  velocities and pressures, divergence-free velocities, the SAME actual
+  forcing, and equal initial velocities.
+  Conclusion: equality of the velocities on the closed slab.
+  Evidence: SOURCE; the module has a matching PASS receipt in the
+  inspected accepted direct-D compiler closure.
+  NEW_ADAPTER: equality of projected forces must first be turned into
+  the required same-force formulation by periodic pressure absorption,
+  or one must prove the projected-force difference-energy version.
+  Native unforced InitialClassicalFront uniqueness cannot be substituted
+  without proving the missing forcing extension.
+
+A10 -- Sobolev pointwise bound for the active-triad contradiction. K05.
+  NavierStokes.PeriodicSobolev.norm_le_three_derivativeH3Norm
+    UPSTREAM/NavierStokes/PeriodicSobolev.lean.
+  For a smooth unit-periodic field f:
+    norm(f x) <= 3 * derivativeH3Norm f.
+  Evidence: SOURCE; matching MODULE_PASS in the direct-D closure.
+  The companion speed_unbounded_implies_derivativeH3_unbounded is stated
+  at terminal time one. The pointwise bound itself has no fixed T.
+  NEW_ADAPTER: identify or compare the Fourier weighted norm from K04
+  with this actual derivative-based H^3 norm.
+  Using H^3 instead of H^2 is a valid proof strategy for the same FDSN.L1,
+  since the triad-free cancellation works for the requisite weights.
+  Native alternative:
+    MethbokeAddon.EhrenfestObstruction.finiteSynthesis_component_abs_le_H2_norm
+    in .../EhrenfestObstruction/FourierL1.lean,
+  has NAMED_PASS but is a finite-synthesis estimate. A full-series and
+  mean adapter is still necessary before treating it as the desired
+  arbitrary-mean embedding.
+
+A11 -- Forced-energy identity ingredients. K16.
+  UPSTREAM/NavierStokes/PeriodicIntegration.lean:
+    NavierStokes.PeriodicIntegration.cubeIntegral_mul_partial
+    NavierStokes.PeriodicIntegration.hasDerivAt_cubeIntegral_of_contDiffOn
+  UPSTREAM/NavierStokes/PeriodicUniqueness.lean:
+    NavierStokes.PeriodicUniqueness.cubeIntegral_transport_energy_zero
+    NavierStokes.PeriodicUniqueness.cubeIntegral_laplacian_energy
+    NavierStokes.PeriodicUniqueness.cubeIntegral_pressure_energy_zero
+  Evidence: SOURCE; these modules are in the accepted direct-D closure.
+  They prove actual periodic integration by parts and energy terms.
+  NEW_ADAPTER: assemble the exact forced energy/work equality under
+  FDSN's chosen field, time and integral conventions.
+
+A12 -- Additional periodic Fourier/Hodge anchors. K02,K08,K13.
+  HODGE/FourierHodgeLaws_inhabitant/FourierHodgeLaws/
+    FourierCoefficients.lean:
+      NSEMaxwell.HodgeProof.rapid_datumFourierCoeff
+      NSEMaxwell.HodgeProof.rapid_mul_bounded
+      NSEMaxwell.HodgeProof.datumFourierCoeff_coordinateDerivative
+  These supply actual periodic rapid coefficients, stability under
+  bounded scalar multipliers, and coordinate derivative symbols.
+  Evidence: SOURCE + matching retained NAMED_PASS at the HODGE pin.
+  ParameterCoefficients.lean:
+      datumFourierCoeff_contDiffOn
+      datumFourierCoeff_hasDerivWithinAt
+  These require the package's globally smooth half-spacetime velocity.
+  A preterminal seed needs a local-slab/time-localization adapter.
+  SpatialInhabitant.lean and SpatialHodge.lean:
+      spatialInverseLaplacianLaws
+      SpatialInverseLaplacianLaws.K_curl
+      h1_reconstruct_velocity
+      h2_reconstruct_curl
+  The inverse-Laplacian laws have an actual constructed inhabitant.
+  NEW_ADAPTER: exact Leray-gradient equivalence and native API alignment.
+  This is a separate rc1 compiler/Mathlib pin; use as a proved source
+  reference until a port has its own matched external evidence.
+
+A13 -- Generic Gronwall/comparison alternative. K13.
+  QFA/Material/_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean:
+      QFA.Endpoints.Comparison.critical_comparison_differential_gronwall
+      QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL
+  QFA/Material/_vendor/QFA/Assembly/Comparison.lean:
+      QFA.Assembly.Comparison.eq_on_Icc_of_ae_relative_energy
+  QFA/Material/_vendor/QFA/Assembly/TailComparison.lean:
+      QFA.Assembly.TailComparison.ComparisonData.eq_on_Icc
+  The differential theorem bounds y(t) by y(s)*exp(integral_s^t a)
+  from actual continuity, differentiability and y'<=a*y hypotheses.
+  The abstract equality theorems are generic in a normed additive group;
+  they can be instantiated with periodic L2 once their energy/trace
+  hypotheses have been proved.
+  Evidence: SOURCE, exact audit consumers, and accepted scoped QFA
+  receipt at the tested afd67db4 revision.
+  NEW_ADAPTER: the actual forced periodic difference-energy inequality.
+  The energy-profile and continuous Fourier-transform QFA theorems on
+  R3 do not themselves supply a torus forced-energy identity.
+
+A14 -- Concrete source application, separate from the universal root.
+  UPSTREAM/NavierStokes/PeriodicPaperTheorem.lean:
+      NavierStokes.PeriodicPaper.CandidateProperties
+      NavierStokes.PeriodicPaper.periodic_corollary
+  These expose actual periodic velocity/pressure/force witnesses and
+  blowup, at T=1 with zero initial velocity. Energy/dissipation fields
+  are not included in that periodic record.
+  UPSTREAM/NavierStokes/R3/Theorem.lean:
+      NavierStokesR3.theorem_1_1_with_dissipation
+  This exposes the SAME whole-space witness together with force
+  integrability and quantitative energy/dissipation estimates.
+  Evidence: SOURCE; matching MODULE_PASS in the direct-D closure.
+  NEW_ADAPTER: retain the same fields while transporting the needed
+  properties through periodization/time normalization, or derive the
+  periodic energy estimates directly for the existing periodic witness.
+
+  By contrast,
+      Methboke.FeffermanD.Fefferman_D
+  in T3_NSE/D-Family-Obstruction/UpstreamSeed/Endpoint.lean concludes only
+  existence of admissible initial data and force with no global smooth
+  competitor. That exact theorem is accepted, but its conclusion is not
+  the preterminal Seed required as input to FDSN.
+
+28.4 Cached evidence actually inspected
+
+E-NATIVE-FOURIER:
+  Tested source 6440270ffe9b05b2956cd34c59c65f2fe341e8b8.
+  Run 44052579373.
+  Record: audits/material-6440270/current.json, retained at NATIVE main pin.
+  PASS module receipts inspected for SingularClosure.FourierProduct,
+  TorusSobolev, FourierSobolevOperators, InfiniteFourierPressure and
+  PeriodicFourierInjective. Their source Git blobs match the inspected
+  main source. Separate named axiom reports for these five declarations
+  were not established in this inspection.
+
+E-NATIVE-TRANSPORT:
+  Tested source 7908890a0afb1746ec43f127792a7e0cc667dca6.
+  Run 44635322649.
+  Record: audits/material-7908890a-accepted/summary.json.
+  Accepted named declaration list includes convection_add_eq_transport
+  and finiteSynthesis_component_abs_le_H2_norm.
+  Report records compiler/type/axiom acceptance with standard axioms.
+
+E-NATIVE-PARSEVAL:
+  Tested source 22431f032c868b8de1526767d7d32a2639f6a9ee.
+  Run 44641040255.
+  Records:
+    audits/material-22431f03-accepted/summary.json
+    audits/material-22431f03-accepted/EhrenfestReferenceEvolution.log
+  The retained literal types and axiom blocks were inspected for
+  local_datumFourierCoeff_hasDerivAt and smooth_periodic_component_parseval.
+  Their listed axioms are propext, Classical.choice and Quot.sound.
+
+E-DIRECT-D:
+  Tested Methboke source 66a529248d3198ed70dc5489d82868bc33a37796.
+  Run 44768857811; job 136400799602; artifact 14649221097.
+  The job and final acceptance step completed successfully.
+  The retained artifact was retrieved and its bytes matched SHA256
+    f01b81cc50619bf79e45eb8620f0ef29ef0927f1808a153f40854194e666727b.
+  Artifact size: 2,659,067 bytes.
+  Inspected current.json, compiler-version log, publication record,
+  logs/audit.log and relevant module receipts.
+  The accepted closure has 605 modules. Its five fresh named reports cover:
+    NavierStokes.Comparator.InitialVelocityConditionPeriodic
+    NavierStokes.Comparator.ForceConditionPeriodic
+    NavierStokes.Comparator.NavierStokesExistenceAndSmoothnessPeriodic
+    NavierStokes.ComparatorBridge.navier_stokes_breakdown_periodic
+    Methboke.FeffermanD.Fefferman_D
+  Those axiom lists contain only propext, Classical.choice and Quot.sound;
+  no sorryAx occurs in the inspected named audit.
+  PeriodicViscosityUniqueness, PeriodicSobolev, PeriodicPaperTheorem and
+  R3.Theorem have PASS module receipts in the same closure.
+  This is genuine evidence for the stated prior endpoint and dependencies,
+  not a compiler/axiom audit of FDSN.
+
+E-HODGE:
+  Tested source f927f1e31196f0be71b2581dc85f6e3fd19e0746.
+  Run 43370286685.
+  Records under:
+    FourierHodgeLaws_inhabitant/verification/run-43370286685/
+  provenance.json fixes Lean4.34.0-rc1 and Mathlibde5ce8a9.
+  FourierHodgeLaws-FourierCoefficients-audit.log contains the exact
+  derivative, rapid-coefficient and bounded-multiplier theorem types,
+  with standard-axiom lists and no sorryAx.
+  Parameter and spatial-inhabitant evidence was also inspected in the
+  scoped source review. No new cross-pin port is certified by that record.
+
+E-QFA:
+  Tested source afd67db40e71bd1412c82247a78598288deb611e.
+  Run 44788963412.
+  Record: audits/material-afd67db4-qfa-accepted/summary.json at the
+  AC-Integration evidence head a1dea65c8eb1344b5d55157162db2d38a8d78ff3.
+  Status is scoped QFA-foundation compiler/type/axiom acceptance.
+  It does not accept the physical QFA root, a forced periodic comparison
+  theorem, or FDSN. Audit consumers explicitly include the generic
+  comparison declarations described above.
+
+28.5 Checkpoint-to-anchor coverage
+
+K01 -> A01. Actual contracts found; arbitrary T/a FDSN API is new.
+K02 -> A02,A12. Actual 3D Fourier/Leray found; helical frames are new.
+K03 -> A03,A07,A11. Genuine analytic identities found; common API and
+       infinite weighted time-energy assembly are new.
+K04 -> A03. Infinite convolution available; no-active-triad cancellation
+       remains a new theorem.
+K05 -> A03,A10. Sobolev contradiction ingredients available; L1 is new.
+K06 -> A03,A05. Coefficient regularity/nonvanishing tools available;
+       selected helical triad/local interval assembly is new.
+K07 -> A05. Direct Mathlib bump construction available.
+K08 -> A02,A04,A05,A12. Direct scalar and finite-series leaves available;
+       real/solenoidal phase-family assembly is new.
+K09 -> A04 plus K02,K08. Unit-modulus proof directly anchored;
+       actual helical coefficient connection is new.
+K10 -> A06. Exact nonlinear expansion available; full residual theorem new.
+K11 -> A05,A06. Support and locality available; admissible family new.
+K12 -> A02,A04. Phase injectivity available; translation/bispectrum theorem new.
+K13 -> A08,A09 or A13. Two viable routes; projection/energy/pressure adapters new.
+K14 -> A04,A05,A06. Compact parameter bounds available; FDSN C^r theorem new.
+K15 -> A02,A07. Physical Parseval available; helicity/real-index adapters new.
+K16 -> A07,A11. Physical energy terms available; exact force-work corollary new.
+K17 -> No pre-existing FDSN root found; assemble only after preceding bridges.
+K18 -> Existing evidence identified above; no new FDSN evidence exists here.
+
+28.6 Most attainable formal construction order
+
+First, prepare PDE-independent leaves in the chosen existing compiler pin:
+  (i) unit norm and conjugacy of exp(i theta);
+  (ii) injectivity for the small phase interval;
+  (iii) norm(exp(i theta)-1)<=abs(theta);
+  (iv) normalized smooth bump with its exact support;
+  (v) local persistence of a nonzero continuous triad product.
+
+Next, implement the actual two-mode correction directly, rather than
+starting with a general infinite Fourier phase operator. Componentwise,
+for k_*=k_3 and z_lambda(t)=exp(i lambda beta(t)),
+  h_lambda(t,x)
+    =(z_lambda(t)-1) Fourier(U)(k_*,t) exp(2 pi i k_*.x)
+      + conjugate((z_lambda(t)-1) Fourier(U)(k_*,t) exp(2 pi i k_*.x)).
+The equality with a real vector field and its actual Fourier coefficients
+must be proved using the selected native definitions. This finite formula
+makes compact-time smoothness and all fixed-order estimates direct.
+
+Then:
+  - construct helical coefficient functionals and prove their linearity;
+  - use the exact convection expansion for residual realization;
+  - prove the translation character/bispectrum algebra;
+  - finish the genuinely analytic active-triad and projected-force bridges;
+  - derive physical quadratic observations and total force work;
+  - assemble the unchanged FDSN v1.0 root with shared witnesses.
+
+The helical frame is discrete in k; no frequency-continuous frame is
+required. Scalar phase preservation can first be proved for arbitrary
+complex-linear coordinate functionals, then specialized to a correctly
+constructed helical frame.
+
+For K13 either:
+  Route P: use periodic pressure recovery plus its time-smoothness adapter,
+           then the same-force classical uniqueness theorem; or
+  Route E: prove the projected-force difference-energy inequality and
+           apply the existing generic Gronwall endpoint.
+Both routes require real new adapters. The generic comparison theorem
+cannot be used by merely assuming its PDE energy hypothesis as the
+desired physical conclusion.
+
+28.7 Explicit scope exclusions
+
+- No existing helical implementation was verified. Axis/component
+  SixChannels must not be renamed as helicity.
+- One-dimensional AddCircle Fourier theorems are genuine Mathlib anchors,
+  but require a product-torus/vector bridge. Prefer the inspected native
+  three-dimensional coefficient/reconstruction package here.
+- The native Mathlib pin uses names such as AddCircle.fourierCoeff.add;
+  current-main renamed spellings must not be substituted without checking.
+- A finite-synthesis H^2 bound is not yet the required full-series
+  arbitrary-mean bound.
+- A globally smooth half-spacetime parameter theorem cannot be applied
+  directly to a seed singular at T.
+- Whole-space QFA continuous Fourier-transform theorems and its
+  zero-start dissipative EnergyProfile do not prove FDSN's periodic
+  forced energy/work identity.
+- Natural-index TorusSobolev results do not silently certify all-real
+  H^q corollaries.
+- Existing direct-D acceptance does not certify the stronger FDSN Seed
+  adapter, the helical family, or the root theorem.
+
+28.8 Source/evidence links
+
+Native current snapshot:
+https://github.com/randogelist/Methboke/tree/37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3
+
+Native contracts:
+https://github.com/randogelist/Methboke/blob/37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3/Material/MethbokeAddon/FeffermanFamily/FamilyContracts.lean
+
+Infinite Fourier convection:
+https://github.com/randogelist/Methboke/blob/6440270ffe9b05b2956cd34c59c65f2fe341e8b8/Material/_vendor/SingularClosure/FourierProduct.lean
+
+Sobolev weighted norm:
+https://github.com/randogelist/Methboke/blob/6440270ffe9b05b2956cd34c59c65f2fe341e8b8/Material/_vendor/SingularClosure/TorusSobolev.lean
+
+Pressure recovery:
+https://github.com/randogelist/Methboke/blob/6440270ffe9b05b2956cd34c59c65f2fe341e8b8/Material/_vendor/SingularClosure/InfiniteFourierPressure.lean
+
+Convection expansion:
+https://github.com/randogelist/Methboke/blob/7908890a0afb1746ec43f127792a7e0cc667dca6/Material/MethbokeAddon/EhrenfestObstruction/CrossTransport.lean
+
+Actual Parseval:
+https://github.com/randogelist/Methboke/blob/22431f032c868b8de1526767d7d32a2639f6a9ee/Material/MethbokeAddon/EhrenfestObstruction/PhysicalReferenceTail.lean
+
+Actual coefficient derivative:
+https://github.com/randogelist/Methboke/blob/22431f032c868b8de1526767d7d32a2639f6a9ee/Material/MethbokeAddon/EhrenfestObstruction/ReferenceCoefficientEvolution.lean
+
+Mathlib scalar phase:
+https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Complex/Trigonometric.lean
+
+Mathlib phase injectivity:
+https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/SpecialFunctions/Complex/Log.lean
+
+Mathlib phase smallness:
+https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/SpecialFunctions/Trigonometric/Bounds.lean
+
+Mathlib bump:
+https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/BumpFunction/Basic.lean
+
+Upstream periodic uniqueness:
+https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicViscosityUniqueness.lean
+
+Upstream pointwise Sobolev bound:
+https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicSobolev.lean
+
+Upstream periodic energy ingredients:
+https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicUniqueness.lean
+
+Periodic source witness:
+https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/PeriodicPaperTheorem.lean
+
+Whole-space witness with dissipation:
+https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/Theorem.lean
+
+Hodge Fourier coefficients:
+https://github.com/randogelist/Methlib/blob/f927f1e31196f0be71b2581dc85f6e3fd19e0746/FourierHodgeLaws_inhabitant/FourierHodgeLaws/FourierCoefficients.lean
+
+Generic Gronwall:
+https://github.com/randogelist/Methboke/blob/afd67db40e71bd1412c82247a78598288deb611e/Material/_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean
+
+Native compiler report:
+https://github.com/randogelist/Methboke/blob/37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3/audits/material-6440270/current.json
+
+Native convection acceptance:
+https://github.com/randogelist/Methboke/blob/37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3/audits/material-7908890a-accepted/summary.json
+
+Native Parseval and coefficient-derivative named audit:
+https://github.com/randogelist/Methboke/blob/37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3/audits/material-22431f03-accepted/EhrenfestReferenceEvolution.log
+
+Direct-D acceptance and retained artifact:
+https://github.com/randogelist/Methboke/blob/37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3/T3_NSE/D-Family-Obstruction/UpstreamSeed/ACCEPTANCE.json
+https://github.com/randogelist/Methboke/actions/runs/44768857811
+https://github.com/randogelist/Methboke/actions/runs/44768857811/artifacts/14649221097
+
+Hodge named audit and provenance:
+https://github.com/randogelist/Methlib/blob/eac159c5f7bf5a99a00d994da34c4760ea8335d0/FourierHodgeLaws_inhabitant/verification/run-43370286685/FourierHodgeLaws-FourierCoefficients-audit.log
+https://github.com/randogelist/Methlib/blob/eac159c5f7bf5a99a00d994da34c4760ea8335d0/FourierHodgeLaws_inhabitant/verification/run-43370286685/provenance.json
+
+QFA scoped acceptance:
+https://github.com/randogelist/Methboke/blob/a1dea65c8eb1344b5d55157162db2d38a8d78ff3/audits/material-afd67db4-qfa-accepted/summary.json
+
+28.9 Final status
+
+CHECKLIST:
+  Eighteen construction/evidence checkpoints are recorded in Section 27.
+
+B_TIER:
+  The canonical FDSN Seed -> Family proof remains closed as stated.
+  The present analysis adds an implementation map, not new analytic
+  assumptions and not a new blowup mechanism.
+
+LEAN_ANCHORS:
+  Exact reusable declarations and cached evidence have been identified.
+  The inspected source/evidence scopes are explicitly distinguished.
+
+FDSN_LEAN_ROOT:
+  No existing implementation or matching compiler/axiom audit was found
+  in the inspected sources. No new Lean endpoint is certified here.
+
+FIRST_SUBSTANTIVE_FORMAL_GAP:
+  After choosing a faithful Seed/Fourier/helicity API, K03--K05 require
+  the actual infinite weighted time-energy/triad bridge. Low-level
+  phase/bump leaves can be prepared independently while that gap remains
+  explicit. K13 has the additional projected-force comparison adapter.
+
+VERIFICATION:
+  Local Lean/Lake/kernel executions: zero.
+  New external CI jobs: zero.
+  Repository mutations: zero.
+  Future formal acceptance requires matching authorized external cached
+  compiler/type/axiom evidence for the exact new endpoint and dependency pin.
+
+PROJECT_GOAL:
+  Fefferman_D preserved.
+  Single local main theorem: FEFFERMAN_D_SPECTRAL_NONRIGIDITY.
+
+END OF FDSN CONSTRUCTION AND LEAN-ANCHOR REGISTER
+
+
+

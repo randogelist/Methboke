@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "project_goal": "Fefferman_D",
+  "local_target": "FEFFERMAN_D_SPECTRAL_NONRIGIDITY",
+  "version": "1.0",
+  "domain": "T^3",
+  "root_statement": "forall nu,T>0, forall U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F)",
+  "b_tier_status": "CONDITIONAL_SEED_TO_FAMILY_ARGUMENT_RECORDED",
+  "a_tier_status": "OPEN_FIRST_LEAF_CANDIDATES_PENDING_EXTERNAL_CI",
+  "implementation_base": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+  "packages": [
+    "FDSNPhase",
+    "FDSNBump"
+  ],
+  "new_named_declarations": [
+    "MethbokeAddon.FDSN.phase",
+    "MethbokeAddon.FDSN.phase_zero",
+    "MethbokeAddon.FDSN.phase_add",
+    "MethbokeAddon.FDSN.phase_ne_zero",
+    "MethbokeAddon.FDSN.norm_phase",
+    "MethbokeAddon.FDSN.phase_neg",
+    "MethbokeAddon.FDSN.conj_phase",
+    "MethbokeAddon.FDSN.phase_mul_neg",
+    "MethbokeAddon.FDSN.norm_phase_mul",
+    "MethbokeAddon.FDSN.modal_power_phase_mul",
+    "MethbokeAddon.FDSN.norm_phase_sub_one_le",
+    "MethbokeAddon.FDSN.norm_phase_mul_sub_le",
+    "MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi",
+    "MethbokeAddon.FDSN.phase_injective_small",
+    "MethbokeAddon.FDSN.triadCorrelation",
+    "MethbokeAddon.FDSN.triadCorrelation_ne_zero",
+    "MethbokeAddon.FDSN.triadCorrelation_phase",
+    "MethbokeAddon.FDSN.triadCorrelation_translation",
+    "MethbokeAddon.FDSN.triadCorrelation_phase_separates",
+    "MethbokeAddon.FDSN.triad_phase_not_translation",
+    "MethbokeAddon.FDSN.exists_normalized_time_bump"
+  ],
+  "accepted_new_declarations": [],
+  "next_preparation": "Actual Z^3 pair multiplier and Fourier translation; faithful Seed; localized smooth phase family.",
+  "main_open_bridges": [
+    "weighted infinite Fourier time-energy and active-triad contradiction",
+    "physical helical pair reconstruction and actual modal invariants",
+    "projected-force uniqueness adapter",
+    "fixed-order physical correction estimates",
+    "common-witness FDSN root assembly"
+  ],
+  "verification": {
+    "local_lean_executions": 0,
+    "external_ci_authorized": true,
+    "matching_run": null,
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "promotion_requires": "exact source, full consumer type, fresh axiom report and successful retained external evidence"
+  },
+  "scope_boundaries": [
+    "No seed existence asserted.",
+    "No change to native toolchain or vendor sources.",
+    "Scalar triad-character separation is a coefficient-level intermediate, not FDSN root acceptance."
+  ]
+}

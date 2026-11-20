@@ -17,10 +17,11 @@ Lean build, with unchanged namespace and import paths. Preserve
 
 ## Current goal
 
-Work from `main`. The user explicitly selected **Fefferman D** and requested
-implementation of the T3 family on main. The local construction route is
-`Fefferman_D_Family_obstruction`; its first foundation package is
-`Material/FeffermanFamilyFoundation/`.
+Work from `main`. The project goal remains **Fefferman D**. The current user-selected
+local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN v1.0)** on T^3; see
+`T3_NSE/D-Family-Obstruction/FDSN/`. The user authorized staged external CI and
+preparing subsequent endpoints while the exact current commit is being verified.
+The prescribed-site family route and its accepted helpers remain preserved.
 
 Preserve actual forced-NSE semantics, classical smoothness, periodic velocity
 AND pressure, distinct sites modulo the integer lattice, and the SAME prescribed
@@ -60,7 +61,7 @@ Prior current-goal documents are byte-preserved in
 - Preserve the exact tested commit during external verification. Do not cancel
   or supersede unrelated runs. The user's existing authorization for identified
   failed/stalled obsolete runs does not extend to unrelated work.
-- Use chat-only `<->` for each exactly accepted intermediate scope. Name a
+- Use chat-only `!=!` for each exactly accepted intermediate scope, as currently requested. Name a
   helper as a helper; do not promote the whole family or D root from its audit.
   No scheduled monitors, polling automations or webhook notifications.
 
@@ -75,3 +76,4 @@ T3 implementation ledger. Keep prior accepted proof bytes and evidence intact.
 Record formal gaps explicitly, including seed/toolchain compatibility, force
 admission, periodization and same-force comparison. Do not add a global custom
 axiom, hide a missing witness in a definition, or claim prepared code is verified.
+
