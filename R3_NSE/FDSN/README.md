@@ -21,3 +21,11 @@ The new R3 root remains open. No Lean is executed locally.
 
 Native sources are in `Material/MethbokeAddon/FDSNR3/`. Compiler and dependency
 pins remain those of the accepted native Material build.
+
+R3-01 and R3-02, with the pointwise phase helpers, are accepted at
+[run44831894933](https://github.com/randogelist/Methboke/actions/runs/44831894933).
+[Evidence](../../audits/fdsn-r3-4d00e260-accepted/summary.json) covers exact
+source, independent contract consumers and all required fresh type/axiom reports.
+The six-package Fourier/helical/patch/translation stage is prepared for external
+verification. Section17 of B-tier v1.1 gives the selected direct proof of force
+separation using a signed time-phase zero crossing.

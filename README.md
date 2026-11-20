@@ -4,7 +4,7 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
-The current local target is **FDSN_R3**, the user-assented whole-space extension of spectral nonrigidity. The [complete B-tier construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) and [sixteen-endpoint implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) state the explicit local-Schwartz seed and rapid-decay force scope. New source preparation is active; the R3 root is not yet A-tier. The domain-independent normalized time bump and exact residual identity reuse matching accepted evidence.
+The current local target is **FDSN_R3**, the user-assented whole-space extension of spectral nonrigidity. The [complete B-tier construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) and [sixteen-endpoint implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) state the explicit local-Schwartz seed and rapid-decay force scope. The exact R3 contracts and compact-carrier admission passed [run44831894933](https://github.com/randogelist/Methboke/actions/runs/44831894933); [matching evidence](audits/fdsn-r3-4d00e260-accepted/summary.json) also covers the phase helpers. The next Fourier/helical stage is prepared; the R3 root remains open. The domain-independent normalized time bump and exact residual identity reuse matching accepted evidence.
 
 The preserved accepted local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
 
@@ -169,3 +169,9 @@ The exact conditional theorem on the unit three-torus passed at `87ab6b4cfc4a81a
 The first R3 verification stopped at a smoothness-order coercion. Its
 [retained failure evidence](audits/fdsn-r3-5914a69a-failed/summary.json) and
 statement-preserving repair are tracked separately from accepted results.
+
+The R3 second stage introduces six packages with129declarations for actual
+Fourier calculus, Schwartz slice admission, nonzero frequency patches, helical
+projectors, odd cutoffs and translation rigidity. These candidates await
+matching external verification. B-tier v1.1 adds a direct force-separation
+proof at a signed time-phase zero crossing, preserving the exact theorem.

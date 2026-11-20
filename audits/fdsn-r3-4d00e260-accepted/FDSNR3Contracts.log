@@ -1,0 +1,264 @@
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CVec
+MethbokeAddon.FDSNR3.CVec : Type
+TYPE_END:MethbokeAddon.FDSNR3.CVec
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CVec
+'MethbokeAddon.FDSNR3.CVec' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CVec
+TYPE_BEGIN:MethbokeAddon.FDSNR3.complexify
+MethbokeAddon.FDSNR3.complexify : SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec
+TYPE_END:MethbokeAddon.FDSNR3.complexify
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.complexify
+'MethbokeAddon.FDSNR3.complexify' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.complexify
+TYPE_BEGIN:MethbokeAddon.FDSNR3.realify
+MethbokeAddon.FDSNR3.realify : MethbokeAddon.FDSNR3.CVec → SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.realify
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.realify
+'MethbokeAddon.FDSNR3.realify' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.realify
+TYPE_BEGIN:MethbokeAddon.FDSNR3.preterminalSpacetime
+MethbokeAddon.FDSNR3.preterminalSpacetime : ℝ → Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSNR3.preterminalSpacetime
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.preterminalSpacetime
+'MethbokeAddon.FDSNR3.preterminalSpacetime' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.preterminalSpacetime
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedJet
+MethbokeAddon.FDSNR3.weightedJet : ℕ → ℕ → SingularClosure.Velocity → Prod.{0, 0} ℝ SingularClosure.Vec → ℝ
+TYPE_END:MethbokeAddon.FDSNR3.weightedJet
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedJet
+'MethbokeAddon.FDSNR3.weightedJet' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedJet
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedJetWithin
+MethbokeAddon.FDSNR3.weightedJetWithin : ℝ → ℕ → ℕ → SingularClosure.Velocity → Prod.{0, 0} ℝ SingularClosure.Vec → ℝ
+TYPE_END:MethbokeAddon.FDSNR3.weightedJetWithin
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedJetWithin
+'MethbokeAddon.FDSNR3.weightedJetWithin' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedJetWithin
+TYPE_BEGIN:MethbokeAddon.FDSNR3.GlobalSchwartzBounds
+MethbokeAddon.FDSNR3.GlobalSchwartzBounds : SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.GlobalSchwartzBounds
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.GlobalSchwartzBounds
+'MethbokeAddon.FDSNR3.GlobalSchwartzBounds' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.GlobalSchwartzBounds
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz
+MethbokeAddon.FDSNR3.LocalSchwartz : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz
+'MethbokeAddon.FDSNR3.LocalSchwartz' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz
+TYPE_BEGIN:MethbokeAddon.FDSNR3.AdmissibleForce
+MethbokeAddon.FDSNR3.AdmissibleForce : SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.AdmissibleForce
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.AdmissibleForce
+'MethbokeAddon.FDSNR3.AdmissibleForce' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.AdmissibleForce
+TYPE_BEGIN:MethbokeAddon.FDSNR3.PreterminalNSE
+MethbokeAddon.FDSNR3.PreterminalNSE : ℝ →
+  ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.PreterminalNSE
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.PreterminalNSE
+'MethbokeAddon.FDSNR3.PreterminalNSE' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.PreterminalNSE
+TYPE_BEGIN:MethbokeAddon.FDSNR3.BoundedEnergy
+MethbokeAddon.FDSNR3.BoundedEnergy : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.BoundedEnergy
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.BoundedEnergy
+'MethbokeAddon.FDSNR3.BoundedEnergy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.BoundedEnergy
+TYPE_BEGIN:MethbokeAddon.FDSNR3.gradientSquare
+MethbokeAddon.FDSNR3.gradientSquare : SingularClosure.Field → SingularClosure.Vec → ℝ
+TYPE_END:MethbokeAddon.FDSNR3.gradientSquare
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.gradientSquare
+'MethbokeAddon.FDSNR3.gradientSquare' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.gradientSquare
+TYPE_BEGIN:MethbokeAddon.FDSNR3.dissipation
+MethbokeAddon.FDSNR3.dissipation : SingularClosure.Field → ℝ
+TYPE_END:MethbokeAddon.FDSNR3.dissipation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.dissipation
+'MethbokeAddon.FDSNR3.dissipation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.dissipation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.FiniteDissipation
+MethbokeAddon.FDSNR3.FiniteDissipation : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.FiniteDissipation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.FiniteDissipation
+'MethbokeAddon.FDSNR3.FiniteDissipation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.FiniteDissipation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CompactLocalBlowup
+MethbokeAddon.FDSNR3.CompactLocalBlowup : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.CompactLocalBlowup
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CompactLocalBlowup
+'MethbokeAddon.FDSNR3.CompactLocalBlowup' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CompactLocalBlowup
+TYPE_BEGIN:MethbokeAddon.FDSNR3.Seed
+MethbokeAddon.FDSNR3.Seed : ℝ →
+  ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.Seed
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.Seed
+'MethbokeAddon.FDSNR3.Seed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.Seed
+TYPE_BEGIN:MethbokeAddon.FDSNR3.fourierVelocity
+MethbokeAddon.FDSNR3.fourierVelocity : SingularClosure.Field → SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec
+TYPE_END:MethbokeAddon.FDSNR3.fourierVelocity
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.fourierVelocity
+'MethbokeAddon.FDSNR3.fourierVelocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.fourierVelocity
+TYPE_BEGIN:MethbokeAddon.FDSNR3.transverseSymbol
+MethbokeAddon.FDSNR3.transverseSymbol : SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec → MethbokeAddon.FDSNR3.CVec
+TYPE_END:MethbokeAddon.FDSNR3.transverseSymbol
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.transverseSymbol
+'MethbokeAddon.FDSNR3.transverseSymbol' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.transverseSymbol
+TYPE_BEGIN:MethbokeAddon.FDSNR3.complexCross
+MethbokeAddon.FDSNR3.complexCross : SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec → MethbokeAddon.FDSNR3.CVec
+TYPE_END:MethbokeAddon.FDSNR3.complexCross
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.complexCross
+'MethbokeAddon.FDSNR3.complexCross' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.complexCross
+TYPE_BEGIN:MethbokeAddon.FDSNR3.helicitySign
+MethbokeAddon.FDSNR3.helicitySign : Fin 2 → ℝ
+TYPE_END:MethbokeAddon.FDSNR3.helicitySign
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.helicitySign
+'MethbokeAddon.FDSNR3.helicitySign' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.helicitySign
+TYPE_BEGIN:MethbokeAddon.FDSNR3.helicalSymbol
+MethbokeAddon.FDSNR3.helicalSymbol : Fin 2 → SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec → MethbokeAddon.FDSNR3.CVec
+TYPE_END:MethbokeAddon.FDSNR3.helicalSymbol
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.helicalSymbol
+'MethbokeAddon.FDSNR3.helicalSymbol' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.helicalSymbol
+TYPE_BEGIN:MethbokeAddon.FDSNR3.helicalPower
+MethbokeAddon.FDSNR3.helicalPower : Fin 2 → SingularClosure.Field → SingularClosure.Vec → ℝ
+TYPE_END:MethbokeAddon.FDSNR3.helicalPower
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.helicalPower
+'MethbokeAddon.FDSNR3.helicalPower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.helicalPower
+TYPE_BEGIN:MethbokeAddon.FDSNR3.physicalLeray
+MethbokeAddon.FDSNR3.physicalLeray : SingularClosure.Field → SingularClosure.Field
+TYPE_END:MethbokeAddon.FDSNR3.physicalLeray
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.physicalLeray
+'MethbokeAddon.FDSNR3.physicalLeray' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.physicalLeray
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CompactTemporalCorrection
+MethbokeAddon.FDSNR3.CompactTemporalCorrection : ℝ → ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.CompactTemporalCorrection
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CompactTemporalCorrection
+'MethbokeAddon.FDSNR3.CompactTemporalCorrection' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CompactTemporalCorrection
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CommonTemporalSupport
+MethbokeAddon.FDSNR3.CommonTemporalSupport : ℝ →
+  ℝ →
+    ℝ →
+      SingularClosure.Velocity →
+        SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.CommonTemporalSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CommonTemporalSupport
+'MethbokeAddon.FDSNR3.CommonTemporalSupport' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CommonTemporalSupport
+TYPE_BEGIN:MethbokeAddon.FDSNR3.ExactRealizationAndAgreement
+MethbokeAddon.FDSNR3.ExactRealizationAndAgreement : ℝ →
+  ℝ →
+    ℝ →
+      ℝ →
+        ℝ →
+          SingularClosure.Velocity →
+            SingularClosure.Pressure →
+              SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.ExactRealizationAndAgreement
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.ExactRealizationAndAgreement
+'MethbokeAddon.FDSNR3.ExactRealizationAndAgreement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.ExactRealizationAndAgreement
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation
+MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation : ℝ →
+  ℝ → SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation
+'MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.TranslationSeparation
+MethbokeAddon.FDSNR3.TranslationSeparation : ℝ → ℝ → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.TranslationSeparation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.TranslationSeparation
+'MethbokeAddon.FDSNR3.TranslationSeparation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.TranslationSeparation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation
+MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation : ℝ → ℝ → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation
+'MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.WeightedSmoothSmallness
+MethbokeAddon.FDSNR3.WeightedSmoothSmallness : ℝ →
+  SingularClosure.Velocity →
+    SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.WeightedSmoothSmallness
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.WeightedSmoothSmallness
+'MethbokeAddon.FDSNR3.WeightedSmoothSmallness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.WeightedSmoothSmallness
+TYPE_BEGIN:MethbokeAddon.FDSNR3.EnergyDissipationPreservation
+MethbokeAddon.FDSNR3.EnergyDissipationPreservation : ℝ →
+  ℝ → SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSNR3.EnergyDissipationPreservation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.EnergyDissipationPreservation
+'MethbokeAddon.FDSNR3.EnergyDissipationPreservation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.EnergyDissipationPreservation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.Family
+MethbokeAddon.FDSNR3.Family : ℝ →
+  ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSNR3.Family
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.Family
+'MethbokeAddon.FDSNR3.Family' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.Family
+TYPE_BEGIN:MethbokeAddon.FDSNR3.realify_complexify
+MethbokeAddon.FDSNR3.realify_complexify : ∀ (v : SingularClosure.Vec),
+  Eq.{1} (MethbokeAddon.FDSNR3.realify (MethbokeAddon.FDSNR3.complexify v)) v
+TYPE_END:MethbokeAddon.FDSNR3.realify_complexify
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.realify_complexify
+'MethbokeAddon.FDSNR3.realify_complexify' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.realify_complexify
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedJet_nonneg
+MethbokeAddon.FDSNR3.weightedJet_nonneg : ∀ (N n : ℕ) (V : SingularClosure.Velocity)
+  (z : Prod.{0, 0} ℝ SingularClosure.Vec), LE.le.{0} 0 (MethbokeAddon.FDSNR3.weightedJet N n V z)
+TYPE_END:MethbokeAddon.FDSNR3.weightedJet_nonneg
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedJet_nonneg
+'MethbokeAddon.FDSNR3.weightedJet_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedJet_nonneg
+TYPE_BEGIN:MethbokeAddon.FDSNR3.gradientSquare_nonneg
+MethbokeAddon.FDSNR3.gradientSquare_nonneg : ∀ (v : SingularClosure.Field) (x : SingularClosure.Vec),
+  LE.le.{0} 0 (MethbokeAddon.FDSNR3.gradientSquare v x)
+TYPE_END:MethbokeAddon.FDSNR3.gradientSquare_nonneg
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.gradientSquare_nonneg
+'MethbokeAddon.FDSNR3.gradientSquare_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.gradientSquare_nonneg
+TYPE_BEGIN:MethbokeAddon.FDSNR3.Seed.initial_divergence_free
+@MethbokeAddon.FDSNR3.Seed.initial_divergence_free : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSNR3.Seed ν T u p F → ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u 0) x) 0
+TYPE_END:MethbokeAddon.FDSNR3.Seed.initial_divergence_free
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.Seed.initial_divergence_free
+'MethbokeAddon.FDSNR3.Seed.initial_divergence_free' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.Seed.initial_divergence_free
+TYPE_BEGIN:MethbokeAddon.FDSNR3.compactLocalBlowup_of_late_eq
+@MethbokeAddon.FDSNR3.compactLocalBlowup_of_late_eq : ∀ {T r : ℝ} {u v : SingularClosure.Velocity},
+  LT.lt.{0} r T →
+    MethbokeAddon.FDSNR3.CompactLocalBlowup T u →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} r T) t → Eq.{1} (v t) (u t)) →
+        MethbokeAddon.FDSNR3.CompactLocalBlowup T v
+TYPE_END:MethbokeAddon.FDSNR3.compactLocalBlowup_of_late_eq
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.compactLocalBlowup_of_late_eq
+'MethbokeAddon.FDSNR3.compactLocalBlowup_of_late_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.compactLocalBlowup_of_late_eq
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CompactLocalBlowup.exists_nonzero_after
+@MethbokeAddon.FDSNR3.CompactLocalBlowup.exists_nonzero_after : ∀ {T : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.CompactLocalBlowup T u →
+    ∀ {s : ℝ},
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) s → ∃ t, Membership.mem.{0, 0} (Set.Ioo.{0} s T) t ∧ ∃ x, Ne.{1} (u t x) 0
+TYPE_END:MethbokeAddon.FDSNR3.CompactLocalBlowup.exists_nonzero_after
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CompactLocalBlowup.exists_nonzero_after
+'MethbokeAddon.FDSNR3.CompactLocalBlowup.exists_nonzero_after' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CompactLocalBlowup.exists_nonzero_after

@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNR3TranslationRigidity",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSNR3.TranslationRigidity"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.Phase",
+      "path": "MethbokeAddon/FDSN/Phase.lean",
+      "sha256": "2014856f14cf40a3a6ca4479da3f0308c254aa326ab5a653aa7336c4ac108e0f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimeBump",
+      "path": "MethbokeAddon/FDSN/TimeBump.lean",
+      "sha256": "8b1ee3376b39accf26e5c2c599eaf03e5534f779aa0f9dfa3ccbe4e82007d333",
+      "imports": [
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimePhase",
+      "path": "MethbokeAddon/FDSN/TimePhase.lean",
+      "sha256": "89bc5d4b41be4c6a491b9aea7d91d40851fc4e2c80085539182f5861410dd911",
+      "imports": [
+        "MethbokeAddon.FDSN.Phase",
+        "MethbokeAddon.FDSN.TimeBump",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.Calculus.Deriv.Support"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Contracts",
+      "path": "MethbokeAddon/FDSNR3/Contracts.lean",
+      "sha256": "5e7888bdd634107334c466a93e79bd4b448b47f7ac55bb8bec3316ce1bcf036f",
+      "imports": [
+        "SingularClosure.Contracts",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.LinearAlgebra.CrossProduct"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Fourier",
+      "path": "MethbokeAddon/FDSNR3/Fourier.lean",
+      "sha256": "38e3b33926382424978c2ebcd12f1a3cf37072df80b231fcff1a64657383589a",
+      "imports": [
+        "MethbokeAddon.FDSNR3.Contracts",
+        "MethbokeAddon.FDSN.Phase",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Phase",
+      "path": "MethbokeAddon/FDSNR3/Phase.lean",
+      "sha256": "c6cee99568d762facb546d890e161d88bd725ae885879e9c2c6e99088ea7ded6",
+      "imports": [
+        "MethbokeAddon.FDSN.TimePhase",
+        "Mathlib.Analysis.Normed.Module.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.TranslationRigidity",
+      "path": "MethbokeAddon/FDSNR3/TranslationRigidity.lean",
+      "sha256": "66db33c0c7a37df35b60b941de72d325a4fa2ea50d32d305c9178bbfecf1c681",
+      "imports": [
+        "MethbokeAddon.FDSNR3.Fourier",
+        "MethbokeAddon.FDSNR3.Phase"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "local_path": "_vendor/SingularClosure/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean",
+      "git_blob_sha": "7d64a61a47bedb2bd7a2801641c5959178837f04",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "size_bytes": 6043,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+    "Mathlib.Analysis.Calculus.Deriv.Support",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+    "Mathlib.Analysis.Normed.Module.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+    "Mathlib.LinearAlgebra.CrossProduct",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring"
+  ],
+  "local_module_count": 8,
+  "owned_module_count": 7,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "e5af5f617dac5e4a49b95970b04b4fc160319f68df0cd567f08a541411c27512",
+  "validation_boundary": "Static current candidate bytes and pinned dependency-manifest records; full retained source and compiler validation run externally.",
+  "dependency_boundary": "Existing vendor, pins, lock, lakefile, workflow and earlier audits are unchanged."
+}

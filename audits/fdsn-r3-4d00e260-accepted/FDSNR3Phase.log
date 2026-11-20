@@ -1,0 +1,286 @@
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase
+@MethbokeAddon.FDSNR3.packetPhase.{u_1} : {X : Type u_1} → (ℝ → ℝ) → (X → ℝ) → ℝ → ℝ → X → ℂ
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase
+'MethbokeAddon.FDSNR3.packetPhase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhaseIncrement
+@MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} : {X : Type u_1} → (ℝ → ℝ) → (X → ℝ) → ℝ → ℝ → X → ℂ
+TYPE_END:MethbokeAddon.FDSNR3.packetPhaseIncrement
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhaseIncrement
+'MethbokeAddon.FDSNR3.packetPhaseIncrement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhaseIncrement
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate
+@MethbokeAddon.FDSNR3.packetRotate.{u_1,
+    u_2} : {X : Type u_1} → {V : Type u_2} → [SMul.{0, u_2} ℂ V] → (ℝ → ℝ) → (X → ℝ) → ℝ → ℝ → (X → V) → X → V
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate
+'MethbokeAddon.FDSNR3.packetRotate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_eq_exp
+@MethbokeAddon.FDSNR3.packetPhase_eq_exp.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (ξ : X),
+  Eq.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ)
+    (Complex.exp (HMul.hMul.{0, 0, 0} (↑(HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} lam (β t)) (ψ ξ))) Complex.I))
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_eq_exp
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_eq_exp
+'MethbokeAddon.FDSNR3.packetPhase_eq_exp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_eq_exp
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_zero_parameter
+@MethbokeAddon.FDSNR3.packetPhase_zero_parameter.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ) (t : ℝ) (ξ : X),
+  Eq.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ 0 t ξ) 1
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_zero_parameter
+'MethbokeAddon.FDSNR3.packetPhase_zero_parameter' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_ne_zero
+@MethbokeAddon.FDSNR3.packetPhase_ne_zero.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (ξ : X),
+  Ne.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ) 0
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_ne_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_ne_zero
+'MethbokeAddon.FDSNR3.packetPhase_ne_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_ne_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_packetPhase
+@MethbokeAddon.FDSNR3.norm_packetPhase.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (ξ : X),
+  Eq.{1} (Norm.norm.{0} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ)) 1
+TYPE_END:MethbokeAddon.FDSNR3.norm_packetPhase
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_packetPhase
+'MethbokeAddon.FDSNR3.norm_packetPhase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_packetPhase
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_neg
+@MethbokeAddon.FDSNR3.packetPhase_neg.{u_1} : ∀ {X : Type u_1} [inst : Neg.{u_1} X] (β : ℝ → ℝ) {ψ : X → ℝ},
+  (∀ (ξ : X), Eq.{1} (ψ (Neg.neg.{u_1} ξ)) (Neg.neg.{0} (ψ ξ))) →
+    ∀ (lam t : ℝ) (ξ : X),
+      Eq.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t (Neg.neg.{u_1} ξ))
+        ((starRingEnd.{0} ℂ) (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ))
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_neg
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_neg
+'MethbokeAddon.FDSNR3.packetPhase_neg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_neg
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_beta_zero
+@MethbokeAddon.FDSNR3.packetPhase_eq_one_of_beta_zero.{u_1} : ∀ {X : Type u_1} {β : ℝ → ℝ} (ψ : X → ℝ) (lam : ℝ)
+  {t : ℝ}, Eq.{1} (β t) 0 → ∀ (ξ : X), Eq.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ) 1
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_beta_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_beta_zero
+'MethbokeAddon.FDSNR3.packetPhase_eq_one_of_beta_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_beta_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_psi_zero
+@MethbokeAddon.FDSNR3.packetPhase_eq_one_of_psi_zero.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) {ψ : X → ℝ} (lam t : ℝ)
+  {ξ : X}, Eq.{1} (ψ ξ) 0 → Eq.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ) 1
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_psi_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_psi_zero
+'MethbokeAddon.FDSNR3.packetPhase_eq_one_of_psi_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_eq_one_of_psi_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhase_at_normalization
+@MethbokeAddon.FDSNR3.packetPhase_at_normalization.{u_1} : ∀ {X : Type u_1} {β : ℝ → ℝ} {ψ : X → ℝ} (lam : ℝ) {t : ℝ}
+  {ξ : X},
+  Eq.{1} (β t) 1 →
+    Eq.{1} (ψ ξ) 1 → Eq.{1} (MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ lam t ξ) (MethbokeAddon.FDSN.phase lam)
+TYPE_END:MethbokeAddon.FDSNR3.packetPhase_at_normalization
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhase_at_normalization
+'MethbokeAddon.FDSNR3.packetPhase_at_normalization' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhase_at_normalization
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetPhaseIncrement_zero_parameter
+@MethbokeAddon.FDSNR3.packetPhaseIncrement_zero_parameter.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ) (t : ℝ)
+  (ξ : X), Eq.{1} (MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ 0 t ξ) 0
+TYPE_END:MethbokeAddon.FDSNR3.packetPhaseIncrement_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetPhaseIncrement_zero_parameter
+'MethbokeAddon.FDSNR3.packetPhaseIncrement_zero_parameter' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetPhaseIncrement_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_packetPhaseIncrement_le
+@MethbokeAddon.FDSNR3.norm_packetPhaseIncrement_le.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (ξ : X),
+  LE.le.{0} (Norm.norm.{0} (MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ lam t ξ))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Norm.norm.{0} lam) (Norm.norm.{0} (β t))) (Norm.norm.{0} (ψ ξ)))
+TYPE_END:MethbokeAddon.FDSNR3.norm_packetPhaseIncrement_le
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_packetPhaseIncrement_le
+'MethbokeAddon.FDSNR3.norm_packetPhaseIncrement_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_packetPhaseIncrement_le
+TYPE_BEGIN:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_frequency_subset
+@MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_frequency_subset.{u_1} : ∀ {X : Type u_1}
+  [inst : TopologicalSpace.{u_1} X] (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ),
+  tsupport.{u_1, 0} (MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ lam t) ⊆ tsupport.{u_1, 0} ψ
+TYPE_END:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_frequency_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_frequency_subset
+'MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_frequency_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_frequency_subset
+TYPE_BEGIN:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_frequency
+@MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_frequency.{u_1} : ∀ {X : Type u_1}
+  [inst : TopologicalSpace.{u_1} X] (β : ℝ → ℝ) {ψ : X → ℝ},
+  HasCompactSupport.{u_1, 0} ψ →
+    ∀ (lam t : ℝ), HasCompactSupport.{u_1, 0} (MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ lam t)
+TYPE_END:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_frequency
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_frequency
+'MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_frequency' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_frequency
+TYPE_BEGIN:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_time_subset
+@MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_time_subset.{u_1} : ∀ {X : Type u_1} (β : ℝ → ℝ) (ψ : X → ℝ)
+  (lam : ℝ) (ξ : X),
+  (tsupport.{0, 0} fun t => MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ lam t ξ) ⊆ tsupport.{0, 0} β
+TYPE_END:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_time_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_time_subset
+'MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_time_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.tsupport_packetPhaseIncrement_time_subset
+TYPE_BEGIN:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_time
+@MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_time.{u_1} : ∀ {X : Type u_1} {β : ℝ → ℝ},
+  HasCompactSupport.{0, 0} β →
+    ∀ (ψ : X → ℝ) (lam : ℝ) (ξ : X),
+      HasCompactSupport.{0, 0} fun t => MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ lam t ξ
+TYPE_END:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_time
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_time
+'MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_time' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.hasCompactSupport_packetPhaseIncrement_time
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_zero_parameter
+@MethbokeAddon.FDSNR3.packetRotate_zero_parameter.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : AddCommGroup.{u_2} V] [inst_1 : Module.{0, u_2} ℂ V] (β : ℝ → ℝ)
+  (ψ : X → ℝ) (t : ℝ) (c : X → V),
+  Eq.{max (u_1 + 1) (u_2 + 1)} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ 0 t c) c
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_zero_parameter
+'MethbokeAddon.FDSNR3.packetRotate_zero_parameter' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_eq_of_beta_zero
+@MethbokeAddon.FDSNR3.packetRotate_eq_of_beta_zero.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : AddCommGroup.{u_2} V] [inst_1 : Module.{0, u_2} ℂ V] {β : ℝ → ℝ}
+  (ψ : X → ℝ) (lam : ℝ) {t : ℝ},
+  Eq.{1} (β t) 0 →
+    ∀ (c : X → V), Eq.{max (u_1 + 1) (u_2 + 1)} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c) c
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_eq_of_beta_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_eq_of_beta_zero
+'MethbokeAddon.FDSNR3.packetRotate_eq_of_beta_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_eq_of_beta_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_eq_of_psi_zero
+@MethbokeAddon.FDSNR3.packetRotate_eq_of_psi_zero.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : AddCommGroup.{u_2} V] [inst_1 : Module.{0, u_2} ℂ V] (β : ℝ → ℝ)
+  {ψ : X → ℝ} (lam t : ℝ) {ξ : X},
+  Eq.{1} (ψ ξ) 0 → ∀ (c : X → V), Eq.{u_2 + 1} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ) (c ξ)
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_eq_of_psi_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_eq_of_psi_zero
+'MethbokeAddon.FDSNR3.packetRotate_eq_of_psi_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_eq_of_psi_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_at_normalization
+@MethbokeAddon.FDSNR3.packetRotate_at_normalization.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : AddCommGroup.{u_2} V] [inst_1 : Module.{0, u_2} ℂ V] {β : ℝ → ℝ}
+  {ψ : X → ℝ} (lam : ℝ) {t : ℝ} {ξ : X},
+  Eq.{1} (β t) 1 →
+    Eq.{1} (ψ ξ) 1 →
+      ∀ (c : X → V),
+        Eq.{u_2 + 1} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ)
+          (HSMul.hSMul.{0, u_2, u_2} (MethbokeAddon.FDSN.phase lam) (c ξ))
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_at_normalization
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_at_normalization
+'MethbokeAddon.FDSNR3.packetRotate_at_normalization' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_at_normalization
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_sub
+@MethbokeAddon.FDSNR3.packetRotate_sub.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : AddCommGroup.{u_2} V] [inst_1 : Module.{0, u_2} ℂ V] (β : ℝ → ℝ)
+  (ψ : X → ℝ) (lam t : ℝ) (c : X → V) (ξ : X),
+  Eq.{u_2 + 1} (HSub.hSub.{u_2, u_2, u_2} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ) (c ξ))
+    (HSMul.hSMul.{0, u_2, u_2} (MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ lam t ξ) (c ξ))
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_sub
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_sub
+'MethbokeAddon.FDSNR3.packetRotate_sub' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_sub
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_linear_kernel
+@MethbokeAddon.FDSNR3.packetRotate_linear_kernel.{u_1, u_2,
+    u_3} : ∀ {X : Type u_1} {V : Type u_2} [inst : AddCommGroup.{u_2} V] [inst_1 : Module.{0, u_2} ℂ V] {W : Type u_3}
+  [inst_2 : AddCommGroup.{u_3} W] [inst_3 : Module.{0, u_3} ℂ W] (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (c : X → V)
+  (L : X → LinearMap.{0, 0, u_2, u_3} (RingHom.id.{0} ℂ) V W),
+  (∀ (ξ : X), Eq.{u_3 + 1} ((L ξ) (c ξ)) 0) →
+    ∀ (ξ : X), Eq.{u_3 + 1} ((L ξ) (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ)) 0
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_linear_kernel
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_linear_kernel
+'MethbokeAddon.FDSNR3.packetRotate_linear_kernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_linear_kernel
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_packetRotate
+@MethbokeAddon.FDSNR3.norm_packetRotate.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : NormedAddCommGroup.{u_2} V] [inst_1 : NormedSpace.{0, u_2} ℂ V]
+  (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (c : X → V) (ξ : X),
+  Eq.{1} (Norm.norm.{u_2} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ)) (Norm.norm.{u_2} (c ξ))
+TYPE_END:MethbokeAddon.FDSNR3.norm_packetRotate
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_packetRotate
+'MethbokeAddon.FDSNR3.norm_packetRotate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_packetRotate
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_linearMap_packetRotate
+@MethbokeAddon.FDSNR3.norm_linearMap_packetRotate.{u_1, u_2,
+    u_3} : ∀ {X : Type u_1} {V : Type u_2} [inst : NormedAddCommGroup.{u_2} V] [inst_1 : NormedSpace.{0, u_2} ℂ V]
+  {W : Type u_3} [inst_2 : NormedAddCommGroup.{u_3} W] [inst_3 : NormedSpace.{0, u_3} ℂ W] (β : ℝ → ℝ) (ψ : X → ℝ)
+  (lam t : ℝ) (c : X → V) (ξ : X) (L : LinearMap.{0, 0, u_2, u_3} (RingHom.id.{0} ℂ) V W),
+  Eq.{1} (Norm.norm.{u_3} (L (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ))) (Norm.norm.{u_3} (L (c ξ)))
+TYPE_END:MethbokeAddon.FDSNR3.norm_linearMap_packetRotate
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_linearMap_packetRotate
+'MethbokeAddon.FDSNR3.norm_linearMap_packetRotate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_linearMap_packetRotate
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_packetRotate_sub_le
+@MethbokeAddon.FDSNR3.norm_packetRotate_sub_le.{u_1,
+    u_2} : ∀ {X : Type u_1} {V : Type u_2} [inst : NormedAddCommGroup.{u_2} V] [inst_1 : NormedSpace.{0, u_2} ℂ V]
+  (β : ℝ → ℝ) (ψ : X → ℝ) (lam t : ℝ) (c : X → V) (ξ : X),
+  LE.le.{0}
+    (Norm.norm.{u_2} (HSub.hSub.{u_2, u_2, u_2} (MethbokeAddon.FDSNR3.packetRotate.{u_1, u_2} β ψ lam t c ξ) (c ξ)))
+    (HMul.hMul.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Norm.norm.{0} lam) (Norm.norm.{0} (β t))) (Norm.norm.{0} (ψ ξ)))
+      (Norm.norm.{u_2} (c ξ)))
+TYPE_END:MethbokeAddon.FDSNR3.norm_packetRotate_sub_le
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_packetRotate_sub_le
+'MethbokeAddon.FDSNR3.norm_packetRotate_sub_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_packetRotate_sub_le
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_reality
+@MethbokeAddon.FDSNR3.packetRotate_reality.{u_1} : ∀ {X : Type u_1} [inst : Neg.{u_1} X] (β : ℝ → ℝ) {ψ : X → ℝ},
+  (∀ (ξ : X), Eq.{1} (ψ (Neg.neg.{u_1} ξ)) (Neg.neg.{0} (ψ ξ))) →
+    ∀ (lam t : ℝ) {c : X → ℂ},
+      (∀ (ξ : X), Eq.{1} (c (Neg.neg.{u_1} ξ)) ((starRingEnd.{0} ℂ) (c ξ))) →
+        ∀ (ξ : X),
+          Eq.{1} (MethbokeAddon.FDSNR3.packetRotate.{u_1, 0} β ψ lam t c (Neg.neg.{u_1} ξ))
+            ((starRingEnd.{0} ℂ) (MethbokeAddon.FDSNR3.packetRotate.{u_1, 0} β ψ lam t c ξ))
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_reality
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_reality
+'MethbokeAddon.FDSNR3.packetRotate_reality' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_reality
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packetRotate_active_separates
+@MethbokeAddon.FDSNR3.packetRotate_active_separates.{u_1} : ∀ {X : Type u_1} {β : ℝ → ℝ} {ψ : X → ℝ} {t : ℝ} {ξ : X},
+  Eq.{1} (β t) 1 →
+    Eq.{1} (ψ ξ) 1 →
+      ∀ {c : X → ℂ},
+        Ne.{1} (c ξ) 0 →
+          ∀ {lam eta : ℝ},
+            LT.lt.{0} (abs.{0} lam) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+              LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+                Ne.{1} lam eta →
+                  Ne.{1} (MethbokeAddon.FDSNR3.packetRotate.{u_1, 0} β ψ lam t c ξ)
+                    (MethbokeAddon.FDSNR3.packetRotate.{u_1, 0} β ψ eta t c ξ)
+TYPE_END:MethbokeAddon.FDSNR3.packetRotate_active_separates
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packetRotate_active_separates
+'MethbokeAddon.FDSNR3.packetRotate_active_separates' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packetRotate_active_separates
+TYPE_BEGIN:MethbokeAddon.FDSNR3.contDiff_packetPhase_joint
+@MethbokeAddon.FDSNR3.contDiff_packetPhase_joint.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] {β : ℝ → ℝ} {ψ : E → ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β →
+    ContDiff.{0, u_1, 0} ℝ ∞ ψ →
+      ContDiff.{0, u_1, 0} ℝ ∞ fun q => MethbokeAddon.FDSNR3.packetPhase.{u_1} β ψ q.1 q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSNR3.contDiff_packetPhase_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.contDiff_packetPhase_joint
+'MethbokeAddon.FDSNR3.contDiff_packetPhase_joint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.contDiff_packetPhase_joint
+TYPE_BEGIN:MethbokeAddon.FDSNR3.contDiff_packetPhaseIncrement_joint
+@MethbokeAddon.FDSNR3.contDiff_packetPhaseIncrement_joint.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] {β : ℝ → ℝ} {ψ : E → ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β →
+    ContDiff.{0, u_1, 0} ℝ ∞ ψ →
+      ContDiff.{0, u_1, 0} ℝ ∞ fun q => MethbokeAddon.FDSNR3.packetPhaseIncrement.{u_1} β ψ q.1 q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSNR3.contDiff_packetPhaseIncrement_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.contDiff_packetPhaseIncrement_joint
+'MethbokeAddon.FDSNR3.contDiff_packetPhaseIncrement_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.contDiff_packetPhaseIncrement_joint

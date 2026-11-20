@@ -1,17 +1,18 @@
 FDSN_R3 — WHOLE-SPACE SPECTRAL NONRIGIDITY
 Cumulative mathematical derivation
-Version 1.0 — 20 November 2026
+Version 1.1 — 20 November 2026
 
 STATUS
 Complete ordinary mathematical (B-tier) conditional construction for the
-explicit local-Schwartz seed class below. No new Lean source is compiled,
-and no new A-tier theorem or native seed-admission bridge is asserted.
+explicit local-Schwartz seed class below. Formal implementation and external
+acceptance are tracked separately in IMPLEMENTATION_STATUS.json; this
+mathematical derivation itself is not compiler or axiom-audit evidence.
 
 Project goal retained: Fefferman_D.
 User-selected local work: construct the R3 analogue of FDSN here.
 Working label: FDSN_R3.
 The accepted T3 theorem and its statement are unchanged.
-This document is the whole-space derivation, not a repository mutation.
+This document is the cumulative whole-space derivation.
 
 The whole-space output force class is compact in positive time and rapidly
 decreasing in space. Preservation of compact SPATIAL force support is not
@@ -34,6 +35,7 @@ CONTENTS
 14. Boundaries and first unresolved edges for stronger variants
 15. Sixteen proposed A-tier endpoints
 16. Evidence and references
+17. Signed time-phase refinement and direct projected-force separation
 
 
 1. CONVENTIONS AND EXACT SEED
@@ -857,8 +859,10 @@ R3-13  Common-time translation separation
   patch forces equality of parameters.
 
 R3-14  Physical projected-force separation
-  Actual L2 difference-energy identity, compact-slab Gronwall, bounded
-  Leray multiplier, and a literal nonzero physical spacetime witness.
+  A literal nonzero physical Leray-projected force difference. The original
+  difference-energy proof in Section10 remains valid; Section17 gives the
+  selected shorter formal route through a signed time-phase zero crossing.
+  This proof-method refinement changes neither Seed nor Family.
 
 R3-15  Weighted finite-order smallness
   q_(N,r)(h_lambda)+q_(N,r)(G_lambda) <= C_(N,r)|lambda|
@@ -875,7 +879,7 @@ A-tier acceptance requires source/pin/policy identity and matching authorized
 cached external verification; allowed axioms remain propext,
 Classical.choice, and Quot.sound.
 
-The next formal stage follows assent to these endpoints. No local Lean,
+The user has assented to these endpoints; formalization is active. No local Lean,
 Lake invoking Lean, container/subprocess Lean, or local kernel audit is
 authorized or used. No existing T3 source or evidence is altered.
 
@@ -924,3 +928,112 @@ FINAL STATUS
   Local Lean executions:
     ZERO.
 
+
+
+17. SIGNED TIME-PHASE REFINEMENT AND DIRECT PROJECTED-FORCE SEPARATION
+
+This cumulative refinement preserves the exact Seed, Family, parameter
+interval, common comparison time tstar, and all five required conclusions.
+It replaces the difference-energy/Gronwall method for force separation by
+an explicit common-time witness. The nonnegative bump remains a building
+block; the final time phase is allowed to change sign. Family never
+required that phase itself to be nonnegative or bounded by one.
+
+17.1 Selection without a strengthened seed
+
+Retain the tstar, nonzero Fourier component i, active center c, untouched
+patch, and odd frequency cutoff psi from Sections3-4. In particular,
+psi(c)=1 and Uhat_i(tstar,c) is nonzero. Let rho be the normalized smooth
+compact interior bump from Section4: rho(tstar)=1, and its support lies
+in (a,b).
+
+The original local-Schwartz hypothesis implies continuity of
+  t -> Uhat_i(t,c)
+by dominated convergence on a compact regular slab. Indeed its zero-order
+weighted bound with an integrable inverse-polynomial spatial tail supplies
+one integrable dominating function. No terminal-uniform bound is used.
+Continuity of this coefficient and rho supplies a neighborhood of tstar
+on which both are nonzero. Choose a distinct t0 in that neighborhood and
+in (a,b), for example on its left side.
+
+Define the signed time phase
+
+  beta(t) = ((t-t0)/(tstar-t0)) rho(t).
+
+Then beta is smooth and has the same compact temporal carrier as a subset
+of rho's carrier. Direct differentiation gives
+
+  beta(tstar)=1,
+  beta(t0)=0,
+  beta'(t0)=rho(t0)/(tstar-t0) != 0.
+
+The denominator is nonzero by t0 != tstar. All derivatives of beta are
+bounded on its compact carrier. The estimates of Section6 hold with these
+finite bounds absorbed into their constants. Modulus-one phase identities
+do not require a sign or unit bound on beta. Translation separation still
+uses beta(tstar)=1 and the original active and untouched patches.
+
+17.2 The actual real solenoidal Schwartz generator
+
+Use the same inverse-Fourier family and residual as before, now with this
+beta. Set
+
+  W(x) = inverseFourier[ i psi(xi) Uhat(t0,xi) ](x).
+
+The spectral function is smooth and compactly supported, hence Schwartz.
+Its Hermitian symmetry follows from reality of U and oddness of psi:
+
+  (i psi Uhat)(-xi) = conjugate[(i psi Uhat)(xi)].
+
+Consequently W is a real Schwartz vector field. Since div U(t0)=0,
+xi dot Uhat(t0,xi)=0, and scalar multiplication retains this identity.
+Fourier inversion therefore gives div W=0.
+
+At c its i-th Fourier component is
+
+  What_i(c) = i Uhat_i(t0,c) != 0.
+
+Fourier injectivity gives W != 0, so some physical x0 has W(x0) != 0.
+For this actual Schwartz field, the transverse symbol acts identically
+at every frequency. Thus the literal inverse-Fourier physical Leray field
+satisfies P W = W; no abstract assumed projection witness is introduced.
+
+17.3 Exact force difference at one common time
+
+At t0, beta(t0)=0 implies U_lambda(t0)=U(t0) for every lambda.
+Thus h_lambda(t0)=0 as an entire spatial field; every spatial derivative
+of that zero slice is zero. The viscous and every nonlinear residual term
+vanish at t0.
+
+Differentiating the actual inverse-Fourier correction is justified by the
+compact spectral carrier and the original local-Schwartz time regularity.
+The derivative of Uhat is multiplied by the zero phase increment. The
+remaining term is exactly
+
+  partial_t h_lambda(t0) = lambda beta'(t0) W.
+
+Consequently
+
+  F_lambda(t0)-F_eta(t0) = (lambda-eta) beta'(t0) W.
+
+This difference is itself a real solenoidal Schwartz field, so its physical
+Leray projection equals the same expression. For lambda != eta and the
+physical point x0 selected above,
+
+  P(F_lambda-F_eta)(t0,x0)
+    = (lambda-eta) beta'(t0) W(x0) != 0.
+
+This proves the required physical projected-force separation directly,
+with one common t0 and one common nonzero generator for all parameter
+pairs. The original same-witness theorem requires only existence of a
+spacetime witness for each pair, so this conclusion is stronger.
+
+17.4 Endpoint and evidence boundary
+
+All B-tier edges above are derived from the unchanged seed and the explicit
+construction. The selected A-tier R3-14 implementation uses this signed
+crossing argument. No difference-energy identity or Gronwall formalization
+is claimed from that implementation. New Lean acceptance still requires
+matching cached external compiler, exact-type and axiom evidence.
+The canonical R3 root remains governed by its implementation ledger.
+Local Lean executions remain zero.
