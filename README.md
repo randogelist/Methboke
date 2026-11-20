@@ -29,8 +29,16 @@ now gives the construction order: actual whole-space analysis and solution
 theory, admissible restart, weighted energy, the smooth tail, and future
 uniqueness. QFB is the accepted periodic reference; WFA remains a follow-on.
 
-This is source/evidence preparation only, with no new formalization or A-tier
-verification. The branch name adopts no Fefferman-C theorem. The Fefferman-D
+The [Lean anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md)
+now fills all ten rows with exact Mathlib, Methlib and native declarations.
+The recovered Methlib QFA branch supplies the exact weighted-energy theorem,
+full-volume L2 representation, trace and comparison helpers. Physical R3
+solution/continuation/comparison instances and the sharp target constant remain
+open. [Source/evidence checks](Temp-folder/anchors/SOURCE_REVIEW.json) retain
+108 named historical endpoint audits and the conditional-root boundary.
+
+This is source/evidence preparation with three passive check files, no new
+theorem or A-tier verification. The branch name adopts no Fefferman-C theorem. The Fefferman-D
 goal, D-ledger statuses and accepted prior proof/evidence scopes remain intact.
 
 ## Retained Fefferman-D implementation

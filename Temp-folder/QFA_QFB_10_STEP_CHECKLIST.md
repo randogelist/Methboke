@@ -8,7 +8,9 @@ eventual smoothness, tail energy equality, and uniqueness from each tail trace.
 
 This is the requested construction plan. The source collection is complete.
 The ten boxes below concern the new construction and remain open; preparing
-this plan does not begin formalization or supply new A-tier evidence.
+this plan does not supply new A-tier evidence. The requested source-anchor
+map is now populated in [QFA_QFB_ANCHOR_REGISTER.md](anchors/QFA_QFB_ANCHOR_REGISTER.md),
+with exact source hypotheses, evidence and remaining native obligations.
 The retained repository project goal is Fefferman_D.
 
 ## Fixed sources and exact scope
@@ -45,6 +47,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **1. Fix the concrete QFA contract against the accepted QFB contract.**
 
+  **Available anchors:** Mathlib Lp and native differential operators; Methlib RealSpatialL2, compact-test weak derivatives and complexifyL2LI. Concrete whole-space LH/root semantics remain open.
+
   Define the actual whole-space datum, velocity, weak-gradient, distributional
   NSE, pressure and Leray–Hopf predicates. State the four-part QFA conclusion
   for every $\nu>0$, every $a\in L^2_\sigma(\mathbb R^3)$, every specified
@@ -58,6 +62,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
   **Map:** O01. **QFB reference:** Semantics and RootContract.
 
 - [ ] **2. Establish the whole-space spatial estimates and constants.**
+
+  **Available anchors:** Mathlib whole-space compact C1 Sobolev, continuous L2 Plancherel and IBP; Methlib corrected compact-Schwartz density and Fourier multipliers. Actual H1/H2 adapters and sharp S6 remain open.
 
   Supply Sobolev, interpolation, the vector/tensor norm extension, and
   $\|D^2u\|_2=\|\Delta u\|_2$. Prove admissibility of $S_6$ in
@@ -73,6 +79,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **3. Construct local $H^1$ strong solutions and prove continuation.**
 
+  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. No arbitrary-H1 whole-space local constructor was recovered.
+
   Prove actual local existence, uniqueness, maximal lifetime, continuity in
   $H^1$, sufficient $L^2_tH^2_x$ control, bounded-$H^1$ continuation,
   positive-time smoothing and normalized-pressure recovery. The initial
@@ -86,6 +94,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
   solution theory.
 
 - [ ] **4. Construct global Leray–Hopf solutions and admissible restart traces.**
+
+  **Available anchors:** Periodic Q01_LERAY_HOPF_EXISTENCE and LH_RESTART_AE_Ioo; Methlib strong traces and restartData_of_energyStart. R3 existence and physical restart admission remain open.
 
   For every $L^2_\sigma$ datum, establish global LH nonemptiness, weak
   $L^2$ continuity, strong initial attainment, the energy inequality from
@@ -101,6 +111,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **5. Prove weak–strong uniqueness from the same restart trace.**
 
+  **Available anchors:** Methlib eq_on_Icc_of_ae_relative_energy and periodic Serrin comparison. The actual R3 relative-energy inequality and integrability premises remain open.
+
   Compare the classes from steps 3 and 4 on every finite common interval.
   Show that a specified LH path agrees with the strong continuation from
   its exact restart datum.
@@ -113,6 +125,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
   TAIL_REFERENCE_FROM_EXACT_ADMISSION.
 
 - [ ] **6. Prove global strong continuation from a small energy–enstrophy product.**
+
+  **Available anchors:** Methlib pointwise ScalarProfile.enstrophy_absorption and native periodic small-data admission. Actual R3 evolution, temporal bootstrap and continuation remain open.
 
   Derive the actual strong energy and enstrophy balances. Establish the
   nonlinear bound
@@ -131,6 +145,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **7. Prove the weighted-energy integral bound.**
 
+  **Available anchors:** **Exact reusable proof found:** QFA.Energy.product_budget and EnergyProfile.energy_product_budget_Ioo. Construct the EnergyProfile from the actual LH class.
+
   From the LH energy inequality, derive for every finite $T\ge0$
   $$
     \int_0^T E(t)Y(t)\,dt\le \frac{E_0^2}{4\nu}.
@@ -145,6 +161,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
   **Map:** O10. **Character:** reusable scalar and measure-theoretic analysis.
 
 - [ ] **8. Select a good restart strictly before the explicit cutoff.**
+
+  **Available anchors:** QFA.Endpoints.GoodTime.exists_good_time_of_integral_lt and Mathlib Markov inequality. Add the current threshold/cutoff, half-measure statement, actual good-start set and zero branch.
 
   Set
   $$
@@ -165,6 +183,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **9. Construct the closed smooth tail and prove tail energy equality.**
 
+  **Available anchors:** Periodic TailRegularity/TailEnergy and generic comparison/time-shift helpers. Actual R3 smooth pressure/velocity and the closed-tail energy identity remain open.
+
   Restart globally at the selected $s$, identify that continuation with
   the specified LH solution, and produce smooth velocity and normalized
   pressure representatives on $\mathbb R^3\times[\tau_A,\infty)$.
@@ -181,6 +201,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
   **Map:** tail part of O12. **QFB references:** TailRegularity and TailEnergy.
 
 - [ ] **10. Prove unique future from every tail trace and assemble QFA alongside QFB.**
+
+  **Available anchors:** Methlib restricted_restart_class_eq_singleton and conditional corrected root, with accepted QFB as reference. Current physical QFA root, cutoff and energy-equality adapters remain open.
 
   For each specified LH path and $\delta\ge\tau_A$, prove that the shifted
   original path belongs to $\mathrm{LH}_\nu(u(\delta))$, and

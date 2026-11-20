@@ -2173,11 +2173,11 @@
     "root_proved": false
   },
   "ac_integration_preparation": {
-    "status": "SOURCE_AND_EVIDENCE_STAGING_ONLY",
-    "activity": "SOURCE_EVIDENCE_PREPARATION",
+    "status": "SOURCE_EVIDENCE_AND_ANCHOR_PREPARATION",
+    "activity": "SOURCE_ANCHOR_INTEGRATION",
     "branch": "AC-Integration",
     "base_revision": "66a529248d3198ed70dc5489d82868bc33a37796",
-    "authorized_scope": "User-requested QFA/WFA source and evidence staging in Temp-folder; no additional formalization scope",
+    "authorized_scope": "User-requested QFA/WFA staging, QFA/QFB ten-step plan, and filling the plan with existing Mathlib/Methlib/native Lean anchors; no new physical theorem acceptance",
     "readme": "Temp-folder/README.md",
     "manifest": "Temp-folder/MANIFEST.json",
     "endpoint_map": "Temp-folder/ENDPOINTS.md",
@@ -2212,7 +2212,7 @@
     "compiler_dependency_or_workflow_changed": false,
     "existing_D_statuses_and_accepted_evidence_preserved": true,
     "construction_checklist": {
-      "status": "PROPOSED_CONSTRUCTION_PLAN",
+      "status": "CONSTRUCTION_PLAN_WITH_SOURCE_ANCHORS",
       "path": "Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md",
       "step_count": 10,
       "completed_new_construction_steps": 0,
@@ -2223,6 +2223,25 @@
       "new_lean_declarations": 0,
       "new_external_verification": false,
       "new_a_tier_acceptance": false
+    },
+    "anchor_integration": {
+      "status": "STATIC_SOURCE_ANCHORS_FILLED_PHYSICAL_ROOT_OPEN",
+      "register": "Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md",
+      "index": "Temp-folder/anchors/ANCHORS.json",
+      "source_review": "Temp-folder/anchors/SOURCE_REVIEW.json",
+      "map_rows": 10,
+      "anchor_entries": 132,
+      "completed_new_construction_steps": 0,
+      "methlib_qfa_revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "retained_main_qfa_named_audits": 108,
+      "matched_main_qfa_source_files": 34,
+      "new_lean_theorems": 0,
+      "passive_check_files": 3,
+      "local_lean_executions": 0,
+      "new_external_verification": false,
+      "new_a_tier_acceptance": false,
+      "old_and_current_cutoff_distinguished": true,
+      "actual_R3_analytic_instances_open": true
     }
   }
 }

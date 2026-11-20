@@ -25,7 +25,11 @@ The branch name does not adopt a Fefferman-C theorem or authorize additional
 formalization. Read [Temp-folder/README.md](Temp-folder/README.md), its
 [manifest](Temp-folder/MANIFEST.json), [endpoint map](Temp-folder/ENDPOINTS.md),
 and the user-requested [ten-step QFA/QFB construction plan](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md).
-The current planning task uses accepted QFB as the periodic reference for QFA.
+The current planning task uses accepted QFB as the periodic reference for QFA
+and fills the ten steps with exact existing Lean anchors. Read the
+[anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md) and its
+[source review](Temp-folder/anchors/SOURCE_REVIEW.json). Prepared passive
+check files are outside the active build; they are not verified new results.
 
 This is preparation only: no new A-tier acceptance, verification run, compiler
 pin change or workflow change is claimed. Preserve all existing D-ledger

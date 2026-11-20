@@ -8,6 +8,8 @@ is **Fefferman_D**; this branch's immediate task is source and evidence preparat
 ## Start here
 
 - [Ten-step QFA/QFB construction checklist](QFA_QFB_10_STEP_CHECKLIST.md): current proposed construction order, with QFB as the accepted periodic reference.
+- [Lean anchor register](anchors/QFA_QFB_ANCHOR_REGISTER.md): exact Mathlib, Methlib and native anchors for all ten steps, with hypotheses and gaps.
+- [Anchor index](anchors/ANCHORS.json) and [source/evidence review](anchors/SOURCE_REVIEW.json).
 - [Endpoint dependency map](ENDPOINTS.md): concrete source locations and 15 proposed obligations.
 - [Component manifest](MANIFEST.json): archive hashes, revisions and extraction provenance.
 - [File inventory](FILE_INVENTORY.json): SHA-256 of every other file staged in this folder.
@@ -21,6 +23,14 @@ is **Fefferman_D**; this branch's immediate task is source and evidence preparat
 | Concrete closure, 3 files | [ABCD closure v0.25](archives/FEF_NSE_ABCD_A_TIER_UNIFIED_CLOSURE_LEAN_v0_25_0.zip) | [Concrete definitions and endpoint layer](unpacked/FEF_NSE_ABCD_A_TIER_UNIFIED_CLOSURE_LEAN_v0_25_0/) |
 | Tested periodic source, 782 files | [Methboke fdb515d8 export](archives/METHBOKE_QFB_WFB_SOURCE_fdb515d8.zip) | [Complete pinned project source](unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/) |
 | Accepted external evidence, 129 files | [Exact evidence ZIP](archives/material-evidence-fdb515d8bde35ec8021bbc26f360aca8dfa2855c-44566880192-1-fast.zip) | [Report, audit logs and receipts](evidence/material-fdb515d8/) |
+
+Additional recovery: [METHLIB_QFA_ENDPOINTS_53b2318c.zip](archives/METHLIB_QFA_ENDPOINTS_53b2318c.zip)
+exports all 301 files of the pinned Methlib QFA directory, including complete
+historical CI records. [Selected endpoints](unpacked/METHLIB_QFA_ENDPOINTS_53b2318c/)
+unpack 62 source/configuration/documentation files. This is a new source export,
+not an original historical ZIP name. Small evidence records are also staged
+under `evidence/methlib-qfa-53b2318c/`. The scalar weighted budget is recovered;
+actual R3 solution/continuation/comparison instances remain open.
 
 The original ZIPs are preserved. October extraction removes one leading
 archive directory. The Methboke export is pinned to

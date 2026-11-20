@@ -1,0 +1,1526 @@
+{
+  "schema": "qfa-qfb-anchor-index-v1",
+  "date": "2026-11-20",
+  "branch": "AC-Integration",
+  "task": "Fill the ten-step checklist with exact existing source anchors and explicit native obligations",
+  "anchor_entries": 132,
+  "entries_may_share_declarations": true,
+  "construction_steps": 10,
+  "construction_boxes_completed_by_this_update": 0,
+  "anchor_map_rows_completed": 10,
+  "new_a_tier_acceptance": false,
+  "local_lean_executions": 0,
+  "register": "QFA_QFB_ANCHOR_REGISTER.md",
+  "source_review": "SOURCE_REVIEW.json",
+  "anchors": [
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-LP",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "MeasureTheory.Lp",
+        "MeasureTheory.MemLp.toLp",
+        "MeasureTheory.MemLp.coeFn_toLp",
+        "MeasureTheory.MemLp.toLp_eq_toLp_iff",
+        "MeasureTheory.Lp.norm_toLp"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-L2-ENERGY",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "MeasureTheory.memLp_two_iff_integrable_sq_norm"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/L2Space.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-EUCLIDEAN",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "EuclideanSpace.norm_sq_eq",
+        "EuclideanSpace.real_norm_sq_eq"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/InnerProductSpace/PiL2.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-NATIVE-OPERATORS",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "SingularClosure.Vec",
+        "SingularClosure.Field",
+        "SingularClosure.Velocity",
+        "SingularClosure.Pressure",
+        "SingularClosure.unitVector",
+        "SingularClosure.coordinateDerivative",
+        "SingularClosure.divergence",
+        "SingularClosure.gradient",
+        "SingularClosure.laplacian",
+        "SingularClosure.convection",
+        "SingularClosure.timeDerivative"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/Contracts.lean",
+      "fit": "domain-neutral"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-QFB-SEMANTICS",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QuasiFeffermanB.EnergySigmaZero",
+        "QuasiFeffermanB.EnergyDatum",
+        "QuasiFeffermanB.LerayHopf",
+        "QuasiFeffermanB.SameVelocity",
+        "QuasiFeffermanB.cutoff",
+        "QuasiFeffermanB.safeCutoff"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/Semantics.lean",
+      "fit": "periodic-model"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-QFB-LH",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "SingularClosure.CriticalPhysicalL2",
+        "SingularClosure.criticalL2Representative",
+        "SingularClosure.CriticalLerayHopf"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalLerayHopf.lean",
+      "fit": "periodic-model"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-QFB-ROOT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QuasiFeffermanB.ClassicalTail",
+        "QuasiFeffermanB.HasSmoothTail",
+        "QuasiFeffermanB.TailEnergyEquality",
+        "QuasiFeffermanB.UniqueFuture",
+        "QuasiFeffermanB.QuasiFeffermanBStatement"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/RootContract.lean",
+      "fit": "periodic-model"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-SCHWARTZ",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "SchwartzMap",
+        "SchwartzMap.smooth",
+        "SchwartzMap.memLp",
+        "SchwartzMap.toLp",
+        "SchwartzMap.coeFn_toLp"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/SchwartzSpace/Basic.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-A-ABSTRACT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "Fefferman.Analysis",
+        "Fefferman.clause04",
+        "Fefferman.clause01",
+        "Fefferman.clause02",
+        "Fefferman.clause03",
+        "Fefferman.clause06",
+        "Fefferman.clause07"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/FEF_NSE_MASTERAC_TWO_LAYER_LEAN_v0_11_0/Fefferman/Analysis.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-A-STATEMENT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "Fefferman.admissibleInitial",
+        "Fefferman.globalSolution",
+        "Fefferman.hasGlobalSolution",
+        "Fefferman.unforcedGlobalAt",
+        "Fefferman.A"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/FEF_NSE_MASTERAC_TWO_LAYER_LEAN_v0_11_0/Fefferman/Statements.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-A-CONCRETE",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "Fefferman.ConcreteReal.RSpace",
+        "Fefferman.ConcreteReal.RVector",
+        "Fefferman.ConcreteReal.normSq3",
+        "Fefferman.ConcreteReal.euclideanNorm3",
+        "Fefferman.ConcreteReal.spatialDerivative",
+        "Fefferman.ConcreteReal.timeDerivative",
+        "Fefferman.ConcreteReal.squareIntegrableReal",
+        "Fefferman.ConcreteReal.integralNormSqReal",
+        "Fefferman.ConcreteReal.realAnalysis"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/FEF_NSE_ABCD_A_TIER_UNIFIED_CLOSURE_LEAN_v0_25_0/ConcreteABCDUnifiedClosure.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S01-A-PORT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "Fefferman.ConcreteReal.WholeSpaceZeroForceGlobalRegularity",
+        "Fefferman.ConcreteReal.WholeSpaceAPhysicalPort",
+        "Fefferman.ConcreteReal.wholeSpaceZeroForceGlobalRegularity_implies_A",
+        "Fefferman.ConcreteReal.WHOLESPACE_ZERO_FORCE_GLOBAL_REGULARITY_IFF_A",
+        "Fefferman.ConcreteReal.WHOLESPACE_A_PHYSICAL_PORT_IFF_A"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/FEF_NSE_ABCD_A_TIER_UNIFIED_CLOSURE_LEAN_v0_25_0/ConcreteABCDUnifiedClosure.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-SOBOLEV-HILBERT",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner",
+        "MeasureTheory.eLpNormLESNormFDerivOfEqInnerConst",
+        "MeasureTheory.lintegralPowLePowLIntegralFDerivConst"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-SOBOLEV-FINITE",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MeasureTheory.SNormLESNormFDerivOfEqConst",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-HOLDER",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MeasureTheory.eLpNorm_le_eLpNorm_mul_eLpNorm_of_nnnorm",
+        "MeasureTheory.eLpNorm_le_eLpNorm_mul_eLpNorm'_of_norm"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/LpSeminorm/CompareExp.lean",
+      "fit": "domain-neutral"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-RPOW",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MeasureTheory.eLpNorm_norm_rpow"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
+      "fit": "domain-neutral"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-CUBE-INTERPOLATION",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "SingularClosure.cube_eLpNorm_three_le_interpolation"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/PeriodicNonlinear.lean",
+      "fit": "periodic-model"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-HESSIAN-PERIODIC",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MethbokeAddon.WeakFouriermanB.physical_hessian_laplacian_eq"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean",
+      "fit": "periodic-model"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-L6-PERIODIC",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_L6_FROM_DISSIPATION",
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_DERIVATIVE_L6_FROM_LAPLACIAN"
+      ],
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean",
+      "fit": "periodic-model"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-IBP-SCHWARTZ",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "SchwartzMap.integral_bilinear_lineDerivOp_right_eq_neg_left",
+        "SchwartzMap.integral_bilinear_laplacian_right_eq_left",
+        "SchwartzMap.laplacian_eq_sum",
+        "SchwartzMap.laplacian_apply"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/SchwartzSpace/Deriv.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-IBP-INTEGRABLE",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "integral_bilinear_fderiv_right_eq_neg_left_of_integrable"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/LineDeriv/IntegrationByParts.lean",
+      "fit": "domain-neutral"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-DERIV-SYMMETRY",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "IsSymmSndFDerivAt",
+        "ContDiffAt.isSymmSndFDerivAt"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Calculus/FDeriv/Symmetric.lean",
+      "fit": "domain-neutral"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-FOURIER-NORMALIZATION",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "Real.vector_fourierIntegral_eq_integral_exp_smul"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/FourierTransform.lean",
+      "fit": "domain-neutral"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-FOURIER-DERIVATIVE",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "SchwartzMap.fourier_fderivCLM_eq",
+        "SchwartzMap.fourier_lineDerivOp_eq"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-PLANCHEREL-SCHWARTZ",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "SchwartzMap.integral_inner_fourier_fourier",
+        "SchwartzMap.integral_norm_sq_fourier"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/SchwartzSpace/Fourier.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-PLANCHEREL-L2",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "MeasureTheory.Lp.fourierTransformₗᵢ",
+        "MeasureTheory.Lp.norm_fourier_eq",
+        "MeasureTheory.Lp.inner_fourier_eq",
+        "SchwartzMap.toLp_fourier_eq",
+        "MeasureTheory.Lp.fourier_toTemperedDistribution_eq"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/LpSpace.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "S02-SOBOLEV-DISTRIBUTIONAL",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "TemperedDistribution.MemSobolev",
+        "TemperedDistribution.memSobolev_iff_exists_smulLeftCLM_fourier",
+        "TemperedDistribution.MemSobolev.lineDerivOp",
+        "TemperedDistribution.MemSobolev.laplacian"
+      ],
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/Sobolev.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M01-COMPLEXIFICATION",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QFA.Endpoints.Representation.RealL2",
+        "QFA.Endpoints.Representation.complexifyVectorLI",
+        "QFA.Endpoints.Representation.complexifyL2",
+        "QFA.Endpoints.Representation.complexifyL2_ae",
+        "QFA.Endpoints.Representation.complexifyL2_norm",
+        "QFA.Endpoints.Representation.complexifyL2LI",
+        "QFA.Endpoints.Representation.complexifyL2_gradientEnergy",
+        "QFA.Endpoints.Representation.complexifyL2_laplacianEnergy"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M02-WEAK-DERIVATIVE-TESTS",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QFA.Endpoints.Representation.integrable_compact_test_smul",
+        "QFA.Endpoints.Representation.RealTestWeakDirectionalDerivative",
+        "QFA.Endpoints.Representation.complexifyL2_weakDirectionalDerivative"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M03-COMPACT-DERIVATIVE-DATA",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QFA.Assembly.Representation.CompactDerivativeData",
+        "QFA.Assembly.Representation.complexify_compactDerivativeData",
+        "QFA.Assembly.Representation.CompactToSchwartzEndpoint"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Representation.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M04-COMPACT-SCHWARTZ-DENSITY",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "SchwartzMap.qfa_tendsto_cutoff",
+        "SchwartzMap.qfa_dense_hasCompactSupport",
+        "QFA.Endpoints.Representation.CompactSchwartz.denseCompactSchwartzTests",
+        "QFA.Endpoints.Representation.CompactSchwartz.schwartzDerivativeWitnesses_of_compactSchwartz_unconditional",
+        "QFA.Endpoints.Representation.CompactSchwartz.compactSchwartzToSchwartzEndpoint"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M04A-COMPACT-SCHWARTZ-CONTRACT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QFA.Endpoints.Representation.CompactSchwartz.CompactSchwartzDerivativeWitnesses",
+        "QFA.Endpoints.Representation.CompactSchwartz.schwartzDerivativeWitnesses_of_compactSchwartz"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M05-FOURIER-MULTIPLIERS",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "QFA.LC001SpectralReduction.gradient_fourier_distribution_eq",
+        "QFA.LC001SpectralReduction.gradient_fourier_ae",
+        "QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq",
+        "QFA.LC001SpectralReduction.laplacian_fourier_ae"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
+      "fit": "direct"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M06-FOURIER-NORM-ASSEMBLY",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "QFA.LC001SpectralReduction.FourierNormAEWitnesses",
+        "QFA.LC001SpectralReduction.integral_norm_sq_eq_norm_sq",
+        "QFA.LC001SpectralReduction.nativeSpectralRealization_of_fourierNormAE"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M07-SPECTRAL-INTERPOLATION",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "QFA.Assembly.AnalyticChain.interpolation_of_nativeSpectralRealization",
+        "QFA.Assembly.AnalyticChain.interpolationEndpoint_of_spectralEndpoint"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticChain.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M08-AGMON-TARGETS",
+      "steps": [
+        2
+      ],
+      "declarations": [
+        "QFA.Endpoints.Agmon.Space",
+        "QFA.Endpoints.Agmon.ComplexL2",
+        "QFA.Endpoints.Agmon.gradientEnergy",
+        "QFA.Endpoints.Agmon.SchwartzDerivativeWitnesses",
+        "QFA.Endpoints.Agmon.NativeSpectralRealization",
+        "QFA.Endpoints.Agmon.WholeSpaceSpectralEndpoint",
+        "QFA.Endpoints.Agmon.WholeSpaceAgmonEndpoint"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M09-HISTORICAL-QFA-ROOT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QFA.PhysicalRoot.QFARoot"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/PhysicalRoot/QFA/PhysicalRoot.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/spatial.json",
+      "id": "M10-CORRECTED-QFA-ROOT",
+      "steps": [
+        1
+      ],
+      "declarations": [
+        "QFA.CorrectedPhysicalRoot.QUASI_FEFFERMAN_A_CORRECTED"
+      ],
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean",
+      "fit": "conditional"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P3_LOCAL",
+      "steps": [
+        3
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists; uniform_H1_local_initial_classical_front_exists",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/LocalExistence.lean#L24-L58",
+      "fit": "ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P3_FRONT",
+      "steps": [
+        3
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.InitialClassicalFront",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean#L29-L49",
+      "fit": "DEFINITION_OF_ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P3_CONTINUE",
+      "steps": [
+        3
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/StrongContinuation.lean#L42-L83",
+      "fit": "ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P3_SQUARE",
+      "steps": [
+        3
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square; maximal_classical_front_no_finite_dissipation_square",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean#L30-L73",
+      "fit": "ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P4_LH",
+      "steps": [
+        4
+      ],
+      "declarations": "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean#L35-L149",
+      "fit": "ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P4_CLASS",
+      "steps": [
+        4
+      ],
+      "declarations": "SingularClosure.CriticalPhysicalL2; CriticalLerayHopf",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalLerayHopf.lean#L24-L62",
+      "fit": "PERIODIC_CARRIER_AND_CLASS"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P4_TRACE",
+      "steps": [
+        4
+      ],
+      "declarations": "QuasiFeffermanB.lh_strong_right_trace_of_energy_start",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L117-L149",
+      "fit": "ACTUAL_PERIODIC_TRACE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P4_RESTART",
+      "steps": [
+        4
+      ],
+      "declarations": "QuasiFeffermanB.LH_RESTART_FROM_ENERGY_START",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L215-L276",
+      "fit": "ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P4_RESTART_AE",
+      "steps": [
+        4
+      ],
+      "declarations": "QuasiFeffermanB.LH_RESTART_AE; LH_RESTART_AE_Ioc; LH_RESTART_AE_Ioo",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L287-L324",
+      "fit": "ACTUAL_PERIODIC_PDE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P5_SERRIN",
+      "steps": [
+        5
+      ],
+      "declarations": "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean#L37-L173",
+      "fit": "ACTUAL_PERIODIC_WEAK_STRONG"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P5_FINITE",
+      "steps": [
+        5
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean#L27-L169",
+      "fit": "ACTUAL_PERIODIC_WEAK_STRONG"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P5_MAXIMAL",
+      "steps": [
+        5
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/MaximalLerayHopfIdentification.lean#L27-L46",
+      "fit": "ACTUAL_PERIODIC_WEAK_STRONG"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P6_SMALL",
+      "steps": [
+        6
+      ],
+      "declarations": "QuasiFeffermanB.SPECTRAL_H1_CALORIC_BUDGET; EXACT_H1_ADMISSION_UNCONDITIONAL",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/CaloricNumericalAdmission.lean#L21-L55",
+      "fit": "ACTUAL_PERIODIC_SMALL_DATA"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P6_REFERENCE",
+      "steps": [
+        6
+      ],
+      "declarations": "QuasiFeffermanB.RegularReference; ExactH1Admission",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/RegularReference.lean#L18-L31",
+      "fit": "PERIODIC_PHYSICAL_SMALL_DATA_CONTRACT"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P6_HHALF",
+      "steps": [
+        6
+      ],
+      "declarations": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean#L18-L53",
+      "fit": "ACTUAL_PERIODIC_SMALL_DATA"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P6_RATE",
+      "steps": [
+        6
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt; INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean#L251-L340",
+      "fit": "ACTUAL_PERIODIC_BALANCE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "P6_NONLINEAR",
+      "steps": [
+        6
+      ],
+      "declarations": "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND; PHYSICAL_NONLINEAR_ABSORPTION",
+      "source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean#L208-L286",
+      "fit": "ACTUAL_PERIODIC_ESTIMATE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q4_TRACE",
+      "steps": [
+        4
+      ],
+      "declarations": "QFA.Endpoints.Restart.strong_tendsto_of_inner_and_norm_bound; strong_right_trace_of_energy_start; shifted_strong_trace_of_energy_start",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean#L50-L116",
+      "fit": "REUSABLE_GENERIC_HILBERT_PROOF"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q4_RESTART",
+      "steps": [
+        4
+      ],
+      "declarations": "QFA.Assembly.Restart.energyProfile_timeTranslate; restartData_of_energyStart",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean#L124-L163",
+      "fit": "REUSABLE_ACTUAL_FULL_VOLUME_L2_PROFILE_PROOF"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q4_RESTART_TYPE",
+      "steps": [
+        4
+      ],
+      "declarations": "QFA.Assembly.Restart.EnergyStart; RestartData",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean#L47-L64",
+      "fit": "INTERFACE_WITH_NO_PDE_CLAIM"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q4_CLASS",
+      "steps": [
+        3,
+        4
+      ],
+      "declarations": "QFA.Assembly.Chain.ClassRealization",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L124-L143",
+      "fit": "ASSUMED_PHYSICAL_REALIZATION_PORT"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q5_GRONWALL",
+      "steps": [
+        5
+      ],
+      "declarations": "QFA.Assembly.Comparison.eq_on_Ioc_of_ae_relative_energy; eq_on_Icc_of_ae_relative_energy",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean#L40-L108",
+      "fit": "REUSABLE_GENERIC_COMPARISON_PROOF"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q5_DATA",
+      "steps": [
+        5
+      ],
+      "declarations": "QFA.Assembly.TailComparison.ComparisonData; ComparableOnNonnegative; ComparisonData.eq_on_Icc",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean#L43-L88",
+      "fit": "EXPLICIT_COMPARISON_PREMISE_AND_PROVED_CONSEQUENCE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q5_PORT",
+      "steps": [
+        5
+      ],
+      "declarations": "QFA.Assembly.Chain.ReferencePorts",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L46-L54",
+      "fit": "ASSUMED_PHYSICAL_COMPARISON_AND_ADMISSION_PORT"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q6_SCALAR",
+      "steps": [
+        6
+      ],
+      "declarations": "QFA.Endpoints.Agmon.ScalarProfile",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean#L39-L47",
+      "fit": "EXPLICIT_SCALAR_ANALYTIC_HYPOTHESES"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q6_ABSORPTION",
+      "steps": [
+        6
+      ],
+      "declarations": "QFA.Endpoints.Agmon.nonlinearCoefficient_lt_viscosity; ScalarProfile.enstrophy_absorption; ScalarProfile.viscosity_margin_pos",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean#L142-L212",
+      "fit": "REUSABLE_POINTWISE_SCALAR_PROOF"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q6_CORRECTED",
+      "steps": [
+        6
+      ],
+      "declarations": "QFA.CorrectedPhysicalRoot.exists_absorption_of_compactSchwartzData; correctedPointwiseAbsorption_of_analytic_inputs",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean#L62-L112",
+      "fit": "CONDITIONAL_FULL_VOLUME_POINTWISE_ANALYTIC_PROOF"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q6_BACKEND",
+      "steps": [
+        3,
+        6
+      ],
+      "declarations": "QFA.CorrectedPhysicalRoot.CorrectedReferenceConstructionFromAbsorption",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean#L114-L125",
+      "fit": "ASSUMED_LOCAL_EVOLUTION_AND_GLOBAL_CONTINUATION_PORT"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q6_REFERENCE",
+      "steps": [
+        3,
+        6
+      ],
+      "declarations": "QFA.Assembly.Chain.SubcriticalReferenceConstruction",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L148-L157",
+      "fit": "ASSUMED_REFERENCE_EXISTENCE_PORT"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "Q_ROOT",
+      "steps": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "declarations": "QFA.CorrectedPhysicalRoot.QUASI_FEFFERMAN_A_CORRECTED",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean#L131-L158",
+      "fit": "CACHED_CONDITIONAL_FORMAL_CLOSURE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "U3_CLASS",
+      "steps": [
+        3
+      ],
+      "declarations": "NavierStokesR3.H3Comparison.StrongSolutionOnIcc",
+      "source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3StrongSolution.lean#L30-L46",
+      "fit": "ACTUAL_R3_STRONG_SOLUTION_DEFINITION_ONLY"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "U3_CANDIDATE",
+      "steps": [
+        3
+      ],
+      "declarations": "NavierStokesR3.H3Comparison.strongSolution_of_compact_slab; candidate_classicalH3Solution",
+      "source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3CandidateStrong.lean#L87-L126",
+      "fit": "R3_ADAPTER_FOR_ALREADY_SUPPLIED_SOLUTION"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "U5_H3",
+      "steps": [
+        5
+      ],
+      "declarations": "NavierStokesR3.H3Comparison.strong_unique",
+      "source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3CandidateUniqueness.lean#L45-L76",
+      "fit": "ACTUAL_R3_STRONG_STRONG_COMPARISON"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "U5_SMOOTH",
+      "steps": [
+        5
+      ],
+      "declarations": "NavierStokesR3.WholeSpaceUniqueness.classical_uniqueness_on_Icc",
+      "source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/WholeSpaceUniqueness.lean#L30-L68",
+      "fit": "ACTUAL_R3_SMOOTH_COMPARISON_WITH_COMPACT_REFERENCE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "M3_ODE",
+      "steps": [
+        3
+      ],
+      "declarations": "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L57-L68",
+      "fit": "GENERIC_BANACH_ODE_PRIMITIVE"
+    },
+    {
+      "report": "reports/solution_theory.json",
+      "id": "M5_ODE",
+      "steps": [
+        5
+      ],
+      "declarations": "ODE_solution_unique_of_mem_Icc_right",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L194-L205",
+      "fit": "GENERIC_ODE_UNIQUENESS_PRIMITIVE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-01",
+      "steps": [
+        7
+      ],
+      "declarations": "QuasiFeffermanB.LH_ENERGY_BOUNDS",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/LHEnergy.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-02",
+      "steps": [
+        7
+      ],
+      "declarations": "QuasiFeffermanB.criticalFourthPower_budget",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/CriticalTimeBudget.lean",
+      "fit": "DOMAIN_NEUTRAL_WEAKER_BOUND"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-03",
+      "steps": [
+        7
+      ],
+      "declarations": "IntervalIntegrable.absolutelyContinuousOnInterval_intervalIntegral",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/AbsolutelyContinuous.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-04",
+      "steps": [
+        7
+      ],
+      "declarations": "IntervalIntegrable.ae_hasDerivAt_integral",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/LebesgueDifferentiationThm.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-05",
+      "steps": [
+        7
+      ],
+      "declarations": "AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/AbsolutelyContinuousFun.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-06",
+      "steps": [
+        7
+      ],
+      "declarations": "AbsolutelyContinuousOnInterval.integral_mul_deriv_eq_deriv_mul",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/AbsolutelyContinuousFun.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-07",
+      "steps": [
+        7
+      ],
+      "declarations": "IntervalIntegrable.continuousOn_mul",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-08",
+      "steps": [
+        7
+      ],
+      "declarations": "intervalIntegral.integral_mono_ae_restrict",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-09",
+      "steps": [
+        7
+      ],
+      "declarations": "SingularClosure.CRITICAL_SQUARE_BUDGET_DIV",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/SingularClosure/CriticalInvariant.lean",
+      "fit": "DOMAIN_NEUTRAL_STRONGER_HYPOTHESES"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-01",
+      "steps": [
+        8
+      ],
+      "declarations": "QuasiFeffermanB.exists_good_time_of_integral_lt",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/GoodTime.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-02",
+      "steps": [
+        8
+      ],
+      "declarations": "MeasureTheory.mul_meas_ge_le_integral_of_nonneg",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-03",
+      "steps": [
+        8
+      ],
+      "declarations": "MeasureTheory.measure_sdiff",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Measure/MeasureSpace.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-04",
+      "steps": [
+        8
+      ],
+      "declarations": "QuasiFeffermanB.LH_RESTART_AE_Ioo",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-05",
+      "steps": [
+        8
+      ],
+      "declarations": "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/GoodTime.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-06",
+      "steps": [
+        8,
+        9,
+        10
+      ],
+      "declarations": "QuasiFeffermanB.ZERO_LH_VELOCITY",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/ZeroData.lean",
+      "fit": "PERIODIC_INSTANCE_WITH_REUSABLE_NORM_ARGUMENT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-01",
+      "steps": [
+        9
+      ],
+      "declarations": "QuasiFeffermanB.HAS_SMOOTH_TAIL_OF_POSITIVE_REFERENCE",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailRegularity.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-02",
+      "steps": [
+        9
+      ],
+      "declarations": "QuasiFeffermanB.physicalH1_gradient_eq_smooth",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailEnergy.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-03",
+      "steps": [
+        9
+      ],
+      "declarations": "QuasiFeffermanB.physicalH1_gradientEnergy_eq_smooth",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailEnergy.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-04",
+      "steps": [
+        9
+      ],
+      "declarations": "SingularClosure.CRITICAL_SMOOTH_NSE_ENERGY_IDENTITY",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/SingularClosure/CriticalSmoothEnergy.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-05",
+      "steps": [
+        9
+      ],
+      "declarations": "intervalIntegral.integral_congr_ae_restrict",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-06",
+      "steps": [
+        9
+      ],
+      "declarations": "intervalIntegral.integral_comp_sub_right",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-07",
+      "steps": [
+        9
+      ],
+      "declarations": "QuasiFeffermanB.LH_TAIL_ENERGY_OF_POSITIVE_REFERENCE",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailEnergy.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-01",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.strong_tendsto_of_inner_and_norm_bound",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-02",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.timeTranslate_memLp_Ioc",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TimeTranslate.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-03",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.timeTranslate_ae_Ioc",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TimeTranslate.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-04",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.LH_RESTART_FROM_ENERGY_START",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-05",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.LH_RESTART_OF_TAIL_ENERGY",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailEnergy.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-06",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_REFERENCE_SHIFT_SERRIN",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailUniqueness.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-07",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.positive_reference_strict_shift_serrin",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailUniqueness.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-08",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/TailUniqueness.lean",
+      "fit": "PERIODIC_INSTANCE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-09",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.Quasi_Fefferman_B_of_analytic_endpoints",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/RootAssembly.lean",
+      "fit": "PERIODIC_CONDITIONAL_COMPOSITION"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-10",
+      "steps": [
+        10
+      ],
+      "declarations": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED",
+      "source_url": "https://github.com/randogelist/Methboke/blob/AC-Integration/Temp-folder/unpacked/METHBOKE_QFB_WFB_SOURCE_fdb515d8/Material/_vendor/QuasiFeffermanB/Endpoints/Root.lean",
+      "fit": "PERIODIC_ACCEPTED_ROOT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-Q01",
+      "steps": [
+        7
+      ],
+      "declarations": "QFA.Energy.envelope_product_integral",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-Q02",
+      "steps": [
+        7
+      ],
+      "declarations": "QFA.Energy.product_budget",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-Q03",
+      "steps": [
+        7,
+        8
+      ],
+      "declarations": "QFA.Energy.product_budget_Ioo",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S07-Q04",
+      "steps": [
+        7
+      ],
+      "declarations": "QFA.Representation.EnergyProfile.energy_product_budget_Ioo",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "fit": "R3_NORM_PROFILE_EXACT_CONDITIONAL_ON_ENERGY_PROFILE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-Q01",
+      "steps": [
+        8
+      ],
+      "declarations": "QFA.Endpoints.GoodTime.exists_good_time_of_integral_lt",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Basic.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-Q02",
+      "steps": [
+        8
+      ],
+      "declarations": "QFA.Endpoints.GoodTime.exists_subcritical_product_good_time",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "fit": "DOMAIN_NEUTRAL_OLD_CONSTANT_WRAPPER"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-Q03",
+      "steps": [
+        8
+      ],
+      "declarations": "QFA.Endpoints.Composition.exists_subcritical_good_time_of_envelope",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "fit": "DOMAIN_NEUTRAL_OLD_CONSTANT_COMPOSITION"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-Q04",
+      "steps": [
+        8
+      ],
+      "declarations": "QFA.Representation.EnergyProfile.exists_subcritical_good_time",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "fit": "R3_NORM_PROFILE_OLD_CONSTANT_WRAPPER"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S08-Q05",
+      "steps": [
+        8,
+        10
+      ],
+      "declarations": "QFA.Endpoints.Composition.exists_subcritical_good_time_with_strong_trace",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeAndTrace.lean",
+      "fit": "R3_NORM_PROFILE_TRACE_OLD_CONSTANT_WRAPPER"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q01",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.strong_tendsto_of_inner_and_norm_bound",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q02",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.strong_right_trace_of_energy_start",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q03",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.shifted_strong_trace_of_energy_start",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q04",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.timeTranslate_memLp_Ioc",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q05",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.timeTranslate_ae_Ioc",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q06",
+      "steps": [
+        9,
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.timeTranslate_intervalIntegral",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q07",
+      "steps": [
+        9,
+        10
+      ],
+      "declarations": "QFA.Endpoints.Restart.timeTranslate_intervalIntegrable",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q08",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Assembly.Restart.energyProfile_timeTranslate",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "fit": "R3_NORM_PROFILE_EXACT_CONDITIONAL_ON_ENERGY_START"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q09",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Assembly.Restart.restartData_of_energyStart",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "fit": "R3_NORM_PROFILE_EXACT_CONDITIONAL_ON_ENERGY_START"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q10",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Assembly.Comparison.eq_on_Icc_of_ae_relative_energy",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT_CONDITIONAL_COMPARISON"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q11",
+      "steps": [
+        9,
+        10
+      ],
+      "declarations": "QFA.Assembly.TailComparison.ComparableOnNonnegative.eq_on_tail",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT_CONDITIONAL_COMPARISON"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q12",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Assembly.TailComparison.restricted_restart_class_eq_singleton",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean",
+      "fit": "DOMAIN_NEUTRAL_EXACT_CONDITIONAL_COMPOSITION"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q13",
+      "steps": [
+        8,
+        10
+      ],
+      "declarations": "QFA.Assembly.Chain.exists_selected_reference_and_tail_singleton",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "fit": "R3_CARRIER_CONDITIONAL_OLD_CONSTANT_ASSEMBLY"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q14",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Assembly.Chain.quantified_tail_assembly",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "fit": "R3_CARRIER_CONDITIONAL_OLD_CONSTANT_ASSEMBLY"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q15",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.Assembly.Integrated.quantified_tail_assembly_of_analytic_inputs",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Integrated.lean",
+      "fit": "R3_CARRIER_CONDITIONAL_OLD_ANALYTIC_ROUTE"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S09-Q01",
+      "steps": [
+        9,
+        10
+      ],
+      "declarations": "QFA.CorrectedPhysicalRoot.selectedTail_smooth",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean",
+      "fit": "CONDITIONAL_SEMANTIC_TRANSPORT"
+    },
+    {
+      "report": "reports/tail_scalar.json",
+      "id": "S10-Q16",
+      "steps": [
+        10
+      ],
+      "declarations": "QFA.CorrectedPhysicalRoot.QUASI_FEFFERMAN_A_CORRECTED",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean",
+      "fit": "CONDITIONAL_PHYSICAL_ROOT_INTERFACE_OLD_CONSTANTS"
+    }
+  ]
+}
