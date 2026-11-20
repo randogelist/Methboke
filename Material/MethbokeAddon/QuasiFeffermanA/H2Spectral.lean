@@ -68,6 +68,7 @@ theorem spatialWeakHessian_symmetric
     H j k = H k j := by
   apply complexifyL2LI.injective
   apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
+  change (𝓕 (complexifyL2 (H j k)) : ComplexL2) = 𝓕 (complexifyL2 (H k j))
   apply Lp.ext
   filter_upwards [spatialWeakHessian_fourier_ae hG hH] with ξ hξ
   rw [hξ j k, hξ k j]

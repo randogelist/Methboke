@@ -1,0 +1,97 @@
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:75:49: error: unsolved goals
+v : ↥SpatialL2
+hsol : Solenoidal v
+ψ : 𝓢(Space, ℝ)
+hcompact : HasCompactSupport ⇑ψ
+hψ : ContDiff ℝ ∞ ⇑ψ
+heach :
+  ∀ (j : Fin 3),
+    (∂_{coordinateVector j} (Lp.toTemperedDistribution (complexifyL2 ((coordinateSliceL2 j) v))))
+        ((SchwartzMap.postcompCLM Complex.ofRealCLM) ψ) =
+      -complexifyVectorCLM
+          ((coordinateSliceVectorCLM j) (∫ (x : Space), (fderiv ℝ (⇑ψ) x) (coordinateVector j) • ↑↑v x))
+⊢ ∑ x,
+      -complexifyVectorCLM
+          ((coordinateSliceVectorCLM x) (∫ (x_1 : Space), (fderiv ℝ (⇑ψ) x_1) (coordinateVector x) • ↑↑v x_1)) =
+    0
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:110:38: warning: This simp argument is unused:
+  ← Finset.sum_neg_distrib
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← map_sum, sum_slice_derivative_pairing v ψ hψ hcompact,
+    (hsol ψ hψ hcompact).2, zero_smul, map_zero, neg_zero]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:110:64: warning: This simp argument is unused:
+  ← map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, sum_slice_derivative_pairing v ψ hψ hcompact,
+    (hsol ψ hψ hcompact).2, zero_smul, map_zero, neg_zero]
+
+Note: Simp arguments with `←` have the additional effect of removing the other direction from the simp set, even if the simp argument itself is unused. If the hint above does not work, try replacing `←` with `-` to only get that effect and silence this warning.
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:111:4: warning: This simp argument is unused:
+  sum_slice_derivative_pairing v ψ hψ hcompact
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, ← map_sum, (hsol ψ hψ hcompact).2, zero_smul,
+    map_zero, neg_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:112:4: warning: This simp argument is unused:
+  (hsol ψ hψ hcompact).2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, ← map_sum,
+    sum_slice_derivative_pairing v ψ hψ hcompact, zero_smul, map_zero, neg_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:112:28: warning: This simp argument is unused:
+  zero_smul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, ← map_sum,
+    sum_slice_derivative_pairing v ψ hψ hcompact, (hsol ψ hψ hcompact).2, map_zero, neg_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:112:39: warning: This simp argument is unused:
+  map_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, ← map_sum,
+    sum_slice_derivative_pairing v ψ hψ hcompact, (hsol ψ hψ hcompact).2, zero_smul, neg_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:112:49: warning: This simp argument is unused:
+  neg_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, ← map_sum,
+    sum_slice_derivative_pairing v ψ hψ hcompact, (hsol ψ hψ hcompact).2, zero_smul, map_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:211:60: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (_root_.fourier 0) ?m.194
+in the target expression
+  𝓕 0 = 0
+
+v : ↥SpatialL2
+hsol : Solenoidal v
+hρ : 2 * ↑Real.pi * Complex.I ≠ 0
+⊢ 𝓕 0 = 0
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:212:32: error: Application type mismatch: The argument
+  hF
+has type
+  @HSMul.hSMul ℂ 𝓢'(Space, ComplexVector) 𝓢'(Space, ComplexVector) instHSMul (2 * ↑Real.pi * Complex.I)
+      (∑ j,
+        (TemperedDistribution.smulLeftCLM ComplexVector fun ξ => ↑(inner ℝ ξ (coordinateVector j)))
+          (Lp.toTemperedDistribution (𝓕 (complexifyL2 ((coordinateSliceL2 j) v))))) =
+    0
+but is expected to have type
+  @HSMul.hSMul ℂ ?m.197 ?m.197 instHSMul (2 * ↑Real.pi * Complex.I) ?m.202 = 0
+in the application
+  smul_eq_zero.mp hF

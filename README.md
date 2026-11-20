@@ -2,16 +2,17 @@
 
 ## External compilation repair
 
-[Run 44829344090](https://github.com/randogelist/Methboke/actions/runs/44829344090)
-at source `6b1e654a` passed 506 of 512 scheduled modules. The real L2/H1 heat
-semigroup now compiles. Two failures remain: kernel reduction of the H2
-sigma-inclusion value theorem, and an explicit zero-function reduction in
-LerayH1. Four dependents were blocked. The candidate repair factors the H2
-inclusion through a generic proved submodule isometry and normalizes the
-remaining function zero. Public statements and every audit are unchanged.
-All 99 fresh package audits, 1,294 named reports, publication and final
-acceptance remain required. The last accepted source remains `09bcf251`.
-No new A-tier acceptance follows from these partial results.
+[Run 44831690178](https://github.com/randogelist/Methboke/actions/runs/44831690178) at source `73245a06` passed
+508 of 512 scheduled modules. There were
+2 new-source failures and 2 blocked dependents.
+The exact original evidence is retained in [audits/material-73245a06-nse-a-failed](audits/material-73245a06-nse-a-failed/summary.json).
+
+Candidate repair: Use the literal Fourier target before Hessian symmetry rewriting; make the solenoidal finite-sum normalization, tempered Fourier zero and nonzero-scalar cancellation explicit.
+
+Public statements and independent consumers are preserved. All 99 fresh
+package audits, 1,294 named reports, publication and final acceptance remain
+required. The last accepted source remains `09bcf251`; no new acceptance is
+claimed from a partial run.
 
 ## Current candidate: H2, Leray and real multipliers
 

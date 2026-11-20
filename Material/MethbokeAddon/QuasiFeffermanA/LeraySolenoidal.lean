@@ -107,9 +107,16 @@ private theorem divergence_eq_zero_on_real_compact
           ((hψ.continuous_fderiv (by simp)).clm_apply continuous_const)
           (hcompact.fderiv_apply ℝ (coordinateVector j)) v
         simpa only [compactPairingCLM_apply] using hpair
-  simp only [_root_.sum_apply, heach, ← Finset.sum_neg_distrib, ← map_sum,
-    sum_slice_derivative_pairing v ψ hψ hcompact,
-    (hsol ψ hψ hcompact).2, zero_smul, map_zero, neg_zero]
+  simp only [_root_.sum_apply, heach]
+  calc
+    (∑ j : Fin 3, -complexifyVectorCLM (coordinateSliceVectorCLM j
+        (∫ x : Space, fderiv ℝ ψ x (coordinateVector j) • v x))) =
+        -complexifyVectorCLM (∑ j : Fin 3, coordinateSliceVectorCLM j
+          (∫ x : Space, fderiv ℝ ψ x (coordinateVector j) • v x)) := by
+      rw [Finset.sum_neg_distrib, map_sum]
+    _ = 0 := by
+      rw [sum_slice_derivative_pairing v ψ hψ hcompact,
+        (hsol ψ hψ hcompact).2, zero_smul, map_zero, neg_zero]
 
 private theorem divergence_distribution_eq_zero
     {v : SpatialL2} (hsol : Solenoidal v) :
@@ -208,8 +215,15 @@ theorem solenoidal_fourier_transverse
         intro j _
         rw [TemperedDistribution.fourier_lineDerivOp_eq,
           Lp.fourier_toTemperedDistribution_eq]
-      _ = 0 := by rw [divergence_distribution_eq_zero hsol, fourier_zero]
-  have hSum := (smul_eq_zero.mp hF).resolve_left hρ
+      _ = 0 := by
+        rw [divergence_distribution_eq_zero hsol, FourierTransform.fourier_zero]
+  have hSum : (∑ j : Fin 3, TemperedDistribution.smulLeftCLM ComplexVector
+      (fun ξ : Space => (inner ℝ ξ (coordinateVector j) : ℂ))
+      ((𝓕 (complexifyL2 (coordinateSliceL2 j v)) : ComplexL2) :
+        𝓢'(Space, ComplexVector))) = 0 := by
+    have hcancel := congrArg
+      (fun T : 𝓢'(Space, ComplexVector) => (2 * (Real.pi : ℂ) * Complex.I)⁻¹ • T) hF
+    simpa only [smul_smul, inv_mul_cancel₀ hρ, one_smul, smul_zero] using hcancel
   have hfreq := ae_sum_multiplier_eq_zero
     (fun j : Fin 3 => (𝓕 (complexifyL2 (coordinateSliceL2 j v)) : ComplexL2))
     (fun j ξ => inner ℝ ξ (coordinateVector j))
