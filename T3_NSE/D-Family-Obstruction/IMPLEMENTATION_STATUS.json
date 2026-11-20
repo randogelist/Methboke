@@ -6,7 +6,7 @@
   "main_goal": "Fefferman_D",
   "local_target": "Fefferman_D_Family_obstruction",
   "base_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
-  "status": "FIRST_LAYER_ACCEPTED_MATCHING_EXTERNAL_CACHED_CI_ROOT_OPEN",
+  "status": "FOUNDATION_AND_ASSEMBLY_HELPERS_ACCEPTED_FAMILY_ROOT_OPEN",
   "root_proved": false,
   "family_witness_constructed": false,
   "literature_seed_imported": false,
@@ -31,6 +31,38 @@
       "sha256": "09c85375133998e98e7f35886563176415918f09535f6109be6744dc6a451a7a",
       "lines": 132,
       "status": "ACCEPTED_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS"
+    },
+    {
+      "path": "Material/MethbokeAddon/FeffermanFamily/CopyBlowup.lean",
+      "sha256": "bf9d1dd4741f93d6d90fd77e6b1b7bcc8e561e72666eadf4ee98c5756adc9081",
+      "lines": 148,
+      "status": "ACCEPTED_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS",
+      "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+      "package": "FeffermanFamilyAssembly"
+    },
+    {
+      "path": "Material/MethbokeAddon/FeffermanFamily/DisjointNSE.lean",
+      "sha256": "9cb3c32eb30c8cdd71cd462aeac8a75b1d2422d4e3304b799f9be5bc2cb60460",
+      "lines": 97,
+      "status": "ACCEPTED_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS",
+      "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+      "package": "FeffermanFamilyAssembly"
+    },
+    {
+      "path": "Material/MethbokeAddon/FeffermanFamily/GrowthSequence.lean",
+      "sha256": "6b09d7c24038ee80a6f950802e2e47a164e430ade93b606838e1260cd113c008",
+      "lines": 132,
+      "status": "ACCEPTED_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS",
+      "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+      "package": "FeffermanFamilyAssembly"
+    },
+    {
+      "path": "Material/MethbokeAddon/FeffermanFamily/LocalDifferential.lean",
+      "sha256": "aa07408733e01c05307e3f0013f9f755b91d63d152dde2150153755ef3490811",
+      "lines": 133,
+      "status": "ACCEPTED_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS",
+      "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+      "package": "FeffermanFamilyAssembly"
     }
   ],
   "package": "FeffermanFamilyFoundation",
@@ -38,19 +70,238 @@
     "Quantitative local velocity blowup; no continuous extension; growth-sequence admission; compact localization from an explicit sequence",
     "Pointwise and neighborhood identities for finite supported sums on disjoint closed carriers, including spacetime",
     "Actual periodic forced-NSE contracts, compact-time force, explicit energy integrability, distinct lifted sites modulo lattice, same-force competitor",
-    "Projection of an explicitly assumed family statement to compact-time single-force obstruction; no family existence proof"
+    "Projection of an explicitly assumed family statement to compact-time single-force obstruction; no family existence proof",
+    "Explicit quantitative growth-sequence selection and compact localization from an assumed speed-unboundedness predicate",
+    "Geometric local-blowup transport by recentering, translation, positive amplitude/spatial scaling and delayed parabolic clocks",
+    "Native differential-operator locality, including the right-hand time derivative at zero",
+    "Conditional exact finite disjoint-sum forced-NSE and divergence assembly from supplied copy equations and common all-time carriers"
   ],
   "open_edges": [
-    "Compatible seed admission at project pin; do not mix literature4.34rc2 objects with4.33",
-    "Selection of explicit growth sequence from seed speed predicate",
-    "Real translation and delayed scaling with all-time force carrier",
-    "Finite prescribed-site packing; exact nonlinear PDE transfer",
-    "Preterminal energy and site-growth transport",
-    "Viscosity before generic-radius periodization",
-    "Actual same-force periodic comparison and root witness construction",
-    "All-order force decay and literal Fefferman-D adapter"
+    "Compatible singular-seed admission into the native family route; isolated upstream objects do not enter Lean4.33",
+    "Full transformed-NSE covariance and common all-time velocity/pressure/force support for the actual copies",
+    "Finite prescribed-site packing and verification of all conditional assembly hypotheses for constructed copies",
+    "Smooth compact-time force admission and zero initial datum for the assembled family",
+    "Preterminal finite-energy bounds and application of geometric site-growth transport to the actual family",
+    "Viscosity transport before generic-radius periodization and preservation of periodic local blowup",
+    "Actual same-force periodic comparison and exclusion of every global smooth competitor",
+    "Family witness construction and arbitrary-configuration family root",
+    "Literal all-order force-decay and Fefferman-D adapter for the native family route"
   ],
   "external_verification": {
+    "status": "PASS_SCOPED_NATIVE_ASSEMBLY_HELPERS",
+    "package": "FeffermanFamilyAssembly",
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663707207",
+    "run_id": 44663707207,
+    "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+    "accepted_helpers": [
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy",
+      "MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr",
+      "MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr",
+      "MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr",
+      "MethbokeAddon.FeffermanFamily.nativeDivergence_congr",
+      "MethbokeAddon.FeffermanFamily.nativeGradient_congr",
+      "MethbokeAddon.FeffermanFamily.nativeLaplacian_congr",
+      "MethbokeAddon.FeffermanFamily.nativeConvection_congr",
+      "MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr",
+      "MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero",
+      "MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free",
+      "MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE"
+    ],
+    "accepted_contracts": [
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt"
+    ],
+    "helper_theorems": 22,
+    "contract_declarations": 1,
+    "a_tier": true,
+    "root_a_tier": false,
+    "standard_axioms_only": true,
+    "approved_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "evidence": "audits/material-f19531bc-assembly/summary.json",
+    "independent_review": "audits/material-f19531bc-assembly/independent-review.json",
+    "independent_consistency_checks_passed": 4995,
+    "modules": 420,
+    "reused_modules": 415,
+    "fresh_modules": 5,
+    "fresh_package_audits": 73,
+    "reused_package_audits": 0,
+    "named_reports": 510,
+    "qfb_cutout_fresh": true,
+    "external_controls": 183,
+    "publication_and_final_acceptance": "PASS",
+    "cache_requirement": "compatible",
+    "observed_cache_classes": {
+      "dependency": "EXACT",
+      "project": "PREFIX"
+    },
+    "exact_cache_benchmark_claimed": false,
+    "scope": "Exact quantitative growth selection, compact localization, geometric blowup transport, native operator locality and finite disjoint forced-NSE assembly helpers; no seed, family existence or literal Fefferman-D root.",
+    "local_lean_executions": 0,
+    "cumulative_family_helper_theorems": 50,
+    "cumulative_family_contract_declarations": 12
+  },
+  "local_lean_executions": 0,
+  "prior_accepted_foundations_preserved": [
+    "EHRENFEST_OBSTRUCTION with explicit stopped-bound hypothesis",
+    "Weak_Fourierman_B with finite full Fourier-budget hypothesis",
+    "R0 actual finite cap and QFB original tail semantics"
+  ],
+  "preparation_basis_revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+  "layout_recalibrated": true,
+  "shared_build_paths_unchanged": true,
+  "next_layer": {
+    "package": "FeffermanFamilyAssembly",
+    "status": "ACCEPTED_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS_SCOPED_HELPERS",
+    "source_modules": [
+      "GrowthSequence",
+      "CopyBlowup",
+      "LocalDifferential",
+      "DisjointNSE"
+    ],
+    "helpers": 22,
+    "definitions": 1,
+    "scope": [
+      "Explicit growth sequence and compact localization from speed predicate",
+      "Geometric translation and positive parabolic blowup transport",
+      "Native differential locality including derivWithin at0",
+      "Exact conditional finite disjoint-sum forcedNSE/divergence"
+    ],
+    "root_proved": false,
+    "first_external_attempt": {
+      "schema_version": 1,
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "tested_commit": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
+      "run_id": 44663007972,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663007972",
+      "artifact_id": 14595514055,
+      "artifact_sha256": "010241260eddbe3ccf17f20f75c738f6164ad42d2b1f60ebc51a7e728565e5b8",
+      "passed_modules": 415,
+      "failed_modules": [
+        "MethbokeAddon.FeffermanFamily.CopyBlowup",
+        "MethbokeAddon.FeffermanFamily.GrowthSequence",
+        "MethbokeAddon.FeffermanFamily.LocalDifferential"
+      ],
+      "blocked_modules": [
+        "FeffermanFamilyAssembly.Endpoint",
+        "MethbokeAddon.FeffermanFamily.DisjointNSE"
+      ],
+      "fresh_required_audits_completed": false,
+      "verified_cache_published": false,
+      "accepted_helpers": 0,
+      "root_proved": false,
+      "local_lean_executions": 0,
+      "repairs": [
+        "Explicit Nat sequence-bound binders in source and independent consumers",
+        "Replace reserved lambda token as a variable identifier",
+        "Explicit curried spatial derivative arguments and beta-reduced force equality",
+        "Explicit finite-sum curry arguments in downstream native assembly bodies"
+      ],
+      "mathematical_statements_changed": false,
+      "direct_D_run_unaffected": 44663007873
+    },
+    "external_verification": {
+      "status": "PASS_SCOPED_NATIVE_ASSEMBLY_HELPERS",
+      "package": "FeffermanFamilyAssembly",
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663707207",
+      "run_id": 44663707207,
+      "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+      "accepted_helpers": [
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt",
+        "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos",
+        "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence",
+        "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier",
+        "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup",
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate",
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter",
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul",
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale",
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one",
+        "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy",
+        "MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr",
+        "MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr",
+        "MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr",
+        "MethbokeAddon.FeffermanFamily.nativeDivergence_congr",
+        "MethbokeAddon.FeffermanFamily.nativeGradient_congr",
+        "MethbokeAddon.FeffermanFamily.nativeLaplacian_congr",
+        "MethbokeAddon.FeffermanFamily.nativeConvection_congr",
+        "MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr",
+        "MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero",
+        "MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free",
+        "MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE"
+      ],
+      "accepted_contracts": [
+        "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt"
+      ],
+      "helper_theorems": 22,
+      "contract_declarations": 1,
+      "a_tier": true,
+      "root_a_tier": false,
+      "standard_axioms_only": true,
+      "approved_axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "evidence": "audits/material-f19531bc-assembly/summary.json",
+      "independent_review": "audits/material-f19531bc-assembly/independent-review.json",
+      "independent_consistency_checks_passed": 4995,
+      "modules": 420,
+      "reused_modules": 415,
+      "fresh_modules": 5,
+      "fresh_package_audits": 73,
+      "reused_package_audits": 0,
+      "named_reports": 510,
+      "qfb_cutout_fresh": true,
+      "external_controls": 183,
+      "publication_and_final_acceptance": "PASS",
+      "cache_requirement": "compatible",
+      "observed_cache_classes": {
+        "dependency": "EXACT",
+        "project": "PREFIX"
+      },
+      "exact_cache_benchmark_claimed": false,
+      "scope": "Exact quantitative growth selection, compact localization, geometric blowup transport, native operator locality and finite disjoint forced-NSE assembly helpers; no seed, family existence or literal Fefferman-D root.",
+      "local_lean_executions": 0
+    },
+    "source_records": [
+      {
+        "path": "Material/MethbokeAddon/FeffermanFamily/CopyBlowup.lean",
+        "sha256": "bf9d1dd4741f93d6d90fd77e6b1b7bcc8e561e72666eadf4ee98c5756adc9081",
+        "receipt_identity": "70ee71986757c855983668d1010b085a0d0315b630fba9de81832fffcdac459d"
+      },
+      {
+        "path": "Material/MethbokeAddon/FeffermanFamily/DisjointNSE.lean",
+        "sha256": "9cb3c32eb30c8cdd71cd462aeac8a75b1d2422d4e3304b799f9be5bc2cb60460",
+        "receipt_identity": "c110aee3aacf998ea9bd0d84ac3e22269f2d7dca99322967dace1ccb53d7b5c6"
+      },
+      {
+        "path": "Material/MethbokeAddon/FeffermanFamily/GrowthSequence.lean",
+        "sha256": "6b09d7c24038ee80a6f950802e2e47a164e430ade93b606838e1260cd113c008",
+        "receipt_identity": "39983e84336ce769f3843daaa66ced709126c1d35ce4d23993ca94e5a2fc6b87"
+      },
+      {
+        "path": "Material/MethbokeAddon/FeffermanFamily/LocalDifferential.lean",
+        "sha256": "aa07408733e01c05307e3f0013f9f755b91d63d152dde2150153755ef3490811",
+        "receipt_identity": "fa40f88f25d6001b32ed271957800e476c6c22b5bf8d2710e4e8f42c3dc31a49"
+      }
+    ]
+  },
+  "direct_D_route": "UpstreamSeed/CI_RUN_PLAN.json",
+  "root_scope": "Fefferman_D_Family_obstruction; this native ledger does not promote the separate direct-D workflow",
+  "foundation_external_verification": {
     "status": "PASS_SCOPED_FOUNDATIONS",
     "run_url": "https://github.com/randogelist/Methboke/actions/runs/44655638162",
     "run_id": 44655638162,
@@ -105,65 +356,87 @@
     "standard_axioms_only": true,
     "evidence": "audits/material-77a64245-family/summary.json"
   },
-  "local_lean_executions": 0,
-  "prior_accepted_foundations_preserved": [
-    "EHRENFEST_OBSTRUCTION with explicit stopped-bound hypothesis",
-    "Weak_Fourierman_B with finite full Fourier-budget hypothesis",
-    "R0 actual finite cap and QFB original tail semantics"
-  ],
-  "preparation_basis_revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
-  "layout_recalibrated": true,
-  "shared_build_paths_unchanged": true,
-  "next_layer": {
+  "assembly_external_verification": {
+    "status": "PASS_SCOPED_NATIVE_ASSEMBLY_HELPERS",
     "package": "FeffermanFamilyAssembly",
-    "status": "SOURCE_REPAIRS_PREPARED_PENDING_EXTERNAL_RETRY",
-    "source_modules": [
-      "GrowthSequence",
-      "CopyBlowup",
-      "LocalDifferential",
-      "DisjointNSE"
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663707207",
+    "run_id": 44663707207,
+    "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
+    "accepted_helpers": [
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier",
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one",
+      "MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy",
+      "MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr",
+      "MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr",
+      "MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr",
+      "MethbokeAddon.FeffermanFamily.nativeDivergence_congr",
+      "MethbokeAddon.FeffermanFamily.nativeGradient_congr",
+      "MethbokeAddon.FeffermanFamily.nativeLaplacian_congr",
+      "MethbokeAddon.FeffermanFamily.nativeConvection_congr",
+      "MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr",
+      "MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero",
+      "MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free",
+      "MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE"
     ],
-    "helpers": 22,
-    "definitions": 1,
-    "scope": [
-      "Explicit growth sequence and compact localization from speed predicate",
-      "Geometric translation and positive parabolic blowup transport",
-      "Native differential locality including derivWithin at0",
-      "Exact conditional finite disjoint-sum forcedNSE/divergence"
+    "accepted_contracts": [
+      "MethbokeAddon.FeffermanFamily.SpeedUnboundedAt"
     ],
-    "root_proved": false,
-    "first_external_attempt": {
-      "schema_version": 1,
-      "status": "FAILED_NO_NEW_ACCEPTANCE",
-      "tested_commit": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
-      "run_id": 44663007972,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663007972",
-      "artifact_id": 14595514055,
-      "artifact_sha256": "010241260eddbe3ccf17f20f75c738f6164ad42d2b1f60ebc51a7e728565e5b8",
-      "passed_modules": 415,
-      "failed_modules": [
-        "MethbokeAddon.FeffermanFamily.CopyBlowup",
-        "MethbokeAddon.FeffermanFamily.GrowthSequence",
-        "MethbokeAddon.FeffermanFamily.LocalDifferential"
-      ],
-      "blocked_modules": [
-        "FeffermanFamilyAssembly.Endpoint",
-        "MethbokeAddon.FeffermanFamily.DisjointNSE"
-      ],
-      "fresh_required_audits_completed": false,
-      "verified_cache_published": false,
-      "accepted_helpers": 0,
-      "root_proved": false,
-      "local_lean_executions": 0,
-      "repairs": [
-        "Explicit Nat sequence-bound binders in source and independent consumers",
-        "Replace reserved lambda token as a variable identifier",
-        "Explicit curried spatial derivative arguments and beta-reduced force equality",
-        "Explicit finite-sum curry arguments in downstream native assembly bodies"
-      ],
-      "mathematical_statements_changed": false,
-      "direct_D_run_unaffected": 44663007873
-    }
+    "helper_theorems": 22,
+    "contract_declarations": 1,
+    "a_tier": true,
+    "root_a_tier": false,
+    "standard_axioms_only": true,
+    "approved_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "evidence": "audits/material-f19531bc-assembly/summary.json",
+    "independent_review": "audits/material-f19531bc-assembly/independent-review.json",
+    "independent_consistency_checks_passed": 4995,
+    "modules": 420,
+    "reused_modules": 415,
+    "fresh_modules": 5,
+    "fresh_package_audits": 73,
+    "reused_package_audits": 0,
+    "named_reports": 510,
+    "qfb_cutout_fresh": true,
+    "external_controls": 183,
+    "publication_and_final_acceptance": "PASS",
+    "cache_requirement": "compatible",
+    "observed_cache_classes": {
+      "dependency": "EXACT",
+      "project": "PREFIX"
+    },
+    "exact_cache_benchmark_claimed": false,
+    "scope": "Exact quantitative growth selection, compact localization, geometric blowup transport, native operator locality and finite disjoint forced-NSE assembly helpers; no seed, family existence or literal Fefferman-D root.",
+    "local_lean_executions": 0
   },
-  "direct_D_route": "UpstreamSeed/CI_RUN_PLAN.json"
+  "packages": [
+    "FeffermanFamilyFoundation",
+    "FeffermanFamilyAssembly"
+  ],
+  "closed_helper_scopes": [
+    "F02.sequence_selection_and_compact_localization",
+    "F02-F03.geometric_recentring_and_copy_growth_transport",
+    "F06.native_operator_locality",
+    "F06.conditional_finite_disjoint_PDE_assembly"
+  ],
+  "next_scoped_endpoint": "Supply the singular seed and prove full transformed-PDE/support/packing admission for the actual family copies; retain all remaining family obligations.",
+  "direct_D_verification": {
+    "status": "PENDING_SEPARATE_EXTERNAL_VERIFICATION",
+    "run_id": 44663007873,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663007873",
+    "tested_revision": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
+    "accepted_by_this_record": false,
+    "authority": "UpstreamSeed/CI_RUN_PLAN.json and its matching source-specific evidence; native assembly acceptance does not accept direct D"
+  }
 }

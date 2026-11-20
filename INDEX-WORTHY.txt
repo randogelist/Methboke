@@ -1,5 +1,5 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 5.2
+DOCUMENT_VERSION = 5.3
 DATE = 2026-11-20
 WORKING_BRANCH = main
 VALIDATED_LAYOUT_BRANCH = codex/reorganize-nse-domains
@@ -48,13 +48,27 @@ BOUNDARY: helper acceptance supplies no family witness, imported seed object,
 literal D adapter or stopped-bound witness. Prior conditional theorem unchanged.
 
 
+T3_FAMILY_ASSEMBLY: A_TIER_ACCEPTED_SCOPED_HELPERS_AND_PREDICATE.
+SOURCE:f19531bca6816cea31c687629b9ab73ee6868169; run 44663707207.
+New scope:22 helper theorems and 1 speed predicate. Combined native family
+scope: 50 helper theorems and 12 contract/predicate declarations.
+STATEMENTS: Speed unboundedness gives an explicit diverging sequence and,
+with a compact carrier, a local blowup point. Positive parabolic coordinate
+transport preserves assumed local blowup. Native operators are local, including
+the right derivative at zero. Supplied same-viscosity forced NSE copies with
+all-time disjoint closed carriers assemble into an exact finite-sum solution.
+EVIDENCE:audits/material-f19531bc-assembly/summary.json.
+REGISTER:T3_NSE/D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt.
+Full 420 modules (415 reused, 5 fresh),73 fresh packages,510 named reports plus QFB
+and 183 controls passed; standard axioms only; matching evidence reviewed.
+BOUNDARY: no seed or family witness, no transformed-copy PDE/scaling theorem,
+no packing, energy, force admission, periodization or same-force uniqueness.
+
 CURRENT CANDIDATES (NOT ACCEPTED RESULTS)
 DIRECT_FEFFERMAN_D: explicit application of the immutable upstream full periodic D
-proof, isolatedLean4.34rc2, exact physical-contract audit; external verification
+proof, isolated Lean4.34rc2, exact physical-contract audit; external verification
 pending. File:T3_NSE/D-Family-Obstruction/UpstreamSeed/Endpoint.lean.
-FAMILY_ASSEMBLY:22 new native helper theorems+1predicate prepared; no new formal
-acceptance before matching external evidence. Existing28helpers/11contracts
-retain their prior accepted scope. Full prescribed-site family remains open.
+The full prescribed-site family remains open.
 
 ACCEPTED PRIOR EHRENFEST PROGRAM
 
@@ -214,6 +228,7 @@ Unproved: stopped witness; arbitrary-data global regularity/counterexample;
 full operator interpretation; full E09 H2 convergence; universal budget/R1.
 No source preparation or successful workflow color alone yields a <-> signal.
 
-ASSEMBLY_EXTERNAL_ATTEMPT:run44663007972 failed compilation; no new acceptance.
-Source elaboration repairs preserve statements. Existing accepted foundations
-remain unchanged. DirectD verification run44663007873 is independent and pending.
+HISTORICAL_ASSEMBLY_ATTEMPT:run 44663007972 failed compilation. Its source-only
+elaboration repairs preserved statements and passed run 44663707207 at f19531bc.
+The failed archive is retained; current native acceptance is T3_FAMILY_ASSEMBLY.
+DirectD verification run 44663007873 is independent and pending.

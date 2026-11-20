@@ -11,14 +11,20 @@ The layout was validated on `codex/reorganize-nse-domains` for integration into
 | B Heisenberg obstruction | [StoppedCommutatorBound](B-Heisenberg-Obstruction/StoppedCommutatorBound/README.md) |
 
 The current user-selected goal is Fefferman D, using the finite prescribed-site
-family route. Its first native foundations are accepted at 77a64245:28 helper
-theorems and 11 contract declarations. The full family witness remains unproved.
-See the [A-tier helper register](D-Family-Obstruction/FEFFERMAN_D_FOUNDATION_A_TIER.txt).
+family route. Its native foundations and assembly helpers are accepted:
+**50 helper theorems and 12 contract/predicate declarations**. The first layer
+was accepted at 77a64245; the second at f19531bc. See the
+[foundation register](D-Family-Obstruction/FEFFERMAN_D_FOUNDATION_A_TIER.txt) and
+[assembly register](D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt).
+The full family witness remains unproved.
 
 A direct literal D endpoint is also prepared in
 [UpstreamSeed](D-Family-Obstruction/UpstreamSeed/README.md), using explicit
-upstream proof reuse and isolated external 4.34 verification. The native family
-assembly package adds 22 helper candidates and 1 predicate pending4.33 CI.
+upstream proof reuse and isolated external 4.34 verification, which remains
+pending. Native 4.33 acceptance covers growth extraction, geometric parabolic
+blowup transport, operator locality including time zero, and conditional finite
+disjoint NSE assembly. It does not supply seed admission, transformed-copy PDE,
+packing, energy, force admission, periodization or same-force comparison.
 
 The program folders contain their derivations, registers, plans and publication
 material. [Material](../Material/README.md) remains the shared verified Lean

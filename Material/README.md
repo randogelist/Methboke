@@ -7,10 +7,22 @@ contract declarations, accepted at 77a64245 by [external run 44655638162](https:
 The complete D family root remains unproved; see
 the [implementation ledger](../T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json).
 
-The new `FeffermanFamilyAssembly` package prepares 22 additional helper theorems
-and 1 predicate for growth selection, copy transport and exact disjoint NSE
-assembly. Verification is pending. The directFefferman-D upstream proof is
-prepared for separate verification under its own 4.34rc2 pin; Material remains4.33.0.
+The [FeffermanFamilyAssembly package](FeffermanFamilyAssembly/README.md) adds
+**22 accepted helper theorems and 1 predicate** at `f19531bc`, verified by
+[run 44663707207](https://github.com/randogelist/Methboke/actions/runs/44663707207). The native family total is
+**50 helper theorems and 12 contract/predicate declarations**. Accepted scope:
+growth selection and compact localization, geometric positive parabolic blowup
+transport, native operator locality including time zero, and conditional exact
+finite-disjoint-sum NSE assembly. Transformed-copy PDE identities, seed admission,
+packing, energy, force admission, periodization and same-force comparison remain
+open for the family route.
+
+The complete native verification passed 420 modules (415 reused, 5 fresh),
+73 fresh package audits, 510 named type/axiom reports plus QFB and 183 controls,
+using only standard axioms. See the [evidence](../audits/material-f19531bc-assembly/summary.json)
+and [A-tier register](../T3_NSE/D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt).
+The direct Fefferman-D upstream proof remains pending separate verification under
+its own 4.34rc2 pin; Material retains 4.33.0.
 
 The prior accepted conditional theorem is
 `MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION`:
@@ -41,8 +53,8 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) extends the 71 accepted baseline packages
-with the new FeffermanFamilyFoundation package. It lists their
+The [endpoint registry](endpoints.json) contains 73 accepted packages: the 71
+prior packages plus FeffermanFamilyFoundation and FeffermanFamilyAssembly. It lists their
 exact declaration requests. Each package contains its import boundary, consumer
 type assertions, theorem-level axiom audit, recursive dependency closure and
 source provenance.
@@ -50,9 +62,9 @@ source provenance.
 | Source group | Count | Role |
 |---|---:|---|
 | `_vendor` | 269 modules | Pinned Methlib foundation sources |
-| `MethbokeAddon` baseline | 71 accepted owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers baseline | 71 accepted modules | Independently audited import boundaries |
-| Accepted baseline compiled scope | 411 modules | Shared source closure, without duplicate foundation rebuilding |
+| `MethbokeAddon` | 78 accepted owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers | 73 accepted modules | Independently audited import boundaries |
+| Accepted compiled scope | 420 modules | Shared source closure, without duplicate foundation rebuilding |
 
 | Package family | Exact role |
 |---|---|
@@ -64,6 +76,8 @@ source provenance.
 | Ehrenfest reference/error/forcing packages | Actual smooth-reference and finite-error estimates |
 | [EhrenfestEventualEnstrophyBound](EhrenfestEventualEnstrophyBound/README.md) | Accepted E09.bound helper |
 | [EhrenfestObstructionRoot](EhrenfestObstructionRoot/README.md) | Accepted exact conditional E10 root |
+| [FeffermanFamilyFoundation](FeffermanFamilyFoundation/README.md) | Accepted local blowup, disjoint-germ and native-contract foundations |
+| [FeffermanFamilyAssembly](FeffermanFamilyAssembly/README.md) | Accepted growth extraction, geometric transport and conditional native disjoint PDE assembly |
 
 Preparation labels inside immutable endpoint manifests are not a replacement
 for source-specific acceptance receipts. Acceptance applies to the exact source,
@@ -134,9 +148,9 @@ Missing or duplicate required reports, unknown axioms and `sorryAx` fail
 acceptance. Static inspection and CI status alone are not theorem acceptance.
 Missing official Mathlib objects do not authorize a Mathlib source rebuild.
 
-The retained receipt covers the prior accepted baseline. The new family proof
-and audit sources require fresh matching external evidence; a documentation-only
-update alone would not require an identical rerun. See
+The retained f19531bc receipt covers the current accepted native source and
+audit scope. Later documentation-only updates preserve that tested identity
+and do not require an identical rerun. See
 [CI controls](ci/README.md) and the [registry guide](registry/README.md).
 
 ## Retained history

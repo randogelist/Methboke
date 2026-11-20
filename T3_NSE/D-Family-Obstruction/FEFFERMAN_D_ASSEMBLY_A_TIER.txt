@@ -1,0 +1,69 @@
+DOCUMENT := FEFFERMAN_D_ASSEMBLY_A_TIER
+VERSION := 1.0
+DATE := 2026-11-20
+PROJECT_GOAL := Fefferman_D
+LOCAL_TARGET := Fefferman_D_Family_obstruction
+STATUS := ACCEPTED_SCOPED_NATIVE_ASSEMBLY_HELPERS
+TESTED_REVISION := f19531bca6816cea31c687629b9ab73ee6868169
+EXTERNAL_RUN := https://github.com/randogelist/Methboke/actions/runs/44663707207
+EVIDENCE := audits/material-f19531bc-assembly/summary.json
+INDEPENDENT_REVIEW := audits/material-f19531bc-assembly/independent-review.json
+INDEPENDENT_CHECKS := 4995
+STANDARD_AXIOMS := {propext, Classical.choice, Quot.sound}
+LOCAL_LEAN_EXECUTIONS := 0
+
+EXACT ACCEPTED DECLARATIONS (23)
+1. MethbokeAddon.FeffermanFamily.SpeedUnboundedAt [definition]
+2. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt [theorem]
+3. MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos [theorem]
+4. MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence [theorem]
+5. MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier [theorem]
+6. MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup [theorem]
+7. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate [theorem]
+8. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter [theorem]
+9. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul [theorem]
+10. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale [theorem]
+11. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one [theorem]
+12. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy [theorem]
+13. MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr [theorem]
+14. MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr [theorem]
+15. MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr [theorem]
+16. MethbokeAddon.FeffermanFamily.nativeDivergence_congr [theorem]
+17. MethbokeAddon.FeffermanFamily.nativeGradient_congr [theorem]
+18. MethbokeAddon.FeffermanFamily.nativeLaplacian_congr [theorem]
+19. MethbokeAddon.FeffermanFamily.nativeConvection_congr [theorem]
+20. MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr [theorem]
+21. MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero [theorem]
+22. MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free [theorem]
+23. MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE [theorem]
+
+ACCEPTED SCOPE
+Sequence selection: from SpeedUnboundedAt U T, choose t_n,x_n with
+0<t_n<T, T-t_n<1/(n+1), and n+1<norm(U(t_n,x_n)). Derive t_n->T
+and the norms->infinity. A supplied common compact carrier yields a local point.
+Geometric transport: supplied local blowup persists under recentering,
+translation, positive amplitude/spatial scaling and delayed clocks fixing time1.
+Operator locality: spacetime germ equality preserves the actual native spatial
+and time derivatives, divergence, gradient, Laplacian, convection and forced PDE.
+The time derivative retains derivWithin on Ici0, including the initial boundary.
+Conditional assembly: supplied same-viscosity copy equations and common fixed
+all-time pairwise disjoint closed carriers imply the exact finite-sum forced
+NSE and divergence equations, with exactly the sum of the supplied forces.
+
+CLOSURE BOUNDARY
+These helpers assume speed unboundedness, local blowup or copy equations where
+their exact signatures say so. They do not supply the singular seed, full
+transformed-PDE covariance, actual copy placement/support, force admission,
+energy bounds, periodization, same-force comparison, family witness or D root.
+The separate direct-D workflow44663007873 remains pending in this record;
+this native package is not evidence of its acceptance.
+
+VERIFICATION
+Lean4.33.0; Mathlib db584cd6d46c92f209a44c0f1c829460d327499d.
+420 modules:415 reused,5 fresh;73 fresh package audits;510 named reports
+plus freshQFB;183 external controls; standard axioms; publication/final gate PASS.
+Observed dependency cache EXACT, project cache PREFIX; compatible profile.
+No exact-cache benchmark is claimed. The first failed run44663007972 is
+retained as a failed attempt, not promoted. Matching acceptance applies to
+the repaired source revision f19531bc and its exact statements.
+Later documentation/evidence-only updates are not new compiler runs.

@@ -5,7 +5,7 @@
   "repository": "randogelist/Methboke",
   "requested_revision": "main",
   "requested_base_revision": "dd0e3550f7c662e3251d48194f4f70f3f6d9f628",
-  "tested_revision": null,
+  "tested_revision": "f19531bca6816cea31c687629b9ab73ee6868169",
   "lean_toolchain": "leanprover/lean4:v4.33.0",
   "mathlib_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
   "runner_label": "ubuntu-24.04",
@@ -26,5 +26,46 @@
   "backend": "binary_cache",
   "exact_cache_benchmark": false,
   "force_rebuild": false,
-  "prior_failed_run_url": "https://github.com/randogelist/Methboke/actions/runs/44663007972"
+  "prior_failed_run_url": "https://github.com/randogelist/Methboke/actions/runs/44663007972",
+  "status": "PASS_MATCHING_EXTERNAL_EVIDENCE_REVIEWED",
+  "evidence": "audits/material-f19531bc-assembly/summary.json",
+  "observed_result": {
+    "run_id": 44663707207,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44663707207",
+    "status": "PASS_SCOPED_NATIVE_ASSEMBLY_HELPERS",
+    "observed_cache_classes": {
+      "dependency": "EXACT",
+      "project": "PREFIX"
+    },
+    "metrics": {
+      "audit_fresh_count": 73,
+      "audit_reused_count": 0,
+      "audit_seconds": 133.453,
+      "build_seconds": 12.601,
+      "cache_seconds": 9.36,
+      "fresh_loc": 519,
+      "fresh_module_count": 5,
+      "module_count": 420,
+      "rerun_receipt_seconds": 0.279,
+      "reused_loc": 50965,
+      "reused_module_count": 415,
+      "target_loc": 51484
+    },
+    "named_reports": 510,
+    "qfb_cutout_fresh": true,
+    "external_controls": 183,
+    "independent_consistency_checks_passed": 4995,
+    "publication_complete": true,
+    "family_root_accepted": false,
+    "direct_D_accepted": false,
+    "exact_cache_benchmark_claimed": false,
+    "generated_plan_label_note": "Actual compatible-cache verification observed dependency EXACT and project PREFIX. Generated warm/exact labels do not establish an exact-cache benchmark."
+  },
+  "tested_build_configuration": {
+    "ci/build.py": "06a53b8a7a7dbc43d46e7e421a4082fe0fce70d740fec8dd6f11296f9fc692d9",
+    "lake-manifest.json": "5ad4bb9f8a90899eff0dccf7bae5eb9fbef3f1f3822f6e1759f1118f5bef6215",
+    "lakefile.lean": "9e577cb61d3538df3726d10ad385a658ddb4dfa696fed5f19f7861795c32c3dd",
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+  },
+  "post_verification_update": "Documentation/evidence only; proof, audit and active manifest bytes remain those of tested f19531bc. This update is not a new compiler run."
 }

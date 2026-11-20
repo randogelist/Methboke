@@ -1,12 +1,16 @@
 # Preprint statement anchors
 
 The current goal is **Fefferman D**, through the [finite periodic-family route](D-Family-Obstruction/README.md).
-Its first foundation package is accepted at 77a64245 (28 helpers,11 contracts);
-the complete family and literal D endpoint remain unproved in this repository.
+Its native foundation and assembly packages are accepted at 77a64245 and
+f19531bc: 50 helper theorems and 12 contract/predicate declarations in total.
+The complete family remains unproved; the separate literal D endpoint is
+pending isolated external verification.
 
 Direct D candidate: [isolated upstream proof adapter](D-Family-Obstruction/UpstreamSeed/README.md),
-pending exact external verification. Stronger native family candidates add22
-helpers and 1 predicate; no family witness claimed.
+pending exact external verification. The [native assembly register](D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt)
+records 22 newly accepted helpers and 1 predicate, with [matching evidence](../audits/material-f19531bc-assembly/summary.json).
+This includes geometric blowup transport and conditional finite-sum NSE assembly;
+transformed-copy PDE preservation and family existence remain open.
 
 The prior accepted conditional **EHRENFEST-OBSTRUCTION** theorem is:
 
@@ -24,7 +28,8 @@ the exact hypothesis and endpoint scope.
 
 | Anchor | Statement | Present evidence |
 |---|---|---|
-| FEFFERMAN-D-FAMILY | Smooth compact-force finite prescribed-site construction | B-tier from the cited seed; native 28 helpers/11 contracts externally accepted at 77a64245; full formal root open |
+| FEFFERMAN-D-FAMILY | Smooth compact-force finite prescribed-site construction | B-tier from the cited seed; native 50 helpers/12 contracts and predicates accepted through f19531bc; full formal root open |
+| FEFFERMAN-D-ASSEMBLY | Speed-to-sequence localization, geometric copy blowup transport, native operator locality and conditional finite disjoint NSE assembly | A-tier at f19531bc: 22 additional helpers and 1 predicate; no seed, transformed-PDE or family-existence conclusion |
 | EHRENFEST-OBSTRUCTION | The literal stopped negative-drift premise for one fixed smooth datum implies failure of NSE-B | A-tier at `22431f03`; exact root/type/standard-axiom audits and final acceptance passed |
 | EHRENFEST-E09-BOUND | An actual smooth front gives eventual cutoff-uniform canonical Galerkin enstrophy boundedness on a strict compact subslab | A-tier at `22431f03`; separately scoped helper, not full H2 convergence |
 | EHRENFEST-E07 / E08 | Stopped scalar hitting and cutoff-uniform threshold escape | Accepted at `40686414` and `7908890a`; freshly audited again at `22431f03` |

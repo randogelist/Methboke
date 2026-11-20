@@ -17,7 +17,7 @@ retain the previous conditional Ehrenfest goal and its accepted evidence.
 
 ## Current implementation
 
-The first layer is in
+The native family layers are in
 [`Material/MethbokeAddon/FeffermanFamily/`](Material/MethbokeAddon/FeffermanFamily/):
 
 | Source | Scope |
@@ -25,6 +25,10 @@ The first layer is in
 | `LocalBlowup.lean` | Quantitative local blowup, growth-sequence admission, compact-carrier localization and obstruction to continuous extension |
 | `DisjointGerms.lean` | Finite disjoint closed carriers and local equality to one summand or zero, including spacetime |
 | `FamilyContracts.lean` | Native forced NSE, periodic velocity and pressure, smooth compact-time force, distinct torus sites and exact family contracts |
+| `GrowthSequence.lean` | Explicit growth-sequence selection from a speed-unboundedness hypothesis and compact localization |
+| `CopyBlowup.lean` | Translation, recentering and positive parabolic transport of an assumed local blowup point |
+| `LocalDifferential.lean` | Native operator locality, including the right time derivative at zero |
+| `DisjointNSE.lean` | Conditional exact NSE and divergence equations for finite disjoint supported sums |
 
 The new [FeffermanFamilyFoundation package](Material/FeffermanFamilyFoundation/README.md)
 passed matching external verification at `77a64245`:
@@ -39,10 +43,10 @@ The [T³ route](T3_NSE/D-Family-Obstruction/README.md),
 and [implementation ledger](T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json)
 separate the mathematical construction from completed formal adapters.
 
-The remaining formal route includes the compact literature seed and its
-compatibility with this project, sequence selection, copy placement, exact
-nonlinear assembly, energy, periodization, smooth-force decay, and same-force
-comparison. The seed reference uses Lean `4.34.0-rc2`; it has not been imported
+The remaining native family route includes the compact literature seed and its
+compatibility with this project, transformed-copy PDE and support identities,
+finite packing, energy, force admission, periodization, smooth-force decay and
+same-force comparison. The seed reference uses Lean `4.34.0-rc2`; it has not been imported
 or newly verified under Methboke's `4.33.0` pin.
 
 ## Current build toward Fefferman D
@@ -53,11 +57,18 @@ proof. Its literal force and competitor contracts receive independent checks.
 This 604-module route keeps its original Lean4.34.0-rc2 pin and leaves Material
 at 4.33.0. It explicitly reuses the upstream proof; verification is pending.
 
-The next native family package, `FeffermanFamilyAssembly`, prepares 22 further
-helpers and 1 predicate for growth selection, copy transport and exact disjoint
-NSE assembly. These candidates preserve all existing accepted foundations. The first external
-assembly attempt exposed elaboration errors; source repairs are prepared for
-reverification, with [failure evidence](audits/material-dd0e355-assembly-failure/summary.json) retained.
+The [native assembly package](Material/FeffermanFamilyAssembly/README.md) is
+accepted at `f19531bc`: **22 additional helper theorems and 1 predicate**.
+[Run 44663707207](https://github.com/randogelist/Methboke/actions/runs/44663707207) passed 420 modules
+(415 reused, 5 fresh), 73 fresh package audits, 510 named type/axiom reports
+plus QFB and 183 controls, with standard axioms only.
+[Matching evidence](audits/material-f19531bc-assembly/summary.json) and the
+[A-tier register](T3_NSE/D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt)
+record the exact accepted scope. The native family total is **50 helper theorems
+and 12 contract/predicate declarations**. Geometric blowup transport does not
+prove transformed-copy PDE identities. The full family witness remains open.
+The [first failed attempt](audits/material-dd0e355-assembly-failure/summary.json)
+is retained as superseded history.
 
 ## Accepted foundations
 
