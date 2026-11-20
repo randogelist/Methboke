@@ -28,8 +28,15 @@ theorem family_spatial_fderiv_contDiffAt
       (r.1.1, (r.1.2.1, r.2))) :=
     contDiff_fst.fst.prodMk (contDiff_fst.snd.fst.prodMk contDiff_snd)
   have haux : ContDiffAt ℝ ∞
-      (fun r : (ℝ × (ℝ × Vec)) × Vec => H r.1.1 r.1.2.1 r.2) (q, q.2.2) :=
-    hH.comp (q, q.2.2) hmap.contDiffAt
+      (fun r : (ℝ × (ℝ × Vec)) × Vec => H r.1.1 r.1.2.1 r.2) (q, q.2.2) := by
+    have houter : ContDiffAt ℝ ∞
+        (fun z : ℝ × (ℝ × Vec) => H z.1 z.2.1 z.2.2)
+        (q.1, (q.2.1, q.2.2)) := hH
+    simpa only [Function.comp_def] using
+      (ContDiffAt.comp
+        (f := fun r : (ℝ × (ℝ × Vec)) × Vec => (r.1.1, (r.1.2.1, r.2)))
+        (g := fun z : ℝ × (ℝ × Vec) => H z.1 z.2.1 z.2.2)
+        (q, q.2.2) houter hmap.contDiffAt)
   exact haux.fderiv contDiffAt_snd.snd (by simp)
 
 theorem family_coordinateDerivative_contDiffOn
@@ -86,8 +93,15 @@ theorem family_timeDerivative_contDiffOn
       (r.1.1, (r.2, r.1.2.2))) :=
     contDiff_fst.fst.prodMk (contDiff_snd.prodMk contDiff_fst.snd.snd)
   have haux : ContDiffAt ℝ ∞
-      (fun r : (ℝ × (ℝ × Vec)) × ℝ => H r.1.1 r.2 r.1.2.2) (q, q.2.1) :=
-    (hH.contDiffAt (hopen.mem_nhds hq)).comp (q, q.2.1) hmap.contDiffAt
+      (fun r : (ℝ × (ℝ × Vec)) × ℝ => H r.1.1 r.2 r.1.2.2) (q, q.2.1) := by
+    have houter : ContDiffAt ℝ ∞
+        (fun z : ℝ × (ℝ × Vec) => H z.1 z.2.1 z.2.2)
+        (q.1, (q.2.1, q.2.2)) := hH.contDiffAt (hopen.mem_nhds hq)
+    simpa only [Function.comp_def] using
+      (ContDiffAt.comp
+        (f := fun r : (ℝ × (ℝ × Vec)) × ℝ => (r.1.1, (r.2, r.1.2.2)))
+        (g := fun z : ℝ × (ℝ × Vec) => H z.1 z.2.1 z.2.2)
+        (q, q.2.1) houter hmap.contDiffAt)
   have hd : ContDiffAt ℝ ∞ (fun r : ℝ × (ℝ × Vec) =>
       fderiv ℝ (fun t : ℝ => H r.1 t r.2.2) r.2.1 (1 : ℝ)) q :=
     (haux.fderiv contDiffAt_snd.fst (by simp)).clm_apply contDiffAt_const

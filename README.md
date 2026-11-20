@@ -148,3 +148,5 @@ FDSN verification repair after run44805483799: Normalize pointwise functions and
 FDSN verification repair after run44806525675: Resolve the finite-norm estimate elaboration, explicit zero-velocity germs, inequality addition orientation and pointwise coefficient coercions; include the same-witness physical presentation corollary. [Failure record](audits/fdsn-bfddc915-failed/summary.json).
 
 FDSN verification repair after run44807597711: Make residual smoothness subterms explicit with a scoped elaboration allowance, and normalize subtraction in the physical Leray coefficient identity. All theorem contracts are unchanged. [Failure record](audits/fdsn-38dd6ec5-failed/summary.json).
+
+FDSN verification repair after run44808681563: Specify the exact inner and outer maps in both joint residual derivative compositions; theorem statements and audit consumers unchanged. [Failure record](audits/fdsn-6f02f8b7-failed/summary.json).

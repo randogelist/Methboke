@@ -52,7 +52,7 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Make residual smoothness subterms explicit with a scoped elaboration allowance, and normalize subtraction in the physical Leray coefficient identity. All theorem contracts are unchanged. Full exact cached external verification authorized; no local Lean.",
+  "ci_handoff": "Specify the exact inner and outer maps in both joint residual derivative compositions; theorem statements and audit consumers unchanged. Full exact cached external verification authorized; no local Lean.",
   "current_material_external_verification": "FDSN_FIRST_INTERMEDIATES_ACCEPTED_FULL_CHAIN_REPAIR_PENDING",
   "latest_material_run": {
     "tested_commit": "f19531bca6816cea31c687629b9ab73ee6868169",
@@ -2464,9 +2464,25 @@
         "axiom_policy_changed": false,
         "new_acceptance": false,
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_EXTERNAL_ELABORATION_REPAIR_PREPARED",
+        "commit": "6f02f8b790bf9800875ecda7a083babf0b4671e5",
+        "run_id": 44808681563,
+        "job_id": 136539283383,
+        "cause": "JointResidual ContDiffAt composition could not infer the outer function in two local derivative adapters.",
+        "failed_modules": [
+          "JointResidual"
+        ],
+        "artifact_id": 14665410031,
+        "artifact_sha256": "f264c1ad0c7a1abffb45982325e72775039900184b744ccadc1cbbe2ecfdcf57",
+        "statement_changed": false,
+        "axiom_policy_changed": false,
+        "new_acceptance": false,
+        "local_lean_executions": 0
       }
     ],
-    "current_repair": "Make residual smoothness subterms explicit with a scoped elaboration allowance, and normalize subtraction in the physical Leray coefficient identity. All theorem contracts are unchanged.",
+    "current_repair": "Specify the exact inner and outer maps in both joint residual derivative compositions; theorem statements and audit consumers unchanged.",
     "root_source_prepared": true,
     "root_external_acceptance": false
   },

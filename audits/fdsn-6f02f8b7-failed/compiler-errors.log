@@ -1,0 +1,66 @@
+MethbokeAddon/FDSN/JointResidual.lean:32:4: error: Type mismatch
+  ContDiffAt.comp (q, q.2.2) ?m.229 (ContDiff.contDiffAt hmap)
+has type
+  ContDiffAt ℝ ∞ (?m.221 ∘ fun r => (r.1.1, r.1.2.1, r.2)) (q, q.2.2)
+but is expected to have type
+  ContDiffAt ℝ ∞ (fun r => H r.1.1 r.1.2.1 r.2) (q, q.2.2)
+MethbokeAddon/FDSN/JointResidual.lean:90:4: error: Type mismatch
+  ContDiffAt.comp (q, q.2.1) ?m.302 (ContDiff.contDiffAt hmap)
+has type
+  ContDiffAt ℝ ∞ (?m.294 ∘ fun r => (r.1.1, r.2, r.1.2.2)) (q, q.2.1)
+but is expected to have type
+  ContDiffAt ℝ ∞ (fun r => H r.1.1 r.2 r.1.2.2) (q, q.2.1)
+MATERIAL_MODULE MethbokeAddon.FDSN.JointResidual FAIL
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.AnalyticTwoSidedCap PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.StrongContinuation PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.WFBRootAssembly PASS REUSED
+MATERIAL_MODULE R0AnalyticCapAdmission.Endpoint PASS REUSED
+MATERIAL_MODULE WFBFiniteFrontGluing.Endpoint PASS REUSED
+MATERIAL_MODULE WFBMaximalClassicalFront.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestErrorState.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestReference.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNCoefficientSmooth/Endpoint.olean", "FDSNCoefficientSmooth/Endpoint.lean"]
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNForcedFourierEvolution/Endpoint.olean", "FDSNForcedFourierEvolution/Endpoint.lean"]
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/ActiveTriad.olean", "MethbokeAddon/FDSN/ActiveTriad.lean"]
+MATERIAL_MODULE FDSNCoefficientSmooth.Endpoint PASS
+MATERIAL_MODULE FDSNForcedFourierEvolution.Endpoint PASS
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ErrorEquation PASS REUSED
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.PhysicalReferenceTail PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/LocalizedPair.olean", "MethbokeAddon/FDSN/LocalizedPair.lean"]
+MATERIAL_MODULE MethbokeAddon.FDSN.ActiveTriad PASS
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/PairForceUniqueness.olean", "MethbokeAddon/FDSN/PairForceUniqueness.lean"]
+MATERIAL_MODULE MethbokeAddon.FDSN.LocalizedPair PASS
+MATERIAL_MODULE MethbokeAddon.FDSN.PairForceUniqueness PASS
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalTailGluing PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.R0DataAdmission PASS REUSED
+MATERIAL_MODULE R0AnalyticTwoSidedCap.Endpoint PASS REUSED
+MATERIAL_MODULE WFBMaximalFrontRestriction.Endpoint PASS REUSED
+MATERIAL_MODULE WFBMaximalLerayHopfIdentification.Endpoint PASS REUSED
+MATERIAL_MODULE WFBStrongContinuation.Endpoint PASS REUSED
+MATERIAL_MODULE WFBWFBRootAssembly.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestErrorEquation.Endpoint PASS REUSED
+MATERIAL_MODULE EhrenfestReferenceEvolution.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNActiveTriad/Endpoint.olean", "FDSNActiveTriad/Endpoint.lean"]MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNLocalizedPair/Endpoint.olean", "FDSNLocalizedPair/Endpoint.lean"]
+
+MATERIAL_MODULE FDSNActiveTriad.Endpoint PASS
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNPairForceUniqueness/Endpoint.olean", "FDSNPairForceUniqueness/Endpoint.lean"]
+MATERIAL_MODULE FDSNLocalizedPair.Endpoint PASS
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/LocalizedPairSeparation.olean", "MethbokeAddon/FDSN/LocalizedPairSeparation.lean"]
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/FDSN/PhysicalLerayAdapter.olean", "MethbokeAddon/FDSN/PhysicalLerayAdapter.lean"]
+MATERIAL_MODULE FDSNPairForceUniqueness.Endpoint PASS
+MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.CanonicalErrorInequality PASS REUSED
+MATERIAL_MODULE MethbokeAddon.FDSN.LocalizedPairSeparation PASS
+MATERIAL_MODULE MethbokeAddon.FDSN.PhysicalLerayAdapter PASS
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation PASS REUSED
+MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.StrictCutoff PASS REUSED
+MATERIAL_MODULE R0DataAdmission.Endpoint PASS REUSED
+MATERIAL_MODULE WFBMaximalTailGluing.Endpoint PASS REUSED
+MATERIAL_MODULE WFBPhysicalBudgetContinuation.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNLocalizedPairSeparation/Endpoint.olean", "FDSNLocalizedPairSeparation/Endpoint.lean"]
+MATERIAL_MODULE EhrenfestCanonicalErrorInequality.Endpoint PASS REUSED
+MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/FDSNPhysicalLerayAdapter/Endpoint.olean", "FDSNPhysicalLerayAdapter/Endpoint.lean"]
+MATERIAL_MODULE FDSNLocalizedPairSeparation.Endpoint PASS
+MATERIAL_MODULE FDSNPhysicalLerayAdapter.Endpoint PASS
