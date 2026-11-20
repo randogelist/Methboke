@@ -81,6 +81,7 @@ private theorem weak_eq_on_complexified_real_schwartz
       rw [lineDeriv_postcomp_ofReal]
       change fderiv ℝ ψ x e • u x = ((fderiv ℝ ψ x e : ℝ) : ℂ) • u x
       exact real_smul_complexVector (fderiv ℝ ψ x e) (u x)
+  all_goals rfl
 
 /-- Every real compact-test weak directional derivative is the actual complex
 tempered-distribution derivative. All compact Schwartz tests are used; the

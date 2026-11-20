@@ -1,0 +1,2031 @@
+﻿2026-11-20T19:41:34.8474605Z Current runner version: '2.338.2'
+2026-11-20T19:41:34.8491290Z ##[group]Runner Image Provisioner
+2026-11-20T19:41:34.8491925Z Hosted Compute Agent
+2026-11-20T19:41:34.8492381Z Version: 20261111.635
+2026-11-20T19:41:34.8492821Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-20T19:41:34.8493683Z Build Date: 2026-11-11T01:49:01Z
+2026-11-20T19:41:34.8494222Z Worker ID: {b7de8f01-fe79-46af-8bbf-4040edf48b50}
+2026-11-20T19:41:34.8494722Z Region: us-west-2
+2026-11-20T19:41:34.8495104Z Cloud: AWS
+2026-11-20T19:41:34.8495483Z ##[endgroup]
+2026-11-20T19:41:34.8496596Z ##[group]Operating System
+2026-11-20T19:41:34.8497070Z Ubuntu
+2026-11-20T19:41:34.8497427Z 24.04.5
+2026-11-20T19:41:34.8497776Z LTS
+2026-11-20T19:41:34.8498139Z ##[endgroup]
+2026-11-20T19:41:34.8498518Z ##[group]Runner Image
+2026-11-20T19:41:34.8498952Z Image: ubuntu-24.04
+2026-11-20T19:41:34.8499337Z Version: 20261116.133.1
+2026-11-20T19:41:34.8500389Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.133/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-20T19:41:34.8501460Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.133
+2026-11-20T19:41:34.8502160Z ##[endgroup]
+2026-11-20T19:41:34.8503001Z ##[group]GITHUB_TOKEN Permissions
+2026-11-20T19:41:34.8504932Z Contents: read
+2026-11-20T19:41:34.8505334Z Metadata: read
+2026-11-20T19:41:34.8505769Z Packages: write
+2026-11-20T19:41:34.8506162Z ##[endgroup]
+2026-11-20T19:41:34.8507631Z Secret source: Actions
+2026-11-20T19:41:34.8508257Z Cache mode: write
+2026-11-20T19:41:34.8508793Z Prepare workflow directory
+2026-11-20T19:41:34.8855080Z Prepare all required actions
+2026-11-20T19:41:34.8890352Z Getting action download info
+2026-11-20T19:41:35.2638749Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-20T19:41:37.1872349Z Complete job name: Fast cached verification
+2026-11-20T19:41:37.2521362Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-11-20T19:41:37.2522747Z with:
+2026-11-20T19:41:37.2523947Z   ref: 1f83d62b771bc81daf48bac8026cd69e583e6703
+2026-11-20T19:41:37.2524978Z   persist-credentials: false
+2026-11-20T19:41:37.2525868Z   fetch-depth: 1
+2026-11-20T19:41:37.2526693Z   repository: randogelist/Methboke
+2026-11-20T19:41:37.2533949Z   token: ***
+2026-11-20T19:41:37.2534752Z   ssh-strict: true
+2026-11-20T19:41:37.2535495Z   ssh-user: git
+2026-11-20T19:41:37.2536239Z   clean: true
+2026-11-20T19:41:37.2537022Z   sparse-checkout-cone-mode: true
+2026-11-20T19:41:37.2537927Z   fetch-tags: false
+2026-11-20T19:41:37.2538731Z   show-progress: true
+2026-11-20T19:41:37.2539513Z   lfs: false
+2026-11-20T19:41:37.2540248Z   submodules: false
+2026-11-20T19:41:37.2541032Z   set-safe-directory: true
+2026-11-20T19:41:37.2541897Z   allow-unsafe-pr-checkout: false
+2026-11-20T19:41:37.2543146Z env:
+2026-11-20T19:41:37.2543878Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:37.2544887Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:37.2545946Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:37.2546741Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:37.2547651Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:37.2548465Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:37.2549313Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:37.2550167Z ##[endgroup]
+2026-11-20T19:41:41.3300747Z Syncing repository: randogelist/Methboke
+2026-11-20T19:41:41.3301975Z ##[group]Getting Git version info
+2026-11-20T19:41:41.3302368Z Working directory is '/home/runner/work/Methboke/Methboke'
+2026-11-20T19:41:41.3302982Z [command]/usr/bin/git version
+2026-11-20T19:41:41.7840358Z git version 2.56.1
+2026-11-20T19:41:41.7856988Z ##[endgroup]
+2026-11-20T19:41:41.7867806Z Temporarily overriding HOME='/home/runner/work/_temp/2962e0e8-7916-441f-8f93-1c985169073c' before making global git config changes
+2026-11-20T19:41:41.7868892Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T19:41:41.7872335Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Methboke/Methboke
+2026-11-20T19:41:41.8301595Z Deleting the contents of '/home/runner/work/Methboke/Methboke'
+2026-11-20T19:41:41.8305543Z ##[group]Initializing the repository
+2026-11-20T19:41:41.8308331Z [command]/usr/bin/git init /home/runner/work/Methboke/Methboke
+2026-11-20T19:41:41.9320719Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-20T19:41:41.9321402Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-20T19:41:41.9321920Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-20T19:41:41.9322354Z hint: call:
+2026-11-20T19:41:41.9322619Z hint:
+2026-11-20T19:41:41.9322958Z hint: 	git config --global init.defaultBranch <name>
+2026-11-20T19:41:41.9323576Z hint:
+2026-11-20T19:41:41.9323888Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-20T19:41:41.9324344Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-20T19:41:41.9324745Z hint:
+2026-11-20T19:41:41.9324992Z hint: 	git branch -m <name>
+2026-11-20T19:41:41.9325279Z hint:
+2026-11-20T19:41:41.9325642Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-20T19:41:41.9328420Z Initialized empty Git repository in /home/runner/work/Methboke/Methboke/.git/
+2026-11-20T19:41:41.9335416Z [command]/usr/bin/git remote add origin https://github.com/randogelist/Methboke
+2026-11-20T19:41:41.9377008Z ##[endgroup]
+2026-11-20T19:41:41.9377501Z ##[group]Disabling automatic garbage collection
+2026-11-20T19:41:41.9380080Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-20T19:41:41.9401695Z ##[endgroup]
+2026-11-20T19:41:41.9402358Z ##[group]Setting up auth
+2026-11-20T19:41:41.9406986Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T19:41:41.9431905Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T19:41:42.3117943Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T19:41:42.3140870Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T19:41:42.3287719Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T19:41:42.3311442Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T19:41:42.3457180Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-20T19:41:42.3484004Z ##[endgroup]
+2026-11-20T19:41:42.3484493Z ##[group]Fetching the repository
+2026-11-20T19:41:42.3497112Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 1f83d62b771bc81daf48bac8026cd69e583e6703
+2026-11-20T19:41:44.0603644Z From https://github.com/randogelist/Methboke
+2026-11-20T19:41:44.0604210Z  * branch            1f83d62b771bc81daf48bac8026cd69e583e6703 -> FETCH_HEAD
+2026-11-20T19:41:44.0607755Z ##[endgroup]
+2026-11-20T19:41:44.0608445Z ##[group]Determining the checkout info
+2026-11-20T19:41:44.0610315Z ##[endgroup]
+2026-11-20T19:41:44.0615539Z [command]/usr/bin/git sparse-checkout disable
+2026-11-20T19:41:44.0694087Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-20T19:41:44.0710017Z ##[group]Checking out the ref
+2026-11-20T19:41:44.0713363Z [command]/usr/bin/git checkout --progress --force 1f83d62b771bc81daf48bac8026cd69e583e6703
+2026-11-20T19:41:44.2741584Z Note: switching to '1f83d62b771bc81daf48bac8026cd69e583e6703'.
+2026-11-20T19:41:44.2741946Z 
+2026-11-20T19:41:44.2742305Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-20T19:41:44.2742756Z changes and commit them, and you can discard any commits you make in this
+2026-11-20T19:41:44.2743677Z state without impacting any branches by switching back to a branch.
+2026-11-20T19:41:44.2744003Z 
+2026-11-20T19:41:44.2744199Z If you want to create a new branch to retain commits you create, you may
+2026-11-20T19:41:44.2744671Z do so (now or later) by using -c with the switch command. Example:
+2026-11-20T19:41:44.2744985Z 
+2026-11-20T19:41:44.2745142Z   git switch -c <new-branch-name>
+2026-11-20T19:41:44.2745319Z 
+2026-11-20T19:41:44.2745468Z Or undo this operation with:
+2026-11-20T19:41:44.2745621Z 
+2026-11-20T19:41:44.2745776Z   git switch -
+2026-11-20T19:41:44.2745880Z 
+2026-11-20T19:41:44.2746074Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-20T19:41:44.2746325Z 
+2026-11-20T19:41:44.2746481Z HEAD is now at 1f83d62 Construct NSE-A physical H1 and full-budget foundations
+2026-11-20T19:41:44.2760679Z ##[endgroup]
+2026-11-20T19:41:44.2798022Z [command]/usr/bin/git log -1 --format=%H
+2026-11-20T19:41:44.2818879Z 1f83d62b771bc81daf48bac8026cd69e583e6703
+2026-11-20T19:41:44.2826541Z ##[group]Removing auth
+2026-11-20T19:41:44.2830201Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T19:41:44.2854893Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T19:41:44.3012605Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T19:41:44.3035000Z http.https://github.com/.extraheader
+2026-11-20T19:41:44.3039689Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-20T19:41:44.3061880Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T19:41:44.3209355Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T19:41:44.3230410Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T19:41:44.3376939Z ##[endgroup]
+2026-11-20T19:41:44.3862679Z Prepare all required actions
+2026-11-20T19:41:44.3863554Z Getting action download info
+2026-11-20T19:41:44.5503806Z Download action repository 'actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-11-20T19:41:44.7928300Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-20T19:41:45.0104123Z ##[group]Run ./.github/actions/material-worker
+2026-11-20T19:41:45.0104417Z with:
+2026-11-20T19:41:45.0104620Z   worker-mode: fast
+2026-11-20T19:41:45.0104864Z   backend: binary_cache
+2026-11-20T19:41:45.0105107Z   exact-cache-benchmark: false
+2026-11-20T19:41:45.0105395Z   force-rebuild: false
+2026-11-20T19:41:45.0107531Z   github-token: ***
+2026-11-20T19:41:45.0107731Z env:
+2026-11-20T19:41:45.0107959Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:45.0108224Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:45.0108708Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:45.0108929Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:45.0109166Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:45.0109394Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:45.0109624Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:45.0109884Z ##[endgroup]
+2026-11-20T19:41:45.0174300Z ##[start-action display=Validate and record worker routing;id=worker.routing]
+2026-11-20T19:41:45.0203546Z ##[group]Run python3 - <<'PY'
+2026-11-20T19:41:45.0203925Z [36;1mpython3 - <<'PY'[0m
+2026-11-20T19:41:45.0204193Z [36;1mimport json[0m
+2026-11-20T19:41:45.0204416Z [36;1mimport os[0m
+2026-11-20T19:41:45.0204654Z [36;1mfrom pathlib import Path[0m
+2026-11-20T19:41:45.0204920Z [36;1mmode = os.environ['WORKER_MODE'][0m
+2026-11-20T19:41:45.0205405Z [36;1mbackend = os.environ['WORKER_BACKEND'][0m
+2026-11-20T19:41:45.0205742Z [36;1mstrict = os.environ['STRICT_BENCHMARK'] == 'true'[0m
+2026-11-20T19:41:45.0206060Z [36;1mforced = os.environ['FORCE_REBUILD'] == 'true'[0m
+2026-11-20T19:41:45.0206449Z [36;1mif mode not in ('fast', 'recovery') or backend not in ('binary_cache', 'registry'):[0m
+2026-11-20T19:41:45.0206876Z [36;1m    raise SystemExit('Unsupported Material worker configuration.')[0m
+2026-11-20T19:41:45.0207246Z [36;1mif mode == 'recovery' and (backend != 'binary_cache' or strict):[0m
+2026-11-20T19:41:45.0207692Z [36;1m    raise SystemExit('Recovery is only available for the ordinary binary backend.')[0m
+2026-11-20T19:41:45.0208138Z [36;1mif forced and (mode != 'recovery' or backend != 'binary_cache' or strict):[0m
+2026-11-20T19:41:45.0208842Z [36;1m    raise SystemExit('force_rebuild requires the ordinary binary recovery path; disable exact_cache_benchmark and select binary_cache.')[0m
+2026-11-20T19:41:45.0209320Z [36;1mplan = {[0m
+2026-11-20T19:41:45.0209688Z [36;1m    'schema_version': 1, 'worker_mode': mode, 'backend': backend,[0m
+2026-11-20T19:41:45.0210178Z [36;1m    'commit': os.environ['GITHUB_SHA'], 'run_id': os.environ['GITHUB_RUN_ID'],[0m
+2026-11-20T19:41:45.0210581Z [36;1m    'attempt': os.environ['GITHUB_RUN_ATTEMPT'],[0m
+2026-11-20T19:41:45.0210965Z [36;1m    'exact_cache_benchmark': strict, 'force_rebuild_requested': forced,[0m
+2026-11-20T19:41:45.0211359Z [36;1m    'recovery_trigger': ('manual force_rebuild input' if forced else[0m
+2026-11-20T19:41:45.0211831Z [36;1m                         'explicit classified cache rejection' if mode == 'recovery' else None),[0m
+2026-11-20T19:41:45.0212237Z [36;1m    'own_project_restore_allowed': mode == 'fast',[0m
+2026-11-20T19:41:45.0212551Z [36;1m    'dependency_restore_allowed': mode == 'fast',[0m
+2026-11-20T19:41:45.0212891Z [36;1m    'dependency_source_build_allowed': False,[0m
+2026-11-20T19:41:45.0213500Z [36;1m}[0m
+2026-11-20T19:41:45.0213750Z [36;1mregistry = Path('Material/registry')[0m
+2026-11-20T19:41:45.0214076Z [36;1mregistry.mkdir(parents=True, exist_ok=True)[0m
+2026-11-20T19:41:45.0214590Z [36;1m(registry / 'worker-plan.json').write_text(json.dumps(plan, indent=2, sort_keys=True) + '\n')[0m
+2026-11-20T19:41:45.0214964Z [36;1mPY[0m
+2026-11-20T19:41:45.2751679Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:41:45.2752144Z env:
+2026-11-20T19:41:45.2752388Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:45.2752694Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:45.2753322Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:45.2753558Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:45.2753793Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:45.2754051Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:45.2754290Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:45.2754544Z   WORKER_MODE: fast
+2026-11-20T19:41:45.2754799Z   WORKER_BACKEND: binary_cache
+2026-11-20T19:41:45.2755043Z   STRICT_BENCHMARK: false
+2026-11-20T19:41:45.2755295Z   FORCE_REBUILD: false
+2026-11-20T19:41:45.2755514Z ##[endgroup]
+2026-11-20T19:41:45.3052239Z ##[end-action id=worker.routing;outcome=success;conclusion=success;duration_ms=287]
+2026-11-20T19:41:45.3057188Z ##[start-action display=Validate sources and receipt controls without Lean;id=worker.static]
+2026-11-20T19:41:45.3074100Z ##[group]Run python3 -m unittest discover -s Material/ci/tests
+2026-11-20T19:41:45.3074546Z [36;1mpython3 -m unittest discover -s Material/ci/tests[0m
+2026-11-20T19:41:45.3074879Z [36;1mpython3 Material/ci/build.py --validate-only[0m
+2026-11-20T19:41:45.3101523Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:41:45.3101840Z env:
+2026-11-20T19:41:45.3102131Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:45.3102400Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:45.3102671Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:45.3102925Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:45.3103321Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:45.3103743Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:45.3103978Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:45.3104200Z ##[endgroup]
+2026-11-20T19:41:45.5966314Z MATERIAL_BINARY_BUNDLE {"archive_bytes": 890, "archive_layout": "repository-relative; current own .olean* objects and fresh evidence only", "archive_name": "material-project-111111111111-234-2.tar.gz", "archive_sha256": "d76964a90eecacd678805e0ca912d8fa9c068aaa5e027b869444a99af1e380b1", "artifact_name": "material-binary-1111111111111111111111111111111111111111-234-2", "attempt": "2", "branch": "main", "build_configuration": {}, "commit": "1111111111111111111111111111111111111111", "compiler": "pinned fixture", "compression": "gzip-level-1", "cpu_seconds": 0.002, "dependency_archive_included": false, "dependency_identity": {"compiler": "pinned fixture"}, "fresh_required_audits": true, "full_project_rebuild_verified": false, "local_lean_allowed": false, "manifest_sha256": "eb6966314837c03d2bfde01262e64676751d7e84a271a1b2367695fa2c28fb27", "member_bytes": 1152, "member_count": 5, "module_count": 1, "own_object_bytes": 36, "packaging_seconds": 0.001, "remote_upload_verified": false, "report_sha256": "07442dc5fe7d1f49dfdf4ff6518720ac5b1c776b7118fd7ab8b78272dbf6476d", "repository": "example/project", "run_id": "234", "run_url": "https://github.com/example/project/actions/runs/234", "schema_version": 1, "status": "READY_FOR_UPLOAD", "total_seconds": 0.002, "verification_seconds": 0.001, "worker_mode": "legacy"}
+2026-11-20T19:41:45.6455645Z MATERIAL_BINARY_BUNDLE {"archive_bytes": 895, "archive_layout": "repository-relative; current own .olean* objects and fresh evidence only", "archive_name": "material-project-111111111111-234-2-fast.tar.gz", "archive_sha256": "071c67b2c89480d2f2938aa15360efa560b8d5b6f238e94b8593a3d312762e27", "artifact_name": "material-binary-1111111111111111111111111111111111111111-234-2-fast", "attempt": "2", "branch": "main", "build_configuration": {}, "commit": "1111111111111111111111111111111111111111", "compiler": "pinned fixture", "compression": "gzip-level-1", "cpu_seconds": 0.002, "dependency_archive_included": false, "dependency_identity": {"compiler": "pinned fixture"}, "fresh_required_audits": true, "full_project_rebuild_verified": false, "local_lean_allowed": false, "manifest_sha256": "292c3a9fde2cf018a4c260bf45f329d115a3598205eb7e5d2ecd83eb0c78b16d", "member_bytes": 1152, "member_count": 5, "module_count": 1, "own_object_bytes": 36, "packaging_seconds": 0.001, "remote_upload_verified": false, "report_sha256": "07442dc5fe7d1f49dfdf4ff6518720ac5b1c776b7118fd7ab8b78272dbf6476d", "repository": "example/project", "run_id": "234", "run_url": "https://github.com/example/project/actions/runs/234", "schema_version": 1, "status": "READY_FOR_UPLOAD", "total_seconds": 0.002, "verification_seconds": 0.001, "worker_mode": "fast"}
+2026-11-20T19:41:45.6485271Z MATERIAL_BINARY_BUNDLE {"archive_bytes": 968, "archive_layout": "repository-relative; current own .olean* objects and fresh evidence only", "archive_name": "material-project-111111111111-234-2-recovery.tar.gz", "archive_sha256": "46500b023b897cab7ca25faf909e347694278a744fa2b11f7d9fd6ba50867795", "artifact_name": "material-binary-1111111111111111111111111111111111111111-234-2-recovery", "attempt": "2", "branch": "main", "build_configuration": {}, "commit": "1111111111111111111111111111111111111111", "compiler": "pinned fixture", "compression": "gzip-level-1", "cpu_seconds": 0.002, "dependency_archive_included": false, "dependency_identity": {"compiler": "pinned fixture"}, "fresh_required_audits": true, "full_project_rebuild_verified": true, "local_lean_allowed": false, "manifest_sha256": "9dea4afc51cbff0dfcb229d11dd6f95ac3674ac53328b6fbf0524bf9c1147781", "member_bytes": 1337, "member_count": 5, "module_count": 1, "own_object_bytes": 36, "packaging_seconds": 0.001, "remote_upload_verified": false, "report_sha256": "5e9ed08eafa26fc97ea0fbb9f1522401284574a19f367c938ca901bf1d717149", "repository": "example/project", "run_id": "234", "run_url": "https://github.com/example/project/actions/runs/234", "schema_version": 1, "status": "READY_FOR_UPLOAD", "total_seconds": 0.002, "verification_seconds": 0.001, "worker_mode": "recovery"}
+2026-11-20T19:41:45.6508770Z ..............................MATERIAL_FAILURE simulated no-op rerun failure
+2026-11-20T19:41:45.6519596Z {
+2026-11-20T19:41:45.6519973Z   "status": "PASS",
+2026-11-20T19:41:45.6520463Z   "commit": "1111111111111111111111111111111111111111",
+2026-11-20T19:41:45.6520849Z   "endpoints": 1,
+2026-11-20T19:41:45.6521144Z   "metrics": {
+2026-11-20T19:41:45.6521462Z     "cache_get_seconds": 0.01,
+2026-11-20T19:41:45.6521794Z     "build_first_seconds": 0.01,
+2026-11-20T19:41:45.6522122Z     "serial_module_seconds": 0.0,
+2026-11-20T19:41:45.6522501Z     "aggregate_validation_seconds": 0.01,
+2026-11-20T19:41:45.6522889Z     "audit_seconds": 0.0,
+2026-11-20T19:41:45.6523559Z     "build_rerun_seconds": 0.01,
+2026-11-20T19:41:45.6523901Z     "audit_reused_count": 0,
+2026-11-20T19:41:45.6524204Z     "audit_fresh_count": 1,
+2026-11-20T19:41:45.6524562Z     "rerun_to_first_ratio": 1.0
+2026-11-20T19:41:45.6524883Z   }
+2026-11-20T19:41:45.6525137Z }
+2026-11-20T19:41:45.6527330Z {
+2026-11-20T19:41:45.6527597Z   "status": "PASS",
+2026-11-20T19:41:45.6528009Z   "commit": "2222222222222222222222222222222222222222",
+2026-11-20T19:41:45.6528565Z   "endpoints": 1,
+2026-11-20T19:41:45.6528873Z   "metrics": {
+2026-11-20T19:41:45.6529185Z     "cache_get_seconds": 0.01,
+2026-11-20T19:41:45.6529529Z     "build_first_seconds": 0.01,
+2026-11-20T19:41:45.6529899Z     "serial_module_seconds": 0.0,
+2026-11-20T19:41:45.6530282Z     "aggregate_validation_seconds": 0.01,
+2026-11-20T19:41:45.6530639Z     "audit_seconds": 0.0,
+2026-11-20T19:41:45.6530986Z     "build_rerun_seconds": 0.01,
+2026-11-20T19:41:45.6531347Z     "audit_reused_count": 0,
+2026-11-20T19:41:45.6531675Z     "audit_fresh_count": 1,
+2026-11-20T19:41:45.6532066Z     "rerun_to_first_ratio": 1.0
+2026-11-20T19:41:45.6532366Z   }
+2026-11-20T19:41:45.6532642Z }
+2026-11-20T19:41:45.6593285Z ................MATERIAL_FAILURE Lean execution requires external CI=true or explicit --native on Windows
+2026-11-20T19:41:45.6596856Z {
+2026-11-20T19:41:45.6597215Z   "schema_version": 1,
+2026-11-20T19:41:45.6597577Z   "status": "VALIDATED_ONLY",
+2026-11-20T19:41:45.6598064Z   "endpoints": [],
+2026-11-20T19:41:45.6598649Z   "started_at": "2026-11-20T19:41:45.659546+00:00",
+2026-11-20T19:41:45.6599161Z   "new_finite_cap_theorem_included": false,
+2026-11-20T19:41:45.6599753Z   "commit": "local:bd8aff2bc7e7d9450ce0f4b4acc9982d5fd2abaecaf1700ddce7c8b8e3222661",
+2026-11-20T19:41:45.6600342Z   "toolchain": "leanprover/lean4:v4.33.0",
+2026-11-20T19:41:45.6600867Z   "mathlib_commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+2026-11-20T19:41:45.6601308Z   "selected_endpoint_ids": [
+2026-11-20T19:41:45.6601815Z     "Example"
+2026-11-20T19:41:45.6602096Z   ],
+2026-11-20T19:41:45.6602385Z   "all_endpoints_selected": true,
+2026-11-20T19:41:45.6602924Z   "platform": {
+2026-11-20T19:41:45.6603478Z     "system": "Linux",
+2026-11-20T19:41:45.6603867Z     "machine": "x86_64"
+2026-11-20T19:41:45.6604274Z   },
+2026-11-20T19:41:45.6604624Z   "source_pin_integrity": true,
+2026-11-20T19:41:45.6605058Z   "compiler_executed": false,
+2026-11-20T19:41:45.6605455Z   "endpoint_plans": [
+2026-11-20T19:41:45.6605861Z     {
+2026-11-20T19:41:45.6606213Z       "id": "Example",
+2026-11-20T19:41:45.6606785Z       "input_plan_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+2026-11-20T19:41:45.6607467Z       "source_drift": []
+2026-11-20T19:41:45.6607840Z     }
+2026-11-20T19:41:45.6608331Z   ]
+2026-11-20T19:41:45.6608674Z }
+2026-11-20T19:41:45.6609042Z MATERIAL_COMMAND ["mock-compiler"]
+2026-11-20T19:41:45.6609472Z phase one
+2026-11-20T19:41:45.6704590Z phase two
+2026-11-20T19:41:45.6710214Z MATERIAL_COMMAND ["mock-compiler"]
+2026-11-20T19:41:45.6711047Z compiler error details
+2026-11-20T19:41:45.6714577Z MATERIAL_COMMAND ["mock-compiler"]
+2026-11-20T19:41:45.6715563Z before timeout
+2026-11-20T19:41:46.6763714Z MATERIAL_WORKSPACE_FAILURE simulated own output export failure
+2026-11-20T19:41:46.6918111Z MATERIAL_WORKSPACE_FAILURE authenticated parent report changed before execution
+2026-11-20T19:41:46.6931822Z MATERIAL_WORKSPACE_FAILURE container transport does not match the current external run
+2026-11-20T19:41:46.7678405Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7678770Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7682641Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7692925Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7694887Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.7695247Z MATERIAL_MODULE B PASS REUSED
+2026-11-20T19:41:46.7703920Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7704329Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7706328Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7713861Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7714245Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7716194Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7722849Z MATERIAL_MODULE A FAIL
+2026-11-20T19:41:46.7724660Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7731549Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7731888Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7734162Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7741814Z MATERIAL_MODULE A PASS REUSED
+2026-11-20T19:41:46.7742231Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7744655Z MATERIAL_MODULE B PASS REUSED
+2026-11-20T19:41:46.7759517Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7759818Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7761140Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7770263Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7770577Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.7773693Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7784408Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7784730Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7786790Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7795770Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7796176Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7797468Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7804530Z MATERIAL_MODULE A PASS REUSED
+2026-11-20T19:41:46.7804996Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.7806525Z MATERIAL_MODULE B PASS REUSED
+2026-11-20T19:41:46.7815758Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7816220Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.7818557Z MATERIAL_MODULE B PASS REUSED
+2026-11-20T19:41:46.7920757Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7921077Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7922510Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7931957Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7932279Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.7934821Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7942731Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7943213Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7945136Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7953689Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7954018Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7956014Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7966691Z MATERIAL_MODULE A PASS REUSED
+2026-11-20T19:41:46.7967077Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.7969424Z MATERIAL_MODULE B PASS REUSED
+2026-11-20T19:41:46.7978530Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7979761Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7981681Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.7990844Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.7991163Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.7992632Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.8003410Z MATERIAL_MODULE A PASS REUSED
+2026-11-20T19:41:46.8003828Z MATERIAL_MODULE C PASS REUSED
+2026-11-20T19:41:46.8011090Z MATERIAL_MODULE B PASS REUSED
+2026-11-20T19:41:46.8011404Z MATERIAL_MODULE Owned.New PASS
+2026-11-20T19:41:46.8020940Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.8022092Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.8024147Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.8036226Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.8036496Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.8038455Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.8049523Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.8050297Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.8052307Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.8062730Z MATERIAL_MODULE A PASS
+2026-11-20T19:41:46.8063325Z MATERIAL_MODULE C PASS
+2026-11-20T19:41:46.8065316Z MATERIAL_MODULE B PASS
+2026-11-20T19:41:46.8194594Z MATERIAL_RESOURCES {"disk": {"docker": {"free_bytes": 10737418240}, "workspace": {"free_bytes": 10737418240}}, "docker_controls": {"CgroupVersion": null, "CpuCfsQuota": true, "MemoryLimit": true, "SwapLimit": true}, "minimum_disk_free_bytes": 21474836480, "stage": "test"}
+2026-11-20T19:41:46.8215911Z MATERIAL_CONTAINER_RESULT {"status": "BUILT", "container_exit_code": 0, "container_oom_killed": false, "container_error": "", "resource_abort": []}
+2026-11-20T19:41:46.8232960Z MATERIAL_CONTAINER_RESULT {"status": "BUILD_FAILED", "container_exit_code": 137, "container_oom_killed": true, "container_error": "", "resource_abort": []}
+2026-11-20T19:41:46.8243245Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 22548578304, "path": "/tmp/tmppwn1ad57"}, "workspace": {"free_bytes": 22548578304, "path": "/tmp/tmppwn1ad57"}}, "before": {"docker": {"free_bytes": 12884901888, "path": "/tmp/tmppwn1ad57"}, "workspace": {"free_bytes": 12884901888, "path": "/tmp/tmppwn1ad57"}}, "cleanup_skipped": false, "mode": "warm", "observed_free_gain_bytes": {"docker": 9663676416, "workspace": 9663676416}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": ["/usr/share/dotnet"], "required_free_bytes": 21474836480, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [{"path": "/usr/local/lib/android", "reason": "absent_or_redirected"}], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:46.8251646Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}, "workspace": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}}, "before": {"docker": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}, "workspace": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}}, "cleanup_skipped": true, "mode": "cold", "observed_free_gain_bytes": {"docker": 0, "workspace": 0}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": [], "required_free_bytes": 34359738368, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:46.8255350Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}, "workspace": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}}, "before": {"docker": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}, "workspace": {"free_bytes": 36011274240, "path": "/tmp/tmplm7i14te"}}, "cleanup_skipped": true, "error": "insufficient runner disk after the permitted SDK allowlist; caches remain intact", "mode": "cold", "observed_free_gain_bytes": {"docker": 0, "workspace": 0}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": [], "required_free_bytes": 42949672960, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [{"path": "/usr/local/lib/android", "reason": "absent_or_redirected"}, {"path": "/usr/share/dotnet", "reason": "absent_or_redirected"}, {"path": "/opt/ghc", "reason": "absent_or_redirected"}, {"path": "/usr/local/.ghcup", "reason": "absent_or_redirected"}], "status": "FAIL"}
+2026-11-20T19:41:46.8261950Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 23622320128, "path": "/tmp/tmpf4orehq7"}, "workspace": {"free_bytes": 23622320128, "path": "/tmp/tmpf4orehq7"}}, "before": {"docker": {"free_bytes": 10737418240, "path": "/tmp/tmpf4orehq7"}, "workspace": {"free_bytes": 26843545600, "path": "/tmp/tmpf4orehq7"}}, "cleanup_skipped": false, "mode": "warm", "observed_free_gain_bytes": {"docker": 12884901888, "workspace": -3221225472}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": ["/usr/local/lib/android"], "required_free_bytes": 21474836480, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:46.8270543Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 53687091200, "path": "/tmp/tmpcmt5bvho"}, "workspace": {"free_bytes": 53687091200, "path": "/tmp/tmpcmt5bvho"}}, "before": {"docker": {"free_bytes": 53687091200, "path": "/tmp/tmpcmt5bvho"}, "workspace": {"free_bytes": 53687091200, "path": "/tmp/tmpcmt5bvho"}}, "cleanup_skipped": true, "mode": "cold", "observed_free_gain_bytes": {"docker": 0, "workspace": 0}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": [], "required_free_bytes": 42949672960, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:46.8281241Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 5368709120, "path": "/tmp/tmps6w3iltq"}, "workspace": {"free_bytes": 5368709120, "path": "/tmp/tmps6w3iltq"}}, "before": {"docker": {"free_bytes": 5368709120, "path": "/tmp/tmps6w3iltq"}, "workspace": {"free_bytes": 5368709120, "path": "/tmp/tmps6w3iltq"}}, "cleanup_skipped": false, "error": "insufficient runner disk after the permitted SDK allowlist; caches remain intact", "mode": "warm", "observed_free_gain_bytes": {"docker": 0, "workspace": 0}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": ["/usr/local/lib/android", "/usr/share/dotnet", "/opt/ghc", "/usr/local/.ghcup"], "required_free_bytes": 21474836480, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "FAIL"}
+2026-11-20T19:41:46.8287569Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 22548578304, "path": "/tmp/tmpw0iu7rba"}, "workspace": {"free_bytes": 22548578304, "path": "/tmp/tmpw0iu7rba"}}, "before": {"docker": {"free_bytes": 12884901888, "path": "/tmp/tmpw0iu7rba"}, "workspace": {"free_bytes": 12884901888, "path": "/tmp/tmpw0iu7rba"}}, "cleanup_skipped": false, "mode": "warm", "observed_free_gain_bytes": {"docker": 9663676416, "workspace": 9663676416}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": ["/usr/local/lib/android"], "required_free_bytes": 21474836480, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:46.8295364Z MATERIAL_RUNNER_DISK {"mode": "warm", "reason": "not_a_disposable_github_hosted_runner", "removed_sdk_paths": [], "status": "SKIPPED"}
+2026-11-20T19:41:46.8296724Z MATERIAL_RUNNER_DISK {"mode": "warm", "reason": "not_a_disposable_github_hosted_runner", "removed_sdk_paths": [], "status": "SKIPPED"}
+2026-11-20T19:41:46.8298595Z MATERIAL_RUNNER_DISK {"mode": "warm", "reason": "not_a_disposable_github_hosted_runner", "removed_sdk_paths": [], "status": "SKIPPED"}
+2026-11-20T19:41:46.8304107Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 53687091200, "path": "/tmp/tmpagdzlca9"}, "workspace": {"free_bytes": 53687091200, "path": "/tmp/tmpagdzlca9"}}, "before": {"docker": {"free_bytes": 53687091200, "path": "/tmp/tmpagdzlca9"}, "workspace": {"free_bytes": 53687091200, "path": "/tmp/tmpagdzlca9"}}, "cleanup_skipped": true, "mode": "warm", "observed_free_gain_bytes": {"docker": 0, "workspace": 0}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": [], "required_free_bytes": 21474836480, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:46.8487616Z .........................................................................................................................................
+2026-11-20T19:41:46.8488298Z ----------------------------------------------------------------------
+2026-11-20T19:41:46.8488696Z Ran 183 tests in 1.257s
+2026-11-20T19:41:46.8488881Z 
+2026-11-20T19:41:46.8488994Z OK
+2026-11-20T19:41:58.9163729Z {
+2026-11-20T19:41:58.9164305Z   "schema_version": 1,
+2026-11-20T19:41:58.9164907Z   "status": "VALIDATED_ONLY",
+2026-11-20T19:41:58.9165398Z   "endpoints": [],
+2026-11-20T19:41:58.9165793Z   "started_at": "2026-11-20T19:41:46.895603+00:00",
+2026-11-20T19:41:58.9166306Z   "new_finite_cap_theorem_included": false,
+2026-11-20T19:41:58.9167238Z   "commit": "1f83d62b771bc81daf48bac8026cd69e583e6703",
+2026-11-20T19:41:58.9167748Z   "toolchain": "leanprover/lean4:v4.33.0",
+2026-11-20T19:41:58.9168406Z   "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+2026-11-20T19:41:58.9168964Z   "selected_endpoint_ids": [
+2026-11-20T19:41:58.9169408Z     "EhrenfestBootstrap",
+2026-11-20T19:41:58.9169840Z     "EhrenfestCanonical",
+2026-11-20T19:41:58.9170249Z     "EhrenfestCanonicalErrorInequality",
+2026-11-20T19:41:58.9170717Z     "EhrenfestCoreAlgebra",
+2026-11-20T19:41:58.9171162Z     "EhrenfestCrossTransport",
+2026-11-20T19:41:58.9171565Z     "EhrenfestErrorCalculus",
+2026-11-20T19:41:58.9171973Z     "EhrenfestErrorEquation",
+2026-11-20T19:41:58.9173494Z     "EhrenfestErrorState",
+2026-11-20T19:41:58.9174258Z     "EhrenfestEscape",
+2026-11-20T19:41:58.9174671Z     "EhrenfestEventualEnstrophyBound",
+2026-11-20T19:41:58.9174973Z     "EhrenfestObstructionRoot",
+2026-11-20T19:41:58.9175224Z     "EhrenfestPhysicalForcing",
+2026-11-20T19:41:58.9175559Z     "EhrenfestPressureFourier",
+2026-11-20T19:41:58.9175811Z     "EhrenfestReference",
+2026-11-20T19:41:58.9176086Z     "EhrenfestReferenceEvolution",
+2026-11-20T19:41:58.9176346Z     "EhrenfestScalar",
+2026-11-20T19:41:58.9176604Z     "FeffermanFamilyAssembly",
+2026-11-20T19:41:58.9176875Z     "FeffermanFamilyFoundation",
+2026-11-20T19:41:58.9177126Z     "Galerkin",
+2026-11-20T19:41:58.9177384Z     "MathlibAnalytic",
+2026-11-20T19:41:58.9177610Z     "MathlibFourier",
+2026-11-20T19:41:58.9177819Z     "MathlibODE",
+2026-11-20T19:41:58.9178043Z     "PhysicalNSE",
+2026-11-20T19:41:58.9178247Z     "QFAACBudget",
+2026-11-20T19:41:58.9178467Z     "QFAConditionalRoot",
+2026-11-20T19:41:58.9178721Z     "QFAH1Fourier",
+2026-11-20T19:41:58.9178943Z     "QFANativeFoundation",
+2026-11-20T19:41:58.9179182Z     "QFAPhysicalH1",
+2026-11-20T19:41:58.9179407Z     "QFARecovered",
+2026-11-20T19:41:58.9179649Z     "QFARepresentation",
+2026-11-20T19:41:58.9179929Z     "QFASixChargeBudget",
+2026-11-20T19:41:58.9180153Z     "QFBCutoff",
+2026-11-20T19:41:58.9180362Z     "QFBLerayHopf",
+2026-11-20T19:41:58.9180570Z     "QFBRestart",
+2026-11-20T19:41:58.9180787Z     "QFBRoot",
+2026-11-20T19:41:58.9181000Z     "QFBTail",
+2026-11-20T19:41:58.9181205Z     "QFBTraceUniqueness",
+2026-11-20T19:41:58.9181654Z     "R0AnalyticCapAdmission",
+2026-11-20T19:41:58.9181938Z     "R0AnalyticTwoSidedCap",
+2026-11-20T19:41:58.9182211Z     "R0CompactCylinderSerrin",
+2026-11-20T19:41:58.9183277Z     "R0DataAdmission",
+2026-11-20T19:41:58.9183562Z     "R0FiniteCapAdmission",
+2026-11-20T19:41:58.9183839Z     "R0FiniteCapGluing",
+2026-11-20T19:41:58.9184122Z     "R0FiniteCapOverlap",
+2026-11-20T19:41:58.9184379Z     "R0InitialFrontAdmission",
+2026-11-20T19:41:58.9184622Z     "R0PressureUniqueness",
+2026-11-20T19:41:58.9184860Z     "RelativeEnergy",
+2026-11-20T19:41:58.9185077Z     "SerrinComparison",
+2026-11-20T19:41:58.9185305Z     "SmallH12",
+2026-11-20T19:41:58.9185536Z     "WFBFiniteFrontGluing",
+2026-11-20T19:41:58.9185815Z     "WFBFiniteFrontTest",
+2026-11-20T19:41:58.9186062Z     "WFBFiniteWindowCrossIdentity",
+2026-11-20T19:41:58.9186323Z     "WFBFiniteWindowRelativeEnergy",
+2026-11-20T19:41:58.9186605Z     "WFBFiniteWindowSerrinComparison",
+2026-11-20T19:41:58.9186878Z     "WFBFourierBudget",
+2026-11-20T19:41:58.9187094Z     "WFBHomogeneousBudget",
+2026-11-20T19:41:58.9187355Z     "WFBLocalClassicalUniqueness",
+2026-11-20T19:41:58.9187602Z     "WFBLocalCubicBarrier",
+2026-11-20T19:41:58.9187830Z     "WFBLocalExistence",
+2026-11-20T19:41:58.9188131Z     "WFBLocalFront",
+2026-11-20T19:41:58.9188349Z     "WFBLocalFrontIdentification",
+2026-11-20T19:41:58.9188622Z     "WFBLocalGalerkinBounds",
+2026-11-20T19:41:58.9188872Z     "WFBLocalGalerkinCompactness",
+2026-11-20T19:41:58.9189127Z     "WFBLocalGalerkinLimit",
+2026-11-20T19:41:58.9189408Z     "WFBLocalGalerkinRegularity",
+2026-11-20T19:41:58.9189666Z     "WFBLocalSobolevCalculus",
+2026-11-20T19:41:58.9189946Z     "WFBLocalTimeTranslation",
+2026-11-20T19:41:58.9190276Z     "WFBMaximalClassicalFront",
+2026-11-20T19:41:58.9190516Z     "WFBMaximalFrontRestriction",
+2026-11-20T19:41:58.9190906Z     "WFBMaximalLerayHopfIdentification",
+2026-11-20T19:41:58.9191180Z     "WFBMaximalTailGluing",
+2026-11-20T19:41:58.9191441Z     "WFBPhysicalBudgetContinuation",
+2026-11-20T19:41:58.9191759Z     "WFBPhysicalEndpointContinuation",
+2026-11-20T19:41:58.9192025Z     "WFBPhysicalEnstrophyEvolution",
+2026-11-20T19:41:58.9192332Z     "WFBPhysicalFourier",
+2026-11-20T19:41:58.9192568Z     "WFBPhysicalNonlinear",
+2026-11-20T19:41:58.9192793Z     "WFBSmoothDatum",
+2026-11-20T19:41:58.9193178Z     "WFBStrictCutoff",
+2026-11-20T19:41:58.9193604Z     "WFBStrongContinuation",
+2026-11-20T19:41:58.9193852Z     "WFBWFBRootAssembly",
+2026-11-20T19:41:58.9194078Z     "WFBWeakFouriermanB"
+2026-11-20T19:41:58.9194305Z   ],
+2026-11-20T19:41:58.9194509Z   "all_endpoints_selected": true,
+2026-11-20T19:41:58.9194753Z   "platform": {
+2026-11-20T19:41:58.9194983Z     "system": "Linux",
+2026-11-20T19:41:58.9195201Z     "machine": "x86_64"
+2026-11-20T19:41:58.9195412Z   },
+2026-11-20T19:41:58.9195623Z   "source_pin_integrity": true,
+2026-11-20T19:41:58.9195880Z   "compiler_executed": false,
+2026-11-20T19:41:58.9196187Z   "endpoint_plans": [
+2026-11-20T19:41:58.9196392Z     {
+2026-11-20T19:41:58.9196598Z       "id": "EhrenfestBootstrap",
+2026-11-20T19:41:58.9196981Z       "input_plan_hash": "9452146f11274934b88aa02bfc7cd0cb6c694dbd4cfd0609c1dada705a38c02d",
+2026-11-20T19:41:58.9197370Z       "source_drift": []
+2026-11-20T19:41:58.9197594Z     },
+2026-11-20T19:41:58.9197781Z     {
+2026-11-20T19:41:58.9197973Z       "id": "EhrenfestCanonical",
+2026-11-20T19:41:58.9198340Z       "input_plan_hash": "1f7f4172229f7b15854d8427926866d8f1fa1a654aa7c04f78c2141a8f2340f1",
+2026-11-20T19:41:58.9198734Z       "source_drift": []
+2026-11-20T19:41:58.9198964Z     },
+2026-11-20T19:41:58.9199152Z     {
+2026-11-20T19:41:58.9199367Z       "id": "EhrenfestCanonicalErrorInequality",
+2026-11-20T19:41:58.9199768Z       "input_plan_hash": "38c25f400f4bdf7b873408d42d5871ef8a6efee93b7c8c02526d4af99de938d8",
+2026-11-20T19:41:58.9200139Z       "source_drift": []
+2026-11-20T19:41:58.9200346Z     },
+2026-11-20T19:41:58.9200536Z     {
+2026-11-20T19:41:58.9200737Z       "id": "EhrenfestCoreAlgebra",
+2026-11-20T19:41:58.9201202Z       "input_plan_hash": "e4129359679d70fdc06dffd821b0ae6d6c32b4499e424a15b56f2fde653e761b",
+2026-11-20T19:41:58.9201606Z       "source_drift": []
+2026-11-20T19:41:58.9201823Z     },
+2026-11-20T19:41:58.9202056Z     {
+2026-11-20T19:41:58.9202278Z       "id": "EhrenfestCrossTransport",
+2026-11-20T19:41:58.9202642Z       "input_plan_hash": "418c3665912f7d50a612c0dec9e2e1cb7f824da4db57b35e06b092a18cc9f67d",
+2026-11-20T19:41:58.9203155Z       "source_drift": []
+2026-11-20T19:41:58.9203366Z     },
+2026-11-20T19:41:58.9203579Z     {
+2026-11-20T19:41:58.9203788Z       "id": "EhrenfestErrorCalculus",
+2026-11-20T19:41:58.9204200Z       "input_plan_hash": "bd5698aa572a44914b5f7bec7928a3677c8b36db0f2b4b748b3b6320a6a974ee",
+2026-11-20T19:41:58.9204556Z       "source_drift": []
+2026-11-20T19:41:58.9204774Z     },
+2026-11-20T19:41:58.9204984Z     {
+2026-11-20T19:41:58.9205192Z       "id": "EhrenfestErrorEquation",
+2026-11-20T19:41:58.9205597Z       "input_plan_hash": "fa13510e8347384732d9b75167a147120e242f631b52afe8fba7a76a212f73a3",
+2026-11-20T19:41:58.9205937Z       "source_drift": []
+2026-11-20T19:41:58.9206132Z     },
+2026-11-20T19:41:58.9206332Z     {
+2026-11-20T19:41:58.9206534Z       "id": "EhrenfestErrorState",
+2026-11-20T19:41:58.9206880Z       "input_plan_hash": "c34a84e57208d4b0519a8df47c4c47ca7c31eef375e1a8a7af0723af15ed3e45",
+2026-11-20T19:41:58.9207255Z       "source_drift": []
+2026-11-20T19:41:58.9207566Z     },
+2026-11-20T19:41:58.9207757Z     {
+2026-11-20T19:41:58.9207984Z       "id": "EhrenfestEscape",
+2026-11-20T19:41:58.9208463Z       "input_plan_hash": "fbbf679b768f8f685a537777c70d9ba76fd8f9e4accde777b809e55204dfe300",
+2026-11-20T19:41:58.9208834Z       "source_drift": []
+2026-11-20T19:41:58.9209052Z     },
+2026-11-20T19:41:58.9209322Z     {
+2026-11-20T19:41:58.9209551Z       "id": "EhrenfestEventualEnstrophyBound",
+2026-11-20T19:41:58.9209938Z       "input_plan_hash": "84f8ddaf0a094745a8edac56af1d4ae302008e2e5f21c01038ee1df4ea5370ad",
+2026-11-20T19:41:58.9210318Z       "source_drift": []
+2026-11-20T19:41:58.9210537Z     },
+2026-11-20T19:41:58.9210729Z     {
+2026-11-20T19:41:58.9210988Z       "id": "EhrenfestObstructionRoot",
+2026-11-20T19:41:58.9211351Z       "input_plan_hash": "fa1564a688bdcd78c7598e8d88740339f33fb34f6b7a31b8349db365f6927740",
+2026-11-20T19:41:58.9211722Z       "source_drift": []
+2026-11-20T19:41:58.9211930Z     },
+2026-11-20T19:41:58.9212121Z     {
+2026-11-20T19:41:58.9212337Z       "id": "EhrenfestPhysicalForcing",
+2026-11-20T19:41:58.9212740Z       "input_plan_hash": "7501518c35360588940f13aa716e9360d67d3488f3314d0e3c8334f976240e7c",
+2026-11-20T19:41:58.9213268Z       "source_drift": []
+2026-11-20T19:41:58.9213505Z     },
+2026-11-20T19:41:58.9213724Z     {
+2026-11-20T19:41:58.9213935Z       "id": "EhrenfestPressureFourier",
+2026-11-20T19:41:58.9214315Z       "input_plan_hash": "befa661d39d057df128973b255e6e8a7db59ccf2c8b0f59ec4a7aef3e4a01682",
+2026-11-20T19:41:58.9214685Z       "source_drift": []
+2026-11-20T19:41:58.9214896Z     },
+2026-11-20T19:41:58.9215069Z     {
+2026-11-20T19:41:58.9215293Z       "id": "EhrenfestReference",
+2026-11-20T19:41:58.9215647Z       "input_plan_hash": "d71c2c4d3d8f7be38fe822030a6a32250e58d3f9ea8081c7538300d490cc7501",
+2026-11-20T19:41:58.9215986Z       "source_drift": []
+2026-11-20T19:41:58.9216199Z     },
+2026-11-20T19:41:58.9216393Z     {
+2026-11-20T19:41:58.9216626Z       "id": "EhrenfestReferenceEvolution",
+2026-11-20T19:41:58.9216999Z       "input_plan_hash": "62975d152c00187d24b0d4bfe209b35ebf145b143615d9c3d37739d542375d27",
+2026-11-20T19:41:58.9217340Z       "source_drift": []
+2026-11-20T19:41:58.9217556Z     },
+2026-11-20T19:41:58.9217737Z     {
+2026-11-20T19:41:58.9217947Z       "id": "EhrenfestScalar",
+2026-11-20T19:41:58.9218290Z       "input_plan_hash": "b8b7a25ab1949aee958935cd49396274d07f199c3d3a14e7d171eb62a2a1e8d1",
+2026-11-20T19:41:58.9218627Z       "source_drift": []
+2026-11-20T19:41:58.9218881Z     },
+2026-11-20T19:41:58.9219070Z     {
+2026-11-20T19:41:58.9219284Z       "id": "FeffermanFamilyAssembly",
+2026-11-20T19:41:58.9219732Z       "input_plan_hash": "6c0ae28a9f92949cca01defbfd98068961efa1fe24a3dded46291ba4ecfde615",
+2026-11-20T19:41:58.9220072Z       "source_drift": []
+2026-11-20T19:41:58.9220305Z     },
+2026-11-20T19:41:58.9220483Z     {
+2026-11-20T19:41:58.9220692Z       "id": "FeffermanFamilyFoundation",
+2026-11-20T19:41:58.9221060Z       "input_plan_hash": "e5637561512ff8a4df510c0807350af22db57747f979188a5c64fbf432214113",
+2026-11-20T19:41:58.9221402Z       "source_drift": []
+2026-11-20T19:41:58.9221649Z     },
+2026-11-20T19:41:58.9221834Z     {
+2026-11-20T19:41:58.9222024Z       "id": "Galerkin",
+2026-11-20T19:41:58.9222366Z       "input_plan_hash": "52a9329028e52edaf8dedf860fb181419a1da0855f220bce19231b6d223dc633",
+2026-11-20T19:41:58.9222715Z       "source_drift": []
+2026-11-20T19:41:58.9222980Z     },
+2026-11-20T19:41:58.9223317Z     {
+2026-11-20T19:41:58.9223504Z       "id": "MathlibAnalytic",
+2026-11-20T19:41:58.9223880Z       "input_plan_hash": "67c8ce23600197731809854fbe2c58b70ee60cf29900d7f126d83a45cb88931d",
+2026-11-20T19:41:58.9224286Z       "source_drift": []
+2026-11-20T19:41:58.9224531Z     },
+2026-11-20T19:41:58.9224714Z     {
+2026-11-20T19:41:58.9224903Z       "id": "MathlibFourier",
+2026-11-20T19:41:58.9225274Z       "input_plan_hash": "0a52faf1d105002df522309913bdca0806f478380a791bc38f13d73a9bd68937",
+2026-11-20T19:41:58.9225615Z       "source_drift": []
+2026-11-20T19:41:58.9225822Z     },
+2026-11-20T19:41:58.9226013Z     {
+2026-11-20T19:41:58.9226206Z       "id": "MathlibODE",
+2026-11-20T19:41:58.9226561Z       "input_plan_hash": "e548ecb0ca7d6cee938c6676d2c8ddce67620a907b5f67a00d06aba63410c310",
+2026-11-20T19:41:58.9226936Z       "source_drift": []
+2026-11-20T19:41:58.9227150Z     },
+2026-11-20T19:41:58.9227345Z     {
+2026-11-20T19:41:58.9227621Z       "id": "PhysicalNSE",
+2026-11-20T19:41:58.9227958Z       "input_plan_hash": "cab8b549305533721505bf9e714f0c435010722eb7bdb7c6b34d67a20dcbac36",
+2026-11-20T19:41:58.9228300Z       "source_drift": []
+2026-11-20T19:41:58.9228554Z     },
+2026-11-20T19:41:58.9228763Z     {
+2026-11-20T19:41:58.9228976Z       "id": "QFAACBudget",
+2026-11-20T19:41:58.9229348Z       "input_plan_hash": "14ddd06da7e589d7f9a5fd4fbe195edeb9596d28c059ca0a6cf676b2ab4d52c9",
+2026-11-20T19:41:58.9229700Z       "source_drift": []
+2026-11-20T19:41:58.9230117Z     },
+2026-11-20T19:41:58.9230321Z     {
+2026-11-20T19:41:58.9230537Z       "id": "QFAConditionalRoot",
+2026-11-20T19:41:58.9230876Z       "input_plan_hash": "e081252a793f2b589a6ef448715f0896a08fa2e0ed695b22502b1404f25b348d",
+2026-11-20T19:41:58.9231225Z       "source_drift": []
+2026-11-20T19:41:58.9231438Z     },
+2026-11-20T19:41:58.9231630Z     {
+2026-11-20T19:41:58.9231841Z       "id": "QFAH1Fourier",
+2026-11-20T19:41:58.9232189Z       "input_plan_hash": "aa71b98bc5818b0e57c5c0c13df242f774d8175719d568ebb5e49c453321eaed",
+2026-11-20T19:41:58.9232547Z       "source_drift": []
+2026-11-20T19:41:58.9232755Z     },
+2026-11-20T19:41:58.9232948Z     {
+2026-11-20T19:41:58.9233375Z       "id": "QFANativeFoundation",
+2026-11-20T19:41:58.9233719Z       "input_plan_hash": "6fc427ec89e1f5ae8a65da7cf4f88b641864c055aaccd19434c9199c52f67ee5",
+2026-11-20T19:41:58.9234094Z       "source_drift": []
+2026-11-20T19:41:58.9234345Z     },
+2026-11-20T19:41:58.9234527Z     {
+2026-11-20T19:41:58.9234747Z       "id": "QFAPhysicalH1",
+2026-11-20T19:41:58.9235095Z       "input_plan_hash": "4cfd52c145e46dc926d6fdb3984afe32f5405d90f7e9b4476238999d606b5b49",
+2026-11-20T19:41:58.9235468Z       "source_drift": []
+2026-11-20T19:41:58.9235676Z     },
+2026-11-20T19:41:58.9235860Z     {
+2026-11-20T19:41:58.9236079Z       "id": "QFARecovered",
+2026-11-20T19:41:58.9236407Z       "input_plan_hash": "3ad0c8f1c19733ce56e811a02794e98bcfa781c0c563ac394b98d3edf574eda6",
+2026-11-20T19:41:58.9236764Z       "source_drift": []
+2026-11-20T19:41:58.9236974Z     },
+2026-11-20T19:41:58.9237146Z     {
+2026-11-20T19:41:58.9237413Z       "id": "QFARepresentation",
+2026-11-20T19:41:58.9237741Z       "input_plan_hash": "139316d252808474e6e84dc931db7375170b026fc298540a8009b2e763488ee8",
+2026-11-20T19:41:58.9238154Z       "source_drift": []
+2026-11-20T19:41:58.9238369Z     },
+2026-11-20T19:41:58.9238545Z     {
+2026-11-20T19:41:58.9238784Z       "id": "QFASixChargeBudget",
+2026-11-20T19:41:58.9239131Z       "input_plan_hash": "05ec803c2277ba24d32178eac1a6f14575c979b0f1c1de777ede220ab07a2bb8",
+2026-11-20T19:41:58.9239478Z       "source_drift": []
+2026-11-20T19:41:58.9239694Z     },
+2026-11-20T19:41:58.9239882Z     {
+2026-11-20T19:41:58.9240124Z       "id": "QFBCutoff",
+2026-11-20T19:41:58.9240441Z       "input_plan_hash": "0e2750a249aefe4094184b043f8b94377672ae3ace2144f4eed9d66b04dc4195",
+2026-11-20T19:41:58.9240786Z       "source_drift": []
+2026-11-20T19:41:58.9241003Z     },
+2026-11-20T19:41:58.9241189Z     {
+2026-11-20T19:41:58.9241414Z       "id": "QFBLerayHopf",
+2026-11-20T19:41:58.9241740Z       "input_plan_hash": "8a22da5cdec44864eda4c41de7fbc063b487db08060a085276aa8aa8449828d8",
+2026-11-20T19:41:58.9242075Z       "source_drift": []
+2026-11-20T19:41:58.9242306Z     },
+2026-11-20T19:41:58.9242490Z     {
+2026-11-20T19:41:58.9242740Z       "id": "QFBRestart",
+2026-11-20T19:41:58.9243209Z       "input_plan_hash": "fe9d6910ce12f394c10726f85910ffd82253c3f8adc1af0885995f3916d5b785",
+2026-11-20T19:41:58.9243594Z       "source_drift": []
+2026-11-20T19:41:58.9243849Z     },
+2026-11-20T19:41:58.9244043Z     {
+2026-11-20T19:41:58.9244254Z       "id": "QFBRoot",
+2026-11-20T19:41:58.9244592Z       "input_plan_hash": "f850972d90295fe7997b21401d0847983ab26c7c6ed0238b173d8970db578815",
+2026-11-20T19:41:58.9244930Z       "source_drift": []
+2026-11-20T19:41:58.9245148Z     },
+2026-11-20T19:41:58.9245356Z     {
+2026-11-20T19:41:58.9245565Z       "id": "QFBTail",
+2026-11-20T19:41:58.9245893Z       "input_plan_hash": "89d0566a71d0e69a2455062f18703aceba5d25524f73bc06b024595d93ce1e3a",
+2026-11-20T19:41:58.9246309Z       "source_drift": []
+2026-11-20T19:41:58.9246542Z     },
+2026-11-20T19:41:58.9246722Z     {
+2026-11-20T19:41:58.9246946Z       "id": "QFBTraceUniqueness",
+2026-11-20T19:41:58.9247310Z       "input_plan_hash": "2fbb30be51789871138b851e4c12276829e1ecf945ff54751ef7384dec35b159",
+2026-11-20T19:41:58.9247652Z       "source_drift": []
+2026-11-20T19:41:58.9247860Z     },
+2026-11-20T19:41:58.9248092Z     {
+2026-11-20T19:41:58.9248383Z       "id": "R0AnalyticCapAdmission",
+2026-11-20T19:41:58.9248771Z       "input_plan_hash": "508a5d6b05f0ec86c55a87149d5586bf9941df2f19c277870c2dcd3b6f7972ed",
+2026-11-20T19:41:58.9249127Z       "source_drift": []
+2026-11-20T19:41:58.9249342Z     },
+2026-11-20T19:41:58.9249545Z     {
+2026-11-20T19:41:58.9249774Z       "id": "R0AnalyticTwoSidedCap",
+2026-11-20T19:41:58.9250137Z       "input_plan_hash": "e6eac22bd4a2f526284d656d839048f889b688714436a7c9cd5e19bb25653afd",
+2026-11-20T19:41:58.9250484Z       "source_drift": []
+2026-11-20T19:41:58.9250733Z     },
+2026-11-20T19:41:58.9250941Z     {
+2026-11-20T19:41:58.9251153Z       "id": "R0CompactCylinderSerrin",
+2026-11-20T19:41:58.9251523Z       "input_plan_hash": "85cdf1725d22b11ebf9bacde1046c3c610755400321b8e5f28cdb7cd32831272",
+2026-11-20T19:41:58.9251878Z       "source_drift": []
+2026-11-20T19:41:58.9252088Z     },
+2026-11-20T19:41:58.9252292Z     {
+2026-11-20T19:41:58.9252508Z       "id": "R0DataAdmission",
+2026-11-20T19:41:58.9252854Z       "input_plan_hash": "aae68d9636b7fefc6d7c9936861062a92859ed6db08ad5173e4b4cb9bb83d9ed",
+2026-11-20T19:41:58.9253421Z       "source_drift": []
+2026-11-20T19:41:58.9253659Z     },
+2026-11-20T19:41:58.9253896Z     {
+2026-11-20T19:41:58.9254146Z       "id": "R0FiniteCapAdmission",
+2026-11-20T19:41:58.9254502Z       "input_plan_hash": "d0231f3f3532b653751a7a8d29a9bec49708efcee80f59dcd5bb9d1245aac5fa",
+2026-11-20T19:41:58.9254861Z       "source_drift": []
+2026-11-20T19:41:58.9255072Z     },
+2026-11-20T19:41:58.9255264Z     {
+2026-11-20T19:41:58.9255486Z       "id": "R0FiniteCapGluing",
+2026-11-20T19:41:58.9255819Z       "input_plan_hash": "ab68696b3c0b3fdd080a42ab84c8ef892f07c8315f81c039f2d08699016cccb4",
+2026-11-20T19:41:58.9256225Z       "source_drift": []
+2026-11-20T19:41:58.9256446Z     },
+2026-11-20T19:41:58.9256663Z     {
+2026-11-20T19:41:58.9256942Z       "id": "R0FiniteCapOverlap",
+2026-11-20T19:41:58.9257322Z       "input_plan_hash": "b0861052f6b2cf6dfe38fc80c5daa409ce787d1acff6ee5ceafd3001a64283e0",
+2026-11-20T19:41:58.9257708Z       "source_drift": []
+2026-11-20T19:41:58.9257922Z     },
+2026-11-20T19:41:58.9258149Z     {
+2026-11-20T19:41:58.9258367Z       "id": "R0InitialFrontAdmission",
+2026-11-20T19:41:58.9258739Z       "input_plan_hash": "6c01a99ddccc9d04dbf0b0effc5a442bdeab9c1aea3de6784deabc87e68a7742",
+2026-11-20T19:41:58.9259148Z       "source_drift": []
+2026-11-20T19:41:58.9259367Z     },
+2026-11-20T19:41:58.9259573Z     {
+2026-11-20T19:41:58.9259786Z       "id": "R0PressureUniqueness",
+2026-11-20T19:41:58.9260203Z       "input_plan_hash": "5c5aae5e55a1db4cf00d079f46a846152d798ce00067457806911e685a25af3b",
+2026-11-20T19:41:58.9260635Z       "source_drift": []
+2026-11-20T19:41:58.9260885Z     },
+2026-11-20T19:41:58.9261109Z     {
+2026-11-20T19:41:58.9261383Z       "id": "RelativeEnergy",
+2026-11-20T19:41:58.9261830Z       "input_plan_hash": "eebd13418b3b8fbbf5de061f0ed02874dbbda47c774686bcaed7c06c1e3137e3",
+2026-11-20T19:41:58.9262363Z       "source_drift": []
+2026-11-20T19:41:58.9262617Z     },
+2026-11-20T19:41:58.9262860Z     {
+2026-11-20T19:41:58.9263323Z       "id": "SerrinComparison",
+2026-11-20T19:41:58.9263829Z       "input_plan_hash": "7942b11c304c61b46b760804230283e23fbca2131d9b68d8dcf915fa8d59427f",
+2026-11-20T19:41:58.9264237Z       "source_drift": []
+2026-11-20T19:41:58.9264525Z     },
+2026-11-20T19:41:58.9264777Z     {
+2026-11-20T19:41:58.9264980Z       "id": "SmallH12",
+2026-11-20T19:41:58.9265349Z       "input_plan_hash": "22fb3aabcf9f44fdc7f895ae3aa7100739a958f8c05a29f5820a855b5fd3b50d",
+2026-11-20T19:41:58.9265707Z       "source_drift": []
+2026-11-20T19:41:58.9266038Z     },
+2026-11-20T19:41:58.9266273Z     {
+2026-11-20T19:41:58.9266483Z       "id": "WFBFiniteFrontGluing",
+2026-11-20T19:41:58.9266828Z       "input_plan_hash": "83679102d2127af695184720e9f55b53990a9befc6f368ee2c951f04f842f7bb",
+2026-11-20T19:41:58.9267190Z       "source_drift": []
+2026-11-20T19:41:58.9267403Z     },
+2026-11-20T19:41:58.9267611Z     {
+2026-11-20T19:41:58.9267812Z       "id": "WFBFiniteFrontTest",
+2026-11-20T19:41:58.9268185Z       "input_plan_hash": "505c7d00e6db86cc5b47ee929910b65d5636f5bc79f0977f81059e0bfd959b3f",
+2026-11-20T19:41:58.9268546Z       "source_drift": []
+2026-11-20T19:41:58.9268763Z     },
+2026-11-20T19:41:58.9268988Z     {
+2026-11-20T19:41:58.9269196Z       "id": "WFBFiniteWindowCrossIdentity",
+2026-11-20T19:41:58.9269541Z       "input_plan_hash": "67c5b8f58ee012fb8d0b29432472421cdc18c5889e4c4fa6500472ac2d04446c",
+2026-11-20T19:41:58.9269897Z       "source_drift": []
+2026-11-20T19:41:58.9270103Z     },
+2026-11-20T19:41:58.9270303Z     {
+2026-11-20T19:41:58.9270526Z       "id": "WFBFiniteWindowRelativeEnergy",
+2026-11-20T19:41:58.9270903Z       "input_plan_hash": "272a0ecfd58cca330462cd0c30561224ce53e374e70d44ae9e6b57b5751887b4",
+2026-11-20T19:41:58.9271279Z       "source_drift": []
+2026-11-20T19:41:58.9271482Z     },
+2026-11-20T19:41:58.9271688Z     {
+2026-11-20T19:41:58.9271913Z       "id": "WFBFiniteWindowSerrinComparison",
+2026-11-20T19:41:58.9272284Z       "input_plan_hash": "bbbced3fda992409c2b0b76b67fecba14e52781a261f49140d9115ba90ad3c17",
+2026-11-20T19:41:58.9272640Z       "source_drift": []
+2026-11-20T19:41:58.9272846Z     },
+2026-11-20T19:41:58.9273212Z     {
+2026-11-20T19:41:58.9273482Z       "id": "WFBFourierBudget",
+2026-11-20T19:41:58.9273824Z       "input_plan_hash": "bc57416fa18ed688d86afcb1d499cf789ed23b74a733fe52726fa614b3524771",
+2026-11-20T19:41:58.9274187Z       "source_drift": []
+2026-11-20T19:41:58.9274407Z     },
+2026-11-20T19:41:58.9274600Z     {
+2026-11-20T19:41:58.9274860Z       "id": "WFBHomogeneousBudget",
+2026-11-20T19:41:58.9275214Z       "input_plan_hash": "1db299862b1fcf17eb5970760becc0b8f37d2b4633119f99df3f8d1be6fee9cb",
+2026-11-20T19:41:58.9275635Z       "source_drift": []
+2026-11-20T19:41:58.9275857Z     },
+2026-11-20T19:41:58.9277472Z     {
+2026-11-20T19:41:58.9277778Z       "id": "WFBLocalClassicalUniqueness",
+2026-11-20T19:41:58.9278132Z       "input_plan_hash": "c8375d379ae1cd85679f489856841345c8a52ce9f6eca79ee36335d4d8b9d8d6",
+2026-11-20T19:41:58.9278480Z       "source_drift": []
+2026-11-20T19:41:58.9278723Z     },
+2026-11-20T19:41:58.9278941Z     {
+2026-11-20T19:41:58.9279168Z       "id": "WFBLocalCubicBarrier",
+2026-11-20T19:41:58.9279521Z       "input_plan_hash": "be88fd30afedf990804a79b21a63c0418b665a080c4763157f92b246a60f73de",
+2026-11-20T19:41:58.9279863Z       "source_drift": []
+2026-11-20T19:41:58.9280130Z     },
+2026-11-20T19:41:58.9280302Z     {
+2026-11-20T19:41:58.9280522Z       "id": "WFBLocalExistence",
+2026-11-20T19:41:58.9280867Z       "input_plan_hash": "85d66959336bcb1cd58b4dff172b5369322f355822339cd7233928997ff8afcb",
+2026-11-20T19:41:58.9281227Z       "source_drift": []
+2026-11-20T19:41:58.9281469Z     },
+2026-11-20T19:41:58.9281651Z     {
+2026-11-20T19:41:58.9281857Z       "id": "WFBLocalFront",
+2026-11-20T19:41:58.9282235Z       "input_plan_hash": "39f31b97d7548ba3d6fa397e733e4fa654ade0f197aabf4a50721c94716a5589",
+2026-11-20T19:41:58.9282581Z       "source_drift": []
+2026-11-20T19:41:58.9282841Z     },
+2026-11-20T19:41:58.9283178Z     {
+2026-11-20T19:41:58.9283412Z       "id": "WFBLocalFrontIdentification",
+2026-11-20T19:41:58.9283770Z       "input_plan_hash": "7a180a4b14a63a2b2649de65f98c01a34d5013ec015949ec3f65ce880b9c3d7b",
+2026-11-20T19:41:58.9284100Z       "source_drift": []
+2026-11-20T19:41:58.9284342Z     },
+2026-11-20T19:41:58.9284508Z     {
+2026-11-20T19:41:58.9284699Z       "id": "WFBLocalGalerkinBounds",
+2026-11-20T19:41:58.9285042Z       "input_plan_hash": "27d30e37c9b1afaedbf2834b59feb142b2ae9df6c6b846ca96c5dec2a1312763",
+2026-11-20T19:41:58.9285445Z       "source_drift": []
+2026-11-20T19:41:58.9285736Z     },
+2026-11-20T19:41:58.9285902Z     {
+2026-11-20T19:41:58.9286097Z       "id": "WFBLocalGalerkinCompactness",
+2026-11-20T19:41:58.9286453Z       "input_plan_hash": "de87b148cb246e86f0627fde38ce4c0078db5bdbbad1880333746f1b5c108120",
+2026-11-20T19:41:58.9286812Z       "source_drift": []
+2026-11-20T19:41:58.9287027Z     },
+2026-11-20T19:41:58.9287208Z     {
+2026-11-20T19:41:58.9287387Z       "id": "WFBLocalGalerkinLimit",
+2026-11-20T19:41:58.9287749Z       "input_plan_hash": "d1bc09262ccd7eca31ebaa960281314c8c789a80c8b1cf5ad5ea893829a79bc5",
+2026-11-20T19:41:58.9288145Z       "source_drift": []
+2026-11-20T19:41:58.9288477Z     },
+2026-11-20T19:41:58.9288653Z     {
+2026-11-20T19:41:58.9288852Z       "id": "WFBLocalGalerkinRegularity",
+2026-11-20T19:41:58.9289240Z       "input_plan_hash": "72a970cabee9ee73e529afb418a0ac251cc37fbc47c7bf9455d892494cd9fb7b",
+2026-11-20T19:41:58.9289603Z       "source_drift": []
+2026-11-20T19:41:58.9289815Z     },
+2026-11-20T19:41:58.9290001Z     {
+2026-11-20T19:41:58.9290195Z       "id": "WFBLocalSobolevCalculus",
+2026-11-20T19:41:58.9290580Z       "input_plan_hash": "c23be040d9f01fb0a06a4b8d65df44accd761157a9bcd63fdd99a19dad4b3598",
+2026-11-20T19:41:58.9290949Z       "source_drift": []
+2026-11-20T19:41:58.9291154Z     },
+2026-11-20T19:41:58.9291347Z     {
+2026-11-20T19:41:58.9291543Z       "id": "WFBLocalTimeTranslation",
+2026-11-20T19:41:58.9291897Z       "input_plan_hash": "1c49c36903fd791c95352c4e9051bc565f08344fe7980ed04b1731868e1e5a4f",
+2026-11-20T19:41:58.9292256Z       "source_drift": []
+2026-11-20T19:41:58.9292452Z     },
+2026-11-20T19:41:58.9292649Z     {
+2026-11-20T19:41:58.9292854Z       "id": "WFBMaximalClassicalFront",
+2026-11-20T19:41:58.9293403Z       "input_plan_hash": "c228758921ac99bb19e86b85dd181d1a30a3218c486769553679c277a03e0335",
+2026-11-20T19:41:58.9293764Z       "source_drift": []
+2026-11-20T19:41:58.9293965Z     },
+2026-11-20T19:41:58.9294179Z     {
+2026-11-20T19:41:58.9294391Z       "id": "WFBMaximalFrontRestriction",
+2026-11-20T19:41:58.9294763Z       "input_plan_hash": "4cf42593d58b966a891d39ef4477ad551a150895bca22913b748ccee3605c616",
+2026-11-20T19:41:58.9295138Z       "source_drift": []
+2026-11-20T19:41:58.9295350Z     },
+2026-11-20T19:41:58.9295545Z     {
+2026-11-20T19:41:58.9295859Z       "id": "WFBMaximalLerayHopfIdentification",
+2026-11-20T19:41:58.9296312Z       "input_plan_hash": "865590afef48244ad4c8e0bef19e28858121e11b6267313ec63089df13004173",
+2026-11-20T19:41:58.9296689Z       "source_drift": []
+2026-11-20T19:41:58.9296904Z     },
+2026-11-20T19:41:58.9297101Z     {
+2026-11-20T19:41:58.9297308Z       "id": "WFBMaximalTailGluing",
+2026-11-20T19:41:58.9297649Z       "input_plan_hash": "ba8770c6b7e7e12f56f52172be52cd26aba562f0fe87e139df6a8afd73189403",
+2026-11-20T19:41:58.9298040Z       "source_drift": []
+2026-11-20T19:41:58.9298243Z     },
+2026-11-20T19:41:58.9298424Z     {
+2026-11-20T19:41:58.9298664Z       "id": "WFBPhysicalBudgetContinuation",
+2026-11-20T19:41:58.9299020Z       "input_plan_hash": "79dd6831cffdb01cc60b7161d64686bade9cef213cc3d90543a5ac26da29555f",
+2026-11-20T19:41:58.9299411Z       "source_drift": []
+2026-11-20T19:41:58.9299615Z     },
+2026-11-20T19:41:58.9299804Z     {
+2026-11-20T19:41:58.9300024Z       "id": "WFBPhysicalEndpointContinuation",
+2026-11-20T19:41:58.9300402Z       "input_plan_hash": "6540b79bd6d79aef8be8251f97ecf29467529f2eada00fb11ed77545583d94d4",
+2026-11-20T19:41:58.9300788Z       "source_drift": []
+2026-11-20T19:41:58.9301004Z     },
+2026-11-20T19:41:58.9301215Z     {
+2026-11-20T19:41:58.9301436Z       "id": "WFBPhysicalEnstrophyEvolution",
+2026-11-20T19:41:58.9301791Z       "input_plan_hash": "235260daec3f067595e3e075565560251b3450b3b384d8be927896db59d26f46",
+2026-11-20T19:41:58.9302158Z       "source_drift": []
+2026-11-20T19:41:58.9302367Z     },
+2026-11-20T19:41:58.9302533Z     {
+2026-11-20T19:41:58.9302752Z       "id": "WFBPhysicalFourier",
+2026-11-20T19:41:58.9303278Z       "input_plan_hash": "0f849fc151a04e620d99f42ea9fe62949aa9cf2370775653e517acfa7cafd20e",
+2026-11-20T19:41:58.9303732Z       "source_drift": []
+2026-11-20T19:41:58.9303949Z     },
+2026-11-20T19:41:58.9304146Z     {
+2026-11-20T19:41:58.9304369Z       "id": "WFBPhysicalNonlinear",
+2026-11-20T19:41:58.9304727Z       "input_plan_hash": "2a1b8e98740eaf6bf5603c9dddc7a9fabb1190463b1e7183ec011a00629066a8",
+2026-11-20T19:41:58.9305098Z       "source_drift": []
+2026-11-20T19:41:58.9305313Z     },
+2026-11-20T19:41:58.9305490Z     {
+2026-11-20T19:41:58.9305691Z       "id": "WFBSmoothDatum",
+2026-11-20T19:41:58.9306028Z       "input_plan_hash": "3f1b999ebe8cbb65c6b8cf3e24d9e6af0d4133be868c16b4473fbf8d9628d0b0",
+2026-11-20T19:41:58.9306385Z       "source_drift": []
+2026-11-20T19:41:58.9306648Z     },
+2026-11-20T19:41:58.9306838Z     {
+2026-11-20T19:41:58.9307049Z       "id": "WFBStrictCutoff",
+2026-11-20T19:41:58.9307390Z       "input_plan_hash": "57c8724123fe407c9baea38d02c0b2694e1ec068ef6d6a0d5bc5baac57ed9b6b",
+2026-11-20T19:41:58.9307747Z       "source_drift": []
+2026-11-20T19:41:58.9307982Z     },
+2026-11-20T19:41:58.9308174Z     {
+2026-11-20T19:41:58.9308386Z       "id": "WFBStrongContinuation",
+2026-11-20T19:41:58.9308751Z       "input_plan_hash": "05bcc8dd74f5880c6000fae484d1526c485ba3637c6350b378cf5a21ccb92516",
+2026-11-20T19:41:58.9309119Z       "source_drift": []
+2026-11-20T19:41:58.9309367Z     },
+2026-11-20T19:41:58.9309553Z     {
+2026-11-20T19:41:58.9309753Z       "id": "WFBWFBRootAssembly",
+2026-11-20T19:41:58.9310108Z       "input_plan_hash": "37ae99500416c551e0ed4cf561645352d1d6411d7910fce521c6ab97d011092c",
+2026-11-20T19:41:58.9310471Z       "source_drift": []
+2026-11-20T19:41:58.9310701Z     },
+2026-11-20T19:41:58.9310884Z     {
+2026-11-20T19:41:58.9311075Z       "id": "WFBWeakFouriermanB",
+2026-11-20T19:41:58.9311429Z       "input_plan_hash": "ea064ada759c935c0541c755d0dcaf1215186035867b87f50139ea631f819507",
+2026-11-20T19:41:58.9311809Z       "source_drift": []
+2026-11-20T19:41:58.9312025Z     }
+2026-11-20T19:41:58.9312206Z   ]
+2026-11-20T19:41:58.9312383Z }
+2026-11-20T19:41:58.9329329Z ##[end-action id=worker.static;outcome=success;conclusion=success;duration_ms=13627]
+2026-11-20T19:41:58.9339040Z ##[start-action display=Reclaim unused disposable runner SDKs;id=worker.disk]
+2026-11-20T19:41:58.9354905Z ##[group]Run disk_mode=warm
+2026-11-20T19:41:58.9355175Z [36;1mdisk_mode=warm[0m
+2026-11-20T19:41:58.9355516Z [36;1mif [ "$WORKER_MODE" = recovery ]; then disk_mode=cold; fi[0m
+2026-11-20T19:41:58.9355924Z [36;1mbash Material/ci/prepare-runner.sh --mode "$disk_mode"[0m
+2026-11-20T19:41:58.9383175Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:41:58.9383519Z env:
+2026-11-20T19:41:58.9383724Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:58.9384015Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:58.9384294Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:58.9384552Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:58.9384804Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:58.9385013Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:58.9385266Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:58.9385537Z   WORKER_MODE: fast
+2026-11-20T19:41:58.9385755Z   MATERIAL_COLD_MIN_FREE_GIB: 40
+2026-11-20T19:41:58.9386098Z ##[endgroup]
+2026-11-20T19:41:58.9691714Z MATERIAL_RUNNER_DISK {"after": {"docker": {"free_bytes": 94788603904, "path": "/var/lib/docker"}, "workspace": {"free_bytes": 94788603904, "path": "/home/runner/work/Methboke/Methboke"}}, "before": {"docker": {"free_bytes": 94788603904, "path": "/var/lib/docker"}, "workspace": {"free_bytes": 94788603904, "path": "/home/runner/work/Methboke/Methboke"}}, "cleanup_skipped": true, "mode": "warm", "observed_free_gain_bytes": {"docker": 0, "workspace": 0}, "policy": "fixed_sdk_allowlist_only; stop_when_budget_met; preserve_all_caches", "removed_sdk_paths": [], "required_free_bytes": 21474836480, "schema_version": 1, "seconds": 0.0, "skipped_sdk_paths": [], "status": "SPACE_SUFFICIENT"}
+2026-11-20T19:41:58.9735298Z ##[end-action id=worker.disk;outcome=success;conclusion=success;duration_ms=39]
+2026-11-20T19:41:58.9738429Z ##[start-action display=Authenticate passed snapshot registry;id=worker.registry_auth]
+2026-11-20T19:41:58.9744368Z ##[end-action id=worker.registry_auth;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:41:58.9746258Z ##[start-action display=Select cache transport and compatible keys;id=worker.restore]
+2026-11-20T19:41:58.9759599Z ##[group]Run extra=()
+2026-11-20T19:41:58.9759847Z [36;1mextra=()[0m
+2026-11-20T19:41:58.9760116Z [36;1mcase "$MATERIAL_BACKEND" in[0m
+2026-11-20T19:41:58.9760441Z [36;1m  binary_cache) extra+=(--benchmark) ;;[0m
+2026-11-20T19:41:58.9760707Z [36;1m  registry) ;;[0m
+2026-11-20T19:41:58.9760977Z [36;1m  *) echo 'Unsupported Material backend'; exit 1 ;;[0m
+2026-11-20T19:41:58.9761262Z [36;1mesac[0m
+2026-11-20T19:41:58.9761596Z [36;1mpython3 Material/ci/native_registry.py prepare --state "$MATERIAL_STATE" "${extra[@]}"[0m
+2026-11-20T19:41:58.9782019Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:41:58.9782364Z env:
+2026-11-20T19:41:58.9782591Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:58.9782868Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:58.9783376Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:58.9783631Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:58.9783872Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:58.9784102Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:58.9784340Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:58.9784599Z ##[endgroup]
+2026-11-20T19:41:59.0895763Z ##[end-action id=worker.restore;outcome=success;conclusion=success;duration_ms=114]
+2026-11-20T19:41:59.0897787Z ##[start-action display=Ensure cold seed disk headroom;id=worker.cold_disk]
+2026-11-20T19:41:59.0904907Z ##[end-action id=worker.cold_disk;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:41:59.0906758Z ##[start-action display=Find repaired exact dependency cache without downloading it;id=worker.repaired-dependencies]
+2026-11-20T19:41:59.0956419Z ##[group]Run actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+2026-11-20T19:41:59.0956740Z with:
+2026-11-20T19:41:59.0956974Z   path: Material/.lake/packages
+2026-11-20T19:41:59.0957423Z   key: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44804484780-1
+2026-11-20T19:41:59.0958162Z   restore-keys: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-
+2026-11-20T19:41:59.0958605Z   lookup-only: true
+2026-11-20T19:41:59.0958828Z   enableCrossOsArchive: false
+2026-11-20T19:41:59.0959062Z   fail-on-cache-miss: false
+2026-11-20T19:41:59.0959339Z env:
+2026-11-20T19:41:59.0959563Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:59.0959820Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:59.0960091Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:59.0960295Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:59.0960548Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:59.0960762Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:59.0961008Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:59.0961255Z ##[endgroup]
+2026-11-20T19:41:59.1748916Z (node:2391) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T19:41:59.1749581Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T19:41:59.5561915Z Cache hit for restore-key: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2
+2026-11-20T19:41:59.5562548Z Lookup only - skipping download
+2026-11-20T19:41:59.9445824Z Cache found and can be restored from key: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2
+2026-11-20T19:41:59.9485000Z ##[end-action id=worker.repaired-dependencies;outcome=success;conclusion=success;duration_ms=857]
+2026-11-20T19:41:59.9487416Z ##[start-action display=Restore pinned dependencies;id=worker.dependencies]
+2026-11-20T19:41:59.9522390Z ##[group]Run actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+2026-11-20T19:41:59.9522738Z with:
+2026-11-20T19:41:59.9522980Z   path: Material/.lake/packages
+2026-11-20T19:41:59.9523775Z   key: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2
+2026-11-20T19:41:59.9524238Z   enableCrossOsArchive: false
+2026-11-20T19:41:59.9524491Z   fail-on-cache-miss: false
+2026-11-20T19:41:59.9524776Z   lookup-only: false
+2026-11-20T19:41:59.9524989Z env:
+2026-11-20T19:41:59.9525211Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:41:59.9525486Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:41:59.9526011Z   MATERIAL_JOBS: 2
+2026-11-20T19:41:59.9526253Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:41:59.9526511Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:41:59.9526726Z   EXACT_BENCHMARK: false
+2026-11-20T19:41:59.9526998Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:41:59.9527216Z ##[endgroup]
+2026-11-20T19:42:00.0302250Z (node:2404) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T19:42:00.0302842Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T19:42:00.3368273Z Cache hit for: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2
+2026-11-20T19:42:00.3440438Z (node:2404) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T19:42:01.6712413Z Received 0 of 2530741652 (0.0%), 0.0 MBs/sec
+2026-11-20T19:42:02.6708480Z Received 58720256 of 2530741652 (2.3%), 28.0 MBs/sec
+2026-11-20T19:42:03.6712645Z Received 176160768 of 2530741652 (7.0%), 56.0 MBs/sec
+2026-11-20T19:42:04.6718701Z Received 276824064 of 2530741652 (10.9%), 66.0 MBs/sec
+2026-11-20T19:42:05.6838487Z Received 402653184 of 2530741652 (15.9%), 76.6 MBs/sec
+2026-11-20T19:42:06.6835943Z Received 503316480 of 2530741652 (19.9%), 79.8 MBs/sec
+2026-11-20T19:42:07.6856822Z Received 557842432 of 2530741652 (22.0%), 75.9 MBs/sec
+2026-11-20T19:42:08.6974442Z Received 671088640 of 2530741652 (26.5%), 79.7 MBs/sec
+2026-11-20T19:42:09.6974748Z Received 754974720 of 2530741652 (29.8%), 79.8 MBs/sec
+2026-11-20T19:42:10.6974339Z Received 826277888 of 2530741652 (32.6%), 78.6 MBs/sec
+2026-11-20T19:42:11.7015270Z Received 931135488 of 2530741652 (36.8%), 80.5 MBs/sec
+2026-11-20T19:42:12.7017426Z Received 1010827264 of 2530741652 (39.9%), 80.1 MBs/sec
+2026-11-20T19:42:13.7020083Z Received 1086324736 of 2530741652 (42.9%), 79.5 MBs/sec
+2026-11-20T19:42:14.6992759Z Received 1203765248 of 2530741652 (47.6%), 81.8 MBs/sec
+2026-11-20T19:42:15.6991141Z Received 1283457024 of 2530741652 (50.7%), 81.4 MBs/sec
+2026-11-20T19:42:16.6996525Z Received 1342177280 of 2530741652 (53.0%), 79.9 MBs/sec
+2026-11-20T19:42:17.6991088Z Received 1451229184 of 2530741652 (57.3%), 81.3 MBs/sec
+2026-11-20T19:42:18.6994082Z Received 1530920960 of 2530741652 (60.5%), 81.0 MBs/sec
+2026-11-20T19:42:19.6999869Z Received 1610612736 of 2530741652 (63.6%), 80.7 MBs/sec
+2026-11-20T19:42:20.6998255Z Received 1719664640 of 2530741652 (68.0%), 81.9 MBs/sec
+2026-11-20T19:42:21.7000306Z Received 1769996288 of 2530741652 (69.9%), 80.3 MBs/sec
+2026-11-20T19:42:22.7001609Z Received 1845493760 of 2530741652 (72.9%), 79.9 MBs/sec
+2026-11-20T19:42:23.7002857Z Received 1904214016 of 2530741652 (75.2%), 78.9 MBs/sec
+2026-11-20T19:42:24.7002603Z Received 1979711488 of 2530741652 (78.2%), 78.6 MBs/sec
+2026-11-20T19:42:25.7000114Z Received 2009071616 of 2530741652 (79.4%), 76.6 MBs/sec
+2026-11-20T19:42:26.6997237Z Received 2021654528 of 2530741652 (79.9%), 74.1 MBs/sec
+2026-11-20T19:42:27.7008117Z Received 2101346304 of 2530741652 (83.0%), 74.1 MBs/sec
+2026-11-20T19:42:28.7008495Z Received 2147483648 of 2530741652 (84.9%), 73.1 MBs/sec
+2026-11-20T19:42:29.7008824Z Received 2210398208 of 2530741652 (87.3%), 72.6 MBs/sec
+2026-11-20T19:42:30.7009728Z Received 2273312768 of 2530741652 (89.8%), 72.2 MBs/sec
+2026-11-20T19:42:31.7013702Z Received 2332033024 of 2530741652 (92.1%), 71.7 MBs/sec
+2026-11-20T19:42:32.6999925Z Received 2403336192 of 2530741652 (95.0%), 71.6 MBs/sec
+2026-11-20T19:42:33.7009266Z Received 2457862144 of 2530741652 (97.1%), 71.0 MBs/sec
+2026-11-20T19:42:34.7010601Z Received 2526547348 of 2530741652 (99.8%), 70.8 MBs/sec
+2026-11-20T19:42:34.7893876Z Received 2530741652 of 2530741652 (100.0%), 70.7 MBs/sec
+2026-11-20T19:42:34.7897377Z Cache Size: ~2414 MB (2530741652 B)
+2026-11-20T19:42:34.8034742Z [command]/usr/bin/tar -xf /home/runner/work/_temp/dc47982d-772a-4a71-82d7-4ff4c069eaa8/cache.tzst -P -C /home/runner/work/Methboke/Methboke --use-compress-program unzstd
+2026-11-20T19:43:06.3461128Z Cache restored successfully
+2026-11-20T19:43:06.4263620Z Cache restored from key: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2
+2026-11-20T19:43:06.4338541Z ##[end-action id=worker.dependencies;outcome=success;conclusion=success;duration_ms=66485]
+2026-11-20T19:43:06.4340911Z ##[start-action display=Find repaired exact project cache without downloading it;id=worker.repaired-project]
+2026-11-20T19:43:06.4380684Z ##[group]Run actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+2026-11-20T19:43:06.4380964Z with:
+2026-11-20T19:43:06.4381179Z   path: Material/.lake/build
+Material/registry/current.json
+
+2026-11-20T19:43:06.4381834Z   key: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-ca085c885581124c9b4d4125378f58c12e02d86e95b478d7ddca3d991bf27f6c-recovered-44804484780-1
+2026-11-20T19:43:06.4382808Z   restore-keys: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-ca085c885581124c9b4d4125378f58c12e02d86e95b478d7ddca3d991bf27f6c-recovered-
+2026-11-20T19:43:06.4383651Z   lookup-only: true
+2026-11-20T19:43:06.4383832Z   enableCrossOsArchive: false
+2026-11-20T19:43:06.4384041Z   fail-on-cache-miss: false
+2026-11-20T19:43:06.4384216Z env:
+2026-11-20T19:43:06.4384370Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:43:06.4384583Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:43:06.4384809Z   MATERIAL_JOBS: 2
+2026-11-20T19:43:06.4384999Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:43:06.4385186Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:43:06.4385354Z   EXACT_BENCHMARK: false
+2026-11-20T19:43:06.4385543Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:43:06.4385732Z ##[endgroup]
+2026-11-20T19:43:06.5191329Z (node:2432) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T19:43:06.5192092Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T19:43:06.7941328Z Cache not found for input keys: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-ca085c885581124c9b4d4125378f58c12e02d86e95b478d7ddca3d991bf27f6c-recovered-44804484780-1, material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-ca085c885581124c9b4d4125378f58c12e02d86e95b478d7ddca3d991bf27f6c-recovered-
+2026-11-20T19:43:06.7977146Z ##[end-action id=worker.repaired-project;outcome=success;conclusion=success;duration_ms=363]
+2026-11-20T19:43:06.7979358Z ##[start-action display=Restore verified own project objects;id=worker.project]
+2026-11-20T19:43:06.8127549Z ##[group]Run actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830
+2026-11-20T19:43:06.8127832Z with:
+2026-11-20T19:43:06.8128058Z   path: Material/.lake/build
+Material/registry/current.json
+
+2026-11-20T19:43:06.8128723Z   key: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-ca085c885581124c9b4d4125378f58c12e02d86e95b478d7ddca3d991bf27f6c
+2026-11-20T19:43:06.8129422Z   restore-keys: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-
+2026-11-20T19:43:06.8129814Z   enableCrossOsArchive: false
+2026-11-20T19:43:06.8130020Z   fail-on-cache-miss: false
+2026-11-20T19:43:06.8130208Z   lookup-only: false
+2026-11-20T19:43:06.8130379Z env:
+2026-11-20T19:43:06.8130530Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:43:06.8130734Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:43:06.8131086Z   MATERIAL_JOBS: 2
+2026-11-20T19:43:06.8131257Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:43:06.8131456Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:43:06.8131622Z   EXACT_BENCHMARK: false
+2026-11-20T19:43:06.8131801Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:43:06.8131995Z ##[endgroup]
+2026-11-20T19:43:06.8944010Z (node:2445) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T19:43:06.8944710Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T19:43:07.1382189Z Cache hit for restore-key: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-5236fb601f8b2d45ee5ff19331d456564ac7fa1e3575dac5f07dfae76579f8f3
+2026-11-20T19:43:07.1459189Z (node:2445) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T19:43:08.4850044Z Received 1018057 of 26183881 (3.9%), 1.0 MBs/sec
+2026-11-20T19:43:09.0220014Z Received 26183881 of 26183881 (100.0%), 16.2 MBs/sec
+2026-11-20T19:43:09.0220406Z Cache Size: ~25 MB (26183881 B)
+2026-11-20T19:43:09.0237457Z [command]/usr/bin/tar -xf /home/runner/work/_temp/e9397e2f-6f31-48a8-a220-ff2a020ec2c1/cache.tzst -P -C /home/runner/work/Methboke/Methboke --use-compress-program unzstd
+2026-11-20T19:43:09.1345909Z Cache restored successfully
+2026-11-20T19:43:09.1411892Z Cache restored from key: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-5236fb601f8b2d45ee5ff19331d456564ac7fa1e3575dac5f07dfae76579f8f3
+2026-11-20T19:43:09.1474678Z ##[end-action id=worker.project;outcome=success;conclusion=success;duration_ms=2349]
+2026-11-20T19:43:09.1478295Z ##[start-action display=Require passed binary caches before compiler setup;id=worker.cache_admission]
+2026-11-20T19:43:09.1596418Z ##[group]Run python3 Material/ci/failure_routing.py admit
+2026-11-20T19:43:09.1596777Z [36;1mpython3 Material/ci/failure_routing.py admit[0m
+2026-11-20T19:43:09.1625153Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:43:09.1625427Z env:
+2026-11-20T19:43:09.1625596Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:43:09.1625956Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:43:09.1626196Z   MATERIAL_JOBS: 2
+2026-11-20T19:43:09.1626383Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:43:09.1626583Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:43:09.1626765Z   EXACT_BENCHMARK: false
+2026-11-20T19:43:09.1626949Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:43:09.1627147Z   DEPENDENCY_HIT: true
+2026-11-20T19:43:09.1627314Z   PROJECT_HIT: false
+2026-11-20T19:43:09.1627861Z   PROJECT_MATCHED: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-5236fb601f8b2d45ee5ff19331d456564ac7fa1e3575dac5f07dfae76579f8f3
+2026-11-20T19:43:09.1628674Z   DEPENDENCY_MATCHED: material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2
+2026-11-20T19:43:09.1629112Z   STRICT_BENCHMARK: false
+2026-11-20T19:43:09.1629292Z ##[endgroup]
+2026-11-20T19:43:09.2111661Z MATERIAL_BINARY_RESTORE {"artifact_retention_days": 90, "attempt": "1", "backend": "binary_cache", "commit": "1f83d62b771bc81daf48bac8026cd69e583e6703", "compiler_location": "native_host", "dependency_exact_hit": true, "dependency_key": "material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2", "dependency_matched_key": "material-deps-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-recovered-44086819243-2", "docker_used": false, "missing_dependency_policy": "CLASSIFIED_CACHE_RECOVERY_ONLY", "parent_commit": "afd67db40e71bd1412c82247a78598288deb611e", "parent_report_sha256": "e8875763d4c0c33d02bf3095cc3a9375b3aefe1b17c541c718f8fd7a0a1a2cd2", "parent_run_url": "https://github.com/randogelist/Methboke/actions/runs/44788963412", "project_exact_hit": false, "project_matched_key": "material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-5236fb601f8b2d45ee5ff19331d456564ac7fa1e3575dac5f07dfae76579f8f3", "project_requested_key": "material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-ca085c885581124c9b4d4125378f58c12e02d86e95b478d7ddca3d991bf27f6c", "repository": "randogelist/Methboke", "run_attempt": "1", "run_id": "44804484780", "schema_version": 1, "scope": "own binary objects; dependencies remain in Actions cache", "worker_mode": "fast"}
+2026-11-20T19:43:09.2164718Z ##[end-action id=worker.cache_admission;outcome=success;conclusion=success;duration_ms=68]
+2026-11-20T19:43:09.2167018Z ##[start-action display=Require clean recovery workspace and record official seed plan;id=worker.recovery_admission]
+2026-11-20T19:43:09.2170346Z ##[end-action id=worker.recovery_admission;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:43:09.2172310Z ##[start-action display=Enforce exact-cache measurement profile;id=worker.exact_gate]
+2026-11-20T19:43:09.2174999Z ##[end-action id=worker.exact_gate;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:43:09.2176303Z ##[start-action display=Install checksum-pinned native elan and Lean;id=worker.compiler_setup]
+2026-11-20T19:43:09.2208877Z ##[group]Run curl --fail --location --retry 3 https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz --output "$RUNNER_TEMP/elan.tar.gz"
+2026-11-20T19:43:09.2210074Z [36;1mcurl --fail --location --retry 3 https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz --output "$RUNNER_TEMP/elan.tar.gz"[0m
+2026-11-20T19:43:09.2211033Z [36;1mprintf '%s  %s\n' '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63' "$RUNNER_TEMP/elan.tar.gz" | sha256sum --check --strict[0m
+2026-11-20T19:43:09.2211648Z [36;1mtar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP"[0m
+2026-11-20T19:43:09.2212090Z [36;1m"$RUNNER_TEMP/elan-init" -y --no-modify-path --default-toolchain none[0m
+2026-11-20T19:43:09.2212475Z [36;1mecho "$HOME/.elan/bin" >> "$GITHUB_PATH"[0m
+2026-11-20T19:43:09.2212910Z [36;1m"$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"[0m
+2026-11-20T19:43:09.2246693Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:43:09.2247085Z env:
+2026-11-20T19:43:09.2247505Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:43:09.2247819Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:43:09.2248186Z   MATERIAL_JOBS: 2
+2026-11-20T19:43:09.2248572Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:43:09.2248873Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:43:09.2249130Z   EXACT_BENCHMARK: false
+2026-11-20T19:43:09.2249439Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:43:09.2249705Z ##[endgroup]
+2026-11-20T19:43:09.2356839Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-11-20T19:43:09.2358020Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-11-20T19:43:09.2358638Z 
+2026-11-20T19:43:09.2824489Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-20T19:43:09.2825099Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-11-20T19:43:09.3759871Z 
+2026-11-20T19:43:09.3760663Z 100 4879k  100 4879k    0     0  33.9M      0 --:--:-- --:--:-- --:--:-- 33.9M
+2026-11-20T19:43:09.4254460Z /home/runner/work/_temp/elan.tar.gz: OK
+2026-11-20T19:43:10.1095633Z info: Version 4.4.0 of elan is available! Use `elan self update` to update.
+2026-11-20T19:43:10.3829850Z info: downloading https://releases.lean-lang.org/lean4/v4.33.0/lean-4.33.0-linux.tar.zst
+2026-11-20T19:43:15.9728526Z info: installing /home/runner/.elan/toolchains/leanprover--lean4---v4.33.0
+2026-11-20T19:43:22.5236828Z 
+2026-11-20T19:43:22.5535380Z leanprover/lean4:v4.33.0 installed - Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+2026-11-20T19:43:22.5536020Z 
+2026-11-20T19:43:22.5555621Z ##[end-action id=worker.compiler_setup;outcome=success;conclusion=success;duration_ms=13337]
+2026-11-20T19:43:22.5558183Z ##[start-action display=Check audit options before compiling project modules;id=worker.audit_options]
+2026-11-20T19:43:22.5571821Z ##[group]Run python3 - <<'PY'
+2026-11-20T19:43:22.5572080Z [36;1mpython3 - <<'PY'[0m
+2026-11-20T19:43:22.5572288Z [36;1mimport hashlib[0m
+2026-11-20T19:43:22.5572465Z [36;1mimport json[0m
+2026-11-20T19:43:22.5572637Z [36;1mimport os[0m
+2026-11-20T19:43:22.5572793Z [36;1mimport re[0m
+2026-11-20T19:43:22.5572973Z [36;1mfrom pathlib import Path[0m
+2026-11-20T19:43:22.5573431Z [36;1msources = sorted(Path('Material').glob('*/Audit.lean'))[0m
+2026-11-20T19:43:22.5573742Z [36;1msources.append(Path('LEAN_CUTOUTS/Cutouts.lean'))[0m
+2026-11-20T19:43:22.5574019Z [36;1moptions = set()[0m
+2026-11-20T19:43:22.5574208Z [36;1mfor source in sources:[0m
+2026-11-20T19:43:22.5574510Z [36;1m    options.update(re.findall(r'^set_option .+$', source.read_text(), re.MULTILINE))[0m
+2026-11-20T19:43:22.5574913Z [36;1mprobe = Path(os.environ['RUNNER_TEMP']) / 'MaterialAuditOptions.lean'[0m
+2026-11-20T19:43:22.5575311Z [36;1mprobe.write_text('import Lean\n' + '\n'.join(sorted(options)) + '\n#check Nat\n')[0m
+2026-11-20T19:43:22.5575602Z [36;1mplan = {[0m
+2026-11-20T19:43:22.5575855Z [36;1m    'scope': 'audit option compatibility only; no theorem acceptance',[0m
+2026-11-20T19:43:22.5576166Z [36;1m    'tested_revision': os.environ['GITHUB_SHA'],[0m
+2026-11-20T19:43:22.5576482Z [36;1m    'lean_toolchain': Path('Material/lean-toolchain').read_text().strip(),[0m
+2026-11-20T19:43:22.5576928Z [36;1m    'dependency_lock_sha256': hashlib.sha256(Path('Material/lake-manifest.json').read_bytes()).hexdigest(),[0m
+2026-11-20T19:43:22.5577367Z [36;1m    'probe_sha256': hashlib.sha256(probe.read_bytes()).hexdigest(),[0m
+2026-11-20T19:43:22.5577745Z [36;1m    'sources': {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in sources},[0m
+2026-11-20T19:43:22.5578058Z [36;1m    'local_lean_allowed': False,[0m
+2026-11-20T19:43:22.5578268Z [36;1m}[0m
+2026-11-20T19:43:22.5578708Z [36;1mPath('Material/registry/audit-options-plan.json').write_text(json.dumps(plan, indent=2) + '\n')[0m
+2026-11-20T19:43:22.5579058Z [36;1mPY[0m
+2026-11-20T19:43:22.5579210Z [36;1mcd Material[0m
+2026-11-20T19:43:22.5579585Z [36;1mlean --root="$RUNNER_TEMP" "$RUNNER_TEMP/MaterialAuditOptions.lean"[0m
+2026-11-20T19:43:22.5610534Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:43:22.5610802Z env:
+2026-11-20T19:43:22.5610984Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:43:22.5611305Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:43:22.5611559Z   MATERIAL_JOBS: 2
+2026-11-20T19:43:22.5611737Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:43:22.5611942Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:43:22.5612116Z   EXACT_BENCHMARK: false
+2026-11-20T19:43:22.5612312Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:43:22.5612504Z ##[endgroup]
+2026-11-20T19:43:23.2193348Z Nat : Type
+2026-11-20T19:43:23.2614289Z ##[end-action id=worker.audit_options;outcome=success;conclusion=success;duration_ms=705]
+2026-11-20T19:43:23.2617822Z ##[start-action display=Compile own modules and freshly audit every endpoint;id=worker.verify]
+2026-11-20T19:43:23.2674834Z ##[group]Run export MATERIAL_RESTORE_MODE=actions_passed_cache
+2026-11-20T19:43:23.2675337Z [36;1mexport MATERIAL_RESTORE_MODE=actions_passed_cache[0m
+2026-11-20T19:43:23.2675726Z [36;1mexport MATERIAL_DEPENDENCY_CACHE_CLASS=MISS[0m
+2026-11-20T19:43:23.2676081Z [36;1mexport MATERIAL_PROJECT_CACHE_CLASS=MISS[0m
+2026-11-20T19:43:23.2676584Z [36;1mif [ "$DEPENDENCY_HIT" = true ]; then export MATERIAL_DEPENDENCY_CACHE_CLASS=EXACT; fi[0m
+2026-11-20T19:43:23.2677198Z [36;1mif [ -n "$PROJECT_MATCHED" ]; then export MATERIAL_PROJECT_CACHE_CLASS=PREFIX; fi[0m
+2026-11-20T19:43:23.2677776Z [36;1mif [ "$PROJECT_HIT" = true ]; then export MATERIAL_PROJECT_CACHE_CLASS=EXACT; fi[0m
+2026-11-20T19:43:23.2678253Z [36;1mif [ "$REGISTRY_RESTORED" = true ]; then[0m
+2026-11-20T19:43:23.2678654Z [36;1m  export MATERIAL_RESTORE_MODE=previous_passed_container[0m
+2026-11-20T19:43:23.2679226Z [36;1m  export MATERIAL_DEPENDENCY_CACHE_CLASS=EXACT[0m
+2026-11-20T19:43:23.2679516Z [36;1m  export MATERIAL_PROJECT_CACHE_CLASS=PREFIX[0m
+2026-11-20T19:43:23.2679748Z [36;1mfi[0m
+2026-11-20T19:43:23.2679928Z [36;1mif [ "$WORKER_MODE" = recovery ]; then[0m
+2026-11-20T19:43:23.2680199Z [36;1m  export MATERIAL_RESTORE_MODE=official_seed_rebuild[0m
+2026-11-20T19:43:23.2680451Z [36;1m  export EXACT_BENCHMARK=false[0m
+2026-11-20T19:43:23.2680703Z [36;1melif [ "$MATERIAL_BACKEND" = binary_cache ]; then[0m
+2026-11-20T19:43:23.2681021Z [36;1m  # Compatible project prefixes may rebuild amendments, but the driver[0m
+2026-11-20T19:43:23.2681385Z [36;1m  # must reject missing dependency outputs instead of hydrating a seed.[0m
+2026-11-20T19:43:23.2681676Z [36;1m  export EXACT_BENCHMARK=true[0m
+2026-11-20T19:43:23.2681858Z [36;1mfi[0m
+2026-11-20T19:43:23.2682007Z [36;1mset +e[0m
+2026-11-20T19:43:23.2682188Z [36;1mif [ "$REGISTRY_RESTORED" = true ]; then[0m
+2026-11-20T19:43:23.2682501Z [36;1m  python3 Material/ci/container_workspace.py --state "$MATERIAL_STATE"[0m
+2026-11-20T19:43:23.2682777Z [36;1melse[0m
+2026-11-20T19:43:23.2682963Z [36;1m  bash Material/ci/verify-external.sh[0m
+2026-11-20T19:43:23.2683377Z [36;1mfi[0m
+2026-11-20T19:43:23.2683543Z [36;1mresult=$?[0m
+2026-11-20T19:43:23.2683711Z [36;1mset -e[0m
+2026-11-20T19:43:23.2684029Z [36;1mpython3 Material/ci/native_registry.py record --state "$MATERIAL_STATE" --exit-code "$result"[0m
+2026-11-20T19:43:23.2684366Z [36;1mexit "$result"[0m
+2026-11-20T19:43:23.2711427Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:43:23.2711697Z env:
+2026-11-20T19:43:23.2711869Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:43:23.2712093Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:43:23.2712326Z   MATERIAL_JOBS: 2
+2026-11-20T19:43:23.2712502Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:43:23.2712689Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:43:23.2712882Z   EXACT_BENCHMARK: false
+2026-11-20T19:43:23.2713206Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:43:23.2713408Z   REGISTRY_RESTORED: false
+2026-11-20T19:43:23.2713590Z   MATERIAL_PARENT_IMAGE_DIGEST: 
+2026-11-20T19:43:23.2713784Z   DEPENDENCY_HIT: true
+2026-11-20T19:43:23.2714078Z   PROJECT_HIT: false
+2026-11-20T19:43:23.2714609Z   PROJECT_MATCHED: material-project-7c3b913643ebe192a3caf6c70e912ec969c1f40201eac05b9ac1b7c919b9e6e2-5236fb601f8b2d45ee5ff19331d456564ac7fa1e3575dac5f07dfae76579f8f3
+2026-11-20T19:43:23.2715164Z   WORKER_MODE: fast
+2026-11-20T19:43:23.2715377Z ##[endgroup]
+2026-11-20T19:43:35.9800857Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/mathlib", "rev-parse", "HEAD"]
+2026-11-20T19:43:35.9814857Z db584cd6d46c92f209a44c0f1c829460d327499d
+2026-11-20T19:43:35.9828790Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/mathlib", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2359272Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/plausible", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2372365Z b7eb3304aeae834b12dda98993a37f6a41f6f0bb
+2026-11-20T19:43:36.2375054Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/plausible", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2397379Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/LeanSearchClient", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2406763Z 5f4d51b81cbd3f6b32b156bfad9056621a040404
+2026-11-20T19:43:36.2409498Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/LeanSearchClient", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2428054Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/importGraph", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2438166Z 16f02aa7642864af59f1ff0e384a015994db9118
+2026-11-20T19:43:36.2439832Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/importGraph", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2467613Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/proofwidgets", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2477038Z 4be2e3d5087eeb272cf5a8853b8f9dd025ef5957
+2026-11-20T19:43:36.2478809Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/proofwidgets", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2682145Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/aesop", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2691737Z 3448c0bcc5ce01b2d1546e483ec3620e32df3d0e
+2026-11-20T19:43:36.2694094Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/aesop", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2737458Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Qq", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2746605Z 92c15be17b7caf78c2ad767ec40f89052d908d81
+2026-11-20T19:43:36.2748167Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Qq", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2767320Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/batteries", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2776622Z 4488d40d070b9700d4d5a6aa342f0d40c31b2a2d
+2026-11-20T19:43:36.2778632Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/batteries", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2837130Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Cli", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2846182Z 6130a47896ce867c6a4a55373441e59e565bad0f
+2026-11-20T19:43:36.2848140Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Cli", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.2925190Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/mathlib", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.2933956Z db584cd6d46c92f209a44c0f1c829460d327499d
+2026-11-20T19:43:36.2936624Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/mathlib", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3006782Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/plausible", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3016336Z b7eb3304aeae834b12dda98993a37f6a41f6f0bb
+2026-11-20T19:43:36.3018927Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/plausible", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3033552Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/LeanSearchClient", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3042371Z 5f4d51b81cbd3f6b32b156bfad9056621a040404
+2026-11-20T19:43:36.3044843Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/LeanSearchClient", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3058224Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/importGraph", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3067142Z 16f02aa7642864af59f1ff0e384a015994db9118
+2026-11-20T19:43:36.3069066Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/importGraph", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3082824Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/proofwidgets", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3091856Z 4be2e3d5087eeb272cf5a8853b8f9dd025ef5957
+2026-11-20T19:43:36.3093968Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/proofwidgets", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3108570Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/aesop", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3117504Z 3448c0bcc5ce01b2d1546e483ec3620e32df3d0e
+2026-11-20T19:43:36.3120750Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/aesop", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3136785Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Qq", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3146246Z 92c15be17b7caf78c2ad767ec40f89052d908d81
+2026-11-20T19:43:36.3148274Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Qq", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3162163Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/batteries", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3171174Z 4488d40d070b9700d4d5a6aa342f0d40c31b2a2d
+2026-11-20T19:43:36.3175037Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/batteries", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3191298Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Cli", "rev-parse", "HEAD"]
+2026-11-20T19:43:36.3200826Z 6130a47896ce867c6a4a55373441e59e565bad0f
+2026-11-20T19:43:36.3202842Z MATERIAL_COMMAND ["git", "-C", "/home/runner/work/Methboke/Methboke/Material/.lake/packages/Cli", "status", "--porcelain", "--untracked-files=no"]
+2026-11-20T19:43:36.3216484Z MATERIAL_COMMAND ["lake", "env", "lean", "--version"]
+2026-11-20T19:43:38.0497681Z Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+2026-11-20T19:43:45.6418080Z MATERIAL_MODULE MathlibAnalytic.Endpoint PASS REUSED
+2026-11-20T19:43:45.6418494Z MATERIAL_MODULE MathlibFourier.Endpoint PASS REUSED
+2026-11-20T19:43:45.6423326Z MATERIAL_MODULE MathlibODE.Endpoint PASS REUSED
+2026-11-20T19:43:45.6431857Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.CoreAlgebra PASS REUSED
+2026-11-20T19:43:45.6432677Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ReciprocalThreshold PASS REUSED
+2026-11-20T19:43:45.6439160Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.SlabDescent PASS REUSED
+2026-11-20T19:43:45.6449913Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.SmallForcingBootstrap PASS REUSED
+2026-11-20T19:43:45.6450607Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.DisjointGerms PASS REUSED
+2026-11-20T19:43:45.6455121Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.LocalBlowup PASS REUSED
+2026-11-20T19:43:45.6463296Z MATERIAL_MODULE QFA.Endpoints.Agmon.Contracts PASS REUSED
+2026-11-20T19:43:45.6467615Z MATERIAL_MODULE QFA.Endpoints.Agmon.Scalar PASS REUSED
+2026-11-20T19:43:45.6468112Z MATERIAL_MODULE QFA.Endpoints.Comparison.AdmissibleTimes PASS REUSED
+2026-11-20T19:43:45.6480560Z MATERIAL_MODULE QFA.Endpoints.Comparison.RelativeEnergy PASS REUSED
+2026-11-20T19:43:45.6480952Z MATERIAL_MODULE QFA.Endpoints.Energy.ProductBudget PASS REUSED
+2026-11-20T19:43:45.6489030Z MATERIAL_MODULE QFA.Endpoints.GoodTime.Basic PASS REUSED
+2026-11-20T19:43:45.6490059Z MATERIAL_MODULE QFA.Endpoints.Restart.TimeTranslate PASS REUSED
+2026-11-20T19:43:45.6501361Z MATERIAL_MODULE QuasiFeffermanB.CaloricBarrier PASS REUSED
+2026-11-20T19:43:45.6505953Z MATERIAL_MODULE QuasiFeffermanB.CaloricConvolution PASS REUSED
+2026-11-20T19:43:45.6515285Z MATERIAL_MODULE QuasiFeffermanB.CaloricKernel PASS REUSED
+2026-11-20T19:43:45.6518476Z MATERIAL_MODULE QuasiFeffermanB.CaloricMultiplier PASS REUSED
+2026-11-20T19:43:45.6541641Z MATERIAL_MODULE QuasiFeffermanB.ThetaGaussian PASS REUSED
+2026-11-20T19:43:45.6542073Z MATERIAL_MODULE QuasiFeffermanB.ThetaSchur PASS REUSED
+2026-11-20T19:43:45.6542439Z MATERIAL_MODULE SingularClosure.Contracts PASS REUSED
+2026-11-20T19:43:45.6547254Z MATERIAL_MODULE SingularClosure.CountableCompactExtraction PASS REUSED
+2026-11-20T19:43:45.6554057Z MATERIAL_MODULE SingularClosure.CriticalAdmissibleTimes PASS REUSED
+2026-11-20T19:43:45.6559364Z MATERIAL_MODULE SingularClosure.CriticalGlobalLp PASS REUSED
+2026-11-20T19:43:45.6568619Z MATERIAL_MODULE SingularClosure.CriticalTrace PASS REUSED
+2026-11-20T19:43:45.6574364Z MATERIAL_MODULE SingularClosure.CriticalUniqueness PASS REUSED
+2026-11-20T19:43:45.6591308Z MATERIAL_MODULE SingularClosure.CriticalYoung PASS REUSED
+2026-11-20T19:43:45.6591775Z MATERIAL_MODULE SingularClosure.CubicBudget PASS REUSED
+2026-11-20T19:43:45.6624520Z MATERIAL_MODULE SingularClosure.DissipativeODE PASS REUSED
+2026-11-20T19:43:45.6625010Z MATERIAL_MODULE SingularClosure.LinearBudget PASS REUSED
+2026-11-20T19:43:45.6628731Z MATERIAL_MODULE SingularClosure.SixChannels PASS REUSED
+2026-11-20T19:43:45.6643592Z MATERIAL_MODULE EhrenfestBootstrap.Endpoint PASS REUSED
+2026-11-20T19:43:45.6644032Z MATERIAL_MODULE EhrenfestCoreAlgebra.Endpoint PASS REUSED
+2026-11-20T19:43:45.6651679Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.StoppedScalar PASS REUSED
+2026-11-20T19:43:45.6662009Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.CopyBlowup PASS REUSED
+2026-11-20T19:43:45.6662448Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.FamilyContracts PASS REUSED
+2026-11-20T19:43:45.6675124Z MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/QuasiFeffermanA/ACBudget.olean", "MethbokeAddon/QuasiFeffermanA/ACBudget.lean"]
+2026-11-20T19:43:45.6676741Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.GrowthSequence PASS REUSED
+2026-11-20T19:43:45.6677328Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.LocalDifferential PASS REUSED
+2026-11-20T19:43:49.2248149Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.ACBudget PASS
+2026-11-20T19:43:49.2248741Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.Cutoff PASS REUSED
+2026-11-20T19:43:49.2249270Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalCubicBarrier PASS REUSED
+2026-11-20T19:43:49.2249706Z MATERIAL_MODULE QFA.Assembly.Comparison PASS REUSED
+2026-11-20T19:43:49.2250091Z MATERIAL_MODULE QFA.Endpoints.GoodTime.Cutoff PASS REUSED
+2026-11-20T19:43:49.2250933Z MATERIAL_MODULE QFA.Endpoints.Representation.Complexification PASS REUSED
+2026-11-20T19:43:49.2251390Z MATERIAL_MODULE QFA.Endpoints.Restart.EnergyShift PASS REUSED
+2026-11-20T19:43:49.2251792Z MATERIAL_MODULE QFALC001Reduction.NativeFromAENorms PASS REUSED
+2026-11-20T19:43:49.2252179Z MATERIAL_MODULE QFALC004.CompactSchwartz PASS REUSED
+2026-11-20T19:43:49.2252554Z MATERIAL_MODULE QuasiFeffermanB.CaloricConstants PASS REUSED
+2026-11-20T19:43:49.2252950Z MATERIAL_MODULE SingularClosure.CoordinateAverage PASS REUSED
+2026-11-20T19:43:49.2253519Z MATERIAL_MODULE SingularClosure.CriticalInvariant PASS REUSED
+2026-11-20T19:43:49.2253983Z MATERIAL_MODULE SingularClosure.CriticalLocalUniqueness PASS REUSED
+2026-11-20T19:43:49.2254468Z MATERIAL_MODULE SingularClosure.CriticalPhysicalLpZero PASS REUSED
+2026-11-20T19:43:49.2254906Z MATERIAL_MODULE SingularClosure.CriticalPositiveTimeEnergy PASS REUSED
+2026-11-20T19:43:49.2255452Z MATERIAL_MODULE SingularClosure.CriticalPositiveTimeScalar PASS REUSED
+2026-11-20T19:43:49.2255942Z MATERIAL_MODULE SingularClosure.Galerkin PASS REUSED
+2026-11-20T19:43:49.2256389Z MATERIAL_MODULE SingularClosure.HilbertChannels PASS REUSED
+2026-11-20T19:43:49.2265224Z MATERIAL_MODULE EhrenfestScalar.Endpoint PASS REUSED
+2026-11-20T19:43:49.2276984Z MATERIAL_MODULE FeffermanFamilyFoundation.Endpoint PASS REUSED
+2026-11-20T19:43:49.2277642Z MATERIAL_MODULE MethbokeAddon.FeffermanFamily.DisjointNSE PASS REUSED
+2026-11-20T19:43:49.2278980Z MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/QuasiFeffermanA/SixChargeBudget.olean", "MethbokeAddon/QuasiFeffermanA/SixChargeBudget.lean"]
+2026-11-20T19:43:49.2283330Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.FourierMultipliers PASS REUSED
+2026-11-20T19:43:49.2309000Z MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/QFAACBudget/Endpoint.olean", "QFAACBudget/Endpoint.lean"]
+2026-11-20T19:43:52.9220162Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.SixChargeBudget PASS
+2026-11-20T19:43:52.9220589Z MATERIAL_MODULE QFA.Assembly.AnalyticInputs PASS REUSED
+2026-11-20T19:43:52.9220894Z MATERIAL_MODULE QFA.Assembly.Representation PASS REUSED
+2026-11-20T19:43:52.9221229Z MATERIAL_MODULE QFA.Endpoints.Composition.GoodTimeOfEnvelope PASS REUSED
+2026-11-20T19:43:52.9221610Z MATERIAL_MODULE QFA.Endpoints.GoodTime.Interval PASS REUSED
+2026-11-20T19:43:52.9221947Z MATERIAL_MODULE QFA.Endpoints.Restart.HilbertTrace PASS REUSED
+2026-11-20T19:43:52.9222229Z MATERIAL_MODULE QFAACBudget.Endpoint PASS
+2026-11-20T19:43:52.9222493Z MATERIAL_MODULE QFALC004 PASS REUSED
+2026-11-20T19:43:52.9222717Z MATERIAL_MODULE QFALC005.Density PASS REUSED
+2026-11-20T19:43:52.9222977Z MATERIAL_MODULE RelativeEnergy.Endpoint PASS REUSED
+2026-11-20T19:43:52.9223808Z MATERIAL_MODULE SingularClosure.Admission PASS REUSED
+2026-11-20T19:43:52.9224186Z MATERIAL_MODULE SingularClosure.CoordinateAverageCalculus PASS REUSED
+2026-11-20T19:43:52.9224536Z MATERIAL_MODULE SingularClosure.CriticalDissipation PASS REUSED
+2026-11-20T19:43:52.9224865Z MATERIAL_MODULE SingularClosure.GalerkinAlgebra PASS REUSED
+2026-11-20T19:43:52.9225176Z MATERIAL_MODULE SingularClosure.PhysicalChannels PASS REUSED
+2026-11-20T19:43:52.9225489Z MATERIAL_MODULE WFBLocalCubicBarrier.Endpoint PASS REUSED
+2026-11-20T19:43:52.9234890Z MATERIAL_MODULE FeffermanFamilyAssembly.Endpoint PASS REUSED
+2026-11-20T19:43:52.9240461Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.Spectral PASS REUSED
+2026-11-20T19:43:52.9250545Z MATERIAL_MODULE QFA.Assembly.AnalyticChain PASS REUSED
+2026-11-20T19:43:52.9251066Z MATERIAL_MODULE QFA.Endpoints.Representation.EnergyProfile PASS REUSED
+2026-11-20T19:43:52.9252719Z MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/QFASixChargeBudget/Endpoint.olean", "QFASixChargeBudget/Endpoint.lean"]
+2026-11-20T19:43:52.9255644Z MATERIAL_MODULE QFALC005 PASS REUSED
+2026-11-20T19:43:56.0097697Z MATERIAL_MODULE QFASixChargeBudget.Endpoint PASS
+2026-11-20T19:43:56.0098089Z MATERIAL_MODULE SingularClosure.GalerkinEnergy PASS REUSED
+2026-11-20T19:43:56.0098434Z MATERIAL_MODULE SingularClosure.GalerkinExistence PASS REUSED
+2026-11-20T19:43:56.0098748Z MATERIAL_MODULE SingularClosure.LerayPressure PASS REUSED
+2026-11-20T19:43:56.0099072Z MATERIAL_MODULE SingularClosure.PhysicalEnstrophy PASS REUSED
+2026-11-20T19:43:56.0099400Z MATERIAL_MODULE SingularClosure.PhysicalProjection PASS REUSED
+2026-11-20T19:43:56.0124693Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.Contracts PASS REUSED
+2026-11-20T19:43:56.0125357Z MATERIAL_MODULE QFA.Endpoints.Composition.GoodTimeAndTrace PASS REUSED
+2026-11-20T19:43:56.0126170Z MATERIAL_MODULE QFARepresentation.Endpoint PASS REUSED
+2026-11-20T19:43:56.0129364Z MATERIAL_MODULE QuasiFeffermanB.ThetaLattice PASS REUSED
+2026-11-20T19:43:56.0134358Z MATERIAL_MODULE SingularClosure.CoordinateAverageOrthogonal PASS REUSED
+2026-11-20T19:43:56.0142346Z MATERIAL_MODULE SingularClosure.CriticalSobolevAnalytic PASS REUSED
+2026-11-20T19:43:56.0152992Z MATERIAL_MODULE SingularClosure.EnstrophyInequality PASS REUSED
+2026-11-20T19:43:56.0155136Z MATERIAL_MODULE SingularClosure.FourierIntegral PASS REUSED
+2026-11-20T19:43:56.0165258Z MATERIAL_MODULE SingularClosure.GalerkinEnergyIntegral PASS REUSED
+2026-11-20T19:43:56.0168103Z MATERIAL_MODULE SingularClosure.GalerkinReality PASS REUSED
+2026-11-20T19:43:56.0182068Z MATERIAL_MODULE SingularClosure.PeriodicCover PASS REUSED
+2026-11-20T19:43:56.0203647Z MATERIAL_MODULE SingularClosure.TorusSobolev PASS REUSED
+2026-11-20T19:43:56.0216482Z MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/QuasiFeffermanA/H1Fourier.olean", "MethbokeAddon/QuasiFeffermanA/H1Fourier.lean"]MATERIAL_COMMAND ["lake", "env", "lean", "--root=/home/runner/work/Methboke/Methboke/Material", "-o", "/home/runner/work/Methboke/Methboke/Material/.lake/build/lib/lean/MethbokeAddon/QuasiFeffermanA/PhysicalH1.olean", "MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean"]
+2026-11-20T19:43:56.0218098Z 
+2026-11-20T19:44:01.8070864Z MethbokeAddon/QuasiFeffermanA/H1Fourier.lean:61:45: error: unsolved goals
+2026-11-20T19:44:01.8071421Z case calc.step
+2026-11-20T19:44:01.8072054Z u du : ↥ComplexL2
+2026-11-20T19:44:01.8072284Z e : Space
+2026-11-20T19:44:01.8072583Z hweak : RealTestWeakDirectionalDerivative u du e
+2026-11-20T19:44:01.8072924Z ψ : 𝓢(Space, ℝ)
+2026-11-20T19:44:01.8073383Z hcompact : HasCompactSupport ⇑ψ
+2026-11-20T19:44:01.8073629Z htest :
+2026-11-20T19:44:01.8075902Z   ∫ (x : QFA.Endpoints.Agmon.Space), (fderiv ℝ (⇑ψ) x) e • ↑↑u x = -∫ (x : QFA.Endpoints.Agmon.Space), ψ x • ↑↑du x
+2026-11-20T19:44:01.8076399Z htest' : ∫ (x : Space), ψ x • ↑↑du x = -∫ (x : Space), (fderiv ℝ (⇑ψ) x) e • ↑↑u x
+2026-11-20T19:44:01.8076857Z ⊢ (∂_{e} (Lp.toTemperedDistribution u)) ((SchwartzMap.postcompCLM Complex.ofRealCLM) ψ) =
+2026-11-20T19:44:01.8077334Z     (∂_{e} (Lp.toTemperedDistribution u)) ((SchwartzMap.postcompCLM Complex.ofRealCLM) ψ)
+2026-11-20T19:44:02.0744401Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.H1Fourier FAIL
+2026-11-20T19:44:09.0886301Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:103:35: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+2026-11-20T19:44:09.0887275Z 
+2026-11-20T19:44:09.0887979Z Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+2026-11-20T19:44:09.0889169Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:119:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-11-20T19:44:09.0890252Z   (weakGradientResidual ?j ?φ) ?x
+2026-11-20T19:44:09.0890682Z in the target expression
+2026-11-20T19:44:09.0892178Z   ↑(weakGradientResidual j { value := ψ, smooth := hψ, compact_support := hcompact }) x = 0
+2026-11-20T19:44:09.0892706Z 
+2026-11-20T19:44:09.0892890Z case mp
+2026-11-20T19:44:09.0893499Z x : H1Ambient
+2026-11-20T19:44:09.0894094Z h : ∀ (i : Fin 3) (i_1 : CompactSmoothScalarTest), ↑(weakGradientResidual i i_1) x = 0
+2026-11-20T19:44:09.0894604Z j : Fin 3
+2026-11-20T19:44:09.0894989Z ψ : QFA.Endpoints.Agmon.Space → ℝ
+2026-11-20T19:44:09.0895427Z hψ : ContDiff ℝ ∞ ψ
+2026-11-20T19:44:09.0895816Z hcompact : HasCompactSupport ψ
+2026-11-20T19:44:09.0896473Z hzero : ↑(weakGradientResidual j { value := ψ, smooth := hψ, compact_support := hcompact }) x = 0
+2026-11-20T19:44:09.0897309Z ⊢ ∫ (x_1 : QFA.Endpoints.Agmon.Space), (fderiv ℝ ψ x_1) (coordinateVector j) • ↑↑(x.ofLp 0) x_1 =
+2026-11-20T19:44:09.0898129Z     -∫ (x_1 : QFA.Endpoints.Agmon.Space), ψ x_1 • ↑↑((fun j => x.ofLp j.succ) j) x_1
+2026-11-20T19:44:09.0898920Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:122:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-11-20T19:44:09.0899694Z   (weakGradientResidual ?j ?φ) ?x
+2026-11-20T19:44:09.0900092Z in the target expression
+2026-11-20T19:44:09.0900510Z   ↑(weakGradientResidual j φ) x = 0
+2026-11-20T19:44:09.0900800Z 
+2026-11-20T19:44:09.0900970Z case mpr
+2026-11-20T19:44:09.0901241Z x : H1Ambient
+2026-11-20T19:44:09.0901608Z h : SpatialWeakGradient (x.ofLp 0) fun j => x.ofLp j.succ
+2026-11-20T19:44:09.0902036Z j : Fin 3
+2026-11-20T19:44:09.0902408Z φ : CompactSmoothScalarTest
+2026-11-20T19:44:09.0902854Z ⊢ ↑(weakGradientResidual j φ) x = 0
+2026-11-20T19:44:09.0903636Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:241:74: error: unsolved goals
+2026-11-20T19:44:09.0904146Z x : H1Ambient
+2026-11-20T19:44:09.0904628Z ⊢ ((SpatialWeakGradient (x.ofLp 0) fun j => x.ofLp j.succ) ∧
+2026-11-20T19:44:09.0905720Z       ∀ (i : CompactSmoothScalarTest), ↑(solenoidalTestCLM i ∘SL PiLp.proj 2 (fun x => ↥SpatialL2) 0) x = 0) ↔
+2026-11-20T19:44:09.0906448Z     (SpatialWeakGradient (x.ofLp 0) fun j => x.ofLp j.succ) ∧
+2026-11-20T19:44:09.0907122Z       ∀ (φ : CompactSmoothScalarTest), (solenoidalTestCLM φ) (x.ofLp 0) = 0
+2026-11-20T19:44:09.0907839Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:244:4: warning: This simp argument is unused:
+2026-11-20T19:44:09.0908444Z   ContinuousLinearMap.comp_apply
+2026-11-20T19:44:09.0908736Z 
+2026-11-20T19:44:09.0908952Z Hint: Omit it from the simp argument list.
+2026-11-20T19:44:09.0909630Z   [apply] simp only [physicalH1SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH1Graph_iff, ClosedSubmodule.mem_iInf,
+2026-11-20T19:44:09.0910469Z     ClosedSubmodule.mem_mk, LinearMap.mem_ker, PiLp.proj_apply, solenoidal_iff_testCLM]
+2026-11-20T19:44:09.0910942Z 
+2026-11-20T19:44:09.0911282Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-11-20T19:44:09.0912010Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:244:36: warning: This simp argument is unused:
+2026-11-20T19:44:09.0912601Z   PiLp.proj_apply
+2026-11-20T19:44:09.0912845Z 
+2026-11-20T19:44:09.0913323Z Hint: Omit it from the simp argument list.
+2026-11-20T19:44:09.0914045Z   [apply] simp only [physicalH1SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH1Graph_iff, ClosedSubmodule.mem_iInf,
+2026-11-20T19:44:09.0914950Z     ClosedSubmodule.mem_mk, LinearMap.mem_ker, ContinuousLinearMap.comp_apply, solenoidal_iff_testCLM]
+2026-11-20T19:44:09.0915462Z 
+2026-11-20T19:44:09.0915803Z Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+2026-11-20T19:44:09.0916641Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:272:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+2026-11-20T19:44:09.0917456Z   (fun u => (↑u).ofLp 0) u
+2026-11-20T19:44:09.0917815Z in the target expression
+2026-11-20T19:44:09.0918323Z   SpatialWeakGradient ((↑u).ofLp 0) fun j => (↑v).ofLp j.succ
+2026-11-20T19:44:09.0918653Z 
+2026-11-20T19:44:09.0918884Z u v : ↥PhysicalH1Sigma
+2026-11-20T19:44:09.0919350Z huv : (fun u => (↑u).ofLp 0) u = (fun u => (↑u).ofLp 0) v
+2026-11-20T19:44:09.0920139Z ⊢ SpatialWeakGradient ((↑u).ofLp 0) fun j => (↑v).ofLp j.succ
+2026-11-20T19:44:09.0920809Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:284:61: error: unsolved goals
+2026-11-20T19:44:09.0921323Z case calc.step
+2026-11-20T19:44:09.0921712Z a : 𝓢(Space, Space)
+2026-11-20T19:44:09.0922041Z j : Fin 3
+2026-11-20T19:44:09.0922405Z ψ : QFA.Endpoints.Agmon.Space → ℝ
+2026-11-20T19:44:09.0922845Z hψ : ContDiff ℝ ∞ ψ
+2026-11-20T19:44:09.0923505Z hcompact : HasCompactSupport ψ
+2026-11-20T19:44:09.0924002Z φ : 𝓢(Space, ℝ) := hcompact.toSchwartzMap hψ
+2026-11-20T19:44:09.0924930Z hparts : ∫ (x : Space), φ x • (∂_{coordinateVector j} a) x = -∫ (x : Space), (∂_{coordinateVector j} φ) x • a x
+2026-11-20T19:44:09.0925778Z ⊢ -∫ (x : Space), ψ x • ↑↑((∂_{coordinateVector j} a).toLp 2 volume) x =
+2026-11-20T19:44:09.0926626Z     -∫ (x : QFA.Endpoints.Agmon.Space), ψ x • ↑↑((fun j => (∂_{coordinateVector j} a).toLp 2 volume) j) x
+2026-11-20T19:44:09.0927439Z MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:317:42: error: Application type mismatch: The argument
+2026-11-20T19:44:09.0928143Z   schwartz_spatialWeakGradient a
+2026-11-20T19:44:09.0928937Z has type
+2026-11-20T19:44:09.0929682Z   SpatialWeakGradient (a.toLp 2 volume) fun j => (∂_{coordinateVector j} a).toLp 2 volume
+2026-11-20T19:44:09.0930214Z but is expected to have type
+2026-11-20T19:44:09.1681302Z   SpatialWeakGradient ((h1Pack (a.toLp 2 volume) fun j => ?m.37).ofLp 0) fun j =>
+2026-11-20T19:44:09.1681702Z     (h1Pack (a.toLp 2 volume) fun j => ?m.37).ofLp j.succ
+2026-11-20T19:44:09.1681947Z in the application
+2026-11-20T19:44:09.1682160Z   And.intro (schwartz_spatialWeakGradient a)
+2026-11-20T19:44:09.3669991Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.PhysicalH1 FAIL
+2026-11-20T19:44:09.3670641Z MATERIAL_MODULE QFA.Assembly.Restart PASS REUSED
+2026-11-20T19:44:09.3671434Z MATERIAL_MODULE SingularClosure.CriticalSobolevDual PASS REUSED
+2026-11-20T19:44:09.3671868Z MATERIAL_MODULE SingularClosure.FourierPressure PASS REUSED
+2026-11-20T19:44:09.3672652Z MATERIAL_MODULE SingularClosure.GalerkinInvariant PASS REUSED
+2026-11-20T19:44:09.3673337Z MATERIAL_MODULE SingularClosure.InitialFourier PASS REUSED
+2026-11-20T19:44:09.3673788Z MATERIAL_MODULE SingularClosure.LatticeSobolevSummability PASS REUSED
+2026-11-20T19:44:09.3674355Z MATERIAL_MODULE SingularClosure.PeriodicFourierRealization PASS REUSED
+2026-11-20T19:44:09.3674883Z MATERIAL_MODULE SingularClosure.PhysicalParseval PASS REUSED
+2026-11-20T19:44:09.3675383Z MATERIAL_MODULE SingularClosure.SmoothSixChannels PASS REUSED
+2026-11-20T19:44:09.3675891Z MATERIAL_MODULE SingularClosure.SobolevL2Realization PASS REUSED
+2026-11-20T19:44:09.3676415Z MATERIAL_MODULE SingularClosure.SobolevLimitBounds PASS REUSED
+2026-11-20T19:44:09.3698319Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.Energy PASS REUSED
+2026-11-20T19:44:09.3698855Z MATERIAL_MODULE QFA.Assembly.TailComparison PASS REUSED
+2026-11-20T19:44:09.3720782Z MATERIAL_MODULE SingularClosure.CriticalSobolevInterpolation PASS REUSED
+2026-11-20T19:44:09.3721194Z MATERIAL_MODULE SingularClosure.FiniteParseval PASS REUSED
+2026-11-20T19:44:09.3738657Z MATERIAL_MODULE SingularClosure.FourierTransport PASS REUSED
+2026-11-20T19:44:09.3739188Z MATERIAL_MODULE SingularClosure.GalerkinGlobal PASS REUSED
+2026-11-20T19:44:09.3739702Z MATERIAL_MODULE SingularClosure.PeriodicFourierInjective PASS REUSED
+2026-11-20T19:44:09.3779689Z MATERIAL_MODULE SingularClosure.SmoothSixProjectionAlgebra PASS REUSED
+2026-11-20T19:44:09.3794504Z MATERIAL_MODULE MethbokeAddon.QuasiFeffermanA.Integration PASS REUSED
+2026-11-20T19:44:09.3796528Z MATERIAL_MODULE QFA.Assembly.Chain PASS REUSED
+2026-11-20T19:44:09.3804024Z MATERIAL_MODULE SingularClosure.Ax6ExactBudget PASS REUSED
+2026-11-20T19:44:09.3804925Z MATERIAL_MODULE SingularClosure.CanonicalGalerkin PASS REUSED
+2026-11-20T19:44:09.3819256Z MATERIAL_MODULE SingularClosure.CriticalGalerkin PASS REUSED
+2026-11-20T19:44:09.3822420Z MATERIAL_MODULE SingularClosure.FiniteHessian PASS REUSED
+2026-11-20T19:44:09.3831945Z MATERIAL_MODULE SingularClosure.LerayL2Contraction PASS REUSED
+2026-11-20T19:44:09.3832660Z MATERIAL_MODULE SingularClosure.PhysicalEnergy PASS REUSED
+2026-11-20T19:44:09.3841299Z MATERIAL_MODULE SingularClosure.SmoothSixOrthogonal PASS REUSED
+2026-11-20T19:44:09.3851449Z MATERIAL_MODULE Galerkin.Endpoint PASS REUSED
+2026-11-20T19:44:09.3855539Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.Definitions PASS REUSED
+2026-11-20T19:44:09.3858878Z MATERIAL_MODULE QFA.Assembly.Integrated PASS REUSED
+2026-11-20T19:44:09.3860055Z MATERIAL_MODULE QFANativeFoundation.Endpoint PASS REUSED
+2026-11-20T19:44:09.3869670Z MATERIAL_MODULE SingularClosure.PeriodicPoincare PASS REUSED
+2026-11-20T19:44:09.3882085Z MATERIAL_MODULE SingularClosure.PhysicalBilinear PASS REUSED
+2026-11-20T19:44:09.3882542Z MATERIAL_MODULE SingularClosure.SmoothSixEnstrophy PASS REUSED
+2026-11-20T19:44:09.3901790Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ReciprocalDrift PASS REUSED
+2026-11-20T19:44:09.3902312Z MATERIAL_MODULE QFA.Assembly PASS REUSED
+2026-11-20T19:44:09.3902685Z MATERIAL_MODULE QFACorrectedRoot.Analytic PASS REUSED
+2026-11-20T19:44:09.3936069Z MATERIAL_MODULE QuasiFeffermanB.ThetaResolvent PASS REUSED
+2026-11-20T19:44:09.3936566Z MATERIAL_MODULE SingularClosure.InitialCutoffBounds PASS REUSED
+2026-11-20T19:44:09.3938938Z MATERIAL_MODULE SingularClosure.PeriodicSobolev PASS REUSED
+2026-11-20T19:44:09.3952270Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.CanonicalBarrier PASS REUSED
+2026-11-20T19:44:09.3955536Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.PressureFourier PASS REUSED
+2026-11-20T19:44:09.3962596Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.StoppedFamily PASS REUSED
+2026-11-20T19:44:09.3962988Z MATERIAL_MODULE QFA PASS REUSED
+2026-11-20T19:44:09.3971521Z MATERIAL_MODULE QFACorrectedRoot.PhysicalRoot PASS REUSED
+2026-11-20T19:44:09.3979271Z MATERIAL_MODULE SingularClosure.CriticalComplexSobolev PASS REUSED
+2026-11-20T19:44:09.3983574Z MATERIAL_MODULE SingularClosure.CriticalSobolevMass PASS REUSED
+2026-11-20T19:44:09.3993639Z MATERIAL_MODULE SingularClosure.FourierDecay PASS REUSED
+2026-11-20T19:44:09.3997537Z MATERIAL_MODULE SingularClosure.GalerkinTimeDerivative PASS REUSED
+2026-11-20T19:44:09.4006115Z MATERIAL_MODULE SingularClosure.PeriodicNonlinear PASS REUSED
+2026-11-20T19:44:09.4016437Z MATERIAL_MODULE EhrenfestCanonical.Endpoint PASS REUSED
+2026-11-20T19:44:09.4016973Z MATERIAL_MODULE EhrenfestPressureFourier.Endpoint PASS REUSED
+2026-11-20T19:44:09.4025358Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.SlabSupremum PASS REUSED
+2026-11-20T19:44:09.4025809Z MATERIAL_MODULE QFACorrectedRoot PASS REUSED
+2026-11-20T19:44:09.4026441Z MATERIAL_MODULE QFARecovered.Endpoint PASS REUSED
+2026-11-20T19:44:09.4046495Z MATERIAL_MODULE SingularClosure.EnstrophyAbsorption PASS REUSED
+2026-11-20T19:44:09.4046934Z MATERIAL_MODULE SingularClosure.FourierSeriesCalculus PASS REUSED
+2026-11-20T19:44:09.4057402Z MATERIAL_MODULE SingularClosure.SmoothDatumSobolev PASS REUSED
+2026-11-20T19:44:09.4064983Z MATERIAL_MODULE EhrenfestEscape.Endpoint PASS REUSED
+2026-11-20T19:44:09.4074636Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.CoefficientError PASS REUSED
+2026-11-20T19:44:09.4075135Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.SmoothSobolevNorm PASS REUSED
+2026-11-20T19:44:09.4078034Z MATERIAL_MODULE QFAConditionalRoot.Endpoint PASS REUSED
+2026-11-20T19:44:09.4090078Z MATERIAL_MODULE SingularClosure.ConvectionBound PASS REUSED
+2026-11-20T19:44:09.4098910Z MATERIAL_MODULE SingularClosure.SobolevSmoothRealization PASS REUSED
+2026-11-20T19:44:09.4102168Z MATERIAL_MODULE SingularClosure.StrongAccumulation PASS REUSED
+2026-11-20T19:44:09.4112807Z MATERIAL_MODULE SingularClosure.StrongCoefficientContracts PASS REUSED
+2026-11-20T19:44:09.4115401Z MATERIAL_MODULE SingularClosure.TorusGalerkinSobolev PASS REUSED
+2026-11-20T19:44:09.4122533Z MATERIAL_MODULE EhrenfestErrorCalculus.Endpoint PASS REUSED
+2026-11-20T19:44:09.4138311Z MATERIAL_MODULE QuasiFeffermanB.CaloricGalerkinBudget PASS REUSED
+2026-11-20T19:44:09.4142867Z MATERIAL_MODULE SingularClosure.CriticalSpaces PASS REUSED
+2026-11-20T19:44:09.4155993Z MATERIAL_MODULE SingularClosure.FourierProduct PASS REUSED
+2026-11-20T19:44:09.4169064Z MATERIAL_MODULE SingularClosure.FourierSobolevOperators PASS REUSED
+2026-11-20T19:44:09.4174115Z MATERIAL_MODULE SingularClosure.HighOrderGalerkin PASS REUSED
+2026-11-20T19:44:09.4196689Z MATERIAL_MODULE SingularClosure.HighOrderProduct PASS REUSED
+2026-11-20T19:44:09.4197068Z MATERIAL_MODULE SingularClosure.SmoothFourierLaplacian PASS REUSED
+2026-11-20T19:44:09.4197443Z MATERIAL_MODULE SingularClosure.SobolevTrajectoryCalculus PASS REUSED
+2026-11-20T19:44:09.4204129Z MATERIAL_MODULE SingularClosure.StrongTimeBounds PASS REUSED
+2026-11-20T19:44:09.4220717Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.FourierL1 PASS REUSED
+2026-11-20T19:44:09.4226956Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalGalerkinBounds PASS REUSED
+2026-11-20T19:44:09.4230320Z MATERIAL_MODULE QuasiFeffermanB.CaloricFiniteNorm PASS REUSED
+2026-11-20T19:44:09.4250935Z MATERIAL_MODULE QuasiFeffermanB.CaloricFourierBridge PASS REUSED
+2026-11-20T19:44:09.4251509Z MATERIAL_MODULE SingularClosure.CriticalFourierInterpolation PASS REUSED
+2026-11-20T19:44:09.4252055Z MATERIAL_MODULE SingularClosure.CriticalPeriodicIBP PASS REUSED
+2026-11-20T19:44:09.4257468Z MATERIAL_MODULE SingularClosure.CriticalSmoothParseval PASS REUSED
+2026-11-20T19:44:09.4269001Z MATERIAL_MODULE SingularClosure.CriticalSpacesCutoff PASS REUSED
+2026-11-20T19:44:09.4273293Z MATERIAL_MODULE SingularClosure.CriticalTraceBand PASS REUSED
+2026-11-20T19:44:09.4277597Z MATERIAL_MODULE SingularClosure.CriticalTraceLimit PASS REUSED
+2026-11-20T19:44:09.4288604Z MATERIAL_MODULE SingularClosure.CriticalWeakMomentum PASS REUSED
+2026-11-20T19:44:09.4295118Z MATERIAL_MODULE SingularClosure.GalerkinCoefficientCompactness PASS REUSED
+2026-11-20T19:44:09.4311211Z MATERIAL_MODULE SingularClosure.HighOrderEstimate PASS REUSED
+2026-11-20T19:44:09.4314495Z MATERIAL_MODULE SingularClosure.InfiniteFourierPressure PASS REUSED
+2026-11-20T19:44:09.4322490Z MATERIAL_MODULE SingularClosure.InfiniteScalarProduct PASS REUSED
+2026-11-20T19:44:09.4346017Z MATERIAL_MODULE SingularClosure.SmoothEvaluation PASS REUSED
+2026-11-20T19:44:09.4346598Z MATERIAL_MODULE SingularClosure.SobolevCoefficientCalculus PASS REUSED
+2026-11-20T19:44:09.4347150Z MATERIAL_MODULE SingularClosure.SobolevScaleTimeSmooth PASS REUSED
+2026-11-20T19:44:09.4352371Z MATERIAL_MODULE SingularClosure.UniformStrongBounds PASS REUSED
+2026-11-20T19:44:09.4368846Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ProjectedC1 PASS REUSED
+2026-11-20T19:44:09.4371529Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteWindowCrossIdentity PASS REUSED
+2026-11-20T19:44:09.4379081Z MATERIAL_MODULE QuasiFeffermanB.CaloricBootstrap PASS REUSED
+2026-11-20T19:44:09.4386555Z MATERIAL_MODULE QuasiFeffermanB.CaloricFrequencyGeometry PASS REUSED
+2026-11-20T19:44:09.4390959Z MATERIAL_MODULE QuasiFeffermanB.EnergyWeakContinuity PASS REUSED
+2026-11-20T19:44:09.4399950Z MATERIAL_MODULE SingularClosure.CriticalEnergy PASS REUSED
+2026-11-20T19:44:09.4406383Z MATERIAL_MODULE SingularClosure.CriticalLimit PASS REUSED
+2026-11-20T19:44:09.4409865Z MATERIAL_MODULE SingularClosure.CriticalPositiveTimeSmooth PASS REUSED
+2026-11-20T19:44:09.4418441Z MATERIAL_MODULE SingularClosure.CriticalSmoothCancellation PASS REUSED
+2026-11-20T19:44:09.4424148Z MATERIAL_MODULE SingularClosure.CriticalSmoothEnergyNorm PASS REUSED
+2026-11-20T19:44:09.4434661Z MATERIAL_MODULE SingularClosure.CriticalSobolevSpectral PASS REUSED
+2026-11-20T19:44:09.4439583Z MATERIAL_MODULE SingularClosure.CriticalSobolevVector PASS REUSED
+2026-11-20T19:44:09.4453908Z MATERIAL_MODULE SingularClosure.CriticalSpacesEmbedding PASS REUSED
+2026-11-20T19:44:09.4454471Z MATERIAL_MODULE SingularClosure.CriticalTraceFourier PASS REUSED
+2026-11-20T19:44:09.4464314Z MATERIAL_MODULE SingularClosure.CriticalTraceTail PASS REUSED
+2026-11-20T19:44:09.4468707Z MATERIAL_MODULE SingularClosure.CriticalWeakGradient PASS REUSED
+2026-11-20T19:44:09.4477188Z MATERIAL_MODULE SingularClosure.FourierSobolevProduct PASS REUSED
+2026-11-20T19:44:09.4495043Z MATERIAL_MODULE SingularClosure.HighOrderRhs PASS REUSED
+2026-11-20T19:44:09.4495558Z MATERIAL_MODULE SingularClosure.PhysicalNSEIdentity PASS REUSED
+2026-11-20T19:44:09.4498050Z MATERIAL_MODULE SingularClosure.SobolevSpacetimeSmooth PASS REUSED
+2026-11-20T19:44:09.4506521Z MATERIAL_MODULE SingularClosure.SobolevTimeModulus PASS REUSED
+2026-11-20T19:44:09.4510075Z MATERIAL_MODULE SingularClosure.StrongSobolevRealization PASS REUSED
+2026-11-20T19:44:09.4510434Z MATERIAL_MODULE WFBLocalGalerkinBounds.Endpoint PASS REUSED
+2026-11-20T19:44:09.4525066Z MATERIAL_MODULE QuasiFeffermanB.CaloricFourierEstimate PASS REUSED
+2026-11-20T19:44:09.4531575Z MATERIAL_MODULE SingularClosure.CriticalGalerkinTrajectory PASS REUSED
+2026-11-20T19:44:09.4538433Z MATERIAL_MODULE SingularClosure.CriticalHolder PASS REUSED
+2026-11-20T19:44:09.4542163Z MATERIAL_MODULE SingularClosure.CriticalInitialEnergy PASS REUSED
+2026-11-20T19:44:09.4551216Z MATERIAL_MODULE SingularClosure.CriticalNegativeEnergy PASS REUSED
+2026-11-20T19:44:09.4551826Z MATERIAL_MODULE SingularClosure.CriticalPhysicalH1 PASS REUSED
+2026-11-20T19:44:09.4561947Z MATERIAL_MODULE SingularClosure.CriticalPositiveSpacetime PASS REUSED
+2026-11-20T19:44:09.4571301Z MATERIAL_MODULE SingularClosure.CriticalSmoothEnergy PASS REUSED
+2026-11-20T19:44:09.4572011Z MATERIAL_MODULE SingularClosure.CriticalSobolev PASS REUSED
+2026-11-20T19:44:09.4582763Z MATERIAL_MODULE SingularClosure.CriticalTraceAnnulus PASS REUSED
+2026-11-20T19:44:09.4584166Z MATERIAL_MODULE SingularClosure.FourierSobolevRhs PASS REUSED
+2026-11-20T19:44:09.4593936Z MATERIAL_MODULE SingularClosure.HighOrderAccumulation PASS REUSED
+2026-11-20T19:44:09.4598329Z MATERIAL_MODULE SingularClosure.SobolevArzelaAscoli PASS REUSED
+2026-11-20T19:44:09.4608174Z MATERIAL_MODULE SingularClosure.SobolevInterpolation PASS REUSED
+2026-11-20T19:44:09.4608644Z MATERIAL_MODULE WFBFiniteWindowCrossIdentity.Endpoint PASS REUSED
+2026-11-20T19:44:09.4626384Z MATERIAL_MODULE QuasiFeffermanB.FiniteCaloricSchur PASS REUSED
+2026-11-20T19:44:09.4628384Z MATERIAL_MODULE QuasiFeffermanB.TimeTranslate PASS REUSED
+2026-11-20T19:44:09.4645758Z MATERIAL_MODULE SingularClosure.CriticalLimitTail PASS REUSED
+2026-11-20T19:44:09.4646314Z MATERIAL_MODULE SingularClosure.CriticalNegativeTransport PASS REUSED
+2026-11-20T19:44:09.4652370Z MATERIAL_MODULE SingularClosure.CriticalNonlinear PASS REUSED
+2026-11-20T19:44:09.4662239Z MATERIAL_MODULE SingularClosure.CriticalRoughTransport PASS REUSED
+2026-11-20T19:44:09.4662628Z MATERIAL_MODULE SingularClosure.CriticalSmoothLpContinuity PASS REUSED
+2026-11-20T19:44:09.4674585Z MATERIAL_MODULE SingularClosure.CriticalTraceStrong PASS REUSED
+2026-11-20T19:44:09.4675410Z MATERIAL_MODULE SingularClosure.HighOrderTimeModulus PASS REUSED
+2026-11-20T19:44:09.4685758Z MATERIAL_MODULE SingularClosure.SmallDataAX6 PASS REUSED
+2026-11-20T19:44:09.4686732Z MATERIAL_MODULE SingularClosure.SobolevFourierConstraints PASS REUSED
+2026-11-20T19:44:09.4700546Z MATERIAL_MODULE SingularClosure.SobolevPressure PASS REUSED
+2026-11-20T19:44:09.4704937Z MATERIAL_MODULE SingularClosure.SobolevTimeL2Compactness PASS REUSED
+2026-11-20T19:44:09.4723807Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalGalerkinRegularity PASS REUSED
+2026-11-20T19:44:09.4724618Z MATERIAL_MODULE SingularClosure.CriticalClassicalWeakMomentum PASS REUSED
+2026-11-20T19:44:09.4738469Z MATERIAL_MODULE SingularClosure.CriticalH1Algebra PASS REUSED
+2026-11-20T19:44:09.4745390Z MATERIAL_MODULE SingularClosure.CriticalLimitUniform PASS REUSED
+2026-11-20T19:44:09.4748614Z MATERIAL_MODULE SingularClosure.CriticalPositivePressure PASS REUSED
+2026-11-20T19:44:09.4757996Z MATERIAL_MODULE SingularClosure.CriticalRoughHolder PASS REUSED
+2026-11-20T19:44:09.4758383Z MATERIAL_MODULE SingularClosure.CriticalTracePrimitive PASS REUSED
+2026-11-20T19:44:09.4763701Z MATERIAL_MODULE SingularClosure.SmallDataAX6Closure PASS REUSED
+2026-11-20T19:44:09.4772250Z MATERIAL_MODULE SingularClosure.SobolevLimitInitial PASS REUSED
+2026-11-20T19:44:09.4790831Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness PASS REUSED
+2026-11-20T19:44:09.4791314Z MATERIAL_MODULE QuasiFeffermanB.EnergyFiniteWeakPairing PASS REUSED
+2026-11-20T19:44:09.4817849Z MATERIAL_MODULE QuasiFeffermanB.EnergyTestDecay PASS REUSED
+2026-11-20T19:44:09.4818259Z MATERIAL_MODULE SingularClosure.CriticalLerayHopf PASS REUSED
+2026-11-20T19:44:09.4832319Z MATERIAL_MODULE SingularClosure.CriticalLimitTimeL2 PASS REUSED
+2026-11-20T19:44:09.4832725Z MATERIAL_MODULE SingularClosure.CriticalPositiveTimeSeed PASS REUSED
+2026-11-20T19:44:09.4840373Z MATERIAL_MODULE SingularClosure.CriticalRelativeNonlinear PASS REUSED
+2026-11-20T19:44:09.4843559Z MATERIAL_MODULE SingularClosure.CriticalSerrinEstimate PASS REUSED
+2026-11-20T19:44:09.4855973Z MATERIAL_MODULE SingularClosure.CriticalTimeDerivative PASS REUSED
+2026-11-20T19:44:09.4857020Z MATERIAL_MODULE SingularClosure.FourierLimitEquation PASS REUSED
+2026-11-20T19:44:09.4874356Z MATERIAL_MODULE WFBLocalGalerkinRegularity.Endpoint PASS REUSED
+2026-11-20T19:44:09.4874877Z MATERIAL_MODULE QuasiFeffermanB.CaloricEnstrophy PASS REUSED
+2026-11-20T19:44:09.4877644Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.TestProjection PASS REUSED
+2026-11-20T19:44:09.4891275Z MATERIAL_MODULE QuasiFeffermanB.EnergyGalerkinCompactness PASS REUSED
+2026-11-20T19:44:09.4891664Z MATERIAL_MODULE QuasiFeffermanB.LHRestart PASS REUSED
+2026-11-20T19:44:09.4921309Z MATERIAL_MODULE SingularClosure.CanonicalRhsSobolev PASS REUSED
+2026-11-20T19:44:09.4921891Z MATERIAL_MODULE SingularClosure.CriticalGradientEnergyBound PASS REUSED
+2026-11-20T19:44:09.4922356Z MATERIAL_MODULE SingularClosure.CriticalLimitEquation PASS REUSED
+2026-11-20T19:44:09.4935880Z MATERIAL_MODULE SingularClosure.CriticalLimitGlobal PASS REUSED
+2026-11-20T19:44:09.4947236Z MATERIAL_MODULE SingularClosure.CriticalPositiveTimeHighOrder PASS REUSED
+2026-11-20T19:44:09.4957270Z MATERIAL_MODULE SingularClosure.CriticalRelativeEnergy PASS REUSED
+2026-11-20T19:44:09.4961867Z MATERIAL_MODULE SingularClosure.CriticalRelativeEnergyIntegrable PASS REUSED
+2026-11-20T19:44:09.4962409Z MATERIAL_MODULE WFBLocalGalerkinCompactness.Endpoint PASS REUSED
+2026-11-20T19:44:09.4979757Z MATERIAL_MODULE QuasiFeffermanB.EnergyGlobalCoefficient PASS REUSED
+2026-11-20T19:44:09.5000058Z MATERIAL_MODULE QuasiFeffermanB.EnergyTimeCompactness PASS REUSED
+2026-11-20T19:44:09.5000614Z MATERIAL_MODULE SingularClosure.CriticalLimitFatou PASS REUSED
+2026-11-20T19:44:09.5005645Z MATERIAL_MODULE SingularClosure.CriticalPositiveLimitCalculus PASS REUSED
+2026-11-20T19:44:09.5012998Z MATERIAL_MODULE SingularClosure.CriticalRelativeEnergyTransport PASS REUSED
+2026-11-20T19:44:09.5019248Z MATERIAL_MODULE SingularClosure.CriticalTraceGalerkin PASS REUSED
+2026-11-20T19:44:09.5026740Z MATERIAL_MODULE SingularClosure.CriticalUniformBounds PASS REUSED
+2026-11-20T19:44:09.5027195Z MATERIAL_MODULE SingularClosure.PhysicalTimeDerivative PASS REUSED
+2026-11-20T19:44:09.5047643Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteWindowRelativeEnergy PASS REUSED
+2026-11-20T19:44:09.5048136Z MATERIAL_MODULE SingularClosure.CriticalLimitRepresentatives PASS REUSED
+2026-11-20T19:44:09.5048633Z MATERIAL_MODULE SingularClosure.CriticalPositivePhysical PASS REUSED
+2026-11-20T19:44:09.5056090Z MATERIAL_MODULE SingularClosure.CriticalSerrinUniqueness PASS REUSED
+2026-11-20T19:44:09.5075948Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteWindowSerrinComparison PASS REUSED
+2026-11-20T19:44:09.5076572Z MATERIAL_MODULE SerrinComparison.Endpoint PASS REUSED
+2026-11-20T19:44:09.5077017Z MATERIAL_MODULE SingularClosure.CriticalPositiveFlow PASS REUSED
+2026-11-20T19:44:09.5088813Z MATERIAL_MODULE SingularClosure.CriticalQuantitative PASS REUSED
+2026-11-20T19:44:09.5089272Z MATERIAL_MODULE SingularClosure.CriticalTraceClosure PASS REUSED
+2026-11-20T19:44:09.5089638Z MATERIAL_MODULE WFBFiniteWindowRelativeEnergy.Endpoint PASS REUSED
+2026-11-20T19:44:09.5099706Z MATERIAL_MODULE PhysicalNSE.Endpoint PASS REUSED
+2026-11-20T19:44:09.5100220Z MATERIAL_MODULE QuasiFeffermanB.CaloricAdmission PASS REUSED
+2026-11-20T19:44:09.5113500Z MATERIAL_MODULE SingularClosure.CriticalGradientL2Measurable PASS REUSED
+2026-11-20T19:44:09.5117615Z MATERIAL_MODULE SingularClosure.CriticalPhysicalQuantitative PASS REUSED
+2026-11-20T19:44:09.5130363Z MATERIAL_MODULE SingularClosure.CriticalPositiveLimit PASS REUSED
+2026-11-20T19:44:09.5130882Z MATERIAL_MODULE SingularClosure.CriticalRegularityContracts PASS REUSED
+2026-11-20T19:44:09.5136926Z MATERIAL_MODULE SingularClosure.CriticalSpatialNormMeasurable PASS REUSED
+2026-11-20T19:44:09.5137390Z MATERIAL_MODULE WFBFiniteWindowSerrinComparison.Endpoint PASS REUSED
+2026-11-20T19:44:09.5152017Z MATERIAL_MODULE QuasiFeffermanB.CaloricSmoothing PASS REUSED
+2026-11-20T19:44:09.5156933Z MATERIAL_MODULE SingularClosure.CriticalCubeL2 PASS REUSED
+2026-11-20T19:44:09.5164864Z MATERIAL_MODULE SingularClosure.CriticalSerrinTime PASS REUSED
+2026-11-20T19:44:09.5165542Z MATERIAL_MODULE SingularClosure.SmallDataQuantitative PASS REUSED
+2026-11-20T19:44:09.5172186Z MATERIAL_MODULE SingularClosure.SmallDataRoot PASS REUSED
+2026-11-20T19:44:09.5187910Z MATERIAL_MODULE QuasiFeffermanB.CaloricPhysicalControl PASS REUSED
+2026-11-20T19:44:09.5192069Z MATERIAL_MODULE SingularClosure.CriticalGlobalEnergyClass PASS REUSED
+2026-11-20T19:44:09.5198313Z MATERIAL_MODULE SingularClosure.CriticalHomogeneousL6 PASS REUSED
+2026-11-20T19:44:09.5209768Z MATERIAL_MODULE SingularClosure.CriticalInitialPhysicalFourier PASS REUSED
+2026-11-20T19:44:09.5218907Z MATERIAL_MODULE SingularClosure.CriticalStrongLerayHopfEnergy PASS REUSED
+2026-11-20T19:44:09.5219313Z MATERIAL_MODULE SingularClosure.SmallDataSerrin PASS REUSED
+2026-11-20T19:44:09.5233638Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PressureUniqueness PASS REUSED
+2026-11-20T19:44:09.5238346Z MATERIAL_MODULE QuasiFeffermanB.CaloricGalerkinMajorant PASS REUSED
+2026-11-20T19:44:09.5240159Z MATERIAL_MODULE QuasiFeffermanB.CaloricH2 PASS REUSED
+2026-11-20T19:44:09.5253690Z MATERIAL_MODULE QuasiFeffermanB.FourierEnergy PASS REUSED
+2026-11-20T19:44:09.5254174Z MATERIAL_MODULE QuasiFeffermanB.Semantics PASS REUSED
+2026-11-20T19:44:09.5258201Z MATERIAL_MODULE SingularClosure.CriticalGlobalSerrin PASS REUSED
+2026-11-20T19:44:09.5262427Z MATERIAL_MODULE SingularClosure.CriticalStrongLerayHopfGradient PASS REUSED
+2026-11-20T19:44:09.5266689Z MATERIAL_MODULE SingularClosure.SmallDataUniqueness PASS REUSED
+2026-11-20T19:44:09.5283653Z MATERIAL_MODULE QuasiFeffermanB.CaloricCompactness PASS REUSED
+2026-11-20T19:44:09.5284148Z MATERIAL_MODULE QuasiFeffermanB.Cutoff PASS REUSED
+2026-11-20T19:44:09.5289400Z MATERIAL_MODULE QuasiFeffermanB.LHEnergy PASS REUSED
+2026-11-20T19:44:09.5296382Z MATERIAL_MODULE QuasiFeffermanB.LHExistence PASS REUSED
+2026-11-20T19:44:09.5298403Z MATERIAL_MODULE QuasiFeffermanB.MeanPreservation PASS REUSED
+2026-11-20T19:44:09.5303674Z MATERIAL_MODULE QuasiFeffermanB.RegularReference PASS REUSED
+2026-11-20T19:44:09.5306661Z MATERIAL_MODULE QuasiFeffermanB.RootContract PASS REUSED
+2026-11-20T19:44:09.5307071Z MATERIAL_MODULE R0PressureUniqueness.Endpoint PASS REUSED
+2026-11-20T19:44:09.5312127Z MATERIAL_MODULE SingularClosure.CriticalStrongLerayHopf PASS REUSED
+2026-11-20T19:44:09.5331017Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteCapGluing PASS REUSED
+2026-11-20T19:44:09.5331426Z MATERIAL_MODULE QFBCutoff.Endpoint PASS REUSED
+2026-11-20T19:44:09.5331822Z MATERIAL_MODULE QuasiFeffermanB.CaloricFlowControl PASS REUSED
+2026-11-20T19:44:09.5340952Z MATERIAL_MODULE QuasiFeffermanB.CriticalTimeBudget PASS REUSED
+2026-11-20T19:44:09.5341488Z MATERIAL_MODULE QuasiFeffermanB.EnergyLimitCompatibility PASS REUSED
+2026-11-20T19:44:09.5357612Z MATERIAL_MODULE QuasiFeffermanB.SpatialAdmission PASS REUSED
+2026-11-20T19:44:09.5358120Z MATERIAL_MODULE QuasiFeffermanB.TailEnergy PASS REUSED
+2026-11-20T19:44:09.5365270Z MATERIAL_MODULE QuasiFeffermanB.TailRegularity PASS REUSED
+2026-11-20T19:44:09.5371935Z MATERIAL_MODULE QuasiFeffermanB.ZeroData PASS REUSED
+2026-11-20T19:44:09.5375757Z MATERIAL_MODULE SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL PASS REUSED
+2026-11-20T19:44:09.5387991Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteCapOverlap PASS REUSED
+2026-11-20T19:44:09.5395854Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalSobolevCalculus PASS REUSED
+2026-11-20T19:44:09.5400274Z MATERIAL_MODULE QuasiFeffermanB.CaloricH1Regularity PASS REUSED
+2026-11-20T19:44:09.5406801Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.FiniteTimeTest PASS REUSED
+2026-11-20T19:44:09.5408941Z MATERIAL_MODULE QuasiFeffermanB.EnergyGlobalLimit PASS REUSED
+2026-11-20T19:44:09.5419225Z MATERIAL_MODULE QuasiFeffermanB.GoodTime PASS REUSED
+2026-11-20T19:44:09.5426266Z MATERIAL_MODULE QuasiFeffermanB.PhysicalFourierL2 PASS REUSED
+2026-11-20T19:44:09.5426680Z MATERIAL_MODULE QuasiFeffermanB.SafeCutoff PASS REUSED
+2026-11-20T19:44:09.5434405Z MATERIAL_MODULE QuasiFeffermanB.TailUniqueness PASS REUSED
+2026-11-20T19:44:09.5434837Z MATERIAL_MODULE R0FiniteCapGluing.Endpoint PASS REUSED
+2026-11-20T19:44:09.5435209Z MATERIAL_MODULE SmallH12.Endpoint PASS REUSED
+2026-11-20T19:44:09.5453402Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit PASS REUSED
+2026-11-20T19:44:09.5453877Z MATERIAL_MODULE QFBRestart.Endpoint PASS REUSED
+2026-11-20T19:44:09.5454164Z MATERIAL_MODULE QFBTraceUniqueness.Endpoint PASS REUSED
+2026-11-20T19:44:09.5454514Z MATERIAL_MODULE QuasiFeffermanB.EnergyDatumApproximation PASS REUSED
+2026-11-20T19:44:09.5466749Z MATERIAL_MODULE QuasiFeffermanB.EnergyH1Realization PASS REUSED
+2026-11-20T19:44:09.5467261Z MATERIAL_MODULE QuasiFeffermanB.PhysicalH1Admission PASS REUSED
+2026-11-20T19:44:09.5467669Z MATERIAL_MODULE QuasiFeffermanB.RootAssembly PASS REUSED
+2026-11-20T19:44:09.5468015Z MATERIAL_MODULE R0FiniteCapOverlap.Endpoint PASS REUSED
+2026-11-20T19:44:09.5468520Z MATERIAL_MODULE WFBLocalSobolevCalculus.Endpoint PASS REUSED
+2026-11-20T19:44:09.5478935Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalExistence PASS REUSED
+2026-11-20T19:44:09.5481409Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalFourier PASS REUSED
+2026-11-20T19:44:09.5485913Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.InitialCoefficients PASS REUSED
+2026-11-20T19:44:09.5492521Z MATERIAL_MODULE QuasiFeffermanB.EnergyGlobalPhysical PASS REUSED
+2026-11-20T19:44:09.5493392Z MATERIAL_MODULE QuasiFeffermanB.ExactAdmission PASS REUSED
+2026-11-20T19:44:09.5494660Z MATERIAL_MODULE WFBLocalGalerkinLimit.Endpoint PASS REUSED
+2026-11-20T19:44:09.5509691Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FourierBudget PASS REUSED
+2026-11-20T19:44:09.5510144Z MATERIAL_MODULE QuasiFeffermanB.CaloricNumericalAdmission PASS REUSED
+2026-11-20T19:44:09.5522946Z MATERIAL_MODULE QuasiFeffermanB.EnergyLimitEnergy PASS REUSED
+2026-11-20T19:44:09.5523696Z MATERIAL_MODULE QuasiFeffermanB.EnergyPeriodicRepresentative PASS REUSED
+2026-11-20T19:44:09.5524242Z MATERIAL_MODULE WFBLocalExistence.Endpoint PASS REUSED
+2026-11-20T19:44:09.5524691Z MATERIAL_MODULE WFBPhysicalFourier.Endpoint PASS REUSED
+2026-11-20T19:44:09.5547599Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalFront PASS REUSED
+2026-11-20T19:44:09.5548175Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.CaloricBudget PASS REUSED
+2026-11-20T19:44:09.5548609Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.LimitEnergy PASS REUSED
+2026-11-20T19:44:09.5553176Z MATERIAL_MODULE QuasiFeffermanB.EnergyPhysicalContinuity PASS REUSED
+2026-11-20T19:44:09.5556115Z MATERIAL_MODULE QuasiFeffermanB.EnergyPhysicalTrace PASS REUSED
+2026-11-20T19:44:09.5564719Z MATERIAL_MODULE QuasiFeffermanB.EnergyTransportContinuity PASS REUSED
+2026-11-20T19:44:09.5565078Z MATERIAL_MODULE QuasiFeffermanB.TailChain PASS REUSED
+2026-11-20T19:44:09.5565398Z MATERIAL_MODULE WFBFourierBudget.Endpoint PASS REUSED
+2026-11-20T19:44:09.5576340Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.CompactCylinderSerrin PASS REUSED
+2026-11-20T19:44:09.5582182Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteFrontTest PASS REUSED
+2026-11-20T19:44:09.5585285Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.HomogeneousBudget PASS REUSED
+2026-11-20T19:44:09.5591346Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalTimeTranslation PASS REUSED
+2026-11-20T19:44:09.5591735Z MATERIAL_MODULE QFBTail.Endpoint PASS REUSED
+2026-11-20T19:44:09.5599556Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.WeakH0Limit PASS REUSED
+2026-11-20T19:44:09.5600023Z MATERIAL_MODULE WFBLocalFront.Endpoint PASS REUSED
+2026-11-20T19:44:09.5616773Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalNonlinear PASS REUSED
+2026-11-20T19:44:09.5625995Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.PhysicalMomentum PASS REUSED
+2026-11-20T19:44:09.5626388Z MATERIAL_MODULE R0CompactCylinderSerrin.Endpoint PASS REUSED
+2026-11-20T19:44:09.5626697Z MATERIAL_MODULE WFBFiniteFrontTest.Endpoint PASS REUSED
+2026-11-20T19:44:09.5627047Z MATERIAL_MODULE WFBHomogeneousBudget.Endpoint PASS REUSED
+2026-11-20T19:44:09.5627370Z MATERIAL_MODULE WFBLocalTimeTranslation.Endpoint PASS REUSED
+2026-11-20T19:44:09.5645774Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.PhysicalForcing PASS REUSED
+2026-11-20T19:44:09.5646215Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.LerayHopfExistence PASS REUSED
+2026-11-20T19:44:09.5646569Z MATERIAL_MODULE WFBPhysicalNonlinear.Endpoint PASS REUSED
+2026-11-20T19:44:09.5650763Z MATERIAL_MODULE EhrenfestPhysicalForcing.Endpoint PASS REUSED
+2026-11-20T19:44:09.5669691Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.CrossTransport PASS REUSED
+2026-11-20T19:44:09.5670357Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.SmoothDatum PASS REUSED
+2026-11-20T19:44:09.5670883Z MATERIAL_MODULE QFBLerayHopf.Endpoint PASS REUSED
+2026-11-20T19:44:09.5671328Z MATERIAL_MODULE QuasiFeffermanB.Endpoints.Root PASS REUSED
+2026-11-20T19:44:09.5678183Z MATERIAL_MODULE EhrenfestCrossTransport.Endpoint PASS REUSED
+2026-11-20T19:44:09.5681140Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalFrontIdentification PASS REUSED
+2026-11-20T19:44:09.5681677Z MATERIAL_MODULE QFBRoot.Endpoint PASS REUSED
+2026-11-20T19:44:09.5681947Z MATERIAL_MODULE WFBSmoothDatum.Endpoint PASS REUSED
+2026-11-20T19:44:09.5691590Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.InitialFrontAdmission PASS REUSED
+2026-11-20T19:44:09.5692002Z MATERIAL_MODULE WFBLocalFrontIdentification.Endpoint PASS REUSED
+2026-11-20T19:44:09.5709090Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ErrorState PASS REUSED
+2026-11-20T19:44:09.5709773Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteCapAdmission PASS REUSED
+2026-11-20T19:44:09.5711501Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness PASS REUSED
+2026-11-20T19:44:09.5724058Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution PASS REUSED
+2026-11-20T19:44:09.5724701Z MATERIAL_MODULE R0InitialFrontAdmission.Endpoint PASS REUSED
+2026-11-20T19:44:09.5739675Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ReferenceCoefficientEvolution PASS REUSED
+2026-11-20T19:44:09.5740636Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.SmoothReference PASS REUSED
+2026-11-20T19:44:09.5748137Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.AnalyticCapAdmission PASS REUSED
+2026-11-20T19:44:09.5754583Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.FiniteFrontGluing PASS REUSED
+2026-11-20T19:44:09.5760010Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalClassicalFront PASS REUSED
+2026-11-20T19:44:09.5760479Z MATERIAL_MODULE R0FiniteCapAdmission.Endpoint PASS REUSED
+2026-11-20T19:44:09.5760811Z MATERIAL_MODULE WFBLocalClassicalUniqueness.Endpoint PASS REUSED
+2026-11-20T19:44:09.5761157Z MATERIAL_MODULE WFBPhysicalEnstrophyEvolution.Endpoint PASS REUSED
+2026-11-20T19:44:09.5772087Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ErrorSlabBound PASS REUSED
+2026-11-20T19:44:09.5794985Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.FourierTail PASS REUSED
+2026-11-20T19:44:09.5796572Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ProjectedReferenceEvolution PASS REUSED
+2026-11-20T19:44:09.5797311Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ReferenceC1Norm PASS REUSED
+2026-11-20T19:44:09.5797957Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.AnalyticTwoSidedCap PASS REUSED
+2026-11-20T19:44:09.5798776Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction PASS REUSED
+2026-11-20T19:44:09.5804139Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification PASS REUSED
+2026-11-20T19:44:09.5806912Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.StrongContinuation PASS REUSED
+2026-11-20T19:44:09.5812843Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.WFBRootAssembly PASS REUSED
+2026-11-20T19:44:09.5813458Z MATERIAL_MODULE R0AnalyticCapAdmission.Endpoint PASS REUSED
+2026-11-20T19:44:09.5813787Z MATERIAL_MODULE WFBFiniteFrontGluing.Endpoint PASS REUSED
+2026-11-20T19:44:09.5814117Z MATERIAL_MODULE WFBMaximalClassicalFront.Endpoint PASS REUSED
+2026-11-20T19:44:09.5820642Z MATERIAL_MODULE EhrenfestErrorState.Endpoint PASS REUSED
+2026-11-20T19:44:09.5821187Z MATERIAL_MODULE EhrenfestReference.Endpoint PASS REUSED
+2026-11-20T19:44:09.5836254Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.ErrorEquation PASS REUSED
+2026-11-20T19:44:09.5836958Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.PhysicalReferenceTail PASS REUSED
+2026-11-20T19:44:09.5848324Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.MaximalTailGluing PASS REUSED
+2026-11-20T19:44:09.5849816Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation PASS REUSED
+2026-11-20T19:44:09.5855543Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.R0DataAdmission PASS REUSED
+2026-11-20T19:44:09.5856001Z MATERIAL_MODULE R0AnalyticTwoSidedCap.Endpoint PASS REUSED
+2026-11-20T19:44:09.5856331Z MATERIAL_MODULE WFBMaximalFrontRestriction.Endpoint PASS REUSED
+2026-11-20T19:44:09.5857147Z MATERIAL_MODULE WFBMaximalLerayHopfIdentification.Endpoint PASS REUSED
+2026-11-20T19:44:09.5860327Z MATERIAL_MODULE WFBStrongContinuation.Endpoint PASS REUSED
+2026-11-20T19:44:09.5860857Z MATERIAL_MODULE WFBWFBRootAssembly.Endpoint PASS REUSED
+2026-11-20T19:44:09.5868459Z MATERIAL_MODULE EhrenfestErrorEquation.Endpoint PASS REUSED
+2026-11-20T19:44:09.5869024Z MATERIAL_MODULE EhrenfestReferenceEvolution.Endpoint PASS REUSED
+2026-11-20T19:44:09.5882533Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.CanonicalErrorInequality PASS REUSED
+2026-11-20T19:44:09.5883225Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation PASS REUSED
+2026-11-20T19:44:09.5883841Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.StrictCutoff PASS REUSED
+2026-11-20T19:44:09.5884347Z MATERIAL_MODULE R0DataAdmission.Endpoint PASS REUSED
+2026-11-20T19:44:09.5884783Z MATERIAL_MODULE WFBMaximalTailGluing.Endpoint PASS REUSED
+2026-11-20T19:44:09.5885306Z MATERIAL_MODULE WFBPhysicalBudgetContinuation.Endpoint PASS REUSED
+2026-11-20T19:44:09.5890349Z MATERIAL_MODULE EhrenfestCanonicalErrorInequality.Endpoint PASS REUSED
+2026-11-20T19:44:09.5898497Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound PASS REUSED
+2026-11-20T19:44:09.5898969Z MATERIAL_MODULE MethbokeAddon.WeakFouriermanB.WeakFouriermanB PASS REUSED
+2026-11-20T19:44:09.5899355Z MATERIAL_MODULE WFBPhysicalEndpointContinuation.Endpoint PASS REUSED
+2026-11-20T19:44:09.5899689Z MATERIAL_MODULE WFBStrictCutoff.Endpoint PASS REUSED
+2026-11-20T19:44:09.5904765Z MATERIAL_MODULE EhrenfestEventualEnstrophyBound.Endpoint PASS REUSED
+2026-11-20T19:44:09.5907722Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.DynamicalRoot PASS REUSED
+2026-11-20T19:44:09.5908175Z MATERIAL_MODULE WFBWeakFouriermanB.Endpoint PASS REUSED
+2026-11-20T19:44:09.5909951Z MATERIAL_MODULE MethbokeAddon.EhrenfestObstruction.Root PASS REUSED
+2026-11-20T19:44:09.5911941Z MATERIAL_MODULE EhrenfestObstructionRoot.Endpoint PASS REUSED
+2026-11-20T19:44:09.5913662Z MATERIAL_NATIVE_FAILURE own module compilation failed; see module receipts
+2026-11-20T19:44:09.5950927Z {
+2026-11-20T19:44:09.5951199Z   "status": "FAIL",
+2026-11-20T19:44:09.5951476Z   "error": "own module compilation failed; see module receipts",
+2026-11-20T19:44:09.5951743Z   "total_seconds": 33.615
+2026-11-20T19:44:09.5951915Z }
+2026-11-20T19:44:09.6571544Z ##[error]Process completed with exit code 1.
+2026-11-20T19:44:09.6577699Z ##[end-action id=worker.verify;outcome=failure;conclusion=failure;duration_ms=46395]
+2026-11-20T19:44:09.6580576Z ##[start-action display=Preserve verified evidence before snapshot publication;id=worker.verified_evidence]
+2026-11-20T19:44:09.6582482Z ##[end-action id=worker.verified_evidence;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6584050Z ##[start-action display=Preserve passing dependency cache;id=worker.save_dependencies]
+2026-11-20T19:44:09.6586249Z ##[end-action id=worker.save_dependencies;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6587914Z ##[start-action display=Package verified own binary objects and fresh evidence;id=worker.binary_package]
+2026-11-20T19:44:09.6589573Z ##[end-action id=worker.binary_package;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6590755Z ##[start-action display=Preserve freshly audited project cache;id=worker.save_project]
+2026-11-20T19:44:09.6592297Z ##[end-action id=worker.save_project;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6593765Z ##[start-action display=Confirm published dependency cache is available;id=worker.published-dependencies]
+2026-11-20T19:44:09.6595428Z ##[end-action id=worker.published-dependencies;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6596677Z ##[start-action display=Confirm published project cache is available;id=worker.published-project]
+2026-11-20T19:44:09.6598168Z ##[end-action id=worker.published-project;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6600724Z ##[start-action display=Require exact published cache identities;id=worker.published_identities]
+2026-11-20T19:44:09.6602344Z ##[end-action id=worker.published_identities;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6603927Z ##[start-action display=Publish binary archive and manifest;id=worker.publish_binary]
+2026-11-20T19:44:09.6605517Z ##[end-action id=worker.publish_binary;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6606990Z ##[start-action display=Publish immutable passed snapshot and endpoint registry;id=worker.publish_registry]
+2026-11-20T19:44:09.6608627Z ##[end-action id=worker.publish_registry;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:09.6609967Z ##[start-action display=Preserve compiler, fresh audit and runtime evidence;id=worker.final_evidence]
+2026-11-20T19:44:09.6635510Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-20T19:44:09.6635809Z with:
+2026-11-20T19:44:09.6636103Z   name: material-evidence-1f83d62b771bc81daf48bac8026cd69e583e6703-44804484780-1-fast
+2026-11-20T19:44:09.6636464Z   path: Material/registry/
+2026-11-20T19:44:09.6636661Z   if-no-files-found: error
+2026-11-20T19:44:09.6636852Z   retention-days: 90
+2026-11-20T19:44:09.6637032Z   compression-level: 6
+2026-11-20T19:44:09.6637201Z   overwrite: false
+2026-11-20T19:44:09.6637380Z   include-hidden-files: false
+2026-11-20T19:44:09.6637568Z env:
+2026-11-20T19:44:09.6637729Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:44:09.6637940Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:44:09.6638178Z   MATERIAL_JOBS: 2
+2026-11-20T19:44:09.6638349Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:44:09.6638548Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:44:09.6638724Z   EXACT_BENCHMARK: false
+2026-11-20T19:44:09.6638908Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:44:09.6639105Z ##[endgroup]
+2026-11-20T19:44:09.7867571Z (node:3023) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T19:44:09.7868143Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T19:44:09.7936603Z With the provided path, there will be 34 files uploaded
+2026-11-20T19:44:09.7939896Z Artifact name is valid!
+2026-11-20T19:44:09.7940234Z Root directory input is valid!
+2026-11-20T19:44:10.2679749Z Beginning upload of artifact content to blob storage
+2026-11-20T19:44:10.3063519Z (node:3023) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T19:44:10.7830155Z Uploaded bytes 76333
+2026-11-20T19:44:10.8728204Z Finished uploading artifact content to blob storage!
+2026-11-20T19:44:10.8728850Z SHA256 digest of uploaded artifact zip is 9e96e54faa24fe686d6c32f638b246e6134ec0b793f070f5f9d97ad917dc389e
+2026-11-20T19:44:10.8730139Z Finalizing artifact upload
+2026-11-20T19:44:11.3061660Z Artifact material-evidence-1f83d62b771bc81daf48bac8026cd69e583e6703-44804484780-1-fast.zip successfully finalized. Artifact ID 14663005486
+2026-11-20T19:44:11.3062819Z Artifact material-evidence-1f83d62b771bc81daf48bac8026cd69e583e6703-44804484780-1-fast has been successfully uploaded! Final size is 76333 bytes. Artifact ID is 14663005486
+2026-11-20T19:44:11.3067549Z Artifact download URL: https://github.com/randogelist/Methboke/actions/runs/44804484780/artifacts/14663005486
+2026-11-20T19:44:11.3151407Z ##[end-action id=worker.final_evidence;outcome=success;conclusion=success;duration_ms=1654]
+2026-11-20T19:44:11.3158011Z ##[start-action display=Classify the first failure without fallback assumptions;id=worker.classify]
+2026-11-20T19:44:11.3174898Z ##[group]Run python3 Material/ci/failure_routing.py classify
+2026-11-20T19:44:11.3175233Z [36;1mpython3 Material/ci/failure_routing.py classify[0m
+2026-11-20T19:44:11.3203583Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:44:11.3203858Z env:
+2026-11-20T19:44:11.3204027Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:44:11.3204254Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:44:11.3204500Z   MATERIAL_JOBS: 2
+2026-11-20T19:44:11.3204815Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:44:11.3205024Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:44:11.3205209Z   EXACT_BENCHMARK: false
+2026-11-20T19:44:11.3205399Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:44:11.3205597Z   WORKER_MODE: fast
+2026-11-20T19:44:11.3205792Z   WORKER_BACKEND: binary_cache
+2026-11-20T19:44:11.3205991Z   STRICT_BENCHMARK: false
+2026-11-20T19:44:11.3207677Z   STEP_OUTCOMES: {
+  "routing": "success",
+  "static": "success",
+  "disk": "success",
+  "registry_auth": "skipped",
+  "restore": "success",
+  "cold_disk": "skipped",
+  "repaired_dependencies": "success",
+  "dependencies": "success",
+  "repaired_project": "success",
+  "project": "success",
+  "cache_admission": "success",
+  "recovery_admission": "skipped",
+  "exact_gate": "skipped",
+  "compiler_setup": "success",
+  "audit_options": "success",
+  "verify": "failure",
+  "verified_evidence": "skipped",
+  "save_dependencies": "skipped",
+  "binary_package": "skipped",
+  "save_project": "skipped",
+  "published_dependencies": "skipped",
+  "published_project": "skipped",
+  "published_identities": "skipped",
+  "publish_binary": "skipped",
+  "publish_registry": "skipped",
+  "final_evidence": "success"
+}
+2026-11-20T19:44:11.3209516Z ##[endgroup]
+2026-11-20T19:44:11.3506796Z MATERIAL_FAILURE_ROUTING {"backend": "binary_cache", "commit": "1f83d62b771bc81daf48bac8026cd69e583e6703", "failed_step": "verify", "failure_class": "PROOF_OR_TYPE_FAILURE", "recovery_allowed": false, "repository": "randogelist/Methboke", "run_attempt": "1", "run_id": "44804484780", "schema_version": 1, "step_outcomes": {"audit_options": "success", "binary_package": "skipped", "cache_admission": "success", "cold_disk": "skipped", "compiler_setup": "success", "dependencies": "success", "disk": "success", "exact_gate": "skipped", "final_evidence": "success", "project": "success", "publish_binary": "skipped", "publish_registry": "skipped", "published_dependencies": "skipped", "published_identities": "skipped", "published_project": "skipped", "recovery_admission": "skipped", "registry_auth": "skipped", "repaired_dependencies": "success", "repaired_project": "success", "restore": "success", "routing": "success", "save_dependencies": "skipped", "save_project": "skipped", "static": "success", "verified_evidence": "skipped", "verify": "failure"}, "worker_mode": "fast"}
+2026-11-20T19:44:11.3548128Z ##[end-action id=worker.classify;outcome=success;conclusion=success;duration_ms=38]
+2026-11-20T19:44:11.3549957Z ##[start-action display=Preserve explicit failure routing evidence;id=worker.routing_evidence]
+2026-11-20T19:44:11.3574777Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-20T19:44:11.3575078Z with:
+2026-11-20T19:44:11.3575377Z   name: material-routing-1f83d62b771bc81daf48bac8026cd69e583e6703-44804484780-1-fast
+2026-11-20T19:44:11.3575748Z   path: Material/registry/failure-routing.json
+2026-11-20T19:44:11.3575997Z   if-no-files-found: error
+2026-11-20T19:44:11.3576194Z   retention-days: 90
+2026-11-20T19:44:11.3576386Z   compression-level: 6
+2026-11-20T19:44:11.3576576Z   overwrite: false
+2026-11-20T19:44:11.3576761Z   include-hidden-files: false
+2026-11-20T19:44:11.3576962Z env:
+2026-11-20T19:44:11.3577128Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:44:11.3577347Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:44:11.3577595Z   MATERIAL_JOBS: 2
+2026-11-20T19:44:11.3577777Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:44:11.3578003Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:44:11.3578202Z   EXACT_BENCHMARK: false
+2026-11-20T19:44:11.3578394Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:44:11.3578594Z ##[endgroup]
+2026-11-20T19:44:11.4821520Z (node:3037) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-20T19:44:11.4822060Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-20T19:44:11.4854340Z With the provided path, there will be 1 file uploaded
+2026-11-20T19:44:11.4871802Z Artifact name is valid!
+2026-11-20T19:44:11.4878607Z Root directory input is valid!
+2026-11-20T19:44:11.8820010Z Beginning upload of artifact content to blob storage
+2026-11-20T19:44:11.8942618Z (node:3037) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-20T19:44:12.2191305Z Uploaded bytes 607
+2026-11-20T19:44:12.3125404Z Finished uploading artifact content to blob storage!
+2026-11-20T19:44:12.3126078Z SHA256 digest of uploaded artifact zip is 37b50a4511b44288a74f91e81ac82761f83279c8f597de85f2daadd7c2f54878
+2026-11-20T19:44:12.3126972Z Finalizing artifact upload
+2026-11-20T19:44:12.8758774Z Artifact material-routing-1f83d62b771bc81daf48bac8026cd69e583e6703-44804484780-1-fast.zip successfully finalized. Artifact ID 14663580062
+2026-11-20T19:44:12.8759854Z Artifact material-routing-1f83d62b771bc81daf48bac8026cd69e583e6703-44804484780-1-fast has been successfully uploaded! Final size is 607 bytes. Artifact ID is 14663580062
+2026-11-20T19:44:12.8764208Z Artifact download URL: https://github.com/randogelist/Methboke/actions/runs/44804484780/artifacts/14663580062
+2026-11-20T19:44:12.8834098Z ##[end-action id=worker.routing_evidence;outcome=success;conclusion=success;duration_ms=1528]
+2026-11-20T19:44:12.8837009Z ##[start-action display=Expose recovery only after routing evidence is preserved;id=worker.route]
+2026-11-20T19:44:12.8851415Z ##[group]Run if [ "$CLASSIFIER_OUTCOME" != success ]; then
+2026-11-20T19:44:12.8851751Z [36;1mif [ "$CLASSIFIER_OUTCOME" != success ]; then[0m
+2026-11-20T19:44:12.8852095Z [36;1m  FAILURE_CLASS=UNKNOWN_CLASSIFICATION_FAILURE[0m
+2026-11-20T19:44:12.8852536Z [36;1m  RECOVERY_ALLOWED=false[0m
+2026-11-20T19:44:12.8852798Z [36;1melif [ "$ROUTING_UPLOAD_OUTCOME" != success ]; then[0m
+2026-11-20T19:44:12.8853392Z [36;1m  FAILURE_CLASS=PUBLICATION_FAILURE[0m
+2026-11-20T19:44:12.8853646Z [36;1m  RECOVERY_ALLOWED=false[0m
+2026-11-20T19:44:12.8853842Z [36;1mfi[0m
+2026-11-20T19:44:12.8854107Z [36;1mecho "failure_class=$FAILURE_CLASS" >> "$GITHUB_OUTPUT"[0m
+2026-11-20T19:44:12.8854429Z [36;1mecho "recovery_allowed=$RECOVERY_ALLOWED" >> "$GITHUB_OUTPUT"[0m
+2026-11-20T19:44:12.8881540Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-20T19:44:12.8881807Z env:
+2026-11-20T19:44:12.8882131Z   PYTHONUNBUFFERED: 1
+2026-11-20T19:44:12.8882368Z   MATERIAL_STATE: /tmp/material-native-state.json
+2026-11-20T19:44:12.8882616Z   MATERIAL_JOBS: 2
+2026-11-20T19:44:12.8882801Z   MATERIAL_COMMAND_TIMEOUT: 1800
+2026-11-20T19:44:12.8883000Z   LEAN_NUM_THREADS: 2
+2026-11-20T19:44:12.8883338Z   EXACT_BENCHMARK: false
+2026-11-20T19:44:12.8883537Z   MATERIAL_BACKEND: binary_cache
+2026-11-20T19:44:12.8883753Z   CLASSIFIER_OUTCOME: success
+2026-11-20T19:44:12.8883967Z   ROUTING_UPLOAD_OUTCOME: success
+2026-11-20T19:44:12.8884185Z   FAILURE_CLASS: PROOF_OR_TYPE_FAILURE
+2026-11-20T19:44:12.8884404Z   RECOVERY_ALLOWED: false
+2026-11-20T19:44:12.8884594Z ##[endgroup]
+2026-11-20T19:44:12.8932601Z ##[end-action id=worker.route;outcome=success;conclusion=success;duration_ms=9]
+2026-11-20T19:44:12.8935062Z ##[start-action display=Accept only fully verified and published worker result;id=worker.accept]
+2026-11-20T19:44:12.8936697Z ##[end-action id=worker.accept;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-20T19:44:12.9031913Z Post job cleanup.
+2026-11-20T19:44:12.9682621Z [command]/usr/bin/git version
+2026-11-20T19:44:12.9742898Z git version 2.56.1
+2026-11-20T19:44:12.9791452Z Temporarily overriding HOME='/home/runner/work/_temp/d33ba806-289e-402b-800e-96a0ff1e8b2f' before making global git config changes
+2026-11-20T19:44:12.9792233Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-20T19:44:12.9792852Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Methboke/Methboke
+2026-11-20T19:44:12.9815045Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-20T19:44:12.9838453Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-20T19:44:13.0004793Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-20T19:44:13.0022766Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-20T19:44:13.0185115Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-20T19:44:13.0209951Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-20T19:44:13.0493724Z Evaluate and set job outputs
+2026-11-20T19:44:13.0497909Z Set output 'recovery-allowed'
+2026-11-20T19:44:13.0499273Z Set output 'failure-class'
+2026-11-20T19:44:13.0499795Z Cleaning up orphan processes
+2026-11-20T19:44:13.0729520Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830, actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

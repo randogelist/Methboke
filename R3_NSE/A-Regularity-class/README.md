@@ -233,3 +233,7 @@ all hypotheses and the separation between source availability and acceptance.
 [Six target register](SIX_GAP_A_TIER_TARGETS.txt) · [Current implementation](SIX_GAP_IMPLEMENTATION_STATUS.json) · [Package assessment](SIX_GAP_PACKAGE_ASSESSMENT.txt).
 
 Four scoped native packages are prepared with79 named declarations and independent literal type checks. They construct the physical H1 foundation, the forward H1-only Fourier bridge, AC scalar comparison and full six-charge budget inequalities. Matching external evidence is pending; none of the six parent gaps is marked complete. The B-tier chains are preserved in the cumulative steplist TXT Addendum1.2.
+
+## First construction attempt
+
+[Source1f83d62 / run44804484780](../../audits/material-1f83d62b-nse-a-failed/summary.json) compiled the two scalar modules, then failed on physical-H1 and Fourier elaboration. Public statements and independent consumers are retained; source repairs require another matching external run. No new A-tier acceptance is inferred from partial compilation.

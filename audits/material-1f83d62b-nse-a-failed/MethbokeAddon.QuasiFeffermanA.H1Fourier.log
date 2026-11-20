@@ -1,0 +1,12 @@
+MethbokeAddon/QuasiFeffermanA/H1Fourier.lean:61:45: error: unsolved goals
+case calc.step
+u du : ↥ComplexL2
+e : Space
+hweak : RealTestWeakDirectionalDerivative u du e
+ψ : 𝓢(Space, ℝ)
+hcompact : HasCompactSupport ⇑ψ
+htest :
+  ∫ (x : QFA.Endpoints.Agmon.Space), (fderiv ℝ (⇑ψ) x) e • ↑↑u x = -∫ (x : QFA.Endpoints.Agmon.Space), ψ x • ↑↑du x
+htest' : ∫ (x : Space), ψ x • ↑↑du x = -∫ (x : Space), (fderiv ℝ (⇑ψ) x) e • ↑↑u x
+⊢ (∂_{e} (Lp.toTemperedDistribution u)) ((SchwartzMap.postcompCLM Complex.ofRealCLM) ψ) =
+    (∂_{e} (Lp.toTemperedDistribution u)) ((SchwartzMap.postcompCLM Complex.ofRealCLM) ψ)

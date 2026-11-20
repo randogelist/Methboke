@@ -116,9 +116,11 @@ theorem mem_physicalH1Graph_iff (x : H1Ambient) :
   constructor
   · intro h j ψ hψ hcompact
     have hzero := h j ⟨ψ, hψ, hcompact⟩
+    change weakGradientResidual j ⟨ψ, hψ, hcompact⟩ x = 0 at hzero
     rw [weakGradientResidual_apply] at hzero
     exact eq_neg_iff_add_eq_zero.mpr hzero
   · intro h j φ
+    change weakGradientResidual j φ x = 0
     rw [weakGradientResidual_apply]
     exact eq_neg_iff_add_eq_zero.mp (h j φ.value φ.smooth φ.compact_support)
 
@@ -241,7 +243,8 @@ theorem mem_physicalH1SigmaGraph_iff (x : H1Ambient) :
       SpatialWeakGradient (x 0) (fun j => x j.succ) ∧ Solenoidal (x 0) := by
   simp only [physicalH1SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH1Graph_iff,
     ClosedSubmodule.mem_iInf, ClosedSubmodule.mem_mk, LinearMap.mem_ker,
-    ContinuousLinearMap.comp_apply, PiLp.proj_apply, solenoidal_iff_testCLM]
+    solenoidal_iff_testCLM]
+  rfl
 
 /-- Complete real solenoidal H1 on full Euclidean space. -/
 abbrev PhysicalH1Sigma := physicalH1SigmaGraph.toSubmodule
@@ -267,6 +270,7 @@ theorem physicalH1Sigma_norm_sq (u : PhysicalH1Sigma) :
 theorem physicalH1Sigma_velocity_injective :
     Function.Injective (fun u : PhysicalH1Sigma => u.val 0) := by
   intro u v huv
+  change u.val 0 = v.val 0 at huv
   have hgrad : (fun j : Fin 3 => u.val j.succ) = (fun j : Fin 3 => v.val j.succ) := by
     apply spatialWeakGradient_unique (physicalH1Sigma_weakGradient u)
     rw [huv]
@@ -283,6 +287,8 @@ theorem schwartz_spatialWeakGradient (a : 𝓢(Space, Space)) :
     SpatialWeakGradient (a.toLp 2 volume)
       (fun j => (∂_{coordinateVector j} a).toLp 2 volume) := by
   intro j ψ hψ hcompact
+  change (∫ x : Space, fderiv ℝ ψ x (coordinateVector j) • a.toLp 2 volume x) =
+    -(∫ x : Space, ψ x • (∂_{coordinateVector j} a).toLp 2 volume x)
   let φ : 𝓢(Space, ℝ) := hcompact.toSchwartzMap hψ
   have hparts := SchwartzMap.integral_smul_lineDerivOp_right_eq_neg_left
     (μ := (volume : Measure Space)) φ a (coordinateVector j)
@@ -312,9 +318,14 @@ def schwartzToPhysicalH1 (a : 𝓢(Space, Space)) : PhysicalH1 :=
 
 /-- Native real solenoidal Schwartz data admit into the complete H1_sigma carrier. -/
 def schwartzToPhysicalH1Sigma (a : 𝓢(Space, Space))
-    (hsol : Solenoidal (a.toLp 2 volume)) : PhysicalH1Sigma :=
-  ⟨h1Pack (a.toLp 2 volume) (fun j => (∂_{coordinateVector j} a).toLp 2 volume),
-    (mem_physicalH1SigmaGraph_iff _).mpr ⟨schwartz_spatialWeakGradient a, hsol⟩⟩
+    (hsol : Solenoidal (a.toLp 2 volume)) : PhysicalH1Sigma := by
+  refine ⟨h1Pack (a.toLp 2 volume)
+    (fun j : Fin 3 => (∂_{coordinateVector j} a).toLp 2 volume), ?_⟩
+  apply (mem_physicalH1SigmaGraph_iff _).mpr
+  change SpatialWeakGradient (a.toLp 2 volume)
+    (fun j : Fin 3 => (∂_{coordinateVector j} a).toLp 2 volume) ∧
+      Solenoidal (a.toLp 2 volume)
+  exact ⟨schwartz_spatialWeakGradient a, hsol⟩
 
 @[simp] theorem schwartzToPhysicalH1Sigma_velocity (a : 𝓢(Space, Space))
     (hsol : Solenoidal (a.toLp 2 volume)) :
