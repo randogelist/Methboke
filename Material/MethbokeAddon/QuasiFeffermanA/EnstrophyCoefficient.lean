@@ -58,9 +58,10 @@ theorem enstrophy_fourth_power_young_bound {N K Z ν : ℝ}
       calc
         (32 * N * ν ^ 3) * Z ^ 3 = 32 * N * (ν * Z) ^ 3 := by ring
         _ ≤ 27 * N ^ 4 + 16 * (ν * Z) ^ 4 := hpoly
-        _ ≤ 27 * (K * Z ^ 3) + 16 * (ν * Z) ^ 4 :=
-          add_le_add_right
-            (mul_le_mul_of_nonneg_left hfourth (by norm_num : (0 : ℝ) ≤ 27)) _
+        _ ≤ 27 * (K * Z ^ 3) + 16 * (ν * Z) ^ 4 := by
+          have hmul : 27 * N ^ 4 ≤ 27 * (K * Z ^ 3) :=
+            mul_le_mul_of_nonneg_left hfourth (by norm_num : (0 : ℝ) ≤ 27)
+          linarith only [hmul]
         _ = (27 * K + 16 * ν ^ 4 * Z) * Z ^ 3 := by ring
     have hdivide : 2 * N - ν * Z ≤ 27 * K / (16 * ν ^ 3) := by
       apply (le_div_iff₀ (by positivity : 0 < 16 * ν ^ 3)).mpr

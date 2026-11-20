@@ -1,0 +1,22 @@
+MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean:62:10: error: Type mismatch
+  add_le_add_right
+    (mul_le_mul_of_nonneg_left hfourth
+      (Mathlib.Meta.NormNum.isNat_le_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+        (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 27)) (Eq.refl true)))
+    ?m.452
+has type
+  ?m.452 + 27 * N ^ 4 ≤ ?m.452 + 27 * (K * Z ^ 3)
+but is expected to have type
+  27 * N ^ 4 + 16 * (ν * Z) ^ 4 ≤ 27 * (K * Z ^ 3) + 16 * (ν * Z) ^ 4
+MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean:73:5: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean:89:48: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean:89:48: warning: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

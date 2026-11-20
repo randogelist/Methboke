@@ -53,8 +53,12 @@ theorem frequencySector_add (i : Fin 6) (f g : ComplexL2) :
     frequencySector_ae i g, Lp.coeFn_add f g,
     Lp.coeFn_add (frequencySector i f) (frequencySector i g)]
     with ξ hsum hf hg hadd htarget
-  by_cases h : ξ ∈ sixSector i <;>
-    simp [hsum, hf, hg, hadd, htarget, Set.indicator_apply, h]
+  rw [hsum, htarget, Pi.add_apply]
+  by_cases h : ξ ∈ sixSector i
+  · rw [Set.indicator_of_mem h, hadd, Pi.add_apply, hf, hg]
+    simp only [Set.indicator_of_mem h]
+  · rw [Set.indicator_of_notMem h, hf, hg]
+    simp only [Set.indicator_of_notMem h, add_zero]
 
 /-- Sector restriction is homogeneous over the actual complex scalars. -/
 theorem frequencySector_smul (i : Fin 6) (c : ℂ) (f : ComplexL2) :
@@ -76,7 +80,9 @@ def frequencySectorCLM (i : Fin 6) : ComplexL2 →L[ℂ] ComplexL2 :=
   ({ toFun := frequencySector i
      map_add' := frequencySector_add i
      map_smul' := frequencySector_smul i } : ComplexL2 →ₗ[ℂ] ComplexL2).mkContinuous 1
-    (fun f => by simpa only [one_mul] using norm_frequencySector_le i f)
+    (fun f => by
+      change ‖frequencySector i f‖ ≤ 1 * ‖f‖
+      simpa only [one_mul] using norm_frequencySector_le i f)
 
 /-- Literal action of the packaged continuous linear map. -/
 @[simp] theorem frequencySectorCLM_apply (i : Fin 6) (f : ComplexL2) :
@@ -147,7 +153,7 @@ theorem sum_norm_frequencySector_sq (f : ComplexL2) :
       apply Finset.sum_congr rfl
       intro i _
       rw [norm_sq_eq_re_inner (𝕜 := ℂ), inner_frequencySector_left,
-        frequencySector_idempotent]
+        frequencySector_idempotent, RCLike.re_eq_complex_re]
     _ = Complex.re (∑ i : Fin 6, inner ℂ f (frequencySector i f)) := by
       exact (map_sum Complex.reCLM _ _).symm
     _ = Complex.re (inner ℂ f f) := by rw [← inner_sum, sum_frequencySector]
@@ -171,7 +177,13 @@ theorem norm_fourierSector_le (i : Fin 6) (f : ComplexL2) :
 /-- Complex-linear additivity survives Fourier conjugation. -/
 theorem fourierSector_add (i : Fin 6) (f g : ComplexL2) :
     fourierSector i (f + g) = fourierSector i f + fourierSector i g := by
-  simp only [fourierSector, fourier_add, frequencySector_add, fourierInv_add]
+  have hf : (𝓕 (f + g) : ComplexL2) = 𝓕 f + 𝓕 g :=
+    (Lp.fourierTransformₗᵢ Space ComplexVector).map_add f g
+  change 𝓕⁻ (frequencySector i (𝓕 (f + g))) =
+    𝓕⁻ (frequencySector i (𝓕 f)) + 𝓕⁻ (frequencySector i (𝓕 g))
+  rw [hf, frequencySector_add]
+  exact (Lp.fourierTransformₗᵢ Space ComplexVector).symm.map_add
+    (frequencySector i (𝓕 f)) (frequencySector i (𝓕 g))
 
 /-- Complex homogeneity survives Fourier conjugation. -/
 theorem fourierSector_smul (i : Fin 6) (c : ℂ) (f : ComplexL2) :
@@ -183,7 +195,9 @@ def fourierSectorCLM (i : Fin 6) : ComplexL2 →L[ℂ] ComplexL2 :=
   ({ toFun := fourierSector i
      map_add' := fourierSector_add i
      map_smul' := fourierSector_smul i } : ComplexL2 →ₗ[ℂ] ComplexL2).mkContinuous 1
-    (fun f => by simpa only [one_mul] using norm_fourierSector_le i f)
+    (fun f => by
+      change ‖fourierSector i f‖ ≤ 1 * ‖f‖
+      simpa only [one_mul] using norm_fourierSector_le i f)
 
 /-- Literal action of the Fourier projection continuous linear map. -/
 @[simp] theorem fourierSectorCLM_apply (i : Fin 6) (f : ComplexL2) :
@@ -201,7 +215,8 @@ theorem fourierSector_comp_eq_zero {i j : Fin 6} (hij : i ≠ j) (f : ComplexL2)
     fourierSector i (fourierSector j f) = 0 := by
   apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
   change 𝓕 (fourierSector i (fourierSector j f)) = 𝓕 (0 : ComplexL2)
-  simp only [fourier_fourierSector, frequencySector_comp_eq_zero hij, fourier_zero]
+  simp only [fourier_fourierSector, frequencySector_comp_eq_zero hij]
+  exact (Lp.fourierTransformₗᵢ Space ComplexVector).map_zero.symm
 
 /-- Reconstruction by the six actual Fourier projections. -/
 theorem sum_fourierSector (f : ComplexL2) : ∑ i : Fin 6, fourierSector i f = f := by

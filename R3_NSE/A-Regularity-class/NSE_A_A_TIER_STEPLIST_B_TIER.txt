@@ -3216,3 +3216,298 @@ ENDPOINT STATUS
   NATIVE_REAL_H1_SIX_PROJECTOR_PACKAGE: NOT_YET_PREPARED.
   G05_PARENT_A_TIER_CLOSURE: OPEN.
 END DERIVATION REAL_H1_SECTOR_LIFT_CHAIN.txt
+
+
+ADDENDUM 1.8 -- SHARP SPATIAL ADMISSION AND EXACT API REPAIR
+Date: 2026-11-20
+
+External sourcee7ef580e/run44809152466 compiled477 modules, including the
+actual six-sector geometry. Two owned modules failed and two wrappers were
+dependency-blocked. The first unresolved proof edge is the common-summand
+coefficient step; the separately reached complex-L2 implementation exposed
+a.e. representative/coercion, real-part and Fourier API elaboration issues.
+The repaired candidate preserves every public statement and independent
+consumer; all pins, workflows and audit policy remain unchanged. No A-tier
+acceptance follows from this failed attempt. Original exact evidence is
+retained at audits/material-e7ef580e-nse-a-failed/.
+
+The independent spatial derivation below uses an explicitly cited established
+sharp scalar theorem. Its native proof is still missing; normalization and
+vector/tensor transfer must not be mistaken for that native admission.
+
+BEGIN DERIVATION SHARP_SPATIAL_ADMISSION_CHAIN.txt
+NSE-A SHARP SPATIAL SOBOLEV ADMISSION CHAIN
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION / PRIMARY-SOURCE MAPPING
+Scope: G02; scalar sharp inequality -> vector/tensor physical estimates
+Project goal and branch target: unchanged
+Reviewed native source: e7ef580e7bd5d7f9a81ffdb14b41ff5229a240e9
+Native Mathlib pin: db584cd6d46c92f209a44c0f1c829460d327499d
+Local Lean/Lake/kernel/runner executions: NONE
+Status: B_TIER_CHAIN_WITH_ONE_EXPLICIT_ESTABLISHED_SHARP_SCALAR_INPUT
+Native G02 status: OPEN; no native sharp theorem is supplied by this note
+
+0. EXACT SPATIAL TARGET AND NORMALIZATION
+
+All spatial integrals below use full ordinary Lebesgue measure on R3.
+Every finite-dimensional fiber is Euclidean, and all tensor norms are
+Frobenius norms. Spatial weak derivatives are actual distributional weak
+derivatives. Let S6>0 be the positive constant satisfying
+  S6^6=16/(27 pi^4).                                      (0.1)
+
+The target admissions are:
+
+  ||F||_6 <= S6 ||grad F||_2                              (0.2)
+for every physical H1 field with any finite-dimensional Euclidean fiber;
+
+  ||grad u||_6 <= S6 ||Delta u||_2                        (0.3)
+for every physical H2 velocity u:R3->R3; and consequently
+
+  |integral_R3 ((u.grad)u).Delta u|^4
+    <= S6^6 ||grad u||_2^6 ||Delta u||_2^6.               (0.4)
+
+No solenoidality is needed for these three purely spatial inequalities.
+Actual NSE evolution, pressure cancellation and the scalar time derivative
+belong to other admissions. The frozen S6 and cutoff tau_A are not changed.
+
+1. PRECISE ESTABLISHED SCALAR INPUT
+
+[T] G. Talenti, Best constant in Sobolev inequality,
+Annali di Matematica Pura ed Applicata 110 (1976), 353--372.
+DOI: https://doi.org/10.1007/BF02418013
+Original-paper PDF: https://math.jhu.edu/~js/Math646/talenti.sobolev.pdf
+Location: opening theorem and equations (1)--(3), printed pp.353--354.
+The original displayed formula was checked directly in the page image.
+
+Use only this scalar consequence of the theorem:
+for every real f in C_c^infinity(R3),
+  (integral |f|^6)^(1/6)
+    <= C(3,2) (integral |grad f|^2)^(1/2),               (1.1)
+where the theorem's full-space constant is
+  C(m,p)=pi^(-1/2) m^(-1/p)
+    ((p-1)/(m-p))^(1-1/p)
+    [Gamma(1+m/2) Gamma(m) /
+      (Gamma(m/p) Gamma(1+m-m/p))]^(1/m).                (1.2)
+The gradient length and measure in [T] are the usual Euclidean ones.
+This is an established analytical theorem, not a located native Lean proof.
+
+At m=3,p=2, the factor involving (p-1)/(m-p) is one, and Gamma(5/2)
+cancels between numerator and denominator. Since Gamma(3)=2 and
+Gamma(3/2)=sqrt(pi)/2,
+  C(3,2)=pi^(-1/2) 3^(-1/2) (4/sqrt(pi))^(1/3).
+Every factor is positive, and taking the sixth power gives
+  C(3,2)^6=pi^(-3) 3^(-3) (4/sqrt(pi))^2
+          =16/(27 pi^4).                                (1.3)
+Thus C(3,2)=S6, by uniqueness of the positive sixth root. Equivalently,
+the coefficient in the squared lower-bound convention is
+  ||grad f||_2^2 >= 3(pi/2)^(4/3) ||f||_6^2.
+These reciprocal conventions must not be confused when admitting S6.
+
+2. INDEPENDENT NORMALIZATION CHECK, INCLUDING THE L2 LIMITATION
+
+For U(x)=(1+|x|^2)^(-1/2), radial integration and r=tan(theta) give
+  integral_R3 |U|^6
+    =4pi integral_0^infinity r^2/(1+r^2)^3 dr=pi^2/4,
+  integral_R3 |grad U|^2
+    =4pi integral_0^infinity r^4/(1+r^2)^3 dr=3pi^2/4.
+Consequently the sixth power of its Sobolev quotient is
+  (pi^2/4)/(3pi^2/4)^3=16/(27 pi^4).                    (2.1)
+
+U is not L2 on R3, so it is not an extremizer in the inhomogeneous H1
+carrier. To compare with compact tests, let chi_R be a smooth cutoff equal
+to one on B_R, supported in B_(2R), and with |grad chi_R|<=C/R.
+Then chi_R U is smooth and compactly supported, converges to U in L6,
+and its gradient converges to grad U in L2. For the extra cutoff term,
+  ||U grad chi_R||_2^2
+    <= (C^2/R^2) integral_(R<|x|<2R) (1+|x|^2)^(-1) dx
+    =O(R^(-1)) -> 0.
+Thus the compact-test quotients approach (2.1). This checks the exact
+normalization and sharpness in that class. A single extremizer computation
+alone would not establish the upper inequality (1.1); [T] supplies it.
+
+3. SMOOTH KATO REGULARIZATION: NO VECTOR OR TENSOR LOSS
+
+Let F:R3->E be smooth and compactly supported, where E is any finite-
+dimensional real Euclidean space. For epsilon>0 define the scalar function
+  g_epsilon(x)=sqrt(|F(x)|^2+epsilon^2)-epsilon.           (3.1)
+The positive epsilon removes the norm singularity at F=0. The function is
+smooth everywhere and vanishes wherever F vanishes, so it has compact
+support. It satisfies 0<=g_epsilon<=|F| and converges pointwise to |F|.
+
+For each coordinate i, the ordinary chain rule gives
+  partial_i g_epsilon
+    =inner(F,partial_i F)/sqrt(|F|^2+epsilon^2).
+Cauchy-Schwarz followed by summation over the three spatial directions
+gives the Kato estimate in the exact Frobenius convention:
+  |grad g_epsilon|^2
+    <= [|F|^2/(|F|^2+epsilon^2)] sum_i |partial_i F|^2
+    <= |grad F|^2.                                     (3.2)
+There is no factor depending on dim(E), because the fiber inner product
+is used before summing spatial directions.
+
+Apply the scalar theorem (1.1) to g_epsilon, raise to the sixth power,
+and use (3.2):
+  integral |g_epsilon|^6
+    <= S6^6 (integral |grad F|^2)^3.
+Fatou along any positive epsilon_n->0 yields
+  integral |F|^6 <= S6^6 (integral |grad F|^2)^3.         (3.3)
+Taking nonnegative sixth roots gives (0.2) for compact smooth E-valued F.
+This applies equally to velocity fibers R3 and gradient tensor fibers R9.
+It does not pass through a componentwise triangle bound with a lost factor.
+
+4. DENSITY INTO THE ACTUAL PHYSICAL H1 GRAPH
+
+Let F and its three supplied actual weak derivatives be L2. Use the same
+cutoffs chi_R as above. Weak product differentiation gives
+  partial_i(chi_R F)=chi_R partial_i F+(partial_i chi_R)F.
+The L2 tails of F and partial_i F tend to zero, and
+  ||(grad chi_R)F||_2 <= (C/R)||F||_2 -> 0.
+Therefore chi_R F->F in the full physical H1 graph norm. Mollify each
+cutoff field by one common scalar approximate identity. Convolution
+commutes with its distributional derivatives and approximates each L2
+component. A diagonal choice gives F_n in C_c^infinity(R3;E) with
+  F_n->F in L2 and grad F_n->grad F in L2.               (4.1)
+
+A subsequence converges pointwise almost everywhere to F. Apply (3.3)
+to that subsequence and Fatou; the gradient norm converges by (4.1).
+The result is the same inequality (3.3) for this actual weak field, with
+the same S6. Thus F belongs to L6 and (0.2) is established on physical H1.
+Applying the inequality to differences also shows that H1 graph convergence
+implies L6 convergence. No prior L6 membership was used in this admission.
+
+The compact approximation need not preserve solenoidality: (0.2) is valid
+for every H1 field, so no solenoidal density theorem is required here.
+It does require density for the actual weak derivative graph, not merely
+density in velocity L2 or a graph supplied with unrelated derivative fields.
+
+5. PHYSICAL HESSIAN-LAPLACIAN IDENTITY AND ADMISSION
+
+5.1 Identity on actual H2 fields.
+Use the native Fourier convention exp(-2pi i x.xi), and put k=2pi xi.
+For every component u_a of an actual H2 field,
+  Fourier(partial_i partial_j u_a)=-k_i k_j Fourier(u_a),
+  Fourier(Delta u_a)=-|k|^2 Fourier(u_a).
+Plancherel and finite summation therefore give
+  ||D2u||_2^2
+    =integral sum_(a,i,j) k_i^2 k_j^2 |Fourier(u_a)|^2
+    =integral |k|^4 |Fourier(u)|^2
+    =||Delta u||_2^2.                                  (5.1)
+All ordered pairs (i,j) are included. A convention counting each mixed
+derivative just once without its multiplicity would not give (5.1).
+The 2pi factors occur on both sides and cancel; no rescaling of S6 occurs.
+No divergence-free premise, boundary condition or Poincare inequality is
+used on this full-space identity.
+
+The gradient tensor G=grad u is physical H1, with
+  ||grad G||_2=||D2u||_2=||Delta u||_2.
+Applying the R9-valued version of (0.2) to G proves (0.3).
+
+5.2 If a caller supplies only an L2 Laplacian.
+For u in L2 and actual distributional Delta u=d in L2, the Fourier identity
+is Fourier(d)=-|k|^2 Fourier(u). It supplies
+  integral |k|^4 |Fourier(u)|^2=||d||_2^2<infinity.
+Since |k|^2<=1+|k|^4, the first derivative multipliers are L2 as well;
+the velocity L2 term controls the low frequencies. For second derivatives,
+each product k_i k_j Fourier(u) is L2 because |k_i k_j|<=|k|^2.
+Inverse Fourier transformation constructs actual L2 derivative witnesses,
+and the distributional Fourier derivative identity identifies them as
+partial_i u and partial_i partial_j u. Hence u belongs to physical H2,
+Delta u=d and (5.1) holds.
+
+An equivalent bounded-symbol second-derivative construction multiplies
+Fourier(d) by k_i k_j/|k|^2 away from zero, and defines that symbol as zero
+at the origin. This symbol has absolute value at most one and is real/even.
+It therefore preserves the Hermitian symmetry of real fields. Its zero
+frequency value does not affect the L2 class. The first derivatives still
+need the preceding low-frequency argument; division by |k| at zero is not
+a substitute for it.
+
+6. THE EXACT FOURTH-POWER INPUT TO ENSTROPHYCOEFFICIENT
+
+For physical H2 u, Holder interpolation gives
+  ||grad u||_3
+    <= ||grad u||_2^(1/2)||grad u||_6^(1/2)
+    <= S6^(1/2)||grad u||_2^(1/2)||Delta u||_2^(1/2).
+The pointwise tensor contraction satisfies |(u.grad)u|<=|u||grad u|.
+Combining the L6-L3-L2 Holder inequality with (0.2)--(0.3) gives
+  N:=|integral ((u.grad)u).Delta u|
+    <= ||u||_6||grad u||_3||Delta u||_2
+    <= S6^(3/2)||grad u||_2^(3/2)||Delta u||_2^(3/2).
+All these products are integrable: (u.grad)u is L2 by the displayed bounds,
+and Delta u is L2. With Y=||grad u||_2^2 and Z=||Delta u||_2^2, raising
+the nonnegative inequality to the fourth power gives exactly
+  N^4<=S6^6 Y^3 Z^3.                                   (6.1)
+
+This establishes the spatial input, relative to the scalar theorem [T].
+The separate actual time-enstrophy inequality d+2nu Z<=2N is still needed
+to invoke the scalar native module. Once it is supplied, that module's
+coefficient becomes 27S6^6/(16nu^3)=1/(pi^4 nu^3).
+The spatial derivation alone supplies neither d=deriv Y nor time AC.
+
+7. CONCRETE NATIVE REUSE FOUND IN THIS FOCUSED INSPECTION
+
+A. Mathlib/Analysis/InnerProductSpace/Calculus.lean at the recorded pin:
+   hasStrictFDerivAt_norm_sq, fderiv_norm_sq_apply and HasFDerivAt.norm_sq
+   provide the actual derivative of the squared Euclidean norm.
+   Mathlib/Analysis/SpecialFunctions/Sqrt.lean supplies HasFDerivAt.sqrt,
+   ContDiff.sqrt and Real.hasDerivAt_sqrt. The epsilon^2 positivity in
+   (3.1) meets their nonzero-input requirement. These are concrete reusable
+   pieces for the regularized Kato calculation, beyond an opaque norm port.
+
+B. Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean supplies
+   MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq for compact C1 maps into
+   a finite-dimensional normed space. Its coefficient is
+   SNormLESNormFDerivOfEqConst, with norm-equivalence factors; its derivative
+   norm is an operator norm. It is useful for membership and nonsharp theory.
+   The inspected theorem does not identify its coefficient with (0.1).
+   Replacing that coefficient by a smaller desired constant is invalid.
+   Focused searches of the pinned Analysis/MeasureTheory/Geometry sources
+   for Talenti/Aubin/sharp-Sobolev names produced no matching sharp theorem.
+   This is a bounded source-inspection finding, not an ecosystem-wide claim.
+
+C. Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean provides
+   physicalH1Graph, physicalH1_norm_sq, physicalH1OfWeakGradient and
+   Schwartz admission on the real weak-gradient carrier. Its graph norm
+   exposes the sum of the three physical derivative L2 norms. An actual
+   compact-smooth approximation theorem for this graph remains required.
+
+D. Material/MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean provides
+   realTestWeakDirectionalDerivative_iff_complexify_fourier_ae and
+   spatialWeakGradient_iff_fourier_ae for supplied real L2 witnesses.
+   Reapplication to each first-gradient field supports second-derivative
+   identification. It does not itself construct all second derivatives.
+   FourierMultipliers.lean has laplacian_fourier_distribution_eq and
+   laplacian_fourier_ae under explicit SchwartzDerivativeWitnesses. Those
+   supplied-witness hypotheses must be discharged by the physical H2 graph;
+   their presence cannot be mistaken for a physical H2 existence theorem.
+
+E. The prior pinned LerayHopf/R3/SobolevEmbedding.lean lead remains useful
+   for weighted-Fourier/Schwartz approximation and H1-to-L6 membership.
+   Its generic Sobolev constant does not close this sharp admission. No
+   additional sharp theorem was recovered from the prior GPT-project
+   written Kato route; that route was B-tier material, as recorded earlier.
+
+8. NATIVE STOP BOUNDARY AND ENDPOINT STATUS
+
+The first unresolved native edge is an actual compact scalar inequality
+with the exact admissible coefficient (0.1), proved in the pinned native
+environment. Merely declaring that inequality or the constant identity (0.1)
+as a premise does not close G02. Talenti's symmetrization/isoperimetry and
+one-dimensional sharp inequality provide a mathematical proof route, but
+no compatible existing full native implementation was identified here.
+
+After that edge, the exact finite route is: regularized norm derivative
+and compact vector/tensor transfer; actual weak-H1 cutoff/mollifier density;
+physical H2 witnesses and (5.1); gradient-tensor Sobolev admission; then
+Holder/interpolation and (6.1). Scalar/fiber/operator/Frobenius norms and
+full-volume Fourier normalization must be checked at every native adapter.
+Independent consumers and matching external compiler/axiom evidence are
+required before calling any prepared implementation A-tier.
+
+B_TIER_SCALAR_CONSTANT_NORMALIZATION: COMPLETE relative to [T].
+B_TIER_VECTOR_TENSOR_SHARP_TRANSFER: DERIVED with no dimension loss.
+B_TIER_PHYSICAL_H2_LAPLACIAN_ADMISSION: DERIVED by Fourier reconstruction.
+B_TIER_SPATIAL_FOURTH_POWER_INPUT: DERIVED relative to [T].
+NATIVE_SHARP_SCALAR_OR_G02_ROOT_CLOSURE: NOT_SUPPLIED / OPEN.
+NEW_A_TIER_ACCEPTANCE: NONE FROM THIS DOCUMENT.
+END DERIVATION SHARP_SPATIAL_ADMISSION_CHAIN.txt
