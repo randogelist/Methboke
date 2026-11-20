@@ -104,8 +104,6 @@ private theorem sum_coordinateSlice_derivative_integral
       simp only [coordinateSliceVectorCLM_apply, PiLp.smul_apply, smul_eq_mul,
         ← Finset.sum_smul]
       congr 1
-      simp only [PiLp.inner_apply, scalarGradient, PiLp.toLp_apply,
-        RCLike.inner_apply, conj_trivial, mul_comm]
     _ = _ := integral_smul_const _ _
 
 /-- Actual weak-gradient integration by parts identifies the vector L2 trace

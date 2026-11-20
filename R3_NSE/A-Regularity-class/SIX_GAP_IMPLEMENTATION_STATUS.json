@@ -422,12 +422,12 @@
           "package": "QFAPhysicalH1Sectors",
           "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
           "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Sectors.lean",
-          "sha256": "6ce2f392ca602751929d73050609e99d2c2825cd251fd6d350596c6a0ba1737a",
+          "sha256": "0734ee539d9d1092bbf8a839ea5ebed7504230391f91cd741043405d913d5ab7",
           "source_roots": [
             {
               "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
               "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Sectors.lean",
-              "sha256": "6ce2f392ca602751929d73050609e99d2c2825cd251fd6d350596c6a0ba1737a"
+              "sha256": "0734ee539d9d1092bbf8a839ea5ebed7504230391f91cd741043405d913d5ab7"
             }
           ],
           "declarations": 34,
@@ -449,12 +449,12 @@
           "package": "QFAPhysicalH1Divergence",
           "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence",
           "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Divergence.lean",
-          "sha256": "d6111dd273558ec4cedc43d69c64f03a4e886851e5b21a76abc636cb8ce5341b",
+          "sha256": "e17ac1d4552d8c96c99f7c3f73f4e782ec97715508bf4edb8bfafb1eb1c7710f",
           "source_roots": [
             {
               "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence",
               "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Divergence.lean",
-              "sha256": "d6111dd273558ec4cedc43d69c64f03a4e886851e5b21a76abc636cb8ce5341b"
+              "sha256": "e17ac1d4552d8c96c99f7c3f73f4e782ec97715508bf4edb8bfafb1eb1c7710f"
             }
           ],
           "declarations": 9,
@@ -539,6 +539,37 @@
           "run_url": "https://github.com/randogelist/Methboke/actions/runs/44814739263",
           "failure": "H1Spectral.lean explicit index-type argument omitted in pinned EuclideanSpace.inner_basisFun_real.",
           "repair": "Pass (Fin 3) before the physical frequency and coordinate arguments; public statements and independent audit unchanged.",
+          "local_lean_executions": 0,
+          "cache_admission": "PASS",
+          "publication": false,
+          "parent_targets_closed": 0
+        },
+        {
+          "status": "OWNED_PROOF_ELABORATION_FAILURE_NO_NEW_ACCEPTANCE",
+          "tested_commit": "7b4e02ad7a8056b84ed334c55e56dab74ab74d58",
+          "run_id": 44817097715,
+          "run_url": "https://github.com/randogelist/Methboke/actions/runs/44817097715",
+          "compiled_new_sources": [
+            "H1Spectral",
+            "RealFourier",
+            "RealSectorMultipliers",
+            "SmallProductCoefficient"
+          ],
+          "failures": [
+            {
+              "module": "PhysicalH1Divergence",
+              "line": 107,
+              "diagnostic": "No goals to be solved",
+              "repair": "Remove the extra simplification after congr already closes the concrete coordinate identity."
+            },
+            {
+              "module": "PhysicalH1Sectors",
+              "line": 51,
+              "diagnostic": "Whole a.e. wrapper simplification type mismatch",
+              "repair": "Eliminate the a.e. equality pointwise before rewriting the exact projected Fourier expressions."
+            }
+          ],
+          "public_statements_and_audits_unchanged": true,
           "local_lean_executions": 0,
           "cache_admission": "PASS",
           "publication": false,

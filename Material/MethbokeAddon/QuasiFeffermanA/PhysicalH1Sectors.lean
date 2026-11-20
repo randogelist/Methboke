@@ -48,7 +48,8 @@ theorem spatialWeakGradient_realFourierSector (i : Fin 6)
     (fun ξ : Space => (2 * Real.pi * Complex.I) *
       (inner ℝ ξ (coordinateVector j) : ℂ))
     (ae_all_iff.mp hfreq j)
-  simpa only [complexify_realFourierSector, fourier_fourierSector] using hp
+  filter_upwards [hp] with ξ hξ
+  simpa only [complexify_realFourierSector, fourier_fourierSector] using hξ
 
 /-- The physical H1 sector element uses the actual projected velocity and
 the actual projections of its supplied weak-gradient fields. -/

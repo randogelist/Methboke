@@ -27,7 +27,10 @@ Matching cached external verification is pending. The first spectral attempt
 found one explicit type argument missing; [the exact failed evidence](audits/material-3375a8dc-nse-a-failed/summary.json)
 is retained and the source is repaired. Independent B-tier work also derives
 the physical energy/enstrophy and same-path cutoff chain. Prior P01–P03
-acceptance is unchanged, and all six parent targets remain open.
+acceptance is unchanged, and all six parent targets remain open. The combined
+[second attempt](audits/material-7b4e02ad-nse-a-failed/summary.json) compiled the real-L2
+layer and exposed two proof-script residuals in the H1 bridge; both are repaired
+with unchanged public statements and independent consumers.
 
 ## AC-Integration: accepted NSE-A construction
 

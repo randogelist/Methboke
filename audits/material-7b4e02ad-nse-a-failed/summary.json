@@ -1,0 +1,31 @@
+{
+  "status": "OWNED_PROOF_ELABORATION_FAILURE_NO_NEW_ACCEPTANCE",
+  "tested_commit": "7b4e02ad7a8056b84ed334c55e56dab74ab74d58",
+  "run_id": 44817097715,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44817097715",
+  "compiled_new_sources": [
+    "H1Spectral",
+    "RealFourier",
+    "RealSectorMultipliers",
+    "SmallProductCoefficient"
+  ],
+  "failures": [
+    {
+      "module": "PhysicalH1Divergence",
+      "line": 107,
+      "diagnostic": "No goals to be solved",
+      "repair": "Remove the extra simplification after congr already closes the concrete coordinate identity."
+    },
+    {
+      "module": "PhysicalH1Sectors",
+      "line": 51,
+      "diagnostic": "Whole a.e. wrapper simplification type mismatch",
+      "repair": "Eliminate the a.e. equality pointwise before rewriting the exact projected Fourier expressions."
+    }
+  ],
+  "public_statements_and_audits_unchanged": true,
+  "local_lean_executions": 0,
+  "cache_admission": "PASS",
+  "publication": false,
+  "parent_targets_closed": 0
+}
