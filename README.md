@@ -31,6 +31,7 @@ acceptance is unchanged, and all six parent targets remain open. The combined
 [second attempt](audits/material-7b4e02ad-nse-a-failed/summary.json) compiled the real-L2
 layer and exposed two proof-script residuals in the H1 bridge; both are repaired
 with unchanged public statements and independent consumers.
+The [third attempt](audits/material-5342389c-nse-a-failed/summary.json) passed all496 source modules. Its audit phase found an ambiguous infinity type in one independent consumer; the explicit ENNReal annotation is prepared for fresh verification.
 
 ## AC-Integration: accepted NSE-A construction
 

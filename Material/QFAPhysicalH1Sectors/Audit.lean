@@ -173,9 +173,9 @@ example (U : ℝ → PhysicalH1) (b : ℝ) :
       6 * sixChargeBudget (fun i t => physicalH1SectorCharge i (U t))
         (volume.restrict (Ioo (0 : ℝ) b)) := physicalH1Sector_budget_bounds U b
 example (U : ℝ → PhysicalH1) (b : ℝ) :
-    stoppedSquareBudget (fun t => physicalH1Enstrophy (U t)) b ≠ ∞ ↔
+    stoppedSquareBudget (fun t => physicalH1Enstrophy (U t)) b ≠ (⊤ : ℝ≥0∞) ↔
       sixChargeBudget (fun i t => physicalH1SectorCharge i (U t))
-        (volume.restrict (Ioo (0 : ℝ) b)) ≠ ∞ := physicalH1Sector_budget_finite_iff U b
+        (volume.restrict (Ioo (0 : ℝ) b)) ≠ (⊤ : ℝ≥0∞) := physicalH1Sector_budget_finite_iff U b
 example (U : ℝ → PhysicalH1) (b : ℝ) (hU : ContinuousOn U (Ioo (0 : ℝ) b)) :
     sixChargeBudget (fun i t => physicalH1SectorCharge i (U t))
         (volume.restrict (Ioo (0 : ℝ) b)) =
@@ -183,9 +183,9 @@ example (U : ℝ → PhysicalH1) (b : ℝ) (hU : ContinuousOn U (Ioo (0 : ℝ) b
         ENNReal.ofReal ((physicalH1SectorCharge i (U t)) ^ 2) :=
   physicalH1Sector_budget_eq_sum U b hU
 example (U : ℝ → PhysicalH1) (b : ℝ) (hU : ContinuousOn U (Ioo (0 : ℝ) b)) :
-    stoppedSquareBudget (fun t => physicalH1Enstrophy (U t)) b ≠ ∞ ↔
+    stoppedSquareBudget (fun t => physicalH1Enstrophy (U t)) b ≠ (⊤ : ℝ≥0∞) ↔
       ∀ i : Fin 6, (∫⁻ t in Ioo (0 : ℝ) b,
-        ENNReal.ofReal ((physicalH1SectorCharge i (U t)) ^ 2)) ≠ ∞ :=
+        ENNReal.ofReal ((physicalH1SectorCharge i (U t)) ^ 2)) ≠ (⊤ : ℝ≥0∞) :=
   physicalH1Sector_budget_finite_iff_each U b hU
 
 end QFAPhysicalH1Sectors.ExpectedTypes

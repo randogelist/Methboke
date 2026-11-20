@@ -4315,3 +4315,655 @@ ENDPOINT STATUS
   SOLENOIDAL_H1_SECTOR_CHAIN: DERIVED.
   NATIVE_SOLENOIDAL_SECTORS: PREPARING_PENDING_MATCHING_EXTERNAL_CI.
   G05_PARENT_A_TIER_CLOSURE: NOT_CLAIMED.
+
+
+============================================================================
+APPENDIX: PHYSICAL_H2_GRAPH_CHAIN.txt
+Independent mathematical review: passed within the stated supplied-input scope.
+============================================================================
+
+PHYSICAL H2 GRAPH AND EXACT HESSIAN--LAPLACIAN BRIDGE
+Date:2026-11-20
+Mode:B_TIER_DERIVATION
+Scope:G02/P09 spatial derivative component; supports G01 and G03
+Status:B_TIER_COMPLETE_WITH_EXPLICIT_NATIVE_CONSTRUCTION_GAP
+No local Lean/Lake/kernel execution.
+
+1. ACTUAL CARRIERS AND H2 GRAPH
+
+Use the original real full-volume vector L2 carrier on Euclidean R3, the
+native compact-test weak derivatives, and the constructed physical H1 graph.
+For a supplied H1 element u, write v=velocity(u) and G_j=partial_j v.
+Define H2 by nine actual real L2 witnesses H_jk such that H_jk is the
+native compact-test derivative partial_k G_j. All compact smooth real tests
+are required. Its inhomogeneous norm squared is
+  ||v||_2^2 + sum_j ||G_j||_2^2 + sum_jk ||H_jk||_2^2.
+These witnesses are unique by applying the accepted first-derivative
+uniqueness theorem to each G_j. No second derivative is postulated for v
+outside that explicitly defined graph.
+
+The graph is an intersection of kernels of continuous compact-test pairing
+maps on the actual 13-fold L2 Hilbert sum (velocity, three first derivatives,
+nine ordered second derivatives). Hence it is closed and complete. The
+original native solenoidal condition gives a further closed restriction.
+The H2-to-H1 inclusion is the actual coordinate projection; the weak
+derivatives and velocity coincide, not merely abstract isomorphic fields.
+
+2. SECOND-DERIVATIVE FOURIER IDENTITY
+
+Apply the H1-only directional Fourier theorem first to (v,G_j) and then to
+(G_j,H_jk). For all nine pairs simultaneously almost everywhere,
+  F(c H_jk)(xi)=-(2pi)^2 xi_j xi_k F(c v)(xi),          (2.1)
+where c is the actual isometric real-to-complex embedding. This uses only
+the two stated first-derivative relations. Finite intersections of their
+full-measure sets retain a common set for every component.
+
+The frequency products commute, so Fourier injectivity and injectivity of c
+give H_jk=H_kj as actual L2 classes. Thus symmetry of the weak Hessian is
+derived without presupposing pointwise C2 regularity.
+
+3. ACTUAL LAPLACIAN AND EXACT FROBENIUS NORM
+
+Set L=sum_j H_jj in the actual real L2 carrier. Linearity and (2.1) give
+  F(c L)=-(2pi)^2 |xi|^2 F(c v) a.e.                 (3.1)
+This L is the distributional Laplacian because its three diagonal
+derivatives are exactly the derivatives of the actual first derivatives.
+The distributional identity can equivalently be tested against every
+compact smooth real scalar phi:
+  integral phi L = integral (Delta phi) v.
+Every spatial test pairing is integrable; the equality does not exploit
+the value assigned to a nonintegrable Bochner integral.
+
+Square the full complex vector norm in (2.1), sum all nine ordered pairs,
+and use the exact Euclidean identity
+  sum_jk xi_j^2 xi_k^2 = (sum_j xi_j^2)^2 = |xi|^4.
+The density on the left is a finite sum of genuinely integrable squared
+L2 norms. Plancherel and the isometry c therefore give
+  sum_jk ||H_jk||_2^2 = ||L||_2^2.                    (3.2)
+This is the full Frobenius Hessian identity. The off-diagonal terms occur
+twice in the ordered sum, exactly as required; no dimension factor is lost.
+Consequently the H2 graph norm squared is exactly
+  ||v||_2^2 + sum_j ||G_j||_2^2 + ||L||_2^2.
+
+4. RECONSTRUCTING H2 FROM A SUPPLIED L2 LAPLACIAN
+
+Conversely suppose u is in the actual physical H1 graph and a real L2 field
+L satisfies the literal distributional Laplacian identity above. Extend
+compact tests to Schwartz tests by the already sourced compact-Schwartz
+density argument. The native distribution Fourier identity and representative
+separation give (3.1), without assuming any H_jk witnesses.
+
+For the native adapter, FourierMultipliers.laplacian_fourier_ae consumes
+SchwartzDerivativeWitnesses. Build that record from the existing G_j and
+the supplied real compact-test Laplacian identity. The relevant source
+anchors are QFALC004.CompactSchwartz.tempered_eq_of_eq_on_compactSchwartz,
+QFALC005.Density.denseCompactSchwartzTests, and H1Fourier's real/imaginary
+test decomposition. This adapter remains an explicit native obligation.
+
+Define the bounded real measurable symbols
+  m_jk(xi)=xi_j xi_k/|xi|^2 for xi != 0,
+  m_jk(0)=0.
+They are even and satisfy |m_jk|<=1. Multiply the actual complex L2 field
+F(c L) by m_jk; measurability and norm domination prove L2 membership.
+This is multiplication of an L2 representative by a bounded measurable
+function, not sharp multiplication of an arbitrary distribution.
+
+Because L is real, F(c L) has conjugate-reflection symmetry. An even real
+symbol preserves that symmetry. The constructive real Fourier-range
+criterion therefore supplies actual real L2 fields H_jk with
+  F(c H_jk)=m_jk F(c L).
+Using (3.1) gives (2.1) a.e., including the zero-frequency branch: at xi=0
+the desired second-derivative multiplier is zero, and the Laplacian identity
+also makes its L2 representative zero wherever that a.e. identity applies.
+
+The already proved first-derivative identity for G_j now yields
+  F(c H_jk)=(2pi i xi_k) F(c G_j).
+The reverse first-derivative theorem proves that H_jk is the actual native
+weak derivative partial_k G_j. Thus the H2 graph element is constructed
+from the supplied physical H1 field and actual L2 Laplacian. No weighted
+Hessian integrability or H2 membership is inserted as a premise.
+All uniqueness, symmetry and norm identities in sections 2--3 then apply.
+
+5. SECTOR AND SPATIAL-ESTIMATE CONSEQUENCES
+
+Apply the constructed real sector projection to v, to every G_j and to
+every H_jk. First-derivative commutation applied twice proves that these
+are the actual projected H2 derivatives. Each L2 component contracts, so
+the full H2 graph norm contracts. The actual Laplacian commutes by the
+finite diagonal sum. Orthogonal reconstruction holds at every derivative
+level. If v is native solenoidal, its projected velocity retains that same
+property by the H1 solenoidal preservation theorem.
+
+Once an admissible scalar/vector/tensor Sobolev inequality is proved,
+apply it to the actual tensor grad v. Equation (3.2) supplies
+  ||grad v||_6 <= S ||Hess v||_2 = S ||Delta v||_2.
+This transfers a spatial Sobolev estimate without an extra factor from
+vector or tensor dimensions. It does not prove admissibility or sharpness
+of S. The required S6^6=16/(27pi^4) remains the separate sharp scalar
+admission obligation recorded in SHARP_SPATIAL_ADMISSION_CHAIN.txt.
+
+6. NATIVE SOURCE MAP AND FIRST REMAINING EDGE
+
+Reusable exact project sources:
+- PhysicalH1.lean: compactPairingCLM, first-derivative uniqueness, closed
+  kernel graph/completeness construction and native solenoidal restriction.
+- H1Fourier.lean / H1FourierReverse.lean: actual supplied L2 derivatives
+  iff their Fourier multiplier identities, with no H2 premise.
+- H1Spectral.lean: H1-only norm-density/integrability/Plancherel pattern.
+- FourierMultipliers.lean / Spectral.lean: existing Laplacian Fourier
+  distribution and norm-density adapters from explicitly stated witnesses.
+- RealFourier.lean: constructive Hermitian Fourier range.
+- RealSectorMultipliers.lean / PhysicalH1Sectors.lean / SixSectorNaturality.lean:
+  actual real range, derivative transport and native solenoidal preservation.
+
+Pinned Mathlib supports the PiLp Hilbert sum, continuous finite projections,
+closed submodules, compLpL, MemLp domination, actual L2 Fourier isometry,
+compact-test separation and the two distribution Fourier identities.
+The bounded m_jk multiplier requires an owned generic real/even multiplier
+adapter, or a direct MemLp construction from the literal symbols.
+
+FIRST NATIVE EDGE: construct/register the actual 13-component H2 graph and
+its second weak-derivative witnesses, then prove the second multiplier and
+Laplacian identities and bounded-symbol real reconstruction above. Existing
+conditional spectral records do not themselves construct these witnesses.
+This note completes the mathematical chain, not that native formalization.
+G02 remains open even after the H2 component because sharp scalar Sobolev
+admissibility has a separate missing native construction.
+
+
+============================================================================
+APPENDIX: FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt
+Independent mathematical review: passed within the stated supplied-input scope.
+============================================================================
+
+NSE-A FULL STOPPED-WINDOW BUDGETS, FOURIER NORMALIZATION AND GAUGE
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: P08, for supplied actual physical H1 paths on their existing lifetime
+Basis: A_TIER_PLAN.json P08; ACBudget, SixChargeBudget, H1Spectral,
+       PhysicalH1Sectors; pinned Mathlib db584cd6 sources listed below
+External helper candidate: 5342389c / run 44818300007
+External source compilation: PASS, all 496 modules
+External audit/overall result: FAIL at H1Spectral audit; not new A-tier acceptance
+Local Lean/Lake/kernel executions: NONE
+New native source, audit, manifest or CI changes in this derivation: NONE
+
+0. TYPES, PREMISES AND CLAIM BOUNDARY
+
+Let T belong to ENNReal=[0,infinity], let tau be a real number with
+0<=tau, and let nu be a real number with 0<nu. Thus tau and nu are finite.
+T is allowed to be zero or infinity. Write [c]=ENNReal.ofReal(c) for a
+real c; we supply nonnegativity whenever its real arithmetic is used.
+All budgets, their suprema and the gauge below have type ENNReal.
+The exponent 1/4 denotes the real rpow exponent; a fourth power is a
+natural-number power. These conventions also apply at zero and infinity.
+
+Use actual PhysicalH1 elements, their actual L2 velocities and supplied
+weak gradients. A time path may be given only on its existing lifetime
+D_T={t:Real | 0<=t and [t]<T}, or on its positive-time part. Writing
+U:Real->PhysicalH1 means an arbitrary extension of that path to other
+times; every integral is restricted to the observation set. Its
+value is unchanged if the extension is changed outside that set, or on
+a null subset of that set. The zero element gives an available extension.
+
+No NSE equation, canonical solution, uniqueness, restart or terminal
+continuity is assumed here. Solenoidality is not required by these
+pathwise identities. It may be retained when the supplied path has it.
+The basic ENNReal definitions, comparison and Fourier normalization do
+not need temporal measurability. For exact splitting into the six time
+integrals, assume ContinuousOn U on the open observation set, or instead
+assume the explicitly needed restricted a.e. measurability of the charges.
+For finite ordinary integrals from zero, a separate compact-interval
+continuity premise is stated in Section 4. No budget finiteness is a
+premise of the definitions.
+
+1. FINITE CUTOFF BEFORE toReal
+
+First define beta=min(T,[tau]) in ENNReal. Since
+
+  beta <= [tau] < infinity,
+
+beta is finite. Only now set b=beta.toReal. Then
+
+  0<=b<=tau,                 [b]=beta.
+
+Define the open observation set exactly by
+
+  O(T,tau)={t:Real | 0<t and [t]<T and t<tau}.
+
+For a positive t, [t]<[tau] iff t<tau. Consequently
+
+  t in O(T,tau)
+    iff 0<t and [t]<min(T,[tau])
+    iff 0<t and t<beta.toReal
+    iff t in Ioo(0,b).                                      (W1)
+
+The middle equivalence uses beta!=infinity and t>=0. Thus (W1) is
+literal equality of sets, not merely equality modulo endpoint null sets.
+
+Special cases are part of this construction:
+
+  T=infinity       ==> beta=[tau], b=tau;
+  T=0 or tau=0     ==> beta=0, b=0, O=empty;
+  b=0             iff T=0 or tau=0;
+  b>0             iff T>0 and tau>0.
+
+If T is finite, b=min(T.toReal,tau) follows afterwards. That formula is
+not valid without finiteness of T: ENNReal.toReal(infinity)=0, whereas
+the correctly stopped endpoint when T=infinity is b=tau.
+
+2. ACTUAL PHYSICAL CHARGES AND COMPLETE NONNEGATIVE BUDGETS
+
+For t in O set
+
+  Y(t)=physicalH1Enstrophy(U(t))
+      =sum_(j:Fin 3) ||physicalH1Gradient j (U(t))||_2^2,
+  q_i(t)=physicalH1SectorCharge i (U(t)),       i:Fin 6.
+
+The q_i use the constructed physical H1 sector operators, not an abstract
+family constrained by a supplied charge-sum hypothesis. Their native
+pointwise results give
+
+  0<=q_i(t),       sum_i q_i(t)=Y(t),       0<=Y(t),
+  sum_i q_i(t)^2 <= Y(t)^2 <= 6*sum_i q_i(t)^2.              (P1)
+
+Each q_i is already a squared gradient norm. Its square q_i^2 is a fourth
+power of a gradient L2 norm. Use that square in the time budget.
+
+Define, with Lebesgue volume on time,
+
+  J   = integral^-_(t in O) [Y(t)^2],
+  J6  = integral^-_(t in O) [sum_i q_i(t)^2],
+  Ji  = integral^-_(t in O) [q_i(t)^2].
+
+These are defined even if their value is infinity. By (W1), J is exactly
+ACBudget.stoppedSquareBudget(Y,b), and J6 is exactly SixChargeBudget's
+sixChargeBudget with the measure volume.restrict(Ioo(0,b)).
+
+Monotonicity of the nonnegative integral, (P1), and extraction of the
+finite coefficient 6 give
+
+  J6 <= J <= 6*J6.                                          (P2)
+
+This also holds for infinite values. Since multiplication by the finite
+positive number 6 preserves finiteness,
+
+  J<infinity iff J6<infinity.                               (P3)
+
+If U is continuous on O, continuity of each actual charge supplies its
+restricted a.e. measurability. The exact finite-sum integral theorem
+then yields, with no finiteness premise,
+
+  J6=sum_(i:Fin 6) Ji,
+  J6<infinity iff every Ji<infinity.                        (P4)
+
+The same statements hold under restricted a.e. measurability of the
+charge functions. No additivity of lower integrals of arbitrary
+nonmeasurable functions is silently used in (P4).
+
+3. THE COMPLETE IMPROPER ENDPOINT IS A SUPREMUM
+
+For a real r define partial budgets on Ioo(0,r):
+
+  J(r)=integral^-_(0<t<r) [Y(t)^2],
+  J6(r)=integral^-_(0<t<r) [sum_i q_i(t)^2],
+  Ji(r)=integral^-_(0<t<r) [q_i(t)^2].
+
+The budgets increase with r, by inclusion of intervals. For b>0 put
+
+  r_n=b*(n+1)/(n+2),            n:Nat.
+
+Then 0<r_n<b, r_n increases to b, and
+
+  union_n Ioo(0,r_n)=Ioo(0,b).
+
+For the nontrivial inclusion, given 0<t<b choose n large enough that
+b/(n+2)<b-t. This gives t<r_n. Countable directed-union continuity of
+the nonnegative integral therefore gives
+
+  J=sup_n J(r_n)=sup_{0<=r<b} J(r).                         (E1)
+
+To justify the second equality, each admissible r has J(r)<=J, whereas
+every r_n is admissible. The same proof applies to J6 and each Ji.
+When b=0, all r_n=0, their intervals are empty, and both sides of (E1)
+are zero; the supremum over {r | 0<=r<b} is the empty supremum, also zero.
+
+The pinned setLIntegral_iUnion_of_directed theorem requires countability
+and directedness of the sets; it requires no measurability premise on
+the integrand or sets. Thus (E1) is available already at the general
+definition level. Under temporal measurability the usual monotone
+convergence theorem is an alternative proof. The increasing sequence
+of partial budgets converges to the displayed supremum in ENNReal;
+for b>0 this is the full improper limit approaching b from below.
+This limit and its supremum may be infinity.
+
+There is an exact uniform-bound characterization:
+
+  J<infinity
+    iff exists C:NNReal, for every 0<=r<b, J(r)<=C
+    iff exists C:NNReal, for every n:Nat, J(r_n)<=C.         (E2)
+
+Here NNReal C is included in ENNReal, so it is necessarily finite. The
+forward direction takes C=J.toNNReal only after J!=infinity has been
+established. The reverse direction takes the supremum of the common
+bound and uses (E1). Equivalently one can take a single natural-number
+bound, since any finite ENNReal value is smaller than some natural.
+
+E2 must not be replaced by the weaker assertion
+
+  for every 0<=r<b, J(r)<infinity.                         (NOT E2)
+
+For an actual H1 counterexample, let T=tau=b=1 and choose a fixed smooth
+compactly supported real vector field w with Y(w)>0, viewed as its
+actual PhysicalH1 element. On 0<=t<1 put
+
+  U(t)=(1-t)^(-1/4) * w.
+
+This path is continuous on every [0,r] with r<1. Quadratic homogeneity
+of enstrophy gives
+
+  Y(t)^2=Y(w)^2/(1-t),
+  J(r)=[Y(w)^2*(-log(1-r))] < infinity     for 0<=r<1,
+  J=infinity.
+
+The common bound in (E2) fails. This example is a supplied H1 path and
+claims no NSE solution property. It also shows why no terminal value
+or terminal continuity may be inserted to make finiteness automatic.
+
+4. ORDINARY PARTIAL INTEGRALS AND THE INITIAL ENDPOINT
+
+If U is continuous on every [0,r] with 0<=r<b, then Y^2 and sum_i q_i^2
+are continuous there. A compact interval has finite volume, so their
+ordinary integrals are finite and agree with the ENNReal partial budgets:
+
+  J(r)=[integral_(0<t<r) Y(t)^2 dt],
+  J6(r)=[integral_(0<t<r) sum_i q_i(t)^2 dt].                (E3)
+
+Replacing Ioo(0,r) by the closed interval [0,r] changes no integral.
+The ordinary integral over 0..r agrees as well because r>=0. These
+identifications use integrability and nonnegativity, not the default
+value of a totalized Bochner integral on a nonintegrable function.
+Together (E1) and (E3) recover the registered full improper integral
+without requiring a value, continuity or an H1 bound at b.
+
+Continuity merely on (0,b) does not imply integrability near zero.
+Under that weaker premise use, for b>0, the nested compact exhaustion
+
+  K_n=[b/(n+2), b*(n+1)/(n+2)] subset (0,b).
+
+Its union is (0,b). Each compact integral is finite and their supremum
+is the same full budget. For b=0 use the already proved empty-window
+case. This avoids silently assuming a continuous extension at the
+initial time when the supplied path did not include one.
+
+5. THE ACTUAL H1 FOURIER FACTOR
+
+For each t, take the actual L2 Fourier transform of the complexification
+of the physical velocity of U(t), with phase exp(-2*pi*i*x dot xi). Let
+
+  Q(t)=integral_(xi in R3) |xi|^2 * |Fourier(U(t))(xi)|^2 dxi,
+  F(t)=integral^-_(xi in R3) [|xi|^2 * |Fourier(U(t))(xi)|^2].
+
+H1Spectral proves integrability of this actual spatial weighted density
+from the supplied weak gradient. Therefore Q(t) is a genuine finite
+nonnegative real integral and
+
+  F(t)=[Q(t)]<infinity,       Y(t)=(4*pi^2)*Q(t).            (F1)
+
+No temporal integrability, chosen jointly measurable Fourier
+representatives, Laplacian premise or spectral-admission assumption is
+needed here. All identities are independent of a.e. representative
+choices in space. When U is continuous on O, Q=Y/(4*pi^2) is continuous
+there; consequently the spectral time density is measurable without a
+separate joint-representative construction.
+
+With c=[4*pi^2], (F1) yields
+
+  [Y(t)]=c*F(t),
+  [Y(t)^2]=[16*pi^4]*F(t)^2.                              (F2)
+
+Define the Fourier time budget by the full nonnegative integral
+
+  B=integral^-_(t in O) F(t)^2
+   =integral^-_(t in O) [Q(t)^2].
+
+The coefficient [16*pi^4] is finite, so it can be extracted from the
+integral even without temporal measurability. Hence
+
+  J=[16*pi^4]*B,               B=J/[16*pi^4].              (F3)
+
+The coefficient is strictly positive. Thus (F3) holds both for finite
+values and for J=B=infinity, and
+
+  B<infinity iff J<infinity.                               (F4)
+
+The same normalization holds on every partial interval and every compact
+interior interval. In particular, B is the supremum of its complete
+family of nonnegative partial budgets, exactly as in (E1).
+
+The six charges have the compatible literal spatial description
+
+  q_i(t)=(4*pi^2)*integral_(xi in sixSector i)
+                         |xi|^2 * |Fourier(U(t))(xi)|^2 dxi.
+
+This uses the same actual unprojected velocity and exact six sectors as
+PhysicalH1Sectors.physicalH1SectorCharge_eq_sector_integral. It does not
+substitute the sum of unsquared charges for the six-charge budget.
+
+6. GAUGE, FOURTH POWER AND FINITENESS INCLUDING INFINITY
+
+Put k=[4*nu]. Since nu>0, 0<k<infinity. Define directly in ENNReal
+
+  L=(k*J)^(1/4).
+
+There is no toReal operation in this definition. The ENNReal fourth-root
+identity, valid at zero and infinity as well as at finite positive values,
+gives
+
+  L^4=k*J=[64*pi^4*nu]*B.                                  (G1)
+
+In particular,
+
+  J=0        ==> L=0,
+  J=infinity ==> k*J=infinity ==> L=infinity,
+  L<infinity iff J<infinity iff J6<infinity iff B<infinity.  (G2)
+
+Under the restricted measurability premise of (P4), these are also
+equivalent to every individual Ji being finite. Thus there are no
+unrecorded finite-value restrictions in the normalization or the
+finiteness equivalences.
+
+Multiplying (P2) by k gives the registered gauge comparison
+
+  [4*nu]*J6 <= L^4 <= [24*nu]*J6.                          (G3)
+
+If L6=(k*J6)^(1/4), monotonicity and the nonnegative product-rpow rule give
+
+  L6<=L<=6^(1/4)*L6.                                      (G4)
+
+The positivity of nu is essential to (G2). At nu=0, the ENNReal convention
+0*infinity=0 would make this gauge zero even for an infinite J. The
+physical budget identities and (P2),(F3) themselves do not require nu.
+
+7. ZERO WINDOW AND ZERO PATH
+
+If T=0 or tau=0, then O is empty and
+
+  J=J6=Ji=B=L=L6=0.
+
+These formulas hold for every supplied path, whatever its values outside
+O. If U=0 on O, or U=0 almost everywhere for the restricted time measure,
+the actual linear gradient and sector maps vanish there, so the same
+zero formulas hold on a nonempty window. The Fourier formula agrees by
+(F1). No evolution-uniqueness assertion is needed to prove these cases.
+
+For a later cutoff tau(a,nu)=8*||a||_2^4/(27*pi^4*nu^5), zero data give
+tau=0 and hence the zero-window formula. This is a scalar substitution;
+constructing the canonical zero NSE trajectory is a separate endpoint.
+
+8. SUBLEVELS AND INTEGER EXHAUSTION
+
+Let D be any family of valid supplied-path inputs d=(T_d,tau_d,U_d),
+with fixed nu>0. Define, for a finite real radius R>=0,
+
+  C_R={d in D | L(d)<=[R]},
+  C_fin={d in D | L(d)<infinity}.
+
+If 0<=R<=S, then C_R subset C_S. Positive finite coefficient cancellation
+and the fourth-root order equivalence give the exact sublevel formulas
+
+  L(d)<=[R]
+    iff J(d)<=[R^4/(4*nu)]
+    iff B(d)<=[R^4/(64*pi^4*nu)].                          (S1)
+
+This includes R=0. Infinite budgets are automatically excluded from
+every such finite-radius sublevel; no preliminary toReal of L, J or B
+is used in (S1). From (P2), for every finite real C>=0,
+
+  {d | J6(d)<=[C/6]} subset {d | J(d)<=[C]}
+                         subset {d | J6(d)<=[C]}.         (S2)
+
+Every finite ENNReal value is bounded by a natural number. Therefore
+
+  C_fin=union_(n:Nat) C_n=union_(n:Nat) C_(n+1).           (S3)
+
+For the forward inclusion choose n>L(d) using finiteness; for the reverse
+inclusion use L(d)<=n<infinity. By (G2), the same C_fin is the finite-J,
+finite-J6 and finite-B class, and under (P4) the all-Ji-finite class.
+These are set-theoretic sublevels and an exhaustion, with no assertion
+of compactness, a norm structure or an initial-data-only membership test.
+
+For the same compatible path and fixed nu, enlarging T or tau enlarges
+O; consequently J,J6,B and L are monotone under such window inclusion.
+This does not assert monotonicity with respect to nu when the path,
+lifetime or cutoff changes with viscosity.
+
+9. PINNED MATHLIB SOURCE MAP AND HYPOTHESIS CHECKS
+
+All paths in this section are relative to the inspected pinned source
+root /workspace/scratch/9d4dc6f7f47a/anchor_sources/mathlib4-db584cd6.
+These are source anchors for a future native proof, not execution logs.
+
+Mathlib/Data/ENNReal/Basic.lean
+  ENNReal.ofReal_lt_top, ENNReal.ofReal_ne_top:
+    the real cutoff and every real coefficient are finite.
+  ENNReal.ofReal_toReal:
+    requires the ENNReal argument to be !=infinity; apply to beta only
+    after beta<infinity. ENNReal.toReal_ofReal requires tau>=0.
+  ENNReal.toReal_nonneg:
+    gives b>=0.
+  ENNReal.exists_nat_gt:
+    requires the ENNReal argument to be !=infinity; proves (E2),(S3).
+  ENNReal.iUnion_Iic_coe_nat, ENNReal.iUnion_Iio_coe_nat:
+    both unions are exactly the complement of {infinity}.
+
+Mathlib/Data/ENNReal/Real.lean
+  ENNReal.ofReal_lt_ofReal_iff_of_nonneg:
+    assumes the lower real argument is nonnegative; apply using t>0.
+  ENNReal.ofReal_lt_iff_lt_toReal:
+    assumes t>=0 and beta!=infinity; gives the last strict comparison
+    in (W1).
+  ENNReal.toReal_le_of_le_ofReal:
+    assumes tau>=0; beta<=[tau] gives b<=tau.
+  ENNReal.toReal_min:
+    requires both original arguments finite. It cannot handle T=infinity
+    by rewriting to min(T.toReal,tau) before stopping.
+  ENNReal.ofReal_mul, ENNReal.ofReal_pow:
+    explicit nonnegative real premises supply (F2) and the constants.
+
+Mathlib/Data/ENNReal/Operations.lean
+  ENNReal.mul_eq_top:
+    exact two-factor description handles finite positive times infinity.
+  ENNReal.mul_lt_top, ENNReal.mul_ne_top,
+  ENNReal.lt_top_of_mul_ne_top_right:
+    positive finite coefficient multiplication preserves finiteness.
+
+Mathlib/Data/ENNReal/Inv.lean
+  ENNReal.mul_inv_cancel:
+    the factor must be nonzero and finite; applies to [4*nu], [16*pi^4]
+    and [64*pi^4*nu] in (F3),(S1).
+  ENNReal.le_div_iff_mul_le:
+    its zero/infinity side conditions are discharged by these positive
+    finite denominators. Keep those conditions explicit at radius zero.
+  ENNReal.ofReal_div_of_pos:
+    a strictly positive real denominator identifies the divided ENNReal
+    threshold with [R^4/(4*nu)] or [R^4/(64*pi^4*nu)] in (S1).
+
+Mathlib/MeasureTheory/Integral/Lebesgue/Basic.lean
+  MeasureTheory.lintegral_mono, lintegral_mono_ae, lintegral_mono_set:
+    give (P2), extension invariance up to a.e. equality and window order.
+  MeasureTheory.lintegral_congr_ae, setLIntegral_congr_fun:
+    justify extension independence; the latter uses a measurable set,
+    here Ioo(0,b).
+  MeasureTheory.setLIntegral_iUnion_of_directed:
+    assumes a countable index type and directed inclusion of sets;
+    no measurability premise on the integrand or sets. Apply to the
+    explicit increasing open intervals or compact interior exhaustion.
+
+Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean
+  MeasureTheory.lintegral_iSup:
+    requires measurable functions and monotonicity.
+  MeasureTheory.lintegral_iSup':
+    uses a.e. measurable functions and a.e. pointwise monotonicity.
+    These are optional measurable versions of the (E1) argument.
+  MeasureTheory.lintegral_const_mul':
+    requires only that the extracted ENNReal coefficient !=infinity;
+    no integrand measurability is needed. This proves (F3) even at infinity.
+  MeasureTheory.lintegral_finsetSum':
+    requires each summand a.e. measurable for the actual restricted
+    measure. This is the exact premise used for (P4).
+
+Mathlib/MeasureTheory/Function/LocallyIntegrable.lean
+  ContinuousOn.integrableOn_compact, ContinuousOn.integrableOn_Icc:
+    compact continuity supplies honest finite partial integrals.
+
+Mathlib/MeasureTheory/Integral/Bochner/Basic.lean
+  MeasureTheory.ofReal_integral_eq_lintegral_ofReal:
+    requires Integrable and a.e. nonnegativity. Both are supplied for
+    compact temporal integrals in (E3) and actual spatial H1 integrals.
+
+Mathlib/Analysis/SpecialFunctions/Pow/NNReal.lean, namespace ENNReal
+  ENNReal.rpow_inv_natCast_pow:
+    for n!=0 proves (x^(n^(-1):Real))^n=x for every ENNReal x.
+    Set n=4 to obtain (G1) without excluding zero or infinity.
+  ENNReal.rpow_lt_top_iff_of_pos, rpow_eq_top_iff_of_pos:
+    require a positive real exponent; apply to 1/4 for (G2).
+  ENNReal.rpow_le_rpow_iff, rpow_inv_le_iff:
+    positive exponent order equivalences give (G4),(S1).
+  ENNReal.mul_rpow_of_nonneg:
+    requires nonnegative exponent; includes zero/infinity products
+    and gives the optional six-gauge comparison (G4).
+  ENNReal.rpow_natCast:
+    aligns the fourth real power with the natural fourth power.
+
+10. NATIVE FRONTIER AND ENDPOINT STATUS
+
+The existing native physical charge helpers supply (P1)--(P4) at a real
+endpoint b. The actual H1Spectral helpers supply (F1), including spatial
+integrability. ACBudget already defines the full real-endpoint J as an
+ENNReal lintegral. None of those definitions first stops an arbitrary
+ENNReal lifetime by a finite cutoff and then constructs the complete
+P08 window/gauge/sublevel interface.
+
+FIRST REMAINING NATIVE P08 EDGE:
+  construct beta=min(T,[tau]); prove beta!=infinity; define b=beta.toReal;
+  prove [b]=beta and O(T,tau)=Ioo(0,b), retaining T=0 and T=infinity.
+
+The subsequent native edges are the exact partial-budget supremum and
+uniform-bound equivalence, full temporal Fourier normalization, and
+ENNReal gauge/finiteness/sublevel packaging. They must consume the
+actual H1 charge and Fourier identities above, not replace them by
+extra root hypotheses. Independent full-type consumers and matching
+external compiler/axiom evidence will be required for new A-tier claims.
+
+B_TIER_P08_SUPPLIED_PATH_CHAIN: DERIVED, including zero and infinite cases.
+MATHEMATICAL_OBSTRUCTION_WITHIN_THIS_SCOPE: NONE.
+NATIVE_P08_FULL_ENDPOINT: OPEN; the first edge is identified above.
+NEW_A_TIER_ACCEPTANCE_FROM_THIS_NOTE: NONE.
+CANONICAL_NSE_INSTANTIATION / GLOBALITY_EQUIVALENCE: SEPARATE P11/P18 WORK.
+
+This pathwise endpoint does not infer T=infinity from finite J, nor does
+it infer finite J merely from T=infinity. The first implication needs an
+actual evolution/continuation theorem. For the second, continuity of a
+supplied global path on [0,tau] would give finiteness by compactness, but
+that temporal premise does not follow from the scalar value T=infinity.

@@ -112,7 +112,7 @@ example (u : PhysicalH1) :
 
 example (u : PhysicalH1) :
     (∫⁻ ξ : MethbokeAddon.QuasiFeffermanA.Space, ENNReal.ofReal (‖ξ‖ ^ 2 *
-      ‖(𝓕 (complexifyL2 (physicalH1Velocity u)) : ComplexL2) ξ‖ ^ 2)) ≠ ∞ :=
+      ‖(𝓕 (complexifyL2 (physicalH1Velocity u)) : ComplexL2) ξ‖ ^ 2)) ≠ (⊤ : ENNReal) :=
   physicalH1_weighted_lintegral_finite u
 
 end QFAH1Spectral.ExpectedTypes
