@@ -32,6 +32,7 @@ theorem localizedPairVelocity_compactCorrection
     localizedPairCorrection_hasCompactSupport k hβc u lambda,
     (localizedPairCorrection_tsupport_subset k β u lambda).trans hβI⟩
 
+set_option maxHeartbeats 800000 in
 theorem localizedPairForce_compactCorrection
     {ν T : ℝ} {u F : Velocity} {p : Pressure} (h : Seed ν T u p F)
     (k : Frequency) {β : ℝ → ℝ} (hβ : ContDiff ℝ ∞ β)
@@ -40,10 +41,18 @@ theorem localizedPairForce_compactCorrection
     CompactTemporalCorrection a b (localizedPairForce ν k β u F lambda - F) := by
   have hmap : ContDiff ℝ ∞ (fun z : ℝ × Vec => (lambda, z)) :=
     contDiff_const.prodMk contDiff_id
-  exact ⟨(localizedPairForceCorrection_joint_smooth h k hβ hβ0).comp hmap,
-    localizedPairForceCorrection_periodic h k hβ hβc hβ0 lambda,
-    localizedPairForceCorrection_hasCompactSupport ν k hβc u F lambda,
-    (localizedPairForceCorrection_tsupport_subset ν k β u F lambda).trans hβI⟩
+  have hsmooth : ContDiff ℝ ∞ (fun z : ℝ × Vec =>
+      (localizedPairForce ν k β u F lambda - F) z.1 z.2) := by
+    simpa only [Function.comp_def] using
+      (localizedPairForceCorrection_joint_smooth h k hβ hβ0).comp hmap
+  have hperiodic : ∀ t : ℝ,
+      SpatialPeriodic ((localizedPairForce ν k β u F lambda - F) t) :=
+    localizedPairForceCorrection_periodic h k hβ hβc hβ0 lambda
+  have hcompact : HasCompactSupport (localizedPairForce ν k β u F lambda - F) :=
+    localizedPairForceCorrection_hasCompactSupport ν k hβc u F lambda
+  have hsupport : tsupport (localizedPairForce ν k β u F lambda - F) ⊆ Ioo a b :=
+    (localizedPairForceCorrection_tsupport_subset ν k β u F lambda).trans hβI
+  exact ⟨hsmooth, hperiodic, hcompact, hsupport⟩
 
 theorem localizedPairVelocity_terminal_blowup
     {ν T : ℝ} {u F : Velocity} {p : Pressure} (h : Seed ν T u p F)

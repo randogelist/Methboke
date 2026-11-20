@@ -152,3 +152,5 @@ FDSN verification repair after run44807597711: Make residual smoothness subterms
 FDSN verification repair after run44808681563: Specify the exact inner and outer maps in both joint residual derivative compositions; theorem statements and audit consumers unchanged. [Failure record](audits/fdsn-6f02f8b7-failed/summary.json).
 
 FDSN verification repair after run44809750811: Normalize the actual correction value in the initial-time vanishing-germ equality before rewriting; one proof line changed, all theorem contracts preserved. [Failure record](audits/fdsn-fe0ba0f3-failed/summary.json).
+
+FDSN verification repair after run44810618725: Give all compact force-correction proof components explicit types and scope a larger elaboration budget to that single declaration; exact theorem and consumer contract unchanged. [Failure record](audits/fdsn-a75f3f0c-failed/summary.json).

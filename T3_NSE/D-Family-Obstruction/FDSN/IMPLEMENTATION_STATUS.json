@@ -277,9 +277,25 @@
       "axiom_policy_changed": false,
       "new_acceptance": false,
       "local_lean_executions": 0
+    },
+    {
+      "status": "FAILED_EXTERNAL_ELABORATION_REPAIR_PREPARED",
+      "commit": "a75f3f0c74121150d8c723a288e1c2ec3832f1c1",
+      "run_id": 44810618725,
+      "job_id": 136545910414,
+      "cause": "FamilyRealization compact-force correction proof exceeded default elaboration budget.",
+      "failed_modules": [
+        "FamilyRealization"
+      ],
+      "artifact_id": 14666526972,
+      "artifact_sha256": "38c3fb78420865f0370c66ae75a28ad319137b64d60003be168a15d7ff406e2a",
+      "statement_changed": false,
+      "axiom_policy_changed": false,
+      "new_acceptance": false,
+      "local_lean_executions": 0
     }
   ],
-  "current_repair": "Normalize the actual correction value in the initial-time vanishing-germ equality before rewriting; one proof line changed, all theorem contracts preserved.",
+  "current_repair": "Give all compact force-correction proof components explicit types and scope a larger elaboration budget to that single declaration; exact theorem and consumer contract unchanged.",
   "root_source_prepared": true,
   "root_external_acceptance": false
 }
