@@ -5,7 +5,7 @@
 Derived physical classical energy equality and weak/classical RAW and TRANSPORT relative-energy inequalities with NSE and pressure premises restricted to a finite compact interval.
 
 This newly developed owned source matches the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteWindowRelativeEnergy.lean`. Its derivation basis is
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/FiniteWindowRelativeEnergy.lean`. Its derivation basis is
 `Material/_vendor/SingularClosure/CriticalRelativeEnergyTransport.lean` at `0402aa37ea09f90a216e63e5fe67c3f58bb2b844`.
 That basis is not a claim that this new theorem source existed at that path
 or revision. `../owned-sources.json` binds the current source hash separately.

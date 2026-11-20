@@ -5,7 +5,7 @@
 Smooth periodic solenoidal mean-zero physical datum embeds into the original QFB EnergySigmaZero class, with actual representative equality, literal cutoff identity, and original Leray-Hopf existence. This is only the WFB-08 input adapter.
 
 The owned source matches the current candidate in
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/SmoothDatum.lean`. It derives from
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/SmoothDatum.lean`. It derives from
 the staged source at `0402aa37ea09f90a216e63e5fe67c3f58bb2b844`, with one
 proof-only equality-transitivity repair recorded in `../owned-sources.json`.
 The theorem signatures and premises are unchanged.

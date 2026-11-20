@@ -5,7 +5,7 @@
 An actual initial classical front supplies smooth datum admission, genuine strong initial trace, compact Serrin bounds, and identification with the original Leray-Hopf path.
 
 This newly developed owned source matches the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/InitialFrontAdmission.lean`. Its derivation basis is
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/InitialFrontAdmission.lean`. Its derivation basis is
 `Material/MethbokeAddon/WeakFouriermanB/LocalFrontIdentification.lean` at `67f766330918577e714e326be82eebfe29f5f2f7`.
 That basis is not a claim that this source existed at that path or revision.
 The current owned-source hash is recorded separately.

@@ -5,7 +5,7 @@
 Conditional fixed R0: an actual initial classical cap strictly beyond the literal QFB cutoff yields a globally smooth physical NSE pair retaining both original velocity and normalized pressure through the cap.
 
 This newly developed owned source matches the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteCapAdmission.lean`. Its derivation basis is
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/FiniteCapAdmission.lean`. Its derivation basis is
 `Material/_vendor/QuasiFeffermanB/TailChain.lean` at `67f766330918577e714e326be82eebfe29f5f2f7`.
 That basis is not a claim that this source existed at that path or revision.
 The current owned-source hash is recorded separately.

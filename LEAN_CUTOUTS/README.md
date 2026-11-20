@@ -1,6 +1,6 @@
 # Lean cutouts
 
-The [Ehrenfest identity collection](EhrenfestObstruction/README.md) contains 60 source-exact reference excerpts and 36 complete pinned source snapshots. Start with its [fast-route reading order](EhrenfestObstruction/FAST_IDENTITIES.md). This collection has no new compilation or formal acceptance.
+The [Ehrenfest identity collection](../T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/LEAN_CUTOUTS/README.md) contains 60 source-exact reference excerpts and 36 complete pinned source snapshots. Start with its [fast-route reading order](../T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/LEAN_CUTOUTS/FAST_IDENTITIES.md). This collection has no new compilation or formal acceptance.
 
 ## Native QFB root cutout
 

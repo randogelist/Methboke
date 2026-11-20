@@ -5,7 +5,7 @@
 Frozen data-class R0: positive viscosity implies D_Q subset R_nu. D_Q is the explicit zero union nonzero smooth data admitting a literal two-sided analytic NSE cap through twice the original QFB cutoff. Universal germ-to-cap admission is not asserted.
 
 The active proof source is byte-identical to the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/R0DataAdmission.lean`. It is newly developed source, with a derivation basis at
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/R0DataAdmission.lean`. It is newly developed source, with a derivation basis at
 `Material/_vendor/QuasiFeffermanB/Cutoff.lean` in `67f766330918577e714e326be82eebfe29f5f2f7`. The basis is not a historical source-location claim;
 `../owned-sources.json` separately records the current source hash.
 

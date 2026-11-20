@@ -1,0 +1,723 @@
+{
+  "schema_version": 1,
+  "frozen_name": "EHRENFEST-OBSTRUCTION",
+  "date": "2026-11-20",
+  "version": "0.7.0",
+  "project_goal_changed": true,
+  "fixed_project_goal": "EHRENFEST_OBSTRUCTION",
+  "local_target": "Exact conditional root acceptance with unchanged stopped premise",
+  "root_hypothesis": "StoppedCommutatorBound nu",
+  "global_custom_axiom_added": false,
+  "existential_premise_proved": false,
+  "mathematical_chain_complete_conditionally": true,
+  "new_formal_accepted_count": 183,
+  "obligations": [
+    {
+      "id": "E01",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.REAL_SOLENOIDAL_GALERKIN_ALGEBRA",
+      "existing_declaration": false,
+      "dependencies": [],
+      "mathematical_statement": "Identify the real, mean-zero, solenoidal finite Fourier state with V_N; derive polynomial smoothness, projection laws, positive A_N and exact nonlinear energy cancellation.",
+      "derivation_section": "E01",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "CANONICAL_DATA_AUDITED_PHASE_ADAPTER_NOT_ACTIVATED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML08",
+        "ML12",
+        "MLB01"
+      ],
+      "new_formal_work": "Real orthonormal coordinate/volume adapter preserving the existing invariant-state and physical-synthesis semantics.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "Definitions",
+        "PhaseSpace"
+      ],
+      "planned_package": "EhrenfestPhaseSpace"
+    },
+    {
+      "id": "E02",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.COMPLETE_GALERKIN_FLOW",
+      "existing_declaration": false,
+      "dependencies": [
+        "E01"
+      ],
+      "mathematical_statement": "Construct a complete jointly smooth flow on R x V_N, inverse/group law and nonsingular Jacobian. Derive forward decay and backward exponential bound with lambda_max(A_N).",
+      "derivation_section": "E02",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML01",
+        "ML02",
+        "ML03",
+        "MLB02",
+        "MLB03",
+        "MLB04",
+        "MLB05",
+        "MLB06",
+        "MLB07",
+        "MLB13"
+      ],
+      "new_formal_work": "Backward continuation, smooth dependence and Jacobian identities; current forward existence alone is insufficient.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "CompleteFlow",
+        "CanonicalOrbit"
+      ],
+      "planned_package": "EhrenfestCompleteFlow"
+    },
+    {
+      "id": "E03",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.HALF_DENSITY_UNITARY_GROUP",
+      "existing_declaration": false,
+      "dependencies": [
+        "E02",
+        "E04.core"
+      ],
+      "mathematical_statement": "Construct U_N(t)f=|det D Phi_N^(-t)|^(1/2) f composed with Phi_N^(-t) on L2(V_N;C); prove unitarity, group law, strong continuity and Cc-infinity invariance.",
+      "derivation_section": "E03",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML16",
+        "ML17"
+      ],
+      "new_formal_work": "Actual L2 operator construction, Jacobian change of variables, density and compact-support continuity.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "HalfDensity"
+      ],
+      "planned_package": "EhrenfestHalfDensity"
+    },
+    {
+      "id": "E04",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.SELF_ADJOINT_TRANSPORT_GENERATOR",
+      "existing_declaration": false,
+      "dependencies": [
+        "E03"
+      ],
+      "mathematical_statement": "Prove H0_N=-i*hbar*(b_N dot grad+div(b_N)/2) on Cc-infinity is essentially self-adjoint; its closure generates U_N with the specified sign.",
+      "derivation_section": "E04",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "NOT_IMPLEMENTED_NOT_VERIFIED",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML15",
+        "ML20",
+        "OP01",
+        "OP02",
+        "OP03",
+        "OP04",
+        "OP05",
+        "OP06",
+        "OP07",
+        "OP08",
+        "OP09",
+        "OP10",
+        "OP11",
+        "OP12"
+      ],
+      "new_formal_work": "Native LinearPMap generator, explicit Bochner resolvents and shifted-surjectivity proof of skew-adjointness, then time-convolution graph-core identification. No assumed Stone port.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "HilbertCore",
+        "TransportSymmetry",
+        "UnitaryGenerator",
+        "UnitaryResolvent",
+        "TransportCore"
+      ],
+      "planned_package": "EhrenfestGenerator"
+    },
+    {
+      "id": "E05",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.EXACT_HEISENBERG_EHRENFEST_CORRESPONDENCE",
+      "existing_declaration": false,
+      "dependencies": [
+        "E04"
+      ],
+      "mathematical_statement": "Prove U_N(t)^* M_g U_N(t)=M_(g composed with Phi_N^t) with natural domains and (i/hbar)[H0_N,M_g]=M_(Dg[b_N]) on the common core; recover observable and localized-state identities.",
+      "derivation_section": "E05",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "POINTWISE_CORE_ACCEPTED_FULL_OPERATOR_MILESTONE_OPEN",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML05",
+        "ML10",
+        "ML12",
+        "ML17",
+        "ML18",
+        "ML19",
+        "OP11"
+      ],
+      "new_formal_work": "Domain equality, common-core product rule, L2-normalized smooth packets and fixed-N-first localization.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "TestCore",
+        "CoreCommutator",
+        "Heisenberg",
+        "Localization",
+        "Translation"
+      ],
+      "planned_package": "EhrenfestHeisenberg"
+    },
+    {
+      "id": "E06",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.RECIPROCAL_ENSTROPHY_COMMUTATOR",
+      "existing_declaration": false,
+      "dependencies": [
+        "E01",
+        "E05"
+      ],
+      "mathematical_statement": "With e_N=||grad q||^2/2 and Vrec_N=(1+e_N/e_*)^(-1), prove c_N=-(W_N-nu*Z_N)/(e_*(1+e_N/e_*)^2), and its exact bounded-multiplier commutator.",
+      "derivation_section": "E06",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "SCALAR_HELPER_ACCEPTED_OPERATOR_MILESTONE_OPEN",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML05",
+        "ML06",
+        "ML08",
+        "MLB08",
+        "MLB09",
+        "MLB18"
+      ],
+      "new_formal_work": "Coefficient/physical normalization, sign, inverse chain rule and bounded commutator extension to the generator domain.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "ReciprocalDrift",
+        "ReciprocalCommutator"
+      ],
+      "planned_package": "EhrenfestInverseEnstrophy"
+    },
+    {
+      "id": "E07",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.STOPPED_SCALAR_HITTING_BOUND",
+      "existing_declaration": true,
+      "dependencies": [],
+      "mathematical_statement": "For 0<r<v(0)<=1 and gamma>0, pre-hit drift v prime<=-gamma up to 1/gamma forces a hit of r by (v(0)-r)/gamma<1/gamma.",
+      "derivation_section": "E07",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "ACCEPTED_EXTERNAL_CACHED",
+      "formal_checkbox_checked": true,
+      "source_anchor_ids": [
+        "ML13",
+        "ML21"
+      ],
+      "new_formal_work": "Completed by the externally audited scalar comparison and stopped hitting declarations.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": true,
+        "exact_endpoint_type_audit": true,
+        "standard_axioms_only_audit": true,
+        "local_lean_allowed": false,
+        "publication_and_final_acceptance": true
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "StoppedScalar",
+        "SlabDescent"
+      ],
+      "planned_package": "EhrenfestStoppedScalar",
+      "required_for_fast_root_as_complete_milestone": false,
+      "root_required_facet": "E07.slab",
+      "candidate_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting",
+      "candidate_package": "EhrenfestScalar",
+      "accepted_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_scalar_hitting",
+      "accepted_package": "EhrenfestScalar",
+      "evidence": "../../../../audits/material-40686414-accepted/summary.json"
+    },
+    {
+      "id": "E08",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.CUTOFF_UNIFORM_THRESHOLD_ESCAPE",
+      "existing_declaration": true,
+      "dependencies": [
+        "E06.scalar",
+        "E07"
+      ],
+      "mathematical_statement": "From the explicit StoppedCommutatorBound premise for one fixed smooth datum, derive t_N<1/gamma with e_N(u_N(t_N))>=R_N and hence divergent slab suprema.",
+      "derivation_section": "E08",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "ACCEPTED_EXTERNAL_CACHED",
+      "formal_checkbox_checked": true,
+      "source_anchor_ids": [
+        "ML13",
+        "MLB10",
+        "MLB12"
+      ],
+      "new_formal_work": "Keep a, gamma and e_* independent of N, R_N tending to infinity, and the first-hit stopping rule.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": true,
+        "exact_endpoint_type_audit": true,
+        "standard_axioms_only_audit": true,
+        "local_lean_allowed": false,
+        "publication_and_final_acceptance": true
+      },
+      "consumes_stopped_bound_hypothesis": true,
+      "planned_modules": [
+        "StoppedFamily"
+      ],
+      "planned_package": "EhrenfestStoppedFamily",
+      "required_for_fast_root_as_complete_milestone": false,
+      "candidate_package": "EhrenfestEscape",
+      "candidate_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop",
+      "accepted_package": "EhrenfestEscape",
+      "accepted_declaration": "MethbokeAddon.EhrenfestObstruction.stopped_slab_sup_tendsto_atTop",
+      "evidence": "../../../../audits/material-7908890a-accepted/summary.json"
+    },
+    {
+      "id": "E09",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.SMOOTH_FRONT_GALERKIN_STABILITY",
+      "existing_declaration": false,
+      "dependencies": [
+        "E01.data"
+      ],
+      "mathematical_statement": "An actual smooth solution U on [0,T] implies exact P_Na Galerkin convergence in C([0,T];H2) and uniform H1 there.",
+      "derivation_section": "E09",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "E09_BOUND_ACCEPTED_FULL_H2_STABILITY_OPEN",
+      "formal_checkbox_checked": false,
+      "source_anchor_ids": [
+        "ML03",
+        "ML08",
+        "MLB11",
+        "MLB14",
+        "MLB17",
+        "MLB19",
+        "MLB20",
+        "FAST01",
+        "FAST02",
+        "FAST03",
+        "FAST04",
+        "FAST05"
+      ],
+      "new_formal_work": "New H2 residual/error estimate and first-exit Gronwall bootstrap. Existing conditional H2-budget and local bounds do not supply this full-slab implication.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": false,
+        "exact_endpoint_type_audit": false,
+        "standard_axioms_only_audit": false,
+        "local_lean_allowed": false
+      },
+      "consumes_stopped_bound_hypothesis": false,
+      "planned_modules": [
+        "ClosedSlab",
+        "FourierTail",
+        "SobolevProduct",
+        "GalerkinError",
+        "SpectralStability",
+        "SmoothReference",
+        "H1Error",
+        "EventualEnstrophyBound"
+      ],
+      "planned_package": "EhrenfestSpectralStability",
+      "formal_interface_refinement": "Use T<S for InitialClassicalFront nu S on the closed comparison slab [0,T]; derive actual compact Sobolev control. Full closed-slab version is a separately scoped declaration.",
+      "root_required_facet": "E09.bound",
+      "full_statement_preserved": true,
+      "new_fast_helper": "H1 error with physical nonlinear absorption and finite Fourier tail/C1 estimates; expose eventual cutoff bound only.",
+      "bound_helper_evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "id": "E10",
+      "proposed_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+      "existing_declaration": true,
+      "dependencies": [
+        "E06.scalar",
+        "E07.slab",
+        "E09.bound"
+      ],
+      "mathematical_statement": "For nu>0, StoppedCommutatorBound nu implies not NSE_B nu; its fixed smooth datum has no smooth continuation through 1/gamma.",
+      "derivation_section": "E10",
+      "b_tier_status": "DERIVED_IN_CUMULATIVE_DOCUMENT",
+      "formal_status": "ACCEPTED_EXTERNAL_CACHED_CONDITIONAL_ROOT",
+      "formal_checkbox_checked": true,
+      "source_anchor_ids": [
+        "MLB15",
+        "MLB16",
+        "ML21"
+      ],
+      "new_formal_work": "Exact conditional root and its three scoped dynamical/front/global companions accepted. The stopped witness and full operator/H2 milestones are not supplied.",
+      "acceptance_gate": {
+        "matching_external_cached_compiler": true,
+        "exact_endpoint_type_audit": true,
+        "standard_axioms_only_audit": true,
+        "local_lean_allowed": false,
+        "publication_and_final_acceptance": true
+      },
+      "consumes_stopped_bound_hypothesis": true,
+      "planned_modules": [
+        "DynamicalRoot",
+        "Root"
+      ],
+      "planned_package": "EhrenfestObstruction",
+      "distinct_audit_scopes": [
+        "stopped_forbids_initial_front",
+        "stopped_forbids_global_smooth",
+        "EHRENFEST_OBSTRUCTION_DYNAMICAL",
+        "EHRENFEST_OBSTRUCTION"
+      ],
+      "candidate_package": "EhrenfestObstructionRoot",
+      "candidate_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+      "accepted_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+      "accepted_package": "EhrenfestObstructionRoot",
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "separate_unimplemented_operator_targets": [
+        "NSE_HEISENBERG_TRANSLATION",
+        "canonical_heisenberg_rate_eq"
+      ]
+    }
+  ],
+  "cutoff_minimum": 1,
+  "module_plan": "MODULE_PLAN.json",
+  "interface_spec": "INTERFACES.lean.txt",
+  "proposed_module_count": 31,
+  "implementation_activated": true,
+  "dependency_facets": {
+    "E06.scalar": {
+      "parent": "E06",
+      "dependencies": [
+        "E01.data"
+      ],
+      "modules": [
+        "Definitions",
+        "ReciprocalDrift"
+      ],
+      "scope": "Exact coefficient drift and chain rule only; does not complete E06.",
+      "formal_status": "ACCEPTED_SCOPED_HELPER",
+      "evidence": "../../../../audits/material-40686414-accepted/summary.json"
+    },
+    "E05.core": {
+      "parent": "E05",
+      "dependencies": [
+        "E01"
+      ],
+      "modules": [
+        "TestCore",
+        "CoreCommutator"
+      ],
+      "scope": "Pointwise fderiv transport/product commutator algebra with arbitrary zero-order coefficient. No L2 domain, self-adjointness or full E05 conclusion.",
+      "concrete_modules": [
+        "CoreAlgebra"
+      ],
+      "formal_status": "ACCEPTED_SCOPED_HELPER",
+      "evidence": "../../../../audits/material-7908890a-accepted/summary.json"
+    },
+    "E10.dynamical": {
+      "parent": "E10",
+      "dependencies": [
+        "E06.scalar",
+        "E07.slab",
+        "E09.bound"
+      ],
+      "modules": [
+        "DynamicalRoot"
+      ],
+      "scope": "Exact conditional implication only; does not certify the full Heisenberg workstream.",
+      "formal_status": "ACCEPTED_EXTERNAL_CACHED_CONDITIONAL_ROOT",
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    "E01.data": {
+      "parent": "E01",
+      "dependencies": [],
+      "modules": [
+        "Definitions"
+      ],
+      "scope": "Literal canonical coefficient definitions only; does not complete the real phase-space/volume adapter.",
+      "formal_status": "ACCEPTED_SCOPED_HELPER",
+      "evidence": "../../../../audits/material-40686414-accepted/summary.json"
+    },
+    "E04.core": {
+      "parent": "E04",
+      "dependencies": [
+        "E05.core"
+      ],
+      "modules": [
+        "HilbertCore"
+      ],
+      "scope": "Dense L2 test embedding and explicit partial operator domain only; no self-adjointness or generator conclusion."
+    },
+    "E07.slab": {
+      "parent": "E07",
+      "dependencies": [],
+      "modules": [
+        "SlabDescent"
+      ],
+      "scope": "Only the generic full-slab mean-value comparison, not the stopped hitting theorem.",
+      "formal_status": "ACCEPTED_SCOPED_HELPER",
+      "evidence": "../../../../audits/material-40686414-accepted/summary.json"
+    },
+    "E09.bound": {
+      "parent": "E09",
+      "dependencies": [
+        "E01.data"
+      ],
+      "modules": [
+        "ClosedSlab",
+        "SmoothReference",
+        "H1Error",
+        "EventualEnstrophyBound"
+      ],
+      "scope": "Only eventual uniform enstrophy under an actual smooth front, via H1 error; not full H2 convergence/all-cutoff stability.",
+      "formal_status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_HELPER",
+      "implemented_declaration": "MethbokeAddon.EhrenfestObstruction.initial_front_eventual_canonical_enstrophy_bound",
+      "implemented_package": "EhrenfestEventualEnstrophyBound",
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    "E09.coefficient": {
+      "parent": "E09",
+      "dependencies": [],
+      "modules": [
+        "CoefficientError"
+      ],
+      "package": "EhrenfestErrorCalculus",
+      "formal_status": "ACCEPTED_SCOPED_HELPER",
+      "evidence": "../../../../audits/material-40686414-accepted/summary.json",
+      "scope": "Arbitrary finite coefficient/error derivative, forced enstrophy identity and self-interaction absorption; not actual-front stability."
+    }
+  },
+  "fast_root_module_count": 9,
+  "fast_route": "FAST_ROUTE.md",
+  "fast_interfaces": "FAST_INTERFACES.lean.txt",
+  "full_workstream_acceptance_requires": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10"
+  ],
+  "identity_cutouts": {
+    "catalog": "../LEAN_CUTOUTS/IDENTITIES.json",
+    "indexed": 53,
+    "companions": 7,
+    "source_modules": 36,
+    "new_formal_acceptances": 0
+  },
+  "accepted_milestone_count": 3,
+  "accepted_milestones": [
+    "E07",
+    "E08",
+    "E10"
+  ],
+  "next_milestone": null,
+  "accepted_evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+  "accepted_scoped_packages": {
+    "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestCoreAlgebra": 3,
+    "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEscape": 19,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPhysicalForcing": 9,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReference": 34,
+    "EhrenfestReferenceEvolution": 33,
+    "EhrenfestScalar": 4
+  },
+  "pending_scoped_packages": {},
+  "actual_active_owned_module_count": 30,
+  "count_reconciliation": "COUNT_RECONCILIATION.json",
+  "next_required_helper": null,
+  "source_review_revision": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+  "project_goal": "EHRENFEST_OBSTRUCTION",
+  "retained_foundation": "Weak_Fourierman_B",
+  "root_required_facets": [
+    "E01.data",
+    "E06.scalar",
+    "E07.slab",
+    "E09.bound",
+    "E10"
+  ],
+  "internal_chain": [
+    {
+      "id": "INT01",
+      "scope": "Literal canonical datum and cutoff semantics",
+      "modules": [
+        "Definitions"
+      ]
+    },
+    {
+      "id": "INT02",
+      "scope": "Reciprocal bounds, continuity and signed derivative",
+      "modules": [
+        "ReciprocalDrift"
+      ]
+    },
+    {
+      "id": "INT03",
+      "scope": "Strict smooth comparison slab from hypothetical global pair",
+      "modules": [
+        "DynamicalRoot"
+      ]
+    },
+    {
+      "id": "INT04",
+      "scope": "Cutoff-independent reference bounds and physical tail",
+      "modules": [
+        "FourierL1",
+        "SmoothSobolevNorm",
+        "ProjectedC1",
+        "SmoothReference",
+        "FourierTail",
+        "PhysicalReferenceTail",
+        "ReferenceC1Norm"
+      ]
+    },
+    {
+      "id": "INT05",
+      "scope": "Actual reference evolution and forced error equation",
+      "modules": [
+        "ReferenceCoefficientEvolution",
+        "ProjectedReferenceEvolution",
+        "PressureFourier",
+        "ErrorState",
+        "ErrorEquation"
+      ]
+    },
+    {
+      "id": "INT06",
+      "scope": "Physical residual and signed error estimates",
+      "modules": [
+        "CoefficientError",
+        "PhysicalForcing",
+        "CrossTransport"
+      ]
+    },
+    {
+      "id": "INT07",
+      "scope": "Cutoff-uniform cubic differential inequality",
+      "modules": [
+        "CanonicalErrorInequality"
+      ]
+    },
+    {
+      "id": "INT08",
+      "scope": "Closed-slab continuity and interior small-forcing comparison",
+      "modules": [
+        "SmallForcingBootstrap",
+        "EventualEnstrophyBound"
+      ]
+    },
+    {
+      "id": "INT09",
+      "scope": "Actual smooth-front eventual enstrophy bound",
+      "modules": [
+        "ErrorSlabBound",
+        "EventualEnstrophyBound"
+      ]
+    },
+    {
+      "id": "INT10",
+      "scope": "One eventual cutoff makes PreHit hold",
+      "modules": [
+        "CanonicalBarrier"
+      ]
+    },
+    {
+      "id": "INT11",
+      "scope": "Mean-value terminal contradiction",
+      "modules": [
+        "SlabDescent",
+        "CanonicalBarrier"
+      ]
+    },
+    {
+      "id": "INT12",
+      "scope": "Discharge global smoothness and export conditional root",
+      "modules": [
+        "DynamicalRoot",
+        "Root"
+      ]
+    }
+  ],
+  "current_external_result": {
+    "commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44641040255",
+    "status": "ACCEPTED",
+    "conclusion": "PASS",
+    "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+    "primary_job_id": 135971854575,
+    "acceptance_job_id": 135978130987,
+    "publication_passed": true,
+    "compiled_modules": 411,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 19,
+    "fresh_package_audits": 71,
+    "named_type_axiom_audits": 448,
+    "qfb_cutout_audit_passed": true,
+    "external_controls_passed": 183,
+    "new_third_layer_declarations": 75,
+    "cumulative_ehrenfest_declarations": 183,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0,
+    "full_milestones_accepted": [
+      "E07",
+      "E08",
+      "E10"
+    ],
+    "scoped_helper_accepted": "E09.bound",
+    "stopped_witness_proved": false,
+    "full_operator_translation_proved": false,
+    "full_E09_H2_convergence_proved": false
+  },
+  "goal_change_basis": "User selected the exact conditional implication as the goal and authorized applying the interior amendment plan.",
+  "full_operator_translation_proved": false,
+  "full_H2_stability_proved": false,
+  "conditional_root_proved": true,
+  "root_proved": true,
+  "project_goal_status": "EXACT_CONDITIONAL_ROOT_ACCEPTED",
+  "root_facets_accepted": [
+    "E01.data",
+    "E06.scalar",
+    "E07.slab",
+    "E09.bound",
+    "E10"
+  ],
+  "full_workstream_completed": false
+}
