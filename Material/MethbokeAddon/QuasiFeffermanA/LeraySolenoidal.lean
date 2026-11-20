@@ -221,9 +221,23 @@ theorem solenoidal_fourier_transverse
       (fun ξ : Space => (inner ℝ ξ (coordinateVector j) : ℂ))
       ((𝓕 (complexifyL2 (coordinateSliceL2 j v)) : ComplexL2) :
         𝓢'(Space, ComplexVector))) = 0 := by
-    have hcancel := congrArg
-      (fun T : 𝓢'(Space, ComplexVector) => (2 * (Real.pi : ℂ) * Complex.I)⁻¹ • T) hF
-    simpa only [smul_smul, inv_mul_cancel₀ hρ, one_smul, _root_.smul_zero] using hcancel
+    let D : 𝓢'(Space, ComplexVector) :=
+      ∑ j : Fin 3, TemperedDistribution.smulLeftCLM ComplexVector
+        (fun ξ : Space => (inner ℝ ξ (coordinateVector j) : ℂ))
+        ((𝓕 (complexifyL2 (coordinateSliceL2 j v)) : ComplexL2) :
+          𝓢'(Space, ComplexVector))
+    have hscaled : (2 * (Real.pi : ℂ) * Complex.I) • D =
+        (0 : 𝓢'(Space, ComplexVector)) := hF
+    change D = (0 : 𝓢'(Space, ComplexVector))
+    apply UniformConvergenceCLM.ext
+    intro ψ
+    apply PiLp.ext
+    intro k
+    have hcoord := congrArg
+      (fun T : 𝓢'(Space, ComplexVector) => (T ψ) k) hscaled
+    change (2 * (Real.pi : ℂ) * Complex.I) * (D ψ) k = (0 : ℂ) at hcoord
+    change (D ψ) k = (0 : ℂ)
+    exact (mul_eq_zero.mp hcoord).resolve_left hρ
   have hfreq := ae_sum_multiplier_eq_zero
     (fun j : Fin 3 => (𝓕 (complexifyL2 (coordinateSliceL2 j v)) : ComplexL2))
     (fun j ξ => inner ℝ ξ (coordinateVector j))

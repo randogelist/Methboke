@@ -2,12 +2,12 @@
 
 ## External compilation repair
 
-[Run 44832766266](https://github.com/randogelist/Methboke/actions/runs/44832766266) at source `4c15c473` passed
+[Run 44833791410](https://github.com/randogelist/Methboke/actions/runs/44833791410) at source `7100abed` passed
 510 of 512 scheduled modules. There were
 1 new-source failures and 1 blocked dependents.
-The exact original evidence is retained in [audits/material-4c15c473-nse-a-failed](../../audits/material-4c15c473-nse-a-failed/summary.json).
+The exact original evidence is retained in [audits/material-7100abed-nse-a-failed](../../audits/material-7100abed-nse-a-failed/summary.json).
 
-Candidate repair: Qualify the scalar-action-on-zero simplifier and reduce the literal True branch in the final LeraySolenoidal coordinate proof. H2Spectral and its endpoint now compile.
+Candidate repair: Evaluate the actual scaled tempered-distribution sum at each Schwartz test and complex coordinate, then cancel the nonzero complex scalar by mul_eq_zero; all public contracts remain identical.
 
 Public statements and independent consumers are preserved. All 99 fresh
 package audits, 1,294 named reports, publication and final acceptance remain
