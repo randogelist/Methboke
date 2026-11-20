@@ -1,0 +1,49 @@
+TYPE_BEGIN:IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+@IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] [CompleteSpace.{u_1} E] {f : ℝ → E → E} {tmin tmax : ℝ}
+  {t₀ : ↑(Set.Icc.{0} tmin tmax)} {x₀ x : E} {a r L K : NNReal},
+  IsPicardLindelof.{u_1} f t₀ x₀ a r L K →
+    Membership.mem.{u_1, u_1} (Metric.closedBall.{u_1} x₀ ↑r) x →
+      ∃ α,
+        Eq.{u_1 + 1} (α ↑t₀) x ∧
+          ∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Icc.{0} tmin tmax) t →
+              HasDerivWithinAt.{0, u_1} α (f t (α t)) (Set.Icc.{0} tmin tmax) t
+TYPE_END:IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+AXIOMS_BEGIN:IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+'IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+TYPE_BEGIN:ODE_solution_unique_of_mem_Ioo
+@ODE_solution_unique_of_mem_Ioo.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] {v : ℝ → E → E} {s : ℝ → Set.{u_1} E} {K : NNReal} {f g : ℝ → E} {a b t₀ : ℝ},
+  (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} a b) t → LipschitzOnWith.{u_1, u_1} K (v t) (s t)) →
+    Membership.mem.{0, 0} (Set.Ioo.{0} a b) t₀ →
+      (∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} a b) t →
+            HasDerivAt.{0, u_1} f (v t (f t)) t ∧ Membership.mem.{u_1, u_1} (s t) (f t)) →
+        (∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Ioo.{0} a b) t →
+              HasDerivAt.{0, u_1} g (v t (g t)) t ∧ Membership.mem.{u_1, u_1} (s t) (g t)) →
+          Eq.{u_1 + 1} (f t₀) (g t₀) → Set.EqOn.{0, u_1} f g (Set.Ioo.{0} a b)
+TYPE_END:ODE_solution_unique_of_mem_Ioo
+AXIOMS_BEGIN:ODE_solution_unique_of_mem_Ioo
+'ODE_solution_unique_of_mem_Ioo' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:ODE_solution_unique_of_mem_Ioo
+TYPE_BEGIN:norm_le_gronwallBound_of_norm_deriv_right_le
+@norm_le_gronwallBound_of_norm_deriv_right_le.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] {f f' : ℝ → E} {δ K ε a b : ℝ},
+  ContinuousOn.{0, u_1} f (Set.Icc.{0} a b) →
+    (∀ (x : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} a b) x → HasDerivWithinAt.{0, u_1} f (f' x) (Set.Ici.{0} x) x) →
+      LE.le.{0} (norm.{u_1} (f a)) δ →
+        (∀ (x : ℝ),
+            Membership.mem.{0, 0} (Set.Ico.{0} a b) x →
+              LE.le.{0} (norm.{u_1} (f' x)) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} K (norm.{u_1} (f x))) ε)) →
+          ∀ (x : ℝ),
+            Membership.mem.{0, 0} (Set.Icc.{0} a b) x →
+              LE.le.{0} (norm.{u_1} (f x)) (gronwallBound δ K ε (HSub.hSub.{0, 0, 0} x a))
+TYPE_END:norm_le_gronwallBound_of_norm_deriv_right_le
+AXIOMS_BEGIN:norm_le_gronwallBound_of_norm_deriv_right_le
+'norm_le_gronwallBound_of_norm_deriv_right_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:norm_le_gronwallBound_of_norm_deriv_right_le

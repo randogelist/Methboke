@@ -11,11 +11,25 @@ energy, and local velocity blowup at all prescribed sites at time one. Taking
 one site gives the intended obstruction; the literal all-order force-decay
 adapter is an explicit formal obligation.
 
-The working branch is `main`. The [project context](GPT.txt) records the exact
-scope. The [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
+This working branch is `AC-Integration`; `main` remains the Fefferman-D program
+branch. The [project context](GPT.txt) records both scopes. The
+[prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
-## Current implementation
+## AC-Integration preparation
+
+This branch stages the QFA/WFA inputs in [Temp-folder](Temp-folder/README.md):
+the October v0.11 and selected v0.25 sources, the tested Methboke source at
+`fdb515d8bde35ec8021bbc26f360aca8dfa2855c`, and matching external evidence
+artifact `14553501775` from run `44566880192`. The
+[manifest](Temp-folder/MANIFEST.json) records source identities; the
+[endpoint map](Temp-folder/ENDPOINTS.md) records proposed dependencies and gaps.
+
+This is source/evidence preparation only, with no new formalization or A-tier
+verification. The branch name adopts no Fefferman-C theorem. The Fefferman-D
+goal, D-ledger statuses and accepted prior proof/evidence scopes remain intact.
+
+## Retained Fefferman-D implementation
 
 The native family layers are in
 [`Material/MethbokeAddon/FeffermanFamily/`](Material/MethbokeAddon/FeffermanFamily/):
@@ -99,7 +113,8 @@ the previous research-file locations.
 
 | Path | Purpose |
 |---|---|
-| [GPT.txt](GPT.txt) | Current goal, exact contracts, derivation and next formal obligations |
+| [GPT.txt](GPT.txt) | Branch preparation scope, retained goal, exact contracts and formal obligations |
+| [Temp-folder](Temp-folder/README.md) | QFA/WFA source and evidence staging; no new A-tier acceptance |
 | [INDEX-WORTHY.txt](INDEX-WORTHY.txt) | Substantiated results with source-specific scope and evidence |
 | [SOURCE_STATUS.json](SOURCE_STATUS.json) | Goal, implementation and accepted-evidence identities |
 | [T3_NSE](T3_NSE/README.md) / [R3_NSE](R3_NSE/README.md) | Periodic programs and reserved whole-space work |

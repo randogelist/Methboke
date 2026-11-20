@@ -1,0 +1,16 @@
+MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean:56:39: error: unsolved goals
+E : Type u_1
+η : ℝ
+f g : ℝ → E
+t : ℝ
+ht : t < η
+r : ℝ
+hr : r ∈ Iio η
+⊢ (if r < η then f r else g r) = f r
+MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean:58:30: warning: This simp argument is unused:
+  if_pos hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [finiteCapSplice]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

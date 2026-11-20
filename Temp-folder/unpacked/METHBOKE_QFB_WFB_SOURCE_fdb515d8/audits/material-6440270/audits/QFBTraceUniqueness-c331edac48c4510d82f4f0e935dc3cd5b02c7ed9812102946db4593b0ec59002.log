@@ -1,0 +1,37 @@
+TYPE_BEGIN:QuasiFeffermanB.positive_reference_strict_shift_serrin
+@QuasiFeffermanB.positive_reference_strict_shift_serrin : ∀ {ν : ℝ} {v : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  SingularClosure.PositiveSmoothNSE ν v p →
+    ∀ {ε : ℝ},
+      LT.lt.{0} 0 ε →
+        ∀ (T : ℝ),
+          MeasureTheory.MemLp.{0, 0}
+            (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (QuasiFeffermanB.timeTranslate.{0} ε v t)) 4
+            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T))
+TYPE_END:QuasiFeffermanB.positive_reference_strict_shift_serrin
+AXIOMS_BEGIN:QuasiFeffermanB.positive_reference_strict_shift_serrin
+'QuasiFeffermanB.positive_reference_strict_shift_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.positive_reference_strict_shift_serrin
+TYPE_BEGIN:QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE
+@QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE : ∀ {ν : ℝ} {a : ↥SingularClosure.CriticalPhysicalL2}
+  {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory},
+  LT.lt.{0} 0 ν →
+    SingularClosure.CriticalLerayHopf ν a u G →
+      ∀ {v : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+        SingularClosure.PositiveSmoothNSE ν v p →
+          ∀ {s δ : ℝ},
+            LE.le.{0} 0 s →
+              LT.lt.{0} s δ →
+                (∀ (r : ℝ),
+                    LT.lt.{0} s r →
+                      u r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube]
+                        v (HSub.hSub.{0, 0, 0} r s)) →
+                  QuasiFeffermanB.UniqueFuture ν u G δ
+TYPE_END:QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE
+AXIOMS_BEGIN:QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE
+'QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE

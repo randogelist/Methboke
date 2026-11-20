@@ -1,0 +1,24 @@
+TYPE_BEGIN:SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE
+@SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE : ∀ {e a : ℝ → ℝ} {T M : ℝ} {ε : ℕ → ℝ},
+  LT.lt.{0} 0 T →
+    (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t → LE.le.{0} 0 (e t)) →
+      ContinuousOn.{0, 0} a (Set.Ioc.{0} 0 T) →
+        (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t → LE.le.{0} 0 (a t)) →
+          IntervalIntegrable.{0} a MeasureTheory.volume.{0} 0 T →
+            (∀ (n : ℕ),
+                IntervalIntegrable.{0} (fun r => HMul.hMul.{0, 0, 0} (a r) (e r)) MeasureTheory.volume.{0} (ε n) T) →
+              LE.le.{0} (∫ (r : ℝ) in 0..T, a r) M →
+                (∀ (n : ℕ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) (ε n)) →
+                  Filter.Tendsto.{0, 0} ε Filter.atTop.{0} (nhds.{0} 0) →
+                    Filter.Tendsto.{0, 0} (fun n => e (ε n)) Filter.atTop.{0} (nhds.{0} 0) →
+                      (∀ (n : ℕ) (t : ℝ),
+                          Membership.mem.{0, 0} (Set.Icc.{0} (ε n) T) t →
+                            LE.le.{0} (e t)
+                              (HAdd.hAdd.{0, 0, 0} (e (ε n)) (∫ (r : ℝ) in ε n..t, HMul.hMul.{0, 0, 0} (a r) (e r)))) →
+                        ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t → Eq.{1} (e t) 0
+TYPE_END:SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE
+AXIOMS_BEGIN:SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE
+'SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE

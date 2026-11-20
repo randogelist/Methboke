@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-11-19",
+  "scope": "Pre-WFB unchanged baseline only; no WFB theorem acceptance",
+  "run_id": 44126844972,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44126844972",
+  "tested_commit": "43530b70d044624cbf83a3480840187a567549a5",
+  "artifact_id": 14347029979,
+  "artifact_url": "https://github.com/randogelist/Methboke/actions/runs/44126844972/artifacts/14347029979",
+  "artifact_sha256": "06c20d84dfd6f0e3eace7165f8d438926951072f89772554762a3c9d579ae78e",
+  "report_sha256": "b7cb46426242f78186d52c13c3394bd8f8566640b1ba392aeb127e99824f83e7",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "build_configuration": {
+    "ci/build.py": "d22455bb6a2a34cc3aaa577d29b91c0a66dac815bd4ecebd71cbce3205ebb604",
+    "lake-manifest.json": "5ad4bb9f8a90899eff0dccf7bae5eb9fbef3f1f3822f6e1759f1118f5bef6215",
+    "lakefile.lean": "9e577cb61d3538df3726d10ad385a658ddb4dfa696fed5f19f7861795c32c3dd",
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+  },
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "metrics": {
+    "audit_fresh_count": 14,
+    "audit_reused_count": 0,
+    "audit_seconds": 75.598,
+    "build_seconds": 0.267,
+    "cache_seconds": 20.241,
+    "fresh_loc": 0,
+    "fresh_module_count": 0,
+    "module_count": 283,
+    "rerun_receipt_seconds": 0.24,
+    "reused_loc": 39622,
+    "reused_module_count": 283,
+    "target_loc": 39622
+  },
+  "module_receipt_count": 283,
+  "all_endpoints_selected": true,
+  "fresh_required_audits": true,
+  "verified_audit_logs": [
+    {
+      "id": "Galerkin",
+      "log_sha256": "ec3fdf30df6265f582b6d95a560f149fffeaeaab1fe86bcd14c3afbeefa1781c",
+      "declarations": 1,
+      "axioms": {
+        "SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "f324282413820862203b8a66bc7d943982758e7c69817cd85874ca8c18ec4300"
+    },
+    {
+      "id": "MathlibAnalytic",
+      "log_sha256": "8a0359a6f7e8807e952e6a043ca0bcd1cbd611275bbf0da967d333ab497801ac",
+      "declarations": 7,
+      "axioms": {
+        "AnalyticAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd.contDiffOn_of_completeSpace": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd.mono": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HasFPowerSeriesOnBall.uniform_geometric_approx": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "contDiffOn_of_locally_contDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "43ad4d344ded8d62512ae05e34ee9de6c9bde6625bf48fa75c0dbf6079d1ce24"
+    },
+    {
+      "id": "MathlibFourier",
+      "log_sha256": "fbbac38ea50628003e3a858a03a887a69fceda9ccfe03686a21732ba94e30fe4",
+      "declarations": 3,
+      "axioms": {
+        "UnitAddTorus.hasSum_mFourier_series_L2": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "UnitAddTorus.hasSum_sq_mFourierCoeff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "UnitAddTorus.mFourierBasis": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "d061055b457d2ad831907ea132a961779ee8c0aaa0fcda5b47db9d71d0971117"
+    },
+    {
+      "id": "MathlibODE",
+      "log_sha256": "97f59de20564c8e48c60ad46ab820de552b3dd754e7a25ca554e0f54f5ddaa23",
+      "declarations": 3,
+      "axioms": {
+        "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ODE_solution_unique_of_mem_Ioo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "norm_le_gronwallBound_of_norm_deriv_right_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "071e0f6ef1f93142b2a6e9a786e6a0d34b409efeee6d6fe3a1ac603a13e1c0cb"
+    },
+    {
+      "id": "PhysicalNSE",
+      "log_sha256": "7bad6322fbb0dd96b466eada5fbdff1a0e6cabc69acf16c52f19604046727ffa",
+      "declarations": 3,
+      "axioms": {
+        "SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "9b06824f8c77a55cc8bb4920fdc0b69edc394a82b62ab32893897b79a372a9f2"
+    },
+    {
+      "id": "QFBCutoff",
+      "log_sha256": "2852a151fea822d8ccd2758fdd6ec340be17eb8e6ebd307326b7150a617c8b37",
+      "declarations": 6,
+      "axioms": {
+        "QuasiFeffermanB.CUTOFF_NONNEG": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.CUTOFF_POS": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.CUTOFF_ZERO": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.SAFE_CUTOFF_GT": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.cutoff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.safeCutoff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "7bd6b307fc3b15caaae71ec493b32e5b2f200d76ec10493a4cdf8fc934af1ec5"
+    },
+    {
+      "id": "QFBLerayHopf",
+      "log_sha256": "a25aee56459da58cc1da5078b0e28185cb31ca79cb7b20d4e2f884d6ef8f3106",
+      "declarations": 1,
+      "axioms": {
+        "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "00550b41357baea02c8bfd68d8fb23a5f5ca33e33aa36f0e68b441f27f33d742"
+    },
+    {
+      "id": "QFBRestart",
+      "log_sha256": "912042e31d0c17b42e6958a3cee8db368e97ad19762d2027671948e5d3de478b",
+      "declarations": 4,
+      "axioms": {
+        "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE_Ioc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE_Ioo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "4cac3655ab3d643fa4e2fcd9784fe49635a83de1c4250904e166c457247432bd"
+    },
+    {
+      "id": "QFBRoot",
+      "log_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+      "declarations": 1,
+      "axioms": {
+        "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "f1d887c63040bf9107813c509066e39599fd962954328bd470cfa9228d7a4785"
+    },
+    {
+      "id": "QFBTail",
+      "log_sha256": "59745649bd0fb089de2e9041b092c942d6fd651578f5d61b0810bd22904d2953",
+      "declarations": 4,
+      "axioms": {
+        "QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.Q11_POST_CUTOFF_ENERGY_EQUALITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.Q12_POST_CUTOFF_TRACE_UNIQUENESS": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.Q13_ZERO_AND_SAFE_CLOSED_CUTOFF": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "1d51d865b4abb44b5a25bbeff63c90c8f0a51aee452dcf96a821f489e9027fb9"
+    },
+    {
+      "id": "QFBTraceUniqueness",
+      "log_sha256": "700295656cf72242d96135529f106b7009b729918a3dbefeedbad22350b5c64e",
+      "declarations": 2,
+      "axioms": {
+        "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.positive_reference_strict_shift_serrin": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "1a81d82e4d6bd548c77211131bb9347cd98657eddf9a6f08c4e986fadccda360"
+    },
+    {
+      "id": "RelativeEnergy",
+      "log_sha256": "ff83fe70b0e6bf76651ac46d118d2c1f73d803ec286fe5c12d96480d51fbc2e9",
+      "declarations": 1,
+      "axioms": {
+        "SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "ead42dd6353e01422abd88889b97e431488b583492c704b4f3580feb64d294c9"
+    },
+    {
+      "id": "SerrinComparison",
+      "log_sha256": "550e1e0e87ce44b1d447cf817c62db890e8f34079aa384af14bacfefc9d1fd77",
+      "declarations": 1,
+      "axioms": {
+        "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "b2f07554e4619d31074a8e5875c13483a81ca04255418df46ea0e6d3ddb89d96"
+    },
+    {
+      "id": "SmallH12",
+      "log_sha256": "195ee80edc645305b8fe3df420779e11fac539a80f9b8a377f6e6ee74f30ba80",
+      "declarations": 4,
+      "axioms": {
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "10c431c6646989d23f1f1e57ac9f3c31e0b86d5f88fc7f779f2c2dce6e0987f9"
+    },
+    {
+      "id": "QFB_CUTOUT",
+      "log_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+      "declarations": 1,
+      "axioms": {
+        "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "exact_types_sha256": "f1d887c63040bf9107813c509066e39599fd962954328bd470cfa9228d7a4785"
+    }
+  ],
+  "compiled_object_bytes_reverified_in_this_review": false,
+  "current_WFB_sources_verified": false,
+  "local_lean_executions": 0
+}

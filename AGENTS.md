@@ -15,6 +15,21 @@ Lean build, with unchanged namespace and import paths. Preserve
 `REORGANIZATION_MAP.json`, historical receipts and the standalone audited
 `LEAN_CUTOUTS/Cutouts.lean`.
 
+## AC-Integration branch exception
+
+The user authorized `AC-Integration` for QFA/WFA source and evidence staging.
+For this scoped preparation, work on `AC-Integration`; the main-branch direction
+below remains the retained Fefferman-D program context. The project goal stays
+`Fefferman_D`, with `Fefferman_D_Family_obstruction` as the main-program target.
+The branch name does not adopt a Fefferman-C theorem or authorize additional
+formalization. Read [Temp-folder/README.md](Temp-folder/README.md), its
+[manifest](Temp-folder/MANIFEST.json) and [endpoint map](Temp-folder/ENDPOINTS.md).
+
+This is preparation only: no new A-tier acceptance, verification run, compiler
+pin change or workflow change is claimed. Preserve all existing D-ledger
+statuses, accepted source identities and historical evidence. Every execution,
+proof-audit and documentation safeguard below still applies.
+
 ## Current goal
 
 Work from `main`. The user explicitly selected **Fefferman D** and requested

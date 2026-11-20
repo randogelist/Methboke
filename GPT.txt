@@ -1,18 +1,50 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 5.4
+DOCUMENT_VERSION = 5.5
 DATE = 2026-11-20
 REPOSITORY = randogelist/Methboke
-WORKING_BRANCH = main
+WORKING_BRANCH = AC-Integration
+MAIN_PROGRAM_BRANCH = main
 PROJECT_GOAL = Fefferman_D
-LOCAL_TARGET = Fefferman_D_Family_obstruction
+LOCAL_TARGET = QFA_WFA_SOURCE_AND_EVIDENCE_STAGING
+MAIN_PROGRAM_LOCAL_TARGET = Fefferman_D_Family_obstruction
 ACTIVE_MODE = A_TIER_DERIVATION
+BRANCH_ACTIVITY = SOURCE_EVIDENCE_PREPARATION
+MAIN_PROGRAM_MODE = A_TIER_DERIVATION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
 CURRENT_ROOT_STATUS = NOT_FORMALLY_PROVED_IN_THIS_PROJECT
 CURRENT_HELPER_STATUS = A_TIER_MATCHING_EXTERNAL_FOUNDATION_AND_ASSEMBLY_VERIFICATION
 STATUS_AUTHORITY = THIS_DOCUMENT_AND_SOURCE_SPECIFIC_EVIDENCE
 HISTORICAL_REGISTERS = audits/goal-transition-fefferman-d/
 
-1. GOAL AND TARGET HIERARCHY
+0. AC-INTEGRATION PREPARATION SCOPE
+
+The user authorized this branch and Temp-folder for QFA/WFA source/evidence
+staging. Branch base: 66a529248d3198ed70dc5489d82868bc33a37796.
+This scoped task does not change PROJECT_GOAL or adopt a Fefferman-C theorem.
+No new formalization, A-tier result or external verification is claimed.
+The D-root/helper statuses above and the main-program context below retain
+all prior source-specific meanings; no D-ledger status is changed by staging.
+
+Entry point: Temp-folder/README.md.
+Inventory and hashes: Temp-folder/MANIFEST.json.
+Proposed endpoint/dependency map: Temp-folder/ENDPOINTS.md.
+Mathematical specification:
+  Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt.
+Required historical sources:
+  FEF_NSE_MASTERAC_TWO_LAYER_LEAN_v0_11_0.zip
+  FEF_NSE_ABCD_A_TIER_UNIFIED_CLOSURE_LEAN_v0_25_0.zip
+Tested Methboke source: fdb515d8bde35ec8021bbc26f360aca8dfa2855c.
+Matching retained external evidence: artifact14553501775, run44566880192;
+  Temp-folder/evidence/material-fdb515d8/.
+Archives and extracted references are catalogued under Temp-folder/archives/
+and Temp-folder/unpacked/. Copying these inputs does not certify QFA/WFA.
+Their original premises, source identities and acceptance scopes remain intact.
+
+NEXT BRANCH STEP: review the staged source/evidence mapping in Temp-folder;
+retain unresolved R3 analytic instances and new-endpoint audit requirements.
+Only nonexecuting inspection and source/document preparation are local.
+
+1. RETAINED MAIN-PROGRAM GOAL AND TARGET HIERARCHY
 
 The user explicitly stated on2026-11-20: The Goal Is Fefferman D, and requested
 implementation of the T3 family on Methboke main. This selects the classical
@@ -225,7 +257,8 @@ No sorry, global custom axiom or hidden witness premise may close these gaps.
 
 8. OPERATING RULES
 
-Work on main as explicitly requested. Never execute Lean locally, directly or
+Work on AC-Integration for the authorized preparation scope above. Main remains
+the Fefferman-D program branch. Never execute Lean locally, directly or
 through Lake, scripts, subprocesses, containers or subagents. Only source
 reading/preparation and nonexecuting static inspection are local. Use authorized
 cached external CI or external native Windows; report cache obstruction without

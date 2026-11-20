@@ -1,0 +1,96 @@
+R0CompactCylinderSerrin/Audit.lean:12:5: warning: Variable name `hcont` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcont
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0CompactCylinderSerrin/Audit.lean:20:5: warning: Variable name `hbound` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbound
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0CompactCylinderSerrin/Audit.lean:26:5: warning: Variable name `hcont` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcont
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0CompactCylinderSerrin/Audit.lean:34:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0CompactCylinderSerrin/Audit.lean:35:13: warning: Variable name `hτ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0CompactCylinderSerrin/Audit.lean:35:26: warning: Variable name `hτT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0CompactCylinderSerrin/Audit.lean:36:5: warning: Variable name `hcont` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcont
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.compact_cylinder_velocity_bound
+MethbokeAddon.WeakFouriermanB.compact_cylinder_velocity_bound : ∀ (u : SingularClosure.Velocity) (τ : ℝ),
+  ContinuousOn.{0, 0} (fun z => u z.1 z.2) (SProd.sprod.{0, 0, 0} (Set.Icc.{0} 0 τ) SingularClosure.unitCube) →
+    ∃ M,
+      LE.le.{0} 0 M ∧
+        ∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Icc.{0} 0 τ) r →
+            ∀ (x : SingularClosure.Vec),
+              Membership.mem.{0, 0} SingularClosure.unitCube x → LE.le.{0} (Norm.norm.{0} (u r x)) M
+TYPE_END:MethbokeAddon.WeakFouriermanB.compact_cylinder_velocity_bound
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.compact_cylinder_velocity_bound
+'MethbokeAddon.WeakFouriermanB.compact_cylinder_velocity_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.compact_cylinder_velocity_bound
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.spatialNorm_six_le_constant_of_cube_bound
+MethbokeAddon.WeakFouriermanB.spatialNorm_six_le_constant_of_cube_bound : ∀ (v : SingularClosure.Field) (M : ℝ),
+  (∀ (x : SingularClosure.Vec), Membership.mem.{0, 0} SingularClosure.unitCube x → LE.le.{0} (Norm.norm.{0} (v x)) M) →
+    LE.le.{0} (SingularClosure.criticalSpatialNorm.{0} 6 v) (SingularClosure.criticalSpatialNorm.{0} 6 fun x => M)
+TYPE_END:MethbokeAddon.WeakFouriermanB.spatialNorm_six_le_constant_of_cube_bound
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.spatialNorm_six_le_constant_of_cube_bound
+'MethbokeAddon.WeakFouriermanB.spatialNorm_six_le_constant_of_cube_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.spatialNorm_six_le_constant_of_cube_bound
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.compact_cylinder_spatialNorm_six_bound
+MethbokeAddon.WeakFouriermanB.compact_cylinder_spatialNorm_six_bound : ∀ (u : SingularClosure.Velocity) (τ : ℝ),
+  ContinuousOn.{0, 0} (fun z => u z.1 z.2) (SProd.sprod.{0, 0, 0} (Set.Icc.{0} 0 τ) SingularClosure.unitCube) →
+    ∃ C,
+      LE.le.{0} 0 C ∧
+        ∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Icc.{0} 0 τ) r → LE.le.{0} (SingularClosure.criticalSpatialNorm.{0} 6 (u r)) C
+TYPE_END:MethbokeAddon.WeakFouriermanB.compact_cylinder_spatialNorm_six_bound
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.compact_cylinder_spatialNorm_six_bound
+'MethbokeAddon.WeakFouriermanB.compact_cylinder_spatialNorm_six_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.compact_cylinder_spatialNorm_six_bound
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_compact_cylinder_serrin
+MethbokeAddon.WeakFouriermanB.local_front_compact_cylinder_serrin : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    ∀ (τ : ℝ),
+      LT.lt.{0} 0 τ →
+        LT.lt.{0} τ T →
+          ContinuousOn.{0, 0} (fun z => u z.1 z.2) (SProd.sprod.{0, 0, 0} (Set.Icc.{0} 0 τ) SingularClosure.unitCube) →
+            MeasureTheory.MemLp.{0, 0} (fun r => SingularClosure.criticalSpatialNorm.{0} 6 (u r)) 4
+              (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} 0 τ))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_compact_cylinder_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_compact_cylinder_serrin
+'MethbokeAddon.WeakFouriermanB.local_front_compact_cylinder_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_compact_cylinder_serrin

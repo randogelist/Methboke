@@ -1,0 +1,235 @@
+METHLIB ANALYTIC / LOCAL-REGULARITY REUSE AUDIT
+Date: 2026-11-17
+Mode: source audit supporting B_TIER_DERIVATION.
+NO_LOCAL_LEAN: respected. No Lean or Lake command executed.
+No new compiler/audit promotion asserted.
+
+SOURCE PINS
+M0 = randogelist/Methlib main @ 4813604a46179c745b82f51bee51a186e9f4cc2d.
+M1 = randogelist/Methlib Fefferman_b_uniqueness_reattempt @
+     04211c54544b769505319097e6ce8e184420c068.
+M2 = randogelist/Methlib VAR_STABLE @ 521d02580b77e60a898d70e02bbf239b6c1fabbb.
+M3 = randogelist/Methlib VAR_STABLE_COSNTRUCT @
+     59a16306ae1a37906e2ad86bfcd93af57089d08e.
+F = regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/.
+Q = Quasi-Fefferman-B/.
+Pinned file URL convention:
+  https://github.com/randogelist/Methlib/blob/<pin>/<full-path>
+
+M0 regularity-B-assembly/Singular-Axiomatic-closure/lean-toolchain:
+  leanprover/lean4:v4.33.0.
+Adjacent lake-manifest.json: mathlib revision
+  db584cd6d46c92f209a44c0f1c829460d327499d.
+M1 Quasi-Fefferman-B/lean-toolchain: leanprover/lean4:v4.33.0.
+M1 Quasi-Fefferman-B/lake-manifest.json: not present at queried path.
+
+1. EXACT PHYSICAL WEAK--STRONG UNIQUENESS
+Pin M0; file F + CriticalSerrinUniqueness.lean.
+Declaration SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON.
+Inputs:
+  nu>0; initial a0 : CriticalPhysicalL2;
+  CriticalLerayHopf nu a0 v G;
+  CriticalPositiveSolenoidalTest u;
+  pressure spatial smoothness and periodicity at every r>0;
+  actual NSE equation for u,p at every r>0;
+  strong physical L2 trace u(t)->a0 as t decreases to zero;
+  T>0;
+  MemLp (fun t => criticalSpatialNorm 6 (u t)) 4
+    (volume.restrict (Ioc 0 T)).
+Output:
+  forall t in Ioc 0 T, v t = a.e. u t on unitCube.
+Classification: concrete physical theorem, not an arbitrary Regular : Prop
+certificate projection.
+Reuse: physical identification on the analytic/QFB overlap.
+Required adapter: the actual signature asks for u's smoothness and NSE
+equation for ALL positive r, although its conclusion is finite-horizon.
+A finite analytic cylinder cannot directly instantiate those global-in-r
+hypotheses. Localize the proof and auxiliary lemmas to (0,T], or supply a
+proved finite-interval variant. Assuming a global smooth reference to use
+this theorem would bypass the very continuation problem under study.
+
+Existing evidence read:
+  M0 regularity-B-assembly/Singular-Axiomatic-closure/verification/
+     h12-09dfe94a/CriticalSerrinUniqueness-axioms.log
+contains EXACT_TYPE_PASS and axioms [propext, Classical.choice, Quot.sound].
+The source blob e3de222dc4c43fa6cfbf62a1dfd10cde70d5e4f9 matches the same
+file at historical source commit 09dfe94a1ef150e21d09df3013fbe09002ef139c.
+The archived lean-version.txt reports external Linux Lean 4.33.0,
+x86_64-unknown-linux-gnu; this is not native Windows evidence.
+
+2. FINITE-INTERVAL GRONWALL CORE
+Pin M0; file F + CriticalLocalUniqueness.lean.
+Declaration SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE.
+Inputs: T>0; nonnegative relative energy e; continuous nonnegative
+coefficient a on (0,T]; a integrable up to zero; local integrability of a*e;
+integral a <= M; admissible epsilon_n in (0,T] with epsilon_n->0;
+e(epsilon_n)->0; relative-energy inequality
+  e(t) <= e(epsilon_n) + integral_[epsilon_n,t] a(r)e(r)dr.
+Output: forall t in (0,T], e(t)=0.
+Reuse: a genuinely finite-interval scalar core for the localization in (1).
+The file name does not denote an arbitrary-data local NSE existence theorem.
+
+3. SMALL H1/2 ACTUAL GLOBAL FLOW
+Pin M0; file F + SmallDataRoot.lean.
+Declarations:
+  SingularClosure.SMALL_DATA_CRITICAL_REGULARITY;
+  SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY;
+  SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT.
+Exact essential inputs:
+  nu>0; a : CriticalSobolev 1; CriticalSigmaZero a;
+  criticalNonlinearConstant * norm(a) < nu.
+Outputs: actual CriticalGlobalRegularity nu a and, for the latter roots,
+CriticalDatumAX6 nu a; existence of a positive universal threshold c.
+Classification: constructed critical Fourier flow and physical initial trace;
+not an arbitrary Regular proposition.
+Scope limit: smallness is retained. It cannot discharge continuation for all
+analytic germs of arbitrary amplitude.
+
+Pin M0; file F + NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean.
+Declaration SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.
+Same smallness input. One witness U supplies actual CriticalLerayHopf
+membership, Leray--Hopf uniqueness, PositiveSmoothNSE, global L2 H3/2,
+negative-half time derivative, global L4_t L6_x, and quartic energy budget.
+Source blob 9178f9bd269064a8b15e803d8aa76bf1d5376527 matches the same file
+at historical source commit 09dfe94a1ef150e21d09df3013fbe09002ef139c.
+H12_SMALL_STATUS.json reports exact external cached Lean 4.33.0 audit on
+run 43059293572 with standard axioms only; this report is not a new audit.
+The inspected archived compiler identification is Linux, not Windows.
+
+4. SMOOTHNESS IS NOT ANALYTICITY
+Pin M0; file F + CriticalPositiveFlow.lean.
+Declarations:
+  CriticalPositiveSobolevFlow;
+  CriticalPositiveSobolevFlow.velocity_spacetime_smooth;
+  CriticalPositiveSobolevFlow.pressure_spacetime_smooth;
+  PositiveSmoothNSE;
+  CRITICAL_POSITIVE_PHYSICAL_NSE.
+The structure requires a compatible all-order Sobolev scale, its actual
+Fourier NSE derivative, and reality/solenoidal/zero-mean constraints.
+Theorems realize the literal physical NSE and ContDiffOn ... infinity on
+positiveSpacetime. They do not assert AnalyticOnNhd.
+Reuse: semantic realization and smooth bootstrap after requisite bounds.
+Existence of the structure is separate; arbitrary-data global existence is
+not implied merely by defining the structure.
+
+Pin M0; file F + CriticalSobolevAnalytic.lean.
+Declarations critical_hasDerivAt_cube_integral,
+critical_differentiable_cube_integral, critical_three_lines_midpoint,
+criticalComplexWeight and derivative/norm lemmas.
+These are actual analytic interpolation tools in an auxiliary complex
+exponent. They do not prove spacetime analyticity of NSE solutions.
+
+5. FINITE GALERKIN EXISTENCE
+Pin M0; file F + CriticalGalerkin.lean.
+Declaration SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE.
+Inputs nu>=0, FourierCoeff c, SpectralReality c, SpectralSolenoidal c, N.
+Output an actual GalerkinSolution with initial cutoffCoeff N c and uniqueness
+of coefficients on Ici 0.
+Reuse: finite reference evolution and Galerkin approximation construction.
+Limit: no uniform-in-N high Sobolev/analytic estimate follows from this root.
+Existing critical-axioms.log explicitly records this exact root with
+[propext, Classical.choice, Quot.sound].
+
+6. ANALYTIC-OUTPUT EQUIVALENCES KEEP AN EXPLICIT UPGRADE PREMISE
+Pin M1; file Q + QFBBridge/FeffermanBAnalyticVariants.lean.
+Definitions PositiveSpaceAnalytic, PositiveTimeAnalytic,
+PositiveSpaceTimeAnalytic use Mathlib.AnalyticOnNhd.
+The definitions FeffermanBSpaceOmegaAt, FeffermanBTimeOmegaAt and
+FeffermanBSpaceTimeOmegaAt all retain the SAME unrestricted smooth initial
+data quantifier; analyticity is an additional positive-time OUTPUT property.
+They are not the new initial analytic-germ admission class.
+
+Declaration FEFFERMAN_B_ANALYTIC_EQUIVALENCE_TRIPLE:
+  FeffermanBAnalyticUpgradeStatement ->
+    ((FeffermanBStatement <-> FB_space_w) and
+     (FeffermanBStatement <-> FB_time_w) and
+     (FeffermanBStatement <-> FB_spacetime_w)).
+FeffermanBAnalyticUpgradeStatement requires all three analytic outputs for
+every GlobalClassicalSolution. It is expressly unresolved in the source.
+The forgetful output-to-FB implications have no such premise.
+Reuse: definitions and conditional assembly, not an analytic regularization
+proof and not an unconditional initial-germ reduction theorem.
+
+7. ANALYTIC UNIQUENESS RETAINS ITS SERRIN BRIDGE
+Pin M1; file Q + QFBBridge/AnalyticUniqueness.lean.
+Declaration QFB_ANALYTIC_UNIQUENESS_AT_OF_AAP.
+Inputs nu>0, SmoothInitialDatum a, and
+  QFBAnalyticAdmissibilityPrincipleAt nu a.
+Output QFBAnalyticUniquenessAt nu a.
+The premise converts an actual positive-time analytic/smooth LH trajectory
+into L4_t L6_x on every (0,T]. It is not proved in this file.
+QFB_ANALYTIC_UNIQUE conjoins the QFB root with that implication; it does
+not erase the AAP premise from the uniqueness component.
+
+For the NEW germ admission, a finite-window bridge has a complete elementary
+mathematical derivation:
+  U analytic on (-epsilon,L) x T^3, epsilon>0, 0<T<L;
+  K=[0,T] x T^3 is compact;
+  M_T=max_K |U| < infinity by continuity;
+  volume(T^3)=1 -> ||U(t)||_6 <= M_T;
+  integral_0^T ||U(t)||_6^4 dt <= T M_T^4 < infinity;
+  joint continuity -> strong L2 initial trace U(t)->U(0).
+Thus finite-window analytic-to-Serrin is discharged mathematically for an
+ALREADY ADMITTED actual germ extending to L. Its Lean adapter still needs
+implementation. This derivation does not enlarge L to the QFB cutoff.
+
+8. RESTART CERTIFICATE CONTAINS THE PATCHING OBLIGATION
+Pin M1; file Q + QFBBridge/FeffermanBClosure.lean.
+Structures SmoothInitialDatum, GlobalClassicalSolution and
+OneRestartOverlapCertificate are reusable signatures.
+The latter contains restartTime, tailLag, localEnd, strict overlap,
+restarted physical LH membership, cutoff crossing, AND
+  local_overlap_closes :
+    HasSmoothTail nu (Shift restartTime u) tailLag -> HasSmoothTail nu u 0.
+That field is already the decisive gluing conclusion in implication form.
+It must be constructed from the finite analytic cylinder and physical
+weak--strong identification, not counted as an independently proved lemma.
+
+Declaration FEFFERMAN_B_OF_QFB_ONE_RESTART_OVERLAP:
+  QFBOneRestartOverlapStatement -> FeffermanBStatement.
+This is the reusable conditional root; the universal overlap statement
+remains a theorem premise.
+
+Pin M1; file Q + QFBAdmissions/OneRestartOverlapAxiom.lean.
+Literal custom axiom:
+  axiom QFB_ONE_RESTART_OVERLAP : QFBOneRestartOverlapStatement.
+FEFFERMAN_B_CONDITIONAL_CLOSURE applies the above conditional root to this
+axiom. Exclude this file from any claimed unconditional derivation.
+
+9. OLDER ABSTRACT SERRIN CERTIFICATE WARNING
+Pin M0; file regularity-B-assembly/pkg2/CEA10_CriticalToRegularity.lean.
+CEATheta.CriticalToRegularityCertificate includes arbitrary Props
+Serrin46 and Regular plus fields
+  serrin46_of_finite_bound : (...) -> Serrin46;
+  regular_of_serrin46 : Serrin46 -> Regular.
+CEATheta.CEA_theta_criticalPair_to_regular projects/composes those fields.
+Useful inequality assembly; not a proof of the physical Serrin continuation
+theorem without constructing these semantic fields.
+CEA11_ConditionalRegularityRoot.lean has the same issue through the field
+regular_of_all_serrin46 : (forall T>=0, Serrin46 T) -> Regular.
+
+10. REMAINING EXACT OBLIGATIONS
+U1. Define the genuine jointly analytic NSE germ on (-epsilon,epsilon)
+    and its capped extension on (-epsilon,T_Q), retaining periodicity,
+    divergence freedom, mean-zero pressure, and actual initial trace.
+U2. Prove the finite-window physical comparison/localization adapter and
+    pressure-compatible smooth gluing; (1),(2),(7) supply concrete pieces.
+U3. For equivalence with unrestricted smooth-data Fefferman B, implement
+    arbitrary smooth local existence and positive-time JOINT analytic
+    regularization/restart. No concrete complete Lean endpoint for this
+    package was identified in the inspected main and analytic branch.
+    This is a scoped search result, not a proof of repository-wide absence.
+U4. Prove every admitted analytic germ extends to a time strictly beyond
+    the applicable QFB threshold (e.g. the finite cap T_Q=2*tau_Q).
+    No inspected theorem supplies U4. Under standard local existence,
+    analytic restart, uniqueness and valid QFB tail, the universal U4
+    would imply unrestricted global regularity by restarting an arbitrary
+    smooth datum at a positive time inside its local lifespan.
+
+CONCLUSION
+Reusable concrete sources exist for finite Galerkin evolution, small-data
+global physical flow, physical Fourier realization, weak--strong comparison,
+and Gronwall. Analytic equivalence and restart closure files expose named
+premises rather than discharge them. Finite analytic admission gives a
+complete finite-window Serrin estimate, but universal continuation of every
+germ to the QFB attachment remains unresolved.

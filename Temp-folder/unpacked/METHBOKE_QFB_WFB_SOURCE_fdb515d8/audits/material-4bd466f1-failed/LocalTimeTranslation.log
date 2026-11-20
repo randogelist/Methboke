@@ -1,0 +1,15 @@
+MethbokeAddon/WeakFouriermanB/LocalTimeTranslation.lean:94:68: error: linarith failed to find a contradiction
+ν T s : ℝ
+a : SingularClosure.Field
+u : Velocity
+p : Pressure
+H : InitialClassicalFront ν T a u p
+hs : 0 ≤ s
+t : ℝ
+ht : t ∈ Ioo s (s + T)
+x : Vec
+hts : t - s ∈ Ioo 0 T
+hd : HasDerivAt (fun r => u r x) (timeDerivative u (t - s) x) (t - s)
+hc : HasDerivAt (fun r => u (r - s) x) (timeDerivative u (t - s) x) t
+⊢ False
+failed

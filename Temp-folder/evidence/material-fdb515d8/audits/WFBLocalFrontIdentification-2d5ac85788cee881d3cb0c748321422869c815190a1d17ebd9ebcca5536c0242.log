@@ -1,0 +1,195 @@
+WFBLocalFrontIdentification/Audit.lean:13:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:14:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:15:13: warning: Variable name `hτ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:15:27: warning: Variable name `hτT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hτT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:16:5: warning: Variable name `hSerrin` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hSerrin
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:24:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:25:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:26:5: warning: Variable name `hSerrin` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hSerrin
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:35:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:36:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:37:5: warning: Variable name `hSerrin` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hSerrin
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:45:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:46:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:47:5: warning: Variable name `hbudget` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbudget
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:53:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalFrontIdentification/Audit.lean:54:5: warning: Variable name `hbudget` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbudget
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
+MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (v : SingularClosure.Velocity)
+  (G : QuasiFeffermanB.WeakGradientTrajectory),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+      ∀ (τ : ℝ),
+        LT.lt.{0} 0 τ →
+          LT.lt.{0} τ T →
+            MeasureTheory.MemLp.{0, 0} (fun r => SingularClosure.criticalSpatialNorm.{0} 6 (u r)) 4
+                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} 0 τ)) →
+              ∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ioc.{0} 0 τ) r →
+                  v
+                      r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                      SingularClosure.unitCube]
+                    u r
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
+'MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_on
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_compact_serrin
+MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_compact_serrin : ∀ (ν T : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure)
+  (v : SingularClosure.Velocity) (G : QuasiFeffermanB.WeakGradientTrajectory),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+      (∀ (τ : ℝ),
+          LT.lt.{0} 0 τ →
+            LT.lt.{0} τ T →
+              MeasureTheory.MemLp.{0, 0} (fun r => SingularClosure.criticalSpatialNorm.{0} 6 (u r)) 4
+                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} 0 τ))) →
+        ∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            v r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]
+              u r
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_compact_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_compact_serrin
+'MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_compact_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_compact_serrin
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_serrin
+MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_serrin : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (v : SingularClosure.Velocity)
+  (G : QuasiFeffermanB.WeakGradientTrajectory),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+      MeasureTheory.MemLp.{0, 0} (fun r => SingularClosure.criticalSpatialNorm.{0} 6 (u r)) 4
+          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+        ∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            v r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]
+              u r
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_serrin
+'MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_serrin
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_fourier_budget
+MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_fourier_budget : ∀ (ν T : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure)
+  (v : SingularClosure.Velocity) (G : QuasiFeffermanB.WeakGradientTrajectory),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+      MethbokeAddon.WeakFouriermanB.FourierBudgetFinite (fun r => SingularClosure.datumFourierCoeff (u r)) T →
+        ∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            v r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]
+              u r
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_fourier_budget
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_fourier_budget
+'MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_fourier_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_leray_hopf_identification_of_fourier_budget
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_original_leray_hopf_of_fourier_budget
+MethbokeAddon.WeakFouriermanB.local_front_original_leray_hopf_of_fourier_budget : ∀ (ν T : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    MethbokeAddon.WeakFouriermanB.FourierBudgetFinite (fun r => SingularClosure.datumFourierCoeff (u r)) T →
+      ∃ v G,
+        SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G ∧
+          v 0 =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube] a ∧
+            ∀ (r : ℝ),
+              Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+                v
+                    r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                    SingularClosure.unitCube]
+                  u r
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_original_leray_hopf_of_fourier_budget
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_original_leray_hopf_of_fourier_budget
+'MethbokeAddon.WeakFouriermanB.local_front_original_leray_hopf_of_fourier_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_original_leray_hopf_of_fourier_budget

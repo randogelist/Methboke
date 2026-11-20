@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "SerrinComparison",
+  "endpoint_module": "SerrinComparison.Endpoint",
+  "audit_module": "SerrinComparison.Audit",
+  "imports": [
+    "SingularClosure.CriticalSerrinUniqueness"
+  ],
+  "source_roots": [
+    {
+      "module": "SingularClosure.CriticalSerrinUniqueness",
+      "path": "_vendor/SingularClosure/CriticalSerrinUniqueness.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CriticalSerrinUniqueness.lean",
+        "module": "SingularClosure.CriticalSerrinUniqueness"
+      },
+      "scope": "Global positive-time smooth/NSE reference, strong L2 trace, and finite-horizon L4_t L6_x required."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Existing physical comparison endpoint: its comparison-reference smoothness and NSE premises quantify over all positive times. This package does not claim finite-cylinder localization.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

@@ -1,0 +1,8 @@
+MethbokeAddon/WeakFouriermanB/LocalGalerkinBounds.lean:210:8: error: Type mismatch
+  add_le_add_left hZ ?m.540
+has type
+  (∫ (t : ℝ) in 0..T, coefficientLaplacianSquare N (g.coeff t)) + ?m.540 ≤
+    localGalerkinAccumulationBound ν R / ν + ?m.540
+but is expected to have type
+  6 * (R + 1) * T + ∫ (t : ℝ) in 0..T, coefficientLaplacianSquare N (g.coeff t) ≤
+    6 * (R + 1) * T + localGalerkinAccumulationBound ν R / ν

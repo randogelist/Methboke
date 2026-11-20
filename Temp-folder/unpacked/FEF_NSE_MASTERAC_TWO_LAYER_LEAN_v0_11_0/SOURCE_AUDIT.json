@@ -1,0 +1,816 @@
+{
+  "status": "STATIC_RECONSTRUCTION_SOURCE_AUDIT_PASS",
+  "leanCompilation": "NOT_RUN_USE_USER_COMPILER",
+  "baselineKernelStatus": "USER_REPORTED_PASS_V0_6_1",
+  "moduleCount": 36,
+  "theoremCount": 323,
+  "newTheoremCount": 149,
+  "baselineTheoremsPreserved": 174,
+  "allBaselineDeclarationBodiesPreserved": 356,
+  "axiomPrintCoverage": 323,
+  "projectResearchAxiomDeclarations": 0,
+  "sourceFileOccurrences": 123,
+  "uniqueSourceFileHashes": 101,
+  "sourceDeclarationIndexEntries": 2239,
+  "checks": [
+    "Every baseline statement/proof body preserved",
+    "Complete topologically ordered import graph with no orphan",
+    "Every theorem has #check and #print axioms",
+    "No proof escapes or duplicate declarations",
+    "Balanced comments, strings and delimiters",
+    "CMD labels, CRLF and exact theorem-count guard",
+    "Source file hashes and TSV schemas",
+    "Only two proof-body rewrite commands changed relative to v0.7.6; all 323 theorem statements unchanged",
+    "All other 35 Lean files byte-identical to v0.7.6",
+    "All 18 modules compiled by the user in v0.7.6 retained byte-identically"
+  ],
+  "nonChecks": [
+    "No Lean or Rocq compiler executed here",
+    "No native CMD execution",
+    "No claim every source declaration is ported",
+    "No real-analysis or physical endpoint instance constructed",
+    "No Fefferman case proved"
+  ],
+  "tsvTables": [
+    {
+      "file": "BRANCH_IDENTIFICATIONS.tsv",
+      "columns": 4,
+      "rows": 10
+    },
+    {
+      "file": "CLASSIFICATION.tsv",
+      "columns": 7,
+      "rows": 4
+    },
+    {
+      "file": "CROSS_BRANCH_PORTS.tsv",
+      "columns": 6,
+      "rows": 43
+    },
+    {
+      "file": "DERIVATION_SOURCE_MAP.tsv",
+      "columns": 5,
+      "rows": 43
+    },
+    {
+      "file": "FORCE_REGIMES.tsv",
+      "columns": 5,
+      "rows": 6
+    },
+    {
+      "file": "FRONTIER.tsv",
+      "columns": 4,
+      "rows": 55
+    },
+    {
+      "file": "MODULE_MAP.tsv",
+      "columns": 4,
+      "rows": 565
+    },
+    {
+      "file": "RECONSTRUCTION_COVERAGE.tsv",
+      "columns": 6,
+      "rows": 23
+    },
+    {
+      "file": "ROCQ_DECLARATION_INDEX.tsv",
+      "columns": 6,
+      "rows": 2239
+    },
+    {
+      "file": "ROCQ_FILE_INDEX.tsv",
+      "columns": 5,
+      "rows": 123
+    },
+    {
+      "file": "SOURCE_MAP.tsv",
+      "columns": 4,
+      "rows": 43
+    }
+  ],
+  "modules": [
+    {
+      "module": "Fefferman.Analysis",
+      "imports": [
+        "Init"
+      ],
+      "theoremNames": [],
+      "lines": 155
+    },
+    {
+      "module": "Fefferman.Statements",
+      "imports": [
+        "Fefferman.Analysis"
+      ],
+      "theoremNames": [],
+      "lines": 89
+    },
+    {
+      "module": "Fefferman.ForceRegimes",
+      "imports": [
+        "Fefferman.Statements"
+      ],
+      "theoremNames": [
+        "regularForceAt_excludes_breakdownForceAt",
+        "breakdownAt_iff_exists_breakdownForce",
+        "admissibleForce_regular_or_breakdown",
+        "breakdownForce_excludes_regular_certificate",
+        "certified_regimes_disjoint",
+        "admissibleForce_certificate_trichotomy"
+      ],
+      "lines": 101
+    },
+    {
+      "module": "Fefferman.MasterCore",
+      "imports": [
+        "Fefferman.ForceRegimes"
+      ],
+      "theoremNames": [
+        "masterCore_unforcedAt",
+        "masterCore_breakdownAt_of_certificate",
+        "masterCore_no_breakdownAt_of_all_regular",
+        "masterCore_breakdown_certificate_nonzero",
+        "master_breakdownAt",
+        "master_no_all_regular_at"
+      ],
+      "lines": 62
+    },
+    {
+      "module": "Fefferman.ScalarLedger",
+      "imports": [
+        "Fefferman.Analysis"
+      ],
+      "theoremNames": [
+        "ledger_zero_add",
+        "ledger_neg_add",
+        "ledger_add_rotate",
+        "ledger_drop_right",
+        "ledger_drop_left",
+        "ledger_unscale",
+        "ledger_retention_split",
+        "ledger_strict_absorption",
+        "ledger_storage_bound",
+        "ledger_prefix_scale",
+        "ledger_renewal_step_from_retention",
+        "ledger_renewal_invariant",
+        "ledger_renewal_prefix_bound",
+        "ledger_action_from_cofinal_samples",
+        "ledger_forced_energy_bound",
+        "ledger_full_readout_bound",
+        "ledger_net_work_excludes_mass_bound"
+      ],
+      "lines": 222
+    },
+    {
+      "module": "Fefferman.DerivationSupport",
+      "imports": [
+        "Fefferman.MasterCore",
+        "Fefferman.ScalarLedger"
+      ],
+      "theoremNames": [
+        "derivation_regular_soundness",
+        "derivation_unforced",
+        "derivation_obstruction_no_global",
+        "derivation_regime_soundness",
+        "derivation_master_core",
+        "derivation_master"
+      ],
+      "lines": 129
+    },
+    {
+      "module": "Master_R3_details",
+      "imports": [
+        "Fefferman.DerivationSupport"
+      ],
+      "theoremNames": [],
+      "lines": 85
+    },
+    {
+      "module": "Fefferman.SourceGeometry",
+      "imports": [
+        "Fefferman.ScalarLedger"
+      ],
+      "theoremNames": [
+        "source_mul_interchange",
+        "R3_inverse_sqrt_normalizes",
+        "R3_normalized_heat_isometry",
+        "R3_frame_mellin_isometry",
+        "R3_frame_mellin_preserves_gram",
+        "R3_frame_mellin_preserves_mass"
+      ],
+      "lines": 106
+    },
+    {
+      "module": "Fefferman.ReducedCapacity",
+      "imports": [
+        "Fefferman.SourceGeometry"
+      ],
+      "theoremNames": [
+        "source_congr_arg_two",
+        "GramRemove_pair_left",
+        "GramRemove_pair_right",
+        "GramResidual_pair_left",
+        "GramResidual_pair_right",
+        "GramCoefficient_transport",
+        "GramRemove_pair_transport",
+        "GramBeta_transport",
+        "GramAlpha_transport",
+        "GramResidual_pair_transport",
+        "GramCapacity_transport",
+        "GramNormalEquations_transport",
+        "R3_frame_mellin_preserves_capacity"
+      ],
+      "lines": 164
+    },
+    {
+      "module": "Fefferman.R3SourceBranch",
+      "imports": [
+        "Fefferman.SourceGeometry"
+      ],
+      "theoremNames": [
+        "source_absorb_retained_term",
+        "R3_signed_payment_absorbs",
+        "R3_source_gap_positive",
+        "R3_source_critical_bounds",
+        "R3_source_cumulative_bound",
+        "R3_source_cell_nonnegative",
+        "R3_source_prefix_is_cumulative",
+        "R3_source_result"
+      ],
+      "lines": 182
+    },
+    {
+      "module": "Fefferman.FiniteSpectral",
+      "imports": [
+        "Fefferman.ReducedCapacity",
+        "Fefferman.R3SourceBranch"
+      ],
+      "theoremNames": [
+        "spectral_prefix_congr",
+        "spectral_add_shuffle",
+        "spectral_prefix_add",
+        "spectral_prefix_zero",
+        "spectral_neg_of_add_zero",
+        "spectral_mul_neg",
+        "spectral_neg_mul",
+        "spectral_prefix_neg",
+        "R3_finite_dot_symmetric",
+        "R3_finite_dot_scale_left",
+        "R3_finite_dot_scale_right",
+        "R3_finite_dot_sub_left",
+        "R3_finite_dot_sub_right",
+        "spectral_square_product",
+        "R3_h12_coordinate_square",
+        "R3_h32_coordinate_square",
+        "R3_h12_embedding_norm",
+        "R3_h32_embedding_norm",
+        "R3_packet_dissipation_is_h32",
+        "R3_packet_dissipation_is_embedding_norm",
+        "R3_h32_primitive_transport",
+        "R3_frame_mellin_h12_identification",
+        "R3_finite_frame_mellin_capacity",
+        "R3_source_mass_is_finite_h12",
+        "R3_source_spectral_result"
+      ],
+      "lines": 292
+    },
+    {
+      "module": "Fefferman.KernelAlgebra",
+      "imports": [
+        "Fefferman.FiniteSpectral"
+      ],
+      "theoremNames": [
+        "k_one_nonneg",
+        "k_mul_one",
+        "k_zero_mul",
+        "k_add_nonneg",
+        "k_mul_le_right",
+        "k_add_left_comm",
+        "k_neg_zero",
+        "k_neg_neg",
+        "k_neg_add",
+        "k_add_neg_cancel",
+        "k_neg_add_cancel",
+        "k_sub_add",
+        "k_add_sub",
+        "k_sub_self",
+        "k_sub_zero",
+        "k_sub_nonneg",
+        "k_sub_nonpos",
+        "k_sub_le_to_le_add",
+        "k_le_add_to_sub_le",
+        "k_le_of_sub_nonpos",
+        "k_sub_mono_left",
+        "k_div_nonneg",
+        "k_scale_zero",
+        "k_scale_one",
+        "k_scale_add",
+        "k_scale_nat_add",
+        "k_scale_comp",
+        "k_scale_sub",
+        "k_sub_add_le",
+        "k_scale_two",
+        "k_scale_le",
+        "k_scale_cancel",
+        "k_prefix_mono",
+        "k_prefix_nonneg",
+        "k_prefix_telescope",
+        "k_positive_nonneg",
+        "k_le_positive",
+        "k_positive_le"
+      ],
+      "lines": 221
+    },
+    {
+      "module": "Fefferman.KernelRenewal",
+      "imports": [
+        "Fefferman.KernelAlgebra"
+      ],
+      "theoremNames": [
+        "kernel_firewall_509",
+        "kernel_storage_telescope",
+        "kernel_gp509_step_gap",
+        "kernel_gp509_invariant",
+        "kernel_gp509_prefix",
+        "kernel_gp509_m7",
+        "kernel_payment_telescope",
+        "kernel_payment_bound",
+        "kernel_payment_to_m7",
+        "canonical_paid_nonneg",
+        "canonical_paid_routes",
+        "canonical_paid_minimal",
+        "canonical_boundary_nonnegative",
+        "canonical_firewall"
+      ],
+      "lines": 184
+    },
+    {
+      "module": "Fefferman.KernelCapacity",
+      "imports": [
+        "Fefferman.KernelRenewal"
+      ],
+      "theoremNames": [
+        "k_prefix_sub",
+        "k_mul_sub",
+        "k_cancel_two",
+        "kernel_square_completion",
+        "kernel_pointwise_dual_bound",
+        "kernel_positive_action_nonnegative",
+        "kernel_positive_action_of_dual_bound",
+        "kernel_weighted_dual_identity",
+        "kernel_finite_action_bound",
+        "kernel_double_sum_swap",
+        "kernel_column_action_bound",
+        "kernel_survival_telescope",
+        "kernel_fraction_survival_step",
+        "kernel_fraction_survival_nonnegative",
+        "kernel_fraction_ownership",
+        "kernel_capacity_no_reuse"
+      ],
+      "lines": 272
+    },
+    {
+      "module": "Fefferman.KernelGeometry",
+      "imports": [
+        "Fefferman.KernelCapacity"
+      ],
+      "theoremNames": [
+        "k_one_positive",
+        "k_nat_two",
+        "k_nat_three",
+        "k_nat_four",
+        "k_nat_five",
+        "kernel_gain_product",
+        "kernel_envelope_den_positive",
+        "kernel_envelope_shape_identity",
+        "kernel_envelope_shape",
+        "kernel_envelope_compose",
+        "kernel_path_envelope",
+        "kernel_first_crossing_four_fifths"
+      ],
+      "lines": 262
+    },
+    {
+      "module": "Fefferman.KernelBirth",
+      "imports": [
+        "Fefferman.KernelGeometry"
+      ],
+      "theoremNames": [
+        "kernel_birth_ownership",
+        "kernel_birth_capacity",
+        "kernel_birth_column_nonnegative",
+        "kernel_birth_column_bound",
+        "kernel_birth_uv_bound",
+        "kernel_birth_step",
+        "kernel_birth_gp509"
+      ],
+      "lines": 117
+    },
+    {
+      "module": "Fefferman.KernelCritical",
+      "imports": [
+        "Fefferman.KernelRenewal"
+      ],
+      "theoremNames": [
+        "kernel_m7_bounds_action",
+        "kernel_effective_viscosity_positive",
+        "kernel_action_to_critical",
+        "kernel_m7_to_critical",
+        "kernel_critical_split",
+        "kernel_critical_to_serrin",
+        "kernel_renewal_payment_to_serrin",
+        "kernel_uniform_family_serrin"
+      ],
+      "lines": 129
+    },
+    {
+      "module": "Fefferman.KernelCalculus",
+      "imports": [
+        "Fefferman.KernelCritical"
+      ],
+      "theoremNames": [
+        "kernel_primitive_scale",
+        "kernel_primitive_sub",
+        "kernel_primitive_nonnegative",
+        "kernel_integrated_balance",
+        "kernel_primitive_comparison",
+        "kernel_source_rates_integrate",
+        "kernel_source_rates_critical",
+        "kernel_source_coupled_balance"
+      ],
+      "lines": 198
+    },
+    {
+      "module": "Fefferman.KernelStorage",
+      "imports": [
+        "Fefferman.KernelCalculus",
+        "Fefferman.KernelCapacity"
+      ],
+      "theoremNames": [
+        "kernel_settlement_growth_nonnegative",
+        "kernel_settlement_charge_nonnegative",
+        "kernel_normalized_source_growth",
+        "kernel_supplied_derivative",
+        "kernel_supplied_rate_nonpositive",
+        "kernel_supplied_storage_bound",
+        "kernel_paid_cell_nonnegative",
+        "kernel_paid_cells_telescope",
+        "kernel_settlement_paid_bound",
+        "kernel_settlement_m7"
+      ],
+      "lines": 203
+    },
+    {
+      "module": "Fefferman.KernelPackets",
+      "imports": [
+        "Fefferman.KernelCapacity",
+        "Fefferman.KernelCalculus"
+      ],
+      "theoremNames": [
+        "kernel_weighted_packet_young",
+        "kernel_weighted_packet_absorption",
+        "kernel_weighted_packet_damping",
+        "kernel_packet_integrated_critical"
+      ],
+      "lines": 70
+    },
+    {
+      "module": "Fefferman.CanonicalSource",
+      "imports": [
+        "Fefferman.KernelCalculus"
+      ],
+      "theoremNames": [
+        "kernel_source_cells_nonnegative",
+        "kernel_source_cells_telescope",
+        "kernel_source_excess_initial",
+        "canonical_source_boundary",
+        "canonical_source_gp509",
+        "canonical_source_budget_nonnegative",
+        "canonical_source_m7",
+        "canonical_local_excess_paid",
+        "canonical_grid_excess_bound",
+        "canonical_global_excess_bound",
+        "canonical_source_signed_budget",
+        "canonical_source_critical",
+        "canonical_source_sampled_critical"
+      ],
+      "lines": 184
+    },
+    {
+      "module": "Fefferman.Continuation",
+      "imports": [
+        "Fefferman.Statements"
+      ],
+      "theoremNames": [
+        "inputs_solved_of_continuation",
+        "unforced_from_inputs",
+        "A_of_continuation",
+        "B_of_continuation"
+      ],
+      "lines": 46
+    },
+    {
+      "module": "Fefferman.ProjectRoutes",
+      "imports": [
+        "Fefferman.Continuation"
+      ],
+      "theoremNames": [
+        "QUATROS_internal_stages",
+        "QUATROS_same_solution_continuation",
+        "A_from_QUATROS",
+        "MAOTAOTROS_same_input_closure",
+        "A_from_MAOTAOTROS",
+        "COVARIANCE_same_input_closure",
+        "A_from_COVARIANCE",
+        "B_from_periodic_COVARIANCE"
+      ],
+      "lines": 157
+    },
+    {
+      "module": "Fefferman.ReconstructedRoutes",
+      "imports": [
+        "Fefferman.KernelBirth",
+        "Fefferman.KernelStorage",
+        "Fefferman.KernelPackets",
+        "Fefferman.CanonicalSource",
+        "Fefferman.ProjectRoutes"
+      ],
+      "theoremNames": [
+        "reconstructed_quatros_port",
+        "reconstructed_quatros_stages",
+        "reconstructed_quatros_continuation",
+        "A_from_reconstructed_quatros",
+        "reconstructed_maotaotros_port",
+        "reconstructed_maotaotros_critical",
+        "A_from_reconstructed_maotaotros"
+      ],
+      "lines": 139
+    },
+    {
+      "module": "Fefferman.KernelCovariance",
+      "imports": [
+        "Fefferman.KernelCapacity",
+        "Fefferman.ProjectRoutes"
+      ],
+      "theoremNames": [
+        "kernel_generic_renewal_m7",
+        "kernel_covariance_physical_prefix",
+        "kernel_convex_shared_budget",
+        "kernel_positive_carrier_partition",
+        "kernel_gradient_square_payment",
+        "kernel_action_from_gradient_payment",
+        "kernel_single_ledger_payment",
+        "reconstructed_covariance_port",
+        "A_from_reconstructed_covariance",
+        "B_from_reconstructed_covariance"
+      ],
+      "lines": 133
+    },
+    {
+      "module": "Master_R3_derivation",
+      "imports": [
+        "Master_R3_details",
+        "Fefferman.ReconstructedRoutes",
+        "Fefferman.KernelCovariance"
+      ],
+      "theoremNames": [
+        "R3_lower_payments_bounded",
+        "R3_storage_gives_crowd_bound",
+        "R3_crowd_gives_action_bound",
+        "R3_action_gives_finite_critical_bounds",
+        "R3_full_critical_bounds",
+        "R3_full_dissipation_bound",
+        "R3_derive_critical_control",
+        "R3_derive_regime_soundness",
+        "R3_derive_A",
+        "R3_derive_master_core",
+        "R3_derive_master"
+      ],
+      "lines": 82
+    },
+    {
+      "module": "Master_r3",
+      "imports": [
+        "Master_R3_derivation",
+        "Fefferman.R3SourceBranch",
+        "Fefferman.FiniteSpectral",
+        "Fefferman.ProjectRoutes"
+      ],
+      "theoremNames": [
+        "MR3",
+        "A_of_R3_masterCore",
+        "R3_masterCore_and_embedding_excludes_C_at",
+        "MR3_finite_spectral",
+        "MR3_finite_source_and_capacity",
+        "MR3_reconstructed"
+      ],
+      "lines": 94
+    },
+    {
+      "module": "Master_T3_details",
+      "imports": [
+        "Fefferman.DerivationSupport"
+      ],
+      "theoremNames": [],
+      "lines": 111
+    },
+    {
+      "module": "Master_T3_derivation",
+      "imports": [
+        "Master_T3_details",
+        "Fefferman.KernelCovariance"
+      ],
+      "theoremNames": [
+        "T3_triad_support_commutes",
+        "T3_fourier_mul_shuffle",
+        "T3_term_product_evaluates",
+        "T3_polynomial_eval_append",
+        "T3_polynomial_eval_multiply_one",
+        "T3_finite_product_is_convolution",
+        "T3_renewal_prefix_bound",
+        "T3_renewal_gives_action_bound",
+        "T3_action_gives_finite_critical_bounds",
+        "T3_full_critical_bounds",
+        "T3_derive_critical_control",
+        "T3_derive_regime_soundness",
+        "T3_derive_B",
+        "T3_derive_master_core",
+        "T3_derive_master"
+      ],
+      "lines": 124
+    },
+    {
+      "module": "Fefferman.T3IntegralBranch",
+      "imports": [
+        "Master_T3_derivation"
+      ],
+      "theoremNames": [
+        "T3_term_coefficient_certificate",
+        "T3_polynomial_coefficient_certificate",
+        "T3_integral_coefficient_equals_algebraic",
+        "T3_integral_of_polynomial_product",
+        "T3_polynomial_gram_certificate",
+        "T3_finite_gram_with_repeated_modes",
+        "T3_coefficient_absent",
+        "T3_coefficient_present",
+        "T3_coefficient_sum_congr",
+        "T3_gram_terms_sum",
+        "T3_finite_parseval_pairing",
+        "T3_real_part_sum",
+        "T3_finite_scalar_parseval",
+        "T3_finite_vector_parseval",
+        "T3_spectral_bound_controls_polynomial_energy",
+        "T3_integral_mode_equals_polynomial",
+        "T3_integral_mode_bound",
+        "T3_integral_two_cutoff_limit",
+        "T3_integral_result"
+      ],
+      "lines": 419
+    },
+    {
+      "module": "Master_T3",
+      "imports": [
+        "Master_T3_derivation",
+        "Fefferman.T3IntegralBranch",
+        "Fefferman.ProjectRoutes"
+      ],
+      "theoremNames": [
+        "MT3",
+        "B_of_periodic_masterCore",
+        "periodic_masterCore_and_embedding_excludes_D_at",
+        "MT3_reconstructed"
+      ],
+      "lines": 56
+    },
+    {
+      "module": "Fefferman.Logic",
+      "imports": [
+        "Fefferman.Statements"
+      ],
+      "theoremNames": [
+        "zeroBreakdown_iff_not_unforced",
+        "breakdown_iff_not_forced",
+        "zeroBreakdown_to_breakdown",
+        "forced_to_unforced",
+        "failure_A_at_to_C_at",
+        "failure_B_at_to_D_at",
+        "failure_A_has_viscosity_witness",
+        "A_excludes_zeroForce_breakdown"
+      ],
+      "lines": 90
+    },
+    {
+      "module": "Fefferman.Obstructions",
+      "imports": [
+        "Fefferman.Statements"
+      ],
+      "theoremNames": [
+        "breakdown_of_witness",
+        "C_at_of_witness",
+        "D_at_of_witness",
+        "C_of_witness_family",
+        "D_of_witness_family"
+      ],
+      "lines": 35
+    },
+    {
+      "module": "Feffermann-Classification",
+      "imports": [
+        "Master_r3",
+        "Master_T3",
+        "Fefferman.Logic",
+        "Fefferman.ProjectRoutes",
+        "Fefferman.Obstructions"
+      ],
+      "theoremNames": [
+        "MA_implies_A_and_C",
+        "MB_implies_B_and_D",
+        "R3_derivation_implies_A_and_C",
+        "T3_derivation_implies_B_and_D",
+        "A_from_MR3_QUATROS",
+        "A_from_MR3_MAOTAOTROS",
+        "A_from_MR3_storage",
+        "B_from_MT3_renewal",
+        "B_from_MT3_periodic_covariance"
+      ],
+      "lines": 68
+    },
+    {
+      "module": "Types",
+      "imports": [
+        "Feffermann-Classification"
+      ],
+      "theoremNames": [],
+      "lines": 456
+    },
+    {
+      "module": "Audit",
+      "imports": [
+        "Feffermann-Classification"
+      ],
+      "theoremNames": [],
+      "lines": 327
+    }
+  ],
+  "repairAudit": {
+    "package": "FEF_NSE_CLASSIFICATION_LEAN_v0_7_7",
+    "failedPackage": "FEF_NSE_CLASSIFICATION_LEAN_v0_7_6",
+    "failedArchiveSha256": "2e79ce6ff3aefdcceca48415516a27d60b6ec4420fde9bcb124b3463a098d503",
+    "userReportedRun": "FAIL",
+    "failedModule": "Fefferman.KernelStorage",
+    "userReportedErrorLines": [
+      128,
+      139,
+      178
+    ],
+    "userCompiledModulesBeforeFailure": 18,
+    "userCompiledModules": [
+      "Fefferman.Analysis",
+      "Fefferman.Statements",
+      "Fefferman.ForceRegimes",
+      "Fefferman.MasterCore",
+      "Fefferman.ScalarLedger",
+      "Fefferman.DerivationSupport",
+      "Master_R3_details",
+      "Fefferman.SourceGeometry",
+      "Fefferman.ReducedCapacity",
+      "Fefferman.R3SourceBranch",
+      "Fefferman.FiniteSpectral",
+      "Fefferman.KernelAlgebra",
+      "Fefferman.KernelRenewal",
+      "Fefferman.KernelCapacity",
+      "Fefferman.KernelGeometry",
+      "Fefferman.KernelBirth",
+      "Fefferman.KernelCritical",
+      "Fefferman.KernelCalculus"
+    ],
+    "userCompiledModuleBodiesByteIdentical": true,
+    "compiler": "Lean 4.33.0 native Windows",
+    "compilerCommit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+    "observedErrors": [
+      "Generic distributivity rewrites the lower bound; transitivity needs the upper bound expanded",
+      "The generic prefix telescope rewrite cannot infer the composed sequence through the grid"
+    ],
+    "repairs": [
+      "Supply all mulAdd arguments so only the weighted upper bound is distributed; retain the factored lower bound for the next step",
+      "Supply f=(fun k => s.actionPrimitive (s.grid k)) and n to k_prefix_telescope"
+    ],
+    "changedProofBodies": [
+      "kernel_supplied_rate_nonpositive",
+      "kernel_paid_cells_telescope"
+    ],
+    "changedLeanFiles": [
+      "Fefferman/KernelStorage.lean"
+    ],
+    "otherLeanFilesByteIdentical": 35,
+    "preservedTheoremStatements": 323,
+    "newTheoremsInThisRepair": 0,
+    "addedHypotheses": 0,
+    "removedHypotheses": 0,
+    "recordFieldRepairsRetained": true,
+    "checkedBaseline": "v0.6.1 USER_REPORTED_PASS, 174 theorem reports",
+    "sourceAudit": "STATIC_REPAIR_AUDIT_PASS",
+    "currentKernelCompilation": "PENDING_USER_COMPILER",
+    "nativeCmdExecution": "PENDING_USER_WINDOWS_RUN"
+  }
+}

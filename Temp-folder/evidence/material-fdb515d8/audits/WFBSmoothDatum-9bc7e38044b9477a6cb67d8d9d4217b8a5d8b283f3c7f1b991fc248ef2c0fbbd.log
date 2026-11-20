@@ -1,0 +1,76 @@
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_memLp
+@MethbokeAddon.WeakFouriermanB.smooth_datum_memLp : ∀ {a : SingularClosure.Field},
+  SingularClosure.SmoothSigmaZero a →
+    MeasureTheory.MemLp.{0, 0} a 2
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube)
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_memLp
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_memLp
+'MethbokeAddon.WeakFouriermanB.smooth_datum_memLp' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_memLp
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ae
+@MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ae : ∀ {a : SingularClosure.Field},
+  SingularClosure.SmoothSigmaZero a →
+    ↑↑(SingularClosure.criticalL2Representative.{0}
+            a) =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]
+      a
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ae
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ae
+'MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ae' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_ae
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_constant_pairing_zero
+@MethbokeAddon.WeakFouriermanB.smooth_datum_constant_pairing_zero : ∀ {a : SingularClosure.Field},
+  SingularClosure.SmoothSigmaZero a →
+    ∀ (i : Fin 3), Eq.{1} (SingularClosure.physicalFieldInner a fun x => SingularClosure.unitVector i) 0
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_constant_pairing_zero
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_constant_pairing_zero
+'MethbokeAddon.WeakFouriermanB.smooth_datum_constant_pairing_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_constant_pairing_zero
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero
+@MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero : ∀ {a : SingularClosure.Field},
+  SingularClosure.SmoothSigmaZero a → QuasiFeffermanB.EnergySigmaZero (SingularClosure.criticalL2Representative.{0} a)
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero
+'MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_energySigmaZero
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_norm_sq
+@MethbokeAddon.WeakFouriermanB.smooth_datum_representative_norm_sq : ∀ {a : SingularClosure.Field},
+  SingularClosure.SmoothSigmaZero a →
+    Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (SingularClosure.criticalL2Representative.{0} a)) 2)
+      (SingularClosure.physicalEnergy a)
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_norm_sq
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_norm_sq
+'MethbokeAddon.WeakFouriermanB.smooth_datum_representative_norm_sq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_representative_norm_sq
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff
+@MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff : ∀ {a : SingularClosure.Field},
+  SingularClosure.SmoothSigmaZero a →
+    ∀ (ν : ℝ),
+      Eq.{1} (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν)
+        (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (SingularClosure.physicalEnergy a) 2)
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 (HPow.hPow.{0, 0, 0} Real.pi 2)) (HPow.hPow.{0, 0, 0} ν 5)))
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff
+'MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_cutoff
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists
+MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.Field),
+      SingularClosure.SmoothSigmaZero a →
+        ∃ u G,
+          SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) u G ∧
+            u 0 =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube] a
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists
+'MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_lerayHopf_exists

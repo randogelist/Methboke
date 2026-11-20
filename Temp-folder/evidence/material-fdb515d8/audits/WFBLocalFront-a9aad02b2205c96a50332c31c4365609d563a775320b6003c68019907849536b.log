@@ -1,0 +1,472 @@
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.localFrontSpacetime_isOpen
+MethbokeAddon.WeakFouriermanB.localFrontSpacetime_isOpen : ∀ (T : ℝ),
+  IsOpen.{0} (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)
+TYPE_END:MethbokeAddon.WeakFouriermanB.localFrontSpacetime_isOpen
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.localFrontSpacetime_isOpen
+'MethbokeAddon.WeakFouriermanB.localFrontSpacetime_isOpen' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.localFrontSpacetime_isOpen
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_spatial_slice_contDiff
+MethbokeAddon.WeakFouriermanB.local_spatial_slice_contDiff : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → ContDiff.{0, 0, 0} ℝ ∞ (u t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_spatial_slice_contDiff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_spatial_slice_contDiff
+'MethbokeAddon.WeakFouriermanB.local_spatial_slice_contDiff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_spatial_slice_contDiff
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_eq_joint
+MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_eq_joint : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        ∀ (x : SingularClosure.Vec) (j : Fin 3),
+          Eq.{1} (SingularClosure.coordinateDerivative (u t) j x)
+            ((fderiv.{0, 0, 0} ℝ (fun z => u z.1 z.2) (Prod.mk.{0, 0} t x))
+              (Prod.mk.{0, 0} 0 (SingularClosure.unitVector j)))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_eq_joint
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_eq_joint
+'MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_eq_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_eq_joint
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_continuousOn
+MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_continuousOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (j : Fin 3),
+      ContinuousOn.{0, 0} (fun z => SingularClosure.coordinateDerivative (u z.1) j z.2)
+        (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_continuousOn
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_continuousOn
+'MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_continuousOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_continuousOn
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_spatialNorm_aestronglyMeasurable
+MethbokeAddon.WeakFouriermanB.local_spatialNorm_aestronglyMeasurable : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContinuousOn.{0, 0} (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (p : ℝ≥0∞),
+      Ne.{1} p 0 →
+        Ne.{1} p ∞ →
+          MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} p (u t))
+            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_spatialNorm_aestronglyMeasurable
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_spatialNorm_aestronglyMeasurable
+'MethbokeAddon.WeakFouriermanB.local_spatialNorm_aestronglyMeasurable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_spatialNorm_aestronglyMeasurable
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_spatialNorm_six_aestronglyMeasurable
+MethbokeAddon.WeakFouriermanB.local_spatialNorm_six_aestronglyMeasurable : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContinuousOn.{0, 0} (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t))
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_spatialNorm_six_aestronglyMeasurable
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_spatialNorm_six_aestronglyMeasurable
+'MethbokeAddon.WeakFouriermanB.local_spatialNorm_six_aestronglyMeasurable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_spatialNorm_six_aestronglyMeasurable
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_aestronglyMeasurable
+MethbokeAddon.WeakFouriermanB.local_physicalEnergy_aestronglyMeasurable : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContinuousOn.{0, 0} (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalEnergy (u t))
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_aestronglyMeasurable
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_aestronglyMeasurable
+'MethbokeAddon.WeakFouriermanB.local_physicalEnergy_aestronglyMeasurable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_aestronglyMeasurable
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.physicalDissipation_eq_sum_coordinateEnergy
+MethbokeAddon.WeakFouriermanB.physicalDissipation_eq_sum_coordinateEnergy : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    Eq.{1} (SingularClosure.physicalDissipation v)
+      (∑ j, SingularClosure.physicalEnergy (SingularClosure.coordinateDerivative v j))
+TYPE_END:MethbokeAddon.WeakFouriermanB.physicalDissipation_eq_sum_coordinateEnergy
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.physicalDissipation_eq_sum_coordinateEnergy
+'MethbokeAddon.WeakFouriermanB.physicalDissipation_eq_sum_coordinateEnergy' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.physicalDissipation_eq_sum_coordinateEnergy
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable
+MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalDissipation (u t))
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable
+'MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_physicalDissipation_aestronglyMeasurable
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_hasDerivAt_real_cube_integral
+MethbokeAddon.WeakFouriermanB.local_hasDerivAt_real_cube_integral : ∀ (T : ℝ) (F D : ℝ → SingularClosure.Vec → ℝ),
+  ContinuousOn.{0, 0} (fun z => F z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ContinuousOn.{0, 0} (fun z => D z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+      (∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+            ∀ (x : SingularClosure.Vec), HasDerivAt.{0, 0} (fun r => F r x) (D t x) t) →
+        ∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+            HasDerivAt.{0, 0} (fun r => ∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, F r x)
+              (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, D t x) t
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_hasDerivAt_real_cube_integral
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_hasDerivAt_real_cube_integral
+'MethbokeAddon.WeakFouriermanB.local_hasDerivAt_real_cube_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_hasDerivAt_real_cube_integral
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_real_cube_integral_continuousOn_Icc
+MethbokeAddon.WeakFouriermanB.local_real_cube_integral_continuousOn_Icc : ∀ (T : ℝ) (F : ℝ → SingularClosure.Vec → ℝ),
+  ContinuousOn.{0, 0} (fun z => F z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (s t : ℝ),
+      LT.lt.{0} 0 s →
+        LT.lt.{0} t T →
+          ContinuousOn.{0, 0} (fun r => ∫ (x : SingularClosure.Vec) in SingularClosure.unitCube, F r x)
+            (Set.Icc.{0} s t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_real_cube_integral_continuousOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_real_cube_integral_continuousOn_Icc
+'MethbokeAddon.WeakFouriermanB.local_real_cube_integral_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_real_cube_integral_continuousOn_Icc
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_timeDerivative_eq_joint
+MethbokeAddon.WeakFouriermanB.local_timeDerivative_eq_joint : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        ∀ (x : SingularClosure.Vec),
+          Eq.{1} (SingularClosure.timeDerivative u t x)
+            ((fderiv.{0, 0, 0} ℝ (fun z => u z.1 z.2) (Prod.mk.{0, 0} t x)) (Prod.mk.{0, 0} 1 0))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_timeDerivative_eq_joint
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_timeDerivative_eq_joint
+'MethbokeAddon.WeakFouriermanB.local_timeDerivative_eq_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_timeDerivative_eq_joint
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_time_hasDerivAt
+MethbokeAddon.WeakFouriermanB.local_time_hasDerivAt : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        ∀ (x : SingularClosure.Vec), HasDerivAt.{0, 0} (fun r => u r x) (SingularClosure.timeDerivative u t x) t
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_time_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_time_hasDerivAt
+'MethbokeAddon.WeakFouriermanB.local_time_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_time_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_timeDerivative_continuousOn
+MethbokeAddon.WeakFouriermanB.local_timeDerivative_continuousOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ContinuousOn.{0, 0} (fun z => SingularClosure.timeDerivative u z.1 z.2)
+      (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_timeDerivative_continuousOn
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_timeDerivative_continuousOn
+'MethbokeAddon.WeakFouriermanB.local_timeDerivative_continuousOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_timeDerivative_continuousOn
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt
+MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        HasDerivAt.{0, 0} (fun r => SingularClosure.physicalEnergy (u r))
+          (HMul.hMul.{0, 0, 0} 2 (SingularClosure.physicalFieldInner (u t) (SingularClosure.timeDerivative u t))) t
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt
+'MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_physicalEnergy_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_smooth_energy_pairing
+MethbokeAddon.WeakFouriermanB.local_smooth_energy_pairing : ∀ (ν T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →
+      (∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u r) x) 0) →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →
+          (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+            (∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                          (SingularClosure.convection (u r) x))
+                        (SingularClosure.gradient (p r) x))
+                      (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+              ∀ (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                  Eq.{1} (SingularClosure.physicalFieldInner (u t) (SingularClosure.timeDerivative u t))
+                    (HMul.hMul.{0, 0, 0} (Neg.neg.{0} ν) (SingularClosure.physicalDissipation (u t)))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_smooth_energy_pairing
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_smooth_energy_pairing
+'MethbokeAddon.WeakFouriermanB.local_smooth_energy_pairing' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_smooth_energy_pairing
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_hasDeriv
+MethbokeAddon.WeakFouriermanB.local_nse_energy_hasDeriv : ∀ (ν T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →
+      (∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u r) x) 0) →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →
+          (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+            (∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                          (SingularClosure.convection (u r) x))
+                        (SingularClosure.gradient (p r) x))
+                      (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+              ∀ (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                  HasDerivAt.{0, 0} (fun r => SingularClosure.physicalEnergy (u r))
+                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) ν) (SingularClosure.physicalDissipation (u t))) t
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_hasDeriv
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_hasDeriv
+'MethbokeAddon.WeakFouriermanB.local_nse_energy_hasDeriv' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_hasDeriv
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_identity
+MethbokeAddon.WeakFouriermanB.local_nse_energy_identity : ∀ (ν T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →
+      (∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u r) x) 0) →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →
+          (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+            (∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                          (SingularClosure.convection (u r) x))
+                        (SingularClosure.gradient (p r) x))
+                      (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+              LT.lt.{0} 0 ν →
+                ∀ (s t : ℝ),
+                  LT.lt.{0} 0 s →
+                    LE.le.{0} s t →
+                      LT.lt.{0} t T →
+                        IntervalIntegrable.{0} (fun r => SingularClosure.physicalDissipation (u r))
+                            MeasureTheory.MeasureSpace.volume.{0} s t ∧
+                          Eq.{1}
+                            (HAdd.hAdd.{0, 0, 0} (SingularClosure.physicalEnergy (u t))
+                              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ν)
+                                (∫ (r : ℝ) in s..t, SingularClosure.physicalDissipation (u r))))
+                            (SingularClosure.physicalEnergy (u s))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_identity
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_identity
+'MethbokeAddon.WeakFouriermanB.local_nse_energy_identity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_identity
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_earlier
+MethbokeAddon.WeakFouriermanB.local_nse_energy_le_earlier : ∀ (ν T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →
+      (∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u r) x) 0) →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →
+          (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+            (∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                          (SingularClosure.convection (u r) x))
+                        (SingularClosure.gradient (p r) x))
+                      (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+              LT.lt.{0} 0 ν →
+                ∀ (s t : ℝ),
+                  LT.lt.{0} 0 s →
+                    LE.le.{0} s t →
+                      LT.lt.{0} t T →
+                        LE.le.{0} (SingularClosure.physicalEnergy (u t)) (SingularClosure.physicalEnergy (u s))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_earlier
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_earlier
+'MethbokeAddon.WeakFouriermanB.local_nse_energy_le_earlier' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_earlier
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_initial_trace
+MethbokeAddon.WeakFouriermanB.local_nse_energy_le_initial_trace : ∀ (ν T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →
+      (∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+            ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u r) x) 0) →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →
+          (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+            (∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                          (SingularClosure.convection (u r) x))
+                        (SingularClosure.gradient (p r) x))
+                      (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+              LT.lt.{0} 0 ν →
+                ∀ (E0 : ℝ),
+                  Filter.Tendsto.{0, 0} (fun r => SingularClosure.physicalEnergy (u r)) (𝓝[>] 0) (nhds.{0} E0) →
+                    ∀ (t : ℝ),
+                      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → LE.le.{0} (SingularClosure.physicalEnergy (u t)) E0
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_initial_trace
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_initial_trace
+'MethbokeAddon.WeakFouriermanB.local_nse_energy_le_initial_trace' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_nse_energy_le_initial_trace
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.physicalEnergy_eq_L2Representative_norm_sq
+MethbokeAddon.WeakFouriermanB.physicalEnergy_eq_L2Representative_norm_sq : ∀ (v : SingularClosure.Field),
+  MeasureTheory.MemLp.{0, 0} v 2
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube) →
+    Eq.{1} (SingularClosure.physicalEnergy v)
+      (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (SingularClosure.criticalL2Representative.{0} v)) 2)
+TYPE_END:MethbokeAddon.WeakFouriermanB.physicalEnergy_eq_L2Representative_norm_sq
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.physicalEnergy_eq_L2Representative_norm_sq
+'MethbokeAddon.WeakFouriermanB.physicalEnergy_eq_L2Representative_norm_sq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.physicalEnergy_eq_L2Representative_norm_sq
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.L2Representative_tendsto_of_strong_trace
+@MethbokeAddon.WeakFouriermanB.L2Representative_tendsto_of_strong_trace.{u_1} : ∀ {ι : Type u_1} (l : Filter.{u_1} ι)
+  (f : ι → SingularClosure.Field) (a : SingularClosure.Field),
+  (∀ᶠ (i : ι) in l,
+      MeasureTheory.MemLp.{0, 0} (f i) 2
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube)) →
+    MeasureTheory.MemLp.{0, 0} a 2
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube) →
+      Filter.Tendsto.{u_1, 0}
+          (fun i =>
+            MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (f i) a) 2
+              (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))
+          l (nhds.{0} 0) →
+        Filter.Tendsto.{u_1, 0} (fun i => SingularClosure.criticalL2Representative.{0} (f i)) l
+          (nhds.{0} (SingularClosure.criticalL2Representative.{0} a))
+TYPE_END:MethbokeAddon.WeakFouriermanB.L2Representative_tendsto_of_strong_trace
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.L2Representative_tendsto_of_strong_trace
+'MethbokeAddon.WeakFouriermanB.L2Representative_tendsto_of_strong_trace' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.L2Representative_tendsto_of_strong_trace
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.physical_energy_tendsto_of_L2_trace
+@MethbokeAddon.WeakFouriermanB.physical_energy_tendsto_of_L2_trace.{u_1} : ∀ {ι : Type u_1} (l : Filter.{u_1} ι)
+  (f : ι → SingularClosure.Field) (a : SingularClosure.Field),
+  (∀ᶠ (i : ι) in l,
+      MeasureTheory.MemLp.{0, 0} (f i) 2
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube)) →
+    MeasureTheory.MemLp.{0, 0} a 2
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube) →
+      Filter.Tendsto.{u_1, 0}
+          (fun i =>
+            MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (f i) a) 2
+              (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))
+          l (nhds.{0} 0) →
+        Filter.Tendsto.{u_1, 0} (fun i => SingularClosure.physicalEnergy (f i)) l
+          (nhds.{0} (SingularClosure.physicalEnergy a))
+TYPE_END:MethbokeAddon.WeakFouriermanB.physical_energy_tendsto_of_L2_trace
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.physical_energy_tendsto_of_L2_trace
+'MethbokeAddon.WeakFouriermanB.physical_energy_tendsto_of_L2_trace' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.physical_energy_tendsto_of_L2_trace
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_physical_energy_trace_of_strong_L2_trace
+MethbokeAddon.WeakFouriermanB.local_physical_energy_trace_of_strong_L2_trace : ∀ (u : SingularClosure.Velocity)
+  (a : SingularClosure.Field) (T : ℝ),
+  LT.lt.{0} 0 T →
+    ContDiff.{0, 0, 0} ℝ ∞ a →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → ContDiff.{0, 0, 0} ℝ ∞ (u t)) →
+        Filter.Tendsto.{0, 0}
+            (fun t =>
+              MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (u t) a) 2
+                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))
+            (𝓝[>] 0) (nhds.{0} 0) →
+          Filter.Tendsto.{0, 0} (fun t => SingularClosure.physicalEnergy (u t)) (𝓝[>] 0)
+            (nhds.{0} (SingularClosure.physicalEnergy a))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_physical_energy_trace_of_strong_L2_trace
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_physical_energy_trace_of_strong_L2_trace
+'MethbokeAddon.WeakFouriermanB.local_physical_energy_trace_of_strong_L2_trace' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_physical_energy_trace_of_strong_L2_trace
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_smooth_slices
+MethbokeAddon.WeakFouriermanB.local_front_smooth_slices : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SmoothSigmaZero (u t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_smooth_slices
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_smooth_slices
+'MethbokeAddon.WeakFouriermanB.local_front_smooth_slices' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_smooth_slices
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_pressure_slice_smooth
+MethbokeAddon.WeakFouriermanB.local_front_pressure_slice_smooth : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → ContDiff.{0, 0, 0} ℝ ∞ (p t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_pressure_slice_smooth
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_pressure_slice_smooth
+'MethbokeAddon.WeakFouriermanB.local_front_pressure_slice_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_pressure_slice_smooth
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_initial_energy_trace
+MethbokeAddon.WeakFouriermanB.local_front_initial_energy_trace : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    Filter.Tendsto.{0, 0} (fun t => SingularClosure.physicalEnergy (u t)) (𝓝[>] 0)
+      (nhds.{0} (SingularClosure.physicalEnergy a))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_initial_energy_trace
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_initial_energy_trace
+'MethbokeAddon.WeakFouriermanB.local_front_initial_energy_trace' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_initial_energy_trace
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_energy_bound
+MethbokeAddon.WeakFouriermanB.local_front_energy_bound : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        LE.le.{0} (SingularClosure.physicalEnergy (u t)) (SingularClosure.physicalEnergy a)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_energy_bound
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_energy_bound
+'MethbokeAddon.WeakFouriermanB.local_front_energy_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_energy_bound
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin
+MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.LocalPhysicalNSEFront ν T a u p →
+    MethbokeAddon.WeakFouriermanB.FourierBudgetFinite (fun t => SingularClosure.datumFourierCoeff (u t)) T →
+      MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin
+'MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_front_fourier_budget_to_serrin

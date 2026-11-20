@@ -1,0 +1,33 @@
+R0FiniteCapAdmission/Audit.lean:12:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapAdmission/Audit.lean:12:18: warning: Variable name `hcap` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcap
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapAdmission/Audit.lean:13:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
+MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ν →
+    LT.lt.{0} (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν) T →
+      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+        ∃ U P,
+          SingularClosure.GlobalSmoothNSE ν a U P ∧
+            ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) r → Eq.{1} (U r) (u r) ∧ Eq.{1} (P r) (p r)
+TYPE_END:MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission
+'MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission

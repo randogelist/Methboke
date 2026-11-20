@@ -1,0 +1,98 @@
+WFBFiniteWindowSerrinComparison/Audit.lean:11:21: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:13:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:14:5: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:15:13: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:16:5: warning: Variable name `hp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:17:5: warning: Variable name `hpp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hpp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:18:5: warning: Variable name `hNSE` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hNSE
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:21:5: warning: Variable name `hu_trace` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu_trace
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBFiniteWindowSerrinComparison/Audit.lean:24:5: warning: Variable name `hSerrin` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hSerrin
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison
+MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a₀ : ↥SingularClosure.CriticalPhysicalL2) (v u : SingularClosure.Velocity)
+      (G :
+        ℝ →
+          SingularClosure.Vec →
+            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec)
+      (p : SingularClosure.Pressure),
+      SingularClosure.CriticalLerayHopf ν a₀ v G →
+        SingularClosure.CriticalPositiveSolenoidalTest u →
+          ∀ (T : ℝ),
+            LT.lt.{0} 0 T →
+              (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →
+                (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →
+                  (∀ (r : ℝ),
+                      Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) r →
+                        ∀ (x : SingularClosure.Vec),
+                          Eq.{1}
+                            (HAdd.hAdd.{0, 0, 0}
+                              (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)
+                                (SingularClosure.convection (u r) x))
+                              (SingularClosure.gradient (p r) x))
+                            (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →
+                    Filter.Tendsto.{0, 0}
+                        (fun t =>
+                          MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (u t) ↑↑a₀) 2
+                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                              SingularClosure.unitCube))
+                        (𝓝[>] 0) (nhds.{0} 0) →
+                      MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4
+                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} 0 T)) →
+                        ∀ (t : ℝ),
+                          Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t →
+                            v
+                                t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                                SingularClosure.unitCube]
+                              u t
+TYPE_END:MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison
+'MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison

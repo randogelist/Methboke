@@ -1,0 +1,123 @@
+R0AnalyticCapAdmission/Audit.lean:11:23: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:17:5: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:17:18: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:23:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:23:18: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:24:5: warning: Variable name `hcap` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcap
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:25:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:32:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:32:18: warning: Variable name `hε` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hε
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:33:5: warning: Variable name `hcap` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcap
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0AnalyticCapAdmission/Audit.lean:34:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_subset_analytic_cap
+MethbokeAddon.WeakFouriermanB.initial_front_subset_analytic_cap : ∀ (ε T : ℝ),
+  LT.lt.{0} 0 ε →
+    MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T ⊆ MethbokeAddon.WeakFouriermanB.analyticCapSpacetime ε T
+TYPE_END:MethbokeAddon.WeakFouriermanB.initial_front_subset_analytic_cap
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.initial_front_subset_analytic_cap
+'MethbokeAddon.WeakFouriermanB.initial_front_subset_analytic_cap' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.initial_front_subset_analytic_cap
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_to_initial_classical
+MethbokeAddon.WeakFouriermanB.analytic_forward_cap_to_initial_classical : ∀ (ν ε T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ε →
+    MethbokeAddon.WeakFouriermanB.AnalyticForwardNSECap ν ε T a u p →
+      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p
+TYPE_END:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_to_initial_classical
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_to_initial_classical
+'MethbokeAddon.WeakFouriermanB.analytic_forward_cap_to_initial_classical' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_to_initial_classical
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission
+MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission : ∀ (ν ε T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ν →
+    LT.lt.{0} 0 ε →
+      LT.lt.{0} (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν) T →
+        MethbokeAddon.WeakFouriermanB.AnalyticForwardNSECap ν ε T a u p →
+          ∃ U P,
+            SingularClosure.GlobalSmoothNSE ν a U P ∧
+              ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) r → Eq.{1} (U r) (u r) ∧ Eq.{1} (P r) (p r)
+TYPE_END:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission
+'MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff
+MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff : ∀ (ν ε T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ν →
+    LT.lt.{0} 0 ε →
+      LT.lt.{0}
+          (HDiv.hDiv.{0, 0, 0} (HPow.hPow.{0, 0, 0} (SingularClosure.physicalEnergy a) 2)
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 8 (HPow.hPow.{0, 0, 0} Real.pi 2)) (HPow.hPow.{0, 0, 0} ν 5)))
+          T →
+        MethbokeAddon.WeakFouriermanB.AnalyticForwardNSECap ν ε T a u p →
+          ∃ U P,
+            SingularClosure.GlobalSmoothNSE ν a U P ∧
+              ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) r → Eq.{1} (U r) (u r) ∧ Eq.{1} (P r) (p r)
+TYPE_END:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff
+'MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.analytic_forward_cap_admission_physical_cutoff

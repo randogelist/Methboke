@@ -1,0 +1,86 @@
+WFBMaximalLerayHopfIdentification/Audit.lean:14:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalLerayHopfIdentification/Audit.lean:14:18: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalLerayHopfIdentification/Audit.lean:15:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalLerayHopfIdentification/Audit.lean:16:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalLerayHopfIdentification/Audit.lean:23:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalLerayHopfIdentification/Audit.lean:23:18: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalLerayHopfIdentification/Audit.lean:24:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification
+MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification : ∀ (ν : ℝ) (a : SingularClosure.Field)
+  (u v : SingularClosure.Velocity) (p : SingularClosure.Pressure) (G : QuasiFeffermanB.WeakGradientTrajectory)
+  (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    SingularClosure.SmoothSigmaZero a →
+      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+        SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+          ∀ (t : ℝ),
+            LE.le.{0} 0 t →
+              LT.lt.{0} (ENNReal.ofReal t) Tmax →
+                v
+                    t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                    SingularClosure.unitCube]
+                  u t
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification
+'MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf : ∀ (ν : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    SingularClosure.SmoothSigmaZero a →
+      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+        ∃ v G,
+          SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G ∧
+            v 0 =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]
+                a ∧
+              ∀ (t : ℝ),
+                LE.le.{0} 0 t →
+                  LT.lt.{0} (ENNReal.ofReal t) Tmax →
+                    v
+                        t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                        SingularClosure.unitCube]
+                      u t
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf
+'MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf

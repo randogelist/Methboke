@@ -1,0 +1,52 @@
+CURRENT RELEASE NOTE -- v0.7.7
+v0.6.1 is now USER_REPORTED_PASS (174 theorem reports). All of its bodies are retained.
+Historical pending-compiler and no-instance statements below describe earlier releases.
+Use READ_ME.txt, KERNEL_RECONSTRUCTION.txt and RECONSTRUCTION_COVERAGE.tsv for current scope.
+The new scripts remain PENDING_USER_COMPILER. MR3_reconstructed/MT3_reconstructed
+add concrete internal port instances; physical endpoints remain open.
+
+MR3 AND MT3: SOURCE-IDENTIFIED CONDITIONAL THEOREM COLLECTIONS
+
+MR3 (a : Analysis) : R3EstablishedResults a
+  sourceFrame : signed source ledger + heat frame + Mellin pairing
+                -> source-prefix, transformed critical mass, and dissipation bounds
+  storage     : existing R3 storage witness -> critical control
+  quatros     : existing QUATROS port + insertion -> all five internal stages
+  maotaotros  : existing MAOTAOTROS port -> same-entrance critical bounds
+  covariance  : existing prefix realization + renewal payment -> GP bound
+
+MT3 (a : Analysis) : T3EstablishedResults a
+  integral   : mean/orthogonality calculus + spectral completion port
+               -> finite coefficients, Parseval, product identification,
+                  two-cutoff completed-convolution limit and fixed-output bound
+  renewal    : existing periodic renewal witness -> critical control
+  covariance : periodic prefix realization + payment -> GP bound
+
+These collections are constructed in Lean; their branch premises are explicit.
+They express the recovered established structure without adding a C/D witness.
+The types retain each source's own object. Identifying objects between distinct
+branches requires a separate proof; indexing two objects by the same datum alone
+does not prove equality of the objects or of their analytic observables.
+
+CLASSIFICATION ADAPTERS THAT CONSUME THESE COLLECTIONS
+A_from_MR3_QUATROS
+A_from_MR3_MAOTAOTROS
+A_from_MR3_storage
+B_from_MT3_renewal
+B_from_MT3_periodic_covariance
+
+Each keeps the existing physical entrance and exact analytic exit requirements.
+The new finite torus product theorem alone does not supply periodic renewal or B.
+
+COMPATIBILITY TARGETS (retained, not identified with the source collections)
+MasterTheoremA = DomainMaster on R3; MA_implies_A_and_C.
+MasterTheoremB = DomainMaster on T3; MB_implies_B_and_D.
+These are stronger positive-classification targets including sound breakdown
+certificates AND their nonemptiness. Their hypotheses are not inferred from MR3/MT3.
+
+v0.6.1 PUBLIC CONSEQUENCES OF THE CHECKED MR3
+MR3_finite_spectral: same-vector spectral binding -> finite H12 readout/bound
+and exact H32 density readout, together with the existing source result.
+MR3_finite_source_and_capacity: the preceding result plus preservation of the
+source-defined reduced capacity under the same normalized heat/Mellin map.
+Neither alters the definitions of MR3, MT3 or the legacy positive C/D targets.

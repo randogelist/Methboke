@@ -1,0 +1,209 @@
+CURRENT RELEASE NOTE -- v0.7.7
+v0.6.1 is now USER_REPORTED_PASS (174 theorem reports). All of its bodies are retained.
+Historical pending-compiler and no-instance statements below describe earlier releases.
+Use READ_ME.txt, KERNEL_RECONSTRUCTION.txt and RECONSTRUCTION_COVERAGE.tsv for current scope.
+The new scripts remain PENDING_USER_COMPILER. MR3_reconstructed/MT3_reconstructed
+add concrete internal port instances; physical endpoints remain open.
+
+MASTER R3 / MASTER T3 -- RECONSTRUCTED DERIVATIONS v0.4.0
+
+PUBLIC FILES
+Master_R3_details.lean: input-indexed storage witness, explicit budgets and ports.
+Master_R3_derivation.lean: storage-to-critical derivation and master constructors.
+Master_T3_details.lean: finite Fourier algebra, renewal witness and ports.
+Master_T3_derivation.lean: convolution, renewal-to-critical derivation and masters.
+
+Master_r3.lean imports Master_R3_derivation.lean.
+Master_T3.lean imports Master_T3_derivation.lean.
+Feffermann-Classification.lean imports both and composes the A/C and B/D results.
+
+STATUS
+v0.3.0 is the user-reported Lean 4.33.0 PASS baseline.
+The new source contains explicit proof terms, finite inductions and algebraic
+derivations. Its kernel check is pending the user's compiler run.
+No real-analysis or analytic master instance has been supplied.
+
+COMMON SCALAR FOUNDATION
+LedgerArithmetic lists the ordinary scalar order, additive-group,
+distributive, positive-cancellation and division laws used in the proofs.
+It contains no NSE energy estimate, storage bound, renewal bound or exit.
+These ordinary laws are parameters because Analysis has not yet been realized
+with the actual real numbers. They must be proved by that realization.
+No imported Rocq proof is automatically trusted by Lean.
+
+R3: STORAGE ABSORPTION
+For each finite cut c and time t, the witness supplies:
+  H + V = H0 + L + P + E,
+  H >= 0, H0 <= Hmax, G <= Gmax,
+  L <= kappa G, E <= beta G,
+  P <= gamma V + C, gamma < 1,
+  kappa >= 0, beta >= 0.
+
+The new Lean derivation proves:
+  L <= kappa Gmax, E <= beta Gmax,
+  (1-gamma)V <= Hmax + kappa Gmax + C + beta Gmax,
+  V <= Vmax := (Hmax + kappa Gmax + C + beta Gmax)/(1-gamma).
+
+The budget is independent of the cut and time. The scalar absorption proof
+is reconstructed from NSSP20/NSRA40; it is not an assumed final crowd bound.
+The actual NSE storage identity, low/heat payments and strict high-output
+absorption are still witness-realization obligations.
+
+R3: OCCUPATION-TO-ACTION PORT
+The source NSOA90 uses the energy and action envelopes
+  B(U) = E0 exp(1152 cap M0/nu^2 + 72 U),
+  A(U) = cs^2 B(U)^2 / ((1-theta)nu^2).
+Its scalar differential-comparison and integral proof is not yet translated.
+The named witness field occupationToAction retains precisely this step:
+  [for all c,t: V_c(t) <= U] -> [for all c,t: I_c(t) <= actionEnvelope(U)].
+The intended actionEnvelope is A above. It is NOT silently replaced by an
+affine function of U. Its definition and NSOA90 proof remain to be supplied.
+
+R3/T3: FORCED CRITICAL ENERGY
+Starting from the supplied same-input critical balance
+  M_c(t) + epsilon D_c(t) <= M0 + I_c(t) + F_c(t),
+  epsilon > 0, M_c(t) >= 0, D_c(t) >= 0,
+and derived I_c(t) <= Imax with supplied F_c(t) <= Fmax,
+Lean derives
+  M_c(t) <= K := M0 + Imax + Fmax,
+  D_c(t) <= K/epsilon.
+
+These are the elementary order/division steps in NSCE10 and FD02.
+The underlying PDE balance, resistance/force absorption, and force-ledger
+bound are not proved for arbitrary NSE data by this module.
+
+FULL CRITICAL READOUT
+FullLedgerReadout says the full observable is the least upper bound of the
+finite-cut observables. A single cut-uniform bound therefore bounds the full
+observable. This is the FW40 readout argument with an explicit proof.
+R3's master control requires the full mass bound, as in FW40. Its finite-cut
+dissipation bound is also proved. R3_full_dissipation_bound additionally gives
+the full dissipation bound when a dissipation readout is supplied separately.
+T3's chosen control includes both full mass and full dissipation readouts.
+The actual limit/Parseval identification is an analytic obligation.
+
+T3: EXACT FINITE FOURIER CONVOLUTION
+Modes are integer triples k in Z^3. Triad support is k = p+q.
+T3FourierAlgebra supplies coefficient-ring laws and the character identity
+  chi_p(x) chi_q(x) = chi_(p+q)(x).
+The new finite-list induction proves
+  eval(product_terms(P,Q),x) = eval(P,x) eval(Q,x).
+This reconstructs the algebraic LH45_21--24 / B01 chain over a coefficient
+algebra. It also proves that triad support commutes in the two inputs.
+
+The complex-number/trigonometric interpretation is not constructed here.
+The old torus geometry uses a 2*pi-periodic chart; Fefferman uses unit periods.
+The unit-periodic realization must use chi_k(x)=exp(2*pi*i*k.x), with Stokes
+eigenvalues 4*pi^2*|k|^2, or prove the corresponding coordinate rescaling.
+No mean-zero condition is added to Fefferman B/D. Any mean-zero Fourier route
+must also supply the zero-mode/mean evolution needed for all admissible data.
+The finite convolution theorem alone does not construct the NSE modal balance,
+the divergence-free/helical test family, or convergence of Fourier truncations.
+
+T3: RENEWAL PREFIX DERIVATION
+The witness supplies nonnegative sequence masses m_n and the normalized step
+  m_(n+1) + delta m_n <= m_n + p_n, delta > 0,
+with cut-uniform m_0 <= Smax and sum_(j<N) p_j <= Pmax.
+
+The new induction proves the exact invariant
+  m_N + delta sum_(j<N) m_j <= m_0 + sum_(j<N) p_j,
+and hence
+  sum_(j<N) m_j <= (Smax + Pmax)/delta =: Imax.
+
+For a retention recurrence m_(n+1) <= gamma m_n + p_n,
+ledger_renewal_step_from_retention derives the normalized step with
+delta = 1-gamma. The historical GP509 coefficient is gamma=509/605,
+so its retained gap is 96/605. This release proves the general scalar theorem;
+the particular real-number coefficient instantiation remains part of realization.
+This recovers the NSGM01/02 prefix mechanism without assuming the final prefix
+bound. The uniform paid-prefix budget and physical renewal step remain inputs.
+
+T3: PHYSICAL-TIME PASSAGE
+The witness supplies cofinal sample times, monotonicity of cumulative action,
+and sample domination by the renewal prefix. Lean derives the action bound at
+every represented time, then applies the critical-energy and readout proofs.
+Constructing these objects from periodic NSE is still an explicit obligation.
+
+REGULAR AND BREAKDOWN BRANCHES ARE INDEPENDENT INPUTS
+RegularDerivationPorts requires zero-force admissibility/membership, physical
+witness realization, and an exit to the exact Fefferman global-solution clauses.
+R3_derive_A and T3_derive_B use only those regularity ports and the derived
+critical bounds. They do not require any breakdown certificate or nonemptiness.
+
+The obstruction branch is reconstructed from FD10--13:
+  M(t) = M0 + W(t),
+  W has no upper bound
+    -> M has no upper bound.
+ObstructionDerivationPorts must bind that witness to the input and prove
+  EVERY qualifying global solution for the input -> M has an upper bound.
+Only then does the contradiction prove absence of a qualifying global pair.
+Unbounded growth at infinite time is not automatically a finite-time blowup
+or a Fefferman counterexample. The required necessary-bound port is explicit.
+
+MASTER CONSTRUCTION
+R3_derive_master_core / T3_derive_master_core combine the two soundness branches
+and zero-force membership into the already checked DomainMasterCore type.
+R3_derive_master / T3_derive_master additionally require
+  for every positive viscosity, there exists a certified breakdown force.
+No such force family is supplied.
+
+Classification entry points:
+  R3_derivation_implies_A_and_C
+  T3_derivation_implies_B_and_D
+
+REMAINING CONCRETE WORK
+1. Real/complex scalar, differential, integral, and periodic-chart realizations.
+2. R3 physical storage/payment/high-absorption realization and the NSOA90 port.
+3. T3 actual Fourier/weak-momentum-to-renewal binding and the uniform paid budget.
+4. Same-input finite-cut limit identifications and classical global exits.
+5. Obstruction calibration and an admissible nonempty breakdown regime if the
+   positive C/D versions of the masters are to be instantiated.
+
+The existing QUATROS, MAOTAOTROS and covariance interfaces remain available.
+This release translates selected internal algebra and composes precise ports;
+it does not claim that all of those source packages have been translated.
+
+CROSS-BRANCH EXTENSION (v0.5.2)
+The preceding v0.4.0 storage and renewal derivations are retained. The direct
+signed-source/BKQR route and the torus integral/completion route now have
+separate modules. See CROSS_BRANCH_STRUCTURE.txt and CROSS_BRANCH_PORTS.tsv.
+
+FINITE GEOMETRY EXTENSION -- v0.6.1
+
+Fix a finite cutoff n, real-model scalars, and radii r_i >= 0 for i<n.
+Define dot_n(x,y)=sum_{i<n} x_i y_i and use coordinatewise subtraction.
+Their scale and subtraction laws are proved in FiniteSpectral.lean.
+
+H12_i(r,u)=sqrt(r_i) u_i.
+H32_i(r,u)=r_i sqrt(r_i) u_i.
+Then
+  dot_n(H12,H12) = sum_{i<n} r_i u_i^2,
+  dot_n(H32,H32) = sum_{i<n} r_i^3 u_i^2.
+The second equals the source cut_dissipation with lambda_i=r_i^2.
+The primitive readout is transported by function equality; constructing that
+primitive or realizing continuum Sobolev norms is a separate task.
+
+For a pairing P and total division, define
+  c(v,x)=<x,v>/<v,v>, remove(v,x)=x-c(v,x)v,
+  w=remove(n0,n1), f0=remove(n0,f), beta=c(w,f0),
+  alpha=c(n0,f)-beta c(n0,n1),
+  reduced=f-alpha n0-beta n1, capacity=<reduced,reduced>.
+The formulas agree with the supplied Rocq definitions.
+If <T x,T y>_Q=<x,y>_P, bilinearity gives identical removed pairings,
+then identical beta and alpha, then identical reduced capacities.
+This does not require a determinant, independent directions, or a linear-map
+interface for T. It covers zero/dependent directions using the same total
+division operation. This proof differs from the source proof through optimality.
+It does not claim to port projection orthogonality or minimizer construction.
+
+Apply this to the checked K^(-1/2) heat frame followed by Mellin:
+  capacity(T f,T n0,T n1)=capacity(f,n0,n1).
+On the explicit finite source carrier, also
+  <T(H12(r,u)),T(H12(r,u))>=sum_{i<n} r_i u_i^2.
+
+R3SpectralBinding records vector(t)=H12(radius,velocity(t)) for the SAME ledger.
+MR3_finite_spectral therefore gives its finite H12 bound from the checked MR3
+source result. MR3_finite_source_and_capacity adds capacity transport under
+that SAME heat/Mellin map. No trajectory equivalence with another branch is inferred.
+
+All new proofs await the user's compiler. NSE_CASE_PROVED=NONE.

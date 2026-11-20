@@ -1,0 +1,129 @@
+WFBMaximalTailGluing/Audit.lean:14:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:14:18: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:15:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:16:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:17:5: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:17:33: warning: Variable name `hδ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hδ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:18:5: warning: Variable name `htail` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htail
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:25:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:25:18: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:26:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:27:5: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalTailGluing/Audit.lean:28:5: warning: Variable name `hcut` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcut
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf
+MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf : ∀ (ν δ : ℝ) (a : SingularClosure.Field)
+  (u v w : SingularClosure.Velocity) (p q : SingularClosure.Pressure) (G : QuasiFeffermanB.WeakGradientTrajectory)
+  (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    SingularClosure.SmoothSigmaZero a →
+      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+        SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+          QuasiFeffermanB.ClassicalTail ν δ w q →
+            LE.le.{0} 0 δ →
+              (∀ (t : ℝ),
+                  LE.le.{0} δ t →
+                    v
+                        t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                        SingularClosure.unitCube]
+                      w t) →
+                ∀ (t : ℝ), LT.lt.{0} δ t → LT.lt.{0} (ENNReal.ofReal t) Tmax → Eq.{1} (u t) (w t) ∧ Eq.{1} (p t) (q t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf
+'MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf : ∀ (ν : ℝ) (a : SingularClosure.Field)
+  (u v : SingularClosure.Velocity) (p : SingularClosure.Pressure) (G : QuasiFeffermanB.WeakGradientTrajectory)
+  (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    SingularClosure.SmoothSigmaZero a →
+      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+        SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →
+          LT.lt.{0} (ENNReal.ofReal (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν)) Tmax →
+            ∃ δ η w q U P,
+              LT.lt.{0} (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν) δ ∧
+                LT.lt.{0} δ η ∧
+                  LT.lt.{0} (ENNReal.ofReal η) Tmax ∧
+                    QuasiFeffermanB.ClassicalTail ν δ w q ∧
+                      (∀ (t : ℝ),
+                          LE.le.{0} δ t →
+                            v
+                                t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                                SingularClosure.unitCube]
+                              w t) ∧
+                        (∀ (t : ℝ),
+                            LT.lt.{0} δ t →
+                              LT.lt.{0} (ENNReal.ofReal t) Tmax → Eq.{1} (u t) (w t) ∧ Eq.{1} (p t) (q t)) ∧
+                          SingularClosure.GlobalSmoothNSE ν a U P ∧
+                            (∀ (t : ℝ),
+                                LE.le.{0} 0 t →
+                                  LT.lt.{0} (ENNReal.ofReal t) Tmax → Eq.{1} (U t) (u t) ∧ Eq.{1} (P t) (p t)) ∧
+                              ∀ (t : ℝ), LE.le.{0} η t → Eq.{1} (U t) (w t) ∧ Eq.{1} (P t) (q t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf
+'MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf

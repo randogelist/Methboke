@@ -1,0 +1,61 @@
+{
+  "package": "FEF_NSE_CLASSIFICATION_LEAN_v0_7_7",
+  "failedPackage": "FEF_NSE_CLASSIFICATION_LEAN_v0_7_6",
+  "failedArchiveSha256": "2e79ce6ff3aefdcceca48415516a27d60b6ec4420fde9bcb124b3463a098d503",
+  "userReportedRun": "FAIL",
+  "failedModule": "Fefferman.KernelStorage",
+  "userReportedErrorLines": [
+    128,
+    139,
+    178
+  ],
+  "userCompiledModulesBeforeFailure": 18,
+  "userCompiledModules": [
+    "Fefferman.Analysis",
+    "Fefferman.Statements",
+    "Fefferman.ForceRegimes",
+    "Fefferman.MasterCore",
+    "Fefferman.ScalarLedger",
+    "Fefferman.DerivationSupport",
+    "Master_R3_details",
+    "Fefferman.SourceGeometry",
+    "Fefferman.ReducedCapacity",
+    "Fefferman.R3SourceBranch",
+    "Fefferman.FiniteSpectral",
+    "Fefferman.KernelAlgebra",
+    "Fefferman.KernelRenewal",
+    "Fefferman.KernelCapacity",
+    "Fefferman.KernelGeometry",
+    "Fefferman.KernelBirth",
+    "Fefferman.KernelCritical",
+    "Fefferman.KernelCalculus"
+  ],
+  "userCompiledModuleBodiesByteIdentical": true,
+  "compiler": "Lean 4.33.0 native Windows",
+  "compilerCommit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+  "observedErrors": [
+    "Generic distributivity rewrites the lower bound; transitivity needs the upper bound expanded",
+    "The generic prefix telescope rewrite cannot infer the composed sequence through the grid"
+  ],
+  "repairs": [
+    "Supply all mulAdd arguments so only the weighted upper bound is distributed; retain the factored lower bound for the next step",
+    "Supply f=(fun k => s.actionPrimitive (s.grid k)) and n to k_prefix_telescope"
+  ],
+  "changedProofBodies": [
+    "kernel_supplied_rate_nonpositive",
+    "kernel_paid_cells_telescope"
+  ],
+  "changedLeanFiles": [
+    "Fefferman/KernelStorage.lean"
+  ],
+  "otherLeanFilesByteIdentical": 35,
+  "preservedTheoremStatements": 323,
+  "newTheoremsInThisRepair": 0,
+  "addedHypotheses": 0,
+  "removedHypotheses": 0,
+  "recordFieldRepairsRetained": true,
+  "checkedBaseline": "v0.6.1 USER_REPORTED_PASS, 174 theorem reports",
+  "sourceAudit": "STATIC_REPAIR_AUDIT_PASS",
+  "currentKernelCompilation": "PENDING_USER_COMPILER",
+  "nativeCmdExecution": "PENDING_USER_WINDOWS_RUN"
+}

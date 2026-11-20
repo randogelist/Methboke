@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "MathlibFourier",
+  "endpoint_module": "MathlibFourier.Endpoint",
+  "audit_module": "MathlibFourier.Audit",
+  "imports": [
+    "Mathlib.Analysis.Fourier.AddCircleMulti"
+  ],
+  "source_roots": [
+    {
+      "module": "Mathlib.Analysis.Fourier.AddCircleMulti",
+      "path": ".lake/packages/mathlib/Mathlib/Analysis/Fourier/AddCircleMulti.lean",
+      "storage": "locked_lake_dependency",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "UnitAddTorus.mFourierBasis",
+      "kind": "def",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Fourier/AddCircleMulti.lean",
+        "module": "Mathlib.Analysis.Fourier.AddCircleMulti"
+      },
+      "scope": "Scalar complex L2 Hilbert basis on the finite-dimensional unit additive torus."
+    },
+    {
+      "name": "UnitAddTorus.hasSum_mFourier_series_L2",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Fourier/AddCircleMulti.lean",
+        "module": "Mathlib.Analysis.Fourier.AddCircleMulti"
+      },
+      "scope": "L2 Fourier convergence; no stronger analytic norm."
+    },
+    {
+      "name": "UnitAddTorus.hasSum_sq_mFourierCoeff",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Fourier/AddCircleMulti.lean",
+        "module": "Mathlib.Analysis.Fourier.AddCircleMulti"
+      },
+      "scope": "Unweighted Parseval identity."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Scalar-complex torus Fourier Hilbert representation and Parseval; no weighted Sobolev or nonlinear limit assertion.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

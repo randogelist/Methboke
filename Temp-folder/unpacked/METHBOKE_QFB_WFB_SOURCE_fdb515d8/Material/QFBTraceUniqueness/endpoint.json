@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "QFBTraceUniqueness",
+  "endpoint_module": "QFBTraceUniqueness.Endpoint",
+  "audit_module": "QFBTraceUniqueness.Audit",
+  "imports": [
+    "QuasiFeffermanB.TailUniqueness"
+  ],
+  "source_roots": [
+    {
+      "module": "QuasiFeffermanB.TailUniqueness",
+      "path": "_vendor/QuasiFeffermanB/TailUniqueness.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "QuasiFeffermanB.positive_reference_strict_shift_serrin",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/TailUniqueness.lean",
+        "module": "QuasiFeffermanB.TailUniqueness"
+      },
+      "scope": "Global PositiveSmoothNSE reference and strictly positive shift required."
+    },
+    {
+      "name": "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/TailUniqueness.lean",
+        "module": "QuasiFeffermanB.TailUniqueness"
+      },
+      "scope": "Positive smooth reference plus actual weak-path agreement after a specified start required."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Existing positive-time smooth reference and trace agreement required; no finite-cylinder localization is asserted.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

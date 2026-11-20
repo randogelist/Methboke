@@ -1,0 +1,27 @@
+TYPE_BEGIN:SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth
+@SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth : ∀ {ν : ℝ}
+  (L : SingularClosure.CriticalPositiveSobolevFlow ν),
+  ContDiffOn.{0, 0, 0} ℝ (↑Top.top.{0}) (fun z => L.velocity z.1 z.2) SingularClosure.positiveSpacetime
+TYPE_END:SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth
+AXIOMS_BEGIN:SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth
+'SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth
+TYPE_BEGIN:SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth
+@SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth : ∀ {ν : ℝ}
+  (L : SingularClosure.CriticalPositiveSobolevFlow ν),
+  ContDiffOn.{0, 0, 0} ℝ (↑Top.top.{0}) (fun z => L.pressure z.1 z.2) SingularClosure.positiveSpacetime
+TYPE_END:SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth
+AXIOMS_BEGIN:SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth
+'SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth
+TYPE_BEGIN:SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE
+@SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE : ∀ {ν : ℝ} (L : SingularClosure.CriticalPositiveSobolevFlow ν),
+  SingularClosure.PositiveSmoothNSE ν L.velocity L.pressure
+TYPE_END:SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE
+AXIOMS_BEGIN:SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE
+'SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE

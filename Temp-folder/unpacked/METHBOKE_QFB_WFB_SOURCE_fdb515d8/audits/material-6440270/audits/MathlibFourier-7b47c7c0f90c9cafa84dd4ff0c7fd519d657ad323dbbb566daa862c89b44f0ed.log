@@ -1,0 +1,28 @@
+TYPE_BEGIN:UnitAddTorus.mFourierBasis
+@UnitAddTorus.mFourierBasis.{u_1} : {d : Type u_1} →
+  [inst : Fintype.{u_1} d] →
+    HilbertBasis.{u_1, 0, u_1} (d → ℤ) ℂ ↥(MeasureTheory.Lp.{0, u_1} ℂ 2 MeasureTheory.volume.{u_1})
+TYPE_END:UnitAddTorus.mFourierBasis
+AXIOMS_BEGIN:UnitAddTorus.mFourierBasis
+'UnitAddTorus.mFourierBasis' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:UnitAddTorus.mFourierBasis
+TYPE_BEGIN:UnitAddTorus.hasSum_mFourier_series_L2
+@UnitAddTorus.hasSum_mFourier_series_L2.{u_1} : ∀ {d : Type u_1} [inst : Fintype.{u_1} d]
+  (f : ↥(MeasureTheory.Lp.{0, u_1} ℂ 2 MeasureTheory.volume.{u_1})),
+  HasSum.{u_1, u_1}
+    (fun i =>
+      HSMul.hSMul.{0, u_1, u_1} (UnitAddTorus.mFourierCoeff.{u_1, 0} (↑↑f) i) (UnitAddTorus.mFourierLp.{u_1} 2 i))
+    f
+TYPE_END:UnitAddTorus.hasSum_mFourier_series_L2
+AXIOMS_BEGIN:UnitAddTorus.hasSum_mFourier_series_L2
+'UnitAddTorus.hasSum_mFourier_series_L2' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:UnitAddTorus.hasSum_mFourier_series_L2
+TYPE_BEGIN:UnitAddTorus.hasSum_sq_mFourierCoeff
+@UnitAddTorus.hasSum_sq_mFourierCoeff.{u_1} : ∀ {d : Type u_1} [inst : Fintype.{u_1} d]
+  (f : ↥(MeasureTheory.Lp.{0, u_1} ℂ 2 MeasureTheory.volume.{u_1})),
+  HasSum.{0, u_1} (fun i => HPow.hPow.{0, 0, 0} (norm.{0} (UnitAddTorus.mFourierCoeff.{u_1, 0} (↑↑f) i)) 2)
+    (∫ (t : UnitAddTorus.{u_1} d), HPow.hPow.{0, 0, 0} (norm.{0} (↑↑f t)) 2)
+TYPE_END:UnitAddTorus.hasSum_sq_mFourierCoeff
+AXIOMS_BEGIN:UnitAddTorus.hasSum_sq_mFourierCoeff
+'UnitAddTorus.hasSum_sq_mFourierCoeff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:UnitAddTorus.hasSum_sq_mFourierCoeff
