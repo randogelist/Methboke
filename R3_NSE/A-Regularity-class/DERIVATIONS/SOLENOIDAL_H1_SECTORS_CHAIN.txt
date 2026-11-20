@@ -1,0 +1,104 @@
+NSE-A SOLENOIDAL RESTRICTION OF THE CONSTRUCTED H1 SECTORS
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION before native preparation
+Scope: G05 / remaining solenoidal subedge of P05
+Local Lean, Lake, kernel audits and runners: NONE.
+Project goal and branch local target: unchanged.
+
+1. COMPLEX CODOMAIN NATURALITY
+
+Let A:C3->C3 be a bounded complex-linear map. Its native L2 action is
+pointwise composition A_*f, supplied by ContinuousLinearMap.compLpL. On
+Schwartz fields, integrability of the actual Fourier integrand and continuity
+of A justify moving A through the Bochner integral:
+
+  F(A phi)(xi) = A(F phi(xi)).
+
+Both L2 maps F A_* and A_* F are continuous. The pinned native Schwartz
+density theorem therefore extends this identity to every actual complex
+vector L2 equivalence class. This proof needs no assumption that a Fourier
+integral exists pointwise for an arbitrary L2 representative.
+
+The literal sector indicator is scalar, so pointwise complex linearity gives
+P_i A_*=A_*P_i on L2 classes. Injectivity of the native L2 Fourier isometry
+then gives Q_i^C A_*=A_*Q_i^C.
+
+2. ACTUAL COORDINATE-SLICE COMPATIBILITY
+
+For j in Fin 3 define C_j:R3->R3 by C_j(v)=v_j e_0. Its complex extension
+is A_j(z)=z_j e_0 on C3. The existing native componentwise complexification
+satisfies c(C_j v)=A_j(cv) exactly. The chosen compLpL representatives give
+the same identity almost everywhere on actual L2 classes.
+
+Using c(Q_i u)=Q_i^C(cu), complex codomain naturality, and injectivity of c:
+
+  c(Q_i(C_j u)) = Q_i^C A_j(cu)
+               = A_j Q_i^C(cu)
+               = c(C_j(Q_i u)),
+
+so Q_i C_j=C_j Q_i on the original real vector L2 carrier. This avoids
+introducing a separate scalar projection family or assuming component
+commutation as a premise.
+
+3. DIVERGENCE TRACE AND SOLENOIDALITY
+
+The independent PhysicalH1Divergence construction defines
+
+  T(G)=sum_j C_j(G_j),
+
+whose literal representative is (sum_j (G_j)_j)e_0. Compact-test integration
+by parts and separation establish, for any supplied actual weak gradient G,
+
+  Solenoidal(v) iff T(G)=0.
+
+The fixed vector e_0 is nonzero, so this vector-valued trace is exactly the
+scalar divergence embedded into one coordinate. It is not an additional
+constraint on the gradient matrix.
+
+Finite real linearity and section 2 imply
+
+  T((Q_i G_j)_j) = Q_i(T(G)).
+
+If v is solenoidal then T(G)=0, hence the trace of the constructed projected
+weak gradient is zero. The reverse direction of the native criterion proves
+Solenoidal(Q_i v). Both weak-gradient preservation and solenoidal preservation
+are derived before constructing the restricted graph element.
+
+4. ACTUAL CLOSED SOLENOIDAL H1 CARRIER
+
+The existing PhysicalH1Sigma is the closed subspace of the same fourfold L2
+Hilbert sum satisfying both the compact-test gradient and divergence
+conditions. Its inclusion into PhysicalH1 is a real-linear isometry because
+both norms are inherited from that identical ambient Hilbert sum.
+
+Construct Q_i^sigma u from its projected velocity Q_i(u_0) and projected
+gradients Q_i(u_(j+1)). Sections 2--3 give both native membership properties.
+The inclusion satisfies
+
+  include(Q_i^sigma u) = Q_i^H(include u).
+
+Injectivity and isometry of the inclusion transfer linearity, contraction,
+idempotence, mutual annihilation, reconstruction, self-adjointness,
+orthogonality and exact H1 squared-norm splitting from the actual full H1
+operators. The charge identities transfer with the same actual weak
+gradients and the same cone integral:
+
+  sum_i sum_j ||partial_j(Q_i^sigma u)||_2^2
+     = sum_j ||partial_j u||_2^2,
+  sum_j ||partial_j(Q_i^sigma u)||_2^2
+     = 4*pi^2 * integral_(C_i) |xi|^2 |F(cu)(xi)|^2 dxi.
+
+5. EVIDENCE BOUNDARY
+
+This construction uses the actual new real-range, divergence and physical-H1
+sources, with their independent complete consumer signatures. All new sources
+remain prepared pending matching cached external compilation and standard-only
+named axiom audits. No axiom, abstract projector record, divergence-preservation
+hypothesis, PDE evolution, solution continuation or universal time-budget
+finiteness is added. Parent G05 may be reassessed only after exact external
+evidence for its full registered scope is available.
+
+ENDPOINT STATUS
+  SOLENOIDAL_H1_SECTOR_CHAIN: DERIVED.
+  NATIVE_SOLENOIDAL_SECTORS: PREPARING_PENDING_MATCHING_EXTERNAL_CI.
+  G05_PARENT_A_TIER_CLOSURE: NOT_CLAIMED.

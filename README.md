@@ -18,13 +18,16 @@ retain the previous conditional Ehrenfest goal and its accepted evidence.
 
 ## AC-Integration: next physical H1 sector layer
 
-The continuing six-target construction prepares **QFAH1Spectral**: 13 H1-only
-physical Fourier energy/enstrophy theorems, including genuine weighted
-integrability and the exact 4*pi^2 normalization. Matching cached external
-verification is pending. The [B-tier chain](R3_NSE/A-Regularity-class/DERIVATIONS/H1_SPECTRAL_CHAIN.txt)
-precedes this source preparation. Real-range preservation and the actual H1
-sector lift remain the next independent constructions. The previously accepted
-P01–P03 layer and all six open parent targets retain their exact status.
+The continuing six-target construction prepares **134 declarations in 7 packages**
+(116 theorems, 18 definitions). It adds constructive real Fourier range,
+actual real L2/H1 six projections, physical charges with exact cone integrals,
+the native divergence-trace criterion, actual solenoidal projection restriction,
+and the strict small-product coefficient.
+Matching cached external verification is pending. The first spectral attempt
+found one explicit type argument missing; [the exact failed evidence](audits/material-3375a8dc-nse-a-failed/summary.json)
+is retained and the source is repaired. Independent B-tier work also derives
+the physical energy/enstrophy and same-path cutoff chain. Prior P01–P03
+acceptance is unchanged, and all six parent targets remain open.
 
 ## AC-Integration: accepted NSE-A construction
 

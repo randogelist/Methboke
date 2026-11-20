@@ -62,7 +62,7 @@ theorem spatialWeakGradient_fourier_norm_ae
       rw [hξ j]
       have hc : inner ℝ ξ (coordinateVector j) = ξ j := by
         simpa only [coordinateVector, EuclideanSpace.basisFun_apply] using
-          EuclideanSpace.inner_basisFun_real ξ j
+          EuclideanSpace.inner_basisFun_real (Fin 3) ξ j
       rw [hc]
       exact gradient_multiplier_norm_sq (ξ j) ((𝓕 (complexifyL2 u) : ComplexL2) ξ)
     _ = (2 * Real.pi) ^ 2 * (∑ j : Fin 3, (ξ j) ^ 2) *

@@ -1593,7 +1593,7 @@
     {
       "module": "MethbokeAddon.QuasiFeffermanA.H1Spectral",
       "path": "MethbokeAddon/QuasiFeffermanA/H1Spectral.lean",
-      "sha256": "ec65cf71d5149e29e408fbb01e2666e7faf8cea2917fa89aed6feb96f6d51c31",
+      "sha256": "6e30a75ed55f7c99bc833d292c337ee0a5626a95517cb47a8cc139a7f70bb9cb",
       "imports": [
         "MethbokeAddon.QuasiFeffermanA.H1Fourier",
         "MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget",
@@ -1605,6 +1605,119 @@
         "revision": "612832ffa636da3db65acb253515d2d70ed6003e",
         "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
         "role": "Accepted first-derivative and physical H1 basis; new proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealFourier",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealFourier.lean",
+      "sha256": "98a1e6dd84597626ebcb5887f6649658cf3b23f40ff993aac7bd72debfcc7a19",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.LinearMap"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "612832ffa636da3db65acb253515d2d70ed6003e",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted native first-derivative and physical H1 basis; new proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealSectorMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealSectorMultipliers.lean",
+      "sha256": "dfba3d3c5b63d235844923c4debf3fe2b7d344153ade1c3a5d3e056a7a04f6e1",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealFourier",
+        "MethbokeAddon.QuasiFeffermanA.SixSectorMultipliers"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "612832ffa636da3db65acb253515d2d70ed6003e",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted native first-derivative and physical H1 basis; new proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Sectors.lean",
+      "sha256": "6ce2f392ca602751929d73050609e99d2c2825cd251fd6d350596c6a0ba1737a",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealSectorMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+        "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+        "MethbokeAddon.QuasiFeffermanA.SixChargeBudget"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted-source/B-tier dependency baseline; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Divergence.lean",
+      "sha256": "d6111dd273558ec4cedc43d69c64f03a4e886851e5b21a76abc636cb8ce5341b",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "612832ffa636da3db65acb253515d2d70ed6003e",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted native first-derivative and physical H1 basis; new proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SmallProductCoefficient",
+      "path": "MethbokeAddon/QuasiFeffermanA/SmallProductCoefficient.lean",
+      "sha256": "45223ce06a0d05cec9b9e5a5c38d863811e66a0430a2e8fc685eab8c50722db8",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Cutoff",
+        "Mathlib.Tactic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "3375a8dc8e71c2fad0305ea3e5597e3fd023480f",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Existing plan/source baseline. New proof bytes were prepared after the B-tier chain and are not claimed present at this baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SixSectorNaturality",
+      "path": "MethbokeAddon/QuasiFeffermanA/SixSectorNaturality.lean",
+      "sha256": "f6aa35dceed0891edea42bf690ee9f213124c5d2bed4aca97dffc5cc6d12a9f3",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted-source/B-tier dependency baseline; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1SigmaSectors",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1SigmaSectors.lean",
+      "sha256": "a8cc4afcad490a04fde09877b9f04a64baba385348de7a4b9862a322e03cda49",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.SixSectorNaturality"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted-source/B-tier dependency baseline; new proof bytes are not claimed at that baseline."
       },
       "origin_kind": "new_owned_development_against_pinned_native_basis"
     }

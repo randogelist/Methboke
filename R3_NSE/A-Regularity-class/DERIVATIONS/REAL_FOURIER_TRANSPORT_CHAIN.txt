@@ -1,0 +1,93 @@
+NSE-A ACTUAL REAL FOURIER TRANSPORT AND EVEN SECTOR PROJECTIONS
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G05 / P04, supplying the actual real L2 input for P05--P06
+Basis: accepted source 3dec32be and REAL_H1_SECTOR_LIFT_CHAIN.txt
+Local Lean/Lake/kernel executions: NONE
+
+1. ACTUAL REAL AND COMPLEX CARRIERS
+
+Let L_R=L2(R3;R3) and L_C=L2(R3;C3), always with full Lebesgue volume.
+Use the already admitted componentwise real linear isometry c:L_R->L_C.
+On C3 construct componentwise conjugation C and real part R. Conjugation
+is a real linear isometry and R is a real linear contraction. Continuous
+linear postcomposition gives actual operators C_L and R_L on L2 classes.
+Their representative formulas hold almost everywhere. Coordinate algebra
+gives R_L(cu)=u, C_L(cu)=cu and
+
+  C_L f=f  ==>  c(R_L f)=f.
+
+Thus f belongs to the actual range of c iff C_L f=f. This implication
+constructs its real preimage and assumes no abstract real-range port.
+
+2. CONJUGATE-REFLECTION AND FOURIER
+
+The Euclidean linear isometry x->-x preserves volume, so pullback defines
+an actual complex linear isometry D_L on L2, with D_L f(x)=f(-x) a.e.
+Define J=C_L D_L as a bounded real linear map. Hence
+Jf(x)=conjugate(f(-x)) a.e.
+
+For an arbitrary complex vector-valued Schwartz function phi, not only a
+real one, the defining Fourier integral and conjugation of the character
+give
+
+  F(C phi)(xi) = C(F phi(-xi)).
+
+Conjugation commutes with the Bochner integral as a real linear isometry;
+the character identity is conj(exp(2*pi*i*s))=exp(-2*pi*i*s). Therefore
+the identity holds with the actual Schwartz Fourier map. Compatibility
+of Schwartz-to-L2 with F and the a.e. representative formulas identify
+both L2 sides on Schwartz inputs. Schwartz functions are dense in L_C;
+both sides are continuous. Consequently
+
+  F(C_L f)=J(Ff)                     for every f in L_C.
+
+Injectivity of the L2 Fourier isometry now gives
+
+  C_L f=f  <=>  J(Ff)=Ff,
+  f in range(c) <=> J(Ff)=Ff.
+
+Applying the same criterion to F^(-1)f also gives the literal frequency-side
+range characterization: exists real u with F(cu)=f iff Jf=f.
+
+This direct complex-Schwartz density proof supplies the full transport
+identity without a separate real/imaginary decomposition argument.
+
+3. ACTUAL EVEN SECTOR PRESERVATION
+
+For the admitted exact even Borel sets C_i, let P_i f=1_(C_i)f be the
+already constructed complex L2 restriction and Q_i^C=F^(-1)P_iF.
+Since 1_(C_i) is real and C_i=-C_i, their a.e. representative formulas
+give J(P_i f)=P_i(Jf). Pullback of exceptional null sets under x->-x is
+justified by measure preservation. For every real u,
+
+  J(F(Q_i^C(cu))) = P_i(J(F(cu))) = P_i(F(cu)),
+
+so Q_i^C(cu) is fixed by C_L. Define the actual real operator
+
+  Q_i u = R_L(Q_i^C(cu)).
+
+Then c(Q_i u)=Q_i^C(cu). The operator is real linear and continuous by
+composition of the constructed maps, with norm at most one by c's
+isometry and the admitted complex projection bound.
+
+4. EXACT REAL PROJECTION ALGEBRA
+
+Injectivity and real linearity of c transport complex idempotence,
+mutual annihilation and sum_i Q_i^C=Id to the actual real operators.
+Their real inner products are the real parts of the corresponding
+complex inner products, because c is a real linear isometry. Hence
+
+  <Q_i u,v>_R=<u,Q_i v>_R,
+  i!=j ==> <Q_i u,Q_j v>_R=0,
+  sum_i ||Q_i u||_2^2=||u||_2^2.
+
+The definitions refer to the same real and complex L2 classes throughout.
+No native H1 input or derivative has been assumed at this stage.
+
+ENDPOINT STATUS
+  B_TIER_REAL_FOURIER_TRANSPORT: DERIVED.
+  B_TIER_REAL_L2_SIX_PROJECTIONS: DERIVED.
+  NATIVE_SOURCE: PREPARED_PENDING_MATCHING_EXTERNAL_EVIDENCE.
+  H1, SOLENOIDAL AND PHYSICAL CHARGE LIFTS: SEPARATE CONSTRUCTION.
+  G05_PARENT_A_TIER_CLOSURE: OPEN.
