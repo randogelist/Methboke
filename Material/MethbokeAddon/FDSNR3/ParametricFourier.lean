@@ -56,8 +56,8 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
   · intro n hn q hq
     obtain ⟨B, hB, hbound⟩ := hBound (n + 1)
     have hMeas' : AEStronglyMeasurable (fun a => (p a q (n + 1)).curryLeft) μ :=
-      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P) E).continuous
-        .comp_aestronglyMeasurable (hMeas (n + 1) q hq)
+      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P) E).continuous.comp_aestronglyMeasurable
+        (hMeas (n + 1) q hq)
     have hd := hasFDerivAt_integral_of_dominated_of_fderiv_le
       (hs.mem_nhds hq)
       (Filter.Eventually.mono (hs.mem_nhds hq) (fun y hy => hMeas n y hy))
@@ -68,8 +68,8 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
         ((hTaylor a).fderivWithin n hn y hy).hasFDerivAt (hs.mem_nhds hy)))
     have heq : (∫ a, (p a q (n + 1)).curryLeft ∂μ) =
         (∫ a, p a q (n + 1) ∂μ).curryLeft :=
-      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P) E)
-        .toLinearIsometry.integral_comp_comm (fun a => p a q (n + 1))
+      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P) E).toLinearIsometry.integral_comp_comm
+        (fun a => p a q (n + 1))
     rw [heq] at hd
     exact hd.hasFDerivWithinAt
   · intro n hn
@@ -147,8 +147,8 @@ theorem contDiffOn_integral_of_dominated_joint_jets
   have hTaylor : ∀ x : X,
       HasFTaylorSeriesUpToOn ∞ (fun q => F (q, x)) (p x) s := by
     intro x
-    have h := (hSmooth.ftaylorSeriesWithin (hs.prod isOpen_univ).uniqueDiffOn)
-      .comp_continuousAffineMap (parameterInclusionAffine P X x)
+    have h := (hSmooth.ftaylorSeriesWithin (hs.prod isOpen_univ).uniqueDiffOn).comp_continuousAffineMap
+      (parameterInclusionAffine P X x)
     simpa only [parameterInclusionAffine_preimage, parameterInclusionAffine_apply,
       parameterInclusionAffine_contLinear, Function.comp_def, ftaylorSeriesWithin, p] using h
   have hMeas : ∀ n : ℕ, ∀ q ∈ s, AEStronglyMeasurable (fun x => p x q n) μ := by
@@ -157,9 +157,8 @@ theorem contDiffOn_integral_of_dominated_joint_jets
       exact_mod_cast (le_top : (n : ℕ∞) ≤ ⊤)
     have hc : Continuous (fun x : X =>
         iteratedFDerivWithin ℝ n F (s ×ˢ univ) (q, x)) :=
-      (hSmooth.continuousOn_iteratedFDerivWithin hn (hs.prod isOpen_univ).uniqueDiffOn)
-        .comp_continuous (continuous_const.prodMk continuous_id)
-          (fun x => ⟨hq, mem_univ x⟩)
+      (hSmooth.continuousOn_iteratedFDerivWithin hn (hs.prod isOpen_univ).uniqueDiffOn).comp_continuous
+        (continuous_const.prodMk continuous_id) (fun x => ⟨hq, mem_univ x⟩)
     exact ((ContinuousMultilinearMap.compContinuousLinearMapL
       (fun _ : Fin n => parameterInclusionCLM P X)).continuous.comp hc).aestronglyMeasurable
   have hDom : ∀ n : ℕ, ∃ B : X → ℝ, Integrable B μ ∧
@@ -169,10 +168,10 @@ theorem contDiffOn_integral_of_dominated_joint_jets
     refine ⟨fun x => B x * ‖parameterInclusionCLM P X‖ ^ n,
       hB.mul_const _, ?_⟩
     intro x q hq
-    exact ((iteratedFDerivWithin ℝ n F (s ×ˢ univ) (q, x))
-      .norm_compContinuousLinearMap_le (fun _ : Fin n => parameterInclusionCLM P X)).trans
-      (by simpa using mul_le_mul_of_nonneg_right (hbound q hq x)
-        (pow_nonneg (norm_nonneg (parameterInclusionCLM P X)) n))
+    exact ((iteratedFDerivWithin ℝ n F (s ×ˢ univ) (q, x)).norm_compContinuousLinearMap_le
+      (fun _ : Fin n => parameterInclusionCLM P X)).trans (by
+        simpa using (mul_le_mul_of_nonneg_right (hbound q hq x)
+          (pow_nonneg (norm_nonneg (parameterInclusionCLM P X)) n)))
   exact (integral_hasFTaylorSeriesUpToOn_of_dominated hs hTaylor hMeas hDom).contDiffOn
 
 end JointIntegral
@@ -249,8 +248,7 @@ theorem LocalSchwartz.continuousAt_fourierVelocity {T t : ℝ} {u : Velocity}
   have htb : t < b := by dsimp [b]; linarith [ht.2]
   have hbT : b < T := by dsimp [b]; linarith [ht.2]
   have hb : b ∈ Ico (0 : ℝ) T := ⟨(ht.1.trans htb).le, hbT⟩
-  apply (hu.continuousOn_fourierVelocity_slab hb (t, ξ) ⟨ht.1.le, htb.le⟩)
-    .continuousAt
+  apply (hu.continuousOn_fourierVelocity_slab hb (t, ξ) ⟨ht.1.le, htb.le⟩).continuousAt
   exact continuous_fst.continuousAt.preimage_mem_nhds (Icc_mem_nhds ht.1 htb)
 
 /-- The early time-continuity leaf used to retain a nonzero Fourier
@@ -258,7 +256,7 @@ component while choosing the phase's zero-crossing time. -/
 theorem LocalSchwartz.continuousAt_fourier_time {T t : ℝ} {u : Velocity}
     (hu : LocalSchwartz T u) (ht : t ∈ Ioo (0 : ℝ) T) (ξ : Vec) :
     ContinuousAt (fun r : ℝ => fourierVelocity (u r) ξ) t :=
-  (hu.continuousAt_fourierVelocity ht ξ).comp t
+  (hu.continuousAt_fourierVelocity ht ξ).comp
     (continuousAt_id.prodMk continuousAt_const)
 
 end FourierContinuity
@@ -281,8 +279,8 @@ theorem preterminal_hasDerivAt_time_joint {T t : ℝ} {u : Velocity}
       (fderivWithin ℝ (fun z : ℝ × Vec => u z.1 z.2)
         (preterminalSpacetime T) (t, x) (1, 0)) t := by
   have htime : (t, x) ∈ preterminalSpacetime T := ⟨ht.1.le, ht.2⟩
-  have hderiv := (hu.differentiableOn (by simp) (t, x) htime)
-    .hasFDerivWithinAt.hasFDerivAt (preterminalSpacetime_mem_nhds ht x)
+  have hderiv := (hu.differentiableOn (by simp) (t, x) htime).hasFDerivWithinAt.hasFDerivAt
+    (preterminalSpacetime_mem_nhds ht x)
   exact hderiv.comp_hasDerivAt t ((hasDerivAt_id t).prodMk (hasDerivAt_const t x))
 
 theorem preterminal_timeDerivative_eq_joint {T t : ℝ} {u : Velocity}
@@ -309,9 +307,9 @@ theorem LocalSchwartz.continuous_timeDerivative_slice {T t : ℝ} {u : Velocity}
   have hc : Continuous (fun x : Vec =>
       fderivWithin ℝ (fun z : ℝ × Vec => u z.1 z.2)
         (preterminalSpacetime T) (t, x)) :=
-    (hu.1.continuousOn_fderivWithin (uniqueDiffOn_preterminalSpacetime T) hone)
-      .comp_continuous (continuous_const.prodMk continuous_id)
-        (fun x => show (t, x) ∈ preterminalSpacetime T from ⟨ht.1.le, ht.2⟩)
+    (hu.1.continuousOn_fderivWithin (uniqueDiffOn_preterminalSpacetime T) hone).comp_continuous
+      (continuous_const.prodMk continuous_id)
+      (fun x => show (t, x) ∈ preterminalSpacetime T from ⟨ht.1.le, ht.2⟩)
   have heq : timeDerivative u t = fun x : Vec =>
       fderivWithin ℝ (fun z : ℝ × Vec => u z.1 z.2)
         (preterminalSpacetime T) (t, x) (1, 0) :=
@@ -384,7 +382,8 @@ theorem LocalSchwartz.hasDerivAt_fourier_time {T t : ℝ} {u : Velocity}
       complexify (u r x))
       ((Real.fourierChar (-inner ℝ x ξ) : ℂ) • complexify (timeDerivative u r x)) r
     exact (complexifyCLM.hasFDerivAt.comp_hasDerivAt r
-      (hu.hasDerivAt_time (htime r hr) x)).const_smul _
+      (hu.hasDerivAt_time (htime r hr) x)).const_smul
+        (Real.fourierChar (-inner ℝ x ξ) : ℂ)
   have hd := (hasDerivAt_integral_of_dominated_loc_of_deriv_le
     (Ioo_mem_nhds ht.1 htb)
     (Filter.Eventually.mono (Ioo_mem_nhds ht.1 htb)

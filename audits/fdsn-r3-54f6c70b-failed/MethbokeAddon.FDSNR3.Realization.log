@@ -1,0 +1,20 @@
+MethbokeAddon/FDSNR3/Realization.lean:157:16: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ?a + 0
+in the target expression
+  u z.1 z.2 + 0 z = u z.1 z.2
+
+ν T : ℝ
+u h F : Velocity
+p : Pressure
+hu : PreterminalNSE ν T u p F
+hs : ContDiff ℝ ∞ fun z => h z.1 z.2
+hsupp : tsupport h ⊆ Ioo 0 T
+hdiv : ∀ t ∈ Ico 0 T, ∀ (x : Vec), divergence (h t) x = 0
+t : ℝ
+ht : t ∈ Ico 0 T
+x : Vec
+hmem : t ∉ tsupport h
+hz✝ : (fun z => h z.1 z.2) =ᶠ[𝓝 (t, x)] 0
+z : ℝ × Vec
+hz : h z.1 z.2 = 0 z
+⊢ u z.1 z.2 + 0 z = u z.1 z.2

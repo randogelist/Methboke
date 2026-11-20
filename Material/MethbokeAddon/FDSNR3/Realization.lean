@@ -154,7 +154,8 @@ theorem PreterminalNSE.add_residual
           (fun z => u z.1 z.2) := by
         filter_upwards [hz] with z hz
         change u z.1 z.2 + h z.1 z.2 = u z.1 z.2
-        rw [hz, add_zero]
+        have hz0 : h z.1 z.2 = 0 := hz
+        rw [hz0, add_zero]
       have hforce : (fun z : ℝ × Vec =>
           MethbokeAddon.FDSN.residualForce ν u F h z.1 z.2) =ᶠ[𝓝 (t, x)]
           (fun z => F z.1 z.2) := by

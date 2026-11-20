@@ -72,8 +72,8 @@ theorem iteratedFDeriv_schwartzRightSlice (A : 𝓢(P × X, E))
         (fun _ : Fin n => rightSliceCLM P X) := by
   have hn : (n : ℕ∞ω) ≤ ∞ := by
     exact_mod_cast (le_top : (n : ℕ∞) ≤ ⊤)
-  have h := ((A.smooth'.of_le hn).contDiffOn.ftaylorSeriesWithin uniqueDiffOn_univ)
-    .comp_continuousAffineMap (rightSliceAffine P X p)
+  have h := ((A.smooth'.of_le hn).contDiffOn.ftaylorSeriesWithin uniqueDiffOn_univ).comp_continuousAffineMap
+    (rightSliceAffine P X p)
   have heq := h.eq_iteratedFDerivWithin_of_uniqueDiffOn le_rfl
     (by simpa using (uniqueDiffOn_univ : UniqueDiffOn ℝ (univ : Set X)))
     (by simp : x ∈ rightSliceAffine P X p ⁻¹' (univ : Set (P × X)))
@@ -164,8 +164,8 @@ theorem schwartzFrequencySlice_uniform_integrals (A : 𝓢(P × Vec, E)) (a k n 
   intro p
   rw [← integral_const_mul]
   apply integral_mono
-    ((SchwartzMap.integrable_pow_mul_iteratedFDeriv volume (schwartzRightSlice A p) k n)
-      .const_mul (‖p‖ ^ a)) hB
+    ((SchwartzMap.integrable_pow_mul_iteratedFDeriv volume (schwartzRightSlice A p) k n).const_mul
+      (‖p‖ ^ a)) hB
   intro ξ
   simpa only [B, mul_assoc] using hbound p ξ
 
@@ -211,8 +211,7 @@ def partialFourierJet (A : 𝓢(P × Vec, E)) :
   | 0 => SchwartzMap.postcompCLM
       (continuousMultilinearCurryFin0 ℝ (P × Vec) E).symm.toContinuousLinearEquiv.toContinuousLinearMap A
   | n + 1 => SchwartzMap.postcompCLM
-      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P × Vec) E)
-        .symm.toContinuousLinearEquiv.toContinuousLinearMap
+      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P × Vec) E).symm.toContinuousLinearEquiv.toContinuousLinearMap
       (partialFourierJetStep (partialFourierJet A n))
 
 @[simp] theorem partialFourierJet_zero_apply (A : 𝓢(P × Vec, E)) (z : P × Vec)
@@ -235,8 +234,8 @@ theorem partialFourierTaylor_hasFDerivAt (A : 𝓢(P × Vec, E))
   have hp : HasFDerivAt (fun y : P × Vec => (y.1, ξ)) (parameterProjectionCLM P) q :=
     (ContinuousLinearMap.fst ℝ P Vec).hasFDerivAt.prodMk (hasFDerivAt_const ξ q)
   have hB := B.differentiableAt.hasFDerivAt.comp q hp
-  have hc := (Real.hasFDerivAt_fourierChar_neg_bilinear_right (innerSL ℝ) ξ q.2)
-    .comp q (ContinuousLinearMap.snd ℝ P Vec).hasFDerivAt
+  have hc := (Real.hasFDerivAt_fourierChar_neg_bilinear_right (innerSL ℝ) ξ q.2).comp q
+    (ContinuousLinearMap.snd ℝ P Vec).hasFDerivAt
   convert hc.smul hB using 1
   ext v m
   simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,

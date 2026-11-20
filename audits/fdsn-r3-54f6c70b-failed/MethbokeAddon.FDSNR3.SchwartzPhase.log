@@ -1,0 +1,44 @@
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:177:52: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:353:44: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:356:21: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  LineDeriv Vec 𝓢(Vec, Vec) SingularClosure.Field
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:359:35: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  complexifySchwartz (∂_{?m} ?f)
+in the target expression
+  fourierVelocity (∂_{m} f) ξ = (2 * ↑Real.pi * Complex.I) • inner ℝ ξ m • (𝓕 (complexifySchwartz f)) ξ
+
+f : 𝓢(Vec, Vec)
+m ξ : Vec
+⊢ fourierVelocity (∂_{m} f) ξ = (2 * ↑Real.pi * Complex.I) • inner ℝ ξ m • (𝓕 (complexifySchwartz f)) ξ
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:364:8: warning: declaration uses `sorry`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:367:5: warning: Variable name `ho` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ho
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:375:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:373:2: warning: Unused tactic linter: `rw [fourierVelocity_lineDeriv, fourierVelocity_lineDeriv,
+  fourierVelocity_phaseSlice β ψ hψ hc ho]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:375:2: warning: Unused tactic linter: `simp only [norm_smul, norm_packetPhase, one_mul]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/FDSNR3/SchwartzPhase.lean:379:2: error: Type mismatch: After simplification, term
+  integrable_finsetSum Finset.univ fun i x => schwartz_integrable_norm_sq (∂_{unitVector i} f)
+ has type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    NormedAddCommGroup.toENormedAddCommMonoid.toContinuousENorm Vec measureSpaceOfInnerProductSpace.toMeasurableSpace
+    (fun a => ∑ i, ‖(fderiv ℝ (⇑f) a) (unitVector i)‖ ^ 2) volume
+but is expected to have type
+  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm Vec
+    measureSpaceOfInnerProductSpace.toMeasurableSpace (gradientSquare ⇑f) volume

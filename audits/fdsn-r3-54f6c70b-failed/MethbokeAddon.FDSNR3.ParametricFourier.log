@@ -1,0 +1,120 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:59:6: error: Function expected at
+  LinearIsometryEquiv.continuous (continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E)
+but this term has type
+  Continuous ⇑(continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E)
+
+Note: Expected a function because this term is being applied to the argument
+  .comp_aestronglyMeasurable
+MethbokeAddon/FDSNR3/ParametricFourier.lean:72:8: error: Invalid dotted identifier notation: The name `toLinearIsometry.integral_comp_comm` must be atomic
+MethbokeAddon/FDSNR3/ParametricFourier.lean:174:64: error: unexpected token '('; expected ')', ',' or ':'
+MethbokeAddon/FDSNR3/ParametricFourier.lean:150:14: error: Function expected at
+  ContDiffOn.ftaylorSeriesWithin hSmooth (IsOpen.uniqueDiffOn (IsOpen.prod hs isOpen_univ))
+but this term has type
+  HasFTaylorSeriesUpToOn ∞ F (ftaylorSeriesWithin ℝ F (s ×ˢ univ)) (s ×ˢ univ)
+
+Note: Expected a function because this term is being applied to the argument
+  .comp_continuousAffineMap
+MethbokeAddon/FDSNR3/ParametricFourier.lean:161:8: error(lean.unknownIdentifier): Unknown constant `Prod.comp_continuous`
+
+Note: Inferred this name from the expected resulting type of `.comp_continuous`:
+  P × X
+MethbokeAddon/FDSNR3/ParametricFourier.lean:162:20: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+MethbokeAddon/FDSNR3/ParametricFourier.lean:173:6: error(lean.unknownIdentifier): Unknown constant `Prod.norm_compContinuousLinearMap_le`
+
+Note: Inferred this name from the expected resulting type of `.norm_compContinuousLinearMap_le`:
+  Fin n → P × X
+MethbokeAddon/FDSNR3/ParametricFourier.lean:143:52: error: unsolved goals
+P : Type u_1
+X : Type u_2
+inst✝⁹ : NormedAddCommGroup P
+inst✝⁸ : NormedSpace ℝ P
+inst✝⁷ : NormedAddCommGroup X
+inst✝⁶ : NormedSpace ℝ X
+E : Type u_3
+inst✝⁵ : NormedAddCommGroup E
+inst✝⁴ : NormedSpace ℝ E
+inst✝³ : CompleteSpace E
+inst✝² : MeasurableSpace X
+inst✝¹ : BorelSpace X
+inst✝ : SecondCountableTopology X
+μ : Measure X
+F : P × X → E
+s : Set P
+hs : IsOpen[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] s
+hSmooth : ContDiffOn ℝ ∞ F (s ×ˢ univ)
+hBound : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ q ∈ s, ∀ (x : X), ‖iteratedFDerivWithin ℝ n F (s ×ˢ univ) (q, x)‖ ≤ B x
+p : X → P → FormalMultilinearSeries ℝ P E :=
+  fun x q n =>
+    (iteratedFDerivWithin ℝ n F (s ×ˢ univ) (q, x)).compContinuousLinearMap fun x => parameterInclusionCLM P X
+hTaylor : ∀ (x : X), HasFTaylorSeriesUpToOn ∞ (fun q => F (q, x)) (p x) s
+hMeas : ∀ (n : ℕ), ∀ q ∈ s, AEStronglyMeasurable (fun x => p x q n) μ
+hDom : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ (x : X), ∀ q ∈ s, ‖p x q n‖ ≤ B x
+⊢ ContDiffOn ℝ ∞ (fun q => ∫ (x : X), F (q, x) ∂μ) s
+MethbokeAddon/FDSNR3/ParametricFourier.lean:253:4: error(lean.unknownIdentifier): Unknown constant `Membership.mem.continuousAt`
+
+Note: Inferred this name from the expected resulting type of `.continuousAt`:
+  ?m.113 ∈ 𝓝 ((fun q => fourierVelocity (u q.1) q.2) (t, ξ))
+MethbokeAddon/FDSNR3/ParametricFourier.lean:253:4: error(lean.unknownIdentifier): Unknown constant `Membership.mem.continuousAt`
+
+Note: Inferred this name from the expected resulting type of `.continuousAt`:
+  ?m.113 ∈ 𝓝 ((fun q => fourierVelocity (u q.1) q.2) (t, ξ))
+MethbokeAddon/FDSNR3/ParametricFourier.lean:253:4: error(lean.unknownIdentifier): Unknown constant `Set.Mem.continuousAt`
+
+Note: Inferred this name from the expected resulting type of `.continuousAt`:
+  ?m.113 ∈ 𝓝 ((fun q => fourierVelocity (u q.1) q.2) (t, ξ))
+MethbokeAddon/FDSNR3/ParametricFourier.lean:253:4: error(lean.unknownIdentifier): Unknown constant `Filter.sets.continuousAt`
+
+Note: Inferred this name from the expected resulting type of `.continuousAt`:
+  ?m.113 ∈ 𝓝 ((fun q => fourierVelocity (u q.1) q.2) (t, ξ))
+MethbokeAddon/FDSNR3/ParametricFourier.lean:253:4: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.continuousAt`
+  ?m.113 ∈ 𝓝 ((fun q => fourierVelocity (u q.1) q.2) (t, ξ))
+is not of the form `C ...` or `... → C ...` where C is a constant
+MethbokeAddon/FDSNR3/ParametricFourier.lean:252:2: error: Tactic `apply` failed: could not unify the type of `continuousOn_fourierVelocity_slab hu hb (t, ξ)
+  ⟨LT.lt.le ht.left, LT.lt.le htb⟩ sorry`
+  ?m.113 ∈ map (fun q => fourierVelocity (u q.1) q.2) (𝓝[{q | q.1 ∈ Icc 0 b}] (t, ξ))
+with the goal
+  ContinuousAt (fun q => fourierVelocity (u q.1) q.2) (t, ξ)
+
+T t : ℝ
+u : Velocity
+hu : LocalSchwartz T u
+ht : t ∈ Ioo 0 T
+ξ : Vec
+b : ℝ := (t + T) / 2
+htb : t < b
+hbT : b < T
+hb : b ∈ Ico 0 T
+⊢ ContinuousAt (fun q => fourierVelocity (u q.1) q.2) (t, ξ)
+MethbokeAddon/FDSNR3/ParametricFourier.lean:261:46: error: Application type mismatch: The argument
+  t
+has type
+  ℝ
+of sort `Type` but is expected to have type
+  ContinuousAt (Prod.mk t) ξ
+of sort `Prop` in the application
+  ContinuousAt.comp (continuousAt_fourierVelocity hu ht ξ) t
+MethbokeAddon/FDSNR3/ParametricFourier.lean:284:17: error: Function expected at
+  ContDiffOn.differentiableOn hu ?m.80 (t, x) htime
+but this term has type
+  DifferentiableWithinAt ℝ (fun z => u z.1 z.2) (preterminalSpacetime T) (t, x)
+
+Note: Expected a function because this term is being applied to the argument
+  .hasFDerivWithinAt.hasFDerivAt
+MethbokeAddon/FDSNR3/ParametricFourier.lean:282:53: error: unsolved goals
+T t : ℝ
+u : Velocity
+hu : ContDiffOn ℝ ∞ (fun z => u z.1 z.2) (preterminalSpacetime T)
+ht : t ∈ Ioo 0 T
+x : Vec
+htime : (t, x) ∈ preterminalSpacetime T
+⊢ HasDerivAt (fun r => u r x) ((fderivWithin ℝ (fun z => u z.1 z.2) (preterminalSpacetime T) (t, x)) (1, 0)) t
+MethbokeAddon/FDSNR3/ParametricFourier.lean:313:6: error(lean.unknownIdentifier): Unknown constant `Prod.comp_continuous`
+
+Note: Inferred this name from the expected resulting type of `.comp_continuous`:
+  ℝ × Vec
+MethbokeAddon/FDSNR3/ParametricFourier.lean:386:10: error: typeclass instance problem is stuck
+  ContinuousConstSMul ?m.388 CVec
+
+Note: Lean will not try to resolve this typeclass instance problem because the first and fourth type arguments to `ContinuousConstSMul` contain metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.

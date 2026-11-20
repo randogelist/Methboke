@@ -220,8 +220,8 @@ theorem LocalSchwartz.jointFourierIntegrand_jet_bound {T b R : ℝ} {u : Velocit
     intro j
     exact (hu.norm_fourier_source_jet_le hb hq x j).trans
       ((mul_le_mul_of_nonneg_left (hD j q.1 ⟨hq.1.1.le, hq.1.2.le⟩ x)
-        (mul_nonneg (norm_nonneg complexifyCLM) (pow_nonneg (norm_nonneg _) j)))
-        .trans_eq (by dsimp [A]; ring))
+        (mul_nonneg (norm_nonneg complexifyCLM) (pow_nonneg (norm_nonneg _) j))).trans_eq
+        (by dsimp [A]; ring))
   have hu' : ContDiffOn ℝ ∞
       ((fun z : ℝ × Vec => u z.1 z.2) ∘ fourierSourceCLM) S :=
     hu.1.comp fourierSourceCLM.contDiff.contDiffOn (fun z hz =>

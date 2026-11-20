@@ -57,9 +57,11 @@ theorem crossingTimePhase_hasDerivAt_zero {ρ : ℝ → ℝ}
   have hlin : HasDerivAt (fun t : ℝ => (t - tzero) / (tstar - tzero))
       (1 / (tstar - tzero)) tzero :=
     ((hasDerivAt_id tzero).sub_const tzero).div_const (tstar - tzero)
-  simpa only [crossingTimePhase, sub_self, zero_div, zero_mul,
-    add_zero, one_div, div_eq_mul_inv, mul_comm] using
+  have hd : HasDerivAt (crossingTimePhase ρ tstar tzero)
+      ((1 / (tstar - tzero)) * ρ tzero +
+        ((tzero - tzero) / (tstar - tzero)) * deriv ρ tzero) tzero :=
     hlin.mul (hρ tzero).hasDerivAt
+  simpa [div_eq_mul_inv, mul_comm] using hd
 
 theorem crossingTimePhase_deriv_ne_zero {ρ : ℝ → ℝ}
     (hρ : Differentiable ℝ ρ) {tstar tzero : ℝ}

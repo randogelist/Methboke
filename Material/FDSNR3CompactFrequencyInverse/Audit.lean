@@ -50,8 +50,7 @@ example (A : 𝓢(P × Vec, E)) : partialFourierJet A 0 =
 
 example (A : 𝓢(P × Vec, E)) (n : ℕ) : partialFourierJet A (n + 1) =
     SchwartzMap.postcompCLM
-      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P × Vec) E)
-        .symm.toContinuousLinearEquiv.toContinuousLinearMap
+      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => P × Vec) E).symm.toContinuousLinearEquiv.toContinuousLinearMap
       (partialFourierJetStep (partialFourierJet A n)) := rfl
 
 example (A : 𝓢(P × Vec, E)) (ξ : Vec) (q : P × Vec) :

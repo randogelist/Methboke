@@ -1,0 +1,87 @@
+MethbokeAddon/FDSNR3/SchwartzJets.lean:40:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FiniteDimensional ℝ F
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/SchwartzJets.lean:43:8: error: Invalid dotted identifier notation: The name `symm.toContinuousLinearMap` must be atomic
+MethbokeAddon/FDSNR3/SchwartzJets.lean:41:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup 𝓢(ℝ × E, ?m.113)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/SchwartzJets.lean:45:8: error: Application type mismatch: The argument
+  (ContinuousLinearMap.compL ℝ E (ℝ × E) (E [×n]→L[ℝ] F)).flip familySpatialInclusion
+has type
+  @ContinuousLinearMap ℝ ℝ Field.toSemifield.toDivisionSemiring.toSemiring
+    Field.toSemifield.toDivisionSemiring.toSemiring (RingHom.id ℝ) (ℝ × E →L[ℝ] E [×n]→L[ℝ] F)
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ContinuousLinearMap.toSeminormedAddCommGroup.toAddCommMonoid
+    (E →L[ℝ] E [×n]→L[ℝ] F)
+    (@UniformSpace.toTopologicalSpace (E →L[ℝ] E [×n]→L[ℝ] F)
+      (@PseudoMetricSpace.toUniformSpace (E →L[ℝ] E [×n]→L[ℝ] F)
+        (@SeminormedAddCommGroup.toPseudoMetricSpace (E →L[ℝ] E [×n]→L[ℝ] F)
+          ContinuousLinearMap.toSeminormedAddCommGroup)))
+    ContinuousLinearMap.toSeminormedAddCommGroup.toAddCommMonoid ContinuousLinearMap.toNormedSpace.toModule
+    ContinuousLinearMap.toNormedSpace.toModule
+but is expected to have type
+  @ContinuousLinearMap ?m.110 ?m.110 Field.toSemifield.toDivisionSemiring.toSemiring
+    Field.toSemifield.toDivisionSemiring.toSemiring (RingHom.id ?m.110) (ℝ × E →L[ℝ] E [×n]→L[ℝ] F)
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ContinuousLinearMap.toNormedAddCommGroup.toAddCommMonoid ?m.113
+    (@UniformSpace.toTopologicalSpace ?m.113
+      (@PseudoMetricSpace.toUniformSpace ?m.113
+        (@SeminormedAddCommGroup.toPseudoMetricSpace ?m.113 NormedAddCommGroup.toSeminormedAddCommGroup)))
+    NormedAddCommGroup.toAddCommGroup.toAddCommMonoid NormedSpace.toModule NormedSpace.toModule
+in the application
+  SchwartzMap.postcompCLM ((ContinuousLinearMap.compL ℝ E (ℝ × E) (E [×n]→L[ℝ] F)).flip familySpatialInclusion)
+MethbokeAddon/FDSNR3/SchwartzJets.lean:54:9: error: unsolved goals
+case zero
+E : Type u_1
+F : Type u_2
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : NormedAddCommGroup F
+inst✝ : NormedSpace ℝ F
+G : 𝓢(ℝ × E, F)
+q : ℝ × E
+⊢ (sorry G 0) q = (continuousMultilinearCurryFin0 ℝ E F).symm (G (q.1, q.2))
+MethbokeAddon/FDSNR3/SchwartzJets.lean:58:6: error: 'change' tactic failed, pattern
+  DFunLike.coe.{(max u_1 u_2) + 1, (max u_1 u_2) + 1, (max u_1 u_2) + 1}
+      (continuousMultilinearCurryLeftEquiv ℝ (fun x => E) F).symm
+      (fderiv ℝ (⇑(schwartzSliceJet G n)) q ∘SL familySpatialInclusion) =
+    ?m.118
+is not definitionally equal to target
+  DFunLike.coe.{max (u_1 + 1) (u_2 + 1), u_1 + 1, max (u_1 + 1) (u_2 + 1)} (schwartzSliceJet G (n + 1)) q =
+    iteratedFDeriv ℝ (n + 1) (fun z => G (q.1, z)) q.2
+MethbokeAddon/FDSNR3/SchwartzJets.lean:55:17: warning: declaration uses `sorry`
+MethbokeAddon/FDSNR3/SchwartzJets.lean:55:35: warning: This simp argument is unused:
+  SchwartzMap.postcompCLM_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [schwartzSliceJet, iteratedFDeriv_zero_eq_comp, Function.comp_def]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/SchwartzJets.lean:106:4: error: Type mismatch: After simplification, term
+  HasDerivAt.const_smul w h
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField F inst✝¹.toAddCommGroup inst✝.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (w • ⇑G ∘ fun r => (r, z)) (w • (fderiv ℝ ⇑G (l, z)) (1, 0)) l
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField F inst✝¹.toAddCommGroup inst✝.toModule
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯ (fun r => w • G (r, z)) (w • (fderiv ℝ ⇑G (l, z)) (1, 0)) l
+MethbokeAddon/FDSNR3/SchwartzJets.lean:111:4: error(lean.unknownIdentifier): Unknown constant `Membership.mem.norm_image_sub_le_of_norm_hasDerivWithin_le`
+
+Note: Inferred this name from the expected resulting type of `.norm_image_sub_le_of_norm_hasDerivWithin_le`:
+  ?m.272 ∈ univ
+MethbokeAddon/FDSNR3/SchwartzJets.lean:111:4: error(lean.unknownIdentifier): Unknown constant `Set.Mem.norm_image_sub_le_of_norm_hasDerivWithin_le`
+
+Note: Inferred this name from the expected resulting type of `.norm_image_sub_le_of_norm_hasDerivWithin_le`:
+  ?m.272 ∈ univ
+MethbokeAddon/FDSNR3/SchwartzJets.lean:111:4: error(lean.unknownIdentifier): Unknown constant `Set.univ.norm_image_sub_le_of_norm_hasDerivWithin_le`
+
+Note: Inferred this name from the expected resulting type of `.norm_image_sub_le_of_norm_hasDerivWithin_le`:
+  ?m.272 ∈ univ
+MethbokeAddon/FDSNR3/SchwartzJets.lean:111:4: error(lean.unknownIdentifier): Unknown constant `Set.ofPred.norm_image_sub_le_of_norm_hasDerivWithin_le`
+
+Note: Inferred this name from the expected resulting type of `.norm_image_sub_le_of_norm_hasDerivWithin_le`:
+  ?m.272 ∈ univ
+MethbokeAddon/FDSNR3/SchwartzJets.lean:111:4: error(lean.unknownIdentifier): Unknown constant `True.norm_image_sub_le_of_norm_hasDerivWithin_le`
+
+Note: Inferred this name from the expected resulting type of `.norm_image_sub_le_of_norm_hasDerivWithin_le`:
+  ?m.272 ∈ univ

@@ -202,3 +202,8 @@ The latest completed run reached the spatial-slice affine-law proof. Its
 [retained diagnostics](audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt) are addressed
 by a binder-order correction with unchanged theorem statements. Full external
 compilation and fresh exact-type/axiom reports remain required.
+
+The first full R3 run compiled every second-stage source. Six new analytic
+modules required proof/coercion repairs, now prepared with unchanged
+mathematical scope. [The complete diagnostics](audits/fdsn-r3-54f6c70b-failed/SUMMARY.txt)
+are retained; no new A-tier acceptance follows from this failed run.

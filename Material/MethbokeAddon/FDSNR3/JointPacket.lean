@@ -112,8 +112,8 @@ theorem jointSpectralCorrection_hasCompactSupport
     {β : ℝ → ℝ} {ψ : Vec → ℝ} (u : Velocity)
     (hβ : HasCompactSupport β) (hψ : HasCompactSupport ψ) :
     HasCompactSupport (jointSpectralCorrection β ψ u) :=
-  ((phaseParameterCutoff_hasCompactSupport.isCompact.prod hβ.isCompact).prod hψ.isCompact)
-    .of_isClosed_subset (isClosed_tsupport _) (jointSpectralCorrection_tsupport_subset β ψ u)
+  ((phaseParameterCutoff_hasCompactSupport.isCompact.prod hβ.isCompact).prod hψ.isCompact).of_isClosed_subset
+    (isClosed_tsupport _) (jointSpectralCorrection_tsupport_subset β ψ u)
 
 theorem jointSpectralCorrection_contDiff
     {T : ℝ} {u : Velocity} (hu : LocalSchwartz T u)

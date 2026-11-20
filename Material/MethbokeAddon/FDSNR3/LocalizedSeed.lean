@@ -146,6 +146,7 @@ theorem LocalSchwartz.hasTemperateGrowth_localizedSeed {T : ℝ} {u : Velocity}
           ‖iteratedFDerivWithin ℝ n (fun w : ℝ × Vec => B (χ w.1) (u w.1 w.2))
             (preterminalSpacetime T) z‖ := by
         rw [iteratedFDerivWithin_congr_set hsets n, iteratedFDerivWithin_univ]
+        rfl
       _ ≤ ‖B‖ * ∑ i ∈ Finset.range (n + 1), (n.choose i : ℝ) *
           ‖iteratedFDerivWithin ℝ i (fun w : ℝ × Vec => χ w.1)
             (preterminalSpacetime T) z‖ *

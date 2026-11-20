@@ -137,8 +137,8 @@ theorem liftedSeed_temperate {B : ℝ × Vec → Vec}
 theorem liftedSeedJacobian_temperate {B : ℝ × Vec → Vec}
     (hB : Function.HasTemperateGrowth B) :
     Function.HasTemperateGrowth (liftedSeedJacobian B) := by
-  have h := ((ContinuousLinearMap.compL ℝ Vec (ℝ × Vec) Vec).flip spatialSliceCLM)
-    .hasTemperateGrowth.comp (temperate_fderiv hB)
+  have h := ((ContinuousLinearMap.compL ℝ Vec (ℝ × Vec) Vec).flip spatialSliceCLM).hasTemperateGrowth.comp
+    (temperate_fderiv hB)
   exact h.comp (ContinuousLinearMap.snd ℝ ℝ (ℝ × Vec)).hasTemperateGrowth
 
 theorem liftedSeedJacobian_apply {B : ℝ × Vec → Vec}

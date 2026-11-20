@@ -53,24 +53,29 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Complete R3 root candidate with sixteen new packages and the repaired spatial affine law; all136packages/1316named declarations require matching fresh external verification.",
-  "current_material_external_verification": "FDSN_R3_FULL_CHAIN_CANDIDATE_PREPARED",
+  "ci_handoff": "All six stage2 source modules compile in run44836866962. Six new analytic modules require the prepared proof/coercion repairs; full fresh audits remain pending.",
+  "current_material_external_verification": "FDSN_R3_FULL_CHAIN_FIRST_REPAIR_PREPARED",
   "latest_material_run": {
     "status": "FAILED_NO_NEW_ACCEPTANCE",
-    "source_commit": "0f68d4a1af6328f8160a5c6e438fd748d3f61d53",
-    "run_id": 44835804706,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44835804706",
-    "artifact_id": 14679230691,
-    "artifact_sha256": "b7559fc12988d8825d0dc5c3f3ac5a5c730f9c94ea5a422259d52b9a8f0ba2a2",
+    "source_commit": "54f6c70ba7250f2494cc01d081ddb1bb2e304e9e",
+    "run_id": 44836866962,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44836866962",
+    "artifact_id": 14678368350,
+    "artifact_sha256": "81c7532cb14dae9f8295f2887c7405a7f7859092e8ff45cc69e843b73c2e33b2",
     "artifact_download_and_hash_verified": true,
     "failed_sources": [
-      "MethbokeAddon.FDSNR3.SliceSchwartz"
+      "MethbokeAddon.FDSNR3.CrossingTimePhase",
+      "MethbokeAddon.FDSNR3.LocalizedSeed",
+      "MethbokeAddon.FDSNR3.ParametricFourier",
+      "MethbokeAddon.FDSNR3.Realization",
+      "MethbokeAddon.FDSNR3.SchwartzJets",
+      "MethbokeAddon.FDSNR3.SchwartzPhase"
     ],
     "fresh_package_audits_executed": false,
     "new_a_tier_acceptance": false,
     "failure_class": "PROOF_OR_TYPE_FAILURE",
-    "evidence": "audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt",
-    "repair": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
+    "evidence": "audits/fdsn-r3-54f6c70b-failed/SUMMARY.txt",
+    "repair": "Normalize actual product/zero functions and Fourier derivative coercions; use the genuine isometry-to-continuous-linear-map conversion without adding a finite-dimensional premise; correct pinned method-call syntax and the mean-value application. Matching literal consumers retain the same mathematical scope.",
     "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
@@ -3390,10 +3395,33 @@
         "evidence": "audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt",
         "repair": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_NO_NEW_ACCEPTANCE",
+        "source_commit": "54f6c70ba7250f2494cc01d081ddb1bb2e304e9e",
+        "run_id": 44836866962,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44836866962",
+        "artifact_id": 14678368350,
+        "artifact_sha256": "81c7532cb14dae9f8295f2887c7405a7f7859092e8ff45cc69e843b73c2e33b2",
+        "artifact_download_and_hash_verified": true,
+        "failed_sources": [
+          "MethbokeAddon.FDSNR3.CrossingTimePhase",
+          "MethbokeAddon.FDSNR3.LocalizedSeed",
+          "MethbokeAddon.FDSNR3.ParametricFourier",
+          "MethbokeAddon.FDSNR3.Realization",
+          "MethbokeAddon.FDSNR3.SchwartzJets",
+          "MethbokeAddon.FDSNR3.SchwartzPhase"
+        ],
+        "fresh_package_audits_executed": false,
+        "new_a_tier_acceptance": false,
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "evidence": "audits/fdsn-r3-54f6c70b-failed/SUMMARY.txt",
+        "repair": "Normalize actual product/zero functions and Fourier derivative coercions; use the genuine isometry-to-continuous-linear-map conversion without adding a finite-dimensional premise; correct pinned method-call syntax and the mean-value application. Matching literal consumers retain the same mathematical scope.",
+        "local_lean_executions": 0
       }
     ],
     "stage_2": {
-      "status": "FOURTH_PROOF_REPAIR_INCLUDED_IN_FULL_CHAIN_CANDIDATE",
+      "status": "ALL_SOURCES_COMPILED_FULL_FRESH_AUDITS_PENDING",
       "source_basis": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
       "sources": [
         "MethbokeAddon.FDSNR3.Fourier",
@@ -3409,7 +3437,9 @@
       "all_declarations": 1028,
       "new_acceptance_claimed": false,
       "previous_failed_run": 44835804706,
-      "repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged."
+      "repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
+      "source_compiler_commit": "54f6c70ba7250f2494cc01d081ddb1bb2e304e9e",
+      "source_compiler_run": 44836866962
     },
     "accepted_evidence": {
       "stage_1": {
@@ -3495,7 +3525,7 @@
     "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
     "root_source": "Material/MethbokeAddon/FDSNR3/Main.lean",
     "stage_3": {
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+      "status": "FIRST_FULL_CHAIN_PROOF_REPAIR_PREPARED",
       "source_basis": "0f68d4a1af6328f8160a5c6e438fd748d3f61d53",
       "sources": [
         "MethbokeAddon.FDSNR3.SchwartzPhase",
@@ -3527,7 +3557,9 @@
         "Fully expanded quantified Family conclusion, actual native PDE/force fields and weighted iterated derivatives"
       ],
       "new_acceptance_claimed": false,
-      "local_lean_executions": 0
+      "local_lean_executions": 0,
+      "previous_failed_run": 44836866962,
+      "repair_scope": "Normalize actual product/zero functions and Fourier derivative coercions; use the genuine isometry-to-continuous-linear-map conversion without adding a finite-dimensional premise; correct pinned method-call syntax and the mean-value application. Matching literal consumers retain the same mathematical scope."
     }
   },
   "fdsn_r3_latest_accepted_material_run": {

@@ -353,11 +353,15 @@ theorem complexifySchwartz_lineDeriv (f : 𝓢(Vec, Vec)) (m : Vec) :
   rw [fderiv_complexify f.differentiableAt] <;> rfl
 
 theorem fourierVelocity_lineDeriv (f : 𝓢(Vec, Vec)) (m ξ : Vec) :
-    fourierVelocity (∂_{m} f) ξ =
+    fourierVelocity (∂_{m} f : 𝓢(Vec, Vec)) ξ =
       (2 * (Real.pi : ℂ) * Complex.I) •
         ((inner ℝ ξ m) • fourierVelocity f ξ) := by
+  have hderiv : ((∂_{m} (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec) =
+      (fun x : Vec => fderiv ℝ (complexifySchwartz f : Vec → CVec) x m) := by
+    funext x
+    exact SchwartzMap.lineDerivOp_apply_eq_fderiv m (complexifySchwartz f) x
   rw [fourierVelocity_eq_schwartz, complexifySchwartz_lineDeriv]
-  simpa only [SchwartzMap.fourier_coe, SchwartzMap.lineDerivOp_apply_eq_fderiv,
+  simpa only [SchwartzMap.fourier_coe, hderiv,
     fourierVelocity_eq_schwartz] using
       fourier_directionalDerivative (complexifySchwartz f) m ξ
 
@@ -377,7 +381,7 @@ theorem phaseSlice_directional_energy
 theorem schwartz_gradientSquare_integrable (f : 𝓢(Vec, Vec)) :
     Integrable (gradientSquare (f : Field)) volume := by
   simpa only [gradientSquare, coordinateDerivative,
-    SchwartzMap.lineDerivOp_apply_eq_fderiv] using
+    SchwartzMap.lineDerivOp_apply_eq_fderiv] using!
       (integrable_finsetSum Finset.univ
         (fun i _ => schwartz_integrable_norm_sq (∂_{unitVector i} f)))
 

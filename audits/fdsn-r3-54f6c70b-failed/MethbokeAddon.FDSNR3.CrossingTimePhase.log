@@ -1,0 +1,7 @@
+MethbokeAddon/FDSNR3/CrossingTimePhase.lean:60:2: error: Type mismatch: After simplification, term
+  HasDerivAt.mul hlin (DifferentiableAt.hasDerivAt (hρ tzero))
+ has type
+  HasDerivAt (ρ * fun t => (t - tzero) * (tstar - tzero)⁻¹)
+    (ρ tzero * ((tstar - tzero)⁻¹ * 1) + deriv ρ tzero * ((tstar - tzero)⁻¹ * 0)) tzero
+but is expected to have type
+  HasDerivAt (crossingTimePhase ρ tstar tzero) (ρ tzero * (tstar - tzero)⁻¹) tzero

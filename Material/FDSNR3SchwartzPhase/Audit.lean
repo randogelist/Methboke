@@ -226,7 +226,7 @@ example : ∀ (f : 𝓢(Vec, Vec)) (m : Vec),
   @complexifySchwartz_lineDeriv
 
 example : ∀ (f : 𝓢(Vec, Vec)) (m ξ : Vec),
-    fourierVelocity (∂_{m} f) ξ =
+    fourierVelocity (∂_{m} f : 𝓢(Vec, Vec)) ξ =
       (2 * (Real.pi : ℂ) * Complex.I) •
         ((inner ℝ ξ m) • fourierVelocity f ξ) :=
   @fourierVelocity_lineDeriv

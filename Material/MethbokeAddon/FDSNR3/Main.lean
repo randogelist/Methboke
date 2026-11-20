@@ -53,7 +53,7 @@ theorem FDSN_R3 {ν T : ℝ} {u F : Velocity} {p : Pressure}
   have hψc : ψ c = 1 :=
     hactiveOne c (Metric.mem_closedBall_self hδ.le)
   have hct : ContinuousAt (fun t : ℝ => fourierVelocity (u t) c i) tstar :=
-    (EuclideanSpace.proj i : CVec →L[ℂ] ℂ).continuous.continuousAt.comp tstar
+    (EuclideanSpace.proj i : CVec →L[ℂ] ℂ).continuous.continuousAt.comp
       (hseed.local_schwartz.continuousAt_fourier_time htstar0 c)
   obtain ⟨tzero, β, slope, htzero, hneTime, hczero, hβ, hcβ,
       hβab, hβstar, hβzero, hβderiv, hslope⟩ :=

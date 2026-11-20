@@ -46,3 +46,7 @@ The exact root consumer and an independent fully expanded literal consumer
 are prepared. Sixteen new packages add288declarations; the complete registry
 has136packages and1316named declarations. These sources remain candidates
 until matching external compiler and fresh theorem-level evidence pass.
+
+The first full candidate run compiled all stage2 sources. Its six newly
+reached analytic proof failures are repaired for the next external run;
+fresh type/axiom audits and canonical root acceptance remain pending.

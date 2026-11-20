@@ -1,0 +1,38 @@
+MethbokeAddon/FDSNR3/LocalizedSeed.lean:104:75: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+MethbokeAddon/FDSNR3/LocalizedSeed.lean:147:43: error: unsolved goals
+T : ℝ
+u : Velocity
+hu : LocalSchwartz T u
+χ : ℝ → ℝ
+hχ : ContDiff ℝ ∞ χ
+hcχ : HasCompactSupport χ
+hsupport : tsupport χ ⊆ Ioo 0 T
+hnonempty : (tsupport χ).Nonempty
+b : ℝ
+hb : b ∈ tsupport χ
+hmax : IsMaxOn id (tsupport χ) b
+hbT : b ∈ Ico 0 T
+hkernel : Function.HasTemperateGrowth fun z => χ z.1
+n k : ℕ
+C : ℝ
+hC : 0 ≤ C
+hkernel_bound : ∀ N ≤ n, ∀ (x : ℝ × Vec), ‖iteratedFDeriv ℝ N (fun z => χ z.1) x‖ ≤ C * (1 + ‖x‖) ^ k
+D : ℕ → ℝ
+hDnonneg : ∀ (j : ℕ), 0 ≤ D j
+hD : ∀ (j : ℕ), ∀ t ∈ Icc 0 b, ∀ (x : Vec), weightedJetWithin T 0 j u (t, x) ≤ D j
+B : ℝ →L[ℝ] Vec →L[ℝ] Vec := ContinuousLinearMap.lsmul ℝ ℝ
+K : ℝ := ‖B‖ * ∑ i ∈ Finset.range (n + 1), ↑(n.choose i) * C * D (n - i)
+hK : 0 ≤ K
+z : ℝ × Vec
+ht : z.1 ∈ tsupport χ
+hz : z ∈ preterminalSpacetime T
+hnhood : preterminalSpacetime T ∈ 𝓝 z
+hsets : preterminalSpacetime T =ᶠ[𝓝 z] univ
+htime : z.1 ∈ Icc 0 b
+hsource : ∀ (j : ℕ), ‖iteratedFDerivWithin ℝ j (fun w => u w.1 w.2) (preterminalSpacetime T) z‖ ≤ D j
+hcutoff : ∀ i ≤ n, ‖iteratedFDerivWithin ℝ i (fun w => χ w.1) (preterminalSpacetime T) z‖ ≤ C * (1 + ‖z‖) ^ k
+hn : ↑n ≤ ∞
+⊢ ‖iteratedFDeriv ℝ n (fun w => localizedSeed χ u w.1 w.2) z‖ =
+    ‖iteratedFDeriv ℝ n (fun w => (B (χ w.1)) (u w.1 w.2)) z‖

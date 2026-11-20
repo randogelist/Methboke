@@ -37,10 +37,10 @@ def familySpatialInclusion : E →L[ℝ] (ℝ × E) :=
 def schwartzSliceJet (G : 𝓢(ℝ × E, F)) :
     (n : ℕ) → 𝓢(ℝ × E, ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)
   | 0 => SchwartzMap.postcompCLM
-      (continuousMultilinearCurryFin0 ℝ E F).symm.toContinuousLinearMap G
+      (continuousMultilinearCurryFin0 ℝ E F).symm.toLinearIsometry.toContinuousLinearMap G
   | n + 1 => SchwartzMap.postcompCLM
-      (continuousMultilinearCurryLeftEquiv ℝ (fun _ : Fin (n + 1) => E) F)
-        .symm.toContinuousLinearMap
+      ((continuousMultilinearCurryLeftEquiv ℝ
+        (fun _ : Fin (n + 1) => E) F).symm.toLinearIsometry.toContinuousLinearMap)
       (SchwartzMap.postcompCLM
         ((ContinuousLinearMap.compL ℝ E (ℝ × E)
           (ContinuousMultilinearMap ℝ (fun _ : Fin n => E) F)).flip familySpatialInclusion)
@@ -103,13 +103,14 @@ theorem schwartz_weighted_value_linear_bound
     have hmap : HasDerivAt (fun r : ℝ => (r, z)) ((1 : ℝ), (0 : E)) l :=
       (hasDerivAt_id l).prodMk (hasDerivAt_const l z)
     have h := (G.hasFDerivAt (l, z)).comp_hasDerivAt l hmap
-    simpa only [D, SchwartzMap.lineDerivOp_apply_eq_fderiv] using h.const_smul w
+    simpa only [D, SchwartzMap.lineDerivOp_apply_eq_fderiv,
+      Function.comp_def, Pi.smul_apply] using h.const_smul w
   have hb : ∀ l ∈ (univ : Set ℝ), ‖w • D (l, z)‖ ≤ C := by
     intro l _
     simpa only [norm_smul, Real.norm_eq_abs, abs_of_nonneg hw, w] using hbound l z
-  have h := (convex_univ : Convex ℝ (univ : Set ℝ))
-    .norm_image_sub_le_of_norm_hasDerivWithin_le
-      (fun l _ => (hd l).hasDerivWithinAt) hb (mem_univ (0 : ℝ)) (mem_univ lam)
+  have h := Convex.norm_image_sub_le_of_norm_hasDerivWithin_le
+    (fun l _ => (hd l).hasDerivWithinAt) hb
+    (convex_univ : Convex ℝ (univ : Set ℝ)) (mem_univ (0 : ℝ)) (mem_univ lam)
   simpa only [hzero z, smul_zero, sub_zero, norm_smul, Real.norm_eq_abs,
     abs_of_nonneg hw, w] using h
 
