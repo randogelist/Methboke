@@ -54,6 +54,12 @@ keeps this analytic class characterization separate from the accepted native
 foundations. Universal finiteness for every Schwartz datum remains open.
 This registration adds no Lean declaration or new A-tier acceptance.
 
+The [twenty-endpoint A-tier construction plan](R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md)
+now separates the pathwise six-charge theorem, actual canonical NSE
+continuation, and the literal Fefferman-A solution-class bridge. It is a
+B-tier step list with source anchors and explicit completion criteria;
+formalization and new external acceptance have not started for these endpoints.
+
 ## Retained Fefferman-D implementation
 
 The native family layers are in

@@ -8,6 +8,10 @@ six projections, full improper endpoint and factor-six enstrophy comparison.
 Universal membership of every admissible datum remains open; this class
 registration is separate from formal foundation acceptance.
 
+The [twenty-endpoint construction plan](A-Regularity-class/A_TIER_STEPLIST.md)
+records the B-tier route toward A-tier acceptance of this class theorem,
+including the distinct pathwise, canonical and literal Fefferman milestones.
+
 [QFA native integration](QFA/README.md) indexes the scoped whole-space
 `AC-Integration` work: concrete full-volume contracts, recovered source
 foundations, weighted energy, traces, finite-window selection and the spectral endpoint.

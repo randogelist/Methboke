@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "repository": "randogelist/Methboke",
+  "branch": "AC-Integration",
+  "status": "B_TIER_TWENTY_ENDPOINT_PLAN_PREPARED",
+  "source_basis_commit": "a1dea65c8eb1344b5d55157162db2d38a8d78ff3",
+  "request": "Work the registered NSE-A regularity class toward an A-tier theorem by first deriving a suitable B-tier step list.",
+  "project_goal": "Fefferman_D",
+  "project_goal_changed": false,
+  "retained_branch_local_target": "QFA_QFB_A_TIER_INTEGRATION",
+  "endpoint_target": "NSE_A_FINITE_CHARGE_IFF_GLOBAL",
+  "literal_endpoint_target": "Identification of the same class with the datumwise literal Fefferman-A smooth finite-energy class.",
+  "fixed_target": "For nu>0 and real solenoidal Schwartz a: a in C^A_nu iff J6_A(a,nu)<infinity iff T_max(a,nu)=infinity.",
+  "fixed_cutoff": "tau_A = 8 ||a||_2^4 / (27 pi^4 nu^5)",
+  "budget_domain": "The entire interval 0<t, ENNReal.ofReal(t)<T_max, t<tau_A; zero budget for a=0.",
+  "endpoint_count": 20,
+  "endpoints": [
+    {
+      "id": "P01",
+      "title": "Physical H1 carrier and Schwartz admission",
+      "dependencies": [],
+      "target": "Construct the actual full-volume real H1-sigma carrier, unique weak gradients, norm/topology, closed-graph completeness and admission of solenoidal Schwartz data.",
+      "existing_material": "Native SpatialL2, SpatialWeakGradient, Solenoidal and complexification are accepted lower contracts; the H1 construction and gradient uniqueness remain new.",
+      "completion_criterion": "The physical weak-derivative predicate and witnesses defining H1 are explicit, with the required completeness/topology; NSE solution existence and regularity are proved separately.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P02",
+      "title": "H1-only two-way Fourier derivative bridge",
+      "dependencies": [
+        "P01"
+      ],
+      "target": "Identify compact-test first weak derivatives with the a.e. Fourier multiplier 2*pi*i*xi_j, in both directions.",
+      "existing_material": "Native FourierMultipliers and compact-Schwartz density give lower proofs; current gradient wrappers also take an L2-Laplacian witness.",
+      "completion_criterion": "The new theorem needs only first derivatives; it proves the complex-test conversion and reverse implication without an H2 premise.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P03",
+      "title": "Six even Borel Fourier sectors",
+      "dependencies": [],
+      "target": "Construct the six sorted absolute-coordinate sectors with increasing-index ties and prove disjointness, coverage, measurability and antipodal symmetry.",
+      "existing_material": "Pinned Mathlib measurableSet_le and measurableSet_lt provide lower measure-theory anchors; the six sectors are new.",
+      "completion_criterion": "The actual registered sorting rule is proved, including boundaries and the zero frequency.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P04",
+      "title": "Actual L2 Fourier projections",
+      "dependencies": [
+        "P01",
+        "P03"
+      ],
+      "target": "Construct indicator multipliers on L2 and conjugate by the L2 Fourier isometry; prove bounded orthogonal projections, identity reconstruction and real preservation.",
+      "existing_material": "MeasureTheory.MemLp.indicator, MemLp.toLp, Lp.ext, MeasureTheory.Lp.fourierTransformₗᵢ and inner_fourier_eq are source anchors.",
+      "completion_criterion": "Discontinuous indicators act on actual L2 representatives; Hermitian symmetry and the real-range bridge are proved.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P05",
+      "title": "H1 invariance and derivative commutation",
+      "dependencies": [
+        "P02",
+        "P04"
+      ],
+      "target": "Prove weak derivative commutation, H1 boundedness and preservation of divergence-freeness for each projection.",
+      "existing_material": "Use the new two-way first-derivative Fourier bridge and actual L2 multiplier identities.",
+      "completion_criterion": "No Schwartz preservation, H2 assumption or multiplication of a general distribution by a sharp indicator is used.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P06",
+      "title": "Physical charge additivity and Fourier identities",
+      "dependencies": [
+        "P02",
+        "P05"
+      ],
+      "target": "Prove q_alpha=||grad Q_alpha v||_2^2=4*pi^2*integral_Calpha |xi|^2|vhat|^2 and sum_alpha q_alpha=Y.",
+      "existing_material": "Accepted complexification/Plancherel norm identities are lower anchors; the H1-only projection charge adapter is new.",
+      "completion_criterion": "All three vector components and the Frobenius gradient norm refer to the same physical field and its unique weak gradient.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P07",
+      "title": "Pointwise finite-six charge comparison",
+      "dependencies": [
+        "P06"
+      ],
+      "target": "Prove sum_alpha q_alpha^2 <= Y^2 <= 6*sum_alpha q_alpha^2 for nonnegative physical charges.",
+      "existing_material": "Pinned Finset.sum_sq_le_sq_sum_of_nonneg and Finset.sum_mul_sq_le_sq_mul_sq supply scalar inequalities.",
+      "completion_criterion": "The factor is exactly six, and q_alpha is already a squared gradient norm.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P08",
+      "title": "Full endpoint budgets and normalization",
+      "dependencies": [
+        "P01",
+        "P07"
+      ],
+      "target": "For supplied concrete H1 paths define ENNReal budgets, prove improper-endpoint equivalence, zero-window formulas, J6<=J<=6J6, gauge/Fourier finiteness equivalences and sublevels.",
+      "existing_material": "Pinned lintegral monotonicity/convergence, ofReal-integral bridges and ENNReal.rpow tools are source anchors.",
+      "completion_criterion": "Take the minimum with the finite cutoff before toReal. No finite budget is assumed to define the budget. Canonical datum instantiation waits for P11/P18.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P09",
+      "title": "Whole-space spatial estimates and exact constant",
+      "dependencies": [
+        "P01",
+        "P02"
+      ],
+      "target": "Prove the H2 Hessian-Laplacian bridge, Sobolev/interpolation and vector/tensor extensions with admissible S6^6=16/(27*pi^4).",
+      "existing_material": "Accepted spectral helpers and pinned Mathlib Sobolev inequality are partial anchors; the pinned Sobolev constant is not the target sharp constant.",
+      "completion_criterion": "Analytic admissibility of the displayed constant is proved. A generic admissible-S result is only an intermediate theorem with its own cutoff.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P10",
+      "title": "Actual local H1 NSE constructor",
+      "dependencies": [
+        "P01",
+        "P09"
+      ],
+      "target": "Construct heat/Leray/Duhamel operators and the fixed-point estimates yielding a unique actual local strong/mild NSE solution with C_tH1 and L2_tH2 regularity.",
+      "existing_material": "Accepted periodic local existence is a proof model; inspected upstream H3 files define or compare supplied solutions and give no required R3 IVP constructor.",
+      "completion_criterion": "Every H1-sigma datum has a positive lifespan uniform on bounded H1 sets for fixed viscosity; initial trace, physical equations and the zero solution are constructed.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P11",
+      "title": "Canonical maximal development and H1 continuation",
+      "dependencies": [
+        "P10"
+      ],
+      "target": "Construct the canonical maximal trajectory and positive extended lifetime, prove overlap/restart uniqueness and bounded-H1 continuation.",
+      "existing_material": "Accepted periodic maximal-front and strong-continuation theorems are models with different physical types.",
+      "completion_criterion": "Continuation follows from the actual norm-controlled local theorem without assuming a terminal H1 trace or global reference.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P12",
+      "title": "Finite strong-front energy and weighted product",
+      "dependencies": [
+        "P10",
+        "P11"
+      ],
+      "target": "Derive E'= -2*nu*Y and integral_0^R E*Y=(E0^2-E(R)^2)/(4*nu)<=E0^2/(4*nu) on every finite closed interval [0,R] with 0<=R<Tmax.",
+      "existing_material": "QFA.Energy.product_budget_Ioo is an accepted interval scalar anchor. The native LerayHopf wrapper has a global path premise.",
+      "completion_criterion": "Prove finite-front temporal regularity, integrability and cancellations. Supply the scalar envelope directly; do not assume global LH membership.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P13",
+      "title": "Physical enstrophy evolution and nonlinear estimates",
+      "dependencies": [
+        "P09",
+        "P12"
+      ],
+      "target": "On every finite closed interval [0,R] with 0<=R<Tmax, including time zero, derive absolutely continuous enstrophy and the a.e. cubic inequality Y'+nu*Z<=pi^(-4)*nu^(-3)*Y^3, plus |N|<=S6^(3/2)*(E*Y)^(1/4)*Z.",
+      "existing_material": "Accepted periodic enstrophy evolution and recovered scalar absorption provide models or algebra, not the new R3 PDE identities.",
+      "completion_criterion": "Derive the inequalities from the actual solution and norm identities; justify every chain rule, pressure cancellation and spatial integration by parts.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P14",
+      "title": "Small-product global strong continuation",
+      "dependencies": [
+        "P11",
+        "P13"
+      ],
+      "target": "Prove that E(s)*Y(s)<nu^4/S6^6 supplies a positive dissipation margin and a global continuation from the actual H1 trace.",
+      "existing_material": "The existing B-tier E05 argument and scalar absorption are reusable mathematical guides.",
+      "completion_criterion": "Prove the temporal invariant/first-exit bootstrap and exclude a finite lifetime by P11, retaining the strict margin.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P15",
+      "title": "Full finite budget forces strict cutoff crossing",
+      "dependencies": [
+        "P08",
+        "P11",
+        "P13"
+      ],
+      "target": "From the complete improper J_A<infinity prove a uniform H1 bound and T_max>tau_A, including exclusion of equality.",
+      "existing_material": "CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL is a compiled generic dependency, not a separately named audit root; its continuity and derivative premises are explicit.",
+      "completion_criterion": "Use an AC Gronwall theorem for the P13 regularity, or first prove all stronger premises of the existing cubic lemma. Bound H1 by energy plus enstrophy, without periodic Poincare.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P16",
+      "title": "Interior strong restart before the fixed cutoff",
+      "dependencies": [
+        "P09",
+        "P12",
+        "P15"
+      ],
+      "target": "Find 0<s<tau_A with E(s)*Y(s)<nu^4/S6^6 from the one-quarter product budget and the exact cutoff identity.",
+      "existing_material": "Native exists_good_time_of_energy_envelope and safeCutoff_eq_pi_formula_of_sixth_power are accepted named scalar anchors.",
+      "completion_criterion": "Use the actual strong interval already crossing tau_A; every chosen interior trace has H1 regularity. Handle zero data separately.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P17",
+      "title": "WFA forward implication for the same trajectory",
+      "dependencies": [
+        "P11",
+        "P14",
+        "P15",
+        "P16"
+      ],
+      "target": "Combine strict crossing, good-time selection and small-product continuation to prove J_A<infinity implies T_max=infinity.",
+      "existing_material": "Compose the newly constructed whole-space results; periodic WFB is a structural reference only.",
+      "completion_criterion": "The global continuation agrees with the original canonical trajectory on the overlap by proved uniqueness.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P18",
+      "title": "Canonical datum-class equivalence",
+      "dependencies": [
+        "P08",
+        "P11",
+        "P17"
+      ],
+      "target": "Instantiate the registered class using the constructed canonical solution and prove membership iff J6_A<infinity iff T_max=infinity, with the reverse compact-H1 argument and sublevels.",
+      "existing_material": "The B-tier class definition and converse are already registered at a1dea65; native canonical instantiation and proof remain to be constructed.",
+      "completion_criterion": "No unconstructed solution, continuation port or globality field remains as a root premise. Zero data and the full endpoint are covered.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P19",
+      "title": "Literal Fefferman-A solution-class identification",
+      "dependencies": [
+        "P10",
+        "P11",
+        "P18"
+      ],
+      "target": "Prove Schwartz-data smooth velocity/normalized pressure on [0,R] whenever 0<=R<Tmax, including time zero; hence on every finite slab for global class members. Derive their global energy bound and the A4 converse from an arbitrary literal smooth finite-energy pair to the canonical trajectory.",
+      "existing_material": "Tao Theorem5.4 and Corollaries4.3/11.1 are analytic references, not compiled native proofs.",
+      "completion_criterion": "Prove the finite-slab enstrophy/normalization/uniqueness bridge; then identify the canonical class with the literal Fefferman-A datumwise class.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    },
+    {
+      "id": "P20",
+      "title": "Matching external acceptance for each exact scope",
+      "dependencies": [
+        "P08",
+        "P18",
+        "P19"
+      ],
+      "target": "Prepare independent expected-type and literal-contract consumers, named axiom audits, and matching cached external compilation and evidence review for each completed batch.",
+      "existing_material": "Use the unchanged authorized Material workflow and accepted cache policies; retain exact source/type/dependency identity.",
+      "completion_criterion": "Every claimed endpoint has matching external compiler, consumer and axiom evidence. Inspect analytic premises; standard axioms alone do not discharge a hypothesis.",
+      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "new_a_tier_acceptance": false
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M1",
+      "through": "P08",
+      "scope": "Pathwise physical six-charge/Fourier/full-budget finiteness equivalence",
+      "canonical_NSE_existence_required": false
+    },
+    {
+      "id": "M2",
+      "through": "P18",
+      "scope": "Actual canonical NSE datum-class equivalence with infinite maximal lifetime",
+      "canonical_NSE_existence_required": true
+    },
+    {
+      "id": "M3",
+      "through": "P19",
+      "scope": "Literal smooth finite-energy Fefferman-A class identification",
+      "A4_native_bridge_required": true
+    }
+  ],
+  "verification_applies_to_each_milestone": "P20 is applied to each completed exact scope; full-root acceptance waits for its entire dependency chain.",
+  "first_formal_obstruction": "P01/P02: the native physical H1 representation and H1-only two-way compact-test weak-derivative/Fourier bridge are not yet accepted as the needed adapters.",
+  "substantial_later_native_obligations": [
+    "P09 exact spatial constant admission",
+    "P10-P11 actual norm-controlled R3 H1 local/maximal theory",
+    "P12-P17 actual PDE energy/enstrophy and strong continuation chain",
+    "P19 literal solution-class converse"
+  ],
+  "separate_open_mathematical_problem": "Universal J_A finiteness, equivalently C^A_nu = S_sigma(R3) for every nu>0, remains open and is not required to prove the conditional class equivalence.",
+  "technical_guards": [
+    "Do not require an L2 Laplacian in the H1 projector endpoint.",
+    "Build sharp indicators as L2 multipliers; the smooth tempered-distribution multiplier API is not their admission theorem.",
+    "Prove real/Hermitian preservation and both directions of the physical derivative bridge.",
+    "Use extended nonnegative lintegrals; never make an infinite budget zero with a totalized real integral or toReal.",
+    "Take min with the finite cutoff before converting an extended lifetime to a real endpoint.",
+    "Apply interval scalar energy helpers to a finite strong front; do not assume a global LH solution while proving globality.",
+    "Prove the stated sharp spatial constant before claiming the registered numerical cutoff.",
+    "A pure H3 or compact-support solution record is not the required H1 local solution constructor.",
+    "Use an AC enstrophy/Gronwall path, or prove stronger time-regularity premises explicitly before using a continuous cubic helper.",
+    "Do not insert continuation/globality/comparison assumptions into the final root and count them as discharged."
+  ],
+  "not_required_for_this_route": [
+    "Global Leray-Hopf existence",
+    "Full shifted Leray-Hopf membership",
+    "Full weak-strong QFA comparison",
+    "Complete QFA smooth-tail theorem",
+    "Universal budget finiteness"
+  ],
+  "native_namespace_proposal": "MethbokeAddon.NSEAFiniteCharge",
+  "native_source_root_proposal": "Material/MethbokeAddon/NSEAFiniteCharge/",
+  "native_paths_created": false,
+  "plan_assent_recorded": false,
+  "formalization_started": false,
+  "new_lean_declarations": 0,
+  "new_external_compiler_runs": 0,
+  "new_axiom_audits": 0,
+  "new_a_tier_acceptance": false,
+  "local_lean_executions": 0,
+  "accepted_foundation_reference": {
+    "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+    "run_id": 44788963412,
+    "record": "R3_NSE/QFA/INTEGRATION_STATUS.json",
+    "scope": "Exact previously accepted foundations only."
+  },
+  "pins": {
+    "lean": "leanprover/lean4:v4.33.0",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d"
+  },
+  "entry_point": "R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md",
+  "derivation": "R3_NSE/A-Regularity-class/NSE_A_A_TIER_STEPLIST_B_TIER.txt",
+  "class_cumulative_derivation": "R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt",
+  "static_review": {
+    "status": "PASS_STATIC_REVIEW_ONLY",
+    "kind": "Nonexecuting mathematical, source-anchor, dependency and repository-consistency review; not a Lean/kernel check.",
+    "endpoint_count": 20,
+    "dependency_edges": 40,
+    "dependency_order": "PASS; all direct dependencies exist and precede their endpoint, with no cycles.",
+    "independent_reviews": [
+      "PASS: physical H1/Fourier/sector/budget plan and exact source-anchor scopes.",
+      "PASS: finite-front energy, AC enstrophy, H1 continuation, lifetime-qualified smoothness and preservation of existing evidence."
+    ],
+    "synchronized_representations": [
+      "A_TIER_STEPLIST.md",
+      "NSE_A_A_TIER_STEPLIST_B_TIER.txt",
+      "A_TIER_PLAN.json",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt section 16"
+    ],
+    "boundary": "All twenty endpoints remain proposed; this review supplies no compiler, axiom or A-tier acceptance."
+  }
+}

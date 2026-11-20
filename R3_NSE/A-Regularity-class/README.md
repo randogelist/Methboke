@@ -207,3 +207,14 @@ $$
 It is equivalent to universal global regularity in the recorded solution
 category and remains open. The class characterization does not prove that
 every admissible datum belongs to the class.
+
+## B-tier step list toward A-tier
+
+The [twenty-endpoint plan](A_TIER_STEPLIST.md) gives the bottom-up route from
+physical H1/Fourier adapters to the canonical class theorem and the literal
+Fefferman-A identification. It separates the first pathwise spectral milestone
+from the substantive NSE local theory and continuation proofs.
+The [complete step-list derivation](NSE_A_A_TIER_STEPLIST_B_TIER.txt) records
+source anchors and completion criteria; [A_TIER_PLAN.json](A_TIER_PLAN.json)
+records dependencies and current status. These are proposed endpoints for
+review. The plan adds no native Lean source or new A-tier acceptance.
