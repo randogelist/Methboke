@@ -7,11 +7,22 @@
   "domain": "T^3",
   "root_statement": "forall nu,T>0, forall U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F)",
   "b_tier_status": "CONDITIONAL_SEED_TO_FAMILY_ARGUMENT_RECORDED",
-  "a_tier_status": "OPEN_FIRST_LEAF_CANDIDATES_PENDING_EXTERNAL_CI",
+  "a_tier_status": "FIRST_PHASE_AND_BUMP_INTERMEDIATES_ACCEPTED_NEXT_PHYSICAL_STAGE_PREPARED",
   "implementation_base": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
   "packages": [
     "FDSNPhase",
-    "FDSNBump"
+    "FDSNBump",
+    "FDSNFourierPair",
+    "FDSNPhysicalPair",
+    "FDSNFiniteCorrection",
+    "FDSNCharacterTriad",
+    "FDSNFourierTranslation",
+    "FDSNContracts",
+    "FDSNTimePhase",
+    "FDSNNonvanishing",
+    "FDSNLocalizedCoefficient",
+    "FDSNCoefficientSmooth",
+    "FDSNLocalizedPair"
   ],
   "new_named_declarations": [
     "MethbokeAddon.FDSN.phase",
@@ -36,19 +47,41 @@
     "MethbokeAddon.FDSN.triad_phase_not_translation",
     "MethbokeAddon.FDSN.exists_normalized_time_bump"
   ],
-  "accepted_new_declarations": [],
-  "next_preparation": "Actual Z^3 pair multiplier and Fourier translation; faithful Seed; localized smooth phase family.",
+  "accepted_new_declarations": [
+    "MethbokeAddon.FDSN.conj_phase",
+    "MethbokeAddon.FDSN.exists_normalized_time_bump",
+    "MethbokeAddon.FDSN.modal_power_phase_mul",
+    "MethbokeAddon.FDSN.norm_phase",
+    "MethbokeAddon.FDSN.norm_phase_mul",
+    "MethbokeAddon.FDSN.norm_phase_mul_sub_le",
+    "MethbokeAddon.FDSN.norm_phase_sub_one_le",
+    "MethbokeAddon.FDSN.phase",
+    "MethbokeAddon.FDSN.phase_add",
+    "MethbokeAddon.FDSN.phase_injective_of_abs_lt_pi",
+    "MethbokeAddon.FDSN.phase_injective_small",
+    "MethbokeAddon.FDSN.phase_mul_neg",
+    "MethbokeAddon.FDSN.phase_ne_zero",
+    "MethbokeAddon.FDSN.phase_neg",
+    "MethbokeAddon.FDSN.phase_zero",
+    "MethbokeAddon.FDSN.triadCorrelation",
+    "MethbokeAddon.FDSN.triadCorrelation_ne_zero",
+    "MethbokeAddon.FDSN.triadCorrelation_phase",
+    "MethbokeAddon.FDSN.triadCorrelation_phase_separates",
+    "MethbokeAddon.FDSN.triadCorrelation_translation",
+    "MethbokeAddon.FDSN.triad_phase_not_translation"
+  ],
+  "next_preparation": "Actual mode-energy equation, triad-free cancellation, finite-pair force separation and native residual realization.",
   "main_open_bridges": [
-    "weighted infinite Fourier time-energy and active-triad contradiction",
-    "physical helical pair reconstruction and actual modal invariants",
-    "projected-force uniqueness adapter",
-    "fixed-order physical correction estimates",
+    "actual forced mode-energy and active-triad contradiction",
+    "spacetime periodic phase-family assembly and physical quadratic observations",
+    "construction-specific damped-mode projected-force separation",
+    "fixed-order smooth correction estimates",
     "common-witness FDSN root assembly"
   ],
   "verification": {
     "local_lean_executions": 0,
     "external_ci_authorized": true,
-    "matching_run": null,
+    "matching_run": 44801643103,
     "allowed_axioms": [
       "propext",
       "Classical.choice",
@@ -60,5 +93,27 @@
     "No seed existence asserted.",
     "No change to native toolchain or vendor sources.",
     "Scalar triad-character separation is a coefficient-level intermediate, not FDSN root acceptance."
-  ]
+  ],
+  "accepted_evidence": [
+    {
+      "tested_commit": "66da7f2ae5d6908b553f9dacec16bfa3c0671f67",
+      "run_id": 44801643103,
+      "record": "../../../../audits/fdsn-66da7f2a-accepted/summary.json",
+      "named_declarations": 21
+    }
+  ],
+  "pending_packages": [
+    "FDSNFourierPair",
+    "FDSNPhysicalPair",
+    "FDSNFiniteCorrection",
+    "FDSNCharacterTriad",
+    "FDSNFourierTranslation",
+    "FDSNContracts",
+    "FDSNTimePhase",
+    "FDSNNonvanishing",
+    "FDSNLocalizedCoefficient",
+    "FDSNCoefficientSmooth",
+    "FDSNLocalizedPair"
+  ],
+  "pending_named_declarations": 119
 }

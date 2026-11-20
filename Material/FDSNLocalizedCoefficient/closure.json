@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNLocalizedCoefficient",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSN.LocalizedCoefficient"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.LocalizedCoefficient",
+      "path": "MethbokeAddon/FDSN/LocalizedCoefficient.lean",
+      "sha256": "af2917e9bd8ae4993fc9d27454cde0913a803b5b6284e7060e071a5b41e6b963",
+      "imports": [
+        "MethbokeAddon.FDSN.TimePhase",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.Phase",
+      "path": "MethbokeAddon/FDSN/Phase.lean",
+      "sha256": "2014856f14cf40a3a6ca4479da3f0308c254aa326ab5a653aa7336c4ac108e0f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimeBump",
+      "path": "MethbokeAddon/FDSN/TimeBump.lean",
+      "sha256": "8b1ee3376b39accf26e5c2c599eaf03e5534f779aa0f9dfa3ccbe4e82007d333",
+      "imports": [
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimePhase",
+      "path": "MethbokeAddon/FDSN/TimePhase.lean",
+      "sha256": "89bc5d4b41be4c6a491b9aea7d91d40851fc4e2c80085539182f5861410dd911",
+      "imports": [
+        "MethbokeAddon.FDSN.Phase",
+        "MethbokeAddon.FDSN.TimeBump",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.Calculus.Deriv.Support"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    }
+  ],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+    "Mathlib.Analysis.Calculus.Deriv.Support",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring"
+  ],
+  "local_module_count": 4,
+  "owned_module_count": 4,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "f2f71c48e736f9c26f4dd5eff95aa8efdea92c6327108672fe9f820ccd414e66",
+  "validation_boundary": "Static dependency metadata and new source bytes; complete retained source and compiler checks run externally."
+}

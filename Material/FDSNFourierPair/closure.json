@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNFourierPair",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSN.FourierPair"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.FourierPair",
+      "path": "MethbokeAddon/FDSN/FourierPair.lean",
+      "sha256": "4f2e9def284ce15c0940aebe5c491a6680b71347a61e4dfbf4677b791d38495c",
+      "imports": [
+        "SingularClosure.SixChannels"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.SixChannels",
+      "path": "_vendor/SingularClosure/SixChannels.lean",
+      "sha256": "1c7f53956d9a766a3c8e4e781aa850a26351761ef0086c7ffd10047762854eab",
+      "imports": [
+        "Mathlib"
+      ],
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SixChannels.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib"
+  ],
+  "local_module_count": 2,
+  "owned_module_count": 1,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "a9beffe732ac963dc4d9d61de30363289f24409bfd1a79345fd20cf02378d8e8",
+  "validation_boundary": "Static dependency metadata and new source bytes; complete retained source and compiler checks run externally."
+}

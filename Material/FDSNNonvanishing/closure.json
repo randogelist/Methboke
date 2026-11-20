@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNNonvanishing",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSN.NonvanishingTimeSlab"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.NonvanishingTimeSlab",
+      "path": "MethbokeAddon/FDSN/NonvanishingTimeSlab.lean",
+      "sha256": "44c8908c155296bf84dae63744c6744d9d995a0ab760ccf028c31929a55f7c8b",
+      "imports": [
+        "MethbokeAddon.FDSN.TimeBump",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Topology.Separation.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimeBump",
+      "path": "MethbokeAddon/FDSN/TimeBump.lean",
+      "sha256": "8b1ee3376b39accf26e5c2c599eaf03e5534f779aa0f9dfa3ccbe4e82007d333",
+      "imports": [
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    }
+  ],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Topology.Separation.Basic"
+  ],
+  "local_module_count": 2,
+  "owned_module_count": 2,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "2fd34d01bc757aa5f953a6dffa8a87e9e7f828542a449914dbdd138b8bf11c2c",
+  "validation_boundary": "Static dependency metadata and new source bytes; complete retained source and compiler checks run externally."
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNContracts",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSN.Contracts"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.Contracts",
+      "path": "MethbokeAddon/FDSN/Contracts.lean",
+      "sha256": "9cca9a91d2bd399dc311d3c3f4eae968788662088fa0c45b37f5551eb8b239fe",
+      "imports": [
+        "MethbokeAddon.FeffermanFamily.FamilyContracts"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.FamilyContracts",
+      "path": "MethbokeAddon/FeffermanFamily/FamilyContracts.lean",
+      "sha256": "5529bb338538e00d8c98d60bb603f5e648a4a9204941199c9ee31a290f07d0fa",
+      "imports": [
+        "SingularClosure.Contracts",
+        "MethbokeAddon.FeffermanFamily.LocalBlowup"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FeffermanFamily.LocalBlowup",
+      "path": "MethbokeAddon/FeffermanFamily/LocalBlowup.lean",
+      "sha256": "09c85375133998e98e7f35886563176415918f09535f6109be6744dc6a451a7a",
+      "imports": [
+        "Mathlib.Analysis.Normed.Group.Basic",
+        "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+        "Mathlib.Topology.Sequences",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
+        "path": "GPT.txt",
+        "role": "immutable project/source baseline; not a claim that the new proof bytes existed at this revision"
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "imports": [
+        "Mathlib"
+      ],
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/Contracts.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Normed.Group.Basic",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Topology.MetricSpace.Pseudo.Lemmas",
+    "Mathlib.Topology.Sequences"
+  ],
+  "local_module_count": 4,
+  "owned_module_count": 3,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "9ae4cc2ed23c1a49af71bcc91dc53c161faf77827c546311a4d8f339ae87c9bf",
+  "validation_boundary": "Static dependency metadata and new source bytes; complete retained source and compiler checks run externally."
+}
