@@ -37,19 +37,37 @@ theorem spacetimeCrNorm_le_of_derivative_bound
       exact hbound n (Nat.le_of_lt_succ (Finset.mem_range.mp hn)) z hz
     _ = ((r + 1 : ℕ) : ℝ) * C := by simp
 
+set_option maxHeartbeats 800000 in
 theorem smooth_family_spacetimeCrNorm_linear_bound
     (G : ℝ × (ℝ × Vec) → Vec) (hG : ContDiff ℝ ∞ G)
     (hzero : ∀ z : ℝ × Vec, G (0, z) = 0)
     (a b : ℝ) (hab : a ≤ b) (r : ℕ) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ lambda : ℝ, ‖lambda‖ ≤ 1 →
       spacetimeCrNorm r a b (fun t x => G (lambda, (t, x))) ≤ C * ‖lambda‖ := by
+  have hK : IsCompact (Icc a b ×ˢ unitCube) :=
+    isCompact_Icc.prod isCompact_unitCube
   obtain ⟨C, hC, hb⟩ := smooth_family_finite_order_linear_bound
-    G hG hzero (Icc a b ×ˢ unitCube) (isCompact_Icc.prod isCompact_unitCube) r
+    (E := ℝ × Vec) (F := Vec) G hG hzero (Icc a b ×ˢ unitCube) hK r
   refine ⟨((r + 1 : ℕ) : ℝ) * C, mul_nonneg (by positivity) hC, ?_⟩
   intro lambda hlambda
+  have hsliceEq :
+      (fun y : ℝ × Vec => (fun t x => G (lambda, (t, x))) y.1 y.2) =
+        (fun y : ℝ × Vec => G (lambda, y)) := by
+    funext y
+    rcases y with ⟨t, x⟩
+    rfl
+  have hslice : ∀ n : ℕ, n ≤ r → ∀ z ∈ Icc a b ×ˢ unitCube,
+      ‖iteratedFDeriv ℝ n
+        (fun y : ℝ × Vec => (fun t x => G (lambda, (t, x))) y.1 y.2) z‖ ≤
+          C * ‖lambda‖ := by
+    intro n hn z hz
+    rw [hsliceEq]
+    exact hb lambda hlambda n hn z hz
+  have hnorm := spacetimeCrNorm_le_of_derivative_bound r a b hab
+    (fun t x => G (lambda, (t, x))) (C * ‖lambda‖) hslice
   calc
     _ ≤ ((r + 1 : ℕ) : ℝ) * (C * ‖lambda‖) :=
-      spacetimeCrNorm_le_of_derivative_bound r a b hab _ _ (hb lambda hlambda)
+      hnorm
     _ = (((r + 1 : ℕ) : ℝ) * C) * ‖lambda‖ := by ring
 
 /-- The literal C^r clause follows from global joint smoothness and vanishing

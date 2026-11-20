@@ -52,7 +52,7 @@ theorem projectedTransport_pair_difference
   have hraw : fullTransportCoefficients d a - fullTransportCoefficients c a =
       meanTransportFactor c.val a • (d - c).val a := by
     funext j
-    simpa only [hadd] using
+    simpa only [hadd, Pi.sub_apply, Pi.smul_apply, smul_eq_mul] using!
       fullTransport_pair_difference c (d - c) a j hc hh hsupp
   calc
     coefficientLeray a (fullTransportCoefficients d a) i -

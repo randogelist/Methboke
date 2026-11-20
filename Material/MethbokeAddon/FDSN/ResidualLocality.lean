@@ -38,11 +38,13 @@ theorem residualForce_eq_of_zero_germ
       _ = 0 := by simp [timeDerivative]
   have hspace : fderiv ℝ (h t) x = 0 := by
     calc
-      _ = fderiv ℝ (0 : Field) x := nativeSpatialFDeriv_congr hh
+      _ = fderiv ℝ ((0 : Velocity) t) x :=
+        nativeSpatialFDeriv_congr (f := h) (g := (0 : Velocity)) (t := t) (x := x) hh
       _ = 0 := by simp
   have hlap : laplacian (h t) x = 0 := by
     calc
-      _ = laplacian (0 : Field) x := nativeLaplacian_congr hh
+      _ = laplacian ((0 : Velocity) t) x :=
+        nativeLaplacian_congr (u := h) (v := (0 : Velocity)) (t := t) (x := x) hh
       _ = 0 := congrFun native_laplacian_zero x
   have hUh : physicalTransport (U t) (h t) x = 0 := by
     simp [physicalTransport, hspace]

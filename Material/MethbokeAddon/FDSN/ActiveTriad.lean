@@ -57,7 +57,7 @@ theorem Seed.uniform_fourier_envelope_of_no_active_triad
       k (datumFourierCoeff (F r) k) C₁
       (h₁ r ⟨hr0.1.le, hr0.2.le⟩ k) i
     exact (h.front.triad_free_mode_energy_bound h.viscosity_pos.le r hr0
-      hFs.continuous (htriad r hr) k i).trans (add_le_add_left hproj _)
+      hFs.continuous (htriad r hr) k i).trans (add_le_add le_rfl hproj)
 
 /-- The active-triad seed for the nontranslation certificate can be chosen
 inside every final interval. This conclusion is derived from the actual
