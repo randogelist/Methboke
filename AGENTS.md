@@ -18,8 +18,10 @@ Lean build, with unchanged namespace and import paths. Preserve
 ## Current goal
 
 Work from `main`. The project goal remains **Fefferman D**. The current user-selected
-local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN v1.0)** on T^3; see
-`T3_NSE/D-Family-Obstruction/FDSN/`. The user authorized staged external CI and
+local theorem is **FDSN_R3**, the whole-space extension with explicit local
+Schwartz regularity and compact-local blowup; see `R3_NSE/FDSN/`. The user
+assented to R3-01 through R3-16. The accepted T3 FDSN v1.0 and its source
+evidence remain preserved in `T3_NSE/D-Family-Obstruction/FDSN/`. The user authorized staged external CI and
 preparing subsequent endpoints while the exact current commit is being verified.
 The prescribed-site family route and its accepted helpers remain preserved.
 
@@ -73,7 +75,9 @@ Preserve the selected goal unless the user explicitly changes it.
 
 Before commits synchronize GPT, README, INDEX-WORTHY, SOURCE_STATUS and the
 T3 implementation ledger. Keep prior accepted proof bytes and evidence intact.
+Record the new R3 ledger as well as the preserved T3 ledger.
 Record formal gaps explicitly, including seed/toolchain compatibility, force
 admission, periodization and same-force comparison. Do not add a global custom
 axiom, hide a missing witness in a definition, or claim prepared code is verified.
+
 

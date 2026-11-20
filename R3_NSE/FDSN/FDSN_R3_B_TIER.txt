@@ -1,0 +1,926 @@
+FDSN_R3 — WHOLE-SPACE SPECTRAL NONRIGIDITY
+Cumulative mathematical derivation
+Version 1.0 — 20 November 2026
+
+STATUS
+Complete ordinary mathematical (B-tier) conditional construction for the
+explicit local-Schwartz seed class below. No new Lean source is compiled,
+and no new A-tier theorem or native seed-admission bridge is asserted.
+
+Project goal retained: Fefferman_D.
+User-selected local work: construct the R3 analogue of FDSN here.
+Working label: FDSN_R3.
+The accepted T3 theorem and its statement are unchanged.
+This document is the whole-space derivation, not a repository mutation.
+
+The whole-space output force class is compact in positive time and rapidly
+decreasing in space. Preservation of compact SPATIAL force support is not
+part of the theorem.
+
+CONTENTS
+1. Conventions and exact seed
+2. Exact family statement
+3. A nonzero continuous-frequency patch
+4. An odd phase with an active patch and an untouched patch
+5. Explicit velocity and force
+6. Schwartz regularity, global time extension, and quantitative smallness
+7. Actual NSE, reality, divergence, and boundary histories
+8. Full helical powers and low frequencies
+9. Separation modulo every spatial translation
+10. Physical Leray-force separation
+11. Energy, dissipation, and terminal singularity
+12. Further exact quadratic identities
+13. Admission of the pinned compact whole-space seed
+14. Boundaries and first unresolved edges for stronger variants
+15. Sixteen proposed A-tier endpoints
+16. Evidence and references
+
+
+1. CONVENTIONS AND EXACT SEED
+
+All spatial variables lie in R3. Use the Fourier convention
+
+  Uhat(xi,t) = integral_R3 exp(-2*pi*i*x.xi) U(x,t) dx.
+
+Thus the Fourier symbol of grad is 2*pi*i*xi and that of curl is
+2*pi*i*(xi cross). This convention is fixed throughout this document.
+
+Let S = Schwartz(R3; R3). A smooth path into S is understood in its Frechet
+topology, not merely as a pointwise smooth function.
+
+For a compact regular time interval J and integers N,r >= 0 define
+
+  q_(N,r;J)(V)
+    = max_(j+|alpha| <= r) sup_(t in J, x in R3)
+        (1+|x|)^N |partial_t^j partial_x^alpha V(t,x)|.
+
+For a globally time-compact correction, q_(N,r)(V) denotes the same expression
+with all real times. Euclidean vector norms are used.
+
+Define the force class
+
+  F_R3^S = C_c^infinity((0,infinity); S).
+
+In words: F is a smooth Schwartz-valued path, supported in one compact
+positive-time interval. In particular, for every N,alpha,j,
+
+  sup_(x in R3,t >= 0) (1+|x|+t)^N
+      |partial_x^alpha partial_t^j F(x,t)| < infinity.
+
+No common numerical constant across derivative orders is required.
+
+Seed_R3^S(nu,T; U,p,F) means the following.
+
+S1. nu > 0 and 0 < T < infinity.
+
+S2. U and p are real classical smooth fields on R3 x [0,T), with the
+    one-sided interpretation at time zero, satisfying
+
+      partial_t U - nu Delta U + (U.grad)U + grad p = F,
+      div U = 0.
+
+    The equation at zero may equivalently be obtained by its right limit.
+    The initial datum is a = U(0). There is no imposed zero-data condition.
+
+S3. U belongs to C_loc^infinity([0,T); S). Explicitly, on every compact
+    preterminal interval, all mixed derivatives and spatial Schwartz
+    seminorms are bounded, and time dependence is smooth in these seminorms.
+    No uniform Schwartz bound as t tends to T is assumed.
+
+    p is smooth. A separate Schwartz assumption on p is unnecessary:
+    the PDE and S2-S4 imply that grad p is Schwartz on regular time slabs.
+
+S4. F belongs to F_R3^S and is defined smoothly through and beyond T.
+
+S5. There is finite preterminal energy and dissipation:
+
+      sup_(0 <= t < T) ||U(t)||_2^2
+        + integral_0^T ||grad U(t)||_2^2 dt < infinity.
+
+    These are actual finite integrals, not totalized expressions that
+    suppress an integrability premise.
+
+S6. There is one compact spatial set K such that
+
+      for every s in [0,T), every M >= 0,
+      there exist t in (s,T), x in K with |U(t,x)| > M.
+
+    This is a compact-local terminal blowup witness. It prevents replacing
+    finite-location singular behavior by large values escaping to infinity.
+
+These assumptions do not contain a phase family, a translation-separation
+claim, a projected-force-separation claim, or any desired conclusion.
+
+S3 is explicit extra whole-space decay information. Smoothness and finite
+energy alone are not being identified with Schwartz regularity.
+
+A seed with one fixed compact spatial carrier for U and smoothness on every
+compact preterminal slab satisfies S3. The pinned source in Section 13 has
+this property. It also supplies a compact-local blowup witness for S6.
+
+
+2. EXACT FAMILY STATEMENT
+
+Let
+
+  P(xi) = I - (xi tensor xi)/|xi|^2,    xi != 0,
+
+and let the intrinsic helical projectors be
+
+  Pi_sigma(xi)
+    = (1/2) [P(xi) + sigma i (xi cross)/|xi|],
+  sigma in {+1,-1}.
+
+The zero-frequency value of these symbols is immaterial for their L2
+operators. The physical Leray operator is the L2 Fourier multiplier P.
+It is an orthogonal projection and is bounded on every H^m.
+
+Define the complete helical modal power density by
+
+  E_sigma[U](xi,t) = |Pi_sigma(xi) Uhat(xi,t)|^2,    xi != 0.
+
+This formulation requires no globally smooth choice of helical eigenvectors.
+In any fixed orthonormal helical frame it equals the corresponding scalar
+helical coefficient's squared magnitude.
+
+FDSN_R3 claims
+
+  Seed_R3^S(nu,T; U,p,F)  ==>  Family_R3^S(nu,T; U,p,F).
+
+The exact quantifier order of Family_R3^S is:
+
+  for every s in [0,T),
+  there exist a,b,tstar,epsilon, one family U_lambda,
+  and one family F_lambda,
+
+  s < a < tstar < b < T, epsilon = pi/4,
+
+such that the following statements hold for the SAME witnesses.
+
+R3.1 — EXACT REALIZATION AND AGREEMENT
+
+  U_0 = U and F_0 = F.
+  For every |lambda| < epsilon, the triple (U_lambda,p,F_lambda)
+  solves the same-viscosity NSE on [0,T).
+
+  Both corrections
+
+    h_lambda = U_lambda - U,
+    G_lambda = F_lambda - F
+
+  belong to C_c^infinity((a,b); S), with temporal support contained
+  in one fixed compact subset of (a,b), independent of lambda.
+
+  F_lambda belongs to F_R3^S.
+  Initial datum and pressure are identical to the seed.
+  Velocity and force agree exactly with the seed outside (a,b).
+  In particular, the complete terminal germs are identical.
+
+  The corrections are jointly smooth in parameter, time, and space,
+  with smooth Schwartz-valued parameter/time dependence.
+
+R3.2 — COMPLETE HELICAL POWER PRESERVATION
+
+  For all |lambda| < epsilon, all 0 <= t < T, all xi != 0,
+  and both helicities,
+
+    E_sigma[U_lambda](xi,t) = E_sigma[U](xi,t).
+
+  There is also rho > 0, independent of lambda and t, such that
+
+    Uhat_lambda(xi,t) = Uhat(xi,t) whenever |xi| < rho.
+
+  Thus the entire low-frequency neighborhood, including the Fourier
+  value at zero, is unchanged. There is no arbitrary torus-type spatial
+  mean parameter on R3.
+
+R3.3 — TRANSLATION SEPARATION AT ONE COMMON TIME
+
+  For all distinct lambda,eta in (-epsilon,epsilon),
+
+    there is no y in R3 such that
+    U_lambda(tstar,x) = U_eta(tstar,x+y) for every x.
+
+R3.4 — PHYSICAL PROJECTED-FORCE SEPARATION
+
+  For all such distinct lambda,eta, there exist t in [0,T) and x in R3 with
+
+    P(F_lambda-F_eta)(t,x) != 0.
+
+  The projected field is interpreted by its smooth physical representative.
+
+R3.5 — WEIGHTED SMOOTH SMALLNESS
+
+  For every N,r >= 0 there is a finite C_(N,r) such that
+
+    q_(N,r)(h_lambda) + q_(N,r)(G_lambda)
+      <= C_(N,r) |lambda|,       |lambda| < epsilon.
+
+  The constants may depend on N,r, the seed, the selected interval and the
+  cutoffs. No constant uniform across all derivative orders is asserted.
+
+Every family member also retains the same energy and dissipation histories
+and the same compact-local blowup witness. These facts are proved below.
+
+
+3. A NONZERO CONTINUOUS-FREQUENCY PATCH
+
+Fix s in [0,T).
+
+By S6, choose tstar in (s,T) such that U(tstar) is not the zero field.
+Fourier injectivity on S implies Uhat(tstar) is not identically zero.
+
+There exist a coordinate j and a frequency xi0 != 0 for which
+
+  Uhat_j(xi0,tstar) != 0.
+
+Indeed, a continuous function supported only at the point zero would be
+identically zero. By continuity, choose an open ball V around xi0, with
+compact closure avoiding zero, such that
+
+  V cap (-V) = empty,
+  Uhat_j(xi,tstar) != 0 for every xi in V.
+
+The nonzero condition can be made quantitatively uniform on a smaller
+closed ball if desired.
+
+Choose two open balls A and B with disjoint compact closures contained in V.
+
+  A = active patch.
+  B = untouched anchor patch.
+
+No triad relation or nonlinear interaction condition is required here.
+The nonzero open frequency region is supplied by Fourier continuity of
+a nonzero Schwartz field.
+
+
+4. AN ODD PHASE WITH ACTIVE AND UNTOUCHED PATCHES
+
+Choose chi in C_c^infinity(V; R) such that
+
+  0 <= chi <= 1,
+  chi = 1 on a neighborhood of closure(A),
+  chi = 0 on a neighborhood of closure(B).
+
+Arrange the support of chi to avoid closure(B), using a slightly larger
+neighborhood of closure(A) still disjoint from closure(B) and contained in V.
+
+Define
+
+  psi(xi) = chi(xi) - chi(-xi).
+
+Then:
+
+  psi is real, smooth, compactly supported away from zero;
+  psi(-xi) = -psi(xi);
+  |psi| <= 1;
+  psi = 1 on A;
+  psi = 0 on B.
+
+The support is contained in V union (-V), so psi vanishes in some ball
+around frequency zero.
+
+Choose
+
+  a = (s+tstar)/2,
+  b = (tstar+T)/2.
+
+Then 0 < a < tstar < b < T and s < a.
+
+Choose a real normalized time bump
+
+  beta in C_c^infinity((a,b)),
+  0 <= beta <= 1,
+  beta(tstar) = 1.
+
+Let K_beta = supp beta, a fixed compact subset of (a,b).
+
+
+5. EXPLICIT VELOCITY AND FORCE
+
+For every real lambda, and 0 <= t < T, define
+
+  m_lambda(t,xi) = exp(i lambda beta(t) psi(xi)),
+
+  Uhat_lambda(xi,t) = m_lambda(t,xi) Uhat(xi,t).
+
+For the theorem restrict |lambda| < epsilon = pi/4.
+
+Equivalently, set
+
+  h_lambda(t)
+    = inverseFourier[(exp(i lambda beta(t) psi)-1) Uhat(t)]
+
+on the regular slab and define h_lambda = 0 outside that slab.
+
+This definition is unambiguous because the multiplier increment vanishes
+outside K_beta. In particular no value of the original singular U at or
+after T is used.
+
+Set U_lambda = U + h_lambda for preterminal times.
+
+Keep the pressure unchanged:
+
+  p_lambda = p.
+
+On the regular slab define
+
+  G_lambda =
+      partial_t h_lambda - nu Delta h_lambda
+      + (U.grad)h_lambda
+      + (h_lambda.grad)U
+      + (h_lambda.grad)h_lambda,
+
+and extend G_lambda by zero outside that slab.
+
+Define F_lambda = F + G_lambda for all real times.
+
+All constructions use the same psi,beta,a,b,tstar for every lambda.
+
+
+6. SCHWARTZ REGULARITY, GLOBAL TIME EXTENSION, AND SMALLNESS
+
+Let
+
+  q_lambda(t,xi)
+    = (exp(i lambda beta(t) psi(xi))-1) Uhat(t,xi).
+
+Its frequency support is contained in the fixed compact set supp psi.
+
+On a compact regular time interval containing K_beta, Uhat is jointly
+smooth in time and frequency with all required derivatives bounded on
+supp psi. The scalar multiplier is smooth in lambda and equals one at
+lambda zero.
+
+The fundamental theorem of calculus in lambda gives
+
+  q_lambda = integral_0^lambda partial_theta q_theta dtheta.
+
+Hence for every j and frequency multiindex gamma,
+
+  sup_(t,xi) |partial_t^j partial_xi^gamma q_lambda|
+    <= C_(j,gamma) |lambda|,    |lambda| <= pi/4,
+
+where the supremum is over the fixed compact support sets.
+
+For spatial multiindices alpha,gamma, Fourier inversion and integration
+by parts bound
+
+  sup_x |x^gamma partial_x^alpha partial_t^j h_lambda|
+    <= C_(alpha,gamma)
+       ||partial_xi^gamma
+           [xi^alpha partial_t^j q_lambda]||_L1(xi).
+
+The right side is O(|lambda|), because its support is fixed and compact.
+Finite sums of monomial weights control (1+|x|)^N. Thus
+
+  q_(N,r)(h_lambda) <= C_(N,r) |lambda|.
+
+The same argument with parameter derivatives proves joint smooth
+Schwartz-valued dependence on (lambda,t).
+
+Since K_beta is strictly inside (a,b), h_lambda vanishes in neighborhoods
+of both slab boundaries. Its zero extension is globally smooth and has
+temporal support in K_beta.
+
+All derivatives of U are Schwartz-bounded on a slightly larger compact
+regular slab. Differentiation and multiplication are continuous on S.
+Leibniz's rule therefore proves
+
+  G_lambda in C_c^infinity((a,b); S).
+
+The linear terms in G_lambda are O(|lambda|); its quadratic term is
+O(lambda^2). On the fixed parameter interval |lambda| <= pi/4, these yield
+
+  q_(N,r)(G_lambda) <= C'_(N,r) |lambda|.
+
+One may equivalently differentiate G_lambda in lambda on the compact
+parameter interval and apply the fundamental theorem of calculus,
+using G_0 = 0.
+
+This proves R3.5 and all joint regularity claims in R3.1.
+
+As F and G_lambda are both Schwartz-valued and supported in compact
+positive-time intervals, their sum belongs to F_R3^S. Every weighted
+spacetime derivative of F_lambda satisfies the rapid-decay force bounds.
+
+
+7. ACTUAL NSE, REALITY, DIVERGENCE, AND BOUNDARY HISTORIES
+
+REALITY
+
+The seed is real, so Uhat(-xi,t) = conjugate(Uhat(xi,t)).
+Oddness of psi gives
+
+  m_lambda(t,-xi) = conjugate(m_lambda(t,xi)).
+
+Thus Uhat_lambda retains Fourier conjugacy and U_lambda is real.
+
+DIVERGENCE
+
+The seed satisfies xi.Uhat(xi,t) = 0. Since m_lambda is scalar,
+
+  xi.Uhat_lambda(xi,t) = m_lambda(t,xi) xi.Uhat(xi,t) = 0.
+
+Fourier inversion gives div U_lambda = 0.
+
+MOMENTUM EQUATION
+
+Expand U_lambda = U + h_lambda:
+
+  (U_lambda.grad)U_lambda
+    = (U.grad)U + (U.grad)h_lambda
+      + (h_lambda.grad)U + (h_lambda.grad)h_lambda.
+
+Subtract the seed equation. The remaining terms are exactly G_lambda
+as defined in Section 5. Therefore
+
+  partial_t U_lambda - nu Delta U_lambda
+    + (U_lambda.grad)U_lambda + grad p = F_lambda.
+
+This is the actual differential equation with unchanged pressure.
+
+INITIAL AND FINAL HISTORIES
+
+Because K_beta is compactly contained in (a,b),
+
+  U_lambda(t) = U(t) for every preterminal t outside (a,b),
+  F_lambda(t) = F(t) for every real t outside (a,b).
+
+In particular U_lambda(0) = U(0), and the complete velocity/force germs
+near T are identical. No extension of U through the blowup time has been
+used to define either correction.
+
+This proves the remaining assertions of R3.1.
+
+
+8. FULL HELICAL POWERS AND LOW FREQUENCIES
+
+For xi != 0 the real transverse projector P and the Hermitian operator
+
+  J(xi) = i (xi cross)/|xi|
+
+satisfy
+
+  J^2 = P,  PJ = JP = J.
+
+Consequently Pi_sigma = (P + sigma J)/2 are mutually orthogonal Hermitian
+projections onto the two curl-helicity lines.
+
+Since the multiplier is scalar,
+
+  Pi_sigma(xi) Uhat_lambda(xi,t)
+    = m_lambda(t,xi) Pi_sigma(xi) Uhat(xi,t).
+
+Its modulus is one. Therefore
+
+  |Pi_sigma Uhat_lambda|^2 = |Pi_sigma Uhat|^2
+
+for every nonzero frequency, both helicities, and every preterminal time.
+
+This proves R3.2. It is exact pointwise equality of smooth Fourier data,
+not merely equality of shell integrals.
+
+The construction is even independent of the helical observation: every
+fixed complex-linear observation of a vector Fourier coefficient receives
+the same scalar phase and therefore preserves its magnitude.
+
+As psi vanishes near zero, Uhat_lambda equals Uhat on a fixed neighborhood
+of zero for every preterminal time.
+
+For an integrable divergence-free R3 field, Uhat(0)=0: take xi=r e in
+xi.Uhat(xi)=0, divide by r, and pass to zero for every unit direction e.
+Thus no arbitrary nonzero spatial-mean parameter is imported from T3.
+
+
+9. SEPARATION MODULO EVERY SPATIAL TRANSLATION
+
+Suppose for parameters lambda,eta in (-pi/4,pi/4) and y in R3,
+
+  U_lambda(tstar,x) = U_eta(tstar,x+y) for every x.
+
+The Fourier translation formula gives
+
+  m_lambda(tstar,xi) Uhat(xi,tstar)
+    = exp(2*pi*i*xi.y)
+      m_eta(tstar,xi) Uhat(xi,tstar).
+
+On the untouched open ball B, psi=0 and the selected component Uhat_j
+is nonzero. Therefore
+
+  exp(2*pi*i*xi.y) = 1 for every xi in B.
+
+The continuous linear function xi -> xi.y consequently takes integer
+values on an open ball, so is constant there. It follows that y=0.
+Equivalently, differentiating the character on B gives every component
+of y equal to zero.
+
+On the active ball A, psi=1 and beta(tstar)=1. With y=0, the same component
+identity becomes
+
+  exp(i lambda) Uhat_j(xi,tstar)
+    = exp(i eta) Uhat_j(xi,tstar).
+
+Hence exp(i(lambda-eta))=1. But |lambda-eta|<pi/2, so lambda=eta.
+
+This proves R3.3 by contradiction whenever lambda != eta.
+
+The continuum of untouched frequencies removes every translation freedom.
+The torus active-triad certificate is unnecessary for this R3 construction.
+
+
+10. PHYSICAL LERAY-FORCE SEPARATION
+
+Fix distinct admitted parameters lambda,eta. Put
+
+  u = U_lambda,  v = U_eta,  w = u-v,
+  deltaF = F_lambda-F_eta.
+
+Assume for contradiction that P(deltaF)=0 throughout the preterminal
+interval. We only need this assumption on the compact slab [a,tstar].
+
+The two velocities agree at a, since their temporal corrections vanish
+in a neighborhood of a. Therefore w(a)=0.
+
+Subtract their NSE equations. Their pressures are identical, so the
+pressure terms cancel. Write
+
+  (u.grad)u - (v.grad)v = (u.grad)w + (w.grad)v.
+
+Take the L2 inner product with w. The fields on this compact time slab
+have all the required decay and regularity. Incompressibility and
+integration by parts eliminate the transport contribution:
+
+  integral ((u.grad)w).w = 0.
+
+Orthogonality of the Leray projection, and div w=0, give
+
+  integral deltaF.w = integral P(deltaF).w = 0.
+
+Therefore
+
+  (1/2) d_t ||w||_2^2 + nu ||grad w||_2^2
+    <= ||grad v||_infinity ||w||_2^2.
+
+The coefficient ||grad v||_infinity is bounded on [a,tstar].
+Gronwall and w(a)=0 imply w(tstar)=0.
+
+This contradicts R3.3 with the zero translation. Therefore there is a
+preterminal time at which P(deltaF) is nonzero in L2.
+
+For each time, deltaF is Schwartz. Since the Leray symbol is bounded,
+P(deltaF) lies in every H^m. Sobolev embedding gives a smooth physical
+representative; it cannot be pointwise zero everywhere if its L2 class is
+nonzero. Hence there exist t<T and x with
+
+  P(F_lambda-F_eta)(t,x) != 0.
+
+This proves R3.4.
+
+No assertion that the Leray projection of a Schwartz force is Schwartz
+is needed: its low-frequency symbol need not preserve that space.
+The physical forces F_lambda themselves are Schwartz, and the projected
+force has the smooth representative just established.
+
+
+11. ENERGY, DISSIPATION, AND TERMINAL SINGULARITY
+
+The multiplier has unit modulus at every frequency. Plancherel therefore
+gives, for every preterminal t,
+
+  ||U_lambda(t)||_2^2 = ||U(t)||_2^2,
+  ||grad U_lambda(t)||_2^2 = ||grad U(t)||_2^2.
+
+The energy bound and finite integrated dissipation are retained exactly.
+For every shorter interval, and for the full interval (0,T),
+
+  integral ||grad U_lambda(t)||_2^2 dt
+    = integral ||grad U(t)||_2^2 dt.
+
+For terminal blowup, let K be the compact witness from S6. Given s<T and
+M>=0, apply S6 after max(s,b). The resulting t belongs to (b,T), where
+U_lambda=U. Thus the same point x in K witnesses |U_lambda(t,x)|>M.
+
+This is exact preservation of the compact-local terminal singularity.
+The family does not merely preserve a numerical supremum over all space.
+
+All members satisfy the same seed-class energy, dissipation, and blowup
+requirements. The family is therefore a family of admitted singular
+histories, with different effective forcing histories.
+
+
+12. FURTHER EXACT QUADRATIC IDENTITIES — B-TIER COROLLARIES
+
+For every real r and every preterminal time,
+
+  ||U_lambda(t)||_(H^r) = ||U(t)||_(H^r).
+
+All inhomogeneous H^r norms are finite for a Schwartz slice. Homogeneous
+norms agree whenever finite, or as extended nonnegative Fourier integrals;
+no blanket finiteness of all negative homogeneous orders is asserted.
+
+Helicity is also identical, since with the fixed 2*pi Fourier convention,
+
+  integral_R3 U.curl U
+    = integral_R3 2*pi*|xi| (E_+(xi)-E_-(xi)) dxi.
+
+Energy, enstrophy, helicity, and dissipation histories therefore agree.
+
+The instantaneous total force work agrees as well. On each regular time
+slice, the classical energy identity gives
+
+  integral_R3 F_lambda.U_lambda
+    = (1/2) d_t ||U_lambda||_2^2
+      + nu ||grad U_lambda||_2^2
+    = integral_R3 F.U.
+
+The pressure contribution vanishes because grad p belongs to L2 by the
+PDE and is orthogonal to solenoidal Schwartz velocities. These statements
+are ordinary mathematical consequences of the construction, not newly
+audited Lean declarations.
+
+The force norms and complete residual-force observations need not agree.
+The theorem has not produced a regular/singular pair with identical
+spectra: every member retains the same exact singular tail.
+
+
+13. ADMISSION OF THE PINNED COMPACT WHOLE-SPACE SEED
+
+Inspected source revision:
+
+  openai/NavierStokesAndEuler
+  f9e8bc5b38b6e212696e8a30e3e91517af887bbd
+
+The declaration NavierStokesR3.theorem_1_1_with_initial_rest in
+NavierStokes/R3/Theorem.lean supplies, for every nu>0, one common tuple
+(u,p,f,K) satisfying CandidateProperties, together with initial rest.
+
+CandidateProperties in NavierStokes/R3/ProblemStatement.lean includes:
+
+  - one fixed compact K containing the spatial supports of u and p
+    at every time 0 <= t < 1;
+  - actual smoothness and actual forced NSE/divergence equations;
+  - zero initial velocity;
+  - globally smooth compact positive-time spacetime forcing;
+  - uniformly bounded whole-space kinetic energy;
+  - unbounded velocity in every final time interval.
+
+The same tuple has finite integrated dissipation by
+
+  NavierStokesR3.CompactEnergy.candidate_energy_estimates
+
+in NavierStokes/R3/IntegratedDissipation.lean. Applying this theorem to
+the initial-rest witness retains the same fields; no mismatched
+existential witnesses are combined.
+
+LOCAL SCHWARTZ ADMISSION
+
+Fix a compact preterminal time interval J. Every mixed derivative of u
+is supported in K: outside K the field vanishes on a spatial neighborhood
+for every preterminal time, so all spatial and time derivatives vanish
+there. Each derivative is continuous on the compact J x K and therefore
+bounded there. Polynomial weights are bounded on K.
+
+Thus every mixed weighted seminorm is finite uniformly on J.
+Higher time derivatives and the fundamental theorem of calculus on the
+common compact carrier give smoothness as a Schwartz-valued time path.
+
+This proves the mathematical compact-carrier-to-local-Schwartz adapter.
+The same reasoning applies to p when useful, although the family theorem
+does not require p itself to be Schwartz.
+
+The source already contains spatial slice anchors
+CompactSchwartz.weighted_derivative_bound and
+CompactSchwartz.ofCompactSupport. A new common-time-family adapter and
+its integration into FDSN_R3 still require formal preparation and matching
+external verification.
+
+COMPACT-LOCAL BLOWUP
+
+Every nonzero velocity value of the compact seed lies in K, so the
+source's cofinal velocity unboundedness gives S6 with this same K.
+Initial rest also resolves any right-endpoint PDE interpretation at zero.
+
+OPTIONAL CHANGE OF TERMINAL TIME
+
+The source terminal time is one. For any T>0, let c=T^(-1/2), and define
+
+  U_T(x,t) = c u(c x,c^2 t),
+  p_T(x,t) = c^2 p(c x,c^2 t),
+  F_T(x,t) = c^3 f(c x,c^2 t).
+
+This is the standard same-viscosity parabolic transformation, checked by
+the chain rule. Its terminal time is T and compact carrier is c^(-1) K.
+The squared L2 energy and time-integrated squared gradient norm each
+scale by c^(-1), so finiteness is preserved. The force remains globally
+smooth with compact spacetime support in positive time.
+
+This mathematical source admission supports using the conditional
+construction with the pinned compact seed. It is not a new native
+A-tier seed adapter or an independent re-verification of the upstream
+existence proof.
+
+COMPILER BOUNDARY
+
+The inspected upstream source is pinned to Lean 4.34.0-rc2; native
+Methboke Material is pinned to Lean 4.33.0. Their compiled objects must
+not be mixed. The conditional R3 root can be formalized with Seed as
+its explicit input; importing a concrete seed is a separate compatible
+adapter task. No compiler/dependency pins have been changed.
+
+
+14. BOUNDARIES AND FIRST UNRESOLVED EDGES FOR STRONGER VARIANTS
+
+14.1 Literal single-frequency rotation does not port.
+
+On R3, changing an L2 Fourier transform only at {xi0,-xi0} changes it
+on a measure-zero set and hence does not change the physical L2 field.
+The present construction uses smooth frequency regions of positive
+measure. This resolves the literal-port problem rather than assuming
+a nonzero effect from isolated frequencies.
+
+14.2 Compact spatial support is not preserved.
+
+The correction h_lambda has compact Fourier support. At tstar it is
+nonzero for lambda != 0. Such a function cannot also have compact
+spatial support: its inverse Fourier integral extends analytically,
+and vanishing on the exterior open set would force it to be zero.
+
+Therefore the output guarantee is precisely
+
+  h_lambda, G_lambda in C_c^infinity((a,b); S),
+
+not compact spacetime support. The proof gives no general preservation
+of F_lambda in C_c^infinity(R3 x (0,infinity)).
+
+The stronger compact-spatial-force variant is left unresolved. Its
+support-admission edge is not promoted by the rapid-decay theorem.
+
+14.3 Bare smooth finite-energy seeds are insufficient for this proof.
+
+For a general L2 seed, Uhat need only be an L2 function. A compact
+frequency cutoff makes its inverse transform smooth but does not,
+without frequency derivatives, make it Schwartz. Even all unweighted
+Sobolev norms do not by themselves supply spatial moments.
+
+The first unresolved edge for the broader theorem is
+
+  smooth finite-energy seed
+    --> required frequency regularity
+    --> Schwartz correction and rapid-decay force admission.
+
+The derivation of that broader variant stops at this edge. The present
+complete theorem retains S3 explicitly.
+
+A weaker sufficient premise could replace S3 by smoothness of Uhat on
+the selected compact frequency region together with polynomial bounds
+for all physical derivatives of U on the relevant time slab. Admission
+of those premises for an unrestricted seed is not established here.
+
+14.4 Global sup blowup alone does not locate a singularity.
+
+On an unbounded domain, large values can move to infinity. S6 uses one
+compact K, and the pinned seed has a fixed compact carrier. The stronger
+local interpretation is therefore explicit.
+
+14.5 Force variation and regularity classification.
+
+The family changes its physical effective force. It does not assert
+fixed-force nonuniqueness or an unforced analogue. All members share
+the terminal singularity. The result does not rule out every possible
+spectral regularity criterion and does not supply a regular/singular
+indistinguishability pair.
+
+14.6 Formal status.
+
+All new R3 construction, admission arguments, and corollaries in this
+file are B-tier. The prior T3 A-tier receipt does not verify them.
+No global custom axiom, sorry, or assumed family conclusion may be
+used to remove the remaining formal obligations.
+
+
+15. SIXTEEN PROPOSED A-TIER ENDPOINTS
+
+These are concrete endpoint scopes for the required pre-formalization
+review. They are not claims that the declarations already exist.
+The mathematical chain above is complete for its explicit hypotheses.
+
+R3-01  Exact whole-space contracts
+  Actual NSE operators, real velocity/pressure, local Schwartz seed,
+  compact-local blowup, rapid-decay force class, and one common Family.
+
+R3-02  Compact-carrier Schwartz admission
+  Joint smoothness plus one fixed compact spatial carrier implies every
+  required uniform weighted derivative bound on compact time slabs.
+  This abstract lemma does not itself import the upstream seed.
+
+R3-03  Physical Fourier bridge
+  Fourier inversion, real conjugacy, divergence symbol, translation law,
+  and Plancherel for the actual vector fields.
+
+R3-04  Helical projector algebra
+  The explicit transverse/helical symbols, Hermitian projection laws,
+  and connection to fixed-frame scalar powers.
+
+R3-05  Nonzero frequency patch
+  A nonzero Schwartz slice has a nonzero component on an open ball away
+  from zero; compact-local blowup supplies a suitable slice after s.
+
+R3-06  Active and untouched patches
+  Construct two separated subballs and a real odd compact-frequency
+  phase with value one on one patch and zero on the other.
+
+R3-07  Normalized interior time bump
+  One smooth beta supported inside (a,b) with beta(tstar)=1.
+
+R3-08  Actual phase-family regularity
+  Inverse Fourier construction, joint parameter/time Schwartz smoothness,
+  fixed compact time support, and the zero-parameter identity.
+
+R3-09  Reality, divergence, and low-frequency preservation
+  Odd-phase conjugacy, solenoidality, and exact agreement near xi=0.
+
+R3-10  Complete spectral and energy preservation
+  Every helical modal power, actual L2 energy, gradient norm, and integrated
+  dissipation for the same constructed velocity family.
+
+R3-11  Exact same-pressure residual identity
+  Expansion of the native forced NSE for U+h with the displayed force
+  correction, keeping the original pressure.
+
+R3-12  Global force admission
+  Smooth zero extension in time, positive compact temporal support,
+  and all spatial rapid-decay derivative bounds for the actual force.
+
+R3-13  Common-time translation separation
+  The untouched open Fourier patch forces translation y=0; the active
+  patch forces equality of parameters.
+
+R3-14  Physical projected-force separation
+  Actual L2 difference-energy identity, compact-slab Gronwall, bounded
+  Leray multiplier, and a literal nonzero physical spacetime witness.
+
+R3-15  Weighted finite-order smallness
+  q_(N,r)(h_lambda)+q_(N,r)(G_lambda) <= C_(N,r)|lambda|
+  for each finite N,r and the common parameter interval.
+
+R3-16  Canonical FDSN_R3 root
+  Assemble R3.1-R3.5 with the SAME interval, comparison time, parameter
+  radius, velocity family, and force family; retain energy/dissipation
+  and the original compact-local terminal blowup.
+
+Each required declaration and contract must have an independent exact-type
+or literal-definition consumer and a fresh theorem-level axiom report.
+A-tier acceptance requires source/pin/policy identity and matching authorized
+cached external verification; allowed axioms remain propext,
+Classical.choice, and Quot.sound.
+
+The next formal stage follows assent to these endpoints. No local Lean,
+Lake invoking Lean, container/subprocess Lean, or local kernel audit is
+authorized or used. No existing T3 source or evidence is altered.
+
+
+16. EVIDENCE AND REFERENCES
+
+Accepted T3 baseline (scope reference only):
+  Methboke source 87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef
+  https://github.com/randogelist/Methboke/blob/87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef/Material/MethbokeAddon/FDSN/Main.lean
+
+Pinned R3 source contracts:
+  https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/ProblemStatement.lean
+
+Pinned whole-space seed:
+  https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/Theorem.lean
+
+Same-witness integrated dissipation:
+  https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/IntegratedDissipation.lean
+
+Existing compact-smooth-to-Schwartz slice anchors:
+  https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/CompactSchwartz.lean
+
+Cao, Chi, Nie, Density of Forces Producing Navier-Stokes Blowup,
+arXiv:2609.10262v4:
+  https://arxiv.org/html/2609.10262v4
+  Theorem 1.1 and Lemma 2.2: compact seed and dissipation.
+  Proposition 3.15: residual compensation of an interior deformation.
+  Section 4.5: distinction between compact support and rapid decay.
+
+The phase-packet argument and open-patch translation certificate are the
+derivation supplied in this document. No literature priority claim is made.
+
+FINAL STATUS
+  FDSN_R3 for the explicit local-Schwartz/compact-local seed:
+    COMPLETE B-TIER CONDITIONAL CONSTRUCTION.
+  Concrete compact-seed mathematical admission:
+    SOURCE-GROUNDED, with the same-witness dissipation argument.
+  New R3 Lean root:
+    NOT PREPARED OR EXTERNALLY VERIFIED IN THIS TURN.
+  New A-tier claim:
+    NONE.
+  Bare smooth finite-energy / rapid-decay-force generalization:
+    BLOCKED AT FREQUENCY-REGULARITY AND FORCE-ADMISSION EDGE.
+  Compact-spatial-force-preserving variant:
+    NOT ESTABLISHED BY THIS CONSTRUCTION.
+  Local Lean executions:
+    ZERO.
+

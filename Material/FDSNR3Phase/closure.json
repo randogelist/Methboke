@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "endpoint": "FDSNR3Phase",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.FDSNR3.Phase"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.FDSN.Phase",
+      "path": "MethbokeAddon/FDSN/Phase.lean",
+      "sha256": "2014856f14cf40a3a6ca4479da3f0308c254aa326ab5a653aa7336c4ac108e0f",
+      "imports": [
+        "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimeBump",
+      "path": "MethbokeAddon/FDSN/TimeBump.lean",
+      "sha256": "8b1ee3376b39accf26e5c2c599eaf03e5534f779aa0f9dfa3ccbe4e82007d333",
+      "imports": [
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Positivity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native development basis; the new proof bytes are introduced by the pending FDSN commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TimePhase",
+      "path": "MethbokeAddon/FDSN/TimePhase.lean",
+      "sha256": "89bc5d4b41be4c6a491b9aea7d91d40851fc4e2c80085539182f5861410dd911",
+      "imports": [
+        "MethbokeAddon.FDSN.Phase",
+        "MethbokeAddon.FDSN.TimeBump",
+        "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+        "Mathlib.Analysis.Calculus.Deriv.Support"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSNR3.Phase",
+      "path": "MethbokeAddon/FDSNR3/Phase.lean",
+      "sha256": "c6cee99568d762facb546d890e161d88bd725ae885879e9c2c6e99088ea7ded6",
+      "imports": [
+        "MethbokeAddon.FDSN.TimePhase",
+        "Mathlib.Analysis.Normed.Module.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+        "path": "GPT.txt",
+        "role": "Pinned native environment and preserved proof basis; new whole-space proof bytes are introduced by the pending user-authorized FDSN_R3 stage."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    }
+  ],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct",
+    "Mathlib.Analysis.Calculus.Deriv.Support",
+    "Mathlib.Analysis.Normed.Module.Basic",
+    "Mathlib.Analysis.SpecialFunctions.Complex.Log",
+    "Mathlib.Analysis.SpecialFunctions.ExpDeriv",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring"
+  ],
+  "local_module_count": 4,
+  "owned_module_count": 4,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "68b3c9df5d92ebb910b63785285f703a17c39f20bce131b2b5ae388a9d48ae3d",
+  "validation_boundary": "Static current candidate bytes and pinned dependency-manifest records; full retained source and compiler validation run externally.",
+  "dependency_boundary": "Existing vendor, pins, lock, lakefile, workflow and earlier audits are unchanged."
+}

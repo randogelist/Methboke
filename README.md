@@ -4,7 +4,9 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
-The current local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
+The current local target is **FDSN_R3**, the user-assented whole-space extension of spectral nonrigidity. The [complete B-tier construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) and [sixteen-endpoint implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) state the explicit local-Schwartz seed and rapid-decay force scope. New source preparation is active; the R3 root is not yet A-tier. The domain-independent normalized time bump and exact residual identity reuse matching accepted evidence.
+
+The preserved accepted local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
 
 The preserved prescribed-site route is **Fefferman_D_Family_obstruction**. It strengthens the
 existence target to every positive viscosity and every finite configuration
@@ -118,7 +120,7 @@ the previous research-file locations.
 | [GPT.txt](GPT.txt) | Current goal, exact contracts, derivation and next formal obligations |
 | [INDEX-WORTHY.txt](INDEX-WORTHY.txt) | Substantiated results with source-specific scope and evidence |
 | [SOURCE_STATUS.json](SOURCE_STATUS.json) | Goal, implementation and accepted-evidence identities |
-| [T3_NSE](T3_NSE/README.md) / [R3_NSE](R3_NSE/README.md) | Periodic programs and reserved whole-space work |
+| [T3_NSE](T3_NSE/README.md) / [R3_NSE](R3_NSE/README.md) | Periodic programs and active whole-space FDSN work |
 | [T3_NSE/D-Family-Obstruction](T3_NSE/D-Family-Obstruction/README.md) | Current periodic-family route and ledger |
 | [Material](Material/README.md) | Native sources, endpoint packages and complete audits |
 | [Ehrenfest package](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/PREPRINT_FORMALISATION/README.md) | Preserved conditional proof and stronger open operator milestones |
@@ -162,3 +164,4 @@ FDSN verification repair after run44810618725: Give all compact force-correction
 ## Current FDSN acceptance
 
 The exact conditional theorem on the unit three-torus passed at `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`. The same family satisfies all five canonical clauses; the physical presentation gives a literal nonzero Leray-projected force difference. The [construction and acceptance note](T3_NSE/D-Family-Obstruction/FDSN/FDSN_CONSTRUCTION_AND_ACCEPTANCE.txt) records the proof route. Historical repair entries above are superseded by this acceptance; their evidence remains preserved.
+

@@ -3,7 +3,7 @@
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
   "branch": "main",
-  "mode": "A_TIER_DERIVATION_FDSN_TORUS",
+  "mode": "A_TIER_DERIVATION_FDSN_R3",
   "resume_mode": "A_TIER_DERIVATION",
   "main_goal": {
     "name": "Fefferman_D",
@@ -28,9 +28,9 @@
   },
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
-    "mesoscopic": "FEFFERMAN_D_SPECTRAL_NONRIGIDITY on T^3, canonical v1.0",
-    "microscopic": "Current FDSN formal target completed; no new target adopted.",
-    "next_scoped_endpoint": "None adopted after completion of canonical FDSN."
+    "mesoscopic": "FDSN_R3: explicit local-Schwartz whole-space spectral nonrigidity",
+    "microscopic": "Stage 1 exact contracts, compact-carrier Schwartz admission and phase helpers",
+    "next_scoped_endpoint": "User-assented R3-01 through R3-16; same-witness root remains open"
   },
   "goal_transition": {
     "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
@@ -53,8 +53,8 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "No pending FDSN source verification; acceptance cites the exact tested revision.",
-  "current_material_external_verification": "A_TIER_FDSN_CANONICAL_ROOT_ACCEPTED",
+  "ci_handoff": "Stage 1 R3 sources prepared for matching cached external verification; T3 accepted sources unchanged.",
+  "current_material_external_verification": "FDSN_R3_STAGE1_PREPARED_UNVERIFIED",
   "latest_material_run": {
     "status": "A_TIER_ACCEPTED_EXACT_FDSN_SCOPE",
     "tested_commit": "87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef",
@@ -1947,7 +1947,7 @@
     "base_commit": "aacfe7c4b0dc9f1642269823c174de74d7097fcb",
     "periodic_root": "T3_NSE",
     "whole_space_root": "R3_NSE",
-    "whole_space_status": "RESERVED_NO_THEOREM_CLAIM",
+    "whole_space_status": "ACTIVE_FDSN_R3_LOCAL_TARGET",
     "wfb": "T3_NSE/B-Regularity-class/WFB",
     "qfb": "T3_NSE/B-Regularity-class/QFB",
     "stopped_commutator_bound": "T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound",
@@ -3171,5 +3171,148 @@
     "fresh_cutout": "PASS",
     "root_proved": false,
     "documentation_commit_note": "Exact tested revision f19531bc. Later documentation/evidence-only commits are not new compiler runs. This Material record does not include isolated direct-D verification."
+  },
+  "fdsn_r3": {
+    "schema_version": 1,
+    "date": "2026-11-20",
+    "repository": "randogelist/Methboke",
+    "branch": "main",
+    "project_goal": "Fefferman_D",
+    "local_target": "FDSN_R3",
+    "mode": "A_TIER_DERIVATION",
+    "endpoint_assent": "User explicitly assented to R3-01 through R3-16 and requested continued work and per-endpoint acceptance signals.",
+    "implementation_basis": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
+    "b_tier_status": "COMPLETE_CONDITIONAL_LOCAL_SCHWARTZ_COMPACT_LOCAL_SEED_CONSTRUCTION",
+    "a_tier_root_status": "OPEN",
+    "root_statement": "forall nu T u p F, Seed nu T u p F -> Family nu T u p F",
+    "local_lean_executions": 0,
+    "compiler": "leanprover/lean4:v4.33.0",
+    "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "allowed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "endpoints": [
+      {
+        "id": "R3-01",
+        "scope": "Exact whole-space Seed and Family contracts",
+        "status": "PREPARED_UNVERIFIED"
+      },
+      {
+        "id": "R3-02",
+        "scope": "Compact-carrier admission to local Schwartz regularity",
+        "status": "PREPARED_UNVERIFIED"
+      },
+      {
+        "id": "R3-03",
+        "scope": "Actual Fourier inversion, conjugacy, divergence, translation and Plancherel",
+        "status": "IN_PREPARATION"
+      },
+      {
+        "id": "R3-04",
+        "scope": "Intrinsic helical projector algebra",
+        "status": "IN_PREPARATION"
+      },
+      {
+        "id": "R3-05",
+        "scope": "Nonzero continuous Fourier region after any regular cutoff",
+        "status": "IN_PREPARATION"
+      },
+      {
+        "id": "R3-06",
+        "scope": "Separated active and untouched frequency regions and odd cutoff",
+        "status": "PENDING"
+      },
+      {
+        "id": "R3-07",
+        "scope": "Normalized compact interior time bump",
+        "status": "ACCEPTED_REUSED_EXACT_SCOPE"
+      },
+      {
+        "id": "R3-08",
+        "scope": "Actual phase family and joint Schwartz regularity",
+        "status": "PENDING_ANALYTIC_BRIDGE"
+      },
+      {
+        "id": "R3-09",
+        "scope": "Reality, divergence freedom and low-frequency preservation",
+        "status": "PENDING_PHYSICAL_BRIDGE"
+      },
+      {
+        "id": "R3-10",
+        "scope": "Complete helical powers, energy and dissipation preservation",
+        "status": "PENDING_PHYSICAL_BRIDGE"
+      },
+      {
+        "id": "R3-11",
+        "scope": "Exact same-pressure residual identity",
+        "status": "ACCEPTED_REUSED_EXACT_SCOPE"
+      },
+      {
+        "id": "R3-12",
+        "scope": "Global rapid-decay force admission and smooth zero extension",
+        "status": "PENDING"
+      },
+      {
+        "id": "R3-13",
+        "scope": "Common-time separation modulo every spatial translation",
+        "status": "PENDING"
+      },
+      {
+        "id": "R3-14",
+        "scope": "Physical Leray-projected force separation",
+        "status": "PENDING"
+      },
+      {
+        "id": "R3-15",
+        "scope": "All finite-order weighted O(parameter) estimates",
+        "status": "PENDING"
+      },
+      {
+        "id": "R3-16",
+        "scope": "Canonical same-witness FDSN_R3 root",
+        "status": "PENDING"
+      }
+    ],
+    "stage_1": {
+      "status": "PREPARED_AWAITING_MATCHING_EXTERNAL_VERIFICATION",
+      "sources": [
+        "MethbokeAddon.FDSNR3.Contracts",
+        "MethbokeAddon.FDSNR3.CompactSchwartz",
+        "MethbokeAddon.FDSNR3.Phase"
+      ],
+      "new_acceptance_claimed": false
+    },
+    "reused_evidence": {
+      "R3-07": {
+        "declaration": "MethbokeAddon.FDSN.exists_normalized_time_bump",
+        "source": "Material/MethbokeAddon/FDSN/TimeBump.lean",
+        "accepted_source": "87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef",
+        "run_id": 44811785125,
+        "audit": "audits/fdsn-87ab6b4c-accepted/FDSNBump.log",
+        "scope_note": "The exact theorem has no torus/domain premise."
+      },
+      "R3-11": {
+        "declarations": [
+          "MethbokeAddon.FDSN.native_residual_momentum_at",
+          "MethbokeAddon.FDSN.native_residual_momentum_on_open_slab",
+          "MethbokeAddon.FDSN.native_divergence_add_zero"
+        ],
+        "source": "Material/MethbokeAddon/FDSN/ResidualForce.lean",
+        "accepted_source": "87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef",
+        "run_id": 44811785125,
+        "audit": "audits/fdsn-87ab6b4c-accepted/FDSNResidualForce.log",
+        "scope_note": "Actual Euclidean differential operators; no periodicity hypothesis. Application to the new constructed family remains dependent on its regularity."
+      }
+    },
+    "boundaries": [
+      "No bare smooth finite-energy seed generalization.",
+      "Rapid spatial decay is preserved; compact spatial force support is not claimed.",
+      "Forces vary and every member retains the same singular tail.",
+      "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
+      "Definition/consumer checks do not construct a family."
+    ],
+    "next": "Externally verify stage 1 while preparing continuous Fourier and helical layers."
   }
 }
