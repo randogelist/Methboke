@@ -1,0 +1,44 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front
+MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma : ℝ) (R : ℕ → ℝ),
+  MethbokeAddon.EhrenfestObstruction.StoppedForDatum ν hν a eStar gamma R →
+    ∀ (S : ℝ) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S (↑a) u p →
+        LT.lt.{0} (HDiv.hDiv.{0, 0, 0} 1 gamma) S → False
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front
+'MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_forbids_initial_front
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth
+MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (eStar gamma : ℝ) (R : ℕ → ℝ),
+  MethbokeAddon.EhrenfestObstruction.StoppedForDatum ν hν a eStar gamma R →
+    ∀ (u : SingularClosure.Velocity) (p : SingularClosure.Pressure), SingularClosure.GlobalSmoothNSE ν (↑a) u p → False
+TYPE_END:MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth
+'MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.stopped_forbids_global_smooth
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL
+MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    MethbokeAddon.EhrenfestObstruction.StoppedCommutatorBound ν → ¬MethbokeAddon.EhrenfestObstruction.NSE_B ν
+TYPE_END:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL
+'MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION_DYNAMICAL
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION
+MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    MethbokeAddon.EhrenfestObstruction.StoppedCommutatorBound ν → ¬MethbokeAddon.EhrenfestObstruction.NSE_B ν
+TYPE_END:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION
+'MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION

@@ -1,0 +1,1363 @@
+{
+  "schema_version": 1,
+  "version": "0.7.0",
+  "date": "2026-11-20",
+  "frozen_name": "EHRENFEST-OBSTRUCTION",
+  "source_review_revision": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+  "scope": "HISTORICAL_DESIGN_WITH_EXPLICIT_ACTUAL_SOURCE_MAPPING",
+  "fixed_project_goal": "EHRENFEST_OBSTRUCTION",
+  "actual_new_lean_files": 30,
+  "new_formal_acceptances": 183,
+  "local_lean_executions": 0,
+  "external_compiler_runs": 11,
+  "module_count": 31,
+  "module_dependency_semantics": "proposed_own_imports preserves the historical design; actual source imports and dependency closure are in the accepted build receipt and COUNT_RECONCILIATION.json. Historical placeholders are not active source paths.",
+  "modules": [
+    {
+      "name": "Definitions",
+      "module": "MethbokeAddon.EhrenfestObstruction.Definitions",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean",
+      "step": "E01",
+      "lane": "dynamics",
+      "proposed_own_imports": [],
+      "source_anchor_ids": [
+        "MLB08",
+        "MLB12"
+      ],
+      "role": "SmoothDatum, canonicalFamily at n+1, e, Vrec, literal drift, PreHit, StoppedForDatum, StoppedCommutatorBound and actual NSE_B.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB08",
+        "MLB12"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "PhaseSpace",
+      "module": "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/PhaseSpace.lean",
+      "step": "E01",
+      "lane": "shared",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB01",
+        "ML08"
+      ],
+      "role": "Real invariant phase space; coordinates and physical synthesis; polynomial RHS, projection/cancellation and positive Stokes operator.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB01",
+        "ML08"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "ReciprocalDrift",
+      "module": "MethbokeAddon.EhrenfestObstruction.ReciprocalDrift",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean",
+      "step": "E06.scalar",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB08",
+        "MLB09",
+        "ML05",
+        "ML06"
+      ],
+      "role": "Exact canonical reciprocal derivative with coefficient sign and positive denominator; no operator imports.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB08",
+        "MLB09",
+        "ML05",
+        "ML06",
+        "AUX02",
+        "AUX04",
+        "AUX05",
+        "AUX06",
+        "AUX07"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/ReciprocalDrift.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "StoppedScalar",
+      "module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean",
+      "step": "E07",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "SlabDescent"
+      ],
+      "source_anchor_ids": [
+        "ML13"
+      ],
+      "role": "Continuous scalar pre-hit comparison and explicit hitting-time bound; no assumed finite hitting time.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML13"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": false,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedScalar.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "StoppedFamily",
+      "module": "MethbokeAddon.EhrenfestObstruction.StoppedFamily",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedFamily.lean",
+      "step": "E08",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions",
+        "ReciprocalDrift",
+        "StoppedScalar"
+      ],
+      "source_anchor_ids": [
+        "MLB10",
+        "MLB12"
+      ],
+      "role": "One fixed smooth datum; divergent thresholds and uniform initial bound imply explicit threshold hits before 1/gamma.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB10",
+        "MLB12"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": false,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/StoppedFamily.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "ClosedSlab",
+      "module": "MethbokeAddon.EhrenfestObstruction.ClosedSlab",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/ClosedSlab.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB15",
+        "MLB17"
+      ],
+      "role": "Actual physical PDE and compact Sobolev traces; adapt InitialClassicalFront on [0,S) to a closed [0,T] with T<S.",
+      "status": "HISTORICAL_LOGICAL_BLOCK_IMPLEMENTED_ACROSS_CONCRETE_SOURCES",
+      "activated": false,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB15",
+        "MLB17"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false,
+      "replacement_mapping": "COUNT_RECONCILIATION.json"
+    },
+    {
+      "name": "FourierTail",
+      "module": "MethbokeAddon.EhrenfestObstruction.FourierTail",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/FourierTail.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "ClosedSlab"
+      ],
+      "source_anchor_ids": [
+        "MLB11"
+      ],
+      "role": "Uniform H4 control gives cutoff H3 tail O(1/N); Sobolev contraction of Fourier/Leray projections.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB11"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/FourierTail.lean",
+      "actual_scope": "Cutoff-complement Sobolev control supporting the actual physical H1 tail; not the full historical H3/H4 or H2-stability milestone."
+    },
+    {
+      "name": "SobolevProduct",
+      "module": "MethbokeAddon.EhrenfestObstruction.SobolevProduct",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SobolevProduct.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB14"
+      ],
+      "role": "Prove mixed H2 x H3 -> H2 convection estimate, respecting the derivative loss; existing anchor is only supporting infrastructure.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB14"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "GalerkinError",
+      "module": "MethbokeAddon.EhrenfestObstruction.GalerkinError",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/GalerkinError.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "FourierTail",
+        "SobolevProduct"
+      ],
+      "source_anchor_ids": [
+        "MLB08",
+        "ML08"
+      ],
+      "role": "Actual projected residual and w equation; Y prime <= C(Y+Y^2)+C/N^2 with Y(0)=0.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB08",
+        "ML08"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "SpectralStability",
+      "module": "MethbokeAddon.EhrenfestObstruction.SpectralStability",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SpectralStability.lean",
+      "step": "E09",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "GalerkinError"
+      ],
+      "source_anchor_ids": [
+        "ML03",
+        "MLB11",
+        "MLB19",
+        "MLB20"
+      ],
+      "role": "First-exit Gronwall gives full-slab H2 convergence and all-cutoff H1/enstrophy bound; no uniform budget assumed. This full H2-convergence/all-cutoff statement is retained as a stronger E09 milestone, outside the shortest root route.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML03",
+        "MLB11",
+        "MLB19",
+        "MLB20"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "DynamicalRoot",
+      "module": "MethbokeAddon.EhrenfestObstruction.DynamicalRoot",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/DynamicalRoot.lean",
+      "step": "E10.dynamical",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "ReciprocalDrift",
+        "SlabDescent",
+        "EventualEnstrophyBound"
+      ],
+      "source_anchor_ids": [
+        "MLB15"
+      ],
+      "role": "Single-cutoff full-slab contradiction: choose R_n>C using eventual thresholds/bounds, derive PreHit on all interior times, contradict positive terminal reciprocal via mean value.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB15"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/DynamicalRoot.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "CompleteFlow",
+      "module": "MethbokeAddon.EhrenfestObstruction.CompleteFlow",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/CompleteFlow.lean",
+      "step": "E02",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "PhaseSpace"
+      ],
+      "source_anchor_ids": [
+        "ML01",
+        "ML02",
+        "ML03",
+        "MLB03",
+        "MLB05",
+        "MLB13"
+      ],
+      "role": "Complete jointly smooth real-time flow, backwards energy estimate, group law and Jacobian invertibility.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML01",
+        "ML02",
+        "ML03",
+        "MLB03",
+        "MLB05",
+        "MLB13"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "CanonicalOrbit",
+      "module": "MethbokeAddon.EhrenfestObstruction.CanonicalOrbit",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/CanonicalOrbit.lean",
+      "step": "E02",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "CompleteFlow",
+        "Definitions"
+      ],
+      "source_anchor_ids": [
+        "MLB05",
+        "MLB12"
+      ],
+      "role": "Use actual ODE uniqueness to identify the phase flow through P_(n+1)a with the canonical forward Galerkin solution.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB05",
+        "MLB12"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "TestCore",
+      "module": "MethbokeAddon.EhrenfestObstruction.TestCore",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/TestCore.lean",
+      "step": "E05.core",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "PhaseSpace"
+      ],
+      "source_anchor_ids": [
+        "OP11",
+        "ML10",
+        "ML12"
+      ],
+      "role": "Native compactly supported smooth complex tests; variable-vector transport H0 and smooth multiplication as core linear maps.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP11",
+        "ML10",
+        "ML12"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "CoreCommutator",
+      "module": "MethbokeAddon.EhrenfestObstruction.CoreCommutator",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/CoreCommutator.lean",
+      "step": "E05.core",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "TestCore"
+      ],
+      "source_anchor_ids": [
+        "ML05",
+        "ML10"
+      ],
+      "role": "Pointwise product rule: (i/hbar)[H0,M_g]=M_(Dg[b]); independent of self-adjointness and complete flow.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML05",
+        "ML10"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "HilbertCore",
+      "module": "MethbokeAddon.EhrenfestObstruction.HilbertCore",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/HilbertCore.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "TestCore"
+      ],
+      "source_anchor_ids": [
+        "OP01",
+        "OP11",
+        "OP12"
+      ],
+      "role": "Complex-linear injective dense test embedding into L2(volume); H0 as LinearPMap on its range submodule.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP01",
+        "OP11",
+        "OP12"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "TransportSymmetry",
+      "module": "MethbokeAddon.EhrenfestObstruction.TransportSymmetry",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/TransportSymmetry.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "HilbertCore"
+      ],
+      "source_anchor_ids": [
+        "OP03",
+        "OP07",
+        "OP08",
+        "OP09"
+      ],
+      "role": "Integration by parts, dense formal symmetry, closed adjoint extension and genuine closability of H0.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP03",
+        "OP07",
+        "OP08",
+        "OP09"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "HalfDensity",
+      "module": "MethbokeAddon.EhrenfestObstruction.HalfDensity",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/HalfDensity.lean",
+      "step": "E03",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "CompleteFlow",
+        "HilbertCore"
+      ],
+      "source_anchor_ids": [
+        "ML16",
+        "ML17",
+        "OP12"
+      ],
+      "role": "Construct Jacobian half-density transport, surjective L2 isometries, group laws, strong continuity and core invariance.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML16",
+        "ML17",
+        "OP12"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "UnitaryGenerator",
+      "module": "MethbokeAddon.EhrenfestObstruction.UnitaryGenerator",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/UnitaryGenerator.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "HalfDensity",
+        "TransportSymmetry"
+      ],
+      "source_anchor_ids": [
+        "OP01",
+        "OP02"
+      ],
+      "role": "Actual strong derivative domain and generator L; graph closedness, skew symmetry and agreement with H0.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP01",
+        "OP02"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "UnitaryResolvent",
+      "module": "MethbokeAddon.EhrenfestObstruction.UnitaryResolvent",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/UnitaryResolvent.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "UnitaryGenerator"
+      ],
+      "source_anchor_ids": [
+        "OP07",
+        "OP08",
+        "OP10"
+      ],
+      "role": "Bochner R+/- resolvents, surjectivity of I-/+L, adjoint-domain equality and self-adjoint H=i*hbar*L.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP07",
+        "OP08",
+        "OP10"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "TransportCore",
+      "module": "MethbokeAddon.EhrenfestObstruction.TransportCore",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/TransportCore.lean",
+      "step": "E04",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "UnitaryResolvent"
+      ],
+      "source_anchor_ids": [
+        "OP04",
+        "OP05",
+        "OP06"
+      ],
+      "role": "Time-convolution graph density; H.HasCore D0 and H0.closure=H, with closability proved first.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "OP04",
+        "OP05",
+        "OP06"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "Heisenberg",
+      "module": "MethbokeAddon.EhrenfestObstruction.Heisenberg",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Heisenberg.lean",
+      "step": "E05",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "TransportCore",
+        "CoreCommutator"
+      ],
+      "source_anchor_ids": [
+        "ML17",
+        "OP01"
+      ],
+      "role": "Conjugation including maximal multiplication domains and Ehrenfest identity on invariant common core.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML17",
+        "OP01"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "Localization",
+      "module": "MethbokeAddon.EhrenfestObstruction.Localization",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Localization.lean",
+      "step": "E05",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "Heisenberg"
+      ],
+      "source_anchor_ids": [
+        "ML18",
+        "ML19"
+      ],
+      "role": "L2-normalized smooth bump packets; expectation localization at fixed cutoff, no interchange of limits.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "ML18",
+        "ML19"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "Translation",
+      "module": "MethbokeAddon.EhrenfestObstruction.Translation",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Translation.lean",
+      "step": "E05",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "Localization",
+        "CanonicalOrbit"
+      ],
+      "source_anchor_ids": [
+        "MLB05",
+        "MLB12"
+      ],
+      "role": "NSE_HEISENBERG_TRANSLATION: construct actual finite-phase operators and their exact common-core/classical identities.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB05",
+        "MLB12"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "ReciprocalCommutator",
+      "module": "MethbokeAddon.EhrenfestObstruction.ReciprocalCommutator",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/ReciprocalCommutator.lean",
+      "step": "E06",
+      "lane": "operators",
+      "proposed_own_imports": [
+        "Translation",
+        "ReciprocalDrift"
+      ],
+      "source_anchor_ids": [
+        "MLB08",
+        "MLB09",
+        "OP04"
+      ],
+      "role": "Bounded reciprocal multiplier and bounded drift at fixed N; domain-preserving extension and canonical localized rate equality.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [
+        "MLB08",
+        "MLB09",
+        "OP04"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    },
+    {
+      "name": "Root",
+      "module": "MethbokeAddon.EhrenfestObstruction.Root",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/Root.lean",
+      "step": "E10",
+      "lane": "assembly",
+      "proposed_own_imports": [
+        "DynamicalRoot"
+      ],
+      "source_anchor_ids": [
+        "MLB15"
+      ],
+      "role": "Frozen EHRENFEST_OBSTRUCTION with unchanged explicit stopped premise; imports only the minimal dynamical proof, not All or operator infrastructure.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "MLB15"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/Root.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "SlabDescent",
+      "module": "MethbokeAddon.EhrenfestObstruction.SlabDescent",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SlabDescent.lean",
+      "step": "E07.slab",
+      "lane": "dynamics",
+      "proposed_own_imports": [],
+      "source_anchor_ids": [
+        "ML21"
+      ],
+      "role": "Real mean-value endpoint comparison with an explicit rate and interior derivatives; no NSE, hitting times or operator imports.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "ML21",
+        "AUX05",
+        "AUX07"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/SlabDescent.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "SmoothReference",
+      "module": "MethbokeAddon.EhrenfestObstruction.SmoothReference",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/SmoothReference.lean",
+      "step": "E09.bound",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "ClosedSlab"
+      ],
+      "source_anchor_ids": [
+        "FAST02",
+        "FAST03",
+        "FAST05"
+      ],
+      "role": "Uniform projected C1 and H1 Fourier-tail estimates from the actual smooth closed slab; finite coefficient l1 estimate and multiplier norm bound.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "FAST02",
+        "FAST03",
+        "FAST05",
+        "AUX01"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/SmoothReference.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "H1Error",
+      "module": "MethbokeAddon.EhrenfestObstruction.H1Error",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/H1Error.lean",
+      "step": "E09.bound",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "SmoothReference"
+      ],
+      "source_anchor_ids": [
+        "FAST01",
+        "FAST04"
+      ],
+      "role": "Differentiate finite error coefficient enstrophy; use arbitrary-field nonlinear absorption, elementary mixed L2 estimates and Poincare.",
+      "status": "HISTORICAL_LOGICAL_BLOCK_IMPLEMENTED_ACROSS_CONCRETE_SOURCES",
+      "activated": false,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "FAST01",
+        "FAST04",
+        "AUX01",
+        "AUX03"
+      ],
+      "historical_design_record": true,
+      "required_for_concrete_root": false,
+      "replacement_mapping": "COUNT_RECONCILIATION.json"
+    },
+    {
+      "name": "EventualEnstrophyBound",
+      "module": "MethbokeAddon.EhrenfestObstruction.EventualEnstrophyBound",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/EventualEnstrophyBound.lean",
+      "step": "E09.bound",
+      "lane": "dynamics",
+      "proposed_own_imports": [
+        "H1Error"
+      ],
+      "source_anchor_ids": [
+        "ML03"
+      ],
+      "role": "Bootstrap error D<=1 using D prime <= C(D+D^3)+C/N^2; expose only an eventual uniform Galerkin enstrophy bound.",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "required_for_fast_root": true,
+      "available_cutout_ids": [
+        "ML03"
+      ],
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+      "historical_design_record": true,
+      "required_for_concrete_root": true,
+      "actual_path": "Material/MethbokeAddon/EhrenfestObstruction/EventualEnstrophyBound.lean",
+      "actual_scope": "Current implemented source scope; the historical role is not a claim that its enclosing full milestone is complete."
+    },
+    {
+      "name": "All",
+      "module": "MethbokeAddon.EhrenfestObstruction.All",
+      "planned_path": "Material/MethbokeAddon/EhrenfestObstruction/All.lean",
+      "step": "FULL_WORKSTREAM",
+      "lane": "assembly",
+      "proposed_own_imports": [
+        "Root",
+        "ReciprocalCommutator",
+        "StoppedFamily",
+        "SpectralStability"
+      ],
+      "source_anchor_ids": [],
+      "role": "Optional full-workstream import bundle; scalar Root never imports this file. All ten original milestone scopes remain separately auditable.",
+      "status": "PLANNED_NOT_IMPLEMENTED_NOT_COMPILED",
+      "activated": false,
+      "required_for_fast_root": false,
+      "available_cutout_ids": [],
+      "historical_design_record": true,
+      "required_for_concrete_root": false
+    }
+  ],
+  "endpoint_packages": [
+    {
+      "step": "E01",
+      "id": "EhrenfestPhaseSpace",
+      "planned_path": "Material/EhrenfestPhaseSpace",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.PhaseSpace",
+      "activated": false,
+      "historical_package_proposal": true
+    },
+    {
+      "step": "E02",
+      "id": "EhrenfestCompleteFlow",
+      "planned_path": "Material/EhrenfestCompleteFlow",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.CanonicalOrbit",
+      "activated": false,
+      "historical_package_proposal": true
+    },
+    {
+      "step": "E03",
+      "id": "EhrenfestHalfDensity",
+      "planned_path": "Material/EhrenfestHalfDensity",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.HalfDensity",
+      "activated": false,
+      "historical_package_proposal": true
+    },
+    {
+      "step": "E04",
+      "id": "EhrenfestGenerator",
+      "planned_path": "Material/EhrenfestGenerator",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.TransportCore",
+      "activated": false,
+      "historical_package_proposal": true
+    },
+    {
+      "step": "E05",
+      "id": "EhrenfestHeisenberg",
+      "planned_path": "Material/EhrenfestHeisenberg",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.Translation",
+      "activated": false,
+      "historical_package_proposal": true
+    },
+    {
+      "step": "E06",
+      "id": "EhrenfestInverseEnstrophy",
+      "planned_path": "Material/EhrenfestInverseEnstrophy",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.ReciprocalCommutator",
+      "activated": false,
+      "historical_package_proposal": true
+    },
+    {
+      "step": "E07",
+      "id": "EhrenfestStoppedScalar",
+      "planned_path": "Material/EhrenfestStoppedScalar",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.StoppedScalar",
+      "activated": false,
+      "historical_package_proposal": true,
+      "implemented_package": "EhrenfestScalar",
+      "formal_milestone_status": "ACCEPTED"
+    },
+    {
+      "step": "E08",
+      "id": "EhrenfestStoppedFamily",
+      "planned_path": "Material/EhrenfestStoppedFamily",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.StoppedFamily",
+      "activated": false,
+      "historical_package_proposal": true,
+      "implemented_package": "EhrenfestEscape",
+      "formal_milestone_status": "ACCEPTED"
+    },
+    {
+      "step": "E09",
+      "id": "EhrenfestSpectralStability",
+      "planned_path": "Material/EhrenfestSpectralStability",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.SpectralStability",
+      "activated": false,
+      "historical_package_proposal": true,
+      "implemented_helper_package": "EhrenfestEventualEnstrophyBound",
+      "formal_milestone_status": "FULL_H2_STABILITY_OPEN",
+      "implemented_helper_status": "ACCEPTED_E09_BOUND",
+      "implemented_helper_evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "step": "E10",
+      "id": "EhrenfestObstruction",
+      "planned_path": "Material/EhrenfestObstruction",
+      "root_module": "MethbokeAddon.EhrenfestObstruction.Root",
+      "activated": false,
+      "historical_package_proposal": true,
+      "implemented_package": "EhrenfestObstructionRoot",
+      "formal_milestone_status": "ACCEPTED_CONDITIONAL_ROOT",
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    }
+  ],
+  "early_helper_package": {
+    "id": "EhrenfestDynamicalObstruction",
+    "status": "NOT_NEEDED_IN_PRIMARY_SCHEDULE",
+    "activated": false,
+    "scope": "Historical optional package proposal. The implemented EhrenfestObstructionRoot package imports only the scalar root; its exact four declarations are accepted."
+  },
+  "acceptance_waves": [
+    {
+      "id": "W1",
+      "scope": "Accepted first-layer scalar/canonical/error-calculus helpers; historical receipt preserved."
+    },
+    {
+      "id": "W2",
+      "scope": "Accepted second-layer reference, escape, forcing, bootstrap and pointwise-algebra helpers; historical receipt preserved."
+    },
+    {
+      "id": "W3",
+      "scope": "Accepted actual-reference evolution, physical error reconstruction, E09.bound and exact conditional E10 at22431f03/run44641040255. No new mathematical hypothesis."
+    },
+    {
+      "id": "W4",
+      "scope": "Separate optional full real phase adapter, complete flow, unitary group, generator/core and Heisenberg correspondence; not a root premise."
+    },
+    {
+      "id": "W5",
+      "scope": "Separate full E09 H2 convergence and optional full-workstream bundle. E07 and E08 are already accepted."
+    }
+  ],
+  "fast_root_module_count": 9,
+  "fast_root_modules": [
+    "ClosedSlab",
+    "Definitions",
+    "DynamicalRoot",
+    "EventualEnstrophyBound",
+    "H1Error",
+    "ReciprocalDrift",
+    "Root",
+    "SlabDescent",
+    "SmoothReference"
+  ],
+  "fastest_route_status": "SHORTEST_SOURCE_GROUNDED_ROUTE_IDENTIFIED; NOT_MEASURED_RUNTIME_OPTIMUM",
+  "fastest_route_document": "FAST_ROUTE.md",
+  "fast_interfaces": "FAST_INTERFACES.lean.txt",
+  "full_bundle": {
+    "module": "MethbokeAddon.EhrenfestObstruction.All",
+    "optional": true,
+    "activated": false,
+    "scope": "Import convenience after completing all ten original milestones; no semantic change to scalar theorem."
+  },
+  "identity_cutout_catalog": "../LEAN_CUTOUTS/IDENTITIES.json",
+  "identity_cutout_status": "SOURCE_EXACT_REFERENCE_COLLECTION_NOT_COMPILED",
+  "activation_register": "IMPLEMENTATION_STATUS.json",
+  "current_external_run": {
+    "commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44641040255",
+    "status": "ACCEPTED",
+    "conclusion": "PASS",
+    "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+    "primary_job_id": 135971854575,
+    "acceptance_job_id": 135978130987,
+    "publication_passed": true,
+    "compiled_modules": 411,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 19,
+    "fresh_package_audits": 71,
+    "named_type_axiom_audits": 448,
+    "qfb_cutout_audit_passed": true,
+    "external_controls_passed": 183,
+    "new_third_layer_declarations": 75,
+    "cumulative_ehrenfest_declarations": 183,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0,
+    "full_milestones_accepted": [
+      "E07",
+      "E08",
+      "E10"
+    ],
+    "scoped_helper_accepted": "E09.bound",
+    "stopped_witness_proved": false,
+    "full_operator_translation_proved": false,
+    "full_E09_H2_convergence_proved": false
+  },
+  "planned_count_semantics": "31 historical proposed modules and nine logical fast-root blocks; 30 active owned sources and a 25-source actual root dependency closure. Historical placeholder modules need not exist as actual files.",
+  "additional_active_helpers": [
+    {
+      "name": "CanonicalBarrier",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "CoefficientError",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "FourierL1",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "SmoothSobolevNorm",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ProjectedC1",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ReciprocalThreshold",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "SlabSupremum",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "CoreAlgebra",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "PhysicalForcing",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "SmallForcingBootstrap",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "CrossTransport",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ReferenceCoefficientEvolution",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "PhysicalReferenceTail",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ProjectedReferenceEvolution",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ReferenceC1Norm",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "PressureFourier",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ErrorState",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ErrorSlabBound",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "ErrorEquation",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    },
+    {
+      "name": "CanonicalErrorInequality",
+      "status": "ACCEPTED_EXTERNAL_CACHED_SCOPED_SOURCE",
+      "activated": true,
+      "evidence": "../../../../audits/material-22431f03-accepted/summary.json"
+    }
+  ],
+  "actual_new_lean_files_semantics": "30 owned sources plus32 Endpoint/Audit wrappers;62 active Ehrenfest Lean files. Inactive E01 ZIP files are excluded.",
+  "accepted_full_milestones": [
+    "E07",
+    "E08",
+    "E10"
+  ],
+  "next_external_run": {
+    "status": "NOT_REQUESTED_MATCHING_RUN_AVAILABLE",
+    "commit": null,
+    "run_id": null
+  },
+  "actual_active_owned_modules": [
+    "SlabDescent",
+    "StoppedScalar",
+    "Definitions",
+    "ReciprocalDrift",
+    "CanonicalBarrier",
+    "CoefficientError",
+    "FourierL1",
+    "SmoothSobolevNorm",
+    "ProjectedC1",
+    "SmoothReference",
+    "FourierTail",
+    "ReciprocalThreshold",
+    "StoppedFamily",
+    "SlabSupremum",
+    "CoreAlgebra",
+    "PhysicalForcing",
+    "SmallForcingBootstrap",
+    "CrossTransport",
+    "ReferenceCoefficientEvolution",
+    "PhysicalReferenceTail",
+    "ProjectedReferenceEvolution",
+    "ReferenceC1Norm",
+    "PressureFourier",
+    "ErrorState",
+    "ErrorSlabBound",
+    "ErrorEquation",
+    "CanonicalErrorInequality",
+    "EventualEnstrophyBound",
+    "DynamicalRoot",
+    "Root"
+  ],
+  "actual_active_endpoint_packages": {
+    "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestCoreAlgebra": 3,
+    "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEscape": 19,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPhysicalForcing": 9,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReference": 34,
+    "EhrenfestReferenceEvolution": 33,
+    "EhrenfestScalar": 4
+  },
+  "accepted_endpoint_packages": {
+    "EhrenfestBootstrap": 7,
+    "EhrenfestCanonical": 11,
+    "EhrenfestCanonicalErrorInequality": 1,
+    "EhrenfestCoreAlgebra": 3,
+    "EhrenfestCrossTransport": 13,
+    "EhrenfestErrorCalculus": 8,
+    "EhrenfestErrorEquation": 6,
+    "EhrenfestErrorState": 17,
+    "EhrenfestEscape": 19,
+    "EhrenfestEventualEnstrophyBound": 4,
+    "EhrenfestObstructionRoot": 4,
+    "EhrenfestPhysicalForcing": 9,
+    "EhrenfestPressureFourier": 10,
+    "EhrenfestReference": 34,
+    "EhrenfestReferenceEvolution": 33,
+    "EhrenfestScalar": 4
+  },
+  "pending_endpoint_packages": {},
+  "concrete_count_reconciliation": "COUNT_RECONCILIATION.json",
+  "last_accepted_external_run": {
+    "commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "tested_commit": "22431f032c868b8de1526767d7d32a2639f6a9ee",
+    "run_id": 44641040255,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44641040255",
+    "status": "ACCEPTED",
+    "conclusion": "PASS",
+    "evidence": "../../../../audits/material-22431f03-accepted/summary.json",
+    "primary_job_id": 135971854575,
+    "acceptance_job_id": 135978130987,
+    "publication_passed": true,
+    "compiled_modules": 411,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 19,
+    "fresh_package_audits": 71,
+    "named_type_axiom_audits": 448,
+    "qfb_cutout_audit_passed": true,
+    "external_controls_passed": 183,
+    "new_third_layer_declarations": 75,
+    "cumulative_ehrenfest_declarations": 183,
+    "standard_axioms_only": true,
+    "local_lean_executions": 0,
+    "full_milestones_accepted": [
+      "E07",
+      "E08",
+      "E10"
+    ],
+    "scoped_helper_accepted": "E09.bound",
+    "stopped_witness_proved": false,
+    "full_operator_translation_proved": false,
+    "full_E09_H2_convergence_proved": false
+  },
+  "project_goal": "EHRENFEST_OBSTRUCTION",
+  "retained_foundation": "Weak_Fourierman_B",
+  "internal_chain": [
+    {
+      "id": "INT01",
+      "scope": "Literal canonical datum and cutoff semantics",
+      "modules": [
+        "Definitions"
+      ]
+    },
+    {
+      "id": "INT02",
+      "scope": "Reciprocal bounds, continuity and signed derivative",
+      "modules": [
+        "ReciprocalDrift"
+      ]
+    },
+    {
+      "id": "INT03",
+      "scope": "Strict smooth comparison slab from hypothetical global pair",
+      "modules": [
+        "DynamicalRoot"
+      ]
+    },
+    {
+      "id": "INT04",
+      "scope": "Cutoff-independent reference bounds and physical tail",
+      "modules": [
+        "FourierL1",
+        "SmoothSobolevNorm",
+        "ProjectedC1",
+        "SmoothReference",
+        "FourierTail",
+        "PhysicalReferenceTail",
+        "ReferenceC1Norm"
+      ]
+    },
+    {
+      "id": "INT05",
+      "scope": "Actual reference evolution and forced error equation",
+      "modules": [
+        "ReferenceCoefficientEvolution",
+        "ProjectedReferenceEvolution",
+        "PressureFourier",
+        "ErrorState",
+        "ErrorEquation"
+      ]
+    },
+    {
+      "id": "INT06",
+      "scope": "Physical residual and signed error estimates",
+      "modules": [
+        "CoefficientError",
+        "PhysicalForcing",
+        "CrossTransport"
+      ]
+    },
+    {
+      "id": "INT07",
+      "scope": "Cutoff-uniform cubic differential inequality",
+      "modules": [
+        "CanonicalErrorInequality"
+      ]
+    },
+    {
+      "id": "INT08",
+      "scope": "Closed-slab continuity and interior small-forcing comparison",
+      "modules": [
+        "SmallForcingBootstrap",
+        "EventualEnstrophyBound"
+      ]
+    },
+    {
+      "id": "INT09",
+      "scope": "Actual smooth-front eventual enstrophy bound",
+      "modules": [
+        "ErrorSlabBound",
+        "EventualEnstrophyBound"
+      ]
+    },
+    {
+      "id": "INT10",
+      "scope": "One eventual cutoff makes PreHit hold",
+      "modules": [
+        "CanonicalBarrier"
+      ]
+    },
+    {
+      "id": "INT11",
+      "scope": "Mean-value terminal contradiction",
+      "modules": [
+        "SlabDescent",
+        "CanonicalBarrier"
+      ]
+    },
+    {
+      "id": "INT12",
+      "scope": "Discharge global smoothness and export conditional root",
+      "modules": [
+        "DynamicalRoot",
+        "Root"
+      ]
+    }
+  ],
+  "historical_failed_external_result": {
+    "commit": "1c69828a9ce7929a10ba1b3d0036f6869305cf7d",
+    "run_id": 44637424868,
+    "conclusion": "FAIL_MODULE_COMPILATION",
+    "compiled_modules_passed": 395,
+    "reused_modules": 392,
+    "fresh_compiler_passes": 3,
+    "failed_modules": [
+      "ErrorState",
+      "PressureFourier"
+    ],
+    "failed_module_count": 2,
+    "blocked_module_count": 14,
+    "audits_reached": false,
+    "newly_accepted_declarations": 0,
+    "evidence": "../../../../audits/material-1c69828a-failed/summary.json"
+  },
+  "project_goal_status": "EXACT_CONDITIONAL_ROOT_ACCEPTED",
+  "conditional_root_proved": true
+}

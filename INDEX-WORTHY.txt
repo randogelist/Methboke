@@ -2,12 +2,13 @@ METHBOKE_SUBSTANTIATED_RESULT_REGISTER
 DOCUMENT_VERSION = 4.0
 DATE = 2026-11-20
 WORKING_BRANCH = main
+VALIDATED_LAYOUT_BRANCH = codex/reorganize-nse-domains
 CURRENT_MAIN_GOAL = EHRENFEST_OBSTRUCTION; explicit stopped-bound premise retained
 CURRENT_ROOT_STATUS = A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
-LATEST_ACCEPTED_EHRENFEST_COMMIT = 3335bbc52ec58fc080577143863b9ad5e4cc3edb
-LATEST_ACCEPTED_EHRENFEST_RUN = 44645541035
+LATEST_ACCEPTED_EHRENFEST_COMMIT = b730e52ca1e4a661a83a09110378db542455097b
+LATEST_ACCEPTED_EHRENFEST_RUN = 44651224180
 LATEST_ACCEPTED_EHRENFEST_SCOPE = E07/E08/E10 andE09.bound;183 Ehrenfest declarations;411 modules/71 fresh packages/448 named audits plusQFB
-CURRENT_ROOT_EVIDENCE = audits/material-3335bbc5-comments/summary.json
+CURRENT_ROOT_EVIDENCE = audits/material-b730e52c-branch/summary.json
 HISTORICAL_REGISTER = audits/goal-transition-22431f/INDEX-WORTHY.txt
 
 DOCUMENTATION_UPDATE: the Definitions.lean docstring at
@@ -16,6 +17,19 @@ boundaries. Comments only; no additional theorem or physical prediction.
 First proof acceptance remains I30 at22431f; the comment-only source refresh
 passed at3335bbc/run44645541035 with the complete unchanged audit scope.
 No additional theorem is promoted; evidence: audits/material-3335bbc5-comments/summary.json.
+
+DIRECTORY_LAYOUT: T3_NSE groups periodic regularity classes (WFB,QFB) and
+the stopped Heisenberg obstruction. R3_NSE is reserved for whole-space work.
+Research-file locations: REORGANIZATION_MAP.json. This organizational change
+adds no theorem and preserves all accepted source, type and axiom scopes.
+
+BRANCH_CI_VALIDATION: accepted atb730e52ca1e4a661a83a09110378db542455097b;run44651224180.
+All411 modules (411 reused,0 fresh),71 fresh package audits,448
+named type/axiom reports plusQFB and183 controls passed. Publication and
+final acceptance passed; standard axioms only. Full scope and pins unchanged.
+Evidence: audits/material-b730e52c-branch/summary.json.
+This is branch revalidation of existing results, with no additional theorem.
+Later documentation-only commits retain this exact tested source identity.
 
 CURRENT CONDITIONAL OBSTRUCTION PROGRAM
 
@@ -26,7 +40,7 @@ SCOPE: one fixed smooth periodic solenoidal mean-zero datum; actual canonical
 Galerkin family with physical cutoff n+1; positive eStar/gamma; positive
 thresholds tending to infinity; eventual-cutoff drift under the all-prefix
 PreHit guard through the reciprocal-clock horizon1/gamma.
-SOURCE: EHRENFEST_OBSTRUCTION_B_TIER.txt and the Ehrenfest package.
+SOURCE: T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_B_TIER.txt and the Ehrenfest package.
 BOUNDARY: stopped-bound existence remains unproved; no singularity witness or
 global custom axiom. Conditional-root evidence is tracked separately below.
 
@@ -35,7 +49,7 @@ STATUS: SOURCE_GROUNDED_CONDITIONAL_MATHEMATICAL_CHAIN.
 STATEMENT: an actual smooth front yields eventual uniform Galerkin enstrophy
 on a closed interior slab; one cutoff above that bound makes the stopped drift
 hold throughout the slab; mean-value comparison contradicts positive reciprocal.
-SOURCE: PREPRINT_FORMALISATION/EhrenfestObstruction/FAST_ROUTE.md;
+SOURCE: T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/PREPRINT_FORMALISATION/FAST_ROUTE.md;
 Material/MethbokeAddon/EhrenfestObstruction/CanonicalBarrier.lean,
 EventualEnstrophyBound.lean, DynamicalRoot.lean and Root.lean.
 BOUNDARY: full operator realization, full H2 convergence and E07/E08 hitting/
@@ -146,19 +160,19 @@ STATUS: B_TIER_EXPLICIT_SOLUTION; no new Lean result.
 SCOPE: for mean-zero solenoidal finite Fourier a with curl(a)=mu*a,
 U(t)=exp(-nu*mu^2*t)*a and normalized p=-|U|^2/2+mean(|U|^2/2) solve NSE
 jointly analytically at all real times, with arbitrary amplitude.
-SOURCE: CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt, Section7.
+SOURCE: T3_NSE/B-Regularity-class/WFB/CLAY_ADMISSION_CANDIDATE_01_B_TIER.txt, Section7.
 
 I21 WFB_SMOOTH_CLASS_CHARACTERIZATION
 STATUS: B_TIER_ANALYTIC_COROLLARY; not an additional audited declaration.
 STATEMENT: S_nu subseteq W_nu=R_nu^smooth for smooth periodic data.
-SOURCE: WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER.txt v1.1 and paper Corollary9.1.
+SOURCE: T3_NSE/B-Regularity-class/WFB/WFB_TEN_STEP_PUBLICATION_DERIVATION_B_TIER.txt v1.1 and paper Corollary9.1.
 BOUNDARY: no universal budget finiteness or strict small-class inclusion.
 
 I25 EHRENFEST_SOURCE_EXACT_IDENTITY_CUTOUTS
 STATUS: SOURCE_COLLECTION_AND_STATIC_FIDELITY; no new formal acceptance.
 CONTENT:53 indexed anchors plus7 companion declarations/proofs,36 full pinned
 source modules, original imports, context, ranges and hashes.
-SOURCE: LEAN_CUTOUTS/EhrenfestObstruction/README.md and IDENTITIES.json.
+SOURCE: T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/LEAN_CUTOUTS/README.md and IDENTITIES.json.
 BOUNDARY: copies are contextual references; each original evidence scope is
 preserved. Copying a declaration does not newly compile or accept it.
 

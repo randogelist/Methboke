@@ -5,7 +5,7 @@
 Actual continuous periodic velocity agreement and literal NSE equations imply equality of normalized physical pressures on their open overlap.
 
 This newly developed owned source matches the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/PressureUniqueness.lean`. Its derivation basis is
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/PressureUniqueness.lean`. Its derivation basis is
 `Material/_vendor/SingularClosure/PeriodicFourierInjective.lean` at `67f766330918577e714e326be82eebfe29f5f2f7`.
 That basis is not a claim that this source existed at that path or revision.
 The current owned-source hash is recorded separately.

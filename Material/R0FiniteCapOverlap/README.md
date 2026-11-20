@@ -5,7 +5,7 @@
 Identification of a finite front and classical tail with the same weak path yields pointwise velocity and normalized pressure equality on the open overlap.
 
 This newly developed owned source matches the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteCapOverlap.lean`. Its derivation basis is
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/FiniteCapOverlap.lean`. Its derivation basis is
 `Material/_vendor/QuasiFeffermanB/RootContract.lean` at `67f766330918577e714e326be82eebfe29f5f2f7`.
 That basis is not a claim that this source existed at that path or revision.
 The current owned-source hash is recorded separately.

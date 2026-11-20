@@ -6,9 +6,21 @@ single current project context document. Use [SOURCE_STATUS.json](SOURCE_STATUS.
 and the matching source-specific receipts to distinguish preparation from
 accepted endpoints. Archived register copies are historical evidence.
 
+## Directory layout
+
+Research documents live under `T3_NSE/B-Regularity-class/WFB`,
+`T3_NSE/B-Regularity-class/QFB`, and
+`T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound`.
+`R3_NSE` is reserved for whole-space work. These are ordinary folders,
+not Lean namespaces. `Material/`, the standalone `LEAN_CUTOUTS/Cutouts.lean`,
+CI configuration and historical audits retain their verified build paths.
+Use `REORGANIZATION_MAP.json` to resolve historical research-document paths.
+
 ## Current goal
 
-Work from `main`. The user explicitly selected the conditional
+Use `main` as the project integration branch. The T3_NSE/R3_NSE layout was
+validated on `codex/reorganize-nse-domains` at `b730e52c`, run `44651224180`;
+the user has authorized integrating that branch. Preserve its retained evidence. The user explicitly selected the conditional
 `MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION` root as the project goal:
 `ν > 0 → StoppedCommutatorBound ν → ¬ NSE_B ν`.
 Preserve its exact actual-NSE semantics and explicit stopped-bound premise.

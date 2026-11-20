@@ -21,7 +21,7 @@ The stopped-bound witness, full Hilbert-space operator realization and full
 E09 H2 convergence remain open. The stopped condition is an explicit theorem
 argument, not a global custom axiom.
 
-[Weak_Fourierman_B](../Weak_Fourierman_B_A_TIER.txt) remains accepted at
+[Weak_Fourierman_B](../T3_NSE/B-Regularity-class/WFB/Weak_Fourierman_B_A_TIER.txt) remains accepted at
 `fdb515d8` / run `44566880192`, with its finite Fourier-budget premise.
 The R0 finite-cap results remain accepted at `93ca8a5` / run `44549257770`,
 with actual cap admission retained. Universal budget finiteness and universal

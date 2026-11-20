@@ -5,7 +5,7 @@
 Literal two-sided analytic NSE cap uses the ordinary time derivative on the entire negative/positive interval. A proved derivative adapter gives the forward physical cap, and strict cutoff admission yields an actual global smooth pair preserving the forward cap.
 
 The active proof source is byte-identical to the current candidate at
-`PREPRINT_FORMALISATION/WeakFouriermanB/next/AnalyticTwoSidedCap.lean`. It is newly developed source, with a derivation basis at
+`T3_NSE/B-Regularity-class/WFB/PREPRINT_FORMALISATION/next/AnalyticTwoSidedCap.lean`. It is newly developed source, with a derivation basis at
 `Material/_vendor/QuasiFeffermanB/RootContract.lean` in `67f766330918577e714e326be82eebfe29f5f2f7`. The basis is not a historical source-location claim;
 `../owned-sources.json` separately records the current source hash.
 

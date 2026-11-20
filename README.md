@@ -1,5 +1,21 @@
 # Methboke
 
+The repository is organized by spatial domain. `T3_NSE` and `R3_NSE`
+are ordinary folders; Lean namespaces and theorem statements are unchanged.
+
+| Folder | Contents |
+|---|---|
+| [T3_NSE](T3_NSE/README.md) | Periodic three-dimensional NSE |
+| [B-Regularity-class/WFB](T3_NSE/B-Regularity-class/WFB/README.md) | WFB derivations, formalisation plans and paper |
+| [B-Regularity-class/QFB](T3_NSE/B-Regularity-class/QFB/README.md) | QFB theorem, sources and evidence |
+| [B-Heisenberg-Obstruction/StoppedCommutatorBound](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/README.md) | Conditional obstruction, plans and source cutouts |
+| [R3_NSE](R3_NSE/README.md) | Reserved for whole-space NSE work |
+
+`Material/` is the shared verified Lean build workspace. `.github/`,
+`audits/`, and the standalone audited `LEAN_CUTOUTS/Cutouts.lean` keep their
+existing paths. [The relocation map](REORGANIZATION_MAP.json) records every
+moved research file; source snapshots and historical receipts are retained.
+
 The project goal is the exact conditional **EHRENFEST_OBSTRUCTION** theorem
 for unforced periodic three-dimensional Navier--Stokes:
 
@@ -11,9 +27,20 @@ for unforced periodic three-dimensional Navier--Stokes:
 divergence-free, mean-zero data on the unit three-torus. The stopped bound is
 one explicit hypothesis on the canonical Galerkin family of a fixed smooth
 datum. **Its witness remains unproved.** No global custom axiom is added.
-The working branch is `main`.
+The project integration branch is `main`. The layout was validated on
+`codex/reorganize-nse-domains`; the exact branch-run evidence is retained below.
 
 ## Current evidence
+
+The dedicated branch [run 44651224180](https://github.com/randogelist/Methboke/actions/runs/44651224180) passed at `b730e52ca1e4a661a83a09110378db542455097b`.
+Its [reviewed evidence](audits/material-b730e52c-branch/summary.json) covers all **411 modules**
+(411 reused, 0 fresh), **71 fresh package audits**, **448 named
+type/axiom reports plus QFB**, and **183 external controls**. Publication
+and final acceptance passed with standard axioms only. The existing workflow
+now runs on pushes to this exact branch; verification jobs and pins are unchanged.
+The [run plan](audits/layout-t3-r3/CI_RUN_PLAN.json) records the tested checkout. Subsequent evidence-only
+documentation commits carry this receipt and are not additional compiler runs.
+This branch verification adds no theorem or stopped-bound witness.
 
 The comment-only definition update at `3335bbc5` passed [fresh external
 verification](https://github.com/randogelist/Methboke/actions/runs/44645541035) with all 411 modules, 71 fresh package audits and
@@ -34,7 +61,7 @@ The [matching evidence](audits/material-22431f03-accepted/summary.json),
 [independent review](audits/material-22431f03-accepted/independent-review.json)
 and [complete archive](audits/material-22431f03-accepted/evidence.zip) retain
 the exact source, types, audit origins and hashes. Independent review passed
-1,488 consistency checks. The [A-tier register](EHRENFEST_OBSTRUCTION_A_TIER.txt)
+1,488 consistency checks. The [A-tier register](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_A_TIER.txt)
 states the accepted theorem and its explicit premise.
 
 The run adds 75 accepted declarations to the prior 108, giving **183 accepted
@@ -91,8 +118,8 @@ semantics. Universal Fourier-budget finiteness and universal analytic-germ
 extension R1 remain open and outside the current goal.
 
 The [WFB evidence archive](audits/material-fdb515d8/accepted-evidence.zip),
-[WFB preprint](PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.pdf) and
-[LaTeX source](PAPER_PREPRINT_PDF/WFB/WFB_FOURIER_BUDGET_PREPRINT.tex) remain intact.
+[WFB preprint](T3_NSE/B-Regularity-class/WFB/PAPER_PREPRINT_PDF/WFB_FOURIER_BUDGET_PREPRINT.pdf) and
+[LaTeX source](T3_NSE/B-Regularity-class/WFB/PAPER_PREPRINT_PDF/WFB_FOURIER_BUDGET_PREPRINT.tex) remain intact.
 
 ## Repository map
 
@@ -101,10 +128,10 @@ The [WFB evidence archive](audits/material-fdb515d8/accepted-evidence.zip),
 | [GPT.txt](GPT.txt) | Current goal, precise premise, constructive chain and operating context |
 | [INDEX-WORTHY.txt](INDEX-WORTHY.txt) | Current substantiated results with exact scope and evidence |
 | [SOURCE_STATUS.json](SOURCE_STATUS.json) | Named goal, root/foundation status and source identities |
-| [Cumulative derivation](EHRENFEST_OBSTRUCTION_B_TIER.txt) | Complete conditional mathematical chain |
-| [Ehrenfest package](PREPRINT_FORMALISATION/EhrenfestObstruction/README.md) | Root plan, original ten-milestone checklist and evidence ledgers |
-| [Implementation ledger](PREPRINT_FORMALISATION/EhrenfestObstruction/IMPLEMENTATION_STATUS.json) | Accepted, pending and historical attempts |
-| [Source cutouts](LEAN_CUTOUTS/EhrenfestObstruction/README.md) | Exact source identities and preserved proof context |
+| [Cumulative derivation](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_B_TIER.txt) | Complete conditional mathematical chain |
+| [Ehrenfest package](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/PREPRINT_FORMALISATION/README.md) | Root plan, original ten-milestone checklist and evidence ledgers |
+| [Implementation ledger](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/PREPRINT_FORMALISATION/IMPLEMENTATION_STATUS.json) | Accepted, pending and historical attempts |
+| [Source cutouts](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/LEAN_CUTOUTS/README.md) | Exact source identities and preserved proof context |
 | [Root source](Material/MethbokeAddon/EhrenfestObstruction/Root.lean) | Literal conditional endpoint |
 | [Material](Material/README.md) | Native sources, endpoint packages and complete audits |
 | [Historical registers](audits/goal-transition-22431f/README-registers.md) | Byte-identical pre-transition documents and their provenance |
