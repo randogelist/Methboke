@@ -70,7 +70,8 @@ theorem localSchwartz_of_compact_spatialCarrier
   have hj : ContinuousOn
       (iteratedFDerivWithin ℝ n (fun z : ℝ × Vec => u z.1 z.2)
         (preterminalSpacetime T)) (preterminalSpacetime T) :=
-    hu.continuousOn_iteratedFDerivWithin (by simp)
+    hu.continuousOn_iteratedFDerivWithin (m := n)
+      (by exact_mod_cast (le_top : (n : ℕ∞) ≤ ⊤))
       (uniqueDiffOn_preterminalSpacetime T)
   have hw : Continuous (fun z : ℝ × Vec => (1 + ‖z.2‖) ^ N) :=
     (continuous_const.add continuous_snd.norm).pow N

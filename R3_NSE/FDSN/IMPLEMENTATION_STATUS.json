@@ -102,13 +102,14 @@
     }
   ],
   "stage_1": {
-    "status": "PREPARED_AWAITING_MATCHING_EXTERNAL_VERIFICATION",
+    "status": "PROOF_ONLY_REPAIR_PREPARED_FOR_EXTERNAL_VERIFICATION",
     "sources": [
       "MethbokeAddon.FDSNR3.Contracts",
       "MethbokeAddon.FDSNR3.CompactSchwartz",
       "MethbokeAddon.FDSNR3.Phase"
     ],
-    "new_acceptance_claimed": false
+    "new_acceptance_claimed": false,
+    "previous_failed_run": 44831189873
   },
   "reused_evidence": {
     "R3-07": {
@@ -139,5 +140,25 @@
     "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
     "Definition/consumer checks do not construct a family."
   ],
-  "next": "Externally verify stage 1 while preparing continuous Fourier and helical layers."
+  "next": "Externally verify stage 1 while preparing continuous Fourier and helical layers.",
+  "failed_attempts": [
+    {
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "source_commit": "5914a69a05b3f0621e097f208b47daf8b4ed7037",
+      "run_id": 44831189873,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44831189873",
+      "artifact_id": 14676620543,
+      "artifact_sha256": "8d5e5ee1391806c9da57f2ff80c482599864c5e135f52883b98a0b098d9b0ca6",
+      "artifact_download_and_hash_verified": true,
+      "compiler": "Lean 4.33.0",
+      "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "failed_module": "MethbokeAddon.FDSNR3.CompactSchwartz",
+      "diagnostic": "line73:45: simp made no progress",
+      "repair": "Explicit finite-to-infinite differentiability-order coercion; all theorem contracts and consumers unchanged.",
+      "fresh_package_audits_executed": false,
+      "new_a_tier_acceptance": false,
+      "local_lean_executions": 0
+    }
+  ]
 }

@@ -165,3 +165,7 @@ FDSN verification repair after run44810618725: Give all compact force-correction
 
 The exact conditional theorem on the unit three-torus passed at `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`. The same family satisfies all five canonical clauses; the physical presentation gives a literal nonzero Leray-projected force difference. The [construction and acceptance note](T3_NSE/D-Family-Obstruction/FDSN/FDSN_CONSTRUCTION_AND_ACCEPTANCE.txt) records the proof route. Historical repair entries above are superseded by this acceptance; their evidence remains preserved.
 
+
+The first R3 verification stopped at a smoothness-order coercion. Its
+[retained failure evidence](audits/fdsn-r3-5914a69a-failed/summary.json) and
+statement-preserving repair are tracked separately from accepted results.
