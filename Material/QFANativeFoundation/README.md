@@ -2,7 +2,7 @@
 
 Status: **prepared, pending matching cached external compiler/type/axiom evidence**.
 
-Five owned modules contribute **30 public helper theorem candidates and 19
+Six owned modules contribute **35 public helper theorem candidates and 19
 contract/definition declarations**, each named in the fresh audit. Four private
 spectral algebra lemmas are checked transitively by their public consumers.
 

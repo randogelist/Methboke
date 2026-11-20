@@ -143,7 +143,7 @@ theorem subcritical_measure_ge_half
     μ.real univ / 2 ≤ μ.real {x | f x < c} := by
   have hmarkov := mul_meas_ge_le_integral_of_nonneg hnonneg hf c
   have hbad : μ.real {x | c ≤ f x} ≤ μ.real univ / 2 := by
-    apply (mul_le_mul_left hc).mp
+    apply (mul_le_mul_iff_right₀ hc).mp
     calc
       c * μ.real {x | c ≤ f x} ≤ ∫ x, f x ∂μ := hmarkov
       _ ≤ c * μ.real univ / 2 := hbudget
@@ -186,8 +186,11 @@ theorem good_set_measure_ge_half_of_product_budget
       _ = productThreshold S ν * μ.real univ / 2 := by rw [htotal]
   have hsets : {t | Good t ∧ E t * D t < productThreshold S ν} =ᵐ[μ]
       {t | E t * D t < productThreshold S ν} := by
+    apply Filter.eventuallyEq_set.mpr
     filter_upwards [hgood] with t ht
-    simp only [mem_setOf_eq, ht, true_and]
+    change (Good t ∧ E t * D t < productThreshold S ν) ↔
+      E t * D t < productThreshold S ν
+    exact ⟨And.right, fun hsmall => ⟨ht, hsmall⟩⟩
   have hmeasure := measureReal_congr hsets
   change safeCutoff S M ν / 2 ≤
     μ.real {t | Good t ∧ E t * D t < productThreshold S ν}

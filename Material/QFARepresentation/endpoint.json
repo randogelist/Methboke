@@ -6,7 +6,7 @@
   "imports": [
     "QFALC004",
     "QFALC005",
-    "QFALC001Reduction"
+    "QFALC001Reduction.NativeFromAENorms"
   ],
   "source_roots": [
     {
@@ -24,8 +24,8 @@
       "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8"
     },
     {
-      "module": "QFALC001Reduction",
-      "path": "_vendor/QFALC001Reduction.lean",
+      "module": "QFALC001Reduction.NativeFromAENorms",
+      "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
       "storage": "vendored_exact_source",
       "repository": "randogelist/Methlib",
       "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8"
@@ -185,61 +185,6 @@
         "module": "QFALC001Reduction.NativeFromAENorms"
       },
       "scope": "Compact-Schwartz density/extension, distributional Fourier identities and conditional native spectral reduction. The final summed Fourier norm identities and physical H1/H2/Sobolev realization remain open."
-    },
-    {
-      "name": "QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methlib",
-        "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
-        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
-        "module": "QFALC001Reduction.DistributionMultipliers"
-      },
-      "scope": "Distributional and almost-everywhere Fourier multiplier identity under the exact weak derivative/integrability hypotheses printed in the audit."
-    },
-    {
-      "name": "QFA.LC001SpectralReduction.gradient_fourier_distribution_eq",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methlib",
-        "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
-        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
-        "module": "QFALC001Reduction.DistributionMultipliers"
-      },
-      "scope": "Distributional and almost-everywhere Fourier multiplier identity under the exact weak derivative/integrability hypotheses printed in the audit."
-    },
-    {
-      "name": "QFA.LC001SpectralReduction.gradient_fourier_ae",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methlib",
-        "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
-        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
-        "module": "QFALC001Reduction.DistributionMultipliers"
-      },
-      "scope": "Distributional and almost-everywhere Fourier multiplier identity under the exact weak derivative/integrability hypotheses printed in the audit."
-    },
-    {
-      "name": "QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methlib",
-        "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
-        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
-        "module": "QFALC001Reduction.DistributionMultipliers"
-      },
-      "scope": "Distributional and almost-everywhere Fourier multiplier identity under the exact weak derivative/integrability hypotheses printed in the audit."
-    },
-    {
-      "name": "QFA.LC001SpectralReduction.laplacian_fourier_ae",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methlib",
-        "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
-        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
-        "module": "QFALC001Reduction.DistributionMultipliers"
-      },
-      "scope": "Distributional and almost-everywhere Fourier multiplier identity under the exact weak derivative/integrability hypotheses printed in the audit."
     }
   ],
   "allowed_axioms": [
@@ -247,7 +192,7 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "scope": "Compact-Schwartz density/extension, distributional Fourier identities and conditional native spectral reduction. The final summed Fourier norm identities and physical H1/H2/Sobolev realization remain open.",
+  "scope": "Exact compact-Schwartz density/extension and conditional Plancherel reduction. The failed upstream DistributionMultipliers file and its barrel remain preserved, outside the active proof closure. Corrected multiplier proofs are owned native sources.",
   "status": "PENDING_MATCHING_EXTERNAL_CI",
   "project_scope": "AC_INTEGRATION_QFA_SCOPED_FOUNDATIONS",
   "source_layout": "Exact byte-preserved upstream modules; fresh Material audit wrappers.",

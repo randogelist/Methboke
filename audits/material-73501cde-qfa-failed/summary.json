@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "FAILED_EXTERNAL_COMPILATION_NO_NEW_ACCEPTANCE",
+  "repository": "randogelist/Methboke",
+  "branch": "AC-Integration",
+  "tested_commit": "73501cdecf9e53266920651bee6b2788e11e95be",
+  "run_id": 44782428295,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44782428295",
+  "fast_job_id": 136448337386,
+  "artifact_id": 14651438529,
+  "artifact_sha256": "8f75c6905a815c38553913331abab391010910419cd00830dbdfb70eeb5cdd24",
+  "failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failed_modules": [
+    "MethbokeAddon.QuasiFeffermanA.Cutoff",
+    "QFALC001Reduction.DistributionMultipliers"
+  ],
+  "module_status_counts": {
+    "PASS": 457,
+    "FAIL": 2,
+    "BLOCKED_BY_DEPENDENCY": 5
+  },
+  "prior_modules_reused": 420,
+  "fresh_modules_compiled": 37,
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "dependency_cache_class": "EXACT",
+  "project_cache_class": "PREFIX",
+  "cache_recovery_permitted": false,
+  "passed_cache_published": false,
+  "external_control_tests_passed": 183,
+  "local_lean_executions": 0,
+  "repair_plan": [
+    "Resolve positive multiplication cancellation and explicit predicate equality in owned Cutoff, preserving statement types.",
+    "Keep failed upstream multiplier bytes exactly as recovered and remove them from the active import graph.",
+    "Port corrected multiplier proofs to a separately owned FourierMultipliers module with new namespace and exact provenance; use its proofs in native Spectral.",
+    "Recompile and freshly audit the full scope externally at the repaired source revision."
+  ],
+  "raw_fast_job_log_sha256": "2f427a0f185312468be2595ce35c1f021ae69a6810061759faf4c582900dee6b",
+  "gzip_log_sha256": "6faa5302147f6627504d49a672d00e81ee1430d56806947d7b0f13ce6e8cf14d"
+}

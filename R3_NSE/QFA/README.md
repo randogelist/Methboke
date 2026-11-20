@@ -1,6 +1,6 @@
 # QFA: whole-space native integration
 
-Status: **prepared, pending matching cached external verification**.
+Status: **compiler-guided repair prepared, pending matching cached external verification**.
 
 This is the scoped `AC-Integration` development within Methboke. The retained
 main program remains Fefferman D. The [integration record](INTEGRATION_STATUS.json)
@@ -13,6 +13,7 @@ separates source preparation, exact external evidence and the open physical root
 | Recovered QFA | `Material/_vendor/QFA/` and `QFA.lean` | 108 historical named energy, representation, trace, comparison and conditional-assembly declarations, with unchanged hypotheses and constants |
 | Compact tests and spectral reduction | `Material/_vendor/QFALC004/`, `QFALC005/`, `QFALC001Reduction/` | Density and compact-Schwartz extension; Fourier multiplier identities and exact spectral reduction |
 | Conditional historical root | `Material/_vendor/QFACorrectedRoot/` | Historical QFA implication with explicit class realization, comparison, analytic and smoothness assumptions |
+| Owned Fourier multiplier port | `Material/MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean` | Five corrected derivative-witness multiplier proofs under an owned namespace; original failed upstream source preserved inactive |
 | Native spectral realization | `Material/MethbokeAddon/QuasiFeffermanA/Spectral.lean` | Derives the two Fourier norm densities and inhabits WholeSpaceSpectralEndpoint from actual Schwartz derivative witnesses |
 | Physical contracts | `Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean` | Full-volume R3 L2; all compact scalar tests; actual weak derivatives and solenoidal momentum tests; standard LH energy-class fields |
 | Energy and traces | `Material/MethbokeAddon/QuasiFeffermanA/Energy.lean` | Weighted budget, initial energy bound, strong initial/right traces, energy restart data and zero-datum velocity rigidity |
@@ -22,9 +23,9 @@ separates source preparation, exact external evidence and the open physical root
 The new sources are audited through `QFANativeFoundation`. The recovered
 sources use `QFARecovered`, `QFARepresentation` and `QFAConditionalRoot`.
 All source identities are registered in the existing native manifests.
-The four new audit packages request 188 named reports: 134 recovered results,
-five historical root/assumption contracts, and 49 new native declarations
-(30 public helper theorems plus 19 contracts/definitions).
+The four new audit packages request 188 named reports: 129 recovered results,
+five historical root/assumption contracts, and 54 new native declarations
+(35 public helper theorems plus 19 contracts/definitions).
 [Static validation](STATIC_VALIDATION.json) checks bytes and metadata only.
 
 ## Exact finite-window conclusion
@@ -69,6 +70,19 @@ The historical corrected root remains an implication with explicit analytic
 inputs and a different historical cutoff. Accepting that implication does not
 supply those inputs or establish the current physical QFA statement.
 Periodic QFB remains a separately accepted reference. WFA is a follow-on.
+
+## First external attempt and repair
+
+[Run44782428295](https://github.com/randogelist/Methboke/actions/runs/44782428295)
+at73501cde reused all420prior modules and compiled37new modules. It found two
+proof elaboration errors in Cutoff and compiler failures in the previously
+unaudited recovered DistributionMultipliers file. No new result was accepted
+and no passed cache was published. [Exact failure evidence](../../audits/material-73501cde-qfa-failed/summary.json) is retained.
+
+The cutoff repair keeps all public statement types unchanged. The original
+multiplier file and its barrel remain byte-identical but are outside active
+imports; the corrected five-proof port belongs to an explicitly owned namespace.
+Its proofs feed the native Spectral module and receive fresh named audits.
 
 ## Verification boundary
 

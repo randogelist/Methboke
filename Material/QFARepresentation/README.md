@@ -1,10 +1,18 @@
-# QFARepresentation
+# QFA representation foundations
 
-Compact-Schwartz density/extension, distributional Fourier identities and conditional native spectral reduction. The recovered reduction retains the summed norm identities as premises. The new native Spectral source derives those identities from actual Schwartz derivative witnesses; physical H1/H2/Sobolev realization remains a separate edge.
+Status: prepared, pending matching external exact-type/axiom audit.
 
-Status: prepared, pending matching cached external compilation and exact type/axiom audit.
+This package retains14named recovered results: four compact-Schwartz bridge
+results, four density results and six Plancherel/spectral reduction results.
+The reduction still takes its two Fourier norm identities as explicit inputs.
+The native Spectral module derives those identities through the separately
+owned FourierMultipliers proofs.
 
-Source: `randogelist/Methlib@53b2318c2b586137b6db74c4d3a41bb0b964b2d8`. All upstream proof bytes are preserved.
+External attempt73501cde found compiler errors in the originally unaudited
+upstream DistributionMultipliers source. That file and its barrel remain
+byte-preserved as provenance, but are absent from every active endpoint import
+closure. No accepted proof is inferred from their historical source presence.
+The corrected proof port has a new owned namespace and its own fresh audit.
 
-The package audits **19 named declarations** with the existing standard-axiom policy.
-The current physical QFA theorem, original-L²-data solution construction, sharp Sobolev constant, and WFA remain separate obligations.
+See the retained [failed attempt](../../audits/material-73501cde-qfa-failed/summary.json)
+and the [native package](../QFANativeFoundation/README.md).

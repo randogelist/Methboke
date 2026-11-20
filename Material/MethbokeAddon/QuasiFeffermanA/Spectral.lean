@@ -1,4 +1,4 @@
-import QFALC001Reduction.DistributionMultipliers
+import MethbokeAddon.QuasiFeffermanA.FourierMultipliers
 import Mathlib.Analysis.Complex.Norm
 
 /-!
@@ -26,6 +26,7 @@ namespace MethbokeAddon.QuasiFeffermanA
 
 open QFA.Endpoints.Agmon
 open QFA.LC001SpectralReduction
+open MethbokeAddon.QuasiFeffermanA.FourierMultipliers
 
 noncomputable section
 

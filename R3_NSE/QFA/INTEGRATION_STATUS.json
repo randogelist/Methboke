@@ -3,7 +3,7 @@
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
   "branch": "AC-Integration",
-  "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+  "status": "REPAIR_PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
   "preparation_basis": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
   "authorization": "Integrate the reviewed QFA/QFB construction anchors at A-tier, with matching cached external verification.",
   "main_goal": "Fefferman_D",
@@ -18,8 +18,13 @@
     "vendored_modules": 35,
     "proof_bytes": "EXACT_UPSTREAM",
     "historical_audit_names": 129,
-    "additional_multiplier_audit_names": 5,
-    "conditional_contract_audit_names": 5
+    "additional_multiplier_audit_names": 0,
+    "conditional_contract_audit_names": 5,
+    "active_vendored_modules": 33,
+    "inactive_original_modules": [
+      "QFALC001Reduction",
+      "QFALC001Reduction.DistributionMultipliers"
+    ]
   },
   "packages": [
     "QFARecovered",
@@ -32,6 +37,7 @@
     "Energy",
     "Cutoff",
     "Integration",
+    "FourierMultipliers",
     "Spectral"
   ],
   "external_verification": {
@@ -63,9 +69,24 @@
   "mathematical_boundary": "Each selected path is assumed to satisfy the concrete LH contract. No nonempty solution class is inferred from that definition. The cutoff scalar S requires a separate spatial estimate.",
   "zero_data_boundary": "Zero initial datum forces any supplied LH velocity to vanish at all nonnegative times; this rigidity result does not construct a solution.",
   "new_named_audit_reports": 188,
-  "native_named_audit_reports": 49,
-  "native_public_theorem_candidates": 30,
+  "native_named_audit_reports": 54,
+  "native_public_theorem_candidates": 35,
   "native_contract_definition_declarations": 19,
   "static_validation": "R3_NSE/QFA/STATIC_VALIDATION.json",
-  "spectral_candidate": "WholeSpaceSpectralEndpoint derived from actual Schwartz derivative witnesses; no assumed Fourier norm identities."
+  "spectral_candidate": "WholeSpaceSpectralEndpoint derived from actual Schwartz derivative witnesses; no assumed Fourier norm identities.",
+  "owned_multiplier_proof_port": {
+    "module": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+    "upstream_revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+    "upstream_path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
+    "named_proofs": 5,
+    "reason": "First matching native external compile exposed failures in the previously unaudited original; keep exact vendor bytes and repair in separate owned namespace."
+  },
+  "failed_attempt": {
+    "commit": "73501cdecf9e53266920651bee6b2788e11e95be",
+    "run_id": 44782428295,
+    "evidence": "audits/material-73501cde-qfa-failed/summary.json",
+    "prior_modules_reused": 420,
+    "fresh_modules_compiled": 37,
+    "accepted": false
+  }
 }

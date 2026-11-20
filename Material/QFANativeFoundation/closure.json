@@ -29,7 +29,7 @@
     {
       "module": "MethbokeAddon.QuasiFeffermanA.Cutoff",
       "path": "MethbokeAddon/QuasiFeffermanA/Cutoff.lean",
-      "sha256": "86cb9f58aec087e6e61431221d34e7eaf3cdcad3d90bcaac47e44b29c1cff8d3",
+      "sha256": "63f61a3def4ea651d9b9116b6a566ff1b4241eff2bf2f25159699df1b35d6f7a",
       "imports": [
         "QFA.Endpoints.Energy.ProductBudget",
         "QFA.Endpoints.GoodTime.Basic",
@@ -60,6 +60,21 @@
       "origin_kind": "new_owned_development_against_pinned_native_basis"
     },
     {
+      "module": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "sha256": "9fa7d4850590622b06a6e2898e5d05fb59be817177ba2bf19523b1bad6ea37af",
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+        "path": "GPT.txt",
+        "role": "Immutable native integration preparation baseline; not a claim that new proof bytes existed at that revision."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
       "module": "MethbokeAddon.QuasiFeffermanA.Integration",
       "path": "MethbokeAddon/QuasiFeffermanA/Integration.lean",
       "sha256": "5947245512a7a03780a857cd3d14712eec270bfc156d52d81f06389f9f16bf48",
@@ -78,9 +93,9 @@
     {
       "module": "MethbokeAddon.QuasiFeffermanA.Spectral",
       "path": "MethbokeAddon/QuasiFeffermanA/Spectral.lean",
-      "sha256": "e41aa0032798d2353bae38cf1142195858ded2a6afe088cbf7437c5e3a6c8bfd",
+      "sha256": "15c2dc7509ffe3b7bdc1b3f8e416ff49f8cde5ea1973d58ad5f1e88b37792329",
       "imports": [
-        "QFALC001Reduction.DistributionMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
         "Mathlib.Analysis.Complex.Norm"
       ],
       "origin": {
@@ -270,19 +285,6 @@
       }
     },
     {
-      "module": "QFALC001Reduction.DistributionMultipliers",
-      "path": "_vendor/QFALC001Reduction/DistributionMultipliers.lean",
-      "sha256": "60315c5cfb038ead5e07a3dc36d9a2060603ad4da6f56938e94330b38c448b2a",
-      "imports": [
-        "QFALC001Reduction.NativeFromAENorms"
-      ],
-      "origin": {
-        "repository": "randogelist/Methlib",
-        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
-        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean"
-      }
-    },
-    {
       "module": "QFALC001Reduction.NativeFromAENorms",
       "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
       "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
@@ -326,8 +328,8 @@
     "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
   ],
   "local_module_count": 19,
-  "owned_module_count": 5,
+  "owned_module_count": 6,
   "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
-  "source_closure_sha256": "68668048869d5d1ffcc8503f2970240f42cfe2082913e2e301b7544e9ddeeeb9",
+  "source_closure_sha256": "37e806fc12d074de297c0c9ea1774647aa461407409ff25da3d6dde5d1338de9",
   "validation_boundary": "Pure source and metadata preparation; matching external compiler/types/axioms remain required."
 }

@@ -106,38 +106,3 @@ All input hypotheses remain part of each audited statement. -/
 #print axioms QFA.LC001SpectralReduction.fourierNormAEToNativeSpectralEndpoint
 #eval IO.println "AXIOMS_END:QFA.LC001SpectralReduction.fourierNormAEToNativeSpectralEndpoint"
 
-#eval IO.println "TYPE_BEGIN:QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution"
-#check @QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution
-#eval IO.println "TYPE_END:QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution"
-#eval IO.println "AXIOMS_BEGIN:QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution"
-#print axioms QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution
-#eval IO.println "AXIOMS_END:QFA.LC001SpectralReduction.ae_eq_of_const_smul_real_multiplier_distribution"
-
-#eval IO.println "TYPE_BEGIN:QFA.LC001SpectralReduction.gradient_fourier_distribution_eq"
-#check @QFA.LC001SpectralReduction.gradient_fourier_distribution_eq
-#eval IO.println "TYPE_END:QFA.LC001SpectralReduction.gradient_fourier_distribution_eq"
-#eval IO.println "AXIOMS_BEGIN:QFA.LC001SpectralReduction.gradient_fourier_distribution_eq"
-#print axioms QFA.LC001SpectralReduction.gradient_fourier_distribution_eq
-#eval IO.println "AXIOMS_END:QFA.LC001SpectralReduction.gradient_fourier_distribution_eq"
-
-#eval IO.println "TYPE_BEGIN:QFA.LC001SpectralReduction.gradient_fourier_ae"
-#check @QFA.LC001SpectralReduction.gradient_fourier_ae
-#eval IO.println "TYPE_END:QFA.LC001SpectralReduction.gradient_fourier_ae"
-#eval IO.println "AXIOMS_BEGIN:QFA.LC001SpectralReduction.gradient_fourier_ae"
-#print axioms QFA.LC001SpectralReduction.gradient_fourier_ae
-#eval IO.println "AXIOMS_END:QFA.LC001SpectralReduction.gradient_fourier_ae"
-
-#eval IO.println "TYPE_BEGIN:QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq"
-#check @QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq
-#eval IO.println "TYPE_END:QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq"
-#eval IO.println "AXIOMS_BEGIN:QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq"
-#print axioms QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq
-#eval IO.println "AXIOMS_END:QFA.LC001SpectralReduction.laplacian_fourier_distribution_eq"
-
-#eval IO.println "TYPE_BEGIN:QFA.LC001SpectralReduction.laplacian_fourier_ae"
-#check @QFA.LC001SpectralReduction.laplacian_fourier_ae
-#eval IO.println "TYPE_END:QFA.LC001SpectralReduction.laplacian_fourier_ae"
-#eval IO.println "AXIOMS_BEGIN:QFA.LC001SpectralReduction.laplacian_fourier_ae"
-#print axioms QFA.LC001SpectralReduction.laplacian_fourier_ae
-#eval IO.println "AXIOMS_END:QFA.LC001SpectralReduction.laplacian_fourier_ae"
-

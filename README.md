@@ -30,10 +30,13 @@ retains a half-window measure estimate. The scalar Sobolev parameter remains
 explicit. Physical weak/strong existence, continuation, comparison, sharp
 spatial admissibility and the complete QFA/WFA roots remain open.
 
-**Current status: prepared, pending matching external compilation and fresh
-exact-type/axiom audits.** The standard native workflow now includes this
+**Current status: compiler-guided repair prepared; matching external
+compilation and fresh exact-type/axiom audits remain pending.** The standard native workflow now includes this
 branch. Its pins, lockfile, lakefile, drivers and verification policies are
-unchanged. Existing periodic QFB remains the accepted reference.
+unchanged. Existing periodic QFB remains the accepted reference. The [first external
+attempt](audits/material-73501cde-qfa-failed/summary.json) identified two source
+issues; the original recovered multiplier file is preserved while its corrected
+proof port is owned separately.
 
 [Staged archives](Temp-folder/README.md), the [source anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md)
 and [historical evidence review](Temp-folder/anchors/SOURCE_REVIEW.json)

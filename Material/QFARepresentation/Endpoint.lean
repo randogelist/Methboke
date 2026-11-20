@@ -1,5 +1,5 @@
 import QFALC004
 import QFALC005
-import QFALC001Reduction
+import QFALC001Reduction.NativeFromAENorms
 
-/-! Compact-Schwartz density/extension, distributional Fourier identities and conditional native spectral reduction. The final summed Fourier norm identities and physical H1/H2/Sobolev realization remain open. -/
+/-! Exact compact-Schwartz density/extension and conditional Plancherel reduction. The failed upstream DistributionMultipliers file and its barrel remain preserved, outside the active proof closure. Corrected multiplier proofs are owned native sources. -/

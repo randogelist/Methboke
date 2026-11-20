@@ -365,6 +365,87 @@ example : ∀ (v : QFA.Endpoints.Agmon.ComplexL2)
 
 end QFANativeFoundation.SpectralTypeChecks
 
+namespace QFANativeFoundation.FourierMultiplierTypeChecks
+
+
+set_option autoImplicit false
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+
+open MeasureTheory FourierTransform
+open scoped FourierTransform SchwartzMap
+
+namespace QFAFourierMultipliersIndependentConsumers
+
+-- Each independent consumer states every hypothesis and the full conclusion.
+example (q h : QFA.Endpoints.Agmon.ComplexL2) (c : ℂ)
+    (m : QFA.Endpoints.Agmon.Space → ℝ)
+    (hm_cont : Continuous m) (hm_temp : m.HasTemperateGrowth)
+    (hEq : (q : 𝓢'(QFA.Endpoints.Agmon.Space, QFA.Endpoints.Agmon.ComplexVector)) =
+      c • TemperedDistribution.smulLeftCLM QFA.Endpoints.Agmon.ComplexVector
+        (fun x : QFA.Endpoints.Agmon.Space => (m x : ℂ))
+        (h : 𝓢'(QFA.Endpoints.Agmon.Space, QFA.Endpoints.Agmon.ComplexVector))) :
+    (fun x : QFA.Endpoints.Agmon.Space => q x) =ᵐ[volume]
+      (fun x : QFA.Endpoints.Agmon.Space => (c * (m x : ℂ)) • h x) :=
+  MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution
+    q h c m hm_cont hm_temp hEq
+
+example {v : QFA.Endpoints.Agmon.ComplexL2}
+    {G : Fin 3 → QFA.Endpoints.Agmon.ComplexL2}
+    {L : QFA.Endpoints.Agmon.ComplexL2}
+    (h : QFA.Endpoints.Agmon.SchwartzDerivativeWitnesses v G L) (j : Fin 3) :
+    ((𝓕 (G j) : QFA.Endpoints.Agmon.ComplexL2) :
+        𝓢'(QFA.Endpoints.Agmon.Space, QFA.Endpoints.Agmon.ComplexVector)) =
+      (2 * Real.pi * Complex.I) •
+        TemperedDistribution.smulLeftCLM QFA.Endpoints.Agmon.ComplexVector
+          (fun x : QFA.Endpoints.Agmon.Space =>
+            (inner ℝ x (EuclideanSpace.basisFun (Fin 3) ℝ j) : ℂ))
+          ((𝓕 v : QFA.Endpoints.Agmon.ComplexL2) :
+            𝓢'(QFA.Endpoints.Agmon.Space, QFA.Endpoints.Agmon.ComplexVector)) :=
+  MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq h j
+
+example {v : QFA.Endpoints.Agmon.ComplexL2}
+    {G : Fin 3 → QFA.Endpoints.Agmon.ComplexL2}
+    {L : QFA.Endpoints.Agmon.ComplexL2}
+    (h : QFA.Endpoints.Agmon.SchwartzDerivativeWitnesses v G L) (j : Fin 3) :
+    (fun k : QFA.Endpoints.Agmon.Space => (𝓕 (G j) : QFA.Endpoints.Agmon.ComplexL2) k)
+      =ᵐ[volume]
+        (fun k : QFA.Endpoints.Agmon.Space =>
+          ((2 * Real.pi * Complex.I) *
+            (inner ℝ k (EuclideanSpace.basisFun (Fin 3) ℝ j) : ℂ)) •
+              (𝓕 v : QFA.Endpoints.Agmon.ComplexL2) k) :=
+  MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae h j
+
+example {v : QFA.Endpoints.Agmon.ComplexL2}
+    {G : Fin 3 → QFA.Endpoints.Agmon.ComplexL2}
+    {L : QFA.Endpoints.Agmon.ComplexL2}
+    (h : QFA.Endpoints.Agmon.SchwartzDerivativeWitnesses v G L) :
+    ((𝓕 L : QFA.Endpoints.Agmon.ComplexL2) :
+        𝓢'(QFA.Endpoints.Agmon.Space, QFA.Endpoints.Agmon.ComplexVector)) =
+      (-((2 * Real.pi) ^ 2)) •
+        TemperedDistribution.smulLeftCLM QFA.Endpoints.Agmon.ComplexVector
+          (fun k : QFA.Endpoints.Agmon.Space => (‖k‖ ^ 2 : ℂ))
+          ((𝓕 v : QFA.Endpoints.Agmon.ComplexL2) :
+            𝓢'(QFA.Endpoints.Agmon.Space, QFA.Endpoints.Agmon.ComplexVector)) :=
+  MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq h
+
+example {v : QFA.Endpoints.Agmon.ComplexL2}
+    {G : Fin 3 → QFA.Endpoints.Agmon.ComplexL2}
+    {L : QFA.Endpoints.Agmon.ComplexL2}
+    (h : QFA.Endpoints.Agmon.SchwartzDerivativeWitnesses v G L) :
+    (fun k : QFA.Endpoints.Agmon.Space => (𝓕 L : QFA.Endpoints.Agmon.ComplexL2) k)
+      =ᵐ[volume]
+        (fun k : QFA.Endpoints.Agmon.Space =>
+          ((-((2 * Real.pi) ^ 2) : ℂ) * (‖k‖ ^ 2 : ℂ)) •
+            (𝓕 v : QFA.Endpoints.Agmon.ComplexL2) k) :=
+  MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae h
+
+end QFAFourierMultipliersIndependentConsumers
+
+
+end QFANativeFoundation.FourierMultiplierTypeChecks
+
 namespace QFANativeFoundation.IntegrationTypeChecks
 
 open MeasureTheory Set Filter MethbokeAddon.QuasiFeffermanA
@@ -724,6 +805,41 @@ end QFANativeFoundation.IntegrationTypeChecks
 #eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_restart"
 #print axioms MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_restart
 #eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_restart"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution"
+#check @MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution"
+#print axioms MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq"
+#check @MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq"
+#print axioms MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae"
+#check @MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae"
+#print axioms MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq"
+#check @MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq"
+#print axioms MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae"
+#check @MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae"
+#print axioms MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae"
 
 #eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.fourierNormAEWitnesses_of_schwartzDerivativeWitnesses"
 #check @MethbokeAddon.QuasiFeffermanA.fourierNormAEWitnesses_of_schwartzDerivativeWitnesses

@@ -1365,7 +1365,7 @@
     {
       "module": "MethbokeAddon.QuasiFeffermanA.Cutoff",
       "path": "MethbokeAddon/QuasiFeffermanA/Cutoff.lean",
-      "sha256": "86cb9f58aec087e6e61431221d34e7eaf3cdcad3d90bcaac47e44b29c1cff8d3",
+      "sha256": "63f61a3def4ea651d9b9116b6a566ff1b4241eff2bf2f25159699df1b35d6f7a",
       "imports": [
         "QFA.Endpoints.Energy.ProductBudget",
         "QFA.Endpoints.GoodTime.Basic",
@@ -1396,11 +1396,36 @@
       "origin_kind": "new_owned_development_against_pinned_native_basis"
     },
     {
+      "module": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "sha256": "9fa7d4850590622b06a6e2898e5d05fb59be817177ba2bf19523b1bad6ea37af",
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+        "path": "GPT.txt",
+        "role": "Immutable native integration preparation baseline; not a claim that new proof bytes existed at that revision."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis",
+      "derivation_sources": [
+        {
+          "repository": "randogelist/Methlib",
+          "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+          "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
+          "preserved_upstream_sha256": "60315c5cfb038ead5e07a3dc36d9a2060603ad4da6f56938e94330b38c448b2a",
+          "repair_evidence": "audits/material-73501cde-qfa-failed/summary.json",
+          "changes": "Owned namespace; explicit distribution evaluation, complex multiplier temperate growth, and typed real/complex scalar conversion. Same mathematical hypotheses and conclusions."
+        }
+      ]
+    },
+    {
       "module": "MethbokeAddon.QuasiFeffermanA.Spectral",
       "path": "MethbokeAddon/QuasiFeffermanA/Spectral.lean",
-      "sha256": "e41aa0032798d2353bae38cf1142195858ded2a6afe088cbf7437c5e3a6c8bfd",
+      "sha256": "15c2dc7509ffe3b7bdc1b3f8e416ff49f8cde5ea1973d58ad5f1e88b37792329",
       "imports": [
-        "QFALC001Reduction.DistributionMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
         "Mathlib.Analysis.Complex.Norm"
       ],
       "origin": {
