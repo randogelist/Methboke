@@ -23,7 +23,7 @@ example : SpatialL2 = Lp (EuclideanSpace ℝ (Fin 3)) 2
     (volume : Measure (EuclideanSpace ℝ (Fin 3))) := rfl
 example : ComplexL2 = Lp (EuclideanSpace ℂ (Fin 3)) 2
     (volume : Measure (EuclideanSpace ℝ (Fin 3))) := rfl
-example : H2Index = Fin 4 ⊕ (Fin 3 × Fin 3) := rfl
+example : H2Index = (Fin 4 ⊕ (Fin 3 × Fin 3)) := rfl
 example : Fintype.card H2Index = 13 := card_H2Index
 example : H2Ambient = PiLp 2 (fun _ : Fin 4 ⊕ (Fin 3 × Fin 3) =>
     Lp (EuclideanSpace ℝ (Fin 3)) 2

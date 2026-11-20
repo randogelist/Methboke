@@ -2,17 +2,15 @@
 
 ## External compilation repair
 
-[Run 44833791410](https://github.com/randogelist/Methboke/actions/runs/44833791410) at source `7100abed` passed
-510 of 512 scheduled modules. There were
-1 new-source failures and 1 blocked dependents.
-The exact original evidence is retained in [audits/material-7100abed-nse-a-failed](../../audits/material-7100abed-nse-a-failed/summary.json).
+[Run 44835490303](https://github.com/randogelist/Methboke/actions/runs/44835490303) at source `dcf32660` passed **all512 source modules**.
+The first independent audit failure was a missing pair of parentheses around
+the literal sum type in `QFAPhysicalH2`'s H2Index carrier check. The repair
+preserves exactly `H2Index = (Fin 4 ⊕ (Fin 3 × Fin 3))`; no proof statement,
+physical predicate or hypothesis changes.
 
-Candidate repair: Evaluate the actual scaled tempered-distribution sum at each Schwartz test and complex coordinate, then cancel the nonzero complex scalar by mul_eq_zero; all public contracts remain identical.
-
-Public statements and independent consumers are preserved. All 99 fresh
-package audits, 1,294 named reports, publication and final acceptance remain
-required. The last accepted source remains `09bcf251`; no new acceptance is
-claimed from a partial run.
+The original evidence is retained in [audits/material-dcf32660-nse-a-failed](../../audits/material-dcf32660-nse-a-failed/summary.json).
+All99 fresh package audits,1,294 named reports, publication and final
+acceptance remain required. Source compilation alone makes no new acceptance.
 
 ## Current candidate: H2, Leray and real multipliers
 

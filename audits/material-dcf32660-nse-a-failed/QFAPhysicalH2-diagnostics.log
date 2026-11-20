@@ -1,0 +1,14 @@
+Diagnostic excerpt only. The full original external log is retained byte-for-byte
+inside evidence.zip at audits/QFAPhysicalH2-b8597f53035272a9fe64c692e5a94965ff39dcc985e9e95fca5cd53bea61bf3c.log
+Full original log SHA256:22abf1c15e28af6735067b46434a438b54ca2948e5f9fff1cef2b25cd9c8384e
+
+QFAPhysicalH2/Audit.lean:26:10: error: Application type mismatch: The argument
+  @Eq.{2} Type MethbokeAddon.QuasiFeffermanA.H2Index (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4))))
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.3
+of sort `Type (?u.3 + 1)` in the application
+  Sum.{?u.3, ?u.2}
+    (@Eq.{2} Type MethbokeAddon.QuasiFeffermanA.H2Index
+      (Fin (@OfNat.ofNat.{0} Nat (nat_lit 4) (instOfNatNat (nat_lit 4)))))
