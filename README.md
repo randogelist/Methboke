@@ -27,9 +27,11 @@ The first layer is in
 | `FamilyContracts.lean` | Native forced NSE, periodic velocity and pressure, smooth compact-time force, distinct torus sites and exact family contracts |
 
 The new [FeffermanFamilyFoundation package](Material/FeffermanFamilyFoundation/README.md)
-registers exact consumer-type and theorem-level axiom audits. **The new sources
-are pending matching external cached verification.** No family witness or
-Fefferman-D theorem is claimed by the foundation package.
+passed matching external verification at `77a64245`:
+**28 helper theorems and 11 contract declarations**, standard axioms only.
+[Run44655638162](https://github.com/randogelist/Methboke/actions/runs/44655638162) covered 415 modules,72 fresh package audits and 487 named
+reports plus QFB. [Retained evidence](audits/material-77a64245-family/summary.json)
+records the exact scope. The family witness and Fefferman-D root remain unproved.
 
 The [T³ route](T3_NSE/D-Family-Obstruction/README.md),
 [B-tier derivation](T3_NSE/D-Family-Obstruction/Fefferman_D_Family_obstruction_B_TIER.txt),

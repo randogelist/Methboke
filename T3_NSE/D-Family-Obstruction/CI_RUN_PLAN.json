@@ -5,20 +5,12 @@
   "repository": "randogelist/Methboke",
   "requested_revision": "main",
   "requested_base_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
-  "tested_revision": null,
+  "tested_revision": "77a64245f3c5ac42e7c647739f3e88182771391c",
   "lean_toolchain": "leanprover/lean4:v4.33.0",
   "mathlib_revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
   "runner_label": "ubuntu-24.04",
   "targets": "ALL415 compiled modules,72 fresh package audits,487 named type/axiom reports plus QFB and all retained external controls",
   "source_manifest_sha256": "d029df7baa9c97e2ad0f1d4dbcbe50bfd51ef21fa6384b3931a6d280fc5feab6",
-  "audit_policy_sha256": "b3c0bd1e9442c32b8e38c902e995030eadfee3f3d47c13f25ba7f84270145b5d",
-  "audit_policy_hash_scope": {
-    "Material/ci/build.py": "0a19ad977b213fb08c2c0c6402b08bc97c26644456bd0ef8115eed823d2fb8ee",
-    "Material/ci/native_build.py": "9e901c1d46cb6445940643912333fac0ca0d91a93b84394b6f9f84b03a98ed46",
-    "Material/ci/cache-contract.json": "8d7429d7b3caf99555dcefa3bc149476c5eaab7f830ac14a557efa237ec4ad89",
-    "Material/FeffermanFamilyFoundation/endpoint.json": "30a5e1a65566887588f1ffc7c817b9a7572b5a7042a93c5c36a4cdffefc79eb7",
-    "Material/FeffermanFamilyFoundation/Audit.lean": "6e1826b1c1d9a16f6f52d37046131a113bddf20f80f94636d0a3c5971179d66e"
-  },
   "prior_evidence_url": "https://github.com/randogelist/Methboke/actions/runs/44652940559",
   "prior_evidence_scope": "Reorganized411-module baseline; workflow success observed, new family sources absent",
   "reason_for_new_run": "Three new first-layer T3 family proof modules and39 new required contract/helper audits for user-selected Fefferman-D goal",
@@ -30,5 +22,48 @@
   "local_lean_allowed": false,
   "backend": "binary_cache",
   "exact_cache_benchmark": false,
-  "force_rebuild": false
+  "force_rebuild": false,
+  "preparation_audit_policy_sha256": "b3c0bd1e9442c32b8e38c902e995030eadfee3f3d47c13f25ba7f84270145b5d",
+  "preparation_audit_policy_hash_scope": {
+    "Material/ci/build.py": "0a19ad977b213fb08c2c0c6402b08bc97c26644456bd0ef8115eed823d2fb8ee",
+    "Material/ci/native_build.py": "9e901c1d46cb6445940643912333fac0ca0d91a93b84394b6f9f84b03a98ed46",
+    "Material/ci/cache-contract.json": "8d7429d7b3caf99555dcefa3bc149476c5eaab7f830ac14a557efa237ec4ad89",
+    "Material/FeffermanFamilyFoundation/endpoint.json": "30a5e1a65566887588f1ffc7c817b9a7572b5a7042a93c5c36a4cdffefc79eb7",
+    "Material/FeffermanFamilyFoundation/Audit.lean": "6e1826b1c1d9a16f6f52d37046131a113bddf20f80f94636d0a3c5971179d66e"
+  },
+  "preparation_hash_note": "Historical hashes from scratch materialization; unchanged build/native driver snapshots carried one extra trailing newline. Actual tested bytes are authoritative below; no build policy was changed.",
+  "tested_build_configuration": {
+    "ci/build.py": "06a53b8a7a7dbc43d46e7e421a4082fe0fce70d740fec8dd6f11296f9fc692d9",
+    "lake-manifest.json": "5ad4bb9f8a90899eff0dccf7bae5eb9fbef3f1f3822f6e1759f1118f5bef6215",
+    "lakefile.lean": "9e577cb61d3538df3726d10ad385a658ddb4dfa696fed5f19f7861795c32c3dd",
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+  },
+  "tested_native_driver_sha256": "8007df9bbb76ead857457a56541a14d4ec11cecbec3a92e17f2007d50f0c931e",
+  "observed_result": {
+    "run_id": 44655638162,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44655638162",
+    "status": "PASS_MATCHING_EVIDENCE_REVIEWED",
+    "observed_cache_classes": {
+      "dependency": "EXACT",
+      "project": "PREFIX"
+    },
+    "metrics": {
+      "audit_fresh_count": 72,
+      "audit_reused_count": 0,
+      "audit_seconds": 130.266,
+      "build_seconds": 8.716,
+      "cache_seconds": 9.335,
+      "fresh_loc": 548,
+      "fresh_module_count": 4,
+      "module_count": 415,
+      "rerun_receipt_seconds": 0.275,
+      "reused_loc": 50417,
+      "reused_module_count": 411,
+      "target_loc": 50965
+    },
+    "named_reports": 487,
+    "qfb_cutout_fresh": true,
+    "evidence": "audits/material-77a64245-family/summary.json",
+    "generated_plan_label_note": "run-plan.json labels warm_benchmark/exact, but worker-plan.json exact_cache_benchmark=false and observed project cache PREFIX. This review records actual observed cache classes and makes no exact-cache benchmark claim."
+  }
 }

@@ -1,0 +1,70 @@
+DOCUMENT := FEFFERMAN_D_FOUNDATION_A_TIER
+VERSION := 1.0
+DATE := 2026-11-20
+PROJECT_GOAL := Fefferman_D
+LOCAL_TARGET := Fefferman_D_Family_obstruction
+STATUS := ACCEPTED_SCOPED_FOUNDATIONS_ONLY
+TESTED_REVISION := 77a64245f3c5ac42e7c647739f3e88182771391c
+EXTERNAL_RUN := https://github.com/randogelist/Methboke/actions/runs/44655638162
+EVIDENCE := audits/material-77a64245-family/summary.json
+STANDARD_AXIOMS := {propext, Classical.choice, Quot.sound}
+LOCAL_LEAN_EXECUTIONS := 0
+
+Accepted exact helper theorems (28):
+1. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos
+2. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left
+3. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded
+4. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt
+5. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees
+6. MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence
+7. MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence
+8. MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem
+9. MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers
+10. MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers
+11. MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers
+12. MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers
+13. MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero
+14. MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active
+15. MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero
+16. MethbokeAddon.FeffermanFamily.sameTorusPoint_refl
+17. MethbokeAddon.FeffermanFamily.sameTorusPoint_symm
+18. MethbokeAddon.FeffermanFamily.sameTorusPoint_trans
+19. MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective
+20. MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton
+21. MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex
+22. MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero
+23. MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced
+24. MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero
+25. MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global
+26. MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex
+27. MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force
+28. MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction
+
+Accepted literal contract/type declarations (11):
+MethbokeAddon.FeffermanFamily.LocalVelocityBlowup
+MethbokeAddon.FeffermanFamily.SameTorusPoint
+MethbokeAddon.FeffermanFamily.TorusSitesDistinct
+MethbokeAddon.FeffermanFamily.familySpacetime
+MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce
+MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor
+MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE
+MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy
+MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness
+MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement
+MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction
+
+These are the exact scoped implications and definitions in the audited source.
+The compact localization theorem requires an explicit growth sequence.
+The family projection requires the family statement as a premise.
+The witness contract requires a same-force no-global proof; it does not supply it.
+The zero-force exclusion helper rules out zero-force family witnesses, since
+the native zero solution supplies a global competitor.
+
+OPEN: compatible singular seed, selected growth sequence, scaling, packing,
+nonlinear PDE transfer, energy, periodization, same-force comparison, literal
+force-decay adapter, family existence and Fefferman-D root.
+
+Coverage:415 modules(411 reused,4 fresh),72 fresh package audits,487 unique
+named type/axiom reports plus fresh QFB;183 external controls; publication passed.
+Matching source/log/type/axiom evidence independently reviewed.
+Later evidence-only commits are not new compiler runs.

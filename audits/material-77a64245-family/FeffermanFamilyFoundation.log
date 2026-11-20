@@ -1,0 +1,423 @@
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1,
+    u_2} : {X : Type u_1} →
+  {E : Type u_2} → [PseudoMetricSpace.{u_1} X] → [NormedAddCommGroup.{u_2} E] → (ℝ → X → E) → X → ℝ → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X} {T : ℝ}, MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T → LT.lt.{0} 0 T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.terminal_pos
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U V : ℝ → X → E} {a : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T →
+    (∀ (t : ℝ), LT.lt.{0} 0 t → LT.lt.{0} t T → ∀ (x : X), Eq.{u_2 + 1} (V t x) (U t x)) →
+      MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} V a T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.congr_on_left
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T →
+    ¬∃ ε,
+        LT.lt.{0} 0 ε ∧
+          ∃ δ,
+            LT.lt.{0} 0 δ ∧
+              ∃ C,
+                ∀ (t : ℝ) (x : X),
+                  LT.lt.{0} 0 t →
+                    LT.lt.{0} t T →
+                      LT.lt.{0} (HSub.hSub.{0, 0, 0} T t) δ →
+                        LT.lt.{0} (Dist.dist.{u_1} x a) ε → LE.le.{0} (Norm.norm.{u_2} (U t x)) C
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_locally_bounded
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T →
+    ¬ContinuousAt.{u_1, u_2} (fun z => U z.1 z.2) (Prod.mk.{0, u_1} T a)
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T →
+    ∀ (V : ℝ → X → E),
+      (∀ (t : ℝ), LT.lt.{0} 0 t → LT.lt.{0} t T → ∀ (x : X), Eq.{u_2 + 1} (V t x) (U t x)) →
+        ¬ContinuousAt.{u_1, u_2} (fun z => V z.1 z.2) (Prod.mk.{0, u_1} T a)
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.not_continuousAt_of_agrees
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X} {T : ℝ} (t : ℕ → ℝ) (x : ℕ → X),
+  (∀ (n : ℕ), LT.lt.{0} 0 (t n) ∧ LT.lt.{0} (t n) T) →
+    Filter.Tendsto.{0, 0} t Filter.atTop.{0} (nhds.{0} T) →
+      Filter.Tendsto.{0, u_1} x Filter.atTop.{0} (nhds.{u_1} a) →
+        Filter.Tendsto.{0, 0} (fun n => Norm.norm.{u_2} (U (t n) (x n))) Filter.atTop.{0} Filter.atTop.{0} →
+          MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.of_sequence
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence
+@MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  (U : ℝ → X → E) (K : Set.{u_1} X),
+  IsCompact.{u_1} K →
+    ∀ (T : ℝ) (t : ℕ → ℝ) (x : ℕ → X),
+      (∀ (n : ℕ), LT.lt.{0} 0 (t n) ∧ LT.lt.{0} (t n) T) →
+        Filter.Tendsto.{0, 0} t Filter.atTop.{0} (nhds.{0} T) →
+          (∀ (n : ℕ), Membership.mem.{u_1, u_1} K (x n)) →
+            Filter.Tendsto.{0, 0} (fun n => Norm.norm.{u_2} (U (t n) (x n))) Filter.atTop.{0} Filter.atTop.{0} →
+              ∃ a, Membership.mem.{u_1, u_1} K a ∧ MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T
+TYPE_END:MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence
+'MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.exists_localVelocityBlowup_of_compact_sequence
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem
+@MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem.{u_1,
+    u_2} : ∀ {X : Type u_1} {A : Type u_2} [inst : TopologicalSpace.{u_1} X] [inst_1 : Zero.{u_2} A] {K : Set.{u_1} X}
+  {f : X → A},
+  IsClosed.{u_1} K →
+    (∀ x ∉ K, Eq.{u_2 + 1} (f x) 0) → ∀ {x : X}, x ∉ K → Filter.EventuallyEq.{u_1, u_2} (nhds.{u_1} x) f fun x => 0
+TYPE_END:MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem
+'MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem' depends on axioms: [propext, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.supported_eventuallyEq_zero_of_not_mem
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers
+@MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers.{u_1, u_2,
+    u_3} : ∀ {ι : Type u_1} {X : Type u_2} {A : Type u_3} [inst : Fintype.{u_1} ι] [inst_1 : AddCommMonoid.{u_3} A]
+  {K : ι → Set.{u_2} X} {f : ι → X → A},
+  (Pairwise.{u_1} fun i j => Disjoint.{u_2} (K i) (K j)) →
+    (∀ (i : ι), ∀ x ∉ K i, Eq.{u_3 + 1} (f i x) 0) →
+      ∀ {i : ι} {x : X}, Membership.mem.{u_2, u_2} (K i) x → Eq.{u_3 + 1} (∑ j, f j x) (f i x)
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers
+'MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_eq_active_of_disjoint_carriers
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers
+@MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers.{u_1, u_2,
+    u_3} : ∀ {ι : Type u_1} {X : Type u_2} {A : Type u_3} [inst : Fintype.{u_1} ι] [inst_1 : AddCommMonoid.{u_3} A]
+  {K : ι → Set.{u_2} X} {f : ι → X → A},
+  (∀ (i : ι), ∀ x ∉ K i, Eq.{u_3 + 1} (f i x) 0) → ∀ {x : X}, (∀ (i : ι), x ∉ K i) → Eq.{u_3 + 1} (∑ i, f i x) 0
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers
+'MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_eq_zero_of_outside_carriers
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers
+@MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers.{u_1, u_2,
+    u_3} : ∀ {ι : Type u_1} {X : Type u_2} {A : Type u_3} [inst : Fintype.{u_1} ι] [inst_1 : AddCommMonoid.{u_3} A]
+  [inst_2 : TopologicalSpace.{u_2} X] {K : ι → Set.{u_2} X} {f : ι → X → A},
+  (∀ (i : ι), IsClosed.{u_2} (K i)) →
+    (Pairwise.{u_1} fun i j => Disjoint.{u_2} (K i) (K j)) →
+      (∀ (i : ι), ∀ x ∉ K i, Eq.{u_3 + 1} (f i x) 0) →
+        ∀ {i : ι} {x : X},
+          Membership.mem.{u_2, u_2} (K i) x → Filter.EventuallyEq.{u_2, u_3} (nhds.{u_2} x) (fun y => ∑ j, f j y) (f i)
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers
+'MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_active_of_disjoint_closed_carriers
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers
+@MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers.{u_1, u_2,
+    u_3} : ∀ {ι : Type u_1} {X : Type u_2} {A : Type u_3} [inst : Fintype.{u_1} ι] [inst_1 : AddCommMonoid.{u_3} A]
+  [inst_2 : TopologicalSpace.{u_2} X] {K : ι → Set.{u_2} X} {f : ι → X → A},
+  (∀ (i : ι), IsClosed.{u_2} (K i)) →
+    (∀ (i : ι), ∀ x ∉ K i, Eq.{u_3 + 1} (f i x) 0) →
+      ∀ {x : X}, (∀ (i : ι), x ∉ K i) → Filter.EventuallyEq.{u_2, u_3} (nhds.{u_2} x) (fun y => ∑ i, f i y) fun x => 0
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers
+'MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_eventuallyEq_zero_of_outside_closed_carriers
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero
+@MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero.{u_1, u_2,
+    u_3} : ∀ {ι : Type u_1} {X : Type u_2} {A : Type u_3} [inst : Fintype.{u_1} ι] [inst_1 : AddCommMonoid.{u_3} A]
+  [inst_2 : TopologicalSpace.{u_2} X] {K : ι → Set.{u_2} X} {f : ι → X → A},
+  (∀ (i : ι), IsClosed.{u_2} (K i)) →
+    (Pairwise.{u_1} fun i j => Disjoint.{u_2} (K i) (K j)) →
+      (∀ (i : ι), ∀ x ∉ K i, Eq.{u_3 + 1} (f i x) 0) →
+        ∀ (x : X),
+          (∃ i,
+              Membership.mem.{u_2, u_2} (K i) x ∧
+                Filter.EventuallyEq.{u_2, u_3} (nhds.{u_2} x) (fun y => ∑ j, f j y) (f i)) ∨
+            Filter.EventuallyEq.{u_2, u_3} (nhds.{u_2} x) (fun y => ∑ j, f j y) fun x => 0
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero
+'MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_locally_active_or_zero
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active
+@MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active.{u_1, u_2, u_3,
+    u_4} : ∀ {ι : Type u_1} {T : Type u_2} {X : Type u_3} {A : Type u_4} [inst : Fintype.{u_1} ι]
+  [inst_1 : TopologicalSpace.{u_2} T] [inst_2 : TopologicalSpace.{u_3} X] [inst_3 : AddCommMonoid.{u_4} A]
+  {K : ι → Set.{u_3} X} {f : ι → T → X → A},
+  (∀ (i : ι), IsClosed.{u_3} (K i)) →
+    (Pairwise.{u_1} fun i j => Disjoint.{u_3} (K i) (K j)) →
+      (∀ (i : ι) (t : T), ∀ x ∉ K i, Eq.{u_4 + 1} (f i t x) 0) →
+        ∀ {i : ι} {x : X},
+          Membership.mem.{u_3, u_3} (K i) x →
+            ∀ (t : T),
+              Filter.EventuallyEq.{max u_3 u_2, u_4} (nhds.{max u_3 u_2} (Prod.mk.{u_2, u_3} t x))
+                (fun z => ∑ j, f j z.1 z.2) fun z => f i z.1 z.2
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active
+'MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_active
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero
+@MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero.{u_1, u_2, u_3,
+    u_4} : ∀ {ι : Type u_1} {T : Type u_2} {X : Type u_3} {A : Type u_4} [inst : Fintype.{u_1} ι]
+  [inst_1 : TopologicalSpace.{u_2} T] [inst_2 : TopologicalSpace.{u_3} X] [inst_3 : AddCommMonoid.{u_4} A]
+  {K : ι → Set.{u_3} X} {f : ι → T → X → A},
+  (∀ (i : ι), IsClosed.{u_3} (K i)) →
+    (∀ (i : ι) (t : T), ∀ x ∉ K i, Eq.{u_4 + 1} (f i t x) 0) →
+      ∀ {x : X},
+        (∀ (i : ι), x ∉ K i) →
+          ∀ (t : T),
+            Filter.EventuallyEq.{max u_3 u_2, u_4} (nhds.{max u_3 u_2} (Prod.mk.{u_2, u_3} t x))
+              (fun z => ∑ j, f j z.1 z.2) fun x => 0
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero
+'MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_spacetime_eventuallyEq_zero
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SameTorusPoint
+MethbokeAddon.FeffermanFamily.SameTorusPoint : SingularClosure.Vec → SingularClosure.Vec → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.SameTorusPoint
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SameTorusPoint
+'MethbokeAddon.FeffermanFamily.SameTorusPoint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SameTorusPoint
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.TorusSitesDistinct
+@MethbokeAddon.FeffermanFamily.TorusSitesDistinct : {N : ℕ} → (Fin N → SingularClosure.Vec) → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.TorusSitesDistinct
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.TorusSitesDistinct
+'MethbokeAddon.FeffermanFamily.TorusSitesDistinct' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.TorusSitesDistinct
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.familySpacetime
+MethbokeAddon.FeffermanFamily.familySpacetime : Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FeffermanFamily.familySpacetime
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.familySpacetime
+'MethbokeAddon.FeffermanFamily.familySpacetime' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.familySpacetime
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce
+MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce : SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce
+'MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor
+MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor : ℝ →
+  SingularClosure.Velocity → SingularClosure.Velocity → SingularClosure.Pressure → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor
+'MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE
+MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE : ℝ →
+  SingularClosure.Velocity → SingularClosure.Velocity → SingularClosure.Pressure → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE
+'MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy
+MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy : SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy
+'MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.BoundedPreterminalCellEnergy
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness
+@MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness : {N : ℕ} →
+  ℝ →
+    (Fin N → SingularClosure.Vec) →
+      SingularClosure.Velocity → SingularClosure.Velocity → SingularClosure.Pressure → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness
+'MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement
+MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement : Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement
+'MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction
+MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction : ℝ → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction
+'MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.sameTorusPoint_refl
+MethbokeAddon.FeffermanFamily.sameTorusPoint_refl : ∀ (a : SingularClosure.Vec),
+  MethbokeAddon.FeffermanFamily.SameTorusPoint a a
+TYPE_END:MethbokeAddon.FeffermanFamily.sameTorusPoint_refl
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.sameTorusPoint_refl
+'MethbokeAddon.FeffermanFamily.sameTorusPoint_refl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.sameTorusPoint_refl
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.sameTorusPoint_symm
+@MethbokeAddon.FeffermanFamily.sameTorusPoint_symm : ∀ {a b : SingularClosure.Vec},
+  MethbokeAddon.FeffermanFamily.SameTorusPoint a b → MethbokeAddon.FeffermanFamily.SameTorusPoint b a
+TYPE_END:MethbokeAddon.FeffermanFamily.sameTorusPoint_symm
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.sameTorusPoint_symm
+'MethbokeAddon.FeffermanFamily.sameTorusPoint_symm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.sameTorusPoint_symm
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.sameTorusPoint_trans
+@MethbokeAddon.FeffermanFamily.sameTorusPoint_trans : ∀ {a b c : SingularClosure.Vec},
+  MethbokeAddon.FeffermanFamily.SameTorusPoint a b →
+    MethbokeAddon.FeffermanFamily.SameTorusPoint b c → MethbokeAddon.FeffermanFamily.SameTorusPoint a c
+TYPE_END:MethbokeAddon.FeffermanFamily.sameTorusPoint_trans
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.sameTorusPoint_trans
+'MethbokeAddon.FeffermanFamily.sameTorusPoint_trans' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.sameTorusPoint_trans
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective
+@MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective : ∀ {N : ℕ} {a : Fin N → SingularClosure.Vec},
+  MethbokeAddon.FeffermanFamily.TorusSitesDistinct a → Function.Injective.{1, 1} a
+TYPE_END:MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective
+'MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.torusSitesDistinct_injective
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton
+MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton : ∀ (a : Fin 1 → SingularClosure.Vec),
+  MethbokeAddon.FeffermanFamily.TorusSitesDistinct a
+TYPE_END:MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton
+'MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.torusSitesDistinct_singleton
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex
+@MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex : ∀ {M N : ℕ} {a : Fin N → SingularClosure.Vec},
+  MethbokeAddon.FeffermanFamily.TorusSitesDistinct a →
+    ∀ (e : Fin M → Fin N),
+      Function.Injective.{1, 1} e → MethbokeAddon.FeffermanFamily.TorusSitesDistinct (Function.comp.{1, 1, 1} a e)
+TYPE_END:MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex
+'MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.torusSitesDistinct_reindex
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero
+MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero : MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce 0
+TYPE_END:MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero
+'MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.admissiblePeriodicForce_zero
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced
+@MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced : ∀ {ν : ℝ} {u : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  SingularClosure.GlobalSmoothNSE ν 0 u p → MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor ν 0 u p
+TYPE_END:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced
+'MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_of_unforced
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero
+MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero : ∀ (ν : ℝ),
+  MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor ν 0 0 0
+TYPE_END:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero
+'MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.globalPeriodicCompetitor_zero
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global
+@MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global : ∀ {ν : ℝ} {F u : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FeffermanFamily.GlobalPeriodicCompetitor ν F u p →
+    MethbokeAddon.FeffermanFamily.PreterminalPeriodicNSE ν F u p
+TYPE_END:MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global
+'MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.preterminalPeriodicNSE_of_global
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex
+@MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex : ∀ {M N : ℕ} {ν : ℝ} {a : Fin N → SingularClosure.Vec}
+  {F u : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+  MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness ν a F u p →
+    ∀ (e : Fin M → Fin N), MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness ν (Function.comp.{1, 1, 1} a e) F u p
+TYPE_END:MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex
+'MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.periodicFamilyWitness_reindex
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force
+@MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force : ∀ {N : ℕ} (ν : ℝ) (a : Fin N → SingularClosure.Vec)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  ¬MethbokeAddon.FeffermanFamily.PeriodicFamilyWitness ν a 0 u p
+TYPE_END:MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force
+'MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.no_periodicFamilyWitness_zero_force
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction
+MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction : MethbokeAddon.FeffermanFamily.PeriodicFamilyObstructionStatement →
+  ∀ (ν : ℝ), LT.lt.{0} 0 ν → MethbokeAddon.FeffermanFamily.SmoothCompactForceObstruction ν
+TYPE_END:MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction
+'MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.family_implies_smoothCompactForceObstruction

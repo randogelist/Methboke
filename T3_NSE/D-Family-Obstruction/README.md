@@ -23,9 +23,11 @@ Native sources live in `Material/MethbokeAddon/FeffermanFamily/`:
 | `FamilyContracts.lean` | Actual periodic forced-NSE fields, admissible force, competitor and finite-family contracts |
 
 `Material/FeffermanFamilyFoundation/` registers the first package, with independent
-exact consumer types and theorem-level axiom audits. Source preparation is not
-formal acceptance. See [IMPLEMENTATION_STATUS.json](IMPLEMENTATION_STATUS.json)
-for the current source-specific status.
+exact consumer types and theorem-level axiom audits. [Run44655638162](https://github.com/randogelist/Methboke/actions/runs/44655638162)
+verified 28 helper theorems and 11 contract declarations at 77a64245, using only
+standard axioms. See the [A-tier helper register](FEFFERMAN_D_FOUNDATION_A_TIER.txt),
+[evidence summary](../../audits/material-77a64245-family/summary.json) and
+[implementation ledger](IMPLEMENTATION_STATUS.json) for exact scope.
 
 ## Route and remaining work
 
@@ -62,7 +64,6 @@ imported into this package, and its theorem has not been ported or newly audited
 here. No compiler or dependency pin is changed for the first layer.
 
 Local Lean, Lake invoking Lean and local kernel audits are forbidden. The
-existing external cached Material workflow must compile the new sources and
-run all retained audits plus the new package audits. Only matching complete
-evidence can promote the precisely audited helpers; it cannot promote the
-unfinished family root.
+existing external cached Material workflow passed 415 modules and 72 fresh
+package audits (487 named type/axiom reports plus QFB). Matching evidence was
+reviewed before accepting the helpers. This does not promote the unfinished root.

@@ -3,7 +3,8 @@
 This is the first implementation layer toward `Fefferman_D`, using the
 finite-site family route documented in
 [T3_NSE/D-Family-Obstruction](../../T3_NSE/D-Family-Obstruction/README.md).
-The implementation is prepared for matching external cached verification.
+The 28 helper theorems and 11 contract declarations are accepted at 77a64245
+by [external run 44655638162](https://github.com/randogelist/Methboke/actions/runs/44655638162); [evidence](../../audits/material-77a64245-family/summary.json).
 It does not yet construct a smooth-force singular seed or prove
 `Fefferman_D_Family_obstruction`.
 
@@ -19,16 +20,16 @@ signatures and expands 11 key definitions/structures literally. Each of these
 39 names receives fresh exact-type and standard-axiom reports in `Audit.lean`.
 The family existence statement is only a definition. Its projection theorem
 retains that statement as an explicit premise; it does not supply a witness.
-The zero-force exclusion helper verifies that the nonexistence contract rejects
-the native zero solution as a counterexample.
+The zero-force exclusion helper rules out every zero-force family witness,
+because the native zero solution supplies a global competitor.
 
 `Endpoint.lean`, `endpoint.json` and `closure.json` register the package in the
 existing Material runner. `owned-sources.json` hashes the three new sources.
 `endpoints.json` preserves the preceding 71 packages and 448 declaration audits
 and adds this package, giving 72 packages and 487 named audits, plus the existing
-QFB cutout. The projected build count is 415 modules: the previous 411 plus
-three sources and one endpoint wrapper. Audit modules are executed separately.
-These counts describe the planned scope, not an observed compiler result.
+QFB cutout. The observed build covered 415 modules:411 reused and 4 freshly
+compiled. All 72 package audits were fresh; audit modules execute separately.
+Every required exact-type and axiom report passed, using standard axioms only.
 
 Compiler and dependencies remain Lean `4.33.0` and Mathlib
 `db584cd6d46c92f209a44c0f1c829460d327499d`. No Lake configuration, workflow,
@@ -41,6 +42,6 @@ proof bytes already existed in it.
 `static-validation.json` records file, manifest, dependency-metadata and audit
 coverage checks only. The complete retained repository is checked by the
 existing external runner. No local Lean, Lake or kernel audit was executed.
-Only matching external compiler, complete type/axiom and source evidence may
-promote these helpers. The singular seed import, copy transformations, packing,
+Matching external compiler, complete type/axiom and source evidence was
+independently reviewed. The singular seed import, copy transformations, packing,
 PDE gluing, energy, periodization and same-force uniqueness remain future layers.

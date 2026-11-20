@@ -2,8 +2,9 @@
 
 The current goal is **Fefferman D**, through the finite periodic forced-family
 route. The first [foundation package](FeffermanFamilyFoundation/README.md) adds
-local blowup, disjoint-carrier and native contract helpers, pending matching
-external cached verification. The complete D family root remains unproved; see
+28 local blowup, disjoint-carrier and native contract helper theorems and 11
+contract declarations, accepted at 77a64245 by [external run 44655638162](https://github.com/randogelist/Methboke/actions/runs/44655638162).
+The complete D family root remains unproved; see
 the [implementation ledger](../T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json).
 
 The prior accepted conditional theorem is

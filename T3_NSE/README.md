@@ -11,8 +11,9 @@ The layout was validated on `codex/reorganize-nse-domains` for integration into
 | B Heisenberg obstruction | [StoppedCommutatorBound](B-Heisenberg-Obstruction/StoppedCommutatorBound/README.md) |
 
 The current user-selected goal is Fefferman D, using the finite prescribed-site
-family route. Its first native foundations are prepared pending matching
-external verification; the full family witness remains unproved here.
+family route. Its first native foundations are accepted at 77a64245:28 helper
+theorems and 11 contract declarations. The full family witness remains unproved.
+See the [A-tier helper register](D-Family-Obstruction/FEFFERMAN_D_FOUNDATION_A_TIER.txt).
 
 The program folders contain their derivations, registers, plans and publication
 material. [Material](../Material/README.md) remains the shared verified Lean
