@@ -1,0 +1,41 @@
+theorem local_sobolev_flow_of_uniform_H2
+    (ν : ℝ) (hν : 0 < ν) (a : Field) (ha : SmoothSigmaZero a)
+    (T : ℝ) (hT : 0 < T) (S : ℝ) (hS : 0 ≤ S)
+    (hH2 : ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,
+      (∫ t in (0 : ℝ)..T, ‖g.sobolevState 2 t‖ ^ 2) ≤ S) :
+    ∃ L : LocalSobolevFlow ν T, (L.state 0 0).val = datumFourierCoeff a := by
+  classical
+  obtain ⟨v, φ, hφ, hv⟩ :=
+    local_canonical_galerkin_H0_uniform_subsequence ν hν a ha T hT S hS hH2
+  let g := fun n => canonicalGalerkinSolution ν hν a ha (φ n + 1)
+  let u : ℝ → TorusSobolev 0 := fun t =>
+    if ht : t ∈ Icc (0 : ℝ) T then v ⟨t, ht⟩ else 0
+  have hrestrict : (fun t : Icc (0 : ℝ) T => u t.val) = v := by
+    funext t
+    simp only [u, dif_pos t.property]
+  have hconv : TendstoUniformlyOn (fun n t => (g n).sobolevState 0 t)
+      u atTop (Icc (0 : ℝ) T) := by
+    apply tendstoUniformlyOn_iff_tendstoUniformly_comp_coe.mpr
+    change TendstoUniformly
+      (fun n (t : Icc (0 : ℝ) T) => (g n).sobolevState 0 t.val)
+      (fun t : Icc (0 : ℝ) T => u t.val) atTop
+    rw [hrestrict]
+    exact hv
+  have hu : ContinuousOn u (Icc (0 : ℝ) T) :=
+    hconv.continuousOn (Filter.Eventually.of_forall
+      (fun n => ((g n).sobolevState_continuousOn 0).mono (fun t ht => ht.1))).frequently
+  have hbound (s : ℕ) : ∃ B : ℝ, 0 ≤ B ∧
+      ∀ (n : ℕ) (t : ℝ), t ∈ Icc (0 : ℝ) T → ‖(g n).sobolevState s t‖ ≤ B := by
+    obtain ⟨B, hB, hb⟩ := local_galerkin_high_order_pointwise ν hν a ha T hT S hS hH2 s
+    refine ⟨B + 1, by linarith, ?_⟩
+    intro n t ht
+    have hn := hb (φ n + 1) (by omega) (g n) t ht
+    nlinarith [sq_nonneg (‖(g n).sobolevState s t‖ - 1)]
+  obtain ⟨L, hL⟩ := local_sobolev_flow_of_galerkin_limit ν a φ hφ g T hT u hu hconv hbound
+  refine ⟨L, ?_⟩
+  have hzero : (0 : ℝ) ∈ Icc (0 : ℝ) T := ⟨le_rfl, hT.le⟩
+  rw [hL 0 hzero]
+  change (u 0).val = datumFourierCoeff a
+  have hu0 : u 0 = v ⟨0, hzero⟩ := dif_pos hzero
+  rw [hu0]
+  exact canonicalSobolevLimit_initial_coeff ν hν a ha T hT.le v φ hφ hv

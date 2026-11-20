@@ -218,3 +218,11 @@ The [complete step-list derivation](NSE_A_A_TIER_STEPLIST_B_TIER.txt) records
 source anchors and completion criteria; [A_TIER_PLAN.json](A_TIER_PLAN.json)
 records dependencies and current status. These are proposed endpoints for
 review. The plan adds no native Lean source or new A-tier acceptance.
+
+## Collected Lean sources for the missing proofs
+
+The [Lean cutout collection](LEAN_CUTOUTS/README.md) supplies 51 exact reference
+blocks and 60 full pinned source snapshots. Its [gap assessment](LEAN_CUTOUTS/GAPS.md)
+identifies the largest missing native statements and the improved integral
+Gronwall route. The cumulative step-list TXT links every cutout, retaining
+all hypotheses and the separation between source availability and acceptance.

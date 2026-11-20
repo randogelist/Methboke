@@ -1,0 +1,17 @@
+structure StrongSolutionOnIcc (ν : ℝ) (f : VelocityField) (a b : ℝ)
+    (u : VelocityField) (p : PressureField) where
+  time_lt : a < b
+  curve : H3Curve u (Icc a b)
+  timeDerivative : VelocityField
+  timeDerivative_memLp : ∀ t ∈ Ioo a b, MemLp (fun x => timeDerivative (t, x)) 2 volume
+  hasDerivAt_velocity : ∀ t (ht : t ∈ Ioo a b),
+    HasDerivAt curve.velocityLp
+      ((timeDerivative_memLp t ht).toLp (fun x => timeDerivative (t, x))) t
+  pressure_C1 : ∀ t ∈ Ioo a b, ContDiff ℝ 1 (fun x => p (t, x))
+  divergence_free : ∀ t ∈ Ioo a b,
+    ∀ᵐ x ∂volume, weakDivergence (fun i x => curve.first i (t, x)) x = 0
+  navier_stokes : ∀ t ∈ Ioo a b, ∀ᵐ x ∂volume,
+    timeDerivative (t, x) + weakAdvection (fun x => u (t, x))
+        (fun i x => curve.first i (t, x)) x -
+      ν • weakLaplacian (fun i j x => curve.second i j (t, x)) x +
+      NavierStokes.ProblemStatement.pressureGradient p t x = f (t, x)

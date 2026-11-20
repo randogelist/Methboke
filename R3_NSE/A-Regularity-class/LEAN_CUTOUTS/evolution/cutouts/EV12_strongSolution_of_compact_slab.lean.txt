@@ -1,0 +1,21 @@
+def strongSolution_of_compact_slab {ν a b : ℝ} {u f : VelocityField} {p : PressureField}
+    {K : Set Space} (hab : a < b) (hK : IsCompact K)
+    (hu : ContDiffOn ℝ ∞ u (slab a b)) (hp : ContDiffOn ℝ ∞ p (slab a b))
+    (hsupp : ∀ r ∈ Icc a b, tsupport (fun x => u (r, x)) ⊆ K)
+    (hdiv : ∀ t ∈ Ioo a b, ∀ x, spatialDivergence u t x = 0)
+    (hNS : ∀ t ∈ Ioo a b, ∀ x, navierStokesResidual ν u p t x = f (t, x)) :
+    StrongSolutionOnIcc ν f a b u p where
+  time_lt := hab
+  curve := h3Curve_of_compact_slab hab hK hu hsupp
+  timeDerivative := fun z => temporalDerivative u z.1 z.2
+  timeDerivative_memLp := fun _ ht => temporalDerivative_memLp_of_compact hK hu hsupp ht
+  hasDerivAt_velocity := fun _ ht => hasDerivAt_velocityLp_of_compact hK hu hsupp ht _
+  pressure_C1 := fun _ ht => (spatial_smooth hp (Ioo_subset_Icc_self ht)).of_le (by simp)
+  divergence_free := fun t ht => Filter.Eventually.of_forall (hdiv t ht)
+  navier_stokes := fun t ht => Filter.Eventually.of_forall (fun x => by
+    change temporalDerivative u t x + weakAdvection (fun x => u (t, x))
+      (fun i x => H3Compact.partialField i u (t, x)) x -
+      ν • NavierStokes.ProblemStatement.spatialLaplacian u t x +
+      NavierStokes.ProblemStatement.pressureGradient p t x = _
+    rw [weakAdvection_eq_advection]
+    exact hNS t ht x)

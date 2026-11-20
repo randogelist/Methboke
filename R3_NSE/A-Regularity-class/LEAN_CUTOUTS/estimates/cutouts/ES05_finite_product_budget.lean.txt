@@ -1,0 +1,20 @@
+/-- Open-interval interface for strict-average good-time extraction.
+The measure is literally `volume.restrict (Ioo 0 R)`, so no periodic or
+whole-space PDE carrier is built into this scalar conclusion. -/
+theorem product_budget_Ioo
+    {E D : ℝ → ℝ} {M ν R : ℝ}
+    (hR : 0 ≤ R) (hν : 0 < ν)
+    (hD : IntervalIntegrable D volume (0 : ℝ) R)
+    (hEm : AEStronglyMeasurable E (volume.restrict (Ioo (0 : ℝ) R)))
+    (hDnn : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) R), 0 ≤ D t)
+    (hEnn : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) R), 0 ≤ E t)
+    (hEF : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) R),
+      E t ≤ envelope M ν D t) :
+    Integrable (fun t => E t * D t) (volume.restrict (Ioo (0 : ℝ) R)) ∧
+      (∫ t in Ioo (0 : ℝ) R, E t * D t) ≤ M ^ 4 / (4 * ν) := by
+  obtain ⟨hED, _, hbudget⟩ := product_budget
+    (E := E) (D := D) (M := M) (ν := ν) (R := R) hR hν hD hEm hDnn hEnn hEF
+  refine ⟨hED, ?_⟩
+  -- EP027 and EP011: the strict-average source uses the open-set integral.
+  simpa only [intervalIntegral.integral_of_le hR,
+    ← MeasureTheory.restrict_Ioo_eq_restrict_Ioc] using hbudget

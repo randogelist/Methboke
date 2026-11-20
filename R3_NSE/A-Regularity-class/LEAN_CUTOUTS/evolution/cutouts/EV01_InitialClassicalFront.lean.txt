@@ -1,0 +1,15 @@
+structure InitialClassicalFront (ν T : ℝ) (a : Field)
+    (u : Velocity) (p : Pressure) : Prop where
+  velocity_smooth :
+    ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (initialFrontSpacetime T)
+  pressure_smooth :
+    ContDiffOn ℝ ∞ (fun z : ℝ × Vec => p z.1 z.2) (initialFrontSpacetime T)
+  velocity_periodic : ∀ t ∈ Ico (0 : ℝ) T, SpatialPeriodic (u t)
+  pressure_periodic : ∀ t ∈ Ico (0 : ℝ) T, SpatialPeriodic (p t)
+  divergence_free : ∀ t ∈ Ico (0 : ℝ) T, ∀ x : Vec, divergence (u t) x = 0
+  equation : ∀ t ∈ Ico (0 : ℝ) T, ∀ x : Vec,
+    timeDerivative u t x + convection (u t) x + SingularClosure.gradient (p t) x =
+      ν • laplacian (u t) x
+  initial : u 0 = a
+  velocity_mean_zero : ∀ t ∈ Ico (0 : ℝ) T, MeanZero (u t)
+  pressure_mean_zero : ∀ t ∈ Ico (0 : ℝ) T, PressureMeanZero (p t)

@@ -1,0 +1,12 @@
+/-- LC005: compactly supported scalar Schwartz tests are dense for the actual
+whole-space QFA test domain. -/
+theorem denseCompactSchwartzTests : DenseCompactSchwartzTests := by
+  simpa only [DenseCompactSchwartzTests, compactSchwartzTests] using
+    (SchwartzMap.qfa_dense_hasCompactSupport (E := Space) (F := ℂ))
+
+/-- The corrected derivative witness bridge with LC005 discharged. -/
+theorem schwartzDerivativeWitnesses_of_compactSchwartz_unconditional
+    {v : ComplexL2} {G : Fin 3 → ComplexL2} {L : ComplexL2}
+    (h : CompactSchwartzDerivativeWitnesses v G L) :
+    SchwartzDerivativeWitnesses v G L :=
+  schwartzDerivativeWitnesses_of_compactSchwartz denseCompactSchwartzTests h

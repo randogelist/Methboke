@@ -1,0 +1,106 @@
+/-- **A3 `gns_L6_of_memH1_R3` [PROVED sorry-free].**
+If a complex-valued `L²(ℝ³; ℂ)` function `f` lies in the Sobolev space `H^{1,2}(ℝ³; ℂ)`
+(i.e. `TemperedDistribution.MemSobolev 1 2 (f : 𝓢'(Domain3, ℂ))` via the
+`Lp.instCoeDep` coercion in `TemperedDistribution.lean:178`), then `f ∈ L⁶(ℝ³; ℂ)`.
+
+Conclusion: `MemLp (⇑f) 6 (volume : Measure Domain3)`, where `⇑f : Domain3 → ℂ` is the
+a.e. representative of `f : L2C_R3 = Lp ℂ 2 (volume : Measure Domain3)`.
+
+**Proof.**
+1. Extract the Sobolev representative `f' ∈ L²` with `smulLeftCLM (1+‖·‖²)^(1/2) (𝓕 f) = f'`,
+   giving `⇑(𝓕 f) =ᵐ wInv • f'` (`fourier_ae_eq_wInv_smul`).
+2. Take a Schwartz sequence `ηₙ.toLp 2 → f'` (`denseRange_toLpCLM`) and set the Schwartz
+   approximants `φₙ := 𝓕⁻¹(smulLeftCLM wInv ηₙ)`, so `𝓕 φₙ ξ = wInv ξ • ηₙ ξ` and
+   `∫(1+‖ξ‖²)‖𝓕φₙ‖² = ‖ηₙ.toLp‖²`.
+3. `gns_L6_schwartz` + `eLpNorm_fderiv_le_weighted` give `eLpNorm φₙ 6 ≤ C·2π·‖ηₙ.toLp‖`,
+   uniformly `≤ C·2π·M` with `M := ‖f'‖+1` (since `‖ηₙ.toLp‖ → ‖f'‖`).
+4. `φₙ.toLp → f` in L² (Fourier isometry + the bounded multiplier `mulBdd wInv`); extract an
+   a.e.-convergent subsequence and apply Fatou (`Lp.eLpNorm_le_of_ae_tendsto`) to get
+   `eLpNorm ⇑f 6 ≤ C·2π·M < ∞`, hence `MemLp (⇑f) 6`. -/
+theorem gns_L6_of_memH1_R3
+    (f : L2C_R3)
+    (hf : MemSobolev 1 2 (f : 𝓢'(Domain3, ℂ))) :
+    MemLp (⇑f) 6 (volume : Measure Domain3) := by
+  classical
+  -- Steps 0-2 (extract the Sobolev representative `f'`, a Schwartz sequence `η → f'`, the
+  -- Schwartz approximants `φ n := 𝓕⁻ (smulLeftCLM wInv (η n))`) plus the L²-value-convergence
+  -- `φ n.toLp → f` are IDENTICAL to `schwartz_seq_valueConv_of_memSobolev`'s construction
+  -- (shared by `schwartz_h1_gradConv_aux`); reuse it rather than re-deriving both here.
+  obtain ⟨η, f', φ, hη, hFφ_pt, htoLp⟩ := schwartz_seq_valueConv_of_memSobolev f hf
+  -- The constants.
+  set C : ENNReal := (SNormLESNormFDerivOfEqConst ℂ (volume : Measure Domain3) 2 : ENNReal) with hCdef
+  set M : ℝ := ‖f'‖ + 1 with hMdef
+  have hMpos : 0 ≤ M := by positivity
+  -- Step 3: weighted-Fourier integral of `φ n` equals `‖(η n).toLp‖²`.
+  have hWeighted : ∀ n,
+      ∫ ξ : Domain3, (1 + ‖ξ‖ ^ 2) * ‖(𝓕 (φ n)) ξ‖ ^ 2 ∂(volume : Measure Domain3)
+        = ‖(η n).toLp 2 (volume : Measure Domain3)‖ ^ 2 := by
+    intro n
+    rw [PlancherelKernels.normSq_toLp_two (η n)]
+    refine integral_congr_ae (Filter.Eventually.of_forall fun ξ => ?_)
+    simp only []
+    rw [hFφ_pt n ξ, norm_smul, mul_pow, Complex.norm_real, Real.norm_eq_abs]
+    have hwsq : |wInv ξ| ^ 2 = (1 + ‖ξ‖ ^ 2)⁻¹ := by
+      rw [wInv, sq_abs, ← Real.rpow_natCast _ 2, ← Real.rpow_mul (by positivity)]
+      norm_num
+      rw [Real.rpow_neg (by positivity), Real.rpow_one]
+    rw [hwsq]; field_simp
+  -- Step 4: `eLpNorm (φ n) 6 ≤ ofReal (C.toReal · 2π · ‖(η n).toLp‖)`. We package the whole
+  -- constant `C · ofReal (2π · ‖(η n).toLp‖)` and bound it eventually by a uniform constant.
+  set Bdd : ENNReal := C * ENNReal.ofReal (2 * Real.pi * M) with hBdd
+  have hL6 : ∀ n, eLpNorm (φ n : Domain3 → ℂ) 6 (volume : Measure Domain3)
+      ≤ C * ENNReal.ofReal (2 * Real.pi * ‖(η n).toLp 2 (volume : Measure Domain3)‖) := by
+    intro n
+    refine (gns_L6_schwartz (φ n)).trans ?_
+    have hgrad := eLpNorm_fderiv_le_weighted (φ n)
+    rw [hWeighted n, Real.sqrt_sq (norm_nonneg _)] at hgrad
+    exact mul_le_mul_right hgrad C
+  -- Step 5: `‖(η n).toLp‖ → ‖f'‖`, hence eventually `eLpNorm (φ n) 6 ≤ Bdd`.
+  have hnorm_tend : Filter.Tendsto (fun n => ‖(η n).toLp 2 (volume : Measure Domain3)‖)
+      Filter.atTop (nhds ‖f'‖) := (continuous_norm.tendsto f').comp hη
+  have hev_le : ∀ᶠ n in Filter.atTop,
+      eLpNorm (φ n : Domain3 → ℂ) 6 (volume : Measure Domain3) ≤ Bdd := by
+    have hev : ∀ᶠ n in Filter.atTop, ‖(η n).toLp 2 (volume : Measure Domain3)‖ ≤ M := by
+      have := hnorm_tend.eventually_le_const (show ‖f'‖ < M by rw [hMdef]; linarith)
+      exact this
+    filter_upwards [hev] with n hn
+    refine (hL6 n).trans ?_
+    rw [hBdd]
+    refine mul_le_mul_right (ENNReal.ofReal_le_ofReal ?_) C
+    have hnn : 0 ≤ ‖(η n).toLp 2 (volume : Measure Domain3)‖ := norm_nonneg _
+    nlinarith [Real.pi_pos, hn, hnn]
+  -- Step 6: `φ n . toLp → f` in L² (`htoLp`, from the reused value-convergence step above),
+  -- so an a.e.-convergent subsequence exists.
+  have hL2conv : Filter.Tendsto
+      (fun n => eLpNorm (⇑((φ n).toLp 2 (volume : Measure Domain3)) - ⇑f) 2
+        (volume : Measure Domain3)) Filter.atTop (nhds 0) :=
+    (Lp.tendsto_Lp_iff_tendsto_eLpNorm'
+      (fun n => (φ n).toLp 2 (volume : Measure Domain3)) f).mp htoLp
+  -- a.e.-convergent subsequence.
+  obtain ⟨ns, hns_mono, hns_ae⟩ :
+      ∃ ns : ℕ → ℕ, StrictMono ns ∧ ∀ᵐ ξ ∂(volume : Measure Domain3),
+        Filter.Tendsto (fun i => (⇑((φ (ns i)).toLp 2 (volume : Measure Domain3))) ξ)
+          Filter.atTop (nhds ((f : Domain3 → ℂ) ξ)) := by
+    have htim : TendstoInMeasure (volume : Measure Domain3)
+        (fun n => ⇑((φ n).toLp 2 (volume : Measure Domain3))) Filter.atTop (f : Domain3 → ℂ) := by
+      refine MeasureTheory.tendstoInMeasure_of_tendsto_eLpNorm (p := 2) (by norm_num)
+        (fun n => Lp.aestronglyMeasurable _) (Lp.aestronglyMeasurable _) ?_
+      refine hL2conv.congr (fun n => ?_)
+      rfl
+    exact htim.exists_seq_tendsto_ae
+  -- The eventual bound transports to the subsequence.
+  have hev_le_sub : ∀ᶠ i in Filter.atTop,
+      eLpNorm (⇑((φ (ns i)).toLp 2 (volume : Measure Domain3))) 6 (volume : Measure Domain3)
+        ≤ Bdd := by
+    have htend_ns : Filter.Tendsto ns Filter.atTop Filter.atTop := hns_mono.tendsto_atTop
+    filter_upwards [htend_ns.eventually hev_le] with i hi
+    exact (eLpNorm_congr_ae ((φ (ns i)).coeFn_toLp 2 (volume : Measure Domain3))).le.trans hi
+  -- Step 7: Fatou along the subsequence gives `eLpNorm ⇑f 6 ≤ Bdd < ∞`, hence `MemLp`.
+  have hfatou : eLpNorm (⇑f) 6 (volume : Measure Domain3) ≤ Bdd :=
+    MeasureTheory.Lp.eLpNorm_le_of_ae_tendsto
+      (u := Filter.atTop) (f := fun i => ⇑((φ (ns i)).toLp 2 (volume : Measure Domain3)))
+      hev_le_sub (fun i => Lp.aestronglyMeasurable _) hns_ae
+  refine ⟨Lp.aestronglyMeasurable f, ?_⟩
+  refine lt_of_le_of_lt hfatou ?_
+  rw [hBdd]
+  exact ENNReal.mul_lt_top (by rw [hCdef]; exact ENNReal.coe_lt_top) ENNReal.ofReal_lt_top

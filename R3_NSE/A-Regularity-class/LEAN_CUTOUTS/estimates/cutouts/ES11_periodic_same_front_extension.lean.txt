@@ -1,0 +1,28 @@
+/-- Finite actual physical enstrophy-square integral yields a genuine longer
+classical front preserving the entire old velocity and normalized pressure.
+All restart information is derived from the actual front and the budget.
+-/
+theorem initial_front_extends_of_dissipation_square
+    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (hν : 0 < ν) (hT : 0 < T) (H : InitialClassicalFront ν T a u p)
+    (hD : Integrable (fun t => physicalDissipation (u t) ^ 2)
+      (volume.restrict (Ioo (0 : ℝ) T))) :
+    ∃ S : ℝ, T < S ∧ ∃ (U : Velocity) (P : Pressure),
+      InitialClassicalFront ν S a U P ∧
+        ∀ t ∈ Ico (0 : ℝ) T, U t = u t ∧ P t = p t := by
+  obtain ⟨R, hR, hbound⟩ := initial_front_uniform_H1_of_dissipation_square
+    ν T a u p hν hT H hD
+  obtain ⟨h, hh, hlocal⟩ := uniform_H1_local_initial_classical_front_exists ν R hν hR
+  let s : ℝ := max (T / 2) (T - h / 2)
+  have hs0 : 0 ≤ s :=
+    (by linarith : 0 ≤ T / 2).trans (le_max_left (T / 2) (T - h / 2))
+  have hsT : s < T := max_lt (by linarith) (by linarith)
+  have hreach : T < s + h := by
+    have hnear : T - h / 2 ≤ s := le_max_right (T / 2) (T - h / 2)
+    linarith
+  have hdata : SmoothSigmaZero (u s) :=
+    initial_front_smooth_slices ν T a u p H s ⟨hs0, hsT⟩
+  obtain ⟨v, q, K⟩ := hlocal (u s) hdata (hbound s ⟨hs0, hsT⟩)
+  obtain ⟨U, P, Hlong, hagree, _⟩ := initial_front_extend_from_restart
+    ν T s h a u v p q hν H ⟨hs0, hsT⟩ hh K hreach
+  exact ⟨s + h, hreach, U, P, Hlong, hagree⟩

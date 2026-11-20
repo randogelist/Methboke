@@ -1,0 +1,27 @@
+theorem convFormH1_integrable (u v w : L2VF_R3)
+    (hu : memH1VF_R3 u) (hv : memH1VF_R3 v) (hw : memH1VF_R3 w)
+    (i a : Fin 3) :
+    MeasureTheory.Integrable
+      (fun x : Domain3 =>
+        (L2VF_projComponentC_R3 a u x).re *
+        (gradComp_of_memH1 v hv a i x).re *
+        (L2VF_projComponentC_R3 i w x).re)
+      (volume : Measure Domain3) := by
+  -- uₐ.re ∈ L⁶, wᵢ.re ∈ L³, gradᵥ.re ∈ L².
+  have hu6 : MemLp (fun x => (L2VF_projComponentC_R3 a u x).re) 6 (volume : Measure Domain3) :=
+    memLp_six_componentRe u hu a
+  have hw3 : MemLp (fun x => (L2VF_projComponentC_R3 i w x).re) 3 (volume : Measure Domain3) :=
+    memLp_three_componentRe w hw i
+  have hg2 : MemLp (fun x => (gradComp_of_memH1 v hv a i x).re) 2 (volume : Measure Domain3) :=
+    memLp_two_gradRe v hv a i
+  -- uₐ·wᵢ ∈ L² (HolderTriple 6 3 2), then ·gradᵥ ∈ L¹ (HolderTriple 2 2 1).
+  haveI : ENNReal.HolderTriple 6 3 2 := instHolderTriple_6_3_2
+  have huw : MemLp (fun x => (L2VF_projComponentC_R3 a u x).re *
+      (L2VF_projComponentC_R3 i w x).re) 2 (volume : Measure Domain3) :=
+    hw3.mul (p := 6) (q := 3) (r := 2) hu6
+  have htriple : MemLp (fun x => (gradComp_of_memH1 v hv a i x).re *
+      ((L2VF_projComponentC_R3 a u x).re * (L2VF_projComponentC_R3 i w x).re)) 1
+      (volume : Measure Domain3) := huw.mul (p := 2) (q := 2) (r := 1) hg2
+  rw [memLp_one_iff_integrable] at htriple
+  refine htriple.congr ?_
+  filter_upwards with x; ring

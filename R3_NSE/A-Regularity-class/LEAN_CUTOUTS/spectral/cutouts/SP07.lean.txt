@@ -1,0 +1,77 @@
+lemma eLpNorm_indicator_le (f : α → ε) :
+    eLpNorm (s.indicator f) p μ ≤ eLpNorm f p μ := by
+  apply eLpNorm_mono_enorm
+  simp_rw [enorm_indicator_eq_indicator_enorm]
+  exact s.indicator_le_self _
+
+lemma eLpNormEssSup_indicator_le (s : Set α) (f : α → ε) :
+    eLpNormEssSup (s.indicator f) μ ≤ eLpNormEssSup f μ := by
+  refine essSup_mono_ae (.of_forall fun x => ?_)
+  simp_rw [enorm_indicator_eq_indicator_enorm]
+  exact Set.indicator_le_self s _ x
+
+lemma eLpNormEssSup_indicator_const_le (s : Set α) (c : ε) :
+    eLpNormEssSup (s.indicator fun _ : α => c) μ ≤ ‖c‖ₑ := by
+  obtain rfl | hμ0 := eq_or_ne μ 0
+  · simp
+  · exact (eLpNormEssSup_indicator_le s fun _ => c).trans (eLpNormEssSup_const c hμ0).le
+
+lemma eLpNormEssSup_indicator_const_eq (s : Set α) (c : ε) (hμs : μ s ≠ 0) :
+    eLpNormEssSup (s.indicator fun _ : α => c) μ = ‖c‖ₑ := by
+  refine le_antisymm (eLpNormEssSup_indicator_const_le s c) ?_
+  by_contra! h
+  have h' := ae_iff.mp (ae_lt_of_essSup_lt h)
+  push Not at h'
+  refine hμs (measure_mono_null (fun x hx_mem => ?_) h')
+  rw [Set.mem_ofPred_eq, Set.indicator_of_mem hx_mem]
+
+lemma eLpNorm_indicator_const₀ (hs : NullMeasurableSet s μ) (hp : p ≠ 0) (hp_top : p ≠ ∞) :
+    eLpNorm (s.indicator fun _ => c) p μ = ‖c‖ₑ * μ s ^ (1 / p.toReal) :=
+  have hp_pos : 0 < p.toReal := ENNReal.toReal_pos hp hp_top
+  calc
+    eLpNorm (s.indicator fun _ => c) p μ
+      = (∫⁻ x, (‖(s.indicator fun _ ↦ c) x‖ₑ ^ p.toReal) ∂μ) ^ (1 / p.toReal) :=
+          eLpNorm_eq_lintegral_rpow_enorm_toReal hp hp_top
+    _ = (∫⁻ x, (s.indicator fun _ ↦ ‖c‖ₑ ^ p.toReal) x ∂μ) ^ (1 / p.toReal) := by
+      congr 2
+      refine (Set.comp_indicator_const c (fun x ↦ (‖x‖ₑ) ^ p.toReal) ?_)
+      simp [hp_pos]
+    _ = ‖c‖ₑ * μ s ^ (1 / p.toReal) := by
+      rw [lintegral_indicator_const₀ hs, ENNReal.mul_rpow_of_nonneg, ← ENNReal.rpow_mul,
+        mul_one_div_cancel hp_pos.ne', ENNReal.rpow_one]
+      positivity
+
+lemma eLpNorm_indicator_const (hs : MeasurableSet s) (hp : p ≠ 0) (hp_top : p ≠ ∞) :
+    eLpNorm (s.indicator fun _ => c) p μ = ‖c‖ₑ * μ s ^ (1 / p.toReal) :=
+  eLpNorm_indicator_const₀ hs.nullMeasurableSet hp hp_top
+
+lemma eLpNorm_indicator_const' (hs : MeasurableSet s) (hμs : μ s ≠ 0) (hp : p ≠ 0) :
+    eLpNorm (s.indicator fun _ => c) p μ = ‖c‖ₑ * μ s ^ (1 / p.toReal) := by
+  by_cases hp_top : p = ∞
+  · simp [hp_top, eLpNormEssSup_indicator_const_eq s c hμs]
+  · exact eLpNorm_indicator_const hs hp hp_top
+
+variable (c) in
+lemma eLpNorm_indicator_const_le (p : ℝ≥0∞) :
+    eLpNorm (s.indicator fun _ => c) p μ ≤ ‖c‖ₑ * μ s ^ (1 / p.toReal) := by
+  obtain rfl | hp := eq_or_ne p 0
+  · simp
+  obtain rfl | h'p := eq_or_ne p ∞
+  · simp only [eLpNorm_exponent_top, ENNReal.toReal_top, _root_.div_zero, ENNReal.rpow_zero,
+      mul_one]
+    exact eLpNormEssSup_indicator_const_le _ _
+  let t := toMeasurable μ s
+  calc
+    eLpNorm (s.indicator fun _ => c) p μ ≤ eLpNorm (t.indicator fun _ ↦ c) p μ :=
+      eLpNorm_mono_enorm (enorm_indicator_le_of_subset (subset_toMeasurable _ _) _)
+    _ = ‖c‖ₑ * μ t ^ (1 / p.toReal) :=
+      eLpNorm_indicator_const (measurableSet_toMeasurable ..) hp h'p
+    _ = ‖c‖ₑ * μ s ^ (1 / p.toReal) := by rw [measure_toMeasurable]
+
+lemma MemLp.indicator {f : α → ε} (hs : MeasurableSet s) (hf : MemLp f p μ) :
+    MemLp (s.indicator f) p μ :=
+  ⟨hf.aestronglyMeasurable.indicator hs, lt_of_le_of_lt (eLpNorm_indicator_le f) (by finiteness)⟩
+
+lemma memLp_indicator_iff_restrict {f : α → ε} (hs : MeasurableSet s) :
+    MemLp (s.indicator f) p μ ↔ MemLp f p (μ.restrict s) := by
+  simp [MemLp, aestronglyMeasurable_indicator_iff hs, eLpNorm_indicator_eq_eLpNorm_restrict hs]

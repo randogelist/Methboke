@@ -12,6 +12,10 @@ The [twenty-endpoint construction plan](A-Regularity-class/A_TIER_STEPLIST.md)
 records the B-tier route toward A-tier acceptance of this class theorem,
 including the distinct pathwise, canonical and literal Fefferman milestones.
 
+The [Lean source cutouts](A-Regularity-class/LEAN_CUTOUTS/README.md) collect the
+attained lower proofs and their exact remaining obligations, with references
+in the cumulative B-tier step-list TXT.
+
 [QFA native integration](QFA/README.md) indexes the scoped whole-space
 `AC-Integration` work: concrete full-volume contracts, recovered source
 foundations, weighted energy, traces, finite-window selection and the spectral endpoint.

@@ -1,0 +1,34 @@
+/-- Euclidean three-space, with its Euclidean norm and full Lebesgue volume. -/
+abbrev Space := QFA.Endpoints.Agmon.Space
+
+/-- Actual real-vector L2 equivalence classes over all of R3. -/
+abbrev SpatialL2 := QFA.Representation.RealSpatialL2
+
+abbrev Velocity := ℝ → SpatialL2
+
+abbrev WeakGradient := ℝ → Fin 3 → SpatialL2
+
+/-- The j-th Euclidean coordinate direction. -/
+def coordinateVector (j : Fin 3) : Space := EuclideanSpace.single j 1
+
+/-- The actual gradient of a smooth scalar spatial test. -/
+def scalarGradient (ψ : Space → ℝ) (x : Space) : Space :=
+  WithLp.toLp 2 (fun j : Fin 3 => fderiv ℝ ψ x (coordinateVector j))
+
+/-- Distributional divergence zero on the full spatial domain. Integrability
+is explicit, so a totalized Bochner integral cannot make this condition vacuous. -/
+def Solenoidal (v : SpatialL2) : Prop :=
+  ∀ (ψ : Space → ℝ), ContDiff ℝ ∞ ψ → HasCompactSupport ψ →
+    Integrable (fun x : Space => inner ℝ (v x) (scalarGradient ψ x)) volume ∧
+      (∫ x : Space, inner ℝ (v x) (scalarGradient ψ x)) = 0
+
+/-- All solenoidal finite-energy whole-space data, with no smoothness premise. -/
+abbrev EnergyDatum := {a : SpatialL2 // Solenoidal a}
+
+/-- Three actual weak directional derivatives, in the coordinate directions.
+The recovered compact-test derivative predicate uses every C-infinity compact
+real scalar test and has full-volume L2 fields on both sides. -/
+def SpatialWeakGradient (v : SpatialL2) (G : Fin 3 → SpatialL2) : Prop :=
+  ∀ j : Fin 3,
+    QFA.Endpoints.Representation.RealTestWeakDirectionalDerivative
+      v (G j) (coordinateVector j)

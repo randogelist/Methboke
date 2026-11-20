@@ -789,3 +789,504 @@ No local Lean, Lake, kernel audit or project runner was executed. This update
 creates no Lean declaration and starts no compiler/audit run. It preserves
 existing proof bytes, accepted evidence, dependency/compiler identities and
 the Fefferman-D project goal.
+
+
+========================================================================
+ADDENDUM 1.1 -- LEAN GAP AND SOURCE-CUTOUT ACQUISITION
+DATE = 2026-11-20
+SOURCE_BASIS = ce7f809ad20b3498a63420a22d17b3c801dfd558
+STATUS = SOURCE_EXACT_REFERENCE_COLLECTION_NO_NEW_FORMAL_ACCEPTANCE
+========================================================================
+
+User task: identify the largest missing Lean proof obligations, attain suitable
+Lean cutouts, collect them and refer to them in this cumulative TXT.
+
+COLLECTION
+  R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md
+  GAPS.md / GAPS.json: ranked logical gaps and remaining statements.
+  IDENTITIES.json: exact declarations, source ranges, imports and proof limits.
+  SOURCES.json: full source provenance and SHA256.
+  SOURCE_ENVIRONMENTS.json: compiler/Mathlib compatibility boundaries.
+  SOURCE_LEADS.json: additional inspected sources, without copied code.
+  VALIDATION.json: nonexecuting fidelity/repository checks only.
+
+ATTAINED: 51 exact reference cutout blocks; 60 full source snapshots covering
+58 distinct original modules; 130 selected declaration entries; 5 additional
+external source leads. Copies retain original statements, proof bodies and
+module headers. They are .lean.txt reference files outside the active build.
+They are not standalone compiled Lean modules and create no new A-tier result.
+
+EVIDENCE FOR THE 51 BLOCKS
+  21 have previously named, exactly scoped external acceptance.
+   3 have matching compiled-module evidence only, not a named selected audit.
+  14 are inspected pinned Mathlib source.
+  13 are other pinned external source under different environments.
+Copied-source status is distinct from proof of the new NSE-A root.
+
+LARGEST NATIVE LOGICAL GAPS (qualitative ranking, inspected source scope)
+
+G01. ACTUAL WHOLE-SPACE H1 LOCAL AND MAXIMAL EVOLUTION
+  Plan: P10, P11, P14, P17, P18. Status: OPEN_NATIVE_TARGET.
+  Missing: For each physical H1_sigma(R3) datum and nu>0, construct an actual unique local NSE solution with C_t H1 / L2_t H2 regularity and lifespan controlled by its H1 norm; construct its maximal continuation and prove the bounded-H1 continuation criterion.
+  Attained: Native periodic Galerkin local existence, norm-controlled lifespan, maximal development, overlap uniqueness and restart proofs are collected. A new external source lead has a genuine Fourier H^m fixed-point constructor for m>=3, rather than only a supplied-solution record.
+  Remains: The periodic theorem has smooth periodic mean-zero data. The higher-Sobolev external constructor uses viscosity one and a stronger norm. Neither supplies the required native arbitrary-H1 R3 constructor. Heat/Leray estimates, fixed point, initial trace, uniqueness, H1-controlled lifetime and all physical adapters remain.
+  Boundary: A StrongSolutionOnIcc record or ReferenceConstructionFromAbsorption proposition is an interface, not an inhabitant proving existence.
+  Cutouts: EV01, EV02, EV03, EV04, EV05, EV06, EV07, EV08, EV10, EV12, EV14.
+  Additional source leads: EVL01, EVL02.
+
+G02. SHARP SPATIAL ADMISSION FOR THE REGISTERED NUMERICAL CUTOFF
+  Plan: P09, P13, P16. Status: OPEN_NATIVE_TARGET.
+  Missing: On the same physical R3 H1 space prove ||v||_6 <= S6 ||grad v||_2 with S6^6=16/(27*pi^4), plus vector/tensor extensions and the H2 Hessian-Laplacian identities used by enstrophy.
+  Attained: Pinned Mathlib gives a genuine compact-C1 Sobolev estimate with another explicit constant; external gns_L6_of_memH1_R3 gives L6 membership; the accepted cutoff lemma rewrites a supplied sixth-power equality.
+  Remains: Extend to the native physical H1 carrier and establish admissibility of the registered S6, not only its arithmetic. ES16 is L2 times gradient-L2 times a Schwartz L-infinity test bound, not the required sharp estimate.
+  Boundary: A proved arbitrary constant changes the associated cutoff. L6 membership, an extremal calculation or the arithmetic identity alone does not justify the frozen tau_A.
+  Cutouts: ES01, ES06, ES13, ES16.
+
+G03. ACTUAL PHYSICAL TIME EVOLUTION, BALANCES AND CONTINUATION BOOTSTRAP
+  Plan: P12, P13, P14, P15, P16, P17. Status: OPEN_NATIVE_TARGET.
+  Missing: For the constructed R3 strong solution, prove E and Y absolutely continuous on every closed [0,R] with 0<=R<Tmax, derive E'= -2*nu*Y and Y'+nu*Z <= pi^(-4)*nu^(-3)*Y^3 almost everywhere, and prove the small-product temporal invariant.
+  Attained: Actual R3 source proofs of H1 convection integrability, weak IBP and antisymmetry; native periodic enstrophy evolution and continuation patterns; finite-interval scalar energy helpers; Mathlib AC FTC; an already named-audited integral Gronwall theorem.
+  Remains: Derive time regularity and the physical integral inequality from the actual strong trajectory, with all pressure/spatial cancellations and norms matched. Prove the first-exit bootstrap and same-path continuation. Existing scalar lemmas do not construct the PDE inputs.
+  Boundary: Do not use the global-LH wrapper while proving globality; do not transfer periodic Poincare to R3; do not substitute the historical ES12 threshold ED<4*pi^2*nu^4 for nu^4/S6^6.
+  Cutouts: ES02, ES03, ES04, ES05, ES06, ES07, ES08, ES09, ES10, ES11, ES12, ES14, ES15.
+  Additional source leads: EVL02.
+
+G04. LITERAL FEFFERMAN-A CATEGORY AND TERMINAL CONTROL
+  Plan: P19. Status: OPEN_NATIVE_TARGET.
+  Missing: Construct velocity/pressure smoothness through t=0 for Schwartz data on all available finite slabs, and identify any literal smooth finite-energy Fefferman competitor with a global canonical H1 development.
+  Attained: Native pressure-normalization proof, supplied-H3 whole-space pressure/comparison sources, and new external leads for actual physical recovery from all Sobolev orders and smooth finite-energy comparison.
+  Remains: Prove all-order propagation and pressure recovery, arbitrary-nu transport where needed, and the finite-slab H1/enstrophy admission necessary to rule out a finite canonical endpoint. Smoothness is lifetime-qualified until globality is proved.
+  Boundary: Agreement on every R<Tmax does not imply a uniform H1 bound as R increases to finite Tmax. Smooth finite L2 energy alone must not be silently strengthened to the strong competitor category.
+  Cutouts: EV04, EV09, EV10, EV11, EV12, EV13.
+  Additional source leads: EVL03, EVL04, EVL05.
+
+G05. NATIVE PHYSICAL H1, FOURIER AND SIX-PROJECTOR IDENTIFICATION
+  Plan: P01, P02, P03, P04, P05, P06. Status: OPEN_NATIVE_TARGET.
+  Missing: Identify native real compact-test H1 with the spectral membership construction; prove the first-derivative Fourier identity both ways; construct six actual real-preserving vector projections and derivative/solenoidal commutation.
+  Attained: Complete equalizers and real compact-test separation; actual spectral derivative witnesses; weighted Fourier L2 representatives and reverse membership; bounded measurable scalar L2 multipliers; real L2 Fourier Hermitian symmetry by density.
+  Remains: Construct the closed physical gradient graph and its norm. Prove the component/vector/compact-test adapters and the full real-range equivalence; specialize to the fixed six sectors, prove disjointness/reconstruction and physical charge additivity. External pins and private proof templates need explicit native handling.
+  Boundary: Existing native gradient_fourier_ae has a combined gradient/Laplacian witness interface. Do not add an H2 assumption to the H1 projector endpoint or apply a smooth multiplier API to sharp cones.
+  Cutouts: SP01, SP02, SP03, SP04, SP05, SP06, SP07, SP08, SP09, SP10, SP17, SP18, SP19, SP20, SP21.
+
+G06. EXACT STOPPED-BUDGET AND DATUM-CLASS ASSEMBLY
+  Plan: P07, P08, P15, P18. Status: OPEN_NATIVE_ASSEMBLY.
+  Missing: Assemble the factor-six inequality and full ENNReal terminal budgets for the same canonical trajectory; derive finiteness/gauge/sublevel equivalences and the complete datum-class iff.
+  Attained: Finite Cauchy-Schwarz, squared-norm integrability, monotone nonnegative integration, finite real-integral conversion, ENNReal powers and scalar continuation selectors are available.
+  Remains: Supply the physical charges and canonical solution from earlier endpoints, exact measurability, full improper endpoint identity and zero-data cases; prove both directions of the class theorem. This is primarily assembly once the larger constructions exist.
+  Boundary: Never replace the full endpoint budget by separate compact-interval finiteness, or convert an infinite extended lifetime/budget to a misleading real zero.
+  Cutouts: SP10, SP11, SP12, SP13, SP14, SP15, SP16, ES03, ES05, ES06.
+
+FIRST IMPLEMENTATION LAYER
+G05/P01-P02 comes first in dependency order, although G01-G04 contain the
+larger analytic construction obligations. Use SP03 for physical gradient
+uniqueness, SP02 for the closed graph and completeness, and SP17/SP18/SP21
+for the external spectral-H1 route that still requires native identification.
+
+IMPROVED P15 ROUTE
+ES02 (AC fundamental theorem) + ES03 (already accepted integral Gronwall):
+  actual PDE AC enstrophy and Y' <= kappa*Y^3
+    -> Y(t) <= Y(0) + integral_0^t kappa*Y(r)^3 dr
+    -> Y(t) <= Y(0)*exp(kappa*integral_0^t Y(r)^2 dr),
+  kappa = pi^(-4)*nu^(-3).
+Instantiate CRITICAL_RELATIVE_ENERGY_GRONWALL with coefficient kappa*Y^2,
+energy Y and initial bound Y(0). Closed-slab H1 continuity supplies the
+coefficient continuity and compact-interval integrability. The actual PDE
+AC-to-integral inequality remains the missing adapter. This route does not
+require a newly invented general AC Gronwall theorem. ES07 remains an
+alternative only with its stronger continuous-derivative/Laplacian premises.
+
+CRITICAL SOURCE BOUNDARIES
+- SP17/SP18/SP21 use componentwise spectral H1. The physical compact-real-test
+  gradient, real-vector norm and all two-way identifications must be proved.
+- SP19 is a genuine bounded measurable scalar L2 multiplier construction;
+  six concrete vector projectors and their real-range/derivative properties
+  remain new. SP20 contains private proof templates, not public imported names.
+- ES01 proves a different Sobolev constant. ES13 gives L6 membership. Neither
+  admits S6^6=16/(27*pi^4). ES06 only rewrites a supplied scalar equality.
+- ES16 uses an L-infinity-controlled Schwartz test in its last factor.
+- ES12's historical ED<4*pi^2*nu^4 threshold is not the registered nu^4/S6^6.
+- EV02 is an actual periodic smooth-data constructor; EV10 is a supplied-H3
+  solution structure. EV14 is an explicit construction proposition without
+  its required physical inhabitant.
+- Agreement with a literal smooth finite-energy competitor on each R<Tmax
+  does not supply a uniform H1 bound as R increases to a finite Tmax.
+- The full ENNReal endpoint budget and zero datum remain explicit. No global
+  LH premise, periodic Poincare step or prematurely converted infinity closes
+  the R3 continuation proof.
+
+ENVIRONMENTS
+Native Material / pinned Mathlib: Lean4.33.0, Mathlibdb584cd6.
+New uda-lab source: e704400f, Lean4.31.0-rc2, Mathlib15a89b24.
+OpenAI R3 H3 source: f9e8bc5b, Lean4.34.0-rc2, Mathlib85e3a25e.
+Additional Buckmaster leads: ad53419d, Lean4.33.1, Mathlib0df444a3;
+normalized viscosity and higher-Sobolev/all-order premises remain explicit.
+No automatic cross-pin acceptance or native import compatibility is inferred.
+
+EXACT CUTOUT REFERENCES
+Paths below are relative to R3_NSE/A-Regularity-class/LEAN_CUTOUTS/.
+Each cards/<ID>.md links the excerpt, full module, pinned original and limits.
+
+SP01 [EXISTING_NAMED_SCOPED_AUDIT]; plan P01, P02, P05
+  File: spectral/cutouts/SP01.lean.txt
+  Source: SPS01, inclusive original lines 38--71.
+  Declaration(s): MethbokeAddon.QuasiFeffermanA.Space; MethbokeAddon.QuasiFeffermanA.SpatialL2; MethbokeAddon.QuasiFeffermanA.Velocity; MethbokeAddon.QuasiFeffermanA.WeakGradient; MethbokeAddon.QuasiFeffermanA.coordinateVector; MethbokeAddon.QuasiFeffermanA.scalarGradient; MethbokeAddon.QuasiFeffermanA.Solenoidal; MethbokeAddon.QuasiFeffermanA.EnergyDatum; MethbokeAddon.QuasiFeffermanA.SpatialWeakGradient
+  Consumer module: MethbokeAddon.QuasiFeffermanA.Contracts
+  Remaining: Construct the H1 graph carrier/norm/completeness, prove witness uniqueness and Schwartz admission, then establish the physical Fourier equivalence.
+
+SP02 [PINNED_MATHLIB_SOURCE_ONLY]; plan P01
+  File: spectral/cutouts/SP02.lean.txt
+  Source: SPS02, inclusive original lines 669--695.
+  Declaration(s): ContinuousLinearMap.isClosed_ker; ContinuousLinearMap.isClosed_eqLocus; ContinuousLinearMap.isComplete_ker; ContinuousLinearMap.isComplete_eqLocus; ContinuousLinearMap.completeSpace_ker; ContinuousLinearMap.completeSpace_eqLocus
+  Consumer module: Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic
+  Remaining: Represent the physical weak-gradient graph as the appropriate equalizer/intersection, verify topology/scalar instances and physical norm, and add solenoidal closure.
+
+SP03 [PINNED_MATHLIB_SOURCE_ONLY]; plan P01, P02
+  File: spectral/cutouts/SP03.lean.txt
+  Source: SPS03, inclusive original lines 184--200.
+  Declaration(s): ae_eq_zero_of_integral_contDiff_smul_eq_zero; ae_eq_of_integral_contDiff_smul_eq
+  Consumer module: Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff
+  Remaining: Supply local integrability from L2 and prove the equal-pairing hypothesis for two witnesses; convert a.e. equality to equality of Lp classes.
+
+SP04 [EXISTING_NAMED_SCOPED_AUDIT]; plan P02
+  File: spectral/cutouts/SP04.lean.txt
+  Source: SPS04, inclusive original lines 137--148.
+  Declaration(s): QFA.Endpoints.Representation.CompactSchwartz.denseCompactSchwartzTests; QFA.Endpoints.Representation.CompactSchwartz.schwartzDerivativeWitnesses_of_compactSchwartz_unconditional
+  Consumer module: QFALC005.Density
+  Remaining: Split complex compact tests into real/imaginary parts; instantiate from native real compact-test identities; extract a first-derivative-only bridge and prove its reverse.
+
+SP05 [EXISTING_NAMED_SCOPED_AUDIT]; plan P02, P05
+  File: spectral/cutouts/SP05.lean.txt
+  Source: SPS05, inclusive original lines 44--145.
+  Declaration(s): MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution; MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq; MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae
+  Consumer module: MethbokeAddon.QuasiFeffermanA.FourierMultipliers
+  Remaining: Native compact-test input conversion and reverse implication remain. Gradient wrapper public types retain the extra L2 Laplacian witness. HasTemperateGrowth excludes discontinuous cone indicators.
+
+SP06 [PINNED_MATHLIB_SOURCE_ONLY]; plan P02, P04, P06
+  File: spectral/cutouts/SP06.lean.txt
+  Source: SPS06, inclusive original lines 47--138.
+  Declaration(s): MeasureTheory.Lp.fourierTransformₗᵢ; MeasureTheory.Lp.norm_fourier_eq; MeasureTheory.Lp.inner_fourier_eq; SchwartzMap.toLp_fourier_eq; SchwartzMap.toLp_fourierInv_eq; MeasureTheory.Lp.fourier_toTemperedDistribution_eq; MeasureTheory.Lp.fourierInv_toTemperedDistribution_eq
+  Consumer module: Mathlib.Analysis.Fourier.LpSpace
+  Remaining: Build masks, real-range identification, physical derivative admission and six-sector algebra. This is not a periodic Fourier-series transform.
+
+SP07 [PINNED_MATHLIB_SOURCE_ONLY]; plan P03, P04
+  File: spectral/cutouts/SP07.lean.txt
+  Source: SPS07, inclusive original lines 61--137.
+  Declaration(s): MeasureTheory.eLpNorm_indicator_le; MeasureTheory.MemLp.indicator; MeasureTheory.memLp_indicator_iff_restrict
+  Consumer module: Mathlib.MeasureTheory.Function.LpSeminorm.Indicator
+  Remaining: Use MemLp.toLp and Lp.ext from SPS08 to build the operator; prove projection/orthogonality/reconstruction/real preservation. indicatorConstLp is not the needed constructor for infinite-volume cones.
+
+SP08 [PINNED_MATHLIB_SOURCE_ONLY]; plan P04
+  File: spectral/cutouts/SP08.lean.txt
+  Source: SPS08, inclusive original lines 556--635.
+  Declaration(s): MeasureTheory.Lp.compMeasurePreserving; MeasureTheory.Lp.coeFn_compMeasurePreserving; MeasureTheory.Lp.norm_compMeasurePreserving; MeasureTheory.Lp.isometry_compMeasurePreserving; MeasureTheory.Lp.compMeasurePreserving_comp; MeasureTheory.Lp.compMeasurePreservingₗ; MeasureTheory.Lp.compMeasurePreservingₗᵢ
+  Consumer module: Mathlib.MeasureTheory.Function.LpSpace.Basic
+  Remaining: Specialize measure-preserving negation, pair with conjugation, and establish both directions of the real/Hermitian Fourier bridge.
+
+SP09 [PINNED_MATHLIB_SOURCE_ONLY]; plan P01, P04
+  File: spectral/cutouts/SP09.lean.txt
+  Source: SPS08, inclusive original lines 732--831.
+  Declaration(s): ContinuousLinearMap.compLp; ContinuousLinearMap.coeFn_compLp; ContinuousLinearMap.comp_memLp; ContinuousLinearMap.comp_memLp'; ContinuousLinearMap.compLpₗ; ContinuousLinearMap.compLpL; ContinuousLinearMap.coeFn_compLpL; ContinuousLinearMap.norm_compLpL_le; MeasureTheory.memLp_re_im_iff
+  Consumer module: Mathlib.MeasureTheory.Function.LpSpace.Basic
+  Remaining: Construct the finite-vector conjugation/real-part maps in the chosen Euclidean representation and prove the actual real-range and Fourier compatibility. A scalar conjugation tool alone is not the vector projector theorem.
+
+SP10 [EXISTING_NAMED_SCOPED_AUDIT]; plan P06
+  File: spectral/cutouts/SP10.lean.txt
+  Source: SPS09, inclusive original lines 53--86.
+  Declaration(s): QFA.LC001SpectralReduction.integrable_norm_sq; QFA.LC001SpectralReduction.integral_norm_sq_eq_norm_sq; QFA.LC001SpectralReduction.integrable_gradient_fourier_sum; QFA.LC001SpectralReduction.integral_gradient_fourier_sum
+  Consumer module: QFALC001Reduction.NativeFromAENorms
+  Remaining: Identify G with the physical weak gradient and split by the six actual projections; preserve complexification and the 4*pi^2 normalization.
+
+SP11 [PINNED_MATHLIB_SOURCE_ONLY]; plan P07
+  File: spectral/cutouts/SP11.lean.txt
+  Source: SPS10, inclusive original lines 31--163.
+  Declaration(s): Finset.sum_sq_le_sq_sum_of_nonneg; Finset.sum_mul_sq_le_sq_mul_sq
+  Consumer module: Mathlib.Algebra.Order.BigOperators.Ring.Finset
+  Remaining: Specialize to Fin 6 and already-defined nonnegative physical charges, obtaining sum q^2 <= Y^2 <= 6*sum q^2. No analytic finiteness is involved.
+
+SP12 [PINNED_MATHLIB_SOURCE_ONLY]; plan P08
+  File: spectral/cutouts/SP12.lean.txt
+  Source: SPS11, inclusive original lines 95--125.
+  Declaration(s): MeasureTheory.lintegral_iSup'; MeasureTheory.lintegral_tendsto_of_tendsto_of_monotone
+  Consumer module: Mathlib.MeasureTheory.Integral.Lebesgue.Add
+  Remaining: Construct the actual increasing interval indicators or restrictions and prove path measurability; retain the entire interval before min(Tmax,tau_A).
+
+SP13 [PINNED_MATHLIB_SOURCE_ONLY]; plan P08
+  File: spectral/cutouts/SP13.lean.txt
+  Source: SPS11, inclusive original lines 341--442.
+  Declaration(s): MeasureTheory.lintegral_finsetSum'; MeasureTheory.lintegral_const_mul'; MeasureTheory.lintegral_mul_const'
+  Consumer module: Mathlib.MeasureTheory.Integral.Lebesgue.Add
+  Remaining: Instantiate physical charge paths and combine with pointwise factor six and lintegral_mono from SPS19; derive Fourier/gauge normalization in ENNReal.
+
+SP14 [PINNED_MATHLIB_SOURCE_ONLY]; plan P08
+  File: spectral/cutouts/SP14.lean.txt
+  Source: SPS12, inclusive original lines 934--938.
+  Declaration(s): MeasureTheory.lintegral_ofReal_ne_top_iff_integrable
+  Consumer module: Mathlib.MeasureTheory.Function.L1Space.Integrable
+  Remaining: Prove the charge-path measurability/nonnegativity and use this only after defining the full ENNReal budget. It cannot supply finiteness from energy alone.
+
+SP15 [PINNED_MATHLIB_SOURCE_ONLY]; plan P08
+  File: spectral/cutouts/SP15.lean.txt
+  Source: SPS13, inclusive original lines 702--707.
+  Declaration(s): MeasureTheory.ofReal_integral_eq_lintegral_ofReal
+  Consumer module: Mathlib.MeasureTheory.Integral.Bochner.Basic
+  Remaining: Do not use totalized real integrals as the budget definition. On an infinite budget this theorem is unavailable until the integrability hypothesis is established.
+
+SP16 [PINNED_MATHLIB_SOURCE_ONLY]; plan P08
+  File: spectral/cutouts/SP16.lean.txt
+  Source: SPS14, inclusive original lines 599--689.
+  Declaration(s): ENNReal.rpow_eq_top_iff_of_pos; ENNReal.rpow_lt_top_iff_of_pos; ENNReal.rpow_mul; ENNReal.rpow_natCast
+  Consumer module: Mathlib.Analysis.SpecialFunctions.Pow.NNReal
+  Remaining: Require nu>0, prove finite-positive scalar cancellation and the class sublevel exhaustion, including zero-window behavior; never coerce an unproved infinite budget to Real.
+
+SP17 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P01, P02, P05
+  File: spectral/cutouts/SP17.lean.txt
+  Source: SPS24, inclusive original lines 75--216.
+  Declaration(s): LerayHopf.gradComp_of_memH1; LerayHopf.gradComp_of_memH1_spec; LerayHopf.gradComponent_weakDeriv
+  Consumer module: LerayHopf.Analysis.SpectralWeakGradient
+  Remaining: Prove equivalence with the native vector compact-test H1 carrier, assemble real vector gradients, and prove the forward compact-test-to-spectral direction. No matching native-pin evidence is retained for this external source.
+
+SP18 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P02, P05, P06
+  File: spectral/cutouts/SP18.lean.txt
+  Source: SPS25, inclusive original lines 99--137.
+  Declaration(s): LerayHopf.memLp_sqrtWeight_smul_fourier; LerayHopf.weightedFourierComponent; LerayHopf.norm_weightedFourierComponent_sq; LerayHopf.weightedFourierComponent_coeFn
+  Consumer module: LerayHopf.R3.WeightedFourierCommute
+  Remaining: Identify the upstream Sobolev predicate with the native physical H1 carrier, port dependencies including integrable_viscous_integrand_of_memH1, and prove cone projector commutation.
+
+SP19 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P04, P05, P06
+  File: spectral/cutouts/SP19.lean.txt
+  Source: SPS26, inclusive original lines 39--142.
+  Declaration(s): LerayHopf.BoundedMultiplier.memLp_mulBdd; LerayHopf.BoundedMultiplier.mulBdd; LerayHopf.BoundedMultiplier.mulBdd_coeFn; LerayHopf.BoundedMultiplier.mulBdd_smul; LerayHopf.BoundedMultiplier.mulBdd_add; LerayHopf.BoundedMultiplier.norm_mulBdd_sq; LerayHopf.BoundedMultiplier.norm_mulBdd_le; LerayHopf.BoundedMultiplier.mulBdd_sub; LerayHopf.BoundedMultiplier.continuous_mulBdd; LerayHopf.BoundedMultiplier.inner_mulBdd_left
+  Consumer module: LerayHopf.Analysis.BoundedMultiplier
+  Remaining: Instantiate m as each measurable cone indicator; adapt to the Euclidean vector representation, package the required complex-linear operator if chosen, and prove idempotence, mutual orthogonality, reconstruction, real-range preservation and H1 commutation.
+
+SP20 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P04
+  File: spectral/cutouts/SP20.lean.txt
+  Source: SPS27, inclusive original lines 333--401.
+  Declaration(s): LerayHopf.reflect_fourier_schwartzC_eq_conj; LerayHopf.fourier_ofReal_reflect_eq_conj
+  Consumer module: LerayHopf.Analysis.FourierParseval
+  Remaining: These private source names are not public importable endpoints. Prepare an owned compatible public proof, add the reverse/inverse real-range implication and vector assembly, and instantiate the even masks.
+
+SP21 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P01, P02, P05
+  File: spectral/cutouts/SP21.lean.txt
+  Source: SPS28, inclusive original lines 1301--1380.
+  Declaration(s): LerayHopf.memSobolev_of_finite_weightedFourier_R3
+  Consumer module: LerayHopf.R3.SobolevEmbedding
+  Remaining: Combine with the existing forward weighted-integrability source, identify this spectral H1 predicate with native compact-test weak gradients, and port/check at the Material pins. This is not a preaccepted native H1 iff theorem.
+
+ES01 [PINNED_MATHLIB_SOURCE_ONLY]; plan P09
+  File: estimates/cutouts/ES01_compact_c1_sobolev.lean.txt
+  Source: ESS01, inclusive original lines 453--582.
+  Declaration(s): MeasureTheory.eLpNormLESNormFDerivOfEqInnerConst; MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner
+  Consumer module: Mathlib.Analysis.FunctionalSpaces.SobolevInequality
+  Remaining: Specialize dimension 3 and exponents 2,6; identify operator-norm/Frobenius physical gradients; extend to the project's actual H1 carrier. This constant is not the registered sharp S6. It does not prove S6^6=16/(27*pi^4) is admissible.
+
+ES02 [PINNED_MATHLIB_SOURCE_ONLY]; plan P12, P13, P15
+  File: estimates/cutouts/ES02_absolutely_continuous_ftc.lean.txt
+  Source: ESS02, inclusive original lines 223--265.
+  Declaration(s): AbsolutelyContinuousOnInterval.integral_deriv_eq_sub; AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub; AbsolutelyContinuousOnInterval.integral_mul_deriv_eq_deriv_mul
+  Consumer module: Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun
+  Remaining: Prove actual energy/enstrophy absolute continuity on each initial closed slab [0,R], 0<=R<Tmax, and the almost-everywhere physical derivative identities. These lemmas do not themselves differentiate an NSE trajectory.
+
+ES03 [EXISTING_NAMED_SCOPED_AUDIT]; plan P13, P15
+  File: estimates/cutouts/ES03_integral_gronwall.lean.txt
+  Source: ESS03, inclusive original lines 99--146.
+  Declaration(s): QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL
+  Consumer module: QFA.Endpoints.Comparison.RelativeEnergy
+  Remaining: Derive the physical Volterra inequality from the almost-everywhere cubic inequality using closed-slab AC. With e=Y, a=kappa*Y^2 and delta=Y(0), H1 continuity supplies coefficient continuity/product integrability; the full endpoint square budget supplies a uniform exponent bound. This instantiation is not yet a Lean declaration.
+
+ES04 [EXISTING_NAMED_SCOPED_AUDIT]; plan P12
+  File: estimates/cutouts/ES04_energy_envelope_ac_identity.lean.txt
+  Source: ESS04, inclusive original lines 42--125.
+  Declaration(s): QFA.Energy.envelope_absolutelyContinuousOnInterval; QFA.Energy.envelope_hasDerivAt_ae; QFA.Energy.envelope_product_intervalIntegrable; QFA.Energy.envelope_product_integral
+  Consumer module: QFA.Endpoints.Energy.ProductBudget
+  Remaining: Prove that the finite strong-front energy E equals or is bounded by this envelope with D=Y and M=||a||2. The scalar envelope is not a constructed PDE trajectory; no global Leray–Hopf record should be assumed to supply it.
+
+ES05 [EXISTING_NAMED_SCOPED_AUDIT]; plan P12, P16
+  File: estimates/cutouts/ES05_finite_product_budget.lean.txt
+  Source: ESS04, inclusive original lines 214--233.
+  Declaration(s): QFA.Energy.product_budget_Ioo
+  Consumer module: QFA.Endpoints.Energy.ProductBudget
+  Remaining: Discharge these premises from an actual R3 strong front existing on [0,R], 0<=R<Tmax. Native global-LH wrappers are stronger inputs and cannot be used to assume globality during this argument.
+
+ES06 [EXISTING_NAMED_SCOPED_AUDIT]; plan P09, P16
+  File: estimates/cutouts/ES06_registered_cutoff_and_selector.lean.txt
+  Source: ESS05, inclusive original lines 88--133.
+  Declaration(s): MethbokeAddon.QuasiFeffermanA.safeCutoff_eq_pi_formula_of_sixth_power; MethbokeAddon.QuasiFeffermanA.exists_good_time_of_product_budget; MethbokeAddon.QuasiFeffermanA.exists_good_time_of_energy_envelope
+  Consumer module: MethbokeAddon.QuasiFeffermanA.Cutoff
+  Remaining: S>0 is only a scalar input; actual sharp Sobolev admissibility is separate. Instantiate Good=True for the actual strong path after strict cutoff crossing; M=0 requires the separate zero-solution branch.
+
+ES07 [EXISTING_COMPILED_MODULE_ONLY]; plan P13, P15
+  File: estimates/cutouts/ES07_cubic_square_budget_classical.lean.txt
+  Source: ESS06, inclusive original lines 116--187.
+  Declaration(s): SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET; SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL
+  Consumer module: SingularClosure.CubicBudget
+  Remaining: This is a compiled scalar module with no directly named audit root for these declarations in the inspected run. H1 solutions need not satisfy continuous z,d. Prefer ES02+ES03 after proving the actual AC PDE inequality, or prove every stronger continuity premise; obtain exact named audits before new acceptance claims.
+
+ES08 [EXISTING_NAMED_SCOPED_AUDIT]; plan P13
+  File: estimates/cutouts/ES08_periodic_physical_enstrophy.lean.txt
+  Source: ESS07, inclusive original lines 314--353.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt; MethbokeAddon.WeakFouriermanB.INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC; MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_scalar_continuity
+  Consumer module: MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution
+  Remaining: Construct the corresponding whole-space strong-front estimates, integrability, pressure cancellation and AC chain rule. The source uses torus smoothness and an existential constant C, not the registered whole-space sharp constant.
+
+ES09 [EXISTING_NAMED_SCOPED_AUDIT]; plan P15
+  File: estimates/cutouts/ES09_periodic_full_budget_bound.lean.txt
+  Source: ESS08, inclusive original lines 54--101.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_accumulation_of_dissipation_square
+  Consumer module: MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation
+  Remaining: Transfer the argument to the actual R3 path with AC/integral Grönwall and the extended full endpoint budget. Finiteness on each shorter interval is insufficient; the common uniform budget is essential.
+
+ES10 [EXISTING_NAMED_SCOPED_AUDIT]; plan P15
+  File: estimates/cutouts/ES10_periodic_h1_bound_poincare_boundary.lean.txt
+  Source: ESS08, inclusive original lines 116--139.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.initial_front_uniform_H1_of_dissipation_square
+  Consumer module: MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation
+  Remaining: The proof explicitly uses smooth_periodic_meanZero_energy_le_dissipation (Poincare). On R3 replace this with E(t)<=E0 from P12; there is no whole-space spectral gap. This cut is an exact transfer-boundary warning as well as a template.
+
+ES11 [EXISTING_NAMED_SCOPED_AUDIT]; plan P11, P15, P17
+  File: estimates/cutouts/ES11_periodic_same_front_extension.lean.txt
+  Source: ESS09, inclusive original lines 26--53.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square
+  Consumer module: MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation
+  Remaining: Prove the R3 H1 local constructor and uniform lifespan, maximality, overlap uniqueness and the whole-space budget bound. No endpoint trace or Schwartz/compact-support preservation may be assumed at the H1 restart.
+
+ES12 [EXISTING_NAMED_SCOPED_AUDIT]; plan P13, P14
+  File: estimates/cutouts/ES12_scalar_absorption_scope.lean.txt
+  Source: ESS10, inclusive original lines 195--212.
+  Declaration(s): QFA.Endpoints.Agmon.ScalarProfile.enstrophy_absorption; QFA.Endpoints.Agmon.ScalarProfile.viscosity_margin_pos
+  Consumer module: QFA.Endpoints.Agmon.Scalar
+  Remaining: This historical coefficient uses the threshold E*D<4*pi^2*nu^4, not the registered nu^4/S6^6 threshold. Prove the registered spatial inequality and its scalar specialization separately, then prove temporal invariance/first-exit and actual continuation. This cut does not establish global regularity.
+
+ES13 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P01, P09
+  File: estimates/cutouts/ES13_upstream_h1_l6_membership.lean.txt
+  Source: ESS11, inclusive original lines 823--928.
+  Declaration(s): LerayHopf.gns_L6_of_memH1_R3
+  Consumer module: LerayHopf.R3.SobolevEmbedding
+  Remaining: Different upstream toolchain/Mathlib pins; no matching native compiler/audit evidence. Identify this spectral/Bessel H1 with the native physical weak-gradient H1, recover a quantitative physical norm estimate, and separately prove sharp S6 admissibility. The public conclusion is L6 membership, not the sharp homogeneous inequality.
+
+ES14 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P09, P12, P13
+  File: estimates/cutouts/ES14_upstream_h1_convection_integrable.lean.txt
+  Source: ESS12, inclusive original lines 181--207.
+  Declaration(s): LerayHopf.convFormH1_integrable
+  Consumer module: LerayHopf.R3.EnergyClassConvection
+  Remaining: Port compatible dependencies and prove carrier/weak-gradient identifications. This spatial integrability statement does not prove time differentiability, pressure cancellation, the actual NSE energy identity, or the sharp nonlinear enstrophy estimate.
+
+ES15 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P12, P13
+  File: estimates/cutouts/ES15_upstream_h1_ibp_and_cancellation.lean.txt
+  Source: ESS12, inclusive original lines 491--762.
+  Declaration(s): LerayHopf.convFormH1_ibp; LerayHopf.convFormH1_divFree; LerayHopf.divFree_L2test (private source name); LerayHopf.convFormH1_antisymm
+  Consumer module: LerayHopf.R3.EnergyClassConvection
+  Remaining: Preserve all actual H1 and solenoidal hypotheses and port the weak-Leibniz/density dependency chain to native pins. Spatial convection cancellation helps the energy identity but does not supply the R3 PDE trajectory, pressure elimination against Delta U, or closed-slab temporal AC.
+
+ES16 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P09, P12, P13
+  File: estimates/cutouts/ES16_upstream_schwartz_trilinear_sup_bound.lean.txt
+  Source: ESS13, inclusive original lines 386--465.
+  Declaration(s): LerayHopf.convIntegralSchwartz_bound_H1
+  Consumer module: LerayHopf.R3.TrilinearEstimate
+  Remaining: Despite the name, this is not an all-H1 trilinear estimate or a sharp Sobolev/nonlinear enstrophy bound. Quantitative H1/H2 interpolation and the physical sharp constant still require proof; upstream pins differ and no native acceptance is claimed.
+
+EV01 [EXISTING_COMPILED_MODULE_ONLY]; plan P10, P11, P19
+  File: evolution/cutouts/EV01_InitialClassicalFront.lean.txt
+  Source: EVS01, inclusive original lines 35--49.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.InitialClassicalFront
+  Consumer module: MethbokeAddon.WeakFouriermanB.FiniteCapGluing
+  Remaining: This declaration is a solution-class definition, not an existence theorem. Replace periodicity and cube normalization with the actual R3 class; arbitrary H1 paths are not smooth up to zero.
+
+EV02 [EXISTING_NAMED_SCOPED_AUDIT]; plan P10
+  File: evolution/cutouts/EV02_uniform_H1_local_initial_classical_front_exists.lean.txt
+  Source: EVS02, inclusive original lines 46--58.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+  Consumer module: MethbokeAddon.WeakFouriermanB.LocalExistence
+  Remaining: The datum still satisfies SmoothSigmaZero. No arbitrary weak-H1 R3 constructor, whole-space compactness, or same-space physical H1 instance is supplied.
+
+EV03 [EXISTING_NAMED_SCOPED_AUDIT]; plan P10
+  File: evolution/cutouts/EV03_local_sobolev_flow_of_uniform_H2.lean.txt
+  Source: EVS03, inclusive original lines 138--178.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2
+  Consumer module: MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit
+  Remaining: The compactness and high-order recovery are for TorusSobolev and smooth periodic data. Whole-space tightness/localization and the rough H1 strong solution space remain new.
+
+EV04 [EXISTING_NAMED_SCOPED_AUDIT]; plan P10, P19
+  File: evolution/cutouts/EV04_initialClassicalFront.lean.txt
+  Source: EVS04, inclusive original lines 284--303.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.LocalSobolevFlow.initialClassicalFront
+  Consumer module: MethbokeAddon.WeakFouriermanB.LocalSobolevCalculus
+  Remaining: A LocalSobolevFlow is supplied here and constructed separately in EV03. R3 pressure recovery, closed-slab smoothing for Schwartz data, and literal finite-energy competitor admission are not established by this periodic recovery theorem.
+
+EV05 [EXISTING_NAMED_SCOPED_AUDIT]; plan P11
+  File: evolution/cutouts/EV05_maximal_classical_front_exists_of_front.lean.txt
+  Source: EVS05, inclusive original lines 84--122.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front
+  Consumer module: MethbokeAddon.WeakFouriermanB.MaximalClassicalFront
+  Remaining: Local physical existence is an explicit premise here; EV02 supplies its periodic instance. A new R3 H1 category, uniqueness and finite restriction/gluing instances are required.
+
+EV06 [EXISTING_NAMED_SCOPED_AUDIT]; plan P11
+  File: evolution/cutouts/EV06_maximal_classical_front_unique.lean.txt
+  Source: EVS05, inclusive original lines 165--179.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique
+  Consumer module: MethbokeAddon.WeakFouriermanB.MaximalClassicalFront
+  Remaining: It compares supplied MaximalClassicalFront records. Their R3 constructors and strong uniqueness instances must be proved; values at a finite terminal time are not identified.
+
+EV07 [EXISTING_NAMED_SCOPED_AUDIT]; plan P11
+  File: evolution/cutouts/EV07_initial_front_extend_from_restart.lean.txt
+  Source: EVS06, inclusive original lines 88--211.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.initial_front_extend_from_restart
+  Consumer module: MethbokeAddon.WeakFouriermanB.FiniteFrontGluing
+  Remaining: The restart is an actual supplied classical solution. R3 H1 strong restart uniqueness and pressure-gauge alignment remain separate; this does not construct an endpoint trace.
+
+EV08 [EXISTING_NAMED_SCOPED_AUDIT]; plan P11, P15
+  File: evolution/cutouts/EV08_maximal_classical_lifetime_eq_top_of_uniform_H1.lean.txt
+  Source: EVS07, inclusive original lines 42--83.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1
+  Consumer module: MethbokeAddon.WeakFouriermanB.StrongContinuation
+  Remaining: The local constructor, solution class and uniqueness are periodic. The same argument must be instantiated in the native R3 H1 theory; no terminal H1 trace should be assumed.
+
+EV09 [EXISTING_NAMED_SCOPED_AUDIT]; plan P19
+  File: evolution/cutouts/EV09_normalized_pressure_eq_of_gradient_eq.lean.txt
+  Source: EVS08, inclusive original lines 84--106.
+  Declaration(s): MethbokeAddon.WeakFouriermanB.normalized_pressure_eq_of_gradient_eq
+  Consumer module: MethbokeAddon.WeakFouriermanB.PressureUniqueness
+  Remaining: The final normalization uses a finite unit cube. R3 needs equality of pressure gradients followed by a chosen smooth time gauge; whole-space pressure integrability or zero spatial mean cannot be silently assumed.
+
+EV10 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P10, P19
+  File: evolution/cutouts/EV10_StrongSolutionOnIcc.lean.txt
+  Source: EVS09, inclusive original lines 30--46.
+  Declaration(s): NavierStokesR3.H3Comparison.StrongSolutionOnIcc
+  Consumer module: NavierStokes.R3.H3StrongSolution
+  Remaining: A structure of supplied analytic fields is not an IVP constructor. It is H3, not arbitrary H1, and contains no existence/continuation or literal finite-energy competitor admission theorem.
+
+EV11 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P19
+  File: evolution/cutouts/EV11_pressureGradient_memLp.lean.txt
+  Source: EVS09, inclusive original lines 64--83.
+  Declaration(s): NavierStokesR3.H3Comparison.StrongSolutionOnIcc.pressureGradient_memLp
+  Consumer module: NavierStokes.R3.H3StrongSolution
+  Remaining: Requires the StrongSolutionOnIcc record and does not recover a pressure or derive H3 regularity for a merely smooth finite-energy literal competitor. Native toolchain/semantic adapters remain unverified.
+
+EV12 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P10, P19
+  File: evolution/cutouts/EV12_strongSolution_of_compact_slab.lean.txt
+  Source: EVS10, inclusive original lines 87--107.
+  Declaration(s): NavierStokesR3.H3Comparison.strongSolution_of_compact_slab
+  Consumer module: NavierStokes.R3.H3CandidateStrong
+  Remaining: This is an adapter, not local existence. Uniform compact velocity support is an extra premise and is not generally preserved by NSE or implied by Schwartz data; it cannot be imposed at arbitrary H1 restarts.
+
+EV13 [EXTERNAL_PINNED_SOURCE_ONLY]; plan P11, P19
+  File: evolution/cutouts/EV13_strong_unique.lean.txt
+  Source: EVS11, inclusive original lines 45--76.
+  Declaration(s): NavierStokesR3.H3Comparison.strong_unique
+  Consumer module: NavierStokes.R3.H3CandidateUniqueness
+  Remaining: Both solutions are H3. The reference derivative needs a common pointwise bound G and the stated measurable derivative representation. This is neither arbitrary H1 local uniqueness nor literal finite-energy competitor admission. It does not give a uniform bound approaching a finite canonical endpoint.
+
+EV14 [EXISTING_COMPILED_MODULE_ONLY]; plan P10, P11
+  File: evolution/cutouts/EV14_ReferenceConstructionFromAbsorption.lean.txt
+  Source: EVS12, inclusive original lines 86--92.
+  Declaration(s): QFA.Assembly.Integrated.ReferenceConstructionFromAbsorption
+  Consumer module: QFA.Assembly.Integrated
+  Remaining: An actual local R3 H1 solution, temporal invariant, continuation and reference realization remain to be constructed. This historical QFA interface also uses a different threshold/cutoff from the current class and is not a mandatory dependency of the finite-strong-front route.
+
+ENDPOINT STATUS
+All P01-P20 remain proposed new endpoints. No universal finite-budget claim
+is proved by this collection. Existing acceptance stays tied to the original
+source/type/axiom scope; copied proofs do not promote a parent root.
+No local Lean/Lake/kernel/project runner, external compiler or axiom run was
+executed. The next native preparation step is the physical H1 graph and its
+H1-only two-way Fourier bridge, followed by the six-projector milestone.

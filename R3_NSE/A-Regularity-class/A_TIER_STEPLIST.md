@@ -458,3 +458,18 @@ No local Lean, Lake, kernel audit or project runner was executed. This update
 creates no Lean declaration and starts no compiler/audit run. It preserves
 existing proof bytes, accepted evidence, dependency/compiler identities and
 the Fefferman-D project goal.
+
+## Attained Lean cutouts and revised gap assessment
+
+The [source collection](LEAN_CUTOUTS/README.md) now contains 51 exact cutout
+blocks and 60 full source snapshots, with pinned provenance and proof limits.
+[The six-gap assessment](LEAN_CUTOUTS/GAPS.md) ranks the substantive missing
+native constructions and distinguishes them from available lower lemmas.
+
+P15 has a stronger reuse route: [ES02](LEAN_CUTOUTS/cards/ES02.md) supplies
+AC FTC, and the already audited [ES03](LEAN_CUTOUTS/cards/ES03.md) supplies
+integral Gronwall after the actual PDE-to-Volterra inequality is derived.
+The new spectral, multiplier and convection source narrows P01-P05/P12-P13,
+while the sharp constant, actual H1 local/maximal theory and literal A4
+terminal control remain explicit. All plan endpoints retain their proposed
+status. Addendum 1.1 of the cumulative step-list TXT gives every cutout path.

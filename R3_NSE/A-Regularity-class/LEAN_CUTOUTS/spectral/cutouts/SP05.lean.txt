@@ -1,0 +1,102 @@
+/-- A scalar multiplier equality of actual L2 distributions determines the
+chosen locally integrable representatives almost everywhere. -/
+theorem ae_eq_of_const_smul_real_multiplier_distribution
+    (q h : ComplexL2) (c : ℂ) (m : Space → ℝ)
+    (hm_cont : Continuous m) (hm_temp : m.HasTemperateGrowth)
+    (hEq : (q : 𝓢'(Space, ComplexVector)) =
+      c • TemperedDistribution.smulLeftCLM ComplexVector
+        (fun x : Space => (m x : ℂ))
+        (h : 𝓢'(Space, ComplexVector))) :
+    (fun x : Space => q x) =ᵐ[volume]
+      (fun x : Space => (c * (m x : ℂ)) • h x) := by
+  apply ae_eq_of_integral_contDiff_smul_eq
+  · exact (Lp.memLp q).locallyIntegrable (by norm_num)
+  · exact MeasureTheory.LocallyIntegrable.continuous_smul (by fun_prop)
+      ((Lp.memLp h).locallyIntegrable (by norm_num))
+  · intro g hg g_cpt
+    have hg₁ : HasCompactSupport (Complex.ofRealCLM ∘ g) := g_cpt.comp_left rfl
+    have hg₂ : ContDiff ℝ ∞ (Complex.ofRealCLM ∘ g) := by fun_prop
+    let test : 𝓢(Space, ℂ) := hg₁.toSchwartzMap hg₂
+    have htest (x : Space) : test x = (g x : ℂ) := rfl
+    have hm_complex : (fun x : Space => (m x : ℂ)).HasTemperateGrowth := by
+      simpa only [Function.comp_def, Complex.ofRealCLM_apply] using
+        ((Complex.ofRealCLM).hasTemperateGrowth.comp hm_temp)
+    have hEval := congrArg (fun T : 𝓢'(Space, ComplexVector) => T test) hEq
+    have hPair :
+        (∫ x : Space, (g x : ℂ) • q x) =
+          c • ∫ x : Space, ((m x : ℂ) * (g x : ℂ)) • h x := by
+      simpa only [smul_apply, TemperedDistribution.smulLeftCLM_apply_apply,
+        Lp.toTemperedDistribution_apply,
+        SchwartzMap.smulLeftCLM_apply_apply hm_complex, htest, smul_eq_mul]
+        using hEval
+    calc
+      (∫ x : Space, g x • q x) =
+          ∫ x : Space, (g x : ℂ) • q x := by
+        apply integral_congr_ae
+        filter_upwards with x
+        exact real_smul_complexVector (g x) (q x)
+      _ = c • ∫ x : Space, ((m x : ℂ) * (g x : ℂ)) • h x := hPair
+      _ = ∫ x : Space, c • (((m x : ℂ) * (g x : ℂ)) • h x) := by
+        rw [integral_smul]
+      _ = ∫ x : Space, g x • ((c * (m x : ℂ)) • h x) := by
+        apply integral_congr_ae
+        filter_upwards with x
+        calc
+          c • (((m x : ℂ) * (g x : ℂ)) • h x) =
+              (c * ((m x : ℂ) * (g x : ℂ))) • h x :=
+            (mul_smul c ((m x : ℂ) * (g x : ℂ)) (h x)).symm
+          _ = ((g x : ℂ) * (c * (m x : ℂ))) • h x := by
+            congr 1
+            ring
+          _ = (g x : ℂ) • ((c * (m x : ℂ)) • h x) :=
+            mul_smul (g x : ℂ) (c * (m x : ℂ)) (h x)
+          _ = g x • ((c * (m x : ℂ)) • h x) :=
+            (real_smul_complexVector (g x)
+              ((c * (m x : ℂ)) • h x)).symm
+
+/-- Fourier transform of each supplied first derivative, as an exact
+equality of tempered distributions. -/
+theorem gradient_fourier_distribution_eq
+    {v : ComplexL2} {G : Fin 3 → ComplexL2} {L : ComplexL2}
+    (h : SchwartzDerivativeWitnesses v G L) (j : Fin 3) :
+    ((𝓕 (G j) : ComplexL2) : 𝓢'(Space, ComplexVector)) =
+      (2 * Real.pi * Complex.I) •
+        TemperedDistribution.smulLeftCLM ComplexVector
+          (fun x : Space =>
+            (inner ℝ x (EuclideanSpace.basisFun (Fin 3) ℝ j) : ℂ))
+          ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)) := by
+  calc
+    ((𝓕 (G j) : ComplexL2) : 𝓢'(Space, ComplexVector)) =
+        𝓕 ((G j : ComplexL2) : 𝓢'(Space, ComplexVector)) :=
+      (MeasureTheory.Lp.fourier_toTemperedDistribution_eq (G j)).symm
+    _ = 𝓕 (∂_{EuclideanSpace.basisFun (Fin 3) ℝ j}
+        (v : 𝓢'(Space, ComplexVector))) := by rw [← h.gradient_eq j]
+    _ = (2 * Real.pi * Complex.I) •
+        TemperedDistribution.smulLeftCLM ComplexVector
+          (fun x : Space =>
+            (inner ℝ x (EuclideanSpace.basisFun (Fin 3) ℝ j) : ℂ))
+          (𝓕 (v : 𝓢'(Space, ComplexVector))) := by
+      simpa using
+        (TemperedDistribution.fourier_lineDerivOp_eq
+          (v : 𝓢'(Space, ComplexVector)) (EuclideanSpace.basisFun (Fin 3) ℝ j))
+    _ = (2 * Real.pi * Complex.I) •
+        TemperedDistribution.smulLeftCLM ComplexVector
+          (fun x : Space =>
+            (inner ℝ x (EuclideanSpace.basisFun (Fin 3) ℝ j) : ℂ))
+          ((𝓕 v : ComplexL2) : 𝓢'(Space, ComplexVector)) := by
+      rw [MeasureTheory.Lp.fourier_toTemperedDistribution_eq v]
+
+/-- Almost-everywhere first-derivative multiplier identity. -/
+theorem gradient_fourier_ae
+    {v : ComplexL2} {G : Fin 3 → ComplexL2} {L : ComplexL2}
+    (h : SchwartzDerivativeWitnesses v G L) (j : Fin 3) :
+    (fun k : Space => (𝓕 (G j) : ComplexL2) k) =ᵐ[volume]
+      (fun k : Space =>
+        ((2 * Real.pi * Complex.I) *
+          (inner ℝ k (EuclideanSpace.basisFun (Fin 3) ℝ j) : ℂ)) •
+            (𝓕 v : ComplexL2) k) := by
+  exact ae_eq_of_const_smul_real_multiplier_distribution
+    (𝓕 (G j) : ComplexL2) (𝓕 v : ComplexL2)
+    (2 * Real.pi * Complex.I)
+    (fun k : Space => inner ℝ k (EuclideanSpace.basisFun (Fin 3) ℝ j))
+    (by fun_prop) (by fun_prop) (gradient_fourier_distribution_eq h j)

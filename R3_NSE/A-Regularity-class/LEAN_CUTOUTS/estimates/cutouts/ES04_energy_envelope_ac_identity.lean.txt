@@ -1,0 +1,84 @@
+/-- D04.02: interval integrability of `D` suffices for absolute continuity of
+the envelope. The orientation of the interval is immaterial to this lemma. -/
+theorem envelope_absolutelyContinuousOnInterval
+    {M ν R : ℝ} {D : ℝ → ℝ}
+    (hD : IntervalIntegrable D volume (0 : ℝ) R) :
+    AbsolutelyContinuousOnInterval (envelope M ν D) 0 R := by
+  -- EP013: the primitive of an interval-integrable real function is AC.
+  have hA : AbsolutelyContinuousOnInterval
+      (fun t : ℝ => ∫ r in (0 : ℝ)..t, D r) 0 R :=
+    hD.absolutelyContinuousOnInterval_intervalIntegral (c := 0) (by simp)
+  -- EP014: applied only to the constant term, not to the weak profile.
+  have hC : AbsolutelyContinuousOnInterval (fun _ : ℝ => M ^ 2) 0 R := by
+    apply ContDiffOn.absolutelyContinuousOnInterval
+    exact contDiffOn_const
+  -- EP015 and EP016: scaling and subtraction preserve AC.
+  change AbsolutelyContinuousOnInterval
+    ((fun _ : ℝ => M ^ 2) -
+      (fun t : ℝ => 2 * ν * (∫ r in (0 : ℝ)..t, D r))) 0 R
+  exact hC.sub (AbsolutelyContinuousOnInterval.const_mul (2 * ν) hA)
+
+/-- D04.03: only the envelope is differentiated, and only a.e. on the interval. -/
+theorem envelope_hasDerivAt_ae
+    {M ν R : ℝ} {D : ℝ → ℝ}
+    (hD : IntervalIntegrable D volume (0 : ℝ) R) :
+    ∀ᵐ t ∂volume, t ∈ uIcc (0 : ℝ) R →
+      HasDerivAt (envelope M ν D) (-(2 * ν * D t)) t := by
+  -- EP017: local Lebesgue differentiation for the integral primitive.
+  filter_upwards [hD.ae_hasDerivAt_integral] with t ht
+  intro htmem
+  have hA := ht htmem (0 : ℝ) (by simp)
+  -- EP018 and EP019: scale the primitive and subtract from the constant.
+  change HasDerivAt
+    (fun x : ℝ => M ^ 2 - 2 * ν * (∫ r in (0 : ℝ)..x, D r))
+    (-(2 * ν * D t)) t
+  exact HasDerivAt.const_sub (M ^ 2) (HasDerivAt.const_mul (2 * ν) hA)
+
+/-- D04.04: the continuous envelope times the integrable dissipation is
+integrable, before any comparison with the weak energy profile is made. -/
+theorem envelope_product_intervalIntegrable
+    {M ν R : ℝ} {D : ℝ → ℝ}
+    (hD : IntervalIntegrable D volume (0 : ℝ) R) :
+    IntervalIntegrable (fun t => envelope M ν D t * D t) volume 0 R := by
+  -- EP021 and EP022: AC implies continuity; continuous times L1 is L1.
+  exact hD.continuousOn_mul
+    (envelope_absolutelyContinuousOnInterval (M := M) (ν := ν) hD).continuousOn
+
+/-- D04.05: exact square identity for the envelope. No sign assumption on `D`
+or on `R` is required for this oriented-interval identity. -/
+theorem envelope_product_integral
+    {M ν R : ℝ} {D : ℝ → ℝ}
+    (hν : ν ≠ 0)
+    (hD : IntervalIntegrable D volume (0 : ℝ) R) :
+    (∫ t in (0 : ℝ)..R, envelope M ν D t * D t) =
+      (M ^ 4 - (envelope M ν D R) ^ 2) / (4 * ν) := by
+  let F : ℝ → ℝ := envelope M ν D
+  change (∫ t in (0 : ℝ)..R, F t * D t) =
+    (M ^ 4 - (F R) ^ 2) / (4 * ν)
+  have hF : AbsolutelyContinuousOnInterval F 0 R :=
+    envelope_absolutelyContinuousOnInterval (M := M) (ν := ν) hD
+  have hF0 : F 0 = M ^ 2 := by
+    simp [F]
+  -- EP024: AC product FTC with both factors equal to F.
+  have hFTC :=
+    AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub hF hF
+  have hderiv := envelope_hasDerivAt_ae (M := M) (ν := ν) hD
+  have hrewrite :
+      (∫ t in (0 : ℝ)..R, deriv F t * F t + F t * deriv F t) =
+        -(4 * ν) * (∫ t in (0 : ℝ)..R, F t * D t) := by
+    calc
+      _ = ∫ t in (0 : ℝ)..R, -(4 * ν) * (F t * D t) := by
+        -- EP025: replace the derivatives a.e., including the null endpoints.
+        apply intervalIntegral.integral_congr_ae
+        filter_upwards [hderiv] with t ht
+        intro htmem
+        -- EP020: HasDerivAt determines the value of deriv.
+        have hdt : deriv F t = -(2 * ν * D t) :=
+          (ht (uIoc_subset_uIcc htmem)).deriv
+        rw [hdt]
+        ring
+      _ = _ := intervalIntegral.integral_const_mul _ _
+  rw [hrewrite, hF0] at hFTC
+  apply (eq_div_iff (show 4 * ν ≠ 0 from
+    mul_ne_zero (by norm_num) hν)).2
+  nlinarith only [hFTC]

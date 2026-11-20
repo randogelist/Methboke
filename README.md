@@ -60,6 +60,12 @@ continuation, and the literal Fefferman-A solution-class bridge. It is a
 B-tier step list with source anchors and explicit completion criteria;
 formalization and new external acceptance have not started for these endpoints.
 
+The [Lean gap and cutout collection](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md)
+now supplies 51 exact reference blocks, complete pinned source snapshots and
+[a ranked gap assessment](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/GAPS.md).
+The cumulative TXT references every cutout. Source acquisition narrows the
+missing adapters and adds no native theorem or A-tier acceptance.
+
 ## Retained Fefferman-D implementation
 
 The native family layers are in

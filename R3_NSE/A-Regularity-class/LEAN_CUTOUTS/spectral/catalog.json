@@ -1,0 +1,2101 @@
+{
+  "schema_version": 1,
+  "collection": "NSE_A_FINITE_CHARGE_SPECTRAL_REFERENCE_CUTOUTS",
+  "date": "2026-11-20",
+  "repository_basis": {
+    "repository": "randogelist/Methboke",
+    "branch": "AC-Integration",
+    "commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558"
+  },
+  "plan_steps": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08"
+  ],
+  "status": "STATIC_REFERENCE_COLLECTION_NOT_NEW_A_TIER",
+  "reference_only": true,
+  "local_lean_executions": 0,
+  "new_compiler_runs": 0,
+  "new_axiom_audits": 0,
+  "new_a_tier_acceptance": false,
+  "extraction_rule": "Each .lean.txt cutout is exactly the stated inclusive contiguous line slice; every sources file is the complete original byte stream, including original imports, headers and comments. No source was repaired or compiled.",
+  "source_import_scope": "Full original selected/supporting modules are included, not a standalone transitive dependency closure. Use original consumer imports in a separately authorized compatible project.",
+  "environment_pins": {
+    "native_lean": "leanprover/lean4:v4.33.0",
+    "native_mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "recovered_methlib": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+    "external_leray_lean": "leanprover/lean4:v4.31.0-rc2",
+    "external_leray_mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+  },
+  "sources": [
+    {
+      "id": "SPS01",
+      "repository": "randogelist/Methboke",
+      "commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "local_path": "spectral/sources/SPS01_Contracts.lean.txt",
+      "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92",
+      "size_bytes": 7313,
+      "line_count": 152,
+      "original_imports": [
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile"
+      ],
+      "consumer_import": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "source_kind": "native",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "local_original_path": "Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "accepted_source_identity": {
+        "repository": "randogelist/Methboke",
+        "commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "path": "Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+        "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92",
+        "same_bytes": true,
+        "run_id": 44788963412,
+        "receipt": "audits/material-afd67db4-qfa-accepted/summary.json"
+      }
+    },
+    {
+      "id": "SPS02",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
+      "local_path": "spectral/sources/SPS02_Basic.lean.txt",
+      "sha256": "db86568d3ba2332c8f5588c1ca7542312a57d3ec7912e63db3d14322c579b2d1",
+      "size_bytes": 45429,
+      "line_count": 1120,
+      "original_imports": [
+        "Mathlib.Algebra.Module.LinearMap.DivisionRing",
+        "Mathlib.Algebra.Module.Submodule.EqLocus",
+        "Mathlib.LinearAlgebra.Projection",
+        "Mathlib.Topology.Algebra.ContinuousMonoidHom",
+        "Mathlib.Topology.Algebra.IsUniformGroup.Defs",
+        "Mathlib.Topology.Algebra.Module.Basic",
+        "Mathlib.Data.FunLike.Module",
+        "Mathlib.Data.FunLike.Ring"
+      ],
+      "consumer_import": "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Topology/Algebra/Module/ContinuousLinearMap/Basic.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS03",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/Distribution/AEEqOfIntegralContDiff.lean",
+      "local_path": "spectral/sources/SPS03_AEEqOfIntegralContDiff.lean.txt",
+      "sha256": "626e88cc762fe508d78e07923fdb29ab8b5c47e932b30e43e3cc352c0fee9eb2",
+      "size_bytes": 11196,
+      "line_count": 213,
+      "original_imports": [
+        "Mathlib.Geometry.Manifold.PartitionOfUnity",
+        "Mathlib.MeasureTheory.Function.AEEqOfIntegral"
+      ],
+      "consumer_import": "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/AEEqOfIntegralContDiff.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS04",
+      "repository": "randogelist/Methlib",
+      "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "original_path": "Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean",
+      "local_path": "spectral/sources/SPS04_Density.lean.txt",
+      "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+      "size_bytes": 7464,
+      "line_count": 163,
+      "original_imports": [
+        "QFALC004.CompactSchwartz",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "consumer_import": "QFALC005.Density",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean",
+      "source_kind": "vendor",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "local_original_path": "Material/_vendor/QFALC005/Density.lean",
+      "accepted_source_identity": {
+        "repository": "randogelist/Methboke",
+        "commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "path": "Material/_vendor/QFALC005/Density.lean",
+        "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+        "same_bytes": true,
+        "run_id": 44788963412,
+        "receipt": "audits/material-afd67db4-qfa-accepted/summary.json"
+      }
+    },
+    {
+      "id": "SPS05",
+      "repository": "randogelist/Methboke",
+      "commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "local_path": "spectral/sources/SPS05_FourierMultipliers.lean.txt",
+      "sha256": "40a364af5c5e399442cd9ed0e31a8d4e7e811f494cb77f375c348232fe35279f",
+      "size_bytes": 11414,
+      "line_count": 243,
+      "original_imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ],
+      "consumer_import": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "source_kind": "native",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "local_original_path": "Material/MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "accepted_source_identity": {
+        "repository": "randogelist/Methboke",
+        "commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "path": "Material/MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+        "sha256": "40a364af5c5e399442cd9ed0e31a8d4e7e811f494cb77f375c348232fe35279f",
+        "same_bytes": true,
+        "run_id": 44788963412,
+        "receipt": "audits/material-afd67db4-qfa-accepted/summary.json"
+      }
+    },
+    {
+      "id": "SPS06",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/Fourier/LpSpace.lean",
+      "local_path": "spectral/sources/SPS06_LpSpace.lean.txt",
+      "sha256": "901386dd897fc7e1c2d4b3b0cca3adb96829bf9d011e57be5e8f7e85a81598f3",
+      "size_bytes": 5492,
+      "line_count": 142,
+      "original_imports": [
+        "Mathlib.Analysis.Distribution.TemperedDistribution",
+        "Mathlib.Analysis.Normed.Operator.Extend"
+      ],
+      "consumer_import": "Mathlib.Analysis.Fourier.LpSpace",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/LpSpace.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS07",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Function/LpSeminorm/Indicator.lean",
+      "local_path": "spectral/sources/SPS07_Indicator.lean.txt",
+      "sha256": "a5f21097f0ec9d5cb710a2a7757f241f54188785a8aa0b0f5c1b2d0f8e4e3fab",
+      "size_bytes": 10627,
+      "line_count": 230,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+        "Mathlib.Analysis.Normed.Group.Indicator",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Sub"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/LpSeminorm/Indicator.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS08",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+      "local_path": "spectral/sources/SPS08_Basic.lean.txt",
+      "sha256": "c333a6caa56906c6203cad3e3214be2114a65728fcfdf95ae639992abefb373f",
+      "size_bytes": 44484,
+      "line_count": 1031,
+      "original_imports": [
+        "Mathlib.Analysis.Normed.Operator.Bilinear",
+        "Mathlib.Analysis.Normed.Operator.NNNorm",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.ChebyshevMarkov",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Function.LpSpace.Basic",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS09",
+      "repository": "randogelist/Methlib",
+      "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "original_path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean",
+      "local_path": "spectral/sources/SPS09_NativeFromAENorms.lean.txt",
+      "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+      "size_bytes": 6686,
+      "line_count": 158,
+      "original_imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ],
+      "consumer_import": "QFALC001Reduction.NativeFromAENorms",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean",
+      "source_kind": "vendor",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "local_original_path": "Material/_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "accepted_source_identity": {
+        "repository": "randogelist/Methboke",
+        "commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "path": "Material/_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+        "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+        "same_bytes": true,
+        "run_id": 44788963412,
+        "receipt": "audits/material-afd67db4-qfa-accepted/summary.json"
+      }
+    },
+    {
+      "id": "SPS10",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean",
+      "local_path": "spectral/sources/SPS10_Finset.lean.txt",
+      "sha256": "c89a7463df5acd6485e64d14b958daaedf6b857aad2808a4ead0570b52220568",
+      "size_bytes": 12700,
+      "line_count": 270,
+      "original_imports": [
+        "Mathlib.Algebra.BigOperators.Ring.Finset",
+        "Mathlib.Algebra.Order.AbsoluteValue.Basic",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Algebra.Order.BigOperators.GroupWithZero.Finset",
+        "Mathlib.Algebra.Order.BigOperators.Ring.Multiset",
+        "Mathlib.Tactic.Ring"
+      ],
+      "consumer_import": "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS11",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
+      "local_path": "spectral/sources/SPS11_Add.lean.txt",
+      "sha256": "e705fd0f391d51b184cca4e1bf54d6d59374a3ee5f5c0c91dd074d49cebc2e9d",
+      "size_bytes": 24236,
+      "line_count": 495,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Constructions.BorelSpace.Real",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Basic"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS12",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+      "local_path": "spectral/sources/SPS12_Integrable.lean.txt",
+      "sha256": "86008d68eeb9281c5a382f49c21ed58246c5f9a5f0d5268f8eeadb050b50e70f",
+      "size_bytes": 57662,
+      "line_count": 1258,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Function.L1Space.HasFiniteIntegral",
+        "Mathlib.MeasureTheory.Function.LpOrder",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+        "Mathlib.Tactic.CrossRefAttribute"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Function/L1Space/Integrable.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS13",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "local_path": "spectral/sources/SPS13_Basic.lean.txt",
+      "sha256": "f81a06eab17faccbc4b671a93e7af73332f5fd3946f7690e7c2a3cfee77d28c8",
+      "size_bytes": 70432,
+      "line_count": 1379,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.L1"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS14",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/SpecialFunctions/Pow/NNReal.lean",
+      "local_path": "spectral/sources/SPS14_NNReal.lean.txt",
+      "sha256": "34ca617eac6d3903c15dde5c1c833a0f490de28c10f3f4f8e21f912bb0028687",
+      "size_bytes": 54873,
+      "line_count": 1282,
+      "original_imports": [
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+        "Mathlib.Tactic.Rify",
+        "Qq"
+      ],
+      "consumer_import": "Mathlib.Analysis.SpecialFunctions.Pow.NNReal",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/SpecialFunctions/Pow/NNReal.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS15",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/Distribution/TemperedDistribution.lean",
+      "local_path": "spectral/sources/SPS15_TemperedDistribution.lean.txt",
+      "sha256": "989c6b5a41beaf88018701f17fa14f8b8f37da4ce07218cb9e9bdfd2a147035f",
+      "size_bytes": 24299,
+      "line_count": 633,
+      "original_imports": [
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.MeasureTheory.Function.Holder",
+        "Mathlib.Topology.Algebra.Module.Spaces.PointwiseConvergenceCLM"
+      ],
+      "consumer_import": "Mathlib.Analysis.Distribution.TemperedDistribution",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/TemperedDistribution.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS16",
+      "repository": "randogelist/Methlib",
+      "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "original_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean",
+      "local_path": "spectral/sources/SPS16_Complexification.lean.txt",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+      "size_bytes": 10091,
+      "line_count": 242,
+      "original_imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "consumer_import": "QFA.Endpoints.Representation.Complexification",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean",
+      "source_kind": "vendor",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "local_original_path": "Material/_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "accepted_source_identity": {
+        "repository": "randogelist/Methboke",
+        "commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "path": "Material/_vendor/QFA/Endpoints/Representation/Complexification.lean",
+        "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+        "same_bytes": true,
+        "run_id": 44788963412,
+        "receipt": "audits/material-afd67db4-qfa-accepted/summary.json"
+      }
+    },
+    {
+      "id": "SPS17",
+      "repository": "randogelist/Methlib",
+      "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "original_path": "Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean",
+      "local_path": "spectral/sources/SPS17_CompactSchwartz.lean.txt",
+      "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+      "size_bytes": 4015,
+      "line_count": 105,
+      "original_imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+      ],
+      "consumer_import": "QFALC004.CompactSchwartz",
+      "source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean",
+      "source_kind": "vendor",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "local_original_path": "Material/_vendor/QFALC004/CompactSchwartz.lean",
+      "accepted_source_identity": {
+        "repository": "randogelist/Methboke",
+        "commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "path": "Material/_vendor/QFALC004/CompactSchwartz.lean",
+        "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+        "same_bytes": true,
+        "run_id": 44788963412,
+        "receipt": "audits/material-afd67db4-qfa-accepted/summary.json"
+      }
+    },
+    {
+      "id": "SPS18",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/Distribution/Sobolev.lean",
+      "local_path": "spectral/sources/SPS18_Sobolev.lean.txt",
+      "sha256": "626efa98f46bc13e7ef8770bc29e778357c713d15373846f1e49252a7ac1df3e",
+      "size_bytes": 14160,
+      "line_count": 361,
+      "original_imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace"
+      ],
+      "consumer_import": "Mathlib.Analysis.Distribution.Sobolev",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Distribution/Sobolev.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS19",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Integral/Lebesgue/Basic.lean",
+      "local_path": "spectral/sources/SPS19_Basic.lean.txt",
+      "sha256": "0766c86bbadd288efdacafb833f55d225c97eea926e9fbde166b0c2529a807f6",
+      "size_bytes": 36380,
+      "line_count": 688,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Function.SimpleFunc",
+        "Mathlib.Algebra.Order.Pi"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Lebesgue.Basic",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/Lebesgue/Basic.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS20",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/Complex/Basic.lean",
+      "local_path": "spectral/sources/SPS20_Basic.lean.txt",
+      "sha256": "a3bcb36c68213d371e7a48bc84c2b70b6595fdf7de424fe1f84b98c95e2f39db",
+      "size_bytes": 27423,
+      "line_count": 727,
+      "original_imports": [
+        "Mathlib.Analysis.Complex.Order",
+        "Mathlib.Analysis.RCLike.Basic",
+        "Mathlib.Data.Complex.BigOperators",
+        "Mathlib.LinearAlgebra.Complex.Module",
+        "Mathlib.Topology.Algebra.Algebra.Equiv",
+        "Mathlib.Topology.Algebra.InfiniteSum.Module",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.RestrictScalars",
+        "Mathlib.Topology.Instances.RealVectorSpace"
+      ],
+      "consumer_import": "Mathlib.Analysis.Complex.Basic",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Complex/Basic.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS21",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Integral/Bochner/ContinuousLinearMap.lean",
+      "local_path": "spectral/sources/SPS21_ContinuousLinearMap.lean.txt",
+      "sha256": "34dda53973ce6620e90d97d87ffcb2def082a34fa57875aa9ac07e088b43d434",
+      "size_bytes": 18153,
+      "line_count": 356,
+      "original_imports": [
+        "Mathlib.Analysis.Normed.Operator.CompleteCodomain",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.Topology.ContinuousMap.ContinuousMapZero"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/Bochner/ContinuousLinearMap.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS22",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/Fourier/FourierTransform.lean",
+      "local_path": "spectral/sources/SPS22_FourierTransform.lean.txt",
+      "sha256": "589a62a5719d3912b7f16b834c47c24a1f782ca025920b1849fc3cf788609412",
+      "size_bytes": 28060,
+      "line_count": 607,
+      "original_imports": [
+        "Mathlib.Algebra.Group.AddChar",
+        "Mathlib.Analysis.Complex.Circle",
+        "Mathlib.Analysis.Fourier.Notation",
+        "Mathlib.MeasureTheory.Group.Integral",
+        "Mathlib.MeasureTheory.Integral.Prod",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.OfBasis"
+      ],
+      "consumer_import": "Mathlib.Analysis.Fourier.FourierTransform",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/Fourier/FourierTransform.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS23",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+      "local_path": "spectral/sources/SPS23_Order.lean.txt",
+      "sha256": "b4fb7d0a231f1b0c651548999f1fb597edfa70754cd1209878329d631ae594e6",
+      "size_bytes": 54127,
+      "line_count": 1120,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Function.AEMeasurableSequence",
+        "Mathlib.MeasureTheory.Order.Lattice",
+        "Mathlib.Topology.Order.Lattice",
+        "Mathlib.MeasureTheory.Constructions.BorelSpace.Basic"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Constructions.BorelSpace.Order",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Constructions/BorelSpace/Order.lean",
+      "source_kind": "mathlib",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false
+    },
+    {
+      "id": "SPS24",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/Analysis/SpectralWeakGradient.lean",
+      "local_path": "spectral/sources/SPS24_SpectralWeakGradient.lean.txt",
+      "sha256": "4c5565fd805055e1e459273a8abc183771793892f083ace15c02ec0dc18715fa",
+      "size_bytes": 14928,
+      "line_count": 269,
+      "original_imports": [
+        "LerayHopf.R3.Regularity",
+        "Mathlib.Analysis.Distribution.Sobolev"
+      ],
+      "consumer_import": "LerayHopf.Analysis.SpectralWeakGradient",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/Analysis/SpectralWeakGradient.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS25",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/WeightedFourierCommute.lean",
+      "local_path": "spectral/sources/SPS25_WeightedFourierCommute.lean.txt",
+      "sha256": "9b7e8788cf4088f44d85b60a7db2ab2bb2151b897ac5ded1d6b9c678ab043d94",
+      "size_bytes": 15236,
+      "line_count": 267,
+      "original_imports": [
+        "LerayHopf.R3.RellichBall",
+        "LerayHopf.Analysis.BoundedMultiplier"
+      ],
+      "consumer_import": "LerayHopf.R3.WeightedFourierCommute",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/WeightedFourierCommute.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS26",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/Analysis/BoundedMultiplier.lean",
+      "local_path": "spectral/sources/SPS26_BoundedMultiplier.lean.txt",
+      "sha256": "b371b4c6409714e36d2aca4b65825089f1644b4d32222ac092032c70230d5bd9",
+      "size_bytes": 8732,
+      "line_count": 166,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus",
+        "Mathlib.Analysis.InnerProductSpace.LinearMap",
+        "Mathlib.Topology.MetricSpace.Lipschitz"
+      ],
+      "consumer_import": "LerayHopf.Analysis.BoundedMultiplier",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/Analysis/BoundedMultiplier.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS27",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/Analysis/FourierParseval.lean",
+      "local_path": "spectral/sources/SPS27_FourierParseval.lean.txt",
+      "sha256": "28a9440cef732447f0a322d35a79a11752c0915a2bdfd6f828dc41e433798a8c",
+      "size_bytes": 37490,
+      "line_count": 655,
+      "original_imports": [
+        "LerayHopf.R3.FourierL2"
+      ],
+      "consumer_import": "LerayHopf.Analysis.FourierParseval",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/Analysis/FourierParseval.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS28",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/SobolevEmbedding.lean",
+      "local_path": "spectral/sources/SPS28_SobolevEmbedding.lean.txt",
+      "sha256": "845d4a536c56cbedb9203ac36ab1b068eb5f6bab968da1cc0dbdec552ad3c071",
+      "size_bytes": 82315,
+      "line_count": 1382,
+      "original_imports": [
+        "LerayHopf.R3.Regularity",
+        "LerayHopf.R3.WeightedFourierCommute",
+        "LerayHopf.Analysis.PlancherelKernels",
+        "Mathlib.Analysis.FunctionalSpaces.SobolevInequality",
+        "Mathlib.MeasureTheory.Function.Holder"
+      ],
+      "consumer_import": "LerayHopf.R3.SobolevEmbedding",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/SobolevEmbedding.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS29",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/Regularity.lean",
+      "local_path": "spectral/sources/SPS29_Regularity.lean.txt",
+      "sha256": "9ecf249150302bbc6e2499e316270ab687f0c521d447388c9aa9ec5292aa9d9a",
+      "size_bytes": 12010,
+      "line_count": 237,
+      "original_imports": [
+        "LerayHopf.R3.DivergenceFree",
+        "Mathlib.Analysis.Distribution.Sobolev",
+        "Mathlib.Analysis.Fourier.LpSpace"
+      ],
+      "consumer_import": "LerayHopf.R3.Regularity",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/Regularity.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS30",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/Domain.lean",
+      "local_path": "spectral/sources/SPS30_Domain.lean.txt",
+      "sha256": "6285b9fb0e1f5265aae09410d5c1749379c1b75d422e38149257effad3ffe74d",
+      "size_bytes": 3346,
+      "line_count": 79,
+      "original_imports": [
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.Analysis.RCLike.Basic",
+        "Mathlib.MeasureTheory.Measure.Haar.OfBasis",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace"
+      ],
+      "consumer_import": "LerayHopf.R3.Domain",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/Domain.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS31",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/DivergenceFree.lean",
+      "local_path": "spectral/sources/SPS31_DivergenceFree.lean.txt",
+      "sha256": "fe059ae22d7b6660a901c3f4fc34c6d56ed05984d77a98863293f56424228311",
+      "size_bytes": 10524,
+      "line_count": 207,
+      "original_imports": [
+        "LerayHopf.R3.Domain",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.InnerProductSpace.LinearMap",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+        "Mathlib.Algebra.Module.Submodule.Lattice",
+        "Mathlib.MeasureTheory.Measure.SeparableMeasure",
+        "Mathlib.Analysis.LocallyConvex.WeakSpace"
+      ],
+      "consumer_import": "LerayHopf.R3.DivergenceFree",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/DivergenceFree.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS32",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/RellichBall.lean",
+      "local_path": "spectral/sources/SPS32_RellichBall.lean.txt",
+      "sha256": "e7305fa5854a38e28d1f1a7d8c7a469056e56c7cb13aa14fb33777020dbe8b0e",
+      "size_bytes": 39090,
+      "line_count": 651,
+      "original_imports": [
+        "LerayHopf.R3.SpatialCompactness",
+        "LerayHopf.R3.FourierL2",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.MeasureTheory.Measure.Haar.Unique",
+        "Mathlib.MeasureTheory.Function.LpSpace.Indicator"
+      ],
+      "consumer_import": "LerayHopf.R3.RellichBall",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/RellichBall.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS33",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/EnergyClassConvection.lean",
+      "local_path": "spectral/sources/SPS33_EnergyClassConvection.lean.txt",
+      "sha256": "dc19169f86404ac1363291a5589969c15ba1f17da45c287943d4c4ade77f86fb",
+      "size_bytes": 51902,
+      "line_count": 904,
+      "original_imports": [
+        "LerayHopf.R3.SobolevEmbedding",
+        "LerayHopf.R3.ConvectionOperator",
+        "LerayHopf.Analysis.PlancherelKernels",
+        "LerayHopf.Analysis.RealComplexLpBridge",
+        "LerayHopf.Analysis.SpectralWeakGradient",
+        "LerayHopf.Analysis.LpInterpolation",
+        "LerayHopf.Analysis.WeakLeibniz",
+        "Mathlib.Analysis.Distribution.Sobolev"
+      ],
+      "consumer_import": "LerayHopf.R3.EnergyClassConvection",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/EnergyClassConvection.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS34",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/Analysis/RealComplexLpBridge.lean",
+      "local_path": "spectral/sources/SPS34_RealComplexLpBridge.lean.txt",
+      "sha256": "f5c2896beebc7beb287469f6055f441dbbe97fa5c6c61cc2c0e9dcf99593b36a",
+      "size_bytes": 6938,
+      "line_count": 128,
+      "original_imports": [
+        "LerayHopf.R3.Regularity"
+      ],
+      "consumer_import": "LerayHopf.Analysis.RealComplexLpBridge",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/Analysis/RealComplexLpBridge.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    },
+    {
+      "id": "SPS35",
+      "repository": "uda-lab/leray-hopf",
+      "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/FourierL2.lean",
+      "local_path": "spectral/sources/SPS35_FourierL2.lean.txt",
+      "sha256": "cf1c21fc864c6e98a66b56221a5468d80a1863b49a57b4db2ccc14cd33d20ef0",
+      "size_bytes": 24028,
+      "line_count": 453,
+      "original_imports": [
+        "LerayHopf.R3.Regularity",
+        "Mathlib.Analysis.Fourier.LpSpace"
+      ],
+      "consumer_import": "LerayHopf.R3.FourierL2",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/FourierL2.lean",
+      "source_kind": "leray",
+      "role": "selected_or_supporting_original_module",
+      "copy_status": "BYTE_FOR_BYTE_ORIGINAL_WITH_EXISTING_HEADERS",
+      "standalone_compiled_artifact": false,
+      "source_environment": {
+        "lean": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib": "15a89b2468bc01f1a6230d6e49ef5efc5286e502"
+      },
+      "compatibility_with_material": "NOT_CHECKED_DIFFERENT_LEAN_AND_MATHLIB_PINS"
+    }
+  ],
+  "cutouts": [
+    {
+      "id": "SP01",
+      "declarations": [
+        "MethbokeAddon.QuasiFeffermanA.Space",
+        "MethbokeAddon.QuasiFeffermanA.SpatialL2",
+        "MethbokeAddon.QuasiFeffermanA.Velocity",
+        "MethbokeAddon.QuasiFeffermanA.WeakGradient",
+        "MethbokeAddon.QuasiFeffermanA.coordinateVector",
+        "MethbokeAddon.QuasiFeffermanA.scalarGradient",
+        "MethbokeAddon.QuasiFeffermanA.Solenoidal",
+        "MethbokeAddon.QuasiFeffermanA.EnergyDatum",
+        "MethbokeAddon.QuasiFeffermanA.SpatialWeakGradient"
+      ],
+      "source_id": "SPS01",
+      "start_line": 38,
+      "end_line": 71,
+      "cutout_path": "spectral/cutouts/SP01.lean.txt",
+      "sha256": "c0173a5fdf46264d237da06615ffe9daba383efe23e340403bde3da7cae3e302",
+      "size_bytes": 1627,
+      "consumer_import": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "namespace_context": "namespace MethbokeAddon.QuasiFeffermanA; noncomputable section; full-volume Euclidean L2; full source retains imports and scoped notations.",
+      "plan_steps": [
+        "P01",
+        "P02",
+        "P05"
+      ],
+      "fit_category": "DIRECT_PHYSICAL_CONTRACT",
+      "what_it_proves": "Defines actual real Euclidean L2 fields, solenoidal compact-test data and all-coordinate weak-gradient predicates. This excerpt is class semantics, not a solution or gradient existence theorem.",
+      "what_remains": "Construct the H1 graph carrier/norm/completeness, prove witness uniqueness and Schwartz admission, then establish the physical Fourier equivalence.",
+      "evidence_kind": "EXISTING_EXACT_NAMED_EXTERNAL_ACCEPTANCE_RETAINED",
+      "evidence_reference": {
+        "repository": "randogelist/Methboke",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": 44788963412,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44788963412",
+        "summary": "audits/material-afd67db4-qfa-accepted/summary.json",
+        "named_type_and_axiom_records": "audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json",
+        "declarations": [
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.Space",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.SpatialL2",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.Velocity",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.WeakGradient",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.coordinateVector",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.scalarGradient",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.Solenoidal",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.EnergyDatum",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.SpatialWeakGradient",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          }
+        ],
+        "source_identity": "Full original module bytes matched against the accepted Git commit; copying adds no new acceptance."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP02",
+      "declarations": [
+        "ContinuousLinearMap.isClosed_ker",
+        "ContinuousLinearMap.isClosed_eqLocus",
+        "ContinuousLinearMap.isComplete_ker",
+        "ContinuousLinearMap.isComplete_eqLocus",
+        "ContinuousLinearMap.completeSpace_ker",
+        "ContinuousLinearMap.completeSpace_eqLocus"
+      ],
+      "source_id": "SPS02",
+      "start_line": 669,
+      "end_line": 695,
+      "cutout_path": "spectral/cutouts/SP02.lean.txt",
+      "sha256": "1104fc7230e73e4b29978378b334e667e9fef656eac62c405b8835b0320f88d4",
+      "size_bytes": 1282,
+      "consumer_import": "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic",
+      "namespace_context": "namespace ContinuousLinearMap; Semiring section. Continuous semilinear maps, T1 codomain for kernel, T2 for equalizer; complete uniform domain for completeness instances.",
+      "plan_steps": [
+        "P01"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Kernels/equalizers of continuous (semi)linear maps are closed; their types are complete when the domain is complete. No PDE or Sobolev assumption is used.",
+      "what_remains": "Represent the physical weak-gradient graph as the appropriate equalizer/intersection, verify topology/scalar instances and physical norm, and add solenoidal closure.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP03",
+      "declarations": [
+        "ae_eq_zero_of_integral_contDiff_smul_eq_zero",
+        "ae_eq_of_integral_contDiff_smul_eq"
+      ],
+      "source_id": "SPS03",
+      "start_line": 184,
+      "end_line": 200,
+      "cutout_path": "spectral/cutouts/SP03.lean.txt",
+      "sha256": "0ed54544c827f1028d6e920dd79688f4ea6d4cf3daf80ca2595f3cf218aebe83",
+      "size_bytes": 1145,
+      "consumer_import": "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+      "namespace_context": "ROOT namespace (not MeasureTheory). Finite-dimensional real normed domain with Borel measurable structure; complete real normed target; both fields locally integrable; all real compact smooth scalar tests.",
+      "plan_steps": [
+        "P01",
+        "P02"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Real compact smooth test pairings separate locally integrable vector-valued functions. Equal pairings imply a.e. equality, directly supporting uniqueness of native weak gradients.",
+      "what_remains": "Supply local integrability from L2 and prove the equal-pairing hypothesis for two witnesses; convert a.e. equality to equality of Lp classes.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP04",
+      "declarations": [
+        "QFA.Endpoints.Representation.CompactSchwartz.denseCompactSchwartzTests",
+        "QFA.Endpoints.Representation.CompactSchwartz.schwartzDerivativeWitnesses_of_compactSchwartz_unconditional"
+      ],
+      "source_id": "SPS04",
+      "start_line": 137,
+      "end_line": 148,
+      "cutout_path": "spectral/cutouts/SP04.lean.txt",
+      "sha256": "a70f878c249a8dca361c3497bf849ddd44c6014a8eef565db3d6e6351c079386",
+      "size_bytes": 690,
+      "consumer_import": "QFALC005.Density",
+      "namespace_context": "namespace QFA.Endpoints.Representation.CompactSchwartz; actual Space/ComplexL2. Second theorem has supplied CompactSchwartzDerivativeWitnesses v G L, including an L2 Laplacian witness.",
+      "plan_steps": [
+        "P02"
+      ],
+      "fit_category": "ACCEPTED_DENSITY_AND_CONDITIONAL_COMBINED_WITNESS_HELPER",
+      "what_it_proves": "Compact complex scalar Schwartz tests are dense; compact-Schwartz combined derivative identities extend to full Schwartz distribution identities without an assumed density premise.",
+      "what_remains": "Split complex compact tests into real/imaginary parts; instantiate from native real compact-test identities; extract a first-derivative-only bridge and prove its reverse.",
+      "evidence_kind": "EXISTING_EXACT_NAMED_EXTERNAL_ACCEPTANCE_RETAINED",
+      "evidence_reference": {
+        "repository": "randogelist/Methboke",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": 44788963412,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44788963412",
+        "summary": "audits/material-afd67db4-qfa-accepted/summary.json",
+        "named_type_and_axiom_records": "audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json",
+        "declarations": [
+          {
+            "name": "QFA.Endpoints.Representation.CompactSchwartz.denseCompactSchwartzTests",
+            "package": "QFARepresentation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "QFA.Endpoints.Representation.CompactSchwartz.schwartzDerivativeWitnesses_of_compactSchwartz_unconditional",
+            "package": "QFARepresentation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          }
+        ],
+        "source_identity": "Full original module bytes matched against the accepted Git commit; copying adds no new acceptance."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP05",
+      "declarations": [
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae"
+      ],
+      "source_id": "SPS05",
+      "start_line": 44,
+      "end_line": 145,
+      "cutout_path": "spectral/cutouts/SP05.lean.txt",
+      "sha256": "27a06f105483c517fcab017a3410fff41cc4d747d5c3580d6285cf9bd63ba6a6",
+      "size_bytes": 5229,
+      "consumer_import": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "namespace_context": "namespace MethbokeAddon.QuasiFeffermanA.FourierMultipliers. q,h actual ComplexL2; c complex; m real continuous with HasTemperateGrowth. Gradient wrappers take SchwartzDerivativeWitnesses v G L.",
+      "plan_steps": [
+        "P02",
+        "P05"
+      ],
+      "fit_category": "ACCEPTED_CONDITIONAL_DISTRIBUTION_HELPER",
+      "what_it_proves": "A supplied scalar multiplier equality of actual L2 tempered distributions determines a.e. representatives. Supplied distributional first derivatives yield the correct 2*pi*i coordinate Fourier multipliers.",
+      "what_remains": "Native compact-test input conversion and reverse implication remain. Gradient wrapper public types retain the extra L2 Laplacian witness. HasTemperateGrowth excludes discontinuous cone indicators.",
+      "evidence_kind": "EXISTING_EXACT_NAMED_EXTERNAL_ACCEPTANCE_RETAINED",
+      "evidence_reference": {
+        "repository": "randogelist/Methboke",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": 44788963412,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44788963412",
+        "summary": "audits/material-afd67db4-qfa-accepted/summary.json",
+        "named_type_and_axiom_records": "audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json",
+        "declarations": [
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae",
+            "package": "QFANativeFoundation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          }
+        ],
+        "source_identity": "Full original module bytes matched against the accepted Git commit; copying adds no new acceptance."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP06",
+      "declarations": [
+        "MeasureTheory.Lp.fourierTransformₗᵢ",
+        "MeasureTheory.Lp.norm_fourier_eq",
+        "MeasureTheory.Lp.inner_fourier_eq",
+        "SchwartzMap.toLp_fourier_eq",
+        "SchwartzMap.toLp_fourierInv_eq",
+        "MeasureTheory.Lp.fourier_toTemperedDistribution_eq",
+        "MeasureTheory.Lp.fourierInv_toTemperedDistribution_eq"
+      ],
+      "source_id": "SPS06",
+      "start_line": 47,
+      "end_line": 138,
+      "cutout_path": "spectral/cutouts/SP06.lean.txt",
+      "sha256": "97a6e6a483486905f8514dea2f28c73769d32b5d375ab66da8275f27a16ff99c",
+      "size_bytes": 4235,
+      "consumer_import": "Mathlib.Analysis.Fourier.LpSpace",
+      "namespace_context": "FourierTransform section: finite-dimensional real inner-product domain E with Borel structure, complete complex inner-product target F; namespaces MeasureTheory.Lp and root SchwartzMap. Full source supplies E/F variables.",
+      "plan_steps": [
+        "P02",
+        "P04",
+        "P06"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Constructs the actual full-volume L2 Fourier linear isometry equivalence and inverse; preserves norm/inner product and agrees with Schwartz and tempered-distribution transforms.",
+      "what_remains": "Build masks, real-range identification, physical derivative admission and six-sector algebra. This is not a periodic Fourier-series transform.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP07",
+      "declarations": [
+        "MeasureTheory.eLpNorm_indicator_le",
+        "MeasureTheory.MemLp.indicator",
+        "MeasureTheory.memLp_indicator_iff_restrict"
+      ],
+      "source_id": "SPS07",
+      "start_line": 61,
+      "end_line": 137,
+      "cutout_path": "spectral/cutouts/SP07.lean.txt",
+      "sha256": "bba2e84807ae61fbc80faeefbd3e7bc8f80a0214c876c2cc68abb1e69f6ffe83",
+      "size_bytes": 3828,
+      "consumer_import": "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator",
+      "namespace_context": "namespace MeasureTheory; Lp/Indicator sections; measurable set for MemLp.indicator. Generic seminormed target; full source preserves ambient variables.",
+      "plan_steps": [
+        "P03",
+        "P04"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Multiplication of an actual Lp function by a measurable-set indicator retains Lp membership and does not increase eLpNorm. No finite measure of the sector is required.",
+      "what_remains": "Use MemLp.toLp and Lp.ext from SPS08 to build the operator; prove projection/orthogonality/reconstruction/real preservation. indicatorConstLp is not the needed constructor for infinite-volume cones.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP08",
+      "declarations": [
+        "MeasureTheory.Lp.compMeasurePreserving",
+        "MeasureTheory.Lp.coeFn_compMeasurePreserving",
+        "MeasureTheory.Lp.norm_compMeasurePreserving",
+        "MeasureTheory.Lp.isometry_compMeasurePreserving",
+        "MeasureTheory.Lp.compMeasurePreserving_comp",
+        "MeasureTheory.Lp.compMeasurePreservingₗ",
+        "MeasureTheory.Lp.compMeasurePreservingₗᵢ"
+      ],
+      "source_id": "SPS08",
+      "start_line": 556,
+      "end_line": 635,
+      "cutout_path": "spectral/cutouts/SP08.lean.txt",
+      "sha256": "0d10cf5923976c18a1cecdf69b94116327284f2e7c99532d16ccdaaf13e7c64a",
+      "size_bytes": 3743,
+      "consumer_import": "Mathlib.MeasureTheory.Function.LpSpace.Basic",
+      "namespace_context": "namespace MeasureTheory.Lp; measurable map preserving the given measures; Fact(1<=p) for normed/isometry structure. Scalar ring/module variables introduced in the slice.",
+      "plan_steps": [
+        "P04"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Domain composition by a measure-preserving map acts on actual Lp representatives with exact norm preservation, functoriality and a linear-isometry construction. Negation specializes to Fourier-side reflection.",
+      "what_remains": "Specialize measure-preserving negation, pair with conjugation, and establish both directions of the real/Hermitian Fourier bridge.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP09",
+      "declarations": [
+        "ContinuousLinearMap.compLp",
+        "ContinuousLinearMap.coeFn_compLp",
+        "ContinuousLinearMap.comp_memLp",
+        "ContinuousLinearMap.comp_memLp'",
+        "ContinuousLinearMap.compLpₗ",
+        "ContinuousLinearMap.compLpL",
+        "ContinuousLinearMap.coeFn_compLpL",
+        "ContinuousLinearMap.norm_compLpL_le",
+        "MeasureTheory.memLp_re_im_iff"
+      ],
+      "source_id": "SPS08",
+      "start_line": 732,
+      "end_line": 831,
+      "cutout_path": "spectral/cutouts/SP09.lean.txt",
+      "sha256": "f47979a09e5f90325a995ddc7ca0b21d814ac4c4b8b12eddaa0d0480110451ba",
+      "size_bytes": 4261,
+      "consumer_import": "Mathlib.MeasureTheory.Function.LpSpace.Basic",
+      "namespace_context": "namespace ContinuousLinearMap at ROOT (MeasureTheory is open); semilinear maps E→SL[sigma]F with RingHomIsometric sigma, compatible normed scalar structures; Fact(1<=p) for compLpL. One explicitly root-qualified MeasureTheory theorem appears in RCLike section.",
+      "plan_steps": [
+        "P01",
+        "P04"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Lifts actual continuous semilinear codomain maps to Lp, preserving a.e. representative equations and operator norm bounds. Includes real/imaginary Lp membership equivalence.",
+      "what_remains": "Construct the finite-vector conjugation/real-part maps in the chosen Euclidean representation and prove the actual real-range and Fourier compatibility. A scalar conjugation tool alone is not the vector projector theorem.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP10",
+      "declarations": [
+        "QFA.LC001SpectralReduction.integrable_norm_sq",
+        "QFA.LC001SpectralReduction.integral_norm_sq_eq_norm_sq",
+        "QFA.LC001SpectralReduction.integrable_gradient_fourier_sum",
+        "QFA.LC001SpectralReduction.integral_gradient_fourier_sum"
+      ],
+      "source_id": "SPS09",
+      "start_line": 53,
+      "end_line": 86,
+      "cutout_path": "spectral/cutouts/SP10.lean.txt",
+      "sha256": "f35f41603f5f04e602111a458ee2fac0adfe89c0912bf3fd3744523547cc8daa",
+      "size_bytes": 1802,
+      "consumer_import": "QFALC001Reduction.NativeFromAENorms",
+      "namespace_context": "namespace QFA.LC001SpectralReduction; actual ComplexL2 over R3; arbitrary G:Fin 3→ComplexL2, with no derivative or Laplacian premise in these four lemmas.",
+      "plan_steps": [
+        "P06"
+      ],
+      "fit_category": "ACCEPTED_DIRECT_NORM_INTEGRAL_HELPERS",
+      "what_it_proves": "L2 squared norm has a genuinely integrable pointwise norm-square representative; the finite Fourier-gradient norm sum is integrable and its integral equals the sum of L2 norms.",
+      "what_remains": "Identify G with the physical weak gradient and split by the six actual projections; preserve complexification and the 4*pi^2 normalization.",
+      "evidence_kind": "EXISTING_EXACT_NAMED_EXTERNAL_ACCEPTANCE_RETAINED",
+      "evidence_reference": {
+        "repository": "randogelist/Methboke",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": 44788963412,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44788963412",
+        "summary": "audits/material-afd67db4-qfa-accepted/summary.json",
+        "named_type_and_axiom_records": "audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json",
+        "declarations": [
+          {
+            "name": "QFA.LC001SpectralReduction.integrable_norm_sq",
+            "package": "QFARepresentation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "QFA.LC001SpectralReduction.integral_norm_sq_eq_norm_sq",
+            "package": "QFARepresentation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "QFA.LC001SpectralReduction.integrable_gradient_fourier_sum",
+            "package": "QFARepresentation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          },
+          {
+            "name": "QFA.LC001SpectralReduction.integral_gradient_fourier_sum",
+            "package": "QFARepresentation",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ]
+          }
+        ],
+        "source_identity": "Full original module bytes matched against the accepted Git commit; copying adds no new acceptance."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP11",
+      "declarations": [
+        "Finset.sum_sq_le_sq_sum_of_nonneg",
+        "Finset.sum_mul_sq_le_sq_mul_sq"
+      ],
+      "source_id": "SPS10",
+      "start_line": 31,
+      "end_line": 163,
+      "cutout_path": "spectral/cutouts/SP11.lean.txt",
+      "sha256": "350d36c179eaabc8a163d16cf3675400af3e147cc9e8bfe9bc1133adc6f58844",
+      "size_bytes": 6678,
+      "consumer_import": "Mathlib.Algebra.Order.BigOperators.Ring.Finset",
+      "namespace_context": "namespace Finset. First inequality assumes nonnegative summands in ordered semiring. Cauchy-Schwarz theorem uses linearly ordered strictly ordered commutative semiring with ExistsAddOfLE. Intermediate declarations preserved.",
+      "plan_steps": [
+        "P07"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Finite nonnegative square sums lie below square of total sum; finite Cauchy-Schwarz gives the reverse estimate with cardinality by taking the second sequence to be one.",
+      "what_remains": "Specialize to Fin 6 and already-defined nonnegative physical charges, obtaining sum q^2 <= Y^2 <= 6*sum q^2. No analytic finiteness is involved.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP12",
+      "declarations": [
+        "MeasureTheory.lintegral_iSup'",
+        "MeasureTheory.lintegral_tendsto_of_tendsto_of_monotone"
+      ],
+      "source_id": "SPS11",
+      "start_line": 95,
+      "end_line": 125,
+      "cutout_path": "spectral/cutouts/SP12.lean.txt",
+      "sha256": "b6f09e4fc1ee8edc9f6ded76005f844438ef622b05201e32abdd1f11df030b72",
+      "size_bytes": 1739,
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+      "namespace_context": "namespace MeasureTheory; nonnegative extended-real functions, a.e. measurable approximants and a.e. monotonicity; limit version also assumes a.e. pointwise convergence.",
+      "plan_steps": [
+        "P08"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Monotone convergence in ENNReal, including infinite limits, gives the full increasing-cutoff improper-budget limit.",
+      "what_remains": "Construct the actual increasing interval indicators or restrictions and prove path measurability; retain the entire interval before min(Tmax,tau_A).",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP13",
+      "declarations": [
+        "MeasureTheory.lintegral_finsetSum'",
+        "MeasureTheory.lintegral_const_mul'",
+        "MeasureTheory.lintegral_mul_const'"
+      ],
+      "source_id": "SPS11",
+      "start_line": 341,
+      "end_line": 442,
+      "cutout_path": "spectral/cutouts/SP13.lean.txt",
+      "sha256": "3f2a55085b2c9e9bd413daad114b5748b264a58cfd99d21589e8309e87902f33",
+      "size_bytes": 4437,
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Lebesgue.Add",
+      "namespace_context": "namespace MeasureTheory; Add then Mul sections. Finite-sum version needs a.e. measurable summands. Primed finite-constant multiplication uses r != infinity and allows arbitrary nonnegative integrands.",
+      "plan_steps": [
+        "P08"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Interchanges finite sums and lintegrals and pulls finite nonnegative constants through lintegrals without requiring the integral itself to be finite.",
+      "what_remains": "Instantiate physical charge paths and combine with pointwise factor six and lintegral_mono from SPS19; derive Fourier/gauge normalization in ENNReal.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP14",
+      "declarations": [
+        "MeasureTheory.lintegral_ofReal_ne_top_iff_integrable"
+      ],
+      "source_id": "SPS12",
+      "start_line": 934,
+      "end_line": 938,
+      "cutout_path": "spectral/cutouts/SP14.lean.txt",
+      "sha256": "a9001b0d147093acca7f4633cd38892095852919fb67a23a58837267ef0d58d9",
+      "size_bytes": 263,
+      "consumer_import": "Mathlib.MeasureTheory.Function.L1Space.Integrable",
+      "namespace_context": "namespace MeasureTheory; ENNReal is a SECTION here, not a namespace. Real f, AEStronglyMeasurable f, f>=0 almost everywhere.",
+      "plan_steps": [
+        "P08"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Finiteness of the extended nonnegative integral is equivalent to genuine Bochner integrability for an a.e.-measurable nonnegative real function.",
+      "what_remains": "Prove the charge-path measurability/nonnegativity and use this only after defining the full ENNReal budget. It cannot supply finiteness from energy alone.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP15",
+      "declarations": [
+        "MeasureTheory.ofReal_integral_eq_lintegral_ofReal"
+      ],
+      "source_id": "SPS13",
+      "start_line": 702,
+      "end_line": 707,
+      "cutout_path": "spectral/cutouts/SP15.lean.txt",
+      "sha256": "bf46d433d4ad91a0bf02794c2c4d1a400a3797b87ee30926999453fe2f7d18fe",
+      "size_bytes": 442,
+      "consumer_import": "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+      "namespace_context": "namespace MeasureTheory; real-valued function with explicit Integrable premise and a.e. nonnegativity.",
+      "plan_steps": [
+        "P08"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Identifies the real integral, embedded in ENNReal, with the nonnegative lintegral when actual integrability is already proved.",
+      "what_remains": "Do not use totalized real integrals as the budget definition. On an infinite budget this theorem is unavailable until the integrability hypothesis is established.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP16",
+      "declarations": [
+        "ENNReal.rpow_eq_top_iff_of_pos",
+        "ENNReal.rpow_lt_top_iff_of_pos",
+        "ENNReal.rpow_mul",
+        "ENNReal.rpow_natCast"
+      ],
+      "source_id": "SPS14",
+      "start_line": 599,
+      "end_line": 689,
+      "cutout_path": "spectral/cutouts/SP16.lean.txt",
+      "sha256": "b01e6907c77e3e1cc210e845dee74e835ce496aac12e7d784c0c7c66cb0c2741",
+      "size_bytes": 4499,
+      "consumer_import": "Mathlib.Analysis.SpecialFunctions.Pow.NNReal",
+      "namespace_context": "namespace ENNReal. Positive real exponent for finiteness equivalence; rpow_mul and rpow_natCast include zero and infinity cases.",
+      "plan_steps": [
+        "P08"
+      ],
+      "fit_category": "DOMAIN_NEUTRAL_LOWER_ANCHOR",
+      "what_it_proves": "Positive fractional powers preserve finiteness, and repeated/natural powers have the exact ENNReal identities needed for L_A=(ofReal(4*nu)*J_A)^(1/4).",
+      "what_remains": "Require nu>0, prove finite-positive scalar cancellation and the class sublevel exhaustion, including zero-window behavior; never coerce an unproved infinite budget to Real.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_INSPECTED_NO_NEW_NAMED_AUDIT",
+      "evidence_reference": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Pinned dependency source only; no new endpoint compilation or axiom audit."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP17",
+      "declarations": [
+        "LerayHopf.gradComp_of_memH1",
+        "LerayHopf.gradComp_of_memH1_spec",
+        "LerayHopf.gradComponent_weakDeriv"
+      ],
+      "source_id": "SPS24",
+      "start_line": 75,
+      "end_line": 216,
+      "cutout_path": "spectral/cutouts/SP17.lean.txt",
+      "sha256": "476c4b7150ec225b23efc6224bff12beb1875b3508c91fef63ef9c7502cec71f",
+      "size_bytes": 8206,
+      "consumer_import": "LerayHopf.Analysis.SpectralWeakGradient",
+      "namespace_context": "namespace LerayHopf. Real vector L2VF_R3; memH1VF_R3 means componentwise TemperedDistribution.MemSobolev 1 2; scalar complex derivative representatives; tests are real Schwartz functions.",
+      "plan_steps": [
+        "P01",
+        "P02",
+        "P05"
+      ],
+      "fit_category": "EXTERNAL_SUBSTANTIVE_H1_BRIDGE_SOURCE",
+      "what_it_proves": "Constructs actual scalar L2 directional derivative representatives from componentwise Sobolev membership, proves their distributional identity, then derives real-Schwartz integration by parts.",
+      "what_remains": "Prove equivalence with the native vector compact-test H1 carrier, assemble real vector gradients, and prove the forward compact-test-to-spectral direction. No matching native-pin evidence is retained for this external source.",
+      "evidence_kind": "EXTERNAL_PINNED_SOURCE_ONLY_DIFFERENT_ENVIRONMENT",
+      "evidence_reference": {
+        "repository": "uda-lab/leray-hopf",
+        "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "scope": "Static source inspection only; no matching external compiler/type/axiom evidence collected for this excerpt."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP18",
+      "declarations": [
+        "LerayHopf.memLp_sqrtWeight_smul_fourier",
+        "LerayHopf.weightedFourierComponent",
+        "LerayHopf.norm_weightedFourierComponent_sq",
+        "LerayHopf.weightedFourierComponent_coeFn"
+      ],
+      "source_id": "SPS25",
+      "start_line": 99,
+      "end_line": 137,
+      "cutout_path": "spectral/cutouts/SP18.lean.txt",
+      "sha256": "b514f06d1794972aeab9dac626a8316d184d2a80f50d2c2120f34da49a66c784",
+      "size_bytes": 2583,
+      "consumer_import": "LerayHopf.R3.WeightedFourierCommute",
+      "namespace_context": "namespace LerayHopf. Assumes componentwise memH1VF_R3; sqrtViscousWeight=2*pi*norm(frequency); actual full-volume scalar L2 Fourier components.",
+      "plan_steps": [
+        "P02",
+        "P05",
+        "P06"
+      ],
+      "fit_category": "EXTERNAL_SUBSTANTIVE_WEIGHTED_FOURIER_SOURCE",
+      "what_it_proves": "Builds the weighted Fourier component as an L2 element, proves its a.e. representative, and identifies its squared norm with the (2*pi)^2 frequency-squared energy integral.",
+      "what_remains": "Identify the upstream Sobolev predicate with the native physical H1 carrier, port dependencies including integrable_viscous_integrand_of_memH1, and prove cone projector commutation.",
+      "evidence_kind": "EXTERNAL_PINNED_SOURCE_ONLY_DIFFERENT_ENVIRONMENT",
+      "evidence_reference": {
+        "repository": "uda-lab/leray-hopf",
+        "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "scope": "Static source inspection only; no matching external compiler/type/axiom evidence collected for this excerpt."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP19",
+      "declarations": [
+        "LerayHopf.BoundedMultiplier.memLp_mulBdd",
+        "LerayHopf.BoundedMultiplier.mulBdd",
+        "LerayHopf.BoundedMultiplier.mulBdd_coeFn",
+        "LerayHopf.BoundedMultiplier.mulBdd_smul",
+        "LerayHopf.BoundedMultiplier.mulBdd_add",
+        "LerayHopf.BoundedMultiplier.norm_mulBdd_sq",
+        "LerayHopf.BoundedMultiplier.norm_mulBdd_le",
+        "LerayHopf.BoundedMultiplier.mulBdd_sub",
+        "LerayHopf.BoundedMultiplier.continuous_mulBdd",
+        "LerayHopf.BoundedMultiplier.inner_mulBdd_left"
+      ],
+      "source_id": "SPS26",
+      "start_line": 39,
+      "end_line": 142,
+      "cutout_path": "spectral/cutouts/SP19.lean.txt",
+      "sha256": "c6d60392bc4f5fe07f4acb0a1bc30e2c6917b96d8c938fd393e831ca5c48bc2d",
+      "size_bytes": 5572,
+      "consumer_import": "LerayHopf.Analysis.BoundedMultiplier",
+      "namespace_context": "namespace LerayHopf.BoundedMultiplier. Arbitrary measure space; scalar complex L2; real multiplier whose complexification belongs to L-infinity. Norm/continuity bound also uses nonnegative C and pointwise abs(m)<=C.",
+      "plan_steps": [
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "fit_category": "EXTERNAL_SUBSTANTIVE_BOUNDED_MULTIPLIER_SOURCE",
+      "what_it_proves": "Constructs bounded measurable real multipliers on actual scalar complex L2, with a.e. representative, linearity over real scalars, norm bound, continuity and self-adjoint pairing. There is no smoothness or HasTemperateGrowth hypothesis.",
+      "what_remains": "Instantiate m as each measurable cone indicator; adapt to the Euclidean vector representation, package the required complex-linear operator if chosen, and prove idempotence, mutual orthogonality, reconstruction, real-range preservation and H1 commutation.",
+      "evidence_kind": "EXTERNAL_PINNED_SOURCE_ONLY_DIFFERENT_ENVIRONMENT",
+      "evidence_reference": {
+        "repository": "uda-lab/leray-hopf",
+        "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "scope": "Static source inspection only; no matching external compiler/type/axiom evidence collected for this excerpt."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP20",
+      "declarations": [
+        "LerayHopf.reflect_fourier_schwartzC_eq_conj",
+        "LerayHopf.fourier_ofReal_reflect_eq_conj"
+      ],
+      "source_id": "SPS27",
+      "start_line": 333,
+      "end_line": 401,
+      "cutout_path": "spectral/cutouts/SP20.lean.txt",
+      "sha256": "5ca69a85f9b05089320ff4cd7ea5032300a14a4204b630a0d12bd73222381a83",
+      "size_bytes": 4194,
+      "consumer_import": "LerayHopf.Analysis.FourierParseval",
+      "namespace_context": "namespace LerayHopf; BOTH selected theorems are PRIVATE source names. Arbitrary scalar real L2 over R3; ofReal compLpL embedding, measure-preserving negation and Complex.conjCLE compLpL.",
+      "plan_steps": [
+        "P04"
+      ],
+      "fit_category": "EXTERNAL_PRIVATE_PROOF_TEMPLATE",
+      "what_it_proves": "Proves scalar real-L2 Fourier Hermitian symmetry as equality of actual L2 reflection and conjugation operators, by extending a Schwartz identity through density and continuity.",
+      "what_remains": "These private source names are not public importable endpoints. Prepare an owned compatible public proof, add the reverse/inverse real-range implication and vector assembly, and instantiate the even masks.",
+      "evidence_kind": "EXTERNAL_PINNED_SOURCE_ONLY_DIFFERENT_ENVIRONMENT",
+      "evidence_reference": {
+        "repository": "uda-lab/leray-hopf",
+        "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "scope": "Static source inspection only; no matching external compiler/type/axiom evidence collected for this excerpt."
+      },
+      "private_source_names": true,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    },
+    {
+      "id": "SP21",
+      "declarations": [
+        "LerayHopf.memSobolev_of_finite_weightedFourier_R3"
+      ],
+      "source_id": "SPS28",
+      "start_line": 1301,
+      "end_line": 1380,
+      "cutout_path": "spectral/cutouts/SP21.lean.txt",
+      "sha256": "8131c928e178656719232738cd81210cce9a6659a75ea531dc588df46db2c7cb",
+      "size_bytes": 5020,
+      "consumer_import": "LerayHopf.R3.SobolevEmbedding",
+      "namespace_context": "namespace LerayHopf. Actual real L2 vector field w; for each scalar complex component, the full nonnegative lintegral of (2*pi)^2*norm(xi)^2*norm(Fourier component)^2 is finite.",
+      "plan_steps": [
+        "P01",
+        "P02",
+        "P05"
+      ],
+      "fit_category": "EXTERNAL_SUBSTANTIVE_REVERSE_SPECTRAL_MEMBERSHIP_SOURCE",
+      "what_it_proves": "Derives componentwise MemSobolev-H1 membership from actual finite weighted Fourier integrals, constructing the Bessel-weighted L2 representative and proving distribution equality by test pairings.",
+      "what_remains": "Combine with the existing forward weighted-integrability source, identify this spectral H1 predicate with native compact-test weak gradients, and port/check at the Material pins. This is not a preaccepted native H1 iff theorem.",
+      "evidence_kind": "EXTERNAL_PINNED_SOURCE_ONLY_DIFFERENT_ENVIRONMENT",
+      "evidence_reference": {
+        "repository": "uda-lab/leray-hopf",
+        "commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "scope": "Static source inspection only; no matching external compiler/type/axiom evidence collected for this excerpt."
+      },
+      "private_source_names": false,
+      "standalone_compiled_module": false,
+      "cutout_is_exact_contiguous_original_slice": true,
+      "declarations_list_scope": "Selected declarations; complete intervening original declarations and comments are preserved where present."
+    }
+  ],
+  "supporting_anchors": [
+    {
+      "source_id": "SPS15",
+      "declarations": [
+        "MeasureTheory.Lp.toTemperedDistributionCLM",
+        "MeasureTheory.Lp.ker_toTemperedDistributionCLM_eq_bot",
+        "TemperedDistribution.lineDerivOp_apply_apply",
+        "TemperedDistribution.fourier_lineDerivOp_eq",
+        "TemperedDistribution.lineDerivOp_fourierInv_eq"
+      ],
+      "original_line_ranges": [
+        [
+          192,
+          227
+        ],
+        [
+          361,
+          368
+        ],
+        [
+          566,
+          580
+        ]
+      ],
+      "use": "Continuous/injective L2 embedding and both transform-direction derivative identities; not a native compact-test H1 adapter."
+    },
+    {
+      "source_id": "SPS16",
+      "declarations": [
+        "QFA.Endpoints.Representation.complexifyL2LI",
+        "QFA.Endpoints.Representation.complexifyL2_gradientEnergy",
+        "QFA.Endpoints.Representation.RealTestWeakDirectionalDerivative",
+        "QFA.Endpoints.Representation.complexifyL2_weakDirectionalDerivative"
+      ],
+      "original_line_ranges": [
+        [
+          93,
+          155
+        ],
+        [
+          209,
+          238
+        ]
+      ],
+      "use": "Accepted real/complex L2 isometry and transport of real compact-test identities only."
+    },
+    {
+      "source_id": "SPS17",
+      "declarations": [
+        "QFA.Endpoints.Representation.CompactSchwartz.tempered_eq_of_eq_on_compactSchwartz"
+      ],
+      "original_line_ranges": [
+        [
+          65,
+          72
+        ]
+      ],
+      "use": "Equality on compact complex Schwartz tests plus explicit density gives tempered-distribution equality."
+    },
+    {
+      "source_id": "SPS18",
+      "declarations": [
+        "TemperedDistribution.MemSobolev",
+        "TemperedDistribution.memSobolev_iff_exists_smulLeftCLM_fourier",
+        "TemperedDistribution.MemSobolev.fourierMultiplierCLM_of_bounded",
+        "TemperedDistribution.MemSobolev.lineDerivOp"
+      ],
+      "original_line_ranges": [
+        [
+          147,
+          151
+        ],
+        [
+          216,
+          235
+        ],
+        [
+          278,
+          296
+        ],
+        [
+          316,
+          342
+        ]
+      ],
+      "use": "Bessel Sobolev membership and derivative representation. Bounded multiplier theorem ALSO requires HasTemperateGrowth: exclude discontinuous cone indicators."
+    },
+    {
+      "source_id": "SPS19",
+      "declarations": [
+        "MeasureTheory.lintegral_mono",
+        "MeasureTheory.lintegral_mono_ae"
+      ],
+      "original_line_ranges": [
+        [
+          84,
+          85
+        ],
+        [
+          217,
+          223
+        ]
+      ],
+      "use": "Order comparison of extended budgets."
+    },
+    {
+      "source_id": "SPS20",
+      "declarations": [
+        "Complex.conjLIE"
+      ],
+      "original_line_ranges": [
+        [
+          209,
+          217
+        ]
+      ],
+      "use": "Scalar conjugation linear isometry; vector/L2 construction still requires adapters."
+    },
+    {
+      "source_id": "SPS21",
+      "declarations": [
+        "integral_conj"
+      ],
+      "original_line_ranges": [
+        [
+          172,
+          174
+        ]
+      ],
+      "use": "ROOT theorem commuting scalar conjugation with the Bochner integral."
+    },
+    {
+      "source_id": "SPS22",
+      "declarations": [
+        "Real.fourierInv_eq_fourier_comp_neg"
+      ],
+      "original_line_ranges": [
+        [
+          464,
+          469
+        ]
+      ],
+      "use": "Function-level inverse Fourier/reflection relation; L2 identification uses SP06 and density."
+    },
+    {
+      "source_id": "SPS23",
+      "declarations": [
+        "measurableSet_le",
+        "measurableSet_lt"
+      ],
+      "original_line_ranges": [
+        [
+          171,
+          173
+        ],
+        [
+          244,
+          247
+        ]
+      ],
+      "use": "Sector ordering inequalities are Borel; six-sector combinatorics remains new."
+    },
+    {
+      "source_id": "SPS29",
+      "declarations": [
+        "LerayHopf.memH1VF_R3"
+      ],
+      "original_line_ranges": [
+        [
+          89,
+          104
+        ]
+      ],
+      "use": "Exact external spectral H1 membership predicate; not a complete H1 graph-norm space."
+    },
+    {
+      "source_id": "SPS30",
+      "declarations": [
+        "LerayHopf.Domain3",
+        "LerayHopf.L2VF_R3",
+        "LerayHopf.L2C_R3",
+        "LerayHopf.L2VF_projComponent_R3",
+        "LerayHopf.L2VF_projComponentC_R3"
+      ],
+      "original_line_ranges": [
+        [
+          31,
+          80
+        ]
+      ],
+      "use": "External full-volume real-vector and complex-scalar L2 representation."
+    },
+    {
+      "source_id": "SPS31",
+      "declarations": [
+        "LerayHopf.L2Sigma_R3"
+      ],
+      "original_line_ranges": [
+        [
+          75,
+          105
+        ]
+      ],
+      "use": "External solenoidal submodule via Schwartz divergence tests; equivalence with native compact-test predicate remains an adapter."
+    },
+    {
+      "source_id": "SPS32",
+      "declarations": [
+        "LerayHopf.memH1_weightedL2_integrable_R (private source name)",
+        "LerayHopf.integrable_viscous_integrand_of_memH1"
+      ],
+      "original_line_ranges": [
+        [
+          265,
+          371
+        ],
+        [
+          373,
+          423
+        ]
+      ],
+      "use": "Actual proof body extracts a.e. Bessel multiplier equality and proves weighted integrability. Nearby historical OPEN comments are stale relative to the supplied proof body; no compiler acceptance inferred."
+    },
+    {
+      "source_id": "SPS33",
+      "declarations": [
+        "LerayHopf.H1Sigma_R3"
+      ],
+      "original_line_ranges": [
+        [
+          132,
+          154
+        ]
+      ],
+      "use": "H1-and-solenoidal submodule of ambient L2; its inherited L2 norm is not the complete H1 graph norm required by P01."
+    },
+    {
+      "source_id": "SPS34",
+      "declarations": [
+        "LerayHopf.reLp",
+        "LerayHopf.reLp_coeFn",
+        "LerayHopf.norm_reLp_le"
+      ],
+      "original_line_ranges": [
+        [
+          31,
+          48
+        ]
+      ],
+      "use": "External scalar real-part L2 map and contraction."
+    },
+    {
+      "source_id": "SPS35",
+      "declarations": [
+        "LerayHopf.FourierL2.normSq_eq_integral_normSq_C"
+      ],
+      "original_line_ranges": [
+        [
+          362,
+          379
+        ]
+      ],
+      "use": "External scalar L2 norm/integral helper consumed by weighted Fourier construction."
+    },
+    {
+      "source_id": "SPS08",
+      "declarations": [
+        "MeasureTheory.MemLp.toLp",
+        "MeasureTheory.MemLp.coeFn_toLp",
+        "MeasureTheory.Lp.ext"
+      ],
+      "original_line_ranges": [
+        [
+          105,
+          121
+        ],
+        [
+          145,
+          148
+        ]
+      ],
+      "use": "Representative-to-Lp constructor and a.e.-equality extensionality used by direct indicator masks."
+    }
+  ],
+  "scope_boundary": "Existing exact accepted declarations retain only their original quantified scopes. Mathlib sources are pinned references; uda-lab sources have a different environment and no matching acceptance here. Copying does not prove any of P01-P08."
+}
