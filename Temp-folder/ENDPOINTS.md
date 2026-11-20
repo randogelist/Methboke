@@ -8,6 +8,14 @@ The 15 obligations below are **proposed formalization obligations**, not user-as
 
 No Lean, Lake, Rocq, kernel audit, or included project runner was executed during staging. No mathematical derivation or source proof was changed.
 
+## Current ten-step construction checklist
+
+The latest request names QFA/QFB. The [ten-step checklist](QFA_QFB_10_STEP_CHECKLIST.md)
+constructs QFA alongside accepted QFB and preserves its exact cutoff and
+representative conventions. The fifteen-obligation map below remains the
+broader QFA/WFA reference; its Fourier-budget, initial-window and literal
+global-A tasks are separate follow-ons to the QFA tail construction.
+
 ## Archive layout and direct dependencies
 
 | Component | Staged archive | Unpacked root |

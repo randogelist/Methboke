@@ -23,7 +23,9 @@ below remains the retained Fefferman-D program context. The project goal stays
 `Fefferman_D`, with `Fefferman_D_Family_obstruction` as the main-program target.
 The branch name does not adopt a Fefferman-C theorem or authorize additional
 formalization. Read [Temp-folder/README.md](Temp-folder/README.md), its
-[manifest](Temp-folder/MANIFEST.json) and [endpoint map](Temp-folder/ENDPOINTS.md).
+[manifest](Temp-folder/MANIFEST.json), [endpoint map](Temp-folder/ENDPOINTS.md),
+and the user-requested [ten-step QFA/QFB construction plan](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md).
+The current planning task uses accepted QFB as the periodic reference for QFA.
 
 This is preparation only: no new A-tier acceptance, verification run, compiler
 pin change or workflow change is claimed. Preserve all existing D-ledger

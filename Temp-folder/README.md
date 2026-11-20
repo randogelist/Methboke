@@ -7,6 +7,7 @@ is **Fefferman_D**; this branch's immediate task is source and evidence preparat
 
 ## Start here
 
+- [Ten-step QFA/QFB construction checklist](QFA_QFB_10_STEP_CHECKLIST.md): current proposed construction order, with QFB as the accepted periodic reference.
 - [Endpoint dependency map](ENDPOINTS.md): concrete source locations and 15 proposed obligations.
 - [Component manifest](MANIFEST.json): archive hashes, revisions and extraction provenance.
 - [File inventory](FILE_INVENTORY.json): SHA-256 of every other file staged in this folder.

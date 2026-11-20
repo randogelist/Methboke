@@ -24,6 +24,10 @@ the October v0.11 and selected v0.25 sources, the tested Methboke source at
 artifact `14553501775` from run `44566880192`. The
 [manifest](Temp-folder/MANIFEST.json) records source identities; the
 [endpoint map](Temp-folder/ENDPOINTS.md) records proposed dependencies and gaps.
+The [ten-step QFA/QFB checklist](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
+now gives the construction order: actual whole-space analysis and solution
+theory, admissible restart, weighted energy, the smooth tail, and future
+uniqueness. QFB is the accepted periodic reference; WFA remains a follow-on.
 
 This is source/evidence preparation only, with no new formalization or A-tier
 verification. The branch name adopts no Fefferman-C theorem. The Fefferman-D
