@@ -1,5 +1,11 @@
 # QFA representation foundations
 
+**Matching external acceptance:** `afd67db4` / [run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412).
+The exact statements and hypotheses in this package passed fresh type/axiom
+audits. [The receipt](../../audits/material-afd67db4-qfa-accepted/summary.json) controls acceptance scope;
+prepared-source descriptions below do not assert a full physical QFA/WFA result.
+
+
 Status: prepared, pending matching external exact-type/axiom audit.
 
 This package retains14named recovered results: four compact-Schwartz bridge

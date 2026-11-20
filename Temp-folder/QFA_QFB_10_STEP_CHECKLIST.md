@@ -6,12 +6,28 @@ Date: 2026-11-20. Branch: **AC-Integration**.
 periodic QFB theorem, with the same four-part structure: weak existence,
 eventual smoothness, tail energy equality, and uniqueness from each tail trace.
 
-This is the requested construction plan. The source collection is complete.
-The ten boxes below concern the new construction and remain open; preparing
-this plan does not supply new A-tier evidence. The requested source-anchor
-map is now populated in [QFA_QFB_ANCHOR_REGISTER.md](anchors/QFA_QFB_ANCHOR_REGISTER.md),
-with exact source hypotheses, evidence and remaining native obligations.
-The retained repository project goal is Fefferman_D.
+The construction plan now has accepted native subresults at
+`afd67db4`, [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412).
+The boxes below still describe the complete physical construction; source or
+helper acceptance does not close a larger step automatically. The full accepted
+scope and evidence are in [the integration record](../R3_NSE/QFA/README.md).
+The retained project goal remains Fefferman_D.
+
+## Accepted subresults and remaining obligations
+
+| Step | Accepted scope | Remaining construction |
+|---|---|---|
+| 1. Concrete contract | Full-volume L2, solenoidality, compact-test weak gradients, projected weak momentum and LH energy-class interface | Pressure formulation and the complete current physical root contract |
+| 2. Spatial analysis | Fourier multipliers and the spectral endpoint from first-derivative and L2 Laplacian distribution witnesses | Physical H1/H2 bridges, Hessian identity, Sobolev/interpolation admissibility and the stated sharp constant |
+| 3. Local H1 theory | No new whole-space constructor accepted | Existence, uniqueness, smoothing and continuation |
+| 4. LH solutions and restarts | Strong initial/right traces and translated energy/trace data for supplied LH paths | Global nonemptiness and full shifted-LH membership |
+| 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
+| 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |
+| 7. Weighted budget | Product integrability and one-quarter weighted bound for every finite positive horizon of a supplied LH path | The zero-length interval is not separately packaged; global LH existence belongs to step 4 |
+| 8. Finite-window selection | Half-window measure, strict interior good trace, strong right trace and zero-datum rigidity | Admissible physical threshold and full PDE restart |
+| 9. Closed smooth tail | No new physical tail theorem accepted | Classical representative, pressure and tail energy equality |
+| 10. Full QFA conclusion | Historical conditional root retained with its original assumptions and cutoff | Future uniqueness from each path's own trace and assembly of the current physical QFA root |
+
 
 ## Fixed sources and exact scope
 

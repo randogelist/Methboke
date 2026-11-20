@@ -1,5 +1,10 @@
 # AC-Integration: staged endpoints
 
+**Current integration update:** scoped QFA foundations are A-tier accepted at
+`afd67db4` / run 44788963412. See the [accepted scopes and remaining construction](../R3_NSE/QFA/README.md).
+The preparation statuses below record the earlier source inventory; the linked integration record supplies the current accepted scopes.
+
+
 This folder contains the source and evidence inputs requested for the QFA/WFA
 whole-space integration. The working branch is `AC-Integration`, created from
 Methboke `66a529248d3198ed70dc5489d82868bc33a37796`. The retained project goal

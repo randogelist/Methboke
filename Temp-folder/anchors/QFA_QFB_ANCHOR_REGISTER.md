@@ -1,5 +1,10 @@
 # QFA/QFB: Lean anchor register
 
+**Current integration update:** scoped QFA foundations are A-tier accepted at
+`afd67db4` / run 44788963412. See the [accepted scopes and remaining construction](../../R3_NSE/QFA/README.md).
+The preparation statuses below record the earlier source inventory; the linked integration record supplies the current accepted scopes.
+
+
 Date: 2026-11-20. Branch: **AC-Integration**.
 
 **The ten checklist rows now have concrete source anchors.** The strongest

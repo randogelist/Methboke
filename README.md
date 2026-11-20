@@ -16,37 +16,27 @@ branch. The [project context](GPT.txt) records both scopes. The
 [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
-## AC-Integration: native QFA foundations
+## AC-Integration: accepted native QFA foundations
 
-The user authorized integrating the reviewed [ten-step QFA/QFB plan](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
-into the native build and obtaining matching cached external verification.
-The [whole-space integration page](R3_NSE/QFA/README.md) records the exact
-scope and the [integration status](R3_NSE/QFA/INTEGRATION_STATUS.json).
+**A-tier accepted at `afd67db4`**, [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412).
+All 463 modules, 77 fresh package audits and 698 named type/axiom reports passed,
+including 188 reports for the four new QFA packages. Publication and final
+acceptance passed. The native additions comprise 35 public helper theorems and
+19 contracts/definitions; only standard axioms occur. No local Lean was executed.
 
-The integration adds exact recovered QFA sources and new whole-space
-contract, weighted-energy, trace and safe-cutoff helpers. The finite window
-selects an actual weak-gradient energy start strictly before its cutoff and
-retains a half-window measure estimate. The scalar Sobolev parameter remains
-explicit. Physical weak/strong existence, continuation, comparison, sharp
-spatial admissibility and the complete QFA/WFA roots remain open.
+The integration supplies concrete whole-space energy-class contracts, weighted
+energy and strong traces for supplied LH paths, half-window selection of actual
+weak-gradient energy traces, and a Fourier spectral endpoint from distributional
+derivative witnesses. The complete physical QFA/WFA roots remain open: spatial
+admissibility, weak/strong existence, continuation, full PDE restarts, comparison,
+smooth tails and future uniqueness still require construction.
 
-**Current status: compiler-guided repair prepared; matching external
-compilation and fresh exact-type/axiom audits remain pending.** The standard native workflow now includes this
-branch. Its pins, lockfile, lakefile, drivers and verification policies are
-unchanged. Existing periodic QFB remains the accepted reference. The [first external
-attempt](audits/material-73501cde-qfa-failed/summary.json) identified two source
-issues; the original recovered multiplier file is preserved while its corrected
-proof port is owned separately.
-
-[Staged archives](Temp-folder/README.md), the [source anchor register](Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md)
-and [historical evidence review](Temp-folder/anchors/SOURCE_REVIEW.json)
-preserve the recovery record. The Fefferman-D main goal and all its existing
-proof/evidence statuses retain their original scope.
-
-The [fourth external attempt](audits/material-76376e08-qfa-index-rejected/summary.json)
-passed all 463 modules and 77 fresh package audits. The final registration gate
-rejected the missing four package-index entries. Those entries are now added;
-all proof and audit sources remain unchanged for the matching acceptance run.
+The [whole-space integration page](R3_NSE/QFA/README.md),
+[accepted name register](R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt),
+[exact receipt](audits/material-afd67db4-qfa-accepted/summary.json) and
+[updated ten-step checklist](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
+record the scope and remaining edges. The Fefferman-D goal, prior periodic
+QFB/WFB conclusions and their original evidence remain preserved.
 
 ## Retained Fefferman-D implementation
 

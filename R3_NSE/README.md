@@ -2,7 +2,8 @@
 
 [QFA native integration](QFA/README.md) indexes the scoped whole-space
 `AC-Integration` work: concrete full-volume contracts, recovered source
-foundations, weighted energy, traces and the safe cutoff. Its machine-readable
+foundations, weighted energy, traces, finite-window selection and the spectral endpoint.
+These exact foundation scopes are A-tier accepted at afd67db4/run44788963412. Its machine-readable
 [status](QFA/INTEGRATION_STATUS.json) distinguishes prepared code from matching
 external acceptance and from the still-open physical QFA root.
 
