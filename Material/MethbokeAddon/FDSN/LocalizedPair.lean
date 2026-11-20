@@ -31,7 +31,7 @@ def localizedPairVelocity (a : Frequency) (β : ℝ → ℝ) (u : Velocity)
 theorem Seed.velocity_slice_smooth {ν T : ℝ} {u F : Velocity} {p : Pressure}
     (h : Seed ν T u p F) (t : ℝ) (ht : t ∈ Ico (0 : ℝ) T) :
     ContDiff ℝ ∞ (u t) := by
-  simpa only [Function.comp_def] using
+  simpa only [Function.comp_def, id_eq] using
     h.front.velocity_smooth.comp_contDiff
       (contDiff_const.prodMk contDiff_id) (fun _ => ht)
 
@@ -58,8 +58,10 @@ theorem localizedPairCorrection_smooth {ν T : ℝ} {u F : Velocity}
     {β : ℝ → ℝ} (hβ : ContDiff ℝ ∞ β)
     (hβs : tsupport β ⊆ Ioo (0 : ℝ) T) (lambda : ℝ) :
     ContDiff ℝ ∞ (fun z : ℝ × Vec => localizedPairCorrection a β u lambda z.1 z.2) := by
-  exact (localizedPairCorrection_joint_smooth h a hβ hβs).comp
-    (contDiff_const.prodMk contDiff_id)
+  have hmap : ContDiff ℝ ∞ (fun z : ℝ × Vec => (lambda, z)) :=
+    contDiff_const.prodMk contDiff_id
+  simpa only [Function.comp_def] using
+    (localizedPairCorrection_joint_smooth h a hβ hβs).comp hmap
 
 theorem localizedPairCorrection_zero_parameter (a : Frequency)
     (β : ℝ → ℝ) (u : Velocity) : localizedPairCorrection a β u 0 = 0 := by
@@ -75,7 +77,7 @@ theorem localizedPairCorrection_eq_zero_off_support (a : Frequency)
 theorem localizedPairCorrection_tsupport_subset (a : Frequency)
     (β : ℝ → ℝ) (u : Velocity) (lambda : ℝ) :
     tsupport (localizedPairCorrection a β u lambda) ⊆ tsupport β := by
-  apply closure_minimal ?_ isClosed_tsupport
+  apply closure_minimal ?_ (isClosed_tsupport β)
   intro t ht
   by_contra h
   exact ht (localizedPairCorrection_eq_zero_off_support a u lambda h)
@@ -83,7 +85,8 @@ theorem localizedPairCorrection_tsupport_subset (a : Frequency)
 theorem localizedPairCorrection_hasCompactSupport (a : Frequency)
     {β : ℝ → ℝ} (hβ : HasCompactSupport β) (u : Velocity) (lambda : ℝ) :
     HasCompactSupport (localizedPairCorrection a β u lambda) :=
-  hβ.isCompact.of_isClosed_subset isClosed_tsupport
+  hβ.isCompact.of_isClosed_subset
+    (isClosed_tsupport (localizedPairCorrection a β u lambda))
     (localizedPairCorrection_tsupport_subset a β u lambda)
 
 theorem localizedPairCorrection_periodic (a : Frequency)

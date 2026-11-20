@@ -1,0 +1,33 @@
+MethbokeAddon/FDSN/LocalizedPair.lean:34:2: error: Type mismatch: After simplification, term
+  ContDiffOn.comp_contDiff h.front.velocity_smooth (ContDiff.prodMk contDiff_const contDiff_id) fun x => ht
+ has type
+  @ContDiff ℝ DenselyNormedField.toNontriviallyNormedField Vec (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) Vec (PiLp.normedAddCommGroup 2 fun x => ℝ) (PiLp.normedSpace 2 ℝ fun x => ℝ) ∞
+    fun x => u t (id x)
+but is expected to have type
+  @ContDiff ℝ DenselyNormedField.toNontriviallyNormedField Vec (PiLp.normedAddCommGroup 2 fun x => ℝ)
+    (PiLp.normedSpace 2 ℝ fun x => ℝ) Vec (PiLp.normedAddCommGroup 2 fun x => ℝ) (PiLp.normedSpace 2 ℝ fun x => ℝ) ∞
+    (u t)
+MethbokeAddon/FDSN/LocalizedPair.lean:61:8: error: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+MethbokeAddon/FDSN/LocalizedPair.lean:78:27: error: Application type mismatch: The argument
+  isClosed_tsupport
+has type
+  ∀ (f : ?m.17 → ?m.18), IsClosed[?m.20] (tsupport f)
+but is expected to have type
+  IsClosed[?m.13] ?m.15
+in the application
+  closure_minimal ?m.16 isClosed_tsupport
+MethbokeAddon/FDSN/LocalizedPair.lean:86:34: error: Application type mismatch: The argument
+  isClosed_tsupport
+has type
+  ∀ (f : ?m.18 → ?m.19), IsClosed[?m.21] (tsupport f)
+but is expected to have type
+  IsClosed (tsupport (localizedPairCorrection a β u lambda))
+in the application
+  IsCompact.of_isClosed_subset (HasCompactSupport.isCompact hβ) isClosed_tsupport
+MATERIAL_MODULE MethbokeAddon.FDSN.LocalizedPair FAIL
+

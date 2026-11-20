@@ -1530,11 +1530,402 @@
     {
       "module": "MethbokeAddon.FDSN.LocalizedPair",
       "path": "MethbokeAddon/FDSN/LocalizedPair.lean",
-      "sha256": "e497dc83696b5959b4a3aac4e9dfd941268298a3d0cf2dd49d06a6a03ac66c95",
+      "sha256": "745f4de56218c166c11337af4b1af580c52e8805321a1612086b465770aa42cd",
       "imports": [
         "MethbokeAddon.FDSN.FiniteCorrection",
         "MethbokeAddon.FDSN.CoefficientSmooth",
         "MethbokeAddon.FDSN.LocalizedCoefficient"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.TriadCancellation",
+      "path": "MethbokeAddon/FDSN/TriadCancellation.lean",
+      "sha256": "7797ed2c1678dd923e426d1ceea4117fb9127633432cfeeb314bd74bf9507b11",
+      "imports": [
+        "SingularClosure.FourierProduct",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.PairTransport",
+      "path": "MethbokeAddon/FDSN/PairTransport.lean",
+      "sha256": "4cd3040c1654e2ebc34d43bb8ce412bf29f0eaa3fc383b9c7d0bfb84275966b8",
+      "imports": [
+        "MethbokeAddon.FDSN.TriadCancellation"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ModalEnergy",
+      "path": "MethbokeAddon/FDSN/ModalEnergy.lean",
+      "sha256": "8402665e53eab0cbf3848616d45cfc02bae0b75a9557ddec4c620c75b94b902c",
+      "imports": [
+        "Mathlib.Analysis.Complex.RealDeriv",
+        "Mathlib.Analysis.Calculus.Deriv.MeanValue",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ForcedFourierEvolution",
+      "path": "MethbokeAddon/FDSN/ForcedFourierEvolution.lean",
+      "sha256": "3943288ea7901ccd9307e9f2a2ccbc690e419d958c2f5ec6778bfd7b19cc0424",
+      "imports": [
+        "MethbokeAddon.FDSN.Contracts",
+        "MethbokeAddon.FDSN.PhysicalPair",
+        "MethbokeAddon.FDSN.TriadCancellation",
+        "MethbokeAddon.FDSN.ModalEnergy",
+        "MethbokeAddon.EhrenfestObstruction.ReferenceCoefficientEvolution",
+        "MethbokeAddon.EhrenfestObstruction.PressureFourier",
+        "SingularClosure.SmoothFourierLaplacian",
+        "SingularClosure.FourierSobolevOperators",
+        "Mathlib.Tactic.LinearCombination"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.PairForceUniqueness",
+      "path": "MethbokeAddon/FDSN/PairForceUniqueness.lean",
+      "sha256": "8a406eca86b8d620f22e42bece87c31e82be8324162963326b47c6c6be033bd2",
+      "imports": [
+        "MethbokeAddon.FDSN.PairTransport",
+        "MethbokeAddon.FDSN.ForcedFourierEvolution"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.UniformForceDecay",
+      "path": "MethbokeAddon/FDSN/UniformForceDecay.lean",
+      "sha256": "78208939669ae721d7a67efe0857cdc250d11e898eafceb998f63376290d0f58",
+      "imports": [
+        "MethbokeAddon.FDSN.Contracts",
+        "SingularClosure.SmoothDatumSobolev",
+        "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.PointwiseEnvelope",
+      "path": "MethbokeAddon/FDSN/PointwiseEnvelope.lean",
+      "sha256": "158e9a2a97d08e8a36c0d5cb12ede128ee1988ecb6a64495f803f3ac499f8c1e",
+      "imports": [
+        "MethbokeAddon.FDSN.PhysicalPair",
+        "MethbokeAddon.FDSN.Contracts"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ModeEnvelope",
+      "path": "MethbokeAddon/FDSN/ModeEnvelope.lean",
+      "sha256": "889eb200314ff9c945018fc758b2595be5b37d60622fad6e7fcbe16dafbac547",
+      "imports": [
+        "MethbokeAddon.FDSN.ModalEnergy",
+        "SingularClosure.LerayL2Contraction",
+        "SingularClosure.SmoothDatumSobolev",
+        "Mathlib.Analysis.ODE.Gronwall"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ActiveTriad",
+      "path": "MethbokeAddon/FDSN/ActiveTriad.lean",
+      "sha256": "ce0e17fc9417cd3463b0cccdee88a0562e564785381a324df6db176e54c89807",
+      "imports": [
+        "MethbokeAddon.FDSN.ForcedFourierEvolution",
+        "MethbokeAddon.FDSN.ModeEnvelope",
+        "MethbokeAddon.FDSN.UniformForceDecay",
+        "MethbokeAddon.FDSN.PointwiseEnvelope"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.LocalizedPairSeparation",
+      "path": "MethbokeAddon/FDSN/LocalizedPairSeparation.lean",
+      "sha256": "50f9df6bee2c47b84b02279d120dcf4f195c9f9d1c3439096a7f29323c7c4746",
+      "imports": [
+        "MethbokeAddon.FDSN.LocalizedPair",
+        "MethbokeAddon.FDSN.PairForceUniqueness",
+        "MethbokeAddon.FDSN.FourierTranslation"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ResidualForce",
+      "path": "MethbokeAddon/FDSN/ResidualForce.lean",
+      "sha256": "360e6bfe637bcea088da2597e9539251bb8b25b8637c112dc839d5f729e4780f",
+      "imports": [
+        "MethbokeAddon.EhrenfestObstruction.CrossTransport",
+        "MethbokeAddon.FeffermanFamily.LocalDifferential"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ResidualLocality",
+      "path": "MethbokeAddon/FDSN/ResidualLocality.lean",
+      "sha256": "04100dfb292627fbada477770f08e4a26b6d507f1d665e3cb863ca6d71159987",
+      "imports": [
+        "MethbokeAddon.FDSN.ResidualForce"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.ResidualAdmission",
+      "path": "MethbokeAddon/FDSN/ResidualAdmission.lean",
+      "sha256": "95aefadbb3ece8e758a15a347a171ca166a5d06b17889d0d5a955f8fa7606af8",
+      "imports": [
+        "MethbokeAddon.FDSN.ResidualLocality",
+        "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+        "MethbokeAddon.FeffermanFamily.FamilyContracts"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.JointResidual",
+      "path": "MethbokeAddon/FDSN/JointResidual.lean",
+      "sha256": "415b57811ed7487a7e5d1ec6dac69dabd5551309943f9282d2af074acd04d363",
+      "imports": [
+        "MethbokeAddon.FDSN.ResidualAdmission"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.LocalizedResidual",
+      "path": "MethbokeAddon/FDSN/LocalizedResidual.lean",
+      "sha256": "1f88a9cd2104823ecb79aed09b621cbb59dd07229a8d2a4c303f484d6a259e9a",
+      "imports": [
+        "MethbokeAddon.FDSN.JointResidual",
+        "MethbokeAddon.FDSN.LocalizedPair"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.LocalizedFront",
+      "path": "MethbokeAddon/FDSN/LocalizedFront.lean",
+      "sha256": "7102bf581f7fa7052469f7fdc4c00d4e8157afa3cc7b2f03b3f9335b88ab623f",
+      "imports": [
+        "MethbokeAddon.FDSN.LocalizedResidual"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.SmoothSmallness",
+      "path": "MethbokeAddon/FDSN/SmoothSmallness.lean",
+      "sha256": "d3a9e211e3d32492edf42b10e4bf8f0901eb51afd2f3e22cb350269a3f0911d4",
+      "imports": [
+        "Mathlib.Analysis.Calculus.ContDiff.Comp",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Normed.Group.Bounded",
+        "Mathlib.Tactic.Choose"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.LocalizedSmallness",
+      "path": "MethbokeAddon/FDSN/LocalizedSmallness.lean",
+      "sha256": "53d60a00356c3d93777078a93513b04b9277b32dd246dcb4d750c5aee530352b",
+      "imports": [
+        "MethbokeAddon.FDSN.LocalizedResidual",
+        "MethbokeAddon.FDSN.SmoothSmallness"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.FamilyContracts",
+      "path": "MethbokeAddon/FDSN/FamilyContracts.lean",
+      "sha256": "0196bca7fdeb4e58fa5503b8d266fcd7b1283e3ba40ad3f8940f2adf6a40e6e3",
+      "imports": [
+        "MethbokeAddon.FDSN.Contracts",
+        "SingularClosure.LerayL2Contraction",
+        "SingularClosure.SmoothDatumSobolev",
+        "Mathlib.LinearAlgebra.CrossProduct"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.FamilySmallness",
+      "path": "MethbokeAddon/FDSN/FamilySmallness.lean",
+      "sha256": "267b8747aefd745f220be778cca2e1c11c9495a11d3fe2c1cedd1bdb90c9f32f",
+      "imports": [
+        "MethbokeAddon.FDSN.FamilyContracts",
+        "MethbokeAddon.FDSN.SmoothSmallness"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.FamilyRealization",
+      "path": "MethbokeAddon/FDSN/FamilyRealization.lean",
+      "sha256": "916790e8490720c15c78149c942c94542be2b587d9ae8938bbbc598594169e38",
+      "imports": [
+        "MethbokeAddon.FDSN.FamilyContracts",
+        "MethbokeAddon.FDSN.FamilySmallness",
+        "MethbokeAddon.FDSN.LocalizedResidual",
+        "MethbokeAddon.FDSN.LocalizedFront"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.LocalizedForceSeparation",
+      "path": "MethbokeAddon/FDSN/LocalizedForceSeparation.lean",
+      "sha256": "23a5ef44bafa23933060715e79e11d6e2f1dc3f335b2034bb77499d941e3c4fd",
+      "imports": [
+        "MethbokeAddon.FDSN.LocalizedFront",
+        "MethbokeAddon.FDSN.LocalizedPairSeparation",
+        "MethbokeAddon.FDSN.FamilyContracts"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
+        "path": "GPT.txt",
+        "role": "Native FDSN development basis; new bytes are introduced by the pending staged commit."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.FDSN.Main",
+      "path": "MethbokeAddon/FDSN/Main.lean",
+      "sha256": "cc7b8d8e1c200b69d7952d5320cda77b700f700276ce80c89f01acb13daa97ef",
+      "imports": [
+        "MethbokeAddon.FDSN.ActiveTriad",
+        "MethbokeAddon.FDSN.FamilyRealization",
+        "MethbokeAddon.FDSN.LocalizedPairSeparation",
+        "MethbokeAddon.FDSN.LocalizedForceSeparation",
+        "MethbokeAddon.FDSN.TimeBump"
       ],
       "origin": {
         "repository": "randogelist/Methboke",

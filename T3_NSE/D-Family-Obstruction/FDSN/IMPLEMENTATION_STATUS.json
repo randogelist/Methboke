@@ -7,7 +7,7 @@
   "domain": "T^3",
   "root_statement": "forall nu,T>0, forall U,p,F, Seed_nu,T(U,p,F) -> Family_nu,T(U,p,F)",
   "b_tier_status": "CONDITIONAL_SEED_TO_FAMILY_ARGUMENT_RECORDED",
-  "a_tier_status": "FIRST_INTERMEDIATES_ACCEPTED_PHYSICAL_STAGE_ELABORATION_REPAIR_PREPARED",
+  "a_tier_status": "FIRST_INTERMEDIATES_ACCEPTED_FULL_FDSN_CHAIN_PREPARED_PENDING_EXTERNAL_CI",
   "implementation_base": "37d2b4a19917ae52be3f4c8fcf48dc87aff02ed3",
   "packages": [
     "FDSNPhase",
@@ -22,7 +22,30 @@
     "FDSNNonvanishing",
     "FDSNLocalizedCoefficient",
     "FDSNCoefficientSmooth",
-    "FDSNLocalizedPair"
+    "FDSNLocalizedPair",
+    "FDSNTriadCancellation",
+    "FDSNPairTransport",
+    "FDSNModalEnergy",
+    "FDSNForcedFourierEvolution",
+    "FDSNPairForceUniqueness",
+    "FDSNUniformForceDecay",
+    "FDSNPointwiseEnvelope",
+    "FDSNModeEnvelope",
+    "FDSNActiveTriad",
+    "FDSNLocalizedPairSeparation",
+    "FDSNResidualForce",
+    "FDSNResidualLocality",
+    "FDSNResidualAdmission",
+    "FDSNJointResidual",
+    "FDSNLocalizedResidual",
+    "FDSNLocalizedFront",
+    "FDSNSmoothSmallness",
+    "FDSNLocalizedSmallness",
+    "FDSNFamilyContracts",
+    "FDSNFamilySmallness",
+    "FDSNFamilyRealization",
+    "FDSNLocalizedForceSeparation",
+    "FDSNMain"
   ],
   "new_named_declarations": [
     "MethbokeAddon.FDSN.phase",
@@ -70,13 +93,9 @@
     "MethbokeAddon.FDSN.triadCorrelation_translation",
     "MethbokeAddon.FDSN.triad_phase_not_translation"
   ],
-  "next_preparation": "Actual mode-energy equation, triad-free cancellation, finite-pair force separation and native residual realization.",
+  "next_preparation": "Resolve external compiler diagnostics, then inspect exact named type/axiom reports and retained final acceptance for every endpoint including FDSNMain.",
   "main_open_bridges": [
-    "actual forced mode-energy and active-triad contradiction",
-    "spacetime periodic phase-family assembly and physical quadratic observations",
-    "construction-specific damped-mode projected-force separation",
-    "fixed-order smooth correction estimates",
-    "common-witness FDSN root assembly"
+    "External compilation and exact consumer/axiom verification of actual active-triad, residual, smoothness, separation and common-witness root candidates."
   ],
   "verification": {
     "local_lean_executions": 0,
@@ -87,7 +106,8 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "promotion_requires": "exact source, full consumer type, fresh axiom report and successful retained external evidence"
+    "promotion_requires": "exact source, full consumer type, fresh axiom report and successful retained external evidence",
+    "pending_scope": "34 pending packages, including canonical FDSNMain; no new A-tier promotion before matching accepted evidence."
   },
   "scope_boundaries": [
     "No seed existence asserted.",
@@ -113,9 +133,32 @@
     "FDSNNonvanishing",
     "FDSNLocalizedCoefficient",
     "FDSNCoefficientSmooth",
-    "FDSNLocalizedPair"
+    "FDSNLocalizedPair",
+    "FDSNTriadCancellation",
+    "FDSNPairTransport",
+    "FDSNModalEnergy",
+    "FDSNForcedFourierEvolution",
+    "FDSNPairForceUniqueness",
+    "FDSNUniformForceDecay",
+    "FDSNPointwiseEnvelope",
+    "FDSNModeEnvelope",
+    "FDSNActiveTriad",
+    "FDSNLocalizedPairSeparation",
+    "FDSNResidualForce",
+    "FDSNResidualLocality",
+    "FDSNResidualAdmission",
+    "FDSNJointResidual",
+    "FDSNLocalizedResidual",
+    "FDSNLocalizedFront",
+    "FDSNSmoothSmallness",
+    "FDSNLocalizedSmallness",
+    "FDSNFamilyContracts",
+    "FDSNFamilySmallness",
+    "FDSNFamilyRealization",
+    "FDSNLocalizedForceSeparation",
+    "FDSNMain"
   ],
-  "pending_named_declarations": 119,
+  "pending_named_declarations": 284,
   "failed_attempts": [
     {
       "status": "FAILED_EXTERNAL_ELABORATION_SUPERSEDED_BY_PREPARED_REPAIR",
@@ -128,7 +171,24 @@
       "axiom_policy_changed": false,
       "new_acceptance": false,
       "local_lean_executions": 0
+    },
+    {
+      "status": "FAILED_EXTERNAL_ELABORATION_REPAIR_PREPARED",
+      "commit": "dbbfe1e902a3cd625f6e1b2f20aced4e3493d027",
+      "run_id": 44804061923,
+      "job_id": 136523305313,
+      "cause": "LocalizedPair slice identity simplification, fixed-parameter smoothness inference timeout, and explicit closed-tsupport arguments.",
+      "repair": "Explicit id simplification, a typed parameter insertion map, and explicit functions supplied to isClosed_tsupport.",
+      "statement_changed": false,
+      "axiom_policy_changed": false,
+      "new_acceptance": false,
+      "finite_correction_compiled": true,
+      "local_lean_executions": 0,
+      "artifact_id": 14662212566,
+      "artifact_sha256": "02a7dc21107880910579381a9a703664872bb1175af9c64e8ffb51f79227a719"
     }
   ],
-  "current_repair": "FiniteCorrection finite-sum congruence; statement unchanged."
+  "current_repair": "LocalizedPair elaboration-only repair; full analytic and actual family chain prepared for its first external run.",
+  "root_source_prepared": true,
+  "root_external_acceptance": false
 }
