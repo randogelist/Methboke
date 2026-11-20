@@ -49,8 +49,8 @@ theorem enstrophy_fourth_power_young_bound {N K Z ν : ℝ}
   · have hNfourth : N ^ 4 = 0 :=
       le_antisymm (by simpa [hZzero] using hfourth) (by positivity)
     have hNzero : N = 0 := (pow_eq_zero_iff (by norm_num : 4 ≠ 0)).mp hNfourth
-    rw [hNzero, hZzero]
-    positivity
+    have hquot : 0 ≤ 27 * K / (16 * ν ^ 3) := by positivity
+    simpa only [hNzero, hZzero, mul_zero, zero_add] using hquot
   · have hZpos : 0 < Z := lt_of_le_of_ne hZ (Ne.symm hZzero)
     have hpoly := enstrophy_young_polynomial_bound hN (mul_nonneg hν.le hZ)
     have hscaled : 32 * N * ν ^ 3 ≤ 27 * K + 16 * ν ^ 4 * Z := by
@@ -59,7 +59,8 @@ theorem enstrophy_fourth_power_young_bound {N K Z ν : ℝ}
         (32 * N * ν ^ 3) * Z ^ 3 = 32 * N * (ν * Z) ^ 3 := by ring
         _ ≤ 27 * N ^ 4 + 16 * (ν * Z) ^ 4 := hpoly
         _ ≤ 27 * (K * Z ^ 3) + 16 * (ν * Z) ^ 4 :=
-          add_le_add_right (mul_le_mul_of_nonneg_left hfourth (by norm_num)) _
+          add_le_add_right
+            (mul_le_mul_of_nonneg_left hfourth (by norm_num : (0 : ℝ) ≤ 27)) _
         _ = (27 * K + 16 * ν ^ 4 * Z) * Z ^ 3 := by ring
     have hdivide : 2 * N - ν * Z ≤ 27 * K / (16 * ν ^ 3) := by
       apply (le_div_iff₀ (by positivity : 0 < 16 * ν ^ 3)).mpr

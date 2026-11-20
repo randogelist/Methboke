@@ -1,0 +1,210 @@
+NSE-A LITERAL FEFFERMAN-A CLOSED-SLAB BRIDGE
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION / PRIMARY-SOURCE MAPPING
+Scope: G04 / P19; same datum and same viscosity
+Project and branch targets: unchanged
+Local Lean/Lake/kernel/runner executions: NONE
+Status: B_TIER_CHAIN_WITH_EXPLICIT_ESTABLISHED_LITERATURE_INPUTS
+Native A-tier status: OPEN; source mapping does not constitute a Lean port
+
+0. EXACT STATEMENT TO IDENTIFY
+
+Fix nu>0 and real solenoidal a in Schwartz(R3;R3). Let U_a be its canonical
+maximal H1 strong development with lifetime Tmax(a,nu), constructed by the
+G01 local/maximal theory. The intended P19 equivalence is
+
+  Tmax(a,nu)=infinity
+  <=> there exists a literal global smooth finite-energy solution (u,p)
+      of unforced viscosity-nu NSE with u(0)=a.             (0.1)
+
+Here literal finite energy means the velocity has a uniform global L2
+energy bound as required in the registered Fefferman-A category. On every
+finite closed time slab the competitor is jointly smooth through its final
+time. No full H1 or H2 bound is added to that literal category as a premise.
+Pressure may initially have any time-dependent additive constant.
+
+1. PRIMARY INPUTS, PRECISELY SCOPED
+
+Source: T. Tao, Localisation and compactness properties of the Navier-Stokes
+global regularity problem, arXiv:1108.1165v4, 31 May 2012.
+https://arxiv.org/abs/1108.1165
+https://arxiv.org/pdf/1108.1165
+
+Use these established inputs with their definitions in that paper:
+
+T1. Corollary11.1, printed p.68: a closed-slab almost smooth finite-energy
+    solution whose data have finite H1 norm belongs to X1 on that slab.
+T2. Remark11.2: terminal smoothness is required; the conclusion cannot be
+    applied to a solution known only before a hypothetical singular time.
+T3. Lemma4.1(i) and Corollary4.3, printed pp.25--28: the pressure gradient
+    has the normalized Fourier form, and almost smooth H1 solutions become
+    mild H1 solutions without changing their velocity.
+T4. Theorem5.4(i),(iii),(iv), printed pp.33--34: mild H1 solutions have
+    strong H1 time traces and uniqueness; Schwartz data yield smooth
+    velocity/pressure with all-order Sobolev and time-derivative control.
+T5. Corollary5.8, printed p.38: the maximal H1 development has the usual
+    finite-time blowup alternative. The independently derived G01 interior
+    restart argument can supply this continuation step in our construction.
+
+These are literature inputs, not declarations already found in native
+Material. The composition below is a new source-mapped B-tier adapter.
+
+2. ARBITRARY VISCOSITY TRANSPORT
+
+For a viscosity-nu solution on [0,T], set tau=nu t and
+  v(tau,x)=nu^(-1)u(tau/nu,x),
+  q(tau,x)=nu^(-2)p(tau/nu,x).                           (2.1)
+Then v has viscosity one, initial datum a/nu, and closed interval [0,nu T].
+Indeed each original term divided by nu^2 becomes the corresponding term
+in v_tau-Delta v+(v.grad)v+grad q=0. Divergence remains zero.
+Multiplication by fixed positive constants and the linear time change
+preserve smoothness, finite-energy membership and every finite-slab Sobolev
+class needed below. The datum a/nu is still Schwartz and solenoidal.
+Thus T1--T5 can be applied at viscosity one and transported back to nu.
+
+3. FORWARD DIRECTION: GLOBAL CANONICAL DEVELOPMENT TO LITERAL SOLUTION
+
+Assume Tmax(a,nu)=infinity. Fix any finite T>0. The canonical solution
+belongs to C([0,T];H1_sigma) intersect L2(0,T;H2) and satisfies its actual
+Duhamel equation with normalized pressure. Apply (2.1), then T4 to the
+Schwartz datum and zero forcing. Pulling back gives a jointly smooth
+velocity and normalized pressure on the whole closed physical slab [0,T].
+
+The pressure is given by the same Fourier multiplier of u tensor u on
+overlapping intervals. Velocity uniqueness makes the local representations
+agree. Since T was arbitrary, these define one smooth pair on [0,infinity).
+The physical local energy identity derived in section 7 of
+H1_LOCAL_FIXED_POINT_CHAIN.txt along this same canonical trajectory implies
+  ||U_a(t)||_2^2 + 2nu integral_0^t ||grad U_a(s)||_2^2 ds
+     =||a||_2^2
+for each finite t. In particular the global uniform L2 bound is ||a||_2^2.
+The resulting pair satisfies the actual PDE and datum required in (0.1).
+
+This step uses all-order persistence through t=0 for Schwartz input. It
+does not replace that input by arbitrary smooth finite-energy data, for
+which the same strong time-smoothness assertion would need qualification.
+
+4. REVERSE DIRECTION: LITERAL SOLUTION TO CANONICAL GLOBALITY
+
+Assume a literal global smooth finite-energy pair (u,p) with datum a exists.
+Suppose for contradiction that the canonical maximal lifetime Tmax is finite.
+Choose a finite R>Tmax. The competitor exists and is jointly smooth on the
+CLOSED slab [0,R], with a finite uniform L2 bound there. Its initial datum
+is H1 and its forcing is zero. Apply viscosity transport (2.1) and T1.
+Returning to physical time gives one finite number K_R such that
+  ||u||_(L-infinity(0,R;H1)) + ||u||_(L2(0,R;H2)) <= K_R. (4.1)
+
+This is the terminal-control step. The bound is for a fixed closed slab
+containing Tmax in its interior, so it is uniform as the canonical time
+approaches Tmax from below. It is not obtained by taking unrelated bounds
+for every shorter canonical slab.
+
+By T3, normalize pressure without altering u and obtain an H1 mild solution
+on [0,R]. At this stage the pressure-gradient equality and additive gauge
+are asserted only for almost every time; section 5 upgrades them after T4.
+Let u_m be the strong H1-continuous representative supplied by T4. To
+identify it with the literal field at every time, fix any smooth compactly
+supported spatial vector test phi. The function
+  t |-> integral_R3 u_m(t,x).phi(x) dx
+is continuous by C_tH1, and
+  t |-> integral_R3 u(t,x).phi(x) dx
+is continuous by joint smoothness on the fixed compact support of phi.
+They agree for almost every time, hence for every t in [0,R], including
+the endpoints by one-sided continuity. Thus u_m(t)=u(t) as spatial
+distributions for every time, identifying the literal field with its H1
+class without presuming global L2 continuity from local smoothness.
+T4 with Schwartz data also gives a jointly smooth representative, so the
+two spatially smooth fields agree pointwise at every time.
+
+The H1 norm of u_m is continuous. Its essential supremum bound from (4.1)
+therefore gives ||u_m(t)||_H1<=K_R for every t in [0,R]; otherwise continuity
+would produce a positive-measure interval violating that essential bound.
+For every s<Tmax, strong/mild uniqueness identifies u_m with U_a on [0,s].
+Consequently the one fixed closed-slab estimate supplies the actual bound
+  sup_(0<=t<Tmax)||U_a(t)||_H1 <= K_R.
+The actual bounded-H1 continuation theorem from G01 then extends U_a past
+Tmax, contradicting maximality. Therefore Tmax=infinity.
+
+No initial global H1 premise was imposed on the literal competitor. Its
+H1 admission came from the PDE theorem T1 using closed-terminal smoothness.
+Pressure normalization keeps the original velocity, datum and viscosity.
+
+5. ZERO DATUM AND GAUGE HANDLING
+
+T3 initially identifies the original pressure gradient with the normalized
+one only for almost every time. Apply T4 to the normalized mild solution
+with Schwartz datum and zero forcing; its normalized pressure p_norm has a
+jointly smooth representative on each closed slab. Both original p and
+p_norm now have smooth spatial gradients. Pairing their gradient difference
+with any compactly supported smooth spatial test gives a continuous scalar
+function of time which vanishes almost everywhere. It therefore vanishes
+at every time. Hence the gradients agree as distributions, and then as
+smooth functions, at every point of the closed slab.
+
+Connectedness of R3 makes p(t,.)-p_norm(t,.) spatially constant for each t.
+Set
+  c(t)=p(t,0)-p_norm(t,0).
+This is a smooth function of time and
+  p(t,x)=p_norm(t,x)+c(t)
+holds at every spacetime point, including the initial and terminal times.
+The statement concerns existence and velocity; it does not claim uniqueness
+of an unnormalized scalar pressure.
+
+For a=0, the canonical zero velocity with normalized zero pressure is
+global and literal. The reverse argument remains valid; H1 uniqueness
+identifies any literal competitor's velocity with zero after T1--T4, and
+the same pressure-gauge argument applies.
+
+6. RELATION TO THE SIX-CHARGE CLASS
+
+Once the separate native P18 canonical equivalence has been constructed,
+  a in C_A_nu <=> J_6,A(a)<infinity <=> Tmax(a,nu)=infinity,
+the datumwise bridge (0.1) identifies that class with the literal global
+smooth finite-energy Fefferman-A datum class.
+
+This composition leaves the universal exhaustion statement
+  C_A_nu = Schwartz_sigma(R3)
+as a separate question. Proving an equivalence between regularity and a
+finite budget does not prove that budget finite for every datum.
+
+7. NATIVE FORMALIZATION BOUNDARY
+
+The newly resolved B-tier source map removes the need to invent a stronger
+literal solution category merely to obtain terminal H1 control. It does
+not provide a drop-in compiled Lean theorem. Native proof construction
+still requires:
+
+N1 Literal closed-slab solution and finite-energy predicates on actual R3
+   fields, with all temporal endpoints and viscosity fixed explicitly.
+N2 The exact viscosity-one transport, including derivative, norm and
+   Bochner time-change adapters.
+N3 A native closed-slab bounded-enstrophy theorem implementing T1. Its
+   source uses enstrophy localization (Theorem10.1) plus exterior/interior
+   assembly. Include the actual vorticity-to-physical-Sobolev reconstruction:
+   for solenoidal L2 fields, omega=curl u in L2 gives native H1 membership,
+   and omega in H1 gives native H2 membership. Prove the full-volume
+   identities ||grad u||_2^2=||omega||_2^2 and
+   ||D2u||_2^2=||grad omega||_2^2=||Delta u||_2^2 through the actual weak-
+   derivative Fourier bridge, including the inhomogeneous L2 terms and
+   Bochner time-measurability adapters. A conditional record assuming these
+   bounds or memberships is insufficient.
+N4 Pressure normalization and the actual strong/mild equivalence, with
+   additive time gauge distinguished from equality of pressures.
+N5 All-order Schwartz persistence and pressure regularity, as in T4.
+N6 Exact equality on overlaps, uniform transfer of the fixed R-bound,
+   and invocation of the canonical bounded-H1 continuation theorem.
+N7 Matching external native compilation, independent complete consumer
+   signatures and named standard-only theorem-level axiom evidence.
+
+FIRST NATIVE G04 BLOCKED EDGE: actual physical all-order persistence and
+closed-slab bounded-enstrophy/pressure-normalization implementation, with
+the exact literal solution predicates. Prepared interfaces remain pending.
+
+ENDPOINT STATUS
+  B_TIER_G04_LITERATURE_ADAPTER: COMPLETE, relative to T1--T5 as established
+    literature results and the actual G01 canonical local/maximal theory,
+    including its same-trajectory physical energy balance derived in
+    H1_LOCAL_FIXED_POINT_CHAIN.txt section 7.
+  TERMINAL_H1_ANALYTICAL_SOURCE: IDENTIFIED (Tao Corollary11.1).
+  NATIVE_LEAN_G04_ROOT: OPEN.
+  NEW_A_TIER_ACCEPTANCE: NONE FROM THIS DOCUMENT.

@@ -185,3 +185,5 @@ Missing official Mathlib objects do not authorize a source rebuild.
 Five further packages prepare **76 additional named declarations**, including actual complex L2 Fourier projections, reverse first-derivative identification, physical H1 budget bounds and exact conditional cubic coefficient extraction. [Scoped construction register](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json). These sources await matching external acceptance; all six parent gaps remain open.
 
 The [first-batch source pass](audits/material-abd35c43-nse-a-audit-failed/summary.json) compiled all 471 modules. The independent audits required type qualification; their repair and the second batch await matching full verification.
+
+Independent B-tier derivations now include an explicit whole-space H1 local/maximal construction, terminal square-budget divergence, the literal closed-slab Fefferman-A bridge, and a real-H1 sector-lift construction. Native parents remain open; see R3_NSE/A-Regularity-class/DERIVATIONS/.

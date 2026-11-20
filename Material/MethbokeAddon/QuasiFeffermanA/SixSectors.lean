@@ -143,7 +143,8 @@ private def sixSectorInteriorPoint (i : Fin 6) : Space :=
 
 private theorem sixSectorInteriorPoint_mem (i : Fin 6) :
     sixSectorInteriorPoint i ∈ strictSixSector i := by
-  fin_cases i <;> norm_num [sixSectorInteriorPoint, strictSixSector]
+  fin_cases i <;> norm_num [sixSectorInteriorPoint, strictSixSector,
+    Matrix.cons_val_two]
 
 /-- Every sector contains a nonempty open strict-order region. -/
 theorem sixSector_interior_nonempty (i : Fin 6) : (interior (sixSector i)).Nonempty := by

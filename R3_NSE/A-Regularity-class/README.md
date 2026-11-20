@@ -250,3 +250,5 @@ Five further packages prepare **76 named declarations**: reverse Fourier charact
 ## Source compilation completed; audit qualification pending
 
 The [third external attempt](../../audits/material-abd35c43-nse-a-audit-failed/summary.json) compiled all 471 modules. Independent consumer audits required explicit native-space and real-scalar annotations. Those qualifications preserve every assertion. Matching complete external acceptance remains pending for the combined construction.
+
+Independent B-tier follow-up: [actual local/maximal H1 construction](DERIVATIONS/H1_LOCAL_FIXED_POINT_CHAIN.txt), [literal closed-slab identification](DERIVATIONS/FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt), and [real H1 sector lift](DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt). These do not promote native parent targets. The latest failed source attempt is retained with its original evidence archive; the two localized proof repairs await matching external verification.

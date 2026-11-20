@@ -1,0 +1,155 @@
+NSE-A REAL PHYSICAL H1 LIFT OF THE SIX COMPLEX L2 PROJECTORS
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G05 / the real-H1 portion of P04--P06
+Project goal and branch target: unchanged
+Local Lean/Lake/kernel executions: NONE
+Native status: NOT_YET_FORMALIZED; candidate complex-L2 helpers have separate CI
+
+0. PRECISE ENDPOINT
+
+Let C_i, i in Fin 6, be the six disjoint even Borel sectors whose union is
+R3, including all coordinate ties and the origin. Let F be the unitary
+Fourier transform with phase exp(-2*pi*i*x.xi). On complex-vector L2 define
+
+  P_i f = 1_(C_i) f,
+  Q_i^C = F^(-1) P_i F.
+
+Construct actual bounded real-linear projections Q_i on the physical
+H1(R3;R3) space, preserving its solenoidal subspace, such that
+
+  sum_i Q_i u = u,
+  partial_j(Q_i u) = Q_i(partial_j u),
+  sum_i ||Q_i u||_H1^2 = ||u||_H1^2,
+  sum_i ||grad(Q_i u)||_2^2 = ||grad u||_2^2.
+
+On the right side of the derivative equation, Q_i denotes its L2 action.
+No gradient witness needs to be manufactured from weighted Fourier
+integrability: the input physical H1 element already supplies its actual
+weak-gradient components. Project those existing components directly.
+
+1. REAL RANGE OF THE COMPLEX PROJECTIONS
+
+Write c:L2(R3;R3)->L2(R3;C3) for componentwise complexification. This is a
+real-linear isometry onto the closed subspace fixed by physical conjugation.
+Write R for componentwise real part on complex L2. Both are well-defined on
+a.e. classes, since their pointwise maps are continuous, norm-bounded and
+send zero to zero. They satisfy R(cu)=u, and c(Rv)=v whenever v is real a.e.
+
+On Fourier-side complex L2 define the conjugate-linear isometry
+  J f(xi) = conjugate(f(-xi)).
+Reflection preserves Lebesgue measure, so this is well-defined on classes.
+For real Schwartz fields, the defining integral gives J(F(cu))=F(cu).
+Density in real L2 and continuity of F,J,c extend the identity to every
+real L2 field. For an arbitrary complex L2 field write
+  v=c(Re v)+i*c(Im v).
+Complex linearity of F and conjugate linearity of J, applied to the two
+real fields, then give the full identity on all complex L2:
+  F(conjugate(v)) = J(Fv).
+The inverse implication follows from injectivity of F. Thus
+  v is real a.e. <=> J(Fv)=Fv.                         (1.1)
+
+Because C_i=-C_i exactly and its indicator is real,
+  J(P_i f)=P_i(Jf).
+For real u, P_i F(cu) is therefore J-fixed. By (1.1), Q_i^C(cu) is real
+a.e. Define the actual real-L2 operator
+  Q_i u = R(Q_i^C(cu)).                               (1.2)
+Then c(Q_i u)=Q_i^C(cu). Real linearity, contraction, idempotence, mutual
+annihilation, reconstruction and real self-adjointness follow from the
+corresponding complex-L2 identities and the isometry c. These are
+transported properties of the constructed operator, not a supplied
+abstract projector record.
+
+2. CONSTRUCT THE PHYSICAL WEAK GRADIENT
+
+Take u in physical H1 and write G_j=partial_j u in real L2, j in Fin 3.
+The actual forward compact-test Fourier theorem gives
+  F(cG_j)(xi) = (2*pi*i*xi_j) F(cu)(xi) a.e.          (2.1)
+Set
+  v_i=Q_i u,  H_(i,j)=Q_i G_j.
+These fields are real L2 by section 1. Multiplying (2.1) by 1_(C_i) and
+commuting two pointwise scalar multipliers gives
+  F(cH_(i,j))(xi) = (2*pi*i*xi_j) F(cv_i)(xi) a.e.    (2.2)
+Only finitely many indices occur, so the equalities can be placed on a
+single common full-measure set when needed.
+
+The reverse compact-test Fourier theorem applied to the supplied real
+pair (v_i,H_(i,j)) identifies H_(i,j) as the actual weak derivative of v_i.
+Thus (v_i,H_i) belongs to the closed physical H1 graph, with no H2 or
+Laplacian premise. This constructs Q_i on H1 and proves derivative
+commutation on the exact same physical representatives. Gradient
+uniqueness identifies the chosen graph witness with the native gradient.
+
+3. H1 BOUNDEDNESS, ORTHOGONALITY AND THE PHYSICAL CHARGES
+
+Real-L2 contraction applied to u and every G_j yields
+  ||Q_i u||_H1^2 = ||Q_i u||_2^2 + sum_j ||Q_i G_j||_2^2
+                 <= ||u||_2^2 + sum_j ||G_j||_2^2
+                  = ||u||_H1^2.
+Hence the H1 action is a bounded real-linear operator. The physical H1
+inner product is the sum of its L2 velocity and gradient inner products.
+L2 self-adjointness and derivative commutation prove H1 self-adjointness.
+Idempotence and annihilation hold for the underlying L2 velocity and hence
+for the unique physical H1 element. Reconstruction follows the same way.
+
+For i!=k, each of the velocity and gradient L2 inner products between
+Q_i u and Q_k v is zero. Finite orthogonal-sum expansion therefore gives
+  sum_i ||Q_i u||_H1^2 = ||u||_H1^2,
+and, separately,
+  sum_i sum_j ||Q_i G_j||_2^2 = sum_j ||G_j||_2^2.     (3.1)
+Define the actual physical charges
+  q_i(u)=||grad(Q_i u)||_2^2=sum_j ||Q_i G_j||_2^2.
+They are nonnegative and satisfy
+  sum_i q_i(u)=||grad u||_2^2.                        (3.2)
+
+The lower-level statement (3.2) does not require the nonlinear PDE or an
+energy identity. For a C_tH1 path on its existing lifetime, each q_i is continuous, since Q_i and
+the physical gradient maps are continuous linear maps and squared norm
+is continuous. This supplies actual measurable charges for the full
+nonnegative time-budget comparison. This asserts neither continuity through
+a possible finite maximal endpoint nor finiteness of the full budget.
+
+4. PRESERVATION OF SOLENOIDALITY
+
+Each Q_i is a scalar Fourier multiplier acting identically on the three
+vector components. Consequently it commutes with coordinate extraction,
+finite sums, and (on physical H1) each weak spatial derivative. First
+identify the native compact-test solenoidal predicate with
+  sum_j component_j(G_j)=0 in scalar L2.
+Compact-test weak integration by parts gives distributional divergence
+equal to that L2 sum; separation by compact smooth tests proves the iff.
+Thus div u=sum_j partial_j u_j=0 is an actual L2 equality. Then
+  div(Q_i u)=sum_j Q_i(partial_j u_j)=Q_i(div u)=0.
+Here Q_i on scalar L2 uses the same real symbol; coordinate-extraction
+commutation follows either from its definition or componentwise Fourier
+calculus. Thus the H1 operators restrict to the complete solenoidal H1
+subspace, with all properties of sections 2--3 retained.
+
+5. EXACT NATIVE PORT BOUNDARY
+
+The mathematical construction above is complete relative to the actual
+unitary Fourier and compact-test derivative theorems. The currently
+prepared helper sources supply the even Borel partition, actual complex
+L2 projectors, and the two-way identity for supplied real gradients.
+The remaining native implementation needs:
+
+R01 L2 real-part/complexification and conjugation-reflection adapters,
+    including measure-preserving reflection and the real Fourier range.
+R02 Exact preservation of that range by each even real sector multiplier.
+R03 The constructed real-L2 operator (1.2), with coordinate compatibility.
+R04 The native physical H1 constructor with the explicit gradients in
+    section 2, followed by bounded real-linear packaging.
+R05 The full H1 and gradient orthogonal decompositions and solenoidal
+    restriction, then physical continuous-path charge measurability.
+R06 Matching external source compilation, independent full signatures,
+    and named standard-only axiom audits for these new implementations.
+
+FIRST NATIVE BLOCKED EDGE: the actual real Fourier-range transport R01--R02.
+No existing complex-L2 helper alone closes G05. No weighted-gradient
+existence theorem, physical PDE identity, or universal time-budget
+finiteness is asserted by this document.
+
+ENDPOINT STATUS
+  B_TIER_REAL_H1_SECTOR_LIFT: DERIVED.
+  NATIVE_REAL_H1_SIX_PROJECTOR_PACKAGE: NOT_YET_PREPARED.
+  G05_PARENT_A_TIER_CLOSURE: OPEN.
