@@ -1,0 +1,55 @@
+H1-ONLY PHYSICAL FOURIER ENERGY AND ENSTROPHY CHAIN
+DATE = 2026-11-20
+STATUS = B_TIER_COMPLETE_FOR_STATED_H1_SCOPE
+PARENTS = G05/P06; G06/P07-P08 supporting spatial identities
+BASIS = accepted PhysicalH1, H1Fourier and native Plancherel sources at 3dec32be
+LOCAL_LEAN_EXECUTION = NONE
+
+1. Inputs are actual full-volume real L2 fields u and G_j (j in Fin 3),
+   satisfying every native compact smooth real test identity
+     integral (partial_j phi) u = - integral phi G_j.
+   No Laplacian, H2 membership, spectral identity, weighted integrability or
+   PDE evolution is assumed. For an element of the constructed PhysicalH1
+   graph these inputs are supplied by its velocity and three gradient maps.
+
+2. The accepted first-derivative Fourier theorem gives simultaneously a.e.
+     F(c G_j)(xi) = 2 pi i xi_j F(c u)(xi),
+   where c is the accepted real-linear L2 isometry. The Euclidean coordinate
+   basis in that theorem equals the native coordinateVector definition.
+
+3. Square the complex Hilbert norm. Since |i|=1 and xi_j is real,
+     |F(c G_j)|^2 = (2 pi)^2 xi_j^2 |F(c u)|^2.
+   Sum the three coordinates using sum_j xi_j^2=|xi|^2. This proves the
+   actual a.e. density identity, not a new premise of the next theorem.
+
+4. Every Fourier L2 representative has integrable squared norm. A finite
+   sum of the derivative squared norms is therefore integrable. Transport
+   integrability through step 3 to (2 pi)^2 |xi|^2 |F(c u)|^2.
+   Since pi>0, division by the fixed nonzero scalar also proves integrability
+   of |xi|^2 |F(c u)|^2. No totalized integral is used to establish finiteness.
+
+5. Integrate step 3, interchange a finite sum of integrable functions,
+   and apply actual L2 Fourier norm preservation and c's norm preservation:
+     sum_j ||G_j||_2^2
+       = integral (2 pi)^2 |xi|^2 |F(c u)(xi)|^2
+       = 4 pi^2 integral |xi|^2 |F(c u)(xi)|^2.
+   Likewise ||u||_2^2 = integral |F(c u)|^2.
+
+6. Specialize to PhysicalH1. Its accepted norm equation gives the complete
+   inhomogeneous identity ||u||_H1^2 = energy(u)+enstrophy(u), and the two
+   terms equal the actual Fourier integrals from step 5. The enstrophy
+   identity is available for any constructed H1 sector output once that
+   independent transport is proved. This chain does not assume such output.
+
+7. The nonnegative weighted Fourier integrand has a genuine finite integral.
+   Hence its extended nonnegative integral equals ENNReal.ofReal of that
+   integral, and the exact normalized enstrophy identity carries to ENNReal.
+   This retains the distinction between finite integrability and the totalized
+   Bochner integral. It supplies no temporal finiteness or terminal extension.
+
+ENDPOINT: H1-only physical energy/enstrophy Fourier identities and weighted
+integrability are mathematically derived. Prepared native source still needs
+matching cached external compilation, independent full expected-type consumers
+and named standard-only axiom evidence. Six sectors' real range, H1 transport,
+solenoidal transport and physical charge additivity are separate dependencies.
+No parent G01-G06 or complete physical regularity class is concluded here.

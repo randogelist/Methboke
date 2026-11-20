@@ -607,3 +607,15 @@ Pinned Mathlib HasFDerivAt.norm_sq, HasFDerivAt.sqrt and ContDiff.sqrt supply
 concrete regularized-norm calculus; the generic Sobolev constant still does
 not admit the registered sharp coefficient. No matching full native sharp
 scalar theorem was found in the inspected sources.
+
+H1_ONLY_SPECTRAL_REUSE (2026-11-20)
+Accepted native H1Fourier.spatialWeakGradient_fourier_ae and the imported
+QFA.LC001SpectralReduction integrable_norm_sq, integral_norm_sq_eq_norm_sq,
+integrable_gradient_fourier_sum and integral_gradient_fourier_sum suffice
+for physical H1 energy/enstrophy without the prior spectral package's H2
+witness. Pinned Mathlib EuclideanSpace.basisFun_apply/inner_basisFun_real,
+real_norm_sq_eq, Lp.norm_fourier_eq and integral_const_mul supply the exact
+coordinate/norm/integral adapters. The owned H1Spectral candidate derives
+rather than assumes weighted integrability and retains4*pi^2.
+Independent source-only review checked these actual pinned declarations;
+matching compiler/full consumers/named axiom acceptance remains pending.
