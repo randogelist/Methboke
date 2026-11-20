@@ -382,7 +382,6 @@ theorem helicalSymbol_selfAdjoint (σ : Fin 2) (ξ : Vec) (z w : CVec) :
     inner_add_left, inner_add_right, transverseSymbol_selfAdjoint,
     helicityOperator_selfAdjoint, div_eq_mul_inv, map_mul, Complex.conj_inv,
     map_one, map_ofNat, Complex.conj_ofReal]
-  ring
 
 theorem helicalSymbol_orthogonal {ξ : Vec} (hξ : ξ ≠ 0) (z w : CVec) :
     inner ℂ (helicalSymbol 0 ξ z) (helicalSymbol 1 ξ w) = 0 := by

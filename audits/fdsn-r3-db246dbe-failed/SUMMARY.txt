@@ -1,0 +1,26 @@
+FDSN_R3 STAGE TWO FIRST REPAIR — REJECTED CANDIDATE
+
+Source commit: db246dbec02ece0eadc0463af3d69187a1081d3a
+Source tree: ffb144ebb6c4115f0e771318bb90fafc8275cd60
+External run: https://github.com/randogelist/Methboke/actions/runs/44834223501
+Fast job: 136626432973 — failure
+Final acceptance job: 136627603483 — failure
+Recovery job: 136627605751 — skipped
+Evidence artifact: 14677229224
+ZIP SHA256: d6c75bc2a59baa4e29fa1926a2fba93b3fc208e35c134164ffcecbcf6def9379
+The downloaded ZIP was independently hashed before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Exactly two source elaboration errors remain:
+- Fourier.lean:250: the target still uses the coercion of a Schwartz
+  directional derivative under Fourier, while the supplied equality uses
+  the explicit Frechet derivative function. An explicit coercion rewrite
+  must be applied to the target after converting Schwartz Fourier to the
+  function Fourier transform.
+- Helical.lean:385: a trailing tactic reports No goals to be solved after
+  the preceding simplification already completed the equality.
+
+FrequencyCutoff source and endpoint wrapper compiled successfully. No
+package audits ran because the two remaining source failures blocked the
+full verification phase. Compilation alone does not establish acceptance.
+No theorem statements, dependency pins or acceptance criteria were changed.
+No local Lean, Lake, compiler, or kernel audit was executed.

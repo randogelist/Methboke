@@ -53,26 +53,25 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Stage2 run44833516127 failed in three new owned sources before fresh audits; exact statement-preserving proof repairs prepared. Stage1 acceptance remains4d00e260/run44831894933.",
+  "ci_handoff": "Stage2 repairrun44834223501 narrowed to2proof errors; next2source repair prepared. FrequencyCutoff compiled but nofresh audits; noadditionalacceptance.",
   "current_material_external_verification": "FDSN_R3_STAGE2_REPAIR_PREPARED",
   "latest_material_run": {
     "status": "FAILED_NO_NEW_ACCEPTANCE",
-    "source_commit": "d2ec17816baeb176e3589f1cf7e7b55a84166e9f",
-    "run_id": 44833516127,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44833516127",
-    "artifact_id": 14676429418,
-    "artifact_sha256": "c20b0e98394fa4c4cf1e695aba356017492e6111eb59adaa4157bed5648f9dbc",
+    "source_commit": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+    "run_id": 44834223501,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44834223501",
+    "artifact_id": 14677229224,
+    "artifact_sha256": "d6c75bc2a59baa4e29fa1926a2fba93b3fc208e35c134164ffcecbcf6def9379",
     "artifact_download_and_hash_verified": true,
     "failed_sources": [
       "MethbokeAddon.FDSNR3.Fourier",
-      "MethbokeAddon.FDSNR3.Helical",
-      "MethbokeAddon.FDSNR3.FrequencyCutoff"
+      "MethbokeAddon.FDSNR3.Helical"
     ],
     "fresh_package_audits_executed": false,
     "new_a_tier_acceptance": false,
     "failure_class": "PROOF_OR_TYPE_FAILURE",
-    "evidence": "audits/fdsn-r3-d2ec178-failed/SUMMARY.txt",
-    "repair": "Explicit Fourier/Schwartz coercions and directional-derivative function equality; coordinate divergence rewrite; native dotProduct and conjugation normalization; exact norm-square and cutoff-distance proof normalization. Mathematical statements preserved.",
+    "evidence": "audits/fdsn-r3-db246dbe-failed/SUMMARY.txt",
+    "repair": "Rewrite the coerced directional-derivative function after function Fourier normalization; remove one redundant helical proof tactic. Exact statements unchanged.",
     "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
@@ -3338,10 +3337,29 @@
         "evidence": "audits/fdsn-r3-d2ec178-failed/SUMMARY.txt",
         "repair": "Explicit Fourier/Schwartz coercions and directional-derivative function equality; coordinate divergence rewrite; native dotProduct and conjugation normalization; exact norm-square and cutoff-distance proof normalization. Mathematical statements preserved.",
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_NO_NEW_ACCEPTANCE",
+        "source_commit": "db246dbec02ece0eadc0463af3d69187a1081d3a",
+        "run_id": 44834223501,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44834223501",
+        "artifact_id": 14677229224,
+        "artifact_sha256": "d6c75bc2a59baa4e29fa1926a2fba93b3fc208e35c134164ffcecbcf6def9379",
+        "artifact_download_and_hash_verified": true,
+        "failed_sources": [
+          "MethbokeAddon.FDSNR3.Fourier",
+          "MethbokeAddon.FDSNR3.Helical"
+        ],
+        "fresh_package_audits_executed": false,
+        "new_a_tier_acceptance": false,
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "evidence": "audits/fdsn-r3-db246dbe-failed/SUMMARY.txt",
+        "repair": "Rewrite the coerced directional-derivative function after function Fourier normalization; remove one redundant helical proof tactic. Exact statements unchanged.",
+        "local_lean_executions": 0
       }
     ],
     "stage_2": {
-      "status": "STATEMENT_PRESERVING_REPAIR_PREPARED",
+      "status": "SECOND_STATEMENT_PRESERVING_REPAIR_PREPARED",
       "source_basis": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
       "sources": [
         "MethbokeAddon.FDSNR3.Fourier",
@@ -3356,8 +3374,8 @@
       "all_packages": 120,
       "all_declarations": 1028,
       "new_acceptance_claimed": false,
-      "previous_failed_run": 44833516127,
-      "repair_scope": "Explicit Fourier/Schwartz coercions and directional-derivative function equality; coordinate divergence rewrite; native dotProduct and conjugation normalization; exact norm-square and cutoff-distance proof normalization. Mathematical statements preserved."
+      "previous_failed_run": 44834223501,
+      "repair_scope": "Rewrite the coerced directional-derivative function after function Fourier normalization; remove one redundant helical proof tactic. Exact statements unchanged."
     },
     "accepted_evidence": {
       "stage_1": {

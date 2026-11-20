@@ -247,7 +247,9 @@ theorem fourier_schwartzDivergence (f : 𝓢(Vec, CVec)) (ξ : Vec) :
     exact SchwartzMap.lineDerivOp_apply_eq_fderiv (unitVector i) f x
   have hd := fourier_directionalDerivative f (unitVector i) ξ
   have hdi := congrArg (fun z : CVec => z i) hd
-  simpa [SchwartzMap.fourier_coe, hderiv,
+  simp only [SchwartzMap.fourier_coe]
+  rw [hderiv]
+  simpa [SchwartzMap.fourier_coe,
     unitVector, EuclideanSpace.inner_single_right, smul_smul, mul_assoc] using hdi
 
 theorem fderiv_complexify {v : Field} {x : Vec} (hv : DifferentiableAt ℝ v x) :

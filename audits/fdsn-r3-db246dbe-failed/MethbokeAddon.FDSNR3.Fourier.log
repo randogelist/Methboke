@@ -1,0 +1,8 @@
+MethbokeAddon/FDSNR3/Fourier.lean:250:2: error: Type mismatch: After simplification, term
+  hdi
+ has type
+  @Eq ℂ ((𝓕 (fun x => (fderiv ℝ (⇑f) x) (EuclideanSpace.single i 1)) ξ).ofLp i)
+    (2 * (↑Real.pi * (Complex.I * (↑(ξ.ofLp i) * (𝓕 (⇑f) ξ).ofLp i))))
+but is expected to have type
+  @Eq ℂ ((𝓕 (⇑(∂_{EuclideanSpace.single i 1} f)) ξ).ofLp i)
+    (2 * (↑Real.pi * (Complex.I * (↑(ξ.ofLp i) * (𝓕 (⇑f) ξ).ofLp i))))
