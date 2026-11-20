@@ -43,10 +43,10 @@ and [historical evidence review](Temp-folder/anchors/SOURCE_REVIEW.json)
 preserve the recovery record. The Fefferman-D main goal and all its existing
 proof/evidence statuses retain their original scope.
 
-The [second external attempt](audits/material-62acb4de-qfa-failed/summary.json)
-passed the repaired cutoff and finite-window integration modules. Its two
-remaining multiplier scalar conversions are now prepared as explicit
-pointwise identities, with unchanged public statements.
+The [third external attempt](audits/material-c0cb56f8-qfa-failed/summary.json)
+passed 461 module receipts, including the repaired Fourier multiplier port.
+The remaining spectral proof normalization and elaboration errors are repaired
+without changing any public statement; matching external acceptance is pending.
 
 ## Retained Fefferman-D implementation
 

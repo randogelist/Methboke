@@ -36,7 +36,7 @@ private theorem norm_sq_real_I_product_smul
       a ^ 2 * b ^ 2 * ‖z‖ ^ 2 := by
   rw [norm_smul, mul_pow, Complex.sq_norm]
   simp only [Complex.normSq_mul, Complex.normSq_ofReal,
-    Complex.normSq_I, mul_one, pow_two, mul_assoc]
+    Complex.normSq_I, one_mul, pow_two, mul_assoc]
 
 private theorem norm_sq_real_product_smul
     (a b : ℝ) (z : ComplexVector) :
@@ -56,13 +56,10 @@ private theorem laplacian_multiplier_norm_sq
     (r : ℝ) (z : ComplexVector) :
     ‖((-((2 * Real.pi) ^ 2) : ℂ) * (r ^ 2 : ℂ)) • z‖ ^ 2 =
       (2 * Real.pi) ^ 4 * r ^ 4 * ‖z‖ ^ 2 := by
-  calc
-    ‖((-((2 * Real.pi) ^ 2) : ℂ) * (r ^ 2 : ℂ)) • z‖ ^ 2 =
-        (-((2 * Real.pi) ^ 2)) ^ 2 * (r ^ 2) ^ 2 * ‖z‖ ^ 2 := by
-      simpa only [Complex.ofReal_neg, Complex.ofReal_pow,
-        Complex.ofReal_mul, Complex.ofReal_ofNat] using
-        norm_sq_real_product_smul (-((2 * Real.pi) ^ 2)) (r ^ 2) z
-    _ = (2 * Real.pi) ^ 4 * r ^ 4 * ‖z‖ ^ 2 := by ring
+  rw [norm_smul, mul_pow, Complex.sq_norm]
+  simp only [Complex.normSq_mul, Complex.normSq_neg, map_pow,
+    Complex.normSq_ofNat, Complex.normSq_ofReal]
+  ring
 
 /-- The actual distributional first-derivative and Laplacian witnesses imply
 both almost-everywhere Fourier norm-density identities. No norm-density,

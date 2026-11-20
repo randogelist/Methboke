@@ -568,14 +568,42 @@
       "accepted": false
     },
     "latest_failed_attempt": {
-      "commit": "62acb4de8083b74c4912b89f8b77dc9a791baae9",
-      "run_id": 44784484976,
-      "evidence": "audits/material-62acb4de-qfa-failed/summary.json",
+      "commit": "c0cb56f8199cd44c3123e64fcb99e5959c83c10b",
+      "run_id": 44785924181,
+      "evidence": "audits/material-c0cb56f8-qfa-failed/summary.json",
       "prior_modules_reused": 420,
-      "fresh_modules_compiled": 40,
+      "fresh_modules_compiled": 41,
       "accepted": false,
-      "remaining_failure": "Two real/complex scalar conversions in owned FourierMultipliers; corrected pointwise without changing public statements."
+      "remaining_failure": "Spectral scalar norm simplification and elaboration timeout; FourierMultipliers now compiles successfully."
     },
-    "proof_repair": "Concrete coordinate and distribution scalar identities replace generic simplifier conversions. Public statement types unchanged."
+    "proof_repair": "Spectral proof-only normalization through direct squared complex norms; every public theorem type, audit name and verification policy is preserved.",
+    "failed_attempt_history": [
+      {
+        "commit": "73501cdecf9e53266920651bee6b2788e11e95be",
+        "run_id": 44782428295,
+        "evidence": "audits/material-73501cde-qfa-failed/summary.json",
+        "prior_modules_reused": 420,
+        "fresh_modules_compiled": 37,
+        "accepted": false
+      },
+      {
+        "commit": "62acb4de8083b74c4912b89f8b77dc9a791baae9",
+        "run_id": 44784484976,
+        "evidence": "audits/material-62acb4de-qfa-failed/summary.json",
+        "prior_modules_reused": 420,
+        "fresh_modules_compiled": 40,
+        "accepted": false,
+        "remaining_failure": "Two real/complex scalar conversions in owned FourierMultipliers; corrected pointwise without changing public statements."
+      },
+      {
+        "commit": "c0cb56f8199cd44c3123e64fcb99e5959c83c10b",
+        "run_id": 44785924181,
+        "evidence": "audits/material-c0cb56f8-qfa-failed/summary.json",
+        "prior_modules_reused": 420,
+        "fresh_modules_compiled": 41,
+        "accepted": false,
+        "remaining_failure": "Spectral scalar norm simplification and elaboration timeout; FourierMultipliers now compiles successfully."
+      }
+    ]
   }
 }

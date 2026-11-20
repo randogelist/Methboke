@@ -91,6 +91,12 @@ explicit coordinatewise vector and distribution-evaluation identities; all
 five public statement types are preserved. Matching external acceptance
 remains pending.
 
+The [third attempt](../../audits/material-c0cb56f8-qfa-failed/summary.json)
+passed 461 module receipts, including FourierMultipliers. The remaining
+Spectral failure consists of scalar normalization and an elaboration timeout.
+The proof-only repair keeps its three public theorem types and every audit
+requirement unchanged. No new A-tier acceptance has yet occurred.
+
 ## Verification boundary
 
 Only authorized external cached compilation and fresh exact-type/axiom audits
