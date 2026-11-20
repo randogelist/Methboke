@@ -1,5 +1,5 @@
 NSE_A_SIX_GAP_A_TIER_TARGETS
-VERSION = 1.1
+VERSION = 1.2
 DATE = 2026-11-20
 REPOSITORY = randogelist/Methboke
 BRANCH = AC-Integration
@@ -20,6 +20,14 @@ EXTERNAL_ROUTE = Existing Material cached verification on AC-Integration.
 PIN_POLICY = Lean4.33.0, Mathlib db584cd6 and all existing dependency/audit
   policies retained. External source templates with different pins need an
   owned adaptation and new matching evidence.
+
+CURRENT ACCEPTANCE
+Source 3dec32be2868f4a798e442d3516fb810d97db737; external run44810272232.
+!=! P01 physical H1/H1_sigma and Schwartz admission.
+!=! P02 two-way first-derivative Fourier bridge without H2.
+!=! P03 exact six even Borel sectors.
+Nine helper packages /155 names are accepted; the complete name/scope
+register is SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt. G01--G06 remain OPEN.
 
 SIX PARENT TARGETS
 
@@ -58,7 +66,7 @@ SIX PARENT TARGETS
     uniform preterminal scalar bound from a finite full ENNReal budget.
     Open boundary: the actual physical PDE AC inequality and continuation
     inputs still need construction; the scalar helper does not assert them.
-    Status: OPEN; scalar subchain entering external verification.
+    Status: OPEN; scalar/physical-observable helper subscopes accepted.
 
 [ ] G04  NSE_A_LITERAL_FEFFERMAN_A_IDENTIFICATION
     Plan: P19.
@@ -85,7 +93,7 @@ SIX PARENT TARGETS
     the existing accepted generic multiplier helper and project source leads.
     Open boundary: a complete physical H1 carrier does not alone construct
     the Fourier equivalence or all six physical projectors.
-    Status: OPEN; physical H1 foundation entering external verification.
+    Status: OPEN; full P01--P03 and complex-L2 sublayer accepted; real/H1 lift remains.
 
 [ ] G06  NSE_A_FULL_SIX_CHARGE_CLASS_EQUIVALENCE
     Plan: P07,P08,P18, with P15 scalar inputs.
@@ -98,7 +106,7 @@ SIX PARENT TARGETS
     factor-six and finite-budget equivalence for explicit nonnegative charges.
     Open boundary: abstract charge inequalities need the constructed physical
     projections and canonical trajectory before the datum-class root follows.
-    Status: OPEN; scalar/measure subchains under construction.
+    Status: OPEN; scalar/measure helper subscopes accepted; physical root remains.
 
 DEPENDENCY AND WORK ORDER
 
@@ -128,8 +136,8 @@ PROOF AND EVIDENCE RECORDS
 - The universal assertion C^A_nu=Schwartz_sigma(R3) remains OPEN. It is
   separate from the conditional finite-budget class equivalence.
 
-No six-gap parent is complete at this registration stage. Prepared Lean is
-pending evidence. No local Lean, Lake, kernel audit or included runner is used.
+No six-gap parent is complete. The accepted helper scopes have matching
+external evidence recorded above; remaining implementations are still open. No local Lean, Lake, kernel audit or included runner is used.
 
 
 SECOND BATCH -- SCOPED CONSTRUCTION
@@ -138,7 +146,7 @@ QFAPhysicalH1Budget:15 physical energy/enstrophy/full-slab helpers(G03,G06).
 QFASixSectors:17 actual even Borel sector declarations(G05/P03).
 QFAEnstrophyCoefficient:8 conditional scalar coefficient theorems(G02,G03).
 QFASixSectorL2:28 actual complex-vector L2 projection declarations(G05/P04).
-All76 names are prepared pending matching external evidence. Native real-range
+All76 second-batch names are accepted at the exact source and run above. Native real-range
 preservation,H1/solenoidal transport and physical charge additivity remain open.
 No parent target is completed or weakened by these sublayers.
 

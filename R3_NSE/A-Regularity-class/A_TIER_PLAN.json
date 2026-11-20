@@ -3,7 +3,7 @@
   "date": "2026-11-20",
   "repository": "randogelist/Methboke",
   "branch": "AC-Integration",
-  "status": "AUTHORIZED_NATIVE_CONSTRUCTION_FIRST_BATCH_PENDING_EXTERNAL",
+  "status": "PARTIAL_A_TIER_P01_P02_P03_AND_SCOPED_HELPERS_ACCEPTED",
   "source_basis_commit": "a1dea65c8eb1344b5d55157162db2d38a8d78ff3",
   "request": "Work the registered NSE-A regularity class toward an A-tier theorem by first deriving a suitable B-tier step list.",
   "project_goal": "Fefferman_D",
@@ -23,8 +23,8 @@
       "target": "Construct the actual full-volume real H1-sigma carrier, unique weak gradients, norm/topology, closed-graph completeness and admission of solenoidal Schwartz data.",
       "existing_material": "Native SpatialL2, SpatialWeakGradient, Solenoidal and complexification are accepted lower contracts; the H1 construction and gradient uniqueness remain new.",
       "completion_criterion": "The physical weak-derivative predicate and witnesses defining H1 are explicit, with the required completeness/topology; NSE solution existence and regularity are proved separately.",
-      "status": "PREPARED_SCOPED_SOURCE_PENDING_EXTERNAL",
-      "new_a_tier_acceptance": false,
+      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED",
+      "new_a_tier_acceptance": true,
       "attained_source_cutouts": [
         "SP01",
         "SP02",
@@ -34,7 +34,30 @@
         "SP21",
         "ES13"
       ],
-      "implementation_scope": "Full P01 carrier candidate"
+      "implementation_scope": "Full originally stated endpoint; all later PDE and projection obligations remain separate.",
+      "acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFAPhysicalH1"
+      ]
     },
     {
       "id": "P02",
@@ -45,8 +68,8 @@
       "target": "Identify compact-test first weak derivatives with the a.e. Fourier multiplier 2*pi*i*xi_j, in both directions.",
       "existing_material": "Native FourierMultipliers and compact-Schwartz density give lower proofs; current gradient wrappers also take an L2-Laplacian witness.",
       "completion_criterion": "The new theorem needs only first derivatives; it proves the complex-test conversion and reverse implication without an H2 premise.",
-      "status": "PREPARED_SCOPED_SOURCE_PENDING_EXTERNAL",
-      "new_a_tier_acceptance": false,
+      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED",
+      "new_a_tier_acceptance": true,
       "attained_source_cutouts": [
         "SP01",
         "SP03",
@@ -57,7 +80,31 @@
         "SP18",
         "SP21"
       ],
-      "implementation_scope": "Scoped lower helper; full endpoint still open"
+      "implementation_scope": "Full originally stated endpoint; all later PDE and projection obligations remain separate.",
+      "acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFAH1Fourier",
+        "QFAH1FourierReverse"
+      ]
     },
     {
       "id": "P03",
@@ -66,10 +113,34 @@
       "target": "Construct the six sorted absolute-coordinate sectors with increasing-index ties and prove disjointness, coverage, measurability and antipodal symmetry.",
       "existing_material": "Pinned Mathlib measurableSet_le and measurableSet_lt provide lower measure-theory anchors; the six sectors are new.",
       "completion_criterion": "The actual registered sorting rule is proved, including boundaries and the zero frequency.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
-      "new_a_tier_acceptance": false,
+      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED",
+      "new_a_tier_acceptance": true,
       "attained_source_cutouts": [
         "SP07"
+      ],
+      "implementation_scope": "Full originally stated endpoint; all later PDE and projection obligations remain separate.",
+      "acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFASixSectors"
       ]
     },
     {
@@ -82,7 +153,7 @@
       "target": "Construct indicator multipliers on L2 and conjugate by the L2 Fourier isometry; prove bounded orthogonal projections, identity reconstruction and real preservation.",
       "existing_material": "MeasureTheory.MemLp.indicator, MemLp.toLp, Lp.ext, MeasureTheory.Lp.fourierTransformₗᵢ and inner_fourier_eq are source anchors.",
       "completion_criterion": "Discontinuous indicators act on actual L2 representatives; Hermitian symmetry and the real-range bridge are proved.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "status": "A_TIER_HELPER_SUBSCOPE_ACCEPTED_FULL_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "SP06",
@@ -91,6 +162,29 @@
         "SP09",
         "SP19",
         "SP20"
+      ],
+      "helper_acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFASixSectorL2"
       ]
     },
     {
@@ -142,12 +236,35 @@
       "target": "Prove sum_alpha q_alpha^2 <= Y^2 <= 6*sum_alpha q_alpha^2 for nonnegative physical charges.",
       "existing_material": "Pinned Finset.sum_sq_le_sq_sum_of_nonneg and Finset.sum_mul_sq_le_sq_mul_sq supply scalar inequalities.",
       "completion_criterion": "The factor is exactly six, and q_alpha is already a squared gradient norm.",
-      "status": "PREPARED_SCOPED_SOURCE_PENDING_EXTERNAL",
+      "status": "A_TIER_HELPER_SUBSCOPE_ACCEPTED_FULL_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "SP11"
       ],
-      "implementation_scope": "Scoped lower helper; full endpoint still open"
+      "implementation_scope": "Scoped lower helper; full endpoint still open",
+      "helper_acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFASixChargeBudget"
+      ]
     },
     {
       "id": "P08",
@@ -159,7 +276,7 @@
       "target": "For supplied concrete H1 paths define ENNReal budgets, prove improper-endpoint equivalence, zero-window formulas, J6<=J<=6J6, gauge/Fourier finiteness equivalences and sublevels.",
       "existing_material": "Pinned lintegral monotonicity/convergence, ofReal-integral bridges and ENNReal.rpow tools are source anchors.",
       "completion_criterion": "Take the minimum with the finite cutoff before toReal. No finite budget is assumed to define the budget. Canonical datum instantiation waits for P11/P18.",
-      "status": "PREPARED_SCOPED_SOURCE_PENDING_EXTERNAL",
+      "status": "A_TIER_HELPER_SUBSCOPE_ACCEPTED_FULL_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "SP12",
@@ -168,7 +285,31 @@
         "SP15",
         "SP16"
       ],
-      "implementation_scope": "Scoped lower helper; full endpoint still open"
+      "implementation_scope": "Scoped lower helper; full endpoint still open",
+      "helper_acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFASixChargeBudget",
+        "QFAPhysicalH1Budget"
+      ]
     },
     {
       "id": "P09",
@@ -180,7 +321,7 @@
       "target": "Prove the H2 Hessian-Laplacian bridge, Sobolev/interpolation and vector/tensor extensions with admissible S6^6=16/(27*pi^4).",
       "existing_material": "Accepted spectral helpers and pinned Mathlib Sobolev inequality are partial anchors; the pinned Sobolev constant is not the target sharp constant.",
       "completion_criterion": "Analytic admissibility of the displayed constant is proved. A generic admissible-S result is only an intermediate theorem with its own cutoff.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "status": "A_TIER_HELPER_SUBSCOPE_ACCEPTED_FULL_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "ES01",
@@ -188,6 +329,29 @@
         "ES13",
         "ES14",
         "ES16"
+      ],
+      "helper_acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFAEnstrophyCoefficient"
       ]
     },
     {
@@ -200,7 +364,7 @@
       "target": "Construct heat/Leray/Duhamel operators and the fixed-point estimates yielding a unique actual local strong/mild NSE solution with C_tH1 and L2_tH2 regularity.",
       "existing_material": "Accepted periodic local existence is a proof model; inspected upstream H3 files define or compare supplied solutions and give no required R3 IVP constructor.",
       "completion_criterion": "Every H1-sigma datum has a positive lifespan uniform on bounded H1 sets for fixed viscosity; initial trace, physical equations and the zero solution are constructed.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "status": "B_TIER_DERIVATION_AVAILABLE_NATIVE_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "EV01",
@@ -221,7 +385,7 @@
       "target": "Construct the canonical maximal trajectory and positive extended lifetime, prove overlap/restart uniqueness and bounded-H1 continuation.",
       "existing_material": "Accepted periodic maximal-front and strong-continuation theorems are models with different physical types.",
       "completion_criterion": "Continuation follows from the actual norm-controlled local theorem without assuming a terminal H1 trace or global reference.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "status": "B_TIER_DERIVATION_AVAILABLE_NATIVE_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "ES11",
@@ -305,7 +469,7 @@
       "target": "From the complete improper J_A<infinity prove a uniform H1 bound and T_max>tau_A, including exclusion of equality.",
       "existing_material": "Preferred route: ES02 Mathlib AC FTC plus ES03 QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL, already named-audited, after deriving the actual PDE integral inequality. ES07 classical CubicBudget is a stronger-premise alternative with compiled-module-only evidence; periodic physical budget continuation supplies a model.",
       "completion_criterion": "Use an AC Gronwall theorem for the P13 regularity, or first prove all stronger premises of the existing cubic lemma. Bound H1 by energy plus enstrophy, without periodic Poincare.",
-      "status": "PREPARED_SCOPED_SOURCE_PENDING_EXTERNAL",
+      "status": "A_TIER_HELPER_SUBSCOPE_ACCEPTED_FULL_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "ES02",
@@ -316,7 +480,33 @@
         "ES11",
         "EV08"
       ],
-      "implementation_scope": "Scoped lower helper; full endpoint still open"
+      "implementation_scope": "Scoped lower helper; full endpoint still open",
+      "helper_acceptance": {
+        "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+        "run_id": 44810272232,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+        "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+        "package_count": 86,
+        "module_count": 481,
+        "named_reports": 853,
+        "new_packages": 9,
+        "new_named_declarations": 155,
+        "new_theorems": 126,
+        "new_definitions_and_instances": 29,
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03"
+        ],
+        "parent_targets_closed": 0,
+        "local_lean_executions": 0
+      },
+      "accepted_packages": [
+        "QFAACBudget",
+        "QFASixChargeBudget",
+        "QFAPhysicalH1Budget",
+        "QFAEnstrophyCoefficient"
+      ]
     },
     {
       "id": "P16",
@@ -380,7 +570,7 @@
       "target": "Prove Schwartz-data smooth velocity/normalized pressure on [0,R] whenever 0<=R<Tmax, including time zero; hence on every finite slab for global class members. Derive their global energy bound and the A4 converse from an arbitrary literal smooth finite-energy pair to the canonical trajectory.",
       "existing_material": "Tao Theorem5.4 and Corollaries4.3/11.1 are analytic references, not compiled native proofs.",
       "completion_criterion": "Prove the finite-slab enstrophy/normalization/uniqueness bridge; then identify the canonical class with the literal Fefferman-A datumwise class.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "status": "B_TIER_DERIVATION_AVAILABLE_NATIVE_ENDPOINT_OPEN",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": [
         "EV01",
@@ -403,7 +593,7 @@
       "target": "Prepare independent expected-type and literal-contract consumers, named axiom audits, and matching cached external compilation and evidence review for each completed batch.",
       "existing_material": "Use the unchanged authorized Material workflow and accepted cache policies; retain exact source/type/dependency identity.",
       "completion_criterion": "Every claimed endpoint has matching external compiler, consumer and axiom evidence. Inspect analytic premises; standard axioms alone do not discharge a hypothesis.",
-      "status": "PROPOSED_NOT_NEWLY_FORMALIZED",
+      "status": "VERIFICATION_RULE_SATISFIED_FOR_ACCEPTED_SUBSCOPES_FULL_ROOT_PENDING",
       "new_a_tier_acceptance": false,
       "attained_source_cutouts": []
     }
@@ -429,7 +619,7 @@
     }
   ],
   "verification_applies_to_each_milestone": "P20 is applied to each completed exact scope; full-root acceptance waits for its entire dependency chain.",
-  "first_formal_obstruction": "P01/P02: the native physical H1 representation and H1-only two-way compact-test weak-derivative/Fourier bridge are not yet accepted as the needed adapters.",
+  "first_formal_obstruction": "P04: actual real Fourier-range preservation, followed by P05 H1/solenoidal transport and P06 physical charge identities.",
   "substantial_later_native_obligations": [
     "P09 exact spatial constant admission",
     "P10-P11 actual norm-controlled R3 H1 local/maximal theory",
@@ -458,13 +648,13 @@
   ],
   "native_namespace_proposal": "MethbokeAddon.NSEAFiniteCharge",
   "native_source_root_proposal": "Material/MethbokeAddon/NSEAFiniteCharge/",
-  "native_paths_created": false,
+  "native_paths_created": true,
   "plan_assent_recorded": false,
-  "formalization_started": false,
-  "new_lean_declarations": 0,
-  "new_external_compiler_runs": 0,
-  "new_axiom_audits": 0,
-  "new_a_tier_acceptance": false,
+  "formalization_started": true,
+  "new_lean_declarations": 155,
+  "new_external_compiler_runs": 6,
+  "new_axiom_audits": 155,
+  "new_a_tier_acceptance": true,
   "local_lean_executions": 0,
   "accepted_foundation_reference": {
     "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
@@ -539,5 +729,32 @@
     }
   },
   "six_gap_register": "SIX_GAP_A_TIER_TARGETS.txt",
-  "implementation_register": "SIX_GAP_IMPLEMENTATION_STATUS.json"
+  "implementation_register": "SIX_GAP_IMPLEMENTATION_STATUS.json",
+  "acceptance": {
+    "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+    "run_id": 44810272232,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+    "evidence": "audits/material-3dec32be-nse-a-accepted/independent-review.json",
+    "package_count": 86,
+    "module_count": 481,
+    "named_reports": 853,
+    "new_packages": 9,
+    "new_named_declarations": 155,
+    "new_theorems": 126,
+    "new_definitions_and_instances": 29,
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03"
+    ],
+    "parent_targets_closed": 0,
+    "local_lean_executions": 0
+  },
+  "accepted_plan_endpoints": [
+    "P01",
+    "P02",
+    "P03"
+  ],
+  "remaining_first_native_edge": "P04: actual real Fourier-range preservation, followed by P05 H1/solenoidal transport and P06 physical charge identities.",
+  "first_formal_obstruction_history": "P01/P02: the native physical H1 representation and H1-only two-way compact-test weak-derivative/Fourier bridge are not yet accepted as the needed adapters."
 }

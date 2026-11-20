@@ -1,5 +1,12 @@
 # Material
 
+## Current accepted NSE-A tranche
+
+**Accepted at `3dec32be`**, [external run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232): 481 modules, 86 fresh package audits and 853 named reports passed, including 155 declarations in nine new helper packages (126 theorems and 29 lower definitions/instances). Only standard axioms occur; publication and the final acceptance gate passed. P01–P03 are complete in their original scope. All six parent targets and the physical class root remain open. No local Lean was executed.
+
+The tested endpoint/closure manifests are retained byte-for-byte. Their original preparation labels are historical; acceptance is recorded separately in [the accepted scope register](../R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt).
+
+
 The current goal is **Fefferman D**, through the finite periodic forced-family
 route. The first [foundation package](FeffermanFamilyFoundation/README.md) adds
 28 local blowup, disjoint-carrier and native contract helper theorems and 11

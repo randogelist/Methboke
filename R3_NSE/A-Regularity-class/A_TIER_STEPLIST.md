@@ -1,9 +1,8 @@
 # NSE-A finite-charge class: B-tier step list toward A-tier
 
-**Status: proposed 20-endpoint construction plan.** None of P01–P20 is claimed
-complete by this planning update. Existing accepted anchors retain their own
-smaller scopes. This turn prepares the mathematical step list; bottom-up
-formalization starts after the user's assent to this concrete list.
+**Status: P01–P03 are A-tier accepted; nine scoped helper packages are accepted.** Matching external [run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232) checked source `3dec32be2868f4a798e442d3516fb810d97db737`. P04–P19 retain their exact remaining obligations, and M1–M3 are not yet complete. P20’s verification rule has been satisfied for the accepted scopes. The user’s assent to the twenty endpoints is recorded.
+
+See the [accepted helper register](SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) and [exact evidence](../../audits/material-3dec32be-nse-a-accepted/independent-review.json).
 
 Repository: randogelist/Methboke. Branch: **AC-Integration**.
 Source basis: **a1dea65c8eb1344b5d55157162db2d38a8d78ff3**.
@@ -66,8 +65,7 @@ tail theorem are separate work, not prerequisites for this class theorem.
 ## The 20 contextual endpoints
 
 Each item below specifies its output, dependency order, existing anchors,
-new obligation and completion criterion. **All 20 are proposed/open for
-this new construction.** A reusable lemma does not mark the whole item done.
+new obligation and completion criterion. **P01–P03 are accepted; the remaining items retain their open portions.** An accepted helper does not mark its whole parent endpoint done.
 
 ### P01. Physical H1 carrier and Schwartz admission
 

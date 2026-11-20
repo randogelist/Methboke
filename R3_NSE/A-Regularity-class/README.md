@@ -1,5 +1,12 @@
 # NSE-A regularity class: finite six-charge budget
 
+## Current native construction
+
+**Accepted at `3dec32be`**, [external run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232): 481 modules, 86 fresh package audits and 853 named reports passed, including 155 declarations in nine new helper packages (126 theorems and 29 lower definitions/instances). Only standard axioms occur; publication and the final acceptance gate passed. P01–P03 are complete in their original scope. All six parent targets and the physical class root remain open. No local Lean was executed.
+
+[Six targets](SIX_GAP_A_TIER_TARGETS.txt) · [Accepted scopes and names](SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Current implementation status](SIX_GAP_IMPLEMENTATION_STATUS.json)
+
+
 **Status: B-tier analytic class equivalence.** This page registers a class of
 whole-space initial data through the finite budget of their canonical maximal
 strong solutions. The [complete cumulative derivation](NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt)

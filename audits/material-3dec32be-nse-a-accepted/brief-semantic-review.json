@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "reviewer": "reverse_and_budget",
+  "review_kind": "independent_nonexecuting_semantic_contract_and_saved_evidence_review",
+  "reviewed_at_utc": "2026-11-20T20:33:05.686009+00:00",
+  "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+  "run_id": "44810272232",
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+  "evidence_zip_sha256": "bd3ae90185c28641d39c9bb4bcb70f838a0dce83136e00820c4ab965410ae265",
+  "current_json_sha256": "16e7716eacca6eaf57355903513309852f038d6395016d0c1836eecdce1adec9",
+  "original_plan_path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+  "original_plan_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+  "original_plan_sha256": "0061655bd72fd23f23e950c3d26702af4b3df58fc5fd601a3df735cbc76ee8c2",
+  "decision": "P01_P02_P03_COMPLETE_AT_ORIGINAL_CONTRACTS",
+  "full_original_plan_endpoints_completed": [
+    "P01",
+    "P02",
+    "P03"
+  ],
+  "scopes": [
+    {
+      "id": "P01",
+      "decision": "COMPLETE_AT_ORIGINAL_CONTRACT",
+      "supporting_packages": [
+        "QFAPhysicalH1"
+      ],
+      "semantic_reason": "The complete closed submodules are defined by the literal native compact-test weak derivative and solenoidal kernels on full-volume real spatial L2. Weak gradients are unique; velocity is injective; the norm is the actual velocity-plus-three-gradient sum of squares; velocity and derivatives are continuous linear maps. Real Schwartz fields supply their actual classical derivatives, and native solenoidal Schwartz data admit to PhysicalH1Sigma.",
+      "key_declarations": [
+        "spatialWeakGradient_unique",
+        "mem_physicalH1Graph_iff",
+        "physicalH1CompleteSpace",
+        "physicalH1_norm_sq",
+        "physicalH1Velocity_injective",
+        "mem_physicalH1SigmaGraph_iff",
+        "physicalH1SigmaCompleteSpace",
+        "physicalH1Sigma_norm_sq",
+        "schwartz_spatialWeakGradient",
+        "schwartzToPhysicalH1Sigma"
+      ],
+      "scope_boundary": "This is the carrier and admission endpoint. No NSE solution or evolution has been constructed.",
+      "original_target": "Construct the actual full-volume real H1-sigma carrier, unique weak gradients, norm/topology, closed-graph completeness and admission of solenoidal Schwartz data.",
+      "original_completion_criterion": "The physical weak-derivative predicate and witnesses defining H1 are explicit, with the required completeness/topology; NSE solution existence and regularity are proved separately."
+    },
+    {
+      "id": "P02",
+      "decision": "COMPLETE_AT_ORIGINAL_CONTRACT",
+      "supporting_packages": [
+        "QFAH1Fourier",
+        "QFAH1FourierReverse"
+      ],
+      "semantic_reason": "For supplied actual real full-volume L2 velocity and first-derivative fields, the native compact-test weak derivative is equivalent to the a.e. complexified Fourier identity with multiplier 2*pi*i times inner(xi,e). The coordinate-vector specialization is the simultaneous three-component gradient equivalence. The forward proof transports real tests to complex Schwartz tests; the reverse uses supplied L2 representatives, distributional Fourier inversion and injective native complexification. Neither direction has an H2 or Laplacian premise.",
+      "key_declarations": [
+        "H1Fourier.complexify_fourier_of_realTestWeakDirectionalDerivative",
+        "H1Fourier.spatialWeakGradient_fourier_ae",
+        "H1Fourier.realTestWeakDirectionalDerivative_of_complexify_fourier_ae",
+        "H1Fourier.realTestWeakDirectionalDerivative_iff_complexify_fourier_ae",
+        "H1Fourier.spatialWeakGradient_iff_fourier_ae"
+      ],
+      "scope_boundary": "Construction of real derivative witnesses from weighted Fourier integrability alone, real inverse-Fourier range, and projection invariance are later tasks; the original P02 contract does not require them.",
+      "original_target": "Identify compact-test first weak derivatives with the a.e. Fourier multiplier 2*pi*i*xi_j, in both directions.",
+      "original_completion_criterion": "The new theorem needs only first derivatives; it proves the complex-test conversion and reverse implication without an H2 premise."
+    },
+    {
+      "id": "P03",
+      "decision": "COMPLETE_AT_ORIGINAL_CONTRACT",
+      "supporting_packages": [
+        "QFASixSectors"
+      ],
+      "semantic_reason": "The literal six inequalities implement decreasing absolute-coordinate order with increasing-index ties, in permutation order 012, 021, 102, 120, 201, 210. Every frequency has exactly one sector; all sectors are Borel and antipodally invariant. The zero frequency belongs exactly to sector 0. Every sector has nonempty interior; actual indicator masks obey exact reconstruction and idempotence. Literal definition expansion is independently consumed by the accepted audit.",
+      "key_declarations": [
+        "sixSector",
+        "measurableSet_sixSector",
+        "sixSector_pairwiseDisjoint",
+        "existsUnique_mem_sixSector",
+        "iUnion_sixSector",
+        "mem_sixSector_neg_iff",
+        "zero_mem_sixSector_iff",
+        "sixSector_interior_nonempty"
+      ],
+      "scope_boundary": "This is the actual frequency partition. Real-space Fourier projection and weak-gradient claims belong to P04-P06.",
+      "original_target": "Construct the six sorted absolute-coordinate sectors with increasing-index ties and prove disjointness, coverage, measurability and antipodal symmetry.",
+      "original_completion_criterion": "The actual registered sorting rule is proved, including boundaries and the zero frequency."
+    }
+  ],
+  "independently_checked_support": [
+    {
+      "package": "QFAPhysicalH1",
+      "declarations": 46,
+      "module_status": "PASS",
+      "fresh_module": true,
+      "audit_status": "PASS",
+      "fresh_audit": true,
+      "audit_log": "audits/QFAPhysicalH1-6c0692c4146f33599eabaeb866a77e816fd9d5df705d0bf52d2851cc2116e20c.log",
+      "audit_log_sha256": "540c43f970c06d471adc28016950887455498bfb71eda01c838c8b83d2c205dc",
+      "source_path": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+      "source_sha256": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8",
+      "audit_source_sha256": "cadcc0952f4edcc3c187323038bb2edacd3e13e615cf3e604648f3c54e8fd101",
+      "source_and_audit_match_accepted_commit": true,
+      "complete_named_type_and_axiom_coverage": true,
+      "allowed_axioms_only": true,
+      "independent_consumers": 55
+    },
+    {
+      "package": "QFAH1Fourier",
+      "declarations": 8,
+      "module_status": "PASS",
+      "fresh_module": true,
+      "audit_status": "PASS",
+      "fresh_audit": true,
+      "audit_log": "audits/QFAH1Fourier-5beaef81cca364e533cf5a953a4c6f494d663fad3efc43897d70215a063c65a9.log",
+      "audit_log_sha256": "6a1238cbe02be5e1dfba631f7340a0dec4740f4f75a17fc9fb43b5679471c316",
+      "source_path": "Material/MethbokeAddon/QuasiFeffermanA/H1Fourier.lean",
+      "source_sha256": "565edf7f029712801da88586f997677d5f0e964a804714d02a07ac20e1b72a4c",
+      "audit_source_sha256": "4beea0db2739b430566b65975c3491bbf528e9618d8647bf62f90a0df89227c4",
+      "source_and_audit_match_accepted_commit": true,
+      "complete_named_type_and_axiom_coverage": true,
+      "allowed_axioms_only": true,
+      "independent_consumers": 14
+    },
+    {
+      "package": "QFAH1FourierReverse",
+      "declarations": 8,
+      "module_status": "PASS",
+      "fresh_module": true,
+      "audit_status": "PASS",
+      "fresh_audit": true,
+      "audit_log": "audits/QFAH1FourierReverse-4d3cf23d42627a63e435f38aa76839cc2c7b61b6def223ab1daaaf04f93533f3.log",
+      "audit_log_sha256": "a44391ead7842a2b76dd85a81a855e084c87016e9bd751d05cc530fd805fdb8d",
+      "source_path": "Material/MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean",
+      "source_sha256": "ff3ea4e617028a35e3645a7b8d869b5598def0646953d1ef256d82fececdaa3a",
+      "audit_source_sha256": "0f94a0b5a1b4880e52f0643683e07b4e089f4ccc987e9a0cf588cb8cbf0cd13e",
+      "source_and_audit_match_accepted_commit": true,
+      "complete_named_type_and_axiom_coverage": true,
+      "allowed_axioms_only": true,
+      "independent_consumers": 14
+    },
+    {
+      "package": "QFASixSectors",
+      "declarations": 17,
+      "module_status": "PASS",
+      "fresh_module": true,
+      "audit_status": "PASS",
+      "fresh_audit": true,
+      "audit_log": "audits/QFASixSectors-8ce274980a146a6f37b8ccb7ce66cb20640c711fb1f154aefce031100cb76e9e.log",
+      "audit_log_sha256": "6e60277292ec954c344ff4a3afb1b1fb749fe301a8fa54da318f9177294c7495",
+      "source_path": "Material/MethbokeAddon/QuasiFeffermanA/SixSectors.lean",
+      "source_sha256": "8f2f6cbe9c43370c93a3c4fb0520837e5cf188755121d833fc25f182ceb2c920",
+      "audit_source_sha256": "af15ba21b6a6bd03fd24e05f9638484404caa7f939e3f4dcac052c29759a6a38",
+      "source_and_audit_match_accepted_commit": true,
+      "complete_named_type_and_axiom_coverage": true,
+      "allowed_axioms_only": true,
+      "independent_consumers": 18
+    }
+  ],
+  "accounting": {
+    "new_packages": 9,
+    "new_named_declarations": 155,
+    "new_theorems": 126,
+    "new_definitions_and_instances": 29,
+    "four_packages_supporting_P01_P02_P03_declarations": 79,
+    "other_five_scoped_helper_packages_declarations": 76,
+    "package_counts": {
+      "QFAACBudget": 9,
+      "QFAEnstrophyCoefficient": 8,
+      "QFAH1Fourier": 8,
+      "QFAH1FourierReverse": 8,
+      "QFAPhysicalH1": 46,
+      "QFAPhysicalH1Budget": 15,
+      "QFASixChargeBudget": 16,
+      "QFASixSectorL2": 28,
+      "QFASixSectors": 17
+    }
+  },
+  "remaining_scope": {
+    "six_parent_gaps_closed": 0,
+    "P04": "Open: actual complex L2 projections are admitted, but Hermitian symmetry and real-range preservation remain.",
+    "P05_P06": "Open: physical H1 and solenoidal projection preservation and exact physical Fourier-gradient charge identities remain.",
+    "other_helpers": "Scalar six-charge/AC budgets, conditional physical-H1 budget bounds and scalar coefficient arithmetic remain at their explicit premise-carrying scopes. They do not construct the PDE evolution, prove native sharp Sobolev admission, or close the universal budget problem.",
+    "physical_qfa_root_proved": false,
+    "universal_budget_finiteness_proved": false
+  },
+  "publication_evidence": {
+    "failure_class": "NONE",
+    "relevant_original_routing_steps_success": true,
+    "full_worker_console": "Not retrieved by connector; complete named compiler/type/axiom logs are available in evidence.zip. This review uses those logs and the original structured routing artifact."
+  },
+  "local_lean_executions": 0,
+  "source_or_audit_edits": 0
+}

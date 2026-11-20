@@ -16,6 +16,12 @@ branch. The [project context](GPT.txt) records both scopes. The
 [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
+## AC-Integration: accepted NSE-A construction
+
+**Accepted at `3dec32be`**, [external run 44810272232](https://github.com/randogelist/Methboke/actions/runs/44810272232): 481 modules, 86 fresh package audits and 853 named reports passed, including 155 declarations in nine new helper packages (126 theorems and 29 lower definitions/instances). Only standard axioms occur; publication and the final acceptance gate passed. P01–P03 are complete in their original scope. All six parent targets and the physical class root remain open. No local Lean was executed.
+
+[Six targets and remaining native edges](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) · [Exact accepted helper register](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Evidence](audits/material-3dec32be-nse-a-accepted/independent-review.json)
+
 ## AC-Integration: accepted native QFA foundations
 
 **A-tier accepted at `afd67db4`**, [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412).
