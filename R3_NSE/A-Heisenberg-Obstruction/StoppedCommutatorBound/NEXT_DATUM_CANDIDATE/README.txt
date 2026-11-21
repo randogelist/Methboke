@@ -1,6 +1,8 @@
 R3 EHRENFEST — SCHWARTZ DATUM ADMISSION CANDIDATE
 
-STATUS: PREPARED_UNVERIFIED_INACTIVE_TEXT_ONLY
+STATUS: ACTIVATED_PENDING_MATCHING_EXTERNAL_CI
+ACTIVE PACKAGE: R3EhrenfestDatumAdmission
+ACTIVATION COMMIT: 6de02f59853fc7c559a8b78082abc354b067cd42
 
 This candidate constructs the literal `SmoothDatum` as actual native
 `EnergyDatum`, `PhysicalH1Sigma`, `PhysicalH2`, and `PhysicalH2Sigma` objects.
@@ -8,9 +10,8 @@ Its substantive bridge is pointwise Schwartz divergence zero to the full-volume
 compact-test `Solenoidal` predicate via the accepted weak-gradient trace theorem.
 
 It contains no nonlinear flow, time evolution, stopped-bound witness, literal
-solution Sobolev admission, or R3 obstruction root. The `.lean.txt` source,
-Endpoint, and Audit must be promoted unchanged through an independent registered
-package and receive matching cached external compilation, exact-type consumers,
+solution Sobolev admission, or R3 obstruction root. The active source, Endpoint,
+and Audit require matching cached external compilation, exact-type consumers,
 and theorem-level standard-only axiom evidence before any status lift.
 
 INTENDED MID-TIER
