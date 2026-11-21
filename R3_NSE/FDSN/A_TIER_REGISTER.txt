@@ -42,7 +42,7 @@ Reused R3-07/R3-11: complete matching archived audits at run44811785125.
 Full candidate:421pending stage2/stage3 declarations;137packages/1320total reports.
 Canonical root: MethbokeAddon.FDSNR3.FDSN_R3, original Seed -> full Family.
 Root status: PREPARED, NOT EXTERNALLY ACCEPTED. Seed existence not asserted.
-Latest failure: run44844086846 atf07a4c6a; ParametricFourier compiles, CompactFrequencyInverse and ForwardFourierSmooth require source elaboration repairs; original statements unchanged.
+Latest failure:run44844863588 at8ff47f2e; affine-slice normalization/missing binder and integrability-type repairs prepared;536PASS/2FAIL/10BLOCKED/0fresh audits.
 Local Lean or Lake executions: ZERO.
 
 Full run44836866962: all stage2 sources/wrappers compile, six stage3 source
@@ -100,3 +100,9 @@ Run 44844086846 at f07a4c6a compiled ParametricFourier and its endpoint wrapper,
 Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.
 Evidence: audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt.
 No new A-tier acceptance. Original Seed and Family unchanged. Local Lean executions: zero.
+
+
+FDSN_R3 repair after run44844863588 at8ff47f2e.
+Run 44844863588 at8ff47f2e cleared the earlier analytic diagnostics and stopped at affine-slice normalization, a missing index binder, and two integrability-inequality metavariables. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal source-only repairs are prepared; no new A-tier acceptance.
+Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
+Evidence:audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt.

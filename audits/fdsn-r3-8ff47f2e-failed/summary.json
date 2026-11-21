@@ -1,0 +1,37 @@
+{
+  "status": "FAILED_NO_NEW_ACCEPTANCE",
+  "source_commit": "8ff47f2ee34e82b474f3b9ca5739d57a48af08fe",
+  "run_id": 44844863588,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44844863588",
+  "job_id": 136661962823,
+  "artifact_id": 14683056660,
+  "artifact_sha256": "ce7c5bedc49c5010c341c6fbbe992ce75747b259f151c6bcc475682fc5877526",
+  "artifact_download_and_hash_verified": true,
+  "failed_sources": [
+    "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+    "MethbokeAddon.FDSNR3.ForwardFourierSmooth"
+  ],
+  "module_counts": {
+    "PASS": 536,
+    "BLOCKED_BY_DEPENDENCY": 10,
+    "FAIL": 2
+  },
+  "fresh_package_audits_executed": false,
+  "fresh_package_audit_count": 0,
+  "new_a_tier_acceptance": false,
+  "failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failure_phase": "compile",
+  "cause": "CompactFrequencyInverse:58 affine sum/function equality; :358 unknown j binder. ForwardFourierSmooth:225 two unresolved type metavariables in integrability inequality.",
+  "evidence": "audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt",
+  "repair": "Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+  "local_lean_executions": 0,
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "main",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "complete_evidence_archive": "evidence.zip",
+  "root_status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+  "original_seed_and_family_unchanged": true
+}

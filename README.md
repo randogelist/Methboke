@@ -257,7 +257,7 @@ is retained. Matching external cached compilation and all required fresh exact-t
 and theorem-level axiom reports remain pending for the 137-package,
 1320-declaration candidate. No new A-tier acceptance is claimed.
 
-## Current R3 verification
+## Previous R3 verification
 
 [Run 44844086846](https://github.com/randogelist/Methboke/actions/runs/44844086846)
 at `f07a4c6a` compiled `ParametricFourier` and its endpoint wrapper. It then
@@ -272,3 +272,13 @@ arguments. The original theorem statements, Seed, Family and independent
 consumers remain unchanged. [The complete failure evidence](audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt)
 is retained. Matching external cached compilation and all required fresh exact-type
 and theorem-level axiom reports remain pending; no new A-tier acceptance is claimed.
+
+## Current R3 verification
+
+[Run44844863588](https://github.com/randogelist/Methboke/actions/runs/44844863588)
+at `8ff47f2e` cleared the previous analytic diagnostics; affine-slice normalization,
+a missing index binder and two integrability-type metavariables remain.
+**536 modules passed, two failed, ten were blocked; no fresh audit ran.**
+The next candidate applies minimal source-only repairs with unchanged theorem
+statements. [Exact failure evidence](audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt)
+is retained; full matching external acceptance remains pending.

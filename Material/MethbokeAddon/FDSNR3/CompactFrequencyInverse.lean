@@ -55,7 +55,13 @@ def schwartzRightSlice (A : 𝓢(P × X, E)) (p : P) : 𝓢(X, E) :=
     (show Function.HasTemperateGrowth (fun x : X => (p, x)) by
       have h := (Function.HasTemperateGrowth.const (E := X) (p, (0 : X))).add
         (rightSliceCLM P X).hasTemperateGrowth
-      simpa [rightSliceCLM, Pi.add_apply] using h)
+      have heq : ((fun _ : X => (p, (0 : X))) +
+          (rightSliceCLM P X : X → P × X)) = (fun x : X => (p, x)) := by
+        funext x
+        change (p + 0, (0 : X) + x) = (p, x)
+        simp only [add_zero, zero_add]
+      rw [heq] at h
+      exact h)
     ⟨1, 1, fun x => by
       simp only [pow_one, one_mul]
       exact (le_max_right ‖p‖ ‖x‖).trans (by
@@ -354,7 +360,11 @@ theorem partialFourierTransform_spatial_weight (A : 𝓢(P × Vec, E)) (N : ℕ)
     (k := 0) (n := N) le_top le_top x
   simp only [norm_iteratedFDeriv_zero] at h
   apply h.trans
-  gcongr with j hj
+  apply mul_le_mul_of_nonneg_left _ (by positivity)
+  change (∑ j ∈ S, ∫ ξ : Vec, ‖ξ‖ ^ j.1 *
+      ‖iteratedFDeriv ℝ j.2 (schwartzRightSlice A p) ξ‖) ≤ ∑ j ∈ S, D j.1 j.2
+  apply Finset.sum_le_sum
+  intro j hj
   simpa only [pow_zero, one_mul] using hbound j.1 j.2 p
 
 theorem partialFourierTransform_decay (A : 𝓢(P × Vec, E)) (N n : ℕ) :

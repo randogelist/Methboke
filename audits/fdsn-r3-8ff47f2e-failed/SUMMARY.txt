@@ -1,0 +1,25 @@
+FDSN_R3 EXTERNAL FAILURE AT 8ff47f2e
+Repository: randogelist/Methboke; branch main.
+Tested commit: 8ff47f2ee34e82b474f3b9ca5739d57a48af08fe.
+Run: 44844863588; job: 136661962823.
+URL: https://github.com/randogelist/Methboke/actions/runs/44844863588
+Outcome: failure; 536 PASS, 2 FAIL, 10 blocked modules; zero fresh endpoint audits.
+
+The previous analytic diagnostics cleared. The remaining reported errors are:
+CompactFrequencyInverse:58 affine sum/function equality normalization;
+CompactFrequencyInverse:358 missing index binder j;
+ForwardFourierSmooth:225 two unresolved type metavariables in an integrability bound.
+Exact compiler logs and the original run plan are retained alongside this summary.
+
+Original artifact14683056660: evidence.zip (92105bytes).
+SHA256: ce7c5bedc49c5010c341c6fbbe992ce75747b259f151c6bcc475682fc5877526
+The complete current.json, module receipts and logs remain inside this original
+archive. Its downloaded hash matches the GitHub artifact digest.
+
+PREPARED REPAIR
+Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
+
+Matching external cached compilation, all137packages/1320named fresh type/axiom
+reports, the required cutout and final publication/acceptance remain required.
+Earlier accepted history is preserved. No new A-tier acceptance is claimed.
+Local Lean/Lake/kernel executions: ZERO.

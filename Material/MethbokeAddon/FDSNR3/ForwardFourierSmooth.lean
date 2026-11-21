@@ -222,7 +222,9 @@ theorem LocalSchwartz.jointFourierIntegrand_jet_bound {T b R : ℝ} {u : Velocit
     rw [Prod.norm_def]
     calc
       1 + max ‖q‖ ‖x‖ ≤ 1 + (b + R + ‖x‖) :=
-        add_le_add_left (max_le (by linarith [norm_nonneg x]) (by linarith)) 1
+        add_le_add_left (max_le
+          (hqnorm.trans (le_add_of_nonneg_right (norm_nonneg x)))
+          (le_add_of_nonneg_left hbR)) 1
       _ ≤ (1 + b + R) * (1 + ‖x‖) := by
         nlinarith [mul_nonneg hbR (norm_nonneg x)]
   have hkernel' : ∀ i : ℕ, i ≤ n →
