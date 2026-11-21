@@ -1,0 +1,94 @@
+import QFASourceFields.Endpoint
+import Mathlib.Analysis.Calculus.ContDiff.Operations
+import Mathlib.Topology.Algebra.Support
+
+/-!
+# Exact source/native scalar test-function transport
+
+This module mirrors the selected CKN weak scalar-test facade on the accepted raw source carrier
+and transports each such test to Methboke's native Euclidean carrier.  The transport preserves
+smoothness and compact support and identifies each coordinate directional derivative and the
+full native scalar gradient exactly.
+-/
+
+set_option autoImplicit false
+set_option Elab.async true
+
+noncomputable section
+
+open Set
+open scoped ContDiff
+
+namespace MethbokeAddon.QuasiFeffermanA.SourceTests
+
+open MethbokeAddon.QuasiFeffermanA.SourceCoordinates
+open MethbokeAddon.QuasiFeffermanA.SourceFields
+
+/-- Source-coordinate counterpart of the selected CKN weak scalar test function. -/
+structure SourceWeakTestFunction where
+  toFun : SourceVec3 → ℝ
+  contDiff : ContDiff ℝ (⊤ : ℕ∞) toFun
+  hasCompactSupport : HasCompactSupport toFun
+
+instance : CoeFun SourceWeakTestFunction (fun _ => SourceVec3 → ℝ) where
+  coe φ := φ.toFun
+
+/-- The raw source-coordinate basis vector. -/
+def sourceBasisVec (i : Fin 3) : SourceVec3 := Pi.single i 1
+
+/-- The classical source-coordinate partial derivative. -/
+noncomputable def SourceWeakTestFunction.partialDeriv
+    (φ : SourceWeakTestFunction) (i : Fin 3) (x : SourceVec3) : ℝ :=
+  fderiv ℝ φ.toFun x (sourceBasisVec i)
+
+/-- Pull a source scalar test to the native Euclidean carrier. -/
+def nativeTestFunctionOfSource (φ : SourceWeakTestFunction) : Space → ℝ :=
+  fun x => φ.toFun (nativeToSource x)
+
+/-- The pulled-back native test is smooth. -/
+theorem nativeTestFunctionOfSource_contDiff (φ : SourceWeakTestFunction) :
+    ContDiff ℝ (⊤ : ℕ∞) (nativeTestFunctionOfSource φ) := by
+  have hfun : nativeTestFunctionOfSource φ = φ.toFun ∘ sourceNativeEquiv.symm := by
+    funext x
+    simp [nativeTestFunctionOfSource]
+  rw [hfun]
+  exact φ.contDiff.comp sourceNativeEquiv.symm.contDiff
+
+/-- The pulled-back native test retains compact support. -/
+theorem nativeTestFunctionOfSource_hasCompactSupport (φ : SourceWeakTestFunction) :
+    HasCompactSupport (nativeTestFunctionOfSource φ) := by
+  have hfun : nativeTestFunctionOfSource φ = φ.toFun ∘ sourceNativeEquiv.symm := by
+    funext x
+    simp [nativeTestFunctionOfSource]
+  rw [hfun]
+  exact φ.hasCompactSupport.comp_homeomorph sourceNativeEquiv.symm.toHomeomorph
+
+/-- Native coordinate vectors recover the raw source basis vectors. -/
+@[simp] theorem nativeToSource_coordinateVector (i : Fin 3) :
+    nativeToSource (coordinateVector i) = sourceBasisVec i := rfl
+
+/-- Each native coordinate derivative of the transported test is the original source partial
+coordinate derivative. -/
+theorem nativeTestFunctionOfSource_fderiv_coordinate
+    (φ : SourceWeakTestFunction) (i : Fin 3) (x : SourceVec3) :
+    fderiv ℝ (nativeTestFunctionOfSource φ) (sourceToNative x) (coordinateVector i) =
+      φ.partialDeriv i x := by
+  have hfun : nativeTestFunctionOfSource φ = φ.toFun ∘ sourceNativeEquiv.symm := by
+    funext y
+    simp [nativeTestFunctionOfSource]
+  rw [hfun, fderiv_comp _
+    (φ.contDiff.differentiable (by norm_num)).differentiableAt
+    sourceNativeEquiv.symm.differentiableAt]
+  rw [sourceNativeEquiv.symm.fderiv]
+  simp [SourceWeakTestFunction.partialDeriv, sourceBasisVec]
+
+/-- The full native scalar gradient transports exactly to the three source partial derivatives. -/
+theorem sourceFieldFunctionOfNative_scalarGradient
+    (φ : SourceWeakTestFunction) (x : SourceVec3) :
+    sourceFieldFunctionOfNative (scalarGradient (nativeTestFunctionOfSource φ)) x =
+      fun i : Fin 3 => φ.partialDeriv i x := by
+  funext i
+  simp [sourceFieldFunctionOfNative, scalarGradient,
+    nativeTestFunctionOfSource_fderiv_coordinate]
+
+end MethbokeAddon.QuasiFeffermanA.SourceTests
