@@ -11,16 +11,21 @@ adds no theorem to the accepted native scope described here.
 
 ## Current QFA candidate: actual free-heat time-energy
 
-Two new packages, `QFAHeatTrajectory` and `QFAHeatTimeEnergy`, prepare **34
-declarations: 31 theorems and three definitions**. They construct the actual
+Three packages, `QFAHeatTrajectory`, `QFAHeatTimeEnergy` and
+`QFAWeightedBudgetAllWindows`, prepare **35 declarations: 32 theorems and
+three definitions**. They construct the actual
 positive-time H2 trajectory and strong time measurability, prove the exact
 free-heat enstrophy-dissipation identity, and derive finite-window L2-time H2
-membership with a quantitative bound. **Matching external acceptance is pending.**
-The required run covers 524 modules, 104 fresh package audits and 1,401 named
+membership with a quantitative bound. The weighted-budget theorem also covers
+the zero-length horizon, completing the stated step-7 packaging once accepted.
+**Matching external acceptance is pending.**
+The required run covers 526 modules, 105 fresh package audits and 1,402 named
 reports. No accepted proof, independent consumer, compiler pin or CI policy
 has changed. No local Lean is executed.
 
 [Exact construction chain](DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
+The preceding external run `44850402452` found three trajectory elaboration
+issues, now repaired with unchanged statements. Exact failure evidence is retained.
 The H2 trajectory's zero extension at time zero makes no claim that arbitrary
 H1 input lies in H2. The general QFA/WFA roots remain open.
 

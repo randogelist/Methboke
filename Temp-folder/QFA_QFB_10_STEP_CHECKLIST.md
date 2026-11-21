@@ -25,8 +25,11 @@ General nonzero-data QFA remains open. No local Lean was run.
 
 `QFAHeatTrajectory` and `QFAHeatTimeEnergy` prepare the actual measurable H2
 trajectory, exact free-heat enstrophy dissipation and finite-window L2-time H2
-membership. These 34 new declarations await matching external verification;
+membership. `QFAWeightedBudgetAllWindows` additionally packages the actual
+weighted budget for T=0 as well as every positive finite horizon. These 35
+new declarations await matching external verification;
 the accepted-scope table below is unchanged until that evidence passes.
+The preceding external trajectory elaboration failure is retained and repaired.
 [Construction](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
 
 ## Accepted subresults and remaining obligations

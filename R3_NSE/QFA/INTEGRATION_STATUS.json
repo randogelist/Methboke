@@ -168,25 +168,53 @@
   "a_tier_register": "R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt",
   "current_construction": {
     "id": "QFA_HEAT_TIME_ENERGY_BATCH",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "status": "REPAIRED_PENDING_MATCHING_EXTERNAL",
     "source_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
     "packages": [
       "QFAHeatTrajectory",
-      "QFAHeatTimeEnergy"
+      "QFAHeatTimeEnergy",
+      "QFAWeightedBudgetAllWindows"
     ],
-    "new_named_declarations": 34,
-    "new_theorems": 31,
+    "new_named_declarations": 35,
+    "new_theorems": 32,
     "new_definitions": 3,
-    "expected_compiled_modules": 524,
-    "expected_fresh_package_audits": 104,
-    "expected_named_reports": 1401,
-    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data.",
+    "expected_compiled_modules": 526,
+    "expected_fresh_package_audits": 105,
+    "expected_named_reports": 1402,
+    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data; actual LH factor-one-quarter weighted budget for every finite T>=0.",
     "physical_qfa_root_proved": false,
     "wfa_proved": false,
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
     "derivation": "R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt",
-    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data."
+    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data.",
+    "preceding_attempts": [
+      {
+        "tested_commit": "d53e1fae14148bc8baf2ad06b9a8cb3030c893f8",
+        "run_id": 44850402452,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44850402452",
+        "status": "FAIL",
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "phase": "module_compilation",
+        "module_count": 524,
+        "passed_modules": 520,
+        "failed_modules": 1,
+        "blocked_modules": 3,
+        "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatTrajectory",
+        "artifact_id": 14685176604,
+        "artifact_sha256": "7b094cecf6b42d6953965166a6eeeba0fe89703ac40a9306c73e8ff3193cb41e",
+        "evidence": "audits/material-d53e1fae-heat-time-failure/evidence.zip",
+        "repairs": [
+          "Use pinned continuousAt_const parameter y.",
+          "Select real-line second countability explicitly, avoiding a target-space instance search.",
+          "Use add_le_add with a reflexive Laplacian term to avoid a shadowed one-sided addition lemma."
+        ],
+        "public_statement_changes": false,
+        "prior_accepted_source_changes": false,
+        "compiler_dependency_driver_policy_changed": false,
+        "local_lean_executions": 0
+      }
+    ]
   },
   "latest_shared_basis_acceptance": {
     "tested_commit": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
@@ -385,24 +413,52 @@
   ],
   "heat_time_construction": {
     "id": "QFA_HEAT_TIME_ENERGY_BATCH",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "status": "REPAIRED_PENDING_MATCHING_EXTERNAL",
     "source_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
     "packages": [
       "QFAHeatTrajectory",
-      "QFAHeatTimeEnergy"
+      "QFAHeatTimeEnergy",
+      "QFAWeightedBudgetAllWindows"
     ],
-    "new_named_declarations": 34,
-    "new_theorems": 31,
+    "new_named_declarations": 35,
+    "new_theorems": 32,
     "new_definitions": 3,
-    "expected_compiled_modules": 524,
-    "expected_fresh_package_audits": 104,
-    "expected_named_reports": 1401,
-    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data.",
+    "expected_compiled_modules": 526,
+    "expected_fresh_package_audits": 105,
+    "expected_named_reports": 1402,
+    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data; actual LH factor-one-quarter weighted budget for every finite T>=0.",
     "physical_qfa_root_proved": false,
     "wfa_proved": false,
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
     "derivation": "R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt",
-    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data."
+    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data.",
+    "preceding_attempts": [
+      {
+        "tested_commit": "d53e1fae14148bc8baf2ad06b9a8cb3030c893f8",
+        "run_id": 44850402452,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44850402452",
+        "status": "FAIL",
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "phase": "module_compilation",
+        "module_count": 524,
+        "passed_modules": 520,
+        "failed_modules": 1,
+        "blocked_modules": 3,
+        "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatTrajectory",
+        "artifact_id": 14685176604,
+        "artifact_sha256": "7b094cecf6b42d6953965166a6eeeba0fe89703ac40a9306c73e8ff3193cb41e",
+        "evidence": "audits/material-d53e1fae-heat-time-failure/evidence.zip",
+        "repairs": [
+          "Use pinned continuousAt_const parameter y.",
+          "Select real-line second countability explicitly, avoiding a target-space instance search.",
+          "Use add_le_add with a reflexive Laplacian term to avoid a shadowed one-sided addition lemma."
+        ],
+        "public_statement_changes": false,
+        "prior_accepted_source_changes": false,
+        "compiler_dependency_driver_policy_changed": false,
+        "local_lean_executions": 0
+      }
+    ]
   }
 }

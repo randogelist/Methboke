@@ -102,7 +102,7 @@ theorem heatTrajectory_continuousAt_pos (ν : ℝ≥0) (hν : 0 < ν)
 theorem heatTrajectory_continuousAt_neg (ν : ℝ≥0) (hν : 0 < ν)
     (u : PhysicalH1) {t : ℝ} (ht : t < 0) :
     ContinuousAt (heatTrajectory ν hν u) t := by
-  apply (continuousAt_const (c := (0 : PhysicalH2))).congr_of_eventuallyEq
+  apply (continuousAt_const (y := (0 : PhysicalH2))).congr_of_eventuallyEq
   filter_upwards [eventually_lt_nhds ht] with r hr
   exact heatTrajectory_eq_zero_of_nonpos ν hν u hr.le
 
@@ -124,6 +124,7 @@ theorem heatTrajectory_continuousOn_ne_zero (ν : ℝ≥0) (hν : 0 < ν)
 measurable even though no H2 value at the initial trace is required. -/
 theorem heatTrajectory_stronglyMeasurable (ν : ℝ≥0) (hν : 0 < ν)
     (u : PhysicalH1) : StronglyMeasurable (heatTrajectory ν hν u) := by
+  letI : SecondCountableTopologyEither ℝ PhysicalH2 := ⟨Or.inl inferInstance⟩
   apply (heatTrajectory_continuousOn_ne_zero ν hν u).stronglyMeasurable_of_countable_compl
   simpa only [compl_compl] using (Set.countable_singleton (0 : ℝ))
 
@@ -148,7 +149,7 @@ theorem heatTrajectory_norm_sq (ν : ℝ≥0) (hν : 0 < ν) (u : PhysicalH1)
   rw [heatTrajectory_eq_of_pos ν hν u ht,
     H2Spectral.physicalH2_norm_sq_eq_laplacian, physicalH1_norm_sq]
   simp only [heatH1ToH2_velocity, heatH1ToH2_gradient, heatH1_velocity,
-    heatH1_gradient, physicalH1Energy, physicalH1Enstrophy]
+    heatH1_gradient]
 
 /-- Uniform H1 contraction leaves only the actual Laplacian energy to be
 integrated in order to prove finite-window L2-time H2 membership. -/
@@ -158,7 +159,7 @@ theorem heatTrajectory_norm_sq_le (ν : ℝ≥0) (hν : 0 < ν) (u : PhysicalH1)
       ‖u‖ ^ 2 + ‖physicalH2Laplacian (heatTrajectory ν hν u t)‖ ^ 2 := by
   by_cases ht : 0 < t
   · rw [heatTrajectory_norm_sq ν hν u ht]
-    exact add_le_add_right (heatH1_norm_sq_le ν t.toNNReal u) _
+    exact add_le_add (heatH1_norm_sq_le ν t.toNNReal u) le_rfl
   · rw [heatTrajectory_eq_zero_of_nonpos ν hν u (le_of_not_gt ht)]
     simpa only [norm_zero, zero_pow (by decide : (2 : ℕ) ≠ 0),
       map_zero, add_zero] using (sq_nonneg ‖u‖)
