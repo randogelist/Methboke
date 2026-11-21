@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "codex/qfa-structured-assembly",
+  "tested_source": "52272c2ce612ef168456cfcaa5fc63b67dc76fb3",
+  "run_id": 44922677288,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44922677288",
+  "status": "FAILED_NO_ACCEPTANCE",
+  "failure_phase": "compile",
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "failed_module": "QFASourceL2.Endpoint",
+  "diagnostics": [
+    {
+      "line": 48,
+      "cause": "The raw Pi product topology did not definitionally match the norm-topology codomain inferred by whole-vector continuousLinearMap_comp transport."
+    },
+    {
+      "line": 77,
+      "cause": "The Euclidean PiLp topology did not definitionally match the raw-function topology inferred by reverse whole-vector continuousLinearMap_comp transport."
+    }
+  ],
+  "repair": "Replace whole-vector continuous-linear MemLp transport with componentwise MemLp.eval/of_eval and eval_piLp/of_eval_piLp transport.",
+  "statement_changes": false,
+  "premise_changes": false,
+  "audit_surface_changes": false,
+  "compiler": "Lean 4.33.0 d8b18978322de05a8f3dba51ef03cf5461676c17",
+  "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "dependency_cache": "EXACT",
+  "project_cache": "PREFIX",
+  "evidence_artifact": 14714073881,
+  "evidence_sha256": "62dcfc3b391f2469c2486a74de22155fe0a411e76284f9aefa48d22b463c7445",
+  "local_lean_executed": false
+}
