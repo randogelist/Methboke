@@ -1,0 +1,89 @@
+import QFASourceTestsBasic.Endpoint
+import Mathlib.Analysis.Calculus.FDeriv.Equiv
+import Mathlib.Analysis.InnerProductSpace.PiL2
+
+/-!
+# Exact source/native scalar-test calculus
+
+This endpoint identifies the coordinate partial derivatives of a smooth compact source scalar
+test with the Fréchet derivatives of its accepted native pullback. It then transports the full
+test gradient and the velocity-gradient pairing without changing coordinates or constants.
+
+No weak-divergence theorem, source `IsInJ`, H1 good-time admission, PDE construction,
+comparison, continuation, sharp Sobolev admission, smooth solution, or QFA root is asserted.
+-/
+
+set_option autoImplicit false
+set_option Elab.async true
+
+noncomputable section
+
+open scoped BigOperators ContDiff
+
+namespace MethbokeAddon.QuasiFeffermanA.SourceTestCalculus
+
+open MethbokeAddon.QuasiFeffermanA.SourceCoordinates
+open MethbokeAddon.QuasiFeffermanA.SourceFields
+open MethbokeAddon.QuasiFeffermanA.SourceTests
+
+/-- The classical source-coordinate derivative in direction `i`. -/
+noncomputable def sourcePartialDeriv
+    (φ : SourceWeakTestFunction) (i : Fin 3) (x : SourceVec3) : ℝ :=
+  fderiv ℝ φ.toFun x (sourceCoordinateVector i)
+
+/-- Native coordinate vectors forget to the corresponding raw source coordinate vectors. -/
+@[simp] theorem nativeToSource_coordinateVector (i : Fin 3) :
+    nativeToSource (coordinateVector i) = sourceCoordinateVector i := by
+  rw [← sourceToNative_coordinateVector i, nativeToSource_sourceToNative]
+
+/-- Exact Fréchet chain rule for the native pullback of a source scalar test. -/
+theorem nativeTestFunctionOfSource_fderiv
+    (φ : SourceWeakTestFunction) (x : Space) :
+    fderiv ℝ (nativeTestFunctionOfSource φ) x =
+      (fderiv ℝ φ.toFun (nativeToSource x)).comp
+        sourceNativeEquiv.symm.toContinuousLinearMap := by
+  have hfun : nativeTestFunctionOfSource φ = φ.toFun ∘ sourceNativeEquiv.symm := by
+    funext y
+    simp [nativeTestFunctionOfSource]
+  rw [hfun]
+  exact sourceNativeEquiv.symm.comp_right_fderiv
+
+/-- The native derivative in coordinate direction `i` is exactly the source partial derivative. -/
+theorem nativeTestFunctionOfSource_coordinateDeriv
+    (φ : SourceWeakTestFunction) (i : Fin 3) (x : SourceVec3) :
+    fderiv ℝ (nativeTestFunctionOfSource φ) (sourceToNative x) (coordinateVector i) =
+      sourcePartialDeriv φ i x := by
+  rw [nativeTestFunctionOfSource_fderiv]
+  simp [sourcePartialDeriv, ContinuousLinearMap.comp_apply]
+
+/-- The raw source-coordinate gradient of a source scalar test. -/
+noncomputable def sourceTestGradient
+    (φ : SourceWeakTestFunction) (x : SourceVec3) : SourceVec3 :=
+  fun i => sourcePartialDeriv φ i x
+
+/-- The source test gradient is transported to the native physical scalar gradient exactly. -/
+theorem sourceToNative_sourceTestGradient
+    (φ : SourceWeakTestFunction) (x : SourceVec3) :
+    sourceToNative (sourceTestGradient φ x) =
+      scalarGradient (nativeTestFunctionOfSource φ) (sourceToNative x) := by
+  unfold sourceToNative sourceTestGradient scalarGradient
+  congr 1
+  funext i
+  exact (nativeTestFunctionOfSource_coordinateDeriv φ i x).symm
+
+/-- The coordinate source pairing is exactly the native Euclidean inner-product pairing after
+transporting the test and evaluation point. -/
+theorem sourceField_testPairing_eq_nativeInner
+    (a : Space → Space) (φ : SourceWeakTestFunction) (x : SourceVec3) :
+    (∑ i : Fin 3,
+      sourceFieldFunctionOfNative a x i * sourcePartialDeriv φ i x) =
+      inner ℝ (a (sourceToNative x))
+        (scalarGradient (nativeTestFunctionOfSource φ) (sourceToNative x)) := by
+  rw [← sourceToNative_sourceTestGradient]
+  rw [PiLp.inner_apply]
+  apply Finset.sum_congr rfl
+  intro i hi
+  simp [sourceFieldFunctionOfNative, sourceTestGradient,
+    sourceToNative, nativeToSource, Real.inner_apply]
+
+end MethbokeAddon.QuasiFeffermanA.SourceTestCalculus
