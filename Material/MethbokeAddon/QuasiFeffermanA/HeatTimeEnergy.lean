@@ -52,8 +52,9 @@ theorem enstrophyDensity_nonneg (u : PhysicalH1) (ξ : Space) :
 
 theorem integrable_enstrophyDensity (u : PhysicalH1) :
     Integrable (enstrophyDensity u) volume := by
-  simpa only [enstrophyDensity, heatRate] using
-    H1Spectral.integrable_fourier_gradient (physicalH1_weakGradient u)
+  change Integrable (fun ξ : Space => (2 * Real.pi) ^ 2 * ‖ξ‖ ^ 2 *
+    ‖(𝓕 (complexifyL2 (physicalH1Velocity u)) : ComplexL2) ξ‖ ^ 2) volume
+  exact H1Spectral.integrable_fourier_gradient (physicalH1_weakGradient u)
 
 theorem integral_enstrophyDensity (u : PhysicalH1) :
     (∫ ξ : Space, enstrophyDensity u ξ) = physicalH1Enstrophy u := by
@@ -134,7 +135,7 @@ private theorem heatDissipationDensity_primitive_hasDerivAt
   have hd := ((hasDerivAt_const_mul (x := t)
     (-(2 * (ν : ℝ) * heatRate ξ))).exp).const_mul
       (-enstrophyDensity u ξ / (2 * (ν : ℝ)))
-  convert hd using 1
+  convert hd using 1 <;> try rfl
   unfold heatDissipationDensity
   field_simp [hc] <;> ring
 
@@ -285,8 +286,10 @@ theorem heatTrajectory_enstrophy_dissipation
     2 * (ν : ℝ) *
         (∫ t in (0 : ℝ)..T, ‖physicalH2Laplacian (heatTrajectory ν hν u t)‖ ^ 2) =
       physicalH1Enstrophy u - physicalH1Enstrophy (heatH1 ν T.toNNReal u) := by
+  have hc : 2 * (ν : ℝ) ≠ 0 :=
+    mul_ne_zero (by norm_num) (ne_of_gt hν)
   rw [heatTrajectory_laplacian_sq_integral ν hν u T hT, ← mul_assoc,
-    mul_inv_cancel₀ (mul_ne_zero (by norm_num) (ne_of_gt hν)), one_mul]
+    mul_inv_cancel₀ hc, one_mul]
 
 theorem heatTrajectory_laplacian_sq_integral_le
     (ν : ℝ≥0) (hν : 0 < ν) (u : PhysicalH1) (T : ℝ) (hT : 0 ≤ T) :

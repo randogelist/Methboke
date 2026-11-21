@@ -26,6 +26,8 @@ has changed. No local Lean is executed.
 [Exact construction chain](DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
 The preceding external run `44850402452` found three trajectory elaboration
 issues, now repaired with unchanged statements. Exact failure evidence is retained.
+Run `44850983211` then passed that trajectory and the all-window budget;
+three heat-time scalar elaborations are now repaired with unchanged statements.
 The H2 trajectory's zero extension at time zero makes no claim that arbitrary
 H1 input lies in H2. The general QFA/WFA roots remain open.
 

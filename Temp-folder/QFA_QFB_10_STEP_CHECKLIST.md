@@ -29,7 +29,8 @@ membership. `QFAWeightedBudgetAllWindows` additionally packages the actual
 weighted budget for T=0 as well as every positive finite horizon. These 35
 new declarations await matching external verification;
 the accepted-scope table below is unchanged until that evidence passes.
-The preceding external trajectory elaboration failure is retained and repaired.
+The preceding trajectory and then heat-time scalar elaboration failures are
+retained and repaired; the source-pass evidence alone does not promote a step.
 [Construction](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
 
 ## Accepted subresults and remaining obligations
