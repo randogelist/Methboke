@@ -1,0 +1,392 @@
+name: QFA / one-shot source coordinate bridge
+
+on:
+  push:
+    branches: [codex/qfa-structured-assembly]
+    paths:
+      - '.github/workflows/qfa-register-source-coordinates.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: codex/qfa-structured-assembly
+          fetch-depth: 1
+
+      - name: Write exact endpoint, audits and registration metadata
+        env:
+          ENDPOINT_ID: QFASourceCoordinates
+        run: |
+          python3 - <<'PY'
+          from __future__ import annotations
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          root = Path.cwd()
+          material = root / 'Material'
+          endpoint_id = os.environ['ENDPOINT_ID']
+          package = material / endpoint_id
+          if package.exists():
+              raise SystemExit(f'{package} already exists')
+          package.mkdir(parents=True)
+
+          endpoint = r'''import MethbokeAddon.QuasiFeffermanA.Contracts
+          import Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace
+
+          /-!
+          # Exact CKN-source coordinates and native Euclidean coordinates
+
+          The CKN source carrier is `Fin 3 → ℝ`.  Methboke's native whole-space
+          carrier is `EuclideanSpace ℝ (Fin 3)`, definitionally the `L²` Pi wrapper
+          `WithLp 2 (Fin 3 → ℝ)`.  This endpoint exposes the canonical conversion,
+          its inverse, exact volume preservation, and exact Euclidean norm formulas.
+
+          Mathematical/source provenance:
+          * scottnarmstrong/CaffarelliKohnNirenberg@
+            381d658ead0f03a18361965cc0427ce3fa5844ab,
+            `CKN/Foundation/Sobolev/Ambient/Basic.lean` (`CKN.Vec`),
+            `CKN/Foundation/Ambient/Euclidean.lean` (`CKN.Space`,
+            `CKN.spaceEuclideanNorm`);
+          * Mathlib@db584cd6d46c92f209a44c0f1c829460d327499d,
+            `PiLp.continuousLinearEquiv`, `PiLp.volume_preserving_toLp`,
+            `PiLp.volume_preserving_ofLp`, `PiLp.norm_eq_of_L2`, and
+            `PiLp.norm_sq_eq_of_L2`.
+
+          No CKN proof source is imported and no PDE, existence, regularity,
+          comparison, sharp Sobolev, or QFA conclusion is asserted.
+          -/
+
+          set_option autoImplicit false
+          set_option Elab.async true
+
+          noncomputable section
+
+          open MeasureTheory
+          open scoped BigOperators
+
+          namespace MethbokeAddon.QuasiFeffermanA.SourceCoordinates
+
+          /-- The exact coordinate carrier used by the selected CKN source. -/
+          abbrev SourceVec3 := Fin 3 → ℝ
+
+          /-- The canonical continuous linear equivalence from raw coordinates to
+          the native Euclidean carrier. -/
+          noncomputable def sourceNativeEquiv : SourceVec3 ≃L[ℝ] Space :=
+            (PiLp.continuousLinearEquiv 2 ℝ (fun _ : Fin 3 => ℝ)).symm
+
+          /-- Put raw source coordinates into the native `L²` Pi wrapper. -/
+          def sourceToNative (x : SourceVec3) : Space := WithLp.toLp 2 x
+
+          /-- Forget the native `L²` Pi wrapper and recover raw source coordinates. -/
+          def nativeToSource (x : Space) : SourceVec3 := WithLp.ofLp x
+
+          @[simp] theorem sourceNativeEquiv_apply (x : SourceVec3) :
+              sourceNativeEquiv x = sourceToNative x := rfl
+
+          @[simp] theorem sourceNativeEquiv_symm_apply (x : Space) :
+              sourceNativeEquiv.symm x = nativeToSource x := rfl
+
+          @[simp] theorem sourceToNative_nativeToSource (x : Space) :
+              sourceToNative (nativeToSource x) = x := rfl
+
+          @[simp] theorem nativeToSource_sourceToNative (x : SourceVec3) :
+              nativeToSource (sourceToNative x) = x := rfl
+
+          /-- Raw-to-native coordinates preserve full Lebesgue volume exactly. -/
+          theorem sourceToNative_measurePreserving :
+              MeasurePreserving sourceToNative := by
+            simpa only [sourceToNative] using
+              (PiLp.volume_preserving_toLp (Fin 3))
+
+          /-- Native-to-raw coordinates preserve full Lebesgue volume exactly. -/
+          theorem nativeToSource_measurePreserving :
+              MeasurePreserving nativeToSource := by
+            simpa only [nativeToSource] using
+              (PiLp.volume_preserving_ofLp (Fin 3))
+
+          /-- The source's finite-coordinate Euclidean norm. -/
+          noncomputable def sourceEuclideanNorm (x : SourceVec3) : ℝ :=
+            Real.sqrt (∑ i : Fin 3, x i ^ 2)
+
+          /-- The source Euclidean norm is the native Euclidean norm on the nose. -/
+          theorem sourceEuclideanNorm_eq_native_norm (x : SourceVec3) :
+              sourceEuclideanNorm x = ‖sourceToNative x‖ := by
+            unfold sourceEuclideanNorm sourceToNative
+            rw [PiLp.norm_eq_of_L2]
+            congr 1
+            apply Finset.sum_congr rfl
+            intro i hi
+            simp only [PiLp.toLp_apply, Real.norm_eq_abs, sq_abs]
+
+          /-- Exact coordinate sum-of-squares formula for the native norm. -/
+          theorem sourceToNative_norm_sq (x : SourceVec3) :
+              ‖sourceToNative x‖ ^ 2 = ∑ i : Fin 3, x i ^ 2 := by
+            simpa only [sourceToNative, PiLp.toLp_apply, Real.norm_eq_abs, sq_abs] using
+              (PiLp.norm_sq_eq_of_L2 (fun _ : Fin 3 => ℝ) (sourceToNative x))
+
+          /-- The source coordinate basis vector. -/
+          def sourceCoordinateVector (j : Fin 3) : SourceVec3 := Pi.single j 1
+
+          /-- The source and native coordinate vectors are definitionally the same
+          after the canonical coordinate conversion. -/
+          @[simp] theorem sourceToNative_coordinateVector (j : Fin 3) :
+              sourceToNative (sourceCoordinateVector j) = coordinateVector j := rfl
+
+          end MethbokeAddon.QuasiFeffermanA.SourceCoordinates
+          '''
+          endpoint = '\n'.join(line[10:] if line.startswith('          ') else line for line in endpoint.splitlines()) + '\n'
+          (package / 'Endpoint.lean').write_text(endpoint)
+
+          names = [
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.SourceVec3',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceNativeEquiv',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.nativeToSource',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceNativeEquiv_apply',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceNativeEquiv_symm_apply',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_nativeToSource',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.nativeToSource_sourceToNative',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_measurePreserving',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.nativeToSource_measurePreserving',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceEuclideanNorm',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceEuclideanNorm_eq_native_norm',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_norm_sq',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceCoordinateVector',
+              'MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_coordinateVector',
+          ]
+
+          audit_head = r'''import QFASourceCoordinates.Endpoint
+
+          set_option autoImplicit false
+          set_option pp.universes true
+          set_option pp.explicit true
+          set_option pp.fullNames true
+
+          noncomputable section
+
+          open MeasureTheory
+          open scoped BigOperators
+          open MethbokeAddon.QuasiFeffermanA
+          open MethbokeAddon.QuasiFeffermanA.SourceCoordinates
+
+          namespace QFASourceCoordinates.IndependentTypeChecks
+
+          example : Type := SourceVec3
+
+          example : SourceVec3 ≃L[ℝ] Space := sourceNativeEquiv
+
+          example (x : SourceVec3) : Space := sourceToNative x
+
+          example (x : Space) : SourceVec3 := nativeToSource x
+
+          example (x : SourceVec3) : sourceNativeEquiv x = sourceToNative x :=
+            sourceNativeEquiv_apply x
+
+          example (x : Space) : sourceNativeEquiv.symm x = nativeToSource x :=
+            sourceNativeEquiv_symm_apply x
+
+          example (x : Space) : sourceToNative (nativeToSource x) = x :=
+            sourceToNative_nativeToSource x
+
+          example (x : SourceVec3) : nativeToSource (sourceToNative x) = x :=
+            nativeToSource_sourceToNative x
+
+          example : MeasurePreserving sourceToNative :=
+            sourceToNative_measurePreserving
+
+          example : MeasurePreserving nativeToSource :=
+            nativeToSource_measurePreserving
+
+          example (x : SourceVec3) : ℝ := sourceEuclideanNorm x
+
+          example (x : SourceVec3) : sourceEuclideanNorm x = ‖sourceToNative x‖ :=
+            sourceEuclideanNorm_eq_native_norm x
+
+          example (x : SourceVec3) :
+              ‖sourceToNative x‖ ^ 2 = ∑ i : Fin 3, x i ^ 2 :=
+            sourceToNative_norm_sq x
+
+          example (j : Fin 3) : SourceVec3 := sourceCoordinateVector j
+
+          example (j : Fin 3) :
+              sourceToNative (sourceCoordinateVector j) = coordinateVector j :=
+            sourceToNative_coordinateVector j
+
+          end QFASourceCoordinates.IndependentTypeChecks
+          '''
+          audit_head = '\n'.join(line[10:] if line.startswith('          ') else line for line in audit_head.splitlines()) + '\n'
+          markers = []
+          for name in names:
+              markers.extend([
+                  f'#eval IO.println "TYPE_BEGIN:{name}"',
+                  f'#check @{name}',
+                  f'#eval IO.println "TYPE_END:{name}"',
+                  f'#eval IO.println "AXIOMS_BEGIN:{name}"',
+                  f'#print axioms {name}',
+                  f'#eval IO.println "AXIOMS_END:{name}"',
+                  '',
+              ])
+          (package / 'Audit.lean').write_text(audit_head + '\n'.join(markers))
+
+          declarations = []
+          kinds = {
+              names[0]: 'abbreviation',
+              names[1]: 'definition',
+              names[2]: 'definition',
+              names[3]: 'definition',
+              names[10]: 'definition',
+              names[13]: 'definition',
+          }
+          scopes = {
+              names[0]: 'Exact raw coordinate carrier Fin 3 to Real used by the selected CKN source.',
+              names[1]: 'Canonical continuous linear equivalence from source raw coordinates to native Euclidean space.',
+              names[2]: 'Canonical raw-to-native coordinate conversion.',
+              names[3]: 'Canonical native-to-raw coordinate conversion.',
+              names[4]: 'The continuous linear equivalence applies as the raw-to-native conversion.',
+              names[5]: 'The inverse continuous linear equivalence applies as the native-to-raw conversion.',
+              names[6]: 'Left inverse identity on the native carrier.',
+              names[7]: 'Right inverse identity on source coordinates.',
+              names[8]: 'Exact full-volume measure preservation from source coordinates to native space.',
+              names[9]: 'Exact full-volume measure preservation from native space to source coordinates.',
+              names[10]: 'Exact finite-coordinate Euclidean norm used by the source model.',
+              names[11]: 'Equality of source Euclidean norm and native Euclidean norm.',
+              names[12]: 'Exact sum-of-coordinate-squares identity for the native norm.',
+              names[13]: 'Source coordinate basis vector.',
+              names[14]: 'Exact transport of coordinate basis vectors.',
+          }
+          for name in names:
+              declarations.append({
+                  'name': name,
+                  'kind': kinds.get(name, 'theorem'),
+                  'source': {
+                      'repository': 'randogelist/Methboke',
+                      'path': f'Material/{endpoint_id}/Endpoint.lean',
+                      'module': f'{endpoint_id}.Endpoint',
+                      'revision_status': 'FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING',
+                  },
+                  'scope': scopes[name],
+              })
+
+          manifest = {
+              'schema_version': 1,
+              'id': endpoint_id,
+              'endpoint_module': f'{endpoint_id}.Endpoint',
+              'audit_module': f'{endpoint_id}.Audit',
+              'imports': [
+                  'MethbokeAddon.QuasiFeffermanA.Contracts',
+                  'Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace',
+              ],
+              'source_roots': [{
+                  'module': 'MethbokeAddon.QuasiFeffermanA.Contracts',
+                  'path': 'MethbokeAddon/QuasiFeffermanA/Contracts.lean',
+                  'storage': 'owned_source',
+                  'origin_kind': 'accepted_native_dependency',
+              }],
+              'reference_sources': [
+                  {
+                      'repository': 'scottnarmstrong/CaffarelliKohnNirenberg',
+                      'revision': '381d658ead0f03a18361965cc0427ce3fa5844ab',
+                      'files': [
+                          'CKN/Foundation/Sobolev/Ambient/Basic.lean',
+                          'CKN/Foundation/Ambient/Euclidean.lean',
+                      ],
+                      'role': 'Exact source carrier and Euclidean norm model; reference only.',
+                  },
+                  {
+                      'repository': 'leanprover-community/mathlib4',
+                      'revision': 'db584cd6d46c92f209a44c0f1c829460d327499d',
+                      'files': [
+                          'Mathlib/Analysis/Normed/Lp/PiLp.lean',
+                          'Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.lean',
+                      ],
+                      'role': 'Native exact coordinate equivalence, norm identities and volume preservation.',
+                  },
+              ],
+              'declarations': declarations,
+              'allowed_axioms': ['propext', 'Classical.choice', 'Quot.sound'],
+              'scope': 'Exact coordinate, norm and Lebesgue-volume bridge between the selected CKN raw carrier and Methboke native Euclidean Space.',
+              'status': 'PENDING_MATCHING_EXTERNAL_CI',
+              'project_scope': 'QFA_A_TIER_CLOSURE',
+              'implementation_base': os.environ['GITHUB_SHA'],
+              'research_layout': 'R3_NSE/QFA/STRUCTURED_ASSEMBLY',
+              'derivation_chain': 'R3_NSE/QFA/STRUCTURED_ASSEMBLY/ASSEMBLY_MANIFEST.txt',
+              'type_policy': 'Independent exact consumers and fresh named exact-type and theorem-level axiom reports for every declaration.',
+              'physical_qfa_root_proved': False,
+              'local_lean_executed': False,
+          }
+          (package / 'endpoint.json').write_text(json.dumps(manifest, indent=2) + '\n')
+
+          readme = '''# QFA source-coordinate bridge\n\nThis endpoint proves the exact carrier bridge between the selected CKN coordinate model `Fin 3 → ℝ` and Methboke's native `EuclideanSpace ℝ (Fin 3)`. It records the canonical continuous linear equivalence, its inverse, exact Lebesgue-volume preservation, exact Euclidean norm identities, and coordinate-vector transport.\n\nIt introduces no PDE or QFA conclusion. Acceptance requires matching external compilation, independent exact-type checks, theorem-level axiom reports, evidence retention, publication, and terminal Material acceptance.\n'''
+          (package / 'README.md').write_text(readme)
+
+          sys.path.insert(0, str(material / 'ci'))
+          import build
+          plan = build.validate(material)
+          entry = next(item for item in plan['endpoints'] if item['id'] == endpoint_id)
+
+          closure = {
+              'schema_version': 1,
+              'endpoint': endpoint_id,
+              'source_revision_status': 'FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING',
+              'source_baseline': os.environ['GITHUB_SHA'],
+              'lean_toolchain': plan['toolchain'],
+              'mathlib_commit': plan['mathlib_commit'],
+              'roots': [entry['spec']['endpoint_module'], entry['spec']['audit_module']],
+              'files': entry['files'],
+              'external_imports': entry['external_imports'],
+              'source_drift': entry['source_drift'],
+          }
+          closure_path = package / 'closure.json'
+          closure_bytes = (json.dumps(closure, indent=2, sort_keys=True) + '\n').encode()
+          closure_path.write_bytes(closure_bytes)
+
+          index_path = material / 'endpoints.json'
+          index = json.loads(index_path.read_text())
+          endpoints = index['endpoints']
+          if any(row.get('id') == endpoint_id for row in endpoints):
+              raise SystemExit(f'{endpoint_id} already registered')
+          endpoints.append({
+              'id': endpoint_id,
+              'endpoint_module': entry['spec']['endpoint_module'],
+              'audit_module': entry['spec']['audit_module'],
+              'manifest': f'{endpoint_id}/endpoint.json',
+              'closure': f'{endpoint_id}/closure.json',
+              'declarations': len(entry['spec']['declarations']),
+              'local_source_modules': len(entry['files']),
+              'source_closure_sha256': hashlib.sha256(closure_bytes).hexdigest(),
+          })
+          index['endpoint_count'] = len(endpoints)
+          index['declaration_count'] = sum(int(row['declarations']) for row in endpoints)
+          index_path.write_text(json.dumps(index, indent=2) + '\n')
+
+          assert len(names) == 15
+          assert index['endpoint_count'] == 171
+          assert index['declaration_count'] == 2234
+          assert {row['id'] for row in endpoints} == set(plan['all_endpoint_ids'])
+          print(json.dumps({
+              'endpoint_count': index['endpoint_count'],
+              'declaration_count': index['declaration_count'],
+              'registered': endpoint_id,
+              'local_source_modules': len(entry['files']),
+              'closure_sha256': hashlib.sha256(closure_bytes).hexdigest(),
+          }, indent=2))
+          PY
+
+      - name: Remove one-shot workflow and commit exact package
+        run: |
+          rm .github/workflows/qfa-register-source-coordinates.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Material/QFASourceCoordinates Material/endpoints.json .github/workflows/qfa-register-source-coordinates.yml
+          git commit -m 'feat(qfa): add exact source-coordinate bridge'
+          git push origin HEAD:codex/qfa-structured-assembly
