@@ -4,7 +4,7 @@ DATE = 2026-11-21
 BRANCH = codex/qfa-structured-assembly
 TARGET = QFA_A_TIER_CLOSURE
 PACKAGE = QFASourceL2
-STATUS = PREPARED_PENDING_REGISTRATION_AND_MATCHING_EXTERNAL_CI
+STATUS = PENDING_MATCHING_EXTERNAL_CI
 
 CANDIDATE_SCOPE
 ===============
@@ -20,8 +20,8 @@ Transport genuine native SpatialL2 fields to the raw source-coordinate carrier:
   * two-way raw/native MemLp equivalence for source fields.
 
 DECLARATIONS = 7
-EXPECTED_ENDPOINT_COUNT = 174
-EXPECTED_TOTAL_NAMED_AUDITS = 2256
+ENDPOINT_COUNT = 174
+TOTAL_NAMED_AUDITS = 2256
 
 The raw source carrier uses its finite-product norm for MemLp. Exact physical
 Euclidean norm identities remain the accepted QFASourceFields statements.
@@ -37,6 +37,12 @@ DEPENDENCIES
   Mathlib MemLp.comp_measurePreserving
   Mathlib MemLp.continuousLinearMap_comp
   Mathlib MemLp.toLp / coeFn_toLp
+
+CANDIDATE_SOURCE = 4827b3fb621beffd3dd1c8d0388e631496da9475
+PUBLIC_AUDIT_SURFACE = 7 DECLARATIONS
+INTERNAL_REVERSE_HELPER = PRIVATE
+LEAN = 4.33.0
+MATHLIB = db584cd6d46c92f209a44c0f1c829460d327499d
 
 Emit !=! only after matching external compiler, all seven independent type
 consumers, all seven theorem-level axiom reports, evidence retention,
