@@ -69,16 +69,31 @@ Run 44840058960 isolated two remaining reported instance-inference errors. Their
 prepared statement-preserving repair. Full fresh audits remain required.
 
 
-Latest external attempt: run44840893717 at8e75aa4f failed before fresh audits.
+Earlier external attempt: run44840893717 at8e75aa4f failed before fresh audits.
 ResidualSchwartz and HelicalFrame compile. The actual remaining failures
 are ParametricFourier and CorrectionAdmission. Matching proof-only repairs
 are prepared; the same Seed, Family and literal consumers are retained.
 [Evidence](../../audits/fdsn-r3-8e75aa4f-failed/SUMMARY.txt).
 
 
-Latest R3 verification: [run44842165398](https://github.com/randogelist/Methboke/actions/runs/44842165398)
+Earlier R3 verification: [run44842165398](https://github.com/randogelist/Methboke/actions/runs/44842165398)
 compiled the residual-admission layer and left one source failure in the
 parameter-integral proof. The actual curry operation is now explicitly bundled
 with the intended normed instances. The original statements and audit consumers
 are unchanged; all fresh audits and full root acceptance remain pending.
 Failure evidence: [d5acd494](../../audits/fdsn-r3-d5acd494-failed/SUMMARY.txt).
+
+## Current R3 verification
+
+[Run 44842918759](https://github.com/randogelist/Methboke/actions/runs/44842918759)
+at `8b49f5c0` failed in `ParametricFourier` while elaborating the bundled
+continuous linear curry map: **534 modules passed, one failed and thirteen
+were blocked**. No fresh endpoint audit ran. The prepared replacement constructs
+the continuous linear map directly and supplies explicit integral-commutation
+types. The original theorem statements, Seed, Family and independent consumers
+remain unchanged.
+
+[The complete failure evidence](../../audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt)
+is retained. Matching external cached compilation and all required fresh exact-type
+and theorem-level axiom reports remain pending for the 137-package,
+1320-declaration candidate. No new A-tier acceptance is claimed.

@@ -1,0 +1,39 @@
+FDSN_R3 EXTERNAL FAILURE AND PREPARED REPAIR
+Repository: randogelist/Methboke; branch main.
+Tested commit: 8b49f5c0ad53563964c5647809e3b273d125905c.
+Run: 44842918759; job: 136655504593.
+URL: https://github.com/randogelist/Methboke/actions/runs/44842918759
+Outcome: completed failure; no new A-tier acceptance.
+
+EXACT EXTERNAL RESULT
+548 own-module receipts: 534 PASS, 1 FAIL, 13 BLOCKED_BY_DEPENDENCY.
+Failing source: MethbokeAddon.FDSNR3.ParametricFourier.
+At lines 85-86, mkContinuous has incompatible inferred type/structure parameters;
+f has no inferred type for its curryLeft field projection.
+Zero fresh endpoint audits were executed. The canonical root was dependency-blocked.
+This is a proof/type failure, not an unavailable dependency-cache obstruction.
+
+EVIDENCE
+Artifact ID 14680569663 is retained in evidence.zip.
+SHA256: 81a0159009a45790f2287a0aee18aeac6f409c5924f8f7dfa2da142d916ad8cb
+The downloaded archive hash matches the GitHub artifact digest.
+It retains the complete original current.json, module receipts, source/compiler
+identity, execution plans and per-module compiler logs. The failing module log
+and run plan are also exposed beside this summary for convenient inspection.
+Compiler: Lean 4.33.0, x86_64-unknown-linux-gnu,
+commit d8b18978322de05a8f3dba51ef03cf5461676c17.
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Compatible accepted project parent: 4d00e260/run44831894933.
+Dependency cache exact hit: true. No failed-run passed cache was published.
+
+PREPARED REPAIR
+Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.
+
+ACCEPTANCE BOUNDARY
+The replacement is prepared source only. Matching external cached compilation,
+all 137 required packages/1320 named type-and-axiom reports, the required cutout,
+publication gates and final workflow acceptance remain required.
+The original Seed -> Family statement is unchanged. Seed existence is not claimed.
+Previously accepted R3 foundations and T3 FDSN evidence remain preserved.
+This is external Linux evidence, not native-Windows evidence.
+Local Lean/Lake/kernel executions: ZERO.

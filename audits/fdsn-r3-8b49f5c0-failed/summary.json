@@ -1,0 +1,49 @@
+{
+  "status": "FAILED_NO_NEW_ACCEPTANCE",
+  "source_commit": "8b49f5c0ad53563964c5647809e3b273d125905c",
+  "run_id": 44842918759,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44842918759",
+  "job_id": 136655504593,
+  "artifact_id": 14680569663,
+  "artifact_sha256": "81a0159009a45790f2287a0aee18aeac6f409c5924f8f7dfa2da142d916ad8cb",
+  "artifact_download_and_hash_verified": true,
+  "failed_sources": [
+    "MethbokeAddon.FDSNR3.ParametricFourier"
+  ],
+  "module_counts": {
+    "PASS": 534,
+    "BLOCKED_BY_DEPENDENCY": 13,
+    "FAIL": 1
+  },
+  "fresh_package_audits_executed": false,
+  "fresh_package_audit_count": 0,
+  "new_a_tier_acceptance": false,
+  "failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failure_phase": "compile",
+  "cause": "ParametricFourier.lean:85-86: mkContinuous source/type inference mismatch and unresolved f.curryLeft field notation.",
+  "evidence": "audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt",
+  "repair": "Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.",
+  "local_lean_executions": 0,
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "main",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "complete_evidence_archive": "evidence.zip",
+  "archive_contains": "Original external current.json, module receipts and compiler logs, dependency/source/policy identity and execution plans.",
+  "accepted_cache_parent": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+  "accepted_cache_parent_run": 44831894933,
+  "dependency_cache_exact_hit": true,
+  "failed_run_published_passed_objects": false,
+  "root_status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+  "original_seed_and_family_unchanged": true,
+  "next_verification_requirements": {
+    "packages": 137,
+    "named_declarations": 1320,
+    "fresh_type_axiom_reports": true,
+    "required_cutout": true,
+    "final_workflow_acceptance": true
+  },
+  "native_windows_evidence": false
+}

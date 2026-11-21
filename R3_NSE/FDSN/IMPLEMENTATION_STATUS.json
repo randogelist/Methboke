@@ -152,7 +152,7 @@
     "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
     "Definition/consumer checks do not construct a family."
   ],
-  "next": "Externally verify the normed curry-map repair and complete all required literal consumers, named type/axiom reports and final acceptance.",
+  "next": "Externally verify the directly constructed continuous linear curry map and explicit integral-commutation types, then complete all required literal consumers, fresh named type/axiom reports and final acceptance.",
   "failed_attempts": [
     {
       "status": "FAILED_NO_NEW_ACCEPTANCE",
@@ -394,6 +394,33 @@
       "evidence": "audits/fdsn-r3-d5acd494-failed/SUMMARY.txt",
       "repair": "Rebuild the actual curry operation as a linear map with the integral's canonical normed source and target, prove its norm-one continuity from curryLeft_norm, and commute that continuous linear map with the already integrable Taylor jet. All mathematical statements, consumers, compiler/dependency pins and audit policy remain unchanged.",
       "local_lean_executions": 0
+    },
+    {
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "source_commit": "8b49f5c0ad53563964c5647809e3b273d125905c",
+      "run_id": 44842918759,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44842918759",
+      "job_id": 136655504593,
+      "artifact_id": 14680569663,
+      "artifact_sha256": "81a0159009a45790f2287a0aee18aeac6f409c5924f8f7dfa2da142d916ad8cb",
+      "artifact_download_and_hash_verified": true,
+      "failed_sources": [
+        "MethbokeAddon.FDSNR3.ParametricFourier"
+      ],
+      "module_counts": {
+        "PASS": 534,
+        "BLOCKED_BY_DEPENDENCY": 13,
+        "FAIL": 1
+      },
+      "fresh_package_audits_executed": false,
+      "fresh_package_audit_count": 0,
+      "new_a_tier_acceptance": false,
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "failure_phase": "compile",
+      "cause": "ParametricFourier.lean:85-86: mkContinuous source/type inference mismatch and unresolved f.curryLeft field notation.",
+      "evidence": "audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt",
+      "repair": "Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.",
+      "local_lean_executions": 0
     }
   ],
   "stage_2": {
@@ -415,9 +442,9 @@
     "new_acceptance_claimed": false,
     "previous_failed_run": 44835804706,
     "repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
-    "source_compiler_commit": "54f6c70ba7250f2494cc01d081ddb1bb2e304e9e",
-    "source_compiler_run": 44836866962,
-    "source_compiler_scope": "The original six sources compiled in the recorded source-compiler run; the independent HelicalFrame addition awaits its first external compilation."
+    "source_compiler_commit": "8b49f5c0ad53563964c5647809e3b273d125905c",
+    "source_compiler_run": 44842918759,
+    "source_compiler_scope": "The six original stage2 sources and the independent HelicalFrame source compiled in run44842918759 at8b49f5c0. This source compilation alone is not fresh type/axiom acceptance."
   },
   "accepted_evidence": {
     "stage_1": {
@@ -536,8 +563,8 @@
     ],
     "new_acceptance_claimed": false,
     "local_lean_executions": 0,
-    "previous_failed_run": 44842165398,
-    "repair_scope": "Rebuild the actual curry operation as a linear map with the integral's canonical normed source and target, prove its norm-one continuity from curryLeft_norm, and commute that continuous linear map with the already integrable Taylor jet. All mathematical statements, consumers, compiler/dependency pins and audit policy remain unchanged."
+    "previous_failed_run": 44842918759,
+    "repair_scope": "Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged."
   },
   "scope_completion": {
     "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",

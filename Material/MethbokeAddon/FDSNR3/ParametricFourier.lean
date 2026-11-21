@@ -82,10 +82,16 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
       let curryContinuous :
           ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E →L[ℝ]
             (P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E) :=
-        curryLinear.mkContinuous 1 (fun f => by
-          change ‖f.curryLeft‖ ≤ 1 * ‖f‖
-          simp only [ContinuousMultilinearMap.curryLeft_norm, one_mul, le_refl])
-      exact curryContinuous.integral_comp_comm (μ := μ) (hInt (n + 1) q hq)
+        { toLinearMap := curryLinear
+          cont := by
+            change Continuous (fun f :
+              ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E => f.curryLeft)
+            exact (continuousMultilinearCurryLeftEquiv ℝ
+              (fun _ : Fin (n + 1) => P) E).continuous }
+      exact ContinuousLinearMap.integral_comp_comm (𝕜 := ℝ)
+        (E := ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E)
+        (Fₗ := P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E)
+        (μ := μ) curryContinuous (hInt (n + 1) q hq)
     rw [heq] at hd
     exact hd.hasFDerivWithinAt
   · intro n hn

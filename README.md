@@ -226,7 +226,7 @@ Run 44840058960 isolated two remaining reported instance-inference errors. Their
 prepared statement-preserving repair. Full fresh audits remain required.
 
 
-Latest R3 repair: [run44840893717](https://github.com/randogelist/Methboke/actions/runs/44840893717)
+Earlier R3 repair: [run44840893717](https://github.com/randogelist/Methboke/actions/runs/44840893717)
 compiled the joint residual and fixed-frame layers, then stopped in the
 parameter-integral and zero-parameter residual proofs. The statement-preserving
 repairs use the actual continuous-linear curry equivalence and explicit
@@ -235,9 +235,24 @@ records 532 passing modules, 2 failures and 14 blocked dependencies. Fresh
 named audits were not reached; the R3 root remains pending external acceptance.
 
 
-Latest R3 verification: [run44842165398](https://github.com/randogelist/Methboke/actions/runs/44842165398)
+Earlier R3 verification: [run44842165398](https://github.com/randogelist/Methboke/actions/runs/44842165398)
 compiled the residual-admission layer and left one source failure in the
 parameter-integral proof. The actual curry operation is now explicitly bundled
 with the intended normed instances. The original statements and audit consumers
 are unchanged; all fresh audits and full root acceptance remain pending.
 Failure evidence: [d5acd494](audits/fdsn-r3-d5acd494-failed/SUMMARY.txt).
+
+## Current R3 verification
+
+[Run 44842918759](https://github.com/randogelist/Methboke/actions/runs/44842918759)
+at `8b49f5c0` failed in `ParametricFourier` while elaborating the bundled
+continuous linear curry map: **534 modules passed, one failed and thirteen
+were blocked**. No fresh endpoint audit ran. The prepared replacement constructs
+the continuous linear map directly and supplies explicit integral-commutation
+types. The original theorem statements, Seed, Family and independent consumers
+remain unchanged.
+
+[The complete failure evidence](audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt)
+is retained. Matching external cached compilation and all required fresh exact-type
+and theorem-level axiom reports remain pending for the 137-package,
+1320-declaration candidate. No new A-tier acceptance is claimed.

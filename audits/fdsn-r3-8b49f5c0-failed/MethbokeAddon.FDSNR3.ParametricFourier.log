@@ -1,0 +1,21 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:86:18: error(lean.invalidField): Invalid field notation: Type of
+  f
+is not known; cannot resolve field `curryLeft`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AlternatingMap.curryLeft`
+  • `ContinuousAlternatingMap.curryLeft`
+  • `ContinuousMultilinearMap.curryLeft`
+  • `MultilinearMap.curryLeft`
+MethbokeAddon/FDSNR3/ParametricFourier.lean:85:8: error: Type mismatch
+  LinearMap.mkContinuous ?m.691 1 ⋯
+has type
+  @ContinuousLinearMap ?m.680 ?m.681 Ring.toSemiring Ring.toSemiring ?m.690 ?m.682
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddCommGroup.toAddCommGroup.toAddCommMonoid ?m.683
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddCommGroup.toAddCommGroup.toAddCommMonoid ?m.688
+    ?m.689
+but is expected to have type
+  @ContinuousLinearMap ℝ ℝ Real.semiring Real.semiring (RingHom.id ℝ) (P [×n + 1]→L[ℝ] E)
+    ContinuousMultilinearMap.instTopologicalSpace ContinuousMultilinearMap.addCommMonoid (P →L[ℝ] P [×n]→L[ℝ] E)
+    ContinuousLinearMap.topologicalSpace ContinuousLinearMap.addCommMonoid ContinuousMultilinearMap.instModule
+    ContinuousLinearMap.module
