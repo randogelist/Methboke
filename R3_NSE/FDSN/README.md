@@ -134,7 +134,7 @@ Minimal source repairs preserve the theorem statements.
 [Exact evidence](../../audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt)
 is retained; full matching external acceptance remains pending.
 
-## Current R3 verification
+## Previous R3 verification
 
 [Run44846133642](https://github.com/randogelist/Methboke/actions/runs/44846133642)
 at `44725d62` compiled both compact and forward Fourier layers and their wrappers.
@@ -143,3 +143,15 @@ It reached `JointPacket` and `CrossingDerivative` elaboration failures:
 Explicit bump/Fourier composition and pointwise derivative repairs preserve
 the original statements. [Exact evidence](../../audits/fdsn-r3-44725d62-failed/SUMMARY.txt)
 is retained; full matching external acceptance remains pending.
+
+## Current R3 verification
+
+[Run44846785644](https://github.com/randogelist/Methboke/actions/runs/44846785644)
+at `5423da48` compiled **all548 modules, including the canonical Seed-to-Family
+root**. It recorded52 fresh passing endpoint audits covering537 declarations,
+then failed on an unavailable namespace in `FDSNR3CrossingTimePhase/Audit.lean`.
+The sole repair removes an unused namespace opening; all10 independent consumers
+and10 named type/axiom targets are byte-preserved. No theorem source changes.
+[Exact partial evidence](../../audits/fdsn-r3-5423da48-failed/SUMMARY.txt)
+is retained. Complete fresh audits, the cutout and final acceptance/publication
+remain pending; no new root or endpoint A-tier acceptance is claimed.

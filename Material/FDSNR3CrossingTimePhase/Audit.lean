@@ -6,7 +6,6 @@ set_option autoImplicit false
 
 noncomputable section
 open Set Filter MeasureTheory SingularClosure MethbokeAddon.FDSNR3
-open MethbokeAddon.EhrenfestObstruction
 open scoped BigOperators ContDiff FourierTransform SchwartzMap Topology
 
 example (ρ : ℝ → ℝ) (tstar tzero t : ℝ) :
