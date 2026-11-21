@@ -98,15 +98,15 @@ nonlinear regularized dynamics and stopped-bound witness remain open.
 
 [![Lean source count](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml/badge.svg?branch=main)](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml)
 
-**112,841 physical lines of Lean across 873 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
+**113,150 physical lines of Lean across 876 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
 
 | Scope | Lean files | Physical lines |
 |---|---:|---:|
-| Non-vendored project files | 568 | 68,912 |
+| Non-vendored project files | 571 | 69,221 |
 | Retained vendored sources ([Material/_vendor/](Material/_vendor/)) | 305 | 43,929 |
-| **Project tree total** | 873 | 112,841 |
+| **Project tree total** | 876 | 113,150 |
 | Archive/reference copies ([Temp-folder/](Temp-folder/)) | 537 | 68,790 |
-| All tracked .lean files, including archive/reference copies | 1,410 | 181,631 |
+| All tracked .lean files, including archive/reference copies | 1,413 | 181,940 |
 
 These are physical source lines, including comments, blank lines, audit consumers, and Lean build-description files. They are not an authorship or compiled-module count. Only Git-tracked filenames ending in .lean are counted; compressed archives and .lean.txt documents are not unpacked or counted.
 

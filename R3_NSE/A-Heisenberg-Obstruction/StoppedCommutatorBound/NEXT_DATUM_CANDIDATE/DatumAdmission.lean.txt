@@ -55,10 +55,7 @@ theorem smoothDatum_spatialGradientTrace_eq_zero (a : SmoothDatum) :
       (fun j : Fin 3 => (∂_{coordinateVector j} a.value).toLp 2 volume),
     hderiv] with x htrace hx
   rw [htrace]
-  simp_rw [hx]
-  change (∑ j : Fin 3,
-      (fderiv ℝ (a.value : Space → Space) x (coordinateVector j)) j) •
-        coordinateVector 0 = 0
+  simp_rw [hx, SchwartzMap.lineDerivOp_apply_eq_fderiv]
   rw [smoothDatum_divergence_sum a x]
   simp
 
