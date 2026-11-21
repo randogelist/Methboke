@@ -13,6 +13,9 @@ The new `R3EhrenfestDerivativeRepresentative` package identifies classical
 coordinate derivatives of the actual smooth cutoff representative with the
 native Fourier derivative operators and proves finite fixed-cutoff ordered
 derivative bounds. [Exact evidence](../../../audits/r3-ehrenfest-dc265b94-accepted/summary.json).
+The source-specific evidence and synchronized ledgers were frozen at commit
+`f7af258d9761799218ff42a6628b3cae378bf001`; later documentation heads do not
+change the accepted theorem statements or their source identity.
 
 The native R3 root remains `OPEN_NO_NATIVE_ROOT`; the actual canonical flow,
 cutoff-uniform stability, literal closed-slab Sobolev admission and the
