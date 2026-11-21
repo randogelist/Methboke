@@ -1,0 +1,39 @@
+name: Activate R3 canonical initial state
+
+# One-shot static activation. This workflow invokes Python only, never Lean or Lake.
+on:
+  push:
+    branches:
+      - codex/nse-a-r3-ehrenfest
+    paths:
+      - .github/workflows/activate-r3-initial-state.yml
+      - scripts/activate_r3_initial_state.py
+
+permissions:
+  contents: write
+
+jobs:
+  activate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          ref: codex/nse-a-r3-ehrenfest
+          fetch-depth: 0
+
+      - name: Activate static initial-state package
+        run: python3 scripts/activate_r3_initial_state.py
+
+      - name: Commit generated active package and manifests
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Material README.md R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_INITIAL_STATE_CANDIDATE/STATUS.json
+          if git diff --cached --quiet; then
+            echo "No activation changes produced"
+            exit 1
+          fi
+          git commit -m "Activate R3 canonical cutoff initial state candidate"
+          git push origin HEAD:codex/nse-a-r3-ehrenfest
