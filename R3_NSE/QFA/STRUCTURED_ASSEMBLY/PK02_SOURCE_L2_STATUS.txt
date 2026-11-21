@@ -4,7 +4,7 @@ DATE = 2026-11-21
 BRANCH = codex/qfa-structured-assembly
 TARGET = QFA_A_TIER_CLOSURE
 PACKAGE = QFASourceL2
-STATUS = PENDING_MATCHING_EXTERNAL_CI
+STATUS = REPAIRED_PENDING_MATCHING_EXTERNAL_CI
 
 CANDIDATE_SCOPE
 ===============
@@ -35,10 +35,25 @@ DEPENDENCIES
   QFASourceCoordinates !=! accepted
   QFASourceFields !=! accepted
   Mathlib MemLp.comp_measurePreserving
-  Mathlib MemLp.continuousLinearMap_comp
+  Mathlib MemLp.eval / MemLp.of_eval
+  Mathlib MemLp.eval_piLp / MemLp.of_eval_piLp
   Mathlib MemLp.toLp / coeFn_toLp
 
-CANDIDATE_SOURCE = 4827b3fb621beffd3dd1c8d0388e631496da9475
+FAILED_ATTEMPT
+==============
+
+SOURCE = 52272c2ce612ef168456cfcaa5fc63b67dc76fb3
+RUN = 44922677288
+FAILURE = Two codomain-topology definitional mismatches in whole-vector MemLp transport.
+REPAIR = Componentwise MemLp.eval/of_eval and eval_piLp/of_eval_piLp transport.
+STATEMENTS_CHANGED = NO
+PREMISES_CHANGED = NO
+AUDIT_SURFACE_CHANGED = NO
+EVIDENCE = audits/qfa-source-l2-52272c2c-failed/summary.json
+
+CURRENT_CANDIDATE
+=================
+
 PUBLIC_AUDIT_SURFACE = 7 DECLARATIONS
 INTERNAL_REVERSE_HELPER = PRIVATE
 LEAN = 4.33.0
