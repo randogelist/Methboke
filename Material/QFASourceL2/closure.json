@@ -1,0 +1,147 @@
+{
+  "endpoint": "QFASourceL2",
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs",
+    "Mathlib.Analysis.Calculus.FDeriv.Const",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Function.LpSpace.Basic",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring"
+  ],
+  "files": [
+    {
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "path": "MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92"
+    },
+    {
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ],
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d"
+    },
+    {
+      "imports": [
+        "Mathlib"
+      ],
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183"
+    },
+    {
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ],
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e"
+    },
+    {
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ],
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace"
+      ],
+      "module": "QFASourceCoordinates.Endpoint",
+      "path": "QFASourceCoordinates/Endpoint.lean",
+      "sha256": "222a9730c3e82a9dabed1861422e684013faf47ab85e8f6897c27952588815eb"
+    },
+    {
+      "imports": [
+        "QFASourceCoordinates.Endpoint"
+      ],
+      "module": "QFASourceFields.Endpoint",
+      "path": "QFASourceFields/Endpoint.lean",
+      "sha256": "fde37e28c2fbbfde6fc7b53f740eb930a8be43391371254e23cb77b3205cd7ef"
+    },
+    {
+      "imports": [
+        "QFASourceL2.Endpoint"
+      ],
+      "module": "QFASourceL2.Audit",
+      "path": "QFASourceL2/Audit.lean",
+      "sha256": "cb7a634362f8aaf0cce8dacb16a3cf8a963817080144311812dd00098fcf6852"
+    },
+    {
+      "imports": [
+        "QFASourceFields.Endpoint",
+        "Mathlib.MeasureTheory.Function.LpSpace.Basic"
+      ],
+      "module": "QFASourceL2.Endpoint",
+      "path": "QFASourceL2/Endpoint.lean",
+      "sha256": "54df860d75b2cba56870c3d5f44cef99877082c1e928039bb55edd2e65884929"
+    }
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "QFASourceL2.Endpoint",
+    "QFASourceL2.Audit"
+  ],
+  "schema_version": 1,
+  "source_baseline": "ba4aca1a1a94ff10e28361e004f8ebc3b606b9c5",
+  "source_drift": [],
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+}

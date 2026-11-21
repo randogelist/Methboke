@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "id": "QFASourceL2",
+  "endpoint_module": "QFASourceL2.Endpoint",
+  "audit_module": "QFASourceL2.Audit",
+  "imports": [
+    "QFASourceFields.Endpoint",
+    "Mathlib.MeasureTheory.Function.LpSpace.Basic"
+  ],
+  "source_roots": [
+    {
+      "module": "QFASourceFields.Endpoint",
+      "path": "QFASourceFields/Endpoint.lean",
+      "storage": "endpoint_dependency",
+      "origin_kind": "accepted_native_dependency"
+    }
+  ],
+  "reference_sources": [
+    {
+      "repository": "scottnarmstrong/CaffarelliKohnNirenberg",
+      "revision": "381d658ead0f03a18361965cc0427ce3fa5844ab",
+      "files": [
+        "CKN/Statements/IsInJ.lean"
+      ],
+      "role": "Raw source MemLp input expected by the selected CKN IsInJ facade; reference only."
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "files": [
+        "Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
+        "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean"
+      ],
+      "role": "Measure-preserving composition, continuous-linear value transport, and Lp representative construction."
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.SourceSpatialL2",
+      "kind": "definition",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Raw source-coordinate L2 equivalence-class type."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.sourceFieldFunctionOfNative_memLp",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Genuine MemLp 2 admission for a native SpatialL2 field transported to source coordinates."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.sourceFieldFunctionOfNative_aestronglyMeasurable",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "A.e.-strong measurability of the transported raw source field."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.sourceSpatialL2OfNative",
+      "kind": "definition",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Canonical source-coordinate L2 class represented by a native SpatialL2 field."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.sourceSpatialL2OfNative_coeFn",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "A.e. representative identity for sourceSpatialL2OfNative."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.nativeFieldFunctionOfSource_memLp",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Reverse qualitative MemLp transport from a raw source field to native coordinates."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceL2.sourceField_memLp_iff_nativeField_memLp",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceL2/Endpoint.lean",
+        "module": "QFASourceL2.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Two-way raw/native MemLp equivalence for a source vector field."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Exact qualitative raw-source MemLp/L2 admission and two-way field transport.",
+  "status": "PENDING_MATCHING_EXTERNAL_CI",
+  "project_scope": "QFA_A_TIER_CLOSURE",
+  "implementation_base": "ba4aca1a1a94ff10e28361e004f8ebc3b606b9c5",
+  "research_layout": "R3_NSE/QFA/STRUCTURED_ASSEMBLY",
+  "derivation_chain": "R3_NSE/QFA/STRUCTURED_ASSEMBLY/ASSEMBLY_MANIFEST.txt",
+  "type_policy": "Independent exact consumers and fresh named exact-type and theorem-level axiom reports for every declaration.",
+  "physical_qfa_root_proved": false,
+  "local_lean_executed": false
+}
