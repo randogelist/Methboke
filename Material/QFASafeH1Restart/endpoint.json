@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "id": "QFASafeH1Restart",
+  "endpoint_module": "QFASafeH1Restart.Endpoint",
+  "audit_module": "QFASafeH1Restart.Audit",
+  "imports": [
+    "MethbokeAddon.QuasiFeffermanA.LHRestart",
+    "MethbokeAddon.QuasiFeffermanA.PhysicalH1"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LHRestart",
+      "path": "MethbokeAddon/QuasiFeffermanA/LHRestart.lean",
+      "storage": "owned_source",
+      "origin_kind": "accepted_native_dependency"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+      "storage": "owned_source",
+      "origin_kind": "accepted_native_dependency"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.physicalH1SigmaOfWeakGradient",
+      "kind": "definition",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Exact admission of one native solenoidal weak-gradient pair into PhysicalH1Sigma."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.physicalH1SigmaOfWeakGradient_velocity",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Definitional recovery of the original velocity from the packaged datum."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.physicalH1SigmaOfWeakGradient_gradient",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Definitional recovery of every original weak-gradient component."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SafeH1Restart",
+      "kind": "structure",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "One selected time, exact native H1Sigma datum, original gradient, energy start, restart data, full shifted Leray-Hopf membership, right trace and strict product bound."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SafeH1Restart.datum_norm_sq",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Exact equality between the native PhysicalH1Sigma norm and velocity plus gradient energy."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SafeH1Restart.datum_small_product",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "The selected strict product bound stated directly on the packaged datum projections."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_h1_restart",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASafeH1Restart/Endpoint.lean",
+        "module": "QFASafeH1Restart.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Every supplied nonzero native Leray-Hopf path at positive viscosity has one exact SafeH1Restart at the accepted safe cutoff."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Exact physical H1Sigma packaging of the already accepted supplied-path safe full restart, preserving the original velocity trace, original weak-gradient witness, full shifted class membership and strict product bound.",
+  "status": "PENDING_MATCHING_EXTERNAL_CI",
+  "project_scope": "QFA_A_TIER_CLOSURE",
+  "implementation_base": "04a37e74d5c4eedf63a98be6f5b4bc4f845e5ff1",
+  "research_layout": "R3_NSE/QFA/STRUCTURED_ASSEMBLY",
+  "derivation_chain": "R3_NSE/QFA/STRUCTURED_ASSEMBLY/ASSEMBLY_MANIFEST.txt",
+  "type_policy": "Independent literal consumers and fresh named exact-type and transitive axiom reports for every new declaration.",
+  "physical_qfa_root_proved": false,
+  "local_lean_executed": false
+}
