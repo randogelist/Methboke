@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "codex/nse-a-r3-ehrenfest",
+  "commit": "ba451454441029f2ee4589a069562828c910408e",
+  "tree": "305db40b9fe4522876e18c4e9b4514e2eed26360",
+  "run_id": 44872662109,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44872662109",
+  "fast_job": 136750428225,
+  "material_acceptance_job": 136751072240,
+  "status": "FAILED_NO_NEW_ACCEPTANCE",
+  "failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failed_module": "MethbokeAddon.R3Ehrenfest.SharpCutoff",
+  "errors": [
+    {
+      "line": 108,
+      "reason": "rewrite sees Lp Fourier isometry and complexifyL2LI instead of Fourier/complexify aliases"
+    },
+    {
+      "line": 145,
+      "reason": "same exposed-map mismatch in Leray commutation proof"
+    }
+  ],
+  "dependency_cache": "EXACT",
+  "project_cache": "PREFIX",
+  "matching_native_compiler": "Lean 4.33.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17",
+  "fresh_audits_completed": false,
+  "new_scopes_accepted": [],
+  "cache_publication": false,
+  "recovery": "SKIPPED",
+  "r3_goal_audit": "SKIPPED",
+  "count_run": 44872662106,
+  "count_status": "PASS",
+  "local_lean_executions": 0,
+  "artifact": {
+    "id": 14694258956,
+    "bytes": 97297,
+    "sha256": "d62911897f77cdb25146583fcb843d4baad42df27c5f6e335e7ea10c24c46a76"
+  },
+  "retained_file_sha256": {
+    "current.json": "2f80ffb9f2af0db7251ce95c5dddc56e8ba922a5375222d691af7cf0120364f6",
+    "cache-admission.json": "5f73f858774689e888e515688909f32702bdaacdfd5f9d6db3a48480dea8e072",
+    "transport.json": "e2e097277b7f5d9ccfbd5c4e5db3b138024f379eb9b452dc0e689361b1d136fb",
+    "logs/modules/MethbokeAddon.R3Ehrenfest.SharpCutoff.log": "7474c8f3e7c9ae70d968d20043e7b712a96563c4e573baa9e60a6bd8ee4c0244",
+    "logs/modules/MethbokeAddon.R3Ehrenfest.Contracts.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "logs/modules/R3EhrenfestContracts.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "repair": "Explicit native Fourier equalities before Lp.ext; theorem statements unchanged. Same evidenced alias normalization applied to cutoffDerivative projection proof.",
+  "next_source_snapshot": "b4430e0ddca85baaee045763a792a302991bcb52",
+  "root_proved": false
+}

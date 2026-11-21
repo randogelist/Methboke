@@ -20,6 +20,9 @@ identities and precise limitations.
 | I01 contract | Contracts | Literal Schwartz data, actual smooth unforced equation, uniform finite energy, unrestricted pressure gauge; zero witness |
 | I02 cutoff | SharpCutoff | Actual closed-ball Fourier cutoff at n+1, contraction, projection, self-adjointness, Leray commutation, native H1 transport |
 | I03 carrier | Carrier | Closed complete fixed-point space for cutoff and Leray projection |
+| I02 approximation | Approximation | Actual L2/H1 strong convergence and compact-trajectory uniform convergence |
+| I03 inverse representation | FourierL1L2 | Actual inverse integral agrees a.e. with the native L2 inverse; polynomial-moment smoothness |
+| I03 smooth representative | SmoothRepresentative | Constructed bounded smooth representative with finite nonsharp fixed-cutoff norm bound |
 | I03 derivatives | Bandlimited | New real weak derivative witnesses and physical H2 admission; exact delivered scope in the endpoint manifest |
 
 All modules are under Material/MethbokeAddon/R3Ehrenfest/. New statements
@@ -45,3 +48,15 @@ The branch codex/nse-a-r3-ehrenfest starts from main at
 Lean 4.33.0 compiler, locked dependencies and canonical cache policy.
 Each new endpoint has an independent exact-type consumer and named axiom
 report. Only authorized cached external CI executes Lean.
+
+## First external attempt
+
+[Run 44872662109](https://github.com/randogelist/Methboke/actions/runs/44872662109)
+rejected the first candidate on two Lean Fourier-map rewrite mismatches.
+The repaired statements are unchanged. No new audited scope was accepted in
+that attempt; its [receipt](../../../audits/r3-ehrenfest-ba451454-failed/summary.json)
+is retained. The source-count check passed at the exact attempted commit.
+
+The next prepared batch has seven packages and 111 named declarations. Its
+latest immutable source snapshot is 872989da94a55d07eeaa1fd776ef589beb017e3d;
+this is source preparation, with external acceptance still pending.

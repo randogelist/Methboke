@@ -1,0 +1,39 @@
+MethbokeAddon/R3Ehrenfest/SharpCutoff.lean:108:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) ((sharpCutoff n) u)))) ξ
+in the target expression
+  ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI ((sharpCutoff n) ((sharpCutoff n) u)))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI ((sharpCutoff n) u))) ξ
+
+n : ℕ
+u : ↥SpatialL2
+ξ : Space
+ho :
+  ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) ((sharpCutoff n) u)))) ξ =
+    ↑(cutoffValue n ξ) • ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) u))) ξ
+hi : ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) u))) ξ = ↑(cutoffValue n ξ) • ↑↑(𝓕 (complexifyL2 u)) ξ
+⊢ ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI ((sharpCutoff n) ((sharpCutoff n) u)))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI ((sharpCutoff n) u))) ξ
+MethbokeAddon/R3Ehrenfest/SharpCutoff.lean:123:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+MethbokeAddon/R3Ehrenfest/SharpCutoff.lean:145:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) (realLeray u)))) ξ
+in the target expression
+  ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI ((sharpCutoff n) (realLeray u)))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (realLeray ((sharpCutoff n) u)))) ξ
+
+n : ℕ
+u : ↥SpatialL2
+ξ : Space
+ho : ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) (realLeray u)))) ξ = ↑(cutoffValue n ξ) • ↑↑(𝓕 (complexifyL2 (realLeray u))) ξ
+hi : ↑↑(𝓕 (complexifyL2 (realLeray u))) ξ = (leraySymbol ξ) (↑↑(𝓕 (complexifyL2 u)) ξ)
+ht :
+  ↑↑(𝓕 (complexifyL2 (realLeray ((sharpCutoff n) u)))) ξ = (leraySymbol ξ) (↑↑(𝓕 (complexifyL2 ((sharpCutoff n) u))) ξ)
+hf : ↑↑(𝓕 (complexifyL2 ((sharpCutoff n) u))) ξ = ↑(cutoffValue n ξ) • ↑↑(𝓕 (complexifyL2 u)) ξ
+⊢ ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI ((sharpCutoff n) (realLeray u)))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (realLeray ((sharpCutoff n) u)))) ξ

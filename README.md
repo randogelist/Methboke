@@ -78,7 +78,8 @@ source revision.
 The branch [codex/nse-a-r3-ehrenfest](https://github.com/randogelist/Methboke/tree/codex/nse-a-r3-ehrenfest)
 implements the assented [sixteen-step plan](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_B_TIER.txt).
 The first candidates fix literal NSE-A and construct the actual sharp Fourier
-cutoff, complete solenoidal carrier and real weak derivative machinery.
+cutoff, complete solenoidal carrier, real weak derivative machinery, strong
+and compact-uniform approximation, and smooth bounded representatives.
 See the [implementation ledger](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json)
 for exact scope and external verification status.
 
@@ -93,15 +94,15 @@ nonlinear regularized dynamics and stopped-bound witness remain open.
 
 [![Lean source count](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml/badge.svg?branch=main)](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml)
 
-**111,450 physical lines of Lean across 861 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
+**112,505 physical lines of Lean across 870 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
 
 | Scope | Lean files | Physical lines |
 |---|---:|---:|
-| Non-vendored project files | 556 | 67,521 |
+| Non-vendored project files | 565 | 68,576 |
 | Retained vendored sources ([Material/_vendor/](Material/_vendor/)) | 305 | 43,929 |
-| **Project tree total** | 861 | 111,450 |
+| **Project tree total** | 870 | 112,505 |
 | Archive/reference copies ([Temp-folder/](Temp-folder/)) | 537 | 68,790 |
-| All tracked .lean files, including archive/reference copies | 1,398 | 180,240 |
+| All tracked .lean files, including archive/reference copies | 1,407 | 181,295 |
 
 These are physical source lines, including comments, blank lines, audit consumers, and Lean build-description files. They are not an authorship or compiled-module count. Only Git-tracked filenames ending in .lean are counted; compressed archives and .lean.txt documents are not unpacked or counted.
 

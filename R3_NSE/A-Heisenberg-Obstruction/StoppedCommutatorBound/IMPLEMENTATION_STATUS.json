@@ -22,9 +22,61 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "candidate_status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
+  "candidate_status": "REPAIRED_AND_EXTENDED_PENDING_EXTERNAL_CACHED_VERIFICATION",
   "accepted_new_scopes": [],
-  "attempts": [],
+  "attempts": [
+    {
+      "schema_version": 1,
+      "repository": "randogelist/Methboke",
+      "branch": "codex/nse-a-r3-ehrenfest",
+      "commit": "ba451454441029f2ee4589a069562828c910408e",
+      "tree": "305db40b9fe4522876e18c4e9b4514e2eed26360",
+      "run_id": 44872662109,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44872662109",
+      "fast_job": 136750428225,
+      "material_acceptance_job": 136751072240,
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "failed_module": "MethbokeAddon.R3Ehrenfest.SharpCutoff",
+      "errors": [
+        {
+          "line": 108,
+          "reason": "rewrite sees Lp Fourier isometry and complexifyL2LI instead of Fourier/complexify aliases"
+        },
+        {
+          "line": 145,
+          "reason": "same exposed-map mismatch in Leray commutation proof"
+        }
+      ],
+      "dependency_cache": "EXACT",
+      "project_cache": "PREFIX",
+      "matching_native_compiler": "Lean 4.33.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17",
+      "fresh_audits_completed": false,
+      "new_scopes_accepted": [],
+      "cache_publication": false,
+      "recovery": "SKIPPED",
+      "r3_goal_audit": "SKIPPED",
+      "count_run": 44872662106,
+      "count_status": "PASS",
+      "local_lean_executions": 0,
+      "artifact": {
+        "id": 14694258956,
+        "bytes": 97297,
+        "sha256": "d62911897f77cdb25146583fcb843d4baad42df27c5f6e335e7ea10c24c46a76"
+      },
+      "retained_file_sha256": {
+        "current.json": "2f80ffb9f2af0db7251ce95c5dddc56e8ba922a5375222d691af7cf0120364f6",
+        "cache-admission.json": "5f73f858774689e888e515688909f32702bdaacdfd5f9d6db3a48480dea8e072",
+        "transport.json": "e2e097277b7f5d9ccfbd5c4e5db3b138024f379eb9b452dc0e689361b1d136fb",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.SharpCutoff.log": "7474c8f3e7c9ae70d968d20043e7b712a96563c4e573baa9e60a6bd8ee4c0244",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Contracts.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestContracts.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "repair": "Explicit native Fourier equalities before Lp.ext; theorem statements unchanged. Same evidenced alias normalization applied to cutoffDerivative projection proof.",
+      "next_source_snapshot": "b4430e0ddca85baaee045763a792a302991bcb52",
+      "root_proved": false
+    }
+  ],
   "b_tier_record": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_B_TIER.txt",
   "reuse_index": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_LEAN_REUSE_INDEX_v0_2.txt",
   "endpoints": [
@@ -37,14 +89,14 @@
     {
       "id": "I02",
       "target": "Actual L2/H1/H2 cutoff calculus and strong/uniform approximation",
-      "status": "CUTOFF_CANDIDATE_PARTIAL",
-      "remaining": "Strong and compact-trajectory uniform approximation"
+      "status": "SHARP_L2_H1_CUTOFF_AND_APPROXIMATION_CANDIDATE",
+      "remaining": "General H2-to-H2 contraction/strong approximation as needed; exact native derivative coherence kept separate."
     },
     {
       "id": "I03",
       "target": "Complete bandlimited carrier, smooth representatives and Bernstein",
-      "status": "CARRIER_AND_DERIVATIVE_CANDIDATES_PARTIAL",
-      "remaining": "Coherent smooth representatives and quantitative Bernstein endpoint"
+      "status": "CARRIER_H2_LIFT_AND_SMOOTH_REPRESENTATIVE_CANDIDATES",
+      "remaining": "Directional-derivative coherence, higher-derivative controls and actual nonlinear RHS admission."
     },
     {
       "id": "I04",
@@ -120,12 +172,12 @@
     "Full Material gates and retained accepted proof bytes preserved",
     "No local Lean or Mathlib source rebuild"
   ],
-  "prepared_source_snapshot": "cb546966ee7bc3f46d88ecabf0fed6e6ba51c885",
+  "prepared_source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
   "packages": [
     {
       "package": "R3EhrenfestContracts",
       "declarations": 8,
-      "source_snapshot": "cb546966ee7bc3f46d88ecabf0fed6e6ba51c885",
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
       "endpoint_sha256": "f281ec4b43c795c209876995e5a45e6c4810ae77e9e5a6b19fa345cd5c5892ec",
       "audit_sha256": "0101b77ae7f58c0ac3058d7f1b734af11dfba38597e2cf8c8b2ca31d2bb53f2b",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -143,7 +195,7 @@
     {
       "package": "R3EhrenfestSharpCutoff",
       "declarations": 28,
-      "source_snapshot": "cb546966ee7bc3f46d88ecabf0fed6e6ba51c885",
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
       "endpoint_sha256": "ed72a9d344a00df865f571e89865c16909b73ee613e7ba692c89847da1c96734",
       "audit_sha256": "04f0f6c3f41c39e5924bb854521eafedc888e714b4f8ab401bd03accd7284943",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -181,7 +233,7 @@
     {
       "package": "R3EhrenfestCarrier",
       "declarations": 18,
-      "source_snapshot": "cb546966ee7bc3f46d88ecabf0fed6e6ba51c885",
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
       "endpoint_sha256": "ee31ec35d59bbe9cf09483002cb5f0bb0565b86de0ec9156ad2ed94d3cdc4ba2",
       "audit_sha256": "b4eff44a7c5f2313bf2a07a16aca495eb049df840908c60740f0132cc27b1ca1",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -209,7 +261,7 @@
     {
       "package": "R3EhrenfestBandlimited",
       "declarations": 21,
-      "source_snapshot": "cb546966ee7bc3f46d88ecabf0fed6e6ba51c885",
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
       "endpoint_sha256": "c68f13756ac7840595ddee7d42daa726aa9f1ddc9e21250de130432cd3f67d87",
       "audit_sha256": "7074205a2198e7539dd0c11f5bce5cec1cee66dc2f7512c266f2c095bbfe6395",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -236,15 +288,88 @@
         "MethbokeAddon.R3Ehrenfest.Bandlimited.sharpCutoffH2_toH1",
         "MethbokeAddon.R3Ehrenfest.Bandlimited.sharpCutoffH2_eq_of_fixed"
       ]
+    },
+    {
+      "package": "R3EhrenfestApproximation",
+      "declarations": 10,
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "endpoint_sha256": "cbb4e778143e6e15e40c6b55a4174c3e4c37ffb43e75121cbcf6159c561b8490",
+      "audit_sha256": "697a555da98222e78159e205834b2963cf5a5e4a135082ffac3c4cfda74b418b",
+      "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
+      "names": [
+        "MethbokeAddon.R3Ehrenfest.Approximation.cutoffValue_eventually_one",
+        "MethbokeAddon.R3Ehrenfest.Approximation.tendsto_frequencyMultiplier_cutoff",
+        "MethbokeAddon.R3Ehrenfest.Approximation.tendsto_sharpCutoff",
+        "MethbokeAddon.R3Ehrenfest.Approximation.norm_sharpCutoff_sub_tendsto_zero",
+        "MethbokeAddon.R3Ehrenfest.Approximation.tendsto_physicalH1SharpCutoff",
+        "MethbokeAddon.R3Ehrenfest.Approximation.tendsto_physicalH1SharpCutoffCLM",
+        "MethbokeAddon.R3Ehrenfest.Approximation.norm_physicalH1SharpCutoff_sub_tendsto_zero",
+        "MethbokeAddon.R3Ehrenfest.Approximation.dist_physicalH1SharpCutoff_le",
+        "MethbokeAddon.R3Ehrenfest.Approximation.tendstoUniformlyOn_physicalH1SharpCutoff",
+        "MethbokeAddon.R3Ehrenfest.Approximation.tendstoUniformlyOn_physicalH1SharpCutoff_trajectory"
+      ]
+    },
+    {
+      "package": "R3EhrenfestFourierL1L2",
+      "declarations": 7,
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "endpoint_sha256": "bdef9d867e31d9426f45c1f149717838f25ed593a692cbf2c8db893a3274ad44",
+      "audit_sha256": "25bf39d635ef4cf74d2ce7e653fdae48415e485441311d3368814aeefa80b85e",
+      "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
+      "names": [
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.inverseL1Representative",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.inverseL1Representative_apply",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.continuous_fourierInv_integral",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.fourierInv_integral_ae",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.inverseL1Representative_ae",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.norm_inverseL1Representative_le",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2.contDiff_inverseL1Representative"
+      ]
+    },
+    {
+      "package": "R3EhrenfestSmoothRepresentative",
+      "declarations": 19,
+      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "endpoint_sha256": "0a0c3929329869f8fc34cf8befa981fcc92a8a474c2d1fe6231ac05f51a35292",
+      "audit_sha256": "55996c5898682471c2ef89440d41473f3a3a7c6fe1e8b42174a91d43f63fbbb5",
+      "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
+      "names": [
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.ComplexL1",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffMaskL2",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffMaskL2_ae",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.norm_cutoffMaskL2",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffFrequencyL1CLM",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffFrequencyL1_ae",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.norm_cutoffFrequencyL1_le",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.integrable_sharpCutoff_fourier",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.integrable_sharpCutoff_fourier_moment",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffComplexRepresentativeCLM",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.complexRepresentative_eq_inverseL1",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentativeCLM",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentativeCLM_apply",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentative_ae",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.contDiff_sharpCutoffRepresentative",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.bernsteinConstant",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.bernsteinConstant_nonneg",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.norm_sharpCutoffRepresentative_le",
+        "MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentative_pointwise_le"
+      ]
     }
   ],
   "expected_full_verification": {
-    "compiled_modules": 662,
-    "owned_modules": 187,
-    "package_audits": 173,
-    "named_type_axiom_reports": 2287,
-    "new_named_reports": 75,
+    "compiled_modules": 668,
+    "owned_modules": 190,
+    "package_audits": 176,
+    "named_type_axiom_reports": 2323,
+    "new_named_reports": 111,
     "fresh_standalone_qfb": true
   },
-  "new_h2_bound": "L_n=2*pi*(n+1); norm(sharpCutoffH2 n u)^2 <= (1+3*L_n^2+9*L_n^4)*norm(u)^2"
+  "new_h2_bound": "L_n=2*pi*(n+1); norm(sharpCutoffH2 n u)^2 <= (1+3*L_n^2+9*L_n^4)*norm(u)^2",
+  "current_prepared_source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+  "first_substantive_literal_admission_gap": {
+    "id": "I14.global_derivative_integrability",
+    "statement": "For positive viscosity and a literal GlobalSmoothNSE witness, every actual coordinate derivative at every nonnegative time belongs to whole-space L2. The closed-slab conclusion also needs uniform bounds, temporal control, pressure projection and same-velocity traces.",
+    "not_implied_by": "Smoothness and L2 velocity energy alone do not give global integrable derivatives by a coercion. Each cutoff is H2 with n-dependent bound; strong L2 convergence alone does not admit the uncut solution into H2.",
+    "native_status": "No inspected accepted main or indexed cross-branch theorem supplies this conclusion from the literal contract."
+  }
 }

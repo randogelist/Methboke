@@ -1,9 +1,9 @@
 NSE-A R3 EHRENFEST — NATIVE DECLARATION PROGRESS
-Version 0.1 — 21 November 2026
+Version 0.2 — 21 November 2026
 
 STATUS: PREPARED, MATCHING EXTERNAL VERIFICATION PENDING
 GOAL: SINGULAR-PREMISE OBSTRUCT R3; literal conditional root remains OPEN.
-SOURCE PREPARATION SNAPSHOT: cb546966ee7bc3f46d88ecabf0fed6e6ba51c885
+SOURCE PREPARATION SNAPSHOT: 872989da94a55d07eeaa1fd776ef589beb017e3d
 BASE: 5f53d3eb320cc3860a9f28384a825349e0df5e21
 BRANCH: codex/nse-a-r3-ehrenfest
 
@@ -11,7 +11,7 @@ The frozen reuse index v0.2 retains its 56 cards/175 names and source receipts.
 This companion adds the newly constructed native source scopes, not new
 acceptance claims. Each named declaration has an independent expected-type
 consumer plus ordered full-type and axiom markers in its package Audit.lean.
-All four modules are actual definitions/proofs; no supplied regularized flow,
+All seven modules are actual definitions/proofs; no supplied regularized flow,
 derivative witnesses, stability theorem or literal H2-admission port is hidden.
 
 H2 bound: L_n = 2*pi*(n+1). The constructed map satisfies
@@ -106,7 +106,52 @@ Audit SHA256: 7074205a2198e7539dd0c11f5bce5cec1cee66dc2f7512c266f2c095bbfe6395
   MethbokeAddon.R3Ehrenfest.Bandlimited.sharpCutoffH2_toH1
   MethbokeAddon.R3Ehrenfest.Bandlimited.sharpCutoffH2_eq_of_fixed
 
-TOTAL: 75 new named declarations in four independent packages.
+R3EhrenfestApproximation — 10 named declarations
+Audit SHA256: 697a555da98222e78159e205834b2963cf5a5e4a135082ffac3c4cfda74b418b
+  MethbokeAddon.R3Ehrenfest.Approximation.cutoffValue_eventually_one
+  MethbokeAddon.R3Ehrenfest.Approximation.tendsto_frequencyMultiplier_cutoff
+  MethbokeAddon.R3Ehrenfest.Approximation.tendsto_sharpCutoff
+  MethbokeAddon.R3Ehrenfest.Approximation.norm_sharpCutoff_sub_tendsto_zero
+  MethbokeAddon.R3Ehrenfest.Approximation.tendsto_physicalH1SharpCutoff
+  MethbokeAddon.R3Ehrenfest.Approximation.tendsto_physicalH1SharpCutoffCLM
+  MethbokeAddon.R3Ehrenfest.Approximation.norm_physicalH1SharpCutoff_sub_tendsto_zero
+  MethbokeAddon.R3Ehrenfest.Approximation.dist_physicalH1SharpCutoff_le
+  MethbokeAddon.R3Ehrenfest.Approximation.tendstoUniformlyOn_physicalH1SharpCutoff
+  MethbokeAddon.R3Ehrenfest.Approximation.tendstoUniformlyOn_physicalH1SharpCutoff_trajectory
+
+R3EhrenfestFourierL1L2 — 7 named declarations
+Audit SHA256: 25bf39d635ef4cf74d2ce7e653fdae48415e485441311d3368814aeefa80b85e
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.inverseL1Representative
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.inverseL1Representative_apply
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.continuous_fourierInv_integral
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.fourierInv_integral_ae
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.inverseL1Representative_ae
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.norm_inverseL1Representative_le
+  MethbokeAddon.R3Ehrenfest.FourierL1L2.contDiff_inverseL1Representative
+
+R3EhrenfestSmoothRepresentative — 19 named declarations
+Audit SHA256: 55996c5898682471c2ef89440d41473f3a3a7c6fe1e8b42174a91d43f63fbbb5
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.ComplexL1
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffMaskL2
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffMaskL2_ae
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.norm_cutoffMaskL2
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffFrequencyL1CLM
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.cutoffFrequencyL1_ae
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.norm_cutoffFrequencyL1_le
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.integrable_sharpCutoff_fourier
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.integrable_sharpCutoff_fourier_moment
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffComplexRepresentativeCLM
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.complexRepresentative_eq_inverseL1
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentativeCLM
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentativeCLM_apply
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentative_ae
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.contDiff_sharpCutoffRepresentative
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.bernsteinConstant
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.bernsteinConstant_nonneg
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.norm_sharpCutoffRepresentative_le
+  MethbokeAddon.R3Ehrenfest.SmoothRepresentative.sharpCutoffRepresentative_pointwise_le
+
+TOTAL: 111 new named declarations in seven independent packages.
 PENDING: full Material acceptance, matching named-type/axiom evidence,
 fresh scoped R3 foundation audit, and evidence-based individual scope lift.
 ROOT AND WITNESS: both remain open. No local Lean/Lake/kernel execution.
