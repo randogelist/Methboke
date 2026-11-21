@@ -1,0 +1,67 @@
+name: QFA / one-shot raw source L2 audit-surface repair
+
+on:
+  push:
+    branches: [codex/qfa-structured-assembly]
+    paths:
+      - '.github/workflows/qfa-private-source-l2-helper.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: codex/qfa-structured-assembly
+          fetch-depth: 1
+      - name: Make the internal reverse helper private and refresh closure
+        run: |
+          python3 - <<'PY'
+          from __future__ import annotations
+          import hashlib, json, sys
+          from pathlib import Path
+
+          root=Path.cwd(); material=root/'Material'; eid='QFASourceL2'
+          ep=material/eid/'Endpoint.lean'
+          text=ep.read_text()
+          old='theorem sourceField_memLp_of_nativeField_memLp\n'
+          new='private theorem sourceField_memLp_of_nativeField_memLp\n'
+          if text.count(old) != 1:
+            raise SystemExit(f'expected one public helper occurrence, found {text.count(old)}')
+          ep.write_text(text.replace(old,new,1))
+
+          sys.path.insert(0,str(material/'ci')); import build
+          plan=build.validate(material)
+          entry=next(e for e in plan['endpoints'] if e['id']==eid)
+          closure={'schema_version':1,'endpoint':eid,
+            'source_revision_status':'FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING',
+            'source_baseline':'${{ github.sha }}','lean_toolchain':plan['toolchain'],
+            'mathlib_commit':plan['mathlib_commit'],
+            'roots':[entry['spec']['endpoint_module'],entry['spec']['audit_module']],
+            'files':entry['files'],'external_imports':entry['external_imports'],
+            'source_drift':entry['source_drift']}
+          cb=(json.dumps(closure,indent=2,sort_keys=True)+'\n').encode()
+          (material/eid/'closure.json').write_bytes(cb)
+
+          ip=material/'endpoints.json'; idx=json.loads(ip.read_text())
+          row=next(r for r in idx['endpoints'] if r['id']==eid)
+          assert row['declarations']==7
+          row['source_closure_sha256']=hashlib.sha256(cb).hexdigest()
+          ip.write_text(json.dumps(idx,indent=2)+'\n')
+          assert idx['endpoint_count']==174 and idx['declaration_count']==2256
+          print(json.dumps({'endpoint':eid,'public_declarations':7,
+            'internal_helper':'private','source_drift':entry['source_drift']},indent=2))
+          PY
+      - name: Remove workflow and commit
+        run: |
+          rm .github/workflows/qfa-private-source-l2-helper.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Material/QFASourceL2/Endpoint.lean Material/QFASourceL2/closure.json \
+            Material/endpoints.json .github/workflows/qfa-private-source-l2-helper.yml
+          git commit -m 'fix(qfa): align raw source L2 audit surface'
+          git push origin HEAD:codex/qfa-structured-assembly
