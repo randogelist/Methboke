@@ -1,26 +1,29 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 8.4
+DOCUMENT_VERSION = 8.5
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
 TARGET_BRANCH = main
 INCOMING_BRANCH = AC-Integration
-PROJECT_GOALS = {WFA, WFB, QFB}
-R3_GOALS = {WFA}
-T3_GOALS = {WFB, QFB}
-PROJECT_GOAL_SOURCE = Explicit user correction to WFA, WFB, QFB and dummy pending stages, 2026-11-21
-LOCAL_TARGET = THREE_THEOREM_GOALS_AND_CI
-LOCAL_TARGET_STATUS = CONFIGURED_PENDING_EXTERNAL_VALIDATION
-REMAINING_ENGINEERING_CHECK = MATCHING_THREE_GOAL_CI_RUN_STATUS
+PROJECT_GOALS = {WFA, WFB, QFA, QFB, SINGULAR_PREMISE_OBSTRUCT_R3, SIGNULAR_PREMISE_OBSTRUCT_T3}
+R3_GOALS = {WFA, QFA, SINGULAR_PREMISE_OBSTRUCT_R3}
+T3_GOALS = {WFB, QFB, SIGNULAR_PREMISE_OBSTRUCT_T3}
+PROJECT_GOAL_SOURCE = Latest explicit user six-goal list in its supplied order and spelling, 2026-11-21
+LOCAL_TARGET = SIX_THEOREM_GOALS_AND_CI
+LOCAL_TARGET_STATUS = CONFIGURED_WITH_EXACT_COMMIT_CI
+REMAINING_ENGINEERING_CHECK = NEW_MATCHING_SIX_GOAL_CI_RUN_STATUS
 THEOREM_GOAL_WORKFLOW = .github/workflows/theorem-goals.yml
 THEOREM_GOAL_MANIFEST = Material/ci/theorem-goals.json
-THEOREM_GOAL_RUNNERS = 3
+THEOREM_GOAL_RUNNERS = 6
 WFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 WFB_CI_STAGE = REAL_EXACT_CONDITIONAL_FULL_BUDGET_AUDIT
+QFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 QFB_CI_STAGE = REAL_EXACT_ROOT_AND_CUTOUT_AUDIT
+SINGULAR_PREMISE_OBSTRUCT_R3_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
+SIGNULAR_PREMISE_OBSTRUCT_T3_CI_STAGE = REAL_CONDITIONAL_SINGLE_PREMISE_AUDIT
 GOAL_REGISTRATION_IS_PROOF = false
-SUPERSEDED_GOAL_CONFIGURATION = SIX_THEOREM_GOALS; NOT_CURRENT_PROOF_EVIDENCE
+SUPERSEDED_GOAL_CONFIGURATIONS = PRIOR_THREE_GOAL_AND_PRIOR_SIX_GOAL_SETUPS; NOT_CURRENT_RUN_EVIDENCE
 RETAINED_D_PROGRAM_GOAL = Fefferman_D
 COMPLETED_LOCAL_THEOREM = FDSN_R3
 ACTIVE_MODE = A_TIER_DERIVATION
@@ -177,37 +180,50 @@ Preserve successful compatible resources; no local Lean or Mathlib source rebuil
 
 1. GOAL AND TARGET HIERARCHY
 
-MACROSCOPIC: three user-selected theorem goals.
-  R3: WFA.
-  T3: WFB and QFB.
-MESOSCOPIC: THREE_THEOREM_GOALS_AND_CI on main.
-MICROSCOPIC: configure three parallel stages: a dummy/pending WFA stage,
-  real exact conditional WFB audits, and real exact-root QFB audits.
+The current goals, in the exact user-supplied order and spelling:
+
+1. WFA
+2. WFB
+3. QFA
+4. QFB
+5. SINGULAR-PREMISE OBSTRUCT R3
+6. SIGNULAR-PREMISE OBSTRUCT T3
+
+MACROSCOPIC: the six goals listed above.
+  R3: WFA, QFA, SINGULAR-PREMISE OBSTRUCT R3.
+  T3: WFB, QFB, SIGNULAR-PREMISE OBSTRUCT T3.
+MESOSCOPIC: SIX_THEOREM_GOALS_AND_CI on main.
+MICROSCOPIC: six parallel test stages, max-parallel 6 and fail-fast false.
+  Dummy/pending: WFA, QFA, SINGULAR_PREMISE_OBSTRUCT_R3.
+  Real audits: WFB, QFB, SIGNULAR_PREMISE_OBSTRUCT_T3.
 CI_CONFIGURATION: .github/workflows/theorem-goals.yml;
   Material/ci/theorem-goals.json.
-CI_STATUS: CONFIGURED_PENDING_EXTERNAL_VALIDATION.
-NEXT_ENGINEERING_CHECK: inspect the exact-commit three-stage result and its
-  per-goal reports. Local Lean execution remains forbidden.
+CI_STATUS: CONFIGURED_WITH_EXACT_COMMIT_CI.
+NEXT_ENGINEERING_CHECK: inspect a new matching exact-commit six-stage run.
+  Prior configurations do not establish validation of this corrected setup.
 
-WFA remains OPEN. Its dummy stage performs no Lean execution, cache restoration
-or theorem audit; it reports pending status and the unresolved obligations.
+The three dummy stages execute no Lean, restore no cache and run no theorem
+audit. WFA remains OPEN, QFA remains OPEN_GENERAL_DATA, and the R3 obstruction
+remains OPEN_NO_NATIVE_ROOT. Dummy reports state pending status and unresolved
+obligations; they supply no proof evidence.
 WFB retains its established exact conditional full-Fourier-budget theorem,
-including the full budget hypothesis. QFB retains its established exact root,
-cutoff and regularity scope. Their real stages freshly audit the configured
-exact types and axioms using verified cached objects. The WFA dummy result is
-not proof evidence and does not close the open root.
+including its full budget hypothesis. QFB retains its exact established root,
+cutoff and regularity scope, with the standalone QFB cutout audit.
+The T3 obstruction has status CONDITIONAL_SINGLE_PREMISE_ESTABLISHED. Its real
+stage audits MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION:
+  for nu > 0, StoppedCommutatorBound nu -> not (NSE_B nu).
+The stopped-commutator premise remains explicit. Constructing a witness and
+proving unconditional failure of unforced NSE-B remain separate, unresolved
+obligations; acceptance of this conditional implication does not discharge them.
 
-The previous six-goal configuration is SUPERSEDED and is not current proof
-evidence. QFA and the single-input NSE-A/NSE-B obstruction programs remain
-retained resources with their existing statuses, outside the active goal list.
-Direct-D remains accepted; its stronger prescribed-site periodic family remains
-formally open. T3 FDSN and R3 FDSN retain their exact conditional seed premises
-and accepted roots. No accepted theorem, source-specific receipt or historical
-contract is changed by this correction.
+Earlier three-goal and six-goal configurations are superseded history. Direct-D
+remains accepted; its stronger prescribed-site periodic family remains formally
+open. T3 FDSN and R3 FDSN retain their conditional seed premises and accepted
+roots. No accepted theorem, receipt or historical contract changes here.
 Section 0 retains integration/evidence history. Sections 2--11 retain exact
 mathematical contracts and accepted scopes; section 12 preserves the original
 AC development history. Historical goal and next-step statements do not
-supersede the current three-goal hierarchy.
+supersede the current six-goal hierarchy.
 
 DIRECTORY ORGANIZATION
 
@@ -481,7 +497,7 @@ records are not current instructions. New status must match exact tested source,
 consumer type, dependency pins, policy and theorem-level axioms.
 Use chat-only !=! for precisely accepted intermediate scopes; do not promote their
 parent family root. No scheduled monitors. New goals require explicit user
-selection. The three goals and domain mapping in section 1 are authoritative.
+selection. The six goals and domain mapping in section 1 are authoritative.
 
 HISTORICAL NATIVE FAMILY ACCEPTANCE
 Material run 44663707207 at f19531bc accepted the repaired assembly layer and

@@ -2,12 +2,12 @@
   "schema_version": 1,
   "repository": "randogelist/Methboke",
   "audit_dependency_packages": true,
-  "verification_boundary": "WFA has a dummy pending stage with no compiler or theorem audit execution. WFB and QFB select their established exact statements and registered dependency packages for fresh type and transitive-axiom audits. WFB retains its full Fourier-budget hypothesis. Complete Material verification remains separate and unchanged.",
+  "verification_boundary": "Six distinct goals have three dummy stages and three real audit stages. WFA, QFA and SINGULAR-PREMISE OBSTRUCT R3 record pending status without compiler execution, cache restoration or theorem audits. WFB, QFB and SIGNULAR-PREMISE OBSTRUCT T3 select their established exact statements and registered dependency packages for fresh type and transitive-axiom audits. WFB retains its full Fourier-budget hypothesis; the T3 obstruction retains its single StoppedCommutatorBound premise. Auditing that implication does not construct a witness or prove unconditional failure of NSE-B. Complete Material verification remains separate and unchanged.",
   "goals": [
     {
       "id": "WFA",
       "domain": "R3",
-      "name": "Whole-space Weak Fourierman A",
+      "name": "WFA",
       "root_status": "OPEN",
       "root_declaration": null,
       "principal_packages": [
@@ -15,6 +15,7 @@
         "QFAPhysicalH1SigmaSectors"
       ],
       "verification_scope": "Dummy stage only: WFA is not yet closed. The listed principal packages are retained foundation candidates; this stage does not audit them or invoke Lean, restore caches, or claim a WFA proof.",
+      "retained_foundation_scope": "Physical H1 Fourier and six-sector projections, the full stopped enstrophy/Fourier budgets, and their gauge and finiteness equivalences for supplied physical H1 paths. The canonical whole-space NSE trajectory and WFA continuation root are not supplied by these packages.",
       "open_obligations": [
         "Construct the actual whole-space local and maximal strong NSE trajectory with its original initial trace.",
         "Prove physical evolution estimates, continuation and comparison for the same trajectory.",
@@ -27,7 +28,7 @@
     {
       "id": "WFB",
       "domain": "T3",
-      "name": "Periodic Weak Fourierman B",
+      "name": "WFB",
       "root_status": "CONDITIONAL_FULL_BUDGET",
       "root_declaration": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
       "principal_packages": [
@@ -42,9 +43,36 @@
       "ci_mode": "audit"
     },
     {
+      "id": "QFA",
+      "domain": "R3",
+      "name": "QFA",
+      "root_status": "OPEN_GENERAL_DATA",
+      "root_declaration": null,
+      "target_definition": "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.QuasiFeffermanA",
+      "principal_packages": [
+        "QFAZeroDatum",
+        "QFALHRestart",
+        "QFAHeatTimeEnergy",
+        "QFAWeightedBudgetAllWindows",
+        "QFARealLeray",
+        "QFASmallProductCoefficient"
+      ],
+      "verification_scope": "Dummy stage only: general-data QFA remains open. The listed principal packages are retained foundations and zero-datum results; this stage does not audit them or invoke Lean, restore caches, or claim a general QFA proof. The target_definition is a proposition definition, not a theorem proving general QFA.",
+      "retained_foundation_scope": "The exact physical QFA proposition and zero-datum strict/closed conclusions, full restart of supplied LH paths, free-heat time-energy estimates, all-window weighted product budget, real Leray projection and scalar small-product coefficients. The target_definition is a proposition definition, not a theorem proving general QFA.",
+      "open_obligations": [
+        "Prove the actual sharp whole-space Sobolev admission needed by the frozen cutoff 8*norm(a)^4/(27*pi^4*nu^5).",
+        "Construct forced maximal regularity and actual nonlinear local/maximal H1 theory with continuation.",
+        "Construct global physical Leray-Hopf solutions for general solenoidal L2 data.",
+        "Prove actual whole-space weak-strong comparison and small-product global continuation.",
+        "Assemble the general nonzero-data smooth tail, original-gradient energy equality and unique future from every path's own trace, preserving the strict/closed cutoff distinction."
+      ],
+      "standalone_qfb": false,
+      "ci_mode": "placeholder"
+    },
+    {
       "id": "QFB",
       "domain": "T3",
-      "name": "Periodic Quasi-Fefferman B",
+      "name": "QFB",
       "root_status": "EXACT_ROOT_ESTABLISHED",
       "root_declaration": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED",
       "principal_packages": [
@@ -53,6 +81,50 @@
       "verification_scope": "The literal QuasiFeffermanBStatement: physical periodic L2 solenoidal mean-zero data, LH nonemptiness, every specified LH path, smoothness at the safe cutoff and the strict-cutoff smooth-tail, energy-equality and own-trace future-uniqueness clauses. This is the exact established QFB theorem, not universal regularity from time zero.",
       "open_obligations": [],
       "standalone_qfb": true,
+      "ci_mode": "audit"
+    },
+    {
+      "id": "SINGULAR_PREMISE_OBSTRUCT_R3",
+      "domain": "R3",
+      "name": "SINGULAR-PREMISE OBSTRUCT R3",
+      "root_status": "OPEN_NO_NATIVE_ROOT",
+      "root_declaration": null,
+      "principal_packages": [
+        "EhrenfestScalar",
+        "EhrenfestCoreAlgebra"
+      ],
+      "verification_scope": "Dummy stage only: no native whole-space singular-premise obstruction root is established. The listed packages are generic scalar and commutator foundations; this stage does not audit them or invoke Lean, restore caches, or claim an R3 obstruction theorem.",
+      "retained_foundation_scope": "Only domain-independent stopped scalar descent and transport/Hamiltonian commutator algebra. These existing generic packages do not define or prove a whole-space NSE-A obstruction and do not instantiate the periodic Galerkin obstruction as an R3 theorem.",
+      "open_obligations": [
+        "Define the actual unforced whole-space NSE-A target and a noncircular single-input obstruction predicate with the intended datum and solution classes.",
+        "Construct the whole-space physical approximation/dynamical identification and the required smooth-solution stability bound.",
+        "Prove the exact single-input implication to failure of NSE-A; no native root declaration currently exists.",
+        "Construct an input satisfying the obstruction predicate separately from proving the conditional implication."
+      ],
+      "standalone_qfb": false,
+      "ci_mode": "placeholder"
+    },
+    {
+      "id": "SIGNULAR_PREMISE_OBSTRUCT_T3",
+      "domain": "T3",
+      "name": "SIGNULAR-PREMISE OBSTRUCT T3",
+      "root_status": "CONDITIONAL_SINGLE_PREMISE_ESTABLISHED",
+      "root_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+      "principal_packages": [
+        "EhrenfestObstructionRoot"
+      ],
+      "verification_scope": "The established exact positive-viscosity implication StoppedCommutatorBound nu -> Not (NSE_B nu), together with its initial-front, global-smooth and dynamical reduction theorems. The goal is this conditional single-premise implication. Its stopped-bound premise is retained and concerns one fixed smooth periodic datum and its actual canonical Galerkin family. The audit does not construct a premise witness, prove unconditional failure of NSE-B, or substitute a forced Fefferman-D result.",
+      "retained_premises": [
+        "Positive viscosity nu > 0.",
+        "The single substantive obstruction premise StoppedCommutatorBound nu."
+      ],
+      "open_obligations": [],
+      "separate_open_obligations": [
+        "Constructing a witness of StoppedCommutatorBound for an actual fixed smooth datum is separate from this established conditional implication and remains unproved.",
+        "A complete Hilbert-operator realization remains a separate milestone and is not supplied by the scalar conditional root.",
+        "Unconditional failure of unforced NSE-B is not established by the accepted conditional reduction."
+      ],
+      "standalone_qfb": false,
       "ci_mode": "audit"
     }
   ]

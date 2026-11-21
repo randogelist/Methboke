@@ -6,112 +6,186 @@
   "mode": "A_TIER_DERIVATION",
   "resume_mode": "A_TIER_DERIVATION",
   "main_goal": {
-    "name": "THREE_THEOREM_GOALS",
-    "source": "Explicit user correction: goals only WFA, WFB, QFB; dummy test stages for not-yet-closed statements; 2026-11-21",
+    "name": "SIX_THEOREM_GOALS",
+    "source": "Latest explicit user six-goal list in exact supplied order and spelling, with dummy stages for open statements; 2026-11-21",
+    "ordered_goal_ids": [
+      "WFA",
+      "WFB",
+      "QFA",
+      "QFB",
+      "SINGULAR_PREMISE_OBSTRUCT_R3",
+      "SIGNULAR_PREMISE_OBSTRUCT_T3"
+    ],
+    "ordered_goal_labels": [
+      "WFA",
+      "WFB",
+      "QFA",
+      "QFB",
+      "SINGULAR-PREMISE OBSTRUCT R3",
+      "SIGNULAR-PREMISE OBSTRUCT T3"
+    ],
     "goals_by_domain": {
       "R3": [
-        "WFA"
+        "WFA",
+        "QFA",
+        "SINGULAR_PREMISE_OBSTRUCT_R3"
       ],
       "T3": [
         "WFB",
-        "QFB"
+        "QFB",
+        "SIGNULAR_PREMISE_OBSTRUCT_T3"
       ]
     },
-    "goal_count": 3,
+    "goal_count": 6,
     "status": "GOALS_DECLARED_NO_NEW_PROOF_ACCEPTANCE",
-    "previous_goal_role": "SUPERSEDED_SELECTION_NOT_CURRENT_PROOF_EVIDENCE",
+    "previous_goal_role": "SUPERSEDED_SELECTION_NOT_CURRENT_RUN_EVIDENCE",
     "previous_goal": {
-      "name": "SIX_THEOREM_GOALS",
-      "source": "Explicit user selection: WFA, WFB, QFA, QFB, single input NSE A obstruct, single input NSE B obstruct; six parallel CI runners, one per theorem; 2026-11-21",
+      "name": "THREE_THEOREM_GOALS",
+      "source": "Explicit user correction: goals only WFA, WFB, QFB; dummy test stages for not-yet-closed statements; 2026-11-21",
       "goals_by_domain": {
         "R3": [
-          "WFA",
-          "QFA",
-          "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+          "WFA"
         ],
         "T3": [
           "WFB",
-          "QFB",
-          "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+          "QFB"
         ]
       },
-      "goal_count": 6,
+      "goal_count": 3,
       "status": "GOALS_DECLARED_NO_NEW_PROOF_ACCEPTANCE",
+      "previous_goal_role": "SUPERSEDED_SELECTION_NOT_CURRENT_PROOF_EVIDENCE",
       "previous_goal": {
-        "name": "Fefferman_D",
-        "source": "Explicit user selection: The Goal Is Fefferman D; implement T3 family on Methboke main, 2026-11-20",
-        "status": "DIRECT_D_AND_CONDITIONAL_FDSN_A_TIER_PRESCRIBED_SITE_FAMILY_OPEN",
-        "construction_route": "Fefferman_D_Family_obstruction",
-        "previous_goal": {
-          "name": "EHRENFEST_OBSTRUCTION",
-          "program_name": "EHRENFEST-OBSTRUCTION",
-          "source": "Explicit user selection of the exact conditional root; subsequent authorization to apply amendments and complete A-tier verification",
-          "exact_statement": "forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu",
-          "stopped_bound_hypothesis_retained": true,
-          "stopped_bound_witness_proved": false,
-          "status": "ACHIEVED_EXACT_CONDITIONAL_ROOT_A_TIER",
-          "previous_goal": "Weak_Fourierman_B",
-          "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
+        "name": "SIX_THEOREM_GOALS",
+        "source": "Explicit user selection: WFA, WFB, QFA, QFB, single input NSE A obstruct, single input NSE B obstruct; six parallel CI runners, one per theorem; 2026-11-21",
+        "goals_by_domain": {
+          "R3": [
+            "WFA",
+            "QFA",
+            "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+          ],
+          "T3": [
+            "WFB",
+            "QFB",
+            "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+          ]
         },
-        "family_witness_constructed": false,
-        "literal_force_decay_adapter_proved": false,
-        "literal_force_decay_adapter_scope": "Native family route; the separate direct theorem already uses the literal admissible-force contract.",
-        "family_witness_scope": "Prescribed-site family, distinct from the accepted canonical FDSN conditional family."
+        "goal_count": 6,
+        "status": "GOALS_DECLARED_NO_NEW_PROOF_ACCEPTANCE",
+        "previous_goal": {
+          "name": "Fefferman_D",
+          "source": "Explicit user selection: The Goal Is Fefferman D; implement T3 family on Methboke main, 2026-11-20",
+          "status": "DIRECT_D_AND_CONDITIONAL_FDSN_A_TIER_PRESCRIBED_SITE_FAMILY_OPEN",
+          "construction_route": "Fefferman_D_Family_obstruction",
+          "previous_goal": {
+            "name": "EHRENFEST_OBSTRUCTION",
+            "program_name": "EHRENFEST-OBSTRUCTION",
+            "source": "Explicit user selection of the exact conditional root; subsequent authorization to apply amendments and complete A-tier verification",
+            "exact_statement": "forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu",
+            "stopped_bound_hypothesis_retained": true,
+            "stopped_bound_witness_proved": false,
+            "status": "ACHIEVED_EXACT_CONDITIONAL_ROOT_A_TIER",
+            "previous_goal": "Weak_Fourierman_B",
+            "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
+          },
+          "family_witness_constructed": false,
+          "literal_force_decay_adapter_proved": false,
+          "literal_force_decay_adapter_scope": "Native family route; the separate direct theorem already uses the literal admissible-force contract.",
+          "family_witness_scope": "Prescribed-site family, distinct from the accepted canonical FDSN conditional family."
+        }
       }
     }
   },
   "target_hierarchy": {
-    "macroscopic": "R3: WFA. T3: WFB and QFB.",
-    "mesoscopic": "THREE_THEOREM_GOALS_AND_CI: three parallel stages with dummy/pending WFA and real exact-scope WFB/QFB audits.",
-    "microscopic": "Configure WFA without Lean, cache restoration or theorem audits; preserve the exact WFB full-budget hypothesis, QFB root scope, source receipts and complete Material gates.",
-    "next_scoped_endpoint": "Inspect matching exact-commit three-stage reports. The WFA dummy remains pending and supplies no proof evidence."
+    "macroscopic": "WFA; WFB; QFA; QFB; SINGULAR-PREMISE OBSTRUCT R3; SIGNULAR-PREMISE OBSTRUCT T3.",
+    "mesoscopic": "SIX_THEOREM_GOALS_AND_CI: six parallel stages, with dummy WFA/QFA/R3 obstruction and real exact-scope WFB/QFB/T3 conditional obstruction audits.",
+    "microscopic": "Configure the exact six-goal order and spelling; preserve explicit premises, source receipts and complete Material gates.",
+    "next_scoped_endpoint": "Inspect a new matching exact-commit six-stage run. Dummy stages remain pending and supply no proof evidence; T3 conditional acceptance leaves witness construction separate."
   },
   "goal_transition": {
-    "authorized_by": "Explicit user correction to WFA, WFB, QFB and dummy stages for not-yet-closed statements, 2026-11-21",
-    "source_basis_revision": "4532dfc0f15dd543202bdf2b589c964ee5e05f78",
+    "authorized_by": "Latest explicit ordered six-goal correction and dummy stages for open statements, 2026-11-21",
+    "source_basis_revision": "07df7ed084b0556ecd95f6f5c41da87b5a05fd9c",
+    "ordered_goal_ids": [
+      "WFA",
+      "WFB",
+      "QFA",
+      "QFB",
+      "SINGULAR_PREMISE_OBSTRUCT_R3",
+      "SIGNULAR_PREMISE_OBSTRUCT_T3"
+    ],
+    "ordered_goal_labels": [
+      "WFA",
+      "WFB",
+      "QFA",
+      "QFB",
+      "SINGULAR-PREMISE OBSTRUCT R3",
+      "SIGNULAR-PREMISE OBSTRUCT T3"
+    ],
     "goals_by_domain": {
       "R3": [
-        "WFA"
+        "WFA",
+        "QFA",
+        "SINGULAR_PREMISE_OBSTRUCT_R3"
       ],
       "T3": [
         "WFB",
-        "QFB"
+        "QFB",
+        "SIGNULAR_PREMISE_OBSTRUCT_T3"
       ]
     },
-    "superseded_configuration": "SIX_THEOREM_GOALS_AND_PARALLEL_CI",
-    "superseded_configuration_is_current_proof_evidence": false,
+    "superseded_configuration": "THREE_THEOREM_GOALS_AND_CI",
+    "prior_configurations_are_current_run_evidence": false,
     "prior_accepted_statements_changed": false,
     "prior_receipts_changed": false,
     "compiler_or_dependency_pins_changed": false,
     "existing_complete_material_gates_preserved": true,
     "local_lean_executions": 0,
     "previous_goal_transition": {
-      "authorized_by": "Explicit user six-goal declaration and request for six parallel theorem CI runners, 2026-11-21",
-      "source_basis_revision": "b4218fbcdd130189b69b1ee3f6df81b036553e4a",
+      "authorized_by": "Explicit user correction to WFA, WFB, QFB and dummy stages for not-yet-closed statements, 2026-11-21",
+      "source_basis_revision": "4532dfc0f15dd543202bdf2b589c964ee5e05f78",
       "goals_by_domain": {
         "R3": [
-          "WFA",
-          "QFA",
-          "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+          "WFA"
         ],
         "T3": [
           "WFB",
-          "QFB",
-          "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+          "QFB"
         ]
       },
+      "superseded_configuration": "SIX_THEOREM_GOALS_AND_PARALLEL_CI",
+      "superseded_configuration_is_current_proof_evidence": false,
       "prior_accepted_statements_changed": false,
       "prior_receipts_changed": false,
       "compiler_or_dependency_pins_changed": false,
       "existing_complete_material_gates_preserved": true,
       "local_lean_executions": 0,
       "previous_goal_transition": {
-        "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
-        "source_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
-        "historical_register_manifest": "audits/goal-transition-fefferman-d/manifest.json",
+        "authorized_by": "Explicit user six-goal declaration and request for six parallel theorem CI runners, 2026-11-21",
+        "source_basis_revision": "b4218fbcdd130189b69b1ee3f6df81b036553e4a",
+        "goals_by_domain": {
+          "R3": [
+            "WFA",
+            "QFA",
+            "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+          ],
+          "T3": [
+            "WFB",
+            "QFB",
+            "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+          ]
+        },
         "prior_accepted_statements_changed": false,
-        "compiler_dependency_or_ci_policy_changed": false,
-        "local_lean_executions": 0
+        "prior_receipts_changed": false,
+        "compiler_or_dependency_pins_changed": false,
+        "existing_complete_material_gates_preserved": true,
+        "local_lean_executions": 0,
+        "previous_goal_transition": {
+          "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
+          "source_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
+          "historical_register_manifest": "audits/goal-transition-fefferman-d/manifest.json",
+          "prior_accepted_statements_changed": false,
+          "compiler_dependency_or_ci_policy_changed": false,
+          "local_lean_executions": 0
+        }
       }
     }
   },
@@ -4047,7 +4121,7 @@
         "root_source_compiler_pass": true,
         "root_source_compiler_pass_is_full_acceptance": false,
         "evidence": "audits/fdsn-r3-7dd6dba6-failed/SUMMARY.txt",
-        "repair": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
+        "repair": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((\ud835\udcd5 (complexifySchwartz f) : \ud835\udce2(Vec, CVec)) : Vec \u2192 CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
         "local_lean_executions": 0
       }
     ],
@@ -4234,13 +4308,13 @@
           "R3-16": "Canonical same-witness FDSN_R3 root"
         },
         "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
-        "exact_root_type": "@MethbokeAddon.FDSNR3.FDSN_R3 : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n  MethbokeAddon.FDSNR3.Seed ν T u p F → MethbokeAddon.FDSNR3.Family ν T u p F",
+        "exact_root_type": "@MethbokeAddon.FDSNR3.FDSN_R3 : \u2200 {\u03bd T : \u211d} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n  MethbokeAddon.FDSNR3.Seed \u03bd T u p F \u2192 MethbokeAddon.FDSNR3.Family \u03bd T u p F",
         "root_axioms": [
           "Classical.choice",
           "Quot.sound",
           "propext"
         ],
-        "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+        "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
         "fdsn_r3_root_proved": true,
         "seed_existence_proved": false,
         "original_seed_and_family_unchanged": true,
@@ -4350,7 +4424,7 @@
       "source_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
       "run_id": 44848985720,
       "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
-      "historical_preacceptance_repair_scope": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
+      "historical_preacceptance_repair_scope": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((\ud835\udcd5 (complexifySchwartz f) : \ud835\udce2(Vec, CVec)) : Vec \u2192 CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
       "root_proved": true
     },
     "scope_completion": {
@@ -4392,7 +4466,7 @@
       "local_lean_executions": 0,
       "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
       "root_proved": true,
-      "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+      "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
       "seed_existence_proved": false,
       "passed_modules": 548,
       "reused_modules": 502,
@@ -4431,7 +4505,7 @@
     "local_lean_executions": 0,
     "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
     "root_proved": true,
-    "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+    "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
     "seed_existence_proved": false,
     "passed_modules": 548,
     "reused_modules": 502,
@@ -4503,7 +4577,7 @@
       "local_lean_executions": 0,
       "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
       "root_proved": true,
-      "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+      "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
       "seed_existence_proved": false,
       "passed_modules": 548,
       "reused_modules": 502,
@@ -5171,7 +5245,7 @@
       "accepted_pathwise_milestone": "M1"
     }
   ],
-  "active_scoped_request": "THREE_THEOREM_GOALS_AND_CI",
+  "active_scoped_request": "SIX_THEOREM_GOALS_AND_CI",
   "current_material_candidate": {
     "schema_version": 1,
     "date": "2026-11-21",
@@ -5821,7 +5895,7 @@
           "local_lean_executions": 0,
           "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
           "root_proved": true,
-          "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+          "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
           "seed_existence_proved": false,
           "passed_modules": 548,
           "reused_modules": 502,
@@ -5858,7 +5932,7 @@
           "local_lean_executions": 0,
           "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
           "root_proved": true,
-          "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+          "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
           "seed_existence_proved": false,
           "passed_modules": 548,
           "reused_modules": 502,
@@ -6552,7 +6626,7 @@
       "local_lean_executions": 0,
       "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
       "root_proved": true,
-      "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+      "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
       "seed_existence_proved": false,
       "passed_modules": 548,
       "reused_modules": 502,
@@ -6779,8 +6853,8 @@
     }
   },
   "integration_phase": "GITHUB_MODE_MAIN_PROMOTION_FINALIZATION",
-  "active_scoped_request_status": "CONFIGURED_PENDING_EXTERNAL_VALIDATION",
-  "remaining_engineering_check": "MATCHING_THREE_GOAL_CI_RUN_STATUS",
+  "active_scoped_request_status": "CONFIGURED_WITH_EXACT_COMMIT_CI",
+  "remaining_engineering_check": "NEW_MATCHING_SIX_GOAL_CI_RUN_STATUS",
   "main_promotion": {
     "status": "MERGED_COMPLETE",
     "authorized": true,
@@ -6859,16 +6933,36 @@
   "theorem_goal_ci": {
     "workflow": ".github/workflows/theorem-goals.yml",
     "manifest": "Material/ci/theorem-goals.json",
-    "parallel_runners": 3,
-    "max_parallel": 3,
-    "status": "CONFIGURED_PENDING_EXTERNAL_VALIDATION",
+    "parallel_runners": 6,
+    "max_parallel": 6,
+    "status": "CONFIGURED_WITH_EXACT_COMMIT_CI",
+    "requires_new_exact_external_run": true,
+    "ordered_goal_ids": [
+      "WFA",
+      "WFB",
+      "QFA",
+      "QFB",
+      "SINGULAR_PREMISE_OBSTRUCT_R3",
+      "SIGNULAR_PREMISE_OBSTRUCT_T3"
+    ],
+    "ordered_goal_labels": [
+      "WFA",
+      "WFB",
+      "QFA",
+      "QFB",
+      "SINGULAR-PREMISE OBSTRUCT R3",
+      "SIGNULAR-PREMISE OBSTRUCT T3"
+    ],
     "goals_by_domain": {
       "R3": [
-        "WFA"
+        "WFA",
+        "QFA",
+        "SINGULAR_PREMISE_OBSTRUCT_R3"
       ],
       "T3": [
         "WFB",
-        "QFB"
+        "QFB",
+        "SIGNULAR_PREMISE_OBSTRUCT_T3"
       ]
     },
     "stages": {
@@ -6885,41 +6979,111 @@
         "root_status": "CONDITIONAL_FULL_BUDGET",
         "full_fourier_budget_hypothesis_retained": true
       },
+      "QFA": {
+        "kind": "DUMMY_PENDING",
+        "root_status": "OPEN_GENERAL_DATA",
+        "lean_execution": false,
+        "cache_restoration": false,
+        "theorem_audits": false,
+        "proof_evidence": false
+      },
       "QFB": {
         "kind": "REAL_EXACT_ROOT_AND_CUTOUT_AUDIT",
         "root_status": "EXACT_ROOT_ESTABLISHED",
         "exact_cutoff_and_regularity_scope_retained": true
+      },
+      "SINGULAR_PREMISE_OBSTRUCT_R3": {
+        "kind": "DUMMY_PENDING",
+        "root_status": "OPEN_NO_NATIVE_ROOT",
+        "lean_execution": false,
+        "cache_restoration": false,
+        "theorem_audits": false,
+        "proof_evidence": false
+      },
+      "SIGNULAR_PREMISE_OBSTRUCT_T3": {
+        "kind": "REAL_EXACT_CONDITIONAL_THEOREM_AUDIT",
+        "root_status": "CONDITIONAL_SINGLE_PREMISE_ESTABLISHED",
+        "root_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+        "exact_implication": "forall nu > 0, StoppedCommutatorBound nu -> not (NSE_B nu)",
+        "explicit_premise_retained": true,
+        "witness_constructed": false,
+        "unconditional_NSE_B_failure_claimed": false
       }
     },
     "full_material_workflow_preserved": true,
     "new_root_closure_claimed": false,
     "local_lean_executions": 0,
-    "scope_policy": "WFA is explicitly pending and executes no Lean, cache restoration or theorem audit. WFB/QFB freshly audit their exact established scopes from verified cached objects. The previous six-goal configuration is superseded and supplies no current proof evidence."
+    "scope_policy": "Dummy WFA, QFA and R3 obstruction stages execute no Lean, cache restoration or theorem audit. Real WFB, QFB and T3 obstruction stages freshly audit established exact statements with every premise retained. The T3 single-premise conditional theorem does not construct a witness or establish unconditional failure. Prior configurations are history only.",
+    "validation_authority": "The GitHub Actions theorem-goal run for the exact source commit; dummy completion remains distinct from theorem proof."
   },
   "superseded_theorem_goal_ci": {
-    "status": "SUPERSEDED_CONFIGURATION_NOT_CURRENT_PROOF_EVIDENCE",
-    "source_revision": "4532dfc0f15dd543202bdf2b589c964ee5e05f78",
+    "status": "SUPERSEDED_CONFIGURATION_NOT_CURRENT_RUN_EVIDENCE",
+    "source_revision": "07df7ed084b0556ecd95f6f5c41da87b5a05fd9c",
     "configuration": {
       "workflow": ".github/workflows/theorem-goals.yml",
       "manifest": "Material/ci/theorem-goals.json",
-      "parallel_runners": 6,
+      "parallel_runners": 3,
+      "max_parallel": 3,
       "status": "CONFIGURED_PENDING_EXTERNAL_VALIDATION",
       "goals_by_domain": {
         "R3": [
-          "WFA",
-          "QFA",
-          "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+          "WFA"
         ],
         "T3": [
           "WFB",
-          "QFB",
-          "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+          "QFB"
         ]
       },
+      "stages": {
+        "WFA": {
+          "kind": "DUMMY_PENDING",
+          "root_status": "OPEN",
+          "lean_execution": false,
+          "cache_restoration": false,
+          "theorem_audits": false,
+          "proof_evidence": false
+        },
+        "WFB": {
+          "kind": "REAL_EXACT_TYPE_AXIOM_AUDIT",
+          "root_status": "CONDITIONAL_FULL_BUDGET",
+          "full_fourier_budget_hypothesis_retained": true
+        },
+        "QFB": {
+          "kind": "REAL_EXACT_ROOT_AND_CUTOUT_AUDIT",
+          "root_status": "EXACT_ROOT_ESTABLISHED",
+          "exact_cutoff_and_regularity_scope_retained": true
+        }
+      },
       "full_material_workflow_preserved": true,
-      "root_closure_claimed": false,
+      "new_root_closure_claimed": false,
       "local_lean_executions": 0,
-      "scope_policy": "Each runner reports its configured endpoint scope and remaining root obligations. Existing conditional reductions retain all premises. No obstruction witness or open general root is supplied by goal registration."
+      "scope_policy": "WFA is explicitly pending and executes no Lean, cache restoration or theorem audit. WFB/QFB freshly audit their exact established scopes from verified cached objects. The previous six-goal configuration is superseded and supplies no current proof evidence."
+    },
+    "earlier_superseded_configuration": {
+      "status": "SUPERSEDED_CONFIGURATION_NOT_CURRENT_PROOF_EVIDENCE",
+      "source_revision": "4532dfc0f15dd543202bdf2b589c964ee5e05f78",
+      "configuration": {
+        "workflow": ".github/workflows/theorem-goals.yml",
+        "manifest": "Material/ci/theorem-goals.json",
+        "parallel_runners": 6,
+        "status": "CONFIGURED_PENDING_EXTERNAL_VALIDATION",
+        "goals_by_domain": {
+          "R3": [
+            "WFA",
+            "QFA",
+            "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+          ],
+          "T3": [
+            "WFB",
+            "QFB",
+            "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+          ]
+        },
+        "full_material_workflow_preserved": true,
+        "root_closure_claimed": false,
+        "local_lean_executions": 0,
+        "scope_policy": "Each runner reports its configured endpoint scope and remaining root obligations. Existing conditional reductions retain all premises. No obstruction witness or open general root is supplied by goal registration."
+      }
     }
   }
 }

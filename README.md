@@ -2,37 +2,50 @@
 
 ## Current project goals
 
-The project goals are **WFA, WFB and QFB**.
+1. WFA
+2. WFB
+3. QFA
+4. QFB
+5. SINGULAR-PREMISE OBSTRUCT R3
+6. SIGNULAR-PREMISE OBSTRUCT T3
 
 | Domain | Goals |
 |---|---|
-| $\mathbb R^3$ | **WFA** |
-| $\mathbb T^3$ | **WFB**, **QFB** |
+| $\mathbb R^3$ | **WFA**, **QFA**, **SINGULAR-PREMISE OBSTRUCT R3** |
+| $\mathbb T^3$ | **WFB**, **QFB**, **SIGNULAR-PREMISE OBSTRUCT T3** |
 
-The earlier six-goal configuration is superseded. Existing results, hypotheses
-and source-specific evidence retain their recorded status.
+This latest six-goal declaration supersedes the earlier configurations. Existing
+results, explicit hypotheses and source-specific evidence retain their status.
 
-### Three parallel theorem CI stages
+### Six parallel theorem CI stages
 
 [Theorem-goal CI](.github/workflows/theorem-goals.yml) and its
 [goal manifest](Material/ci/theorem-goals.json) configure one stage per goal:
 
 | Goal | Stage | Mathematical status |
 |---|---|---|
-| **WFA** | Dummy/pending stage; no Lean execution, cache restoration or theorem audit | General physical WFA remains open |
-| **WFB** | Fresh exact-type and axiom audits from verified cached objects | Established conditional full-Fourier-budget theorem; its budget hypothesis is retained |
-| **QFB** | Fresh exact-root and standalone-cutout audits from verified cached objects | Established exact QFB cutoff and regularity scope |
+| **WFA** | Dummy/pending | General physical WFA remains open |
+| **WFB** | Real exact-type and axiom audits | Established conditional full-Fourier-budget theorem; budget hypothesis retained |
+| **QFA** | Dummy/pending | General-data physical QFA remains open |
+| **QFB** | Real exact-root and standalone-cutout audits | Established exact QFB cutoff and regularity scope |
+| **SINGULAR-PREMISE OBSTRUCT R3** | Dummy/pending | No native whole-space obstruction root is established |
+| **SIGNULAR-PREMISE OBSTRUCT T3** | Real exact conditional-theorem audits | Established single-premise implication `StoppedCommutatorBound nu -> not (NSE_B nu)` for positive viscosity |
 
-After the complete Material workflow succeeds on `main`, the three jobs inspect
-that exact source revision with `max-parallel: 3` and `fail-fast: false`.
-WFA's dummy stage records its pending status and open obligations; it supplies no
-proof evidence. WFB/QFB consume the canonical caches without publishing partial
-replacements. The existing complete Material verification and Lean source-count
-checks remain in place.
+After the complete Material workflow succeeds on `main`, six jobs inspect that
+exact source revision with `max-parallel: 6` and `fail-fast: false`. The three
+dummy stages perform no Lean execution, cache restoration or theorem audit;
+they record pending status and open obligations. The three real stages use
+verified canonical cached objects and run fresh exact-type and axiom audits.
+They do not publish partial replacement caches.
 
-The three-stage configuration is **pending matching external validation**.
-The superseded six-goal configuration is historical and is not current proof
-evidence.
+The T3 obstruction stage checks the established conditional implication. Its
+`StoppedCommutatorBound` premise remains explicit; constructing a witness and
+establishing unconditional failure of NSE-B are separate, unresolved tasks.
+The existing complete Material verification and Lean source-count checks remain.
+Validation is reported by the [theorem-goal workflow](https://github.com/randogelist/Methboke/actions/workflows/theorem-goals.yml)
+for each exact source commit. Dummy-stage completion keeps the corresponding
+mathematical statement pending. Earlier configurations do not validate a later
+source revision.
 
 <!-- lean-source-stats:start -->
 ## Lean source size
@@ -67,7 +80,7 @@ to the verified head `e627a39e6c27cd4432ab063741fe726af8378a63`, preserving
 the original integration history. The local integration target is complete.
 That integration retained the then-current **Fefferman D** goal. The completed
 FDSN_R3 theorem and every prior accepted result retain their exact scope; the
-current three-goal declaration above supersedes the historical goal selection.
+current six-goal declaration above supersedes the historical goal selection.
 
 The promoted head passed [run 44856391458](https://github.com/randogelist/Methboke/actions/runs/44856391458):
 **654 modules reused, zero freshly compiled, 169 fresh package audits and
@@ -425,7 +438,7 @@ the previous research-file locations.
 
 | Path | Purpose |
 |---|---|
-| [GPT.txt](GPT.txt) | Three current domain goals, CI stages, retained integration and exact mathematical contracts |
+| [GPT.txt](GPT.txt) | Six current domain goals, CI stages, retained integration and exact mathematical contracts |
 | [Integration record](integration/AC_INTO_MAIN/README.md) | Frozen inputs, accepted combined scope, proof preservation and live head verification policy |
 | [QFA resources](R3_NSE/QFA/README.md) | Accepted physical foundations, restart/heat/zero-datum scopes and remaining general-root obligations |
 | [NSE-A resources](R3_NSE/A-Regularity-class/README.md) | Accepted pathwise six-charge resources, B-tier class characterization and remaining canonical PDE obligations |

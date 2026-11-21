@@ -96,18 +96,32 @@ class TheoremGoalControls(unittest.TestCase):
         with self.assertRaises(goal.ScopeError):
             goal.root_contract(row, [entry])
 
-    def test_checked_in_manifest_keeps_three_explicit_goals_and_dummy_mode(self):
+    def test_checked_in_manifest_keeps_six_explicit_goals_and_dummy_modes(self):
         root = SCRIPT.parents[1]
         manifest = json.loads((root / "Material/ci/theorem-goals.json").read_text())
         entries = [{"id": path.parent.name} for path in (root / "Material").glob("*/endpoint.json")]
         rows = goal.validate_manifest(manifest, entries)
-        self.assertEqual(set(rows), {"WFA", "WFB", "QFB"})
-        self.assertEqual(goal.GOAL_IDS, ("WFA", "WFB", "QFB"))
-        self.assertIsNone(rows["WFA"]["root_declaration"])
-        self.assertEqual(rows["WFA"]["root_status"], "OPEN")
-        self.assertEqual(rows["WFA"]["ci_mode"], "placeholder")
-        self.assertEqual(rows["WFB"]["ci_mode"], "audit")
-        self.assertEqual(rows["QFB"]["ci_mode"], "audit")
+        expected = ("WFA", "WFB", "QFA", "QFB", "SINGULAR_PREMISE_OBSTRUCT_R3", "SIGNULAR_PREMISE_OBSTRUCT_T3")
+        self.assertEqual(set(rows), set(expected))
+        self.assertEqual(goal.GOAL_IDS, expected)
+        for identifier, status in {"WFA": "OPEN", "QFA": "OPEN_GENERAL_DATA",
+                                   "SINGULAR_PREMISE_OBSTRUCT_R3": "OPEN_NO_NATIVE_ROOT"}.items():
+            self.assertIsNone(rows[identifier]["root_declaration"])
+            self.assertEqual(rows[identifier]["root_status"], status)
+            self.assertEqual(rows[identifier]["ci_mode"], "placeholder")
+            self.assertEqual(rows[identifier]["domain"], "R3")
+        for identifier in ("WFB", "QFB", "SIGNULAR_PREMISE_OBSTRUCT_T3"):
+            self.assertEqual(rows[identifier]["ci_mode"], "audit")
+            self.assertEqual(rows[identifier]["domain"], "T3")
+        self.assertEqual(rows["SIGNULAR_PREMISE_OBSTRUCT_T3"]["root_status"],
+                         "CONDITIONAL_SINGLE_PREMISE_ESTABLISHED")
+        self.assertEqual(rows["SIGNULAR_PREMISE_OBSTRUCT_T3"]["open_obligations"], [])
+        self.assertTrue(rows["SIGNULAR_PREMISE_OBSTRUCT_T3"]["retained_premises"])
+        self.assertTrue(rows["SIGNULAR_PREMISE_OBSTRUCT_T3"]["separate_open_obligations"])
+        missing_premises = copy.deepcopy(manifest)
+        missing_premises["goals"][-1]["retained_premises"] = []
+        with self.assertRaises(goal.ScopeError):
+            goal.validate_manifest(missing_premises, entries)
         bad = copy.deepcopy(manifest)
         bad["goals"][0]["root_status"] = "EXACT_ROOT_ESTABLISHED"
         with self.assertRaises(goal.ScopeError):
@@ -147,24 +161,33 @@ class TheoremGoalControls(unittest.TestCase):
             return result, json.loads((output / "scope-report.json").read_text()), (base / "summary.md").read_text()
 
     def test_placeholder_branch_never_loads_drivers_caches_or_compiler(self):
-        result, report, summary = self._placeholder_main("WFA")
-        self.assertEqual(result, 0)
-        self.assertEqual(report["audit_status"], "DUMMY_PENDING")
-        self.assertEqual(report["root_status"], "OPEN")
-        self.assertIsNone(report["root_declaration"])
-        self.assertFalse(report["compiler_executed"])
-        self.assertFalse(report["cache_accessed"])
-        self.assertEqual(report["fresh_package_count"], 0)
-        self.assertEqual(report["fresh_named_reports"], 0)
-        self.assertFalse(report["full_project_acceptance"])
-        self.assertIn("Dummy stage only", summary)
+        for identifier, status in {"WFA": "OPEN", "QFA": "OPEN_GENERAL_DATA",
+                                   "SINGULAR_PREMISE_OBSTRUCT_R3": "OPEN_NO_NATIVE_ROOT"}.items():
+            with self.subTest(goal=identifier):
+                result, report, summary = self._placeholder_main(identifier)
+                self.assertEqual(result, 0)
+                self.assertEqual(report["audit_status"], "DUMMY_PENDING")
+                self.assertEqual(report["root_status"], status)
+                self.assertIsNone(report["root_declaration"])
+                self.assertFalse(report["compiler_executed"])
+                self.assertFalse(report["cache_accessed"])
+                self.assertEqual(report["fresh_package_count"], 0)
+                self.assertEqual(report["fresh_named_reports"], 0)
+                self.assertFalse(report["full_project_acceptance"])
+                self.assertFalse(report["target_definition_is_proof"])
+                if identifier == "QFA":
+                    self.assertEqual(report["target_definition"],
+                                     "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.QuasiFeffermanA")
+                self.assertIn("Dummy stage only", summary)
 
     def test_placeholder_command_rejects_a_real_audit_goal(self):
-        result, report, _ = self._placeholder_main("WFB")
-        self.assertEqual(result, 1)
-        self.assertEqual(report["audit_status"], "FAIL")
-        self.assertEqual(report["failure_class"], "PLACEHOLDER_MODE_REJECTED")
-        self.assertFalse(report["compiler_executed"])
+        for identifier in ("WFB", "QFB", "SIGNULAR_PREMISE_OBSTRUCT_T3"):
+            with self.subTest(goal=identifier):
+                result, report, _ = self._placeholder_main(identifier)
+                self.assertEqual(result, 1)
+                self.assertEqual(report["audit_status"], "FAIL")
+                self.assertEqual(report["failure_class"], "PLACEHOLDER_MODE_REJECTED")
+                self.assertFalse(report["compiler_executed"])
 
     def test_receipt_mismatch_is_read_only_and_never_reaches_a_compiler(self):
         records = {"Example": {"imports": [], "sha256": "source"}}

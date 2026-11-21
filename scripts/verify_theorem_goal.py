@@ -24,8 +24,9 @@ import time
 
 REPOSITORY = "randogelist/Methboke"
 UPSTREAM_WORKFLOW = "Material / cached verification and passed objects"
-GOAL_IDS = ("WFA", "WFB", "QFB")
-ROOT_STATUSES = {"OPEN", "CONDITIONAL_FULL_BUDGET", "EXACT_ROOT_ESTABLISHED"}
+GOAL_IDS = ("WFA", "WFB", "QFA", "QFB", "SINGULAR_PREMISE_OBSTRUCT_R3", "SIGNULAR_PREMISE_OBSTRUCT_T3")
+ROOT_STATUSES = {"OPEN", "OPEN_GENERAL_DATA", "OPEN_NO_NATIVE_ROOT", "CONDITIONAL_FULL_BUDGET",
+                 "EXACT_ROOT_ESTABLISHED", "CONDITIONAL_SINGLE_PREMISE_ESTABLISHED"}
 STANDARD_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 ROOT = Path(__file__).resolve().parents[1]
 SHA = re.compile(r"[0-9a-f]{40}")
@@ -143,22 +144,23 @@ def validate_manifest(manifest: dict, entries: list[dict]) -> dict[str, dict]:
     rows = manifest.get("goals")
     require(isinstance(rows, list) and len(rows) == len(GOAL_IDS)
             and all(isinstance(row, dict) for row in rows),
-            "SCOPE_MANIFEST_REJECTED", "Exactly three goal records are required.")
+            "SCOPE_MANIFEST_REJECTED", "Exactly six goal records are required.")
     ids = [row.get("id") for row in rows]
     require(len(set(ids)) == len(GOAL_IDS) and set(ids) == set(GOAL_IDS),
-            "SCOPE_MANIFEST_REJECTED", "Goal IDs must be WFA, WFB and QFB exactly once.")
+            "SCOPE_MANIFEST_REJECTED", "Goal IDs must be the six registered IDs exactly once.")
     available = {entry["id"] for entry in entries}
     for row in rows:
         status = row.get("root_status")
         mode = row.get("ci_mode")
         packages = row.get("principal_packages")
         obligations = row.get("open_obligations")
-        require(row.get("domain") == ("R3" if row["id"] == "WFA" else "T3")
+        require(row.get("domain") == ("R3" if row["id"] in
+                {"WFA", "QFA", "SINGULAR_PREMISE_OBSTRUCT_R3"} else "T3")
                 and isinstance(row.get("name"), str) and bool(row["name"].strip())
                 and isinstance(row.get("verification_scope"), str) and bool(row["verification_scope"].strip())
                 and status in ROOT_STATUSES and isinstance(row.get("standalone_qfb"), bool),
                 "SCOPE_MANIFEST_REJECTED", "Invalid domain, status or verification boundary: " + row["id"])
-        require(mode in {"placeholder", "audit"} and (mode == "placeholder") == (status == "OPEN"),
+        require(mode in {"placeholder", "audit"} and (mode == "placeholder") == status.startswith("OPEN"),
                 "SCOPE_MANIFEST_REJECTED", "Open statements require placeholder mode; theorem scopes require audit mode.")
         require(isinstance(packages, list) and (bool(packages) or mode == "placeholder")
                 and all(isinstance(p, str) for p in packages)
@@ -171,9 +173,15 @@ def validate_manifest(manifest: dict, entries: list[dict]) -> dict[str, dict]:
             require(row.get("root_declaration") is None and bool(obligations),
                     "SCOPE_MANIFEST_REJECTED", "An open root must remain absent and have named obligations.")
         elif status.startswith("CONDITIONAL"):
+            retained = row.get("retained_premises", [])
+            established_single_premise = (
+                status == "CONDITIONAL_SINGLE_PREMISE_ESTABLISHED"
+                and isinstance(retained, list) and bool(retained)
+                and all(isinstance(item, str) and bool(item.strip()) for item in retained)
+            )
             require(isinstance(row.get("root_declaration"), str) and bool(row["root_declaration"])
-                    and bool(obligations), "SCOPE_MANIFEST_REJECTED",
-                    "A conditional reduction needs its theorem and retained obligations.")
+                    and (bool(obligations) or established_single_premise), "SCOPE_MANIFEST_REJECTED",
+                    "A conditional reduction needs its theorem and explicit retained premises or obligations.")
         else:
             require(isinstance(row.get("root_declaration"), str) and bool(row["root_declaration"])
                     and not obligations, "SCOPE_MANIFEST_REJECTED",
@@ -390,6 +398,8 @@ def base_report(plan: dict) -> dict:
             "root_status": goal["root_status"], "root_declaration": goal.get("root_declaration"),
             "target_definition": goal.get("target_definition"), "target_definition_is_proof": False,
             "verification_scope": goal["verification_scope"], "open_obligations": goal["open_obligations"],
+            "retained_premises": goal.get("retained_premises", []),
+            "separate_open_obligations": goal.get("separate_open_obligations", []),
             "root_status_automatically_promoted": False, "full_project_acceptance": False,
             "root_status_source": "Explicit checked-in goal manifest; never inferred from audit success.",
             "selected_packages": plan["selected_packages"], "required_package_count": plan["selected_package_count"],
@@ -407,18 +417,20 @@ def placeholder_report(root: Path, goal_id: str, revision: str, route: dict) -> 
     manifest = read_object(manifest_path)
     entries = [{"id": path.parent.name} for path in (root / "Material").glob("*/endpoint.json")]
     goal = validate_manifest(manifest, entries)[goal_id]
-    require(goal["ci_mode"] == "placeholder" and goal["root_status"] == "OPEN"
+    require(goal["ci_mode"] == "placeholder" and goal["root_status"].startswith("OPEN")
             and goal.get("root_declaration") is None,
             "PLACEHOLDER_MODE_REJECTED", "A dummy stage is allowed only for an explicitly open, absent root.")
     return {"schema_version": 1, "repository": REPOSITORY, "report_scope": "placeholder_only",
             "goal_id": goal_id, "goal_name": goal["name"], "domain": goal["domain"],
             "source_revision": revision, "route": route, "ci_mode": "placeholder",
-            "audit_status": "DUMMY_PENDING", "root_status": "OPEN", "root_declaration": None,
+            "audit_status": "DUMMY_PENDING", "root_status": goal["root_status"], "root_declaration": None,
+            "target_definition": goal.get("target_definition"), "target_definition_is_proof": False,
             "root_declaration_freshly_audited": False, "dummy_stage_completed": True,
             "root_status_automatically_promoted": False, "full_project_acceptance": False,
             "verification_scope": goal["verification_scope"],
             "verification_boundary": "Dummy stage only: no theorem proof, compiler execution, cached-object "
-                                     "verification or fresh theorem audit was performed. The WFA root remains open.",
+                                     "verification or fresh theorem audit was performed. The " + goal["name"] +
+                                     " root remains " + goal["root_status"] + ".",
             "open_obligations": goal["open_obligations"], "selected_packages": [],
             "required_package_count": 0, "required_named_reports": 0, "endpoints": [],
             "fresh_package_count": 0, "fresh_named_reports": 0, "audit_reused_count": 0,
@@ -551,6 +563,10 @@ def append_summary(report: dict, environment: dict[str, str]) -> None:
                   " — " + str(report["error"]).replace("\n", " ")]
     if report.get("open_obligations"):
         lines += ["", "Remaining obligations:", ""] + ["- " + x for x in report["open_obligations"]]
+    if report.get("retained_premises"):
+        lines += ["", "Retained premises:", ""] + ["- " + x for x in report["retained_premises"]]
+    if report.get("separate_open_obligations"):
+        lines += ["", "Separate unresolved work:", ""] + ["- " + x for x in report["separate_open_obligations"]]
     with Path(path).open("a", encoding="utf-8") as stream:
         stream.write("\n".join(lines) + "\n")
 
@@ -585,7 +601,7 @@ def main() -> int:
             atomic_json(output / "scope-report.json", report)
             append_summary(report, environment)
             print(json.dumps({"goal": args.goal, "stage": "placeholder", "audit_status": "DUMMY_PENDING",
-                              "root_status": "OPEN", "source_revision": args.revision}, sort_keys=True))
+                              "root_status": report["root_status"], "source_revision": args.revision}, sort_keys=True))
             return 0
         drivers = load_drivers(root)
         plan, selected = make_plan(root, args.goal, args.revision, route, drivers)

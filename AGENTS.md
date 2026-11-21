@@ -27,23 +27,31 @@ publication of its combined cache have passed. The documentation head 10f73223
 completed Material run 44859131356 with conclusion success. The independent
 Lean source-line counting and maintained README statistic remain in place.
 
-The current user-selected goals are **WFA, WFB and QFB**:
+The current user-selected goals, in their exact order and spelling, are:
 
-- **R3:** WFA.
-- **T3:** WFB and QFB.
+1. WFA
+2. WFB
+3. QFA
+4. QFB
+5. SINGULAR-PREMISE OBSTRUCT R3
+6. SIGNULAR-PREMISE OBSTRUCT T3
 
-The active engineering task is `THREE_THEOREM_GOALS_AND_CI`:
+The domain mapping is R3 = WFA, QFA, SINGULAR-PREMISE OBSTRUCT R3;
+T3 = WFB, QFB, SIGNULAR-PREMISE OBSTRUCT T3.
+The active task is `SIX_THEOREM_GOALS_AND_CI`:
 `.github/workflows/theorem-goals.yml`, with scope in
-`Material/ci/theorem-goals.json`, configures three parallel stages. WFA is an
-explicit dummy/pending stage with no Lean execution, cache restoration or theorem
-audit. WFB freshly audits its established exact conditional full-budget theorem;
-QFB freshly audits its established exact root and standalone cutout. Preserve
-WFB's full Fourier-budget hypothesis and QFB's precise cutoff/regularity scope.
-The configuration is pending matching external validation. Preserve the full
-Material workflow and its gates. A dummy status supplies no theorem evidence.
-The earlier six-goal configuration is superseded and is not current proof
-evidence. Retained QFA, obstruction, Fefferman-D and FDSN resources keep their
-original statuses, explicit premises and source-specific receipts.
+`Material/ci/theorem-goals.json`, configures six parallel stages. WFA, QFA and
+the R3 obstruction have dummy/pending stages: no Lean, cache restoration or
+theorem audits. WFB, QFB and the T3 obstruction have real exact-type and axiom
+audits from verified cached objects. Preserve WFB's full Fourier-budget
+hypothesis and QFB's exact cutoff/regularity scope and standalone cutout.
+For T3, the established single-premise theorem is
+`StoppedCommutatorBound nu -> not (NSE_B nu)` at positive viscosity. Its premise
+remains explicit; constructing a witness is a separate unresolved obligation.
+Validate the corrected configuration through its matching exact-commit external
+run. Prior three-goal and six-goal configurations are superseded history.
+Preserve the full Material gates and all theorem statuses, hypotheses and
+source-specific receipts. Dummy status supplies no theorem evidence.
 
 The exact promoted head `e627a39e` passed external run `44856391458`: all 654
 modules were reused, zero modules were freshly compiled, and all 169 package
@@ -181,7 +189,7 @@ Before commits synchronize GPT, README, INDEX-WORTHY, SOURCE_STATUS and the
 T3 implementation ledger. Keep prior accepted proof bytes and evidence intact.
 Record the integration status and both QFA/NSE-A and FDSN ledgers as well
 as the preserved T3 ledger. Historical branch priorities do not override the
-current three-goal hierarchy or its explicitly selected engineering task.
+current six-goal hierarchy or its explicitly selected engineering task.
 Record formal gaps explicitly, including seed/toolchain compatibility, force
 admission, periodization and same-force comparison. Do not add a global custom
 axiom, hide a missing witness in a definition, or claim prepared code is verified.

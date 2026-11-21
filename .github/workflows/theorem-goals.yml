@@ -23,13 +23,14 @@ jobs:
       ((github.event_name == 'workflow_run' &&
         github.event.workflow_run.conclusion == 'success' &&
         github.event.workflow_run.head_repository.full_name == github.repository &&
-        github.event.workflow_run.head_branch == 'main') ||
+        github.event.workflow_run.head_branch == 'main' &&
+        github.event.workflow_run.head_sha == github.sha) ||
        (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 6
       matrix:
         include:
           - goal: WFA
@@ -38,8 +39,17 @@ jobs:
           - goal: WFB
             label: WFB / T3
             ci_mode: audit
+          - goal: QFA
+            label: QFA / R3 / dummy (open)
+            ci_mode: placeholder
           - goal: QFB
             label: QFB / T3
+            ci_mode: audit
+          - goal: SINGULAR_PREMISE_OBSTRUCT_R3
+            label: SINGULAR-PREMISE OBSTRUCT R3 / dummy (open)
+            ci_mode: placeholder
+          - goal: SIGNULAR_PREMISE_OBSTRUCT_T3
+            label: SIGNULAR-PREMISE OBSTRUCT T3 / conditional theorem
             ci_mode: audit
     env:
       PYTHONUNBUFFERED: '1'
@@ -59,7 +69,7 @@ jobs:
       - name: Check scope-runner controls without invoking Lean
         run: python3 -m unittest discover -s scripts/tests -p 'test_theorem_goal.py'
 
-      - name: Dummy stage — WFA remains open
+      - name: Dummy stage — statement remains open
         if: ${{ matrix.ci_mode == 'placeholder' }}
         run: >-
           python3 scripts/verify_theorem_goal.py placeholder
