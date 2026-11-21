@@ -25,20 +25,28 @@ results, explicit hypotheses and source-specific evidence retain their status.
 | Goal | Current state | Stage | Mathematical scope |
 |---|---|---|---|
 | **WFA** | `!=` | Dummy/pending | B-tier implication from a finite full Fourier budget established; complete general Lean root pending |
-| **WFB** | `!!!` | Real exact-type and axiom audits | Formal closure of the full-Fourier-budget implication; budget hypothesis retained |
+| **WFB** | `!!!!` | Real exact-type and axiom audits | Exact WFB implication closed; all WFB-01 through WFB-10 accepted, with the finite full Fourier budget retained as a stated hypothesis |
 | **QFA** | `!=` | Dummy/pending | B-tier tail theorem for general solenoidal $L^2$ data established; complete general Lean root pending |
 | **QFB** | `!!!!` | Real exact-root and standalone-cutout audits | Closed in its exact post-cutoff scope: smooth tails, tail energy equality and uniqueness of the Leray–Hopf future from each solution's own trace |
 | **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN** | Dummy/pending | No complete named root derivation or native whole-space obstruction root is established |
 | **SIGNULAR-PREMISE OBSTRUCT T3** | **`!!!!` — conditional on axiom** | Real exact conditional-theorem audits | Closed relative to the explicit `StoppedCommutatorBound` axiom for positive viscosity |
 
-Here `!=` records a complete B-tier derivation and `!!!` records formal
-closure with the stated hypotheses. QFB's `!!!!` records unconditional closure
-within its exact displayed scope. For T3, the qualified marker
+Here `!=` records a complete B-tier derivation. For WFB and QFB, `!!!!`
+records closure of the exact stated theorem. WFB's finite full Fourier budget
+is part of its theorem statement; all proof obligations for that implication
+are closed. For T3, the qualified marker
 **`!!!!` — conditional on axiom** records closure of the selected axiom-relative
 target; the qualification is part of its status.
 The [WFA/QFA B-tier derivations](Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt),
 sections 13.1, 13.3 and 14, establish their recorded mathematical chains; their
 general Lean roots remain pending.
+
+The [WFB acceptance record](T3_NSE/B-Regularity-class/WFB/Weak_Fourierman_B_A_TIER.txt)
+closes all ten contextual obligations with standard axioms and no additional
+analytic certificate. Universal finiteness of the budget for every smooth
+datum is a separate, stronger open question. The CI status
+`CONDITIONAL_FULL_BUDGET` describes WFB's retained hypothesis; it does not
+indicate an unfinished proof of WFB itself.
 
 After the complete Material workflow succeeds on `main`, six jobs inspect that
 exact source revision with `max-parallel: 6` and `fail-fast: false`. The three

@@ -1,5 +1,5 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 8.6
+DOCUMENT_VERSION = 8.7
 DATE = 2026-11-21
 WORKING_BRANCH = main
 INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
@@ -20,7 +20,7 @@ QFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 QFB_CI_STAGE = REAL_EXACT_ROOT_AND_CUTOUT_AUDIT
 SINGULAR_PREMISE_OBSTRUCT_R3_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 SIGNULAR_PREMISE_OBSTRUCT_T3_CI_STAGE = REAL_CONDITIONAL_SINGLE_PREMISE_AUDIT
-CURRENT_GOAL_MARKERS = {WFA: !=, WFB: !!!, QFA: !=, QFB: !!!!, SINGULAR_PREMISE_OBSTRUCT_R3: OPEN, SIGNULAR_PREMISE_OBSTRUCT_T3: !!!! conditional on axiom}
+CURRENT_GOAL_MARKERS = {WFA: !=, WFB: !!!!, QFA: !=, QFB: !!!!, SINGULAR_PREMISE_OBSTRUCT_R3: OPEN, SIGNULAR_PREMISE_OBSTRUCT_T3: !!!! conditional on axiom}
 CURRENT_STATE_PRESENTATION = README.md#current-state-and-six-parallel-theorem-ci-stages
 B_TIER_WFA_QFA_RECORD = Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt; sections 13.1, 13.3 and 14; general Lean roots pending
 SUPERSEDED_GOAL_CONFIGURATIONS = PRIOR_THREE_GOAL_AND_PRIOR_SIX_GOAL_SETUPS; NOT_CURRENT_RUN_EVIDENCE
@@ -446,6 +446,10 @@ BOUNDARY: actual cap premise retained; universal germ-to-cap R1 remains open.
 
 I17 WEAK_FOURIERMAN_B_EXACT_ROOT_AND_TEN_OBLIGATIONS
 STATUS: A_TIER_ACCEPTED_EXTERNAL_CACHED; standard axioms only.
+DISPLAY_MARKER: !!!! for the exact named finite-full-Fourier-budget implication.
+MARKER_SCOPE: all WFB-01 through WFB-10 proof obligations closed. The stated
+budget hypothesis is retained; universal budget finiteness and universal NSE-B
+regularity are separate stronger questions, not unfinished WFB proof steps.
 DECLARATION: MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B.
 SOURCE:fdb515d8bde35ec8021bbc26f360aca8dfa2855c;run 44566880192.
 EVIDENCE: audits/material-fdb515d8/summary.json and accepted-evidence.zip.

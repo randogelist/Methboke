@@ -1,5 +1,5 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 8.6
+DOCUMENT_VERSION = 8.7
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
@@ -22,7 +22,8 @@ QFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 QFB_CI_STAGE = REAL_EXACT_ROOT_AND_CUTOUT_AUDIT
 SINGULAR_PREMISE_OBSTRUCT_R3_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 SIGNULAR_PREMISE_OBSTRUCT_T3_CI_STAGE = REAL_CONDITIONAL_SINGLE_PREMISE_AUDIT
-CURRENT_GOAL_MARKERS = {WFA: !=, WFB: !!!, QFA: !=, QFB: !!!!, SINGULAR_PREMISE_OBSTRUCT_R3: OPEN, SIGNULAR_PREMISE_OBSTRUCT_T3: !!!! conditional on axiom}
+CURRENT_GOAL_MARKERS = {WFA: !=, WFB: !!!!, QFA: !=, QFB: !!!!, SINGULAR_PREMISE_OBSTRUCT_R3: OPEN, SIGNULAR_PREMISE_OBSTRUCT_T3: !!!! conditional on axiom}
+WFB_MARKER_SCOPE = EXACT_NAMED_IMPLICATION_CLOSED; WFB_01_THROUGH_WFB_10_ACCEPTED; FINITE_FULL_FOURIER_BUDGET_RETAINED
 T3_MARKER_QUALIFICATION = CLOSED_RELATIVE_TO_EXPLICIT_StoppedCommutatorBound_ASSUMPTION
 T3_MARKER_SOURCE = Explicit user notation correction, 2026-11-21; qualification is part of the marker
 CURRENT_STATE_PRESENTATION = README.md#current-state-and-six-parallel-theorem-ci-stages
@@ -213,8 +214,15 @@ B-tier derivations, marked !=, in sections 13.1, 13.3 and 14 of
 Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt.
 Dummy reports state pending formal status and unresolved obligations; they
 supply no proof evidence.
-WFB retains its established exact conditional full-Fourier-budget theorem,
-including its full budget hypothesis. QFB retains its exact established root,
+WFB is !!!! for its exact named finite-full-Fourier-budget theorem: all ten
+contextual proof obligations are accepted, with no additional analytic
+certificate remaining. Its budget is a stated theorem hypothesis. Universal
+budget finiteness and universal NSE-B regularity are separate stronger open
+questions, not unfinished steps of WFB. The CI status CONDITIONAL_FULL_BUDGET
+describes that retained hypothesis and does not downgrade exact-root completion.
+Evidence: T3_NSE/B-Regularity-class/WFB/Weak_Fourierman_B_A_TIER.txt and
+audits/material-fdb515d8/summary.json.
+QFB retains its exact established root,
 cutoff and regularity scope, with the standalone QFB cutout audit.
 The T3 obstruction has status CONDITIONAL_SINGLE_PREMISE_ESTABLISHED. Its real
 stage audits MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION:
