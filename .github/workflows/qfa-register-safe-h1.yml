@@ -1,0 +1,99 @@
+name: QFA / one-shot safe H1 endpoint registration
+
+on:
+  push:
+    branches: [codex/qfa-structured-assembly]
+    paths:
+      - '.github/workflows/qfa-register-safe-h1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  register:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: codex/qfa-structured-assembly
+          fetch-depth: 1
+
+      - name: Regenerate exact endpoint index entry and source closure
+        env:
+          ENDPOINT_ID: QFASafeH1Restart
+        run: |
+          python3 - <<'PY'
+          from __future__ import annotations
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import sys
+
+          root = Path.cwd()
+          material = root / 'Material'
+          sys.path.insert(0, str(material / 'ci'))
+          import build
+
+          endpoint_id = os.environ['ENDPOINT_ID']
+          plan = build.validate(material)
+          entry = next(item for item in plan['endpoints'] if item['id'] == endpoint_id)
+
+          closure = {
+              'schema_version': 1,
+              'endpoint': endpoint_id,
+              'source_revision_status': 'FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING',
+              'source_baseline': os.environ['GITHUB_SHA'],
+              'lean_toolchain': plan['toolchain'],
+              'mathlib_commit': plan['mathlib_commit'],
+              'roots': [entry['spec']['endpoint_module'], entry['spec']['audit_module']],
+              'files': entry['files'],
+              'external_imports': entry['external_imports'],
+              'source_drift': entry['source_drift'],
+          }
+          closure_path = material / endpoint_id / 'closure.json'
+          closure_bytes = (json.dumps(closure, indent=2, sort_keys=True) + '\n').encode()
+          closure_path.write_bytes(closure_bytes)
+
+          index_path = material / 'endpoints.json'
+          index = json.loads(index_path.read_text())
+          endpoints = index['endpoints']
+          existing = [row for row in endpoints if row.get('id') == endpoint_id]
+          if existing:
+              raise SystemExit(f'{endpoint_id} is already registered')
+          endpoints.append({
+              'id': endpoint_id,
+              'endpoint_module': entry['spec']['endpoint_module'],
+              'audit_module': entry['spec']['audit_module'],
+              'manifest': f'{endpoint_id}/endpoint.json',
+              'closure': f'{endpoint_id}/closure.json',
+              'declarations': len(entry['spec']['declarations']),
+              'local_source_modules': len(entry['files']),
+              'source_closure_sha256': hashlib.sha256(closure_bytes).hexdigest(),
+          })
+          index['endpoint_count'] = len(endpoints)
+          index['declaration_count'] = sum(int(row['declarations']) for row in endpoints)
+          index_path.write_text(json.dumps(index, indent=2) + '\n')
+
+          assert index['endpoint_count'] == 170
+          assert index['declaration_count'] == 2219
+          assert {row['id'] for row in endpoints} == set(plan['all_endpoint_ids'])
+          print(json.dumps({
+              'endpoint_count': index['endpoint_count'],
+              'declaration_count': index['declaration_count'],
+              'registered': endpoint_id,
+              'local_source_modules': len(entry['files']),
+              'closure_sha256': hashlib.sha256(closure_bytes).hexdigest(),
+          }, indent=2))
+          PY
+
+      - name: Remove this one-shot workflow and commit the metadata repair
+        run: |
+          rm .github/workflows/qfa-register-safe-h1.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Material/endpoints.json Material/QFASafeH1Restart/closure.json .github/workflows/qfa-register-safe-h1.yml
+          git commit -m 'meta(qfa): register safe H1 restart endpoint'
+          git push origin HEAD:codex/qfa-structured-assembly
