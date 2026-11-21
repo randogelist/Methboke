@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "codex/qfa-structured-assembly",
+  "tested_source": "01e2c637f7c09379a80d5d8d443faab4cc47e73c",
+  "status": "A_TIER_ACCEPTED_EXACT_MID_TIER_ENDPOINT",
+  "scope": "Exact pointwise source/native spatial vector-field conversion, inverse laws, and exact physical Euclidean-norm transport.",
+  "run": {
+    "id": 44882999387,
+    "url": "https://github.com/randogelist/Methboke/actions/runs/44882999387",
+    "conclusion": "success",
+    "fast_job": {"id": 136782185890, "conclusion": "success"},
+    "terminal_job": {"id": 136784544577, "name": "Material accepted", "conclusion": "success"},
+    "recovery_job": {"id": 136784545257, "conclusion": "skipped"}
+  },
+  "environment": {
+    "toolchain": "leanprover/lean4:v4.33.0",
+    "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "dependency_cache_class": "EXACT",
+    "project_cache_class": "PREFIX",
+    "local_lean_executed": false,
+    "mathlib_source_build_allowed": false,
+    "platform": {"system": "Linux", "machine": "x86_64"}
+  },
+  "coverage": {
+    "module_count": 657,
+    "fresh_module_count": 1,
+    "reused_module_count": 656,
+    "endpoint_count": 172,
+    "fresh_endpoint_audit_count": 172,
+    "reused_endpoint_audit_count": 0,
+    "named_declaration_count": 2243,
+    "standalone_cutout_status": "PASS",
+    "all_endpoints_selected": true
+  },
+  "endpoint": {
+    "id": "QFASourceFields",
+    "status": "PASS",
+    "declaration_count": 9,
+    "input_hash": "2362f80a2e056c31a2c10c121a0491415b5991db14cf96d9dd4ddecde8e8f7ec",
+    "object_sha256": "274197a6356e93597c8a28f48d07bde385553e3199a8803321239f1be85de486",
+    "audit_sha256": "7edfcfd32cb5ed8860e41b53fb3d4b2db53a9805c33f5b335abc81c07463af69",
+    "audit_origin_commit": "01e2c637f7c09379a80d5d8d443faab4cc47e73c",
+    "audit_reused": false,
+    "source_drift": [],
+    "declarations": [
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.SourceVectorField", "type_sha256": "2fb53c94ac6f777766d256a3a2013dee4f7f39c9ee053ed8a08a310c9010a0ff", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldFunctionOfNative", "type_sha256": "ba3b5f17e8d3a5ebf580b57ed664614810095c4b30d825049dbb5f956b0cc500", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldFunctionOfSource", "type_sha256": "31575d1d4852587d1510777df625bc76e4a893208bce15e706ed1196cca4a162", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldFunctionOfNative_apply", "type_sha256": "35566c6f3362d9df78cad67a1794a5a491173e5d6f0814c0003fce871ef417e8", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldFunctionOfSource_apply", "type_sha256": "185516c6c3eb54ad3e3df7e3be5ae921884f43741a8b0469da2bb5b11b236e2d", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldFunctionOfSource_sourceFieldFunctionOfNative", "type_sha256": "a668ac62a7200e5bd43916cf6b3556714a2ddd1a34ac7c4d09d0f274f58def58", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldFunctionOfNative_nativeFieldFunctionOfSource", "type_sha256": "b371d1b17f12a5bb090c8b01ceaf8b0d52b704710371ebda1f88bae46383983a", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldOfNative_euclideanNorm", "type_sha256": "d104020b887d19b7fa0dc77ca681cec87486680ad5e62c4cdfaacf1e323d9a2d", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldOfSource_norm", "type_sha256": "54c7555e5327b6fe8f3abc483cab6299fa4daae39fd1c6e8a64b4026be901d04", "axioms": ["Classical.choice", "Quot.sound", "propext"]}
+    ]
+  },
+  "artifacts": {
+    "evidence": {"id": 14699186544, "digest": "sha256:f4fc957ab34123eb5da380d8a7a926453c801e43ee8c5d69b3011349b2734a36"},
+    "binary": {"id": 14699097019, "digest": "sha256:278ba55867385ae5a65d6137b442c15e06996b183af0b36ec5ef6248f4f37ab2"},
+    "routing": {"id": 14699077191, "digest": "sha256:98d9aa2051af88484155a4544ccf9a32b1312285557a5268a23b298e6dd59cf9"},
+    "verified": {"id": 14698629368, "digest": "sha256:610a660c0c0978131717d675ac20d9d8fa9437a23dc06594d646e28ab836fd42"}
+  },
+  "independent_static_review": {
+    "downloaded_evidence_zip_sha256": "f4fc957ab34123eb5da380d8a7a926453c801e43ee8c5d69b3011349b2734a36",
+    "artifact_digest_match": true,
+    "type_begin_count": 9,
+    "type_end_count": 9,
+    "axioms_begin_count": 9,
+    "axioms_end_count": 9,
+    "marker_name_sets_equal": true,
+    "sorryAx_occurrences": 0,
+    "compiler_error_occurrences": 0,
+    "permitted_axioms": ["Classical.choice", "Quot.sound", "propext"],
+    "review_conclusion": "PASS_EXACT_SCOPE_ONLY"
+  },
+  "not_claimed": [
+    "raw-source MemLp or L2 admission",
+    "source solenoidality",
+    "CKN IsInJ admission",
+    "ESS H1 good-time admission",
+    "global Leray-Hopf existence",
+    "nonlinear local strong construction",
+    "small-product continuation",
+    "smooth tail",
+    "weak-strong comparison",
+    "closed QFA root",
+    "strict QFA root"
+  ]
+}
