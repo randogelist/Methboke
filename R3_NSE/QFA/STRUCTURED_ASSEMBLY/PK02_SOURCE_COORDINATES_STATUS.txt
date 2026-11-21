@@ -4,10 +4,11 @@ DATE = 2026-11-21
 BRANCH = codex/qfa-structured-assembly
 TARGET = QFA_A_TIER_CLOSURE
 PACKAGE = QFASourceCoordinates
-STATUS = PENDING_MATCHING_EXTERNAL_CI
+STATUS = A_TIER_ACCEPTED_EXACT_MID_TIER_ENDPOINT
+DISPLAY_SIGNAL = !=!
 
-CANDIDATE_SCOPE
-===============
+ACCEPTED_SCOPE
+==============
 
 The selected CKN source uses the raw coordinate carrier
 
@@ -17,25 +18,107 @@ Methboke's native whole-space carrier is
 
   EuclideanSpace Real (Fin 3) = WithLp 2 (Fin 3 -> Real).
 
-This endpoint exposes the exact canonical conversion and its inverse, the
-continuous linear equivalence, full Lebesgue-volume preservation in both
-directions, the exact Euclidean norm and norm-square formulas, and exact
-coordinate-vector transport.
+This endpoint proves the exact canonical continuous linear conversion and its
+inverse, full Lebesgue-volume preservation in both directions, exact source
+Euclidean-norm/native-norm equality, exact native norm-square as the sum of
+three coordinate squares, and exact coordinate-vector transport.
 
 DECLARATIONS = 15
 ENDPOINT_COUNT = 171
 TOTAL_NAMED_AUDITS = 2234
 
-No CKN proof source is imported. No PDE, existence, regularity, comparison,
+The fifteen declarations are:
+
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.SourceVec3
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceNativeEquiv
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.nativeToSource
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceNativeEquiv_apply
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceNativeEquiv_symm_apply
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_nativeToSource
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.nativeToSource_sourceToNative
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_measurePreserving
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.nativeToSource_measurePreserving
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceEuclideanNorm
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceEuclideanNorm_eq_native_norm
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_norm_sq
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceCoordinateVector
+  MethbokeAddon.QuasiFeffermanA.SourceCoordinates.sourceToNative_coordinateVector
+
+No CKN proof source is imported. No vector-field L2 transport, CKN IsInJ
+admission, ESS good-time admission, PDE, existence, regularity, comparison,
 sharp Sobolev admission, continuation, smooth tail, or QFA root is asserted.
 
-SOURCE = 6a3a824ff8ae8a83e13c408fdc6fa8b3e0bf5bd0
-CKN_REFERENCE = 381d658ead0f03a18361965cc0427ce3fa5844ab
+MATCHING EXTERNAL ACCEPTANCE
+============================
+
+TESTED_SOURCE = e8d83c372ea74c227833dedb316bbf994b0720fb
+RUN = 44880811663
+RUN_URL = https://github.com/randogelist/Methboke/actions/runs/44880811663
+FAST_JOB = 136775467904 SUCCESS
+TERMINAL_JOB = 136777607406 MATERIAL_ACCEPTED SUCCESS
+RECOVERY_JOB = 136777608698 SKIPPED
+
+COMPILER = Lean 4.33.0, x86_64-unknown-linux-gnu,
+           commit d8b18978322de05a8f3dba51ef03cf5461676c17
 MATHLIB = db584cd6d46c92f209a44c0f1c829460d327499d
-LEAN = 4.33.0
+DEPENDENCY_CACHE = EXACT
+PROJECT_CACHE = PREFIX
 
-Emit !=! only after exact compiler, all fifteen independent type consumers,
-all fifteen theorem-level axiom reports, evidence retention, publication and
-terminal Material acceptance pass for one matching source.
+MODULES = 656
+FRESH_MODULES = 1
+REUSED_MODULES = 655
+FRESH_ENDPOINT_AUDITS = 171
+REUSED_ENDPOINT_AUDITS = 0
+NAMED_DECLARATIONS = 2234
+SOURCE_COORDINATE_DECLARATIONS = 15
+STANDALONE_QFB_CUTOUT = PASS_FRESH
 
+All fifteen exact type consumers and all fifteen theorem-level axiom reports
+passed. Each declaration reports exactly the permitted standard axioms:
+
+  propext, Classical.choice, Quot.sound.
+
+There is no sorryAx, no source drift and no compiler error in the retained
+audit. The QFASourceCoordinates endpoint object was freshly built; all 655
+compatible prior modules were receipt-validated and reused.
+
+EVIDENCE
+========
+
+RETAINED_SUMMARY = audits/qfa-source-coordinates-e8d83c37-accepted/summary.json
+EVIDENCE_ARTIFACT = 14697718734
+EVIDENCE_SHA256 = 1ac528a200d267baa8cc1af539080e3d5d14c00c17af182ce2df3ef15021d459
+VERIFIED_ARTIFACT = 14697728821
+VERIFIED_SHA256 = 6574a979a5a3598f46d03b56fdaad0d4d7e1b0595a6d9e5b177bfb3b47395883
+BINARY_ARTIFACT = 14698650180
+BINARY_SHA256 = 1da9e347ad397897d1c20a4ce8104dc2eec2729b0f7d15753b51949d23a04763
+AUDIT_LOG_SHA256 = ea2603c0263e434193616f924a6be8b5ecd12a7c516e03df2c939f86eba7f813
+ENDPOINT_OBJECT_SHA256 = 6d84d31b9151d6fc3dafa8380d4783e07e1c4b1ee86f395d8f803a959d1035ae
+
+The downloaded evidence ZIP digest was independently matched to the GitHub
+artifact digest. Its audit log has fifteen matching TYPE and AXIOMS begin/end
+blocks, zero sorryAx occurrences and zero compiler-error occurrences.
+
+HISTORY
+=======
+
+INITIAL_PACKAGE = 6a3a824ff8ae8a83e13c408fdc6fa8b3e0bf5bd0
+FIRST_RUN = 44880500917
+FIRST_RESULT = two volume-preservation proof normalizations failed before audits
+REPAIR = e8d83c372ea74c227833dedb316bbf994b0720fb
+REPAIR_SCOPE = make both WithLp coordinate carrier types explicit; no public
+               declaration, mathematical scope, audit consumer, compiler pin,
+               dependency pin or axiom policy changed.
+
+CURRENT_BOUNDARY_AND_NEXT_TARGET
+================================
+
+The complete physical QFA root remains open. This acceptance closes only the
+exact finite-dimensional coordinate, measure and Euclidean-norm bridge.
+The next active endpoint is the source/native spatial vector-field L2 transport,
+followed by compact-test solenoidality to CKN weak-divergence admission and the
+ESS H1 good-time datum adapter.
+
+CKN_REFERENCE = 381d658ead0f03a18361965cc0427ce3fa5844ab
 LOCAL_LEAN_LAKE_KERNEL_EXECUTIONS = 0
