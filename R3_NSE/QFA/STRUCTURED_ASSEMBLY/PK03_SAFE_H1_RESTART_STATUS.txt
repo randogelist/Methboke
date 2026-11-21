@@ -4,10 +4,11 @@ DATE = 2026-11-21
 BRANCH = codex/qfa-structured-assembly
 TARGET = QFA_A_TIER_CLOSURE
 PACKAGE = QFASafeH1Restart
-STATUS = PENDING_MATCHING_EXTERNAL_CI
+STATUS = A_TIER_ACCEPTED_EXACT_MID_TIER_ENDPOINT
+DISPLAY_SIGNAL = !=!
 
-CANDIDATE_SCOPE
-===============
+ACCEPTED_SCOPE
+==============
 
 Package the already accepted supplied-path safe full restart as one exact
 native PhysicalH1Sigma datum while preserving, at the same selected time:
@@ -20,35 +21,88 @@ native PhysicalH1Sigma datum while preserving, at the same selected time:
   * the strong right trace,
   * and the strict product bound below productThreshold S nu.
 
+The accepted endpoint contains seven declarations:
+
+  MethbokeAddon.QuasiFeffermanA.physicalH1SigmaOfWeakGradient
+  MethbokeAddon.QuasiFeffermanA.physicalH1SigmaOfWeakGradient_velocity
+  MethbokeAddon.QuasiFeffermanA.physicalH1SigmaOfWeakGradient_gradient
+  MethbokeAddon.QuasiFeffermanA.SafeH1Restart
+  MethbokeAddon.QuasiFeffermanA.SafeH1Restart.datum_norm_sq
+  MethbokeAddon.QuasiFeffermanA.SafeH1Restart.datum_small_product
+  MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_h1_restart
+
 No global weak existence, local nonlinear strong construction, continuation,
 comparison, smoothness, sharp Sobolev admission, or QFA root is asserted.
 
-DECLARATIONS = 7
-ENDPOINT_COUNT = 170
-TOTAL_NAMED_AUDITS = 2219
+MATCHING EXTERNAL ACCEPTANCE
+============================
 
-FIRST_EXTERNAL_ATTEMPT
-======================
+TESTED_SOURCE = e6a2ef7587627eabd99116a262f51e9a82da6568
+RUN = 44876499421
+RUN_URL = https://github.com/randogelist/Methboke/actions/runs/44876499421
+FAST_JOB = 136762308816 SUCCESS
+TERMINAL_JOB = 136764701884 MATERIAL_ACCEPTED SUCCESS
+RECOVERY_JOB = 136764703004 SKIPPED
 
-SOURCE = e8ba0629e785b6dd63129d9f7aea0f8ac00d8437
-RUN = 44874525475
-RESULT = SOURCE_AND_ALL_SEVEN_FRESH_AUDITS_PASS; PUBLICATION_REJECTED_STALE_INDEX
+COMPILER = Lean 4.33.0, x86_64-unknown-linux-gnu,
+           commit d8b18978322de05a8f3dba51ef03cf5461676c17
+MATHLIB = db584cd6d46c92f209a44c0f1c829460d327499d
+DEPENDENCY_CACHE = EXACT
+PROJECT_CACHE = PREFIX
 
-The first attempt established exact compilation and standard-only axiom reports
-for the seven new declarations, but the checked-in endpoint index still named
-169 packages. No A-tier or mid-tier acceptance followed.
+MODULES = 655
+FRESH_MODULES = 1
+REUSED_MODULES = 654
+FRESH_ENDPOINT_AUDITS = 170
+REUSED_ENDPOINT_AUDITS = 0
+NAMED_DECLARATIONS = 2219
+QFA_SAFE_H1_DECLARATIONS = 7
+STANDALONE_QFB_CUTOUT = PASS_FRESH
 
-METADATA_REPAIR
-===============
+All seven exact type consumers and all seven theorem-level axiom reports passed.
+Each declaration reports exactly the permitted standard axioms:
 
-SOURCE = 2d03f7266f480a1f42395ff06b699182fa431ed5
-METHOD = PURE_STATIC_BUILD_VALIDATE_IN_AUTHORIZED_GITHUB_ACTIONS
-RESULT = 170 exact endpoint identities; 2219 exact declaration total;
-         generated QFASafeH1Restart/closure.json; one-shot workflow removed.
+  propext, Classical.choice, Quot.sound.
 
-This status commit changes no Lean source or audit consumer. It exists to launch
-matching external verification of the exact registered source. Emit !=! only
-after compiler, fresh audits, evidence retention, publication and terminal
-Material acceptance all pass for one exact descendant commit.
+There is no sorryAx, no source drift and no compiler error in the retained audit.
+The QFASafeH1Restart endpoint object was freshly built; all 654 compatible prior
+modules were receipt-validated and reused.
+
+EVIDENCE
+========
+
+RETAINED_SUMMARY = audits/qfa-safe-h1-e6a2ef75-accepted/summary.json
+EVIDENCE_ARTIFACT = 14697125105
+EVIDENCE_SHA256 = b4a5e9ff9b2b6b1678d4e1572ad90d1b2569e3b2404dda565f8f9747cb5de8ec
+VERIFIED_ARTIFACT = 14696910745
+VERIFIED_SHA256 = 35465206b9ca23d0142ebd56e8d5bce4734b869f9bd0e5237de1f79ec8770ddd
+BINARY_ARTIFACT = 14696676157
+BINARY_SHA256 = a162785c1071bf62e2f50fc81aab9615f9600015d38e13f30f997d4a6984d612
+AUDIT_LOG_SHA256 = af54cf548033fb8ecf0ba5f570e53ac52bfe8f24f3f61cc1c836a0ac77e46bc7
+
+The downloaded evidence ZIP digest was independently matched to the GitHub
+artifact digest. Its audit log has seven matching TYPE and AXIOMS begin/end
+blocks, zero sorryAx occurrences and zero compiler-error occurrences.
+
+HISTORY
+=======
+
+FIRST_SOURCE = e8ba0629e785b6dd63129d9f7aea0f8ac00d8437
+FIRST_RUN = 44874525475
+FIRST_RESULT = SOURCE_AND_ALL_SEVEN_FRESH_AUDITS_PASS;
+               PUBLICATION_REJECTED_STALE_INDEX
+
+METADATA_REPAIR = 2d03f7266f480a1f42395ff06b699182fa431ed5
+METADATA_RESULT = 170 endpoint identities; 2219 declaration total;
+                  generated closure; one-shot workflow removed.
+
+CURRENT_BOUNDARY_AND_NEXT_TARGET
+================================
+
+The complete physical QFA root remains open. This acceptance closes only the
+native safe-restart H1 packaging edge. The next active assembly layer is PK01
+source admission and compatibility for the retained CKN/ESS construction route,
+followed by PK02 exact coordinate transport and the remaining source-facing
+part of datum admission.
 
 LOCAL_LEAN_LAKE_KERNEL_EXECUTIONS = 0
