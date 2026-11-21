@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "document": "AC_FOLLOWUP_INTEGRATION_BOUNDARY",
+  "observed_at_utc": "2026-11-21 02:10:58 UTC",
+  "review_kind": "read_only_github_metadata_and_static_source_manifest_inspection",
+  "verification_scope": "Context for a later integration only; no local compiler/kernel execution and no new mathematical acceptance.",
+  "repository": "randogelist/Methboke",
+  "frozen_integration": {
+    "branch": "integration/ac-into-main",
+    "main_source": "4a609ea634ec4a5ff846049b9dc12b40b5f1a702",
+    "incoming_ac_source": "000c1bd9baded808b79a04b7f666cacabce64939",
+    "incoming_acceptance_run": 44851575278,
+    "incoming_acceptance_status": "INDEPENDENTLY_REVIEWED_PASS_AS_CONFIRMED_BY_ROOT",
+    "incoming_acceptance_scope": {
+      "active_modules": 526,
+      "owned_modules": 119,
+      "packages": 105,
+      "named_reports": 1402,
+      "standalone_qfb_cutout": true
+    },
+    "combined_status_at_preparation": "PENDING_EXTERNAL_VERIFICATION",
+    "expected_combined_scope": {
+      "active_modules": 654,
+      "owned_modules": 183,
+      "packages": 169,
+      "named_reports": 2212,
+      "standalone_qfb_cutout": true
+    },
+    "boundary": "The first integration is pinned to accepted 000c1bd9. The moving AC branch head and all later research are outside this candidate."
+  },
+  "observed_live_sources": {
+    "main": "4a609ea634ec4a5ff846049b9dc12b40b5f1a702",
+    "ac_head": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+    "ac_head_parent": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+    "commits_ahead_of_frozen_ac": 2,
+    "behind_frozen_ac": 0,
+    "changed_paths": 61
+  },
+  "omitted_generator_layer": {
+    "implementation_commit": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+    "repaired_source": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+    "package": "QFAHeatGenerator",
+    "added_active_modules": [
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator",
+      "QFAHeatGenerator.Endpoint"
+    ],
+    "fresh_audit_module": "QFAHeatGenerator.Audit",
+    "added_owned_source_count": 1,
+    "added_active_module_count": 2,
+    "added_package_count": 1,
+    "added_named_report_count": 9,
+    "theorem_names": [
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatL2_realTime_continuous",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatL2_realTime_zero",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_hasDerivAt",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatTrajectory_laplacian_memLp_two",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_memLp_two",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_intervalIntegrable",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_integrated_equation",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_sq_integral",
+      "MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_sq_integral_le"
+    ],
+    "prepared_scope": "Actual strong L2 heat generator at every positive time, original continuous L2 initial trace, finite-window derivative MemLp2 and Bochner integrability, exact integral equation from zero and derivative energy for arbitrary physical H1 data.",
+    "boundaries": [
+      "Only positive-time strong SpatialL2 derivative is claimed by the candidate.",
+      "The continuous actual L2 heat path retains the initial H1 datum's L2 trace.",
+      "The H2 trajectory extension at zero is used inside integrals; arbitrary H1 data are not asserted to have an H2 initial trace.",
+      "No H1-valued time derivative, forced heat maximal regularity, nonlinear local existence, or general physical QFA/WFA conclusion is supplied by this package."
+    ],
+    "pre_existing_lean_files_modified_or_deleted": [],
+    "all_lean_file_changes": [
+      {
+        "filename": "Material/MethbokeAddon/QuasiFeffermanA/HeatGenerator.lean",
+        "status": "added",
+        "additions": 355,
+        "deletions": 0,
+        "changes": 355,
+        "previous_filename": null
+      },
+      {
+        "filename": "Material/QFAHeatGenerator/Audit.lean",
+        "status": "added",
+        "additions": 170,
+        "deletions": 0,
+        "changes": 170,
+        "previous_filename": null
+      },
+      {
+        "filename": "Material/QFAHeatGenerator/Endpoint.lean",
+        "status": "added",
+        "additions": 1,
+        "deletions": 0,
+        "changes": 1,
+        "previous_filename": null
+      }
+    ],
+    "expected_ac_scope": {
+      "active_modules": 528,
+      "packages": 106,
+      "named_reports": 1411
+    },
+    "hypothetical_later_combined_scope": {
+      "active_modules": 656,
+      "owned_modules": 184,
+      "packages": 170,
+      "named_reports": 2221
+    },
+    "hypothetical_scope_qualification": "Arithmetic only if this package is the sole later addition; not an acceptance count.",
+    "manifest_git_blob_sha": "b24ae64a3b0c0e5dc4f800849cb3af41767c967d",
+    "manifest_preparation_status": "PENDING_MATCHING_EXTERNAL_CI"
+  },
+  "observed_verification": {
+    "first_run": {
+      "id": 44853235830,
+      "head_sha": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/randogelist/Methboke/actions/runs/44853235830"
+    },
+    "first_run_repository_review": {
+      "status": "CHECKED_MATCHING_EXTERNAL_FAILURE_NO_ACCEPTANCE",
+      "modules": {
+        "PASS": 526,
+        "FAIL": 1,
+        "BLOCKED_BY_DEPENDENCY": 1
+      },
+      "fresh_package_audits": 0,
+      "named_reports": 0,
+      "publication_pass": false,
+      "final_acceptance": false,
+      "new_a_tier_acceptance": false,
+      "scope": "Figures read from the source-pinned repository review, not independently revalidated by this note."
+    },
+    "repaired_run": {
+      "id": 44853804320,
+      "head_sha": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/randogelist/Methboke/actions/runs/44853804320"
+    },
+    "repaired_run_job": {
+      "id": 136691112401,
+      "name": "Fast cached verification",
+      "status": "in_progress",
+      "current_step": "Try verified cached objects"
+    },
+    "status_is_observation_only": true,
+    "repaired_revision_accepted_by_this_note": false
+  },
+  "followup_requirements": [
+    "Keep the first integration and its combined evidence tied to main 4a609ea plus accepted AC 000c1bd9.",
+    "Treat the later generator package and its associated registry/documentation changes as a separate follow-up.",
+    "Before promoting the new package, review matching exact-source external cached compilation, all required independent consumers and named type/axiom reports, standalone cutout, evidence integrity, publication and final acceptance.",
+    "A later combined revision needs its own matching full combined verification; an AC-only success does not certify that combined revision.",
+    "Retain all existing proof, consumer, dependency-pin and accepted evidence identities; do not infer general QFA/WFA completion."
+  ],
+  "source_urls": [
+    "https://github.com/randogelist/Methboke/compare/000c1bd9baded808b79a04b7f666cacabce64939...809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+    "https://github.com/randogelist/Methboke/blob/809aadc6da1eeabd5c128eb9c78005a38d3d4935/Material/QFAHeatGenerator/endpoint.json",
+    "https://github.com/randogelist/Methboke/blob/809aadc6da1eeabd5c128eb9c78005a38d3d4935/Material/QFAHeatGenerator/README.md",
+    "https://github.com/randogelist/Methboke/blob/809aadc6da1eeabd5c128eb9c78005a38d3d4935/R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt",
+    "https://github.com/randogelist/Methboke/blob/809aadc6da1eeabd5c128eb9c78005a38d3d4935/audits/material-d884a36b-heat-generator-failure/independent-review.json",
+    "https://github.com/randogelist/Methboke/actions/runs/44853235830",
+    "https://github.com/randogelist/Methboke/actions/runs/44853804320"
+  ],
+  "candidate_files_edited": false,
+  "remote_mutations": 0,
+  "local_lean_executions": 0
+}

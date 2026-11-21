@@ -1,16 +1,36 @@
 # Material
 
-## AC-Integration into main: prepared candidate
+## AC-Integration into main: accepted resource union
 
 The immediate task on `integration/ac-into-main` combines main
 `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` with AC-Integration
 `000c1bd9baded808b79a04b7f666cacabce64939`. The project goal remains
 **Fefferman D**. No new mathematical goal is selected by this integration.
 
-**The combined candidate is pending matching external verification.** Its
-expected scope is **654 modules, 169 fresh package audits, 2,212 named
-type/axiom reports and the original QFB cutout**. Existing source-specific
-acceptances below are retained. See the [integration record](../integration/AC_INTO_MAIN/README.md),
+**The combined source is accepted at
+`5a44e985c15a302110fd91d064431f1183e55857`.**
+[External run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941)
+passed **654 modules (548 reused, 106 fresh), 169 fresh package audits,
+2,212 named type/axiom reports and the fresh original QFB cutout**.
+All 1,320 main and 1,402 AC declaration reports retain their exact printed
+types, axiom sets and endpoint identities; 510 names are shared. Only
+`propext`, `Classical.choice` and `Quot.sound` occur. Independent artifact
+integrity review, required publication and the final Material accepted job passed.
+The [acceptance record](../audits/integration-5a44e985-accepted/summary.json)
+and [independent review](../audits/integration-5a44e985-accepted/independent-review.json)
+retain the exact source, run, compiler, dependency, audit and artifact identities.
+
+[Draft PR #2](https://github.com/randogelist/Methboke/pull/2) remains the review
+location; `main` has not advanced. For the current documentation head, consult
+the latest Material run at the exact PR head and its final acceptance gate.
+This record was written before that documentation commit; its later head/run
+identity is recorded in PR metadata and does not replace this first tested-source
+receipt. The incoming baseline stays pinned to `000c1bd9`;
+later AC work, including the separate generator at `809aadc6`, is outside this
+first integration.
+
+Existing source-specific acceptances below retain their scopes. See the
+[integration record](../integration/AC_INTO_MAIN/README.md),
 [status](../integration/AC_INTO_MAIN/INTEGRATION_STATUS.json) and
 [preservation manifest](../integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json).
 
@@ -74,8 +94,9 @@ Publication and final acceptance passed; only standard axioms occurred.
 The [acceptance record](../audits/material-000c1bd9-qfa-accepted/summary.json)
 and [independent review](../audits/material-000c1bd9-qfa-accepted/independent-review.json)
 retain that evidence. Its H2 heat trajectory is zero-extended at nonpositive
-times; it makes no H2 initial-trace claim for arbitrary H1 input. That run does
-not verify this combined candidate. Source-specific details and earlier failures
+times; it makes no H2 initial-trace claim for arbitrary H1 input. This earlier
+source receipt is preserved alongside the separate combined-tree verification
+above. Source-specific details and earlier failures
 remain in the [QFA status](../R3_NSE/QFA/INTEGRATION_STATUS.json) and
 [NSE-A implementation history](../R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json).
 
@@ -153,19 +174,18 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The combined [endpoint registry](endpoints.json) is prepared for **169 packages
+The combined [endpoint registry](endpoints.json) contains **169 packages
 and 2,212 named declaration requests**, including the 26 FDSNR3 packages and the
-incoming QFA/NSE-A scopes. These are the required integration verification counts;
-they are not a completed combined run. Each package contains its import boundary,
-consumer type assertions, theorem-level axiom audit, recursive dependency closure
-and source provenance.
+incoming QFA/NSE-A scopes. All passed matching fresh verification at `5a44e985`.
+Each package retains its import boundary, consumer type assertions, theorem-level
+axiom audit, recursive dependency closure and source provenance.
 
 | Source group | Count | Role |
 |---|---:|---|
 | `_vendor` | 302 active modules from 304 retained sources | Pinned Methlib foundation sources; two original QFA sources remain inactive |
 | `MethbokeAddon` | 183 owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
 | Endpoint wrappers | 169 modules | Independently audited import boundaries |
-| Required integration build scope | 654 modules | Union of registered source closures; matching cached verification pending |
+| Accepted integration build scope | 654 modules | Union of registered source closures; matching cached verification passed at `5a44e985` |
 
 | Package family | Exact role |
 |---|---|

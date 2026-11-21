@@ -1,0 +1,1630 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC_PRECOMMIT",
+  "reviewer": "repository_evidence",
+  "repository": "randogelist/Methboke",
+  "branch": "integration/ac-into-main",
+  "inputs": {
+    "main": "4a609ea634ec4a5ff846049b9dc12b40b5f1a702",
+    "incoming": "000c1bd9baded808b79a04b7f666cacabce64939",
+    "base": "66a529248d3198ed70dc5489d82868bc33a37796",
+    "reconstructed_input_tree_sha": {
+      "main": "5e34259481372fe87eb3dd7e86ce7798572a2e98",
+      "ac": "3c6fa11713d67bbd1d8d27c067cf5a42317fbf17",
+      "base": "677b9b4e4486b5fc665b25edc506c7f98856dda8"
+    }
+  },
+  "planned_tree_sha": "a7810ee179093a387f9740f94b544c735a886dfe",
+  "planned_file_count": 3888,
+  "protected_file_count": 3861,
+  "overlay_file_count": 27,
+  "new_file_count": 16,
+  "changed_existing_count": 11,
+  "expected_scope": {
+    "modules": 654,
+    "packages": 169,
+    "named_type_axiom_reports": 2212,
+    "owned_modules": 183,
+    "active_vendor_modules": 302,
+    "retained_vendor_modules": 304,
+    "new_mathematical_results": 0
+  },
+  "checks_total": 309,
+  "checks_passed": 309,
+  "blockers": [],
+  "warnings": [],
+  "checks": [
+    {
+      "check": "main_complete_tree",
+      "pass": true
+    },
+    {
+      "check": "main_root_tree_hash",
+      "pass": true,
+      "detail": {
+        "expected": "5e34259481372fe87eb3dd7e86ce7798572a2e98",
+        "actual": "5e34259481372fe87eb3dd7e86ce7798572a2e98"
+      }
+    },
+    {
+      "check": "main_subtree_hashes",
+      "pass": true,
+      "detail": {
+        "count": 262,
+        "bad": []
+      }
+    },
+    {
+      "check": "ac_complete_tree",
+      "pass": true
+    },
+    {
+      "check": "ac_root_tree_hash",
+      "pass": true,
+      "detail": {
+        "expected": "3c6fa11713d67bbd1d8d27c067cf5a42317fbf17",
+        "actual": "3c6fa11713d67bbd1d8d27c067cf5a42317fbf17"
+      }
+    },
+    {
+      "check": "ac_subtree_hashes",
+      "pass": true,
+      "detail": {
+        "count": 408,
+        "bad": []
+      }
+    },
+    {
+      "check": "base_complete_tree",
+      "pass": true
+    },
+    {
+      "check": "base_root_tree_hash",
+      "pass": true,
+      "detail": {
+        "expected": "677b9b4e4486b5fc665b25edc506c7f98856dda8",
+        "actual": "677b9b4e4486b5fc665b25edc506c7f98856dda8"
+      }
+    },
+    {
+      "check": "base_subtree_hashes",
+      "pass": true,
+      "detail": {
+        "count": 162,
+        "bad": []
+      }
+    },
+    {
+      "check": "all_local_pinned_input_blobs",
+      "pass": true,
+      "detail": {
+        "count": 27,
+        "failed": []
+      }
+    },
+    {
+      "check": "merged_baseline_unique_paths",
+      "pass": true
+    },
+    {
+      "check": "baseline_union_paths",
+      "pass": true,
+      "detail": {
+        "main": 2006,
+        "incoming": 3156,
+        "combined_existing": 3872
+      }
+    },
+    {
+      "check": "three_way_baseline_selection",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "ten_shared_conflicts",
+      "pass": true,
+      "detail": [
+        "AGENTS.md",
+        "GPT.txt",
+        "INDEX-WORTHY.txt",
+        "Material/README.md",
+        "Material/endpoints.json",
+        "Material/owned-sources.json",
+        "R3_NSE/README.md",
+        "README.md",
+        "SOURCE_STATUS.json",
+        "T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json"
+      ]
+    },
+    {
+      "check": "no_parent_file_deletions",
+      "pass": true
+    },
+    {
+      "check": "3861_protected_files",
+      "pass": true
+    },
+    {
+      "check": "protected_blob_and_mode_preservation",
+      "pass": true,
+      "detail": {
+        "checked": 3861,
+        "failures": []
+      }
+    },
+    {
+      "check": "protected_origin_identities",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "all_inherited_paths_retained",
+      "pass": true
+    },
+    {
+      "check": "existing_changes_limited_to_ten_resolutions_and_branch_filter",
+      "pass": true,
+      "detail": [
+        ".github/workflows/material.yml",
+        "AGENTS.md",
+        "GPT.txt",
+        "INDEX-WORTHY.txt",
+        "Material/README.md",
+        "Material/endpoints.json",
+        "Material/owned-sources.json",
+        "R3_NSE/README.md",
+        "README.md",
+        "SOURCE_STATUS.json",
+        "T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json"
+      ]
+    },
+    {
+      "check": "new_files_limited_to_integration_docs_and_exact_AC_evidence",
+      "pass": true,
+      "detail": [
+        "audits/material-000c1bd9-qfa-accepted/README.md",
+        "audits/material-000c1bd9-qfa-accepted/acceptance-job.log",
+        "audits/material-000c1bd9-qfa-accepted/artifacts.json",
+        "audits/material-000c1bd9-qfa-accepted/endpoint-comparison-map.json",
+        "audits/material-000c1bd9-qfa-accepted/evidence.zip",
+        "audits/material-000c1bd9-qfa-accepted/independent-review.json",
+        "audits/material-000c1bd9-qfa-accepted/integrity-checks.json",
+        "audits/material-000c1bd9-qfa-accepted/jobs.json",
+        "audits/material-000c1bd9-qfa-accepted/publication-routing.json",
+        "audits/material-000c1bd9-qfa-accepted/routing.zip",
+        "audits/material-000c1bd9-qfa-accepted/run.json",
+        "audits/material-000c1bd9-qfa-accepted/summary.json",
+        "integration/AC_INTO_MAIN/INTEGRATION_STATUS.json",
+        "integration/AC_INTO_MAIN/PREPARATION_REPORT.json",
+        "integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json",
+        "integration/AC_INTO_MAIN/README.md"
+      ]
+    },
+    {
+      "check": "no_new_lean_or_binary_object_overlays",
+      "pass": true
+    },
+    {
+      "check": "file_modes_preserved_and_valid",
+      "pass": true,
+      "detail": {
+        "100644": 3888
+      }
+    },
+    {
+      "check": "all_inherited_lean_blobs_preserved",
+      "pass": true,
+      "detail": {
+        "count": 1386
+      }
+    },
+    {
+      "check": "all_active_audits_and_endpoint_contracts_preserved",
+      "pass": true,
+      "detail": {
+        "audits": 169,
+        "manifests_and_closures": 338
+      }
+    },
+    {
+      "check": "all_13_named_pin_policy_blobs_preserved",
+      "pass": true
+    },
+    {
+      "check": "workflow_only_exact_branch_filter_change",
+      "pass": true
+    },
+    {
+      "check": "Material/endpoints.json_input_and_candidate_unique",
+      "pass": true
+    },
+    {
+      "check": "Material/endpoints.json_shared_entries_identical",
+      "pass": true,
+      "detail": {
+        "shared": 73
+      }
+    },
+    {
+      "check": "Material/endpoints.json_exact_union",
+      "pass": true,
+      "detail": {
+        "main": 137,
+        "incoming": 105,
+        "union": 169
+      }
+    },
+    {
+      "check": "Material/owned-sources.json_input_and_candidate_unique",
+      "pass": true
+    },
+    {
+      "check": "Material/owned-sources.json_shared_entries_identical",
+      "pass": true,
+      "detail": {
+        "shared": 78
+      }
+    },
+    {
+      "check": "Material/owned-sources.json_exact_union",
+      "pass": true,
+      "detail": {
+        "main": 142,
+        "incoming": 119,
+        "union": 183
+      }
+    },
+    {
+      "check": "169_packages_2212_reports",
+      "pass": true
+    },
+    {
+      "check": "registry_matches_all_package_directories",
+      "pass": true
+    },
+    {
+      "check": "all_registered_endpoint_paths_preserved",
+      "pass": true
+    },
+    {
+      "check": "all_owned_path_module_mappings",
+      "pass": true
+    },
+    {
+      "check": "304_vendor_entries_and_two_inactive",
+      "pass": true
+    },
+    {
+      "check": "vendor_manifest_inherited_exactly",
+      "pass": true
+    },
+    {
+      "check": "all_vendor_git_blobs_preserved",
+      "pass": true
+    },
+    {
+      "check": "original_269_vendor_blobs_preserved",
+      "pass": true,
+      "detail": {
+        "registered_source_modules": 269,
+        "retained_vendor_provenance_lean_files": 1,
+        "all_vendor_lean_blobs_and_modes_unchanged": 270,
+        "provenance_path": "Material/_vendor/provenance/qfb-lakefile.lean"
+      }
+    },
+    {
+      "check": "654_active_module_partition",
+      "pass": true
+    },
+    {
+      "check": "no_active_source_imports_inactive_vendor",
+      "pass": true
+    },
+    {
+      "check": "no_Lean_module_namespace_collisions",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "active_module_index_complete",
+      "pass": true,
+      "detail": {
+        "indexed": 825,
+        "active": 654,
+        "audit": 169,
+        "inactive": 2
+      }
+    },
+    {
+      "check": "exact_passed_parent_report_identities",
+      "pass": true
+    },
+    {
+      "check": "active_set_matches_both_accepted_module_unions",
+      "pass": true,
+      "detail": {
+        "main": 548,
+        "incoming": 526,
+        "shared": 420,
+        "union": 654
+      }
+    },
+    {
+      "check": "parent_compilation_contexts_equal",
+      "pass": true
+    },
+    {
+      "check": "shared_parent_receipt_objects_identical",
+      "pass": true,
+      "detail": {
+        "count": 420,
+        "different": []
+      }
+    },
+    {
+      "check": "main_parent_audit_coverage",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestBootstrap",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestCanonical",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestCanonicalErrorInequality",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestCoreAlgebra",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestCrossTransport",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestErrorCalculus",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestErrorEquation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestErrorState",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestEscape",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestEventualEnstrophyBound",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestObstructionRoot",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestPhysicalForcing",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestPressureFourier",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestReference",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestReferenceEvolution",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_EhrenfestScalar",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNActiveTriad",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNBump",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNCharacterTriad",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNCoefficientSmooth",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNContracts",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNFamilyContracts",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNFamilyRealization",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNFamilySmallness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNFiniteCorrection",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNForcedFourierEvolution",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNFourierPair",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNFourierTranslation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNJointResidual",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedCoefficient",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedForceSeparation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedFront",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedPair",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedPairSeparation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedResidual",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNLocalizedSmallness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNMain",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNModalEnergy",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNModeEnvelope",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNNonvanishing",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPairForceUniqueness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPairTransport",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPhase",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPhysicalLerayAdapter",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPhysicalPair",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPhysicalPresentation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNPointwiseEnvelope",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3CompactFrequencyInverse",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3CompactSchwartz",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3Contracts",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3CorrectionAdmission",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3CrossingDerivative",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3CrossingTimePhase",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3ForceSeparation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3ForwardFourierSmooth",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3Fourier",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3FrequencyCutoff",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3Helical",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3HelicalFrame",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3JointPacket",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3LocalizedSeed",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3Main",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3NonzeroPatch",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3ParametricFourier",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3Phase",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3PhysicalFamily",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3Realization",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3ResidualSchwartz",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3SchwartzJets",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3SchwartzPhase",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3SliceSchwartz",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3SpectralGenerator",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNR3TranslationRigidity",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNResidualAdmission",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNResidualForce",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNResidualLocality",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNSmoothSmallness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNTimePhase",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNTriadCancellation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FDSNUniformForceDecay",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FeffermanFamilyAssembly",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_FeffermanFamilyFoundation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_Galerkin",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_MathlibAnalytic",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_MathlibFourier",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_MathlibODE",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_PhysicalNSE",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_QFBCutoff",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_QFBLerayHopf",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_QFBRestart",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_QFBRoot",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_QFBTail",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_QFBTraceUniqueness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0AnalyticCapAdmission",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0AnalyticTwoSidedCap",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0CompactCylinderSerrin",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0DataAdmission",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0FiniteCapAdmission",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0FiniteCapGluing",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0FiniteCapOverlap",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0InitialFrontAdmission",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_R0PressureUniqueness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_RelativeEnergy",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_SerrinComparison",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_SmallH12",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBFiniteFrontGluing",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBFiniteFrontTest",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBFiniteWindowCrossIdentity",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBFiniteWindowRelativeEnergy",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBFiniteWindowSerrinComparison",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBFourierBudget",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBHomogeneousBudget",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalClassicalUniqueness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalCubicBarrier",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalExistence",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalFront",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalFrontIdentification",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalGalerkinBounds",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalGalerkinCompactness",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalGalerkinLimit",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalGalerkinRegularity",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalSobolevCalculus",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBLocalTimeTranslation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBMaximalClassicalFront",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBMaximalFrontRestriction",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBMaximalLerayHopfIdentification",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBMaximalTailGluing",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBPhysicalBudgetContinuation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBPhysicalEndpointContinuation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBPhysicalEnstrophyEvolution",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBPhysicalFourier",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBPhysicalNonlinear",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBSmoothDatum",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBStrictCutoff",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBStrongContinuation",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBWFBRootAssembly",
+      "pass": true
+    },
+    {
+      "check": "main_fresh_audit_WFBWeakFouriermanB",
+      "pass": true
+    },
+    {
+      "check": "ac_parent_audit_coverage",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestBootstrap",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestCanonical",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestCanonicalErrorInequality",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestCoreAlgebra",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestCrossTransport",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestErrorCalculus",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestErrorEquation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestErrorState",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestEscape",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestEventualEnstrophyBound",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestObstructionRoot",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestPhysicalForcing",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestPressureFourier",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestReference",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestReferenceEvolution",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_EhrenfestScalar",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_FeffermanFamilyAssembly",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_FeffermanFamilyFoundation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_Galerkin",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_MathlibAnalytic",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_MathlibFourier",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_MathlibODE",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_PhysicalNSE",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAACBudget",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAConditionalRoot",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAEnstrophyCoefficient",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAH1Fourier",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAH1FourierReverse",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAH1Spectral",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAHeatSemigroup",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAHeatSmoothing",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAHeatTimeEnergy",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAHeatTrajectory",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFALHRestart",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFANativeFoundation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalH1",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalH1Budget",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalH1Divergence",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalH1Sectors",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalH1SigmaSectors",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalH2",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAPhysicalStoppedGauge",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFARealEvenMultipliers",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFARealFourier",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFARealLeray",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFARealSectorL2",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFARecovered",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFARepresentation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFASixChargeBudget",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFASixSectorL2",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFASixSectors",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFASmallProductCoefficient",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAStoppedBudget",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAWeightedBudgetAllWindows",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFAZeroDatum",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFBCutoff",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFBLerayHopf",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFBRestart",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFBRoot",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFBTail",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_QFBTraceUniqueness",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0AnalyticCapAdmission",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0AnalyticTwoSidedCap",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0CompactCylinderSerrin",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0DataAdmission",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0FiniteCapAdmission",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0FiniteCapGluing",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0FiniteCapOverlap",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0InitialFrontAdmission",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_R0PressureUniqueness",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_RelativeEnergy",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_SerrinComparison",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_SmallH12",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBFiniteFrontGluing",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBFiniteFrontTest",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBFiniteWindowCrossIdentity",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBFiniteWindowRelativeEnergy",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBFiniteWindowSerrinComparison",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBFourierBudget",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBHomogeneousBudget",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalClassicalUniqueness",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalCubicBarrier",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalExistence",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalFront",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalFrontIdentification",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalGalerkinBounds",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalGalerkinCompactness",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalGalerkinLimit",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalGalerkinRegularity",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalSobolevCalculus",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBLocalTimeTranslation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBMaximalClassicalFront",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBMaximalFrontRestriction",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBMaximalLerayHopfIdentification",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBMaximalTailGluing",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBPhysicalBudgetContinuation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBPhysicalEndpointContinuation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBPhysicalEnstrophyEvolution",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBPhysicalFourier",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBPhysicalNonlinear",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBSmoothDatum",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBStrictCutoff",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBStrongContinuation",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBWFBRootAssembly",
+      "pass": true
+    },
+    {
+      "check": "ac_fresh_audit_WFBWeakFouriermanB",
+      "pass": true
+    },
+    {
+      "check": "shared510_theorem_type_axiom_maps_identical",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "named2212_union_matches_registry",
+      "pass": true
+    },
+    {
+      "check": "all_relative_Markdown_link_targets_exist",
+      "pass": true,
+      "detail": {
+        "links": 152,
+        "broken": []
+      }
+    },
+    {
+      "check": "main_goal_and_main_acceptance_objects_retained",
+      "pass": true
+    },
+    {
+      "check": "T3_fdsn_acceptance_retained",
+      "pass": true
+    },
+    {
+      "check": "latest_AC35_scope_accepted_not_pending_review",
+      "pass": true
+    },
+    {
+      "check": "combined_candidate_pending_no_new_math_goal",
+      "pass": true
+    },
+    {
+      "check": "general_physical_roots_remain_open",
+      "pass": true
+    },
+    {
+      "check": "current_context_modes_consistent",
+      "pass": true,
+      "detail": {
+        "source_status_mode": "A_TIER_DERIVATION",
+        "integration_phase": "GITHUB_MODE_INTEGRATION_PREPARATION"
+      }
+    },
+    {
+      "check": "historical_AC_status_explicitly_scoped",
+      "pass": true
+    },
+    {
+      "check": "no_current_AC_pending_review_claims",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "check": "ten_resolutions_present",
+      "pass": true
+    },
+    {
+      "check": "native_prescribed_site_ledger_scope_retained",
+      "pass": true
+    },
+    {
+      "check": "AC_acceptance_archive_matches_reviewed_source",
+      "pass": true
+    },
+    {
+      "check": "retained_AC_original_evidence_zip_identity",
+      "pass": true
+    },
+    {
+      "check": "retained_AC_independent_review_exact",
+      "pass": true
+    }
+  ],
+  "candidate_overlays": [
+    {
+      "path": ".github/workflows/material.yml",
+      "bytes": 5221,
+      "sha256": "ff7e6e7ed1b04c3c486afd53540b421eaaa30a4bc4c58849eaddb7046331799e",
+      "git_blob_sha": "033c71b85fb226925f6fc62f2fa2ff5d6b8b1adb",
+      "mode": "100644"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 7839,
+      "sha256": "b95a3e9deba25d58c0cedcdfa7b5587b20c86c5765954d7dfd36ce702080a2c6",
+      "git_blob_sha": "3fc354e7dcf883eb308b580e3e685765d96f0e4a",
+      "mode": "100644"
+    },
+    {
+      "path": "GPT.txt",
+      "bytes": 85335,
+      "sha256": "309cdd5851e6c04324b6570f7bd2f0d059d44bea0f1abc81ebcd5bc0bb7cc4d0",
+      "git_blob_sha": "b39fa397cf0409eb35c0c534545555e339da6957",
+      "mode": "100644"
+    },
+    {
+      "path": "INDEX-WORTHY.txt",
+      "bytes": 70713,
+      "sha256": "25b21d395b4e1d4e9e7a5cfd5ef4a73ce89fb3079aab6ba5a8b3deaa05052e25",
+      "git_blob_sha": "c4e3c20bcc366d0bac46b214c15a58e40c3010fe",
+      "mode": "100644"
+    },
+    {
+      "path": "Material/README.md",
+      "bytes": 16993,
+      "sha256": "e98da1af2830b6dac865b27ea0b8437264bdabd0ddb48df60fd80208df84fcd2",
+      "git_blob_sha": "cb6544457254714bcd7385cc3a9ab33147ee3ff9",
+      "mode": "100644"
+    },
+    {
+      "path": "Material/endpoints.json",
+      "bytes": 71493,
+      "sha256": "b320a7f13b20a9580309ca0b9025281d43a0b9aeb6ac36d3a9b1f76329a40b64",
+      "git_blob_sha": "78c64e56c7cc42eeaa7fde63b0ae6503b2abf9f5",
+      "mode": "100644"
+    },
+    {
+      "path": "Material/owned-sources.json",
+      "bytes": 147586,
+      "sha256": "f52ff5bcfb9e69f2497a36bd55cbe01895c5150865cc0723d03d0bb7cb232b8f",
+      "git_blob_sha": "f0f2082f16dd998c53e16949e7fb5ff90d4e875f",
+      "mode": "100644"
+    },
+    {
+      "path": "R3_NSE/README.md",
+      "bytes": 4066,
+      "sha256": "7b3103c0670f5121deab2438cddc85f535ebba0a3a319e3bbba8c83cadeaa1e0",
+      "git_blob_sha": "46461b05803711b377792efb73d05ec08c28225d",
+      "mode": "100644"
+    },
+    {
+      "path": "README.md",
+      "bytes": 40410,
+      "sha256": "92f7991bad77810f4518c6532a5ad549018d607d1e1209c873f07a39ed631c2c",
+      "git_blob_sha": "df62447135c2d8ce45826e8fd80165b9832ad4d0",
+      "mode": "100644"
+    },
+    {
+      "path": "SOURCE_STATUS.json",
+      "bytes": 316308,
+      "sha256": "174491440c4a00ef0c22919f4309e6342321d890b183ba3869ade0dda2cb4b5d",
+      "git_blob_sha": "0d60947a3085592e07941a517ce52897762ffff1",
+      "mode": "100644"
+    },
+    {
+      "path": "T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json",
+      "bytes": 59091,
+      "sha256": "492ea91c91dbb1be43b707636c188ac3ebdf4a87eab71ef919384aa15baea1ee",
+      "git_blob_sha": "7d617b9101b6e32ffcdd2c0c2c5809141bb1b24a",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/README.md",
+      "bytes": 979,
+      "sha256": "467fb226c76938fb168cbd2e66d9cd30eeb69389328627bf0b1a2c188c6f3ce7",
+      "git_blob_sha": "360922b40e6f7d441c09caee1029fe2a1618dede",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/acceptance-job.log",
+      "bytes": 3544,
+      "sha256": "6355e147aee3a93d50b922f0fdc393042f6946ebd50fb5781c26e37fd7be3af6",
+      "git_blob_sha": "43fcbd3b8b809cc6b12f26a1d0c3f83fb86c7762",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/artifacts.json",
+      "bytes": 3486,
+      "sha256": "b8360d766d841f59cbc843ff9fddb88c3a3632803460bee9c72531659c3d9b28",
+      "git_blob_sha": "6b7fd5b6edcebb185f882189c09483275ec53236",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/endpoint-comparison-map.json",
+      "bytes": 519554,
+      "sha256": "d837b7407b99aec14b3afd7a9f01265ac8658a12514ae8dcbce1eec8fa8df7ea",
+      "git_blob_sha": "6a6325a1d2cd1abbcfebb08fa98e33e7dd2ece63",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/evidence.zip",
+      "bytes": 2185042,
+      "sha256": "7f0daaf4b7654e137a889775e3ef52a31f942642a8d6839c52a7152827a147fa",
+      "git_blob_sha": "6ee785087b89d628e993a5f24c6c0d2dc3a7f93b",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/independent-review.json",
+      "bytes": 13756,
+      "sha256": "42a003c7661e89634aba07d6fade65d2267d28b558bd68a73054eb8be3ef7061",
+      "git_blob_sha": "10f1813820b3bbce2c12a3fad715fc7b442a1af6",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/integrity-checks.json",
+      "bytes": 36144,
+      "sha256": "06a51996ae69f8e18483f29e27e13716e537caaeba4c80f922959f69d7b109b1",
+      "git_blob_sha": "9c928383c17d985da3fa5adba33bfecfc21b5228",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/jobs.json",
+      "bytes": 1904,
+      "sha256": "e776d4473dc759a4c257bc7bc79e40da0e51c38dee2c5bbf5eae4387a6cb149c",
+      "git_blob_sha": "42e48073ab53e7f1633a74536d3ae6c7971131d5",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/publication-routing.json",
+      "bytes": 1164,
+      "sha256": "f2e5b0e5da8b67e444002af3065cf6a2f45c46e536442540e440ed9a2b7b7838",
+      "git_blob_sha": "fd1b1f0b0e2fcbf2107dbc8748951bf8d296a249",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/routing.zip",
+      "bytes": 576,
+      "sha256": "1623d8f239d7594fe098bab6fc3c2fa5c310249c35d109fa4b96fd0d952a33bd",
+      "git_blob_sha": "d9f018d182456b5e2ed41498f3545d8f568bb577",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/run.json",
+      "bytes": 14088,
+      "sha256": "9532a99f39d6d25c4782b5ef40f10adc751499d5c4e5844744df8a30206ba845",
+      "git_blob_sha": "b748c7ae44583ec00910b1886d2fe7d8c568f149",
+      "mode": "100644"
+    },
+    {
+      "path": "audits/material-000c1bd9-qfa-accepted/summary.json",
+      "bytes": 2872,
+      "sha256": "3dbe7867a4f1c146085e8406ff5f2d9a4c0cce30fd2b484ff9c8ac8aa9fc8ec8",
+      "git_blob_sha": "ee09f6f81e3c84cb58862ccb9303ba3d7e38a2ef",
+      "mode": "100644"
+    },
+    {
+      "path": "integration/AC_INTO_MAIN/INTEGRATION_STATUS.json",
+      "bytes": 1205,
+      "sha256": "dec576d5e6bc5bc28ae5c2cab7df6a8b686e6f8c2ef8ee303e046b5df5ce9870",
+      "git_blob_sha": "92f80f60ce81fd59848325550f4668cb44924a7b",
+      "mode": "100644"
+    },
+    {
+      "path": "integration/AC_INTO_MAIN/PREPARATION_REPORT.json",
+      "bytes": 3630,
+      "sha256": "5ec4a68fcc5dfec6f3319612e24071757f641336cb1b280e3affc5e7d02ff4cd",
+      "git_blob_sha": "2c9aa88c98847c67944ca28b2dce1edf99c6022a",
+      "mode": "100644"
+    },
+    {
+      "path": "integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json",
+      "bytes": 950364,
+      "sha256": "6d9e07e42133951beb826036579ab39a226225693076fbd10b912c4178a57838",
+      "git_blob_sha": "984e2244cbde379db183a10ce0afc91308dc2a34",
+      "mode": "100644"
+    },
+    {
+      "path": "integration/AC_INTO_MAIN/README.md",
+      "bytes": 5660,
+      "sha256": "219236f87ba8012875e4a96ff6974870bcf46bcb540d32e3e579c961e11e560f",
+      "git_blob_sha": "d8868df2154ede2c2377211ccd7affd451db5f78",
+      "mode": "100644"
+    }
+  ],
+  "review_scope": "Independent stdlib parsing/hash/tree reconstruction and manual review of shared context/status resolutions. No CI module imported or executed; no Lean/Lake/kernel execution. All planned inherited blobs and modes are checked against complete pinned Git trees, not executed.",
+  "acceptance_boundary": "STATIC_ONLY. Both source-specific baseline acceptances are retained. The combined candidate requires its own authorized cached external run, fresh audits, publication and terminal acceptance.",
+  "mathematical_scope_review": "Fefferman_D goal retained; direct-D, T3 FDSN and FDSN_R3 accepted scopes retained. Exact 35-name AC heat batch accepted. General physical QFA/WFA, canonical NSE-A and prescribed-site D-family roots remain open.",
+  "local_lean_executions": 0,
+  "remote_mutations": 0,
+  "candidate_files_modified_by_review": 0,
+  "reviewer_corrections": [
+    {
+      "item": "Raw vendor *.lean count distinguished from registered source-module count.",
+      "explanation": "The complete main tree contains269 registered vendor modules and one retained provenance/qfb-lakefile.lean. All270 are unchanged. The initial raw-count predicate was corrected; no candidate edit was needed."
+    }
+  ],
+  "manual_shared_resolution_review": {
+    "AGENTS.md": "Execution prohibitions, proof and pin preservation, all baseline acceptances and open general roots retained; integration is the current engineering task.",
+    "GPT.txt": "Current hierarchy and exact AC000c1bd9 acceptance are explicit; prior main and AC development sections are scoped as history.",
+    "INDEX-WORTHY.txt": "Present union and acceptance registers supersede historical pending entries; exact source/run references retained.",
+    "README.md": "Introduces pending combined verification and accepted source-specific AC scope, keeps conditional seed premises and physical/root limitations.",
+    "Material/README.md": "169/2212/654 prepared union clearly distinguished from earlier accepted counts; whole-space FDSN_R3 section remains verbatim.",
+    "Material/endpoints.json": "Exact169-entry union;73 shared entries unchanged;2212 declaration requests.",
+    "Material/owned-sources.json": "Exact183-entry union;78 shared entries unchanged, with all provenance and hashes retained.",
+    "R3_NSE/README.md": "Accepted FDSN_R3 and scoped QFA/NSE-A records coexist; no transfer of periodic results or universal root claim.",
+    "SOURCE_STATUS.json": "Main goal, direct-D, T3/R3 accepted scopes and AC histories preserved; latest AC review accepted, combined candidate pending, mode consistent.",
+    "T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json": "Prescribed-site family scope remains open, direct-D and T3 FDSN records intact; AC contexts preserved as separate history."
+  }
+}

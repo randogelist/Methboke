@@ -5,9 +5,24 @@
 The immediate task on `integration/ac-into-main` brings together the accepted
 FDSN_R3 program from main and the QFA/NSE-A work from AC-Integration. The project
 goal remains **Fefferman D**. The [combined integration](../integration/AC_INTO_MAIN/README.md)
-is **pending matching external verification** of 654 modules, 169 fresh package
-audits, 2,212 named type/axiom reports and the original QFB cutout. Prior
-source-specific acceptances below retain their exact scope and tested revision.
+is **accepted at `5a44e985c15a302110fd91d064431f1183e55857`** by
+[run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941):
+654 modules (548 reused, 106 fresh), 169 fresh package audits, 2,212 named
+type/axiom reports and the fresh original QFB cutout. Independent artifact
+review, publication and final Material acceptance passed. All 1,320 main and
+1,402 AC declaration types, axiom sets and endpoint identities remain unchanged,
+with 510 shared names and only the three standard axioms. The
+[acceptance record](../audits/integration-5a44e985-accepted/summary.json) retains
+the exact source and audit identity; earlier source-specific receipts below
+retain their original scopes.
+
+[Draft PR #2](https://github.com/randogelist/Methboke/pull/2) remains under review;
+`main` has not advanced. The latest Material run at the exact PR head governs
+its documentation-head check. This record precedes that documentation commit;
+PR metadata records the later head/run identity without replacing the accepted
+source above. The incoming baseline stays pinned to
+`000c1bd9baded808b79a04b7f666cacabce64939`; later AC work, including the separate
+generator at `809aadc6`, is outside this first integration.
 
 ## FDSN_R3: accepted conditional whole-space family
 
@@ -51,9 +66,9 @@ Its [independently reviewed evidence](../audits/material-000c1bd9-qfa-accepted/s
 covers 526 modules, 105 fresh package audits, 1,402 named reports and the
 original cutout, including the 35 added declarations. The actual H2 trajectory
 is zero-extended at nonpositive times; no H2 initial trace for arbitrary H1
-input is claimed. The general physical QFA and WFA roots remain open. These
-scoped results do not establish the combined integration candidate or
-universal regularity.
+input is claimed. The general physical QFA and WFA roots remain open. The
+integration acceptance above preserves these exact scopes; universal regularity
+remains open.
 
 ## Domain and goal boundaries
 

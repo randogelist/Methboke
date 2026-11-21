@@ -15,7 +15,15 @@ CURRENT_FDSN_R3_EVIDENCE = audits/fdsn-r3-572fd9ee-accepted/summary.json
 ACTIVE_MODE = A_TIER_DERIVATION
 LOCAL_TARGET = AC_INTO_MAIN_INTEGRATION
 COMPLETED_LOCAL_THEOREM = FDSN_R3
-CURRENT_INTEGRATION_STATUS = PENDING_EXTERNAL_VERIFICATION
+CURRENT_INTEGRATION_STATUS = ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION
+CURRENT_INTEGRATION_TESTED_SOURCE = 5a44e985c15a302110fd91d064431f1183e55857
+CURRENT_INTEGRATION_TESTED_RUN = 44854389941
+CURRENT_INTEGRATION_PULL_REQUEST = https://github.com/randogelist/Methboke/pull/2
+CURRENT_INTEGRATION_EVIDENCE = audits/integration-5a44e985-accepted/summary.json
+CURRENT_INTEGRATION_INDEPENDENT_REVIEW = audits/integration-5a44e985-accepted/independent-review.json
+DOCUMENTATION_HEAD_VERIFICATION_POLICY = LATEST_MATERIAL_RUN_MUST_MATCH_EXACT_PR_2_HEAD
+DOCUMENTATION_HEAD_LIVE_AUTHORITY = https://github.com/randogelist/Methboke/pull/2
+MAIN_INTEGRATION_STATUS = PR_2_OPEN_MAIN_UNCHANGED_AT_4a609ea
 INCOMING_HEAD_STATUS = A_TIER_ACCEPTED_AT_000c1bd9
 INCOMING_HEAD_EVIDENCE = audits/material-000c1bd9-qfa-accepted/summary.json
 LATEST_ACCEPTED_EHRENFEST_COMMIT = b730e52ca1e4a661a83a09110378db542455097b
@@ -30,19 +38,30 @@ ACTIVE_BRANCH: integration/ac-into-main.
 BASE_MAIN: 4a609ea634ec4a5ff846049b9dc12b40b5f1a702.
 INCOMING_AC: 000c1bd9baded808b79a04b7f666cacabce64939.
 COMMON_ANCESTOR: 66a529248d3198ed70dc5489d82868bc33a37796.
-COMBINED_STATUS: PENDING_EXTERNAL_VERIFICATION.
-USER_SCOPE: prepare the authorized integration branch, preserve both accepted
-resource sets and obtain matching cached external verification of the union.
+COMBINED_STATUS: ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION.
+VERIFICATION_SOURCE: 5a44e985c15a302110fd91d064431f1183e55857.
+VERIFICATION_RUN: 44854389941.
+PULL_REQUEST: https://github.com/randogelist/Methboke/pull/2.
+FROZEN_BOUNDARY: incoming AC means the accepted 000c1bd9 snapshot above,
+not the moving AC-Integration branch. Later AC research is excluded, including
+QFAHeatGenerator introduced at d884a36b055caa810f7ce54a69f5a0def6c899ca and
+repaired at 809aadc6da1eeabd5c128eb9c78005a38d3d4935. Its two active modules,
+one package and nine theorem targets are outside the current combined scope.
+Any later addition requires a distinct source record and matching verification.
+USER_SCOPE: preserve the accepted combined resource set and finalize its
+evidence and documentation. Every later ordinary documentation head is assessed
+through the live PR #2 SHA and its latest matching Material workflow run.
+The original combined source and all required audits passed.
 This is an integration task, not adoption of a new mathematical goal.
 PROJECT_GOAL remains Fefferman_D. FDSN_R3 is a completed prior local theorem.
 
-EXPECTED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;
+VERIFIED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;
 2212 named type/axiom reports plus the retained standalone cutout.
 Shared endpoint entries: 73 packages / 510 names, identical on both inputs.
 Main-only: 64 packages / 810 names. AC-only: 32 packages / 892 names.
 Shared owned-source entries: 78, identical; main-only 64; AC-only 41; union 183.
-Preserve both registries by union, retaining each shared entry once and every
-unique source, endpoint, exact consumer and declaration request.
+The combined registries retain each shared entry once and every unique source,
+endpoint, exact consumer and declaration request from both frozen inputs.
 
 Compiler: leanprover/lean4:v4.33.0.
 Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
@@ -67,17 +86,46 @@ cutout. The review verified all 106 audit-log hashes, 633 archive members,
 526 object receipts, standard axioms only, publication and final acceptance.
 The 35-name heat-time batch is accepted in its exact scope. Evidence:
 audits/material-000c1bd9-qfa-accepted/summary.json.
-Earlier AC acceptances retain their own source identities. Incoming acceptance
-does not verify the new combined source/audit identity.
+Earlier AC acceptances retain their own source identities. The combined
+source/audit identity has its separate reviewed acceptance recorded below.
 
 Record: integration/AC_INTO_MAIN/README.md.
 Status: integration/AC_INTO_MAIN/INTEGRATION_STATUS.json.
 Static preparation: integration/AC_INTO_MAIN/PREPARATION_REPORT.json.
 Preservation: integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json.
-The combined candidate needs fresh authorized cached external verification,
-complete named type/axiom coverage, publication and final acceptance. Preserve
-successful compatible resources; do not run Lean locally or rebuild Mathlib.
-No combined acceptance is claimed until a matching receipt is reviewed.
+ACCEPTED COMBINED EVIDENCE:
+  audits/integration-5a44e985-accepted/summary.json.
+  audits/integration-5a44e985-accepted/independent-review.json.
+Original tested source: 5a44e985c15a302110fd91d064431f1183e55857.
+Tested tree: a7810ee179093a387f9740f94b544c735a886dfe.
+Run 44854389941: workflow SUCCESS; fast job 136693029163 SUCCESS;
+final job 136697273608 SUCCESS; recovery SKIPPED; PRIMARY_ACCEPTED=true.
+All 654 modules passed: 548 compatible cached reuses and 106 fresh compilations.
+All 169 package audits were fresh (zero reused), with 2212 named type/axiom
+reports and fresh QFB. Only propext, Classical.choice and Quot.sound occur.
+All 1320 main reports and all 1402 AC reports retain byte-identical full printed
+types, identical axiom sets and endpoint IDs; 510 reports are shared. No missing,
+extra or changed named report. Compiler, toolchain, Mathlib, platform, verified
+dependencies, external objects and build configuration match both baselines.
+Dependency cache: EXACT. Project cache: PREFIX. This is cached verification,
+not a claim that all project modules or Mathlib were rebuilt from source.
+Independent review verified four ZIP digests, 825 tar members, 654 object
+receipts, 170 fresh audit logs and 2213 marked type and axiom blocks including
+QFB. Publication is complete and the final primary acceptance gate passed.
+Independent review SHA256:
+  8d4885b9cd8fcb1cc985ceaf734472b65c2abed3469f5dd47836b6fac907bebb.
+Precommit static review:
+  integration/AC_INTO_MAIN/reviews/PRECOMMIT_STATIC_REVIEW.json.
+That precommit record concerns the historical planned tree a7810ee179093a387f9740f94b544c735a886dfe.
+The exact tested index's PENDING_EXTERNAL_CI labels remain launch-time metadata;
+this matching receipt establishes acceptance of the tested source above.
+A subsequent documentation/evidence commit is ordinary and requires its own
+external head check. Its SHA is distinct from the accepted source identity.
+For that check's observed result, use the live PR #2 head SHA and the latest
+Material workflow run matching that exact SHA; do not infer a later result
+from this archived acceptance. PR #2 is open; main remains at
+4a609ea634ec4a5ff846049b9dc12b40b5f1a702. No main merge is asserted.
+Preserve successful compatible resources; no local Lean or Mathlib source rebuild.
 
 PRESERVED ACCEPTANCE REGISTER
 DIRECT_D:66a529248d3198ed70dc5489d82868bc33a37796;run44768857811.
@@ -388,7 +436,7 @@ No source preparation or successful workflow color alone yields a <-> signal.
 HISTORICAL_ASSEMBLY_ATTEMPT:run 44663007972 failed compilation. Its source-only
 elaboration repairs preserved statements and passed run 44663707207 at f19531bc.
 The failed archive is retained; that source-specific assembly scope is accepted.
-Current additional accepted scopes and pending integration are recorded above.
+Current accepted integration and the live documentation head verification policy are recorded above.
 HISTORICAL_DIRECT_D_ATTEMPT:run44663007873 compiled and freshly audited, but
 excluded its hidden evidence directory from upload and failed final acceptance.
 The repaired run44768857811 at66a5292 retained the evidence and passed final

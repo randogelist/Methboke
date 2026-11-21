@@ -6,28 +6,64 @@ smooth periodic velocity–pressure solution exists.
 
 ## Integration of AC resources into main
 
-The working branch is `integration/ac-into-main`. The immediate task is to
-combine the already developed resources from `AC-Integration` with the current
-`main` resources and verify the resulting revision. This adopts no new
-mathematical goal. The project goal remains **Fefferman D**; the completed
-FDSN_R3 local theorem and every prior accepted result retain their exact scope.
+The combined source on `integration/ac-into-main` is externally accepted at
+`5a44e985c15a302110fd91d064431f1183e55857`,
+[run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941).
+Later documentation/evidence commits use the ordinary external verification
+workflow. Their observed status is recorded against the exact live head of
+[PR #2](https://github.com/randogelist/Methboke/pull/2), which remains open;
+`main` remains at `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`.
+The project goal remains **Fefferman D**; the completed FDSN_R3 theorem and
+every prior accepted result retain their exact scope. No new mathematical
+goal is adopted.
 
-**Combined status: `PENDING_EXTERNAL_VERIFICATION`.** The frozen inputs are
+**Combined status: `ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION`.** The frozen inputs are
 [`main@4a609ea`](https://github.com/randogelist/Methboke/tree/4a609ea634ec4a5ff846049b9dc12b40b5f1a702)
 and
 [`AC-Integration@000c1bd9`](https://github.com/randogelist/Methboke/tree/000c1bd9baded808b79a04b7f666cacabce64939).
-The intended union contains **654 active modules, 183 owned modules,
-169 endpoint packages and 2,212 named type/axiom reports**, plus the retained
-standalone cutout. These are expected verification counts, not a new acceptance.
+The verified union contains **654 active modules and 183 owned modules**.
+The run reused **548 compatible cached modules** and compiled **106 modules
+freshly**. All **169 package audits were fresh**, covering **2,212 named
+type/axiom reports** plus the fresh standalone QFB cutout. Only `propext`,
+`Classical.choice` and `Quot.sound` occur; publication and final acceptance passed.
+
+The independent review compared complete printed types, axiom sets and
+endpoint IDs for **all 1,320 main reports and all 1,402 AC reports**, with
+**510 shared reports**. Every report was preserved unchanged. The compiler,
+dependency and build contexts match both baselines. Dependency cache admission
+is `EXACT`; project cache admission is `PREFIX`. This is matching cached
+verification with fresh complete audits.
+
+The integration uses that **frozen incoming snapshot**. Later AC-Integration
+research is excluded, including `QFAHeatGenerator`, introduced at `d884a36b`
+and repaired at `809aadc6`. Its two active modules, one audit package and nine
+theorem targets belong to a separate follow-up. Advancing the AC branch does
+not alter this integration's source boundary.
+
+The [accepted summary](audits/integration-5a44e985-accepted/summary.json) and
+[independent review](audits/integration-5a44e985-accepted/independent-review.json)
+pin the original tested source `5a44e985c15a302110fd91d064431f1183e55857` and
+tree `a7810ee179093a387f9740f94b544c735a886dfe`. Integrity review checked all
+four ZIP digests, 825 tar members, 654 object receipts, 170 fresh audit logs
+and 2,213 marked type/axiom blocks including QFB. The final gate recorded
+`PRIMARY_ACCEPTED=true`.
+
+A subsequent documentation/evidence commit is a distinct revision with its
+own ordinary external head check. For its observed verification outcome, use
+the **live PR #2 head SHA and the latest Material run matching that exact SHA**.
+The archived acceptance remains pinned to `5a44e985`; it does not assert a
+main-branch merge or verification of an unspecified later head.
 
 The [integration record](integration/AC_INTO_MAIN/README.md),
 [status](integration/AC_INTO_MAIN/INTEGRATION_STATUS.json),
 [preparation report](integration/AC_INTO_MAIN/PREPARATION_REPORT.json) and
 [preservation manifest](integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json)
-track the exact inputs, registry union and proof preservation. Existing source,
-consumer, closure and evidence identities remain source-specific. The combined
-revision requires its own matching external cached build, fresh complete type
-and axiom audits, publication and final acceptance before this status changes.
+track the exact inputs, registry union and proof preservation. The
+[precommit static review](integration/AC_INTO_MAIN/reviews/PRECOMMIT_STATIC_REVIEW.json)
+records the historical planned tree `a7810ee1`. Existing source, consumer,
+closure and evidence identities remain source-specific. The tested index's
+pending labels are launch-time metadata; the matching receipt above establishes
+the completed acceptance of the original tested revision.
 
 The incoming AC head is **A-tier accepted** at
 `000c1bd9baded808b79a04b7f666cacabce64939`,
@@ -37,8 +73,8 @@ fresh compilations), **105 fresh package audits**, **1,402 unique named
 type/axiom reports**, the fresh standalone QFB cutout, permitted axioms,
 publication and final acceptance. The [exact evidence](audits/material-000c1bd9-qfa-accepted/summary.json)
 accepts the new 35-declaration heat-time scope. Earlier AC scopes retain their
-original tested revisions. This incoming acceptance does not accept the new
-combined revision.
+original tested revisions. The combined revision has its separate acceptance
+at `5a44e985` above.
 
 The completed local theorem **FDSN_R3** is **A-tier accepted** at `572fd9ee`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The canonical theorem `MethbokeAddon.FDSNR3.FDSN_R3` constructs the full same-witness `Family` from the original locally Schwartz `Seed`; all sixteen assented endpoint scopes have matching external evidence. The run passed **548 modules, 137 fresh package audits, 1320 named type/axiom reports and the original cutout**, followed by publication and final acceptance. [Exact acceptance evidence](audits/fdsn-r3-572fd9ee-accepted/summary.json), the [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) and the [unchanged mathematical construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) give the full scope. The theorem retains its seed premise; seed existence is not proved.
 
@@ -323,7 +359,7 @@ the previous research-file locations.
 | Path | Purpose |
 |---|---|
 | [GPT.txt](GPT.txt) | Preserved goal, current integration task, exact mathematical contracts and obligations |
-| [Integration record](integration/AC_INTO_MAIN/README.md) | Frozen branch inputs, expected combined scope, proof preservation and pending verification |
+| [Integration record](integration/AC_INTO_MAIN/README.md) | Frozen inputs, accepted combined scope, proof preservation and live head verification policy |
 | [QFA resources](R3_NSE/QFA/README.md) | Accepted physical foundations, restart/heat/zero-datum scopes and remaining general-root obligations |
 | [NSE-A resources](R3_NSE/A-Regularity-class/README.md) | Accepted pathwise six-charge resources, B-tier class characterization and remaining canonical PDE obligations |
 | [Source anchors](Temp-folder/README.md) | Retained QFA/WFA source references and evidence; no acceptance by copying |

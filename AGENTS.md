@@ -20,17 +20,46 @@ Lean build, with unchanged namespace and import paths. Preserve
 Work on `integration/ac-into-main`, created from main at
 `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`, with incoming AC-Integration at
 `000c1bd9baded808b79a04b7f666cacabce64939`. The user authorized integration
-preparation and matching external verification. The immediate task is this
-resource integration; no new mathematical goal or theorem target is adopted.
-The project goal remains **Fefferman D**.
+preparation and matching external verification. The frozen combined source is
+now externally accepted. The immediate scope remains this integration and its
+evidence and documentation. Each later ordinary documentation commit has its
+own external head check, tracked by the live PR metadata. No new mathematical
+goal or theorem target is adopted.
+The project goal remains **Fefferman D**. PR #2 remains open and main remains
+at `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`.
 
-The combined candidate is `PENDING_EXTERNAL_VERIFICATION`, with expected
-654 active modules, 183 owned modules, 169 packages and 2,212 named reports.
+The combined source is `ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION` at
+`5a44e985c15a302110fd91d064431f1183e55857`, run `44854389941`. All 654 modules
+passed: 548 compatible cached reuses and 106 fresh compilations. All 169 package
+audits were fresh, covering 2,212 named type/axiom reports plus fresh QFB.
+The union contains 183 owned modules. Independent integrity review, permitted
+axioms, publication and final acceptance passed.
 Read `integration/AC_INTO_MAIN/README.md`, `INTEGRATION_STATUS.json`,
 `PREPARATION_REPORT.json` and `PRESERVATION_MANIFEST.json` in that directory.
 Keep both branches' source-specific receipts and all accepted proof/consumer
-bytes. Union the shared registries without dropping either side's additions.
-Prior acceptance does not by itself accept the combined source/audit identity.
+bytes. The combined registries retain both sides' additions. All 1,320 main
+and 1,402 AC reports retain identical full printed types, axiom sets and endpoint
+IDs; the 510 shared reports give 2,212 unique reports. Dependencies are EXACT
+and the project cache is PREFIX at the unchanged compiler and dependency pins.
+
+The incoming source is the frozen accepted `000c1bd9` snapshot, not a moving
+AC-Integration branch reference. Later AC research, including the new
+`QFAHeatGenerator` package introduced at `d884a36b` and repaired at `809aadc6`,
+is excluded from this integration. Preserve that boundary when updating
+receipts; later source additions require a separate matching verification.
+
+PR #2 is https://github.com/randogelist/Methboke/pull/2. The accepted receipt is
+`audits/integration-5a44e985-accepted/summary.json`; its independent review is
+`audits/integration-5a44e985-accepted/independent-review.json`. These identify
+the original tested source above and tree `a7810ee179093a387f9740f94b544c735a886dfe`.
+The precommit static review at
+`integration/AC_INTO_MAIN/reviews/PRECOMMIT_STATIC_REVIEW.json` records that
+historical planned tree. A later documentation/evidence commit is a distinct
+revision: use an ordinary commit that triggers its external head check and
+retain both source identities. For a later head's verification outcome, use
+the live PR #2 head SHA and the latest matching Material workflow run. This
+source-specific receipt does not assert acceptance of an unspecified later
+revision or that PR #2 has merged.
 
 The original whole-space FDSN_R3 Seed-to-Family theorem and all sixteen
 assented scopes are complete at `572fd9ee` / run `44848985720`; preserve
@@ -78,7 +107,8 @@ The incoming `000c1bd9` heat-time batch is accepted at run `44851575278`:
 QFB, with reviewed integrity, standard axioms, publication and final acceptance.
 Its 35 new declarations retain their precise free-heat and weighted-budget
 scope; see `audits/material-000c1bd9-qfa-accepted/summary.json`. The combined
-integration still requires its own matching external verification.
+integration has its separate matching acceptance at `5a44e985` above. Check a
+later documentation head through PR #2 and its exact matching Material run.
 
 Keep Material's Lean 4.33.0 and complete dependency lock unchanged. Its original
 269 vendor files remain byte-preserved; the 35 exact QFA additions have their

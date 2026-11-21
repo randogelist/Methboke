@@ -1,0 +1,148 @@
+PROMOTION REVIEW — PROPOSED README ADDITIONS ONLY
+
+Prepared by static inspection. This file does not alter the repository, declare
+integration acceptance, authorize promotion, or advance main. The external run
+was pending when this task was assigned.
+
+Exact integration candidate:
+  5a44e985c15a302110fd91d064431f1183e55857
+Exact tree:
+  a7810ee179093a387f9740f94b544c735a886dfe
+Parent 1 (main):
+  4a609ea634ec4a5ff846049b9dc12b40b5f1a702
+Parent 2 (incoming AC):
+  000c1bd9baded808b79a04b7f666cacabce64939
+External run: https://github.com/randogelist/Methboke/actions/runs/44854389941
+Draft PR: https://github.com/randogelist/Methboke/pull/2
+
+PROPOSED ADDITIONS TO “REVIEW AND POSSIBLE LATER PROMOTION”
+
+Acceptance and history
+----------------------
+Before proposing advancement of main, retain and independently review matching
+external evidence for the exact integration candidate: 654 passing module
+receipts, 169 fresh package audits, 2,212 named exact type/axiom reports, the
+fresh QFB cutout, the permitted three axioms only, unchanged inherited theorem
+maps, matching compiler/dependency/policy identities, required publication,
+and the final Material accepted job. Compilation alone does not meet this gate.
+
+The accepted-source archive should be
+  audits/integration-5a44e985-accepted/
+and must identify 5a44e985 and its actual run. A documentation-only descendant
+has a different commit identity; it must not replace that tested SHA in the
+original audit_origin_commit, receipts, logs or acceptance record. Check its
+diff to establish that all Lean and audit sources, endpoint/closure/owned-source
+registrations, compiler and dependency pins, build configuration, verifier,
+cache policy and workflow remain unchanged. Preserve the tested verification
+inputs even where their launch-time fields say pending; the separate current
+acceptance records explain the completed run.
+
+Immediately before any authorized promotion, re-read main and the PR head.
+The intended destination baseline is 4a609ea; the intended incoming baseline
+is 000c1bd9. Later AC work, including 809aadc6's separate generator, is outside
+this integration. If main gained unrelated changes, combine and verify them
+in a newly reviewed candidate instead of overwriting them. Require the actual
+applicable repository checks and protections at the observed head.
+
+Prefer advancing main without force to the existing two-parent integration
+commit, or to its verified documentation-only descendant, where repository
+policy permits. This fast-forward preserves the reviewed commit, both parent
+histories and exact provenance. Squashing or rebasing would replace this
+history. If a permitted PR merge route creates another commit, record that
+promotion SHA separately from the tested source; never relabel old receipts.
+The branch remains a review candidate until promotion is separately authorized.
+
+Documentation commit and current-head verification
+-------------------------------------------------
+Preferred option: after the first full acceptance is archived, make one normal
+(non-skipped) documentation-only commit. Let the existing integration-branch
+push workflow reach Material accepted at that head. Retain the original tested
+source archive and the later run URL as separate head-readiness evidence. Do
+not start an archive/commit/re-run loop merely to make every green run its own
+new documentation commit.
+
+This extra run has a concrete engineering purpose: it verifies the actual PR
+head and leaves a later fast-forward push to main able to trigger its normal
+cache-publication workflow. It adds no mathematical conclusion. Compatible
+integration objects should be reusable, although the unchanged verifier will
+freshly run all package audits and the cutout. It is not generally necessary
+to repeat an accepted theorem audit merely because prose changed.
+
+Alternative: use [skip ci] for the documentation commit and explicitly plan
+how current-head requirements and main publication will be satisfied. GitHub
+skip directives suppress the affected push/PR workflows and can leave required
+checks pending. In this repository Material uses push and workflow_dispatch,
+not a pull_request trigger. A later non-skipped merge commit on main can trigger
+publication; fast-forwarding the skipped tip will not do so automatically.
+An explicitly authorized workflow_dispatch on the relevant head is another
+route. A main run cannot retroactively satisfy a required pre-merge head check.
+Do not bypass protections or edit the verifier to avoid these requirements.
+
+Branch-scoped compiled resources
+--------------------------------
+The source merge preserves modules but does not merge two binary caches. The
+verifier restores one prior project snapshot and checks each receipt against
+source, recursive import objects and compilation context. GitHub permits cache
+lookup from the current/default branch; main cannot restore a cache created
+only on its child integration branch, even when key strings are identical.
+
+Consequently, the first ordinary main run after promotion may use the older
+548-module main donor and compile the 106 added modules before fresh audits
+and publication establish the 654-module main cache. This is conditional on
+that donor being available and compatible; no zero-recompilation promise is
+made. The integration run's green publication status does not itself establish
+that main-scoped cache. Preserve the single-donor and normal publication rules;
+do not copy or relabel receipts, delete accepted caches, or force a foundation
+rebuild. The alternate registry backend also uses branch-specific pointers and
+one immutable parent, with ancestry checks; it is not an automatic cache union.
+Missing/incompatible external dependency objects remain an obstruction, with
+no local Lean or Mathlib-from-source fallback.
+
+Withdrawal if later required
+----------------------------
+Use ordinary new revert commits, preserving source history and historical
+acceptance evidence. For the existing integration merge, undoing its changes
+relative to original main means selecting mainline parent 1, after checking
+the actual promoted commit and parent order. A different wrapper merge needs
+its own parent check. Correct current selectors and registries consistently
+with the resulting tree while retaining source-specific historical archives.
+Do not reset/force-push main or erase accepted evidence/caches. If the problem
+is documentation alone, correct that documentation.
+
+A reverted merge remains in ancestry: merging the same old AC ancestor again
+will not automatically restore the removed changes. Any later reintroduction
+requires an explicit reviewed restoration and matching candidate verification.
+No withdrawal action is proposed for execution now.
+
+STATIC BASIS AND PRIMARY REFERENCES
+
+Repository source (all read, none executed):
+- .github/workflows/material.yml:3–25: push/dispatch inputs and ref-specific
+  cancellation; :99–121: terminal acceptance requires verified publication.
+- .github/actions/material-worker/action.yml:147–168: single project restore
+  and cache admission; :327–369: save/confirm exact cache identities;
+  :470–478: accepted output only after successful complete work.
+- Material/ci/native_build.py:37–61,169–216: receipt/source/import/context
+  matching and fresh audits.
+- Material/ci/native_registry.py:26–42: cache identity inputs; :45–79:
+  immutable prior snapshot; :119–162: fresh exact-source publication checks.
+- Material/ci/registry.py:182–197,485–489: branch-specific registry pointers
+  and forward-ancestry conditions.
+- AGENTS.md:93–110: cached external verification only, pin/policy preservation,
+  no local fallback, no needless documentation-only repetition, no superseding
+  the still-running tested revision. Wait for the original run to finish before
+  pushing the acceptance documentation commit.
+
+GitHub cache scope:
+https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching
+GitHub skip directives:
+https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs
+GitHub latest-head required checks:
+https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks
+Git fast-forward and merge history:
+https://git-scm.com/docs/git-merge
+Git revert/mainline and later merge behavior:
+https://git-scm.com/docs/git-revert
+
+Scope remains resource integration: no new mathematical goal, no promotion of
+open physical QFA/WFA roots, no inclusion of the later AC generator.
