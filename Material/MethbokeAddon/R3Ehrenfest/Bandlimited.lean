@@ -231,6 +231,8 @@ theorem sharpCutoff_cutoffDerivative (n : ℕ) (j : Fin 3) (u : SpatialL2) :
     sharpCutoff n (cutoffDerivative n j u) = cutoffDerivative n j u := by
   apply complexifyL2LI.injective
   apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
+  change (𝓕 (complexifyL2 (sharpCutoff n (cutoffDerivative n j u))) : ComplexL2) =
+    𝓕 (complexifyL2 (cutoffDerivative n j u))
   apply Lp.ext
   filter_upwards [sharpCutoff_fourier_ae n (cutoffDerivative n j u),
     cutoffDerivative_fourier_ae n j u, sharpCutoff_fourier_ae n u]

@@ -102,6 +102,8 @@ theorem sharpCutoff_idempotent (n : ℕ) (u : SpatialL2) :
     sharpCutoff n (sharpCutoff n u) = sharpCutoff n u := by
   apply complexifyL2LI.injective
   apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
+  change (𝓕 (complexifyL2 (sharpCutoff n (sharpCutoff n u))) : ComplexL2) =
+    (𝓕 (complexifyL2 (sharpCutoff n u)) : ComplexL2)
   apply Lp.ext
   filter_upwards [sharpCutoff_fourier_ae n (sharpCutoff n u),
     sharpCutoff_fourier_ae n u] with ξ ho hi
@@ -138,6 +140,8 @@ theorem sharpCutoff_realLeray (n : ℕ) (u : SpatialL2) :
     sharpCutoff n (realLeray u) = realLeray (sharpCutoff n u) := by
   apply complexifyL2LI.injective
   apply (Lp.fourierTransformₗᵢ Space ComplexVector).injective
+  change (𝓕 (complexifyL2 (sharpCutoff n (realLeray u))) : ComplexL2) =
+    (𝓕 (complexifyL2 (realLeray (sharpCutoff n u))) : ComplexL2)
   apply Lp.ext
   filter_upwards [sharpCutoff_fourier_ae n (realLeray u), realLeray_fourier_ae u,
     realLeray_fourier_ae (sharpCutoff n u), sharpCutoff_fourier_ae n u]
