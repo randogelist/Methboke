@@ -202,6 +202,19 @@ theorem FiniteDissipation.of_equal_history {T : ℝ} {u v : Velocity}
   intro t ht
   exact (heq t ⟨ht.1.le, ht.2⟩).symm
 
+/-- Equality of the actual dissipation history preserves its time integral.
+The family admission separately retains genuine finite dissipation. -/
+theorem EnergyDissipationPreservation.integrated_dissipation
+    {T ε : ℝ} {u : Velocity} {U : ℝ → Velocity}
+    (h : EnergyDissipationPreservation T ε u U)
+    {lam : ℝ} (hlam : |lam| < ε) :
+    (∫ t in Ioo (0 : ℝ) T, dissipation (U lam t)) =
+      ∫ t in Ioo (0 : ℝ) T, dissipation (u t) := by
+  apply setIntegral_congr_fun measurableSet_Ioo
+  intro t ht
+  exact (h lam hlam t ⟨ht.1.le, ht.2⟩).2
+
+
 end
 
 end MethbokeAddon.FDSNR3

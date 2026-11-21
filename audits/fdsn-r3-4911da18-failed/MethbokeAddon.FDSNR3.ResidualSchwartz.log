@@ -1,0 +1,15 @@
+MethbokeAddon/FDSNR3/ResidualSchwartz.lean:46:4: error: Type mismatch: After simplification, term
+  HasFDerivAt.prodMk (hasFDerivAt_const lam x) (HasFDerivAt.prodMk (hasFDerivAt_const t x) (hasFDerivAt_id x))
+ has type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField Vec (PiLp.normedAddCommGroup 2 fun x => ℝ).toAddCommGroup
+    (PiLp.normedSpace 2 ℝ fun x => ℝ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace (ℝ × ℝ × Vec)
+    Prod.instAddCommGroup Prod.instModule instTopologicalSpaceProd (fun x => (lam, t, x))
+    (ContinuousLinearMap.prod 0 (ContinuousLinearMap.prod 0 (ContinuousLinearMap.id ℝ Vec))) x
+but is expected to have type
+  @HasFDerivAt ℝ DenselyNormedField.toNontriviallyNormedField Vec
+    (WithLp.instAddCommGroup 2 ((i : Fin 3) → (fun x => ℝ) i)) (WithLp.instModule 2 ℝ ((i : Fin 3) → (fun x => ℝ) i))
+    (PiLp.topologicalSpace 2 fun x => ℝ) (ℝ × ℝ × Vec) Prod.instAddCommGroup Prod.instModule instTopologicalSpaceProd
+    (fun y => (lam, t, y))
+    (ContinuousLinearMap.prod 0 (ContinuousLinearMap.id ℝ (ℝ × Vec)) ∘SL
+      ContinuousLinearMap.prod 0 (ContinuousLinearMap.id ℝ Vec))
+    x

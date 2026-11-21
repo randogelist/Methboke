@@ -1,0 +1,12 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:71:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousENorm (P →L[ℝ] P [×n]→L[ℝ] E)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/ParametricFourier.lean:72:17: error: Application type mismatch: The argument
+  hMeas'
+has type
+  AEStronglyMeasurable (fun a => (p a q (n + 1)).curryLeft) μ
+but is expected to have type
+  AEStronglyMeasurable (fun a => p a q (n + 1)) μ
+in the application
+  Integrable.mono' hB hMeas'

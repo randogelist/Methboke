@@ -195,8 +195,9 @@ The prepared construction now includes actual joint Fourier differentiation
 and inverse reconstruction, a globally Schwartz velocity correction and its
 native nonlinear residual, force admission, common compact temporal support,
 all weighted finite-order parameter estimates, and the canonical root.
-One family supplies every clause. The registry contains136packages and1316
-named declarations;417stage2/stage3 declarations still await acceptance.
+One family supplies every clause. With the explicit fixed-frame bridge and
+time-integrated dissipation consequence, the registry contains137packages
+and1320named declarations;421stage2/stage3 declarations await acceptance.
 
 The latest completed run reached the spatial-slice affine-law proof. Its
 [retained diagnostics](audits/fdsn-r3-0f68d4a1-failed/SUMMARY.txt) are addressed
@@ -218,4 +219,8 @@ prepared statement-preserving repair. Full fresh audits remain required.
 
 Run 44839269539 compiled the slice-jet and physical Leray helper layers and reached the joint residual source. Two reported proof failures have exact normalization repairs prepared; full fresh audits remain pending.
 [Retained external diagnostics](audits/fdsn-r3-a24c4179-failed/SUMMARY.txt) accompany the
+prepared statement-preserving repair. Full fresh audits remain required.
+
+Run 44840058960 isolated two remaining reported instance-inference errors. Their exact typed-map repairs are prepared, alongside four explicit fixed-frame and integrated-dissipation scope-completion declarations. The complete candidate now requires 137 packages and 1320 fresh named reports.
+[Retained external diagnostics](audits/fdsn-r3-4911da18-failed/SUMMARY.txt) accompany the
 prepared statement-preserving repair. Full fresh audits remain required.

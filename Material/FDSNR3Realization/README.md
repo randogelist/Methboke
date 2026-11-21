@@ -1,6 +1,6 @@
 # FDSNR3Realization
 
-Native whole-space regularity/admission closure, residual Navier-Stokes realization including the initial boundary, and energy/dissipation history transport.
+Native whole-space regularity/admission closure, residual Navier-Stokes realization including the initial boundary, energy/dissipation history transport, and exact time-integrated dissipation equality.
 
 Status: prepared candidate; matching external cached compilation and fresh named type/axiom reports are required before acceptance.
 

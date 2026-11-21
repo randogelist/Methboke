@@ -84,6 +84,23 @@ example {T : ℝ} {u v : Velocity}
     FiniteDissipation T v := by
   apply MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history <;> assumption
 
+example {T ε : ℝ} {u : Velocity} {U : ℝ → Velocity}
+    (h : EnergyDissipationPreservation T ε u U)
+    {lam : ℝ} (hlam : |lam| < ε) :
+    (∫ t in Ioo (0 : ℝ) T, dissipation (U lam t)) =
+      ∫ t in Ioo (0 : ℝ) T, dissipation (u t) :=
+  MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation h hlam
+
+example {T ε : ℝ} {u : Velocity} {U : ℝ → Velocity}
+    (h : EnergyDissipationPreservation T ε u U)
+    {lam : ℝ} (hlam : |lam| < ε) :
+    (∫ t in Ioo (0 : ℝ) T, ∫ x : Vec,
+      ∑ i : Fin 3, ‖coordinateDerivative (U lam t) i x‖ ^ 2) =
+    (∫ t in Ioo (0 : ℝ) T, ∫ x : Vec,
+      ∑ i : Fin 3, ‖coordinateDerivative (u t) i x‖ ^ 2) := by
+  simpa only [dissipation, gradientSquare] using
+    MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation h hlam
+
 #eval IO.println "TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedJet_add_le"
 #check @MethbokeAddon.FDSNR3.weightedJet_add_le
 #eval IO.println "TYPE_END:MethbokeAddon.FDSNR3.weightedJet_add_le"
@@ -167,4 +184,11 @@ example {T : ℝ} {u v : Velocity}
 #eval IO.println "AXIOMS_BEGIN:MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history"
 #print axioms MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history
 #eval IO.println "AXIOMS_END:MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation"
+#check @MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation
+#eval IO.println "TYPE_END:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation"
+#print axioms MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation
+#eval IO.println "AXIOMS_END:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation"
 

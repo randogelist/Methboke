@@ -1,0 +1,32 @@
+FDSN_R3 FULL CANDIDATE FOURTH REPAIR — REJECTED
+
+Source commit: 4911da18ee34ef0e48f54f82994e968d26f73297
+Source tree: 3eff7e4b680b7944947abd6c4853a4a7f7b99772
+External run: https://github.com/randogelist/Methboke/actions/runs/44840058960
+Fast job: 136645925611 — failure
+Final acceptance job: 136647340579 — failure
+Recovery job: 136647342614 — skipped
+Evidence artifact: 14680067365
+ZIP SHA256: 5dfe3c1f86b54a9af286289dfe2d98f6ff87e1b2b354ec73b9ba95efe3332f5b
+The downloaded ZIP was independently hashed and matched the artifact digest before archival.
+
+Result: PROOF_OR_TYPE_FAILURE. Source-pin integrity was confirmed.
+Module receipts record 528 PASS, 2 FAIL, and 16 BLOCKED_BY_DEPENDENCY.
+All previously passing source modules continue to compile.
+Fresh named audits did not run.
+
+The remaining exposed source failures were:
+- ParametricFourier: lines71/72, the curried continuous-linear-map
+  integrability expression needs the intended normed/ContinuousENorm
+  instances instead of inference through the uncurried integrand.
+- ResidualSchwartz: line46, the inclusion derivative proof exposes the
+  normed/WithLp instance boundary and the equality between the nested
+  product linear map and the composed spatial inclusion.
+The two full compiler logs are retained verbatim beside current.json.
+
+All downstream modules remain unaccepted until their sources compile and
+the independent exact/literal consumers and named type/axiom reports pass.
+Successful source compilation alone does not establish endpoint acceptance.
+No mathematical statement, dependency pin, or acceptance criterion was
+changed by this evidence archive. No local Lean, Lake, compiler or kernel
+audit was executed.

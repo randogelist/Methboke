@@ -43,10 +43,8 @@ theorem familySpatialJacobian_apply (H : 𝓢(FamilySpacetime, Vec))
     familySpatialJacobian H (lam, (t, x)) =
       fderiv ℝ (schwartzFamilyVelocity H lam t) x := by
   have hmap : HasFDerivAt (fun y : Vec => (lam, (t, y))) familySpaceInclusion x := by
-    simpa only [familySpaceInclusion, familySpatialInclusion, spatialSliceCLM,
-      ContinuousLinearMap.comp_zero, ContinuousLinearMap.id_comp, id_eq] using
-      (hasFDerivAt_const (𝕜 := ℝ) lam x).prodMk
-        ((hasFDerivAt_const (𝕜 := ℝ) t x).prodMk (hasFDerivAt_id (𝕜 := ℝ) x))
+    simpa [familySpaceInclusion_apply] using!
+      (familySpaceInclusion.hasFDerivAt (x := x)).const_add (lam, (t, (0 : Vec)))
   exact ((H.hasFDerivAt (lam, (t, x))).comp x hmap).fderiv.symm
 
 def familySpaceDerivative (H : 𝓢(FamilySpacetime, Vec)) (i : Fin 3) :

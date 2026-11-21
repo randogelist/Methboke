@@ -43,8 +43,9 @@ an actual joint Schwartz map, using a proved time-localization of the seed.
 The same velocity and force witnesses establish every required clause.
 
 The exact root consumer and an independent fully expanded literal consumer
-are prepared. Sixteen new packages add288declarations; the complete registry
-has136packages and1316named declarations. These sources remain candidates
+are prepared. Stage3 contains16packages and289declarations. The additional independent
+HelicalFrame package supplies3fixed-frame identities. The complete registry
+has137packages and1320named declarations. These sources remain candidates
 until matching external compiler and fresh theorem-level evidence pass.
 
 The first full candidate run compiled all stage2 sources. Its six newly
@@ -61,4 +62,8 @@ prepared statement-preserving repair. Full fresh audits remain required.
 
 Run 44839269539 compiled the slice-jet and physical Leray helper layers and reached the joint residual source. Two reported proof failures have exact normalization repairs prepared; full fresh audits remain pending.
 [Retained external diagnostics](../../audits/fdsn-r3-a24c4179-failed/SUMMARY.txt) accompany the
+prepared statement-preserving repair. Full fresh audits remain required.
+
+Run 44840058960 isolated two remaining reported instance-inference errors. Their exact typed-map repairs are prepared, alongside four explicit fixed-frame and integrated-dissipation scope-completion declarations. The complete candidate now requires 137 packages and 1320 fresh named reports.
+[Retained external diagnostics](../../audits/fdsn-r3-4911da18-failed/SUMMARY.txt) accompany the
 prepared statement-preserving repair. Full fresh audits remain required.

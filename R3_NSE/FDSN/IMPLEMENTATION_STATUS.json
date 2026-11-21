@@ -43,7 +43,7 @@
     },
     {
       "id": "R3-04",
-      "scope": "Intrinsic helical projector algebra",
+      "scope": "Intrinsic helical projector algebra and fixed-frame scalar powers",
       "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
     },
     {
@@ -73,7 +73,7 @@
     },
     {
       "id": "R3-10",
-      "scope": "Complete helical powers, energy and dissipation preservation",
+      "scope": "Complete helical powers, energy, gradient norm and time-integrated dissipation preservation",
       "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
     },
     {
@@ -328,10 +328,29 @@
       "evidence": "audits/fdsn-r3-a24c4179-failed/SUMMARY.txt",
       "repair": "Normalize the actual curry map in its Bochner integral commutation identity, fix the real scalar in the nested spatial derivative inclusion, and close the literal coordinate-derivative identity in the joint Laplacian proof. All mathematical statements and independent consumers are unchanged.",
       "local_lean_executions": 0
+    },
+    {
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "source_commit": "4911da18ee34ef0e48f54f82994e968d26f73297",
+      "run_id": 44840058960,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44840058960",
+      "artifact_id": 14680067365,
+      "artifact_sha256": "5dfe3c1f86b54a9af286289dfe2d98f6ff87e1b2b354ec73b9ba95efe3332f5b",
+      "artifact_download_and_hash_verified": true,
+      "failed_sources": [
+        "MethbokeAddon.FDSNR3.ParametricFourier",
+        "MethbokeAddon.FDSNR3.ResidualSchwartz"
+      ],
+      "fresh_package_audits_executed": false,
+      "new_a_tier_acceptance": false,
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "evidence": "audits/fdsn-r3-4911da18-failed/SUMMARY.txt",
+      "repair": "Give the actual curried integral a fully explicit normed codomain and transport its existing measurability and bound; derive the spatial inclusion derivative directly from its own continuous linear map plus a constant. Existing theorem statements and consumers remain unchanged. Add three independent fixed-frame power bridge declarations and one exact integrated-dissipation consequence, with literal consumers, to fulfill the original endpoint prose.",
+      "local_lean_executions": 0
     }
   ],
   "stage_2": {
-    "status": "ALL_SOURCES_COMPILED_FULL_FRESH_AUDITS_PENDING",
+    "status": "PREPARED_WITH_FIXED_FRAME_SCOPE_COMPLETION",
     "source_basis": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
     "sources": [
       "MethbokeAddon.FDSNR3.Fourier",
@@ -339,17 +358,19 @@
       "MethbokeAddon.FDSNR3.SliceSchwartz",
       "MethbokeAddon.FDSNR3.Helical",
       "MethbokeAddon.FDSNR3.FrequencyCutoff",
-      "MethbokeAddon.FDSNR3.TranslationRigidity"
+      "MethbokeAddon.FDSNR3.TranslationRigidity",
+      "MethbokeAddon.FDSNR3.HelicalFrame"
     ],
-    "new_packages": 6,
-    "new_declarations": 129,
-    "all_packages": 120,
-    "all_declarations": 1028,
+    "new_packages": 7,
+    "new_declarations": 132,
+    "all_packages": 121,
+    "all_declarations": 1031,
     "new_acceptance_claimed": false,
     "previous_failed_run": 44835804706,
     "repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
     "source_compiler_commit": "54f6c70ba7250f2494cc01d081ddb1bb2e304e9e",
-    "source_compiler_run": 44836866962
+    "source_compiler_run": 44836866962,
+    "source_compiler_scope": "The original six sources compiled in the recorded source-compiler run; the independent HelicalFrame addition awaits its first external compilation."
   },
   "accepted_evidence": {
     "stage_1": {
@@ -456,10 +477,10 @@
       "MethbokeAddon.FDSNR3.Main"
     ],
     "new_packages": 16,
-    "new_declarations": 288,
-    "all_packages": 136,
-    "all_declarations": 1316,
-    "pending_stage_2_and_3_declarations": 417,
+    "new_declarations": 289,
+    "all_packages": 137,
+    "all_declarations": 1320,
+    "pending_stage_2_and_3_declarations": 421,
     "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
     "root_premise": "Original Seed nu T u p F only; all spectral, multiplier, regularity, force and separation witnesses constructed.",
     "independent_root_consumers": [
@@ -468,7 +489,14 @@
     ],
     "new_acceptance_claimed": false,
     "local_lean_executions": 0,
-    "previous_failed_run": 44839269539,
-    "repair_scope": "Normalize the actual curry map in its Bochner integral commutation identity, fix the real scalar in the nested spatial derivative inclusion, and close the literal coordinate-derivative identity in the joint Laplacian proof. All mathematical statements and independent consumers are unchanged."
+    "previous_failed_run": 44840058960,
+    "repair_scope": "Give the actual curried integral a fully explicit normed codomain and transport its existing measurability and bound; derive the spatial inclusion derivative directly from its own continuous linear map plus a constant. Existing theorem statements and consumers remain unchanged. Add three independent fixed-frame power bridge declarations and one exact integrated-dissipation consequence, with literal consumers, to fulfill the original endpoint prose."
+  },
+  "scope_completion": {
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+    "description": "Three declarations derive the projector coefficient and scalar-power identities in any ordinary orthonormal curl eigenframe, as originally requested by R3-04. One declaration and literal double-integral consumer expose the exact time-integrated dissipation consequence for R3-10. These are derived conclusions, with no new premise on Seed or Family.",
+    "added_named_declarations": 4,
+    "seed_and_family_unchanged": true,
+    "new_acceptance_claimed": false
   }
 }
