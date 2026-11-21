@@ -1,5 +1,5 @@
 METHBOKE_QFA_BRANCH_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.3
+DOCUMENT_VERSION = 1.4
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = codex/qfa-structured-assembly
@@ -78,11 +78,27 @@ ACCEPTED MID-TIER ENDPOINTS
               and finite-dimensional norm-equivalence obligation; no IsInJ,
               ESS good-time, PDE construction, comparison or QFA root.
 
+4. SIGNAL = !=!
+   PACKAGE = QFASourceTestsBasic
+   SCOPE = Exact smooth compact source scalar-test structure, explicit function
+           coercion, canonical native pullback, literal application formula,
+           native smoothness and native compact support.
+   TESTED_SOURCE = 5dfd3b9b791931abce656328848e4767aa7fd5ef
+   RUN = 44884209954
+   STATUS = A_TIER_ACCEPTED_EXACT_MID_TIER_ENDPOINT
+   DECLARATIONS = 6
+   AXIOMS = {propext, Classical.choice, Quot.sound}
+   EVIDENCE = audits/qfa-source-tests-5dfd3b9b-accepted/summary.json
+   BOUNDARY = Coordinate derivatives, raw-source L2 admission, source weak
+              divergence, CKN IsInJ, ESS good-time admission, PDE construction,
+              comparison and QFA roots remain separate.
+
 CURRENT_TARGET
-  Construct exact source/native scalar test-function transport, then close the
-  separate raw-source L2 admission and transport native compact-test
-  solenoidality to CKN weak divergence/IsInJ. Package PhysicalH1Sigma as an ESS
-  H1 good-time datum after those interfaces are accepted.
+  Close raw-source MemLp/L2 admission for transported native SpatialL2 fields.
+  Then transport native compact-test solenoidality through the accepted source
+  tests and coordinate calculus to the source weak-divergence predicate and CKN
+  IsInJ admission. Package PhysicalH1Sigma as an ESS H1 good-time datum after
+  those interfaces are accepted.
 
 MAIN OPEN PROVIDERS
   - exact native global Leray-Hopf existence with arbitrary-start energy;
