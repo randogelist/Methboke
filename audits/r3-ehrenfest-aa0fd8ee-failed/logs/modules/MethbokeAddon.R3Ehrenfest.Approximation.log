@@ -1,0 +1,45 @@
+MethbokeAddon/R3Ehrenfest/Approximation.lean:86:29: error: unsolved goals
+f : ↥ComplexL2
+hformula :
+  ∀ᵐ (ξ : Space), ∀ (n : ℕ), ↑↑(frequencyMultiplier (cutoffSymbol n) f - f) ξ = ↑(cutoffValue n ξ) • ↑↑f ξ - ↑↑f ξ
+hmeas : ∀ (n : ℕ), AEStronglyMeasurable (fun ξ => ‖↑↑(frequencyMultiplier (cutoffSymbol n) f - f) ξ‖ ^ 2) volume
+hbound : ∀ (n : ℕ), ∀ᵐ (ξ : Space), ‖‖↑↑(frequencyMultiplier (cutoffSymbol n) f - f) ξ‖ ^ 2‖ ≤ ‖↑↑f ξ‖ ^ 2
+ξ : Space
+hξ : ∀ (n : ℕ), ↑↑(frequencyMultiplier (cutoffSymbol n) f - f) ξ = ↑(cutoffValue n ξ) • ↑↑f ξ - ↑↑f ξ
+n : ℕ
+hn : cutoffValue n ξ = 1
+⊢ 0 = ‖↑(↑(frequencyMultiplier (cutoffSymbol n) f) - ↑f) ξ‖ ^ 2
+MethbokeAddon/R3Ehrenfest/Approximation.lean:90:10: warning: This simp argument is unused:
+  hξ n
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Approximation.lean:90:16: warning: This simp argument is unused:
+  hn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hξ n]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Approximation.lean:113:2: error: Type mismatch: After simplification, term
+  Tendsto.norm (Tendsto.sub (tendsto_sharpCutoff u) tendsto_const_nhds)
+ has type
+  Tendsto (fun x => ‖(sharpCutoff x) u - ?m.31‖) atTop (𝓝 ‖u - ?m.31‖)
+but is expected to have type
+  Tendsto (fun n => ‖(sharpCutoff n) u - u‖) atTop (𝓝 0)
+MethbokeAddon/R3Ehrenfest/Approximation.lean:133:2: error: Type mismatch: After simplification, term
+  Tendsto.norm (Tendsto.sub (tendsto_physicalH1SharpCutoff u) tendsto_const_nhds)
+ has type
+  Tendsto (fun x => ‖physicalH1SharpCutoff x u - ?m.30‖) atTop (𝓝 ‖u - ?m.30‖)
+but is expected to have type
+  Tendsto (fun n => ‖physicalH1SharpCutoff n u - u‖) atTop (𝓝 0)
+MethbokeAddon/R3Ehrenfest/Approximation.lean:146:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

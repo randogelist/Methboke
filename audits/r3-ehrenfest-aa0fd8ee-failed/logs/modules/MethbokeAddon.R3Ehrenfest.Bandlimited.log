@@ -1,0 +1,98 @@
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:50:32: error(lean.unknownIdentifier): Unknown identifier `conj`
+
+Note: It is not possible to treat `conj` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:59:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖?r • ?x‖
+in the target expression
+  ‖(m.value • ↑↑f) ξ‖ ≤ ↑m.bound * ‖↑↑f ξ‖
+
+m : HermitianSymbol
+f : ↥ComplexL2
+ξ : QFA.Endpoints.Agmon.Space
+⊢ ‖(m.value • ↑↑f) ξ‖ ≤ ↑m.bound * ‖↑↑f ξ‖
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:102:16: warning: declaration uses `sorry`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:177:4: error(lean.unknownIdentifier): Unknown identifier `conj`
+
+Note: It is not possible to treat `conj` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:177:65: error: unsolved goals
+n : ℕ
+j : Fin 3
+ξ : Space
+⊢ sorry = ↑Real.pi * Complex.I * ↑(inner ℝ ξ (coordinateVector j)) * ↑(cutoffValue n ξ) * 2
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:178:31: warning: This simp argument is unused:
+  cutoffValue_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, inner_neg_left, Complex.ofReal_neg, map_mul, map_neg, map_ofNat,
+    Complex.conj_ofReal, Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:178:48: warning: This simp argument is unused:
+  inner_neg_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, Complex.ofReal_neg, map_mul, map_neg, map_ofNat,
+    Complex.conj_ofReal, Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:178:64: warning: This simp argument is unused:
+  Complex.ofReal_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, inner_neg_left, map_mul, map_neg, map_ofNat,
+    Complex.conj_ofReal, Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:179:4: warning: This simp argument is unused:
+  map_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, inner_neg_left, Complex.ofReal_neg, map_neg, map_ofNat,
+    Complex.conj_ofReal, Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:179:13: warning: This simp argument is unused:
+  map_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, inner_neg_left, Complex.ofReal_neg, map_mul, map_ofNat,
+    Complex.conj_ofReal, Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:179:22: warning: This simp argument is unused:
+  map_ofNat
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, inner_neg_left, Complex.ofReal_neg, map_mul, map_neg,
+    Complex.conj_ofReal, Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:179:33: warning: This simp argument is unused:
+  Complex.conj_ofReal
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, inner_neg_left, Complex.ofReal_neg, map_mul, map_neg, map_ofNat,
+    Complex.conj_I]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:179:54: warning: This simp argument is unused:
+  Complex.conj_I
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [firstSymbolValue, cutoffValue_neg, inner_neg_left, Complex.ofReal_neg, map_mul, map_neg, map_ofNat,
+    Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/R3Ehrenfest/Bandlimited.lean:190:49: warning: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [firstSymbolValue, cutoffValue, hξ, Complex.norm_real, Real.norm_eq_abs, abs_of_pos Real.pi_pos]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

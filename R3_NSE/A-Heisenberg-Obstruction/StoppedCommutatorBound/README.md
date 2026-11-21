@@ -54,9 +54,18 @@ report. Only authorized cached external CI executes Lean.
 [Run 44872662109](https://github.com/randogelist/Methboke/actions/runs/44872662109)
 rejected the first candidate on two Lean Fourier-map rewrite mismatches.
 The repaired statements are unchanged. No new audited scope was accepted in
-that attempt; its [receipt](../../../audits/r3-ehrenfest-ba451454-failed/summary.json)
+that attempt; its [receipt](../../../../audits/r3-ehrenfest-ba451454-failed/summary.json)
 is retained. The source-count check passed at the exact attempted commit.
 
 The next prepared batch has seven packages and 111 named declarations. Its
-latest immutable source snapshot is 872989da94a55d07eeaa1fd776ef589beb017e3d;
+latest immutable source snapshot is eb67c0c897d81eb808b3451edc239fb82809eaef;
 this is source preparation, with external acceptance still pending.
+
+## Second external attempt
+
+[Run 44873417429](https://github.com/randogelist/Methboke/actions/runs/44873417429)
+compiled Contracts, SharpCutoff and Carrier, then rejected later elaboration
+failures. The [exact failed receipt](../../../../audits/r3-ehrenfest-aa0fd8ee-failed/summary.json)
+is retained. The third candidate repairs explicit types and namespace resolution
+with all 111 declaration statements unchanged. No new audited scope is accepted
+until the full gate and the scoped R3 audit pass.

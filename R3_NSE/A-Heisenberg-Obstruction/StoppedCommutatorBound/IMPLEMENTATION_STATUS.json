@@ -22,7 +22,7 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "candidate_status": "REPAIRED_AND_EXTENDED_PENDING_EXTERNAL_CACHED_VERIFICATION",
+  "candidate_status": "REPAIRED_FIXED_SCOPE_PENDING_EXTERNAL_CACHED_VERIFICATION",
   "accepted_new_scopes": [],
   "attempts": [
     {
@@ -74,6 +74,102 @@
       },
       "repair": "Explicit native Fourier equalities before Lp.ext; theorem statements unchanged. Same evidenced alias normalization applied to cutoffDerivative projection proof.",
       "next_source_snapshot": "b4430e0ddca85baaee045763a792a302991bcb52",
+      "root_proved": false
+    },
+    {
+      "schema_version": 1,
+      "repository": "randogelist/Methboke",
+      "branch": "codex/nse-a-r3-ehrenfest",
+      "commit": "aa0fd8ee7dcf066e190253e0f8c222cb014b80e4",
+      "tree": "f17d88c306505738a6fdf5587e59e3c85a32f344",
+      "run_id": 44873417429,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44873417429",
+      "fast_job": 136752775752,
+      "material_acceptance_job": 136753556295,
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "driver_failure_class": "MODULE_COMPILATION_FAILED",
+      "compiler_diagnostic_count": 8,
+      "failed_modules": [
+        "MethbokeAddon.R3Ehrenfest.Approximation",
+        "MethbokeAddon.R3Ehrenfest.Bandlimited",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2"
+      ],
+      "errors": [
+        {
+          "module": "FourierL1L2",
+          "line": 79,
+          "reason": "Fubini integrability requires an explicit volume measure and typed Schwartz-test integrability"
+        },
+        {
+          "module": "Approximation",
+          "line": 86,
+          "reason": "simplification expands an Lp coercion before the actual representative formula can rewrite it"
+        },
+        {
+          "module": "Approximation",
+          "lines": [
+            113,
+            133
+          ],
+          "reason": "constant sequences in subtraction limits require explicit L2/H1 type annotations"
+        },
+        {
+          "module": "Bandlimited",
+          "lines": [
+            50,
+            177
+          ],
+          "reason": "ComplexConjugate.conj namespace is not open"
+        },
+        {
+          "module": "Bandlimited",
+          "line": 59,
+          "reason": "function scalar action must be exposed at the actual frequency before norm_smul"
+        },
+        {
+          "module": "Bandlimited",
+          "line": 177,
+          "reason": "downstream ring goal from unresolved conjugation"
+        }
+      ],
+      "compiled_not_accepted_new_modules": [
+        "Contracts",
+        "SharpCutoff",
+        "Carrier"
+      ],
+      "dependency_cache": "EXACT",
+      "project_cache": "PREFIX",
+      "matching_native_compiler": "Lean 4.33.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17",
+      "fresh_audits_completed": false,
+      "new_scopes_accepted": [],
+      "cache_publication": false,
+      "recovery": "SKIPPED",
+      "r3_goal_audit": "SKIPPED",
+      "count_run": 44873417404,
+      "count_status": "PASS",
+      "local_lean_executions": 0,
+      "artifact": {
+        "id": 14695340320,
+        "bytes": 100878,
+        "sha256": "22b42211e22212af35ffb39e9527a53a810cf83ba5ef8c845b894578404c8cbe"
+      },
+      "retained_file_sha256": {
+        "current.json": "63c4861403c8c2672654a75a1e0fcdf50014e5c6612ca12f51086a11aa6e3a3b",
+        "cache-admission.json": "8131f554736ba6459c6259648ce5be91d9ec74e00e3779513208b8cece0da2fa",
+        "transport.json": "6468f05c07e14019b90857f6f5c9c240f6c695528b913e8ca42f6118b27c1f35",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Approximation.log": "4bcefb38678f3b337e4e9113a8d18b24d87ec2cac405b4572859692a934467c2",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Bandlimited.log": "c0576abab0e99444fb61cd7aa4813a60fc72a4b016f9eecade79ee5478d34e0b",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Carrier.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Contracts.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.FourierL1L2.log": "b01945916dbe1f46aa2ce7f8c39a8474ec7382f64719c2c17f811f2036ec4a11",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.SharpCutoff.log": "ea1818bf1e0ce7903a36dea33cbc4bcec00b565051d5fbae29a29c6f148e937b",
+        "logs/modules/R3EhrenfestCarrier.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestContracts.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestSharpCutoff.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "repair": "Explicit measure, representative, pointwise scalar-action and constant-sequence types; open ComplexConjugate. Public statements, exact-type consumers and scope unchanged.",
+      "next_source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "root_proved": false
     }
   ],
@@ -172,12 +268,12 @@
     "Full Material gates and retained accepted proof bytes preserved",
     "No local Lean or Mathlib source rebuild"
   ],
-  "prepared_source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+  "prepared_source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
   "packages": [
     {
       "package": "R3EhrenfestContracts",
       "declarations": 8,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "f281ec4b43c795c209876995e5a45e6c4810ae77e9e5a6b19fa345cd5c5892ec",
       "audit_sha256": "0101b77ae7f58c0ac3058d7f1b734af11dfba38597e2cf8c8b2ca31d2bb53f2b",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -195,7 +291,7 @@
     {
       "package": "R3EhrenfestSharpCutoff",
       "declarations": 28,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "ed72a9d344a00df865f571e89865c16909b73ee613e7ba692c89847da1c96734",
       "audit_sha256": "04f0f6c3f41c39e5924bb854521eafedc888e714b4f8ab401bd03accd7284943",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -233,7 +329,7 @@
     {
       "package": "R3EhrenfestCarrier",
       "declarations": 18,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "ee31ec35d59bbe9cf09483002cb5f0bb0565b86de0ec9156ad2ed94d3cdc4ba2",
       "audit_sha256": "b4eff44a7c5f2313bf2a07a16aca495eb049df840908c60740f0132cc27b1ca1",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -261,7 +357,7 @@
     {
       "package": "R3EhrenfestBandlimited",
       "declarations": 21,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "c68f13756ac7840595ddee7d42daa726aa9f1ddc9e21250de130432cd3f67d87",
       "audit_sha256": "7074205a2198e7539dd0c11f5bce5cec1cee66dc2f7512c266f2c095bbfe6395",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -292,7 +388,7 @@
     {
       "package": "R3EhrenfestApproximation",
       "declarations": 10,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "cbb4e778143e6e15e40c6b55a4174c3e4c37ffb43e75121cbcf6159c561b8490",
       "audit_sha256": "697a555da98222e78159e205834b2963cf5a5e4a135082ffac3c4cfda74b418b",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -312,7 +408,7 @@
     {
       "package": "R3EhrenfestFourierL1L2",
       "declarations": 7,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "bdef9d867e31d9426f45c1f149717838f25ed593a692cbf2c8db893a3274ad44",
       "audit_sha256": "25bf39d635ef4cf74d2ce7e653fdae48415e485441311d3368814aeefa80b85e",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -329,7 +425,7 @@
     {
       "package": "R3EhrenfestSmoothRepresentative",
       "declarations": 19,
-      "source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "endpoint_sha256": "0a0c3929329869f8fc34cf8befa981fcc92a8a474c2d1fe6231ac05f51a35292",
       "audit_sha256": "55996c5898682471c2ef89440d41473f3a3a7c6fe1e8b42174a91d43f63fbbb5",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -365,7 +461,7 @@
     "fresh_standalone_qfb": true
   },
   "new_h2_bound": "L_n=2*pi*(n+1); norm(sharpCutoffH2 n u)^2 <= (1+3*L_n^2+9*L_n^4)*norm(u)^2",
-  "current_prepared_source_snapshot": "872989da94a55d07eeaa1fd776ef589beb017e3d",
+  "current_prepared_source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
   "first_substantive_literal_admission_gap": {
     "id": "I14.global_derivative_integrability",
     "statement": "For positive viscosity and a literal GlobalSmoothNSE witness, every actual coordinate derivative at every nonnegative time belongs to whole-space L2. The closed-slab conclusion also needs uniform bounds, temporal control, pressure projection and same-velocity traces.",
