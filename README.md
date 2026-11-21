@@ -17,6 +17,21 @@
 This latest six-goal declaration supersedes the earlier configurations. Existing
 results, explicit hypotheses and source-specific evidence retain their status.
 
+## Main showcased theorems
+
+| Marker | Domain | Canonical theorem | Exact accepted statement | Evidence |
+|---|---|---|---|---|
+| **`!!!!`** | $\mathbb T^3$ | `MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY` | `∀ ν T U p F, Seed ν T U p F → Family ν T U p F` | [A-tier register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt), [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125) |
+| **`!!!!`** | $\mathbb R^3$ | `MethbokeAddon.FDSNR3.FDSN_R3` | `∀ ν T u p F, Seed ν T u p F → Family ν T u p F` | [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json), [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720) |
+
+For both rows, `!!!!` records A-tier closure of the exact same-witness
+seed-to-family theorem with only `propext`, `Classical.choice` and `Quot.sound`
+in the theorem-level audit. The original `Seed` premise remains part of each
+statement; neither row asserts seed existence. The accepted T³ source is
+`87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`, and the accepted ℝ³ source is
+`572fd9ee69a6b641f435cbfb2ef74e034809c583`.
+
+
 ### Current state and six parallel theorem CI stages
 
 [Theorem-goal CI](.github/workflows/theorem-goals.yml) and its
