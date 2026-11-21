@@ -48,18 +48,21 @@ open MethbokeAddon.R3Ehrenfest.FourierL1L2
 abbrev ComplexL1 := Lp ComplexVector 1 (volume : Measure Space)
 
 private theorem cutoffBall_measure_ne_top (n : ℕ) :
-    volume (Metric.closedBall (0 : Space) (cutoffRadius n)) ≠ ∞ :=
+    volume (Metric.closedBall (0 : Space) (cutoffRadius n)) ≠ ⊤ :=
   measure_closedBall_lt_top.ne
 
 /-- Actual scalar L2 indicator of the finite-measure cutoff ball. -/
 def cutoffMaskL2 (n : ℕ) : Lp ℂ 2 (volume : Measure Space) :=
-  indicatorConstLp 2 measurableSet_closedBall (cutoffBall_measure_ne_top n) (1 : ℂ)
+  indicatorConstLp 2
+    (measurableSet_closedBall :
+      MeasurableSet (Metric.closedBall (0 : Space) (cutoffRadius n)))
+    (cutoffBall_measure_ne_top n) (1 : ℂ)
 
 theorem cutoffMaskL2_ae (n : ℕ) :
     (fun ξ : Space => cutoffMaskL2 n ξ) =ᵐ[volume]
       (fun ξ : Space => (cutoffValue n ξ : ℂ)) := by
   have h := indicatorConstLp_coeFn
-    (p := (2 : ℝ≥0∞))
+    (p := (2 : ENNReal))
     (hs := (measurableSet_closedBall :
       MeasurableSet (Metric.closedBall (0 : Space) (cutoffRadius n))))
     (hμs := cutoffBall_measure_ne_top n) (c := (1 : ℂ))
@@ -75,7 +78,7 @@ theorem norm_cutoffMaskL2 (n : ℕ) :
     ‖cutoffMaskL2 n‖ =
       volume.real (Metric.closedBall (0 : Space) (cutoffRadius n)) ^ (1 / (2 : ℝ)) := by
   simpa [cutoffMaskL2] using
-    (norm_indicatorConstLp (p := (2 : ℝ≥0∞))
+    (norm_indicatorConstLp (p := (2 : ENNReal))
       (hs := (measurableSet_closedBall :
         MeasurableSet (Metric.closedBall (0 : Space) (cutoffRadius n))))
       (hμs := cutoffBall_measure_ne_top n) (c := (1 : ℂ))
@@ -91,7 +94,7 @@ def cutoffFrequencyL1CLM (n : ℕ) : ComplexL2 →L[ℂ] ComplexL1 :=
 theorem cutoffFrequencyL1_ae (n : ℕ) (f : ComplexL2) :
     (fun ξ : Space => cutoffFrequencyL1CLM n f ξ) =ᵐ[volume]
       (fun ξ : Space => (cutoffValue n ξ : ℂ) • f ξ) := by
-  have h := scalarVectorSmul.coeFn_holder (r := (1 : ℝ≥0∞)) (cutoffMaskL2 n) f
+  have h := scalarVectorSmul.coeFn_holder (r := (1 : ENNReal)) (cutoffMaskL2 n) f
   filter_upwards [h, cutoffMaskL2_ae n] with ξ hξ hm
   change cutoffFrequencyL1CLM n f ξ = (cutoffValue n ξ : ℂ) • f ξ
   change cutoffFrequencyL1CLM n f ξ = (cutoffMaskL2 n ξ) • f ξ at hξ
@@ -101,7 +104,7 @@ theorem norm_cutoffFrequencyL1_le (n : ℕ) (f : ComplexL2) :
     ‖cutoffFrequencyL1CLM n f‖ ≤
       ‖(ContinuousLinearMap.lsmul ℂ ℂ :
         ℂ →L[ℂ] ComplexVector →L[ℂ] ComplexVector)‖ * ‖cutoffMaskL2 n‖ * ‖f‖ :=
-  scalarVectorSmul.norm_holder_apply_apply_le (r := (1 : ℝ≥0∞)) (cutoffMaskL2 n) f
+  scalarVectorSmul.norm_holder_apply_apply_le (r := (1 : ENNReal)) (cutoffMaskL2 n) f
 
 /-- Finite frequency support proves L1 membership of the actual Fourier class. -/
 theorem integrable_sharpCutoff_fourier (n : ℕ) (u : SpatialL2) :
@@ -147,13 +150,15 @@ theorem complexRepresentative_eq_inverseL1 (n : ℕ) (u : SpatialL2) :
     with ξ h1 h2 h3
   exact h1.trans (h2.symm.trans h3.symm)
 
+private def fourierL2CLM : ComplexL2 →L[ℂ] ComplexL2 :=
+  (Lp.fourierTransformₗᵢ Space ComplexVector).toLinearIsometry.toContinuousLinearMap
+
 /-- A coherent actual smooth representative is built as a bounded real-linear
 map; no representative, derivative, or regularity port is supplied. -/
 def sharpCutoffRepresentativeCLM (n : ℕ) : SpatialL2 →L[ℝ] Space →ᵇ Space :=
   (realPartVectorCLM.compLeftContinuousBounded Space).comp
     (((sharpCutoffComplexRepresentativeCLM n).restrictScalars ℝ).comp
-      ((((Lp.fourierTransformₗᵢ Space ComplexVector).toLinearIsometry.toContinuousLinearMap)
-        .restrictScalars ℝ).comp complexifyL2LI.toContinuousLinearMap))
+      ((fourierL2CLM.restrictScalars ℝ).comp complexifyL2LI.toContinuousLinearMap))
 
 @[simp] theorem sharpCutoffRepresentativeCLM_apply
     (n : ℕ) (u : SpatialL2) (x : Space) :
@@ -189,6 +194,7 @@ theorem contDiff_sharpCutoffRepresentative (n : ℕ) (u : SpatialL2) :
           (integrable_sharpCutoff_fourier n u) x) := by
     funext x
     rw [sharpCutoffRepresentativeCLM_apply, complexRepresentative_eq_inverseL1]
+    rfl
   rw [he]
   exact realPartVectorCLM.contDiff.comp hc
 
