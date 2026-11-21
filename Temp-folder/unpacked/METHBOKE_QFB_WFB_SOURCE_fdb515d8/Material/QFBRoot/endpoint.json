@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "QFBRoot",
+  "endpoint_module": "QFBRoot.Endpoint",
+  "audit_module": "QFBRoot.Audit",
+  "imports": [
+    "QuasiFeffermanB.Endpoints.Root"
+  ],
+  "source_roots": [
+    {
+      "module": "QuasiFeffermanB.Endpoints.Root",
+      "path": "_vendor/QuasiFeffermanB/Endpoints/Root.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Endpoints/Root.lean",
+        "module": "QuasiFeffermanB.Endpoints.Root"
+      },
+      "scope": "Literal QuasiFeffermanBStatement; all quantified data and trajectory premises retained."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Exact QuasiFeffermanBStatement; does not prove universal analytic-germ extension or full Fefferman B.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

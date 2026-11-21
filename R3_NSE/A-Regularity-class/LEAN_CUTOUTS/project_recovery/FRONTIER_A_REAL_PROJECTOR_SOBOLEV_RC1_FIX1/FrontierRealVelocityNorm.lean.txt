@@ -1,0 +1,37 @@
+import FrontierRealVelocityEmbedding
+
+/-! Candidate norm preservation for the real-to-complex velocity embedding.
+No local Lean compiler has been run. This is a spatial L² result; it does not
+establish any Leray--Hopf trajectory or physical operator identification. -/
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierRealVelocityNorm
+open FrontierRealVelocityEmbedding
+
+local instance : Fact (1 ≤ (2 : ENNReal)) := ⟨by norm_num⟩
+
+/-- Coordinatewise real-to-complex embedding preserves the Euclidean norm. -/
+theorem fiberComplex_norm (v : RealFiber) : ‖fiberComplex v‖ = ‖v‖ := by
+  have hs : ‖fiberComplex v‖ ^ 2 = ‖v‖ ^ 2 := by
+    simp [EuclideanSpace.norm_sq_eq, fiberComplex]
+  nlinarith [norm_nonneg (fiberComplex v), norm_nonneg v]
+
+/-- Complexification preserves the norm of a real spatial L² velocity. -/
+theorem complexifyL2_norm (u : RealField) : ‖complexifyL2 u‖ = ‖u‖ := by
+  apply le_antisymm
+  · apply MeasureTheory.Lp.norm_le_norm_of_ae_le
+    filter_upwards [complexifyL2_ae u] with x hx
+    rw [hx]
+    change ‖fiberComplex ((u : Space → RealFiber) x)‖ ≤ ‖(u : Space → RealFiber) x‖
+    exact le_of_eq (fiberComplex_norm _)
+  · apply MeasureTheory.Lp.norm_le_norm_of_ae_le
+    filter_upwards [complexifyL2_ae u] with x hx
+    rw [hx]
+    change ‖(u : Space → RealFiber) x‖ ≤ ‖fiberComplex ((u : Space → RealFiber) x)‖
+    exact le_of_eq (fiberComplex_norm _).symm
+
+end FrontierRealVelocityNorm
+
+#print axioms FrontierRealVelocityNorm.fiberComplex_norm
+#print axioms FrontierRealVelocityNorm.complexifyL2_norm

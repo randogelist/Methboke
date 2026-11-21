@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "review_kind": "manual_mathematical_semantic_review_of_exact_externally_accepted_types",
+  "status": "P08_ACCEPTED_M1_COMPLETE_FOR_SUPPLIED_PHYSICAL_H1_PATHS",
+  "tested_commit": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+  "run_id": 44837033211,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44837033211",
+  "register": "R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md",
+  "pinned_register_sha256": "fd098621ff237fe8a93235f99583f81d1bef2027bc75d4bc813871fdbde011dc",
+  "accepted_packages": [
+    "QFAStoppedBudget",
+    "QFAPhysicalStoppedGauge"
+  ],
+  "prior_accepted_prerequisites": "P01-P07 native physical H1/Fourier/sector layer; G05 preserved",
+  "new_pathwise_endpoints_accepted": [
+    "P08"
+  ],
+  "pathwise_milestones_completed": [
+    "M1"
+  ],
+  "open_milestones": [
+    "M2",
+    "M3"
+  ],
+  "open_pde_gap_targets": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G06"
+  ],
+  "local_lean_executions": 0,
+  "clauses": [
+    {
+      "clause": "Extended lifetime and observation set",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/StoppedWindow.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.stoppedLifetime",
+        "MethbokeAddon.QuasiFeffermanA.stoppedLifetime_ne_top",
+        "MethbokeAddon.QuasiFeffermanA.stoppedEndpoint",
+        "MethbokeAddon.QuasiFeffermanA.ofReal_stoppedEndpoint",
+        "MethbokeAddon.QuasiFeffermanA.stoppedObservation",
+        "MethbokeAddon.QuasiFeffermanA.stoppedObservation_eq_Ioo"
+      ],
+      "finding": "The finite real cutoff is applied in ENNReal before toReal. The observation set is exactly positive times strictly below both the extended lifetime and real cutoff, including zero and infinite lifetime cases."
+    },
+    {
+      "clause": "Extended physical budgets and comparison",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget",
+        "MethbokeAddon.QuasiFeffermanA.physicalSixBudget",
+        "MethbokeAddon.QuasiFeffermanA.physicalSectorBudget",
+        "MethbokeAddon.QuasiFeffermanA.physicalFourierBudget",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedBudget_bounds"
+      ],
+      "finding": "J, J6, sector budgets and B are nonnegative ENNReal integrals of actual physical H1 charges. J6 <= J <= 6*J6 holds without assuming budget finiteness."
+    },
+    {
+      "clause": "Budget finiteness equivalences",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_iff_fourier",
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_iff_six",
+        "MethbokeAddon.QuasiFeffermanA.physicalSixBudget_eq_sum",
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_iff_each"
+      ],
+      "finding": "The J/J6/B equivalences retain infinity; sector decomposition and per-sector equivalence explicitly assume continuity of the supplied H1 path on the actual observation set."
+    },
+    {
+      "clause": "Complete improper limit and uniform bound",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/FullStoppedBudget.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_eq_iSup_approx",
+        "MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_eq_iSup_Ico",
+        "MethbokeAddon.QuasiFeffermanA.tendsto_fullStoppedBudget_approx",
+        "MethbokeAddon.QuasiFeffermanA.tendsto_fullStoppedBudget_nhdsLT",
+        "MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_ne_top_iff_uniform_bound",
+        "MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_ne_top_iff_uniform_approx_bound"
+      ],
+      "finding": "The entire stopped budget is the supremum of strict partial budgets, the increasing sequence limit and the full left-hand limit, even at infinity. Finiteness requires one common finite bound, not separate finiteness of each partial budget."
+    },
+    {
+      "clause": "Physical Fourier and fourth-root normalization",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophy_eq_fourierCharge",
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_eq_fourierBudget",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_pow_four",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_pow_four_fourier"
+      ],
+      "finding": "Literal physical normalizations are Y=4*pi^2*F, J=16*pi^4*B and L^4=4*nu*J=64*pi^4*nu*B. The Fourier gauge formula retains nonnegative viscosity."
+    },
+    {
+      "clause": "Gauge finiteness and finite-radius bounds",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff_six",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff_fourier",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff_each",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_le_iff",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_le_iff_fourier"
+      ],
+      "finding": "Positive viscosity is explicit for finiteness equivalence and exact finite-radius bounds. The per-sector result also retains the supplied path continuity assumption."
+    },
+    {
+      "clause": "Zero windows and zero path",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_zero_lifetime",
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_zero_cutoff",
+        "MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_zero",
+        "MethbokeAddon.QuasiFeffermanA.physicalSixBudget_zero_lifetime",
+        "MethbokeAddon.QuasiFeffermanA.physicalSixBudget_zero_cutoff",
+        "MethbokeAddon.QuasiFeffermanA.physicalFourierBudget_zero_lifetime",
+        "MethbokeAddon.QuasiFeffermanA.physicalFourierBudget_zero_cutoff",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_zero_lifetime",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_zero_cutoff",
+        "MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_zero"
+      ],
+      "finding": "Zero lifetime, zero cutoff and zero-path identities are exact extended-real identities."
+    },
+    {
+      "clause": "Sublevel exhaustion",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.physicalGaugeSublevel",
+        "MethbokeAddon.QuasiFeffermanA.physicalFiniteGaugeClass",
+        "MethbokeAddon.QuasiFeffermanA.physicalGaugeSublevel_mono",
+        "MethbokeAddon.QuasiFeffermanA.physicalGaugeSublevel_subset_finite",
+        "MethbokeAddon.QuasiFeffermanA.physicalFiniteGaugeClass_eq_iUnion",
+        "MethbokeAddon.QuasiFeffermanA.mem_physicalFiniteGaugeClass_iff_six"
+      ],
+      "finding": "For arbitrary supplied indexed path/lifetime/cutoff families, the finite gauge class is precisely the union of integer-radius sublevels, with exact six-budget membership equivalence. No canonical solution family is assumed to exist."
+    },
+    {
+      "clause": "Ordinary bridges and continuity assumptions",
+      "source": "Material/MethbokeAddon/QuasiFeffermanA/FullStoppedBudget.lean",
+      "accepted_declarations": [
+        "MethbokeAddon.QuasiFeffermanA.openIntervalBudget_ofReal_eq_integral",
+        "MethbokeAddon.QuasiFeffermanA.openIntervalBudget_sq_eq_integral",
+        "MethbokeAddon.QuasiFeffermanA.openIntervalBudget_sq_ne_top",
+        "MethbokeAddon.QuasiFeffermanA.openIntervalBudget_sq_eq_intervalIntegral"
+      ],
+      "finding": "Ordinary integral bridges retain genuine integrability and nonnegativity or compact continuity. Generic nonnegative definitions and the directed-union identity require no temporal measurability; no omitted measurability premise is used for finite-sum interchange."
+    }
+  ],
+  "limits": [
+    "No canonical NSE trajectory, arbitrary-data existence, nonlinear evolution, comparison or globality is constructed by these pathwise statements.",
+    "The full physical QFA and WFA roots, sharp Sobolev admission and universal budget finiteness remain open.",
+    "The existing empty new_parent_targets_closed array refers to the G01-G06 PDE gap register, not the P01-P20 endpoint steplist."
+  ]
+}

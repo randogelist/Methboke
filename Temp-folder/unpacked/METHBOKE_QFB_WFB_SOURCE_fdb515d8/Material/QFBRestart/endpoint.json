@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "QFBRestart",
+  "endpoint_module": "QFBRestart.Endpoint",
+  "audit_module": "QFBRestart.Audit",
+  "imports": [
+    "QuasiFeffermanB.LHRestart",
+    "QuasiFeffermanB.GoodTime"
+  ],
+  "source_roots": [
+    {
+      "module": "QuasiFeffermanB.LHRestart",
+      "path": "_vendor/QuasiFeffermanB/LHRestart.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    },
+    {
+      "module": "QuasiFeffermanB.GoodTime",
+      "path": "_vendor/QuasiFeffermanB/GoodTime.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "QuasiFeffermanB.LH_RESTART_AE",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/LHRestart.lean",
+        "module": "QuasiFeffermanB.LHRestart"
+      },
+      "scope": "Almost-everywhere positive restart times; nu>=0 and actual LH required."
+    },
+    {
+      "name": "QuasiFeffermanB.LH_RESTART_AE_Ioc",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/LHRestart.lean",
+        "module": "QuasiFeffermanB.LHRestart"
+      },
+      "scope": "Interval-restricted almost-everywhere good restart times."
+    },
+    {
+      "name": "QuasiFeffermanB.LH_RESTART_AE_Ioo",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/LHRestart.lean",
+        "module": "QuasiFeffermanB.LHRestart"
+      },
+      "scope": "Open-interval almost-everywhere good restart times."
+    },
+    {
+      "name": "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/GoodTime.lean",
+        "module": "QuasiFeffermanB.GoodTime"
+      },
+      "scope": "T>cutoff and a full-measure Good predicate are retained."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Good-time restarting and strict-cutoff subcritical trace extraction; arbitrary-time substitution is not authorized.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

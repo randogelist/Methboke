@@ -1,0 +1,52 @@
+{
+  "status": "FAILED_EXTERNAL_COMPILATION_NOT_A_TIER",
+  "commit": "e6a233aabcef9b425d7e090ba0652c4f1e4b104b",
+  "run_id": 44826537985,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44826537985",
+  "source_tree": "7447371558e569bc24a92799a863edd96ac90d0f",
+  "module_count": 512,
+  "passed_modules": 499,
+  "failed_modules": {
+    "MethbokeAddon.QuasiFeffermanA.LerayMultiplier": {
+      "error": "command exited 1; evidence: MethbokeAddon.QuasiFeffermanA.LerayMultiplier.log",
+      "status": "FAIL"
+    },
+    "MethbokeAddon.QuasiFeffermanA.PhysicalH2": {
+      "error": "command exited 1; evidence: MethbokeAddon.QuasiFeffermanA.PhysicalH2.log",
+      "status": "FAIL"
+    },
+    "MethbokeAddon.QuasiFeffermanA.PhysicalStoppedGauge": {
+      "error": "command exited 1; evidence: MethbokeAddon.QuasiFeffermanA.PhysicalStoppedGauge.log",
+      "status": "FAIL"
+    },
+    "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers": {
+      "error": "command exited 1; evidence: MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.log",
+      "status": "FAIL"
+    }
+  },
+  "blocked_modules": [
+    "MethbokeAddon.QuasiFeffermanA.H2Spectral",
+    "MethbokeAddon.QuasiFeffermanA.HeatSemigroup",
+    "MethbokeAddon.QuasiFeffermanA.LerayH1",
+    "MethbokeAddon.QuasiFeffermanA.LeraySolenoidal",
+    "QFAHeatSemigroup.Endpoint",
+    "QFAPhysicalH2.Endpoint",
+    "QFAPhysicalStoppedGauge.Endpoint",
+    "QFARealEvenMultipliers.Endpoint",
+    "QFARealLeray.Endpoint"
+  ],
+  "fresh_package_audit_completed": false,
+  "publication_accepted": false,
+  "final_gate_accepted": false,
+  "prepared_code_promoted": false,
+  "local_lean_executed": false,
+  "artifact_sha256": "298f008360caecfba3a477935312b5542c1696a800e098dd973fe017ae93fe07",
+  "routing_sha256": "2c9a028612ba40296ab30284f83acb16d04f503a5aa31801b0a8d169b27a2dbe",
+  "repairs": [
+    "Explicit PhysicalH1 import for actual compact pairing and native graph declarations.",
+    "Pointwise scalar-function reduction and explicit bounded Fourier isometry conversions.",
+    "Leray formula reflexivity, quotient conjugation, typed measurability and explicit coercion reductions.",
+    "Gauge fourth-power inequality rewrites ENNReal.rpow_ofNat rather than rpow_natCast on a literal numeral."
+  ],
+  "public_mathematical_statement_changes": false
+}

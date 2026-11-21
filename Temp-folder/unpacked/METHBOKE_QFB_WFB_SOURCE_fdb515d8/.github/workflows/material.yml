@@ -1,0 +1,121 @@
+name: Material / cached verification and passed objects
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      backend:
+        description: 'Binary cache with automatic recovery, or the retained passed-container path'
+        type: choice
+        options: [binary_cache, registry]
+        default: binary_cache
+      exact_cache_benchmark:
+        description: 'Require canonical exact dependency and project caches; no fallback'
+        type: boolean
+        default: false
+      force_rebuild:
+        description: 'Skip the fast job and rebuild fresh (binary backend only; incompatible with exact benchmark)'
+        type: boolean
+        default: false
+
+concurrency:
+  group: material-native-${{ github.repository }}-${{ github.ref }}
+  # Fresh commits supersede obsolete runs; a manual rerun keeps queue semantics.
+  cancel-in-progress: ${{ github.event_name == 'push' && github.run_attempt == 1 }}
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  PYTHONUNBUFFERED: '1'
+  MATERIAL_STATE: /tmp/material-native-state.json
+  MATERIAL_JOBS: '2'
+  MATERIAL_COMMAND_TIMEOUT: '1800'
+  LEAN_NUM_THREADS: '2'
+  EXACT_BENCHMARK: ${{ inputs.exact_cache_benchmark && 'true' || 'false' }}
+  MATERIAL_BACKEND: ${{ inputs.exact_cache_benchmark && 'binary_cache' || inputs.backend || 'binary_cache' }}
+
+jobs:
+  compile-audit-register:
+    name: Fast cached verification
+    # A valid explicit rebuild selects recovery without manufacturing a failure.
+    # Invalid rebuild/benchmark or rebuild/registry combinations fail in preflight.
+    if: ${{ !inputs.force_rebuild || inputs.exact_cache_benchmark || inputs.backend == 'registry' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    # The terminal result job, rather than this recoverable attempt, owns acceptance.
+    continue-on-error: true
+    outputs:
+      accepted: ${{ steps.worker.outputs.accepted }}
+      recovery-allowed: ${{ steps.worker.outputs.recovery-allowed }}
+      failure-class: ${{ steps.worker.outputs.failure-class }}
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Try verified cached objects
+        id: worker
+        uses: ./.github/actions/material-worker
+        with:
+          worker-mode: fast
+          backend: ${{ env.MATERIAL_BACKEND }}
+          exact-cache-benchmark: ${{ inputs.exact_cache_benchmark && 'true' || 'false' }}
+          force-rebuild: ${{ inputs.force_rebuild && 'true' || 'false' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  rebuild-and-reseed:
+    name: Fresh runner rebuild and cache recovery
+    needs: compile-audit-register
+    # No theorem, audit, publication, cancellation or unknown failure can select recovery.
+    if: ${{ !cancelled() && (inputs.force_rebuild || needs.compile-audit-register.outputs.recovery-allowed == 'true') && needs.compile-audit-register.outputs.accepted != 'true' && !inputs.exact_cache_benchmark && (inputs.backend == '' || inputs.backend == 'binary_cache') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    outputs:
+      accepted: ${{ steps.worker.outputs.accepted }}
+    steps:
+      - name: Checkout the same exact source on a fresh runner
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Rebuild every own module, audit and publish replacement objects
+        id: worker
+        uses: ./.github/actions/material-worker
+        with:
+          worker-mode: recovery
+          backend: binary_cache
+          exact-cache-benchmark: 'false'
+          force-rebuild: ${{ inputs.force_rebuild && 'true' || 'false' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  material-result:
+    name: Material accepted
+    needs: [compile-audit-register, rebuild-and-reseed]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require a fully verified and published result
+        env:
+          PRIMARY_ACCEPTED: ${{ needs.compile-audit-register.outputs.accepted }}
+          RECOVERY_ACCEPTED: ${{ needs.rebuild-and-reseed.outputs.accepted }}
+          PRIMARY_RESULT: ${{ needs.compile-audit-register.result }}
+          PRIMARY_FAILURE_CLASS: ${{ needs.compile-audit-register.outputs.failure-class }}
+          RECOVERY_RESULT: ${{ needs.rebuild-and-reseed.result }}
+        run: |
+          if [ "$PRIMARY_ACCEPTED" = true ]; then
+            echo 'Material accepted: cached verification and required publication passed.' >> "$GITHUB_STEP_SUMMARY"
+          elif [ "$RECOVERY_ACCEPTED" = true ]; then
+            echo 'Material accepted: fresh recovery rebuilt every own module, audited and published replacement objects.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Material rejected: no accepted worker (primary=$PRIMARY_RESULT, class=$PRIMARY_FAILURE_CLASS, recovery=$RECOVERY_RESULT)." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi

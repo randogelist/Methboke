@@ -1,0 +1,42 @@
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:54:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖?r • ?x‖
+in the target expression
+  ‖((fun ξ => ↑(m.value ξ)) • ↑↑f) ξ‖ ≤ ?m.56 * ‖↑↑f ξ‖
+
+m : RealEvenSymbol
+f : ↥ComplexL2
+hm : Measurable fun ξ => ↑(m.value ξ)
+ξ : QFA.Endpoints.Agmon.Space
+⊢ ‖((fun ξ => ↑(m.value ξ)) • ↑↑f) ξ‖ ≤ ?m.56 * ‖↑↑f ξ‖
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:143:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FiniteDimensional ℂ ↥(Lp ComplexVector 2 volume)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:151:0: error: Not a definitional equality: the left-hand side
+  (realFourierMultiplierCLM m) u
+is not definitionally equal to the right-hand side
+  realFourierMultiplier m u
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:152:64: error: Type mismatch
+  rfl
+has type
+  ?m.5 = ?m.5
+but is expected to have type
+  (realFourierMultiplierCLM m) u = realFourierMultiplier m u
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:156:2: error: Type mismatch
+  ContinuousLinearMap.map_add (realFourierMultiplierCLM m) u v
+has type
+  (realFourierMultiplierCLM m) (u + v) = (realFourierMultiplierCLM m) u + (realFourierMultiplierCLM m) v
+but is expected to have type
+  realFourierMultiplier m (u + v) = realFourierMultiplier m u + realFourierMultiplier m v
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:160:2: error: Type mismatch
+  ContinuousLinearMap.map_smul (realFourierMultiplierCLM m) r u
+has type
+  (realFourierMultiplierCLM m) (r • u) = r • (realFourierMultiplierCLM m) u
+but is expected to have type
+  realFourierMultiplier m (r • u) = r • realFourierMultiplier m u
+MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean:163:37: error: Type mismatch
+  ContinuousLinearMap.map_zero (realFourierMultiplierCLM m)
+has type
+  (realFourierMultiplierCLM m) 0 = 0
+but is expected to have type
+  realFourierMultiplier m 0 = 0

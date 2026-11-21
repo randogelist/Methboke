@@ -1,0 +1,48 @@
+/-- Integral Gronwall for a possibly discontinuous relative energy.
+ Only the product `a * e` must be integrable. -/
+theorem CRITICAL_RELATIVE_ENERGY_GRONWALL
+    {e a : ℝ → ℝ} {s T δ : ℝ} (hst : s ≤ T)
+    (ha : ContinuousOn a (Icc s T))
+    (ha_nonneg : ∀ t ∈ Icc s T, 0 ≤ a t)
+    (hprod : IntervalIntegrable (fun r => a r * e r) volume s T)
+    (hrelative : ∀ t ∈ Icc s T,
+      e t ≤ δ + ∫ r in s..t, a r * e r) :
+    ∀ t ∈ Icc s T, e t ≤ δ * Real.exp (∫ r in s..t, a r) := by
+  let F : ℝ → ℝ := fun t => δ + ∫ r in s..t, a r * e r
+  let G : ℝ → ℝ := fun t => δ + ∫ r in s..t, a r * F r
+  have hF : ContinuousOn F (Icc s T) :=
+    continuousOn_const.add (critical_comparison_primitive_continuous hst hprod)
+  have haF : ContinuousOn (fun r => a r * F r) (Icc s T) := ha.mul hF
+  have hG : ContinuousOn G (Icc s T) :=
+    continuousOn_const.add (critical_comparison_primitive_continuous hst
+      (haF.intervalIntegrable_of_Icc hst))
+  have heF : ∀ t ∈ Icc s T, e t ≤ F t := hrelative
+  have hFG : ∀ t ∈ Icc s T, F t ≤ G t := by
+    intro t ht
+    have hp : IntervalIntegrable (fun r => a r * e r) volume s t := by
+      apply hprod.mono_set
+      rw [uIcc_of_le ht.1, uIcc_of_le hst]
+      exact Icc_subset_Icc le_rfl ht.2
+    have hq : IntervalIntegrable (fun r => a r * F r) volume s t :=
+      (haF.mono (Icc_subset_Icc le_rfl ht.2)).intervalIntegrable_of_Icc ht.1
+    change δ + (∫ r in s..t, a r * e r) ≤ δ + (∫ r in s..t, a r * F r)
+    apply add_le_add le_rfl
+    apply intervalIntegral.integral_mono_on ht.1 hp hq
+    intro r hr
+    have hrT : r ∈ Icc s T := ⟨hr.1, hr.2.trans ht.2⟩
+    exact mul_le_mul_of_nonneg_left (heF r hrT) (ha_nonneg r hrT)
+  have hGd : ∀ t ∈ Ioo s T, HasDerivAt G (a t * F t) t := by
+    intro t ht
+    exact (critical_comparison_primitive_hasDerivAt haF ht).const_add δ
+  have hGbound : ∀ t ∈ Ioo s T, a t * F t ≤ a t * G t := by
+    intro t ht
+    exact mul_le_mul_of_nonneg_left (hFG t ⟨ht.1.le, ht.2.le⟩)
+      (ha_nonneg t ⟨ht.1.le, ht.2.le⟩)
+  have hgronwall := critical_comparison_differential_gronwall hst hG ha hGd hGbound
+  intro t ht
+  calc
+    e t ≤ F t := heF t ht
+    _ ≤ G t := hFG t ht
+    _ ≤ G s * Real.exp (∫ r in s..t, a r) := hgronwall t ht
+    _ = δ * Real.exp (∫ r in s..t, a r) := by
+      simp only [G, intervalIntegral.integral_same, add_zero]

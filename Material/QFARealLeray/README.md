@@ -1,0 +1,15 @@
+# QFARealLeray
+
+**Status: prepared candidate; matching authorized cached external compilation, full consumer checks and named axiom reports are required.**
+
+The three source roots contain 72 public declarations: 62 theorems and 10 definitions. They construct the actual real whole-space Leray projection on the existing full-volume L2 and physical H1 spaces. All range statements use the original compact-test `Solenoidal` predicate, including integrability.
+
+`LerayMultiplier.lean` starts with Mathlib's constructed orthogonal projection onto the complement of the complexified frequency vector. It proves the literal matrix formula `I - ξ ⊗ ξ / ‖ξ‖²`, with the identity at zero. The formula supplies actual measurability; the pointwise norm bound supplies genuine L2 membership and the variable-matrix operator. Fourier conjugation and the accepted real Fourier-range construction yield the actual real bounded map. Idempotence, norm contraction, self-adjointness, orthogonal splitting, representative identities and six-sector commutation are proved. No fixed-codomain commutation theorem is applied to a variable matrix.
+
+`LerayH1.lean` transports supplied actual weak gradients through scalar Fourier multiplier commutation and the accepted reverse first-derivative theorem. It constructs the projected element of the original complete H1 graph and proves the full H1 orthogonal-projection identities, exact native solenoidal range, output in the original closed solenoidal graph, and six-sector commutation. The velocity term remains in the norm, and no whole-space Poincare estimate is used. Schwartz density and continuous native test functionals also prove solenoidality of the output for every L2 input.
+
+`LeraySolenoidal.lean` proves the remaining all-L2 converse. Every original compact real test gives zero distributional divergence; real/imaginary decomposition and the accepted compact-Schwartz density theorem extend it to all complex Schwartz tests. Actual Fourier differentiation and coordinate naturality give a sum of polynomial multipliers, and local-integrable test separation gives almost-everywhere transversality. The resulting all-L2 fixed-point and range equivalences have no H1 or pressure premise. Sector preservation consequently extends to every native solenoidal L2 field.
+
+`Audit.lean` states a complete independent expected type for every public name, expands the full-volume carriers and original compact-test derivative/solenoidal predicates, and checks the literal matrix and graph constructions. Every name has ordered type and axiom sentinels. Only the existing standard axioms are permitted.
+
+The reviewed derivation basis is `R3_NSE/A-Regularity-class/DERIVATIONS/REAL_LERAY_PROJECTION_CHAIN.txt`. This package is a G01 spatial foundation; heat/Stokes evolution, nonlinear H1 estimates, canonical NSE solutions and continuation remain separate constructions. Conditional H2 transport can use this exact derivative commutation but is not silently counted among these declarations. No local Lean, Lake, kernel audit or proof runner was executed. Accepted source bytes, dependency pins and verification policies are unchanged.

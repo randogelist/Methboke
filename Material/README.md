@@ -1,5 +1,19 @@
 # Material
 
+## AC-Integration into main: prepared candidate
+
+The immediate task on `integration/ac-into-main` combines main
+`4a609ea634ec4a5ff846049b9dc12b40b5f1a702` with AC-Integration
+`000c1bd9baded808b79a04b7f666cacabce64939`. The project goal remains
+**Fefferman D**. No new mathematical goal is selected by this integration.
+
+**The combined candidate is pending matching external verification.** Its
+expected scope is **654 modules, 169 fresh package audits, 2,212 named
+type/axiom reports and the original QFB cutout**. Existing source-specific
+acceptances below are retained. See the [integration record](../integration/AC_INTO_MAIN/README.md),
+[status](../integration/AC_INTO_MAIN/INTEGRATION_STATUS.json) and
+[preservation manifest](../integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json).
+
 ## Whole-space FDSN_R3
 
 Status: **A-tier accepted at `572fd9ee`**. The [FDSNR3Main package](FDSNR3Main/README.md)
@@ -38,6 +52,46 @@ The retained artifact is `14684049987`, with SHA-256
 `320d05ae62963c329de38c4c570abef1a5e947e98dfe32ad2e3be43e78f76243`.
 Acceptance applies to the tested source and independent consumer identity
 recorded in that receipt.
+
+## Retained whole-space QFA and NSE-A scopes
+
+The incoming branch contributes the [QFA foundations](../R3_NSE/QFA/README.md)
+and [NSE-A finite-charge program](../R3_NSE/A-Regularity-class/README.md).
+Their accepted helper scopes remain attached to their original source receipts:
+
+| Tested source / run | Retained scope |
+|---|---|
+| `afd67db4` / [44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412) | Recovered QFA sources and native whole-space energy, trace, finite-window and spectral foundations; 188 added named reports |
+| `09bcf251` / [44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574) | G05 and P01–P07; cumulative 289 construction declarations |
+| `d403c235` / [44837033211](https://github.com/randogelist/Methboke/actions/runs/44837033211) | Full stopped budgets and gauge, physical H2, real Leray and even multipliers, and the real heat semigroup; cumulative 596 construction declarations in 22 packages |
+| `ffbab0f5` / [44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775) | Supplied-path LH restart, positive-time physical H1-to-H2 heat smoothing, the exact physical QFA contract and complete zero-datum branch; 73 additional declarations |
+| `000c1bd9` / [44851575278](https://github.com/randogelist/Methboke/actions/runs/44851575278) | Actual positive-time H2 heat trajectory, exact free-heat enstrophy-dissipation identity, finite-window L2-time H2 membership and all-window weighted budget; 35 additional declarations |
+
+The incoming head `000c1bd9baded808b79a04b7f666cacabce64939` is independently
+accepted for its exact source scope: **526 modules (520 reused, 6 fresh), 105 fresh
+package audits, 1,402 named type/axiom reports and the original cutout**.
+Publication and final acceptance passed; only standard axioms occurred.
+The [acceptance record](../audits/material-000c1bd9-qfa-accepted/summary.json)
+and [independent review](../audits/material-000c1bd9-qfa-accepted/independent-review.json)
+retain that evidence. Its H2 heat trajectory is zero-extended at nonpositive
+times; it makes no H2 initial-trace claim for arbitrary H1 input. That run does
+not verify this combined candidate. Source-specific details and earlier failures
+remain in the [QFA status](../R3_NSE/QFA/INTEGRATION_STATUS.json) and
+[NSE-A implementation history](../R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json).
+
+The general physical QFA and WFA roots, canonical NSE-A class theorem and
+universal finite-budget membership remain open. The B-tier finite-charge
+class equivalence and accepted conditional or zero-datum results retain their
+stated hypotheses and scopes.
+
+## Retained periodic FDSN
+
+The canonical T3 FDSN theorem and physical presentation remain accepted at
+`87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`,
+[run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125),
+with 317 named declarations. The [exact receipt](../audits/fdsn-87ab6b4c-accepted/summary.json)
+and [implementation ledger](../T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json)
+retain the original conditional Seed-to-Family scope.
 
 ## Earlier finite periodic family work
 
@@ -99,18 +153,19 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) contains **137 packages and 1,320 named
-declaration requests**, including the 26 FDSNR3 packages. It lists their exact
-declaration requests. Each package contains its import boundary, consumer
-type assertions, theorem-level axiom audit, recursive dependency closure and
-source provenance.
+The combined [endpoint registry](endpoints.json) is prepared for **169 packages
+and 2,212 named declaration requests**, including the 26 FDSNR3 packages and the
+incoming QFA/NSE-A scopes. These are the required integration verification counts;
+they are not a completed combined run. Each package contains its import boundary,
+consumer type assertions, theorem-level axiom audit, recursive dependency closure
+and source provenance.
 
 | Source group | Count | Role |
 |---|---:|---|
-| `_vendor` | 269 modules | Pinned Methlib foundation sources |
-| `MethbokeAddon` | 142 owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers | 137 modules | Independently audited import boundaries |
-| Full compiled scope | 548 modules | Shared source closure, without duplicate foundation rebuilding |
+| `_vendor` | 302 active modules from 304 retained sources | Pinned Methlib foundation sources; two original QFA sources remain inactive |
+| `MethbokeAddon` | 183 owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers | 169 modules | Independently audited import boundaries |
+| Required integration build scope | 654 modules | Union of registered source closures; matching cached verification pending |
 
 | Package family | Exact role |
 |---|---|
@@ -125,6 +180,7 @@ source provenance.
 | [FeffermanFamilyFoundation](FeffermanFamilyFoundation/README.md) | Accepted local blowup, disjoint-germ and native-contract foundations |
 | [FeffermanFamilyAssembly](FeffermanFamilyAssembly/README.md) | Accepted growth extraction, geometric transport and conditional native disjoint PDE assembly |
 | [FDSNR3Main and the 25 supporting FDSNR3 packages](FDSNR3Main/README.md) | Conditional whole-space Seed-to-Family root; 493 named declarations, all sixteen endpoint obligations, fixed-frame and integrated-dissipation supplements |
+| QFA recovered/native, NSE-A physical and heat packages | Retained source-specific whole-space helper scopes; general physical roots remain open |
 
 Preparation labels inside immutable endpoint manifests are not a replacement
 for source-specific acceptance receipts. Acceptance applies to the exact source,
@@ -155,7 +211,9 @@ Methlib    = 96033dd69c994bec337a87369a6c27256e724980
 
 `lake-manifest.json` preserves all nine exact public dependency revisions.
 Vendor source identities are retained in `_vendor/source-manifest.json`.
-No private Methlib checkout is needed during CI.
+The additional QFA vendor source pin is
+`53b2318c2b586137b6db74c4d3a41bb0b964b2d8`; existing vendor bytes and
+the native dependency lock are retained. No private Methlib checkout is needed during CI.
 
 ## External verification
 
@@ -182,7 +240,9 @@ the accepted baseline without selecting a cold rebuild.
    identity. A cache label alone is insufficient.
 2. Reuse compatible unchanged objects and schedule affected modules by the
    dependency graph. The accepted configuration uses two module workers and
-   two Lean threads.
+   two Lean threads. The existing cache transport selects one passed
+   project snapshot; integration does not promise a union of branch caches or
+   zero recompilation.
 3. Run all configured exact consumer types and theorem-level axiom audits
    freshly for each new verification run.
 4. Record cache class, restoration, compilation, audit and total time separately.

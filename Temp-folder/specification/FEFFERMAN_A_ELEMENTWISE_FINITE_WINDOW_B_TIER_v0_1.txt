@@ -1,0 +1,928 @@
+FEFFERMAN A: ELEMENTWISE FINITE WINDOWS
+CUMULATIVE B-TIER DERIVATION — VERSION 0.1
+Date: 2026-11-20
+Addendum: QFA/WFA structural correspondence, 2026-11-20
+Soundness review: solution-class and endpoint details clarified, 2026-11-20
+
+SCOPE
+Construct, for each admissible whole-space Navier–Stokes initial datum,
+an explicit finite interval on which the Fefferman-A conclusion holds;
+then identify a finite-window condition sufficient for the global conclusion.
+
+This record uses the descriptive label "elementwise finite-window A".
+It does not redefine the earlier "Weak A" statement of global Leray–Hopf
+existence, or change the established project goal.
+
+STATUS AT THIS VERSION
+1. An unconditional, explicit initial smooth window: proved at B-tier.
+2. An explicit eventual smooth-tail cutoff for every Leray–Hopf solution:
+   proved at B-tier.
+3. A finite-window continuation criterion implying the global A conclusion:
+   proved at B-tier, with its budget hypothesis explicitly retained.
+4. Finiteness of that budget for every admissible datum: OPEN.
+5. Lean formalization, matching external compiler evidence and theorem-level
+   axiom evidence for these new endpoints: NOT PROVIDED.
+No local Lean, Lake, or kernel execution was performed.
+
+The proofs below compose established analytic existence/uniqueness results
+with the displayed estimates. They are a quantitative use of classical
+Navier–Stokes theory, not a claim of a new solution of the global problem.
+
+
+0. DATA, EQUATION, NORMS, AND ANALYTIC INPUTS
+
+Let
+  D_A = {a in S(R^3;R^3) : div a = 0},
+and fix viscosity nu > 0. Consider the unforced equations
+  partial_t u + (u . grad)u + grad p = nu Delta u,
+  div u = 0,
+  u(0) = a.
+
+All spatial norms are over R^3 with ordinary Lebesgue measure. Pointwise
+vector norms are Euclidean and pointwise matrix/tensor norms are Frobenius.
+There is no mean-zero condition and no periodic spectral-gap constant.
+
+Write
+  E(t) = ||u(t)||_2^2,
+  Y(t) = ||grad u(t)||_2^2,
+  Z(t) = ||Delta u(t)||_2^2,
+  E_0  = ||a||_2^2,
+  Y_0  = ||grad a||_2^2.
+
+Let U be the unique maximal H^1 strong/mild solution from a, with
+maximal lifetime T_max in (0,+infinity]. On each compact subinterval of
+[0,T_max), it is continuous into H^1 and belongs to L^2_t H^2_x.
+For Schwartz initial data, U and its normalized pressure are smooth,
+including the initial time. The pressure can be taken as
+  p = sum_{i,j} R_i R_j(U_i U_j),
+up to an arbitrary smooth function of time.
+
+The established analytic inputs used are:
+(A0) Local H^1 existence, uniqueness and positive-time smoothing on R^3.
+(A1) H^1 continuation: bounded H^1 norm up to a finite maximal time
+     excludes that time as a terminal lifespan.
+(A2) Global Leray–Hopf existence for L^2 solenoidal data, with the
+     strong energy inequality at almost every starting time, including 0.
+(A3) Weak–strong uniqueness from admissible restart times.
+(A4) For the literal smooth finite-energy Fefferman solution category,
+     bounded-enstrophy and uniqueness results identify such solutions
+     with the canonical H^1 solution on closed finite slabs.
+
+These are analytic theorems, not hypothetical universal regularity inputs.
+Useful sources and exact theorem locations are collected in Section 12.
+
+Precise LH convention used throughout:
+LH_nu(a) consists of global distributional solenoidal solutions with
+  u in C_w([0,infinity);L^2_sigma)
+       intersect L^infinity(0,infinity;L^2)
+       intersect L^2(0,infinity;dot H^1),
+strong L^2 attainment of the initial datum, and
+  ||u(t)||_2^2 + 2nu integral_s^t ||grad u(r)||_2^2 dr
+    <= ||u(s)||_2^2
+for all t>=s, for s=0 and a full-measure set of positive starting times.
+Use the weakly continuous representative. At such a starting time,
+weak continuity and the energy inequality give right strong L^2 continuity.
+An energy inequality only from 0 would not suffice for the restart argument.
+
+
+1. E01 — FIX THE WHOLE-SPACE SOBOLEV CONSTANT
+
+Let S_6 be any constant for which
+  ||f||_6 <= S_6 ||grad f||_2
+holds on R^3.
+
+The same S_6 applies to vector/tensor fields: apply the scalar inequality
+to their Euclidean norm, use |grad |f|| <= |grad f| almost everywhere,
+and pass by density where needed.
+
+For the numerical versions in this record, choose Talenti's constant
+  S_6 = 2^(2/3) / (sqrt(3) pi^(2/3)).
+Then
+  S_6^6 = 16 / (27 pi^4).
+
+The scalar extremal f(x)=(1+|x|^2)^(-1/2) checks this normalization:
+  ||f||_6^6 = pi^2/4,
+  ||grad f||_2^2 = 3 pi^2/4.
+Talenti's theorem establishes that the resulting ratio is an admissible
+sharp scalar Sobolev constant. No sharpness is asserted for the later
+Navier–Stokes estimates.
+
+We will also use the whole-space identity
+  ||D^2 u||_2 = ||Delta u||_2,
+which follows componentwise from Plancherel.
+
+STATUS E01: established analytic input with explicit normalization.
+
+
+2. E02 — ENSTROPHY DIFFERENTIAL INEQUALITY
+
+For a sufficiently regular incompressible solution, testing with -Delta u
+gives the enstrophy identity and hence
+  (1/2) Y' + nu Z
+    <= |integral_R3 (u . grad)u . Delta u dx|.
+
+Holder, interpolation, Sobolev and the Hessian identity give
+  |integral (u . grad)u . Delta u|
+    <= ||u||_6 ||grad u||_3 ||Delta u||_2
+    <= S_6 ||grad u||_2
+         ||grad u||_2^(1/2) ||grad u||_6^(1/2)
+         ||Delta u||_2
+    <= S_6^(3/2) Y^(3/4) Z^(3/4).
+
+Young's inequality with the indicated dissipation split gives
+  S_6^(3/2) Y^(3/4) Z^(3/4)
+    <= (nu/2) Z + (27/32) S_6^6 nu^(-3) Y^3.
+
+Therefore
+  Y' + nu Z <= C_E nu^(-3) Y^3,
+where
+  C_E = (27/16) S_6^6 = pi^(-4).
+
+For H^1 strong solutions the integrated form follows by approximation
+and positive-time regularity. The energy estimate controls the L^2 part
+of the H^1 norm throughout.
+
+STATUS E02: derived.
+
+
+3. E03 — CONSTRUCT THE INITIAL WINDOW FROM EACH DATUM
+
+For a nonzero a in D_A, one has Y_0 > 0: an L^2 field with zero gradient
+would be a spatial constant and hence would vanish.
+
+Put
+  c = C_E nu^(-3).
+The inequality Y' <= c Y^3 yields the comparison
+  Y(t) <= Y_0 / sqrt(1 - 2 c Y_0^2 t)
+as long as the solution exists and the denominator is positive.
+The comparison is valid through a zero value of Y by the zero solution
+and uniqueness, or by an elementary positive regularization.
+
+Define
+  T_loc(a,nu) = nu^3 / (4 C_E ||grad a||_2^4)
+              = pi^4 nu^3 / (4 ||grad a||_2^4).
+
+On the interval in question the denominator is at least 1/sqrt(2), so
+  Y(t) <= sqrt(2) Y_0                    for 0 <= t <= T_loc,
+or equivalently
+  ||grad U(t)||_2 <= 2^(1/4)||grad a||_2.
+
+To justify existence on the CLOSED interval, suppose T_max <= T_loc.
+The comparison and the energy estimate bound the H^1 norm uniformly
+on [0,T_max). Input (A1) extends the solution, contradicting maximality.
+Thus
+  T_max > T_loc.
+
+For a=0, use U=0 and p=0, and assign any chosen finite positive window
+(for example T_loc=1 in the chosen time units). The zero case does not
+require a reciprocal formula.
+
+If a finite cap H>0 is desired uniformly in the definition, use
+  T_loc,H(a,nu) = min{H,T_loc(a,nu)}
+for nonzero a, and T_loc,H(0,nu)=H. All conclusions remain true.
+
+STATUS E03: derived; unconditional for every admissible datum.
+
+
+4. E04 — THE ACTUAL FINITE-TIME A STATEMENT
+
+For every nu>0 and every a in D_A, the elementwise construction above gives
+a finite T_loc(a,nu)>0 and velocity/pressure fields on
+  R^3 x [0,T_loc(a,nu)]
+with all of the following properties:
+
+  (i)   u and p are smooth, including the initial time;
+  (ii)  the unforced Navier–Stokes equations hold;
+  (iii) div u = 0 and u(0)=a;
+  (iv)  ||u(t)||_2^2 + 2nu integral_0^t ||grad u(s)||_2^2 ds = E_0;
+  (v)   ||grad u(t)||_2^2 <= sqrt(2)||grad a||_2^2.
+
+The solution is unique in the H^1 strong class; pressure is fixed modulo
+an additive smooth function of time. Its existence follows from local theory,
+and E02–E03 give the explicit guaranteed lifespan.
+
+There is also an explicit finite-window charge bound:
+  integral_0^T_loc ||grad u(t)||_2^4 dt
+    <= integral_0^T_loc Y_0^2/(1-2cY_0^2t) dt
+    = (nu^3/(2C_E)) log 2
+    = (pi^4 nu^3/2) log 2.
+
+The zero solution satisfies this bound as well.
+
+This is a genuine weakening of the time requirement in Fefferman A.
+The solution is classical on its entire constructed window.
+"Elementwise" means that each datum a is assigned its own time by a
+displayed norm formula. No global regularity assumption is used to
+define or justify that initial window. Evaluation of an arbitrary
+abstract datum's norms is not asserted to be an effective algorithm.
+
+STATUS E04: finite-time A endpoint established at B-tier.
+
+
+5. E05 — A SMALL ENERGY-ENSTROPHY PRODUCT GIVES GLOBAL CONTINUATION
+
+A second estimate of the same nonlinear term is useful. By interpolation,
+  ||u||_3 <= ||u||_2^(1/2)||u||_6^(1/2)
+           <= S_6^(1/2) E^(1/4)Y^(1/4),
+and
+  ||grad u||_6 <= S_6 Z^(1/2).
+Consequently
+  |integral (u . grad)u . Delta u|
+    <= ||u||_3 ||grad u||_6 ||Delta u||_2
+    <= S_6^(3/2)(E Y)^(1/4) Z.
+
+It follows that
+  (1/2)Y' + [nu-S_6^(3/2)(E Y)^(1/4)]Z <= 0.
+
+Define the strict threshold
+  theta(nu) = nu^4/S_6^6
+            = (27 pi^4/16)nu^4.
+
+Suppose an H^1 strong solution is started at time s from a datum b with
+  P_s = ||b||_2^2 ||grad b||_2^2 < theta(nu).
+Set
+  delta_s = nu - S_6^(3/2)P_s^(1/4) > 0.
+
+On the bootstrap interval where E Y < theta, both E and Y are
+nonincreasing. Hence E(t)Y(t) <= P_s and
+  Y(t) + 2delta_s integral_s^t Z(r)dr <= Y(s).
+Continuity prevents exit from that region. The H^1 norm stays bounded,
+so (A1) rules out a finite maximal time.
+
+Thus every divergence-free H^1 datum satisfying
+  ||b||_2^2 ||grad b||_2^2 < nu^4/S_6^6
+has a global strong continuation, smooth at every positive time after
+the restart. The strict inequality supplies a fixed positive margin;
+no equality-threshold conclusion is needed.
+
+STATUS E05: derived global continuation for this explicit subclass.
+
+
+6. E06 — AN INTEGRATED PRODUCT BOUND FROM ENERGY ALONE
+
+For a global Leray–Hopf solution v, write E,Y for its energy and
+enstrophy at the almost-everywhere times where these are defined.
+Its energy inequality gives
+  E(t) + 2nu integral_0^t Y(r)dr <= E_0.
+
+Define the absolutely continuous function
+  A(t) = E_0 - 2nu integral_0^t Y(r)dr.
+Then
+  0 <= E(t) <= A(t),      A' = -2nu Y
+almost everywhere. Therefore, for every finite T,
+  integral_0^T E(t)Y(t)dt
+    <= integral_0^T A(t)Y(t)dt
+    = [E_0^2-A(T)^2]/(4nu)
+    <= E_0^2/(4nu).
+
+The same argument applies to a strong solution on every interval on
+which it exists. It does not require fractional Sobolev estimates.
+
+STATUS E06: derived.
+
+
+7. E07 — CONSTRUCT AN EXPLICIT EVENTUAL-REGULARITY CUTOFF
+
+For a nonzero a, define
+  tau_A(a,nu) = E_0^2/(2nu theta(nu))
+              = S_6^6 ||a||_2^4/(2nu^5)
+              = [8/(27pi^4)] ||a||_2^4/nu^5.
+
+This depends only on the datum and viscosity.
+The value is a safe explicit constant for the argument; it is not
+claimed optimal.
+
+E06 implies
+  integral_0^tau_A E(t)Y(t)dt <= (theta tau_A)/2.
+By the elementary measure estimate for a nonnegative function,
+  measure{t in (0,tau_A): E(t)Y(t) >= theta} <= tau_A/2.
+Hence
+  measure{t in (0,tau_A): E(t)Y(t) < theta} >= tau_A/2 > 0.
+
+For a Leray–Hopf solution, intersect this positive-measure set with
+the full-measure set of admissible restart times. At such a time s:
+  - v(s) is in H^1 and is solenoidal;
+  - the energy inequality can be restarted at s;
+  - the representative has the right L^2 trace required for (A3).
+
+Choose such an s. Then 0<s<tau_A and E(s)Y(s)<theta.
+By E05, the trace v(s) generates a global strong solution.
+By weak–strong uniqueness, that continuation agrees with v after s.
+It is smooth for every time strictly greater than s.
+
+Consequently every Leray–Hopf solution from a has a smooth
+representative on
+  R^3 x [tau_A(a,nu),infinity).
+The endpoint tau_A itself is included because s<tau_A.
+
+For a=0, set tau_A=0. The energy inequality forces v=0, so the
+conclusion is immediate.
+
+The quantifier is "for every specified Leray–Hopf solution."
+The selected restart time may depend on that solution. This does
+not assert uniqueness across an earlier potentially singular interval.
+
+STATUS E07: unconditional eventual regularity, with an explicit cutoff.
+This is consistent with the classical whole-space regularity-time
+scaling C nu^(-5)||a||_2^4 in source [3].
+
+
+8. E08 — DEFINE THE PRECISE FINITE-WINDOW BUDGET
+
+Return to the canonical maximal strong solution U from a. Let
+  b = min{T_max(a,nu),tau_A(a,nu)}.
+
+For a nonzero a define the nonnegative improper integral
+  J_A(a,nu)
+    = lim_{r up to b} integral_0^r ||grad U(t)||_2^4 dt
+    in [0,infinity].
+For a=0 set J_A=0.
+
+If tau_A<T_max this is just the ordinary integral on [0,tau_A].
+If T_max<=tau_A, the limit includes possible divergence at T_max.
+
+It is essential to require finiteness of the full improper integral.
+Finiteness on every compact subinterval of [0,T_max) would be automatic
+and would not be a continuation criterion.
+
+The cutoff is assigned from a alone. The value of J_A depends on the
+evolution. A formula for tau_A is not a proof that J_A is finite.
+
+STATUS E08: precise definition, including terminal endpoint conventions.
+
+
+9. E09 — FINITE BUDGET FORCES CROSSING OF THE CUTOFF
+
+E02 implies
+  Y' <= C_E nu^(-3) Y^2 Y.
+Gronwall therefore gives, for t<T_max,
+  Y(t) <= Y_0 exp[C_E nu^(-3) integral_0^t Y(r)^2dr].
+
+Suppose J_A<infinity but T_max<=tau_A.
+The preceding bound controls Y uniformly up to T_max, while energy
+controls E. Input (A1) then extends the solution past T_max.
+This contradicts maximality.
+
+Therefore
+  J_A(a,nu)<infinity  ==>  T_max(a,nu)>tau_A(a,nu).
+
+The case T_max=tau_A is covered by the same argument. The conclusion
+is strict, so no equality endpoint is lost.
+
+STATUS E09: derived conditional continuation.
+
+
+10. E10 — THE FINITE-WINDOW IMPLICATION TO GLOBAL A
+
+For a=0 the global conclusion is immediate from the zero solution.
+Assume a is nonzero and J_A<infinity for the following restart argument.
+By E09, U exists beyond tau_A. Apply E06–E07
+to this strong solution on [0,tau_A]. They supply a time s<tau_A
+with
+  ||U(s)||_2^2 ||grad U(s)||_2^2 < theta.
+
+E05 supplies a global strong continuation from U(s).
+Strong uniqueness identifies that continuation with U on their common
+interval. Maximality now yields
+  T_max(a,nu)=infinity.
+
+For Schwartz datum, the resulting velocity and normalized pressure are
+smooth on every finite closed time slab; the global energy bound is
+  sup_{t>=0}||U(t)||_2^2 <= ||a||_2^2.
+Thus the datumwise Fefferman-A conclusion follows.
+
+Conversely, if T_max=infinity, continuity into H^1 on the compact
+interval [0,tau_A] gives J_A<infinity. Therefore, in the canonical
+strong formulation,
+  J_A(a,nu)<infinity  <==>  T_max(a,nu)=infinity.
+
+For the literal smooth finite-energy Fefferman solution class, the
+standard identification on finite closed slabs also gives the converse:
+source [2], Corollary 11.1 upgrades such a solution with H^1 datum
+to an H^1 solution; Corollary 4.3 gives a normalized H^1 mild solution;
+Theorem 5.4(iii) identifies its velocity with U. For Schwartz data,
+Theorem 5.4(iv) supplies smoothness of the normalized pressure as well.
+This uses equality of pressure gradients and does not presume smoothness
+of a pressure-gauge function before the mild-solution identification.
+The closed-slab premise is used only when an actual global smooth
+solution is given for the converse, never at an unknown singular endpoint.
+This is an analytic solution-class argument, not an assertion that an
+existing Lean endpoint has been connected to that theorem.
+
+Consequently, universal finiteness of J_A is a finite-window reformulation
+of full Fefferman A. It is not an unconditionally established weakened
+global regularity theorem.
+
+The proof of the conditional implication itself uses strong restarts.
+The separate Leray–Hopf argument in E07 explains the eventual tail and
+does not have to be used as a gluing shortcut in E10.
+
+STATUS E10: conditional root implication and datumwise equivalence derived.
+
+
+11. E11 — WHAT IS PROVED, AND THE FIRST UNRESOLVED EDGE
+
+The following finite-time statement is already established for every
+admissible datum:
+  a -> T_loc(a,nu)>0 -> smooth finite-energy solution on [0,T_loc].
+
+The following eventual-time statement is also established:
+  a -> tau_A(a,nu)<infinity -> every Leray–Hopf solution is smooth
+  on [tau_A,infinity).
+
+For smooth initial data, weak–strong uniqueness also identifies every
+Leray–Hopf solution with the initial strong solution on [0,T_loc].
+If T_loc>=tau_A, these controlled time intervals overlap and the
+solution is globally regular.
+
+For arbitrary data they need not overlap. When T_loc<tau_A, the closed
+finite interval between these two explicitly constructed times contains
+all time locations not covered by these two unconditional statements.
+Its possible presence is not removed by the existence of the tail.
+
+The remaining universal obligation is exactly
+  for all nu>0 and all a in D_A, J_A(a,nu)<infinity.
+
+FIRST UNRESOLVED EDGE
+  known energy/product estimates
+       -- unresolved -->
+  finite integral_0^min(T_max,tau_A) ||grad U(t)||_2^4 dt
+  for arbitrary admissible a.
+
+Cause:
+  energy controls integral Y;
+  E06 additionally controls integral E Y;
+  the continuation argument needs integral Y^2.
+No general implication closing that integrability gap has been derived.
+
+For a simple comparison of integrability powers, the scalar function
+Y(t)=(1-t)^(-1/2) on [0,1) is integrable but its square is not.
+This is only an integrability example, not a Navier–Stokes solution or
+a proposed counterexample to regularity.
+
+No unconditional global root conclusion is taken beyond this edge.
+A next scoped endpoint could be to prove a finite J_A bound for a
+specified admissible datum or a precisely defined additional class.
+That suggestion is not adoption of a new project goal.
+
+Relation to the recovered whole-space program:
+the finite-window budget is an analytic sufficient input for its desired
+global regularity exit. This record does not claim that a recovered
+provider, port, payment estimate or covariance bound already supplies it.
+A source-level/formal insertion would require matching the actual
+solution class, norms, time domain and theorem interfaces.
+
+Relation to the earlier periodic finite-window work:
+the logical pattern is analogous, but every estimate here is on R^3.
+No torus Poincare constant, discrete Fourier normalization, or mean-zero
+condition was transported into these formulas.
+
+Scaling check:
+for a_lambda(x)=lambda a(lambda x),
+  E_0(a_lambda)=lambda^(-1)E_0(a),
+  Y_0(a_lambda)=lambda Y_0(a).
+For nonzero data, both T_loc and tau_A scale as lambda^(-2), as required
+by Navier–Stokes time scaling. The chosen finite local-window convention
+for the zero solution is a separate harmless convention.
+
+B-TIER ENDPOINT REGISTER
+  E01  Whole-space Sobolev normalization        ESTABLISHED INPUT
+  E02  Enstrophy differential inequality       DERIVED
+  E03  Explicit initial lifespan               DERIVED
+  E04  Unconditional finite-time A             PROVED AT B-TIER
+  E05  Small-product global restart            DERIVED
+  E06  Integrated energy-enstrophy product     DERIVED
+  E07  Explicit eventual smooth tail           PROVED AT B-TIER
+  E08  Finite-window budget definition         COMPLETE
+  E09  Budget implies crossing the cutoff     PROVED CONDITIONALLY
+  E10  Budget implies global A; equivalence    PROVED CONDITIONALLY
+  E11  Universal budget for arbitrary data     OPEN
+
+FORMAL EVIDENCE REGISTER
+  Prepared Lean theorem files for these endpoints: none.
+  Matching authorized external compile result: none.
+  Matching theorem-level axiom audit: none.
+  A-tier designation for these new endpoints: none.
+  Existing archived audits do not automatically verify this new derivation.
+
+
+12. SOURCES AND THEIR ROLE
+
+[1] Giorgio Talenti, "Best constant in Sobolev inequality",
+    Annali di Matematica Pura ed Applicata 110 (1976), 353–372.
+    The opening theorem and formula (2) give the sharp Sobolev constant.
+    The specialization used here is dimension 3, p=2, q=6.
+    https://math.jhu.edu/~js/Math646/talenti.sobolev.pdf
+
+[2] Terence Tao, "Localisation and compactness properties of the
+    Navier–Stokes global regularity problem",
+    Analysis & PDE 6(1) (2013), 25–107.
+    Theorem 5.4: whole-space H^1 local existence, uniqueness and
+    Schwartz-data smoothness.
+    Corollary 5.8: maximal development/continuation alternative.
+    Lemma 4.1 and Corollary 4.3: pressure normalization and the
+    identification of almost smooth H^1 solutions with mild solutions.
+    Corollary 11.1: finite-energy smooth solutions with H^1 data
+    have bounded enstrophy on closed finite slabs.
+    Corollary 11.4: uniqueness in that category after pressure normalization.
+    https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf
+
+[3] P. Braz e Silva, J. P. Zingano and P. R. Zingano,
+    "Some remarks on the regularity time of Leray solutions to the
+    Navier–Stokes equations", arXiv:1706.10173 (2017).
+    Equations (1.1)–(1.3) specify the whole-space unforced problem,
+    Leray–Hopf energy hypotheses and eventual regularity bound.
+    Theorem 2.1 gives a quantitative regularity-time estimate.
+    This is an independent primary anchor for the scaling
+    C nu^(-5)||a||_2^4. The explicit constant in this record is
+    derived above; it is not presented as that paper's optimal value.
+    https://arxiv.org/pdf/1706.10173
+
+[4] W. S. Ozanski and B. C. Pooley,
+    "Leray's fundamental work on the Navier–Stokes equations:
+    a modern review of 'Sur le mouvement d'un liquide visqueux
+    emplissant l'espace'", arXiv:1708.09787 (2017).
+    A detailed treatment of the classical whole-space existence,
+    continuation and restart framework; see Corollary 3.12 and
+    Lemma 4.9, with their stated solution-class hypotheses.
+    https://arxiv.org/pdf/1708.09787
+
+[5] Charles L. Fefferman, "Existence and smoothness of the
+    Navier–Stokes equation", Clay Mathematics Institute problem statement.
+    Equations (4), (6), (7) and statement (A) specify the whole-space
+    Schwartz datum, smoothness, zero-force and uniform-energy requirements.
+    https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+
+Version note:
+This is the initial cumulative record for this scoped finite-window
+construction. Later extensions should retain the hypotheses, endpoint
+conventions, open edge and evidence statuses above.
+
+
+13. QFA / WFA — STRUCTURAL MATCH WITH QFB / WFB
+Added: 2026-11-20
+
+This addendum gives the whole-space statements the requested QFA/WFA
+organization. It preserves the earlier periodic WFB naming convention:
+  QFB = Quasi–Fefferman B,
+  WFB = Weak Fourierman B (Weak_Fourierman_B).
+
+The matching whole-space labels used here are:
+  QFA = Quasi–Fefferman A,
+  WFA = Weak Fourierman A (Weak_Fourierman_A).
+
+WFA denotes the conditional finite-budget continuation theorem.
+The universal assertion that its budget is finite is a separate obligation.
+This does not rename the earlier global weak-solution existence statement
+called "Weak A", or change the project goal.
+
+
+13.1 E12 — QFA ON ALL SOLENOIDAL L^2 DATA
+
+Let
+  E_A = L^2_sigma(R^3),
+  tau_A(a,nu) = [8/(27pi^4)] ||a||_2^4/nu^5.
+
+For every nu>0 and every a in E_A, QFA states:
+  (a) LH_nu(a) is nonempty;
+  (b) for every u in LH_nu(a) and every delta>tau_A(a,nu),
+      the velocity and its normalized pressure are smooth on
+      R^3 x [delta,infinity);
+  (c) on that tail, for every finite t>=delta,
+      ||u(t)||_2^2
+        +2nu integral_delta^t ||grad u(r)||_2^2 dr
+      =||u(delta)||_2^2;
+  (d) the exact trace u(delta) has a unique Leray–Hopf future:
+      for every w in LH_nu(u(delta)),
+        w(r)=u(delta+r) for every r>=0,
+      in the corresponding L^2 representatives.
+
+The strict delta>tau_A presentation matches the canonical earlier QFB
+presentation. The safe whole-space cutoff proved here also permits
+delta=tau_A. For a=0, tau_A=0 and the energy inequality forces u=0,
+so the closed endpoint holds there as well.
+
+Derivation:
+E06 uses only the L^2 energy inequality. E07 selects a good H^1
+restart time from a set of positive measure. Its argument therefore
+does not require H^1 or Schwartz regularity of the original datum.
+E05 supplies a global strong continuation from that restart, and
+weak–strong uniqueness identifies it with the specified LH solution.
+The smooth tail gives its energy equality, and a new weak–strong
+comparison from u(delta) gives the stated unique future.
+
+The uniqueness quantifier is attached to the trace of a particular u.
+It does not assert that different LH solutions from the original datum
+have identical traces at delta. Uniqueness is within the Leray–Hopf
+energy class.
+
+STATUS E12: QFA is established at B-tier for every a in L^2_sigma(R^3).
+This is the whole-space counterpart of the periodic smooth-tail statement.
+
+
+13.2 E13 — MATCH THE FULL FOURIER CHARGE
+
+Use the whole-space Fourier convention
+  U_hat(t,xi)=integral_R3 exp(-2pi i x.xi)U(t,x)dx,
+understood by L^2 extension when U is not integrable.
+
+Define
+  Q_A[U](t)
+    = integral_R3 |xi|^2 |U_hat(t,xi)|^2 dxi.
+
+Plancherel gives the exact normalization
+  Q_A[U](t) = ||grad U(t)||_2^2/(4pi^2).
+
+The previously used periodic charge, for the unit torus with normalized
+volume and the corresponding exp(-2pi i k.x) convention, is
+  Q_B[u](t)
+    = sum_{k in Z^3, k!=0} |k|^2 |u_hat(t,k)|^2
+    = ||grad u(t)||_2^2/(4pi^2).
+
+Thus the full discrete Fourier sum on T^3 becomes the full continuous
+Fourier integral on R^3, with the same relation to physical enstrophy.
+
+The relevant whole-space budget is
+  B_A(a,nu)
+    = integral_0^min(T_max,tau_A) (Q_A[U](t))^2 dt
+    = J_A(a,nu)/(16pi^4).
+
+The square is outside the entire frequency integral:
+  integral_time [integral_frequency |xi|^2|U_hat|^2 dxi]^2 dt.
+It is not an integral of |xi|^4|U_hat|^4 taken frequency by frequency.
+Every frequency participates; no finite frequency truncation is claimed
+to be sufficient by this statement.
+
+STATUS E13: exact Fourier reformulation derived by Plancherel.
+
+
+13.3 E14 — WFA WITH THE SAME LOGICAL FORM AS WFB
+
+Let
+  D_A = S_sigma(R^3).
+For each nu>0 and a in D_A, let U be the canonical maximal H^1 strong
+solution with lifetime T_max and normalized pressure.
+
+WFA is the theorem:
+  for every nu>0 and every a in D_A,
+    B_A(a,nu)<infinity
+      ==> T_max(a,nu)=infinity.
+
+The integral has the improper endpoint convention of E08 when its upper
+endpoint is T_max. Finiteness merely on every smaller compact interval
+does not suffice. The zero-datum budget is zero.
+
+Proof:
+For a=0, use the global zero solution. For nonzero a:
+E13 identifies B_A with the positive constant multiple J_A/(16pi^4).
+E09 forces T_max>tau_A, including exclusion of T_max=tau_A.
+E10 supplies a small-product restart strictly before the cutoff and
+therefore extends the original strong solution globally.
+The velocity is the original maximal strong trajectory; the pressure
+continues in the chosen normalization, or modulo a smooth time gauge.
+
+For comparison, the recovered periodic WFB statement uses
+  D_B = C^infinity_{sigma,0}(T^3),
+  tau_Q(a,nu)=||a||_2^4/(8pi^2nu^5),
+and says
+  integral_0^min(T_max,tau_Q) (Q_B[u](t))^2dt < infinity
+    ==> T_max=infinity.
+
+No periodic cutoff constant or mean-zero requirement has been inserted
+into WFA. The whole-space proof supplies its own tau_A.
+
+STATUS E14: WFA is established at B-tier as a conditional theorem.
+
+
+13.4 E15 — ONE SPECTRAL FORM FOR THE TWO PROGRAMS
+
+Let Omega be either the unit torus T^3 or R^3. Its Fourier parameter
+space and measure are respectively:
+  Omega=T^3: Z^3 with counting measure;
+  Omega=R^3: R^3 with Lebesgue measure.
+
+In both cases the normalized full spectral charge is
+  Q_Omega[u]
+    = integral_{dual Omega} |zeta|^2 |u_hat(zeta)|^2 dmu_Omega(zeta)
+    = ||grad u||_2^2/(4pi^2).
+
+For the periodic mean-zero data, the k=0 term is absent (or contributes
+zero). On R^3, no mean-zero condition is imposed. In particular, a
+whole-space L^2 field need not have a defined spatial integral.
+
+The data spaces are:
+  Tail theorem:
+    E_B=L^2_{sigma,0}(T^3),
+    E_A=L^2_sigma(R^3).
+  Classical global target:
+    D_B=C^infinity_{sigma,0}(T^3),
+    D_A=S_sigma(R^3).
+
+The clocks have a common dependence on datum size and viscosity:
+  tau_Omega(a,nu)=C_Omega ||a||_2^4/nu^5,
+with the chosen constants
+  C_T3=1/(8pi^2),
+  C_R3=8/(27pi^4).
+
+These constants belong to different domain estimates and normalizations.
+Their numerical comparison is not a comparison of the same initial-data
+problem on two domains.
+
+The common theorem structure is:
+  QF_Omega:
+    a global energy solution has a smooth, energy-equality tail
+    with unique future from each of its tail traces;
+  WF_Omega:
+    a finite full-spectrum squared-charge budget up to the
+    datum-dependent cutoff forces global classical continuation.
+
+The A and B labels distinguish the underlying domain and data class.
+The correspondence is structural. No map taking arbitrary periodic data
+to whole-space data and preserving all hypotheses has been constructed
+in this addendum, so no new cross-domain equivalence is asserted.
+
+STATUS E15: the theorem structures and charge normalization match.
+
+
+13.5 E16 — AN INITIAL CERTIFICATE IN THE SAME FOURIER NORMALIZATION
+
+For nonzero a in D_A, put
+  Q_A(a)=||grad a||_2^2/(4pi^2).
+
+The already established local window becomes
+  T_loc(a,nu)=nu^3/(64 Q_A(a)^2).
+
+Its charge bound becomes
+  integral_0^T_loc (Q_A[U](t))^2 dt <= (nu^3/32) log 2.
+
+These follow by substituting Y=4pi^2 Q_A in E03–E04.
+They give a concrete initial certificate expressed in the very same
+quantity used by WFA.
+
+They do not establish that this local certified interval always reaches
+tau_A. That is exactly where the finite-window global obligation remains.
+
+STATUS E16: derived algebraic normalization of the unconditional
+initial certificate.
+
+
+13.6 LOGICAL STATUS AND RETAINED OBSTRUCTION
+
+The named statements have different roles:
+  QFA: an unconditional eventual-regularity theorem;
+  WFA: a proved theorem with a finite-budget premise.
+
+The unresolved universal assertion is
+  for every nu>0 and every a in D_A, B_A(a,nu)<infinity.
+
+Using E10 and the solution-class identification already recorded,
+  Fefferman A
+    iff [for every nu>0 and every a in D_A, B_A(a,nu)<infinity].
+
+The analogous periodic program uses its own B_B and tau_Q.
+
+It would be incorrect to replace this by "WFA iff Fefferman A":
+the conditional implication WFA is already proved, while its universal
+budget premise remains unresolved.
+
+The first unresolved edge from E11 is unchanged. This addendum organizes
+proved statements and conditional implications; it does not cross that
+edge or supply universal regularity.
+
+ADDITIONAL ENDPOINT REGISTER
+  E12  QFA for all whole-space solenoidal L^2 data     PROVED AT B-TIER
+  E13  Continuous Fourier charge and normalization   DERIVED
+  E14  WFA conditional finite-budget continuation    PROVED AT B-TIER
+  E15  QFB/WFB and QFA/WFA structural correspondence  ESTABLISHED
+  E16  Explicit initial certificate in Q_A units     DERIVED
+       Universal finiteness of B_A                   OPEN
+       New matching external compiler/axiom audits  NONE
+
+The analytic sources in Section 12 support the existence, continuation,
+energy and solution-class inputs. The QFA/WFA labels and their alignment
+with the user's earlier QFB/WFB statements are the organization adopted
+in this addendum, not names attributed to those sources.
+
+
+14. B-TIER SOUNDNESS REVIEW
+Date: 2026-11-20
+
+Verdict: the QFA/WFA analytic chain is sound with the stated data classes
+and the established analytic inputs A0–A4. The review did not require a
+change to a numerical constant or a theorem conclusion.
+
+The source-class definition, the zero-datum branch of E14, and the
+normalization-to-mild step in the literal Fefferman converse have been
+made explicit in the text above.
+
+The independently checked numerical identities are:
+  S_6^6 = 16/(27pi^4),
+  C_E = (27/16)S_6^6 = pi^(-4),
+  theta = nu^4/S_6^6,
+  tau_A = 8||a||_2^4/(27pi^4nu^5).
+In Fourier units, the enstrophy estimate gives
+  Q_A' <= 16nu^(-3) Q_A^3.
+It yields, on the strong interval,
+  Q_A(t) <= Q_A(0)
+              exp[16nu^(-3) integral_0^t Q_A(r)^2 dr].
+This independently checks the Fourier factors in the continuation
+criterion and the initial-window formulas.
+
+The following logical points were checked:
+  - The good-restart set has positive measure and is intersected with
+    full-measure sets; a regular trace is not assumed at an arbitrary time.
+  - The small-product bootstrap uses a strictly positive dissipation margin.
+  - Weak–strong uniqueness compares solutions from the same exact trace.
+  - The WFA budget is the full improper integral at a terminal endpoint.
+  - The case T_max=tau_A is excluded by continuation, not by assuming
+    beforehand that U(tau_A) exists.
+  - The zero datum is treated separately when the cutoff is zero.
+  - The original maximal strong trajectory is the one extended.
+  - The official Fefferman A data and output classes match through the
+    explicitly cited closed-slab and mild-solution identification.
+
+QFA therefore remains an unconditional B-tier tail theorem.
+WFA remains a proved B-tier implication with a finite-budget hypothesis.
+The universal assertion that B_A is finite remains OPEN.
+
+This is a static mathematical/source review, not a proof-assistant audit.
+No local Lean, Lake or kernel execution was performed. No new matching
+external compiler result or theorem-level axiom audit is supplied.
+
+
+
+
+15. NSE-A FINITE SIX-CHARGE REGULARITY CLASS
+Date: 2026-11-20
+Status: B_TIER_CLASS_DEFINITION_AND_EQUIVALENCE
+Repository entry: R3_NSE/A-Regularity-class/README.md
+Complete cumulative class derivation:
+  R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt
+Machine-readable status: R3_NSE/A-Regularity-class/STATUS.json
+
+E17 -- REGISTER THE DATUM CLASS
+For fixed nu>0 and real a in S_sigma(R3), use the same canonical maximal
+H1 strong solution U, lifetime T_max and b_A=min(T_max,tau_A) as E08--E10.
+Keep tau_A=8||a||_2^4/(27*pi^4*nu^5). Define
+  L_A(a,nu)^4 = 4*nu*J_A(a,nu),
+  C_A_nu = {a in S_sigma(R3): L_A(a,nu)<infinity}.
+The budget is the full extended nonnegative improper integral; J_A=L_A=0
+for the zero datum. E13 gives L_A^4=64*pi^4*nu*B_A.
+Identifier: NSE_A_FINITE_CHARGE_CLASS.
+
+E18 -- FIX SIX CONCRETE WHOLE-SPACE PROJECTIONS
+List the six permutations of (1,2,3) lexicographically. Each frequency xi
+belongs to the permutation that orders |xi_j| in descending order, breaking
+every tie by increasing coordinate index. These six Borel sets Gamma_alpha
+are disjoint, cover R3, and are even under xi -> -xi. Set
+  Fourier(Q_alpha f)=1_{Gamma_alpha} Fourier(f).
+They are mutually orthogonal L2 projections resolving the identity, preserve
+real solenoidal fields, are bounded on H1, and commute with weak derivatives.
+The complete derivation proves these facts using bounded Fourier multipliers.
+The periodic coordinate-zero channels are not imported as these R3 sectors.
+
+E19 -- SIX-CHARGE CHARACTERIZATION
+For the same U and same b_A, put
+  q_{alpha,A}(t)=||grad Q_alpha U(t)||_2^2,
+  J_{6,A}=lim_{r up to b_A} integral_0^r sum_{alpha=1}^6 q_{alpha,A}(t)^2 dt.
+The zero-datum convention is J_{6,A}=0. Plancherel and orthogonality give
+  sum_alpha q_{alpha,A}(t)=Y(t)=||grad U(t)||_2^2.
+Positivity and finite-dimensional Cauchy--Schwarz give pointwise
+  sum_alpha q_{alpha,A}^2 <= Y^2 <= 6 sum_alpha q_{alpha,A}^2.
+Monotone integration to the complete endpoint therefore gives
+  J_{6,A} <= J_A <= 6 J_{6,A},
+  4*nu*J_{6,A} <= L_A^4 <= 24*nu*J_{6,A},
+  a in C_A_nu <==> J_{6,A}<infinity.
+Identifier: NSE_A_SIX_CHARGE_CHARACTERIZATION.
+The scalar charges are already squared gradient norms. Their squares are
+fourth powers; no spatial fourth-power integral is substituted.
+
+E20 -- GLOBAL REGULARITY CLASS IDENTITY
+E09--E10 already show
+  J_A<infinity <==> T_max=infinity.
+Combining E17 and E19 yields
+  a in C_A_nu <==> J_{6,A}<infinity <==> T_max(a,nu)=infinity.
+Identifier: NSE_A_FINITE_CHARGE_IFF_GLOBAL.
+The forward implication uses bounded-H1 continuation to cross tau_A strictly,
+then the small-product restart of the same trajectory. The reverse uses
+H1 continuity on the finite compact interval [0,tau_A]. The literal smooth
+finite-energy Fefferman-A interpretation retains A4 and the source locations
+already recorded in E10; it is not obtained by redefining regularity.
+
+E21 -- SUBLEVELS AND THE UNIVERSAL OBLIGATION
+For each positive integer m let C_A_nu,m={a:L_A(a,nu)<=m}. Then
+  C_A_nu,m subseteq C_A_nu,m+1,
+  C_A_nu=union_{m>=1} C_A_nu,m.
+For the literal Fefferman-A category identified in E20,
+  Fefferman A <==> for every nu>0, C_A_nu=S_sigma(R3).
+This is a reformulation. Universal class equality and universal budget
+finiteness remain OPEN. No common numerical bound over all data is required.
+
+The class is defined through the canonical nonlinear trajectory. It is not
+an initial-Fourier-norm-only admission test. No linear-space, norm, closedness,
+compactness or uniform whole-space Galerkin-limit theorem is asserted.
+These endpoints are B-tier mathematical derivations, not new Lean declarations.
+No matching compiler/type/axiom evidence for the complete class equivalence
+is claimed. Prior native QFA foundations retain their own exact acceptance
+at afd67db4/run44788963412, with the physical formal root gaps unchanged.
+No local Lean, Lake, kernel audit or project runner was executed.

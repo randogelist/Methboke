@@ -1,0 +1,46 @@
+import Mathlib.Analysis.Fourier.LpSpace
+import Mathlib.Analysis.Distribution.TemperedDistribution
+
+/-!
+A-TIER CANDIDATE: L² weak directional derivative Fourier identity at the
+level of tempered distributions. The hypothesis is the actual distributional
+weak-derivative equation for supplied L² vector fields; it is not the target
+conclusion. The proof composes Mathlib's L²/distribution Fourier compatibility
+with its tempered distribution derivative identity. This does not construct
+Navier--Stokes solutions or prove an a.e. product identity for the unbounded
+frequency coordinate. User must compile and audit with the external toolchain.
+-/
+noncomputable section
+open MeasureTheory FourierTransform
+
+namespace FrontierAWeakFourierDistribution
+
+abbrev Space := EuclideanSpace ℝ (Fin 3)
+abbrev Fiber := EuclideanSpace ℂ (Fin 3)
+abbrev Field := Lp Fiber 2 (volume : Measure Space)
+
+/-- Fourier differentiation of a supplied L² weak directional derivative,
+    as an equality of tempered distributions. -/
+theorem fourier_weak_derivative_distribution
+    (u du : Field) (m : Space)
+    (hweak : MeasureTheory.Lp.toTemperedDistribution du =
+      LineDeriv.lineDerivOp m (MeasureTheory.Lp.toTemperedDistribution u)) :
+    MeasureTheory.Lp.toTemperedDistribution (FourierTransform.fourier du) =
+      (2 * (Real.pi : ℂ) * Complex.I) •
+        (TemperedDistribution.smulLeftCLM Fiber (fun ξ : Space => (inner ℝ ξ m : ℂ)))
+          (MeasureTheory.Lp.toTemperedDistribution (FourierTransform.fourier u)) := by
+  calc
+    MeasureTheory.Lp.toTemperedDistribution (FourierTransform.fourier du) =
+        FourierTransform.fourier (MeasureTheory.Lp.toTemperedDistribution du) :=
+      (MeasureTheory.Lp.fourier_toTemperedDistribution_eq du).symm
+    _ = FourierTransform.fourier
+        (LineDeriv.lineDerivOp m (MeasureTheory.Lp.toTemperedDistribution u)) := by rw [hweak]
+    _ = (2 * (Real.pi : ℂ) * Complex.I) •
+          (TemperedDistribution.smulLeftCLM Fiber (fun ξ : Space => (inner ℝ ξ m : ℂ)))
+            (FourierTransform.fourier (MeasureTheory.Lp.toTemperedDistribution u)) :=
+      TemperedDistribution.fourier_lineDerivOp_eq (MeasureTheory.Lp.toTemperedDistribution u) m
+    _ = _ := by rw [MeasureTheory.Lp.fourier_toTemperedDistribution_eq u]
+
+end FrontierAWeakFourierDistribution
+
+#print axioms FrontierAWeakFourierDistribution.fourier_weak_derivative_distribution

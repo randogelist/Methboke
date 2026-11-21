@@ -1,0 +1,88 @@
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:43:89: error: unsolved goals
+ξ : Space
+z : ComplexVector
+⊢ z - (inner ℂ (complexifyVectorLI ξ) z / ↑(‖ξ‖ ^ 2)) • complexifyVectorLI ξ =
+    z - (inner ℂ (complexifyVectorLI ξ) z / ↑(‖ξ‖ ^ 2)) • complexifyVectorLI ξ
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:106:45: error: unsolved goals
+ξ : Space
+z : ComplexVector
+j : Fin 3
+⊢ (starRingEnd ℂ) (z.ofLp j) - (starRingEnd ℂ) ((∑ x, ↑(ξ.ofLp x) * z.ofLp x) / ↑(‖ξ‖ ^ 2)) * ↑(ξ.ofLp j) =
+    (starRingEnd ℂ) (z.ofLp j) - (∑ k, ↑(ξ.ofLp k) * (starRingEnd ℂ) (z.ofLp k)) / ↑(‖ξ‖ ^ 2) * ↑(ξ.ofLp j)
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:109:71: warning: This simp argument is unused:
+  map_div
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [conjugateVectorLI_apply, leraySymbol_coordinate, map_sub, map_sum, map_mul, Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:110:4: warning: This simp argument is unused:
+  map_sum
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [conjugateVectorLI_apply, leraySymbol_coordinate, map_sub, map_div, map_mul, Complex.conj_ofReal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:119:2: error: Type mismatch: After simplification, term
+  AEStronglyMeasurable.sub (Lp.aestronglyMeasurable f) (AEStronglyMeasurable.smul hc hξ)
+ has type
+  @AEStronglyMeasurable QFA.Endpoints.Agmon.Space ComplexVector PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    measureSpaceOfInnerProductSpace.toMeasurableSpace measureSpaceOfInnerProductSpace.toMeasurableSpace
+    (↑↑f - ((fun x => inner ℂ (complexifyVectorLI x) (↑↑f x)) / fun ξ => ↑(‖ξ‖ ^ 2)) • fun ξ => complexifyVectorLI ξ)
+    volume
+but is expected to have type
+  @AEStronglyMeasurable Space ComplexVector (PiLp.topologicalSpace 2 fun x => ℂ)
+    (WithLp.measurableSpace 2 ((i : Fin 3) → (fun x => ℝ) i)) measureSpaceOfInnerProductSpace.toMeasurableSpace
+    (fun ξ => ↑↑f ξ - (inner ℂ (complexifyVectorLI ξ) (↑↑f ξ) / ↑(‖ξ‖ ^ 2)) • complexifyVectorLI ξ) volume
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:163:17: error: Type mismatch: After simplification, term
+  norm_frequencyLeray_le f
+ has type
+  @LE.le ℝ Real.instLE ‖frequencyLeray f‖ ‖f‖
+but is expected to have type
+  @LE.le ℝ Real.instLE ‖{ toFun := frequencyLeray, map_add' := frequencyLeray_add, map_smul' := frequencyLeray_smul } f‖
+    ‖f‖
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:219:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  FiniteDimensional ℂ ↥(Lp ComplexVector 2 volume)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:222:0: error: Not a definitional equality: the left-hand side
+  fourierLerayCLM f
+is not definitionally equal to the right-hand side
+  fourierLeray f
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:223:42: error: Type mismatch
+  rfl
+has type
+  ?m.5 = ?m.5
+but is expected to have type
+  fourierLerayCLM f = fourierLeray f
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:263:0: error: Not a definitional equality: the left-hand side
+  realLerayCLM v
+is not definitionally equal to the right-hand side
+  realLeray v
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:263:85: error: Type mismatch
+  rfl
+has type
+  ?m.5 = ?m.5
+but is expected to have type
+  realLerayCLM v = realLeray v
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:277:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean:323:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑↑(𝓕 (complexifyL2 (realLeray v))) ξ
+in the target expression
+  ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (realLeray v))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI v)) ξ
+
+v : ↥SpatialL2
+h : ∀ᵐ (ξ : Space), inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) = 0
+ξ : Space
+hp : ↑↑(𝓕 (complexifyL2 (realLeray v))) ξ = (leraySymbol ξ) (↑↑(𝓕 (complexifyL2 v)) ξ)
+ht : inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) = 0
+⊢ ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (realLeray v))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI v)) ξ

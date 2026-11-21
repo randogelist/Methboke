@@ -1,0 +1,97 @@
+NSE-A ENSTROPHY COEFFICIENT EXTRACTION
+DATE: 2026-11-20
+MODE: B_TIER_DERIVATION
+PARENT_GAPS: G02 (scalar coefficient only), G03 (scalar comparison only)
+PLAN: P09 arithmetic consequence, P12 scalar consequence, P15 composition
+STATUS: EXACT CONDITIONAL SCALAR CHAIN; NATIVE SOURCE PREPARATION FOLLOWS
+LOCAL_LEAN_EXECUTION: NONE; MATCHING_EXTERNAL_EVIDENCE: REQUIRED
+
+1. SCOPE AND EXACT INPUTS
+
+Let S,Y,Z,N be nonnegative real numbers, nu>0 and d real. Assume
+  N^4 <= S^6 Y^3 Z^3,                              (F4)
+  d + 2 nu Z <= 2N.                               (EN)
+The intended physical identifications are Y=||grad u||_2^2,
+Z=||Delta u||_2^2, N=absolute convection pairing, d=Y'. They
+are not definitions of a supplied NSE solution or assumptions hidden in a
+port; they remain separate physical realization obligations.
+
+For a genuine H2 vector field, the intended spatial route is Holder,
+||u||_6 <= S||grad u||_2,
+||grad u||_3 <= ||grad u||_2^(1/2)||grad u||_6^(1/2),
+||grad u||_6 <= S||D2 u||_2, and ||D2u||_2=||Delta u||_2.
+These yield N <= S^(3/2)Y^(3/4)Z^(3/4), hence (F4).
+This file does not prove their physical admission. Its closed chain begins
+with the explicitly stated scalar (F4) and (EN).
+
+2. EXACT POLYNOMIAL CERTIFICATE
+
+For arbitrary real N,V,
+ (3N-2V)^2 (3N^2+4NV+4V^2)
+   = 27N^4 - 32NV^3 + 16V^4.
+For N,V>=0 both factors on the left are nonnegative. Therefore
+  32NV^3 <= 27N^4 + 16V^4.                        (P)
+This is an exact rational polynomial identity, not a rounded estimate.
+
+3. FOURTH-POWER YOUNG ESTIMATE
+
+More generally let K>=0 and N^4<=K Z^3, with Z>=0, nu>0.
+If Z=0, then N^4=0 and N=0, so the claim below holds.
+If Z>0, put V=nu Z in (P) and substitute the fourth-power bound:
+  32N nu^3 Z^3 <= 27K Z^3 + 16nu^4 Z^4.
+Divide by the positive 16nu^3 Z^3 to obtain
+  2N <= nu Z + 27K/(16nu^3).                      (Y)
+No division by zero or positivity of Y is concealed.
+
+4. CUBIC ENSTROPHY COEFFICIENT
+
+Use K=S^6Y^3 in (Y), and combine with (EN):
+  d + nu Z <= [27S^6/(16nu^3)]Y^3.               (C)
+When the explicit sixth-power equality
+  S^6=16/(27pi^4)                                (S6)
+is supplied, arithmetic alone gives
+  27S^6/(16nu^3)=1/(pi^4nu^3),
+  d + nu Z <= Y^3/(pi^4nu^3),
+  d <= Y^3/(pi^4nu^3).                           (Cpi)
+Thus the registered pi^(-4)nu^(-3) coefficient is recovered exactly.
+Equality (S6) is not a proof that S is an admissible Sobolev constant.
+
+5. FINITE FULL BUDGET COMPOSITION
+
+Let b be a real stopping time and Y,Z,N real time profiles. Assume
+Y(0)>=0, nu>0, S>=0, (S6), and Y absolutely continuous on every
+closed [0,R] with 0<=R<b. Assume Y,Z,N>=0 and (F4),(EN), with d=Y',
+almost everywhere on (0,b). No value or derivative at b is required.
+For the full extended budget
+  J = integral^+_(0,b) ofReal(Y(t)^2),
+assume J != infinity before converting it to a real number.
+Pointwise application of (Cpi) yields the a.e. cubic derivative bound.
+The existing ACBudget scalar theorem then yields the single uniform bound
+  Y(t) <= Y(0) exp[J.toReal/(pi^4nu^3)]
+for every 0<=t<b.
+This consumes the full stopped budget, not separate compact-window finiteness.
+
+6. FIRST UNRESOLVED PHYSICAL EDGE
+
+BLOCKED_EDGE: constructed physical whole-space NSE evolution -> the actual
+time-AC property, convection fourth-power estimate and enstrophy inequality
+with the registered admissible sharp S6 on that same trajectory.
+CAUSE: existing exact scalar and Fourier packages do not construct the H1
+IVP, prove the registered sharp spatial inequality, or derive PDE time balance.
+REQUIREMENT: complete G01 local/maximal evolution, G02 actual sharp spatial
+admission, and the corresponding G03 physical AC/balance adapter.
+STOP: no PDE continuation theorem, Fefferman-A theorem, six-parent closure,
+or universal datum-budget assertion follows from this scoped module alone.
+
+SOURCE MAP
+- Mathlib pinned db584cd6d46c92f209a44c0f1c829460d327499d: ordered real-field
+  polynomial arithmetic, positivity, field cancellation, nonnegative integrals.
+- Material/MethbokeAddon/QuasiFeffermanA/ACBudget.lean:
+  ac_cubic_uniform_of_finite_stopped_budget. Existing source, separate exact
+  compilation and audit scope; no reuse claim beyond that scoped implication.
+- R3_NSE/A-Regularity-class/LEAN_CUTOUTS/cards/ES01.md and ES13.md identify
+  the explicit remaining gap between Sobolev membership and sharp admission.
+
+NATIVE TARGET: Material/QFAEnstrophyCoefficient, eight named scalar theorems.
+The source must receive matching external cached compilation, independent full
+consumer type checks, and theorem-level standard-only axiom reports.

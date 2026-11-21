@@ -1,0 +1,271 @@
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:64:8: error(lean.unknownIdentifier): Unknown identifier `spatialWeakGradient_unique`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:68:9: error(lean.unknownIdentifier): Unknown identifier `CompactSmoothScalarTest`
+
+Note: It is not possible to treat `CompactSmoothScalarTest` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:69:3: error(lean.unknownIdentifier): Unknown identifier `compactPairingCLM`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:73:5: error(lean.unknownIdentifier): Unknown identifier `compactPairingCLM`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:77:9: error(lean.unknownIdentifier): Unknown identifier `CompactSmoothScalarTest`
+
+Note: It is not possible to treat `CompactSmoothScalarTest` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:81:29: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:82:53: error(lean.unknownIdentifier): Unknown identifier `compactPairingCLM_apply`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:80:42: error: unsolved goals
+a b : H2Index
+k : Fin 3
+φ : sorry
+x : H2Ambient
+⊢ sorry x + sorry x =
+    (∫ (y : Space), (fderiv ℝ sorry y) (coordinateVector k) • ↑↑(x.ofLp a) y) + ∫ (y : Space), sorry • ↑↑(x.ofLp b) y
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:81:13: warning: declaration uses `sorry`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:82:4: warning: This simp argument is unused:
+  ContinuousLinearMap.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weakH2Residual, ContinuousLinearMap.add_apply, PiLp.proj_apply, compactPairingCLM_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:82:36: warning: This simp argument is unused:
+  PiLp.proj_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [weakH2Residual, ContinuousLinearMap.add_apply, ContinuousLinearMap.comp_apply,
+    compactPairingCLM_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:86:22: error(lean.unknownIdentifier): Unknown identifier `CompactSmoothScalarTest`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:90:35: error(lean.unknownIdentifier): Unknown identifier `CompactSmoothScalarTest`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:109:10: error(lean.unknownIdentifier): Unknown identifier `weakH2Residual_apply`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:115:10: error(lean.unknownIdentifier): Unknown identifier `weakH2Residual_apply`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:121:10: error(lean.unknownIdentifier): Unknown identifier `weakH2Residual_apply`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:125:10: error(lean.unknownIdentifier): Unknown identifier `weakH2Residual_apply`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:100:13: warning: declaration uses `sorry`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:100:2: warning: declaration uses `sorry`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:172:10: error(lean.unknownIdentifier): Unknown identifier `spatialWeakGradient_unique`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:173:8: error: No goals to be solved
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:210:48: error(lean.unknownIdentifier): Unknown identifier `PhysicalH1`
+
+Note: It is not possible to treat `PhysicalH1` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:211:2: error(lean.unknownIdentifier): Unknown identifier `physicalH1OfWeakGradient`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:214:16: warning: declaration uses `sorry`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:216:2: warning: Unused tactic linter: `apply (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:217:2: warning: Unused tactic linter: `rw [physicalH1_norm_sq, physicalH2_norm_sq]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:218:2: warning: Unused tactic linter: `change
+  ‖physicalH2Velocity u‖ ^ 2 + (∑ j : Fin 3, ‖physicalH2Gradient j u‖ ^ 2) ≤
+    ‖physicalH2Velocity u‖ ^ 2 + (∑ j : Fin 3, ‖physicalH2Gradient j u‖ ^ 2) +
+      ∑ j : Fin 3, ∑ k : Fin 3, ‖physicalH2Hessian j k u‖ ^ 2` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:221:2: warning: Unused tactic linter: `exact
+  le_add_of_nonneg_right (Finset.sum_nonneg fun _ _ => Finset.sum_nonneg fun _ _ => sq_nonneg _)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:217:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:218:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:221:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:225:38: error(lean.unknownIdentifier): Unknown identifier `PhysicalH1`
+
+Note: It is not possible to treat `PhysicalH1` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:235:21: error(lean.unknownIdentifier): Unknown identifier `PhysicalH1`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:241:4: error(lean.unknownIdentifier): Unknown identifier `physicalH1Velocity`
+
+Note: It is not possible to treat `physicalH1Velocity` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:244:4: error(lean.unknownIdentifier): Unknown identifier `physicalH1Gradient`
+
+Note: It is not possible to treat `physicalH1Gradient` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:246:50: error: typeclass instance problem is stuck
+  Norm ?m.2
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Norm` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:249:66: error(lean.unknownIdentifier): Unknown identifier `PhysicalH1`
+
+Note: It is not possible to treat `PhysicalH1` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:250:2: error(lean.unknownIdentifier): Unknown identifier `physicalH1OfWeakGradient`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:253:16: warning: declaration uses `sorry`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:255:2: warning: Unused tactic linter: `apply (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mp` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:256:2: warning: Unused tactic linter: `rw [physicalH1_norm_sq, physicalH2_norm_sq]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:257:2: warning: Unused tactic linter: `change
+  ‖physicalH2Gradient j u‖ ^ 2 + (∑ k : Fin 3, ‖physicalH2Hessian j k u‖ ^ 2) ≤
+    ‖physicalH2Velocity u‖ ^ 2 + (∑ a : Fin 3, ‖physicalH2Gradient a u‖ ^ 2) +
+      ∑ a : Fin 3, ∑ k : Fin 3, ‖physicalH2Hessian a k u‖ ^ 2` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:260:2: warning: Unused tactic linter: `have hG : ‖physicalH2Gradient j u‖ ^ 2 ≤ ∑ a : Fin 3, ‖physicalH2Gradient a u‖ ^ 2 :=
+  Finset.single_le_sum (fun _ _ => sq_nonneg _) (Finset.mem_univ j)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:263:2: warning: Unused tactic linter: `have hH :
+  (∑ k : Fin 3, ‖physicalH2Hessian j k u‖ ^ 2) ≤ ∑ a : Fin 3, ∑ k : Fin 3, ‖physicalH2Hessian a k u‖ ^ 2 :=
+  Finset.single_le_sum (fun _ _ => Finset.sum_nonneg fun _ _ => sq_nonneg _) (Finset.mem_univ j)` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:267:2: warning: Unused tactic linter: `linarith [sq_nonneg ‖physicalH2Velocity u‖]` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:256:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:257:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:260:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:263:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:267:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:270:56: error(lean.unknownIdentifier): Unknown identifier `PhysicalH1`
+
+Note: It is not possible to treat `PhysicalH1` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:280:21: error(lean.unknownIdentifier): Unknown identifier `PhysicalH1`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:286:4: error(lean.unknownIdentifier): Unknown identifier `physicalH1Velocity`
+
+Note: It is not possible to treat `physicalH1Velocity` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:289:4: error(lean.unknownIdentifier): Unknown identifier `physicalH1Gradient`
+
+Note: It is not possible to treat `physicalH1Gradient` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:292:4: error: typeclass instance problem is stuck
+  Norm ?m.4
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Norm` is a metavariable. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:342:10: error(lean.unknownIdentifier): Unknown identifier `CompactSmoothScalarTest`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:343:16: error(lean.unknownIdentifier): Unknown identifier `solenoidalTestCLM`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:345:8: error(lean.invalidField): Invalid field notation: Type of
+  L
+is not known; cannot resolve field `ker`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddCon.ker`
+  • `AddMonoidHom.ker`
+  • `Con.ker`
+  • `ker`
+  • `LatticeCon.ker`
+  • `LieHom.ker`
+  • `LieModule.ker`
+  • `LieModuleHom.ker`
+  • `LinearEquiv.ker`
+  • `LinearMap.ker`
+  • `ModuleCon.ker`
+  • `MonoidHom.ker`
+  • `NormedAddGroupHom.ker`
+  • `RingCon.ker`
+  • `RingHom.ker`
+  • `SMulCon.ker`
+  • `Setoid.ker`
+  • `TopModuleCat.ker`
+  • `TwoSidedIdeal.ker`
+  • `VAddCon.ker`
+  • `Algebra.Extension.ker`
+  • `Algebra.Generators.ker`
+  • `CategoryTheory.Limits.ker`
+  • `CategoryTheory.Subgroupoid.ker`
+  • `DividedPowers.DPMorphism.ker`
+  • `HasBasis.ker`
+  • `LieModule.Weight.ker`
+  • `Representation.Coinvariants.ker`
+  • `Representation.IntertwiningMap.ker`
+  • `Submodule.CoFG.ker`
+  • `AlgebraicGeometry.Scheme.Hom.ker`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:345:15: error(lean.invalidField): Invalid field notation: Type of
+  L
+is not known; cannot resolve field `isClosed_ker`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `ContinuousLinearMap.isClosed_ker`
+  • `NormedAddGroupHom.isClosed_ker`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:354:4: error(lean.unknownIdentifier): Unknown identifier `solenoidal_iff_testCLM`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:352:13: warning: declaration uses `sorry`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:352:35: warning: This simp argument is unused:
+  ClosedSubmodule.mem_inf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH2SigmaGraph, mem_physicalH2Graph_iff, ClosedSubmodule.mem_iInf, ClosedSubmodule.mem_mk,
+    LinearMap.mem_ker, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:352:60: warning: This simp argument is unused:
+  mem_physicalH2Graph_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH2SigmaGraph, ClosedSubmodule.mem_inf, ClosedSubmodule.mem_iInf, ClosedSubmodule.mem_mk,
+    LinearMap.mem_ker, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:353:4: warning: This simp argument is unused:
+  ClosedSubmodule.mem_iInf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH2SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH2Graph_iff, ClosedSubmodule.mem_mk,
+    LinearMap.mem_ker, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:353:30: warning: This simp argument is unused:
+  ClosedSubmodule.mem_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH2SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH2Graph_iff, ClosedSubmodule.mem_iInf,
+    LinearMap.mem_ker, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:353:54: warning: This simp argument is unused:
+  LinearMap.mem_ker
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH2SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH2Graph_iff, ClosedSubmodule.mem_iInf,
+    ClosedSubmodule.mem_mk, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:368:11: warning: Variable name `u` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _u
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:368:13: warning: Variable name `v` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _v
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:369:12: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:369:14: warning: Variable name `u` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _u
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:370:12: warning: Variable name `u` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _u
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:384:8: error(lean.unknownIdentifier): Unknown identifier `schwartz_spatialWeakGradient`
+MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean:390:5: error(lean.unknownIdentifier): Unknown identifier `schwartz_spatialWeakGradient`

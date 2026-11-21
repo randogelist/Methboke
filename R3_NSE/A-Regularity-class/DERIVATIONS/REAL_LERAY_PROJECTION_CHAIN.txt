@@ -1,0 +1,179 @@
+REAL WHOLE-SPACE LERAY PROJECTION ON ACTUAL L2 AND H1
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G01 lower spatial layer; conditional transport on the actual H2 graph
+Status: MATHEMATICAL_CHAIN_COMPLETE; NATIVE_MATRIX_CONSTRUCTION_PENDING
+No local Lean, Lake, kernel audit or proof runner is used.
+No sharp Sobolev, energy evolution, NSE existence or continuation is assumed.
+
+0. INSPECTED SOURCE BASIS AND WHAT IS NEW
+
+Use the project's SpatialL2=L2(R3;R3), physical compact-test H1 graph,
+isometric complexification c, and Fourier phase exp(-2*pi*i*x dot xi).
+Project files below are in Material/MethbokeAddon/QuasiFeffermanA/.
+PhysicalH1.lean supplies actual weak gradients, uniqueness, complete graph,
+compactPairingCLM and integrability of the native solenoidal tests.
+H1Fourier.lean/H1FourierReverse.lean supply the two-way FIRST derivative
+multiplier theorem without H2. RealFourier.lean constructs the real range.
+SixSectorMultipliers.lean and RealSectorMultipliers.lean construct actual
+scalar-indicator L2 projections; PhysicalH1Sectors.lean lifts their gradients.
+PhysicalH1Divergence.lean identifies native Solenoidal with zero L2 trace.
+SixSectorNaturality.lean proves Fourier transport for fixed codomain maps,
+including the coordinate slices needed in that trace.
+
+These are genuine reusable constructions. None of them already defines
+the frequency-dependent MATRIX multiplier below. In particular compLpL and
+fourier_compLpL concern a fixed codomain map; substituting A=P(xi) into
+that theorem would be invalid. The variable-symbol map is built directly.
+
+1. THE MEASURABLE MATRIX SYMBOL, INCLUDING ZERO FREQUENCY
+
+For xi in R3 and z in C3 put d_xi(z)=sum_j xi_j*z_j. For xi!=0 define
+  R_xi z = xi * d_xi(z)/|xi|^2,       P_xi z = z-R_xi z;
+at xi=0 set R_0=0 and P_0=I. Real vectors are embedded coordinatewise.
+Each P_xi is complex-linear. Away from zero, d_xi(xi)=|xi|^2, so
+  R_xi^2=R_xi, P_xi^2=P_xi, P_xi R_xi=R_xi P_xi=0,
+  d_xi(P_xi z)=0,                    P_xi z=z iff d_xi(z)=0.
+The last equivalence also holds at zero, where both conditions are automatic.
+The matrices are real symmetric, hence Hermitian. Orthogonality gives
+  |P_xi z|^2+|R_xi z|^2=|z|^2,
+  |R_xi z|^2=|d_xi(z)|^2/|xi|^2       when xi!=0.
+Thus both symbols have operator norm at most one, including at zero.
+Their entries are Borel: rational continuous expressions away from the
+closed singleton {0}, with the explicitly assigned values on that set.
+Also P_(-xi)=P_xi and conjugate(P_xi z)=P_xi(conjugate z).
+No zero-mean condition is imposed; a singleton frequency value changes
+no L2 class. No singular distribution is multiplied by this symbol.
+
+2. GENUINE L2 CONSTRUCTION AND REALITY
+
+For an actual f in L2(R3;C3), the representative xi -> P_xi(f(xi)) is
+a.e. strongly measurable: each coordinate is a finite sum of products
+of Borel scalar entries and a.e. strongly measurable coordinates.
+The bound |P_xi f(xi)|<=|f(xi)| proves MemLp at exponent two.
+Take its MemLp.toLp class, denoted M_P f. An a.e.-equal representative
+gives the same class. Thus the definition is independent of all choices.
+Lp.ext and the representative equality prove linearity and idempotence.
+Norm domination proves ||M_P f||_2<=||f||_2. Pointwise Hermitian symmetry,
+integrated using Cauchy-Schwarz integrability, proves self-adjointness.
+Consequently M_P is an actual bounded orthogonal projection.
+
+Define P_C=F^(-1) M_P F on complex L2. Plancherel transports all these
+properties and gives F(P_C f)=P_xi(Ff) a.e.
+Let Jf(xi)=conjugate(f(-xi)), as an actual L2 involution. Reality and
+evenness of the entries give J M_P=M_P J; reflection preserves null sets.
+For real v, J(F(cv))=F(cv), so M_P F(cv) has that same Hermitian symmetry.
+RealFourier's constructive range criterion supplies the unique real L2
+output P v with c(P v)=P_C(cv). Concretely it is the actual real part
+of P_C(cv); the range theorem proves that complexifying recovers it.
+This defines a bounded real-linear map on SpatialL2, not a supplied port.
+It satisfies P^2=P, ||Pv||_2<=||v||_2, self-adjointness, and
+  ||v||_2^2=||Pv||_2^2+||(I-P)v||_2^2.                  (2.1)
+
+3. ACTUAL FIRST-DERIVATIVE COMMUTATION AND H1 LIFT
+
+Suppose SpatialWeakGradient v G, with all G_j actual real L2 fields.
+The accepted Fourier theorem gives F(cG_j)=2*pi*i*xi_j F(cv) a.e.
+Since P_xi is complex-linear, scalar multiplication commutes with it:
+  F(c(PG_j))=P_xi F(cG_j)
+            =2*pi*i*xi_j P_xi F(cv)=2*pi*i*xi_j F(c(Pv)).
+The reverse first-derivative theorem therefore proves
+  SpatialWeakGradient (Pv) (j -> PG_j).                 (3.1)
+No H2 premise, Schwartz preservation or derivative of the symbol is used.
+Define P1 on PhysicalH1 by the actual graph element (Pv,PG_1,PG_2,PG_3).
+The weak-gradient relation just proved supplies its graph membership.
+Its velocity is Pv, its unique derivatives are PG_j, and
+  ||P1 u||_H1^2=||Pv||_2^2+sum_j||PG_j||_2^2
+              <=||v||_2^2+sum_j||G_j||_2^2=||u||_H1^2.
+Linearity and idempotence follow componentwise on the original graph.
+The velocity term is retained; no whole-space Poincare estimate occurs.
+
+4. NATIVE H1 SOLENOIDALITY AND FREQUENCY TRANSVERSALITY
+
+For the supplied actual gradient let D(G)=sum_j slice_j(G_j), where
+slice_j places the j-th component in the fixed nonzero vector e_0.
+PhysicalH1Divergence proves, with test integrability retained,
+  Solenoidal v iff D(G)=0.
+The proved coordinate-slice complexification and Fourier naturality,
+followed by the three first-derivative identities, give
+  F(cD(G))(xi)=2*pi*i*(sum_j xi_j*(F(cv)(xi))_j)*e_0 a.e.
+Fourier/complexification injectivity and 2*pi*i!=0 therefore give
+  Solenoidal v iff d_xi(F(cv)(xi))=0 a.e.                (4.1)
+This is an equivalence for the ORIGINAL compact-test predicate, not a
+replacement definition. All coordinates share one full-measure set.
+The symbol identities imply Solenoidal(Pv) and, for H1 input,
+  Solenoidal v iff Pv=v.
+By uniqueness of actual gradients, the fixed points of P1 are exactly
+the original PhysicalH1Sigma subspace under its isometric H1 inclusion.
+
+5. THE L2 RANGE AND ANNIHILATION OF ACTUAL L2 GRADIENTS
+
+There is also an H1-free range proof, useful for G01's forcing space.
+For v in SpatialL2 every compact smooth solenoidal-test pairing is
+integrable by L2 Cauchy-Schwarz. If Solenoidal v, its zero gradient
+pairing extends to all real Schwartz tests by compact-Schwartz density
+and continuity; real/imaginary decomposition gives complex tests too.
+Plancherel and F(partial_j phi)=2*pi*i*xi_j Fphi show that the conjugate
+of d_xi(F(cv)(xi)) has zero pairing with every compact smooth frequency
+test. This function is locally integrable; F is onto Schwartz, and multiplying by
+xi is bounded on each compact set. Distributional test separation gives
+d_xi(F(cv)(xi))=0 a.e., hence Pv=v. Conversely that a.e. equality gives
+zero compact gradient pairing by Plancherel, hence native Solenoidal v.
+Thus (4.1) holds for all real L2 fields, and range(P)=L2_sigma exactly.
+This range is closed, being ker(I-P); its inherited L2 norm is complete.
+
+If g is an actual L2 distributional gradient, its distributional curl
+vanishes. Fourier differentiation of the tempered L2 field and local
+test separation give xi_i*(F(cg))_j=xi_j*(F(cg))_i a.e.
+For xi!=0 these identities force F(cg) to be parallel to xi, so Pg=0.
+The singleton zero branch is null. This argument needs no tempered or
+decaying pressure representative: the curl-free identity is on g itself.
+Self-adjointness now gives <v,g>=0 for every native solenoidal L2 v.
+
+6. H1 ORTHOGONALITY AND SIX-SECTOR COMMUTATION
+
+The native H1 inner product is the velocity L2 inner product plus the
+three gradient L2 inner products. Apply L2 self-adjointness to each term:
+  <P1 u,w>_H1=<u,P1 w>_H1.
+Together with idempotence and the identified range, P1 is the orthogonal
+projection onto the original native H1_sigma. In particular
+  ||u||_H1^2=||P1u||_H1^2+||(I-P1)u||_H1^2.             (6.1)
+
+For every registered six-sector indicator chi_i and every xi,z,
+  P_xi(chi_i(xi)*z)=chi_i(xi)*P_xi z.
+Actual L2 representative equality, Fourier injectivity and real embedding
+therefore prove P Q_i=Q_i P. Applying the same identity to every actual
+first derivative gives P1 Q_i^H1=Q_i^H1 P1 on the physical H1 graph.
+The restricted Sigma operators are the same existing sector operators.
+No commutation of P with arbitrary matrix codomain maps is asserted.
+
+7. CONDITIONAL H2 TRANSPORT AND SCALAR MULTIPLIERS
+
+If actual L2 H_jk witness partial_k G_j, apply (3.1)'s directional proof
+to each pair (G_j,H_jk). The projected witnesses are exactly P H_jk.
+Hence P preserves the actual H2 graph, contracts its full 13-component
+inhomogeneous norm, and commutes with Delta=sum_j H_jj.
+Second-derivative symmetry and the Hessian-Laplacian norm identity are
+those derived in PHYSICAL_H2_GRAPH_CHAIN.txt; no H2 admission is assumed
+for arbitrary H1 fields. This section is conditional on actual H2 input.
+The same pointwise argument commutes P with any constructed bounded
+scalar Fourier multiplier. It does not construct a heat/Duhamel solution.
+
+8. PINNED LOWER APIS AND EXACT NATIVE FRONTIER
+
+Pinned Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d, Lean4.33.0.
+MeasureTheory/Function/LpSeminorm/Basic.lean: MemLp.of_le.
+MeasureTheory/Function/LpSpace/Basic.lean: MemLp.toLp, coeFn_toLp,
+toLp_congr, Lp.ext, norm_le_norm_of_ae_le, fixed-map compLpL.
+Analysis/Fourier/LpSpace.lean: Lp.fourierTransformₗᵢ, norm_fourier_eq,
+inner_fourier_eq and inverse identities.
+Material/_vendor/QFALC004/CompactSchwartz.lean and QFALC005/Density.lean: compact-
+Schwartz density/separation pattern, not a density assumption here.
+The first NEW native edge is the literal measurable matrix symbol and
+its MemLp-toLp operator with exact pointwise projection/norm identities.
+Then prove real-range transport, derivative commutation, native divergence
+identification and graph restrictions as above. Existing fixed-map or
+scalar-indicator theorems provide infrastructure, not this construction.
+B_TIER_OBSTRUCTION_WITHIN_STATED_SCOPE: NONE.
+NATIVE_LERAY_ENDPOINT: OPEN; no Lean file or new acceptance is supplied.
+G01 local existence and G03 physical time identities remain separate work.

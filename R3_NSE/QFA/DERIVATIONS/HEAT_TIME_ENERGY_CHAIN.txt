@@ -1,0 +1,127 @@
+QFA FREE HEAT: ACTUAL H2 TRAJECTORY AND EXACT TIME-ENERGY IDENTITY
+DATE: 2026-11-21
+PROJECT_GOAL: Fefferman_D, unchanged
+LOCAL_SCOPE: QFA_QFB_A_TIER_INTEGRATION / next actual heat construction
+BASIS: accepted ffbab0f5, run44847013775; records6a13c70a
+STATUS: exact construction chain; new native sources require matching
+external compiler, independent literal consumers and named axiom evidence.
+LOCAL_LEAN_EXECUTIONS: ZERO
+
+1. INPUTS AND PHYSICAL REPRESENTATIVES
+
+Let nu>0 and a be an arbitrary element of the actual physical H1 graph on
+full-volume R3. No solenoidality is needed for these linear heat estimates.
+Let S_nu(t) be the already accepted physical L2/H1 heat semigroup. Its actual
+Fourier symbol is exp(-nu*t*lambda(xi)), where
+  lambda(xi)=(2*pi)^2*|xi|^2.
+For every t>0, the accepted H1-to-H2 construction supplies an actual physical
+H2 element with velocity S_nu(t)a, weak Hessians and the literal Laplacian.
+
+2. ACTUAL TIME MEASURABILITY
+
+Define an H2-valued function h(t) to be this actual output for t>0 and zero
+for t<=0. The value at time zero is an arbitrary measurable extension; it
+does not assert that an arbitrary H1 datum has an H2 initial trace.
+The original H1 heat semigroup retains its true initial value a at zero.
+
+Fix t0>0 and s=t0/2. For every t>s, the exact semigroup identity gives
+  h(t)=S_nu(s)_{H1->H2}(S_nu(t-s)_{H1->H1}a).
+The outer operator is a fixed bounded linear map and the inner path is
+strongly continuous in H1. Equality of actual velocities and injectivity of
+the physical H2 graph identify this factorization with h. Thus h is H2
+continuous at every positive time. It is constant on negative times, hence
+continuous off the singleton {0}, and therefore strongly measurable.
+The actual continuous-linear Laplacian and its squared norm are strongly
+measurable as well. No measurability or integrability witness is assumed.
+
+3. EXACT NONNEGATIVE FOURIER DENSITY
+
+Write A=Fourier(a) for the actual L2 Fourier class. The accepted physical H1
+identity gives the integrable nonnegative density
+  E(xi)=lambda(xi)*|A(xi)|^2,
+  integral_R3 E=Y(a)=||grad a||_2^2.
+At every t>0, the actual Laplacian identity gives
+  ||Delta h(t)||_2^2 = integral_R3 D(t,xi),
+  D(t,xi)=lambda(xi)^2*exp(-2*nu*t*lambda(xi))*|A(xi)|^2.
+This is an identity of the constructed physical graph, not an assumed
+spectral realization or a Laplacian witness supplied as an input.
+
+4. TIME INTEGRABILITY BEFORE USING REAL FUBINI
+
+For finite T>=0 and each xi, scalar calculus, including lambda=0, gives
+  integral_0^T D(t,xi) dt
+    = (1/(2*nu))*(1-exp(-2*nu*T*lambda(xi)))*E(xi)
+    <= E(xi)/(2*nu).
+The joint density is nonnegative and measurable. Tonelli first establishes
+product integrability using the integrable upper bound E/(2*nu). Only after
+this finiteness is proved may real-valued Fubini interchange the integrals.
+The arbitrary value of h at time zero does not affect the time integral.
+
+The accepted positive-time pointwise estimate behaves as Y(a)/(nu*t).
+Integrating that bound at zero is invalid; the exact integrated Fourier
+density is essential for this construction.
+
+5. EXACT ENSTROPHY DISSIPATION
+
+The Fourier identity for the H1 heat output gives
+  Y(S_nu(T)a)=integral_R3 exp(-2*nu*T*lambda(xi))*E(xi).
+Consequently
+  2*nu*integral_0^T ||Delta h(t)||_2^2 dt
+    = Y(a)-Y(S_nu(T)a).
+This includes T=0. In particular the squared physical Laplacian is
+integrable on every finite positive-time window and its time integral is
+bounded by Y(a)/(2*nu).
+
+6. FINITE-WINDOW L2-TIME H2 MEMBERSHIP
+
+The accepted physical H2 norm identity and H1 contraction imply, for t>0,
+  ||h(t)||_H2^2
+    = ||S_nu(t)a||_H1^2+||Delta h(t)||_2^2
+    <= ||a||_H1^2+||Delta h(t)||_2^2.
+At t<=0 the same upper bound holds for the zero extension. Thus
+  integral_0^T ||h(t)||_H2^2 dt
+    <= T*||a||_H1^2+Y(a)/(2*nu).
+Together with actual strong measurability this proves MemLp2 H2 on the
+finite window. No regularity premise is hidden in a path record.
+
+7. ENDPOINT BOUNDARY
+
+These are free linear heat constructions. They do not by themselves prove
+the actual generator/primitive identity, forced Duhamel/maximal regularity,
+nonlinear H1 local existence, general global LH existence, physical
+weak--strong comparison, exact sharp Sobolev admission or the general QFA
+root. Those statements remain separate exact construction obligations.
+No general WFA or Fefferman-A conclusion is inferred.
+
+Native source candidates:
+  Material/MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean
+  Material/MethbokeAddon/QuasiFeffermanA/HeatTimeEnergy.lean
+Compiler/dependency/driver/axiom policies and previously accepted proof
+bytes are unchanged. Only authorized cached external verification may
+promote the named native endpoints to A-tier.
+
+8. ACTUAL WEIGHTED BUDGET: ALL NONNEGATIVE WINDOWS
+The accepted physical LH product-budget theorem already supplies actual
+product integrability and integral_(0,T) ||u(t)||^2 sum_j||G_j(t)||^2
+<=||a||^4/(4nu) at every T>0. At T=0 the interval is empty, so integrability
+is the zero-measure case and the integral is zero. The RHS is nonnegative
+for nu>0. Thus one independently consumed theorem covers every T>=0.
+This closes only the stated zero-window packaging of checklist step7 after
+matching external acceptance. It does not construct a general LH path.
+
+EXTERNAL ATTEMPT d53e1fae/run44850402452
+520 prior modules PASS. HeatTrajectory failed three proof-elaboration
+issues; three dependents blocked. No named audits or new acceptance.
+Repairs: pinned constant parameter y; explicit SecondCountableTopologyEither
+from the real time domain; add_le_add with the unchanged Laplacian term.
+Every previous public type and independent consumer is preserved.
+Next candidate adds the all-window theorem:35names=32theorems+3defs;
+526modules105packages1402reports. No local Lean; policy and pins unchanged.
+
+EXTERNAL ATTEMPT be624903/run44850983211
+524/526 source modules PASS, including actual H2 trajectory and all-window
+weighted budget. HeatTimeEnergy has three proof elaboration errors; its
+wrapper is blocked. Repairs expose the partially applied Fourier density,
+discharge definitional real instance equalities, and type the nonzero
+real denominator before cancellation. Public types/consumers unchanged.
+Exact artifact and independent failure review retained. No new acceptance.

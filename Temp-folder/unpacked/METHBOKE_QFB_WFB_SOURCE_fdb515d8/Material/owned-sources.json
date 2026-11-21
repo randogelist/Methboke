@@ -1,0 +1,774 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "status": "ACTIVE_CANDIDATES_PENDING_EXTERNAL_VERIFICATION",
+  "modules": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+      "path": "MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean",
+      "sha256": "7c7a4603b79e3facb8f06e8c406fc555b99d9505f4a44fa4d9f1244732df859a",
+      "imports": [
+        "SingularClosure.CriticalSmoothParseval",
+        "SingularClosure.CriticalSerrinTime",
+        "SingularClosure.SmoothDatumSobolev",
+        "SingularClosure.PeriodicFourierInjective",
+        "QuasiFeffermanB.PhysicalH1Admission",
+        "Mathlib.Topology.Algebra.InfiniteSum.ENNReal"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/PhysicalFourier.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FourierBudget",
+      "path": "MethbokeAddon/WeakFouriermanB/FourierBudget.lean",
+      "sha256": "07c21513514cf842110246a8988609b20a3c96b6beda11de4cb9b8ab536a33ad",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalFourier",
+        "SingularClosure.CriticalSerrinTime",
+        "Mathlib.MeasureTheory.Integral.Lebesgue.Add"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/FourierBudget.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalFront",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalFront.lean",
+      "sha256": "43f6d02ac5b9e62d9a3a6486fb84b418dcd65eed09e853eea15b2e2345973c31",
+      "imports": [
+        "SingularClosure.CriticalSpatialNormMeasurable",
+        "SingularClosure.CriticalSerrinTime",
+        "SingularClosure.CriticalSmoothEnergy",
+        "Mathlib.Topology.Order.LeftRightNhds",
+        "SingularClosure.CriticalLerayHopf",
+        "SingularClosure.CriticalGradientEnergyBound",
+        "MethbokeAddon.WeakFouriermanB.FourierBudget"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/LocalFront.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.HomogeneousBudget",
+      "path": "MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean",
+      "sha256": "6c21d2ef6fbcc1878b67f13e927b082789ffdb1aebbc8e47b041792149aca43c",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FourierBudget",
+        "MethbokeAddon.WeakFouriermanB.LocalFront"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "bfc9c6f39230121f6a269f65e22784597ce0d4cd",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/candidate/src/MethbokeAddon/WeakFouriermanB/HomogeneousBudget.lean"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.SmoothDatum",
+      "path": "MethbokeAddon/WeakFouriermanB/SmoothDatum.lean",
+      "sha256": "13e0c4b1866ecefe59eb7b3006fe5045ce3873e4f0aededa05067d26e1e59c17",
+      "imports": [
+        "QuasiFeffermanB.SpatialAdmission",
+        "QuasiFeffermanB.Endpoints.LerayHopfExistence",
+        "SingularClosure.CriticalSmoothCancellation",
+        "SingularClosure.CriticalRelativeEnergyIntegrable"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/SmoothDatum.lean"
+      },
+      "preparation_revision": {
+        "original_source_sha256": "93d2dc2e855a53a6cd56bb7860c7edc7798c66f24a72e8bfb3597d8b391ebaa3",
+        "change": "Replace potentially closing rw/rfl sequence in smooth_datum_constant_pairing_zero with explicit equality transitivity; theorem signature and premises unchanged.",
+        "verification": "NONEXECUTING_STATIC_INSPECTION_ONLY"
+      }
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteFrontTest",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteFrontTest.lean",
+      "sha256": "69650d355a622d0bc6bd2174f5590f711cf8fd72fa3d55e882942204daee2bd3",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalFront",
+        "Mathlib.Analysis.Calculus.BumpFunction.InnerProduct"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteFrontTest.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowCrossIdentity",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteWindowCrossIdentity.lean",
+      "sha256": "025f81b30f94d04c5c50ce87b59a024ad398d8a7cce5a1e7a8de5397f9eb1e15",
+      "imports": [
+        "SingularClosure.CriticalWeakMomentum"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/_vendor/SingularClosure/CriticalWeakMomentum.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteWindowCrossIdentity.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowRelativeEnergy",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteWindowRelativeEnergy.lean",
+      "sha256": "9906888323bc4650dbcf50804add46b0b74ce6f1bf5c37d7f7b55188d66aaf79",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FiniteWindowCrossIdentity",
+        "SingularClosure.CriticalRelativeEnergyTransport"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/_vendor/SingularClosure/CriticalRelativeEnergyTransport.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteWindowRelativeEnergy.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowSerrinComparison",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean",
+      "sha256": "03f1f899b1a86754d9b45b62239b04c0c01430e79caf5f90f280c0ddbd278def",
+      "imports": [
+        "SingularClosure.CriticalSerrinUniqueness",
+        "MethbokeAddon.WeakFouriermanB.FiniteWindowRelativeEnergy"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteWindowSerrinComparison.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalFrontIdentification",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalFrontIdentification.lean",
+      "sha256": "3260aa4b52bb63373c5d26056a5418ddaced5664f833a5832b54e1473689672d",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.SmoothDatum",
+        "MethbokeAddon.WeakFouriermanB.FiniteFrontTest",
+        "MethbokeAddon.WeakFouriermanB.FiniteWindowSerrinComparison"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed assembly, time-clamp, and representative-trace source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/LocalFrontIdentification.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.CompactCylinderSerrin",
+      "path": "MethbokeAddon/WeakFouriermanB/CompactCylinderSerrin.lean",
+      "sha256": "094b32240c88fe34346493aa5fbd5c57ac3a4a072e585649aaeba02b8a4b796f",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalFront",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/CompactCylinderSerrin.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PressureUniqueness",
+      "path": "MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean",
+      "sha256": "3e8b74990fbc957535b603c3ea9fd09f0bec90e43a970fb07cacbd3b683a76ad",
+      "imports": [
+        "SingularClosure.PeriodicSobolev",
+        "SingularClosure.CoordinateAverageOrthogonal",
+        "SingularClosure.CriticalInitialPhysicalFourier",
+        "SingularClosure.PeriodicFourierInjective",
+        "Mathlib.Analysis.Calculus.MeanValue",
+        "Mathlib.Analysis.Calculus.Deriv.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/SingularClosure/PeriodicFourierInjective.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/PressureUniqueness.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteCapGluing",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean",
+      "sha256": "6d2d752db24df2ee305f5cbec7e780406d03fbf28592c58d7bc6ea8759f9efa6",
+      "imports": [
+        "QuasiFeffermanB.RootContract",
+        "Mathlib.Analysis.Calculus.Deriv.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/RootContract.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteCapGluing.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteCapOverlap",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean",
+      "sha256": "99242d31b5e7a8e4f87f0a8f33b964b0fea359faf242a6fc95b710fb99f9ff71",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FiniteCapGluing",
+        "MethbokeAddon.WeakFouriermanB.PressureUniqueness"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/RootContract.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteCapOverlap.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+      "path": "MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean",
+      "sha256": "c00a4276811fabfdaf3aa9bbc1e4fa75091aee724847917444c8c01bca3c6895",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FiniteCapGluing",
+        "MethbokeAddon.WeakFouriermanB.CompactCylinderSerrin",
+        "MethbokeAddon.WeakFouriermanB.LocalFrontIdentification",
+        "Mathlib.Topology.Instances.ENNReal.Lemmas"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalFrontIdentification.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/InitialFrontAdmission.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteCapAdmission",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean",
+      "sha256": "7689580bb6d1b564716d5919e7763f185f2bd2f21a339927caa0fe8e4f9be125",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "MethbokeAddon.WeakFouriermanB.FiniteCapOverlap",
+        "QuasiFeffermanB.Cutoff",
+        "QuasiFeffermanB.TailChain"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/TailChain.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/FiniteCapAdmission.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.AnalyticCapAdmission",
+      "path": "MethbokeAddon/WeakFouriermanB/AnalyticCapAdmission.lean",
+      "sha256": "7c51d331ac87b4965334f287bea39a8a0c0929a0d75885d1e42d68ce55ddd1cc",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FiniteCapAdmission",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/RootContract.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/AnalyticCapAdmission.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.AnalyticTwoSidedCap",
+      "path": "MethbokeAddon/WeakFouriermanB/AnalyticTwoSidedCap.lean",
+      "sha256": "9c3be89b4da64232ababa9a34f5c628738670ca1bd631854f7eca1930ab73bb8",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.AnalyticCapAdmission",
+        "Mathlib.Analysis.Calculus.Deriv.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/RootContract.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/AnalyticTwoSidedCap.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.R0DataAdmission",
+      "path": "MethbokeAddon/WeakFouriermanB/R0DataAdmission.lean",
+      "sha256": "64b2524679a9ece802d3812dc35fa20e5c6389c7ed2bcab62c227abc9e635eb4",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.AnalyticTwoSidedCap"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/Cutoff.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies an existing derivation basis, not a byte-identical copy or historical location of this newly developed source. The current sha256 binds the complete new owned proof source.",
+      "candidate_path": "PREPRINT_FORMALISATION/WeakFouriermanB/next/R0DataAdmission.lean",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalCubicBarrier.lean",
+      "sha256": "9f4a30434f94180fe5505ee88b101d6c2d616ce7b477fa73363cd731da3387c8",
+      "imports": [
+        "SingularClosure.CubicBudget",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/CubicBudget.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinBounds",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalGalerkinBounds.lean",
+      "sha256": "b7337e3eb59d2909933932f66b38d0917d7d112ef7b791c4b02e8a2a2000721c",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier",
+        "SingularClosure.StrongAccumulation",
+        "SingularClosure.SobolevTrajectoryCalculus"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/EnstrophyAbsorption.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinRegularity",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalGalerkinRegularity.lean",
+      "sha256": "911b65c970740c8dce632e0471f4f795ef99feb60f2c9536e99c36a74053f36b",
+      "imports": [
+        "SingularClosure.HighOrderAccumulation",
+        "SingularClosure.HighOrderTimeModulus"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/HighOrderAccumulation.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalGalerkinCompactness.lean",
+      "sha256": "a1bd1f5d41e15c0263c1e92ec293f5edba3abf13cc5f421e84afc894df2598a9",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinRegularity",
+        "SingularClosure.SobolevArzelaAscoli"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/SobolevArzelaAscoli.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalClassicalUniqueness.lean",
+      "sha256": "1fb0136ec5d736645de81e77984a08e5ae221d5e8418d2a5813bc96f84b0cbed",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "MethbokeAddon.WeakFouriermanB.PressureUniqueness"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalTimeTranslation",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalTimeTranslation.lean",
+      "sha256": "72fa89e7d8b1fe74e6baaff71056fefa7ea62b5de4b85d5c8b130c22964f1309",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FiniteCapGluing",
+        "MethbokeAddon.WeakFouriermanB.LocalFront"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/QuasiFeffermanB/TailRegularity.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
+      "path": "MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean",
+      "sha256": "128457902664720a24fae52f386d6f5247438051c15a4c31270bc933c0f12102",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.HomogeneousBudget",
+        "SingularClosure.PeriodicFourierInjective",
+        "SingularClosure.EnstrophyAbsorption"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/EnstrophyAbsorption.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalSobolevCalculus",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalSobolevCalculus.lean",
+      "sha256": "c9d3d05f59dcc2104c648f705ff5544188339848d6f6371ce8060f0ade2256c6",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.FiniteCapGluing",
+        "SingularClosure.SobolevCoefficientCalculus",
+        "SingularClosure.SobolevScaleTimeSmooth",
+        "SingularClosure.SobolevSpacetimeSmooth",
+        "SingularClosure.SobolevPressure",
+        "SingularClosure.PhysicalNSEIdentity",
+        "SingularClosure.PeriodicFourierInjective",
+        "Mathlib.Analysis.Calculus.TangentCone.Real"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/SobolevScaleTimeSmooth.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalGalerkinLimit.lean",
+      "sha256": "ed763a8a55c3da26afb3c4df1d5b23fe8d5f716e13353620db1329829740b10c",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinCompactness",
+        "MethbokeAddon.WeakFouriermanB.LocalSobolevCalculus",
+        "SingularClosure.CriticalPositiveLimit",
+        "SingularClosure.SobolevLimitInitial"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/CriticalPositiveLimit.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalExistence",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalExistence.lean",
+      "sha256": "2f467e6f01c4b726f1531e4826e593e639ba755d19729d89a0865a001b2fcba5",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinBounds",
+        "MethbokeAddon.WeakFouriermanB.LocalGalerkinLimit"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/GalerkinExistence.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront",
+      "path": "MethbokeAddon/WeakFouriermanB/MaximalClassicalFront.lean",
+      "sha256": "b551ff5eb4be4f1dede609d75108209a8354cff890ec6840b4a9f7ce25af83e6",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction",
+      "path": "MethbokeAddon/WeakFouriermanB/MaximalFrontRestriction.lean",
+      "sha256": "d2cfe83160308945bab22fa786de7d1d65723f1c93ed41bba835e6ecd4d75107",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteFrontGluing.lean",
+      "sha256": "fad248149e2f1523ed19a4b0a24d613884d8318d934e5ab7ba795d0424a21f3b",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalClassicalUniqueness",
+        "MethbokeAddon.WeakFouriermanB.LocalTimeTranslation"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+      "path": "MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean",
+      "sha256": "46df260b6b5ea904cb2bf9de20e144d6860cba41c9f033de679ed9672fbda866",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.TangentCone.Prod",
+        "Mathlib.Analysis.Calculus.TangentCone.Real"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/LocalFront.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.StrongContinuation",
+      "path": "MethbokeAddon/WeakFouriermanB/StrongContinuation.lean",
+      "sha256": "e97dc5eee5ce076095d0827d6e15a6dac2ffca55723f0ebfd381feb643ba927e",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront",
+        "MethbokeAddon.WeakFouriermanB.LocalExistence",
+        "MethbokeAddon.WeakFouriermanB.FiniteFrontGluing"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+      "path": "MethbokeAddon/WeakFouriermanB/PhysicalBudgetContinuation.lean",
+      "sha256": "19889a3e0b3d9f6134b2f9aeec56dd77a3c06aef6e4b1df61058df02a80ac545",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+        "MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction",
+        "SingularClosure.CubicBudget",
+        "SingularClosure.UniformStrongBounds"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/CubicBudget.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation",
+      "path": "MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean",
+      "sha256": "f54e0a5ad204df982b4202dffa56eb630ecbac50da40696d7327528a4de4b778",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+        "MethbokeAddon.WeakFouriermanB.StrongContinuation"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.StrictCutoff",
+      "path": "MethbokeAddon/WeakFouriermanB/StrictCutoff.lean",
+      "sha256": "4b3703e15f3061710cf19df3962d81d349fb4b628998fff382e427dd80115c0d",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+        "MethbokeAddon.WeakFouriermanB.StrongContinuation"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/QuasiFeffermanB/Cutoff.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.WFBRootAssembly",
+      "path": "MethbokeAddon/WeakFouriermanB/WFBRootAssembly.lean",
+      "sha256": "e6c9521124e1c542679f4eaff77c708886ae0fb9f3f11a7eeee35faffaad82ec",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront",
+        "MethbokeAddon.WeakFouriermanB.FiniteCapAdmission"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.WeakFouriermanB",
+      "path": "MethbokeAddon/WeakFouriermanB/WeakFouriermanB.lean",
+      "sha256": "db2f156df5ca1e08e73d2b332274d56d3d642335eea67a70cb7edd8d2ffe22fb",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.LocalExistence",
+        "MethbokeAddon.WeakFouriermanB.StrictCutoff",
+        "MethbokeAddon.WeakFouriermanB.WFBRootAssembly"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification",
+      "path": "MethbokeAddon/WeakFouriermanB/MaximalLerayHopfIdentification.lean",
+      "sha256": "77307f5f91fac1859c6d89020622823b2887f90f227ddda1f8f3dd0a9e9c67c5",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.MaximalClassicalFront"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.MaximalTailGluing",
+      "path": "MethbokeAddon/WeakFouriermanB/MaximalTailGluing.lean",
+      "sha256": "06291f6f1eb26eee810aa51d9ba55057b3467b43d88f0ff1a430b0329c85d62b",
+      "imports": [
+        "MethbokeAddon.WeakFouriermanB.MaximalLerayHopfIdentification",
+        "MethbokeAddon.WeakFouriermanB.FiniteCapOverlap",
+        "QuasiFeffermanB.Cutoff",
+        "QuasiFeffermanB.TailChain"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    }
+  ]
+}

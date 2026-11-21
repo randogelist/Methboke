@@ -1,0 +1,124 @@
+NSE-A ACTUAL PHYSICAL H1 SECTORS AND GRADIENT CHARGES
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION followed by prepared native source
+Scope: G05 / physical-H1 and charge portions of P05--P06
+Basis: accepted source 3dec32be2868f4a798e442d3516fb810d97db737;
+       documentation HEAD 612832f; pinned Mathlib db584cd6.
+Project goal and branch local target: unchanged.
+Local Lean, Lake, kernel audits and runners: NONE.
+
+0. DEPENDENCIES AND EXACT SCOPE
+
+The native PhysicalH1 carrier is the closed graph of the actual compact-test
+weak-gradient relation inside the Hilbert sum of four real vector-valued L2
+spaces: one velocity and its three first partial derivatives. Its norm is
+the exact inhomogeneous H1 norm. The accepted two-way Fourier theorem applies
+to each supplied pair of real L2 fields and requires no H2 witness.
+
+The new upstream RealSectorMultipliers source constructs actual real L2
+operators Q_i from the even Borel sectors, proves preservation of the real
+Fourier range, and supplies the identity
+
+  c(Q_i v) = F^(-1) [1_(C_i) F(cv)].                  (0.1)
+
+The present native source consumes that construction, not an assumed family
+of projection maps or an assumed gradient-preservation theorem. Upstream
+source preparation is pending matching external verification; this document
+does not classify any newly prepared source as A-tier.
+
+1. CONSTRUCT THE WEAK GRADIENT
+
+Let v be a real L2 velocity and G_j its supplied actual weak derivatives.
+The accepted forward theorem gives, simultaneously for the three indices,
+
+  F(cG_j)(xi) = (2*pi*i*xi_j) F(cv)(xi) a.e.
+
+Multiplication by the sector indicator commutes with the scalar multiplier
+2*pi*i*xi_j. Equation (0.1) therefore gives
+
+  F(c(Q_i G_j))(xi) = (2*pi*i*xi_j) F(c(Q_i v))(xi) a.e.
+
+The accepted converse for the supplied real L2 pair identifies Q_i G_j as
+the actual compact-test weak derivative of Q_i v. The native graph
+constructor then defines Q_i^H u from velocity Q_i v and gradients Q_i G_j.
+The gradient field is constructed explicitly; no weighted-integrability
+existence theorem, derivative conclusion, or H2 hypothesis is introduced.
+
+2. ACTUAL H1 PROJECTION ALGEBRA
+
+The velocity map from the physical graph is injective by uniqueness of
+compact-test weak gradients. Real L2 additivity, homogeneity, idempotence,
+mutual annihilation and reconstruction consequently transfer to Q_i^H.
+
+Norm contraction follows component by component from
+
+  ||Q_i^H u||_H1^2
+    = ||Q_i v||_2^2 + sum_j ||Q_i G_j||_2^2
+    <= ||v||_2^2 + sum_j ||G_j||_2^2 = ||u||_H1^2.
+
+This packages Q_i^H as an actual bounded real-linear map on PhysicalH1.
+The inherited Hilbert inner product is the velocity L2 inner product plus
+the three gradient L2 inner products. Upstream L2 self-adjointness and
+orthogonality therefore give both properties on PhysicalH1. Interchanging
+the two finite sums in the componentwise L2 norm decompositions proves
+
+  sum_i ||Q_i^H u||_H1^2 = ||u||_H1^2,
+  sum_i ||grad(Q_i^H u)||_2^2 = ||grad u||_2^2.
+
+3. CONSTRUCTED PHYSICAL CHARGES AND EXACT FOURIER NORMALIZATION
+
+Define q_i(u) = physicalH1Enstrophy(Q_i^H u). Thus
+
+  q_i(u) = sum_j ||Q_i G_j||_2^2 >= 0,
+  sum_i q_i(u) = physicalH1Enstrophy(u).
+
+Every q_i is continuous on the actual PhysicalH1 carrier: Q_i^H is a
+continuous linear map and physical enstrophy is the finite sum of squared
+norms of the three continuous linear gradient maps. A path continuous on
+its existing time set therefore has continuous charges on that same set.
+No endpoint extension is asserted.
+
+The separate H1Spectral construction proves genuine weighted Fourier
+integrability from the supplied first derivatives. Applying it to Q_i^H u,
+then using (0.1) and the a.e. indicator identity, gives the literal sector
+formula with the physical normalization retained:
+
+  q_i(u) = 4*pi^2 * integral_(C_i) |xi|^2 |F(cv)(xi)|^2 dxi.
+
+This integral exists genuinely because the full weighted density is
+integrable. No totalized integral or unproved spectral norm identity is
+substituted for the physical charge.
+
+4. FULL TIME-BUDGET CONSEQUENCES
+
+For any path U on any full stopped open window (0,b), the constructed
+nonnegative charges and their pointwise sum identity instantiate the
+accepted six-charge budget inequalities:
+
+  integral sum_i q_i(U(t))^2
+    <= integral physicalH1Enstrophy(U(t))^2
+    <= 6 * integral sum_i q_i(U(t))^2.
+
+All three integrals are ENNReal lower integrals and retain infinite values.
+Finiteness of the two full budgets is equivalent. Continuity of U on (0,b)
+supplies measurability there and the exact finite sum of six individual
+full budgets. These conclusions do not claim budget finiteness for every
+trajectory or continuity through a possible finite maximal endpoint.
+
+5. REMAINING NATIVE BOUNDARY
+
+The carrier here is full PhysicalH1. Restriction to PhysicalH1Sigma still
+requires the native compact-test divergence criterion and its compatibility
+with the scalar sector multiplier. The mathematical trace argument is
+recorded in REAL_H1_SECTOR_LIFT_CHAIN.txt section 4, but no such native
+criterion or solenoidal-preservation conclusion is assumed by this source.
+The solenoidal subedge and parent G05 remain open until actually constructed
+and accepted. Physical NSE evolution, local/maximal existence, sharp spatial
+constants, continuation and universal budget finiteness are outside this
+scoped construction.
+
+ENDPOINT STATUS
+  PHYSICAL_H1_SECTOR_CHAIN: DERIVED from actual upstream constructions.
+  NATIVE_PHYSICAL_H1_SECTORS: PREPARING_PENDING_MATCHING_EXTERNAL_CI.
+  SOLENOIDAL_RESTRICTION: EXPLICIT_NATIVE_OBLIGATION.
+  G05_PARENT_CLOSURE: OPEN.

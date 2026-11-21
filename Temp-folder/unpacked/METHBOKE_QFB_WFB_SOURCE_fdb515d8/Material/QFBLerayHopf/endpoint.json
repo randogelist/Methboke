@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "id": "QFBLerayHopf",
+  "endpoint_module": "QFBLerayHopf.Endpoint",
+  "audit_module": "QFBLerayHopf.Audit",
+  "imports": [
+    "QuasiFeffermanB.Endpoints.LerayHopfExistence"
+  ],
+  "source_roots": [
+    {
+      "module": "QuasiFeffermanB.Endpoints.LerayHopfExistence",
+      "path": "_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "Quasi-Fefferman-B/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean",
+        "module": "QuasiFeffermanB.Endpoints.LerayHopfExistence"
+      },
+      "scope": "nu>0 and EnergySigmaZero a; actual CriticalLerayHopf witness."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Actual Leray-Hopf existence for physical L2 solenoidal mean-zero input and positive viscosity.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

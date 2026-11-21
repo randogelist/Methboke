@@ -1,0 +1,24 @@
+/-- Poincare converts the derived enstrophy bound into a uniform bound for
+the actual inhomogeneous physical H1 square, including the initial time.
+-/
+theorem initial_front_uniform_H1_of_dissipation_square
+    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (hν : 0 < ν) (hT : 0 < T) (H : InitialClassicalFront ν T a u p)
+    (hD : Integrable (fun t => physicalDissipation (u t) ^ 2)
+      (volume.restrict (Ioo (0 : ℝ) T))) :
+    ∃ R : ℝ, 0 ≤ R ∧ ∀ t ∈ Ico (0 : ℝ) T, physicalH1Square (u t) ≤ R := by
+  obtain ⟨B, hB, hb⟩ := initial_front_enstrophy_accumulation_of_dissipation_square
+    ν T a u p hν hT H hD
+  refine ⟨2 * B, by positivity, ?_⟩
+  intro t ht
+  have hZ : 0 ≤ ∫ s in (0 : ℝ)..t, physicalLaplacianSquare (u s) :=
+    intervalIntegral.integral_nonneg_of_forall ht.1
+      (fun s => physicalLaplacianSquare_nonneg (u s))
+  have hD : physicalDissipation (u t) ≤ B := by
+    have hνZ := mul_nonneg hν.le hZ
+    linarith [hb t ht]
+  have hs := initial_front_smooth_slices ν T a u p H t ht
+  have hE := smooth_periodic_meanZero_energy_le_dissipation
+    (u t) hs.smooth hs.periodic hs.mean_zero
+  unfold physicalH1Square
+  linarith

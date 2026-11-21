@@ -1,0 +1,106 @@
+import FrontierPhysicalReality
+import FrontierSpectralDomain
+import FrontierRealVelocityNorm
+
+/-!
+Candidate construction of real L² helical projectors from the existing
+complex Fourier projectors. This is an L² realization of the project-defined
+operators; it does not identify the Stokes operator or a Leray--Hopf solution.
+No Lean execution was performed locally.
+-/
+noncomputable section
+open MeasureTheory Filter
+open FrontierRealVelocityEmbedding
+
+namespace FrontierRealHelicalOperators
+
+local instance : Fact (1 ≤ (2 : ENNReal)) := ⟨by norm_num⟩
+
+/-- Coordinatewise real part, as a real-linear fiber map. -/
+def fiberRealify : ComplexFiber →ₗ[ℝ] RealFiber where
+  toFun v := WithLp.toLp 2 (fun j => (v j).re)
+  map_add' v w := by ext j; simp
+  map_smul' c v := by ext j; simp
+
+def fiberRealifyCLM : ComplexFiber →L[ℝ] RealFiber :=
+  fiberRealify.toContinuousLinearMap
+
+theorem fiberRealify_apply (v : ComplexFiber) (j : Fin 3) :
+    fiberRealifyCLM v j = (v j).re := by rfl
+
+/-- Coordinatewise real-part map on physical L². -/
+def realifyL2 : Field →L[ℝ] RealField :=
+  ContinuousLinearMap.compLpL 2 (volume : Measure Space) fiberRealifyCLM
+
+theorem realifyL2_ae (u : Field) :
+    (realifyL2 u : Space → RealFiber) =ᵐ[volume]
+      fun x => fiberRealifyCLM ((u : Space → ComplexFiber) x) := by
+  exact ContinuousLinearMap.coeFn_compLpL fiberRealifyCLM u
+
+theorem realify_complexify (u : RealField) :
+    realifyL2 (complexifyL2 u) = u := by
+  apply Lp.ext
+  filter_upwards [realifyL2_ae (complexifyL2 u), complexifyL2_ae u] with x hr hc
+  rw [hr, hc]
+  ext j
+  rfl
+
+theorem complexify_realify_of_real (u : Field)
+    (hu : FrontierPhysicalReality.RealAE u) :
+    complexifyL2 (realifyL2 u) = u := by
+  apply Lp.ext
+  filter_upwards [complexifyL2_ae (realifyL2 u), realifyL2_ae u, hu] with x hc hr hu
+  rw [hc, hr]
+  ext j
+  change (((u : Space → ComplexFiber) x j).re : ℂ) = (u : Space → ComplexFiber) x j
+  exact Complex.conj_eq_iff_re.mp (hu j)
+
+theorem complexify_injective : Function.Injective complexifyL2 := by
+  intro u v h
+  have h' := congrArg realifyL2 h
+  simpa only [realify_complexify] using h'
+
+/-- Real L² helical projectors built from the project-defined Fourier maps. -/
+def plusReal : RealField →L[ℝ] RealField :=
+  realifyL2.comp (FrontierPhysicalProjectors.plusProjector.comp complexifyL2)
+
+def minusReal : RealField →L[ℝ] RealField :=
+  realifyL2.comp (FrontierPhysicalProjectors.minusProjector.comp complexifyL2)
+
+theorem complexify_plusReal (u : RealField) :
+    complexifyL2 (plusReal u) = FrontierPhysicalProjectors.plusProjector (complexifyL2 u) := by
+  change complexifyL2 (realifyL2
+    (FrontierPhysicalProjectors.plusProjector (complexifyL2 u))) = _
+  apply complexify_realify_of_real
+  rw [FrontierPhysicalProjectors.plus_matches_pullback]
+  exact FrontierPhysicalReality.plus_real_of_real_velocity u
+
+theorem complexify_minusReal (u : RealField) :
+    complexifyL2 (minusReal u) = FrontierPhysicalProjectors.minusProjector (complexifyL2 u) := by
+  change complexifyL2 (realifyL2
+    (FrontierPhysicalProjectors.minusProjector (complexifyL2 u))) = _
+  apply complexify_realify_of_real
+  rw [FrontierPhysicalProjectors.minus_matches_pullback]
+  exact FrontierPhysicalReality.minus_real_of_real_velocity u
+
+theorem plusReal_idempotent (u : RealField) : plusReal (plusReal u) = plusReal u := by
+  apply complexify_injective
+  simp only [complexify_plusReal, FrontierPhysicalProjectors.plus_matches_pullback]
+  exact FrontierACoordinateEquiv.plus_idempotent (complexifyL2 u)
+
+theorem minusReal_idempotent (u : RealField) : minusReal (minusReal u) = minusReal u := by
+  apply complexify_injective
+  simp only [complexify_minusReal, FrontierPhysicalProjectors.minus_matches_pullback]
+  exact FrontierACoordinateEquiv.minus_idempotent (complexifyL2 u)
+
+end FrontierRealHelicalOperators
+
+#print axioms FrontierRealHelicalOperators.fiberRealify_apply
+#print axioms FrontierRealHelicalOperators.realifyL2_ae
+#print axioms FrontierRealHelicalOperators.realify_complexify
+#print axioms FrontierRealHelicalOperators.complexify_realify_of_real
+#print axioms FrontierRealHelicalOperators.complexify_injective
+#print axioms FrontierRealHelicalOperators.complexify_plusReal
+#print axioms FrontierRealHelicalOperators.complexify_minusReal
+#print axioms FrontierRealHelicalOperators.plusReal_idempotent
+#print axioms FrontierRealHelicalOperators.minusReal_idempotent

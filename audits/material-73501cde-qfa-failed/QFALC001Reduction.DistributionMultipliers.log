@@ -1,0 +1,34 @@
+_vendor/QFALC001Reduction/DistributionMultipliers.lean:44:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ⇑((SchwartzMap.smulLeftCLM ℂ m) test)
+in the target expression
+  (Lp.toTemperedDistribution q) test =
+    (c • (TemperedDistribution.smulLeftCLM ComplexVector fun x => ↑(m x)) (Lp.toTemperedDistribution h)) test
+
+case h
+q h : ↥ComplexL2
+c : ℂ
+m : Space → ℝ
+hm_cont : Continuous m
+hm_temp : Function.HasTemperateGrowth m
+hEq :
+  Lp.toTemperedDistribution q =
+    c • (TemperedDistribution.smulLeftCLM ComplexVector fun x => ↑(m x)) (Lp.toTemperedDistribution h)
+g : Space → ℝ
+hg : ContDiff ℝ ∞ g
+g_cpt : HasCompactSupport g
+hg₁ : HasCompactSupport (⇑Complex.ofRealCLM ∘ g)
+hg₂ : ContDiff ℝ ∞ (⇑Complex.ofRealCLM ∘ g)
+test : 𝓢(Space, ℂ) := hg₁.toSchwartzMap hg₂
+hEval :
+  (Lp.toTemperedDistribution q) test =
+    (c • (TemperedDistribution.smulLeftCLM ComplexVector fun x => ↑(m x)) (Lp.toTemperedDistribution h)) test
+⊢ ∫ (x : Space), g x • ↑↑q x = ∫ (x : Space), g x • (c * ↑(m x)) • ↑↑h x
+_vendor/QFALC001Reduction/DistributionMultipliers.lean:139:6: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+_vendor/QFALC001Reduction/DistributionMultipliers.lean:165:54: error: unexpected token 'set_option'; expected 'lemma'
+_vendor/QFALC001Reduction/DistributionMultipliers.lean:174:2: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (800000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

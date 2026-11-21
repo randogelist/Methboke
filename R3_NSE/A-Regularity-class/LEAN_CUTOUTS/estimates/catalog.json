@@ -1,0 +1,1114 @@
+{
+  "schema_version": 1,
+  "collection_id": "NSE_A_ESTIMATES_SOURCE_CUTOUTS",
+  "status": "SOURCE_COLLECTION_AND_STATIC_ASSESSMENT_ONLY",
+  "repository_base_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+  "plan_reference": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+  "path_base": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS",
+  "scope": [
+    "P09",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17"
+  ],
+  "local_execution": "NO_LEAN_NO_LAKE_NO_KERNEL_AUDIT_NO_RUNNER_NO_CI",
+  "counts": {
+    "sources": 13,
+    "cutouts": 16,
+    "evidence_kinds": {
+      "PINNED_MATHLIB_SOURCE_ONLY": 2,
+      "NAMED_AUDIT_ACCEPTED_SCOPED": 9,
+      "COMPILED_MODULE_ONLY_NOT_NAMED_AUDIT_ROOT": 1,
+      "SOURCE_ONLY_DIFFERENT_PINS": 4
+    }
+  },
+  "sources": [
+    {
+      "id": "ESS01",
+      "repository": "leanprover-community/mathlib4",
+      "exact_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+      "local_path": "estimates/sources/ESS01_SobolevInequality.lean.txt",
+      "sha256": "92fdfde57cd12911eae13dcb035f1a045cbe5dba5f091459d74cad9147d327f4",
+      "size_bytes": 38739,
+      "line_count": 716,
+      "original_imports": [
+        "Mathlib.Analysis.Calculus.Deriv.Pi",
+        "Mathlib.Analysis.InnerProductSpace.EuclideanDist",
+        "Mathlib.Analysis.InnerProductSpace.NormPow",
+        "Mathlib.Data.Finset.Interval",
+        "Mathlib.MeasureTheory.Integral.IntegralEqImproper"
+      ],
+      "consumer_import": "Mathlib.Analysis.FunctionalSpaces.SobolevInequality",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/FunctionalSpaces/SobolevInequality.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "mathlib"
+    },
+    {
+      "id": "ESS02",
+      "repository": "leanprover-community/mathlib4",
+      "exact_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "original_path": "Mathlib/MeasureTheory/Integral/IntervalIntegral/AbsolutelyContinuousFun.lean",
+      "local_path": "estimates/sources/ESS02_AbsolutelyContinuousFun.lean.txt",
+      "sha256": "65f3d7028d8d7c1b36830a2a0a3002acbd4cc59deac2aaba986a6e3e3db5a630",
+      "size_bytes": 14777,
+      "line_count": 265,
+      "original_imports": [
+        "Mathlib.Algebra.BigOperators.Group.Finset.Gaps",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.DerivIntegrable",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm"
+      ],
+      "consumer_import": "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/MeasureTheory/Integral/IntervalIntegral/AbsolutelyContinuousFun.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "mathlib"
+    },
+    {
+      "id": "ESS03",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "local_path": "estimates/sources/ESS03_RelativeEnergy.lean.txt",
+      "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+      "size_bytes": 10609,
+      "line_count": 226,
+      "original_imports": [
+        "Mathlib"
+      ],
+      "consumer_import": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+      "vendor_origin": {
+        "upstream_repository": "randogelist/Methlib",
+        "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+        "git_blob_sha": "ac959dee369897576b57f27556302b38079cec8f",
+        "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285"
+      }
+    },
+    {
+      "id": "ESS04",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "local_path": "estimates/sources/ESS04_ProductBudget.lean.txt",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+      "size_bytes": 11142,
+      "line_count": 235,
+      "original_imports": [
+        "Mathlib"
+      ],
+      "consumer_import": "QFA.Endpoints.Energy.ProductBudget",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+      "vendor_origin": {
+        "upstream_repository": "randogelist/Methlib",
+        "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean",
+        "git_blob_sha": "0e82e8aacacc920ee36c963bbbc9a5d879d34950",
+        "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183"
+      }
+    },
+    {
+      "id": "ESS05",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/MethbokeAddon/QuasiFeffermanA/Cutoff.lean",
+      "local_path": "estimates/sources/ESS05_Cutoff.lean.txt",
+      "sha256": "63f61a3def4ea651d9b9116b6a566ff1b4241eff2bf2f25159699df1b35d6f7a",
+      "size_bytes": 10826,
+      "line_count": 229,
+      "original_imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.MeasureTheory.Measure.Real"
+      ],
+      "consumer_import": "MethbokeAddon.QuasiFeffermanA.Cutoff",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/MethbokeAddon/QuasiFeffermanA/Cutoff.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e"
+    },
+    {
+      "id": "ESS06",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/_vendor/SingularClosure/CubicBudget.lean",
+      "local_path": "estimates/sources/ESS06_CubicBudget.lean.txt",
+      "sha256": "de827ddaa2ce8767891da6ed8e5686504a26d002d55bf2cf097fad0a6adad003",
+      "size_bytes": 8369,
+      "line_count": 189,
+      "original_imports": [
+        "Mathlib"
+      ],
+      "consumer_import": "SingularClosure.CubicBudget",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/_vendor/SingularClosure/CubicBudget.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+      "vendor_origin": {
+        "upstream_repository": "randogelist/Methlib",
+        "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CubicBudget.lean",
+        "git_blob_sha": "7cc2dd0e9976dd08123b18aab76928f3fcbbe4d5",
+        "sha256": "de827ddaa2ce8767891da6ed8e5686504a26d002d55bf2cf097fad0a6adad003"
+      }
+    },
+    {
+      "id": "ESS07",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean",
+      "local_path": "estimates/sources/ESS07_PhysicalEnstrophyEvolution.lean.txt",
+      "sha256": "46df260b6b5ea904cb2bf9de20e144d6860cba41c9f033de679ed9672fbda866",
+      "size_bytes": 18898,
+      "line_count": 356,
+      "original_imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalNonlinear",
+        "MethbokeAddon.WeakFouriermanB.InitialFrontAdmission",
+        "Mathlib.Analysis.Calculus.FDeriv.Symmetric",
+        "Mathlib.Analysis.Calculus.TangentCone.Prod",
+        "Mathlib.Analysis.Calculus.TangentCone.Real"
+      ],
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e"
+    },
+    {
+      "id": "ESS08",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalBudgetContinuation.lean",
+      "local_path": "estimates/sources/ESS08_PhysicalBudgetContinuation.lean.txt",
+      "sha256": "19889a3e0b3d9f6134b2f9aeec56dd77a3c06aef6e4b1df61058df02a80ac545",
+      "size_bytes": 9301,
+      "line_count": 185,
+      "original_imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+        "MethbokeAddon.WeakFouriermanB.MaximalFrontRestriction",
+        "SingularClosure.CubicBudget",
+        "SingularClosure.UniformStrongBounds"
+      ],
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/MethbokeAddon/WeakFouriermanB/PhysicalBudgetContinuation.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e"
+    },
+    {
+      "id": "ESS09",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean",
+      "local_path": "estimates/sources/ESS09_PhysicalEndpointContinuation.lean.txt",
+      "sha256": "f54e0a5ad204df982b4202dffa56eb630ecbac50da40696d7327528a4de4b778",
+      "size_bytes": 3649,
+      "line_count": 76,
+      "original_imports": [
+        "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+        "MethbokeAddon.WeakFouriermanB.StrongContinuation"
+      ],
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e"
+    },
+    {
+      "id": "ESS10",
+      "repository": "randogelist/Methboke",
+      "exact_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+      "original_path": "Material/_vendor/QFA/Endpoints/Agmon/Scalar.lean",
+      "local_path": "estimates/sources/ESS10_Scalar.lean.txt",
+      "sha256": "bc4f1169867d0cc94fbd8865b0f29a6417ed9f11c94be2900ae3e0fa25d1b3e6",
+      "size_bytes": 9523,
+      "line_count": 216,
+      "original_imports": [
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic"
+      ],
+      "consumer_import": "QFA.Endpoints.Agmon.Scalar",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_url": "https://github.com/randogelist/Methboke/blob/ce7f809ad20b3498a63420a22d17b3c801dfd558/Material/_vendor/QFA/Endpoints/Agmon/Scalar.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "native",
+      "same_bytes_as_accepted_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+      "vendor_origin": {
+        "upstream_repository": "randogelist/Methlib",
+        "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean",
+        "git_blob_sha": "851666c7bf01b6f0e892c7abe299f539a60bc55f",
+        "sha256": "bc4f1169867d0cc94fbd8865b0f29a6417ed9f11c94be2900ae3e0fa25d1b3e6"
+      }
+    },
+    {
+      "id": "ESS11",
+      "repository": "uda-lab/leray-hopf",
+      "exact_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/SobolevEmbedding.lean",
+      "local_path": "estimates/sources/ESS11_SobolevEmbedding.lean.txt",
+      "sha256": "845d4a536c56cbedb9203ac36ab1b068eb5f6bab968da1cc0dbdec552ad3c071",
+      "size_bytes": 82315,
+      "line_count": 1382,
+      "original_imports": [
+        "LerayHopf.R3.Regularity",
+        "LerayHopf.R3.WeightedFourierCommute",
+        "LerayHopf.Analysis.PlancherelKernels",
+        "Mathlib.Analysis.FunctionalSpaces.SobolevInequality",
+        "Mathlib.MeasureTheory.Function.Holder"
+      ],
+      "consumer_import": "LerayHopf.R3.SobolevEmbedding",
+      "toolchain": "leanprover/lean4:v4.31.0-rc2",
+      "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/SobolevEmbedding.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "leray",
+      "evidence_boundary": "Source attained; different Lean/Mathlib pins. No matching native compilation or theorem-level axiom audit asserted."
+    },
+    {
+      "id": "ESS12",
+      "repository": "uda-lab/leray-hopf",
+      "exact_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/EnergyClassConvection.lean",
+      "local_path": "estimates/sources/ESS12_EnergyClassConvection.lean.txt",
+      "sha256": "dc19169f86404ac1363291a5589969c15ba1f17da45c287943d4c4ade77f86fb",
+      "size_bytes": 51902,
+      "line_count": 904,
+      "original_imports": [
+        "LerayHopf.R3.SobolevEmbedding",
+        "LerayHopf.R3.ConvectionOperator",
+        "LerayHopf.Analysis.PlancherelKernels",
+        "LerayHopf.Analysis.RealComplexLpBridge",
+        "LerayHopf.Analysis.SpectralWeakGradient",
+        "LerayHopf.Analysis.LpInterpolation",
+        "LerayHopf.Analysis.WeakLeibniz",
+        "Mathlib.Analysis.Distribution.Sobolev"
+      ],
+      "consumer_import": "LerayHopf.R3.EnergyClassConvection",
+      "toolchain": "leanprover/lean4:v4.31.0-rc2",
+      "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/EnergyClassConvection.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "leray",
+      "evidence_boundary": "Source attained; different Lean/Mathlib pins. No matching native compilation or theorem-level axiom audit asserted."
+    },
+    {
+      "id": "ESS13",
+      "repository": "uda-lab/leray-hopf",
+      "exact_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+      "original_path": "LerayHopf/R3/TrilinearEstimate.lean",
+      "local_path": "estimates/sources/ESS13_TrilinearEstimate.lean.txt",
+      "sha256": "741e6890ce35111dc4fc633c7530195603f9d8ebb9513d4aa9b14a07c6a3ce8b",
+      "size_bytes": 41505,
+      "line_count": 842,
+      "original_imports": [
+        "LerayHopf.R3.DivergenceFree",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ],
+      "consumer_import": "LerayHopf.R3.TrilinearEstimate",
+      "toolchain": "leanprover/lean4:v4.31.0-rc2",
+      "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+      "source_url": "https://github.com/uda-lab/leray-hopf/blob/e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc/LerayHopf/R3/TrilinearEstimate.lean",
+      "copy_policy": "BYTE_FOR_BYTE_FULL_ORIGINAL_MODULE; reference text, not a standalone Lean build",
+      "source_kind": "leray",
+      "evidence_boundary": "Source attained; different Lean/Mathlib pins. No matching native compilation or theorem-level axiom audit asserted."
+    }
+  ],
+  "cutouts": [
+    {
+      "id": "ES01",
+      "source_id": "ESS01",
+      "start_line": 453,
+      "end_line": 582,
+      "declarations": [
+        "MeasureTheory.eLpNormLESNormFDerivOfEqInnerConst",
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner"
+      ],
+      "namespace_context": "namespace MeasureTheory; public section; finite-dimensional real normed domain E, Borel/Haar measure μ; real Hilbert codomain F'; open Set Function Finset MeasureTheory Measure Filter Module; open scoped ENNReal NNReal.",
+      "plan_steps": [
+        "P09"
+      ],
+      "what_it_proves": "A concrete Gagliardo–Nirenberg–Sobolev norm estimate for compactly supported C1 maps, including a real Hilbert codomain; the constant is explicitly defined in the source.",
+      "what_remains": "Specialize dimension 3 and exponents 2,6; identify operator-norm/Frobenius physical gradients; extend to the project's actual H1 carrier. This constant is not the registered sharp S6. It does not prove S6^6=16/(27*pi^4) is admissible.",
+      "cutout_path": "estimates/cutouts/ES01_compact_c1_sobolev.lean.txt",
+      "sha256": "272052ea9cd5a8e521f87dc7e20caf4c3faaa773c5a8d8faa0be8792f7fa1ab7",
+      "size_bytes": 6813,
+      "consumer_import": "Mathlib.Analysis.FunctionalSpaces.SobolevInequality",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_ONLY",
+      "evidence_reference": {
+        "source_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Exact pinned dependency source inspected. No separate named theorem audit is claimed for this cutout."
+      }
+    },
+    {
+      "id": "ES02",
+      "source_id": "ESS02",
+      "start_line": 223,
+      "end_line": 265,
+      "declarations": [
+        "AbsolutelyContinuousOnInterval.integral_deriv_eq_sub",
+        "AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub",
+        "AbsolutelyContinuousOnInterval.integral_mul_deriv_eq_deriv_mul"
+      ],
+      "namespace_context": "Root namespace; public section; open Filter Fin.NatCast Function MeasureTheory Set; open scoped Topology. These three statements are real-valued.",
+      "plan_steps": [
+        "P12",
+        "P13",
+        "P15"
+      ],
+      "what_it_proves": "The fundamental theorem of calculus and product/integration-by-parts formulas for real absolutely continuous functions on the entire unoriented closed interval.",
+      "what_remains": "Prove actual energy/enstrophy absolute continuity on each initial closed slab [0,R], 0<=R<Tmax, and the almost-everywhere physical derivative identities. These lemmas do not themselves differentiate an NSE trajectory.",
+      "cutout_path": "estimates/cutouts/ES02_absolutely_continuous_ftc.lean.txt",
+      "sha256": "edcc1ffbbdb23e1be75b0bcfc819f086886d9a0bf7474b381e54ed739ff96f19",
+      "size_bytes": 2532,
+      "consumer_import": "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "PINNED_MATHLIB_SOURCE_ONLY",
+      "evidence_reference": {
+        "source_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "scope": "Exact pinned dependency source inspected. No separate named theorem audit is claimed for this cutout."
+      }
+    },
+    {
+      "id": "ES03",
+      "source_id": "ESS03",
+      "start_line": 99,
+      "end_line": 146,
+      "declarations": [
+        "QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL"
+      ],
+      "namespace_context": "namespace QFA.Endpoints.Comparison; noncomputable section; open Set MeasureTheory Filter; open scoped Interval Topology. The proof uses private primitive helpers and critical_comparison_differential_gronwall from the full source module.",
+      "plan_steps": [
+        "P13",
+        "P15"
+      ],
+      "what_it_proves": "Variable-coefficient integral Grönwall: if a is continuous and nonnegative, a*e is interval integrable, and e(t)<=delta+integral a*e on a closed interval, then e(t)<=delta*exp(integral a). No differentiability or continuity of e is a hypothesis.",
+      "what_remains": "Derive the physical Volterra inequality from the almost-everywhere cubic inequality using closed-slab AC. With e=Y, a=kappa*Y^2 and delta=Y(0), H1 continuity supplies coefficient continuity/product integrability; the full endpoint square budget supplies a uniform exponent bound. This instantiation is not yet a Lean declaration.",
+      "cutout_path": "estimates/cutouts/ES03_integral_gronwall.lean.txt",
+      "sha256": "b09c0bd9bbfc16d569a1e1001330ea7477664bc47c8714154323008a24f1dad2",
+      "size_bytes": 2418,
+      "consumer_import": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "QFA.Endpoints.Comparison.CRITICAL_RELATIVE_ENERGY_GRONWALL": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES04",
+      "source_id": "ESS04",
+      "start_line": 42,
+      "end_line": 125,
+      "declarations": [
+        "QFA.Energy.envelope_absolutelyContinuousOnInterval",
+        "QFA.Energy.envelope_hasDerivAt_ae",
+        "QFA.Energy.envelope_product_intervalIntegrable",
+        "QFA.Energy.envelope_product_integral"
+      ],
+      "namespace_context": "namespace QFA.Energy; noncomputable section; open Set Filter MeasureTheory; open scoped Topology Interval. The definition envelope and envelope_zero are in the full source module.",
+      "plan_steps": [
+        "P12"
+      ],
+      "what_it_proves": "From interval-integrable D, constructs the AC scalar envelope, derives its a.e. derivative, proves envelope*D integrability and the exact residual-square integral identity.",
+      "what_remains": "Prove that the finite strong-front energy E equals or is bounded by this envelope with D=Y and M=||a||2. The scalar envelope is not a constructed PDE trajectory; no global Leray–Hopf record should be assumed to supply it.",
+      "cutout_path": "estimates/cutouts/ES04_energy_envelope_ac_identity.lean.txt",
+      "sha256": "7ba640ad91ae296eec5926f024e3bdb0f8ff0265b03f4f8133eb042701da6e94",
+      "size_bytes": 4059,
+      "consumer_import": "QFA.Endpoints.Energy.ProductBudget",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "QFA.Energy.envelope_absolutelyContinuousOnInterval": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "QFA.Energy.envelope_hasDerivAt_ae": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "QFA.Energy.envelope_product_intervalIntegrable": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "QFA.Energy.envelope_product_integral": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES05",
+      "source_id": "ESS04",
+      "start_line": 214,
+      "end_line": 233,
+      "declarations": [
+        "QFA.Energy.product_budget_Ioo"
+      ],
+      "namespace_context": "namespace QFA.Energy; noncomputable section; open Set Filter MeasureTheory; open scoped Topology Interval. Uses product_budget proved earlier in the same full module.",
+      "plan_steps": [
+        "P12",
+        "P16"
+      ],
+      "what_it_proves": "Open-interval ED integrability and integral ED<=M^4/(4*nu) from finite-interval scalar dissipation, signs, measurability and energy envelope. No PDE domain or global solution occurs in its type.",
+      "what_remains": "Discharge these premises from an actual R3 strong front existing on [0,R], 0<=R<Tmax. Native global-LH wrappers are stronger inputs and cannot be used to assume globality during this argument.",
+      "cutout_path": "estimates/cutouts/ES05_finite_product_budget.lean.txt",
+      "sha256": "4c2f30751d726b383e16f01e41ae9589ebfe49e871ca9d561ae2c7ae97cca6a6",
+      "size_bytes": 1151,
+      "consumer_import": "QFA.Endpoints.Energy.ProductBudget",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "QFA.Energy.product_budget_Ioo": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES06",
+      "source_id": "ESS05",
+      "start_line": 88,
+      "end_line": 133,
+      "declarations": [
+        "MethbokeAddon.QuasiFeffermanA.safeCutoff_eq_pi_formula_of_sixth_power",
+        "MethbokeAddon.QuasiFeffermanA.exists_good_time_of_product_budget",
+        "MethbokeAddon.QuasiFeffermanA.exists_good_time_of_energy_envelope"
+      ],
+      "namespace_context": "namespace MethbokeAddon.QuasiFeffermanA; noncomputable section; open Set MeasureTheory; open scoped Interval. productThreshold, safeCutoff and positivity/strict-average helpers precede the cut in the full module.",
+      "plan_steps": [
+        "P09",
+        "P16"
+      ],
+      "what_it_proves": "The conditional numerical cutoff rewrite and a strictly interior time at which E*D<nu^4/S^6, retaining any full-measure predicate Good; the envelope variant also derives ED integrability.",
+      "what_remains": "S>0 is only a scalar input; actual sharp Sobolev admissibility is separate. Instantiate Good=True for the actual strong path after strict cutoff crossing; M=0 requires the separate zero-solution branch.",
+      "cutout_path": "estimates/cutouts/ES06_registered_cutoff_and_selector.lean.txt",
+      "sha256": "f7d03539f93c95bb245e1d342e508b809a6ea4324a2199c198077a598619bb32",
+      "size_bytes": 2617,
+      "consumer_import": "MethbokeAddon.QuasiFeffermanA.Cutoff",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "MethbokeAddon.QuasiFeffermanA.safeCutoff_eq_pi_formula_of_sixth_power": {
+            "package": "QFANativeFoundation",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFANativeFoundation-4530441d8e1b405d68c662477b05d4bd780f78a3bf90788b434ccf879aac70d1.log",
+            "audit_sha256": "e9ab048d54aafbb36c0c5a314df88097093831b91fb0f4ca436bc5ead5ae7b4c",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "MethbokeAddon.QuasiFeffermanA.exists_good_time_of_product_budget": {
+            "package": "QFANativeFoundation",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFANativeFoundation-4530441d8e1b405d68c662477b05d4bd780f78a3bf90788b434ccf879aac70d1.log",
+            "audit_sha256": "e9ab048d54aafbb36c0c5a314df88097093831b91fb0f4ca436bc5ead5ae7b4c",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "MethbokeAddon.QuasiFeffermanA.exists_good_time_of_energy_envelope": {
+            "package": "QFANativeFoundation",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFANativeFoundation-4530441d8e1b405d68c662477b05d4bd780f78a3bf90788b434ccf879aac70d1.log",
+            "audit_sha256": "e9ab048d54aafbb36c0c5a314df88097093831b91fb0f4ca436bc5ead5ae7b4c",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES07",
+      "source_id": "ESS06",
+      "start_line": 116,
+      "end_line": 187,
+      "declarations": [
+        "SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET",
+        "SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL"
+      ],
+      "namespace_context": "namespace SingularClosure; noncomputable section; open Set MeasureTheory; open scoped Interval. Both proofs depend on cubic_dissipation_integrating_factor_antitone earlier in the full module.",
+      "plan_steps": [
+        "P13",
+        "P15"
+      ],
+      "what_it_proves": "Under continuous y,z,d on [0,T], a pointwise derivative/cubic inequality on (0,T), and a finite square budget, controls y plus accumulated dissipation by its initial value times exp(kappa*M).",
+      "what_remains": "This is a compiled scalar module with no directly named audit root for these declarations in the inspected run. H1 solutions need not satisfy continuous z,d. Prefer ES02+ES03 after proving the actual AC PDE inequality, or prove every stronger continuity premise; obtain exact named audits before new acceptance claims.",
+      "cutout_path": "estimates/cutouts/ES07_cubic_square_budget_classical.lean.txt",
+      "sha256": "99c9084d229a1ab1434f06260b7dc27c95140d5e62f1213e22bfcc9e37e3a2dd",
+      "size_bytes": 3498,
+      "consumer_import": "SingularClosure.CubicBudget",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "COMPILED_MODULE_ONLY_NOT_NAMED_AUDIT_ROOT",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "module": "SingularClosure.CubicBudget",
+        "module_receipt": {
+          "context_migration": {
+            "adapter": "wfb-owned-sources-v1",
+            "legacy_identity": "364ab75f974b5ca73e1705f7631e77348794ff6273b73e4320fc6a2b3e81d89a"
+          },
+          "identity": "1a5033c7945191945eac597a5f332d956d234c3c1b46e64d2dd8babaa4f900cc",
+          "object_files": {
+            "CubicBudget.olean": "73616ed75f2ce6ccbdfecfbaf3208d10359cbe0437bb0c305961ad58c077c10d"
+          },
+          "olean_sha256": "73616ed75f2ce6ccbdfecfbaf3208d10359cbe0437bb0c305961ad58c077c10d",
+          "reused": true,
+          "status": "PASS"
+        },
+        "named_audit_declarations_found": [],
+        "named_audit_declarations_not_found": [
+          "SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET",
+          "SingularClosure.CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL"
+        ],
+        "scope": "Module receipt is PASS; this is not a directly named acceptance report for the selected declarations."
+      }
+    },
+    {
+      "id": "ES08",
+      "source_id": "ESS07",
+      "start_line": 314,
+      "end_line": 353,
+      "declarations": [
+        "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt",
+        "MethbokeAddon.WeakFouriermanB.INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC",
+        "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_scalar_continuity"
+      ],
+      "namespace_context": "namespace MethbokeAddon.WeakFouriermanB; noncomputable section. Actual InitialClassicalFront, physicalDissipation and pressure periodicity are inherited from this module's periodic dependency chain; see full source for opened namespaces.",
+      "plan_steps": [
+        "P13"
+      ],
+      "what_it_proves": "For an actual periodic classical front, derives the physical enstrophy derivative and cubic differential inequality, and the scalar continuity premises on initial closed subslabs.",
+      "what_remains": "Construct the corresponding whole-space strong-front estimates, integrability, pressure cancellation and AC chain rule. The source uses torus smoothness and an existential constant C, not the registered whole-space sharp constant.",
+      "cutout_path": "estimates/cutouts/ES08_periodic_physical_enstrophy.lean.txt",
+      "sha256": "6da1d9a75cb3a7799323da6e7b3981d203fe3c97841b5981683da93c153c5a75",
+      "size_bytes": 2433,
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalEnstrophyEvolution",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt": {
+            "package": "WFBPhysicalEnstrophyEvolution",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/WFBPhysicalEnstrophyEvolution-59fb81132bb7ae73738c92d8179d61b5f13b5541bbd3b493266090c8c6acc56e.log",
+            "audit_sha256": "4e5af4738fe1bcd5b7751904e69a9df4129224c766adad05a5c86eba7fc0794f",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "MethbokeAddon.WeakFouriermanB.INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC": {
+            "package": "WFBPhysicalEnstrophyEvolution",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/WFBPhysicalEnstrophyEvolution-59fb81132bb7ae73738c92d8179d61b5f13b5541bbd3b493266090c8c6acc56e.log",
+            "audit_sha256": "4e5af4738fe1bcd5b7751904e69a9df4129224c766adad05a5c86eba7fc0794f",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_scalar_continuity": {
+            "package": "WFBPhysicalEnstrophyEvolution",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/WFBPhysicalEnstrophyEvolution-59fb81132bb7ae73738c92d8179d61b5f13b5541bbd3b493266090c8c6acc56e.log",
+            "audit_sha256": "4e5af4738fe1bcd5b7751904e69a9df4129224c766adad05a5c86eba7fc0794f",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES09",
+      "source_id": "ESS08",
+      "start_line": 54,
+      "end_line": 101,
+      "declarations": [
+        "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_accumulation_of_dissipation_square"
+      ],
+      "namespace_context": "namespace MethbokeAddon.WeakFouriermanB; noncomputable section; open Set Filter MeasureTheory SingularClosure; open scoped ContDiff ENNReal Interval Topology.",
+      "plan_steps": [
+        "P15"
+      ],
+      "what_it_proves": "For one actual periodic front, a full open-interval physical enstrophy-square integral produces a uniform enstrophy-plus-dissipation bound on every earlier time, without an endpoint trace.",
+      "what_remains": "Transfer the argument to the actual R3 path with AC/integral Grönwall and the extended full endpoint budget. Finiteness on each shorter interval is insufficient; the common uniform budget is essential.",
+      "cutout_path": "estimates/cutouts/ES09_periodic_full_budget_bound.lean.txt",
+      "sha256": "8bee4fc14d4275f1b21450044c9bfa7601c9a04626e19dcf446f1be0ccabf63d",
+      "size_bytes": 2629,
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_accumulation_of_dissipation_square": {
+            "package": "WFBPhysicalBudgetContinuation",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/WFBPhysicalBudgetContinuation-7c4af930daae5159dd49fb03cae356a6c9c07e26a00f8fa2ca723452ece02000.log",
+            "audit_sha256": "746844f2a6c2e92edee7590e8bf4c6a65cceee14a32a01149adebd6f1df5ef74",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES10",
+      "source_id": "ESS08",
+      "start_line": 116,
+      "end_line": 139,
+      "declarations": [
+        "MethbokeAddon.WeakFouriermanB.initial_front_uniform_H1_of_dissipation_square"
+      ],
+      "namespace_context": "namespace MethbokeAddon.WeakFouriermanB; noncomputable section; open Set Filter MeasureTheory SingularClosure; open scoped ContDiff ENNReal Interval Topology.",
+      "plan_steps": [
+        "P15"
+      ],
+      "what_it_proves": "Converts the derived periodic enstrophy bound into a physical inhomogeneous H1 bound.",
+      "what_remains": "The proof explicitly uses smooth_periodic_meanZero_energy_le_dissipation (Poincare). On R3 replace this with E(t)<=E0 from P12; there is no whole-space spectral gap. This cut is an exact transfer-boundary warning as well as a template.",
+      "cutout_path": "estimates/cutouts/ES10_periodic_h1_bound_poincare_boundary.lean.txt",
+      "sha256": "8f2ae7ee47ad0d9fb3df6ff7a05e348b77edf76cf3d19d9ea27ec4cc10c3b74a",
+      "size_bytes": 1193,
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalBudgetContinuation",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "MethbokeAddon.WeakFouriermanB.initial_front_uniform_H1_of_dissipation_square": {
+            "package": "WFBPhysicalBudgetContinuation",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/WFBPhysicalBudgetContinuation-7c4af930daae5159dd49fb03cae356a6c9c07e26a00f8fa2ca723452ece02000.log",
+            "audit_sha256": "746844f2a6c2e92edee7590e8bf4c6a65cceee14a32a01149adebd6f1df5ef74",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES11",
+      "source_id": "ESS09",
+      "start_line": 26,
+      "end_line": 53,
+      "declarations": [
+        "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square"
+      ],
+      "namespace_context": "namespace MethbokeAddon.WeakFouriermanB; noncomputable section; open Set MeasureTheory SingularClosure; open scoped ENNReal.",
+      "plan_steps": [
+        "P11",
+        "P15",
+        "P17"
+      ],
+      "what_it_proves": "A finite full physical square budget extends the same periodic classical front to a strictly longer time, preserving old velocity and normalized pressure. It restarts before the endpoint using a uniform H1 lifespan.",
+      "what_remains": "Prove the R3 H1 local constructor and uniform lifespan, maximality, overlap uniqueness and the whole-space budget bound. No endpoint trace or Schwartz/compact-support preservation may be assumed at the H1 restart.",
+      "cutout_path": "estimates/cutouts/ES11_periodic_same_front_extension.lean.txt",
+      "sha256": "ed3b805cd4836b7cb4edcfdfe2ebfd573407ce18d833c819a9097f55ab5da378",
+      "size_bytes": 1547,
+      "consumer_import": "MethbokeAddon.WeakFouriermanB.PhysicalEndpointContinuation",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square": {
+            "package": "WFBPhysicalEndpointContinuation",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/WFBPhysicalEndpointContinuation-eca6f07a1472ef0b83e09145926adfd6b0495c1c555be625e84ace0e0ec4b856.log",
+            "audit_sha256": "fdbcb8302f75e8161745ca1db1b40255a3a1e726484f5f89287b14e3e7f2c73c",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES12",
+      "source_id": "ESS10",
+      "start_line": 195,
+      "end_line": 212,
+      "declarations": [
+        "QFA.Endpoints.Agmon.ScalarProfile.enstrophy_absorption",
+        "QFA.Endpoints.Agmon.ScalarProfile.viscosity_margin_pos"
+      ],
+      "namespace_context": "namespace QFA.Endpoints.Agmon; noncomputable section. ScalarProfile and nonlinearCoefficient are defined earlier in the full module.",
+      "plan_steps": [
+        "P13",
+        "P14"
+      ],
+      "what_it_proves": "Pointwise scalar absorption and positivity of the viscosity margin for an explicitly supplied ScalarProfile and scalar enstrophy inequality.",
+      "what_remains": "This historical coefficient uses the threshold E*D<4*pi^2*nu^4, not the registered nu^4/S6^6 threshold. Prove the registered spatial inequality and its scalar specialization separately, then prove temporal invariance/first-exit and actual continuation. This cut does not establish global regularity.",
+      "cutout_path": "estimates/cutouts/ES12_scalar_absorption_scope.lean.txt",
+      "sha256": "2d3eeabc0cd5fbafaf4b8acae0b384c6e348beca31c75102dd6c1ceda4e37f83",
+      "size_bytes": 880,
+      "consumer_import": "QFA.Endpoints.Agmon.Scalar",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "NAMED_AUDIT_ACCEPTED_SCOPED",
+      "evidence_reference": {
+        "repository_relative_archive": "audits/material-afd67db4-qfa-accepted/evidence.zip",
+        "member": "current.json",
+        "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+        "run_id": "44788963412",
+        "declarations": {
+          "QFA.Endpoints.Agmon.ScalarProfile.enstrophy_absorption": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          },
+          "QFA.Endpoints.Agmon.ScalarProfile.viscosity_margin_pos": {
+            "package": "QFARecovered",
+            "status": "PASS",
+            "axioms": [
+              "Classical.choice",
+              "Quot.sound",
+              "propext"
+            ],
+            "audit_log_member": "registry/audits/QFARecovered-2a1079e5012269b247f8c0a3125b995ed15e8e053ff6cda52471343651544703.log",
+            "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98",
+            "audit_origin_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+            "audit_reused": false
+          }
+        },
+        "scope": "Only the literal recorded types; unchanged current source bytes match the tested commit."
+      }
+    },
+    {
+      "id": "ES13",
+      "source_id": "ESS11",
+      "start_line": 823,
+      "end_line": 928,
+      "declarations": [
+        "LerayHopf.gns_L6_of_memH1_R3"
+      ],
+      "namespace_context": "namespace LerayHopf; open MeasureTheory TemperedDistribution SchwartzMap FourierTransform; open scoped Real LineDeriv RealInnerProductSpace FourierTransform. L2C_R3, Domain3, weights and private approximation helpers are supplied by the full module and original imports.",
+      "plan_steps": [
+        "P01",
+        "P09"
+      ],
+      "what_it_proves": "For a complex L2 function whose tempered distribution belongs to MemSobolev 1 2, proves L6 membership through Schwartz approximation, a nonsharp Sobolev estimate and Fatou.",
+      "what_remains": "Different upstream toolchain/Mathlib pins; no matching native compiler/audit evidence. Identify this spectral/Bessel H1 with the native physical weak-gradient H1, recover a quantitative physical norm estimate, and separately prove sharp S6 admissibility. The public conclusion is L6 membership, not the sharp homogeneous inequality.",
+      "cutout_path": "estimates/cutouts/ES13_upstream_h1_l6_membership.lean.txt",
+      "sha256": "b7a0fdeb5a7aec7c1cdd3d4f28575204469f5edc9c0497dca51eecdc4eddfa04",
+      "size_bytes": 6661,
+      "consumer_import": "LerayHopf.R3.SobolevEmbedding",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "SOURCE_ONLY_DIFFERENT_PINS",
+      "evidence_reference": {
+        "source_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "toolchain": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+        "scope": "Attained upstream source only; original header claims are not native compiler or axiom evidence."
+      }
+    },
+    {
+      "id": "ES14",
+      "source_id": "ESS12",
+      "start_line": 181,
+      "end_line": 207,
+      "declarations": [
+        "LerayHopf.convFormH1_integrable"
+      ],
+      "namespace_context": "namespace LerayHopf; open MeasureTheory TemperedDistribution SchwartzMap LineDeriv. The physical meaning of L2VF_R3, memH1VF_R3 and gradComp_of_memH1 is inherited from original imports.",
+      "plan_steps": [
+        "P09",
+        "P12",
+        "P13"
+      ],
+      "what_it_proves": "Absolute integrability of each whole-space convection integrand for three H1 fields using L6-L2-L3 Holder exponents.",
+      "what_remains": "Port compatible dependencies and prove carrier/weak-gradient identifications. This spatial integrability statement does not prove time differentiability, pressure cancellation, the actual NSE energy identity, or the sharp nonlinear enstrophy estimate.",
+      "cutout_path": "estimates/cutouts/ES14_upstream_h1_convection_integrable.lean.txt",
+      "sha256": "46966d3e918bed832224568389248ef261095fdbeee4100201404f7475c92167",
+      "size_bytes": 1462,
+      "consumer_import": "LerayHopf.R3.EnergyClassConvection",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "SOURCE_ONLY_DIFFERENT_PINS",
+      "evidence_reference": {
+        "source_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "toolchain": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+        "scope": "Attained upstream source only; original header claims are not native compiler or axiom evidence."
+      }
+    },
+    {
+      "id": "ES15",
+      "source_id": "ESS12",
+      "start_line": 491,
+      "end_line": 762,
+      "declarations": [
+        "LerayHopf.convFormH1_ibp",
+        "LerayHopf.convFormH1_divFree",
+        "LerayHopf.divFree_L2test (private source name)",
+        "LerayHopf.convFormH1_antisymm"
+      ],
+      "namespace_context": "namespace LerayHopf; open MeasureTheory TemperedDistribution SchwartzMap LineDeriv. divFree_L2test is private to its original module; this source name is not a proposed public consumer import.",
+      "plan_steps": [
+        "P12",
+        "P13"
+      ],
+      "what_it_proves": "Whole-space H1 convection integration by parts, weak divergence cancellation, an L2-test extension, and antisymmetry in the two tested slots for the stated H1/divergence-free carriers.",
+      "what_remains": "Preserve all actual H1 and solenoidal hypotheses and port the weak-Leibniz/density dependency chain to native pins. Spatial convection cancellation helps the energy identity but does not supply the R3 PDE trajectory, pressure elimination against Delta U, or closed-slab temporal AC.",
+      "cutout_path": "estimates/cutouts/ES15_upstream_h1_ibp_and_cancellation.lean.txt",
+      "sha256": "52e931707bc6a2b03fbe36e55d9ee8ca8a7648a2a11ca8d82f89011280405f6b",
+      "size_bytes": 16203,
+      "consumer_import": "LerayHopf.R3.EnergyClassConvection",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "SOURCE_ONLY_DIFFERENT_PINS",
+      "evidence_reference": {
+        "source_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "toolchain": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+        "scope": "Attained upstream source only; original header claims are not native compiler or axiom evidence."
+      }
+    },
+    {
+      "id": "ES16",
+      "source_id": "ESS13",
+      "start_line": 386,
+      "end_line": 465,
+      "declarations": [
+        "LerayHopf.convIntegralSchwartz_bound_H1"
+      ],
+      "namespace_context": "namespace LerayHopf; open MeasureTheory LineDeriv SchwartzMap; open scoped LineDeriv. Uses private scalar Cauchy–Schwarz and finite-sum helpers earlier in the full module.",
+      "plan_steps": [
+        "P09",
+        "P12",
+        "P13"
+      ],
+      "what_it_proves": "A concrete whole-space Schwartz trilinear bound with component L2 norm in slot 1, component gradient-L2 seminorm in slot 2, and Schwartz sup seminorm (L-infinity control) in slot 3.",
+      "what_remains": "Despite the name, this is not an all-H1 trilinear estimate or a sharp Sobolev/nonlinear enstrophy bound. Quantitative H1/H2 interpolation and the physical sharp constant still require proof; upstream pins differ and no native acceptance is claimed.",
+      "cutout_path": "estimates/cutouts/ES16_upstream_schwartz_trilinear_sup_bound.lean.txt",
+      "sha256": "fccb5111e503b05a5d34530f774c0a8d8994c53a6c648d0a55d3c9831aff391b",
+      "size_bytes": 4385,
+      "consumer_import": "LerayHopf.R3.TrilinearEstimate",
+      "extraction": "EXACT_CONTIGUOUS_COMPLETE_STATEMENT_AND_PROOF_BLOCK; inclusive 1-based original source lines",
+      "standalone": false,
+      "import_boundary": "Import the original module under compatible verified pins; this excerpt retains original proof context and is not an independent module.",
+      "evidence_kind": "SOURCE_ONLY_DIFFERENT_PINS",
+      "evidence_reference": {
+        "source_commit": "e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc",
+        "toolchain": "leanprover/lean4:v4.31.0-rc2",
+        "mathlib_commit": "15a89b2468bc01f1a6230d6e49ef5efc5286e502",
+        "scope": "Attained upstream source only; original header claims are not native compiler or axiom evidence."
+      }
+    }
+  ],
+  "limits": [
+    "These are exact reference copies and excerpts, not a self-contained import closure or newly formalized endpoints.",
+    "Native source acceptance is restricted to the exact retained named type/axiom scopes; periodic statements retain their periodic domains.",
+    "The sharp physical Sobolev constant, actual R3 strong PDE energy/enstrophy evolution, small-product temporal invariant and continuation remain construction obligations.",
+    "Universal finite-budget membership is not proved or assumed."
+  ]
+}

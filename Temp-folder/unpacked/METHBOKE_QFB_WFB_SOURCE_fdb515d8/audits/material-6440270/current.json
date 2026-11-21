@@ -1,0 +1,3139 @@
+{
+  "all_endpoints_selected": true,
+  "build_configuration": {
+    "ci/build.py": "d22455bb6a2a34cc3aaa577d29b91c0a66dac815bd4ecebd71cbce3205ebb604",
+    "lake-manifest.json": "5ad4bb9f8a90899eff0dccf7bae5eb9fbef3f1f3822f6e1759f1118f5bef6215",
+    "lakefile.lean": "9e577cb61d3538df3726d10ad385a658ddb4dfa696fed5f19f7861795c32c3dd",
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+  },
+  "cache_hydration": {
+    "mode": "official_cache_get",
+    "reason": "prior_pass_or_compiler_scope_mismatch"
+  },
+  "commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "compiler_executed": true,
+  "cutout": {
+    "audit_log": "registry/logs/cutouts-audit.log",
+    "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+    "audit_reused": false,
+    "audit_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+    "axioms": {
+      "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ]
+    },
+    "seconds": 3.767,
+    "source_sha256": "b67344ddb9e509d7224b529bcd1022181360b973a17602aca8a66d4cdc273f7b",
+    "status": "PASS",
+    "types": {
+      "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanB.QuasiFeffermanBStatement"
+    }
+  },
+  "dependency_cache_class": "MISS",
+  "endpoints": [
+    {
+      "audit_log": "registry/audits/Galerkin-d04acbe0b79e594d19fdc00d44a7e4ca8de9022b7b5e8f754b8bf1e121f76243.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 4.974,
+      "audit_sha256": "ec3fdf30df6265f582b6d95a560f149fffeaeaab1fe86bcd14c3afbeefa1781c",
+      "axioms": {
+        "SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 1,
+      "id": "Galerkin",
+      "input_hash": "d04acbe0b79e594d19fdc00d44a7e4ca8de9022b7b5e8f754b8bf1e121f76243",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE": "SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE : \u2200 (\u03bd : \u211d),\n  LE.le.{0} 0 \u03bd \u2192\n    \u2200 (c : SingularClosure.FourierCoeff),\n      SingularClosure.SpectralReality c \u2192\n        SingularClosure.SpectralSolenoidal c \u2192\n          \u2200 (N : \u2115),\n            \u2203 g,\n              Eq.{1} (g.coeff 0) (SingularClosure.cutoffCoeff N c) \u2227\n                \u2200 (h : SingularClosure.GalerkinSolution \u03bd (SingularClosure.finiteSynthesis N c) N),\n                  Set.EqOn.{0, 0} g.coeff h.coeff (Set.Ici.{0} 0)"
+      }
+    },
+    {
+      "audit_log": "registry/audits/MathlibAnalytic-df7855b70130177bd20799029a2291e6008b86b4208008451e66b24bc6cc6d6c.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 2.89,
+      "audit_sha256": "8a0359a6f7e8807e952e6a043ca0bcd1cbd611275bbf0da967d333ab497801ac",
+      "axioms": {
+        "AnalyticAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd.contDiffOn_of_completeSpace": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "AnalyticOnNhd.mono": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "HasFPowerSeriesOnBall.uniform_geometric_approx": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "contDiffOn_of_locally_contDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 7,
+      "id": "MathlibAnalytic",
+      "input_hash": "df7855b70130177bd20799029a2291e6008b86b4208008451e66b24bc6cc6d6c",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "AnalyticAt": "AnalyticAt.{u_1, u_2,\n  u_3} : (\ud835\udd5c : Type u_1) \u2192\n  {E : Type u_2} \u2192\n    {F : Type u_3} \u2192\n      [inst : NontriviallyNormedField.{u_1} \ud835\udd5c] \u2192\n        [inst_1 : NormedAddCommGroup.{u_2} E] \u2192\n          [NormedSpace.{u_1, u_2} \ud835\udd5c E] \u2192\n            [inst_3 : NormedAddCommGroup.{u_3} F] \u2192 [NormedSpace.{u_1, u_3} \ud835\udd5c F] \u2192 (E \u2192 F) \u2192 E \u2192 Prop",
+        "AnalyticOnNhd": "AnalyticOnNhd.{u_1, u_2,\n  u_3} : (\ud835\udd5c : Type u_1) \u2192\n  {E : Type u_2} \u2192\n    {F : Type u_3} \u2192\n      [inst : NontriviallyNormedField.{u_1} \ud835\udd5c] \u2192\n        [inst_1 : NormedAddCommGroup.{u_2} E] \u2192\n          [NormedSpace.{u_1, u_2} \ud835\udd5c E] \u2192\n            [inst_3 : NormedAddCommGroup.{u_3} F] \u2192 [NormedSpace.{u_1, u_3} \ud835\udd5c F] \u2192 (E \u2192 F) \u2192 Set.{u_2} E \u2192 Prop",
+        "AnalyticOnNhd.contDiffOn_of_completeSpace": "@AnalyticOnNhd.contDiffOn_of_completeSpace.{u_1, u_2,\n    u_3} : \u2200 {\ud835\udd5c : Type u_1} [inst : NontriviallyNormedField.{u_1} \ud835\udd5c] {E : Type u_2}\n  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} \ud835\udd5c E] {F : Type u_3}\n  [inst_3 : NormedAddCommGroup.{u_3} F] [inst_4 : NormedSpace.{u_1, u_3} \ud835\udd5c F] {s : Set.{u_2} E} {f : E \u2192 F}\n  {n : WithTop.{0} \u2115\u221e} [CompleteSpace.{u_3} F], AnalyticOnNhd.{u_1, u_2, u_3} \ud835\udd5c f s \u2192 ContDiffOn.{u_1, u_2, u_3} \ud835\udd5c n f s",
+        "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq": "@AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq.{u_1, u_2,\n    u_3} : \u2200 {\ud835\udd5c : Type u_1} [inst : NontriviallyNormedField.{u_1} \ud835\udd5c] {E : Type u_2}\n  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} \ud835\udd5c E] {F : Type u_3}\n  [inst_3 : NormedAddCommGroup.{u_3} F] [inst_4 : NormedSpace.{u_1, u_3} \ud835\udd5c F] {f g : E \u2192 F} {U : Set.{u_2} E},\n  AnalyticOnNhd.{u_1, u_2, u_3} \ud835\udd5c f U \u2192\n    AnalyticOnNhd.{u_1, u_2, u_3} \ud835\udd5c g U \u2192\n      IsPreconnected.{u_2} U \u2192\n        \u2200 {z\u2080 : E},\n          Membership.mem.{u_2, u_2} U z\u2080 \u2192\n            Filter.EventuallyEq.{u_2, u_3} (nhds.{u_2} z\u2080) f g \u2192 Set.EqOn.{u_2, u_3} f g U",
+        "AnalyticOnNhd.mono": "@AnalyticOnNhd.mono.{u_1, u_2,\n    u_3} : \u2200 {\ud835\udd5c : Type u_1} {E : Type u_2} {F : Type u_3} [inst : NontriviallyNormedField.{u_1} \ud835\udd5c]\n  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} \ud835\udd5c E] [inst_3 : NormedAddCommGroup.{u_3} F]\n  [inst_4 : NormedSpace.{u_1, u_3} \ud835\udd5c F] {f : E \u2192 F} {s t : Set.{u_2} E},\n  AnalyticOnNhd.{u_1, u_2, u_3} \ud835\udd5c f t \u2192 s \u2286 t \u2192 AnalyticOnNhd.{u_1, u_2, u_3} \ud835\udd5c f s",
+        "HasFPowerSeriesOnBall.uniform_geometric_approx": "@HasFPowerSeriesOnBall.uniform_geometric_approx.{u_1, u_2,\n    u_3} : \u2200 {\ud835\udd5c : Type u_1} {E : Type u_2} {F : Type u_3} [inst : NontriviallyNormedField.{u_1} \ud835\udd5c]\n  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} \ud835\udd5c E] [inst_3 : NormedAddCommGroup.{u_3} F]\n  [inst_4 : NormedSpace.{u_1, u_3} \ud835\udd5c F] {f : E \u2192 F} {p : FormalMultilinearSeries.{u_1, u_2, u_3} \ud835\udd5c E F} {x : E}\n  {r : ENNReal} {r' : NNReal},\n  HasFPowerSeriesOnBall.{u_1, u_2, u_3} f p x r \u2192\n    LT.lt.{0} (\u2191r') r \u2192\n      \u2203 a,\n        Membership.mem.{0, 0} (Set.Ioo.{0} 0 1) a \u2227\n          \u2203 C,\n            GT.gt.{0} C 0 \u2227\n              \u2200 (y : E),\n                Membership.mem.{u_2, u_2} (Metric.ball.{u_2} 0 \u2191r') y \u2192\n                  \u2200 (n : \u2115),\n                    LE.le.{0}\n                      (norm.{u_3}\n                        (HSub.hSub.{u_3, u_3, u_3} (f (HAdd.hAdd.{u_2, u_2, u_2} x y))\n                          (FormalMultilinearSeries.partialSum.{u_1, u_2, u_3} p n y)))\n                      (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} a n))",
+        "contDiffOn_of_locally_contDiffOn": "@contDiffOn_of_locally_contDiffOn.{u_1, u_2,\n    u_3} : \u2200 {\ud835\udd5c : Type u_1} [inst : NontriviallyNormedField.{u_1} \ud835\udd5c] {E : Type u_2}\n  [inst_1 : NormedAddCommGroup.{u_2} E] [inst_2 : NormedSpace.{u_1, u_2} \ud835\udd5c E] {F : Type u_3}\n  [inst_3 : NormedAddCommGroup.{u_3} F] [inst_4 : NormedSpace.{u_1, u_3} \ud835\udd5c F] {s : Set.{u_2} E} {f : E \u2192 F}\n  {n : WithTop.{0} \u2115\u221e},\n  (\u2200 (x : E),\n      Membership.mem.{u_2, u_2} s x \u2192\n        \u2203 u,\n          IsOpen.{u_2} u \u2227 Membership.mem.{u_2, u_2} u x \u2227 ContDiffOn.{u_1, u_2, u_3} \ud835\udd5c n f (Inter.inter.{u_2} s u)) \u2192\n    ContDiffOn.{u_1, u_2, u_3} \ud835\udd5c n f s"
+      }
+    },
+    {
+      "audit_log": "registry/audits/MathlibFourier-7b47c7c0f90c9cafa84dd4ff0c7fd519d657ad323dbbb566daa862c89b44f0ed.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 3.445,
+      "audit_sha256": "fbbac38ea50628003e3a858a03a887a69fceda9ccfe03686a21732ba94e30fe4",
+      "axioms": {
+        "UnitAddTorus.hasSum_mFourier_series_L2": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "UnitAddTorus.hasSum_sq_mFourierCoeff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "UnitAddTorus.mFourierBasis": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 3,
+      "id": "MathlibFourier",
+      "input_hash": "7b47c7c0f90c9cafa84dd4ff0c7fd519d657ad323dbbb566daa862c89b44f0ed",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "UnitAddTorus.hasSum_mFourier_series_L2": "@UnitAddTorus.hasSum_mFourier_series_L2.{u_1} : \u2200 {d : Type u_1} [inst : Fintype.{u_1} d]\n  (f : \u21a5(MeasureTheory.Lp.{0, u_1} \u2102 2 MeasureTheory.volume.{u_1})),\n  HasSum.{u_1, u_1}\n    (fun i =>\n      HSMul.hSMul.{0, u_1, u_1} (UnitAddTorus.mFourierCoeff.{u_1, 0} (\u2191\u2191f) i) (UnitAddTorus.mFourierLp.{u_1} 2 i))\n    f",
+        "UnitAddTorus.hasSum_sq_mFourierCoeff": "@UnitAddTorus.hasSum_sq_mFourierCoeff.{u_1} : \u2200 {d : Type u_1} [inst : Fintype.{u_1} d]\n  (f : \u21a5(MeasureTheory.Lp.{0, u_1} \u2102 2 MeasureTheory.volume.{u_1})),\n  HasSum.{0, u_1} (fun i => HPow.hPow.{0, 0, 0} (norm.{0} (UnitAddTorus.mFourierCoeff.{u_1, 0} (\u2191\u2191f) i)) 2)\n    (\u222b (t : UnitAddTorus.{u_1} d), HPow.hPow.{0, 0, 0} (norm.{0} (\u2191\u2191f t)) 2)",
+        "UnitAddTorus.mFourierBasis": "@UnitAddTorus.mFourierBasis.{u_1} : {d : Type u_1} \u2192\n  [inst : Fintype.{u_1} d] \u2192\n    HilbertBasis.{u_1, 0, u_1} (d \u2192 \u2124) \u2102 \u21a5(MeasureTheory.Lp.{0, u_1} \u2102 2 MeasureTheory.volume.{u_1})"
+      }
+    },
+    {
+      "audit_log": "registry/audits/MathlibODE-2475a18351337111e7ae9d2b494a60b24c5af1a7d357c3b27d1f66f3a9f5713e.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 3.27,
+      "audit_sha256": "97f59de20564c8e48c60ad46ab820de552b3dd754e7a25ca554e0f54f5ddaa23",
+      "axioms": {
+        "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "ODE_solution_unique_of_mem_Ioo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "norm_le_gronwallBound_of_norm_deriv_right_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 3,
+      "id": "MathlibODE",
+      "input_hash": "2475a18351337111e7ae9d2b494a60b24c5af1a7d357c3b27d1f66f3a9f5713e",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt": "@IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt.{u_1} : \u2200 {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]\n  [inst_1 : NormedSpace.{0, u_1} \u211d E] [CompleteSpace.{u_1} E] {f : \u211d \u2192 E \u2192 E} {tmin tmax : \u211d}\n  {t\u2080 : \u2191(Set.Icc.{0} tmin tmax)} {x\u2080 x : E} {a r L K : NNReal},\n  IsPicardLindelof.{u_1} f t\u2080 x\u2080 a r L K \u2192\n    Membership.mem.{u_1, u_1} (Metric.closedBall.{u_1} x\u2080 \u2191r) x \u2192\n      \u2203 \u03b1,\n        Eq.{u_1 + 1} (\u03b1 \u2191t\u2080) x \u2227\n          \u2200 (t : \u211d),\n            Membership.mem.{0, 0} (Set.Icc.{0} tmin tmax) t \u2192\n              HasDerivWithinAt.{0, u_1} \u03b1 (f t (\u03b1 t)) (Set.Icc.{0} tmin tmax) t",
+        "ODE_solution_unique_of_mem_Ioo": "@ODE_solution_unique_of_mem_Ioo.{u_1} : \u2200 {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]\n  [inst_1 : NormedSpace.{0, u_1} \u211d E] {v : \u211d \u2192 E \u2192 E} {s : \u211d \u2192 Set.{u_1} E} {K : NNReal} {f g : \u211d \u2192 E} {a b t\u2080 : \u211d},\n  (\u2200 (t : \u211d), Membership.mem.{0, 0} (Set.Ioo.{0} a b) t \u2192 LipschitzOnWith.{u_1, u_1} K (v t) (s t)) \u2192\n    Membership.mem.{0, 0} (Set.Ioo.{0} a b) t\u2080 \u2192\n      (\u2200 (t : \u211d),\n          Membership.mem.{0, 0} (Set.Ioo.{0} a b) t \u2192\n            HasDerivAt.{0, u_1} f (v t (f t)) t \u2227 Membership.mem.{u_1, u_1} (s t) (f t)) \u2192\n        (\u2200 (t : \u211d),\n            Membership.mem.{0, 0} (Set.Ioo.{0} a b) t \u2192\n              HasDerivAt.{0, u_1} g (v t (g t)) t \u2227 Membership.mem.{u_1, u_1} (s t) (g t)) \u2192\n          Eq.{u_1 + 1} (f t\u2080) (g t\u2080) \u2192 Set.EqOn.{0, u_1} f g (Set.Ioo.{0} a b)",
+        "norm_le_gronwallBound_of_norm_deriv_right_le": "@norm_le_gronwallBound_of_norm_deriv_right_le.{u_1} : \u2200 {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]\n  [inst_1 : NormedSpace.{0, u_1} \u211d E] {f f' : \u211d \u2192 E} {\u03b4 K \u03b5 a b : \u211d},\n  ContinuousOn.{0, u_1} f (Set.Icc.{0} a b) \u2192\n    (\u2200 (x : \u211d), Membership.mem.{0, 0} (Set.Ico.{0} a b) x \u2192 HasDerivWithinAt.{0, u_1} f (f' x) (Set.Ici.{0} x) x) \u2192\n      LE.le.{0} (norm.{u_1} (f a)) \u03b4 \u2192\n        (\u2200 (x : \u211d),\n            Membership.mem.{0, 0} (Set.Ico.{0} a b) x \u2192\n              LE.le.{0} (norm.{u_1} (f' x)) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} K (norm.{u_1} (f x))) \u03b5)) \u2192\n          \u2200 (x : \u211d),\n            Membership.mem.{0, 0} (Set.Icc.{0} a b) x \u2192\n              LE.le.{0} (norm.{u_1} (f x)) (gronwallBound \u03b4 K \u03b5 (HSub.hSub.{0, 0, 0} x a))"
+      }
+    },
+    {
+      "audit_log": "registry/audits/PhysicalNSE-f20fdcf0ca612facabbe8a22017ba17f87042633d6674b57d776e24f763fb31c.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.527,
+      "audit_sha256": "7bad6322fbb0dd96b466eada5fbdff1a0e6cabc69acf16c52f19604046727ffa",
+      "axioms": {
+        "SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 3,
+      "id": "PhysicalNSE",
+      "input_hash": "f20fdcf0ca612facabbe8a22017ba17f87042633d6674b57d776e24f763fb31c",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE": "@SingularClosure.CRITICAL_POSITIVE_PHYSICAL_NSE : \u2200 {\u03bd : \u211d} (L : SingularClosure.CriticalPositiveSobolevFlow \u03bd),\n  SingularClosure.PositiveSmoothNSE \u03bd L.velocity L.pressure",
+        "SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth": "@SingularClosure.CriticalPositiveSobolevFlow.pressure_spacetime_smooth : \u2200 {\u03bd : \u211d}\n  (L : SingularClosure.CriticalPositiveSobolevFlow \u03bd),\n  ContDiffOn.{0, 0, 0} \u211d (\u2191Top.top.{0}) (fun z => L.pressure z.1 z.2) SingularClosure.positiveSpacetime",
+        "SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth": "@SingularClosure.CriticalPositiveSobolevFlow.velocity_spacetime_smooth : \u2200 {\u03bd : \u211d}\n  (L : SingularClosure.CriticalPositiveSobolevFlow \u03bd),\n  ContDiffOn.{0, 0, 0} \u211d (\u2191Top.top.{0}) (fun z => L.velocity z.1 z.2) SingularClosure.positiveSpacetime"
+      }
+    },
+    {
+      "audit_log": "registry/audits/QFBCutoff-384e0256dea637bac2b0e702c8a8d59344b7f726767b4fcbac767bf8c5e50343.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.706,
+      "audit_sha256": "2852a151fea822d8ccd2758fdd6ec340be17eb8e6ebd307326b7150a617c8b37",
+      "axioms": {
+        "QuasiFeffermanB.CUTOFF_NONNEG": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.CUTOFF_POS": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.CUTOFF_ZERO": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.SAFE_CUTOFF_GT": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.cutoff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.safeCutoff": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 6,
+      "id": "QFBCutoff",
+      "input_hash": "384e0256dea637bac2b0e702c8a8d59344b7f726767b4fcbac767bf8c5e50343",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "QuasiFeffermanB.CUTOFF_NONNEG": "QuasiFeffermanB.CUTOFF_NONNEG : \u2200 (a : \u21a5SingularClosure.CriticalPhysicalL2) {\u03bd : \u211d},\n  LT.lt.{0} 0 \u03bd \u2192 LE.le.{0} 0 (QuasiFeffermanB.cutoff a \u03bd)",
+        "QuasiFeffermanB.CUTOFF_POS": "QuasiFeffermanB.CUTOFF_POS : \u2200 (a : \u21a5SingularClosure.CriticalPhysicalL2),\n  Ne.{1} a 0 \u2192 \u2200 {\u03bd : \u211d}, LT.lt.{0} 0 \u03bd \u2192 LT.lt.{0} 0 (QuasiFeffermanB.cutoff a \u03bd)",
+        "QuasiFeffermanB.CUTOFF_ZERO": "QuasiFeffermanB.CUTOFF_ZERO : \u2200 (\u03bd : \u211d), Eq.{1} (QuasiFeffermanB.cutoff 0 \u03bd) 0",
+        "QuasiFeffermanB.SAFE_CUTOFF_GT": "QuasiFeffermanB.SAFE_CUTOFF_GT : \u2200 (a : \u21a5SingularClosure.CriticalPhysicalL2),\n  Ne.{1} a 0 \u2192 \u2200 {\u03bd : \u211d}, LT.lt.{0} 0 \u03bd \u2192 LT.lt.{0} (QuasiFeffermanB.cutoff a \u03bd) (QuasiFeffermanB.safeCutoff a \u03bd)",
+        "QuasiFeffermanB.cutoff": "QuasiFeffermanB.cutoff : \u21a5SingularClosure.CriticalPhysicalL2 \u2192 \u211d \u2192 \u211d",
+        "QuasiFeffermanB.safeCutoff": "QuasiFeffermanB.safeCutoff : \u21a5SingularClosure.CriticalPhysicalL2 \u2192 \u211d \u2192 \u211d"
+      }
+    },
+    {
+      "audit_log": "registry/audits/QFBLerayHopf-b3be6a297bab0ebe2efe14b5c171dd5a70952861c1716c62b124e1c0a482dab1.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.678,
+      "audit_sha256": "a25aee56459da58cc1da5078b0e28185cb31ca79cb7b20d4e2f884d6ef8f3106",
+      "axioms": {
+        "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 1,
+      "id": "QFBLerayHopf",
+      "input_hash": "b3be6a297bab0ebe2efe14b5c171dd5a70952861c1716c62b124e1c0a482dab1",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE": "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE : \u2200 (\u03bd : \u211d),\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 (a : \u21a5SingularClosure.CriticalPhysicalL2),\n      QuasiFeffermanB.EnergySigmaZero a \u2192 \u2203 u G, SingularClosure.CriticalLerayHopf \u03bd a u G"
+      }
+    },
+    {
+      "audit_log": "registry/audits/QFBRestart-216bae8707c7292389ad06f453fc41b1f5f5a8e97d1d0b939aff5dd368abedd9.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.46,
+      "audit_sha256": "912042e31d0c17b42e6958a3cee8db368e97ad19762d2027671948e5d3de478b",
+      "axioms": {
+        "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE_Ioc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE_Ioo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 4,
+      "id": "QFBRestart",
+      "input_hash": "216bae8707c7292389ad06f453fc41b1f5f5a8e97d1d0b939aff5dd368abedd9",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME": "@QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME : \u2200 {\u03bd : \u211d} {a : \u21a5SingularClosure.CriticalPhysicalL2}\n  {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory} {Good : \u211d \u2192 Prop} {T : \u211d},\n  LT.lt.{0} 0 \u03bd \u2192\n    SingularClosure.CriticalLerayHopf \u03bd a u G \u2192\n      LT.lt.{0} (QuasiFeffermanB.cutoff a \u03bd) T \u2192\n        (\u2200\u1d50 (t : \u211d) \u2202QuasiFeffermanB.criticalTimeMeasure T, Good t) \u2192\n          \u2203 t,\n            LT.lt.{0} 0 t \u2227\n              LT.lt.{0} t T \u2227\n                Good t \u2227\n                  SingularClosure.CriticalPhysicalH1 (u t) (G t) \u2227\n                    LT.lt.{0} (QuasiFeffermanB.physicalHalfEnergy (u t))\n                      (ENNReal.ofReal (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (HPow.hPow.{0, 0, 0} \u03bd 2)))",
+        "QuasiFeffermanB.LH_RESTART_AE": "@QuasiFeffermanB.LH_RESTART_AE : \u2200 {\u03bd : \u211d} {a\u2080 : \u21a5SingularClosure.CriticalPhysicalL2} {v : SingularClosure.Velocity}\n  {G :\n    \u211d \u2192\n      SingularClosure.Vec \u2192\n        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} \u211d) SingularClosure.Vec SingularClosure.Vec},\n  SingularClosure.CriticalLerayHopf \u03bd a\u2080 v G \u2192\n    LE.le.{0} 0 \u03bd \u2192\n      \u2200\u1d50 (s : \u211d) \u2202MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0),\n        SingularClosure.CriticalPhysicalH1 (v s) (G s) \u2227\n          SingularClosure.CriticalLerayHopf \u03bd (SingularClosure.criticalL2Representative.{0} (v s))\n            (QuasiFeffermanB.timeTranslate.{0} s v) (QuasiFeffermanB.timeTranslate.{0} s G)",
+        "QuasiFeffermanB.LH_RESTART_AE_Ioc": "@QuasiFeffermanB.LH_RESTART_AE_Ioc : \u2200 {\u03bd : \u211d} {a\u2080 : \u21a5SingularClosure.CriticalPhysicalL2} {v : SingularClosure.Velocity}\n  {G :\n    \u211d \u2192\n      SingularClosure.Vec \u2192\n        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} \u211d) SingularClosure.Vec SingularClosure.Vec},\n  SingularClosure.CriticalLerayHopf \u03bd a\u2080 v G \u2192\n    LE.le.{0} 0 \u03bd \u2192\n      \u2200 (T : \u211d),\n        \u2200\u1d50 (s : \u211d) \u2202MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T),\n          SingularClosure.CriticalPhysicalH1 (v s) (G s) \u2227\n            SingularClosure.CriticalLerayHopf \u03bd (SingularClosure.criticalL2Representative.{0} (v s))\n              (QuasiFeffermanB.timeTranslate.{0} s v) (QuasiFeffermanB.timeTranslate.{0} s G)",
+        "QuasiFeffermanB.LH_RESTART_AE_Ioo": "@QuasiFeffermanB.LH_RESTART_AE_Ioo : \u2200 {\u03bd : \u211d} {a\u2080 : \u21a5SingularClosure.CriticalPhysicalL2} {v : SingularClosure.Velocity}\n  {G :\n    \u211d \u2192\n      SingularClosure.Vec \u2192\n        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} \u211d) SingularClosure.Vec SingularClosure.Vec},\n  SingularClosure.CriticalLerayHopf \u03bd a\u2080 v G \u2192\n    LE.le.{0} 0 \u03bd \u2192\n      \u2200 (T : \u211d),\n        \u2200\u1d50 (s : \u211d) \u2202MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioo.{0} 0 T),\n          SingularClosure.CriticalPhysicalH1 (v s) (G s) \u2227\n            SingularClosure.CriticalLerayHopf \u03bd (SingularClosure.criticalL2Representative.{0} (v s))\n              (QuasiFeffermanB.timeTranslate.{0} s v) (QuasiFeffermanB.timeTranslate.{0} s G)"
+      }
+    },
+    {
+      "audit_log": "registry/audits/QFBRoot-e1ff52a2d132967d162a433ca937ea8a26df56564764c79b295f3edd03b03b75.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.272,
+      "audit_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+      "axioms": {
+        "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 1,
+      "id": "QFBRoot",
+      "input_hash": "e1ff52a2d132967d162a433ca937ea8a26df56564764c79b295f3edd03b03b75",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanB.QuasiFeffermanBStatement"
+      }
+    },
+    {
+      "audit_log": "registry/audits/QFBTail-3dcc3d2dcb548a4475c6c1c5dc17d746fdf0dba8daa3642ffa7c62f935cfc7a0.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.176,
+      "audit_sha256": "59745649bd0fb089de2e9041b092c942d6fd651578f5d61b0810bd22904d2953",
+      "axioms": {
+        "QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.Q11_POST_CUTOFF_ENERGY_EQUALITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.Q12_POST_CUTOFF_TRACE_UNIQUENESS": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.Q13_ZERO_AND_SAFE_CLOSED_CUTOFF": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 4,
+      "id": "QFBTail",
+      "input_hash": "3dcc3d2dcb548a4475c6c1c5dc17d746fdf0dba8daa3642ffa7c62f935cfc7a0",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS": "@QuasiFeffermanB.Q09_POST_CUTOFF_SMOOTHNESS : \u2200 {\u03bd : \u211d},\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 {a : \u21a5SingularClosure.CriticalPhysicalL2},\n      QuasiFeffermanB.EnergySigmaZero a \u2192\n        \u2200 {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory},\n          SingularClosure.CriticalLerayHopf \u03bd a u G \u2192\n            \u2200 {\u03b4 : \u211d}, LT.lt.{0} (QuasiFeffermanB.cutoff a \u03bd) \u03b4 \u2192 QuasiFeffermanB.HasSmoothTail \u03bd u \u03b4",
+        "QuasiFeffermanB.Q11_POST_CUTOFF_ENERGY_EQUALITY": "@QuasiFeffermanB.Q11_POST_CUTOFF_ENERGY_EQUALITY : \u2200 {\u03bd : \u211d},\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 {a : \u21a5SingularClosure.CriticalPhysicalL2},\n      QuasiFeffermanB.EnergySigmaZero a \u2192\n        \u2200 {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory},\n          SingularClosure.CriticalLerayHopf \u03bd a u G \u2192\n            \u2200 {\u03b4 : \u211d}, LT.lt.{0} (QuasiFeffermanB.cutoff a \u03bd) \u03b4 \u2192 QuasiFeffermanB.TailEnergyEquality \u03bd u G \u03b4",
+        "QuasiFeffermanB.Q12_POST_CUTOFF_TRACE_UNIQUENESS": "@QuasiFeffermanB.Q12_POST_CUTOFF_TRACE_UNIQUENESS : \u2200 {\u03bd : \u211d},\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 {a : \u21a5SingularClosure.CriticalPhysicalL2},\n      QuasiFeffermanB.EnergySigmaZero a \u2192\n        \u2200 {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory},\n          SingularClosure.CriticalLerayHopf \u03bd a u G \u2192\n            \u2200 {\u03b4 : \u211d}, LT.lt.{0} (QuasiFeffermanB.cutoff a \u03bd) \u03b4 \u2192 QuasiFeffermanB.UniqueFuture \u03bd u G \u03b4",
+        "QuasiFeffermanB.Q13_ZERO_AND_SAFE_CLOSED_CUTOFF": "@QuasiFeffermanB.Q13_ZERO_AND_SAFE_CLOSED_CUTOFF : \u2200 {\u03bd : \u211d},\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 {a : \u21a5SingularClosure.CriticalPhysicalL2},\n      QuasiFeffermanB.EnergySigmaZero a \u2192\n        \u2200 {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory},\n          SingularClosure.CriticalLerayHopf \u03bd a u G \u2192 QuasiFeffermanB.HasSmoothTail \u03bd u (QuasiFeffermanB.safeCutoff a \u03bd)"
+      }
+    },
+    {
+      "audit_log": "registry/audits/QFBTraceUniqueness-c331edac48c4510d82f4f0e935dc3cd5b02c7ed9812102946db4593b0ec59002.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.854,
+      "audit_sha256": "700295656cf72242d96135529f106b7009b729918a3dbefeedbad22350b5c64e",
+      "axioms": {
+        "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.positive_reference_strict_shift_serrin": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 2,
+      "id": "QFBTraceUniqueness",
+      "input_hash": "c331edac48c4510d82f4f0e935dc3cd5b02c7ed9812102946db4593b0ec59002",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE": "@QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_REFERENCE : \u2200 {\u03bd : \u211d} {a : \u21a5SingularClosure.CriticalPhysicalL2}\n  {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory},\n  LT.lt.{0} 0 \u03bd \u2192\n    SingularClosure.CriticalLerayHopf \u03bd a u G \u2192\n      \u2200 {v : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n        SingularClosure.PositiveSmoothNSE \u03bd v p \u2192\n          \u2200 {s \u03b4 : \u211d},\n            LE.le.{0} 0 s \u2192\n              LT.lt.{0} s \u03b4 \u2192\n                (\u2200 (r : \u211d),\n                    LT.lt.{0} s r \u2192\n                      u r =\u1d50[MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube]\n                        v (HSub.hSub.{0, 0, 0} r s)) \u2192\n                  QuasiFeffermanB.UniqueFuture \u03bd u G \u03b4",
+        "QuasiFeffermanB.positive_reference_strict_shift_serrin": "@QuasiFeffermanB.positive_reference_strict_shift_serrin : \u2200 {\u03bd : \u211d} {v : SingularClosure.Velocity}\n  {p : SingularClosure.Pressure},\n  SingularClosure.PositiveSmoothNSE \u03bd v p \u2192\n    \u2200 {\u03b5 : \u211d},\n      LT.lt.{0} 0 \u03b5 \u2192\n        \u2200 (T : \u211d),\n          MeasureTheory.MemLp.{0, 0}\n            (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (QuasiFeffermanB.timeTranslate.{0} \u03b5 v t)) 4\n            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T))"
+      }
+    },
+    {
+      "audit_log": "registry/audits/RelativeEnergy-2f0872d77cde82f81ad70e6cd1cbb618b20fa4e13cb9d15ee1c248e6b4a54e08.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.778,
+      "audit_sha256": "ff83fe70b0e6bf76651ac46d118d2c1f73d803ec286fe5c12d96480d51fbc2e9",
+      "axioms": {
+        "SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 1,
+      "id": "RelativeEnergy",
+      "input_hash": "2f0872d77cde82f81ad70e6cd1cbb618b20fa4e13cb9d15ee1c248e6b4a54e08",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE": "@SingularClosure.CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE : \u2200 {e a : \u211d \u2192 \u211d} {T M : \u211d} {\u03b5 : \u2115 \u2192 \u211d},\n  LT.lt.{0} 0 T \u2192\n    (\u2200 (t : \u211d), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t \u2192 LE.le.{0} 0 (e t)) \u2192\n      ContinuousOn.{0, 0} a (Set.Ioc.{0} 0 T) \u2192\n        (\u2200 (t : \u211d), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t \u2192 LE.le.{0} 0 (a t)) \u2192\n          IntervalIntegrable.{0} a MeasureTheory.volume.{0} 0 T \u2192\n            (\u2200 (n : \u2115),\n                IntervalIntegrable.{0} (fun r => HMul.hMul.{0, 0, 0} (a r) (e r)) MeasureTheory.volume.{0} (\u03b5 n) T) \u2192\n              LE.le.{0} (\u222b (r : \u211d) in 0..T, a r) M \u2192\n                (\u2200 (n : \u2115), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) (\u03b5 n)) \u2192\n                  Filter.Tendsto.{0, 0} \u03b5 Filter.atTop.{0} (nhds.{0} 0) \u2192\n                    Filter.Tendsto.{0, 0} (fun n => e (\u03b5 n)) Filter.atTop.{0} (nhds.{0} 0) \u2192\n                      (\u2200 (n : \u2115) (t : \u211d),\n                          Membership.mem.{0, 0} (Set.Icc.{0} (\u03b5 n) T) t \u2192\n                            LE.le.{0} (e t)\n                              (HAdd.hAdd.{0, 0, 0} (e (\u03b5 n)) (\u222b (r : \u211d) in \u03b5 n..t, HMul.hMul.{0, 0, 0} (a r) (e r)))) \u2192\n                        \u2200 (t : \u211d), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t \u2192 Eq.{1} (e t) 0"
+      }
+    },
+    {
+      "audit_log": "registry/audits/SerrinComparison-497e45bcaee2521c2590ff3ece670e64eca00a9e77446c4431f827de6bca3b40.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.382,
+      "audit_sha256": "550e1e0e87ce44b1d447cf817c62db890e8f34079aa384af14bacfefc9d1fd77",
+      "axioms": {
+        "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 1,
+      "id": "SerrinComparison",
+      "input_hash": "497e45bcaee2521c2590ff3ece670e64eca00a9e77446c4431f827de6bca3b40",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON": "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON : \u2200 (\u03bd : \u211d),\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 (a\u2080 : \u21a5SingularClosure.CriticalPhysicalL2) (v u : SingularClosure.Velocity)\n      (G :\n        \u211d \u2192\n          SingularClosure.Vec \u2192\n            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} \u211d) SingularClosure.Vec SingularClosure.Vec)\n      (p : SingularClosure.Pressure),\n      SingularClosure.CriticalLerayHopf \u03bd a\u2080 v G \u2192\n        SingularClosure.CriticalPositiveSolenoidalTest u \u2192\n          (\u2200 (r : \u211d), LT.lt.{0} 0 r \u2192 ContDiff.{0, 0, 0} \u211d (\u2191Top.top.{0}) (p r)) \u2192\n            (\u2200 (r : \u211d), LT.lt.{0} 0 r \u2192 SingularClosure.SpatialPeriodic.{0} (p r)) \u2192\n              (\u2200 (r : \u211d),\n                  LT.lt.{0} 0 r \u2192\n                    \u2200 (x : SingularClosure.Vec),\n                      Eq.{1}\n                        (HAdd.hAdd.{0, 0, 0}\n                          (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)\n                            (SingularClosure.convection (u r) x))\n                          (SingularClosure.gradient (p r) x))\n                        (HSMul.hSMul.{0, 0, 0} \u03bd (SingularClosure.laplacian (u r) x))) \u2192\n                Filter.Tendsto.{0, 0}\n                    (fun t =>\n                      MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (u t) \u2191\u2191a\u2080) 2\n                        (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube))\n                    (nhdsWithin.{0} 0 (Set.Ioi.{0} 0)) (nhds.{0} 0) \u2192\n                  \u2200 (T : \u211d),\n                    LT.lt.{0} 0 T \u2192\n                      MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4\n                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T)) \u2192\n                        \u2200 (t : \u211d),\n                          Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t \u2192\n                            v t =\u1d50[MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube]\n                              u t"
+      }
+    },
+    {
+      "audit_log": "registry/audits/SmallH12-6269203230820c589a08b78eb560c069ee26bea2a842010ee75ab70c0fa392ee.log",
+      "audit_origin_commit": "6440270ffe9b05b2956cd34c59c65f2fe341e8b8",
+      "audit_reused": false,
+      "audit_seconds": 5.149,
+      "audit_sha256": "195ee80edc645305b8fe3df420779e11fac539a80f9b8a377f6e6ee74f30ba80",
+      "axioms": {
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "declaration_count": 4,
+      "id": "SmallH12",
+      "input_hash": "6269203230820c589a08b78eb560c069ee26bea2a842010ee75ab70c0fa392ee",
+      "source_drift": [],
+      "status": "PASS",
+      "types": {
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY : \u2200 (\u03bd : \u211d),\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 (a : SingularClosure.CriticalSobolev 1),\n      SingularClosure.CriticalSigmaZero a \u2192\n        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) \u03bd \u2192\n          SingularClosure.CriticalDatumAX6 \u03bd a \u2227 SingularClosure.CriticalGlobalRegularity \u03bd a",
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL : \u2200 (\u03bd : \u211d),\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 (a : SingularClosure.CriticalSobolev 1),\n      SingularClosure.CriticalSigmaZero a \u2192\n        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) \u03bd \u2192\n          SingularClosure.CriticalDatumAX6 \u03bd a \u2227\n            \u2203 U,\n              SingularClosure.CriticalLerayHopf \u03bd (SingularClosure.criticalInitialPhysicalL2 a) U.lerayVelocity\n                  U.lerayGradient \u2227\n                U.lerayHopfUnique \u2227\n                  SingularClosure.PositiveSmoothNSE \u03bd U.flow.velocity U.flow.pressure \u2227\n                    (MeasureTheory.MemLp.{0, 0} U.flow.threeHalfState 2\n                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) \u2227\n                        LE.le.{0}\n                          (\u222b (t : \u211d) in Set.Ioi.{0} 0, HPow.hPow.{0, 0, 0} (norm.{0} (U.flow.threeHalfState t)) 2)\n                          (SingularClosure.criticalDissipationBudget \u03bd a)) \u2227\n                      (MeasureTheory.MemLp.{0, 0} U.flow.negativeHalfDerivative 2\n                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) \u2227\n                          LE.le.{0}\n                            (\u222b (t : \u211d) in Set.Ioi.{0} 0,\n                              HPow.hPow.{0, 0, 0} (norm.{0} (U.flow.negativeHalfDerivative t)) 2)\n                            (SingularClosure.criticalTimeDerivativeBudget \u03bd a)) \u2227\n                        MeasureTheory.MemLp.{0, 0}\n                            (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (U.flow.velocity t)) 4\n                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) \u2227\n                          \u2200 (T : \u211d),\n                            LT.lt.{0} 0 T \u2192\n                              MeasureTheory.IntegrableOn.{0, 0}\n                                  (fun t =>\n                                    HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (U.flow.velocity t)) 2)\n                                  (Set.Icc.{0} 0 T) MeasureTheory.volume.{0} \u2227\n                                LE.le.{0}\n                                  (\u222b (t : \u211d) in 0..T,\n                                    HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (U.flow.velocity t)) 2)\n                                  (HDiv.hDiv.{0, 0, 0}\n                                    (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} (norm.{0} a) 4)\n                                      (HPow.hPow.{0, 0, 0} (norm.{0} (U.critical T)) 4))\n                                    (HMul.hMul.{0, 0, 0} 4\n                                      (HSub.hSub.{0, 0, 0} \u03bd\n                                        (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)))))",
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT : \u2203 c,\n  LT.lt.{0} 0 c \u2227\n    \u2200 (\u03bd : \u211d),\n      LT.lt.{0} 0 \u03bd \u2192\n        \u2200 (a : SingularClosure.CriticalSobolev 1),\n          SingularClosure.CriticalSigmaZero a \u2192\n            LT.lt.{0} (norm.{0} a) (HMul.hMul.{0, 0, 0} c \u03bd) \u2192\n              SingularClosure.CriticalDatumAX6 \u03bd a \u2227 SingularClosure.CriticalGlobalRegularity \u03bd a",
+        "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY": "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY : \u2200 (\u03bd : \u211d),\n  LT.lt.{0} 0 \u03bd \u2192\n    \u2200 (a : SingularClosure.CriticalSobolev 1),\n      SingularClosure.CriticalSigmaZero a \u2192\n        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) \u03bd \u2192\n          SingularClosure.CriticalGlobalRegularity \u03bd a"
+      }
+    }
+  ],
+  "execution_backend": "native_host",
+  "external_objects": {
+    "count": 52160,
+    "sha256": "5631398318db28f91a4f6f04599c09b671ffcd42cc538cc1b0faa8b13df61aed"
+  },
+  "fresh_required_audits": true,
+  "lean_num_threads": 2,
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "metrics": {
+    "audit_fresh_count": 14,
+    "audit_reused_count": 0,
+    "audit_seconds": 39.296,
+    "build_seconds": 1293.421,
+    "cache_seconds": 146.587,
+    "fresh_loc": 39619,
+    "fresh_module_count": 283,
+    "module_count": 283,
+    "rerun_receipt_seconds": 0.252,
+    "reused_loc": 0,
+    "reused_module_count": 0,
+    "target_loc": 39619
+  },
+  "module_receipts": {
+    "Galerkin.Endpoint": {
+      "identity": "9eb115026a3a276891e0d19e7ec8cd20e93c5c1a60292fba011309b53022e299",
+      "object_files": {
+        "Endpoint.olean": "64811d4455a3f6ce876b6e89656d105154cb1f31770a411ba340b423277c272c"
+      },
+      "olean_sha256": "64811d4455a3f6ce876b6e89656d105154cb1f31770a411ba340b423277c272c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "MathlibAnalytic.Endpoint": {
+      "identity": "240297d6a41a729bc38970c29d620df9a3a33c47aebaca1fc3ef9be5daf4e5ed",
+      "object_files": {
+        "Endpoint.olean": "3b1d308b28662c7c20505f2fcce58fe0ffb9720c168dc0140e9264d564286fcc"
+      },
+      "olean_sha256": "3b1d308b28662c7c20505f2fcce58fe0ffb9720c168dc0140e9264d564286fcc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "MathlibFourier.Endpoint": {
+      "identity": "2033141c1206a4f926c25e8378d27baca2e57161af9da2eece3b575e30188562",
+      "object_files": {
+        "Endpoint.olean": "e4cd643e6478f9aaee23fce8aa06573aa1f3dc00b7571c74996d71fe7e82b71c"
+      },
+      "olean_sha256": "e4cd643e6478f9aaee23fce8aa06573aa1f3dc00b7571c74996d71fe7e82b71c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "MathlibODE.Endpoint": {
+      "identity": "226b56477ee89f2790e609413751e49d3d3fff012abcc97889c08199c226f77c",
+      "object_files": {
+        "Endpoint.olean": "d1c92efbe650d71de4d12f82a17d96e67304801de18fd85271d5a051ac9d08fc"
+      },
+      "olean_sha256": "d1c92efbe650d71de4d12f82a17d96e67304801de18fd85271d5a051ac9d08fc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "PhysicalNSE.Endpoint": {
+      "identity": "2f03e14e8144dfeab973cfbd33bf4fbac430dc26f9583f3de8058e604d5f97dd",
+      "object_files": {
+        "Endpoint.olean": "2e7ed121459c6a1f39b957fdcb0e7fb49f0566038af3e475a5cad79eb5af4680"
+      },
+      "olean_sha256": "2e7ed121459c6a1f39b957fdcb0e7fb49f0566038af3e475a5cad79eb5af4680",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QFBCutoff.Endpoint": {
+      "identity": "bcc3a2b4374690f40a5c1bfd206c35cb4c45663526ee72dbd2f5588d5045d8d3",
+      "object_files": {
+        "Endpoint.olean": "8db2e711ef27016597a575bb9f171cd7d533561de0fb34bcb0494c69ae382f44"
+      },
+      "olean_sha256": "8db2e711ef27016597a575bb9f171cd7d533561de0fb34bcb0494c69ae382f44",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QFBLerayHopf.Endpoint": {
+      "identity": "7da3a4d3fbf6734c18fd6c51d66a2cd57f6baa54b0569ef2ca61301a5f378855",
+      "object_files": {
+        "Endpoint.olean": "49aaa4da085a83a489d7214eaae6dcffcca5cc19b5021323a585e5447233dece"
+      },
+      "olean_sha256": "49aaa4da085a83a489d7214eaae6dcffcca5cc19b5021323a585e5447233dece",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QFBRestart.Endpoint": {
+      "identity": "d6db3151afb59b7461636c3e94b6f31e71e0c50b66df9e37b64d4c28cdeec0e4",
+      "object_files": {
+        "Endpoint.olean": "f2ab35f482ea17ba4ba51b519c5c22eba8dafea806071fe42580d2a337f6ec5d"
+      },
+      "olean_sha256": "f2ab35f482ea17ba4ba51b519c5c22eba8dafea806071fe42580d2a337f6ec5d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QFBRoot.Endpoint": {
+      "identity": "7f5fa31406dcd65743854640661b2d5d26ce9aaa41aa566be37fd02ae63a951f",
+      "object_files": {
+        "Endpoint.olean": "c26be8cd307b13131d4d6e1be348a1f1f39fd680b251257b4cdb723fa12563f1"
+      },
+      "olean_sha256": "c26be8cd307b13131d4d6e1be348a1f1f39fd680b251257b4cdb723fa12563f1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QFBTail.Endpoint": {
+      "identity": "69bef812063c058de48339a096b0cbdf1187777e72ab5f69f73bcc81a83f5aab",
+      "object_files": {
+        "Endpoint.olean": "4c36025ab78ea146211d9dd4540c859c6fef4a98871832e806073f5672b4d3d7"
+      },
+      "olean_sha256": "4c36025ab78ea146211d9dd4540c859c6fef4a98871832e806073f5672b4d3d7",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QFBTraceUniqueness.Endpoint": {
+      "identity": "c44d03c692c8ae45ca868e09d795267677d8c8eb880aa4a74ba772caa6a6c275",
+      "object_files": {
+        "Endpoint.olean": "8f593c61b980d659f8252e4c1ad63a9ab08425eaaf98db991c908c5d04a92db1"
+      },
+      "olean_sha256": "8f593c61b980d659f8252e4c1ad63a9ab08425eaaf98db991c908c5d04a92db1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricAdmission": {
+      "identity": "67f76524a996c2b6483150dccd2c75eea133917fde89e7a6f42370ac070f59cb",
+      "object_files": {
+        "CaloricAdmission.olean": "27707f94689fd8d2e52e7dfea319397d0fc3b941ac820cbfc51ad746d065b3ff"
+      },
+      "olean_sha256": "27707f94689fd8d2e52e7dfea319397d0fc3b941ac820cbfc51ad746d065b3ff",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricBarrier": {
+      "identity": "9e652dcac1473aaf255b452085121670b7a59d28586ad67800b8ea7a8527f6f6",
+      "object_files": {
+        "CaloricBarrier.olean": "5d19228bc62dc6eff185c1abea6235c227b158430404b350d448f51509262c8b"
+      },
+      "olean_sha256": "5d19228bc62dc6eff185c1abea6235c227b158430404b350d448f51509262c8b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricBootstrap": {
+      "identity": "17a2eab9bea2bdf5778c7a7dec41c9cd4af70888b83273195bd952f4869cb6b3",
+      "object_files": {
+        "CaloricBootstrap.olean": "3769541080b251ee715ceae865ac48595d3a6407c30246d141f1e28e90b23583"
+      },
+      "olean_sha256": "3769541080b251ee715ceae865ac48595d3a6407c30246d141f1e28e90b23583",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricCompactness": {
+      "identity": "641a8e522054a5860c5774ef3092d25f417d8eb593e6d2433e8249b3fd20460d",
+      "object_files": {
+        "CaloricCompactness.olean": "b9bd401a31fd1e099ab599c90baf9461d08bb84321be3d448fd635d09c07422e"
+      },
+      "olean_sha256": "b9bd401a31fd1e099ab599c90baf9461d08bb84321be3d448fd635d09c07422e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricConstants": {
+      "identity": "7a920cd1eed92261a29603b928aa33cc51267bc3a543c2b4232f29e1d11631cd",
+      "object_files": {
+        "CaloricConstants.olean": "0971e7ab3a3366a280294a8fcb0882406403a984db04da439a277adfdc0749e4"
+      },
+      "olean_sha256": "0971e7ab3a3366a280294a8fcb0882406403a984db04da439a277adfdc0749e4",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricConvolution": {
+      "identity": "5b09e96bd452edb8c2db07b5a963a4d6ca0605519398093ec917870b4bb9027b",
+      "object_files": {
+        "CaloricConvolution.olean": "c8d583da961a755df1808dfdd19f8e008c65d7365e21938287cde4a0bba493a1"
+      },
+      "olean_sha256": "c8d583da961a755df1808dfdd19f8e008c65d7365e21938287cde4a0bba493a1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricEnstrophy": {
+      "identity": "56d2e69374c89463d72df14b579bf0a970af1825290a3ac9f491b382b0276e99",
+      "object_files": {
+        "CaloricEnstrophy.olean": "03faa58d8a44a608055fa581f3396d7cb5fd3d33a42fda614b5e5daf2baadbb1"
+      },
+      "olean_sha256": "03faa58d8a44a608055fa581f3396d7cb5fd3d33a42fda614b5e5daf2baadbb1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricFiniteNorm": {
+      "identity": "db93b0949085ee9c6918172ffe3dc4732f2b3e65f59b226f56bbb4a5dbe269fd",
+      "object_files": {
+        "CaloricFiniteNorm.olean": "44c25884f2e6dae229979351d1830956ea3aa3f28155db8d63f9641e6990aedc"
+      },
+      "olean_sha256": "44c25884f2e6dae229979351d1830956ea3aa3f28155db8d63f9641e6990aedc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricFlowControl": {
+      "identity": "9c21940035f412d1c1fe2aa6ff19eab732693aeb39b4bb483909143913ab044d",
+      "object_files": {
+        "CaloricFlowControl.olean": "6fb7c9da8cb1a65123bf4c06660debbf5e7d87c440b5cedfb69a9c8c667a06c1"
+      },
+      "olean_sha256": "6fb7c9da8cb1a65123bf4c06660debbf5e7d87c440b5cedfb69a9c8c667a06c1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricFourierBridge": {
+      "identity": "8b437949f1b5d5704d54a8c4ad2da42863b705ae835be8a8d5b044616b3bb24f",
+      "object_files": {
+        "CaloricFourierBridge.olean": "4f6ddf88446b037ee960e2bfc5ac9e8ea037495f7b7836567e02f8bbdc51ebed"
+      },
+      "olean_sha256": "4f6ddf88446b037ee960e2bfc5ac9e8ea037495f7b7836567e02f8bbdc51ebed",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricFourierEstimate": {
+      "identity": "159f5e9bcebba0593c0d6f6692dd69494d34a71fccb510b11f8404a24af672da",
+      "object_files": {
+        "CaloricFourierEstimate.olean": "7bee719668b77db1374a37c9d6fa211ff85901bc503de45856318401e788a28b"
+      },
+      "olean_sha256": "7bee719668b77db1374a37c9d6fa211ff85901bc503de45856318401e788a28b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricFrequencyGeometry": {
+      "identity": "ce903ec688da3585add8518d79bcf763da06cf5df8beaa6ce959280849e05b38",
+      "object_files": {
+        "CaloricFrequencyGeometry.olean": "b8a6cb822bd133bbc83412f461d889d160e48df65e85324dfb4477463c3f56c9"
+      },
+      "olean_sha256": "b8a6cb822bd133bbc83412f461d889d160e48df65e85324dfb4477463c3f56c9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricGalerkinBudget": {
+      "identity": "79d582be0da7a41bde67a9cd0fe4b05c2901ac0058bad35693d5f9e81185e65a",
+      "object_files": {
+        "CaloricGalerkinBudget.olean": "a48769bfb3b982577aedf49b1343b690ce4df5caa732b244ab3ef8e5b07c5255"
+      },
+      "olean_sha256": "a48769bfb3b982577aedf49b1343b690ce4df5caa732b244ab3ef8e5b07c5255",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricGalerkinMajorant": {
+      "identity": "e92ab4c523779005ab1698acc857689f8a1c471b8162f4b414fb57724c214f29",
+      "object_files": {
+        "CaloricGalerkinMajorant.olean": "0565136dd0a17ad5a236fac2347067c326ef7158a9577e29c4c8b54f2c18cc05"
+      },
+      "olean_sha256": "0565136dd0a17ad5a236fac2347067c326ef7158a9577e29c4c8b54f2c18cc05",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricH1Regularity": {
+      "identity": "e822d423340d26175bdf9c6afdca4d0bf9daa514f4e9f740adf057dbf1c3c5a6",
+      "object_files": {
+        "CaloricH1Regularity.olean": "5238e5858a13740a45b49f7acf9f3433fe1dd8e7a1e8349b389b97c28e966306"
+      },
+      "olean_sha256": "5238e5858a13740a45b49f7acf9f3433fe1dd8e7a1e8349b389b97c28e966306",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricH2": {
+      "identity": "3403f5cfc0669817d56652560a4f799f44ad0158c9950409d6e3976fc7e15408",
+      "object_files": {
+        "CaloricH2.olean": "28867e42d24308af425c0882906a6bcdb5d813d24755efe70cb3473c837e8642"
+      },
+      "olean_sha256": "28867e42d24308af425c0882906a6bcdb5d813d24755efe70cb3473c837e8642",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricKernel": {
+      "identity": "34be253c85967d704f7484182937bd5e359f03ae0cb525a884e7212f254a8a70",
+      "object_files": {
+        "CaloricKernel.olean": "4d72cf20ddd5a63088cfaea6966102e11230f05ac3aac5fb9771366e3e9ff3d7"
+      },
+      "olean_sha256": "4d72cf20ddd5a63088cfaea6966102e11230f05ac3aac5fb9771366e3e9ff3d7",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricMultiplier": {
+      "identity": "dac648d43069267951158989a3269795c27bc71133520a43b15afb6856e28cef",
+      "object_files": {
+        "CaloricMultiplier.olean": "76873c3b2573712fca7c715be7c27a06e2b9810b55f39c072baa979b274a0a12"
+      },
+      "olean_sha256": "76873c3b2573712fca7c715be7c27a06e2b9810b55f39c072baa979b274a0a12",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricNumericalAdmission": {
+      "identity": "59096ed0e636eb453c942e328b116c542aec83b269fbfadb9601e0564fb4e010",
+      "object_files": {
+        "CaloricNumericalAdmission.olean": "e516f3a3191601a8b2cb2467e31184d778a22b7077e45c9b5e21ee25e8f0248e"
+      },
+      "olean_sha256": "e516f3a3191601a8b2cb2467e31184d778a22b7077e45c9b5e21ee25e8f0248e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricPhysicalControl": {
+      "identity": "2999fdc2d85fe8947622022604cd5a53bdee7fdcb50b0bd2025ba547d1113a56",
+      "object_files": {
+        "CaloricPhysicalControl.olean": "1293c6364c559e1ef305951248a8100ce973b4095bcbce08ac14fa79487a0c6e"
+      },
+      "olean_sha256": "1293c6364c559e1ef305951248a8100ce973b4095bcbce08ac14fa79487a0c6e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CaloricSmoothing": {
+      "identity": "a254d25e04a12305df9840cfc695781698330d1c6a28a2e7f6b87750369bdc6b",
+      "object_files": {
+        "CaloricSmoothing.olean": "d92e217209818640354d782dcec698cbaf1e16df4ac967c594361e65e1406aaa"
+      },
+      "olean_sha256": "d92e217209818640354d782dcec698cbaf1e16df4ac967c594361e65e1406aaa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.CriticalTimeBudget": {
+      "identity": "18cdf2a1e2d335373f29eb5db44a2f94bd4d654987bac0465ec913d56cf6f661",
+      "object_files": {
+        "CriticalTimeBudget.olean": "dfba7d6296472460c6142da995a73f8b17b0f6f4e8d48a9b350b8f034d3dc223"
+      },
+      "olean_sha256": "dfba7d6296472460c6142da995a73f8b17b0f6f4e8d48a9b350b8f034d3dc223",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Cutoff": {
+      "identity": "de286a0e97376d73e212047b24e6ad62605e9705bea931d76da899b330c65cd9",
+      "object_files": {
+        "Cutoff.olean": "9ead9ff44c11d8e08ac27af2ed00ecbd6cccacb2c88564e1a3aad207c9471ae6"
+      },
+      "olean_sha256": "9ead9ff44c11d8e08ac27af2ed00ecbd6cccacb2c88564e1a3aad207c9471ae6",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.CaloricBudget": {
+      "identity": "fdf4cc50876d5e5ec362416a420abc4145fec8f3d7b20f350d32b414f4fcab02",
+      "object_files": {
+        "CaloricBudget.olean": "fd057f059b918f434cd82e919e0be94a82aa33f425e9fbdf9b772f163cb2fd09"
+      },
+      "olean_sha256": "fd057f059b918f434cd82e919e0be94a82aa33f425e9fbdf9b772f163cb2fd09",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.FiniteTimeTest": {
+      "identity": "b98370b49331c56a7d1a4188c7593bcf56f143a1cab0516efcd8fddae3ee7b83",
+      "object_files": {
+        "FiniteTimeTest.olean": "efffda816fcb9e353ff22d27c2645278ecb5c8194b04fd28d02ca4de5c6c814f"
+      },
+      "olean_sha256": "efffda816fcb9e353ff22d27c2645278ecb5c8194b04fd28d02ca4de5c6c814f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.InitialCoefficients": {
+      "identity": "a27f251394ec3eaa8e21611c28ebc001c8fca28bcb488d4f7fd34b7630d034c3",
+      "object_files": {
+        "InitialCoefficients.olean": "201b97e17990978344d83fb4cf2f23af99f0c452fd81138bbf889b2039d603a6"
+      },
+      "olean_sha256": "201b97e17990978344d83fb4cf2f23af99f0c452fd81138bbf889b2039d603a6",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.LerayHopfExistence": {
+      "identity": "06751c382c5d93c33bcedf5fa800e9d22a729fe8dd9da0ad2be322334f0584de",
+      "object_files": {
+        "LerayHopfExistence.olean": "afca21171d04d5d94b14f7bd2658c60f4c4f5e3ef94a25f9e1247e2af962e345"
+      },
+      "olean_sha256": "afca21171d04d5d94b14f7bd2658c60f4c4f5e3ef94a25f9e1247e2af962e345",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.LimitEnergy": {
+      "identity": "1dc6b4a54089dd150673f6525dfb75fe8dbc66c349cbfd4a0332f0511e57c9f2",
+      "object_files": {
+        "LimitEnergy.olean": "9fa9cfd255c102c62f2b4b35a1637f2b5d49158a2549471c7d1db8bb17319005"
+      },
+      "olean_sha256": "9fa9cfd255c102c62f2b4b35a1637f2b5d49158a2549471c7d1db8bb17319005",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.PhysicalMomentum": {
+      "identity": "102dbb2721a5f6a477c5f1e2517d5ad04d19f088253274b34757217fb893ce4c",
+      "object_files": {
+        "PhysicalMomentum.olean": "494ef72297d564fecf753c97913aac2441cd692d75c8d0012aa78b411a1cc2da"
+      },
+      "olean_sha256": "494ef72297d564fecf753c97913aac2441cd692d75c8d0012aa78b411a1cc2da",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.Root": {
+      "identity": "55016fe030e3e8f4ebd67c0d92859e5237471b037901c17ce31c2722613afe15",
+      "object_files": {
+        "Root.olean": "30b1ca80d8b0ee56b748569c48e56a7e43b683bcd928a04049d39e1425e20471"
+      },
+      "olean_sha256": "30b1ca80d8b0ee56b748569c48e56a7e43b683bcd928a04049d39e1425e20471",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.TestProjection": {
+      "identity": "74e11dc43c62a8a97195cb450808bd875b6e5ebe67fbdab402e0b7a508139ba9",
+      "object_files": {
+        "TestProjection.olean": "de650d5b305bb8ea5c5a39f95ce072b6db3c45a8df7f505811253a3e51a030fa"
+      },
+      "olean_sha256": "de650d5b305bb8ea5c5a39f95ce072b6db3c45a8df7f505811253a3e51a030fa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Endpoints.WeakH0Limit": {
+      "identity": "891e1c7a127a7bf676a8439df056cfa2990654c2ba4a3280dcb5fa323744a932",
+      "object_files": {
+        "WeakH0Limit.olean": "fd7283d6c6d0a5f861fd93e3c3944ff3bd32cde8eb88a5ec1e8b33446b7d0ac6"
+      },
+      "olean_sha256": "fd7283d6c6d0a5f861fd93e3c3944ff3bd32cde8eb88a5ec1e8b33446b7d0ac6",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyDatumApproximation": {
+      "identity": "9dabf6450a605fcc4119b6a8861a438e00fd6c262ffc9a578052ac0ba4e9c262",
+      "object_files": {
+        "EnergyDatumApproximation.olean": "3b098eef30899c5daee1ec1a17046fc5d2c876e50062049915f085f9764c6406"
+      },
+      "olean_sha256": "3b098eef30899c5daee1ec1a17046fc5d2c876e50062049915f085f9764c6406",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyFiniteWeakPairing": {
+      "identity": "be56aa4c8897ad92fcaf9a0f05423f2c6677f71ccbaaa215e6e3a4c9a25d5fcf",
+      "object_files": {
+        "EnergyFiniteWeakPairing.olean": "2acf287f19439c36840d748ba505e2a1abc2305c2bee5b160b56d7458178745c"
+      },
+      "olean_sha256": "2acf287f19439c36840d748ba505e2a1abc2305c2bee5b160b56d7458178745c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyGalerkinCompactness": {
+      "identity": "7ca22e738f62199cdfa498cd5ba79991f6a4ec9d596eb1124d8fc4a3cacfc613",
+      "object_files": {
+        "EnergyGalerkinCompactness.olean": "bf87bfa68485c8d4b31e256f0b87956533a3cc010671cef3e334408ecdeb70bf"
+      },
+      "olean_sha256": "bf87bfa68485c8d4b31e256f0b87956533a3cc010671cef3e334408ecdeb70bf",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyGlobalCoefficient": {
+      "identity": "424c6fa82e74551760c512402cb959458cae755b92eff0ed678bdc11dcd10466",
+      "object_files": {
+        "EnergyGlobalCoefficient.olean": "cce0307c350fad6f07452f09af1f9c6be24a0b27edf637a62e64822334385383"
+      },
+      "olean_sha256": "cce0307c350fad6f07452f09af1f9c6be24a0b27edf637a62e64822334385383",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyGlobalLimit": {
+      "identity": "3bc2b3b941e4064d894a9cf20b42cf92355e96195fd676e135121155d55280b9",
+      "object_files": {
+        "EnergyGlobalLimit.olean": "6453db32f7fa4c4414e2e98f717c58f14f741676610f2fef1676a6a2a5c9f669"
+      },
+      "olean_sha256": "6453db32f7fa4c4414e2e98f717c58f14f741676610f2fef1676a6a2a5c9f669",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyGlobalPhysical": {
+      "identity": "b5709e53c5e0129319dac1f10933b7f79f175e17aeb339a1094e61d07658234b",
+      "object_files": {
+        "EnergyGlobalPhysical.olean": "9231b720ca324aaf73a409f1875f9cd3d846f8669eb2d331c7d7a77fd88df870"
+      },
+      "olean_sha256": "9231b720ca324aaf73a409f1875f9cd3d846f8669eb2d331c7d7a77fd88df870",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyH1Realization": {
+      "identity": "948206ef4b208c78fe0b8928cbb3e087c7d7d03769a7a28f0d17baa14fc82b0f",
+      "object_files": {
+        "EnergyH1Realization.olean": "6adb90e895fb89df64872065e4a1c262a92ebb2de455de68c5a0f71e5075f370"
+      },
+      "olean_sha256": "6adb90e895fb89df64872065e4a1c262a92ebb2de455de68c5a0f71e5075f370",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyLimitCompatibility": {
+      "identity": "b46fdeb72d652070e6926b381e46f5ed8babe878b9bf360d162ae979ad9c9466",
+      "object_files": {
+        "EnergyLimitCompatibility.olean": "92b2a1f3d8b86bb238613dfe5fbccb76c9f6600740a0d03c6387d3c79da95be9"
+      },
+      "olean_sha256": "92b2a1f3d8b86bb238613dfe5fbccb76c9f6600740a0d03c6387d3c79da95be9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyLimitEnergy": {
+      "identity": "5f3c14f343fe3d9d5d21b623edf6aef6796446957505332dde76726983ce61a1",
+      "object_files": {
+        "EnergyLimitEnergy.olean": "73781d627d09b6113ca3a2a9bc3932a865539ac2ce2a67ac39fcd5d14fbec6f2"
+      },
+      "olean_sha256": "73781d627d09b6113ca3a2a9bc3932a865539ac2ce2a67ac39fcd5d14fbec6f2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyPeriodicRepresentative": {
+      "identity": "8196b3b5298c9b77f4ce17e6cb3cb46038f7614f29f398582b951f4e25866031",
+      "object_files": {
+        "EnergyPeriodicRepresentative.olean": "84a3b754f028536783001c7ca539c85b20a4a2051e922ab3ed17c20209b56098"
+      },
+      "olean_sha256": "84a3b754f028536783001c7ca539c85b20a4a2051e922ab3ed17c20209b56098",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyPhysicalContinuity": {
+      "identity": "66af6d5cd7261a5aa5bfc595f588b325ac7c2e68c6f642f238a8b0ad46ac8346",
+      "object_files": {
+        "EnergyPhysicalContinuity.olean": "76597deb19d79fc55129aa9b0429fa1b2ad21d245274320c3d84421da3d1698f"
+      },
+      "olean_sha256": "76597deb19d79fc55129aa9b0429fa1b2ad21d245274320c3d84421da3d1698f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyPhysicalTrace": {
+      "identity": "e92b49bf249acdfad883b8a0dc0511938db336145c37ebce20c4a119756e4d60",
+      "object_files": {
+        "EnergyPhysicalTrace.olean": "635a81f62c6645da3eec38c1f71386340cdf678aa6c394fefc1cd811465bbb87"
+      },
+      "olean_sha256": "635a81f62c6645da3eec38c1f71386340cdf678aa6c394fefc1cd811465bbb87",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyTestDecay": {
+      "identity": "0ccd1dbdd6627e7cdb7982c62f88addac3e1975a02daea23bdc0fa5da265c11e",
+      "object_files": {
+        "EnergyTestDecay.olean": "e69dbf51756384e800ed7124ba9dd67c4fdca029af980916c225d419ba465664"
+      },
+      "olean_sha256": "e69dbf51756384e800ed7124ba9dd67c4fdca029af980916c225d419ba465664",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyTimeCompactness": {
+      "identity": "4135ed9ee1a83572728aafc97e7783a3b60eb66d44edc5da08c66e7bde7763c0",
+      "object_files": {
+        "EnergyTimeCompactness.olean": "4ddd6fb6acb2bedc60bd35385ee81ed2f15e19eb10039834aeb919fcf9c9f758"
+      },
+      "olean_sha256": "4ddd6fb6acb2bedc60bd35385ee81ed2f15e19eb10039834aeb919fcf9c9f758",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyTransportContinuity": {
+      "identity": "4b107728a10351feec6d0b63387c6e9f051d6cd2c99c9a6f594af8d08f02dd38",
+      "object_files": {
+        "EnergyTransportContinuity.olean": "910e801ace90e00fb9d41958ac82537eac1c9e9a2dd0fdb86eddc8b812f15bda"
+      },
+      "olean_sha256": "910e801ace90e00fb9d41958ac82537eac1c9e9a2dd0fdb86eddc8b812f15bda",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.EnergyWeakContinuity": {
+      "identity": "a6b8bc28f3d31ebda9105c33f7bacf3b1e597d5e8d228da84502fb942b942245",
+      "object_files": {
+        "EnergyWeakContinuity.olean": "cbe229cb4069d3f49a8bc0ff7ce5db762f800b0048f1594f65db8e541a4bf381"
+      },
+      "olean_sha256": "cbe229cb4069d3f49a8bc0ff7ce5db762f800b0048f1594f65db8e541a4bf381",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.ExactAdmission": {
+      "identity": "424b66ec7d68c32d4ed294951a67f9289740efd9965b192f166b6ac7c8da23c6",
+      "object_files": {
+        "ExactAdmission.olean": "980fe8cc87075c9fef20fec66ee48caf8fdb9c69f41082de0b4c8ab7592c7299"
+      },
+      "olean_sha256": "980fe8cc87075c9fef20fec66ee48caf8fdb9c69f41082de0b4c8ab7592c7299",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.FiniteCaloricSchur": {
+      "identity": "cda3ecb8b8968285289b7b04a47cca6770ce53a5053ee94cd4ea74173842138a",
+      "object_files": {
+        "FiniteCaloricSchur.olean": "94b75eee044889680012dca1c7fef0c00ee108fca1c8447f92882226cc2ce3d7"
+      },
+      "olean_sha256": "94b75eee044889680012dca1c7fef0c00ee108fca1c8447f92882226cc2ce3d7",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.FourierEnergy": {
+      "identity": "a20af941998ee6f6cc8bff272bd28352c6c0aa2195df14c9adf08c1bc99e30b9",
+      "object_files": {
+        "FourierEnergy.olean": "25b777993d9e41404c98b6b0783cdfb61c3dde60b8cb291c141b1786cf949612"
+      },
+      "olean_sha256": "25b777993d9e41404c98b6b0783cdfb61c3dde60b8cb291c141b1786cf949612",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.GoodTime": {
+      "identity": "60e9f4ebbb861c0e1fd0e188667b3326f8f01dc97238b057e5c054a67a6018b7",
+      "object_files": {
+        "GoodTime.olean": "6b216331dbf1c7d83481ebeb16175b8165b910747f611f65f1b32e7c4e7007d4"
+      },
+      "olean_sha256": "6b216331dbf1c7d83481ebeb16175b8165b910747f611f65f1b32e7c4e7007d4",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.LHEnergy": {
+      "identity": "44bf57a02d92a9185900509bab81aa2b55cde1274feab72c45e5f97ba4f784fe",
+      "object_files": {
+        "LHEnergy.olean": "f0fe0f927ef8b5f5b5fa87c15bce98350edf3da26cbd052a7327d47bd5ecb470"
+      },
+      "olean_sha256": "f0fe0f927ef8b5f5b5fa87c15bce98350edf3da26cbd052a7327d47bd5ecb470",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.LHExistence": {
+      "identity": "d883b8b30fd2a6cd69b941994abf341bb6dee2a2ae9f1b3705b5fc6a3b4a2b82",
+      "object_files": {
+        "LHExistence.olean": "107cac5bc924512d3c8cac391567947815c88257dc4f64a681bbdd7e8a745d11"
+      },
+      "olean_sha256": "107cac5bc924512d3c8cac391567947815c88257dc4f64a681bbdd7e8a745d11",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.LHRestart": {
+      "identity": "f772808aadd4565c95346185377820fedcc7c9a56bfaa0a8bb43dc8a186dbe41",
+      "object_files": {
+        "LHRestart.olean": "b7c3335f8f35fec9984ae72885fdc9c7d4187461352459209fd96c0b98082efa"
+      },
+      "olean_sha256": "b7c3335f8f35fec9984ae72885fdc9c7d4187461352459209fd96c0b98082efa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.MeanPreservation": {
+      "identity": "75517f33bbc5a6c249c183a278a2b96ce3112af50c18a3bca5f40397dcc2cccd",
+      "object_files": {
+        "MeanPreservation.olean": "46cc89a7e7b0b537eea9703b488083c10a043e9899d26607f8a43c0aa9790b7c"
+      },
+      "olean_sha256": "46cc89a7e7b0b537eea9703b488083c10a043e9899d26607f8a43c0aa9790b7c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.PhysicalFourierL2": {
+      "identity": "1a1f0960d4e99df0ee336810bc4e64b01f1d03b77904a3296069628aac751d03",
+      "object_files": {
+        "PhysicalFourierL2.olean": "4abafafd10c2db1f210b7562d5177ea225d0d0d6c60ef271143b9214f6a7f268"
+      },
+      "olean_sha256": "4abafafd10c2db1f210b7562d5177ea225d0d0d6c60ef271143b9214f6a7f268",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.PhysicalH1Admission": {
+      "identity": "3bd13e929f14f0eda13e30d5a19b6850f1b09b771641e49e92134611d7f403a1",
+      "object_files": {
+        "PhysicalH1Admission.olean": "90007c317ec02d3bb3148435615d9df55cb77c9a010d563825a279e34be57122"
+      },
+      "olean_sha256": "90007c317ec02d3bb3148435615d9df55cb77c9a010d563825a279e34be57122",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.RegularReference": {
+      "identity": "6727963344ba8cab7b05b50e9e722c6a8d672917885977a0b201829072ec1dcc",
+      "object_files": {
+        "RegularReference.olean": "8c520bd59334854c7ad7723d561fb572cd2141878617d56e0b6985390a71eb4a"
+      },
+      "olean_sha256": "8c520bd59334854c7ad7723d561fb572cd2141878617d56e0b6985390a71eb4a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.RootAssembly": {
+      "identity": "62b48b7388561b7546a942ce7b2f30b6d486d5d435dc3f952312be1f4c4d9f03",
+      "object_files": {
+        "RootAssembly.olean": "a09b99c51aca40caddfeb24be714c55bca8502efd8e75888a197bb23c9102ebc"
+      },
+      "olean_sha256": "a09b99c51aca40caddfeb24be714c55bca8502efd8e75888a197bb23c9102ebc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.RootContract": {
+      "identity": "b5a174f4e1b7f108788ff85d3aa51214771b2231e9faf78b2f8defa701d12105",
+      "object_files": {
+        "RootContract.olean": "adc634aef5e52d160b4000a871c98ec5a01a2cc6cb2dc6d55c7bd1b445a0739f"
+      },
+      "olean_sha256": "adc634aef5e52d160b4000a871c98ec5a01a2cc6cb2dc6d55c7bd1b445a0739f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.SafeCutoff": {
+      "identity": "be967021d384bf3081ec63180cd5f43351c60a21a86e4211a0fcf41472f05586",
+      "object_files": {
+        "SafeCutoff.olean": "05fe7e8474f60687daf6affe594186118fa58203d131ed6a8b4e53ff8d2a7d9c"
+      },
+      "olean_sha256": "05fe7e8474f60687daf6affe594186118fa58203d131ed6a8b4e53ff8d2a7d9c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.Semantics": {
+      "identity": "75e5032c9fdfb26aa3d74d10285269ebbc2eb4a776e6bc4ee56ee782a08afb5a",
+      "object_files": {
+        "Semantics.olean": "eb8a42d46a159c1e557113d921d8dfd6ac77d7e1557be0c979e15b37bb3b3f84"
+      },
+      "olean_sha256": "eb8a42d46a159c1e557113d921d8dfd6ac77d7e1557be0c979e15b37bb3b3f84",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.SpatialAdmission": {
+      "identity": "8ddc4afd2618d335f973307fbdf252f2f843905018a6c0ffaf06f58198ff97df",
+      "object_files": {
+        "SpatialAdmission.olean": "b7e472c5850ccec91a127598d6222225890784fd9bbd50d7e81e2d73ae999928"
+      },
+      "olean_sha256": "b7e472c5850ccec91a127598d6222225890784fd9bbd50d7e81e2d73ae999928",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.TailChain": {
+      "identity": "58f6220eb021f2ccd377525ddbe16a5d8b31fb7c32128a3620a839dc50ffb169",
+      "object_files": {
+        "TailChain.olean": "f42b8421575ca40aea7257ac317b2e54b42a1294b827010ce33d33c9cfd065a5"
+      },
+      "olean_sha256": "f42b8421575ca40aea7257ac317b2e54b42a1294b827010ce33d33c9cfd065a5",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.TailEnergy": {
+      "identity": "2bab60edc36bb9deccf2e069d1cf72d3375804bbb5c640394f4b3a2b9703f71f",
+      "object_files": {
+        "TailEnergy.olean": "effdcff3fee5da4ff9f40a2b51031e725d4c1dde238931c043e1b980e680137b"
+      },
+      "olean_sha256": "effdcff3fee5da4ff9f40a2b51031e725d4c1dde238931c043e1b980e680137b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.TailRegularity": {
+      "identity": "d3104939f0b13fe68c20a88ac8bf1bdfbb5887c048368a9530caeb553c672e9d",
+      "object_files": {
+        "TailRegularity.olean": "f758f5b12e4e9f9eda804b7186c4e98e16b41f6e6fbf36cef5e693ee95ec69a6"
+      },
+      "olean_sha256": "f758f5b12e4e9f9eda804b7186c4e98e16b41f6e6fbf36cef5e693ee95ec69a6",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.TailUniqueness": {
+      "identity": "68f6cda8dca360be5da06d518172ad081c50c0815c893739a0e80454201e8990",
+      "object_files": {
+        "TailUniqueness.olean": "59490f9c20b027223e89564386b65d71933622175b3cd1f88b1c95791998c0e1"
+      },
+      "olean_sha256": "59490f9c20b027223e89564386b65d71933622175b3cd1f88b1c95791998c0e1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.ThetaGaussian": {
+      "identity": "3452a80dc40737a65a5a498861eeea49810be1317a4c4a6a79b7cf89f67d59e7",
+      "object_files": {
+        "ThetaGaussian.olean": "c060c9d76c430d2036a932107d5fbfb186019e9259e7e8624bffec4d17ef43e0"
+      },
+      "olean_sha256": "c060c9d76c430d2036a932107d5fbfb186019e9259e7e8624bffec4d17ef43e0",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.ThetaLattice": {
+      "identity": "c50dcdb4e8696a3797ede462f79b04f7b4a329b2a170681aa6b8903e84a37a5a",
+      "object_files": {
+        "ThetaLattice.olean": "907a3ed49deace86f4c5fdd3ec47515adce96a056d6e77903e9bf9e4babe2edc"
+      },
+      "olean_sha256": "907a3ed49deace86f4c5fdd3ec47515adce96a056d6e77903e9bf9e4babe2edc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.ThetaResolvent": {
+      "identity": "c9b503d35ea422d852060f9adeb090172b65adf4c240e14c1a4400a77322a5b0",
+      "object_files": {
+        "ThetaResolvent.olean": "94db2fd7b19fef8311042e5eebfa3ada8fce2978829609770270394568a30db3"
+      },
+      "olean_sha256": "94db2fd7b19fef8311042e5eebfa3ada8fce2978829609770270394568a30db3",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.ThetaSchur": {
+      "identity": "2468459ff421b35057efc3a62643632dbdd270ab557bda5ae45f348b04a08b52",
+      "object_files": {
+        "ThetaSchur.olean": "8e704c540436409d151f1d747371c6f6a101ec4da9c3b0dc308af61b998e4f13"
+      },
+      "olean_sha256": "8e704c540436409d151f1d747371c6f6a101ec4da9c3b0dc308af61b998e4f13",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.TimeTranslate": {
+      "identity": "5a6ce9be0987e3c5af28d63a980538819b8c66eb80fb1f6978e05e8c9b04eaa8",
+      "object_files": {
+        "TimeTranslate.olean": "e6aa0f686555a3d90d7ec87d0a0917d600070420ef1fbc3170452c095dd19fdf"
+      },
+      "olean_sha256": "e6aa0f686555a3d90d7ec87d0a0917d600070420ef1fbc3170452c095dd19fdf",
+      "reused": false,
+      "status": "PASS"
+    },
+    "QuasiFeffermanB.ZeroData": {
+      "identity": "cbebadcd61fb7e5e26c96244c6f1a8e2fc50f68f7fdfb4802ccc0c52dd595765",
+      "object_files": {
+        "ZeroData.olean": "f8fee62ecca286e977725287cde18b43b11637a3ce167d509b401797e8fc7521"
+      },
+      "olean_sha256": "f8fee62ecca286e977725287cde18b43b11637a3ce167d509b401797e8fc7521",
+      "reused": false,
+      "status": "PASS"
+    },
+    "RelativeEnergy.Endpoint": {
+      "identity": "f3ab6ab4b48857a897481d17271faeb7cb5708851be8c750fb83186ccf9f8f48",
+      "object_files": {
+        "Endpoint.olean": "f78545b90e840b53e0d99a592ce5393bf7fe09e6b4e79632d0420b8861fc6a16"
+      },
+      "olean_sha256": "f78545b90e840b53e0d99a592ce5393bf7fe09e6b4e79632d0420b8861fc6a16",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SerrinComparison.Endpoint": {
+      "identity": "69298e91be0c506402c77c8c645eace1b30f11236de613da30f5c8e769def63a",
+      "object_files": {
+        "Endpoint.olean": "952c3435bd9aaf3c46e1928a5e7004bcb9cee24f607f30bceed4af5d2f8a58eb"
+      },
+      "olean_sha256": "952c3435bd9aaf3c46e1928a5e7004bcb9cee24f607f30bceed4af5d2f8a58eb",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.Admission": {
+      "identity": "6639e277598f003fd87d4a8c2ec15b6858b3c200ea72881bb45e622f8fe106aa",
+      "object_files": {
+        "Admission.olean": "108850682a73133539974817b3c0811be3b98a5e966543fabe2f6ffd11602c85"
+      },
+      "olean_sha256": "108850682a73133539974817b3c0811be3b98a5e966543fabe2f6ffd11602c85",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.Ax6ExactBudget": {
+      "identity": "dab6fd30cc1ed70afb25f516c5c7cb671cfed8583579eb186b565e501f862d8f",
+      "object_files": {
+        "Ax6ExactBudget.olean": "05919a54ebdfafebe08636957e8d36d5a5a64847ac9ec5d096de782d74e2d796"
+      },
+      "olean_sha256": "05919a54ebdfafebe08636957e8d36d5a5a64847ac9ec5d096de782d74e2d796",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CanonicalGalerkin": {
+      "identity": "b6a2250b8e47822f01aa21efbbf0a64e0472ca352fd7aa9d93aa465e5f5c9f57",
+      "object_files": {
+        "CanonicalGalerkin.olean": "45c5357a95c28a212a9421320a6413796e003e8eea1aa7d9fc324ada7682abfb"
+      },
+      "olean_sha256": "45c5357a95c28a212a9421320a6413796e003e8eea1aa7d9fc324ada7682abfb",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CanonicalRhsSobolev": {
+      "identity": "93b49311b2f660e0a1e3a32d5632af46157ca1cc6b8f989628c6802a1becb3e7",
+      "object_files": {
+        "CanonicalRhsSobolev.olean": "4a68ee75f3753659a818b53ee0bd626a033e77c59c5acb38008f59c5a4b478d9"
+      },
+      "olean_sha256": "4a68ee75f3753659a818b53ee0bd626a033e77c59c5acb38008f59c5a4b478d9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.Contracts": {
+      "identity": "8fc6b58ff05c61a79f0b1785f1f0b8a955f05ad57cb88de9b1de2c3ebd1b260f",
+      "object_files": {
+        "Contracts.olean": "ca19bbcebda63c20ae4a08df501a876996331aefa4f0eedd01c533dd80660de3"
+      },
+      "olean_sha256": "ca19bbcebda63c20ae4a08df501a876996331aefa4f0eedd01c533dd80660de3",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.ConvectionBound": {
+      "identity": "309d2082624de8604446f9ce1947965d24eacf62eff351a9ec1c7efa17d46317",
+      "object_files": {
+        "ConvectionBound.olean": "36eb2923e0f5806c1407768ec0daba85b595188c44acded7f223e40b0464a874"
+      },
+      "olean_sha256": "36eb2923e0f5806c1407768ec0daba85b595188c44acded7f223e40b0464a874",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CoordinateAverage": {
+      "identity": "fdc59b567129adc4c3a3549f2abf045056d57acb7389fd258dcf9ed5870e409a",
+      "object_files": {
+        "CoordinateAverage.olean": "c8d1f3de58c2b178a5d0cf543d9144cce3dc0878edc479317108ab29dc7683d0"
+      },
+      "olean_sha256": "c8d1f3de58c2b178a5d0cf543d9144cce3dc0878edc479317108ab29dc7683d0",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CoordinateAverageCalculus": {
+      "identity": "7cf82f293bc6c6d24cfd62def78846822a2b2138e49b8a04dc42caf779c70900",
+      "object_files": {
+        "CoordinateAverageCalculus.olean": "ec321cdc754efeddd1c1dff3ba0106fa73aa580182bb108cd8fd008d620fab74"
+      },
+      "olean_sha256": "ec321cdc754efeddd1c1dff3ba0106fa73aa580182bb108cd8fd008d620fab74",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CoordinateAverageOrthogonal": {
+      "identity": "d32fa436975241de5e12a5c482a5c9d9ff4e3b3bf4ca049a892676efe869418e",
+      "object_files": {
+        "CoordinateAverageOrthogonal.olean": "719d655c0b70c7847ba20cd422539449a9126d2866d31e62a5f58437859f59cd"
+      },
+      "olean_sha256": "719d655c0b70c7847ba20cd422539449a9126d2866d31e62a5f58437859f59cd",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CountableCompactExtraction": {
+      "identity": "627f091b85959360e2e9521218a90115f7d1fc930e1e3b82a0de900c5f587417",
+      "object_files": {
+        "CountableCompactExtraction.olean": "136f81e8b3a73be590e92f1c252fa84afa02dce49b938218f968557c37ab4571"
+      },
+      "olean_sha256": "136f81e8b3a73be590e92f1c252fa84afa02dce49b938218f968557c37ab4571",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalAdmissibleTimes": {
+      "identity": "fb013e5bb5c4c90200aec51705d8f4067a9b72c62074ebf95660ae0970fee5aa",
+      "object_files": {
+        "CriticalAdmissibleTimes.olean": "3e822f80da99a893932e92deece87fa4f8a255d5028fe3365e4dc696a8518642"
+      },
+      "olean_sha256": "3e822f80da99a893932e92deece87fa4f8a255d5028fe3365e4dc696a8518642",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalClassicalWeakMomentum": {
+      "identity": "2aff9bc0c3538af30f990b23bdae1683c3fc1a57e79a22de5854b1ebf29e8b2b",
+      "object_files": {
+        "CriticalClassicalWeakMomentum.olean": "3a5510cb6f3a0aaee121fbee5ce5a0a4ecc554992492722e147c7e2605202ddd"
+      },
+      "olean_sha256": "3a5510cb6f3a0aaee121fbee5ce5a0a4ecc554992492722e147c7e2605202ddd",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalComplexSobolev": {
+      "identity": "62c7af8c6ae61f2af8a35761b3f5646f5d279f38aa903212dc65ba2771c3bbe6",
+      "object_files": {
+        "CriticalComplexSobolev.olean": "395d637299a685d38b39be25339f9fd8db814e6c2cc6f987edd3f4f8ba4c8bc0"
+      },
+      "olean_sha256": "395d637299a685d38b39be25339f9fd8db814e6c2cc6f987edd3f4f8ba4c8bc0",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalCubeL2": {
+      "identity": "8713e62b995a8540fc6ce410f81e9ca0bc3a4496b9a6fda2fbf757b0ba0facde",
+      "object_files": {
+        "CriticalCubeL2.olean": "f3a1ab7335ee613caa600cf39fba04bb9fef75764c19f52aec4c633ea514682f"
+      },
+      "olean_sha256": "f3a1ab7335ee613caa600cf39fba04bb9fef75764c19f52aec4c633ea514682f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalDissipation": {
+      "identity": "0e3de6b4961d02cce03bcf50966d38c6fd6c9eea27e68c99099000f7dc29b591",
+      "object_files": {
+        "CriticalDissipation.olean": "274369119cecf0f07fc92141dc570eb3b2330b2ae384b85f71e640ab32f0354c"
+      },
+      "olean_sha256": "274369119cecf0f07fc92141dc570eb3b2330b2ae384b85f71e640ab32f0354c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalEnergy": {
+      "identity": "6094a00701b789a3dd51aabde6737bdd6acf1c6e410461cf10d802aff6521894",
+      "object_files": {
+        "CriticalEnergy.olean": "7b0e83dd9df441f211ba367ff9a0723f2da45054bd463827f043cae890dc1266"
+      },
+      "olean_sha256": "7b0e83dd9df441f211ba367ff9a0723f2da45054bd463827f043cae890dc1266",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalFourierInterpolation": {
+      "identity": "e451f2c56c8f50038ca920a635a1e4666c36cd416327857faace61e5d90e0d66",
+      "object_files": {
+        "CriticalFourierInterpolation.olean": "22ca69e387afe720efeb572e97926f57eccf370f18e71a423fbcf29b3ff42b76"
+      },
+      "olean_sha256": "22ca69e387afe720efeb572e97926f57eccf370f18e71a423fbcf29b3ff42b76",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGalerkin": {
+      "identity": "59a29ca0eb009a86cace948d40c2204cca82db84c367c24cb7fd45e8f51f05dc",
+      "object_files": {
+        "CriticalGalerkin.olean": "9594f82f9ad0273db1988c0ca9c6b151368819e5f35f4d63652436528fc530dd"
+      },
+      "olean_sha256": "9594f82f9ad0273db1988c0ca9c6b151368819e5f35f4d63652436528fc530dd",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGalerkinTrajectory": {
+      "identity": "4f4b8f72219aa9be788157fe9ce0b9c80d37f8ac65b520db8f84d2634aa39536",
+      "object_files": {
+        "CriticalGalerkinTrajectory.olean": "e4621ecd9645820b5e195a84a1f50d559823ea80585ee205005600e3f3b1d0c4"
+      },
+      "olean_sha256": "e4621ecd9645820b5e195a84a1f50d559823ea80585ee205005600e3f3b1d0c4",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGlobalEnergyClass": {
+      "identity": "d8a1b667a463299cc3e49dabb6d94a720e365818dc1d4de38fbb345ee87b78c5",
+      "object_files": {
+        "CriticalGlobalEnergyClass.olean": "95280e53d7faa367d7c862ca9833ff001a8bc532cb1e5dab708f7f6acc742625"
+      },
+      "olean_sha256": "95280e53d7faa367d7c862ca9833ff001a8bc532cb1e5dab708f7f6acc742625",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGlobalLp": {
+      "identity": "63a34770d268d73ec7b249cc616116b919c67846aa3cf3f5e06ca57fa965d68c",
+      "object_files": {
+        "CriticalGlobalLp.olean": "298286baa26d8c0bf7b29840c790aa4992fa388a95b6d30751f582fd43f7c722"
+      },
+      "olean_sha256": "298286baa26d8c0bf7b29840c790aa4992fa388a95b6d30751f582fd43f7c722",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGlobalSerrin": {
+      "identity": "6762befca81f821a77c97fad321d2aba44e592d422d3959739385e942ae8293a",
+      "object_files": {
+        "CriticalGlobalSerrin.olean": "0d5e055465927d2aec69750209fd19711f46de36da5ba58c4c6acbae7cd279d2"
+      },
+      "olean_sha256": "0d5e055465927d2aec69750209fd19711f46de36da5ba58c4c6acbae7cd279d2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGradientEnergyBound": {
+      "identity": "5760739b827c516ff6082a9884ad747ccf7969fc908b14b99cf06cc482267857",
+      "object_files": {
+        "CriticalGradientEnergyBound.olean": "5802acb34d85ed86557cf4a1dd7748eb78d5f343eabc14abed2f2953871630d5"
+      },
+      "olean_sha256": "5802acb34d85ed86557cf4a1dd7748eb78d5f343eabc14abed2f2953871630d5",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalGradientL2Measurable": {
+      "identity": "e33d596b5e13cabdd6d9438180163b23edf5fc35d4b301567926a23395fb675c",
+      "object_files": {
+        "CriticalGradientL2Measurable.olean": "07282a3776c67fd24053857a81202e5627335200fe1b826fa7422d99030c6295"
+      },
+      "olean_sha256": "07282a3776c67fd24053857a81202e5627335200fe1b826fa7422d99030c6295",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalH1Algebra": {
+      "identity": "2de3b88aa02b2e1af67c0a09e196d5289f2cbaf3421b1dafeabd9bdcdac11a25",
+      "object_files": {
+        "CriticalH1Algebra.olean": "4caef2af4f151e4e9dda801b9c4091d46dc9b8272bad8629d6e863332a67292d"
+      },
+      "olean_sha256": "4caef2af4f151e4e9dda801b9c4091d46dc9b8272bad8629d6e863332a67292d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalHolder": {
+      "identity": "c34d70827789cbe7cc0325558964b08b8c05e5454d0b6d227eddba195266516c",
+      "object_files": {
+        "CriticalHolder.olean": "2d67a095eae6bede6d7ef4dad574fbbb388524a424099ad76a4d5b642a0632da"
+      },
+      "olean_sha256": "2d67a095eae6bede6d7ef4dad574fbbb388524a424099ad76a4d5b642a0632da",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalHomogeneousL6": {
+      "identity": "29031e32a9e1658b8027fbf9ee4945d491813e73cef7a15ecb24a8d6f5bae154",
+      "object_files": {
+        "CriticalHomogeneousL6.olean": "cb5b2687d9d5262611f67739cbc5942768e610abd20474f4e6b778c4cbb81302"
+      },
+      "olean_sha256": "cb5b2687d9d5262611f67739cbc5942768e610abd20474f4e6b778c4cbb81302",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalInitialEnergy": {
+      "identity": "03cb86dbcee136244e179d56a26e8d584b2343e5cf343408fdf456dd5637b88f",
+      "object_files": {
+        "CriticalInitialEnergy.olean": "26ef615640c2381b157bc7ba364202d366e4a8cd86e4ddaf94a2268cad27fe1b"
+      },
+      "olean_sha256": "26ef615640c2381b157bc7ba364202d366e4a8cd86e4ddaf94a2268cad27fe1b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalInitialPhysicalFourier": {
+      "identity": "f3e8251671bab1aa17fbfff642421a01b011c6161edc3be4069412566bd9257c",
+      "object_files": {
+        "CriticalInitialPhysicalFourier.olean": "d60d1f247e2c2bb4d165b547fb8f29d99a1ab859447e478128b919aac1e0040a"
+      },
+      "olean_sha256": "d60d1f247e2c2bb4d165b547fb8f29d99a1ab859447e478128b919aac1e0040a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalInvariant": {
+      "identity": "4796396c47a103d4e8f547394531411e42e92572a5ad67b245cba46d769b5d57",
+      "object_files": {
+        "CriticalInvariant.olean": "b4755b3bb9cbf616cb40fec0df321f0ac1e95498fbd321cf4ea8efdad6ef7ff8"
+      },
+      "olean_sha256": "b4755b3bb9cbf616cb40fec0df321f0ac1e95498fbd321cf4ea8efdad6ef7ff8",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLerayHopf": {
+      "identity": "79b67728589552ca5501a3a0e9355da0c9c8fa4ebd05f405cad8bf50985c6888",
+      "object_files": {
+        "CriticalLerayHopf.olean": "c0a221a3dbcf1e9d3866b7a9696090d80db0c8e04d646870bcce30c8ca8641f2"
+      },
+      "olean_sha256": "c0a221a3dbcf1e9d3866b7a9696090d80db0c8e04d646870bcce30c8ca8641f2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimit": {
+      "identity": "ad55218e4517a11c3468427209db0a3a9fdff66c3d2ffabfec929f0612d1daf4",
+      "object_files": {
+        "CriticalLimit.olean": "02706e118d98e2771da5065c2456ec3634515e8165432701ddf3910158378842"
+      },
+      "olean_sha256": "02706e118d98e2771da5065c2456ec3634515e8165432701ddf3910158378842",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitEquation": {
+      "identity": "422af07b0fbe0cb9f66e0cb7cde8302af9297be9cc3cee9ddc6bca13d54ed3f0",
+      "object_files": {
+        "CriticalLimitEquation.olean": "b7bd249b6f6b22fff4d78147161af4edfb572ec8add4c289cd761f5953917341"
+      },
+      "olean_sha256": "b7bd249b6f6b22fff4d78147161af4edfb572ec8add4c289cd761f5953917341",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitFatou": {
+      "identity": "492fd5b03ca773f36fa2bed81f0d091d824e5aadbb5ebb4249eaab320d074156",
+      "object_files": {
+        "CriticalLimitFatou.olean": "6112296d872a113ac2d7c7cba4daf1bda0defef231709fb92e5f164894953fbd"
+      },
+      "olean_sha256": "6112296d872a113ac2d7c7cba4daf1bda0defef231709fb92e5f164894953fbd",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitGlobal": {
+      "identity": "55da06a56dbf82984d1d89ecd9e5aba0b89ac72de500321732835d805f44c77d",
+      "object_files": {
+        "CriticalLimitGlobal.olean": "47a472930e4a2e7fe795b02228b2edc36eed31d34af571b4782604745480857a"
+      },
+      "olean_sha256": "47a472930e4a2e7fe795b02228b2edc36eed31d34af571b4782604745480857a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitRepresentatives": {
+      "identity": "253de6dcf8fa827659c70a148a625bd20cb9504f81a58594d4a43de65deb6812",
+      "object_files": {
+        "CriticalLimitRepresentatives.olean": "9344d66b5eaf32b4db8199ad46d9535ee0a00d3c013d344b3fe93265d14b6458"
+      },
+      "olean_sha256": "9344d66b5eaf32b4db8199ad46d9535ee0a00d3c013d344b3fe93265d14b6458",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitTail": {
+      "identity": "ca25c58ad3ad88ccd678c358a00a53f2b755ce8bb2150dc68e062026ef626910",
+      "object_files": {
+        "CriticalLimitTail.olean": "ff49888e815170428000682e917ce251f90e205793d19cd9f855fa8756ee53b7"
+      },
+      "olean_sha256": "ff49888e815170428000682e917ce251f90e205793d19cd9f855fa8756ee53b7",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitTimeL2": {
+      "identity": "1ada80703149f779311e36bd8c2f78bf464b6f87048a06a20e75b0bad3e7ffc3",
+      "object_files": {
+        "CriticalLimitTimeL2.olean": "1ed424bdedea1aef9d0aa00a301c975f83ff3345cbf11da0dcf2979e4655c2f3"
+      },
+      "olean_sha256": "1ed424bdedea1aef9d0aa00a301c975f83ff3345cbf11da0dcf2979e4655c2f3",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLimitUniform": {
+      "identity": "c1974273077771c1eae54d6ad34e72cfb59cf78e1fc707cb9fb14baabd6cc9a4",
+      "object_files": {
+        "CriticalLimitUniform.olean": "9ed7774f24ae9425b8c1ec1b11975b4f6b9ca0b10e7eae2d12bb1680ac779099"
+      },
+      "olean_sha256": "9ed7774f24ae9425b8c1ec1b11975b4f6b9ca0b10e7eae2d12bb1680ac779099",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalLocalUniqueness": {
+      "identity": "9c26c4825ecde622cf5d4bf90cd67933cabc603b070c2a1f8baa5ade08cd5f78",
+      "object_files": {
+        "CriticalLocalUniqueness.olean": "159fb027f45324e5903d5ad51a524a9a01ae60897cf4327c246c16ec424d84cb"
+      },
+      "olean_sha256": "159fb027f45324e5903d5ad51a524a9a01ae60897cf4327c246c16ec424d84cb",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalNegativeEnergy": {
+      "identity": "23768185cc77c08acc49f67b9771daed188cda88dcaf8ac3a74234a7e4559bf5",
+      "object_files": {
+        "CriticalNegativeEnergy.olean": "7b9055d925a53c2721ddba6d52428eb190a75678a30819dc5183a153ecf6a12e"
+      },
+      "olean_sha256": "7b9055d925a53c2721ddba6d52428eb190a75678a30819dc5183a153ecf6a12e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalNegativeTransport": {
+      "identity": "412ff698d1acc2043ccf25ec31a93f3fc10ffdbd613b51f450c9b96ca4243b9f",
+      "object_files": {
+        "CriticalNegativeTransport.olean": "daa6dd5591a94f20882174dee99ec98bf84c1a5647447a59af92eafbc9d9b31e"
+      },
+      "olean_sha256": "daa6dd5591a94f20882174dee99ec98bf84c1a5647447a59af92eafbc9d9b31e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalNonlinear": {
+      "identity": "85cd591c7d24709c80bf4f004f472bb0604f9996530eb9dbb408e547a3b6d62c",
+      "object_files": {
+        "CriticalNonlinear.olean": "1206ee77ec996ef4e0ac7d0a4a8e6ed3324dfd16b1f3f552cc449159230c421d"
+      },
+      "olean_sha256": "1206ee77ec996ef4e0ac7d0a4a8e6ed3324dfd16b1f3f552cc449159230c421d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPeriodicIBP": {
+      "identity": "94429eba98245ff5a5bac10bcbb15dacf4b20b9889a1e205277e0e080f279ee8",
+      "object_files": {
+        "CriticalPeriodicIBP.olean": "714d09be5b83eeb1f0b752dba799f01cfff076bf6b741cc7cabfb659630ec6d7"
+      },
+      "olean_sha256": "714d09be5b83eeb1f0b752dba799f01cfff076bf6b741cc7cabfb659630ec6d7",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPhysicalH1": {
+      "identity": "ed0a4cbd5eccca2b1a338b26d347899d47d0f97da18ae588f56a51255a7c60cb",
+      "object_files": {
+        "CriticalPhysicalH1.olean": "6a9df68f8d757fa3aedb1690430c98c287b4587e50131f7b2280893b6e4b7f43"
+      },
+      "olean_sha256": "6a9df68f8d757fa3aedb1690430c98c287b4587e50131f7b2280893b6e4b7f43",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPhysicalLpZero": {
+      "identity": "7512e6dc5d3fc80a696ef38ee5029d407b287afe400a6471056ce5402af4c6bc",
+      "object_files": {
+        "CriticalPhysicalLpZero.olean": "9b27b3f7c1601180344ccb1042d7bdd2599cca3e4695d897866a843d2aa3739a"
+      },
+      "olean_sha256": "9b27b3f7c1601180344ccb1042d7bdd2599cca3e4695d897866a843d2aa3739a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPhysicalQuantitative": {
+      "identity": "ee08e30dfdfa6e56b033ddc4877c2b197755d940a605b3ce5edb841bd0150577",
+      "object_files": {
+        "CriticalPhysicalQuantitative.olean": "a61571502705a2deb1ab463f6e2d8b139269ff3337991d2972b53817ca8acb57"
+      },
+      "olean_sha256": "a61571502705a2deb1ab463f6e2d8b139269ff3337991d2972b53817ca8acb57",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveFlow": {
+      "identity": "ab49f30f80f297c4747703abea85a1b1151f3b739191c8b06ffa5369b7af5320",
+      "object_files": {
+        "CriticalPositiveFlow.olean": "5dd8bce7ffad1dcc6c9c899e1f6bad40e05e0952c5e704e8a9667ac78676c26e"
+      },
+      "olean_sha256": "5dd8bce7ffad1dcc6c9c899e1f6bad40e05e0952c5e704e8a9667ac78676c26e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveLimit": {
+      "identity": "cb07c4cb275d2e10eea77fafae0dc12fd7e5701550e8462947f6e0a0f7575cfc",
+      "object_files": {
+        "CriticalPositiveLimit.olean": "419de7f541349d2362b276976404f6564513447cb53c706824c945ae09e8dede"
+      },
+      "olean_sha256": "419de7f541349d2362b276976404f6564513447cb53c706824c945ae09e8dede",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveLimitCalculus": {
+      "identity": "60af1a2609c930e998eca9bd08da322d9ad6140a426081a84e756a637c5fb9d5",
+      "object_files": {
+        "CriticalPositiveLimitCalculus.olean": "0777d30be2c248a485bf8f24f27fade80cd9793b12e388a71ad58650598f5ec2"
+      },
+      "olean_sha256": "0777d30be2c248a485bf8f24f27fade80cd9793b12e388a71ad58650598f5ec2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositivePhysical": {
+      "identity": "8ab903d84a655bbc84fcfb874f125b533b93d04110dca64865d65debf821cb8d",
+      "object_files": {
+        "CriticalPositivePhysical.olean": "920c26211e3bb3dd22ecfb8caa824cb7a84ab7394f852ea970f3b1cf8dcdf7de"
+      },
+      "olean_sha256": "920c26211e3bb3dd22ecfb8caa824cb7a84ab7394f852ea970f3b1cf8dcdf7de",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositivePressure": {
+      "identity": "8fa14aec0cb6d31b3b4efd1cee0cc58d92e63b4c060a8a75a08d76b79bb36c63",
+      "object_files": {
+        "CriticalPositivePressure.olean": "8635e4e6a3c7d9bddf17c8b503e73bec8fb244ca6b3052ab3fedd69fdf99ee8c"
+      },
+      "olean_sha256": "8635e4e6a3c7d9bddf17c8b503e73bec8fb244ca6b3052ab3fedd69fdf99ee8c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveSpacetime": {
+      "identity": "06c1e04b27ae0e85eabd85ec0468487926ea7ee5d5734c0927cbd2be948a1e5e",
+      "object_files": {
+        "CriticalPositiveSpacetime.olean": "3f8bf525847107e487f71466a971da371461f50ccaddb08a4c4955a97e24c4c2"
+      },
+      "olean_sha256": "3f8bf525847107e487f71466a971da371461f50ccaddb08a4c4955a97e24c4c2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveTimeEnergy": {
+      "identity": "0478fcb724adc97464cfbfbb6d219254b14172460dce3d76282d26adfb9c2da0",
+      "object_files": {
+        "CriticalPositiveTimeEnergy.olean": "285c782927067abfd2b9da49a10f06c17e66c091b2807575bc2af3baa42a575a"
+      },
+      "olean_sha256": "285c782927067abfd2b9da49a10f06c17e66c091b2807575bc2af3baa42a575a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveTimeHighOrder": {
+      "identity": "ab5e394202a53ba7abcad6ded06b133548bca98b345cc37dd5243967ed7a3170",
+      "object_files": {
+        "CriticalPositiveTimeHighOrder.olean": "eab48a013c0263e6f357bb6cf77041fd2b760d4c51558bc920348d414d457dc8"
+      },
+      "olean_sha256": "eab48a013c0263e6f357bb6cf77041fd2b760d4c51558bc920348d414d457dc8",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveTimeScalar": {
+      "identity": "dbb5f3d08bd5b1040538fbdb35f97612fb1e52186f03208d793200fe545cee69",
+      "object_files": {
+        "CriticalPositiveTimeScalar.olean": "0b654056adb9cd3e97812e1c224fa1022204feb877623a1b50c9a443526566c2"
+      },
+      "olean_sha256": "0b654056adb9cd3e97812e1c224fa1022204feb877623a1b50c9a443526566c2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveTimeSeed": {
+      "identity": "2b3e186436908505820df7b2ea5d6c55a9948acfa5372651a3c0e248a760ad24",
+      "object_files": {
+        "CriticalPositiveTimeSeed.olean": "431db62add9c56cdd4a6e21e350865ebe7ff54a79a0252144bb067757cf5ab14"
+      },
+      "olean_sha256": "431db62add9c56cdd4a6e21e350865ebe7ff54a79a0252144bb067757cf5ab14",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalPositiveTimeSmooth": {
+      "identity": "14b73235edecdc695dfd5bfbcf34e99c65e0ad53c27b8aa1f0e255bf7e97208e",
+      "object_files": {
+        "CriticalPositiveTimeSmooth.olean": "b4f54077e6629ebb390aa9c105fca85b44c151f968fd32d1a53b8a74f0736d16"
+      },
+      "olean_sha256": "b4f54077e6629ebb390aa9c105fca85b44c151f968fd32d1a53b8a74f0736d16",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalQuantitative": {
+      "identity": "2f6391685cecee93dc9ba15915eabc714944c5b37aa270db2e2755d2a72f049c",
+      "object_files": {
+        "CriticalQuantitative.olean": "466037e13320687ba7c78951ba29a58f58034ff280a3991afef172ac95996906"
+      },
+      "olean_sha256": "466037e13320687ba7c78951ba29a58f58034ff280a3991afef172ac95996906",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRegularityContracts": {
+      "identity": "4bc4e806ea89301b1fe44d41bd0dc3dda366e2b5c11538d9c5f82cd60178574c",
+      "object_files": {
+        "CriticalRegularityContracts.olean": "7d58ae1003947b99833ac6764da35d15dda3a992fd16572d428e0b61fd6e042d"
+      },
+      "olean_sha256": "7d58ae1003947b99833ac6764da35d15dda3a992fd16572d428e0b61fd6e042d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRelativeEnergy": {
+      "identity": "b950cd6d796245df7f0196f8af3fc704f548490ac7886c465d53b669187b52db",
+      "object_files": {
+        "CriticalRelativeEnergy.olean": "2a5d4ccdf826ed3f73fca10d448788c50065e7c5cb695017e43841d921cd3762"
+      },
+      "olean_sha256": "2a5d4ccdf826ed3f73fca10d448788c50065e7c5cb695017e43841d921cd3762",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRelativeEnergyIntegrable": {
+      "identity": "f247efae8c0c40a4e15de2933dad558ed5224d28f61e57f0366d40e2215cf0c7",
+      "object_files": {
+        "CriticalRelativeEnergyIntegrable.olean": "28e6e3395faba7d11ea783dbc0a9228780868a2359f0fc4214581915be868187"
+      },
+      "olean_sha256": "28e6e3395faba7d11ea783dbc0a9228780868a2359f0fc4214581915be868187",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRelativeEnergyTransport": {
+      "identity": "1e1f007a5158902bace6d3f494144acc9983cb601e42d5157ed6b165254f0eeb",
+      "object_files": {
+        "CriticalRelativeEnergyTransport.olean": "1a6a2774a861a5b6d431c44409c9ff2575f4ce3d0b1f86b4e1aa46e15d370000"
+      },
+      "olean_sha256": "1a6a2774a861a5b6d431c44409c9ff2575f4ce3d0b1f86b4e1aa46e15d370000",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRelativeNonlinear": {
+      "identity": "50064b09fbcfa241355c90b596a8f9089378941accbf6f14fccd2031256a5b68",
+      "object_files": {
+        "CriticalRelativeNonlinear.olean": "96954f7a6f5b4226dfb0dc2ec4bf23ce0d9b7dca570838274d6f188e0e0233ba"
+      },
+      "olean_sha256": "96954f7a6f5b4226dfb0dc2ec4bf23ce0d9b7dca570838274d6f188e0e0233ba",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRoughHolder": {
+      "identity": "a00503cf0f909aff682d05fb56f8d8cc5f9e873459bd8c26c48998c289bdbf2f",
+      "object_files": {
+        "CriticalRoughHolder.olean": "1013b981cb5d8241d250617f151a9b28086db571447f6397137308abd62ca3f5"
+      },
+      "olean_sha256": "1013b981cb5d8241d250617f151a9b28086db571447f6397137308abd62ca3f5",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalRoughTransport": {
+      "identity": "8c092bfe0d6ce121682cdb59534e6bf9e51092db9e3f74da31ddad161c4258db",
+      "object_files": {
+        "CriticalRoughTransport.olean": "2ce41db7592d18285ee1f6de01fb24c8b0eec65e24f75f3e3d8d40e35b84b990"
+      },
+      "olean_sha256": "2ce41db7592d18285ee1f6de01fb24c8b0eec65e24f75f3e3d8d40e35b84b990",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSerrinEstimate": {
+      "identity": "e8e0c967a6ea98698e354044819d1f0e678db5df77c032bf44dc0e1d92e3065b",
+      "object_files": {
+        "CriticalSerrinEstimate.olean": "cf677623a00bd0b6f840c6737e30a8247bb3c23e905b7e6771ed48bcf52b1b03"
+      },
+      "olean_sha256": "cf677623a00bd0b6f840c6737e30a8247bb3c23e905b7e6771ed48bcf52b1b03",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSerrinTime": {
+      "identity": "0c9bdc4da5707a9005d778034d1e33a938fc25040f01178ddafe2d0970b696f3",
+      "object_files": {
+        "CriticalSerrinTime.olean": "4573928553c3c79b6d6b5a123cb43f18ca9f5ae15b2d4906ed3f107164caa4b1"
+      },
+      "olean_sha256": "4573928553c3c79b6d6b5a123cb43f18ca9f5ae15b2d4906ed3f107164caa4b1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSerrinUniqueness": {
+      "identity": "c1543a734ccccf7195fc71486c59a4d4bd74b9d254cc88c9f8edd8e7ba34ebf4",
+      "object_files": {
+        "CriticalSerrinUniqueness.olean": "cdd61f1482936f02bcd7346fb6287e3d9e634c5c6dd02f979f6d0e67471e9d73"
+      },
+      "olean_sha256": "cdd61f1482936f02bcd7346fb6287e3d9e634c5c6dd02f979f6d0e67471e9d73",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSmoothCancellation": {
+      "identity": "5bbe53d1653da963fe5e48e29d66740acb78dca858a37e07de71eda1102e9cb6",
+      "object_files": {
+        "CriticalSmoothCancellation.olean": "2c3d42bd525f052796b13ba3a5b82f1170a42165f98af97e9c2d21e86db7bf57"
+      },
+      "olean_sha256": "2c3d42bd525f052796b13ba3a5b82f1170a42165f98af97e9c2d21e86db7bf57",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSmoothEnergy": {
+      "identity": "9522a0dea4d58d00a21ce23bb8b579f7ff89ab26e2fc1fc783536a46f5768137",
+      "object_files": {
+        "CriticalSmoothEnergy.olean": "e4549b7d060c9100c458acf46175b9ea698c878224f4256c001930a1fa3a9013"
+      },
+      "olean_sha256": "e4549b7d060c9100c458acf46175b9ea698c878224f4256c001930a1fa3a9013",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSmoothEnergyNorm": {
+      "identity": "ece6668cc6f1a7e1feec36a0593331048d8080cb37063aeb3f12c32ca431b7db",
+      "object_files": {
+        "CriticalSmoothEnergyNorm.olean": "500480c8bebf6c3a0af51de48e6c1da18ae7cb5c9517daaa197423290741a870"
+      },
+      "olean_sha256": "500480c8bebf6c3a0af51de48e6c1da18ae7cb5c9517daaa197423290741a870",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSmoothLpContinuity": {
+      "identity": "6ac21068a318bc2afa493553934e8468fd1ac177f146b59655d7095bf71179ce",
+      "object_files": {
+        "CriticalSmoothLpContinuity.olean": "ceaf79a7272559a8f5e3e37ad2640bc163f792741afdb5887bcaa839915d950c"
+      },
+      "olean_sha256": "ceaf79a7272559a8f5e3e37ad2640bc163f792741afdb5887bcaa839915d950c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSmoothParseval": {
+      "identity": "3478c9b4b794e6dd2f443a1f2c4ff1330f8fd97e17a555ecebd12e3e6584ebc1",
+      "object_files": {
+        "CriticalSmoothParseval.olean": "0738de9c27bf9c76188b602fbd1a4dbd1a2484b196943d457e3a205e02506d95"
+      },
+      "olean_sha256": "0738de9c27bf9c76188b602fbd1a4dbd1a2484b196943d457e3a205e02506d95",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolev": {
+      "identity": "3ab0d196fc68c281a05565a2d3849f892d6f23a0e92a229ba69b8b3740c8ae60",
+      "object_files": {
+        "CriticalSobolev.olean": "47da9ba1887d31617b1cc3a509ddb93775ba380dcb0c903d3988c187ee3e363c"
+      },
+      "olean_sha256": "47da9ba1887d31617b1cc3a509ddb93775ba380dcb0c903d3988c187ee3e363c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolevAnalytic": {
+      "identity": "16759b547a53d250bb3775c8808936ab77da4cd777d79ab329b23d272e6395e8",
+      "object_files": {
+        "CriticalSobolevAnalytic.olean": "3533fc177d966b7a781409783a546aff46cfff63c7a4f901d2095ba2d5a0c199"
+      },
+      "olean_sha256": "3533fc177d966b7a781409783a546aff46cfff63c7a4f901d2095ba2d5a0c199",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolevDual": {
+      "identity": "a7385bd522a137717bdad16499b9eac4e0e2f55f86928919588c52305cb458f2",
+      "object_files": {
+        "CriticalSobolevDual.olean": "65b45744545de2a9db2b34756e3508b25014b39a3240eff66be07e57b6212cfa"
+      },
+      "olean_sha256": "65b45744545de2a9db2b34756e3508b25014b39a3240eff66be07e57b6212cfa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolevInterpolation": {
+      "identity": "8dc684cd6a930904fce243005ef730cfcad210cd68ca3c93a487cfa6110b2ba6",
+      "object_files": {
+        "CriticalSobolevInterpolation.olean": "e0efb5da983ae9626a104058b1b6e638af9dc8ece6f64b659bfc175ad356acb8"
+      },
+      "olean_sha256": "e0efb5da983ae9626a104058b1b6e638af9dc8ece6f64b659bfc175ad356acb8",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolevMass": {
+      "identity": "6e0e875da3fac063b11a4661d011d90a1423c72aba2f13e8e24ad9b2bf3ac214",
+      "object_files": {
+        "CriticalSobolevMass.olean": "8455abdafe5b26f8b3159552cb7fe97e999b57524498a2f988022dbc8c4a62fa"
+      },
+      "olean_sha256": "8455abdafe5b26f8b3159552cb7fe97e999b57524498a2f988022dbc8c4a62fa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolevSpectral": {
+      "identity": "e9e116bd7057364c50576d3aa2bedf1c46ebe2193acb9c1ad97891b5a1566a3c",
+      "object_files": {
+        "CriticalSobolevSpectral.olean": "92f92ff7c8d7b2e5f2b13da214e51b8b0ded660da07ed3907eaeb930c0ecd04b"
+      },
+      "olean_sha256": "92f92ff7c8d7b2e5f2b13da214e51b8b0ded660da07ed3907eaeb930c0ecd04b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSobolevVector": {
+      "identity": "ef129ac31bbe3bb46c03ff54843eaa8e3baaad8df3d4e9517b9054e4dd52ccfc",
+      "object_files": {
+        "CriticalSobolevVector.olean": "b6f47e3800b86f63dcdf5d1a7289973a3b7511f92efb76a5ab1fedc37a63e67e"
+      },
+      "olean_sha256": "b6f47e3800b86f63dcdf5d1a7289973a3b7511f92efb76a5ab1fedc37a63e67e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSpaces": {
+      "identity": "11fbcb2360bfee4219802c6a15be4a99511748c17dc1c0fb57be4c7e13f1038c",
+      "object_files": {
+        "CriticalSpaces.olean": "7cec231ec70d19ed8b4e741bc4155b356e07d33d3116ba83e7a11ff23c736be4"
+      },
+      "olean_sha256": "7cec231ec70d19ed8b4e741bc4155b356e07d33d3116ba83e7a11ff23c736be4",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSpacesCutoff": {
+      "identity": "08822d4ca758e4070c3170869fc2e02b570ca8da17dfe33d613c82c9f219e643",
+      "object_files": {
+        "CriticalSpacesCutoff.olean": "cf41070f144e2986667a4f0bc8585f94d416f3deb4d30bb9c97d97a26b3b4f0f"
+      },
+      "olean_sha256": "cf41070f144e2986667a4f0bc8585f94d416f3deb4d30bb9c97d97a26b3b4f0f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSpacesEmbedding": {
+      "identity": "9b9fca6431474e3a43aa78c7aa79feb920c03fea763ea281e24c04a4f406f4a2",
+      "object_files": {
+        "CriticalSpacesEmbedding.olean": "025deb72201b00493198e9b45b8aaa431e539d0ddd46be4a2f7243ecb1546012"
+      },
+      "olean_sha256": "025deb72201b00493198e9b45b8aaa431e539d0ddd46be4a2f7243ecb1546012",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalSpatialNormMeasurable": {
+      "identity": "edd87aa1d9526204d575a1b8ce2c51d3b8cb8d212e277a2c7cd08720842107db",
+      "object_files": {
+        "CriticalSpatialNormMeasurable.olean": "5dae4f17fcc9aa44e1cfa9fb55a0c897e204f26c586bdc3469bf33cf1b5665a0"
+      },
+      "olean_sha256": "5dae4f17fcc9aa44e1cfa9fb55a0c897e204f26c586bdc3469bf33cf1b5665a0",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalStrongLerayHopf": {
+      "identity": "093f3bfae121ed2c4f51a9395068463e8501cc7f77e7f5586f9b6844519202c0",
+      "object_files": {
+        "CriticalStrongLerayHopf.olean": "0f21a9039997cb30f75602f8906ca7bc88a09d17868212dd0c8c507b27b36f67"
+      },
+      "olean_sha256": "0f21a9039997cb30f75602f8906ca7bc88a09d17868212dd0c8c507b27b36f67",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalStrongLerayHopfEnergy": {
+      "identity": "85d3f43e2a7bedc4179673ed33f88864a97f0fe9f075334421338b3ef1b7018e",
+      "object_files": {
+        "CriticalStrongLerayHopfEnergy.olean": "8905d7a668336636de2e9af9fca25325a6fd16085cdb3129f36d1400cbac5bcd"
+      },
+      "olean_sha256": "8905d7a668336636de2e9af9fca25325a6fd16085cdb3129f36d1400cbac5bcd",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalStrongLerayHopfGradient": {
+      "identity": "46857e41cb4406641bd2dc92ef03d7451f7550164665a383cbb0b7e615623e1c",
+      "object_files": {
+        "CriticalStrongLerayHopfGradient.olean": "5d59bbcfa8bfc7fb11044cc42d5d233d1d76bc35ba3b5627f2c20d85a22d0f35"
+      },
+      "olean_sha256": "5d59bbcfa8bfc7fb11044cc42d5d233d1d76bc35ba3b5627f2c20d85a22d0f35",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTimeDerivative": {
+      "identity": "5d13f3cf0fe7e7ff60e1f23805f3912ccbb087b55e7bcc32e5673637f186e071",
+      "object_files": {
+        "CriticalTimeDerivative.olean": "6a1fae24f7d4ce07bcb1ec4e88df08c18eb693b91084be426100b7f7e4bc32c9"
+      },
+      "olean_sha256": "6a1fae24f7d4ce07bcb1ec4e88df08c18eb693b91084be426100b7f7e4bc32c9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTrace": {
+      "identity": "5998a2b3556e4f623f55b0849710c98533c1b5275842e87cc08a2e981a7cbf0d",
+      "object_files": {
+        "CriticalTrace.olean": "6950e660ba3e15e3dc62e38ef99e0867b2116c0869c352bee4bfe2a27c70a4ab"
+      },
+      "olean_sha256": "6950e660ba3e15e3dc62e38ef99e0867b2116c0869c352bee4bfe2a27c70a4ab",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceAnnulus": {
+      "identity": "abd622b2fcb622833f42c41f8326506204a681f00c2f3278c31e8b5b0c915fc5",
+      "object_files": {
+        "CriticalTraceAnnulus.olean": "a0b7966bb95b0532a5160640f900395f5f45d632db995d1fdbd1a5e0ae46f738"
+      },
+      "olean_sha256": "a0b7966bb95b0532a5160640f900395f5f45d632db995d1fdbd1a5e0ae46f738",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceBand": {
+      "identity": "e817d9a10a21466ba413f10be8f5157d015c89f7755f1605481561e059d2660e",
+      "object_files": {
+        "CriticalTraceBand.olean": "851bfe7630e134a85afd0e6a8d1ae1f6d81597478a163bb6a7f14227ade1dddc"
+      },
+      "olean_sha256": "851bfe7630e134a85afd0e6a8d1ae1f6d81597478a163bb6a7f14227ade1dddc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceClosure": {
+      "identity": "e45c040c7ea9c02d3930cdac6c4f38692fd1a62f8874ee82b84544d21204c99a",
+      "object_files": {
+        "CriticalTraceClosure.olean": "25598523ece49d986ad3a0b05d694a5a5352d9fa9f02abbbe48f7ae9a44d3533"
+      },
+      "olean_sha256": "25598523ece49d986ad3a0b05d694a5a5352d9fa9f02abbbe48f7ae9a44d3533",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceFourier": {
+      "identity": "46a755c5c59ec449ea356fc2c872de80e1b8426385f3569c65d268bd62d573b8",
+      "object_files": {
+        "CriticalTraceFourier.olean": "ad25e5e0e6e900b7d0026f67ee182049a31179eda87d25ebfa5a140f289416dc"
+      },
+      "olean_sha256": "ad25e5e0e6e900b7d0026f67ee182049a31179eda87d25ebfa5a140f289416dc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceGalerkin": {
+      "identity": "a896fe5bc778aa40401255c7229795da12474d2777c4c62efc395265fa963fcf",
+      "object_files": {
+        "CriticalTraceGalerkin.olean": "e77abba9fc450612bc0a3058df4ea7b543dc904d254cdd4a0e35f0b39c16b130"
+      },
+      "olean_sha256": "e77abba9fc450612bc0a3058df4ea7b543dc904d254cdd4a0e35f0b39c16b130",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceLimit": {
+      "identity": "c3bfd15874281dec2a67d6a2df45f3deddbecb6c813a690bba44fbb0f36c6f6b",
+      "object_files": {
+        "CriticalTraceLimit.olean": "26e2bc4572933e740e39ae6ffa9672f76533c68565559aaaf40d2056af3748ba"
+      },
+      "olean_sha256": "26e2bc4572933e740e39ae6ffa9672f76533c68565559aaaf40d2056af3748ba",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTracePrimitive": {
+      "identity": "e6f9d5010fa19394436225da38f39fc8256b2ccb233babd61f111d5378f82bfe",
+      "object_files": {
+        "CriticalTracePrimitive.olean": "8c75081829809a3cf45dd5811b2c855750fbb518e22e6c6a436e51f559ea8d05"
+      },
+      "olean_sha256": "8c75081829809a3cf45dd5811b2c855750fbb518e22e6c6a436e51f559ea8d05",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceStrong": {
+      "identity": "3ef10ca3bd6ef53dda8aa9ff49c482802487cf5c848a8e71f41603302473b582",
+      "object_files": {
+        "CriticalTraceStrong.olean": "a36651267aa759e15f83e419bd15d7b5a489133cba6bb10115388328efba904b"
+      },
+      "olean_sha256": "a36651267aa759e15f83e419bd15d7b5a489133cba6bb10115388328efba904b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalTraceTail": {
+      "identity": "f53dca8a183f7bc17028a6c8373800e01cc9ded97619654efe7c28e91adb09fa",
+      "object_files": {
+        "CriticalTraceTail.olean": "4df9403e828521715c33e0ca441f464779e23a195b60415e6e05e4807db76a32"
+      },
+      "olean_sha256": "4df9403e828521715c33e0ca441f464779e23a195b60415e6e05e4807db76a32",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalUniformBounds": {
+      "identity": "afd2d9c680d9886775c65351ae16574081fe0ee79622cb0798a68e9ef57fe41d",
+      "object_files": {
+        "CriticalUniformBounds.olean": "f578351d077a34c7abf620d1f9360dd0b8f9e10f31c93780349113e1b194a9ba"
+      },
+      "olean_sha256": "f578351d077a34c7abf620d1f9360dd0b8f9e10f31c93780349113e1b194a9ba",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalUniqueness": {
+      "identity": "eac6a693eb7856157b611a8cfa9ee3a9c3e94b91a7efb2ff474a2dfb0e9b2dd9",
+      "object_files": {
+        "CriticalUniqueness.olean": "ff6b50d268b54bcc3a00cf3d6acd3730d287849185c404ef9b702fc19ecef273"
+      },
+      "olean_sha256": "ff6b50d268b54bcc3a00cf3d6acd3730d287849185c404ef9b702fc19ecef273",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalWeakGradient": {
+      "identity": "c818f7295b1223569ea1756d9b080bbb8cbde2079794fa4ab5f6958a49804fdf",
+      "object_files": {
+        "CriticalWeakGradient.olean": "f6e7d0f520ec72c9c0d303a15aa035ede1076273237a5b865b497550d6ead941"
+      },
+      "olean_sha256": "f6e7d0f520ec72c9c0d303a15aa035ede1076273237a5b865b497550d6ead941",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalWeakMomentum": {
+      "identity": "0a4a06d325ed5be60df72ecb5531b9fb9b088488a7d3c8e11fe01b3eb04bd0ef",
+      "object_files": {
+        "CriticalWeakMomentum.olean": "7d0684f806836d0ff4e7a007b8d40664fea30961031899cac9ed0e8ff39c591a"
+      },
+      "olean_sha256": "7d0684f806836d0ff4e7a007b8d40664fea30961031899cac9ed0e8ff39c591a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CriticalYoung": {
+      "identity": "a2d3f505a00c65fb3186fccf40ece40820fcd0bd9060e6a25da657cacda0486f",
+      "object_files": {
+        "CriticalYoung.olean": "4d62c19d7bf99cd22e78805df8fa0be08c4d8fb8b27e50e24dde37b6124fe584"
+      },
+      "olean_sha256": "4d62c19d7bf99cd22e78805df8fa0be08c4d8fb8b27e50e24dde37b6124fe584",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.CubicBudget": {
+      "identity": "364ab75f974b5ca73e1705f7631e77348794ff6273b73e4320fc6a2b3e81d89a",
+      "object_files": {
+        "CubicBudget.olean": "73616ed75f2ce6ccbdfecfbaf3208d10359cbe0437bb0c305961ad58c077c10d"
+      },
+      "olean_sha256": "73616ed75f2ce6ccbdfecfbaf3208d10359cbe0437bb0c305961ad58c077c10d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.DissipativeODE": {
+      "identity": "92d8b405cfa8dd7b9921879c17059dd6c2e6b15446be727f926f74d559f06003",
+      "object_files": {
+        "DissipativeODE.olean": "396245e8a58455a981e76c895cc011e371102c56a2fa28dbddbe165f9dc68934"
+      },
+      "olean_sha256": "396245e8a58455a981e76c895cc011e371102c56a2fa28dbddbe165f9dc68934",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.EnstrophyAbsorption": {
+      "identity": "dbc2a054b622ec9656e0044e70714fdb8b14f1ed24bca3ed6cf8c720d90a93fd",
+      "object_files": {
+        "EnstrophyAbsorption.olean": "fbffb1737b71b2e385f03031bb963c0a4b752cd4cbf4247cadf934aff74d3fe7"
+      },
+      "olean_sha256": "fbffb1737b71b2e385f03031bb963c0a4b752cd4cbf4247cadf934aff74d3fe7",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.EnstrophyInequality": {
+      "identity": "be2ae80af1c3377b283b9aded104afbdc9ebe4cd86242a2f5be00aadbb7f2794",
+      "object_files": {
+        "EnstrophyInequality.olean": "004185ea7d8d123bfe4d06081f5704159089859cf95288adfabcc5064987dd08"
+      },
+      "olean_sha256": "004185ea7d8d123bfe4d06081f5704159089859cf95288adfabcc5064987dd08",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FiniteHessian": {
+      "identity": "7ed5b2c9dd818f1fa8f1a74c57f237a217287cf4d38d63cebfcbe40cece406bf",
+      "object_files": {
+        "FiniteHessian.olean": "99727cb16e91211f966adc12dbe5bf8162eaee2b8d327eadab2903a6a91bcdd2"
+      },
+      "olean_sha256": "99727cb16e91211f966adc12dbe5bf8162eaee2b8d327eadab2903a6a91bcdd2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FiniteParseval": {
+      "identity": "c9c30b01f484eb2f09d82895911fe61c65a21d1e2ec56c9b851363d6096b5520",
+      "object_files": {
+        "FiniteParseval.olean": "d39242b08bcdb4d020d31452161e8234a26673a0580ef447cf072a43b71ad301"
+      },
+      "olean_sha256": "d39242b08bcdb4d020d31452161e8234a26673a0580ef447cf072a43b71ad301",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierDecay": {
+      "identity": "1ef0815d296aed2dede88ac279ae34f6ef7c4cb69e05a4db7f82f8fbc9ef3828",
+      "object_files": {
+        "FourierDecay.olean": "a908528168728dc131687770fcddea194b88edcafaf99de39197d4760170fe01"
+      },
+      "olean_sha256": "a908528168728dc131687770fcddea194b88edcafaf99de39197d4760170fe01",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierIntegral": {
+      "identity": "0334d85436552398a5fd73c0079ab00ee5445ba217dadec5168c2e9447b6add0",
+      "object_files": {
+        "FourierIntegral.olean": "70445bf13a46cee9af10f1c8574ff6ce881e2b86280a932a9a13b61e2269ab31"
+      },
+      "olean_sha256": "70445bf13a46cee9af10f1c8574ff6ce881e2b86280a932a9a13b61e2269ab31",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierLimitEquation": {
+      "identity": "8d2328fe3b73138a196aafb7a5503405a399921ceca3e2d66fd2c5101e2264b4",
+      "object_files": {
+        "FourierLimitEquation.olean": "40430ddf636e06e00a594e516b87bd2a9253faf1f8f9a51a16a27bc34846293d"
+      },
+      "olean_sha256": "40430ddf636e06e00a594e516b87bd2a9253faf1f8f9a51a16a27bc34846293d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierPressure": {
+      "identity": "2cdd3ee023f038d5b2747995a2ea2bc937d5b281c8da0d21ecb16cd6b09f8ac0",
+      "object_files": {
+        "FourierPressure.olean": "47a807e38cca9f30680590c1fb4c136caf356bea386a9c3f8f12effb3cdca879"
+      },
+      "olean_sha256": "47a807e38cca9f30680590c1fb4c136caf356bea386a9c3f8f12effb3cdca879",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierProduct": {
+      "identity": "a2cdddb7de2aacf483cb8cd9e45c2976c833a26f249e05f8093f9e3cef4d5b5f",
+      "object_files": {
+        "FourierProduct.olean": "170c83e75e0355178cbd68f0e2eae8d39f7c6ff3225e4867e80722b7980b76ec"
+      },
+      "olean_sha256": "170c83e75e0355178cbd68f0e2eae8d39f7c6ff3225e4867e80722b7980b76ec",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierSeriesCalculus": {
+      "identity": "f317cfc6f365dfa1a68132dc06252f935119cb4dbd377784ddb616e948904a7c",
+      "object_files": {
+        "FourierSeriesCalculus.olean": "1040606135a41b6e7f75cd3581eb7be08fdd96bc398ec2f78e2a090347279805"
+      },
+      "olean_sha256": "1040606135a41b6e7f75cd3581eb7be08fdd96bc398ec2f78e2a090347279805",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierSobolevOperators": {
+      "identity": "86c449e9ca06ab8b5ed3d1940c095dcbf1a900ad97fde33716c3c3bee66c63b3",
+      "object_files": {
+        "FourierSobolevOperators.olean": "c2838b92d6a19d3106d142213251c9c2fc28bb632323416d2a07187dd29da08a"
+      },
+      "olean_sha256": "c2838b92d6a19d3106d142213251c9c2fc28bb632323416d2a07187dd29da08a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierSobolevProduct": {
+      "identity": "915a7ff18908bad042fb4412d4ba658f5839262634c3a0caee0c744b5d043f3b",
+      "object_files": {
+        "FourierSobolevProduct.olean": "e3bb02bdbdf279af6478b7f32aae712e1e2c96ea6b5c1edd5f6419ffdefbed88"
+      },
+      "olean_sha256": "e3bb02bdbdf279af6478b7f32aae712e1e2c96ea6b5c1edd5f6419ffdefbed88",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierSobolevRhs": {
+      "identity": "ee0829bd9d6654849643d26cac943dc63ff5b236c7edb8172478e959831e8148",
+      "object_files": {
+        "FourierSobolevRhs.olean": "e2dba0ef704b9a33ab918c17d45921ec5d902304362eaf27427749e42588230d"
+      },
+      "olean_sha256": "e2dba0ef704b9a33ab918c17d45921ec5d902304362eaf27427749e42588230d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.FourierTransport": {
+      "identity": "8ce1e08e933b5b048621ad22fe5cb27b26ae492c122432c0ab7e41cc36371b6a",
+      "object_files": {
+        "FourierTransport.olean": "96b6fd0e49c9b3928ba32cb954f7df8888f4fc03002676b89af10ba009e42610"
+      },
+      "olean_sha256": "96b6fd0e49c9b3928ba32cb954f7df8888f4fc03002676b89af10ba009e42610",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.Galerkin": {
+      "identity": "226f8a8135545bc0c8695b146bfa81b6e5ca4508e0f423eaebd18ce102bd0e5c",
+      "object_files": {
+        "Galerkin.olean": "7f0a6d0dacb62a490989a692acfa876595ea3b4561bbb1360ed4dd8fcdca9dca"
+      },
+      "olean_sha256": "7f0a6d0dacb62a490989a692acfa876595ea3b4561bbb1360ed4dd8fcdca9dca",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinAlgebra": {
+      "identity": "6179d8653b8e10e821c940d803662e56ff7095d13de8d2e4e3dc43d9004eb72d",
+      "object_files": {
+        "GalerkinAlgebra.olean": "19400ba8cf6a10e3b92cb6bc18e29075548069937fabb9bf20d60bae97fa84c1"
+      },
+      "olean_sha256": "19400ba8cf6a10e3b92cb6bc18e29075548069937fabb9bf20d60bae97fa84c1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinCoefficientCompactness": {
+      "identity": "ac55aa88730a34278fe5c5af0397f46e916209b9439e30ba7cd2281d999f24fd",
+      "object_files": {
+        "GalerkinCoefficientCompactness.olean": "4f97e1549ad9a899a4103031a7e93807c61d5078bef69511ea66b84a3e1c7c1b"
+      },
+      "olean_sha256": "4f97e1549ad9a899a4103031a7e93807c61d5078bef69511ea66b84a3e1c7c1b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinEnergy": {
+      "identity": "d7541ca8404c7e0452ab011f3cfbdbfbaa1f5c155fb2c1971d94f8ef970b00c8",
+      "object_files": {
+        "GalerkinEnergy.olean": "cceef2bc02ba736aba7ddcd29b7ce60996c66dd34c4ff7d0e56f4537bbd60e57"
+      },
+      "olean_sha256": "cceef2bc02ba736aba7ddcd29b7ce60996c66dd34c4ff7d0e56f4537bbd60e57",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinEnergyIntegral": {
+      "identity": "fd656d90dd0edb4458e415f82def2cb5d1a220753d75439c84b750bf76424496",
+      "object_files": {
+        "GalerkinEnergyIntegral.olean": "2a44ebb1f1bebaeb6790cc9f996ab5c4ca1dac0f5c7d921c6d3016fb0e19ed8b"
+      },
+      "olean_sha256": "2a44ebb1f1bebaeb6790cc9f996ab5c4ca1dac0f5c7d921c6d3016fb0e19ed8b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinExistence": {
+      "identity": "f833f8a618a4bce57769daded99abcc8eec95c1e0e3559e4cba4c9d5c0a67f2f",
+      "object_files": {
+        "GalerkinExistence.olean": "6dd6142d2db8dd533f0c1722c2d205576a43ed63425369e92e427be15508c663"
+      },
+      "olean_sha256": "6dd6142d2db8dd533f0c1722c2d205576a43ed63425369e92e427be15508c663",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinGlobal": {
+      "identity": "d7e2908a520d9d9e97a4a8ae88217b6414086cd302d5550d5b56e3914c9b16ad",
+      "object_files": {
+        "GalerkinGlobal.olean": "6a1c8be6b68c3b3fd40cd8686d1fee4024165cdcd9e37f4a0c686afe0d5a317d"
+      },
+      "olean_sha256": "6a1c8be6b68c3b3fd40cd8686d1fee4024165cdcd9e37f4a0c686afe0d5a317d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinInvariant": {
+      "identity": "dba7a36fabd57eec9c3be64c059beeadfa2884dad773f4086c325da292b0ae00",
+      "object_files": {
+        "GalerkinInvariant.olean": "4c48535eecb72d4274e6c338767d21977c5a4070b2ca42693da86f1ac8b9636e"
+      },
+      "olean_sha256": "4c48535eecb72d4274e6c338767d21977c5a4070b2ca42693da86f1ac8b9636e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinReality": {
+      "identity": "e3868c2125d093eaeb412f26f2f05b1356a4c35fa1168bb7063ccef48e97a55e",
+      "object_files": {
+        "GalerkinReality.olean": "41200f8164e6a7c327a3dd1956ada14e88be95938f917e259163afd844e0e6fe"
+      },
+      "olean_sha256": "41200f8164e6a7c327a3dd1956ada14e88be95938f917e259163afd844e0e6fe",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.GalerkinTimeDerivative": {
+      "identity": "8c9371a231baef123506afc6c3938721d5469df8368c3b2e380a016e1181fdf8",
+      "object_files": {
+        "GalerkinTimeDerivative.olean": "3765b68d183832c8dfd7cc7e7368971251a26f87fa1869a58a424766c00453c8"
+      },
+      "olean_sha256": "3765b68d183832c8dfd7cc7e7368971251a26f87fa1869a58a424766c00453c8",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HighOrderAccumulation": {
+      "identity": "48606ed2b338c096e8695b60687cdba43166236c68efdc0f5688d9c2c5088f95",
+      "object_files": {
+        "HighOrderAccumulation.olean": "18bf291da33ffc738409e066022651dcd8fe389ecd7c00c8d295dda78a29375f"
+      },
+      "olean_sha256": "18bf291da33ffc738409e066022651dcd8fe389ecd7c00c8d295dda78a29375f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HighOrderEstimate": {
+      "identity": "ba6343ca4484a1699d02d4a11e953bb88ffa98ab3c617de53970a78d37d6803b",
+      "object_files": {
+        "HighOrderEstimate.olean": "4e628a12000c9ff1a14424f774f5f02e097cabf4fe197f59b67a34449aa2706c"
+      },
+      "olean_sha256": "4e628a12000c9ff1a14424f774f5f02e097cabf4fe197f59b67a34449aa2706c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HighOrderGalerkin": {
+      "identity": "32e05be8d5964b6684d466f7cb9c99417f52bdad4903e77837a666f72f572d28",
+      "object_files": {
+        "HighOrderGalerkin.olean": "e79a6e49830a291ff566ca01bcacec9e394dbf7515c9f3557edb06f3628063e6"
+      },
+      "olean_sha256": "e79a6e49830a291ff566ca01bcacec9e394dbf7515c9f3557edb06f3628063e6",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HighOrderProduct": {
+      "identity": "b6627b321246744ae56256d83010216808640ef4ae0a4a547fbf328010c52acf",
+      "object_files": {
+        "HighOrderProduct.olean": "a0c3720d70109279762854a3eb627d4bf5208f55ff9ea087f179c2af17511b45"
+      },
+      "olean_sha256": "a0c3720d70109279762854a3eb627d4bf5208f55ff9ea087f179c2af17511b45",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HighOrderRhs": {
+      "identity": "a9c8e6c4be6496c7a67c1ee0d1bff64b851f6aa24007a25a2ca48e4fb47043fe",
+      "object_files": {
+        "HighOrderRhs.olean": "c3a79a6ea93ba8ed982494e71d72ebfb2443de58f39ef240769848eb11898f63"
+      },
+      "olean_sha256": "c3a79a6ea93ba8ed982494e71d72ebfb2443de58f39ef240769848eb11898f63",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HighOrderTimeModulus": {
+      "identity": "cc138edd871c921ba263c1035c7609da6ce51e404f80dee8e2c4999b0c06e3eb",
+      "object_files": {
+        "HighOrderTimeModulus.olean": "1256f08e755c62150d223f7df8fd334e6ad2e6d0ac96936d8130758cb0eebea2"
+      },
+      "olean_sha256": "1256f08e755c62150d223f7df8fd334e6ad2e6d0ac96936d8130758cb0eebea2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.HilbertChannels": {
+      "identity": "d8f682249e54ec8a7ce35b0b228d9bfb2ebd42f18822885e54dd71ab8ce75d4a",
+      "object_files": {
+        "HilbertChannels.olean": "705249d753a0b6267139609a804889f7f1addb4c12d30461f9b5732a4878740f"
+      },
+      "olean_sha256": "705249d753a0b6267139609a804889f7f1addb4c12d30461f9b5732a4878740f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.InfiniteFourierPressure": {
+      "identity": "fe5901ce7c380e8bde0f4f20e79bca00e384aff509d7347fda0c2d7b63dccac7",
+      "object_files": {
+        "InfiniteFourierPressure.olean": "9b0489ff3b2131e4a393513693a1eebca7a37507fd97c44d3523a75a318db946"
+      },
+      "olean_sha256": "9b0489ff3b2131e4a393513693a1eebca7a37507fd97c44d3523a75a318db946",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.InfiniteScalarProduct": {
+      "identity": "af667fd0bff8a445c45b7bb130bc7deda34054541cd71bffd2b6ce084d3010e8",
+      "object_files": {
+        "InfiniteScalarProduct.olean": "f43a5223500077ed3839ff586b0f660986c0e505fbe1db9c4fe267ea5883312b"
+      },
+      "olean_sha256": "f43a5223500077ed3839ff586b0f660986c0e505fbe1db9c4fe267ea5883312b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.InitialCutoffBounds": {
+      "identity": "5f6d6ee1b09554857da6e919c77992b776efb09cafb17814d362681717026d17",
+      "object_files": {
+        "InitialCutoffBounds.olean": "c0d97103892eaf14db89d2bf82e9bb789c3e7d3a50d13cdca9b954240e6effaa"
+      },
+      "olean_sha256": "c0d97103892eaf14db89d2bf82e9bb789c3e7d3a50d13cdca9b954240e6effaa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.InitialFourier": {
+      "identity": "303990d0784367404474299af22cdf66a6676b5f4222c30624093aef72ab8452",
+      "object_files": {
+        "InitialFourier.olean": "0ae3014e9bd32c372dd5ef754a3a69a8dd0eff9ac251932290c903d0cffbb535"
+      },
+      "olean_sha256": "0ae3014e9bd32c372dd5ef754a3a69a8dd0eff9ac251932290c903d0cffbb535",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.LatticeSobolevSummability": {
+      "identity": "145544ad45bd19c7c80dfe96d2ef1940c04e2914d501963e420f210e299cba2c",
+      "object_files": {
+        "LatticeSobolevSummability.olean": "362bec8835deb369e2ac3b0c8474ec7250432c1fec64beb5fd6f1aa1ed99a0ba"
+      },
+      "olean_sha256": "362bec8835deb369e2ac3b0c8474ec7250432c1fec64beb5fd6f1aa1ed99a0ba",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.LerayL2Contraction": {
+      "identity": "6e26fff5e0d83ea922bfd8bedee8e396df63e4f1272b22e96efcd880aafa8fbc",
+      "object_files": {
+        "LerayL2Contraction.olean": "1f0051f3a174a067c821e404f7c5c009a25d57b74da078aab0397388d5076df1"
+      },
+      "olean_sha256": "1f0051f3a174a067c821e404f7c5c009a25d57b74da078aab0397388d5076df1",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.LerayPressure": {
+      "identity": "256ea6b9159efcce49ba5ba5e52d74271bcd43d247fe5e6091b42a8ba047eb7b",
+      "object_files": {
+        "LerayPressure.olean": "62aef8b900c1fd3f1c5905afe72dbb74e8758866dbfcab11cb50c603ed87cfa2"
+      },
+      "olean_sha256": "62aef8b900c1fd3f1c5905afe72dbb74e8758866dbfcab11cb50c603ed87cfa2",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.LinearBudget": {
+      "identity": "07553aaa5fd9b933e4a0e665aaf5070cc09fafe10b74a4a41d3070f1817c0430",
+      "object_files": {
+        "LinearBudget.olean": "6815579eec24bc135528e637b62cec786be516be4af5424def876fface1b3afe"
+      },
+      "olean_sha256": "6815579eec24bc135528e637b62cec786be516be4af5424def876fface1b3afe",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL": {
+      "identity": "1744b3c91abc279d4e6e6c393b0833f786a5038cdcc40c2c4302ca67c65e5c41",
+      "object_files": {
+        "NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.olean": "64d3d138442b2ddaf77dc17a81da1f41593c6e034f345fc5b3d04fd7b77eae59"
+      },
+      "olean_sha256": "64d3d138442b2ddaf77dc17a81da1f41593c6e034f345fc5b3d04fd7b77eae59",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PeriodicCover": {
+      "identity": "bee76bb74df08315f01538959cecddf163a775f68c751a8c67a2bf2c4c574b57",
+      "object_files": {
+        "PeriodicCover.olean": "1e34944b757631e3c004177bcd4008bfeef417099b065cadf14c48400f13eba5"
+      },
+      "olean_sha256": "1e34944b757631e3c004177bcd4008bfeef417099b065cadf14c48400f13eba5",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PeriodicFourierInjective": {
+      "identity": "8d03f2f2f86c0ab27ed2942ccbff79e8ceebc2860471a512fcaf40bc4fcd96c5",
+      "object_files": {
+        "PeriodicFourierInjective.olean": "3f5b46cc4ccc32a6257f6cc179eab79b61308e1c6ff99e56cf1070609b84196c"
+      },
+      "olean_sha256": "3f5b46cc4ccc32a6257f6cc179eab79b61308e1c6ff99e56cf1070609b84196c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PeriodicFourierRealization": {
+      "identity": "9943a5e6db89dab4218878b98d08256072e09cd8202307a67f9cbfe2546180ac",
+      "object_files": {
+        "PeriodicFourierRealization.olean": "179a08e0de28e557731b5a2896339b47c6f98ec5b3d4a460a64894ae3bad484a"
+      },
+      "olean_sha256": "179a08e0de28e557731b5a2896339b47c6f98ec5b3d4a460a64894ae3bad484a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PeriodicNonlinear": {
+      "identity": "92282687c0ab29d7c81b3d719f3ae90725ab85f9d69a90430917ede1d848f47f",
+      "object_files": {
+        "PeriodicNonlinear.olean": "4c0cc8b4edcc4d7c2ea3c78c152a8ad8c3c0636b905cb3b0fd719a353e48bbfb"
+      },
+      "olean_sha256": "4c0cc8b4edcc4d7c2ea3c78c152a8ad8c3c0636b905cb3b0fd719a353e48bbfb",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PeriodicPoincare": {
+      "identity": "75fe523189c68687787157f90603109b676e0d931eb26daa4b9e5c68ad7e6bc6",
+      "object_files": {
+        "PeriodicPoincare.olean": "c24f4f21669313e6f63e3dd5073ac8c60cf315d920c8dd37d2aa3320edfae2ac"
+      },
+      "olean_sha256": "c24f4f21669313e6f63e3dd5073ac8c60cf315d920c8dd37d2aa3320edfae2ac",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PeriodicSobolev": {
+      "identity": "c5a7a1d4a50c2e27fc9532424e27826ce8c2483441789f6517d0e20315aaa68d",
+      "object_files": {
+        "PeriodicSobolev.olean": "42810da4f3f9cce26a8de241ad49e6d39092f1e6890c061fa7c9d84904c1475f"
+      },
+      "olean_sha256": "42810da4f3f9cce26a8de241ad49e6d39092f1e6890c061fa7c9d84904c1475f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalBilinear": {
+      "identity": "212a863993d3f187fc12f3b487046a9b1360d6652f1671b8f9656f31e72d61ef",
+      "object_files": {
+        "PhysicalBilinear.olean": "95dca47b659e35919ed10ef85488f276384933a1ca28305a6e79e18182c67f49"
+      },
+      "olean_sha256": "95dca47b659e35919ed10ef85488f276384933a1ca28305a6e79e18182c67f49",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalChannels": {
+      "identity": "bd1f0c932b75718f8785d0bd9398e17a740bac25d75cd9ba376344b98e48fa92",
+      "object_files": {
+        "PhysicalChannels.olean": "7b6863f73a12d213d354772ae0a7b91d8e23dcd73331725693bb758fef52410b"
+      },
+      "olean_sha256": "7b6863f73a12d213d354772ae0a7b91d8e23dcd73331725693bb758fef52410b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalEnergy": {
+      "identity": "c237f0001a1b27801b46d66f02fd87fd7f1d3149cced5d66d3f8ea5b2b0b9b10",
+      "object_files": {
+        "PhysicalEnergy.olean": "994ed3ca8f810b869f3c5892edca23cc7cb4e73493a3e945c2acf6a5d22bfcb3"
+      },
+      "olean_sha256": "994ed3ca8f810b869f3c5892edca23cc7cb4e73493a3e945c2acf6a5d22bfcb3",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalEnstrophy": {
+      "identity": "ae1b2a8e5ffb3c05de62e0045e1890170bcb87d8b8fe5671a4124fa60f046b62",
+      "object_files": {
+        "PhysicalEnstrophy.olean": "24267cc8cb340e03ff8767374a424b3c77f5693c269d90d5133c64e673e054c9"
+      },
+      "olean_sha256": "24267cc8cb340e03ff8767374a424b3c77f5693c269d90d5133c64e673e054c9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalNSEIdentity": {
+      "identity": "e995aabc7dc16760bdb11f302663aca3bf15a693229f6e479d9e77a75169e8b1",
+      "object_files": {
+        "PhysicalNSEIdentity.olean": "e69d786482b7ed076514de62f35362e731b87624938dc335711dff8c641d3923"
+      },
+      "olean_sha256": "e69d786482b7ed076514de62f35362e731b87624938dc335711dff8c641d3923",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalParseval": {
+      "identity": "333185a0792f5890acec2c585d95d3f28fee3f23902193b2d5ee24e752b052b4",
+      "object_files": {
+        "PhysicalParseval.olean": "0d4268034502311114b7133085fe06e4797db3eb3b0ada61afbc53817dcabc30"
+      },
+      "olean_sha256": "0d4268034502311114b7133085fe06e4797db3eb3b0ada61afbc53817dcabc30",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalProjection": {
+      "identity": "146095f6cc150f211a4797ed084fee5b8872e5d2bfaa5f054cfc969288555e1c",
+      "object_files": {
+        "PhysicalProjection.olean": "24b4b236c4545bd129fc03fed010feeac184a7ae738b21c211e06715f4b8280d"
+      },
+      "olean_sha256": "24b4b236c4545bd129fc03fed010feeac184a7ae738b21c211e06715f4b8280d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.PhysicalTimeDerivative": {
+      "identity": "c475bdafec76a50297da4ba512c192a88a754415dbb881e485ac88dc80136598",
+      "object_files": {
+        "PhysicalTimeDerivative.olean": "248455ae2056985856bfd239fbaf05a250a3fbe68c739943cd4f1131eb18185e"
+      },
+      "olean_sha256": "248455ae2056985856bfd239fbaf05a250a3fbe68c739943cd4f1131eb18185e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SixChannels": {
+      "identity": "4c4eebe6631ab3a6943b9fefcc03885e74332d943402b05662d12443669cd95a",
+      "object_files": {
+        "SixChannels.olean": "84a69e470339cf9a337eb1bf7051f696deebfa3121081c381c4679006a65f5d9"
+      },
+      "olean_sha256": "84a69e470339cf9a337eb1bf7051f696deebfa3121081c381c4679006a65f5d9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmallDataAX6": {
+      "identity": "9b5d91b010e369e88f5ea5b52760c500d8027ac8fcfaaea82425d3f3d97238ce",
+      "object_files": {
+        "SmallDataAX6.olean": "2ec8ad747f1264ef9d308ca6adc2b254deab4648229bcfe616c93c5712e5172a"
+      },
+      "olean_sha256": "2ec8ad747f1264ef9d308ca6adc2b254deab4648229bcfe616c93c5712e5172a",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmallDataAX6Closure": {
+      "identity": "673052e2d591836abac204f512eb2f16f4444f594232a245e9911af081d891df",
+      "object_files": {
+        "SmallDataAX6Closure.olean": "885820dcad730beba2948420f321f52890efba9b097fbeb301c1dda1f6da49ca"
+      },
+      "olean_sha256": "885820dcad730beba2948420f321f52890efba9b097fbeb301c1dda1f6da49ca",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmallDataQuantitative": {
+      "identity": "d9e3b78f685ebbd92f984dd075694bd1ca19ca05f26008148bebf280ba12fa89",
+      "object_files": {
+        "SmallDataQuantitative.olean": "219375d6508d4711b2fb3948ac874f4ac855d0f44bdddb9142015cdc093d42db"
+      },
+      "olean_sha256": "219375d6508d4711b2fb3948ac874f4ac855d0f44bdddb9142015cdc093d42db",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmallDataRoot": {
+      "identity": "5e561124879c33319cdd21f97523d2edd9cc9af07bef3cf110fb53655e01c64d",
+      "object_files": {
+        "SmallDataRoot.olean": "85e724c2e3a39bedefe03ac838d7d72a47443cba9c72a3ed13656b16cf81fa1e"
+      },
+      "olean_sha256": "85e724c2e3a39bedefe03ac838d7d72a47443cba9c72a3ed13656b16cf81fa1e",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmallDataSerrin": {
+      "identity": "c8b4d7d464c86e1e202562a82c4cbd847364d38accd09931f81970d6f2cd7da2",
+      "object_files": {
+        "SmallDataSerrin.olean": "0e906ce629c06bcb810bb6d597f1959afcd17fc2421112a654b5f806ebe71287"
+      },
+      "olean_sha256": "0e906ce629c06bcb810bb6d597f1959afcd17fc2421112a654b5f806ebe71287",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmallDataUniqueness": {
+      "identity": "3c16b75c52906db0d95d1de248ad8d10bbfae9a57e2ad54e9f2ab3ca581b3e63",
+      "object_files": {
+        "SmallDataUniqueness.olean": "46c92349bbcaeedcf940ace227511dfd221bf014e5cb6777f2f4a4fc797b25f4"
+      },
+      "olean_sha256": "46c92349bbcaeedcf940ace227511dfd221bf014e5cb6777f2f4a4fc797b25f4",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothDatumSobolev": {
+      "identity": "6cbb1f0ec92d7024a4443ce510062d4c4dba05650ff0e4f548f4ebe5a8583c44",
+      "object_files": {
+        "SmoothDatumSobolev.olean": "1c284ff60dc3621b3143664513cb6110798300d5633d25dc9a34e82152545b01"
+      },
+      "olean_sha256": "1c284ff60dc3621b3143664513cb6110798300d5633d25dc9a34e82152545b01",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothEvaluation": {
+      "identity": "635a24d33830361ed6ab122d4bd817e28c08a610a0cbf7745db0f2778cbe08d5",
+      "object_files": {
+        "SmoothEvaluation.olean": "841378dbecc5f6be62b3af050ad8ee5a5fcfe9b863b2d478229e4551230673fa"
+      },
+      "olean_sha256": "841378dbecc5f6be62b3af050ad8ee5a5fcfe9b863b2d478229e4551230673fa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothFourierLaplacian": {
+      "identity": "b4226ccac783ce28d0c6f63a699191f081f7305f679f8d7e7db5d0cee27f8c89",
+      "object_files": {
+        "SmoothFourierLaplacian.olean": "881672799184a63b2c063b3788e056ddb6461ba1abb4cb664d3512971baac898"
+      },
+      "olean_sha256": "881672799184a63b2c063b3788e056ddb6461ba1abb4cb664d3512971baac898",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothSixChannels": {
+      "identity": "a06060b7151209810cf97fab4122cbed37b74288ea912b0c745dbc05a6c6a0fb",
+      "object_files": {
+        "SmoothSixChannels.olean": "fb211d6c2a9ff7b5a82be35e20c33f60b57c4b5b339023a579726e1437edbfdb"
+      },
+      "olean_sha256": "fb211d6c2a9ff7b5a82be35e20c33f60b57c4b5b339023a579726e1437edbfdb",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothSixEnstrophy": {
+      "identity": "6b3f2f1137af2b7e481a534f4ec5c373f4bff0591c3168fbe6ed968b8602b426",
+      "object_files": {
+        "SmoothSixEnstrophy.olean": "6c0306ee52a09c2bb5eff0fd852db62a3e7adf4c3b7de68d240749a8aae4cabf"
+      },
+      "olean_sha256": "6c0306ee52a09c2bb5eff0fd852db62a3e7adf4c3b7de68d240749a8aae4cabf",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothSixOrthogonal": {
+      "identity": "a1178dffc9432386b0e88c22bdb294ca12320a38793925ac17fafed1306b649a",
+      "object_files": {
+        "SmoothSixOrthogonal.olean": "6797fc2de4c20b6dc487e845507a0fd4c672511718a2f0e7f51126c8a43893c9"
+      },
+      "olean_sha256": "6797fc2de4c20b6dc487e845507a0fd4c672511718a2f0e7f51126c8a43893c9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SmoothSixProjectionAlgebra": {
+      "identity": "ba86d4267eec513126b3ada28644b4ef2c34e3740042b31ca74e6de0475cce4f",
+      "object_files": {
+        "SmoothSixProjectionAlgebra.olean": "1f9705d4d8a70c513408f6b309dc5da92a3a8bc7675de5ca13b59510a71481da"
+      },
+      "olean_sha256": "1f9705d4d8a70c513408f6b309dc5da92a3a8bc7675de5ca13b59510a71481da",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevArzelaAscoli": {
+      "identity": "afdf824a72d42865c9159fcd1873eb4615425c5a1de7fdfbb630ad2410ebb3b8",
+      "object_files": {
+        "SobolevArzelaAscoli.olean": "b832d726c3c7bb28580d8d6cf4bf1eae8d34ecb9b4427d0d5c64c60e3f67f536"
+      },
+      "olean_sha256": "b832d726c3c7bb28580d8d6cf4bf1eae8d34ecb9b4427d0d5c64c60e3f67f536",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevCoefficientCalculus": {
+      "identity": "45aa1f26de1ff2b2adda387547e181b3500599dc9f9d9d13de3cc19cf5caaa8c",
+      "object_files": {
+        "SobolevCoefficientCalculus.olean": "db83f4279c232dddcab59a109f142bd37a0b0a4a8051abf80fe193925499ffdc"
+      },
+      "olean_sha256": "db83f4279c232dddcab59a109f142bd37a0b0a4a8051abf80fe193925499ffdc",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevFourierConstraints": {
+      "identity": "2adb12e67ebf923114683a7729ace9217a2ac99eed34b596c74b99808cdae7bd",
+      "object_files": {
+        "SobolevFourierConstraints.olean": "1a24ea47f034dcfb5f848385549392c429484d5aeca4e28952c0fd00333f9432"
+      },
+      "olean_sha256": "1a24ea47f034dcfb5f848385549392c429484d5aeca4e28952c0fd00333f9432",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevInterpolation": {
+      "identity": "5e82e2603ecf5435eea450e38b0a02f49cbb49a7450e3b2f14a45a20f64aa8e9",
+      "object_files": {
+        "SobolevInterpolation.olean": "bf5c6460fed1e3768b6634bb9bb1cb96ce8acd4cef081bded1dbe691f13bc197"
+      },
+      "olean_sha256": "bf5c6460fed1e3768b6634bb9bb1cb96ce8acd4cef081bded1dbe691f13bc197",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevL2Realization": {
+      "identity": "7167b033f9c946540b74bb7b9839eef4f88e59e31d5359cefd28d9e5a2918b98",
+      "object_files": {
+        "SobolevL2Realization.olean": "0e0beda52e54d99f035b34bafa75003a5bf1a1b6f073fa5ed0ec9da87b37fa94"
+      },
+      "olean_sha256": "0e0beda52e54d99f035b34bafa75003a5bf1a1b6f073fa5ed0ec9da87b37fa94",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevLimitBounds": {
+      "identity": "6be81ff190787ee9cb64298003a7d8039e6dd00312e8fa6e983a52b1b04a0562",
+      "object_files": {
+        "SobolevLimitBounds.olean": "1b94d9e74252d91e420ccf27374a1c45f4f3ddbcdabe6184d561e81dd641e162"
+      },
+      "olean_sha256": "1b94d9e74252d91e420ccf27374a1c45f4f3ddbcdabe6184d561e81dd641e162",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevLimitInitial": {
+      "identity": "f43aa5f753c6e9acc9ac67458980d0e88fe9aebb93952db43fb18af7108105db",
+      "object_files": {
+        "SobolevLimitInitial.olean": "a52db7125f4f47da114508c6aa31b65ce48e30440214a9d32eb4be9a94c7484b"
+      },
+      "olean_sha256": "a52db7125f4f47da114508c6aa31b65ce48e30440214a9d32eb4be9a94c7484b",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevPressure": {
+      "identity": "36985644d8d922b79e15db33241240e87a92ff91643b9967abe8b29d9ee2f869",
+      "object_files": {
+        "SobolevPressure.olean": "39af7b7e2178d2ccbccc46e1d8fe1d6f1c59078e8eb985ae32f0d553866efa33"
+      },
+      "olean_sha256": "39af7b7e2178d2ccbccc46e1d8fe1d6f1c59078e8eb985ae32f0d553866efa33",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevScaleTimeSmooth": {
+      "identity": "4adf6e42c3574c7cbeb9b39adf8a4e102570197f5a6e2203ce8a223a64b7e3fd",
+      "object_files": {
+        "SobolevScaleTimeSmooth.olean": "1590b4c5d6ad1e0f31a8fd2688105e9220f89d12c4aa9dc6b773e0c5a1fd1dfd"
+      },
+      "olean_sha256": "1590b4c5d6ad1e0f31a8fd2688105e9220f89d12c4aa9dc6b773e0c5a1fd1dfd",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevSmoothRealization": {
+      "identity": "6a0331a020365bfd3187e5e40ef908e7a600d484f54f8039188543ae30349113",
+      "object_files": {
+        "SobolevSmoothRealization.olean": "37ad9acf26d4df62416e6262d9e00561492967bf2c02ae0489ad7d84b489db77"
+      },
+      "olean_sha256": "37ad9acf26d4df62416e6262d9e00561492967bf2c02ae0489ad7d84b489db77",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevSpacetimeSmooth": {
+      "identity": "3daeb58b4151d45301e76d69d39e045ce406f704ce66ce677a885ab35753a5f6",
+      "object_files": {
+        "SobolevSpacetimeSmooth.olean": "136fe1e1312148283089bd2afa02a7c64e0b5c7fc90ca9c2a79462d1823f1379"
+      },
+      "olean_sha256": "136fe1e1312148283089bd2afa02a7c64e0b5c7fc90ca9c2a79462d1823f1379",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevTimeL2Compactness": {
+      "identity": "1d59578bc962d702588dbecaf10cc34f37333b30b7835e09f5929989920a5e66",
+      "object_files": {
+        "SobolevTimeL2Compactness.olean": "aea20c9f9847cbbf41c8cf0b15ebf15c526b116a54ebc94e7ef0d24b037abb17"
+      },
+      "olean_sha256": "aea20c9f9847cbbf41c8cf0b15ebf15c526b116a54ebc94e7ef0d24b037abb17",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevTimeModulus": {
+      "identity": "5de886937094f71db50d2d928f05e5e1e2890e7328fd7bda8079dc8b7f10352d",
+      "object_files": {
+        "SobolevTimeModulus.olean": "91b130ab406c636e4941be2808071af91e1ef2c68524dca0df2f956a24156cfa"
+      },
+      "olean_sha256": "91b130ab406c636e4941be2808071af91e1ef2c68524dca0df2f956a24156cfa",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.SobolevTrajectoryCalculus": {
+      "identity": "fbd4fd65fcef4253d538119771b8bef76953b0e5a2ef17dd38d6ce3f760f6573",
+      "object_files": {
+        "SobolevTrajectoryCalculus.olean": "1bb8ed673fc618adb3e459897e4a7ecb6cde23faacd9d055074b366dc0cc3f4c"
+      },
+      "olean_sha256": "1bb8ed673fc618adb3e459897e4a7ecb6cde23faacd9d055074b366dc0cc3f4c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.StrongAccumulation": {
+      "identity": "9281b7c7937fd387dcab5b56cea4d8b134ea8c87dd61bc53113dfee3ad39a966",
+      "object_files": {
+        "StrongAccumulation.olean": "d43af3b54755709fdcbb8f1a10e36f479b13ee413a4313d4793fbae20e50ab9c"
+      },
+      "olean_sha256": "d43af3b54755709fdcbb8f1a10e36f479b13ee413a4313d4793fbae20e50ab9c",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.StrongCoefficientContracts": {
+      "identity": "dd15286dcc802dde5f2ae3fe222250385665e9df63d96fc5549cd5013a04b913",
+      "object_files": {
+        "StrongCoefficientContracts.olean": "e78d9d46e86143025afc134f0bf5606026b4743802e294daa2004f17b317230f"
+      },
+      "olean_sha256": "e78d9d46e86143025afc134f0bf5606026b4743802e294daa2004f17b317230f",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.StrongSobolevRealization": {
+      "identity": "d664ad46c52589ce9b79b2f411d6a7b3635cd46f341d9f83268260f0ab8edbdf",
+      "object_files": {
+        "StrongSobolevRealization.olean": "1f078bb7362f98f8303fa057f7fea48a3c82c6627cd28f1a6643ca0f5b1871a3"
+      },
+      "olean_sha256": "1f078bb7362f98f8303fa057f7fea48a3c82c6627cd28f1a6643ca0f5b1871a3",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.StrongTimeBounds": {
+      "identity": "addfba2c7d08b0df64fb64edc59d0ea4bb6faff9f67b5a525a05f9e2c03a1c9d",
+      "object_files": {
+        "StrongTimeBounds.olean": "cd6bea153647b07cd063759b9802318381f2bfdb6e05f987d1b8f2675c8b4162"
+      },
+      "olean_sha256": "cd6bea153647b07cd063759b9802318381f2bfdb6e05f987d1b8f2675c8b4162",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.TorusGalerkinSobolev": {
+      "identity": "6c9d145aa1da6dd0cd71b7ea60681de5efe0b98d78d6cb85aed6b236d85bf749",
+      "object_files": {
+        "TorusGalerkinSobolev.olean": "7e78a56a52b1f08d74995506e646e35138edb184142352d5f17874011c41476d"
+      },
+      "olean_sha256": "7e78a56a52b1f08d74995506e646e35138edb184142352d5f17874011c41476d",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.TorusSobolev": {
+      "identity": "b3734d05a6917ff3f526959334249fc7f824d003477851f358b138f95ec64c8e",
+      "object_files": {
+        "TorusSobolev.olean": "30bcb479a06ac99866dda3f37310e7bd2b1f309785cddc378903b2b2582aff01"
+      },
+      "olean_sha256": "30bcb479a06ac99866dda3f37310e7bd2b1f309785cddc378903b2b2582aff01",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SingularClosure.UniformStrongBounds": {
+      "identity": "a20baef40ba144f0baef7acc93c3cdeb96e866dd0d1bc114a8a41ac231a83d02",
+      "object_files": {
+        "UniformStrongBounds.olean": "232c8191c89c47042e3a4e2c48362b63671dc78e4474cce879a505c6c7b366b9"
+      },
+      "olean_sha256": "232c8191c89c47042e3a4e2c48362b63671dc78e4474cce879a505c6c7b366b9",
+      "reused": false,
+      "status": "PASS"
+    },
+    "SmallH12.Endpoint": {
+      "identity": "75bc15de74bc629897b048ccc6b483f781e3be13e68dfdecc5601087822e6f18",
+      "object_files": {
+        "Endpoint.olean": "554a04dd6556db640c2d76c674c43c217e98daba93b71f5cb5057e3beffeebc0"
+      },
+      "olean_sha256": "554a04dd6556db640c2d76c674c43c217e98daba93b71f5cb5057e3beffeebc0",
+      "reused": false,
+      "status": "PASS"
+    }
+  },
+  "module_workers": 2,
+  "new_finite_cap_theorem_included": false,
+  "platform": {
+    "machine": "x86_64",
+    "system": "Linux"
+  },
+  "project_cache_class": "MISS",
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44052579373",
+  "schema_version": 2,
+  "source_pin_integrity": true,
+  "status": "PASS",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "total_seconds": 1479.602,
+  "verified_dependencies": [
+    {
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "name": "mathlib",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "name": "plausible",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "name": "LeanSearchClient",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "name": "importGraph",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "name": "proofwidgets",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "name": "aesop",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "name": "Qq",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "name": "batteries",
+      "tracked_source_clean": true
+    },
+    {
+      "commit": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "name": "Cli",
+      "tracked_source_clean": true
+    }
+  ]
+}

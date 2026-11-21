@@ -1,0 +1,16 @@
+MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean:63:8: error: Type mismatch: After simplification, term
+  hPair
+ has type
+  @Eq ComplexVector (∫ (x : Space), ↑(g x) • ↑↑q x) (c • ∫ (x : Space), (↑(m x) * ↑(g x)) • ↑↑h x)
+but is expected to have type
+  @Eq ComplexVector (∫ (x : Space), ↑(g x) • ↑↑q x) (c • ∫ (x : Space), (↑(m x) * ↑(g x)) • ↑↑h x)
+MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean:195:4: error: Type mismatch: After simplification, term
+  laplacian_fourier_distribution_eq h
+ has type
+  Lp.toTemperedDistribution (𝓕 L) =
+    -((2 : ℝ) * Real.pi) ^ 2 •
+      (TemperedDistribution.smulLeftCLM ComplexVector fun k => ↑‖k‖ ^ 2) (Lp.toTemperedDistribution (𝓕 v))
+but is expected to have type
+  Lp.toTemperedDistribution (𝓕 L) =
+    -((2 : ℂ) * ↑Real.pi) ^ 2 •
+      (TemperedDistribution.smulLeftCLM ComplexVector fun k => ↑‖k‖ ^ 2) (Lp.toTemperedDistribution (𝓕 v))

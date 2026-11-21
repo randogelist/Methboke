@@ -1,0 +1,86 @@
+import FrontierRealDissipation
+import FrontierRealHelicalOperators
+
+/-!
+Forward weak-gradient/graph-domain bridge. The Riesz reconstruction is
+contractive for every real matrix L² field; if that matrix is a weak gradient
+of a supplied real velocity, it is the graph dissipation of that velocity.
+The reverse domain inclusion, norm equality, independent Stokes realization,
+and Leray--Hopf solution realization are not proved here. No local Lean run.
+-/
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierForwardSobolev
+
+abbrev Gradient := FrontierARealGradient.RealMatrix
+abbrev Field := FrontierRealVelocityEmbedding.Field
+abbrev RealVelocity := FrontierRealVelocityEmbedding.RealField
+abbrev Frequency := FrontierMultiplierBridge.Frequency
+abbrev Fiber := FrontierMultiplierBridge.Fiber
+
+/-- The gradient-to-dissipation reconstruction is contractive on all real
+matrix L² fields; no gradient or Navier--Stokes premise is used. -/
+theorem gradientDissipation_norm_le (g : Gradient) :
+    ‖FrontierDissipationDomain.gradientDissipation g‖ ≤ ‖g‖ := by
+  calc
+    ‖FrontierDissipationDomain.gradientDissipation g‖ =
+        ‖FrontierARealGradient.realGradientSpectrum g‖ := by
+      exact FrontierPhysicalGramTransport.fourierCoordinateReal.symm.norm_map _
+    _ = ‖FrontierARieszVectorL2.inverseFourierVectorCLM
+        (FrontierAMatrixFourier.matrixFourier (FrontierARealGradient.complexifyL2 g))‖ := by
+      exact FrontierAConcreteFourier.coordinateFourier_norm _
+    _ ≤ ‖FrontierAMatrixFourier.matrixFourier (FrontierARealGradient.complexifyL2 g)‖ :=
+      FrontierARieszVectorL2.inverseFourierVectorCLM_contractive _
+    _ = ‖g‖ := by
+      rw [FrontierAMatrixFourier.matrixFourier_norm, FrontierARealGradient.complexifyL2_norm]
+
+/-- A supplied weak gradient gives the expected 2π|ξ| velocity symbol for
+the reconstructed L² field, with equality understood almost everywhere. -/
+theorem weak_gradient_dissipation_symbol
+    (u : Field) (g : Gradient)
+    (hw : FrontierAEProjectedGraphEnergy.WeakAt u g) :
+    ((FrontierPhysicalGramTransport.fourierCoordinateReal
+      (FrontierDissipationDomain.gradientDissipation g) : Frequency → Fiber) =ᵐ[volume]
+        FrontierMultiplierBridge.velocitySymbol u) := by
+  rw [FrontierDissipationDomain.gradientDissipation_fourier]
+  exact FrontierMultiplierBridge.real_gradient_spectrum_eq_symbol u g
+    (fun j => FrontierGradientAdapter.gradientColumn g j) (fun _ => rfl) hw
+
+/-- Real weak-gradient data supply a graph-domain element with real
+dissipation, the expected velocity symbol, and a one-sided energy bound. -/
+theorem real_weak_gradient_graph_bridge
+    (u : RealVelocity) (g : Gradient)
+    (hw : FrontierAEProjectedGraphEnergy.WeakAt
+      (FrontierRealVelocityEmbedding.complexifyL2 u) g) :
+    ∃ v : FrontierSpectralOperator.Domain,
+      v.val = FrontierRealVelocityEmbedding.complexifyL2 u ∧
+      FrontierPhysicalReality.RealAE (FrontierSpectralOperator.dissipation v) ∧
+      ‖FrontierSpectralOperator.dissipation v‖ ≤ ‖g‖ ∧
+      ((FrontierPhysicalGramTransport.fourierCoordinateReal
+        (FrontierSpectralOperator.dissipation v) : Frequency → Fiber) =ᵐ[volume]
+          FrontierMultiplierBridge.velocitySymbol (FrontierRealVelocityEmbedding.complexifyL2 u)) := by
+  let v := FrontierSpectralOperator.ofWeakGradient
+    (FrontierRealVelocityEmbedding.complexifyL2 u) g hw
+  have heq : FrontierSpectralOperator.dissipation v =
+      FrontierDissipationDomain.gradientDissipation g :=
+    FrontierSpectralOperator.dissipation_ofWeakGradient
+      (FrontierRealVelocityEmbedding.complexifyL2 u) g hw
+  refine ⟨v, rfl, ?_, ?_, ?_⟩
+  · exact (congrArg FrontierPhysicalReality.RealAE heq).mpr
+      (FrontierRealDissipation.gradient_dissipation_real u g hw)
+  · calc
+      ‖FrontierSpectralOperator.dissipation v‖ =
+          ‖FrontierDissipationDomain.gradientDissipation g‖ := congrArg (fun f : Field => ‖f‖) heq
+      _ ≤ ‖g‖ := gradientDissipation_norm_le g
+  · have hsym := weak_gradient_dissipation_symbol
+      (FrontierRealVelocityEmbedding.complexifyL2 u) g hw
+    exact (congrArg (fun f : Field =>
+      ((FrontierPhysicalGramTransport.fourierCoordinateReal f : Frequency → Fiber) =ᵐ[volume]
+        FrontierMultiplierBridge.velocitySymbol (FrontierRealVelocityEmbedding.complexifyL2 u))) heq).mpr hsym
+
+end FrontierForwardSobolev
+
+#print axioms FrontierForwardSobolev.gradientDissipation_norm_le
+#print axioms FrontierForwardSobolev.weak_gradient_dissipation_symbol
+#print axioms FrontierForwardSobolev.real_weak_gradient_graph_bridge

@@ -4,7 +4,7 @@
   "source_commit": "96033dd69c994bec337a87369a6c27256e724980",
   "lean_toolchain": "leanprover/lean4:v4.33.0",
   "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
-  "local_module_count": 269,
+  "local_module_count": 304,
   "local_source_policy": "Exact upstream module bytes; no stubs, postulated substitute endpoints, or new proof bodies.",
   "license_observation": "No root LICENSE file at the pinned upstream commit; original per-file notices preserved.",
   "files": [
@@ -5500,6 +5500,734 @@
         "commit": "96033dd69c994bec337a87369a6c27256e724980",
         "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/UniformStrongBounds.lean"
       }
+    },
+    {
+      "module": "QFA",
+      "local_path": "_vendor/QFA.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA.lean",
+      "git_blob_sha": "dec1ef2d0be063923c228138e8420e60c936d38a",
+      "sha256": "2132d6f04c87d34d021c5cdd2307a1e62a696e420d6402275c724c1ee3d88b68",
+      "size_bytes": 1112,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "QFA.Endpoints.Agmon.Scalar",
+        "QFA.Endpoints.Comparison.AdmissibleTimes",
+        "QFA.Endpoints.Comparison.RelativeEnergy",
+        "QFA.Endpoints.Composition.GoodTimeAndTrace",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Basic",
+        "QFA.Endpoints.GoodTime.Cutoff",
+        "QFA.Endpoints.GoodTime.Interval",
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile",
+        "QFA.Endpoints.Restart.EnergyShift",
+        "QFA.Endpoints.Restart.HilbertTrace",
+        "QFA.Endpoints.Restart.TimeTranslate",
+        "QFA.Assembly"
+      ],
+      "path": "_vendor/QFA.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly",
+      "local_path": "_vendor/QFA/Assembly.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly.lean",
+      "git_blob_sha": "68440ef31827a13adf5bd2a1ab8fb9b48b2058b5",
+      "sha256": "6d6faee1174df2b8394d575f452817e4b9b661e6461b81cb6fac7e34b8448ef9",
+      "size_bytes": 1137,
+      "imports": [
+        "QFA.Assembly.Representation",
+        "QFA.Assembly.Restart",
+        "QFA.Assembly.AnalyticInputs",
+        "QFA.Assembly.Comparison",
+        "QFA.Assembly.AnalyticChain",
+        "QFA.Assembly.TailComparison",
+        "QFA.Assembly.Chain",
+        "QFA.Assembly.Integrated"
+      ],
+      "path": "_vendor/QFA/Assembly.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.AnalyticChain",
+      "local_path": "_vendor/QFA/Assembly/AnalyticChain.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticChain.lean",
+      "git_blob_sha": "3893ab9916d6553d23a71df8f13bcbe3d1a9fdf5",
+      "sha256": "9851c03b8eb692d69636eb9b73b9ecc85fbe40bf436b8d9b60448494f770fa30",
+      "size_bytes": 9305,
+      "imports": [
+        "QFA.Assembly.AnalyticInputs",
+        "QFA.Assembly.Representation",
+        "Mathlib.Algebra.QuadraticDiscriminant"
+      ],
+      "path": "_vendor/QFA/Assembly/AnalyticChain.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticChain.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.AnalyticInputs",
+      "local_path": "_vendor/QFA/Assembly/AnalyticInputs.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticInputs.lean",
+      "git_blob_sha": "e577dd7c7cab71aa1b11c15597bf9636249c0a6b",
+      "sha256": "a5c53dafbc179bd35f810a6b3051e561ce5ebd507d9b6923b04e54265dec7451",
+      "size_bytes": 8117,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "QFA.Endpoints.Agmon.Scalar",
+        "QFA.Endpoints.Representation.Complexification"
+      ],
+      "path": "_vendor/QFA/Assembly/AnalyticInputs.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/AnalyticInputs.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Chain",
+      "local_path": "_vendor/QFA/Assembly/Chain.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "git_blob_sha": "991168a01d34c3dcc590be78cd9041fa719d888b",
+      "sha256": "51efca53b57728326cd81c1b8b2581ec4f2dd4ad64b560f14181726c23e1bdcf",
+      "size_bytes": 9939,
+      "imports": [
+        "QFA.Assembly.TailComparison"
+      ],
+      "path": "_vendor/QFA/Assembly/Chain.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Comparison",
+      "local_path": "_vendor/QFA/Assembly/Comparison.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean",
+      "git_blob_sha": "ce9357c1b59ab8a701e2e65bde1ab52a3cf2a0c8",
+      "sha256": "fd138e6f4bd91f9e55e6624f9cf99b5d6c0a6ba344770fda5ba421d9b6c1ef92",
+      "size_bytes": 7542,
+      "imports": [
+        "QFA.Endpoints.Comparison.AdmissibleTimes",
+        "QFA.Endpoints.Comparison.RelativeEnergy"
+      ],
+      "path": "_vendor/QFA/Assembly/Comparison.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Integrated",
+      "local_path": "_vendor/QFA/Assembly/Integrated.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Integrated.lean",
+      "git_blob_sha": "32503a36443c98ff6ff17bcb35298affb4198966",
+      "sha256": "1b560d0c9cfc2248175720e9fe1dcfd4a668eaf66d998e0a77113aceb307d0cd",
+      "size_bytes": 5609,
+      "imports": [
+        "QFA.Assembly.Chain",
+        "QFA.Assembly.AnalyticChain"
+      ],
+      "path": "_vendor/QFA/Assembly/Integrated.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Integrated.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Representation",
+      "local_path": "_vendor/QFA/Assembly/Representation.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Representation.lean",
+      "git_blob_sha": "dbb083fec85080f715443c22edca28abff8de0da",
+      "sha256": "83ad5c89c278f5ed43686a6aa2e0294fb6494875a08f55acecffb03f0eaae3e3",
+      "size_bytes": 4616,
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification"
+      ],
+      "path": "_vendor/QFA/Assembly/Representation.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Representation.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.Restart",
+      "local_path": "_vendor/QFA/Assembly/Restart.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "git_blob_sha": "93f121faa302f9aa330c5055c31c4b66cca37745",
+      "sha256": "e07d862aa284d0f1c488f7344ac0c0a5ccc8bcc99ad6ecae2f796644cedfa347",
+      "size_bytes": 9203,
+      "imports": [
+        "QFA.Endpoints.Composition.GoodTimeAndTrace",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas"
+      ],
+      "path": "_vendor/QFA/Assembly/Restart.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean"
+      }
+    },
+    {
+      "module": "QFA.Assembly.TailComparison",
+      "local_path": "_vendor/QFA/Assembly/TailComparison.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean",
+      "git_blob_sha": "caacf273936591f38d6315b1f933ad3c9258c340",
+      "sha256": "526677a5971b5ed4c75f0d9f965d67e8810f7ced0c4397817cbd61919f9493d3",
+      "size_bytes": 8794,
+      "imports": [
+        "QFA.Assembly.Comparison",
+        "QFA.Assembly.Restart"
+      ],
+      "path": "_vendor/QFA/Assembly/TailComparison.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "local_path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean",
+      "git_blob_sha": "45429b61943aeba1bf43ba7abcb5fa3e1bdfb791",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+      "size_bytes": 4473,
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Scalar",
+      "local_path": "_vendor/QFA/Endpoints/Agmon/Scalar.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean",
+      "git_blob_sha": "851666c7bf01b6f0e892c7abe299f539a60bc55f",
+      "sha256": "bc4f1169867d0cc94fbd8865b0f29a6417ed9f11c94be2900ae3e0fa25d1b3e6",
+      "size_bytes": 9523,
+      "imports": [
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic"
+      ],
+      "path": "_vendor/QFA/Endpoints/Agmon/Scalar.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.AdmissibleTimes",
+      "local_path": "_vendor/QFA/Endpoints/Comparison/AdmissibleTimes.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/AdmissibleTimes.lean",
+      "git_blob_sha": "39daee9bbbdd14c30ef514fed16b02d7feaeab8c",
+      "sha256": "ced4416fb261e3a08a45b321ea13d1c4051641e06f5b7d7ef2b49d4ab556f3a9",
+      "size_bytes": 2261,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/QFA/Endpoints/Comparison/AdmissibleTimes.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/AdmissibleTimes.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "local_path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "git_blob_sha": "ac959dee369897576b57f27556302b38079cec8f",
+      "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+      "size_bytes": 10609,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeAndTrace",
+      "local_path": "_vendor/QFA/Endpoints/Composition/GoodTimeAndTrace.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeAndTrace.lean",
+      "git_blob_sha": "312b399e6d430c04f929ce5e68a551b14e5caecf",
+      "sha256": "27170ebd29b091e4d93cbecee1ae8e7d5860acbe03988d7c5fa090e73e24655e",
+      "size_bytes": 3561,
+      "imports": [
+        "QFA.Endpoints.Representation.EnergyProfile",
+        "QFA.Endpoints.Restart.HilbertTrace"
+      ],
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeAndTrace.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeAndTrace.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "local_path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "git_blob_sha": "cfea445a31ed91b47cb7875e7f2a8996772a15a5",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d",
+      "size_bytes": 2345,
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ],
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "local_path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean",
+      "git_blob_sha": "0e82e8aacacc920ee36c963bbbc9a5d879d34950",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+      "size_bytes": 11142,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "local_path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Basic.lean",
+      "git_blob_sha": "c8635c3ba7d1142efb6bc7a92bd3e4cfe1374e26",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5",
+      "size_bytes": 2858,
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ],
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Basic.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "local_path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "git_blob_sha": "4571547fa20a296dad39a5c596bdd0c70714faf3",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9",
+      "size_bytes": 3303,
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Cutoff.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Interval",
+      "local_path": "_vendor/QFA/Endpoints/GoodTime/Interval.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Interval.lean",
+      "git_blob_sha": "55bda94a609faefd6d15f057a6e1c14a69594e7e",
+      "sha256": "c0a528c3f98a9c611dfb4fbaaf969ac0328a5448bc313c259d173cbd1b6570ec",
+      "size_bytes": 3100,
+      "imports": [
+        "QFA.Endpoints.GoodTime.Cutoff",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic"
+      ],
+      "path": "_vendor/QFA/Endpoints/GoodTime/Interval.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Interval.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "local_path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean",
+      "git_blob_sha": "e9e71e66d6162c99c841e2157288a7d78e85958b",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+      "size_bytes": 10091,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "local_path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "git_blob_sha": "a4111256fc4d5083a914b7d1d922a186f85905ca",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a",
+      "size_bytes": 10173,
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ],
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Restart.EnergyShift",
+      "local_path": "_vendor/QFA/Endpoints/Restart/EnergyShift.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/EnergyShift.lean",
+      "git_blob_sha": "ed1ecfbb66263999efedc2ac64f13d69a79ee9fb",
+      "sha256": "0111c14a6ab440f9623e0f419e199cbf981622a35a00a774d55f67fd26c9f68e",
+      "size_bytes": 4096,
+      "imports": [
+        "QFA.Endpoints.Restart.TimeTranslate"
+      ],
+      "path": "_vendor/QFA/Endpoints/Restart/EnergyShift.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/EnergyShift.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Restart.HilbertTrace",
+      "local_path": "_vendor/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "git_blob_sha": "139067d99b7de83b3e40e8e25c6e846162adaba8",
+      "sha256": "2715d102af4ac35b4e52a4f145792c75a67d39c16f41ee03f2ad6a58f1156727",
+      "size_bytes": 5411,
+      "imports": [
+        "QFA.Endpoints.Restart.EnergyShift",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
+      ],
+      "path": "_vendor/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Restart.TimeTranslate",
+      "local_path": "_vendor/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "git_blob_sha": "79979eb5be2cfd84d60ce81bb91db675e849cda3",
+      "sha256": "ec4370573c9dbdcb482c9ce732f5c6ebed2a1eed2711c5361a4c307906080e7d",
+      "size_bytes": 6988,
+      "imports": [
+        "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "path": "_vendor/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/TimeTranslate.lean"
+      }
+    },
+    {
+      "module": "QFACorrectedRoot",
+      "local_path": "_vendor/QFACorrectedRoot.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot.lean",
+      "git_blob_sha": "bc711804c0aeb3611208ed014cf1c659d050896b",
+      "sha256": "ad4964c5da333ffe4aae95f6eedbf473501a992436c45406b137cd95f0019be8",
+      "size_bytes": 374,
+      "imports": [
+        "QFACorrectedRoot.Analytic",
+        "QFACorrectedRoot.PhysicalRoot"
+      ],
+      "path": "_vendor/QFACorrectedRoot.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot.lean"
+      }
+    },
+    {
+      "module": "QFACorrectedRoot.Analytic",
+      "local_path": "_vendor/QFACorrectedRoot/Analytic.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean",
+      "git_blob_sha": "078f93476916e607aa9d854441ccaad2a5b467c0",
+      "sha256": "a137651faa602ac6859caf5aa5cd2da434ce8cac37bc41d740942cb37059ddcb",
+      "size_bytes": 7030,
+      "imports": [
+        "QFALC005",
+        "QFA.Assembly.Integrated"
+      ],
+      "path": "_vendor/QFACorrectedRoot/Analytic.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean"
+      }
+    },
+    {
+      "module": "QFACorrectedRoot.PhysicalRoot",
+      "local_path": "_vendor/QFACorrectedRoot/PhysicalRoot.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean",
+      "git_blob_sha": "49c510962bcba7b52db58921eb66ed87db4f4c5c",
+      "sha256": "217f93f43be4de8d22966581d69597ce24d43c6324a6b035d2e6007c6d3cbffe",
+      "size_bytes": 6458,
+      "imports": [
+        "QFACorrectedRoot.Analytic"
+      ],
+      "path": "_vendor/QFACorrectedRoot/PhysicalRoot.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean"
+      }
+    },
+    {
+      "module": "QFALC001Reduction",
+      "local_path": "_vendor/QFALC001Reduction.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction.lean",
+      "git_blob_sha": "c37f00824d1c68f20597ac450f94888d983b06f3",
+      "sha256": "102c5427e316afcda25f2b1b37e8f333c725b42fb2f282ca1defc7c4d2e6df13",
+      "size_bytes": 470,
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms",
+        "QFALC001Reduction.DistributionMultipliers"
+      ],
+      "path": "_vendor/QFALC001Reduction.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction.lean"
+      }
+    },
+    {
+      "module": "QFALC001Reduction.DistributionMultipliers",
+      "local_path": "_vendor/QFALC001Reduction/DistributionMultipliers.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
+      "git_blob_sha": "11a673f69c66b88c4dfbbee097eb5084a5dd65d9",
+      "sha256": "60315c5cfb038ead5e07a3dc36d9a2060603ad4da6f56938e94330b38c448b2a",
+      "size_bytes": 8502,
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ],
+      "path": "_vendor/QFALC001Reduction/DistributionMultipliers.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean"
+      }
+    },
+    {
+      "module": "QFALC001Reduction.NativeFromAENorms",
+      "local_path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean",
+      "git_blob_sha": "cf2a77f018ebe1c07feb6e5c9f6b245c6f0aaa16",
+      "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+      "size_bytes": 6686,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ],
+      "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean"
+      }
+    },
+    {
+      "module": "QFALC004",
+      "local_path": "_vendor/QFALC004.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC004Bridge/QFALC004.lean",
+      "git_blob_sha": "f3de3e2ea75f77bdee3ce9cea74b000799a64d96",
+      "sha256": "ef95fc7fd5c0b8778d3ded419ca1e1345df9320721d1a7b7ea46d107d81eb9d9",
+      "size_bytes": 288,
+      "imports": [
+        "QFALC004.CompactSchwartz"
+      ],
+      "path": "_vendor/QFALC004.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC004Bridge/QFALC004.lean"
+      }
+    },
+    {
+      "module": "QFALC004.CompactSchwartz",
+      "local_path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean",
+      "git_blob_sha": "b2626e98ab01d7d4fc17fd4ca443b0c0207774cb",
+      "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+      "size_bytes": 4015,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+      ],
+      "path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean"
+      }
+    },
+    {
+      "module": "QFALC005",
+      "local_path": "_vendor/QFALC005.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC005Density/QFALC005.lean",
+      "git_blob_sha": "742e21588ca62832fefd4ff0b60b89815b9eff23",
+      "sha256": "450a6b2f1a24663fcf20e94e62e37ee4b80a3fc172c7c4980c474ac5f495d3cb",
+      "size_bytes": 365,
+      "imports": [
+        "QFALC005.Density"
+      ],
+      "path": "_vendor/QFALC005.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC005Density/QFALC005.lean"
+      }
+    },
+    {
+      "module": "QFALC005.Density",
+      "local_path": "_vendor/QFALC005/Density.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean",
+      "git_blob_sha": "06754cbcd1c7f042cdd8fdd0c3bb273eea5bf393",
+      "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+      "size_bytes": 7464,
+      "imports": [
+        "QFALC004.CompactSchwartz",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "path": "_vendor/QFALC005/Density.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean"
+      }
     }
   ],
   "provenance": [
@@ -5530,9 +6258,38 @@
   ],
   "schema_version": 1,
   "static_validation": {
-    "source_blob_matches": 269,
+    "source_blob_matches": 304,
     "missing_local_imports": [],
     "forbidden_token_findings": [],
-    "comment_string_aware": true
-  }
+    "comment_string_aware": true,
+    "status": "SOURCE_IDENTITY_ONLY_PENDING_MATCHING_EXTERNAL_AUDITS"
+  },
+  "additional_source_snapshots": [
+    {
+      "repository": "randogelist/Methlib",
+      "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "namespace_roots": [
+        "QFA",
+        "QFALC004",
+        "QFALC005",
+        "QFALC001Reduction",
+        "QFACorrectedRoot"
+      ],
+      "module_count": 35,
+      "scope": "Exact QFA endpoint, representation, spectral-reduction and conditional-root sources. Primary source_commit remains the retained periodic vendor baseline."
+    }
+  ],
+  "retained_inactive_sources": [
+    {
+      "module": "QFALC001Reduction.DistributionMultipliers",
+      "status": "UPSTREAM_SOURCE_FAILED_EXTERNAL_COMPILATION",
+      "evidence": "audits/material-73501cde-qfa-failed/summary.json",
+      "reason": "Exact upstream proof bytes retained; corrected proof port belongs to MethbokeAddon.QuasiFeffermanA.FourierMultipliers."
+    },
+    {
+      "module": "QFALC001Reduction",
+      "status": "INACTIVE_BARREL_IMPORTS_FAILED_UPSTREAM_MODULE",
+      "reason": "Active endpoints import QFALC001Reduction.NativeFromAENorms directly."
+    }
+  ]
 }

@@ -1,0 +1,68 @@
+WFBLocalExistence/Audit.lean:12:23: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalExistence/Audit.lean:12:36: warning: Variable name `hR` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hR
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalExistence/Audit.lean:13:17: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalExistence/Audit.lean:13:42: warning: Variable name `hinit` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hinit
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalExistence/Audit.lean:19:23: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalExistence/Audit.lean:19:36: warning: Variable name `hR` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hR
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists
+MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists : ∀ (ν R : ℝ),
+  LT.lt.{0} 0 ν →
+    LE.le.{0} 0 R →
+      ∀ (a : SingularClosure.Field),
+        SingularClosure.SmoothSigmaZero a →
+          LE.le.{0} (SingularClosure.physicalDissipation a) R →
+            ∃ u p,
+              MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν
+                (MethbokeAddon.WeakFouriermanB.localGalerkinTime ν R) a u p
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists
+'MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists : ∀ (ν R : ℝ),
+  LT.lt.{0} 0 ν →
+    LE.le.{0} 0 R →
+      ∃ T,
+        LT.lt.{0} 0 T ∧
+          ∀ (a : SingularClosure.Field),
+            SingularClosure.SmoothSigmaZero a →
+              LE.le.{0} (SingularClosure.physicalH1Square a) R →
+                ∃ u p, MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p
+TYPE_END:MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists
+'MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists

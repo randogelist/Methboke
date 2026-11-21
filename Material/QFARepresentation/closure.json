@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "endpoint": "QFARepresentation",
+  "source_revision_status": "FIRST_MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "QFALC004",
+    "QFALC005",
+    "QFALC001Reduction.NativeFromAENorms"
+  ],
+  "files": [
+    {
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean"
+      }
+    },
+    {
+      "module": "QFALC001Reduction.NativeFromAENorms",
+      "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean"
+      }
+    },
+    {
+      "module": "QFALC004",
+      "path": "_vendor/QFALC004.lean",
+      "sha256": "ef95fc7fd5c0b8778d3ded419ca1e1345df9320721d1a7b7ea46d107d81eb9d9",
+      "imports": [
+        "QFALC004.CompactSchwartz"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC004Bridge/QFALC004.lean"
+      }
+    },
+    {
+      "module": "QFALC004.CompactSchwartz",
+      "path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean"
+      }
+    },
+    {
+      "module": "QFALC005",
+      "path": "_vendor/QFALC005.lean",
+      "sha256": "450a6b2f1a24663fcf20e94e62e37ee4b80a3fc172c7c4980c474ac5f495d3cb",
+      "imports": [
+        "QFALC005.Density"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC005Density/QFALC005.lean"
+      }
+    },
+    {
+      "module": "QFALC005.Density",
+      "path": "_vendor/QFALC005/Density.lean",
+      "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+      "imports": [
+        "QFALC004.CompactSchwartz",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "origin": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.ContDiff.Operations",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.MeasureTheory.Function.L2Space",
+    "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+  ],
+  "local_module_count": 6,
+  "owned_module_count": 0,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "173eee45707cc30c4148afd7cae2e61d41f1baf210d7941d1aba7267edf44032",
+  "validation_boundary": "Pure source and metadata preparation; matching external compiler/types/axioms remain required."
+}

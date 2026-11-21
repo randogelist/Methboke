@@ -1,7 +1,9 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 5.5
+DOCUMENT_VERSION = 8.0
 DATE = 2026-11-21
-WORKING_BRANCH = main
+WORKING_BRANCH = integration/ac-into-main
+TARGET_BRANCH = main
+INCOMING_BRANCH = AC-Integration
 VALIDATED_LAYOUT_BRANCH = codex/reorganize-nse-domains
 CURRENT_MAIN_GOAL = Fefferman_D; periodic forced family route
 CURRENT_ROOT_STATUS = DIRECT_FEFFERMAN_D_A_TIER_ACCEPTED_AT_66a5292
@@ -11,11 +13,96 @@ CURRENT_FDSN_EVIDENCE = audits/fdsn-87ab6b4c-accepted/summary.json
 CURRENT_FDSN_R3_STATUS = A_TIER_COMPLETE_ORIGINAL_SEED_TO_FULL_FAMILY_AT_572fd9ee
 CURRENT_FDSN_R3_EVIDENCE = audits/fdsn-r3-572fd9ee-accepted/summary.json
 ACTIVE_MODE = A_TIER_DERIVATION
+LOCAL_TARGET = AC_INTO_MAIN_INTEGRATION
+COMPLETED_LOCAL_THEOREM = FDSN_R3
+CURRENT_INTEGRATION_STATUS = PENDING_EXTERNAL_VERIFICATION
+INCOMING_HEAD_STATUS = A_TIER_ACCEPTED_AT_000c1bd9
+INCOMING_HEAD_EVIDENCE = audits/material-000c1bd9-qfa-accepted/summary.json
 LATEST_ACCEPTED_EHRENFEST_COMMIT = b730e52ca1e4a661a83a09110378db542455097b
 LATEST_ACCEPTED_EHRENFEST_RUN = 44651224180
 LATEST_ACCEPTED_EHRENFEST_SCOPE = E07/E08/E10 andE09.bound;183 Ehrenfest declarations;411 modules/71 fresh packages/448 named audits plus QFB
 PRIOR_EHRENFEST_EVIDENCE = audits/material-b730e52c-branch/summary.json
 HISTORICAL_REGISTER = audits/goal-transition-fefferman-d/INDEX-WORTHY.txt
+
+CURRENT INTEGRATION REGISTER
+
+ACTIVE_BRANCH: integration/ac-into-main.
+BASE_MAIN: 4a609ea634ec4a5ff846049b9dc12b40b5f1a702.
+INCOMING_AC: 000c1bd9baded808b79a04b7f666cacabce64939.
+COMMON_ANCESTOR: 66a529248d3198ed70dc5489d82868bc33a37796.
+COMBINED_STATUS: PENDING_EXTERNAL_VERIFICATION.
+USER_SCOPE: prepare the authorized integration branch, preserve both accepted
+resource sets and obtain matching cached external verification of the union.
+This is an integration task, not adoption of a new mathematical goal.
+PROJECT_GOAL remains Fefferman_D. FDSN_R3 is a completed prior local theorem.
+
+EXPECTED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;
+2212 named type/axiom reports plus the retained standalone cutout.
+Shared endpoint entries: 73 packages / 510 names, identical on both inputs.
+Main-only: 64 packages / 810 names. AC-only: 32 packages / 892 names.
+Shared owned-source entries: 78, identical; main-only 64; AC-only 41; union 183.
+Preserve both registries by union, retaining each shared entry once and every
+unique source, endpoint, exact consumer and declaration request.
+
+Compiler: leanprover/lean4:v4.33.0.
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+The complete nine-package lock, lakefile and existing driver/cache/axiom
+policies retain their input identities. Material remains at its original pin.
+AC adds 35 exact QFA vendor files from Methlib 53b2318c2b586137b6db74c4d3a41bb0b964b2d8
+and preserves all 269 original vendor hashes at 96033dd69c994bec337a87369a6c27256e724980.
+Two retained upstream sources remain inactive:
+  QFALC001Reduction.DistributionMultipliers
+  QFALC001Reduction
+The corrected proof port is MethbokeAddon.QuasiFeffermanA.FourierMultipliers;
+active endpoints import QFALC001Reduction.NativeFromAENorms directly.
+Thus 302 vendor modules are active; 302+183+169=654. Do not activate every
+retained .lean file indiscriminately or replace the original vendor baseline.
+Keep the isolated direct-D 4.34.0-rc2 objects separate from Material 4.33.
+
+INCOMING_HEAD_ACCEPTANCE: source 000c1bd9baded808b79a04b7f666cacabce64939,
+run 44851575278, independently reviewed PASS. All 526 modules passed
+(520 compatible reuses and 6 fresh compilations), with 105 fresh package
+audits, 1402 unique named type/axiom reports and the fresh standalone QFB
+cutout. The review verified all 106 audit-log hashes, 633 archive members,
+526 object receipts, standard axioms only, publication and final acceptance.
+The 35-name heat-time batch is accepted in its exact scope. Evidence:
+audits/material-000c1bd9-qfa-accepted/summary.json.
+Earlier AC acceptances retain their own source identities. Incoming acceptance
+does not verify the new combined source/audit identity.
+
+Record: integration/AC_INTO_MAIN/README.md.
+Status: integration/AC_INTO_MAIN/INTEGRATION_STATUS.json.
+Static preparation: integration/AC_INTO_MAIN/PREPARATION_REPORT.json.
+Preservation: integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json.
+The combined candidate needs fresh authorized cached external verification,
+complete named type/axiom coverage, publication and final acceptance. Preserve
+successful compatible resources; do not run Lean locally or rebuild Mathlib.
+No combined acceptance is claimed until a matching receipt is reviewed.
+
+PRESERVED ACCEPTANCE REGISTER
+DIRECT_D:66a529248d3198ed70dc5489d82868bc33a37796;run44768857811.
+T3_FDSN:87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef;run44811785125.
+R3_FDSN:572fd9ee69a6b641f435cbfb2ef74e034809c583;run44848985720.
+QFA_FOUNDATIONS:afd67db40e71bd1412c82247a78598288deb611e;run44788963412.
+NSE_A_FIRST:3dec32be2868f4a798e442d3516fb810d97db737;run44810272232.
+NSE_A_G05:09bcf25110020760d3d93100b8105d2ffba85e61;run44820225574.
+NSE_A_P01_P08_M1:d403c235a1cf6db5d9276f7cd987a4cc990a2fdf;run44837033211.
+QFA_RESTART_HEAT_ZERO:ffbab0f5a1405b86e1bce105f0ed9881cd5380ef;run44847013775.
+QFA_HEAT_TIME:000c1bd9baded808b79a04b7f666cacabce64939;run44851575278.
+  Evidence:audits/material-000c1bd9-qfa-accepted/summary.json.
+  526 modules;105 fresh package audits;1402 named reports plus QFB.
+  35 new declarations=32 theorems+3 definitions in QFAHeatTrajectory,
+  QFAHeatTimeEnergy,QFAWeightedBudgetAllWindows: actual positive-time H2
+  trajectory/measurability, exact free-heat enstrophy-dissipation identity,
+  finite-window L2-time H2 membership and the weighted budget including T=0.
+  Source/evidence integrity, permitted axioms, publication and final acceptance
+  independently reviewed PASS. General physical QFA/WFA remain open.
+All retain their exact prior contracts and receipts. General nonzero-data
+physical QFA/WFA, the canonical NSE-A PDE/class roots, universal budget
+finiteness and the prescribed-site periodic family remain separately open.
+The accepted FDSN roots remain conditional on their original seed contracts.
+Neither historical conditional QFA assembly nor an all-data root definition
+proves the general physical QFA conclusion. Integration adopts no new theorem.
 
 DOCUMENTATION_UPDATE: the Definitions.lean docstring at
 StoppedCommutatorBound records the physicists' reason trace and its formal
@@ -25,7 +112,7 @@ passed at 3335bbc/run 44645541035 with the complete unchanged audit scope.
 No additional theorem is promoted; evidence: audits/material-3335bbc5-comments/summary.json.
 
 DIRECTORY_LAYOUT: T3_NSE groups periodic regularity classes (WFB,QFB) and
-the stopped Heisenberg obstruction. R3_NSE is reserved for whole-space work.
+the stopped Heisenberg obstruction. R3_NSE contains FDSN, QFA and NSE-A whole-space work.
 Research-file locations: REORGANIZATION_MAP.json. This organizational change
 adds no theorem and preserves all accepted source, type and axiom scopes.
 
@@ -300,7 +387,8 @@ No source preparation or successful workflow color alone yields a <-> signal.
 
 HISTORICAL_ASSEMBLY_ATTEMPT:run 44663007972 failed compilation. Its source-only
 elaboration repairs preserved statements and passed run 44663707207 at f19531bc.
-The failed archive is retained; current native acceptance is T3_FAMILY_ASSEMBLY.
+The failed archive is retained; that source-specific assembly scope is accepted.
+Current additional accepted scopes and pending integration are recorded above.
 HISTORICAL_DIRECT_D_ATTEMPT:run44663007873 compiled and freshly audited, but
 excluded its hidden evidence directory from upload and failed final acceptance.
 The repaired run44768857811 at66a5292 retained the evidence and passed final
@@ -383,6 +471,10 @@ EVIDENCE:audits/fdsn-87ab6b4c-accepted/summary.json.
 SCOPE:canonical Seed->Family; same witnesses for FDSN.1 through FDSN.5, plus actual physical Leray separation.
 BOUNDARY:seed existence and optional standalone helical-product/C1/C2 claims are not promoted.
 
+
+HISTORICAL_FDSN_R3_PREPARATION_AND_REPAIR_ENTRIES
+The following attempt-level statuses are superseded by the complete accepted
+FDSN_R3 record below and the current acceptance register above.
 
 FDSN_R3_USER_ASSENT_AND_FIRST_STAGE
 STATUS:B_TIER_COMPLETE; NEW_A_TIER_SOURCE_PREPARATION_ACTIVE.
@@ -572,5 +664,417 @@ Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
 Axioms: propext, Classical.choice, Quot.sound only. Publication and final
 Material accepted job 136679598135: PASS. Local Lean executions: ZERO.
 EVIDENCE: audits/fdsn-r3-572fd9ee-accepted/summary.json.
-Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
-Local target completed; project goal remains Fefferman_D. No new target adopted.
+The accepted archive preserves the tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs byte-for-byte. The integration unions the current source and endpoint registries while preserving every original entry and proof/consumer byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+FDSN_R3 theorem target completed; project goal remains Fefferman_D.
+The current integration task adds no new mathematical goal.
+
+AC RESOURCE REGISTER AND HISTORICAL CONSTRUCTION ENTRIES
+
+The following AC-specific entries retain their original identifiers, source
+SHAs, scopes and evidence pointers from000c1bd9baded808b79a04b7f666cacabce64939.
+Earlier pending/current/next labels describe their historical milestones.
+The CURRENT INTEGRATION REGISTER and PRESERVED ACCEPTANCE REGISTER above
+establish present status; older attempts neither retract subsequent acceptance
+nor authorize a new target. The original branch documents remain in Git history.
+Shared prior-foundation and outdated direct-D entries are not duplicated here;
+the current exact main entries above retain those results without downgrading.
+
+AC_INTEGRATION_SOURCE_EVIDENCE_PREPARATION
+STATUS: STAGING_ONLY; no new theorem, formalization or A-tier verification.
+SCOPE: user-authorized AC-Integration branch and Temp-folder for QFA/WFA inputs.
+BASE:66a529248d3198ed70dc5489d82868bc33a37796.
+SOURCE INPUTS: FEF_NSE_MASTERAC_TWO_LAYER_LEAN_v0_11_0.zip;
+FEF_NSE_ABCD_A_TIER_UNIFIED_CLOSURE_LEAN_v0_25_0.zip;
+Methboke source fdb515d8bde35ec8021bbc26f360aca8dfa2855c.
+EVIDENCE INPUT: artifact14553501775, run44566880192, retained original scope.
+INDEX:Temp-folder/README.md; Temp-folder/MANIFEST.json; Temp-folder/ENDPOINTS.md.
+BOUNDARY: copying historical sources and evidence does not verify QFA/WFA.
+No Fefferman-C theorem is adopted. Fefferman_D remains the project goal;
+main retains the D-family target and every existing ledger/evidence status.
+No local Lean, new external run, compiler/dependency/workflow change or
+additional accepted declaration is part of this preparation.
+
+QFA_QFB_TEN_STEP_CONSTRUCTION_CHECKLIST
+STATUS: PROPOSED_CONSTRUCTION_PLAN; ten open proof/construction steps.
+SOURCE: Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md.
+SCOPE: construct whole-space QFA alongside the accepted periodic QFB reference.
+ORDER: contracts; spatial estimates; local H1 theory; global LH and restarts;
+weak-strong comparison; small-product continuation; weighted energy;
+good-time cutoff; smooth tail and energy; unique future and root assembly.
+BOUNDARY: exact QFB strict-cutoff and own-trace conventions preserved.
+WFA and universal budget finiteness remain separate follow-ons.
+No new Lean declaration, verification run or A-tier acceptance.
+
+QFA_QFB_SOURCE_ANCHORS
+STATUS: STATIC_SOURCE_ANCHORS_FILLED; full physical construction remains open.
+SOURCE: Temp-folder/anchors/QFA_QFB_ANCHOR_REGISTER.md; ANCHORS.json.
+RECOVERY: Methlib QFA@53b2318c2b586137b6db74c4d3a41bb0b964b2d8.
+EXACT REUSE: product_budget; energy_product_budget_Ioo; full-volume L2
+complexification; generic good-time, strong-trace and relative-energy helpers;
+compact-Schwartz density and corrected distribution bridge.
+EVIDENCE:34endpoint source/config hashes match tested9b6ca616;108retained
+named types and standard-axiom sets; LC004/LC005/corrected source comparisons.
+BOUNDARY: actual R3 solution/continuation/comparison, H1/H2 spatial bridges,
+sharp S6 and current cutoff/root remain open. Old QFA numeric cutoff differs.
+Corrected root has explicit premises and summary-level retained evidence.
+No new theorem, local Lean execution, external run, workflow or pin change.
+
+QFA_NATIVE_FOUNDATION_INTEGRATION
+STATUS: ACCEPTED_EXACT_SCOPED_QFA_FOUNDATIONS; full physical QFA/WFA open.
+AUTHORIZATION: user requested native A-tier integration of the reviewed plan.
+SOURCES: Material/MethbokeAddon/QuasiFeffermanA/;35exact MethlibQFA modules.
+PACKAGES: QFARecovered;QFARepresentation;QFAConditionalRoot;QFANativeFoundation.
+SCOPE: actual full-volume weak-PDE/LH contracts; weighted energy; strong traces;
+safe scalar cutoff; half-measure admissible good times and physical energy-trace
+selection. Conditional historical root retains its assumptions and old cutoff.
+BOUNDARY: no weak/strong existence, continuation, physical comparison, sharp
+Sobolev constant, smooth-tail equality, physical QFA or WFA acceptance claimed.
+INDEX: R3_NSE/QFA/README.md and INTEGRATION_STATUS.json.
+VERIFICATION: cached external only; exact types/axioms; no local Lean.
+POLICY: AC-Integration push trigger added; pins/lock/lakefile/drivers unchanged.
+PRIORITY: this active integration entry supersedes staging-only descriptions
+above for current branch activity; those entries retain their historical scope.
+
+QFA_FIRST_EXTERNAL_ATTEMPT_AND_OWNED_MULTIPLIER_REPAIR
+ATTEMPT:73501cde/run44782428295;FAILED_COMPILATION;no new acceptance.
+EVIDENCE:audits/material-73501cde-qfa-failed/summary.json.
+SCOPE:420prior modules reused;37new sources compiled;Cutoff and recovered
+DistributionMultipliers failed. Existing pins and prior proofs remained intact.
+REPAIR: preserve exact upstream multiplier bytes inactive; independently named
+owned FourierMultipliers port; unchanged intended cutoff signatures.
+CURRENT: repair pending exact external compilation and all fresh audits.
+
+QFA_SECOND_EXTERNAL_ATTEMPT
+ATTEMPT:62acb4de/run44784484976;FAILED_COMPILATION;no new acceptance.
+EVIDENCE:audits/material-62acb4de-qfa-failed/summary.json.
+PASS:420prior modules reused,40new modules compiled,includingCutoff/Integration.
+REPAIR: only owned FourierMultipliers proof bodies; explicit coordinatewise
+real/complex actions. Public statements,dependencies,auditpolicy unchanged.
+
+QFA_THIRD_EXTERNAL_ATTEMPT
+ATTEMPT:c0cb56f8/run44785924181;FAILED_COMPILATION;no new acceptance.
+EVIDENCE:audits/material-c0cb56f8-qfa-failed/summary.json.
+PASS:420prior modules reused,41new modules compiled,includingFourierMultipliers.
+REPAIR: only owned Spectral proof body; scalar normalization and elaboration.
+Public statements,188named reports,dependencies and audit policy unchanged.
+
+QFA_FOURTH_ATTEMPT_AND_PUBLICATION_INDEX_SYNC
+ATTEMPT:76376e08/run44787324841;COMPILER_AND_AUDITS_PASS;INDEX_GATE_REJECTED.
+EVIDENCE:audits/material-76376e08-qfa-index-rejected/summary.json.
+PASS:463modules;77freshpackages;698named reports;freshQFBcutout.
+REPAIR:fournewindexrows;73prior rows preserved;no proof or audit change.
+CURRENT:no new A-tier acceptance until the matching full external workflow passes.
+
+QFA_FOUNDATIONS_ACCEPTED
+TESTED:afd67db40e71bd1412c82247a78598288deb611e;RUN:44788963412.
+SCOPE:35 native helpers and19 contracts/definitions;188 new named reports.
+EVIDENCE:audits/material-afd67db4-qfa-accepted/summary.json.
+REGISTER:R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt.
+PASS:463modules,77freshpackages,698namedreports,fresh QFB cutout, 183 controls.
+POLICY:standard axioms only;publication/final acceptance passed;no local Lean.
+BOUNDARY:full physical QFA/WFA remains open; prior scopes and main goal preserved.
+This accepted entry supersedes prior pending-attempt activity for current status.
+
+NSE_A_FINITE_CHARGE_CLASS
+STATUS: B_TIER_CLASS_DEFINITION_AND_EQUIVALENCE; no additional audited declaration.
+SOURCE:R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt.
+INDEX:R3_NSE/A-Regularity-class/README.md;STATUS.json.
+DATA:real Schwartz solenoidal fields on R3;nu>0;canonical maximal H1 strong U.
+WINDOW:b_A=min(Tmax,tau_A);tau_A=8||a||_2^4/(27*pi^4*nu^5);zero budget at a=0.
+CLASS:C_A_nu={a:L_A<infinity},where L_A^4=4*nu*J_A and J_A=integral Y^2.
+SIX_CHARGE:NSE_A_SIX_CHARGE_CHARACTERIZATION; fixed even Fourier sectors;
+q_alpha=||grad Q_alpha U||_2^2;J_6=integral sum_alpha q_alpha^2;
+J_6<=J_A<=6J_6,with full extended nonnegative terminal integrals.
+GLOBAL:NSE_A_FINITE_CHARGE_IFF_GLOBAL;C_A_nu equals the global canonical
+strong-solution class by existing E08--E10;literal Fefferman A also uses A4.
+BOUNDS:L_A^4=64*pi^4*nu*B_A;4*nu*J_6<=L_A^4<=24*nu*J_6.
+BOUNDARY:universal class equality with all Schwartz data remains OPEN;
+no initial-norm-only test,norm/linear-space claim,or R3 Galerkin transfer.
+EVIDENCE:complete written B-tier chain and static review; no new Lean,
+compiler/axiom report or A-tier result. Accepted foundations retain afd67db4.
+Project goal and every D implementation/evidence status remain unchanged.
+
+NSE_A_A_TIER_CONSTRUCTION_STEPLIST
+STATUS:B_TIER_TWENTY_ENDPOINT_PLAN_PREPARED;no new formal acceptance.
+SOURCE:R3_NSE/A-Regularity-class/NSE_A_A_TIER_STEPLIST_B_TIER.txt.
+ENTRY:R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md;A_TIER_PLAN.json.
+BASIS:a1dea65c8eb1344b5d55157162db2d38a8d78ff3;registered class unchanged.
+MILESTONES:P01--P08 physical pathwise six-charge/full-budget equivalence;
+P09--P17 actual spatial/local/maximal/energy/continuation chain;
+P18 canonical class equivalence;P19 literal Fefferman-A bridge;
+P20 matching external type/axiom/source acceptance for each exact scope.
+FIRST_FORMAL_EDGE:physical H1 and two-way first-derivative Fourier admission.
+GUARDS:actual L2 indicator multipliers;no extra H2 premise for H1 projections;
+full ENNReal terminal budget;finite minimum before lifetime.toReal;
+finite-front energy inputs;proved numerical Sobolev admissibility;
+actual H1-controlled local theory;AC evolution and explicit A4 bridge.
+BOUNDARY:the universal finite-budget assertion is OPEN and not a prerequisite
+for proving the conditional iff. Global LH/full QFA are separate programs.
+All twenty endpoints are proposed scopes; no new Lean source or cached
+external run is claimed. Existing accepted evidence and D statuses remain.
+
+NSE_A_LEAN_GAP_CUTOUT_COLLECTION
+STATUS:SOURCE_EXACT_REFERENCE_COLLECTION_NO_NEW_FORMAL_ACCEPTANCE.
+ENTRY:R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md.
+GAPS:GAPS.md/GAPS.json;CATALOG:IDENTITIES.json;SOURCES:SOURCES.json.
+BASIS:ce7f809ad20b3498a63420a22d17b3c801dfd558.
+COUNTS:51 cutouts;60 full snapshots;58 distinct modules;130 selected declarations;
+5 additional source leads. Evidence:21 named scoped/3 module-only/14 Mathlib/13 external.
+LARGEST_GAPS:R3 H1 local/maximal construction;sharp S6;actual PDE AC evolution;
+literal A4 terminal control;physical H1/Fourier/projector adapters.
+NEW_REUSE:complete equalizers and compact-test separation;external spectral H1,
+bounded measurable multipliers, Fourier reality and H1 convection sources.
+P15_ROUTE:ES02 AC FTC -> actual PDE integral inequality -> ES03 integral Gronwall.
+BOUNDARIES:exact hypotheses, different pins and private source names retained;
+no new native declaration, compiler/audit run, A-tier endpoint or universal claim.
+TXT:steplist Addendum 1.1 and class derivation section 17.
+
+NSE_A_SIX_GAP_A_TIER_TARGETS_AND_FIRST_BATCH
+STATUS:PREPARED_PENDING_MATCHING_EXTERNAL; no new acceptance.
+TARGETS:R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt.
+PACKAGES:QFAPhysicalH1;QFAACBudget;QFASixChargeBudget;QFAH1Fourier.
+SCOPE:physical H1 carrier/Schwartz;forward first-derivative Fourier;
+AC scalar Gronwall;full ENNReal six-charge comparison.79 named declarations.
+TXT:steplist Addendum1.2;class section18;four complete chains in DERIVATIONS/.
+EVIDENCE:external pending; no local Lean; native pins/policy unchanged.
+BOUNDARY:all six parents open;actual local NSE/sharp constant/PDE evolution/
+literal Fefferman-A admission/projector realization/canonical root remain.
+
+NSE_A_FIRST_NATIVE_ATTEMPT_REPAIR
+Source1f83d62/run44804484780: owned PhysicalH1 and H1Fourier elaboration
+failed after restored cached dependencies. ACBudget and SixChargeBudget
+compiled only; no new package or theorem is accepted. Exact diagnostics:
+audits/material-1f83d62b-nse-a-failed/summary.json. Public statement/consumer
+scopes, existing pins, prior acceptance and project goals are preserved.
+
+NSE_A_SECOND_NATIVE_ATTEMPT_REPAIR
+SECOND EXTERNAL ATTEMPT: source053147fc/run44805438456 compiled the
+forward Fourier and scalar modules; PhysicalH1 retained one reflexive calc
+residual in Schwartz admission. Exact diagnostics are archived in
+audits/material-053147fc-nse-a-failed/. The final proof step is repaired with
+unchanged public statements and independent consumers. Acceptance is pending.
+
+
+
+NSE_A_SECOND_INDEPENDENT_BATCH
+QFAH1FourierReverse:8 supplied-gradient equivalence theorems(G05/P02).
+QFAPhysicalH1Budget:15 physical energy/enstrophy/full-slab helpers(G03,G06).
+QFASixSectors:17 actual even Borel sector declarations(G05/P03).
+QFAEnstrophyCoefficient:8 conditional scalar coefficient theorems(G02,G03).
+QFASixSectorL2:28 actual complex-vector L2 projection declarations(G05/P04).
+All76 names are prepared pending matching external evidence. Native real-range
+preservation,H1/solenoidal transport and physical charge additivity remain open.
+No parent target is completed or weakened by these sublayers.
+Register:R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json.
+
+NSE_A_FIRST_BATCH_ALL_SOURCES_COMPILE
+THIRD EXTERNAL ATTEMPT:abd35c434/run44806540815 compiled all471modules.
+Fresh expected-type audits exposed ambiguous Space and unconstrained coordinate
+numerals in two new audit files. All statements/assertions are retained with
+explicit native types. Evidence:audits/material-abd35c43-nse-a-audit-failed/.
+No new A-tier acceptance; the next combined batch requires full verification.
+
+NSE_A_B_TIER_LOCAL_MAXIMAL_AND_LITERAL_BRIDGES: DERIVATIONS/H1_LOCAL_FIXED_POINT_CHAIN.txt, FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt and REAL_H1_SECTOR_LIFT_CHAIN.txt under R3_NSE/A-Regularity-class. Exact scopes and native stop boundaries retained; !=! withheld pending matching external acceptance.
+
+NSE_A_SHARP_SPATIAL_B_TIER: R3_NSE/A-Regularity-class/DERIVATIONS/SHARP_SPATIAL_ADMISSION_CHAIN.txt. Exact Talenti normalization, Kato transfer, physical-H1 density, Hessian/Laplacian and convection fourth-power chain; native sharp scalar admission still open.
+
+NSE_A_MATCHING_A_TIER_HELPERS_ACCEPTED
+Source 3dec32be2868f4a798e442d3516fb810d97db737; run44810272232; evidence audits/material-3dec32be-nse-a-accepted/independent-review.json.
+!=! P01 physical H1; !=! P02 two-way first-derivative Fourier; !=! P03 actual six Borel sectors.
+Nine scoped packages155 names,126 theorem declarations,29 lower definitions/instances.
+R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt records exact scopes/names.
+All six parent targets remain OPEN. Main goal and previous accepted conclusions preserved.
+
+NSE_A_BATCH3_H1_SPECTRAL_CANDIDATE
+STATUS: PREPARED_PENDING_MATCHING_EXTERNAL; no new acceptance.
+13 H1-only physical Fourier identity/integrability theorems.
+Source:Material/MethbokeAddon/QuasiFeffermanA/H1Spectral.lean.
+Chain:R3_NSE/A-Regularity-class/DERIVATIONS/H1_SPECTRAL_CHAIN.txt.
+The factor4*pi^2 is retained; no H2 or PDE premise is added.
+Prior P01--P03 accepted; all G01--G06 parent closures remain open.
+No local Lean/Lake/kernel execution. Main/local goals unchanged.
+
+NSE_A_BATCH3_REAL_H1_SECTOR_CANDIDATE
+STATUS: PREPARED_PENDING_MATCHING_EXTERNAL; prior P01--P03 acceptance retained.
+102 declarations (88 theorems,14 definitions) in 6 packages.
+Exact source/type scope:R3_NSE/A-Regularity-class/BATCH3_STATIC_REVIEW.json.
+Actual real range, real/H1 sector maps, physical cone charge equality,
+pointwise/full-budget factor-six comparison, native divergence criterion
+and strict small-product algebra. Parent targets still open.
+First spectral attempt3375a8dc/run44814739263 failed one explicit type
+argument; repaired without weakening statements. Evidence retained.
+Physical energy/enstrophy continuation B-tier chain added independently.
+No local Lean/Lake/kernel execution. Main/local goals unchanged.
+
+NSE_A_BATCH3_SIGMA_EXTENSION
+134 prepared names in7 packages,116theorems/18definitions.
+Actual complex Fourier/codomain naturality, real coordinate-slice and
+trace commutation prove native solenoidal preservation, followed by an
+actual bounded six-projection construction on the original H1_sigma graph.
+Original P04--P07 scopes have independent semantic review; no A-tier
+promotion before matching external compiler/fullconsumers/namedaxioms.
+
+BATCH3_COMBINED_ELABORATION_REPAIR
+Source7b4e02ad/run44817097715 compiled real Fourier range, actual real
+projections, H1 spectral identities and small-product scalar coefficients.
+Two proof-script elaboration residuals were repaired in divergence pairing
+and H1 derivative transport, preserving every public type and audit.
+Evidence:audits/material-7b4e02ad-nse-a-failed/summary.json.
+Next matching full cached verification is required; no new acceptance.
+
+Source5342389c/run44818300007: all496 source modules PASS; full audit phase stopped at an ambiguous ENNReal infinity in QFAH1Spectral independent finiteness consumer. Explicit type repair preserves the intended contract and all source declarations. Exact evidence:audits/material-5342389c-nse-a-failed/. No new acceptance.
+
+
+CURRENT NSE-A ACCEPTANCE
+Source 09bcf25110020760d3d93100b8105d2ffba85e61; run44820225574; exact evidence:audits/material-09bcf251-nse-a-accepted/independent-review.json.
+!=! G05; !=! P01--P07. Full496 modules,93 fresh package audits,987 named
+reports, standaloneQFB, publication and final acceptance PASS. New batch134
+names=116 theorems+18 definitions. Cumulative16 packages289names=242
+theorems+47 definitions/instances. Only standard axioms; no local execution.
+G01,G02,G03,G04,G06 remain OPEN. Physical canonical class and universal
+finiteness remain OPEN. Prior accepted source/proof bytes and pins preserved.
+The next native endpoint is P08: construct the ENNReal lifetime/finite-cutoff adapter, exact observation set, full partial-budget supremum and gauge/sublevel interface for supplied actual H1 paths.
+Independent B-tier H2 and full-window/gauge chains are reviewed and appended.
+Main Fefferman_D goal and retained local target remain unchanged.
+Sections0F and earlier construction progress below are historical snapshots.
+
+NSE_A_ROOT_BATCH_4_PREPARED
+The user explicitly selected NSE_A_FINITE_CHARGE_IFF_GLOBAL and requested
+its complete A-tier construction. This remains scoped AC-Integration work;
+the main Fefferman_D goal and retained branch local target are unchanged.
+Batch4 prepares 105 new names (91 theorems,14 definitions) in
+QFAStoppedBudget and QFAPhysicalStoppedGauge. It constructs the exact finite
+stopping window from ENNReal lifetime, the full partial-budget supremum and
+literal increasing left limits, actual physical/Fourier budget normalization,
+fourth-root gauge, all stated finiteness equivalences and integer sublevels.
+The expected complete registry is 95 packages and1092 named reports.
+P08/M1 promotion requires its own matching external source/type/axiom,
+publication and final acceptance evidence. It is currently PREPARED ONLY.
+Actual H2 and real Leray constructions are progressing independently and
+are excluded from this first frozen stopped-budget candidate until registered.
+G01,G02,G03,G04,G06 and the canonical/literal class theorem remain OPEN.
+Prior accepted source/audit bytes and all compiler/dependency policies are
+preserved. No local Lean/Lake/kernel execution occurred.
+
+
+NSE_A_ROOT_BATCH_5_PREPARED
+The first P08 attempt1a97b564/run44824925503 stopped on missing NNReal
+notation scope in FullStoppedBudget. It passed497 of501 scheduled modules;
+no new fresh-audit/publication acceptance followed. Original artifact and
+diagnostics:audits/material-1a97b564-nse-a-failed/. The source and full audit
+now open NNReal explicitly, without changing any public statement or consumer.
+
+Batch5 adds202 names (161 theorems,41 definitions/instances) in
+QFAPhysicalH2,QFARealLeray,QFARealEvenMultipliers,QFAHeatSemigroup. It constructs the actual
+13-component closed H2 graph, native L2 Laplacian and exact nine-term Hessian
+norm identity; the actual variable matrix Leray projection, real L2/H1
+transport and original compact-test solenoidal range; and reusable real even
+bounded multipliers with actual derivative preservation; and the exact real
+L2/H1 heat semigroup with norm contraction and strong continuity at all
+nonnegative times. Together with the repaired P08 batch, this schedules512
+modules,99 fresh package audits and1294 named reports. All307 new names remain
+PREPARED_PENDING_MATCHING_EXTERNAL. The H2-to-Mathlib-Sobolev bridge and
+positive-time heat smoothing/generator remain subsequent constructions. G01,G02,G03,G04,G06 and the canonical/literal class root remain OPEN.
+Main goal Fefferman_D, retained branch scope, accepted proof/audit bytes and
+compiler/dependency/verification policies are unchanged. No local execution.
+
+
+NSE_A_NATIVE_REPAIR_e6a233aa: failed external run44826537985,499/512 modules; full source/diagnostic artifact retained at audits/material-e6a233aa-nse-a-failed/. Theorem contracts unchanged; repaired retry pending, no new !=! status.
+
+NSE_A_NATIVE_REPAIR_e4eb9f5f: failed external run44828091157,504/512 modules; three proof elaboration/heartbeat repairs preserve contracts and audit bytes. Evidence:audits/material-e4eb9f5f-nse-a-failed/. No new !=! status.
+
+NSE-A EXTERNAL REPAIR 6b1e654a
+Run44829344090:506/512 modules PASS, including the actual L2/H1 heat semigroup.
+Two residuals remain: expensive definitional reduction in H2 sigma inclusion
+and the final zero-function simplification in LerayH1. Candidate repairs use
+a proved generic inclusion lemma and explicit function-zero reduction. All
+public types and audit bytes are preserved; no compiler/CI policy change.
+Exact evidence:audits/material-6b1e654a-nse-a-failed/summary.json.
+Matching full verification still required; no new !=! acceptance.
+
+NSE-A EXTERNAL REPAIR 73245a06
+Run44831690178: 508/512 modules PASS;
+2 source failures;2 blocked dependents.
+Repair: Use the literal Fourier target before Hessian symmetry rewriting; make the solenoidal finite-sum normalization, tempered Fourier zero and nonzero-scalar cancellation explicit.
+Public contracts and audit bytes unchanged. Evidence:audits/material-73245a06-nse-a-failed/summary.json.
+No new !=! acceptance; full matching external gates remain required.
+
+NSE-A EXTERNAL REPAIR 4c15c473
+Run44832766266: 510/512 modules PASS;
+1 source failures;1 blocked dependents.
+Repair: Qualify the scalar-action-on-zero simplifier and reduce the literal True branch in the final LeraySolenoidal coordinate proof. H2Spectral and its endpoint now compile.
+Public contracts and audit bytes unchanged. Evidence:audits/material-4c15c473-nse-a-failed/summary.json.
+No new !=! acceptance; full matching external gates remain required.
+
+NSE-A EXTERNAL REPAIR 7100abed
+Run44833791410: 510/512 modules PASS;
+1 source failures;1 blocked dependents.
+Repair: Evaluate the actual scaled tempered-distribution sum at each Schwartz test and complex coordinate, then cancel the nonzero complex scalar by mul_eq_zero; all public contracts remain identical.
+Public contracts and audit bytes unchanged. Evidence:audits/material-7100abed-nse-a-failed/summary.json.
+No new !=! acceptance; full matching external gates remain required.
+
+NSE-A EXTERNAL AUDIT REPAIR dcf32660
+Run44835490303: all512 source modules PASS; first audit failure QFAPhysicalH2.
+Repair: parenthesize the original sum type in the H2Index independent consumer.
+All mathematical source bytes and public contracts unchanged. 36 package
+audit entries completed before the failing package. Full99 fresh package
+audits,1294 named reports, publication and terminal acceptance still required.
+Original evidence:audits/material-dcf32660-nse-a-failed/summary.json. No new !=! acceptance.
+
+QFA_CURRENT_CLOSURE_AND_LATEST_SHARED_ACCEPTANCE
+DATE:2026-11-21. ACTIVE_SCOPE:QFA_A_TIER_CLOSURE;mainFefferman_D unchanged.
+ACCEPTED:d403c235/run44837033211;512modules/99freshpackages/1294namedreports;
+307newnames;22NSE-A packages596acceptednames;standardaxioms;publicationPASS.
+EVIDENCE:audits/material-d403c235-nse-a-accepted/independent-review.json
+PREPARED:QFALHRestart,QFAHeatSmoothing,QFAZeroDatum;73new names.
+Exact full physical QFA root contract and zero-datum conclusion, full supplied-
+path LH restart, positive-time actual H1-to-H2 heat map. External evidence required.
+GENERAL_QFA_ROOT:OPEN. WFA:OPEN. NO_LOCAL_LEAN.
+DERIVATION:R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt.
+
+QFA_RESTART_HEAT_ZERO_FIRST_ATTEMPT
+293db84a/run44845214610:513PASS,2FAIL,5blocked,0packageaudits.
+Proof-only pinned-API/elaboration repair; all73 public statements unchanged.
+EVIDENCE:audits/material-293db84a-qfa-failed/independent-review.json.
+STATUS:RETRY_PENDING;no new A-tier acceptance;no local Lean.
+
+QFA_SECOND_ATTEMPT:fd72e221/run44845844062;514PASS,2FAIL,4blocked,0audits.
+Exact root contract and translated momentum compile. Fully qualified actual
+clock, explicit initial trace and pinned inequality fixes; scopes unchanged.
+EVIDENCE:audits/material-fd72e221-qfa-failed/independent-review.json.
+STATUS:RETRY_PENDING;no new A-tier acceptance;no local Lean.
+
+QFA_THIRD_ATTEMPT:82e6035f/run44846461910;518PASS,1FAIL,1blocked,0audits.
+Heat smoothing and full physical LHrestart sources compile. Zero-datum
+explicit-type/clock proof repairs preserve allstatements/consumers.
+EVIDENCE:audits/material-82e6035f-qfa-failed/independent-review.json.
+STATUS:RETRY_PENDING;no new A-tier acceptance;no local Lean.
+
+QFA_RESTART_HEAT_ZERO_A_TIER_ACCEPTED
+SOURCE:ffbab0f5a1405b86e1bce105f0ed9881cd5380ef;RUN:44847013775.
+520PASSmodules;102freshpackages;1367namedreports;QFB/publication/finalPASS.
+73newnames=53theorems+20definitions/structures. Standardaxiomsonly.
+!=! QFALHRestart;!=! QFAHeatSmoothing;!=! QFAZeroDatum.
+Scope boundaries: supplied-path energy starts; positive-time spatial heat
+smoothing; full zero-datum root only. GeneralphysicalQFA/WFAremainOPEN.
+EVIDENCE:audits/material-ffbab0f5-qfa-accepted/independent-review.json.
+REGISTER:R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt.
+NEXT:actual free heat time-energy identity and MemLp2 H2;no local Lean.
+
+QFA_FREE_HEAT_TIME_ENERGY_PREPARED
+DATE:2026-11-21;SOURCE_BASIS:6a13c70a5527491774507d5b73396e80f91f0a0f.
+PACKAGES:QFAHeatTrajectory,QFAHeatTimeEnergy,QFAWeightedBudgetAllWindows;
+35names=32theorems+3definitions; includes actual LH weighted budget allT>=0.
+TARGET:actual time-measurable H2 heat path, exact enstrophy dissipation,
+finite-window MemLp2 H2 and quantitative H2 time bound for arbitrary H1 data.
+STATUS:REPAIRED_PENDING_MATCHING_EXTERNAL;EXPECTED:526modules105packages1402names.
+PRECEDING:d53e1fae/run44850402452;520prior modulesPASS;3elaborationrepairs.
+EVIDENCE:audits/material-d53e1fae-heat-time-failure/summary.json.
+CHAIN:R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt.
+General QFA/WFA remainOPEN;no localLean;no prior accepted proof changes.
+
+QFA_HEAT_TIME_SECOND_ELABORATION_REPAIR
+SOURCE:be6249030a6410eea5b1e739cd217cd15537c5bc;RUN:44850983211.
+524/526modulesPASS;HeatTrajectory and WeightedBudgetAllWindows sourcePASS.
+HeatTimeEnergy3elaborationrepairs;publictypes/consumers unchanged;no acceptance.
+EVIDENCE:audits/material-be624903-heat-time-failure/independent-review.json.

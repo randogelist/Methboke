@@ -1,0 +1,15 @@
+theorem maximal_classical_front_unique
+    (ν : ℝ) (a : Field) (u v : Velocity) (p q : Pressure)
+    (Tmax Smax : ℝ≥0∞)
+    (H : MaximalClassicalFront ν a u p Tmax)
+    (K : MaximalClassicalFront ν a v q Smax) :
+    Tmax = Smax ∧ ∀ r : ℝ, 0 ≤ r → ENNReal.ofReal r < Tmax →
+      u r = v r ∧ p r = q r := by
+  have hmax := maximal_classical_front_lifetime_unique ν a u v p q Tmax Smax H K
+  refine ⟨hmax, ?_⟩
+  intro r hr0 hrmax
+  obtain ⟨T, _, hrT, hTmax⟩ := ENNReal.lt_iff_exists_real_btwn.mp hrmax
+  have hrTreal : r < T := (ENNReal.ofReal_lt_ofReal_iff_of_nonneg hr0).mp hrT
+  have hT : 0 < T := hr0.trans_lt hrTreal
+  have hTSmax : ENNReal.ofReal T < Smax := hTmax.trans_le hmax.le
+  exact H.agreement T v q hT (K.finite_front T hT hTSmax) r ⟨hr0, hrTreal⟩

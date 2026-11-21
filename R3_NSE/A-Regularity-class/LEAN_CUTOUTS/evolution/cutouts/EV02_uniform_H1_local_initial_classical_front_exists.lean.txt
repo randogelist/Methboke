@@ -1,0 +1,13 @@
+theorem uniform_H1_local_initial_classical_front_exists
+    (ν R : ℝ) (hν : 0 < ν) (hR : 0 ≤ R) :
+    ∃ T : ℝ, 0 < T ∧ ∀ a : Field, SmoothSigmaZero a → physicalH1Square a ≤ R →
+      ∃ u : Velocity, ∃ p : Pressure, InitialClassicalFront ν T a u p := by
+  refine ⟨localGalerkinTime ν R, localGalerkinTime_pos hν hR, ?_⟩
+  intro a ha hH1
+  have hE : 0 ≤ physicalEnergy a := by
+    rw [physicalEnergy_eq_integral_norm_sq]
+    exact integral_nonneg (fun x => sq_nonneg ‖a x‖)
+  have hinit : physicalDissipation a ≤ R := by
+    change physicalEnergy a + physicalDissipation a ≤ R at hH1
+    linarith
+  exact local_initial_classical_front_exists ν R hν hR a ha hinit

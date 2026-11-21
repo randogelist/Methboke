@@ -1,0 +1,32 @@
+theorem strong_unique {ν T : ℝ} (hν : 0 ≤ ν)
+    {f u v : VelocityField} {p q : PressureField}
+    (hu : StrongSolutionOnIcc ν f 0 T u p) (hv : StrongSolutionOnIcc ν f 0 T v q)
+    (hf : ∀ t ∈ Ioo (0 : ℝ) T, MemLp (fun x => f (t, x)) 2 volume)
+    (A : ℝ → Space → Space →L[ℝ] Space) {G : ℝ} (hG : 0 ≤ G)
+    (hAm : ∀ t ∈ Ioo (0 : ℝ) T, AEStronglyMeasurable (A t) volume)
+    (hAb : ∀ t ∈ Ioo (0 : ℝ) T, ∀ x, ‖A t x‖ ≤ G)
+    (hAe : ∀ t ∈ Ioo (0 : ℝ) T, ∀ᵐ x ∂volume, ∀ z : Space,
+      A t x z = ∑ i : Fin 3, z i • hu.curve.first i (t, x))
+    (hinitial : ∀ x, u (0, x) = v (0, x)) :
+    ∀ t ∈ Icc (0 : ℝ) T, ∀ x, u (t, x) = v (t, x) := by
+  have hpu t ht := hu.pressureGradient_memLp ht (hf t ht)
+  have hpv t ht := hv.pressureGradient_memLp ht (hf t ht)
+  apply strong_unique_of_pressure_pairing hν hu hv A hG hAm hAb hAe
+    (fun t ht => (hpu t ht).sub (hpv t ht)) _ hinitial
+  intro t ht
+  let hw := (hu.curve.approximation t (Ioo_subset_Icc_self ht)).sub
+    (hv.curve.approximation t (Ioo_subset_Icc_self ht))
+  have hd : ∀ᵐ x ∂volume,
+      ∑ i : Fin 3, (hu.curve.first i (t, x) - hv.curve.first i (t, x)) i = 0 := by
+    filter_upwards [hu.divergence_free t ht, hv.divergence_free t ht] with x hux hvx
+    simp only [weakDivergence] at hux hvx
+    simp only [PiLp.sub_apply, Finset.sum_sub_distrib, hux, hvx, sub_self]
+  have hup := integral_inner_pressureGradient_zero hw.toH1Approximation hd
+    (hu.pressure_C1 t ht) (hpu t ht)
+  have hvp := integral_inner_pressureGradient_zero hw.toH1Approximation hd
+    (hv.pressure_C1 t ht) (hpv t ht)
+  have hi := integral_sub (integrable_inner_of_memLp hw.memLp (hpu t ht))
+    (integrable_inner_of_memLp hw.memLp (hpv t ht))
+  simp only [Pi.sub_apply] at hi hup hvp
+  simp_rw [inner_sub_right]
+  rw [hi, hup, hvp, sub_self]

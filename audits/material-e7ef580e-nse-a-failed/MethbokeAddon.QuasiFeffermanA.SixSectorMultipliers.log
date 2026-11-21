@@ -1,0 +1,169 @@
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:50:77: error: unsolved goals
+case pos
+i : Fin 6
+f g : ↥ComplexL2
+ξ : QFA.Endpoints.Agmon.Space
+hsum : ↑↑(frequencySector i (f + g)) ξ = (sixSector i).indicator (fun ξ => ↑↑(f + g) ξ) ξ
+hf : ↑↑(frequencySector i f) ξ = (sixSector i).indicator (fun ξ => ↑↑f ξ) ξ
+hg : ↑↑(frequencySector i g) ξ = (sixSector i).indicator (fun ξ => ↑↑g ξ) ξ
+hadd : ↑↑(f + g) ξ = (↑↑f + ↑↑g) ξ
+htarget : ↑↑(frequencySector i f + frequencySector i g) ξ = (↑↑(frequencySector i f) + ↑↑(frequencySector i g)) ξ
+h : ξ ∈ sixSector i
+⊢ ↑(↑f + ↑g) ξ = ↑(↑(frequencySector i f) + ↑(frequencySector i g)) ξ
+
+case neg
+i : Fin 6
+f g : ↥ComplexL2
+ξ : QFA.Endpoints.Agmon.Space
+hsum : ↑↑(frequencySector i (f + g)) ξ = (sixSector i).indicator (fun ξ => ↑↑(f + g) ξ) ξ
+hf : ↑↑(frequencySector i f) ξ = (sixSector i).indicator (fun ξ => ↑↑f ξ) ξ
+hg : ↑↑(frequencySector i g) ξ = (sixSector i).indicator (fun ξ => ↑↑g ξ) ξ
+hadd : ↑↑(f + g) ξ = (↑↑f + ↑↑g) ξ
+htarget : ↑↑(frequencySector i f + frequencySector i g) ξ = (↑↑(frequencySector i f) + ↑↑(frequencySector i g)) ξ
+h : ξ ∉ sixSector i
+⊢ 0 = ↑(↑(frequencySector i f) + ↑(frequencySector i g)) ξ
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:57:16: warning: This simp argument is unused:
+  hf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hsum, hg, hadd, htarget, Set.indicator_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:57:20: warning: This simp argument is unused:
+  hg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hsum, hf, hadd, htarget, Set.indicator_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:57:24: warning: This simp argument is unused:
+  hadd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hsum, hf, hg, htarget, Set.indicator_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:57:30: warning: This simp argument is unused:
+  htarget
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hsum, hf, hg, hadd, Set.indicator_apply, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:57:39: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hsum, hf, hg, hadd, htarget, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:67:41: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hscaled, hf, hsource, htarget, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:79:17: error: Type mismatch: After simplification, term
+  norm_frequencySector_le i f
+ has type
+  @LE.le ℝ Real.instLE ‖frequencySector i f‖ ‖f‖
+but is expected to have type
+  @LE.le ℝ Real.instLE ‖{ toFun := frequencySector i, map_add' := ⋯, map_smul' := ⋯ } f‖ ‖f‖
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:92:26: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [houter, hinner, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:104:26: warning: This simp argument is unused:
+  hzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [houter, hinner, Set.indicator_apply, hi, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:104:33: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [houter, hinner, hzero, hi, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:105:18: warning: This simp argument is unused:
+  hzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [houter, Set.indicator_apply, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:105:25: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [houter, hzero, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:133:49: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hf, hg, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:146:69: error: unsolved goals
+f : ↥ComplexL2
+i : Fin 6
+a✝ : i ∈ Finset.univ
+⊢ RCLike.re (inner ℂ f (frequencySector i f)) = (inner ℂ f (frequencySector i f)).re
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:173:71: error: unsolved goals
+i : Fin 6
+f g : ↥ComplexL2
+⊢ 𝓕⁻ (frequencySector i (𝓕 (f + g))) = 𝓕⁻ (frequencySector i (𝓕 f)) + 𝓕⁻ (frequencySector i (𝓕 g))
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:174:28: warning: This simp argument is unused:
+  fourier_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fourierSector, frequencySector_add, fourierInv_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:174:41: warning: This simp argument is unused:
+  frequencySector_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fourierSector, fourier_add, fourierInv_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:174:62: warning: This simp argument is unused:
+  fourierInv_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fourierSector, fourier_add, frequencySector_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:186:17: error: Type mismatch: After simplification, term
+  norm_fourierSector_le i f
+ has type
+  @LE.le ℝ Real.instLE ‖fourierSector i f‖ ‖f‖
+but is expected to have type
+  @LE.le ℝ Real.instLE ‖{ toFun := fourierSector i, map_add' := ⋯, map_smul' := ⋯ } f‖ ‖f‖
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:201:47: error: unsolved goals
+i j : Fin 6
+hij : i ≠ j
+f : ↥ComplexL2
+⊢ 0 = 𝓕 0
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:204:70: warning: This simp argument is unused:
+  fourier_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [fourier_fourierSector, frequencySector_comp_eq_zero hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean:243:55: warning: This simp argument is unused:
+  Set.indicator_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg, hf, hgf, hξ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

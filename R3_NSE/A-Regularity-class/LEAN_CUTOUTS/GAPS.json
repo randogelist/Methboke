@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "source_basis_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+  "scope": "Qualitative ranking of missing native proofs for this target in the inspected source set; not an exhaustive assertion about all Lean projects.",
+  "gaps": [
+    {
+      "id": "G01",
+      "rank": 1,
+      "title": "Actual whole-space H1 local and maximal evolution",
+      "plan_steps": [
+        "P10",
+        "P11",
+        "P14",
+        "P17",
+        "P18"
+      ],
+      "status": "OPEN_NATIVE_TARGET",
+      "cutouts": [
+        "EV01",
+        "EV02",
+        "EV03",
+        "EV04",
+        "EV05",
+        "EV06",
+        "EV07",
+        "EV08",
+        "EV10",
+        "EV12",
+        "EV14"
+      ],
+      "source_leads": [
+        "EVL01",
+        "EVL02"
+      ],
+      "missing_statement": "For each physical H1_sigma(R3) datum and nu>0, construct an actual unique local NSE solution with C_t H1 / L2_t H2 regularity and lifespan controlled by its H1 norm; construct its maximal continuation and prove the bounded-H1 continuation criterion.",
+      "attained": "Native periodic Galerkin local existence, norm-controlled lifespan, maximal development, overlap uniqueness and restart proofs are collected. A new external source lead has a genuine Fourier H^m fixed-point constructor for m>=3, rather than only a supplied-solution record.",
+      "remaining": "The periodic theorem has smooth periodic mean-zero data. The higher-Sobolev external constructor uses viscosity one and a stronger norm. Neither supplies the required native arbitrary-H1 R3 constructor. Heat/Leray estimates, fixed point, initial trace, uniqueness, H1-controlled lifetime and all physical adapters remain.",
+      "rejected_shortcut": "A StrongSolutionOnIcc record or ReferenceConstructionFromAbsorption proposition is an interface, not an inhabitant proving existence."
+    },
+    {
+      "id": "G02",
+      "rank": 2,
+      "title": "Sharp spatial admission for the registered numerical cutoff",
+      "plan_steps": [
+        "P09",
+        "P13",
+        "P16"
+      ],
+      "status": "OPEN_NATIVE_TARGET",
+      "cutouts": [
+        "ES01",
+        "ES06",
+        "ES13",
+        "ES16"
+      ],
+      "source_leads": [],
+      "missing_statement": "On the same physical R3 H1 space prove ||v||_6 <= S6 ||grad v||_2 with S6^6=16/(27*pi^4), plus vector/tensor extensions and the H2 Hessian-Laplacian identities used by enstrophy.",
+      "attained": "Pinned Mathlib gives a genuine compact-C1 Sobolev estimate with another explicit constant; external gns_L6_of_memH1_R3 gives L6 membership; the accepted cutoff lemma rewrites a supplied sixth-power equality.",
+      "remaining": "Extend to the native physical H1 carrier and establish admissibility of the registered S6, not only its arithmetic. ES16 is L2 times gradient-L2 times a Schwartz L-infinity test bound, not the required sharp estimate.",
+      "rejected_shortcut": "A proved arbitrary constant changes the associated cutoff. L6 membership, an extremal calculation or the arithmetic identity alone does not justify the frozen tau_A."
+    },
+    {
+      "id": "G03",
+      "rank": 3,
+      "title": "Actual physical time evolution, balances and continuation bootstrap",
+      "plan_steps": [
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16",
+        "P17"
+      ],
+      "status": "OPEN_NATIVE_TARGET",
+      "cutouts": [
+        "ES02",
+        "ES03",
+        "ES04",
+        "ES05",
+        "ES06",
+        "ES07",
+        "ES08",
+        "ES09",
+        "ES10",
+        "ES11",
+        "ES12",
+        "ES14",
+        "ES15"
+      ],
+      "source_leads": [
+        "EVL02"
+      ],
+      "missing_statement": "For the constructed R3 strong solution, prove E and Y absolutely continuous on every closed [0,R] with 0<=R<Tmax, derive E'= -2*nu*Y and Y'+nu*Z <= pi^(-4)*nu^(-3)*Y^3 almost everywhere, and prove the small-product temporal invariant.",
+      "attained": "Actual R3 source proofs of H1 convection integrability, weak IBP and antisymmetry; native periodic enstrophy evolution and continuation patterns; finite-interval scalar energy helpers; Mathlib AC FTC; an already named-audited integral Gronwall theorem.",
+      "remaining": "Derive time regularity and the physical integral inequality from the actual strong trajectory, with all pressure/spatial cancellations and norms matched. Prove the first-exit bootstrap and same-path continuation. Existing scalar lemmas do not construct the PDE inputs.",
+      "rejected_shortcut": "Do not use the global-LH wrapper while proving globality; do not transfer periodic Poincare to R3; do not substitute the historical ES12 threshold ED<4*pi^2*nu^4 for nu^4/S6^6."
+    },
+    {
+      "id": "G04",
+      "rank": 4,
+      "title": "Literal Fefferman-A category and terminal control",
+      "plan_steps": [
+        "P19"
+      ],
+      "status": "OPEN_NATIVE_TARGET",
+      "cutouts": [
+        "EV04",
+        "EV09",
+        "EV10",
+        "EV11",
+        "EV12",
+        "EV13"
+      ],
+      "source_leads": [
+        "EVL03",
+        "EVL04",
+        "EVL05"
+      ],
+      "missing_statement": "Construct velocity/pressure smoothness through t=0 for Schwartz data on all available finite slabs, and identify any literal smooth finite-energy Fefferman competitor with a global canonical H1 development.",
+      "attained": "Native pressure-normalization proof, supplied-H3 whole-space pressure/comparison sources, and new external leads for actual physical recovery from all Sobolev orders and smooth finite-energy comparison.",
+      "remaining": "Prove all-order propagation and pressure recovery, arbitrary-nu transport where needed, and the finite-slab H1/enstrophy admission necessary to rule out a finite canonical endpoint. Smoothness is lifetime-qualified until globality is proved.",
+      "rejected_shortcut": "Agreement on every R<Tmax does not imply a uniform H1 bound as R increases to finite Tmax. Smooth finite L2 energy alone must not be silently strengthened to the strong competitor category."
+    },
+    {
+      "id": "G05",
+      "rank": 5,
+      "title": "Native physical H1, Fourier and six-projector identification",
+      "plan_steps": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06"
+      ],
+      "status": "OPEN_NATIVE_TARGET",
+      "cutouts": [
+        "SP01",
+        "SP02",
+        "SP03",
+        "SP04",
+        "SP05",
+        "SP06",
+        "SP07",
+        "SP08",
+        "SP09",
+        "SP10",
+        "SP17",
+        "SP18",
+        "SP19",
+        "SP20",
+        "SP21"
+      ],
+      "source_leads": [],
+      "missing_statement": "Identify native real compact-test H1 with the spectral membership construction; prove the first-derivative Fourier identity both ways; construct six actual real-preserving vector projections and derivative/solenoidal commutation.",
+      "attained": "Complete equalizers and real compact-test separation; actual spectral derivative witnesses; weighted Fourier L2 representatives and reverse membership; bounded measurable scalar L2 multipliers; real L2 Fourier Hermitian symmetry by density.",
+      "remaining": "Construct the closed physical gradient graph and its norm. Prove the component/vector/compact-test adapters and the full real-range equivalence; specialize to the fixed six sectors, prove disjointness/reconstruction and physical charge additivity. External pins and private proof templates need explicit native handling.",
+      "rejected_shortcut": "Existing native gradient_fourier_ae has a combined gradient/Laplacian witness interface. Do not add an H2 assumption to the H1 projector endpoint or apply a smooth multiplier API to sharp cones.",
+      "dependency_note": "This is the first unresolved implementation layer, although the later PDE construction gaps are larger."
+    },
+    {
+      "id": "G06",
+      "rank": 6,
+      "title": "Exact stopped-budget and datum-class assembly",
+      "plan_steps": [
+        "P07",
+        "P08",
+        "P15",
+        "P18"
+      ],
+      "status": "OPEN_NATIVE_ASSEMBLY",
+      "cutouts": [
+        "SP10",
+        "SP11",
+        "SP12",
+        "SP13",
+        "SP14",
+        "SP15",
+        "SP16",
+        "ES03",
+        "ES05",
+        "ES06"
+      ],
+      "source_leads": [],
+      "missing_statement": "Assemble the factor-six inequality and full ENNReal terminal budgets for the same canonical trajectory; derive finiteness/gauge/sublevel equivalences and the complete datum-class iff.",
+      "attained": "Finite Cauchy-Schwarz, squared-norm integrability, monotone nonnegative integration, finite real-integral conversion, ENNReal powers and scalar continuation selectors are available.",
+      "remaining": "Supply the physical charges and canonical solution from earlier endpoints, exact measurability, full improper endpoint identity and zero-data cases; prove both directions of the class theorem. This is primarily assembly once the larger constructions exist.",
+      "rejected_shortcut": "Never replace the full endpoint budget by separate compact-interval finiteness, or convert an infinite extended lifetime/budget to a misleading real zero."
+    }
+  ],
+  "first_unresolved_implementation_layer": "G05 / P01-P02",
+  "improved_route": {
+    "endpoints": [
+      "P13",
+      "P15"
+    ],
+    "cutouts": [
+      "ES02",
+      "ES03"
+    ],
+    "chain": "Actual PDE AC enstrophy -> integrated cubic inequality -> existing CRITICAL_RELATIVE_ENERGY_GRONWALL with a=kappa*Y^2 and e=Y -> uniform enstrophy from full J_A finiteness.",
+    "boundary": "The PDE-to-integral-inequality adapter remains new; no separate general AC Gronwall theorem is required by this preferred route."
+  },
+  "external_acceptance_gate": {
+    "endpoint": "P20",
+    "required": "Matching authorized cached external compiler, expected-type/literal-contract consumers and named axiom evidence for every new native adapter.",
+    "new_runs": 0,
+    "new_acceptance": false
+  },
+  "separate_open_problem": "Universal budget finiteness / C^A_nu equals all solenoidal Schwartz data remains separate and open."
+}

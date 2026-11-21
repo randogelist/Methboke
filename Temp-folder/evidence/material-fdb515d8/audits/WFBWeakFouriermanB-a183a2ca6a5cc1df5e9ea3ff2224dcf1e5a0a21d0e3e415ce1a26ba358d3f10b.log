@@ -1,0 +1,61 @@
+WFBWeakFouriermanB/Audit.lean:12:21: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBWeakFouriermanB/Audit.lean:12:46: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBWeakFouriermanB/Audit.lean:18:21: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBWeakFouriermanB/Audit.lean:20:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBWeakFouriermanB/Audit.lean:21:5: warning: Variable name `hbudget` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbudget
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.Field),
+      SingularClosure.SmoothSigmaZero a → ∃ Tmax u p, MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+'MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_datum_maximal_classical_front_exists
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.Field),
+      SingularClosure.SmoothSigmaZero a →
+        ∀ (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+          MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+            MethbokeAddon.WeakFouriermanB.FourierBudgetFinite (fun t => SingularClosure.datumFourierCoeff (u t))
+                (Min.min.{0} Tmax
+                    (ENNReal.ofReal
+                      (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν))).toReal →
+              Eq.{1} Tmax ∞ ∧
+                ∃ U P,
+                  SingularClosure.GlobalSmoothNSE ν a U P ∧
+                    ∀ (t : ℝ),
+                      LE.le.{0} 0 t → LT.lt.{0} (ENNReal.ofReal t) Tmax → Eq.{1} (U t) (u t) ∧ Eq.{1} (P t) (p t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B
+'MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B

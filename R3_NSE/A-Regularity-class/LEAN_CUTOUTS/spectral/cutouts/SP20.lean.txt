@@ -1,0 +1,69 @@
+/-- Base case of (P1): the reflected Fourier transform of a complexified real Schwartz rep
+equals the conjugated one, as `Lp` elements.  Uses the Schwartz-level Hermitian identity
+`fourier_schwartzC_hermitian` lifted through `toLp`. -/
+private theorem reflect_fourier_schwartzC_eq_conj (φ : SchwartzMap Domain3 ℝ) :
+    Lp.compMeasurePreserving (Neg.neg : Domain3 → Domain3)
+        (Measure.measurePreserving_neg (volume : Measure Domain3))
+        (𝓕 ((schwartzC φ).toLp 2 (volume : Measure Domain3)))
+      = (Complex.conjCLE : ℂ →L[ℝ] ℂ).compLpL 2 (volume : Measure Domain3)
+        (𝓕 ((schwartzC φ).toLp 2 (volume : Measure Domain3))) := by
+  rw [SchwartzMap.toLp_fourier_eq]
+  refine Lp.ext ?_
+  have hL := Lp.coeFn_compMeasurePreserving
+    ((𝓕 (schwartzC φ)).toLp 2 (volume : Measure Domain3))
+    (Measure.measurePreserving_neg (volume : Measure Domain3))
+  have hR := (Complex.conjCLE : ℂ →L[ℝ] ℂ).coeFn_compLpL
+    ((𝓕 (schwartzC φ)).toLp 2 (volume : Measure Domain3))
+  have hcoe := (𝓕 (schwartzC φ)).coeFn_toLp 2 (volume : Measure Domain3)
+  have hcoeNeg : (fun ξ => ((𝓕 (schwartzC φ)).toLp 2 (volume : Measure Domain3) : Domain3 → ℂ) (-ξ))
+      =ᵐ[volume] fun ξ => (𝓕 (schwartzC φ) : SchwartzMap Domain3 ℂ) (-ξ) :=
+    (Measure.measurePreserving_neg
+      (volume : Measure Domain3)).quasiMeasurePreserving.ae_eq hcoe
+  filter_upwards [hL, hR, hcoe, hcoeNeg] with ξ hLξ hRξ hcξ hcNegξ
+  rw [hLξ, hRξ, Function.comp_apply, hcNegξ, hcξ]
+  rw [fourier_schwartzC_hermitian φ ξ]
+  rfl
+
+
+/-- **(P1) Lp-level Hermitian reflection.**  For a real `a : Lp ℝ 2`, the reflection of the
+Fourier transform of its complexification equals the conjugation of that Fourier transform,
+as elements of `L2C_R3`.  Density extension of `reflect_fourier_schwartzC_eq_conj` over the
+real Schwartz functions (`SchwartzMap.denseRange_toLpCLM`). -/
+private theorem fourier_ofReal_reflect_eq_conj
+    (a : Lp ℝ 2 (volume : Measure Domain3)) :
+    Lp.compMeasurePreserving (Neg.neg : Domain3 → Domain3)
+        (Measure.measurePreserving_neg (volume : Measure Domain3))
+        (𝓕 ((RCLike.ofRealCLM (K := ℂ)).compLpL 2 (volume : Measure Domain3) a))
+      = (Complex.conjCLE : ℂ →L[ℝ] ℂ).compLpL 2 (volume : Measure Domain3)
+        (𝓕 ((RCLike.ofRealCLM (K := ℂ)).compLpL 2 (volume : Measure Domain3) a)) := by
+  let emb : Lp ℝ 2 (volume : Measure Domain3) → L2C_R3 := fun a =>
+    (RCLike.ofRealCLM (K := ℂ)).compLpL 2 (volume : Measure Domain3) a
+  let R : L2C_R3 → L2C_R3 := fun g =>
+    Lp.compMeasurePreserving (Neg.neg : Domain3 → Domain3)
+      (Measure.measurePreserving_neg (volume : Measure Domain3)) g
+  have hRcont : Continuous R :=
+    (Lp.compMeasurePreservingₗᵢ (E := ℂ) (p := 2) ℂ (Neg.neg : Domain3 → Domain3)
+      (Measure.measurePreserving_neg (volume : Measure Domain3))).continuous
+  have hembCont : Continuous emb :=
+    ((RCLike.ofRealCLM (K := ℂ)).compLpL 2 (volume : Measure Domain3)).continuous
+  refine DenseRange.induction_on
+    (SchwartzMap.denseRange_toLpCLM (F := ℝ) (p := 2) ENNReal.ofNat_ne_top) a
+    (p := fun a => R (𝓕 (emb a))
+      = (Complex.conjCLE : ℂ →L[ℝ] ℂ).compLpL 2 (volume : Measure Domain3) (𝓕 (emb a)))
+    ?_ ?_
+  · refine isClosed_eq ?_ ?_
+    · exact hRcont.comp (continuous_fourier.comp hembCont)
+    · exact ((Complex.conjCLE : ℂ →L[ℝ] ℂ).compLpL 2 (volume : Measure Domain3)).continuous.comp
+        (continuous_fourier.comp hembCont)
+  · intro φ
+    have hembφ : emb (SchwartzMap.toLpCLM ℝ ℝ 2 volume φ)
+        = (schwartzC φ).toLp 2 (volume : Measure Domain3) := by
+      show (RCLike.ofRealCLM (K := ℂ)).compLpL 2 (volume : Measure Domain3)
+          (SchwartzMap.toLpCLM ℝ ℝ 2 volume φ)
+        = (schwartzC φ).toLp 2 (volume : Measure Domain3)
+      rw [SchwartzMap.toLpCLM_apply, ← toLp_schwartzC_eq]
+    show R (𝓕 (emb (SchwartzMap.toLpCLM ℝ ℝ 2 volume φ)))
+      = (Complex.conjCLE : ℂ →L[ℝ] ℂ).compLpL 2 (volume : Measure Domain3)
+          (𝓕 (emb (SchwartzMap.toLpCLM ℝ ℝ 2 volume φ)))
+    rw [hembφ]
+    exact reflect_fourier_schwartzC_eq_conj φ

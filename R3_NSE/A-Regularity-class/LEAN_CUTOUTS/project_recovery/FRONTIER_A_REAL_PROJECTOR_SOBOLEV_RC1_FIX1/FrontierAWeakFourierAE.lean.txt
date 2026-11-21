@@ -1,0 +1,88 @@
+import FrontierAWeightedCancellation
+import FrontierAWeight
+
+/-! CANDIDATE ONLY. An almost-everywhere Fourier identity for a supplied
+L² weak derivative. This does not construct a Leray–Hopf solution or connect
+its dissipation energy to helical projections. External Lean compilation and
+axiom auditing are required. -/
+noncomputable section
+open MeasureTheory Filter FourierTransform
+
+namespace FrontierAWeakFourierAE
+
+abbrev Space := EuclideanSpace ℝ (Fin 3)
+abbrev Fiber := EuclideanSpace ℂ (Fin 3)
+abbrev Field := Lp Fiber 2 (volume : Measure Space)
+
+def derivativeConstant : ℂ := 2 * (Real.pi : ℂ) * Complex.I
+
+def derivativeSymbol (m : Space) : Space → ℂ :=
+  derivativeConstant • FrontierAWeight.coordinate m
+
+/-- Weak directional differentiation of supplied L² fields becomes the
+usual Fourier multiplier identity almost everywhere. -/
+theorem fourier_weak_derivative_ae
+    (u du : Field) (m : Space)
+    (hweak : Lp.toTemperedDistribution du =
+      LineDeriv.lineDerivOp m (Lp.toTemperedDistribution u)) :
+    ∀ᵐ ξ ∂(volume : Measure Space),
+      (FourierTransform.fourier du : Field) ξ =
+        (derivativeConstant * (inner ℝ ξ m : ℂ)) •
+          (FourierTransform.fourier u : Field) ξ := by
+  have hq : Function.HasTemperateGrowth (derivativeSymbol m) := by
+    have hfun : derivativeSymbol m =
+        (fun x : Space => derivativeConstant * FrontierAWeight.coordinate m x) := by
+      funext x
+      simp [derivativeSymbol, Pi.smul_apply, smul_eq_mul]
+    rw [hfun]
+    first
+    | simpa only [] using!
+        (Function.HasTemperateGrowth.const derivativeConstant (E := Space)).fun_mul
+          (FrontierAWeight.coordinate_temperate m)
+    | with_unfolding_all
+        simpa only [] using!
+          (Function.HasTemperateGrowth.const derivativeConstant (E := Space)).fun_mul
+            (FrontierAWeight.coordinate_temperate m)
+  have hqw : MemLp (derivativeSymbol m * FrontierAWeight.weight) ⊤
+      (volume : Measure Space) := by
+    have hfun : derivativeSymbol m * FrontierAWeight.weight =
+        derivativeConstant • FrontierAWeight.weightedCoordinate m := by
+      funext x
+      simp [derivativeSymbol, FrontierAWeight.weightedCoordinate,
+        Pi.mul_apply, Pi.smul_apply, smul_eq_mul, mul_assoc]
+    rw [hfun]
+    first
+    | simpa only [] using!
+        (FrontierAWeight.weightedCoordinate_memLp_top (volume : Measure Space) m).const_smul
+          derivativeConstant
+    | with_unfolding_all
+        simpa only [] using!
+          (FrontierAWeight.weightedCoordinate_memLp_top (volume : Measure Space) m).const_smul
+            derivativeConstant
+  have hnz : ∀ᵐ ξ ∂(volume : Measure Space), FrontierAWeight.weight ξ ≠ 0 :=
+    Filter.Eventually.of_forall FrontierAWeight.weight_ne_zero
+  have hdis : Lp.toTemperedDistribution (FourierTransform.fourier du) =
+      (TemperedDistribution.smulLeftCLM Fiber (derivativeSymbol m))
+        (Lp.toTemperedDistribution (FourierTransform.fourier u)) := by
+    first
+    | rw [derivativeSymbol,
+        TemperedDistribution.smulLeftCLM_smul (FrontierAWeight.coordinate_temperate m)
+          derivativeConstant, ContinuousLinearMap.smul_apply]
+      simpa only [FrontierAWeight.coordinate, derivativeConstant] using!
+        (FrontierAWeakFourierDistribution.fourier_weak_derivative_distribution u du m hweak)
+    | with_unfolding_all
+        simpa only [derivativeSymbol,
+          TemperedDistribution.smulLeftCLM_smul (FrontierAWeight.coordinate_temperate m)
+            derivativeConstant, ContinuousLinearMap.smul_apply,
+          FrontierAWeight.coordinate, derivativeConstant] using!
+            (FrontierAWeakFourierDistribution.fourier_weak_derivative_distribution u du m hweak)
+  have h := FrontierAWeightedCancellation.ae_from_distribution
+    (FourierTransform.fourier u) (FourierTransform.fourier du)
+    (derivativeSymbol m) FrontierAWeight.weight hq FrontierAWeight.weight_temperate
+    (FrontierAWeight.weight_memLp_top (volume : Measure Space)) hqw hnz hdis
+  simpa [derivativeSymbol, derivativeConstant, FrontierAWeight.coordinate,
+    Pi.smul_apply, smul_eq_mul] using h
+
+end FrontierAWeakFourierAE
+
+#print axioms FrontierAWeakFourierAE.fourier_weak_derivative_ae

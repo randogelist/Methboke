@@ -1,0 +1,48 @@
+import FrontierAWeakFourierDistribution
+
+/-!
+Candidate: a genuinely proved bounded-weight reduction of a distributional
+multiplier equality to an equality of L² equivalence classes. The supplied
+symbol `q` may be unbounded; the regularizing weight `w` and product `q * w`
+are required to have temperate growth and be essentially bounded. These
+hypotheses do not assert the resulting equality. A concrete nonzero weight,
+almost-everywhere cancellation, the weak-derivative specialization, and the
+actual Leray--Hopf realization are not discharged here. This candidate requires
+external native Lean 4.33.0 compilation and theorem-level axiom audit.
+-/
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierAWeightedDistributionBridge
+
+abbrev Space := EuclideanSpace ℝ (Fin 3)
+abbrev Fiber := EuclideanSpace ℂ (Fin 3)
+abbrev Field := Lp Fiber 2 (volume : Measure Space)
+
+local instance : Fact (1 ≤ (2 : ENNReal)) := ⟨by norm_num⟩
+
+/-- A distributional multiplier identity implies its regularized L² version.
+    The regularizer and the product symbol must both be essentially bounded. -/
+theorem weighted_l2_from_distribution
+    (x y : Field) (q w : Space → ℂ)
+    (hq : Function.HasTemperateGrowth q)
+    (hw : Function.HasTemperateGrowth w)
+    (hwtop : MemLp w ⊤ (volume : Measure Space))
+    (hqwt : MemLp (q * w) ⊤ (volume : Measure Space))
+    (hdis : Lp.toTemperedDistribution y =
+      (TemperedDistribution.smulLeftCLM Fiber q) (Lp.toTemperedDistribution x)) :
+    (MemLp.toLp w hwtop • y : Field) = (MemLp.toLp (q * w) hqwt • x : Field) := by
+  have hinj : Function.Injective
+      (Lp.toTemperedDistributionCLM Fiber (volume : Measure Space) 2) := by
+    apply LinearMap.ker_eq_bot.mp
+    exact Lp.ker_toTemperedDistributionCLM_eq_bot
+  apply hinj
+  change Lp.toTemperedDistribution (MemLp.toLp w hwtop • y : Field) =
+    Lp.toTemperedDistribution (MemLp.toLp (q * w) hqwt • x : Field)
+  rw [Lp.toTemperedDistribution_smul_eq hw hwtop,
+    Lp.toTemperedDistribution_smul_eq (hq.mul hw) hqwt,
+    hdis, TemperedDistribution.smulLeftCLM_smulLeftCLM_apply hq hw]
+
+end FrontierAWeightedDistributionBridge
+
+#print axioms FrontierAWeightedDistributionBridge.weighted_l2_from_distribution

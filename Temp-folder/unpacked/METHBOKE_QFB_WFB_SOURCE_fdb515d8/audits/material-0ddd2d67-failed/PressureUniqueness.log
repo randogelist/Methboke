@@ -1,0 +1,15 @@
+MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean:92:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  fderiv ℝ (p - q) x
+in the target expression
+  fderiv ℝ (fun y => p y - q y) x = 0
+
+p q : Vec → ℝ
+hp : ContDiff ℝ ∞ p
+hq : ContDiff ℝ ∞ q
+hpmean : PressureMeanZero p
+hqmean : PressureMeanZero q
+hgrad : ∀ (x : Vec), SingularClosure.gradient p x = SingularClosure.gradient q x
+hpD : Differentiable ℝ p
+hqD : Differentiable ℝ q
+x : Vec
+⊢ fderiv ℝ (fun y => p y - q y) x = 0

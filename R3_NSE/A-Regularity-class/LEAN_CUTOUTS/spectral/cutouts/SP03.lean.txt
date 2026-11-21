@@ -1,0 +1,17 @@
+/-- If a locally integrable function `f` on a finite-dimensional real vector space has zero integral
+when multiplied by any smooth compactly supported function, then `f` vanishes almost everywhere. -/
+theorem ae_eq_zero_of_integral_contDiff_smul_eq_zero (hf : LocallyIntegrable f μ)
+    (h : ∀ (g : E → ℝ), ContDiff ℝ ∞ g → HasCompactSupport g → ∫ x, g x • f x ∂μ = 0) :
+    ∀ᵐ x ∂μ, f x = 0 :=
+  ae_eq_zero_of_integral_contMDiff_smul_eq_zero 𝓘(ℝ, E) hf
+    (fun g g_diff g_supp ↦ h g g_diff.contDiff g_supp)
+
+/-- If two locally integrable functions on a finite-dimensional real vector space have the same
+integral when multiplied by any smooth compactly supported function, then they coincide almost
+everywhere. -/
+theorem ae_eq_of_integral_contDiff_smul_eq
+    (hf : LocallyIntegrable f μ) (hf' : LocallyIntegrable f' μ) (h : ∀ (g : E → ℝ),
+      ContDiff ℝ ∞ g → HasCompactSupport g → ∫ x, g x • f x ∂μ = ∫ x, g x • f' x ∂μ) :
+    ∀ᵐ x ∂μ, f x = f' x :=
+  ae_eq_of_integral_contMDiff_smul_eq 𝓘(ℝ, E) hf hf'
+    (fun g g_diff g_supp ↦ h g g_diff.contDiff g_supp)

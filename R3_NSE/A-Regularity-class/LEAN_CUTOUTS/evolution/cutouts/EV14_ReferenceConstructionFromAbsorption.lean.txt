@@ -1,0 +1,7 @@
+def ReferenceConstructionFromAbsorption
+    (ν : ℝ) (Domain : Set RealSpatialL2)
+    (Admissible : RealSpatialL2 → Set Trajectory)
+    (Reference : RealSpatialL2 → Trajectory → Prop)
+    (Good : Trajectory → GradientTrajectory → ℝ → Prop) : Prop :=
+  PointwiseAbsorption ν →
+    Chain.SubcriticalReferenceConstruction ν Domain Admissible Reference Good

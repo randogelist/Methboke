@@ -1,0 +1,84 @@
+R0FiniteCapOverlap/Audit.lean:11:40: warning: Variable name `hI` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hI
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:12:5: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:13:40: warning: Variable name `ht` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ht
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:19:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:19:43: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:20:5: warning: Variable name `hδ0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hδ0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:21:5: warning: Variable name `hfront_agrees` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hfront_agrees
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+R0FiniteCapOverlap/Audit.lean:22:5: warning: Variable name `htail_agrees` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _htail_agrees
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.velocity_slice_contDiff_on_open_time_set
+@MethbokeAddon.WeakFouriermanB.velocity_slice_contDiff_on_open_time_set : ∀ {u : SingularClosure.Velocity}
+  {I : Set.{0} ℝ},
+  IsOpen.{0} I →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (Set.ofPred.{0} fun z => Membership.mem.{0, 0} I z.1) →
+      ∀ {t : ℝ}, Membership.mem.{0, 0} I t → ContDiff.{0, 0, 0} ℝ ∞ (u t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.velocity_slice_contDiff_on_open_time_set
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.velocity_slice_contDiff_on_open_time_set
+'MethbokeAddon.WeakFouriermanB.velocity_slice_contDiff_on_open_time_set' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.velocity_slice_contDiff_on_open_time_set
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae
+MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae : ∀ (ν T δ : ℝ) (a : SingularClosure.Field)
+  (u v w : SingularClosure.Velocity) (p q : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+    QuasiFeffermanB.ClassicalTail ν δ v q →
+      LE.le.{0} 0 δ →
+        (∀ (r : ℝ),
+            Membership.mem.{0, 0} (Set.Ioo.{0} δ T) r →
+              w r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]
+                u r) →
+          (∀ (r : ℝ),
+              Membership.mem.{0, 0} (Set.Ioo.{0} δ T) r →
+                w
+                    r =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                    SingularClosure.unitCube]
+                  v r) →
+            (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} δ T) r → Eq.{1} (u r) (v r)) ∧
+              ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} δ T) r → Eq.{1} (p r) (q r)
+TYPE_END:MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae
+'MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.finite_cap_tail_overlap_of_same_path_ae

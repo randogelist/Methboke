@@ -1,0 +1,102 @@
+theorem lintegral_finsetSum' (s : Finset β) {f : β → α → ℝ≥0∞}
+    (hf : ∀ b ∈ s, AEMeasurable (f b) μ) :
+    ∫⁻ a, ∑ b ∈ s, f b a ∂μ = ∑ b ∈ s, ∫⁻ a, f b a ∂μ := by
+  classical
+  induction s using Finset.induction_on with
+  | empty => simp
+  | insert a s has ih =>
+    simp only [Finset.sum_insert has]
+    rw [Finset.forall_mem_insert] at hf
+    rw [lintegral_add_left' hf.1, ih hf.2]
+
+@[deprecated (since := "2026-04-08")] alias lintegral_finset_sum' := lintegral_finsetSum'
+
+theorem lintegral_finsetSum (s : Finset β) {f : β → α → ℝ≥0∞} (hf : ∀ b ∈ s, Measurable (f b)) :
+    ∫⁻ a, ∑ b ∈ s, f b a ∂μ = ∑ b ∈ s, ∫⁻ a, f b a ∂μ :=
+  lintegral_finsetSum' s fun b hb => (hf b hb).aemeasurable
+
+@[deprecated (since := "2026-04-08")] alias lintegral_finset_sum := lintegral_finsetSum
+
+theorem lintegral_tsum [Countable β] {f : β → α → ℝ≥0∞} (hf : ∀ i, AEMeasurable (f i) μ) :
+    ∫⁻ a, ∑' i, f i a ∂μ = ∑' i, ∫⁻ a, f i a ∂μ := by
+  classical
+  simp only [ENNReal.tsum_eq_iSup_sum]
+  rw [lintegral_iSup_directed]
+  · simp [lintegral_finsetSum' _ fun i _ => hf i]
+  · intro b
+    exact Finset.aemeasurable_fun_sum _ fun i _ => hf i
+  · intro s t
+    use s ∪ t
+    constructor
+    · exact fun a => Finset.sum_le_sum_of_subset Finset.subset_union_left
+    · exact fun a => Finset.sum_le_sum_of_subset Finset.subset_union_right
+
+end Add
+
+section Mul
+
+@[simp]
+theorem lintegral_const_mul (r : ℝ≥0∞) {f : α → ℝ≥0∞} (hf : Measurable f) :
+    ∫⁻ a, r * f a ∂μ = r * ∫⁻ a, f a ∂μ :=
+  calc
+    ∫⁻ a, r * f a ∂μ = ∫⁻ a, ⨆ n, (const α r * eapprox f n) a ∂μ := by
+      congr
+      funext a
+      rw [← iSup_eapprox_apply hf, ENNReal.mul_iSup]
+      simp
+    _ = ⨆ n, r * (eapprox f n).lintegral μ := by
+      rw [lintegral_iSup]
+      · congr
+        funext n
+        rw [← SimpleFunc.const_mul_lintegral, ← SimpleFunc.lintegral_eq_lintegral]
+      · intro n
+        exact SimpleFunc.measurable _
+      · intro i j h a
+        dsimp
+        gcongr
+        exact monotone_eapprox _ h _
+    _ = r * ∫⁻ a, f a ∂μ := by rw [← ENNReal.mul_iSup, lintegral_eq_iSup_eapprox_lintegral hf]
+
+theorem lintegral_const_mul'' (r : ℝ≥0∞) {f : α → ℝ≥0∞} (hf : AEMeasurable f μ) :
+    ∫⁻ a, r * f a ∂μ = r * ∫⁻ a, f a ∂μ := by
+  have A : ∫⁻ a, f a ∂μ = ∫⁻ a, hf.mk f a ∂μ := lintegral_congr_ae hf.ae_eq_mk
+  have B : ∫⁻ a, r * f a ∂μ = ∫⁻ a, r * hf.mk f a ∂μ :=
+    lintegral_congr_ae (EventuallyEq.fun_comp hf.ae_eq_mk _)
+  rw [A, B, lintegral_const_mul _ hf.measurable_mk]
+
+theorem lintegral_const_mul_le (r : ℝ≥0∞) (f : α → ℝ≥0∞) :
+    r * ∫⁻ a, f a ∂μ ≤ ∫⁻ a, r * f a ∂μ := by
+  rw [lintegral, ENNReal.mul_iSup]
+  refine iSup_le fun s => ?_
+  rw [ENNReal.mul_iSup, iSup_le_iff]
+  intro hs
+  rw [← SimpleFunc.const_mul_lintegral, lintegral]
+  refine le_iSup_of_le (const α r * s) (le_iSup_of_le (fun x => ?_) le_rfl)
+  dsimp
+  grw [hs x]
+
+theorem lintegral_const_mul' (r : ℝ≥0∞) (f : α → ℝ≥0∞) (hr : r ≠ ∞) :
+    ∫⁻ a, r * f a ∂μ = r * ∫⁻ a, f a ∂μ := by
+  by_cases h : r = 0
+  · simp [h]
+  apply le_antisymm _ (lintegral_const_mul_le r f)
+  have rinv : r * r⁻¹ = 1 := ENNReal.mul_inv_cancel h hr
+  have rinv' : r⁻¹ * r = 1 := by
+    rw [mul_comm]
+    exact rinv
+  have := lintegral_const_mul_le (μ := μ) r⁻¹ fun x => r * f x
+  simp only [(mul_assoc _ _ _).symm, rinv'] at this
+  simpa [(mul_assoc _ _ _).symm, rinv] using mul_le_mul_right this r
+
+theorem lintegral_mul_const (r : ℝ≥0∞) {f : α → ℝ≥0∞} (hf : Measurable f) :
+    ∫⁻ a, f a * r ∂μ = (∫⁻ a, f a ∂μ) * r := by simp_rw [mul_comm, lintegral_const_mul r hf]
+
+theorem lintegral_mul_const'' (r : ℝ≥0∞) {f : α → ℝ≥0∞} (hf : AEMeasurable f μ) :
+    ∫⁻ a, f a * r ∂μ = (∫⁻ a, f a ∂μ) * r := by simp_rw [mul_comm, lintegral_const_mul'' r hf]
+
+theorem lintegral_mul_const_le (r : ℝ≥0∞) (f : α → ℝ≥0∞) :
+    (∫⁻ a, f a ∂μ) * r ≤ ∫⁻ a, f a * r ∂μ := by
+  simp_rw [mul_comm, lintegral_const_mul_le r f]
+
+theorem lintegral_mul_const' (r : ℝ≥0∞) (f : α → ℝ≥0∞) (hr : r ≠ ∞) :
+    ∫⁻ a, f a * r ∂μ = (∫⁻ a, f a ∂μ) * r := by simp_rw [mul_comm, lintegral_const_mul' r f hr]

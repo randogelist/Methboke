@@ -1,0 +1,80 @@
+H1-ONLY PHYSICAL WEAK-DERIVATIVE TO FOURIER CHAIN
+Date: 2026-11-20
+Source basis: cb3bafdc71c7eb10e57996af6111ba6c24f6865c
+Scope: G05/P02 forward first-derivative Fourier identification.
+Status: B_TIER_COMPLETE_FOR_THE_STATED_FORWARD_HELPER; Lean candidate pending.
+No local Lean/Lake/kernel execution.
+
+DATA
+Space=EuclideanSpace R (Fin 3), full Lebesgue volume.
+RealL2=Lp Space 2 volume; ComplexL2=Lp (EuclideanSpace C (Fin 3)) 2 volume.
+A supplied weak directional derivative is the native literal predicate:
+  for every real compact C-infinity scalar psi,
+  integral D_e psi * u = - integral psi * du.
+The data are L2 equivalence classes. No H2/Laplacian, time trajectory, global
+solution, spectral-norm identity or PDE estimate is assumed.
+
+EXACT CHAIN
+F01. Every compact real Schwartz test is a legitimate native test. Its
+complexification has directional derivative equal to complexification of its
+real derivative, by the real chain rule for Complex.ofRealCLM. Real scalar
+multiplication of a complex vector equals multiplication by its complex cast.
+Thus the native weak-test identity gives equality of the two candidate
+complex tempered distributions on complexified compact real Schwartz tests.
+
+F02. Every compact complex Schwartz test phi equals
+  complexify(Re phi) + I * complexify(Im phi).
+The real and imaginary postcompositions are Schwartz and retain compact
+support. Complex linearity extends F01 to every compact complex Schwartz test.
+No density of a smaller radial family is used.
+
+F03. Previously accepted QFA.LC005.denseCompactSchwartzTests and
+CompactSchwartz.tempered_eq_of_eq_on_compactSchwartz extend that equality to
+all Schwartz tests. Hence du = partial_e u as actual tempered distributions.
+
+F04. Mathlib L2/distribution Fourier compatibility and
+TemperedDistribution.fourier_lineDerivOp_eq yield
+  F(du) = (2*pi*i) M_{<xi,e>} F(u)
+as actual complex tempered distributions.
+
+F05. The previously accepted native
+FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution applies
+to the continuous temperate coordinate multiplier <xi,e>. Local integrability
+of the resulting pointwise product is enough for this identification. It
+proves the literal a.e. representative identity
+  F(du)(xi) = (2*pi*i*<xi,e>) F(u)(xi).
+No Laplacian field is introduced.
+
+F06. The accepted actual complexifyL2_weakDirectionalDerivative transports a
+real physical weak derivative into the complex predicate. F01-F05 therefore
+give the a.e. Fourier identity for complexifications of real L2 fields.
+The complexification is the native norm-preserving real-to-complex embedding.
+
+F07. Apply F06 to each native coordinateVector j under SpatialWeakGradient.
+This produces all three first-derivative identities on the actual physical
+H1 gradient data, still with no H2 or Laplacian premise.
+
+FIRST REMAINING EDGE
+This chain stops after the forward a.e. identities. It does not yet construct
+inverse-Fourier gradient witnesses from finite spectral H1 norm, prove the
+full two-way physical H1 norm equivalence, or construct the six projectors.
+Those require separate derived and externally verified endpoints.
+
+SOURCE USE
+- Native Contracts.lean and QFA Complexification.lean give literal tests and
+  actual real L2 complexification.
+- QFALC004/CompactSchwartz.lean and QFALC005/Density.lean give the already
+  accepted all-compact-Schwartz density argument.
+- Native FourierMultipliers.lean gives the generic distribution-to-a.e. bridge.
+- Pinned Mathlib SchwartzSpace.Basic/Deriv and TemperedDistribution provide
+  linear postcomposition, derivative chain rule and Fourier compatibility.
+- Retrieved FRONTIER_A_REAL_PROJECTOR_SOBOLEV_RC1_FIX1 supplies a corroborating
+  H1-only architecture. Its old user log reports PASS for 414 named theorems
+  under native Windows4.34rc1. It is not directly imported or promoted into
+  this pinned native4.33 tree. We use the shorter accepted generic multiplier
+  bridge, so no foreign regularizer subtree or changed dependency pin is needed.
+
+VALIDATION GATE
+Independent complete consumer signatures and literal test semantics,
+matching cached external compiler and named standard-only axiom audits.
+Prepared source does not mark G05 or P02 accepted.

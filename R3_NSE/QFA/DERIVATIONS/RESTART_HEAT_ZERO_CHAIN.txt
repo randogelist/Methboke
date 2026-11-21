@@ -1,0 +1,138 @@
+QFA: FULL PHYSICAL RESTART, POSITIVE-TIME H2 HEAT SMOOTHING, AND ZERO DATUM
+Date: 2026-11-21
+Scope: current whole-space QFA ten-step chain on AC-Integration.
+Project goal: Fefferman_D, unchanged. This is a local QFA construction.
+Source basis: d403c235a1cf6db5d9276f7cd987a4cc990a2fdf.
+Status: the exact restart, positive-time heat and zero-datum scopes below are
+A-tier accepted at ffbab0f5a1405b86e1bce105f0ed9881cd5380ef / run44847013775.
+Evidence: audits/material-ffbab0f5-qfa-accepted/independent-review.json.
+The general physical QFA root remains open; no local Lean was executed.
+
+1. FROZEN PHYSICAL ROOT
+
+Let nu>0 and a be any solenoidal element of L2(R3;R3). Set
+  tau_A(a,nu) = 8 ||a||_2^4 / (27 pi^4 nu^5).
+The strict root requires a nonempty global physical Leray--Hopf class and,
+for EVERY specified member (u,G) and EVERY delta>tau_A, all three clauses:
+  (i) actual smooth velocity and pressure on R3 x [delta,infinity), satisfying
+      the unforced NSE and divergence zero; the smooth velocity equals the
+      original L2 path spatially a.e. at EACH tail time;
+  (ii) ||u(t)||_2^2 + 2 nu integral_delta^t sum_j ||G_j(r)||_2^2 dr
+      = ||u(delta)||_2^2, for EVERY t>=delta;
+  (iii) the original translated path is a full physical LH solution from its
+      exact own trace u(delta), and every LH future from that trace has the
+      same L2 velocity at EVERY nonnegative time.
+A stronger closed-cutoff proposition replaces delta>tau_A by delta>=tau_A.
+These are distinct named propositions. Their definitions do not prove them.
+
+Pressure convention: p(t,0)=0 fixes its smooth additive time gauge. Given a
+smooth pressure p, replacing it by p(t,x)-p(t,0) leaves its spatial gradient
+and NSE unchanged. No Riesz-transform, Lp, decay, periodicity, or mean-zero
+pressure normalization is being silently introduced. Weak-gradient equality
+at every time is not required: time-null modifications of G are immaterial.
+
+2. FULL RESTART OF A SUPPLIED LH PATH
+
+Inputs: the existing actual LerayHopf(nu,a,u,G) predicate, s>=0, and its
+EnergyStart(nu,u,G,s) property. No original-solution existence is assumed
+beyond this supplied path. The restart itself needs no sign of nu.
+
+2.1 For each compact smooth positive-time solenoidal test phi(t,x), construct
+    psi(q,x)=phi(q-s,x). Compact support and smoothness follow by translation.
+    Its support lies in q>s>=0 and its spatial divergence is still zero.
+2.2 Ordinary time derivatives and spatial derivatives commute with translation.
+    Thus each actual time, convection, and dissipation contraction for the
+    shifted path at t equals the original contraction against psi at t+s.
+2.3 The support gap gives zero contractions for q<=s, including derivatives.
+    Lebesgue translation invariance transports both spatial integrability and
+    half-line time integrability. The original weak-momentum equation for psi
+    becomes exactly the shifted weak-momentum equation for phi.
+2.4 On (0,R), shifted velocity measurability, gradient L2 integrability and a.e.
+    compact-test weak derivatives pull back from (0,R+s). Weak pairing
+    continuity pulls back by t -> t+s. The initial trace is literally u(s).
+2.5 EnergyStart at s supplies the shifted initial energy inequality. For a.e.
+    later start r, the original EnergyStart at r+s transports all upper
+    endpoints by interval-integral translation. This proves every field of
+    full shifted LerayHopf membership, including the PDE.
+2.6 Intersect this theorem with the already proved a.e. good trace set and
+    weighted product selector. At least half the safe observation window
+    still consists of actual full PDE restarts with strict small product.
+    The scalar S>0 in that selector remains a parameter until an actual
+    sharp physical Sobolev estimate admits it.
+
+3. ACTUAL POSITIVE-TIME HEAT H1 -> H2 CONSTRUCTION
+
+Inputs: nu,t>0 and any actual PhysicalH1 element u, with L2 velocity v and
+three native compact-test weak derivatives G_j. Use the accepted real Fourier
+transform, bounded real-even multipliers, reverse weak-derivative theorem,
+physical H2 graph and heat semigroup; assume no H2 output or smoothing bound.
+Let lambda(xi)=(2pi)^2 |xi|^2 and h(xi)=exp(-nu t lambda(xi)).
+
+3.1 For every real y, y exp(-y)<=exp(-1)<=1. Hence lambda h<=1/(nu t).
+    Also 0<h<=1, so lambda h^2<=1/(nu t).
+3.2 Each m_jk(xi)=-(2pi)^2 xi_j xi_k h(xi) is continuous, real, even and
+    bounded in absolute value by lambda h<=1/(nu t). The accepted actual
+    real multiplier therefore constructs K_jk in L2 with Fourier transform
+    m_jk times the actual Fourier transform of v.
+3.3 The accepted heat-gradient identity gives Fourier(H_t G_j)=
+    h (2pi i xi_j) Fourier(v). Its k derivative multiplier is precisely
+    m_jk Fourier(v). The reverse first-derivative theorem proves K_jk is the
+    actual compact-test weak k derivative of H_t G_j. The physical H2 graph
+    constructor now gives w with velocity H_t v, gradients H_t G_j, Hessian K.
+3.4 The actual L2 Laplacian of w has Fourier symbol -lambda h. Plancherel,
+    lambda h^2<=1/(nu t), and the accepted physical H1 Fourier identity give
+      ||Delta w||_2^2 <= (nu t)^(-1) sum_j ||G_j||_2^2.
+3.5 The accepted Hessian--Laplacian identity and H1 heat contraction imply
+      ||w||_H2^2 <= ||u||_H1^2 + (nu t)^(-1) ||grad u||_2^2
+                  <= (1+(nu t)^(-1)) ||u||_H1^2.
+    Exact velocity injectivity gives linearity of the constructed map, so it
+    is a continuous linear H1-to-H2 operator with the displayed norm bound.
+This is positive-time spatial smoothing. It does not yet supply a time
+integrated maximal-regularity estimate, a forced Duhamel constructor, the
+nonlinear fixed point, or actual local NSE existence.
+
+4. COMPLETE ZERO-DATUM QFA BRANCH
+
+4.1 The zero L2 path and zero weak-gradient path satisfy every original LH
+    field. Chosen Lp representatives need only be spatially a.e. zero; all
+    momentum contractions vanish a.e. and their genuine integrability and
+    integrals follow. Solenoidality and weak gradients are literal compact-
+    test identities. Energy classes, continuity and energy inequalities are
+    immediate. This constructs a solution, not merely a rigidity implication.
+4.2 For ANY supplied LH path from zero, the original energy inequality and
+    nonnegative dissipation imply u(t)=0 in L2 for EVERY t>=0. For nu>0 the
+    same inequality implies integral_0^t gradientEnergy(G)=0.
+4.3 Original energy-class integrability on an outer finite horizon and the
+    adjacent-interval identity give integral_delta^t gradientEnergy(G)=0 for
+    every 0<=delta<=t. This proves tail energy equality and EnergyStart at
+    every nonnegative delta, without asserting G(delta)=0 pointwise in time.
+4.4 Zero smooth velocity and zero normalized pressure satisfy the actual NSE
+    and agree with u at every tail time. The restart theorem from section2
+    gives full original-path membership from its exact zero trace. Every
+    competing LH future from this trace is pointwise zero in L2 by section4.2.
+4.5 tau_A(0,nu)=0, so sections4.1--4.4 establish the full closed-cutoff datum
+    conclusion for a=0, including delta=0; the strict conclusion follows.
+The general nonzero-datum QFA theorem is not inferred from this branch.
+
+5. FIRST REMAINING GENERAL-DATUM CONSTRUCTION EDGES
+
+The accepted scoped batch does not construct arbitrary-data global LH existence,
+arbitrary H1 local nonlinear existence, weak--strong comparison, physical
+energy/enstrophy evolution and small-product global continuation, all-order
+smoothing/pressure for nonzero data, or the sharp Sobolev admission
+  S6^6 = 16/(27 pi^4)
+needed for the exact frozen cutoff. These are explicit mathematical/formal
+obligations. No prepared file, record field, historical conditional root, or
+new scalar parameter discharges them. For nu>0, finite T>=0 and arbitrary
+actual PhysicalH1 input a, the next local-IVP edge is the free heat identity
+  2 nu integral_0^T ||Delta S_nu(t)a||_2^2 dt = Y(a)-Y(S_nu(T)a),
+with finite-window H2 trajectory measurability and L2-time H2 membership.
+The accepted pointwise 1/t squared bound does not establish integrability at
+zero. Then follow the actual generator/primitive identity, forced-heat maximal
+regularity and the L2-time forcing-space fixed point already derived in
+H1_LOCAL_FIXED_POINT_CHAIN.txt. WFA-only canonical
+lifetime/budget packaging is not a prerequisite for closing QFA.
+
+Verification boundary: native Lean4.33.0 and pinned Mathlib db584cd6...,
+compatible external caches only; no local Lean/Lake/kernel execution; exact
+independent consumers and fresh named standard-only axiom audits mandatory.

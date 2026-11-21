@@ -1,0 +1,20 @@
+theorem LocalSobolevFlow.initialClassicalFront
+    {ν T : ℝ} (L : LocalSobolevFlow ν T) (hT : 0 < T)
+    (a : Field) (ha : SmoothSigmaZero a)
+    (hinitial : (L.state 0 0).val = datumFourierCoeff a) :
+    InitialClassicalFront ν T a L.velocity L.pressure := by
+  refine {
+    velocity_smooth := L.velocity_spacetime_smooth hT
+    pressure_smooth := L.pressure_spacetime_smooth hT
+    velocity_periodic := fun t ht => (L.velocity_smoothSigmaZero t ⟨ht.1, ht.2.le⟩).periodic
+    pressure_periodic := fun t _ => fullTransportPressure_periodic (L.state 0 t)
+    divergence_free := fun t ht => (L.velocity_smoothSigmaZero t ⟨ht.1, ht.2.le⟩).divergence_free
+    equation := L.physical_equation
+    initial := L.initial_eq hT.le a ha hinitial
+    velocity_mean_zero := fun t ht => (L.velocity_smoothSigmaZero t ⟨ht.1, ht.2.le⟩).mean_zero
+    pressure_mean_zero := ?_
+  }
+  intro t ht
+  have ht' : t ∈ Icc (0 : ℝ) T := ⟨ht.1, ht.2.le⟩
+  exact fullTransportPressure_meanZero (L.state 0 t) (L.state_all_mem t ht')
+    (L.reality t ht') (L.solenoidal t ht')

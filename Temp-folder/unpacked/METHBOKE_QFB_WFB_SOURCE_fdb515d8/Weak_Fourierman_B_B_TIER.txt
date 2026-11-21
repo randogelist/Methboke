@@ -1,0 +1,910 @@
+DOCUMENT := Weak_Fourierman_B
+VERSION := 0.7.0
+DATE := 2026-11-19
+MODE := B_TIER_DERIVATION
+NAMESPACE := MethbokeAddon.WeakFouriermanB
+MAIN_TARGET := FOURIER_FINITE_FRONT_IMPLIES_GLOBAL_SMOOTH_REGULARITY
+CURRENT_STEP := FULL_CHAIN_EXTERNAL_VERIFICATION
+B_TIER_ROOT_STATUS := COMPLETE_FROM_INDEXED_QFB_THEOREMS_AND_CLASSICAL_LOCAL_THEORY
+LEAN_ROOT_STATUS := FULL_PROOF_SOURCE_PREPARED_NOT_EXTERNALLY_VERIFIED
+LOCAL_LEAN_EXECUTION := NONE
+CURRENT_STATUS_AUTHORITY := SECTION_22; prior preparation labels are historical
+FORMAL_ROUTE_STATUS := FULL_CHAIN_CANDIDATE; MATCHING_EXTERNAL_VERIFICATION_REQUIRED
+
+This is the cumulative mathematical development of Weak_Fourierman_B. It
+supersedes the mathematical stop point in version 0.3.1: that version lacked
+a supplied physical continuation theorem and compatible same-path gluing.
+Here the actual enstrophy estimate is derived, periodic H1 local theory is
+supplied by a primary published theorem, and the comparison/gluing argument
+is given explicitly. Those mathematical steps have not thereby been compiled
+in Lean. Existing accepted partial build evidence remains unchanged.
+
+The conclusion is conditional on the stated finite Fourier budget. No proof
+that every smooth datum satisfies that budget is claimed. The indexed QFB
+results are reused as existing theorems, with their concrete physical types;
+their complete foundational developments are not reproved in this document.
+
+1. DEFINITIONS AND EXACT PREMISES
+
+Space: the unit torus T3 = R3/Z3 with volume one, represented by unit-periodic
+lifts on R3. Spatial integrals below are over the closed unit cube; its
+boundary has measure zero. All norms are genuine Lebesgue-space norms.
+
+Fix nu > 0 and a real vector field a satisfying SmoothSigmaZero:
+  a is C-infinity, unit-periodic, divergence-free, and has spatial mean zero.
+The equation is the actual unforced incompressible Navier-Stokes system
+
+  partial_t u + (u dot grad)u + grad p = nu Delta u,
+  div u = 0,       u(0) = a.
+
+Pressure is fixed by spatial mean zero. Classical smoothness at t=0 means
+smoothness up to the forward-time boundary, with the right time derivative
+there. These are the conventions of SingularClosure.GlobalSmoothNSE.
+
+Let (u^a,p^a) be the unique maximal smooth strong trajectory constructed in
+Section 3. Its lifetime Tmax belongs to (0,infinity]. Every finite compact
+slab strictly before Tmax has smooth velocity and normalized pressure,
+including at t=0. The same trajectory is retained throughout the proof.
+
+For any smooth periodic field v put
+  E(v) = integral_cube |v|^2,
+  D(v) = integral_cube |grad v|^2
+       = sum_j integral_cube |partial_j v|^2.
+There is no factor 1/2 in E. Along u^a also put
+  Z(t) = integral_cube |Delta u^a(t)|^2.
+
+Use literal Fourier coefficients with the period-one convention:
+  u_hat_k(t) = integral_cube u^a(t,x) exp(-2*pi*i*k dot x) dx,
+  Q(t) = sum_{k in Z3, k != 0} |k|^2 |u_hat_k(t)|_C3^2,
+  |u_hat_k|_C3^2 = sum_{j=1}^3 |u_hat_{k,j}|_C^2.
+
+Define
+  Tf(a,nu) = ||a||_L2^4 / (8*pi^2*nu^5),
+  tau(a,nu) = min(Tmax(a,nu), Tf(a,nu)).
+
+The minimum is finite because Tf is finite. When Tmax=infinity, tau=Tf;
+one never converts infinity to a real before taking this finite minimum.
+
+The additional analytic premise is exactly
+  MQ := integral_(0,tau) Q(t)^2 dt < infinity.                 (BUDGET)
+
+The sum and integral here initially mean nonnegative extended sums and
+integrals. They retain the value infinity on divergent input. A totalized
+real tsum or a totalized real Bochner integral does not encode BUDGET.
+Section 4 justifies real summability, measurability and integrability for
+the expressions subsequently used. The budget concerns the full infinite
+frequency sum, on the whole open interval. Separate finiteness on every
+smaller compact interval is not BUDGET.
+
+2. THEOREM AND DEPENDENCY ORDER
+
+Weak_Fourierman_B, B-tier mathematical statement:
+
+  For every nu>0 and every smooth periodic solenoidal mean-zero datum a,
+  for its maximal strong trajectory (u^a,p^a),
+
+    integral_(0,min(Tmax,Tf))
+      (sum_{k != 0} |k|^2 |u_hat_k^a(t)|_C3^2)^2 dt < infinity
+
+  implies that there exist actual fields U and P with
+
+    SingularClosure.GlobalSmoothNSE nu a U P,
+
+  and, for every 0 <= t < Tmax and every x,
+    U(t,x)=u^a(t,x),       P(t,x)=p^a(t,x).
+
+Thus the maximal trajectory has infinite lifetime. The finite Fourier budget
+remains the admission hypothesis, not a proved universal bound.
+
+Dependency order:
+  periodic physical local theory + uniqueness
+    -> unique maximal strong trajectory;
+  actual Fourier identities + full squared budget
+    -> finite integral D^2 and actual L4_t L6_x;
+  actual enstrophy estimate + finite integral D^2
+    -> uniform H1 bound up to a possible finite endpoint;
+  uniform physical local lifespan + uniqueness
+    -> same-path continuation -> Tf < Tmax;
+  smooth datum -> actual EnergySigmaZero datum -> Q01 weak existence;
+  localized relative energy -> identification with that weak path;
+  Q09 after Tf -> actual smooth tail of the same weak path;
+  pointwise velocity and normalized-pressure agreement -> smooth gluing;
+  zero case + all lifetime cases -> the stated global physical conclusion.
+
+The local-front and homogeneous Fourier-to-Serrin endpoints are alternative
+analytic routes. Continuation below uses the stronger direct information
+integral D^2 < infinity, so no additional unproved physical Serrin criterion
+is inserted into the argument.
+
+3. PHYSICAL LOCAL EXISTENCE, UNIQUENESS AND MAXIMALITY
+
+Classical input [L1]: Terence Tao, Localisation and compactness properties
+of the Navier-Stokes global regularity problem, Analysis & PDE 6(1) (2013),
+25-107, DOI 10.2140/apde.2013.6.25. Theorem 5.1, printed pp.48-49, gives
+periodic H1 local existence, uniqueness, H1 continuity and preservation of
+smoothness; Corollary 5.2, p.50, gives maximal development and finite-time
+H1 blowup. For zero forcing and viscosity one, a universal c>0 allows
+duration S when S*||b||_H1^4 <= c. The pressure convention is normalized
+by the mean-zero Poisson solution, equation (9). We use the unit-period,
+mean-zero specialization, with smooth divergence-free data.
+
+Publisher source:
+  https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf
+
+The following specialization and composition are our argument. Viscosity
+rescaling is
+  u(t,x)=nu v(nu*t,x),       p(t,x)=nu^2 q(nu*t,x).
+Substitution in the PDE verifies viscosity nu on the left from viscosity
+one on the right. For a physical datum b, v(0)=b/nu.
+
+Given an H1 norm bound R, choose
+  h(nu,R)=c*nu^3/(nu+R)^4 > 0.
+For ||b||_H1 <= R, the viscosity-one duration S=nu*h satisfies
+  S*||b/nu||_H1^4 <= c*R^4/(nu+R)^4 <= c.
+Hence the physical solution exists for at least h(nu,R), independently of
+higher derivatives, any Galerkin cutoff, and the restart time. Smooth b
+gives a smooth solution and normalized pressure up to the initial boundary.
+
+Smooth periodic solutions on a compact time slab belong to the H1 mild
+class: spatial projection eliminates normalized pressure, and integrating
+the heat equation with the actual smooth nonlinearity gives the Duhamel
+formula. Consequently [L1] uniqueness applies to the physical solutions
+used here. Alternatively, their usual relative-energy argument on each
+compact slab proves velocity uniqueness. Subtracting their PDEs then makes
+the pressure difference spatially constant; equal zero means fix it to zero.
+
+Periodicity and incompressibility are supplied by the local theory. The
+velocity mean remains its initial value: integrate the PDE over the torus;
+the divergence-form convection, pressure gradient and Laplacian integrate
+to zero. Pressure is normalized at every time. Smoothness ensures the
+needed integrability and the same identities at t=0 by right limits.
+
+For completeness, maximality can be assembled without treating a generic
+ODE theorem as a PDE theorem. Let A be the positive finite durations admitting
+a smooth physical solution from a. Local existence makes A nonempty.
+Uniqueness identifies any two such solutions on their common time interval,
+including normalized pressure. Let Tmax=sup A in the extended nonnegative
+reals. For each t<Tmax choose a member of A whose duration exceeds t and use
+its value to define u^a(t),p^a(t). Uniqueness makes this independent of choice.
+Every compact slab before Tmax is the restriction of one such solution, so
+all PDE, trace, smoothness and normalization properties hold there.
+
+Any solution extending this same path past finite Tmax would yield a duration
+in A larger than its supremum. This is the required maximality contradiction.
+No global regularity or finite-endpoint continuation is assumed here.
+
+4. FULL PHYSICAL FOURIER BUDGET AND MEASURABILITY
+
+For every smooth periodic mean-zero slice v, its actual Fourier coefficients
+decay rapidly. Thus both the unweighted and |k|^2-weighted squared coefficient
+series converge. The coefficient at k=0 vanishes. The actual-field Parseval
+identities give
+  E(v)=sum_{k != 0} |v_hat_k|^2,
+  D(v)=4*pi^2 sum_{k != 0} |k|^2 |v_hat_k|^2.               (P)
+The same normalization is supplied by the pinned physical Fourier layer.
+
+In particular, for every 0<t<Tmax,
+  D(t)=4*pi^2 Q(t),        D(t)^2=16*pi^4 Q(t)^2.
+This is an identity for the actual physical trajectory. Truncating its
+coefficients is not asserted to produce a Galerkin solution.
+
+Fix any open finite front (0,T) before or up to Tmax. Around each t0 in this
+front, choose a compact time neighborhood strictly inside the front. Joint
+smoothness gives continuous bounded fields and derivatives on its product
+with the compact cube. Parameter integration then makes E(t), D(t) and
+integral_cube |u(t)|^6 continuous locally in t. Thus these functions, Q(t),
+and the spatial L6 norm are measurable on the entire open front.
+
+There is also a strongly measurable L6-valued representative: local uniform
+spatial continuity implies continuity of t -> [u(t)] in genuine L6, since
+the L6 difference is bounded by the uniform difference on a volume-one cube.
+No endpoint bound or endpoint continuity is inferred from this local argument.
+
+Applying (P) to BUDGET gives genuine integrability and
+  MD := integral_(0,tau) D(t)^2 dt = 16*pi^4 MQ < infinity. (F)
+For a nonnegative measurable function, finite extended integral is equivalent
+to integrability; only after that fact is a real integral used. The Mathlib
+adapters are lintegral_ofReal_ne_top_iff_integrable, Integrable.mono' and
+integrable_norm_rpow_iff, with the relevant restricted time measure.
+
+5. THE TWO INDEXED FOURIER-TO-SERRIN ENDPOINTS
+
+The arbitrary-slice theorem CRITICAL_SMOOTH_L6_FOURTH_BOUND provides K>0,
+independent of the slice, such that
+  ||v||_L6^4 <= K*(9*D(v)^2+E(v)^2).
+
+The homogeneous improvement uses actual mean-zero Fourier representatives.
+The pinned energy/dissipation Parseval identities and
+criticalSobolevLower_norm_le at orders 0 and 2 give
+  E(v)=||v0||^2 <= ||v1||^2=D(v).
+Equivalently, (P) gives the sharper Poincare bound E<=D/(4*pi^2).
+The coarse E<=D is sufficient. It follows that
+  ||u(t)||_L6^4 <= 10*K*D(t)^2 = 160*K*pi^4*Q(t)^2.
+Measurability from Section 4 and domination by the full budget yield
+
+  integral_(0,tau) ||u(t)||_L6^4 dt <= 160*K*pi^4 MQ < infinity,
+  u in L4((0,tau); L6(T3)).                               (S)
+
+If C_H=10*K is named as the homogeneous constant, the coefficient is
+16*pi^4*C_H. No extra square of K occurs. This analytic implication needs
+joint local smoothness, periodicity and mean zero, but no PDE, initial trace
+or energy inequality. Those physical properties are used elsewhere.
+
+The retained inhomogeneous endpoint also remains valid. Pairing the actual
+local NSE with u and integrating by parts gives
+  E'(t)=-2*nu*D(t).
+The convection integral vanishes by incompressibility and periodicity; the
+pressure integral vanishes by the same integration-by-parts identity.
+Local differentiation under the integral is justified on compact time-cube
+products. A strong initial L2 trace implies E(t)->E(a). Thus
+  E(t)+2*nu*integral_s^t D=E(s),       0<s<=t<T,
+  0<=E(t)<=E(a).
+For finite T, the original slice inequality consequently gives
+  integral_(0,T) ||u(t)||_L6^4
+    <= K*(9*integral_(0,T) D(t)^2+T*E(a)^2).
+This retains the earlier finite-front/trace/energy development while (S)
+removes the unnecessary bounded-energy term for mean-zero fields.
+
+6. ACTUAL ENSTROPHY ESTIMATE AND FINITE-ENDPOINT CONTINUATION
+
+All calculations below are first on compact slabs [0,b] with b<Tmax. The
+local solution is smooth there. Pair the actual NSE with -Delta u. Periodic
+integration by parts and div u=0 cancel the pressure term and give
+  (1/2)D'(t)+nu*Z(t)
+      = integral_cube ((u dot grad)u) dot Delta u.
+
+Holder with exponents (6,3,2), homogeneous periodic Sobolev and interpolation
+give
+  |integral ((u dot grad)u) dot Delta u|
+      <= ||u||_6 ||grad u||_3 ||Delta u||_2
+      <= C D^(1/2) D^(1/4) Z^(1/4) Z^(1/2)
+       = C D^(3/4) Z^(3/4).
+The gradient interpolation follows from L2/L6 interpolation. Each spatial
+derivative has mean zero; apply periodic Sobolev to it. Summing the component
+estimates and using ||grad^2 u||_2^2=||Delta u||_2^2 gives the displayed bound.
+The last identity follows by two periodic integrations by parts, or by
+sum_{i,j} k_i^2 k_j^2=|k|^4 in Parseval.
+
+Young's inequality with exponents 4/3 and 4 yields
+  C D^(3/4) Z^(3/4) <= (nu/2) Z+C' nu^(-3)D^3.
+After multiplying by 2, fix C_* > 0 and obtain the physical inequality
+  D'+nu Z <= kappa D^3,       kappa=C_*/nu^3.              (E1)
+This derives the actual-field premise needed by the indexed scalar cubic
+budget theorem; that scalar theorem alone would not establish (E1).
+
+Suppose 0<T*<infinity is the maximal endpoint and
+  M=integral_(0,T*) D^2 < infinity.
+For t<T* define A(t)=kappa*integral_0^t D^2. Multiplying (E1) by exp(-A)
+and differentiating gives
+  (exp(-A)D)' +nu exp(-A)Z <= 0.
+Integrate on [0,t] and multiply by exp(A(t)). Since A is nondecreasing,
+  D(t)+nu*integral_0^t Z <= D(0) exp(A(t))
+                          <= D(0) exp(kappa M).          (E2)
+Indeed, the weighted Z integrand after multiplication has the factor
+exp(A(t)-A(s))>=1. No division by D is used, including when D(0)=0.
+
+The energy identity gives E(t)<=E(0). Hence, using the physical H1 norm,
+  ||u(t)||_H1^2 <= E(0)+D(0) exp(kappa M)=:R^2, t<T*.
+A fixed norm-equivalence factor can be absorbed into R for the convention
+of [L1]. The bound is uniform all the way to the endpoint from below; no
+value or continuity at T* has been assumed.
+
+Section 3 supplies the same positive restart length h(nu,R) for every slice
+u(s), s<T*. Choose 0<s<T* so close that T*-s<h/2. Restart from the smooth
+slice u(s). The new physical solution exists on [s,s+h], including times
+beyond T*. Uniqueness identifies it and its normalized pressure with the
+old solution on every compact portion of [s,T*). Therefore they agree on
+their whole overlap. Splice strictly inside that overlap: all derivatives
+and PDE identities match locally, producing an extension past T*.
+
+This contradicts maximality. We have proved, at B-tier,
+  finite Tmax => integral_(0,Tmax) D(t)^2 dt = infinity,
+or equivalently by (P), divergence of the full squared Fourier budget at
+a finite maximal endpoint. This is a same-trajectory continuation result.
+
+The source-level counterpart still requires physical local H1 theory and
+the actual-field enstrophy adapter in Lean. Fixed-cutoff ODE existence,
+a continuation certificate assumed as an input, or a globally quantified
+regular-solution record is not a substitute for these mathematical steps.
+
+7. STRICT OVERLAP WITH THE EXACT QFB CUTOFF
+
+First assume a!=0. Smoothness and periodicity imply ||a||_L2>0: if the norm
+were zero, a would vanish almost everywhere on the cube, then everywhere
+by continuity and periodicity. Thus Tf>0, and tau>0 because Tmax>0.
+
+If Tmax were finite and Tmax<=Tf, then tau=Tmax. Formula (F) supplies the
+finite endpoint budget used in Section 6, contradicting maximality.
+In particular, Tmax=Tf is excluded by continuation, not by a tail theorem
+that applies only strictly after Tf. Consequently
+  Tf < Tmax.                                               (O)
+
+Choose finite real times
+  Tf < delta < s < Tmax.
+Such times exist whether Tmax is finite or infinite. The extended-real
+formal helper is ENNReal.lt_iff_exists_real_btwn; ordinary intermediate
+real times suffice mathematically. There is no requirement Tmax>2*Tf.
+
+8. ACTUAL WEAK DATUM AND ONE FIXED GLOBAL LERAY-HOPF PATH
+
+Let a2=physicalFieldL2(a), the genuine physical L2 equivalence class. The
+indexed representative and norm identities give
+  a2=a almost everywhere on the cube,       ||a2||_2^2=E(a).
+For every smooth periodic scalar test phi, periodic integration by parts
+and div a=0 give integral a dot grad phi=0. This is exactly the arbitrary
+physical-field cancellation in critical_smooth_integral_inner_gradient_eq_zero.
+The pairing transfers to a2 by a.e. equality. Pairing with a coordinate
+unit vector gives the corresponding component of integral a=0. Thus
+  SmoothSigmaZero(a) -> EnergySigmaZero(a2).
+
+The actual norm identity also identifies the cutoff, without rescaling it:
+  cutoff(a2,nu)=||a2||_2^4/(8*pi^2*nu^5)=Tf(a,nu).
+The nonzero physical class assertion follows from the same continuity and
+periodicity argument as in Section 7, or the indexed Fourier injectivity.
+
+Apply Q01_LERAY_HOPF_EXISTENCE to nu>0 and EnergySigmaZero(a2). It provides
+one pair (v,G) satisfying CriticalLerayHopf nu a2 v G. Fix this pair for all
+remaining comparisons and tail applications. Q01 supplies actual weak
+existence; it is not an additional assumed existence certificate.
+
+In particular, v has the strong initial L2 trace to a2, weak L2 continuity,
+the actual weak momentum equation, spatial weak H1 structure almost every
+time, and the initial and interval energy inequalities. The interval
+inequality holds for almost every starting time and every subsequent time
+in each finite slab. These are explicit fields of the indexed predicate.
+
+9. FINITE-FRONT WEAK-STRONG IDENTIFICATION
+
+Fix a finite 0<b<Tmax and choose b<b'<Tmax. Smoothness up to time zero gives
+  L_b=sup_{0<=r<=b, x in cube} ||grad u^a(r,x)||_op < infinity.
+Let z=v-u^a in physical L2 and H=G-grad u^a. For every admissible energy
+starting time 0<s<=t<=b, the relative-energy estimate is
+
+  ||z(t)||_2^2+2*nu*integral_s^t ||H||_2^2
+    <= ||z(s)||_2^2
+       -2*integral_s^t integral_cube z_i z_j partial_j u_i^a
+    <= ||z(s)||_2^2+2*L_b*integral_s^t ||z(r)||_2^2 dr.    (RE)
+
+Here is the localized derivation; no global smooth reference is assumed.
+Choose a smooth time cutoff eta, equal to one on [0,b] and zero on a
+neighborhood of [b',infinity). Define the positive-time weak test eta*u^a
+on its local domain and zero beyond its support. The result is an admissible
+smooth periodic solenoidal test. Its extension is used only as a test, never
+as an NSE solution outside the front.
+
+On [s,t], the weak momentum identity and the actual equation for u^a yield
+  <v(t),u^a(t)>-<v(s),u^a(s)>
+    = -2*nu*integral_s^t integral G:grad u^a
+      +integral_s^t integral (v_i v_j-v_i u_j^a) partial_j u_i^a.
+Weak incompressibility cancels the pressure pairing; weak gradient
+integration by parts gives integral v dot Delta u^a=-integral G:grad u^a.
+The nonlinear term equals integral z_i z_j partial_j u_i^a because the
+remaining integral is z dot grad(|u^a|^2/2)=0 by weak incompressibility.
+
+Add v's interval energy inequality and u^a's energy equality, and subtract
+twice the cross identity. Expanding the squared norms gives the first line
+of (RE). The operator-norm bound gives its second line. All these integrals
+exist: weak velocities are in the finite-time energy class, gradients are
+time-L2, and the strong reference and its derivatives are bounded on the
+compact slab. No totalized-integral cancellation is used.
+
+Choose admissible s_n decreasing to zero from the full-measure set supplied
+by the interval energy inequality. The two strong initial traces imply
+||z(s_n)||_2 -> 0. Integral Gronwall applied to (RE) gives, for each t in(0,b],
+  ||z(t)||_2^2 <= ||z(s_n)||_2^2 exp(2*L_b*(t-s_n)) -> 0.
+This version uses the integral inequality for every t and local integrability;
+it does not require assumed strong continuity of v at every time.
+
+At t=0 the same equality is the initial condition. Since b<Tmax is arbitrary,
+  for every 0<=t<Tmax, v(t)=u^a(t) almost everywhere on the cube. (ID)
+
+This proves the required localization of weak-strong uniqueness. The existing
+comparison theorem whose reference is already global is not applied with an
+unsatisfied hypothesis. Compact-front bounded gradients suffice here; a
+whole-front Serrin assumption is unnecessary for this identification step.
+
+10. SAME-PATH QFB TAIL AND NORMALIZED-PRESSURE GLUING
+
+For the fixed v,G of Section 8 and delta>Tf, apply the indexed theorem
+Q09_POST_CUTOFF_SMOOTHNESS. Its exact conclusion is HasSmoothTail nu v delta:
+there exist w,q satisfying ClassicalTail nu delta w q and
+  for every t>=delta, v(t)=w(t) almost everywhere on the cube.
+The tail has actual joint velocity and pressure smoothness on [delta,infinity),
+periodicity, divergence zero, the physical NSE and both zero-mean conditions.
+The theorem applies to the supplied weak path v, not an unrelated replacement.
+
+Together with (ID), this gives u^a(t)=w(t) a.e. in space for delta<t<Tmax.
+Both spatial fields are continuous and periodic. Equality a.e. implies equality
+on the cube interior by continuity, then on the boundary by continuity, and
+on all R3 by periodicity. Equivalently, transfer the actual Fourier coefficients
+and use datumFourierCoeff_injective_continuous_periodic. Hence u^a=w as joint
+functions on the open overlap (delta,Tmax) times R3.
+
+Their actual spacetime derivatives agree there. Subtracting the two NSE
+equations yields grad_x(p^a-q)=0. Connectedness of R3 makes the pressure
+difference spatially constant at each such time. Its cube mean is zero, so
+the constant is zero. Thus p^a=q pointwise on the same open overlap.
+
+Choose s as in Section 7. For t>=0 define
+  U(t)=u^a(t), P(t)=p^a(t) if t<=s;
+  U(t)=w(t),   P(t)=q(t)   if t>s.
+Give these fields arbitrary values at negative times; the physical contract
+and all derivatives at t=0 are restricted to the nonnegative half-line.
+
+Choose r>0 with (s-r,s+r) contained in (delta,Tmax). On this neighborhood the
+two formulas equal the same smooth pair, so the glued pair is jointly smooth
+through the seam. Near zero it equals the original local pair on a full
+relative neighborhood of forward spacetime, preserving initial smoothness
+and the right time derivative. Away from the seam, smoothness and the PDE
+are inherited from the corresponding local pair. This is the mathematical
+locality principle behind contDiffOn_of_locally_contDiffOn.
+
+Every required GlobalSmoothNSE field is now obtained:
+  velocity_smooth; pressure_smooth;
+  velocity_periodic; pressure_periodic;
+  divergence_free; equation at every t>=0;
+  initial U(0)=a; velocity_mean_zero; pressure_mean_zero.
+Smooth periodic fields are integrable on the compact cube, so the explicit
+integrability clauses in both mean-zero predicates are also satisfied.
+
+Therefore there exist U,P with SingularClosure.GlobalSmoothNSE nu a U P.
+For 0<=t<Tmax they agree with the original trajectory: by definition before
+s and by overlap equality after s. The same statement holds for pressure.
+If Tmax had been finite, this global pair would extend it, contradicting
+maximality. Thus Tmax=infinity as well.
+
+11. ROOT ASSEMBLY AND EDGE CASES
+
+(i) a=0. Then Tf=tau=0, and BUDGET is vacuous. The explicit U=0,P=0 pair
+    satisfies GlobalSmoothNSE by globalSmoothNSE_zero. Local strong uniqueness
+    identifies the original maximal solution with it on every compact front.
+    Normalized pressure is zero; maximality gives Tmax=infinity.
+
+(ii) a!=0 and finite Tmax<=Tf. Then tau=Tmax, (F) supplies the finite endpoint
+     enstrophy-square integral, and Section 6 contradicts maximality. This
+     includes equality Tmax=Tf.
+
+(iii) a!=0 and Tf<Tmax<infinity. Sections 8-10 identify the weak path, obtain
+      its tail, and glue a global smooth extension, again contradicting finite
+      maximality. This case does not need a budget beyond Tf.
+
+(iv) Tmax=infinity. Every finite slab of the original pair is smooth with all
+     physical properties. Locality gives GlobalSmoothNSE directly on forward
+     spacetime. The construction in Section 10 is consistent with the same pair.
+
+All possibilities have been covered. The theorem of Section 2 follows from
+BUDGET, the stated datum/viscosity hypotheses, the indexed Q01/Q09 theorems,
+and the classical local theory [L1]. No continuation or regularity certificate
+has been added as a premise, and no universal finiteness claim has been made.
+
+12. TEN-ENDPOINT STATUS REGISTER
+
+01 Local-front Fourier -> Serrin:
+   B-tier complete; Sections 4-5 retain the energy/trace route.
+   Lean: original LocalFront failed; prepared repair awaits matching evidence.
+02 Homogeneous Fourier -> Serrin:
+   B-tier complete; Section 5 gives the quantitative actual-field bound.
+   Lean: HomogeneousBudget's ten endpoints prepared, external pass pending.
+03 Physical local existence:
+   B-tier supplied by [L1], with viscosity/pressure/mean specialization.
+   Lean: corresponding physical local H1 development/adapter still required.
+04 Local strong uniqueness:
+   B-tier supplied by local H1 theory and explicitly localized relative energy.
+   Lean: finite-front physical wrapper and pressure identification required.
+05 Maximal same-path trajectory:
+   B-tier constructed by unique patching and supremum in Section 3.
+   Lean: lifetime representation, compatible restrictions and maximality required.
+06 Physical finite-endpoint continuation:
+   B-tier proved by actual enstrophy estimate, integrating factor and restart.
+   Lean: actual-field estimate and bounded-H1 physical restart theorem required.
+07 Strict cutoff overlap:
+   B-tier complete, including equality Tmax=Tf and infinite lifetime.
+   Lean: assemble after the continuation/maximality theorem.
+08 Leray-Hopf identification:
+   B-tier complete; Q01 already supplies weak existence, Sections 8-9 supply
+   the datum adapter and finite-front same-path comparison.
+   Lean: those new wrappers/localization remain to be built.
+09 Same-path tail and pressure gluing:
+   B-tier complete from Q09 and explicit open-overlap argument, Section 10.
+   Lean: pointwise/gauge/smooth gluing and all contract fields remain to be built.
+10 Weak_Fourierman_B root:
+   B-tier conditional criterion composed, all cases covered, Section 11.
+   Lean: root declaration, build, exact type check and axiom audit pending.
+
+13. INDEXED SOURCE AND PROVENANCE REGISTER
+
+Pinned Methboke repository: randogelist/Methboke
+  43530b70d044624cbf83a3480840187a567549a5
+Vendored Methlib provenance:
+  96033dd69c994bec337a87369a6c27256e724980
+Additional inspected Methlib snapshot, not substituted into the environment:
+  4813604a46179c745b82f51bee51a186e9f4cc2d
+Pinned Mathlib:
+  db584cd6d46c92f209a44c0f1c829460d327499d
+Existing external compiler:
+  Lean 4.33.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17
+
+All Methboke paths below are under Material/_vendor/ at the pinned revision.
+Status of these entries: inspected exact source interfaces/proof bodies and
+retained index evidence; no new local compiler or fresh audit was executed.
+
+SingularClosure/Contracts.lean:
+  SmoothSigmaZero; GlobalSmoothNSE; globalSmoothNSE_zero.
+  Role: actual datum, four-argument physical conclusion, zero-case witness.
+SingularClosure/CriticalCubeL2.lean:
+  physicalFieldL2; physicalFieldL2_coe; physicalFieldL2_norm_sq.
+  Role: genuine physical L2 equivalence class and exact norm identity.
+SingularClosure/CriticalSmoothCancellation.lean:
+  critical_smooth_integral_inner_gradient_eq_zero.
+  Role: arbitrary smooth periodic solenoidal-field cancellation.
+QuasiFeffermanB/MeanPreservation.lean:
+  physical_inner_congr_left_ae.
+  Role: transfer actual-field pairings to the physical L2 representative.
+QuasiFeffermanB/Semantics.lean and Cutoff.lean:
+  EnergySigmaZero; cutoff; CUTOFF_NONNEG; CUTOFF_POS; CUTOFF_ZERO.
+  Role: exact weak-data admission and the unchanged time cutoff.
+QuasiFeffermanB/Endpoints/LerayHopfExistence.lean:
+  Q01_LERAY_HOPF_EXISTENCE.
+  Role: existence of an actual global CriticalLerayHopf path from admitted data.
+QuasiFeffermanB/TailChain.lean:
+  Q09_POST_CUTOFF_SMOOTHNESS.
+  Role: actual smooth normalized-pressure tail for the supplied weak path,
+        at every real delta strictly above the exact cutoff.
+QuasiFeffermanB/RootContract.lean:
+  ClassicalTail; HasSmoothTail.
+  Role: exact every-time spatial-a.e. tail identification and physical fields.
+SingularClosure/CriticalSmoothEnergyNorm.lean and CriticalSmoothParseval.lean:
+  critical_smoothFourierSynthesis_energy_eq_norm_sq;
+  critical_smoothFourierSynthesis_dissipation_eq_norm_sq.
+  Role: actual physical/Fourier norms, with order-2 interpreted as H1.
+SingularClosure/CriticalSpacesEmbedding.lean:
+  criticalSobolevLower_norm_le.
+  Role: actual mean-zero energy bound E<=D.
+SingularClosure/CriticalSerrinTime.lean:
+  CRITICAL_SMOOTH_L6_FOURTH_BOUND.
+  Role: arbitrary-slice L6 estimate with original constant K.
+SingularClosure/CubicBudget.lean:
+  CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL;
+  CUBIC_POSITIVE_TIME_ACCUMULATION.
+  Role: scalar model for (E2); actual physical (E1) derived separately here.
+SingularClosure/CriticalLerayHopf.lean:
+  CriticalLerayHopf, especially momentum, strong_trace and energy_intervals.
+  Role: exactly the assumptions used in the localized comparison.
+SingularClosure/CriticalLocalUniqueness.lean:
+  CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE.
+SingularClosure/CriticalUniqueness.lean:
+  CRITICAL_COMPARISON_EQ_OF_ADMISSIBLE_TRACE.
+  Role: indexed scalar/trace proof components, not automatic physical adapters.
+SingularClosure/CriticalInitialPhysicalFourier.lean and PeriodicFourierInjective.lean:
+  criticalCube_datumFourierCoeff_congr_ae;
+  datumFourierCoeff_injective_continuous_periodic.
+  Role: continuous-periodic a.e.-to-pointwise equality.
+
+Mathlib paths at the pinned revision:
+  Mathlib/MeasureTheory/Function/L1Space/Integrable.lean:
+    Integrable.mono'; integrable_norm_rpow_iff;
+    lintegral_ofReal_ne_top_iff_integrable.
+  Mathlib/Data/ENNReal/Basic.lean:
+    ENNReal.lt_iff_exists_real_btwn.
+  Mathlib/Analysis/Calculus/ContDiff/Defs.lean:
+    contDiffOn_of_locally_contDiffOn.
+These are composition primitives; none asserts physical NSE continuation.
+
+Reference bases, with file paths above appended:
+  https://github.com/randogelist/Methboke/blob/43530b70d044624cbf83a3480840187a567549a5/Material/_vendor/
+  https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/
+
+Historical Q01 audit location:
+  https://github.com/randogelist/Methboke/blob/43530b70d044624cbf83a3480840187a567549a5/audits/material-73c2e98/audits/QFBLerayHopf-b3be6a297bab0ebe2efe14b5c171dd5a70952861c1716c62b124e1c0a482dab1.log
+That retained audit prints the actual Q01 type and standard axioms only.
+It is historical dependency evidence, not a new WFB root audit.
+
+The detailed ten-endpoint source map remains
+  WEAK_FOURIERMAN_B_TEN_ENDPOINT_SOURCE_MAP_v0_1.md.
+This cumulative document supersedes its mathematical missing-edge status
+where Sections 3 and 6 now provide classical B-tier derivations. Its claims
+about missing Lean implementations remain applicable.
+
+14. EXTERNAL BUILD EVIDENCE AND REMAINING FORMAL WORK
+
+Latest supplied diagnostic: 20261119T034237Z-yqfcoqmc.
+  Whole build: BUILD_FAIL, exit=1.
+  Failed module: MethbokeAddon.WeakFouriermanB.LocalFront.
+  PhysicalFourier: 13 endpoints, COMPILE_PASS, reused=true, PASS_STANDARD_ONLY.
+  Repaired FourierBudget: 5 endpoints, same accepted cached status.
+  baseline_objects_unchanged=true; preservation_error=null.
+  LocalFront original: failed. Narrow source repair prepared, no matching pass.
+  HomogeneousBudget: ten endpoints prepared, no supplied matching pass.
+
+Recorded timings in seconds:
+  CLI total                         448.786
+  addon compilation                 402.652
+  baseline validation                43.795
+  worker total                      446.922
+  reuse including cached audit        0.005
+  dependency headers                  0.229
+  export                              0.977
+These are the user's existing external measurements. This B-tier composition
+performed no compiler run and produces no new CLI/build benchmark.
+
+The prepared LocalFront repair explicitly types the pointwise three-term
+measurability sum and qualifies all five ambiguous pressure gradients as
+SingularClosure.gradient. Its 29 theorem/audit pairs are unchanged.
+  Original source SHA256:
+    b57db190eff7b05b9457b4794a75adc29740ae7fa17ebd5ae7da3a04093b644f
+  Prepared repair source SHA256:
+    43f6d02ac5b9e62d9a3a6486fb84b418dcd65eed09e853eea15b2e2345973c31
+The existing repair ZIP and local Docker workflow were not changed here.
+
+The ten HomogeneousBudget candidate theorem names remain:
+  meanZero_datumFourierCoeff_meanZero
+  smooth_periodic_meanZero_energy_le_dissipation
+  SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH
+  homogeneousL6FourthConstant_pos
+  homogeneousL6FourthConstant_bound
+  homogeneous_l6_fourth_integrable_of_dissipation_square
+  homogeneous_serrin_of_dissipation_square
+  homogeneous_dissipation_square_integrable_of_fourier_budget
+  homogeneous_physical_fourier_budget_to_serrin
+  local_homogeneous_fourier_budget_to_serrin
+Their namespace is MethbokeAddon.WeakFouriermanB. Prepared source with #check
+and #print axioms directives is not matching external acceptance evidence.
+
+Remaining formal work, in dependency order:
+  accept repaired LocalFront and HomogeneousBudget in a matching external run;
+  formalize/reuse genuine physical periodic H1 local theory and pressure;
+  build unique maximal trajectory and actual enstrophy/restart adapters;
+  build smooth-data admission and finite-front weak-strong comparison;
+  build overlap, normalized-pressure equality and all-field gluing;
+  assemble the exact WFB root and check its complete type and axiom inventory.
+
+No mathematical edge is left unresolved in the present B-tier implication
+relative to the explicitly cited classical local theory and indexed Q01/Q09
+theorems. The substantial Lean developments listed above remain unfinished.
+No local Lean/Lake execution, Docker operation, kernel audit, external job
+dispatch, repository mutation, or installed-payload mutation was performed.
+No new A-tier endpoint or root-pass signal is issued.
+
+15. REPOSITORY ACTIVATION AND FORMAL OBSTRUCTION REGISTER (2026-11-19)
+
+The four exact prepared source modules are now registered in Material with
+57 fresh declaration audit requirements; external acceptance remains pending.
+The first fourteen sections describe the preceding B-tier derivation round.
+The current implementation changes source/audit registration and CI policy; it
+does not change the mathematical implication or its explicit finite-budget premise.
+
+FIRST BLOCKED FORMAL EDGE: WFB-03, physical local H1 existence.
+CAUSE: finiteGalerkinRhs_uniform_local_time permits delta to depend on cutoff N;
+fourierSobolevRhs maps H^(r+2) into H^r, so same-space Picard-Lindelof does not
+discharge infinite-dimensional physical existence.
+UNRESOLVED REQUIREMENT: a genuine cutoff-uniform local solution construction
+with normalized pressure, physical regularity and norm-controlled lifespan,
+or a matching existing formal theorem. Downstream root assembly stops here.
+
+SEPARATE R0 BLOCKED ADAPTER: finite-front weak-strong comparison.
+The indexed CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON still assumes smoothness
+and NSE for all positive times. A finite-window conclusion alone does not
+remove those premises; finite-front localization must be proved.
+
+The independent prepared SmoothDatum source supplies candidate input admission
+and Q01 weak-existence helpers only. It does not discharge these obstructions,
+complete WFB-08, or promote any theorem. No local Lean execution occurred.
+
+The independent SmoothDatum helper has subsequently been registered for external
+verification with7 fresh audits. Its actual weak-datum admission is not strong
+trajectory identification. WFB-03 and the finite-front comparison edge retain
+the exact obstruction status above; no root conclusion is promoted.
+
+16. MATCHING ACCEPTANCE OF THE TWO FOURIER BRIDGES (2026-11-19)
+
+Run44537934256, commit0402aa37ea09f90a216e63e5fe67c3f58bb2b844, accepted
+WFB-01 local_front_fourier_budget_to_serrin and WFB-02
+local_homogeneous_fourier_budget_to_serrin with their exact premises and only
+propext, Classical.choice, Quot.sound. All57 new declaration audits and41
+baseline audits plus cutout ran freshly; all283 baseline objects were reused.
+Receipt/evidence review is recorded in audits/material-0402aa37/summary.json.
+This promotes precisely the two conditional bridges. WFB-03 and the remaining
+root chain retain their explicit formal obligations; no universal finiteness
+or global-root theorem follows from this package pass.
+
+17. FINITE-FRONT LOCALIZATION IMPLEMENTATION (prepared, not yet A-tier)
+
+Actual local velocity u is used to build a globally smooth solenoidal weak test
+phi(r,x)=u(rho(r),x), where rho maps positive times inside the front and is the
+identity through the chosen shorter horizon and near zero. This extends a
+test, not an NSE solution. NSE and pressure are used only on the actual finite
+integration window. The prepared cross/relative-energy/Gronwall chain identifies
+that same original LH trajectory under actual compact Serrin bounds.
+The accepted Fourier-budget bridge supplies an alternative explicit sufficient
+premise. Source declarations remain candidates until matching external audits.
+No local H1 existence, maximal extension or global gluing is concluded here.
+
+18. FINITE-FRONT ACCEPTANCE AND R0 CLOSURE SOURCE (2026-11-19)
+
+The localization implementation in section17 passed at67f7663/run44540921991
+with120 fresh declaration audits and standard axioms only. This proves the
+explicit finite-front comparison implication; it does not construct the front.
+
+The independent fixedR0 source now derives all analytic adapters from a genuine
+initial classical cap H on[0,T), with nu>0 and tau_Q(a,nu)<T:
+1. Restrict smoothness at t=0 to derive the smooth admissible datum.
+2. Compact dominated integration of |u(t)-a|^2 gives the actual strongL2 trace.
+3. Compact-cylinder bounds give actual L4_tL6_x on every shorter cylinder.
+4. Q01 gives the original LH path; the accepted comparison identifies it.
+5. Set delta=(tau_Q+T)/2, so0<delta<T andtau_Q<delta.
+6. Original Q09 supplies an actual normalized smooth tail of that same path.
+7. Continuous-periodic Fourier injectivity upgrades ae overlap to pointwise
+   velocity equality. Local time-derivative equality and the two NSE equations
+   give pressure-gradient equality. Derivative-zero constancy and literal
+   zero cube means give normalized-pressure equality.
+8. Splice at eta=(delta+T)/2. Neighborhood agreement proves every physical
+   GlobalSmoothNSE field, including timezero and both mean normalizations.
+9. Actual analyticity through zero restricts to the required classical cap.
+
+The root concludes global smooth continuation preserving the entire supplied
+cap. The actual finitecap and strict cutoff remain explicit; neither universal
+R1 nor arbitrary-data Fourierbudget finiteness is asserted. Its complete
+prepared source/audit graph awaits the next matching external compiler run.
+
+19. R0 EXTERNAL FEEDBACK; LITERAL D_Q ADAPTER PREPARED
+Run44543421609 at0ddd2d67 stopped before root audits on two syntactic proof
+rewrites. Corrections preserve statements; retained evidence records failure.
+The exact two-sided analytic cap and D_Q subset R_nu adapter are now prepared.
+The zero branch is explicit, nonzero cutoff positivity is derived, and actual
+analytic admission remains the premise. No universal WFB or R1 closure.
+
+R0_RECHECK_44545010863:
+Atc6e039da the gluing and pressure corrections compiled;311 modules passed,
+including303 reused baseline objects. The only direct failure was the strong
+initial-trace proof: two filter-membership field projections and one unexpanded
+composition. Typed eventual bounds and Function.comp_def now correct these
+expressions without changing statements. Required audits were not reached,
+recovery was skipped, and no accepted cache was replaced. Evidence:
+audits/material-c6e039da-failed/summary.json. Full321/33/161 recheck pending.
+
+R0_RECHECK_44547124107:
+Atd2c0259 ALL321 modules compiled;303 accepted objects were reused and18
+compiled.19 audit packages passed, including the exact D_Q and classical/
+two-sided analytic roots, but the required pressure audit failed because its
+open command named an unused namespace absent from its imports. The repair
+removes that namespace only. All9 pressure signature assertions, type/axiom
+sentinels and proof sources are unchanged. No aggregate acceptance or cache
+publication yet. Recovery correctly skipped. Evidence:
+audits/material-d2c0259-failed/summary.json. Full321/33/161 recheck pending.
+
+R0_MAIN_GOAL_ACCEPTED_2026_11_19
+The separate fixed finite-cap goal is now A-tier at93ca8a57536512556ec36717ee933ea52db283bf,
+run44549257770: forallnu>0, D_Q(nu) subset R_nu(nu), with the literal two-sided
+analytic NSE cap and explicit zero branch. Classical cap and normalized-pressure
+preservation also passed.321modules,33freshpackages/161declarations+cutout,
+183controls, standardaxiomsonly. Evidence: audits/material-93ca8a5/summary.json;
+exactscope: FINITE_CAP_ADMISSION_A_TIER.txt. Actualcap admission remains the
+premise. This does not promote the full WFB root or another whole WFB obligation:
+WFB-01/02 remain accepted; WFB-03 andR1 remain unresolved. Earlier failed R0
+attempts are historical and did not replace the accepted cache.
+
+20. SOURCE-GROUNDED ROUTE INDEX AFTER ACCEPTED R0 (2026-11-19)
+
+CURRENT FORMALIZATION INVENTORY:
+  WFB_ROUTE_ANCHOR_INDEX_B_TIER.txt
+  PREPRINT_FORMALISATION/WeakFouriermanB/ANCHOR_INDEX_v0_2.json
+The new index records 126 unique Mathlib/Methlib/Methboke source anchors:
+33 have matching named fresh type/axiom audits at93ca8a5;67 have compiled
+module receipts but no separate current named audit;26 are pinned Mathlib
+source-only primitives. Exact premises, source revisions/lines, provenance,
+hashes, receipt/audit evidence and exclusions are retained in the JSON.
+
+The remaining route is indexed as ten work packages, separate from the
+original ten contextual WFB obligation IDs:
+R01 physical H1-controlled local existence -> R02 pressure/trace/persistence;
+R03 actual local uniqueness -> R04 unique maximal path;
+R05 actual physical enstrophy -> R06 nonlinear cubic inequality;
+R07 full squared budget -> uniform H1;
+R08 uniform restart/finite-endpoint continuation;
+R09 strict tau_Q<Tmax including equality;
+R10 accepted classical R0 -> global solution preserving the whole original path.
+
+FIRST BLOCKED FORMAL EDGE remains R01/WFB-03. The available local ODE time
+may depend on Fourier cutoff N, and the Sobolev RHS loses two derivatives.
+No complete physical H1-controlled local existence theorem was found in the
+pinned closure. Generic finite-window Galerkin compactness without AX6 is
+available, but its uniform local bounds and physical smooth realization must
+be constructed. Downstream entries are prospective; the formal derivation
+stops at this first unresolved edge. This does not alter the existing
+mathematical B-tier composition relative to the cited classical local theory.
+
+R03 can reuse one fixed original Q01 path, accepted identification and pressure
+uniqueness; pressure equality at zero needs continuity. R05/R06 can be developed
+conditionally on actual fronts. R07 must use scalar z=||Delta u||_2, not its
+square, and only compact slabs strictly before Tmax. R08 requires finite-front
+restart gluing: the accepted global-tail splice is not directly that theorem.
+R09 rules out Tmax=tau_Q by continuation. R10 invokes the accepted classical
+cap root, not the stronger two-sided analytic D_Q admission, and fixes one
+global witness for agreement on the entire maximal trajectory.
+
+No new A-tier endpoint, whole WFB obligation, universal budget or R1 result.
+Only WFB-01/02 retain whole-obligation acceptance. R0 remains accepted at
+93ca8a5/run44549257770. No local Lean/tests or new external run occurred.
+
+21. WFB MAIN-GOAL IMPLEMENTATION
+
+WFB_LOCAL_THEORY_LAYER_1_PREPARED_2026_11_19
+The user explicitly identifies WFB as the main goal and authorizes sustained
+implementation, largest open gap first, with independent work between commits
+and external runs. This supersedes the former supporting-workstream role.
+The exact WFB conclusion retains the finite full Fourier-square budget; no
+universal budget bound or universal analytic germ-extension claim is added.
+Accepted R0 remains a reusable foundation, not the current main target.
+
+Seven new owned modules provide40 public theorem candidates: a scalar cubic
+short-time barrier; cutoff-uniform actual Galerkin H1/H2 estimates; local
+all-order/RHS/time-modulus bounds; genuine finite-window compactness; actual
+local classical velocity/pressure uniqueness including0; physical time
+translation; arbitrary-field Hessian/nonlinear/absorption estimates.
+The square budget in the local Galerkin construction is derived, not assumed.
+The explicit lifespan is1/(16*(C/nu^3+1)*(R+1)^2), withR an upper bound for
+initial physicalDissipation. It is independent of cutoff and higher norms.
+The final physical solution construction still needs its limit/recovery layer.
+
+Prepared external scope:335 compiled modules (269 vendor+26owned+40wrappers),
+40 fresh endpoint packages,201 declaration type/axiom audits plusQFBcutout.
+All321 accepted module inputs are unchanged and eligible forcompatible reuse.
+All previously required audits rerun freshly. Compiler,dependencylock,Lake,
+CI drivers,cachecompatibility policy andvendor bytes remain unchanged.
+No local Lean,Lake,kernel audit orproject tests. No new acceptance signal.
+OnlyWFB-01/02 currentlywhole-obligation accepted;WFB04uniqueness is a candidate
+pendingmatchingexternalverification. The completeWFBroot remains unverified.
+Nextindependentpreparation: finite-windowSobolevlimit/physicalrecovery and
+uniformphysicalexistence, maximaltrajectory, finite restartgluing, physical
+enstrophytimeidentity, budgettouniformH1, strictcutoff andR0rootassembly.
+
+22. FULL SOURCE CHAIN, EXACT PHYSICAL CONTINUATION AND VERIFICATION BOUNDARY
+
+WFB_FULL_CHAIN_PREPARED_2026_11_19
+The largest gap now has a complete source candidate: a cubic barrier gives
+cutoff-uniform local Galerkin bounds, all-order compactness yields an actual
+Sobolev flow, and physical recovery constructs a normalized classical NSE front
+with duration controlled only by viscosity and the physical H1 bound. The
+local square budget is derived; no AX6 or local-existence premise is retained.
+
+Actual-front uniqueness fixes one maximal velocity/pressure pair. Finite
+restart gluing gives uniform-H1 continuation. The physical enstrophy derivative
+and arbitrary-field nonlinear estimate yield a common H1 bound from the whole
+open-interval integral of actual dissipation squared. A literal physical-budget
+extension theorem preserves the entire original velocity and pressure.
+
+The Fourier budget up to min(Tmax,cutoff) supplies that integral. If Tmax is at
+most the cutoff, including equality, continuation contradicts finite maximality.
+Thus cutoff<Tmax. Accepted classical R0 then yields one global smooth pair
+preserving the whole maximal trajectory, and maximality gives Tmax=infinity.
+The exact root is MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B.
+Separate contextual adapters retain one original Leray-Hopf witness through
+all pre-endpoint intervals, Q09, normalized tail overlap and global gluing.
+
+22 new owned modules / 104 public theorem candidates since accepted R0 are now
+registered: 365 compiled modules = 269 vendor + 41 owned + 55 wrappers;
+55 fresh endpoint packages / 265 declaration audits plus fresh QFB cutout.
+All 321 accepted module sources remain unchanged. Compiler, Mathlib, vendor,
+Lake, dependency lock, CI and cache drivers remain unchanged. No local Lean.
+
+First external attempt 4bd466f1 / run44560978167 failed at three proof
+expressions: addition order, explicit Ici positivity, and scalar zero after
+vector extensionality. All three repairs preserve statements. Native cached
+verification reached those failures after container OOM fallback; required
+audits were not reached. Evidence: audits/material-4bd466f1-failed/summary.json.
+The complete prepared chain requires matching external compiler/type/axiom
+verification. Only WFB-01/02 are currently whole-obligation accepted. No new
+acceptance sign, universal budget bound or universal analytic extension follows.
+
+
+WFB_FULL_CHAIN_COMPILER_FEEDBACK_8318b7a6
+External run44564405380:343 modules passed (321 reused,22 fresh), three modules
+failed and19 were blocked by dependencies. All three earlier source repairs
+compiled. New failures are explicit neighborhood/filter notation in local
+Sobolev recovery, calculus expression normalization in physical enstrophy,
+and the qualified namespace of WeakGradientTrajectory in maximal identification.
+Corrections preserve theorem statements. No required audits were reached;
+no new contextual obligation or root is accepted. Scope remains365 modules,
+55 fresh packages and265 declarations plus QFB cutout. Accepted93ca8a5 inputs,
+compiler, dependencies, vendor and CI/cache drivers are unchanged. No local Lean.
+Evidence: audits/material-8318b7a6-failed/summary.json.

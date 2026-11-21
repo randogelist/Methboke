@@ -1,0 +1,124 @@
+theorem initial_front_extend_from_restart
+    (ν T s h : ℝ) (a : Field) (u v : Velocity) (p q : Pressure)
+    (hν : 0 < ν) (H : InitialClassicalFront ν T a u p)
+    (hs : s ∈ Ico (0 : ℝ) T) (hh : 0 < h)
+    (K : InitialClassicalFront ν h (u s) v q) (hextend : T < s + h) :
+    ∃ (U : Velocity) (P : Pressure), InitialClassicalFront ν (s + h) a U P ∧
+      (∀ r ∈ Ico (0 : ℝ) T, U r = u r ∧ P r = p r) ∧
+      ∀ r ∈ Ico ((s + T) / 2) (s + h),
+        U r = v (r - s) ∧ P r = q (r - s) := by
+  let V : Velocity := fun r => v (r - s)
+  let Q : Pressure := fun r => q (r - s)
+  let η : ℝ := (s + T) / 2
+  have hη0 : 0 < η := by dsimp [η]; linarith [hs.1, hs.2]
+  have hsη : s < η := by dsimp [η]; linarith [hs.2]
+  have hηT : η < T := by dsimp [η]; linarith [hs.2]
+  have hrestart := initial_classical_front_unique ν (T - s) h (u s)
+    (fun r => u (s + r)) v (fun r => p (s + r)) q hν (sub_pos.mpr hs.2) hh
+    (initial_front_time_translate ν T s a u p H hs.1) K
+  have hagree : ∀ r ∈ Ioo s T, u r = V r ∧ p r = Q r := by
+    intro r hr
+    have htime : r - s ∈ Ico (0 : ℝ) (min (T - s) h) := by
+      constructor
+      · linarith [hr.1]
+      · apply lt_min <;> linarith [hr.2]
+    have hc : s + (r - s) = r := by ring
+    simpa only [V, Q, hc] using hrestart (r - s) htime
+  have huv : ∀ r ∈ Ioo s T, u r = V r := fun r hr => (hagree r hr).1
+  have hpq : ∀ r ∈ Ioo s T, p r = Q r := fun r hr => (hagree r hr).2
+  have htime (r : ℝ) (hr : r ∈ Ioo s (s + h)) :
+      r - s ∈ Ico (0 : ℝ) h := by
+    constructor <;> linarith [hr.1, hr.2]
+  have hmap : MapsTo (fun z : ℝ × Vec => (z.1 - s, z.2))
+      {z : ℝ × Vec | z.1 ∈ Ioo s (s + h)} (initialFrontSpacetime h) := by
+    intro z hz
+    exact htime z.1 hz
+  have hc : ContDiff ℝ ∞ (fun z : ℝ × Vec => (z.1 - s, z.2)) :=
+    (contDiff_fst.sub contDiff_const).prodMk contDiff_snd
+  have hVsmooth : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => V z.1 z.2)
+      {z : ℝ × Vec | z.1 ∈ Ioo s (s + h)} :=
+    K.velocity_smooth.comp hc.contDiffOn hmap
+  have hQsmooth : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => Q z.1 z.2)
+      {z : ℝ × Vec | z.1 ∈ Ioo s (s + h)} :=
+    K.pressure_smooth.comp hc.contDiffOn hmap
+  have hleft (r : ℝ) (hr : r < η) : finiteCapSplice η u V r = u r :=
+    (finiteCapSplice_eventually_left η u V hr).self_of_nhds
+  have hleftp (r : ℝ) (hr : r < η) : finiteCapSplice η p Q r = p r :=
+    (finiteCapSplice_eventually_left η p Q hr).self_of_nhds
+  have hright (r : ℝ) (hr : s < r) : finiteCapSplice η u V r = V r :=
+    (finiteCapSplice_eventually_right s T η u V hηT huv hr).self_of_nhds
+  have hrightp (r : ℝ) (hr : s < r) : finiteCapSplice η p Q r = Q r :=
+    (finiteCapSplice_eventually_right s T η p Q hηT hpq hr).self_of_nhds
+  have hfront : InitialClassicalFront ν (s + h) a
+      (finiteCapSplice η u V) (finiteCapSplice η p Q) := by
+    refine {
+      velocity_smooth := finite_front_splice_contDiffOn s T (s + h) η u V hsη hηT
+        H.velocity_smooth hVsmooth huv
+      pressure_smooth := finite_front_splice_contDiffOn s T (s + h) η p Q hsη hηT
+        H.pressure_smooth hQsmooth hpq
+      velocity_periodic := ?_
+      pressure_periodic := ?_
+      divergence_free := ?_
+      equation := ?_
+      initial := ?_
+      velocity_mean_zero := ?_
+      pressure_mean_zero := ?_
+    }
+    · intro r hr
+      by_cases hleft' : r < η
+      · rw [hleft r hleft']
+        exact H.velocity_periodic r ⟨hr.1, hleft'.trans hηT⟩
+      · have hsr := hsη.trans_le (le_of_not_gt hleft')
+        rw [hright r hsr]
+        exact K.velocity_periodic (r - s) (htime r ⟨hsr, hr.2⟩)
+    · intro r hr
+      by_cases hleft' : r < η
+      · rw [hleftp r hleft']
+        exact H.pressure_periodic r ⟨hr.1, hleft'.trans hηT⟩
+      · have hsr := hsη.trans_le (le_of_not_gt hleft')
+        rw [hrightp r hsr]
+        exact K.pressure_periodic (r - s) (htime r ⟨hsr, hr.2⟩)
+    · intro r hr x
+      by_cases hleft' : r < η
+      · rw [hleft r hleft']
+        exact H.divergence_free r ⟨hr.1, hleft'.trans hηT⟩ x
+      · have hsr := hsη.trans_le (le_of_not_gt hleft')
+        rw [hright r hsr]
+        exact K.divergence_free (r - s) (htime r ⟨hsr, hr.2⟩) x
+    · intro r hr x
+      by_cases hleft' : r < η
+      · rw [finiteFrontSplice_timeDerivative_congr
+          (finiteCapSplice_eventually_left η u V hleft') x,
+          hleft r hleft', hleftp r hleft']
+        exact H.equation r ⟨hr.1, hleft'.trans hηT⟩ x
+      · have hsr := hsη.trans_le (le_of_not_gt hleft')
+        rw [finiteFrontSplice_timeDerivative_congr
+          (finiteCapSplice_eventually_right s T η u V hηT huv hsr) x,
+          hright r hsr, hrightp r hsr]
+        exact initial_front_shift_back_equation ν h s (u s) v q K hs.1 r ⟨hsr, hr.2⟩ x
+    · rw [hleft 0 hη0]
+      exact H.initial
+    · intro r hr
+      by_cases hleft' : r < η
+      · rw [hleft r hleft']
+        exact H.velocity_mean_zero r ⟨hr.1, hleft'.trans hηT⟩
+      · have hsr := hsη.trans_le (le_of_not_gt hleft')
+        rw [hright r hsr]
+        exact K.velocity_mean_zero (r - s) (htime r ⟨hsr, hr.2⟩)
+    · intro r hr
+      by_cases hleft' : r < η
+      · rw [hleftp r hleft']
+        exact H.pressure_mean_zero r ⟨hr.1, hleft'.trans hηT⟩
+      · have hsr := hsη.trans_le (le_of_not_gt hleft')
+        rw [hrightp r hsr]
+        exact K.pressure_mean_zero (r - s) (htime r ⟨hsr, hr.2⟩)
+  refine ⟨finiteCapSplice η u V, finiteCapSplice η p Q, hfront, ?_, ?_⟩
+  · intro r hr
+    by_cases hleft' : r < η
+    · exact ⟨hleft r hleft', hleftp r hleft'⟩
+    · have hsr := hsη.trans_le (le_of_not_gt hleft')
+      exact ⟨(hright r hsr).trans (huv r ⟨hsr, hr.2⟩).symm,
+        (hrightp r hsr).trans (hpq r ⟨hsr, hr.2⟩).symm⟩
+  · intro r hr
+    have hsr : s < r := hsη.trans_le hr.1
+    exact ⟨hright r hsr, hrightp r hsr⟩

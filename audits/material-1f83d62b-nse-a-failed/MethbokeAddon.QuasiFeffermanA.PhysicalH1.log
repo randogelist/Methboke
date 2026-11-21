@@ -1,0 +1,79 @@
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:103:35: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:119:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (weakGradientResidual ?j ?φ) ?x
+in the target expression
+  ↑(weakGradientResidual j { value := ψ, smooth := hψ, compact_support := hcompact }) x = 0
+
+case mp
+x : H1Ambient
+h : ∀ (i : Fin 3) (i_1 : CompactSmoothScalarTest), ↑(weakGradientResidual i i_1) x = 0
+j : Fin 3
+ψ : QFA.Endpoints.Agmon.Space → ℝ
+hψ : ContDiff ℝ ∞ ψ
+hcompact : HasCompactSupport ψ
+hzero : ↑(weakGradientResidual j { value := ψ, smooth := hψ, compact_support := hcompact }) x = 0
+⊢ ∫ (x_1 : QFA.Endpoints.Agmon.Space), (fderiv ℝ ψ x_1) (coordinateVector j) • ↑↑(x.ofLp 0) x_1 =
+    -∫ (x_1 : QFA.Endpoints.Agmon.Space), ψ x_1 • ↑↑((fun j => x.ofLp j.succ) j) x_1
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:122:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (weakGradientResidual ?j ?φ) ?x
+in the target expression
+  ↑(weakGradientResidual j φ) x = 0
+
+case mpr
+x : H1Ambient
+h : SpatialWeakGradient (x.ofLp 0) fun j => x.ofLp j.succ
+j : Fin 3
+φ : CompactSmoothScalarTest
+⊢ ↑(weakGradientResidual j φ) x = 0
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:241:74: error: unsolved goals
+x : H1Ambient
+⊢ ((SpatialWeakGradient (x.ofLp 0) fun j => x.ofLp j.succ) ∧
+      ∀ (i : CompactSmoothScalarTest), ↑(solenoidalTestCLM i ∘SL PiLp.proj 2 (fun x => ↥SpatialL2) 0) x = 0) ↔
+    (SpatialWeakGradient (x.ofLp 0) fun j => x.ofLp j.succ) ∧
+      ∀ (φ : CompactSmoothScalarTest), (solenoidalTestCLM φ) (x.ofLp 0) = 0
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:244:4: warning: This simp argument is unused:
+  ContinuousLinearMap.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH1SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH1Graph_iff, ClosedSubmodule.mem_iInf,
+    ClosedSubmodule.mem_mk, LinearMap.mem_ker, PiLp.proj_apply, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:244:36: warning: This simp argument is unused:
+  PiLp.proj_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [physicalH1SigmaGraph, ClosedSubmodule.mem_inf, mem_physicalH1Graph_iff, ClosedSubmodule.mem_iInf,
+    ClosedSubmodule.mem_mk, LinearMap.mem_ker, ContinuousLinearMap.comp_apply, solenoidal_iff_testCLM]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:272:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  (fun u => (↑u).ofLp 0) u
+in the target expression
+  SpatialWeakGradient ((↑u).ofLp 0) fun j => (↑v).ofLp j.succ
+
+u v : ↥PhysicalH1Sigma
+huv : (fun u => (↑u).ofLp 0) u = (fun u => (↑u).ofLp 0) v
+⊢ SpatialWeakGradient ((↑u).ofLp 0) fun j => (↑v).ofLp j.succ
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:284:61: error: unsolved goals
+case calc.step
+a : 𝓢(Space, Space)
+j : Fin 3
+ψ : QFA.Endpoints.Agmon.Space → ℝ
+hψ : ContDiff ℝ ∞ ψ
+hcompact : HasCompactSupport ψ
+φ : 𝓢(Space, ℝ) := hcompact.toSchwartzMap hψ
+hparts : ∫ (x : Space), φ x • (∂_{coordinateVector j} a) x = -∫ (x : Space), (∂_{coordinateVector j} φ) x • a x
+⊢ -∫ (x : Space), ψ x • ↑↑((∂_{coordinateVector j} a).toLp 2 volume) x =
+    -∫ (x : QFA.Endpoints.Agmon.Space), ψ x • ↑↑((fun j => (∂_{coordinateVector j} a).toLp 2 volume) j) x
+MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean:317:42: error: Application type mismatch: The argument
+  schwartz_spatialWeakGradient a
+has type
+  SpatialWeakGradient (a.toLp 2 volume) fun j => (∂_{coordinateVector j} a).toLp 2 volume
+but is expected to have type
+  SpatialWeakGradient ((h1Pack (a.toLp 2 volume) fun j => ?m.37).ofLp 0) fun j =>
+    (h1Pack (a.toLp 2 volume) fun j => ?m.37).ofLp j.succ
+in the application
+  And.intro (schwartz_spatialWeakGradient a)

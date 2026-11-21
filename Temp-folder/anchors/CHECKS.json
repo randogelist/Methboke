@@ -1,0 +1,81 @@
+{
+  "status": "PASSIVE_PREPARATION_NOT_EXECUTED",
+  "local_lean_executions": 0,
+  "new_theorem_declarations": 0,
+  "new_a_tier_acceptance": false,
+  "files": [
+    {
+      "file": "NativeAndMathlibChecks.lean",
+      "imports": [
+        "Mathlib.Analysis.FunctionalSpaces.SobolevInequality",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Fourier",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.LebesgueDifferentiationThm",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+        "QuasiFeffermanB.GoodTime",
+        "QuasiFeffermanB.LHRestart",
+        "QuasiFeffermanB.Endpoints.Root"
+      ],
+      "declarations_to_check": [
+        "MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner",
+        "MeasureTheory.Lp.norm_fourier_eq",
+        "SchwartzMap.fourier_lineDerivOp_eq",
+        "SchwartzMap.integral_bilinear_lineDerivOp_right_eq_neg_left",
+        "SchwartzMap.integral_bilinear_laplacian_right_eq_left",
+        "IntervalIntegrable.absolutelyContinuousOnInterval_intervalIntegral",
+        "IntervalIntegrable.ae_hasDerivAt_integral",
+        "AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub",
+        "MeasureTheory.mul_meas_ge_le_integral_of_nonneg",
+        "QuasiFeffermanB.exists_good_time_of_integral_lt",
+        "QuasiFeffermanB.strong_tendsto_of_inner_and_norm_bound",
+        "QuasiFeffermanB.LH_RESTART_AE_Ioo",
+        "QuasiFeffermanB.LH_TAIL_ENERGY_OF_POSITIVE_FLOW",
+        "QuasiFeffermanB.LH_UNIQUE_FUTURE_OF_SMOOTH_FLOW",
+        "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED"
+      ],
+      "environment": "Native Material / frozen fdb515d8 environment; Lean4.33.0 and Mathlib db584cd6."
+    },
+    {
+      "file": "MethlibQFAChecks.lean",
+      "imports": [
+        "QFA",
+        "QFACorrectedRoot"
+      ],
+      "declarations_to_check": [
+        "QFA.Endpoints.Representation.complexifyL2LI",
+        "QFA.Endpoints.Representation.complexifyL2_weakDirectionalDerivative",
+        "QFA.Energy.envelope_product_integral",
+        "QFA.Energy.product_budget",
+        "QFA.Energy.product_budget_Ioo",
+        "QFA.Representation.EnergyProfile.energy_product_budget_Ioo",
+        "QFA.Endpoints.GoodTime.exists_good_time_of_integral_lt",
+        "QFA.Endpoints.Restart.strong_right_trace_of_energy_start",
+        "QFA.Assembly.Restart.restartData_of_energyStart",
+        "QFA.Assembly.Comparison.eq_on_Icc_of_ae_relative_energy",
+        "QFA.Assembly.TailComparison.restricted_restart_class_eq_singleton",
+        "QFA.Assembly.Chain.ClassRealization",
+        "QFA.Assembly.Chain.ReferencePorts",
+        "QFA.Endpoints.Agmon.ScalarProfile.enstrophy_absorption",
+        "SchwartzMap.qfa_dense_hasCompactSupport",
+        "QFA.Endpoints.Representation.CompactSchwartz.schwartzDerivativeWitnesses_of_compactSchwartz_unconditional",
+        "QFA.CorrectedPhysicalRoot.CorrectedReferenceConstructionFromAbsorption",
+        "QFA.CorrectedPhysicalRoot.QUASI_FEFFERMAN_A_CORRECTED"
+      ],
+      "environment": "Pinned Methlib QFA CorrectedPhysicalRoot package and its existing local package dependencies. Do not overlay duplicate QFA source trees."
+    },
+    {
+      "file": "LC001ReferenceChecks.lean",
+      "imports": [
+        "QFALC001Reduction"
+      ],
+      "declarations_to_check": [
+        "QFA.LC001SpectralReduction.gradient_fourier_ae",
+        "QFA.LC001SpectralReduction.laplacian_fourier_ae",
+        "QFA.LC001SpectralReduction.nativeSpectralRealization_of_fourierNormAE"
+      ],
+      "environment": "Pinned Methlib LC001SpectralReduction package. This source has no matching retained package audit in the inspected directory."
+    }
+  ]
+}

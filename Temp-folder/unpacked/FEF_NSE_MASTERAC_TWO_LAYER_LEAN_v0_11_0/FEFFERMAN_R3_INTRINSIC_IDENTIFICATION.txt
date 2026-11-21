@@ -1,0 +1,122 @@
+FEFFERMAN R3 INTRINSIC-FORCE IDENTIFICATION -- v0.8.0 bridge
+
+1. Exact semantic target retained from v0.7.7
+   A = whole-space, f=0, every admissible initial datum has a qualifying
+       global smooth solution with the Fefferman energy output.
+   C = whole-space, some admissible initial datum and admissible rapidly
+       decaying force admit no qualifying global solution.
+
+2. Force-space identification supplied by the current source stack
+
+   Fefferman clause05 says, in the real R3 realization, that for every K
+   (and every mixed derivative) there is C_K with
+
+       |f(x,t)| <= C_K (1 + |x| + t)^(-K),  t >= 0.
+
+   Take K=3 and no derivatives.  Then
+
+       ||f(t)||_(L^(3/2)_x)^(3/2)
+         <= C * integral_R3 (1+t+|x|)^(-9/2) dx
+         <= C' (1+t)^(-3/2),
+
+   hence
+
+       ||f(t)||_(L^(3/2)_x) <= C'' (1+t)^(-1).
+
+   By the homogeneous Sobolev dual embedding in R3,
+
+       L^(3/2)(R3) -> H^(-1/2)(R3),
+
+   so
+
+       integral_0^infinity ||f(t)||_(H^(-1/2))^2 dt < infinity.
+
+   Leray projection is bounded on H^(-1/2).  In the standard solenoidal
+   Stokes realization A=-P Delta,
+
+       ||A^(-1/4) P f||_2^2 = ||P f||_(H^(-1/2))^2.
+
+   Therefore every Fefferman-admissible R3 force belongs to the intrinsic
+   critical force class used by the forced-GP Diamond source chain.
+
+   Source cross-checks:
+   - NSE_FORCING_REGULARITY_CLASSES_LEAN_v0_1_4 proves q=2, s=-1/2 is the
+     scaling-critical forcing exponent.
+   - NSE_R3_FORCED_GP_DIAMOND_STOKES_DUALITY_v0_12_2 identifies the intrinsic
+     Stokes coefficient and exposes the R3 H^(-1/2) readout.
+   - NSE_R3_FORCED_GP_DIAMOND_INTRINSIC_FORCE_CLASS_v0_13_1 uses bounded
+     accumulation of that intrinsic size as the regular force class.
+   - ACCUMULATOR_BRIDGE v0_15_3 + FORCE_ABSORPTION v0_14_0 turn the pointwise
+     Stokes/Young estimate into accumulated forced critical absorption.
+
+3. New Lean bridge
+
+   Fefferman/IntrinsicIdentification.lean separates:
+
+     R3FeffermanIntrinsicIdentification
+       = Fefferman admissible force -> intrinsic force, plus zero admissible;
+
+     R3IntrinsicGlobalClosure
+       = the hard PDE statement that every such intrinsic force and every
+         admissible datum has a qualifying Fefferman global solution.
+
+   Their composition proves in the abstract Fefferman semantics:
+
+     A,
+     no C-breakdown at any fixed positive viscosity,
+     and (given one positive-viscosity inhabitant) not C.
+
+   This completes the IDENTIFICATION/LOGICAL layer only.  It does not claim
+   R3IntrinsicGlobalClosure.
+
+4. Strongest current route toward R3IntrinsicGlobalClosure
+
+   actual weak/projected NSE
+     -> finite physical GP generations
+     -> canonical child-source continuation
+     -> one legal-cost GK channel (scale/future channels are canonical zero)
+     -> M7 action-cost control
+     -> cutoff-uniform GK cost/drift envelope
+     -> UAC10 uniform route budget
+     -> UAC20 uniform finite-cut critical mass
+     -> UAC22 uniform full critical readout
+     -> classical H^(1/2)-critical continuation
+     -> Fefferman clauses 01--07.
+
+   For nonzero Fefferman forcing insert the intrinsic Stokes force ledger and
+   the v0.14-v0.16 absorption/balance bridge into the finite-cut balance.
+
+5. Current genuine frontiers (not hidden)
+
+   Standard analytic entrance/readout:
+   - scalar distribution zero -> a.e. faithfulness and weak-term representation;
+   - real R3 Stokes H^(-1/2) identification / time accumulation;
+   - full finite-cut -> H^(1/2) limit readout;
+   - critical H^(1/2) continuation and construction of smooth pressure/output.
+
+   Project-specific internal realization:
+   - LH complex finite-generation packaging;
+   - canonical child-source continuation;
+   - canonical legal-cost GK certificate;
+   - critical-time finite route depth;
+   - most importantly for v0.22, cutoff-UNIFORM cost/drift bounds and the
+     physical action_cost <= route-prefix coupling for the canonical routes.
+
+No Fefferman case is claimed proved by this bridge package.
+
+6. Direct reuse of the v0.7.7 master-core theorem
+
+   The bridge also instantiates a ForceRegimes object with
+
+     regular(nu,f)   := FeffermanAdmissible(f) AND Intrinsic(f),
+     breakdown(nu,f) := False.
+
+   Assuming R3IntrinsicGlobalClosure, this is a sound regular regime and forms
+   a DomainMasterCore.  The existing theorem
+
+     R3_masterCore_and_embedding_excludes_C_at
+
+   then applies literally.  Thus the newer sources do not require a new
+   Fefferman logic: they supply a concrete meaning for the old regular-cover
+   route, and they make the old positive-breakdown master target unnecessary
+   on the R3 side.

@@ -1,0 +1,159 @@
+DOCUMENT := FINITE_CAP_ADMISSION_A_TIER
+VERSION := 1.0
+DATE := 2026-11-19
+STATUS := A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS
+REPOSITORY := randogelist/Methboke
+BRANCH := main
+TESTED_COMMIT := 93ca8a57536512556ec36717ee933ea52db283bf
+RUN := https://github.com/randogelist/Methboke/actions/runs/44549257770
+OVERALL_CONCLUSION := SUCCESS
+LOCAL_LEAN_EXECUTIONS := 0
+
+EXACT ROOT R0
+
+MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu :
+  forall nu : Real, 0 < nu -> D_Q nu subset R_nu nu.
+
+This implication is formally proved using only the standard Lean axioms.
+Actual analytic admission is retained in the definition of D_Q; universal
+admission or arbitrary germ extension is not a conclusion.
+
+DEFINITIONS
+
+Domain: unforced periodic three-dimensional NSE on the unit torus.
+D_inf: actual smooth, periodic, divergence-free, mean-zero physical fields.
+physicalEnergy(a) = ||a||_L2^2, without a factor 1/2.
+tau_Q(a,nu) = ||a||_L2^4/(8*pi^2*nu^5)
+            = physicalEnergy(a)^2/(8*pi^2*nu^5).
+
+D_Q(nu) = {0} union
+  {a in D_inf, a != 0 : exists epsilon>0 and actual velocity u, pressure p,
+   AnalyticTwoSidedNSECap nu epsilon (2*tau_Q(a,nu)) a u p}.
+R_nu(nu) = {a in D_inf : exists U,P, GlobalSmoothNSE nu a U P}.
+
+AnalyticTwoSidedNSECap requires actual joint real analyticity of u,p on
+(-epsilon,T) x R^3, periodicity, divergence-free velocity, zero spatial means,
+the initial value u(0)=a, and NSE with the ordinary time derivative throughout
+that two-sided interval. Its derivative conversion to the original forward
+physical derivative is proved, including at time zero.
+
+For nonzero smooth data, the physical L2 representative is proved nonzero;
+tau_Q>0 and tau_Q<2*tau_Q are derived. The zero branch uses the explicit zero
+solution. No separate positive-cutoff premise is hidden in D_Q.
+
+STRONGER CLASSICAL CAP ROOT
+
+finite_cap_classical_admission:
+  nu>0, tau_Q(a,nu)<T, InitialClassicalFront nu T a u p
+  -> exists U,P, GlobalSmoothNSE nu a U P
+       and forall r in [0,T), U(r)=u(r) and P(r)=p(r).
+
+InitialClassicalFront is the literal finite physical NSE pair, jointly smooth
+up to zero, with its physical equation, initial datum, periodicity, divergence
+and mean constraints on [0,T). Its existence is an explicit input.
+The normalized pressure is preserved as well as the velocity.
+
+VERIFIED PROOF CHAIN
+
+Actual finite cap
+-> smooth initial datum, strong initial L2 trace, compact Serrin bounds
+-> original Q01 Leray-Hopf path from the same datum
+-> finite-window weak/strong identification with that same path
+-> original Q09 classical tail at delta=(tau_Q+T)/2
+-> pointwise velocity and normalized-pressure equality on the open overlap
+-> explicit splice proving all GlobalSmoothNSE fields and retaining the cap.
+
+The literal two-sided analytic cap restricts to this classical cap. Forward
+analytic admission is also proved as an internal sufficient interface; it is
+kept distinct from the literal two-sided NSE predicate.
+
+EXTERNAL EVIDENCE
+
+Compiler: Lean 4.33.0, x86_64-unknown-linux-gnu.
+Compiler commit: d8b18978322de05a8f3dba51ef03cf5461676c17.
+Mathlib commit: db584cd6d46c92f209a44c0f1c829460d327499d.
+Modules: 321 = 303 compatible accepted objects reused + 18 compiled additions.
+Fresh audit packages: 33. Fresh declaration entries: 161. QFB cutout: fresh PASS.
+R0 contribution: 9 packages, 41 declarations.
+External control tests: 183 passed.
+Axioms: propext, Classical.choice, Quot.sound only; no sorryAx or custom axioms.
+Build: 118.141s. Fresh audits: 111.962s. Cache validation: 27.759s.
+All 34 audit-log hashes and unique type/axiom sentinels were inspected.
+Exact principal types, source/manifest identities and compiler/configuration
+hashes match. The accepted project cache and binary artifact were published;
+recovery was skipped. No local Lean, Lake or kernel audit was used.
+Linux evidence is not native Windows evidence.
+
+Evidence artifact: 14543236124.
+ZIP SHA256: e549583f0c337690993a9ad176c8b9b39c49cabc6acab8fc6bf3ea69da8f72fd.
+Report SHA256: edb591aac17061cfeb6639e7caf6702cc96e9f16af9e09d795b5140020054475.
+Retained record: audits/material-93ca8a5/summary.json and nine R0 audit logs.
+
+The legacy report field new_finite_cap_theorem_included is hardcoded false in
+the unchanged report emitters. It is stale aggregate metadata. The exact
+registered root modules, independently asserted signatures and fresh root
+logs supply the actual inclusion and acceptance evidence recorded here.
+
+BOUNDARIES AND CONTINUATION STATE
+
+R0 finite-cap admission: A-TIER, complete at the tested source.
+R1 universal D_germ(nu) subset D_Q(nu): OPEN.
+Full Weak_Fourierman_B root: OPEN; WFB-01 and WFB-02 remain its two accepted
+whole contextual obligations. WFB-03 cutoff-uniform physical H1 local theory
+remains the first unresolved formal obstruction.
+Arbitrary-amplitude Beltrami/ABC membership remains an explicit B-tier
+construction; no new Lean certificate for that family is claimed here.
+Suggested next scoped endpoint, not adopted as a changed target: an explicit
+arbitrary-amplitude single periodic shear with its analytic D_Q certificate.
+
+Earlier failed runs 0ddd2d67, c6e039da and d2c0259 remain recorded as historical
+proof/audit corrections. They did not replace the accepted cache or initiate
+foundation recovery. The present acceptance supersedes their pending R0 status.
+
+EXACT AUDITED PRINCIPAL TYPES
+
+MethbokeAddon.WeakFouriermanB.D_Q_subset_R_nu : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν → MethbokeAddon.WeakFouriermanB.D_Q ν ⊆ MethbokeAddon.WeakFouriermanB.R_nu ν
+AXIOMS: Classical.choice, Quot.sound, propext
+
+MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ν →
+    LT.lt.{0} (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν) T →
+      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+        ∃ U P,
+          SingularClosure.GlobalSmoothNSE ν a U P ∧
+            ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) r → Eq.{1} (U r) (u r) ∧ Eq.{1} (P r) (p r)
+AXIOMS: Classical.choice, Quot.sound, propext
+
+MethbokeAddon.WeakFouriermanB.analytic_two_sided_cap_admission : ∀ (ν ε T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ν →
+    LT.lt.{0} 0 ε →
+      LT.lt.{0} (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν) T →
+        MethbokeAddon.WeakFouriermanB.AnalyticTwoSidedNSECap ν ε T a u p →
+          ∃ U P,
+            SingularClosure.GlobalSmoothNSE ν a U P ∧
+              ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) r → Eq.{1} (U r) (u r) ∧ Eq.{1} (P r) (p r)
+AXIOMS: Classical.choice, Quot.sound, propext
+
+R0 SOURCE IDENTITIES
+
+Material/MethbokeAddon/WeakFouriermanB/CompactCylinderSerrin.lean
+SHA256 094b32240c88fe34346493aa5fbd5c57ac3a4a072e585649aaeba02b8a4b796f
+Material/MethbokeAddon/WeakFouriermanB/PressureUniqueness.lean
+SHA256 3e8b74990fbc957535b603c3ea9fd09f0bec90e43a970fb07cacbd3b683a76ad
+Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean
+SHA256 6d2d752db24df2ee305f5cbec7e780406d03fbf28592c58d7bc6ea8759f9efa6
+Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean
+SHA256 99242d31b5e7a8e4f87f0a8f33b964b0fea359faf242a6fc95b710fb99f9ff71
+Material/MethbokeAddon/WeakFouriermanB/InitialFrontAdmission.lean
+SHA256 c00a4276811fabfdaf3aa9bbc1e4fa75091aee724847917444c8c01bca3c6895
+Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean
+SHA256 7689580bb6d1b564716d5919e7763f185f2bd2f21a339927caa0fe8e4f9be125
+Material/MethbokeAddon/WeakFouriermanB/AnalyticCapAdmission.lean
+SHA256 7c51d331ac87b4965334f287bea39a8a0c0929a0d75885d1e42d68ce55ddd1cc
+Material/MethbokeAddon/WeakFouriermanB/AnalyticTwoSidedCap.lean
+SHA256 9c3be89b4da64232ababa9a34f5c628738670ca1bd631854f7eca1930ab73bb8
+Material/MethbokeAddon/WeakFouriermanB/R0DataAdmission.lean
+SHA256 64b2524679a9ece802d3812dc35fa20e5c6389c7ed2bcab62c227abc9e635eb4

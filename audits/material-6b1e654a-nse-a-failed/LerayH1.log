@@ -1,0 +1,13 @@
+MethbokeAddon/QuasiFeffermanA/LerayH1.lean:126:2: error: unsolved goals
+v : ↥SpatialL2
+G : Fin 3 → ↥SpatialL2
+h : SpatialWeakGradient v G
+hρ : 2 * ↑Real.pi * Complex.I ≠ 0
+ht : ∀ᵐ (ξ : Space), inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) = 0
+ξ : QFA.Endpoints.Agmon.Space
+htrace :
+  ↑↑(𝓕 (complexifyL2 (spatialGradientTrace G))) ξ =
+    (2 * ↑Real.pi * Complex.I * inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ)) • EuclideanSpace.single 0 1
+hξ : inner ℂ (complexifyVectorLI ξ) (↑↑(𝓕 (complexifyL2 v)) ξ) = 0
+hzero : ↑↑0 ξ = 0 ξ
+⊢ 0 = 0 ξ

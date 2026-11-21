@@ -1,0 +1,147 @@
+PHYSICAL H2 GRAPH AND EXACT HESSIAN--LAPLACIAN BRIDGE
+Date:2026-11-20
+Mode:B_TIER_DERIVATION
+Scope:G02/P09 spatial derivative component; supports G01 and G03
+Status:B_TIER_COMPLETE_WITH_EXPLICIT_NATIVE_CONSTRUCTION_GAP
+No local Lean/Lake/kernel execution.
+
+1. ACTUAL CARRIERS AND H2 GRAPH
+
+Use the original real full-volume vector L2 carrier on Euclidean R3, the
+native compact-test weak derivatives, and the constructed physical H1 graph.
+For a supplied H1 element u, write v=velocity(u) and G_j=partial_j v.
+Define H2 by nine actual real L2 witnesses H_jk such that H_jk is the
+native compact-test derivative partial_k G_j. All compact smooth real tests
+are required. Its inhomogeneous norm squared is
+  ||v||_2^2 + sum_j ||G_j||_2^2 + sum_jk ||H_jk||_2^2.
+These witnesses are unique by applying the accepted first-derivative
+uniqueness theorem to each G_j. No second derivative is postulated for v
+outside that explicitly defined graph.
+
+The graph is an intersection of kernels of continuous compact-test pairing
+maps on the actual 13-fold L2 Hilbert sum (velocity, three first derivatives,
+nine ordered second derivatives). Hence it is closed and complete. The
+original native solenoidal condition gives a further closed restriction.
+The H2-to-H1 inclusion is the actual coordinate projection; the weak
+derivatives and velocity coincide, not merely abstract isomorphic fields.
+
+2. SECOND-DERIVATIVE FOURIER IDENTITY
+
+Apply the H1-only directional Fourier theorem first to (v,G_j) and then to
+(G_j,H_jk). For all nine pairs simultaneously almost everywhere,
+  F(c H_jk)(xi)=-(2pi)^2 xi_j xi_k F(c v)(xi),          (2.1)
+where c is the actual isometric real-to-complex embedding. This uses only
+the two stated first-derivative relations. Finite intersections of their
+full-measure sets retain a common set for every component.
+
+The frequency products commute, so Fourier injectivity and injectivity of c
+give H_jk=H_kj as actual L2 classes. Thus symmetry of the weak Hessian is
+derived without presupposing pointwise C2 regularity.
+
+3. ACTUAL LAPLACIAN AND EXACT FROBENIUS NORM
+
+Set L=sum_j H_jj in the actual real L2 carrier. Linearity and (2.1) give
+  F(c L)=-(2pi)^2 |xi|^2 F(c v) a.e.                 (3.1)
+This L is the distributional Laplacian because its three diagonal
+derivatives are exactly the derivatives of the actual first derivatives.
+The distributional identity can equivalently be tested against every
+compact smooth real scalar phi:
+  integral phi L = integral (Delta phi) v.
+Every spatial test pairing is integrable; the equality does not exploit
+the value assigned to a nonintegrable Bochner integral.
+
+Square the full complex vector norm in (2.1), sum all nine ordered pairs,
+and use the exact Euclidean identity
+  sum_jk xi_j^2 xi_k^2 = (sum_j xi_j^2)^2 = |xi|^4.
+The density on the left is a finite sum of genuinely integrable squared
+L2 norms. Plancherel and the isometry c therefore give
+  sum_jk ||H_jk||_2^2 = ||L||_2^2.                    (3.2)
+This is the full Frobenius Hessian identity. The off-diagonal terms occur
+twice in the ordered sum, exactly as required; no dimension factor is lost.
+Consequently the H2 graph norm squared is exactly
+  ||v||_2^2 + sum_j ||G_j||_2^2 + ||L||_2^2.
+
+4. RECONSTRUCTING H2 FROM A SUPPLIED L2 LAPLACIAN
+
+Conversely suppose u is in the actual physical H1 graph and a real L2 field
+L satisfies the literal distributional Laplacian identity above. Extend
+compact tests to Schwartz tests by the already sourced compact-Schwartz
+density argument. The native distribution Fourier identity and representative
+separation give (3.1), without assuming any H_jk witnesses.
+
+For the native adapter, FourierMultipliers.laplacian_fourier_ae consumes
+SchwartzDerivativeWitnesses. Build that record from the existing G_j and
+the supplied real compact-test Laplacian identity. The relevant source
+anchors are QFALC004.CompactSchwartz.tempered_eq_of_eq_on_compactSchwartz,
+QFALC005.Density.denseCompactSchwartzTests, and H1Fourier's real/imaginary
+test decomposition. This adapter remains an explicit native obligation.
+
+Define the bounded real measurable symbols
+  m_jk(xi)=xi_j xi_k/|xi|^2 for xi != 0,
+  m_jk(0)=0.
+They are even and satisfy |m_jk|<=1. Multiply the actual complex L2 field
+F(c L) by m_jk; measurability and norm domination prove L2 membership.
+This is multiplication of an L2 representative by a bounded measurable
+function, not sharp multiplication of an arbitrary distribution.
+
+Because L is real, F(c L) has conjugate-reflection symmetry. An even real
+symbol preserves that symmetry. The constructive real Fourier-range
+criterion therefore supplies actual real L2 fields H_jk with
+  F(c H_jk)=m_jk F(c L).
+Using (3.1) gives (2.1) a.e., including the zero-frequency branch: at xi=0
+the desired second-derivative multiplier is zero, and the Laplacian identity
+also makes its L2 representative zero wherever that a.e. identity applies.
+
+The already proved first-derivative identity for G_j now yields
+  F(c H_jk)=(2pi i xi_k) F(c G_j).
+The reverse first-derivative theorem proves that H_jk is the actual native
+weak derivative partial_k G_j. Thus the H2 graph element is constructed
+from the supplied physical H1 field and actual L2 Laplacian. No weighted
+Hessian integrability or H2 membership is inserted as a premise.
+All uniqueness, symmetry and norm identities in sections 2--3 then apply.
+
+5. SECTOR AND SPATIAL-ESTIMATE CONSEQUENCES
+
+Apply the constructed real sector projection to v, to every G_j and to
+every H_jk. First-derivative commutation applied twice proves that these
+are the actual projected H2 derivatives. Each L2 component contracts, so
+the full H2 graph norm contracts. The actual Laplacian commutes by the
+finite diagonal sum. Orthogonal reconstruction holds at every derivative
+level. If v is native solenoidal, its projected velocity retains that same
+property by the H1 solenoidal preservation theorem.
+
+Once an admissible scalar/vector/tensor Sobolev inequality is proved,
+apply it to the actual tensor grad v. Equation (3.2) supplies
+  ||grad v||_6 <= S ||Hess v||_2 = S ||Delta v||_2.
+This transfers a spatial Sobolev estimate without an extra factor from
+vector or tensor dimensions. It does not prove admissibility or sharpness
+of S. The required S6^6=16/(27pi^4) remains the separate sharp scalar
+admission obligation recorded in SHARP_SPATIAL_ADMISSION_CHAIN.txt.
+
+6. NATIVE SOURCE MAP AND FIRST REMAINING EDGE
+
+Reusable exact project sources:
+- PhysicalH1.lean: compactPairingCLM, first-derivative uniqueness, closed
+  kernel graph/completeness construction and native solenoidal restriction.
+- H1Fourier.lean / H1FourierReverse.lean: actual supplied L2 derivatives
+  iff their Fourier multiplier identities, with no H2 premise.
+- H1Spectral.lean: H1-only norm-density/integrability/Plancherel pattern.
+- FourierMultipliers.lean / Spectral.lean: existing Laplacian Fourier
+  distribution and norm-density adapters from explicitly stated witnesses.
+- RealFourier.lean: constructive Hermitian Fourier range.
+- RealSectorMultipliers.lean / PhysicalH1Sectors.lean / SixSectorNaturality.lean:
+  actual real range, derivative transport and native solenoidal preservation.
+
+Pinned Mathlib supports the PiLp Hilbert sum, continuous finite projections,
+closed submodules, compLpL, MemLp domination, actual L2 Fourier isometry,
+compact-test separation and the two distribution Fourier identities.
+The bounded m_jk multiplier requires an owned generic real/even multiplier
+adapter, or a direct MemLp construction from the literal symbols.
+
+FIRST NATIVE EDGE: construct/register the actual 13-component H2 graph and
+its second weak-derivative witnesses, then prove the second multiplier and
+Laplacian identities and bounded-symbol real reconstruction above. Existing
+conditional spectral records do not themselves construct these witnesses.
+This note completes the mathematical chain, not that native formalization.
+G02 remains open even after the H2 component because sharp scalar Sobolev
+admissibility has a separate missing native construction.

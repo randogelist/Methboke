@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "endpoint": "WFBLocalCubicBarrier",
+  "source_repository": "randogelist/Methboke",
+  "source_revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+  "derivation_basis": {
+    "repository": "randogelist/Methboke",
+    "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+    "path": "Material/_vendor/SingularClosure/CubicBudget.lean"
+  },
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.LocalCubicBarrier",
+      "path": "MethbokeAddon/WeakFouriermanB/LocalCubicBarrier.lean",
+      "sha256": "9f4a30434f94180fe5505ee88b101d6c2d616ce7b477fa73363cd731da3387c8",
+      "imports": [
+        "SingularClosure.CubicBudget",
+        "Mathlib.Analysis.Calculus.MeanValue"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/_vendor/SingularClosure/CubicBudget.lean"
+      },
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "origin_note": "The origin identifies the exact existing derivation basis, not a byte-identical historical copy. sha256 binds the new complete owned source.",
+      "source_status": "PENDING_EXTERNAL_VERIFICATION",
+      "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS"
+    },
+    {
+      "module": "SingularClosure.CubicBudget",
+      "local_path": "_vendor/SingularClosure/CubicBudget.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "96033dd69c994bec337a87369a6c27256e724980",
+      "upstream_path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CubicBudget.lean",
+      "git_blob_sha": "7cc2dd0e9976dd08123b18aab76928f3fcbbe4d5",
+      "sha256": "de827ddaa2ce8767891da6ed8e5686504a26d002d55bf2cf097fad0a6adad003",
+      "size_bytes": 8369,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/SingularClosure/CubicBudget.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/CubicBudget.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.MeanValue"
+  ],
+  "local_module_count": 2,
+  "owned_module_count": 1,
+  "source_closure_sha256": "5c1eb2f6799ee3db315a96be77ecfe5b11b21a1026bbd87e92e80dc2732c58a4",
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "dependency_boundary": "Exact new owned proofs with explicit derivation basis; unchanged pinned vendor closure and compiler/dependency lock."
+}

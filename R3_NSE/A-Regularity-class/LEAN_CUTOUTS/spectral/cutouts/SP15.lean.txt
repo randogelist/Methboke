@@ -1,0 +1,6 @@
+theorem ofReal_integral_eq_lintegral_ofReal {f : α → ℝ} (hfi : Integrable f μ) (f_nn : 0 ≤ᵐ[μ] f) :
+    ENNReal.ofReal (∫ x, f x ∂μ) = ∫⁻ x, ENNReal.ofReal (f x) ∂μ := by
+  have : f =ᵐ[μ] (‖f ·‖) := f_nn.mono fun _x hx ↦ (abs_of_nonneg hx).symm
+  simp_rw [integral_congr_ae this, ofReal_integral_norm_eq_lintegral_enorm hfi,
+    ← ofReal_norm]
+  exact lintegral_congr_ae (this.symm.fun_comp ENNReal.ofReal)

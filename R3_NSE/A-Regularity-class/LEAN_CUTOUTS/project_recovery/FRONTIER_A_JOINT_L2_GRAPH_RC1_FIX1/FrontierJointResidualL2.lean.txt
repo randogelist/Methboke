@@ -1,0 +1,86 @@
+import FrontierAEBudget
+import Mathlib.MeasureTheory.Function.LpSeminorm.Prod
+
+/-! Candidate elementary product-test integrability bridge. Joint velocity and
+gradient columns and spatial test functions are supplied in L². A continuous
+time multiplier has an explicit global bound. This establishes only product
+integrability; it does not construct weak gradients, Bochner-valued sections,
+the spatial marginal identity, or vanishing spacetime weak tests. No local
+Lean compiler was run and external compilation and theorem audit are needed. -/
+
+noncomputable section
+open MeasureTheory Filter
+
+namespace FrontierJointResidualL2
+
+abbrev Space := FrontierSpacetimeFubiniSlicing.Space
+abbrev Fiber := FrontierSpacetimeFubiniSlicing.Fiber
+
+/-- An L² joint vector field times an L² spatial test is integrable on a
+finite-time product measure. No spatial finite-volume hypothesis is assumed. -/
+theorem integrable_spatial_test_smul
+    (μ : Measure ℝ) [IsFiniteMeasure μ]
+    (v : ℝ × Space → Fiber) (ψ : Space → ℂ)
+    (hv : MemLp v 2 (μ.prod (volume : Measure Space)))
+    (hψ : MemLp ψ 2 (volume : Measure Space)) :
+    Integrable (fun tx => ψ tx.2 • v tx)
+      (μ.prod (volume : Measure Space)) := by
+  have hlift : MemLp (fun tx : ℝ × Space => ψ tx.2) 2
+      (μ.prod (volume : Measure Space)) := hψ.comp_snd μ
+  have hprod : MemLp ((fun tx : ℝ × Space => ψ tx.2) • v) 1
+      (μ.prod (volume : Measure Space)) := by
+    first | exact hlift.smul hv | exact hv.smul hlift
+  have heq : (fun tx : ℝ × Space => ψ tx.2 • v tx) =
+      ((fun tx : ℝ × Space => ψ tx.2) • v) := by
+    funext tx
+    rfl
+  rw [heq]
+  exact memLp_one_iff_integrable.mp hprod
+
+/-- The prototype joint residual is product-integrable under L² assumptions
+and a bounded continuous time multiplier. The two scalar spatial functions
+are intended to be a test and its spatial derivative. -/
+theorem integrable_weighted_joint_residual
+    (μ : Measure ℝ) [IsFiniteMeasure μ]
+    (u g : ℝ × Space → Fiber) (ψ dψ : Space → ℂ)
+    (hu : MemLp u 2 (μ.prod (volume : Measure Space)))
+    (hg : MemLp g 2 (μ.prod (volume : Measure Space)))
+    (hψ : MemLp ψ 2 (volume : Measure Space))
+    (hdψ : MemLp dψ 2 (volume : Measure Space))
+    (φ : ℝ → ℝ) (hφ : Continuous φ) (C : ℝ)
+    (hbound : ∀ t, ‖φ t‖ ≤ C) :
+    Integrable (fun tx => φ tx.1 • (ψ tx.2 • g tx + dψ tx.2 • u tx))
+      (μ.prod (volume : Measure Space)) := by
+  have hgtest := integrable_spatial_test_smul μ g ψ hg hψ
+  have hutest := integrable_spatial_test_smul μ u dψ hu hdψ
+  have hsum : Integrable (fun tx => ψ tx.2 • g tx + dψ tx.2 • u tx)
+      (μ.prod (volume : Measure Space)) := by
+    have heq : (fun tx : ℝ × Space => ψ tx.2 • g tx + dψ tx.2 • u tx) =
+        ((fun tx : ℝ × Space => ψ tx.2 • g tx) +
+          (fun tx : ℝ × Space => dψ tx.2 • u tx)) := by
+      funext tx
+      simp only [Pi.add_apply]
+    rw [heq]
+    exact hgtest.add hutest
+  have htop : MemLp (fun tx : ℝ × Space => φ tx.1) ⊤
+      (μ.prod (volume : Measure Space)) := by
+    apply memLp_top_of_bound (hφ.comp continuous_fst).measurable.aestronglyMeasurable C
+    exact Filter.Eventually.of_forall fun tx => hbound tx.1
+  have hsumLp : MemLp (fun tx => ψ tx.2 • g tx + dψ tx.2 • u tx) 1
+      (μ.prod (volume : Measure Space)) := memLp_one_iff_integrable.mpr hsum
+  have hsmul : MemLp ((fun tx : ℝ × Space => φ tx.1) •
+      (fun tx => ψ tx.2 • g tx + dψ tx.2 • u tx)) 1
+      (μ.prod (volume : Measure Space)) := by
+    first | exact htop.smul hsumLp | exact hsumLp.smul htop
+  have heq : (fun tx : ℝ × Space => φ tx.1 • (ψ tx.2 • g tx + dψ tx.2 • u tx)) =
+      ((fun tx : ℝ × Space => φ tx.1) •
+        (fun tx => ψ tx.2 • g tx + dψ tx.2 • u tx)) := by
+    funext tx
+    rfl
+  rw [heq]
+  exact memLp_one_iff_integrable.mp hsmul
+
+end FrontierJointResidualL2
+
+#print axioms FrontierJointResidualL2.integrable_spatial_test_smul
+#print axioms FrontierJointResidualL2.integrable_weighted_joint_residual

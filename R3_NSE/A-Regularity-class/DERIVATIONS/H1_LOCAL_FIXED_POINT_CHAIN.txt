@@ -1,0 +1,461 @@
+NSE-A WHOLE-SPACE H1 LOCAL FIXED-POINT CHAIN
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G01 / P10--P11, with explicitly identified scalar-budget consequences
+Project goal: Fefferman_D (unchanged)
+Branch target: QFA_QFB_A_TIER_INTEGRATION (unchanged)
+Local Lean/Lake/kernel/runner executions: NONE
+Formal status: DERIVATION_ONLY; no new native Lean theorem or audit asserted
+
+0. CLOSED B-TIER TARGET
+
+For every viscosity nu>0 and real divergence-free datum
+  a in H1(R3;R3),
+write M=||a||_2 and H=||grad a||_2. If H>0, define
+
+  S0 = 4/sqrt(3),
+  C0 = S0^(3/2),
+  c0 = 1/(4096 S0^6) = 27/2^24,
+  T0(a,nu) = c0 nu^3/H^4.                         (0.1)
+
+The construction below gives an actual unforced NSE velocity and normalized
+pressure on [0,T0], with
+
+  u in C([0,T0];H1_sigma(R3)) intersect L2(0,T0;H2(R3)),
+  partial_t u in L2(0,T0;L2_sigma(R3)),
+  u(0)=a strongly in H1,
+  partial_t u - nu Delta u + (u.grad)u + grad p = 0,
+  div u=0,
+
+where the equation holds in L2(0,T0;L2) and hence in distributions.
+Velocity uniqueness holds throughout this strong class, including among
+solutions not initially known to lie in the particular contraction ball.
+The canonical pressure is in C([0,T0];L2); pressure gradients are unique.
+
+The local solutions patch uniquely to a maximal development [0,Tmax), and
+  Tmax<infinity ==> sup_(t<Tmax)||grad u(t)||_2=infinity.
+In particular bounded full H1 norm gives continuation.
+
+The explicit constant is sufficient, with substantial slack; no optimality
+claim is made. This local construction uses the admissible nonsharp S0.
+The registered sharp constant S6 and numerical cutoff tau_A are unchanged.
+
+If H=0, Plancherel and L2 membership imply a=0: its Fourier transform is
+supported on the null set {0}. The zero solution then exists for all times.
+No positive time formula is evaluated by dividing by H in this case.
+
+1. PHYSICAL CARRIERS AND NORMALIZATION
+
+All spatial Lp norms use full Lebesgue measure on R3. Vector and tensor
+fibers have Euclidean and Frobenius norms, respectively. H1 and H2 mean
+actual weak derivatives in L2. H_sigma is the closed L2 subspace satisfying
+distributional divergence zero. No zero-average premise is imposed on R3.
+
+Use the L2-isometric extension of
+  Ff(xi)=integral_R3 exp(-2 pi i x.xi) f(x) dx.
+Put k=2 pi xi and lambda(xi)=|k|^2. Then
+  ||grad v||_2^2 = integral lambda |Fv|^2,
+  ||Delta v||_2^2 = integral lambda^2 |Fv|^2,
+  ||D2 v||_2^2 = sum_(i,j)||partial_i partial_j v||_2^2
+                = integral (sum_i k_i^2)^2 |Fv|^2
+                = ||Delta v||_2^2.                         (1.1)
+The mixed second derivatives are counted with all ordered pairs, as in the
+Frobenius Hessian. Equation (1.1) carries no dimension factor.
+
+For xi!=0 let
+  P(xi)=I - xi tensor xi/|xi|^2,
+and choose P(0)=I. This value has no effect on the L2 operator. The symbol
+is a real symmetric orthogonal projection with operator norm<=1, is even,
+and commutes with scalar multipliers. Thus its Fourier multiplier P:
+  - is an L2 contraction and an orthogonal projection;
+  - preserves the Hermitian symmetry characterizing real fields;
+  - has image exactly H_sigma;
+  - commutes with the heat semigroup and weak spatial derivatives;
+  - annihilates any L2 vector field that is a distributional gradient.
+These statements follow pointwise from the symbol and then by Plancherel.
+The divergence characterization uses the actual weak-derivative Fourier
+identity; it is an explicit native formalization requirement below.
+
+The physical H1/H2 graph spaces are complete. Passing to limits in compact
+test identities proves the derivative graphs closed in finite products of
+L2. The solenoidal subspaces are closed kernels. These facts also identify
+the corresponding Fourier graph domains without a Poincare inequality.
+
+2. AN EXPLICIT ADMISSIBLE NONSHARP SOBOLEV CONSTANT
+
+This section proves the constant used in (0.1), so it is not an unspecified
+spatial estimate inserted as an assumption.
+
+2.1 Scalar W^(1,1) estimate.
+Let g be a smooth compactly supported real scalar function. For i=1,2,3 put
+  A_i(x_hat_i)=integral_R |partial_i g(x)| dx_i.
+The one-dimensional fundamental theorem gives |g(x)|<=A_i(x_hat_i).
+Therefore
+  |g(x)|^(3/2) <= sqrt(A_1(x2,x3) A_2(x1,x3) A_3(x1,x2)).
+
+For completeness, the resulting product integral estimate follows from two
+Cauchy-Schwarz applications. First integrate in x1:
+  integral sqrt(A_2(x1,x3) A_3(x1,x2)) dx1
+  <= sqrt(B_2(x3) B_3(x2)),
+where B_2=integral A_2 dx1 and B_3=integral A_3 dx1. Then apply
+Cauchy-Schwarz on (x2,x3) to sqrt(A_1) sqrt(B_2 B_3). Tonelli yields
+  integral_R3 |g|^(3/2)
+  <= product_i ||partial_i g||_1^(1/2).
+Taking the power 2/3, arithmetic-geometric mean and pointwise
+|partial_1g|+|partial_2g|+|partial_3g|<=sqrt(3)|grad g| give
+  ||g||_(3/2) <= product_i ||partial_i g||_1^(1/3)
+              <= (1/sqrt(3))||grad g||_1.                (2.1)
+
+2.2 Vector/tensor L6 estimate.
+For a smooth compactly supported field F with any finite-dimensional real
+Euclidean fiber, apply (2.1) to g=|F|^4. This is a smooth polynomial in the
+components, and |grad g|<=4|F|^3|grad F|. Holder gives
+  ||F||_6^4 <= (4/sqrt(3))||F||_6^3||grad F||_2.
+If ||F||_6=0 the desired estimate is immediate; otherwise cancel its cube:
+  ||F||_6 <= S0||grad F||_2,  S0=4/sqrt(3).              (2.2)
+
+2.3 Extension to physical H1.
+Take standard compact cutoffs chi_R with chi_R=1 on B_R and
+|grad chi_R|<=C/R. For F in physical H1, chi_R F -> F in H1: velocity and
+gradient tails vanish by L2 integrability, and
+  ||F grad chi_R||_2 <= (C/R)||F||_2 -> 0.
+Mollifying the cutoff fields supplies smooth compactly supported H1
+approximants F_n. Applying (2.2) to F_n-F_m makes them Cauchy in L6.
+Their L2 limit and L6 limit agree by an a.e.-convergent subsequence.
+Thus (2.2) holds on the actual physical H1 carrier with the same S0.
+The proof applies to vector and matrix fibers with no extra fiber constant.
+
+Consequently, for v in H2,
+  ||grad v||_6 <= S0||D2v||_2 = S0||Delta v||_2.          (2.3)
+Interpolation by Holder also gives
+  ||grad v||_3 <= ||grad v||_2^(1/2)||grad v||_6^(1/2).   (2.4)
+
+All powers here concern nonnegative real norms. The proof uses coordinate
+FTC, Tonelli, Cauchy-Schwarz, Holder, cutoff/mollification density and
+Plancherel. No sharp Sobolev theorem is required for this local IVP.
+
+3. HEAT AND FORCED-HEAT ESTIMATES WITH CONSTANTS
+
+For finite T>0 set
+  X_T(u) = max{sup_(0<=t<=T)||grad u(t)||_2,
+                sqrt(nu)||Delta u||_(L2(0,T;L2))}.        (3.1)
+This controls only homogeneous derivatives. We use it as an estimate, and
+perform the fixed point in a separately complete inhomogeneous forcing
+space; no completeness claim for arbitrary fields under (3.1) is needed.
+
+3.1 Free heat evolution.
+Let A(t)=exp(nu t Delta)a. Its Fourier multiplier is exp(-nu t lambda).
+Dominated convergence gives A in C([0,T];H1), A(0)=a, and
+  sup_t ||A(t)||_2 <= M,
+  sup_t ||grad A(t)||_2 <= H,
+  nu integral_0^T ||Delta A||_2^2 dt
+    = (1/2) integral lambda(1-exp(-2nu T lambda))|Fa|^2
+    <= H^2/2.                                         (3.2)
+Hence X_T(A)<=H. The time derivative is nu Delta A in L2_t L2_x.
+
+3.2 Forced heat response.
+For f in L2(0,T;L2), define the Bochner Duhamel integral
+  K_nu f(t)=integral_0^t exp(nu(t-s)Delta)f(s) ds.        (3.3)
+Heat contraction and Cauchy-Schwarz in time give the indispensable
+low-frequency estimate
+  sup_t ||K_nu f(t)||_2 <= sqrt(T)||f||_(L2_t L2_x).      (3.4)
+
+Initially for smooth spectral/time approximants w=K_nu f, the heat equation
+w_t-nu Delta w=f, w(0)=0, yields
+  (1/2)d/dt||grad w||_2^2+nu||Delta w||_2^2
+    = -<f,Delta w>
+    <= (1/(2nu))||f||_2^2+(nu/2)||Delta w||_2^2.
+Therefore for every 0<=r<=T,
+  ||grad w(r)||_2^2 + nu integral_0^r ||Delta w||_2^2
+     <= nu^(-1) integral_0^r ||f||_2^2.                 (3.5)
+In particular
+  X_T(K_nu f) <= nu^(-1/2)||f||_(L2_t L2_x).             (3.6)
+The maximum in (3.1) is essential: (3.5) bounds each term by the same
+quantity, without asserting that the supremum term plus the full integral
+is bounded by that quantity at a common maximizing time.
+
+Approximate f in L2_t L2_x. Equations (3.4)--(3.6) make the responses
+Cauchy in C_t L2_x, C_t dot-H1_x, and L2_t dot-H2_x. Thus the limit is
+in C_t H1_x, vanishes strongly in H1 at t=0, and has the claimed Laplacian.
+Closed weak-derivative graphs and (1.1) identify the physical derivatives.
+The equation gives w_t=nu Delta w+f in L2_t L2_x, with the sufficient bound
+  ||w_t||_(L2_t L2_x) <= 2||f||_(L2_t L2_x).             (3.7)
+The inhomogeneous H2 membership follows from (3.4), the first-derivative
+bound, and (1.1) on the finite interval. Fourier or smooth approximant
+arguments justify the limiting Duhamel equation.
+Real and solenoidal input f gives real and solenoidal w because the
+multiplier is real/even and commutes with P.
+
+4. THE ACTUAL BILINEAR MAP
+
+For u,v in C_t H1 intersect L2_t H2 define
+  B(u,v)=P((u.grad)v).
+For almost every t, pointwise contraction, Holder and (2.2)--(2.4) give
+  ||B(u,v)||_2
+  <= ||u||_6||grad v||_3
+  <= S0^(3/2)||grad u||_2 ||grad v||_2^(1/2)
+                                   ||Delta v||_2^(1/2).
+Square and integrate, using Cauchy-Schwarz in time:
+  ||B(u,v)||_(L2_tL2_x)^2
+  <= S0^3 (sup||grad u||_2)^2(sup||grad v||_2)
+                            sqrt(T)||Delta v||_(L2_tL2_x)
+  <= S0^3 T^(1/2)nu^(-1/2)X_T(u)^2X_T(v)^2.
+Hence
+  ||B(u,v)||_(L2_tL2_x)
+    <= C0 T^(1/4)nu^(-1/4)X_T(u)X_T(v),
+  C0=S0^(3/2).                                         (4.1)
+
+The actual product is Bochner measurable: H1 and H2 representatives are
+strongly measurable, and the displayed continuous Sobolev/product maps
+preserve strong measurability. It takes values in H_sigma after applying P.
+No nonlinear-map estimate is assumed as an opaque port.
+
+5. COMPLETE FORCING SPACE AND BANACH FIXED POINT
+
+Let
+  G_T=L2((0,T);H_sigma),
+with its actual Bochner L2 norm. This is a complete real Hilbert space,
+since H_sigma is a closed subspace of physical L2. For g in G_T define
+  u_g=A+K_nu(sqrt(nu)g),
+  Psi(g)=-nu^(-1/2) B(u_g,u_g).                         (5.1)
+These are actual constructed functions, not supplied solution fields.
+
+Equations (3.2)--(3.6) give
+  X_T(u_g)<=H+||g||_G,
+  X_T(u_g-u_h)<=||g-h||_G,                              (5.2)
+  sup_t||u_g(t)||_2<=M+sqrt(nu T)||g||_G.                (5.3)
+Thus low frequencies and the full H1 trace are controlled independently of
+the homogeneous estimate. The contraction space has no missing L2 norm.
+
+Put eta=C0 nu^(-3/4)T^(1/4). On the closed ball ||g||_G<=H,
+  ||Psi(g)||_G <= eta(2H)^2,
+  ||Psi(g)-Psi(h)||_G
+    <= eta[X_T(u_g)+X_T(u_h)]X_T(u_g-u_h)
+    <= 4eta H||g-h||_G.                                (5.4)
+If eta H<=1/8, Psi maps this ball into the smaller radius-H/2 ball and
+has Lipschitz constant at most 1/2. The ball is nonempty and complete.
+Banach's fixed-point theorem supplies an actual g*=Psi(g*).
+
+The condition eta H<=1/8 is exactly
+  T <= nu^3/(4096 C0^4 H^4)
+     = nu^3/(4096 S0^6 H^4)
+     = (27/2^24)nu^3/H^4.                              (5.5)
+For H>0 choose T=T0 from (0.1). Since sqrt(nu)g*=-B(u,u), the field
+u=u_g* satisfies
+  u(t)=exp(nu t Delta)a
+       -integral_0^t exp(nu(t-s)Delta)P((u.grad)u)(s) ds,
+and
+  u_t-nu Delta u+P((u.grad)u)=0                        (5.6)
+in L2_tL2_x. Equations (3.2)--(3.7) supply all regularity and the strong
+initial trace in the target. In particular X_T(u)<=2H.
+One sufficient preliminary low-frequency bound is
+  sup_t||u(t)||_2<=M+sqrt(nu T)H.
+The energy identity in section 7 improves this to M.
+
+6. PRESSURE AND THE PHYSICAL UNPROJECTED EQUATION
+
+Since H1 embeds into L4 by L2/L6 interpolation, u in C_tH1 implies
+u tensor u in C_tL2(R3;R^(3x3)). Define the scalar pressure by the bounded
+Fourier multiplier
+  Fp(t,xi)=-sum_(i,j) [xi_i xi_j/|xi|^2] F(u_i u_j)(t,xi),
+with symbol zero at xi=0. The contraction of a tensor against the rank-one
+unit tensor has operator norm<=1, so p in C_tL2 and is real. This is the
+usual p=sum R_i R_j(u_i u_j) with the corresponding Riesz convention.
+
+Distributional solenoidality and the H1 product rule identify
+div(u tensor u)=(u.grad)u. Consequently
+  grad p=-(I-P)((u.grad)u),
+which belongs to L2_tL2_x by (4.1). Equation (5.6) becomes the actual
+unprojected NSE with the same velocity and viscosity. Pressure is fixed
+in the spatial L2 gauge; adding a function of time leaves the gradient.
+
+7. PHYSICAL ENERGY AND ENSTROPHY ON THE CONSTRUCTED SLAB
+
+The regularity already proved gives u in H1(0,T;L2) intersect L2(0,T;H2).
+Hilbert-valued FTC and smooth approximation give absolute continuity of
+  E(t)=||u(t)||_2^2,  Y(t)=||grad u(t)||_2^2,
+and, for almost every t,
+  E'=2<u,u_t>,  Y'=-2<Delta u,u_t>.                    (7.1)
+The second identity follows first for Fourier/time smooth approximants
+and then by convergence of u_t and Delta u in L2; the product pairings
+converge in L1. The C_tH1 trace from section 3 identifies the endpoint values.
+
+At a.e. time the convection cancellation is justified on R3 by compact
+cutoffs: u in H1 implies u in L3 and L4; the product chain rule holds in
+L1, and the boundary error is at most (C/R) integral_|x|>R |u|^3 ->0.
+Thus <u,(u.grad)u>=0. The pressure/gradient part vanishes against the
+solenoidal velocity. Spatial weak integration by parts yields
+  E'(t)=-2nu Y(t),
+  E(t)+2nu integral_0^t Y(s)ds=E(0).                   (7.2)
+This proves sup_t||u(t)||_2<=M and supplies a genuine physical energy
+equality for this constructed local solution.
+
+Set Z=||Delta u||_2^2 and N=|<(u.grad)u,Delta u>|. The same estimates give
+  N<=S0^(3/2)Y^(3/4)Z^(3/4),
+  N^4<=S0^6 Y^3 Z^3,
+  Y'+2nu Z<=2N.
+The separate exact scalar polynomial derivation then gives
+  Y'+nu Z <= (27S0^6/(16nu^3))Y^3
+           =256nu^(-3)Y^3.                             (7.3)
+This is the physical nonsharp coefficient for this construction. The
+registered pi^(-4) coefficient additionally needs sharp S6 admission.
+No identification of S0 with S6 is made.
+
+8. UNIQUENESS IN THE ENTIRE STRONG CLASS
+
+Take any two solutions u,v in C([0,T];H1_sigma) intersect L2(0,T;H2)
+with u_t,v_t in L2_tL2 and the same initial datum. Their projected PDEs
+imply the Duhamel formula by the linear heat equation. If pressure was
+initially supplied in the unprojected equation, the other terms make its
+gradient L2; the L2 Helmholtz projection therefore removes it.
+
+On an interval I=[s,s+h] on which u(s)=v(s), put w=u-v. Then
+  w=-K_nu[B(w,u)+B(v,w)]
+with zero initial trace on that interval. Equations (3.6),(4.1) imply
+  X_I(w)<=C0 nu^(-3/4)h^(1/4)
+               [X_I(u)+X_I(v)] X_I(w).                (8.1)
+The quantities X_I(u),X_I(v) are bounded by finite global-slab quantities.
+Choose one h>0 making the coefficient in (8.1) strictly below 1. It follows
+that X_I(w)=0. Since each w(t) is L2 and its gradient is zero, w(t)=0.
+Partition [0,T] into finitely many intervals of this length and repeat.
+This proves velocity uniqueness without assuming an arbitrary competitor
+is in the original fixed-point ball. It also proves overlap uniqueness.
+
+9. INTERIOR RESTART, MAXIMAL DEVELOPMENT AND CONTINUATION
+
+At every t0 within an existing lifespan, the actual trace u(t0) belongs to
+H1_sigma by C_tH1. Translate time and repeat the construction from that
+datum with the same nu. Uniqueness glues the new solution to the old one
+on the overlap. Piecewise time derivatives do not create a delta at the
+join because the H1 (hence L2) traces agree.
+
+Take the union of all such uniquely compatible local developments and its
+supremal lifetime Tmax in (0,infinity]. Every compact subinterval inherits
+the physical strong regularity, equation, initial trace and energy identity.
+
+If Tmax<infinity and ||grad u(t)||_2<=K for all t<Tmax, then K=0 gives the
+zero continuation, while K>0 gives a uniform restart interval
+  delta=c0 nu^3/K^4>0.
+Choose t0<Tmax so close that Tmax-t0<delta. The local constructor at t0
+extends past Tmax and agrees with the existing trajectory. This contradicts
+maximality. No trace at Tmax is assumed and no limit of pointwise H1 bounds
+is used to create such a trace. Bounded full H1 norm is therefore sufficient;
+indeed (7.2) already controls the missing L2 term along the same trajectory.
+
+10. ALTERNATIVE FINITE-ENDPOINT SQUARE-BUDGET EXCLUSION
+
+There is a useful consequence independent of the sharp Sobolev coefficient.
+If Tmax<infinity then u(t) cannot have zero gradient at any t<Tmax, since
+that L2 datum would be zero and admit a global zero continuation. The local
+lifespan bound at each interior trace and maximality give
+  c0 nu^3/||grad u(t)||_2^4 <= Tmax-t,
+so
+  ||grad u(t)||_2^4 >= c0 nu^3/(Tmax-t),  0<=t<Tmax.     (10.1)
+For 0<=R<Tmax integration yields
+  integral_0^R ||grad u(t)||_2^4 dt
+    >=c0 nu^3 log[Tmax/(Tmax-R)].                       (10.2)
+The right side tends to infinity as R increases to Tmax. Thus the full
+nonnegative terminal budget is infinite:
+  integral^+_(0,Tmax) ||grad u(t)||_2^4 dt = infinity.   (10.3)
+
+For the registered stopped horizon b_A=min(Tmax,tau_A), a finite budget
+therefore excludes Tmax<=tau_A whenever the cutoff is positive. This is an
+alternative P15 implication based on quantitative G01 local theory. It
+does not alone prove globality after tau_A: the registered crossing and
+small-product continuation argument still needs its actual physical inputs.
+The zero datum is handled separately as in section 0.
+
+11. EXACT NATIVE LEAN OBLIGATIONS AND REUSE MAP
+
+The B-tier construction above has no additional unproved NSE premise. It
+uses the standard functional-analysis theorems named in its proof plus the
+explicitly derived estimates. It has not been transported to native Lean.
+In dependency order the required formal work is:
+
+L01 Physical H1/H2 closed graphs and real solenoidal L2 subspace.
+    Current PhysicalH1 and two-way supplied-gradient Fourier source help.
+    H2 and actual Leray-range/solenoidality adapters remain explicit.
+
+L02 Actual vector/matrix L6 inequality with S0=4/sqrt(3).
+    Either formalize section 2 or use a pinned Mathlib admissible constant
+    and retain the symbolic lifespan c=1/(4096 S^6). Changing that local
+    helper constant does not rewrite the separately frozen tau_A.
+    Smooth compact-test density on the native physical graph is needed.
+
+L03 Physical Hessian-Laplacian identity with ordered-pair Frobenius norm.
+    Prove from actual second-derivative Fourier representatives; this is
+    separate from sharp Sobolev admission.
+
+L04 Real L2 Leray multiplier, complete Bochner forcing space and product
+    representative/Fubini bridge. Existing bounded-symbol and real-Fourier
+    work supplies infrastructure, but the matrix Leray operator is new.
+
+L05 Heat semigroup and actual Duhamel map, C_tL2 and C_tH1 trace, estimates
+    (3.2)--(3.7), weak time derivative and physical L2_tH2 identification.
+
+L06 Actual convection map and its L2-time estimate (4.1), with measurability.
+    Inspected whole-space convection sources offer product/IBP templates.
+
+L07 Banach fixed point on the radius-H ball in G_T, explicit constant
+    arithmetic, actual constructed velocity, pressure and PDE.
+
+L08 Physical energy/enstrophy AC identities on this constructed solution.
+    ACBudget and EnstrophyCoefficient consume the resulting scalar inputs;
+    their successful audits alone do not construct L01--L07 or (7.1).
+
+L09 Full strong-class uniqueness, time shift, overlap patching, maximal
+    development and interior restart proof of continuation.
+    Existing periodic EV02--EV08 are architectural templates only.
+
+L10 Finite maximal-time rate and full extended-budget divergence (10.1)--(10.3).
+    This can replace the scalar Gronwall route only for the stated finite
+    endpoint exclusion; the existing plan and parent target names remain.
+
+The first currently unconstructed native analytic edge for this route is
+the complete physical spatial/heat/Leray implementation L01--L05; an abstract
+record containing these estimates would only state its assumptions. The
+actual L2 forcing map, contraction and solution witness must be constructed.
+
+12. PRIMARY LITERATURE CROSS-CHECK AND G04 LEAD
+
+The explicit proof above is independently written; its numerical c0 is not
+claimed to occur in these references.
+
+[R1] J. C. Robinson, Using periodic boundary conditions to approximate the
+Navier--Stokes equations on R3 and the transfer of regularity,
+Nonlinearity 34 (2021), 7683--7704, Theorem 4.4, printed p.7693.
+It records H1 local strong existence/uniqueness on the whole-space domain,
+with lifetime c||grad u0||_2^(-4) at viscosity one and actual L2_tL2
+equations. This independently confirms the functional class and scaling.
+https://doi.org/10.1088/1361-6544/ac2673
+https://wrap.warwick.ac.uk/id/eprint/158066/7/WRAP-using-periodic-boundary-conditions-approximate-Navier-Stokes-equations-transfer-regularity-Robinson-2021.pdf
+
+[R2] T. Tao, Localisation and compactness properties of the Navier--Stokes
+global regularity problem, arXiv:1108.1165v4 (2012), Theorem5.4 and
+Corollary5.8: whole-space H1 local theory and maximal continuation.
+https://arxiv.org/abs/1108.1165
+https://arxiv.org/pdf/1108.1165
+
+For the separate G04 bridge, the same primary paper's Corollary11.1
+(printed p.68) proves that an almost smooth finite-energy solution on a
+CLOSED slab with finite-H1 data belongs to X1 on that slab. Remark11.2
+emphasizes that terminal smoothness is required. A literal global smooth
+finite-energy solution from Schwartz data with zero forcing satisfies the
+stated closed-slab hypothesis for every finite T. Thus this supplies a
+precise B-tier literature route for the terminal H1 admission; its actual
+native Lean port remains absent. Corollary11.4 gives the corresponding
+finite-energy uniqueness statement with normalized pressure.
+
+13. ENDPOINT STATUS AND STOP BOUNDARY
+
+B_TIER_LOCAL_H1_IVP_CHAIN: COMPLETE as a mathematical construction above.
+B_TIER_MAXIMAL_H1_CONTINUATION_CHAIN: COMPLETE via actual interior restart.
+B_TIER_FINITE_TERMINAL_SQUARE_BUDGET_DIVERGENCE: DERIVED from the same IVP.
+NATIVE_H1_NSE_CONSTRUCTOR: NOT_FORMALIZED_BY_THIS_DOCUMENT.
+MATCHING_EXTERNAL_G01_COMPILER_AND_AXIOM_EVIDENCE: NOT_SUPPLIED.
+G01_PARENT_A_TIER_CLOSURE: OPEN.
+
+The derivation stops at the scoped local/maximal construction and the stated
+finite-endpoint consequence. It does not claim arbitrary-data globality,
+universal six-charge finiteness, sharp Sobolev native admission, all-order
+Schwartz/pressure propagation, or the complete Fefferman-A class root.

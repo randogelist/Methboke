@@ -1,0 +1,43 @@
+/-- *Fundamental Theorem of Calculus* for absolutely continuous functions: if `f` is absolutely
+continuous on `uIcc a b`, then `∫ (x : ℝ) in a..b, deriv f x = f b - f a`. -/
+theorem AbsolutelyContinuousOnInterval.integral_deriv_eq_sub {f : ℝ → ℝ} {a b : ℝ}
+    (hf : AbsolutelyContinuousOnInterval f a b) :
+    ∫ (x : ℝ) in a..b, deriv f x = f b - f a := by
+  have f_deriv_integral_ac :=
+    hf.intervalIntegrable_deriv.absolutelyContinuousOnInterval_intervalIntegral
+    (c := a) (by simp)
+  let g (x : ℝ) := f x - ∫ (t : ℝ) in a..x, deriv f t
+  have g_ac : AbsolutelyContinuousOnInterval g a b := hf.sub (f_deriv_integral_ac)
+  have g_ae_deriv_zero : ∀ᵐ x, x ∈ uIcc a b → HasDerivAt g 0 x := by
+    filter_upwards [hf.ae_differentiableAt, hf.intervalIntegrable_deriv.ae_hasDerivAt_integral]
+      with x hx₁ hx₂ hx₃
+    convert! (hx₁ hx₃).hasDerivAt.sub (hx₂ hx₃ a (by simp))
+    abel
+  obtain ⟨C, hC⟩ := g_ac.const_of_ae_hasDerivAt_zero g_ae_deriv_zero
+  have : f a = g a := by simp [g]
+  have := hC a (by simp)
+  have := hC b (by simp)
+  grind
+
+/-- The integral of the derivative of a product of two absolutely continuous functions. -/
+theorem AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub
+    {f g : ℝ → ℝ} {a b : ℝ}
+    (hf : AbsolutelyContinuousOnInterval f a b) (hg : AbsolutelyContinuousOnInterval g a b) :
+    ∫ x in a..b, deriv f x * g x + f x * deriv g x = f b * g b - f a * g a := by
+  rw [← (hf.fun_mul hg).integral_deriv_eq_sub]
+  apply intervalIntegral.integral_congr_ae
+  filter_upwards [hf.ae_differentiableAt, hg.ae_differentiableAt] with x hx₁ hx₂ hx₃
+  have hx₄ : x ∈ uIcc a b := uIoc_subset_uIcc hx₃
+  have hx₅ := (hx₁ hx₄).hasDerivAt.mul (hx₂ hx₄).hasDerivAt
+  exact hx₅.deriv.symm
+
+/-- *Integration by parts* for absolutely continuous functions. -/
+theorem AbsolutelyContinuousOnInterval.integral_mul_deriv_eq_deriv_mul {f g : ℝ → ℝ} {a b : ℝ}
+    (hf : AbsolutelyContinuousOnInterval f a b) (hg : AbsolutelyContinuousOnInterval g a b) :
+    ∫ x in a..b, f x * deriv g x = f b * g b - f a * g a - ∫ x in a..b, deriv f x * g x := by
+  rw [← AbsolutelyContinuousOnInterval.integral_deriv_mul_eq_sub hf hg,
+      ← intervalIntegral.integral_sub]
+  · simp_rw [add_sub_cancel_left]
+  · exact (hf.intervalIntegrable_deriv.mul_continuousOn hg.continuousOn).add
+      (hg.intervalIntegrable_deriv.continuousOn_mul hf.continuousOn)
+  · exact hf.intervalIntegrable_deriv.mul_continuousOn hg.continuousOn

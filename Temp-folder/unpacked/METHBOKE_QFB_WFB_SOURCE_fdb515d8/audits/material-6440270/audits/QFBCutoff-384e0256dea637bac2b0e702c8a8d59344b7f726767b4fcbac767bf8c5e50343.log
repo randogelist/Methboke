@@ -1,0 +1,39 @@
+TYPE_BEGIN:QuasiFeffermanB.cutoff
+QuasiFeffermanB.cutoff : ↥SingularClosure.CriticalPhysicalL2 → ℝ → ℝ
+TYPE_END:QuasiFeffermanB.cutoff
+AXIOMS_BEGIN:QuasiFeffermanB.cutoff
+'QuasiFeffermanB.cutoff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.cutoff
+TYPE_BEGIN:QuasiFeffermanB.safeCutoff
+QuasiFeffermanB.safeCutoff : ↥SingularClosure.CriticalPhysicalL2 → ℝ → ℝ
+TYPE_END:QuasiFeffermanB.safeCutoff
+AXIOMS_BEGIN:QuasiFeffermanB.safeCutoff
+'QuasiFeffermanB.safeCutoff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.safeCutoff
+TYPE_BEGIN:QuasiFeffermanB.CUTOFF_NONNEG
+QuasiFeffermanB.CUTOFF_NONNEG : ∀ (a : ↥SingularClosure.CriticalPhysicalL2) {ν : ℝ},
+  LT.lt.{0} 0 ν → LE.le.{0} 0 (QuasiFeffermanB.cutoff a ν)
+TYPE_END:QuasiFeffermanB.CUTOFF_NONNEG
+AXIOMS_BEGIN:QuasiFeffermanB.CUTOFF_NONNEG
+'QuasiFeffermanB.CUTOFF_NONNEG' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.CUTOFF_NONNEG
+TYPE_BEGIN:QuasiFeffermanB.CUTOFF_ZERO
+QuasiFeffermanB.CUTOFF_ZERO : ∀ (ν : ℝ), Eq.{1} (QuasiFeffermanB.cutoff 0 ν) 0
+TYPE_END:QuasiFeffermanB.CUTOFF_ZERO
+AXIOMS_BEGIN:QuasiFeffermanB.CUTOFF_ZERO
+'QuasiFeffermanB.CUTOFF_ZERO' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.CUTOFF_ZERO
+TYPE_BEGIN:QuasiFeffermanB.CUTOFF_POS
+QuasiFeffermanB.CUTOFF_POS : ∀ (a : ↥SingularClosure.CriticalPhysicalL2),
+  Ne.{1} a 0 → ∀ {ν : ℝ}, LT.lt.{0} 0 ν → LT.lt.{0} 0 (QuasiFeffermanB.cutoff a ν)
+TYPE_END:QuasiFeffermanB.CUTOFF_POS
+AXIOMS_BEGIN:QuasiFeffermanB.CUTOFF_POS
+'QuasiFeffermanB.CUTOFF_POS' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.CUTOFF_POS
+TYPE_BEGIN:QuasiFeffermanB.SAFE_CUTOFF_GT
+QuasiFeffermanB.SAFE_CUTOFF_GT : ∀ (a : ↥SingularClosure.CriticalPhysicalL2),
+  Ne.{1} a 0 → ∀ {ν : ℝ}, LT.lt.{0} 0 ν → LT.lt.{0} (QuasiFeffermanB.cutoff a ν) (QuasiFeffermanB.safeCutoff a ν)
+TYPE_END:QuasiFeffermanB.SAFE_CUTOFF_GT
+AXIOMS_BEGIN:QuasiFeffermanB.SAFE_CUTOFF_GT
+'QuasiFeffermanB.SAFE_CUTOFF_GT' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:QuasiFeffermanB.SAFE_CUTOFF_GT

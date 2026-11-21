@@ -1,0 +1,96 @@
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.dissipation_square_integrable_of_fourier_budget
+MethbokeAddon.WeakFouriermanB.dissipation_square_integrable_of_fourier_budget : ∀ (μ : MeasureTheory.Measure.{0} ℝ)
+  (u : ℝ → SingularClosure.Field) (c : ℝ → SingularClosure.FourierCoeff),
+  MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalDissipation (u t)) μ →
+    (∀ᵐ (t : ℝ) ∂μ,
+        Eq.{1} (SingularClosure.physicalDissipation (u t))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} Real.pi 2))
+            (MethbokeAddon.WeakFouriermanB.FourierEnstrophy (c t)))) →
+      (∀ᵐ (t : ℝ) ∂μ,
+          Eq.{1} (ENNReal.ofReal (MethbokeAddon.WeakFouriermanB.FourierEnstrophy (c t)))
+            (MethbokeAddon.WeakFouriermanB.ExtendedFourierEnstrophy (c t))) →
+        LT.lt.{0} (∫⁻ (t : ℝ), HPow.hPow.{0, 0, 0} (MethbokeAddon.WeakFouriermanB.ExtendedFourierEnstrophy (c t)) 2 ∂μ)
+            ∞ →
+          MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2) μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.dissipation_square_integrable_of_fourier_budget
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.dissipation_square_integrable_of_fourier_budget
+'MethbokeAddon.WeakFouriermanB.dissipation_square_integrable_of_fourier_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.dissipation_square_integrable_of_fourier_budget
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_serrin_of_energy_and_dissipation
+MethbokeAddon.WeakFouriermanB.local_serrin_of_energy_and_dissipation : ∀ (μ : MeasureTheory.Measure.{0} ℝ)
+  (u : ℝ → SingularClosure.Field),
+  (∀ᵐ (t : ℝ) ∂μ, ContDiff.{0, 0, 0} ℝ ∞ (u t) ∧ SingularClosure.SpatialPeriodic.{0} (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) μ →
+      MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2) μ →
+        MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalEnergy (u t)) 2) μ →
+          MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4 μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_serrin_of_energy_and_dissipation
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_serrin_of_energy_and_dissipation
+'MethbokeAddon.WeakFouriermanB.local_serrin_of_energy_and_dissipation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_serrin_of_energy_and_dissipation
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.physical_energy_square_integrable_of_bound
+MethbokeAddon.WeakFouriermanB.physical_energy_square_integrable_of_bound : ∀ (μ : MeasureTheory.Measure.{0} ℝ)
+  [MeasureTheory.IsFiniteMeasure.{0} μ] (u : ℝ → SingularClosure.Field) (E0 : ℝ),
+  MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalEnergy (u t)) μ →
+    (∀ᵐ (t : ℝ) ∂μ, LE.le.{0} (SingularClosure.physicalEnergy (u t)) E0) →
+      MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalEnergy (u t)) 2) μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.physical_energy_square_integrable_of_bound
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.physical_energy_square_integrable_of_bound
+'MethbokeAddon.WeakFouriermanB.physical_energy_square_integrable_of_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.physical_energy_square_integrable_of_bound
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_serrin_of_fourier_budget
+MethbokeAddon.WeakFouriermanB.local_serrin_of_fourier_budget : ∀ (u : ℝ → SingularClosure.Field)
+  (c : ℝ → SingularClosure.FourierCoeff) (T E0 : ℝ),
+  (∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+        ContDiff.{0, 0, 0} ℝ ∞ (u t) ∧ SingularClosure.SpatialPeriodic.{0} (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t))
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+      MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalDissipation (u t))
+          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+        MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalEnergy (u t))
+            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+          (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → LE.le.{0} (SingularClosure.physicalEnergy (u t)) E0) →
+            (∀ (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                  Eq.{1} (SingularClosure.physicalDissipation (u t))
+                    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 4 (HPow.hPow.{0, 0, 0} Real.pi 2))
+                      (MethbokeAddon.WeakFouriermanB.FourierEnstrophy (c t)))) →
+              (∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                    Eq.{1} (ENNReal.ofReal (MethbokeAddon.WeakFouriermanB.FourierEnstrophy (c t)))
+                      (MethbokeAddon.WeakFouriermanB.ExtendedFourierEnstrophy (c t))) →
+                MethbokeAddon.WeakFouriermanB.FourierBudgetFinite c T →
+                  MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4
+                    (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_serrin_of_fourier_budget
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_serrin_of_fourier_budget
+'MethbokeAddon.WeakFouriermanB.local_serrin_of_fourier_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_serrin_of_fourier_budget
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.physical_fourier_budget_to_serrin
+MethbokeAddon.WeakFouriermanB.physical_fourier_budget_to_serrin : ∀ (u : ℝ → SingularClosure.Field) (T E0 : ℝ),
+  (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SmoothSigmaZero (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t))
+        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+      MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalDissipation (u t))
+          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+        MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalEnergy (u t))
+            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →
+          (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → LE.le.{0} (SingularClosure.physicalEnergy (u t)) E0) →
+            MethbokeAddon.WeakFouriermanB.FourierBudgetFinite (fun t => SingularClosure.datumFourierCoeff (u t)) T →
+              MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4
+                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.physical_fourier_budget_to_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.physical_fourier_budget_to_serrin
+'MethbokeAddon.WeakFouriermanB.physical_fourier_budget_to_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.physical_fourier_budget_to_serrin

@@ -1,0 +1,84 @@
+TYPE_BEGIN:SingularClosure.SMALL_DATA_CRITICAL_REGULARITY
+SingularClosure.SMALL_DATA_CRITICAL_REGULARITY : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.CriticalSobolev 1),
+      SingularClosure.CriticalSigmaZero a →
+        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) ν →
+          SingularClosure.CriticalGlobalRegularity ν a
+TYPE_END:SingularClosure.SMALL_DATA_CRITICAL_REGULARITY
+AXIOMS_BEGIN:SingularClosure.SMALL_DATA_CRITICAL_REGULARITY
+'SingularClosure.SMALL_DATA_CRITICAL_REGULARITY' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:SingularClosure.SMALL_DATA_CRITICAL_REGULARITY
+TYPE_BEGIN:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY
+SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.CriticalSobolev 1),
+      SingularClosure.CriticalSigmaZero a →
+        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) ν →
+          SingularClosure.CriticalDatumAX6 ν a ∧ SingularClosure.CriticalGlobalRegularity ν a
+TYPE_END:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY
+AXIOMS_BEGIN:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY
+'SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY
+TYPE_BEGIN:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT
+SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT : ∃ c,
+  LT.lt.{0} 0 c ∧
+    ∀ (ν : ℝ),
+      LT.lt.{0} 0 ν →
+        ∀ (a : SingularClosure.CriticalSobolev 1),
+          SingularClosure.CriticalSigmaZero a →
+            LT.lt.{0} (norm.{0} a) (HMul.hMul.{0, 0, 0} c ν) →
+              SingularClosure.CriticalDatumAX6 ν a ∧ SingularClosure.CriticalGlobalRegularity ν a
+TYPE_END:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT
+AXIOMS_BEGIN:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT
+'SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT
+TYPE_BEGIN:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL
+SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.CriticalSobolev 1),
+      SingularClosure.CriticalSigmaZero a →
+        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) ν →
+          SingularClosure.CriticalDatumAX6 ν a ∧
+            ∃ U,
+              SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalInitialPhysicalL2 a) U.lerayVelocity
+                  U.lerayGradient ∧
+                U.lerayHopfUnique ∧
+                  SingularClosure.PositiveSmoothNSE ν U.flow.velocity U.flow.pressure ∧
+                    (MeasureTheory.MemLp.{0, 0} U.flow.threeHalfState 2
+                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) ∧
+                        LE.le.{0}
+                          (∫ (t : ℝ) in Set.Ioi.{0} 0, HPow.hPow.{0, 0, 0} (norm.{0} (U.flow.threeHalfState t)) 2)
+                          (SingularClosure.criticalDissipationBudget ν a)) ∧
+                      (MeasureTheory.MemLp.{0, 0} U.flow.negativeHalfDerivative 2
+                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) ∧
+                          LE.le.{0}
+                            (∫ (t : ℝ) in Set.Ioi.{0} 0,
+                              HPow.hPow.{0, 0, 0} (norm.{0} (U.flow.negativeHalfDerivative t)) 2)
+                            (SingularClosure.criticalTimeDerivativeBudget ν a)) ∧
+                        MeasureTheory.MemLp.{0, 0}
+                            (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (U.flow.velocity t)) 4
+                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) ∧
+                          ∀ (T : ℝ),
+                            LT.lt.{0} 0 T →
+                              MeasureTheory.IntegrableOn.{0, 0}
+                                  (fun t =>
+                                    HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (U.flow.velocity t)) 2)
+                                  (Set.Icc.{0} 0 T) MeasureTheory.volume.{0} ∧
+                                LE.le.{0}
+                                  (∫ (t : ℝ) in 0..T,
+                                    HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (U.flow.velocity t)) 2)
+                                  (HDiv.hDiv.{0, 0, 0}
+                                    (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} (norm.{0} a) 4)
+                                      (HPow.hPow.{0, 0, 0} (norm.{0} (U.critical T)) 4))
+                                    (HMul.hMul.{0, 0, 0} 4
+                                      (HSub.hSub.{0, 0, 0} ν
+                                        (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)))))
+TYPE_END:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL
+AXIOMS_BEGIN:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL
+'SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL

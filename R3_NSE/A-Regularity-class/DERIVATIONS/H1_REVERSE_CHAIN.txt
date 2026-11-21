@@ -1,0 +1,92 @@
+NSE_A_H1_REVERSE_FOURIER_CHAIN
+DATE = 2026-11-20
+SOURCE_BASIS = 053147fc75677f3b086a7a2da740ccc95fed5b8f
+MODE = B_TIER_DERIVATION_BEFORE_NATIVE_EXTERNAL_VERIFICATION
+PARENT_TARGET = G05
+PLAN_ENDPOINT = P02
+NATIVE_MODULE = MethbokeAddon.QuasiFeffermanA.H1FourierReverse
+PUBLIC_SCOPE = Eight first-derivative identification theorems.
+STATUS = PREPARED_PENDING_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_EVIDENCE
+LOCAL_LEAN_EXECUTION = NONE
+
+1. EXACT CARRIERS AND GIVEN DATA
+
+Space is actual Euclidean R3 with full Lebesgue volume. RealL2 and ComplexL2
+are actual real-vector and complex-vector L2 equivalence classes. The native
+complexification is the already constructed isometric real-linear map.
+Let u, du be supplied ComplexL2 fields and e a supplied real direction.
+Assume, almost everywhere in frequency,
+  F(du)(xi) = (2*pi*i)*<xi,e>*F(u)(xi).
+No Laplacian, second derivative, PDE, or norm identity is assumed.
+
+2. FROM AN ACTUAL L2 MULTIPLIER REPRESENTATIVE TO DISTRIBUTIONS
+
+More generally, suppose q,h are ComplexL2 and
+  q(x) = c*m(x)*h(x) almost everywhere,
+with m real and of temperate growth. Pair with an arbitrary complex Schwartz
+test phi. The supplied L2 q has the actual tempered-distribution pairing
+  <q,phi> = integral phi(x)*q(x) dx
+          = c*integral [m(x)*phi(x)]*h(x) dx.
+The product m*phi is Schwartz by temperate growth, hence the last expression
+is exactly c times the distributional multiplier applied to h and phi.
+Equality on every Schwartz test gives the distribution identity. This uses
+the representative hypothesis, not an assumed distribution identity.
+
+3. FOURIER INVERSION RECOVERS THE FIRST DERIVATIVE
+
+For m(xi)=<xi,e>, the native Fourier differentiation theorem identifies the
+right side of step 2 with F(partial_e u). Compatibility of L2 Fourier with
+tempered distributions identifies its left side with F(du).
+Apply the actual inverse Fourier transform on tempered distributions:
+  F(du)=F(partial_e u) -> du=partial_e u.
+No surjectivity of an assumed gradient record is used.
+
+4. RESTRICT TO LITERAL COMPACT REAL TESTS
+
+For every smooth compactly supported real psi, use its actual Schwartz
+representative and complexify it. Evaluation of the distribution identity
+and the derivative definition gives
+  integral psi*du = - integral (partial_e psi)*u.
+Negating and reversing this equality gives precisely the native predicate
+  integral (partial_e psi)*u = - integral psi*du.
+The real/complex scalar actions agree on ComplexVector. The directional
+derivative commutes with scalar complexification by the proved chain rule.
+
+5. REFLECT TO REAL FIELDS BY INJECTIVE COMPLEXIFICATION
+
+Now let u,du be actual RealL2 fields. Before transporting compact-test
+integrals, prove both integrands integrable using compact support and L2
+local integrability. The accepted integral/complexification identities and
+injectivity of the actual real-to-complex isometry reflect the compact-test
+equation from complexify(u),complexify(du) to u,du.
+
+6. TWO-WAY DIRECTIONAL AND THREE-COMPONENT CHARACTERIZATION
+
+Combine steps 2--5 with the separately proved native forward direction:
+  RealTestWeakDirectionalDerivative(u,du,e)
+    iff F(complexify du)=(2*pi*i)*<xi,e>*F(complexify u) almost everywhere.
+Apply this to the three actual coordinate vectors. The finite conjunction
+commutes with the almost-everywhere quantifier, so for supplied real G_j:
+  SpatialWeakGradient(u,G)
+    iff almost every xi satisfies all three Fourier derivative identities.
+The same real u and the same real G occur on both sides.
+
+7. FIRST REMAINING CONSTRUCTION EDGE
+
+This exact supplied-gradient equivalence is a completed mathematical
+subchain. It does not yet prove that weighted Fourier integrability alone
+constructs a real gradient witness, establish its weighted norm identity,
+or construct the six real H1 projections. Those are separate G05 edges.
+No G05 parent closure, NSE existence, sharp Sobolev estimate or regularity
+root follows from these eight declarations alone.
+
+8. PINNED REUSE AND VERIFICATION
+
+Native inputs: H1Fourier.lean (compact-test forward direction), Contracts.lean,
+the accepted QFA complexification and native multiplier ports, and Mathlib
+db584cd6 tempered-distribution and Fourier-inversion APIs.
+The source basis above is a derivation baseline, not a claim that these new
+proof bytes existed at that commit. Exact source closure, complete independent
+consumer signatures, and named standard-only axiom reports must be checked
+by the existing authorized cached external workflow. No local Lean or Lake
+execution is permitted or performed.

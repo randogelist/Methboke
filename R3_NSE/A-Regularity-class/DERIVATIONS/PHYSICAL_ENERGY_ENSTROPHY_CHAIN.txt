@@ -1,0 +1,325 @@
+NSE-A PHYSICAL ENERGY / ENSTROPHY / CONTINUATION CHAIN
+Date: 2026-11-20
+Mode: B_TIER_DERIVATION
+Scope: G03, with same-path canonical continuation consequences
+Project goal: Fefferman_D (unchanged)
+Branch target: QFA_QFB_A_TIER_INTEGRATION (unchanged)
+Local Lean/Lake/kernel/runner executions: NONE
+Formal status: DERIVATION_ONLY; the six native parent gaps remain OPEN
+
+0. ACTUAL TRAJECTORY AND EXACT INPUTS
+
+Fix nu>0 and real solenoidal initial datum a in physical H1(R3;R3).
+Put M=||a||_2, so E(0)=M^2. Let u be the actual maximal strong solution
+constructed in H1_LOCAL_FIXED_POINT_CHAIN.txt, on [0,Tmax), with its
+actual pressure gradient and physical NSE. For every 0<R<Tmax it has
+  u in C([0,R];H1_sigma) intersect L2(0,R;H2),
+  u_t in L2(0,R;L2),
+  u(0)=a strongly in H1,
+  u_t-nu Delta u+(u.grad)u+grad p=0.                    (0.1)
+The equation is in L2 time-space, hence in distributions. The argument
+also applies to any supplied solution with precisely this proved regularity;
+it does not construct a solution from an abstract energy/enstrophy port.
+
+For the registered constants use the established spatial admission in
+SHARP_SPATIAL_ADMISSION_CHAIN.txt:
+  ||F||_6<=S6||grad F||_2 for actual physical H1 tensors,
+  ||grad u||_6<=S6||Delta u||_2,
+  S6>0, S6^6=16/(27pi^4).                              (0.2)
+Its sharp scalar input is Talenti's theorem, precisely sourced in that note.
+The physical energy identity below needs only an admissible finite Sobolev
+constant. The numerical registered cutoff and coefficient use (0.2).
+
+Define the actual observables, without a one-half convention:
+  E(t)=||u(t)||_2^2,
+  Y(t)=||grad u(t)||_2^2,
+  Z(t)=||Delta u(t)||_2^2,
+  B(t)=(u(t).grad)u(t),
+  N(t)=|<B(t),Delta u(t)>_L2|.                           (0.3)
+E and Y are continuous; Z is L1 on each compact time slab. Spatial products
+and pairings are actual full-volume quantities, not formal energy symbols.
+The H1 graph norm is exactly E+Y, retaining the low-frequency velocity term.
+
+1. TIME REGULARITY OF THE ACTUAL VELOCITY ENERGY
+
+The weak time derivative in (0.1) and the initial trace give the Bochner
+identity
+  u(t)=u(s)+integral_s^t u_t(r)dr                       (1.1)
+in L2 for 0<=s<=t<=R. Thus u is absolutely continuous as an L2-valued
+map on each such slab. The Hilbert norm-square chain rule gives
+  E absolutely continuous,
+  E'(t)=2<u(t),u_t(t)>_L2 for almost every t.             (1.2)
+The pairing is integrable since u is bounded in L2 on a compact slab and
+u_t is L2 in time. No pointwise spacetime smoothness is required.
+
+2. ENSTROPHY AC WITHOUT ASSUMING A SPATIAL DERIVATIVE OF u_t
+
+The claim
+  Y absolutely continuous,
+  Y'(t)=-2<Delta u(t),u_t(t)>_L2 a.e.                    (2.1)
+requires a separate argument: (0.1) does not assert grad u_t in L2.
+
+Let P_n be the spatial Fourier cutoff to |xi|<=n, acting on real fields
+through its real/even indicator symbol, and set u_n=P_n u. It is a bounded
+self-adjoint L2 operator commuting with weak spatial derivatives. For fixed
+n, grad P_n is a bounded L2-to-L2 map. Therefore grad u_n is W^(1,2) in
+time, with time derivative grad P_n u_t, and the ordinary Hilbert chain
+rule plus spatial integration by parts gives
+  Y_n(t):=||grad u_n(t)||_2^2,
+  Y_n'=-2<Delta P_n u,P_n u_t>.                         (2.2)
+
+P_n converges strongly to the identity on H1. This convergence is uniform
+on the compact image u([0,R]) in H1, so Y_n->Y uniformly on [0,R].
+Also
+  Delta P_n u->Delta u in L2(0,R;L2),
+  P_n u_t->u_t in L2(0,R;L2).
+Cauchy-Schwarz implies convergence of the pairings in (2.2) in L1 time.
+Passing in
+  Y_n(t)=Y_n(0)+integral_0^t Y_n'(r)dr
+gives (2.1) and its exact integrated identity at every t, including the
+initial and final endpoints of the chosen compact slab. The construction
+derives AC from the physical regularity; it does not assume Y is AC.
+
+3. SPATIAL CANCELLATIONS ON R3
+
+For almost every time u is actual H2 and solenoidal. The spatial estimates
+in (0.2) imply B in L2 and
+  ||B||_2<=||u||_6||grad u||_3.
+These products are strongly measurable, and their finite-slab L2-time
+integrability follows from
+  ||B||_(L2_tL2_x)^2
+    <=S6^3 (sup Y)^(3/2) sqrt(R) ||Delta u||_(L2_tL2_x).
+Thus the PDE terms give grad p=nu Delta u-u_t-B in L2 time-space, even if
+one initially stated the pressure only distributionally.
+
+3.1 Convection.
+H1 interpolation gives u in L3 intersect L4. Hence |u|^3 and
+|u|^2|grad u| are integrable. With a compact cutoff chi_L equal to one
+on B_L, supported in B_(2L), and |grad chi_L|<=C/L, weak product rules and
+div u=0 give
+  integral chi_L u.B
+    =-(1/2)integral |u|^2 u.grad chi_L.
+The absolute value of the right side is bounded by
+  (C/(2L)) integral_(L<|x|<2L)|u|^3 ->0.
+The left side tends to <u,B>, since u.B is integrable. Therefore
+  <u,B>=0.                                             (3.1)
+
+3.2 Pressure.
+An L2 distributional gradient is orthogonal to the solenoidal L2 subspace.
+This follows from the actual Helmholtz/Fourier projection in the G01
+construction. Both u and Delta u are solenoidal L2 at the times in question,
+the second because divergence commutes with the spatial Laplacian.
+Consequently
+  <u,grad p>=0,  <Delta u,grad p>=0.                    (3.2)
+This avoids assuming spatial decay of a pressure representative. Addition
+of a function of time to p leaves these identities unchanged.
+
+3.3 Dissipation.
+Actual weak integration by parts, or Plancherel, gives
+  <u,Delta u>=-Y.                                      (3.3)
+All the preceding identities are on the same actual physical trajectory.
+
+4. EXACT ENERGY AND ENSTROPHY IDENTITIES
+
+Insert (0.1) into (1.2) and use (3.1)--(3.3):
+  E'=-2nu Y a.e.,
+  E(t)+2nu integral_s^t Y(r)dr=E(s)                    (4.1)
+for every 0<=s<=t<=R. In particular 0<=E(t)<=M^2.
+
+Insert (0.1) into (2.1), using pressure orthogonality against Delta u:
+  Y'+2nu Z=2<B,Delta u> a.e.,
+  Y'+2nu Z<=2N.                                       (4.2)
+The sign is fixed by u_t=nu Delta u-B-grad p.
+The pairings in (4.2) are integrable by the finite-slab L2 bounds above.
+
+Because E is AC, E^2 is AC and
+  (E^2)'=2EE'=-4nu EY.
+Since E and Y are continuous on [0,R], their product is integrable, and
+  E(t)^2+4nu integral_s^t E(r)Y(r)dr=E(s)^2.           (4.3)
+At s=0 this supplies the exact weighted product budget
+  integral_0^t EY=(M^4-E(t)^2)/(4nu)<=M^4/(4nu).        (4.4)
+The factor one quarter comes from differentiating E^2; it is not the weaker
+bound obtained merely by multiplying E<=M^2 into the dissipation budget.
+
+5. CUBIC ENSTROPHY AND ONE FINITE FULL STOPPED BUDGET
+
+The sharp spatial chain gives
+  N^4<=S6^6 Y^3 Z^3.
+Together with (4.2), the scalar polynomial certificate in
+ENSTROPHY_COEFFICIENT_CHAIN.txt gives
+  Y'+nu Z<=kappa Y^3,  kappa=27S6^6/(16nu^3)
+                            =1/(pi^4 nu^3).            (5.1)
+This retains one nonnegative dissipation term and implies Y'<=kappa Y^3.
+
+Let 0<b<=Tmax be a finite stopped horizon, with no assumption of a trace
+at b when b=Tmax, and define the actual extended nonnegative integral
+  J_b=integral^+_(0,b) Y(t)^2 dt.
+Assume J_b<infinity. For every t<b, scalar AC and (5.1) imply
+  Y(t)<=Y(0) exp(kappa integral_0^t Y(r)^2 dr)
+      <=Y(0) exp(kappa J_b)=:B_b.                       (5.2)
+No division by Y is necessary: multiply Y by the positive integrating
+factor exp(-kappa integral_0^t Y^2), whose derivative has nonpositive
+product with the required inequality. This includes Y(0)=0.
+
+The same bound and (5.1), integrated only to t<b, also give
+  nu integral_0^t Z
+    <=Y(0)-Y(t)+kappa integral_0^t Y^3
+    <=Y(0)+kappa B_b J_b.                              (5.3)
+The enstrophy bound and E<=M^2 imply
+  ||u(t)||_H1^2<=M^2+B_b for all 0<=t<b.                (5.4)
+The AC and a.e. statements on the whole open window follow from their
+compact-slab versions by a countable exhaustion. Open endpoints do not
+alter the nonnegative budget.
+
+If b=Tmax<infinity, (5.4) contradicts the actual G01 bounded-H1 interior
+restart theorem. This is the finite-endpoint exclusion. It neither assumes
+nor fabricates an H1 trace at the hypothetical maximal endpoint.
+
+6. STRICT SMALL-PRODUCT DISSIPATION: THE PHYSICAL THRESHOLD
+
+A second spatial estimate, using different Holder exponents, is essential:
+  N<=||u||_3 ||grad u||_6 ||Delta u||_2.
+Interpolate the velocity between L2 and L6 and apply (0.2):
+  ||u||_3<=||u||_2^(1/2)||u||_6^(1/2)
+          <=S6^(1/2) E^(1/4)Y^(1/4).
+Using ||grad u||_6<=S6||Delta u||_2 now gives
+  N<=q Z,
+  q:=S6^(3/2)(EY)^(1/4)>=0,  q^4=S6^6 EY.              (6.1)
+Thus (4.2) implies
+  Y'+2(nu-q)Z<=0.                                     (6.2)
+
+Set W=EY and delta=nu^4/S6^6>0. Whenever W<delta, (6.1) gives q<nu.
+This inference is strict: multiply by S6^6>0, compare nonnegative fourth
+powers, then take the positive gap nu-q. It does not divide by W or Z.
+Consequently on a subcritical time interval, Y'<=0 a.e. and E'<=0, so
+  W'=E'Y+EY'<=0 a.e.                                  (6.3)
+
+Suppose W(s)<delta for an actual interior time s. For any later compact
+slab, choose a level theta with W(s)<theta<delta. If W ever reaches theta,
+continuity supplies a first hitting time. Before that time W<=theta<delta,
+so (6.3) and AC imply W at the hitting time is <=W(s), a contradiction.
+Allowing any such theta, and then using AC while W<delta, yields
+  W(t)<=W(s) for every s<=t<Tmax.                      (6.4)
+The argument uses the derivative inequality only within the subcritical
+region; it does not presuppose the desired invariant bound.
+
+Put q_s=S6^(3/2)W(s)^(1/4)<nu. Since the fourth root is monotone, (6.4)
+and (6.2) give the quantitative retained dissipation
+  Y(t)+2(nu-q_s)integral_s^t Z(r)dr<=Y(s),
+  E(t)<=E(s),  Y(t)<=Y(s) for all s<=t<Tmax.            (6.5)
+This bounds the actual full H1 norm on the future trajectory. On the
+earlier compact interval [0,s] it is already bounded by continuity.
+The actual G01 interior restart therefore excludes any finite Tmax.
+A strictly subcritical actual interior trace has global canonical evolution.
+
+7. SAFE CUTOFF, GOOD-TIME SELECTION AND SAME-PATH CRITERION
+
+For nonzero a, M>0. Define the registered fixed horizon
+  tau_A=S6^6 M^4/(2nu^5)=8M^4/(27pi^4 nu^5)>0,
+and b_A=min(Tmax,tau_A), with min(infinity,tau_A)=tau_A.
+If the single full budget J_(b_A) is finite, section 5 excludes
+Tmax<=tau_A. Hence Tmax>tau_A, and the actual canonical trajectory is
+defined with continuous H1 trace on the full closed slab [0,tau_A].
+
+Now use the exact physical budget (4.4) at tau_A:
+  integral_0^tau_A EY<=M^4/(4nu)
+                     =delta tau_A/2.                 (7.1)
+Therefore some s strictly inside (0,tau_A) satisfies
+  E(s)Y(s)<delta.
+Indeed, if EY>=delta almost everywhere the integral would be at least
+delta tau_A; Markov's inequality gives the stronger statement that the
+strictly subcritical set has measure at least tau_A/2. Any supplied
+full-measure valid-restart predicate can be retained in the selected time.
+For the canonical strong solution every interior time is a valid H1 restart.
+Section 6 then gives Tmax=infinity.
+
+Conversely, if Tmax=infinity, the canonical H1 path is continuous on the
+finite closed slab [0,tau_A]. Its nonnegative function Y^2 is continuous
+and genuinely integrable there, so J_(b_A)=J_(tau_A)<infinity.
+Thus, for the actual canonical trajectory and these fixed constants,
+  J_(min(Tmax,tau_A))<infinity <=> Tmax=infinity.         (7.2)
+This is a criterion, not a proof that J is finite for arbitrary data.
+The charge-identification and literal Fefferman-A bridge are separate
+adapters; their native parent gaps are not closed by this derivation.
+
+8. ZERO DATA AND OTHER DEGENERATE CASES
+
+If M=0 then a=0. Equation (4.1) gives 0<=E(t)<=0 along any strong
+solution, so u(t)=0 in L2 for every existing time. Weak-derivative
+uniqueness gives Y(t)=0 at every time, and Z=N=0 at the almost-everywhere
+H2 times where those observables are defined. The actual G01 zero constructor is global,
+tau_A=0, and the integral over the empty stopped window is zero.
+No positive-time selector or formula dividing by M is used in this branch.
+
+If Y(s)=0 at a later time, actual L2 membership and grad u(s)=0 imply
+u(s)=0 on R3, by Fourier support at the null set {0}. Unique restart then
+gives the zero future. This also covers W(s)=0 (whether E(s)=0 or Y(s)=0).
+The estimates in sections 5 and 6 remain valid without dividing by Y,Z,W.
+A compact slab of length zero has the trivial identities and is handled
+before applying positive-length integration or selection statements.
+
+9. SCOPED NATIVE SCALAR SUBCHAIN AUTHORIZED FOR PREPARATION
+
+A separate SmallProductCoefficient module may prove the finite algebra:
+  S>0, nu>0, q>=0, q^4<=S^6 W, W<nu^4/S^6
+    ==> q<nu;
+  d+2nu Z<=2qZ ==> d+2(nu-q)Z<=0;
+  the preceding inputs ==> a positive gap and retained dissipation;
+  adding Z>=0 ==> d<=0; adding Z>0 ==> d<0.
+For W=0 the fourth-power premise gives q=0 directly.
+These statements are useful exact consumers of (6.1)--(6.2). They do not
+assert the spatial coefficient, physical equation, scalar AC, invariant
+barrier, canonical restart or globality. Independent full theorem consumer
+types and named axiom sentinels must preserve every written premise.
+Prepared source has no A-tier status without matching external evidence.
+
+10. CONCRETE NATIVE REUSE AND FIRST BLOCKED EDGE
+
+The pinned source basis is Lean 4.33.0 with Mathlib
+db584cd6d46c92f209a44c0f1c829460d327499d.
+
+Mathlib/Analysis/InnerProductSpace/Calculus.lean:
+  HasDerivAt.norm_sq supplies the pointwise Hilbert norm-square derivative
+  once the actual a.e. time derivative has been obtained.
+
+Mathlib/MeasureTheory/Integral/IntervalIntegral/AbsolutelyContinuousFun.lean:
+  AbsolutelyContinuousOnInterval.integral_deriv_eq_sub,
+  integral_deriv_mul_eq_sub and integral_mul_deriv_eq_deriv_mul provide the
+  exact scalar FTC/product formulas after physical AC has been established.
+  These do not by themselves create the Bochner/Sobolev time-derivative bridge.
+
+Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Budget.lean:
+  physicalH1_norm_sq_eq_energy_add_enstrophy,
+  physicalH1_ac_cubic_uniform_norm_sq and closed-slab budget integrability
+  consume the resulting actual physical norm, energy and AC facts.
+
+Material/MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean:
+  the fourth-power polynomial certificate supplies (5.1), retaining all
+  spatial/enstrophy premises. ACBudget.lean supplies the scalar full-budget
+  bound. Cutoff.lean provides the exact threshold/cutoff arithmetic,
+  full-measure good-time retention and half-window estimate.
+
+Energy.lean and Integration.lean already consume the native LerayHopf
+contract's energy inequality and good-start data. Their contract assumes
+those physical class properties; these adapters are not derivations of
+(4.1) or (4.2) from the canonical strong PDE. The present route obtains
+those properties independently from (0.1), without borrowing an assumed
+energy axiom from that other contract.
+
+FIRST INTERNAL NATIVE G03 BLOCKED EDGE: the actual strong-path time-space
+realization and Bochner/Sobolev chain rule leading to (1.2) and especially
+(2.1), together with spatial convection/pressure cancellation on the native
+physical H2/Leray carrier. G01's actual solution construction and G02's sharp
+spatial admission are upstream native dependencies. No conditional record
+containing the desired energy or enstrophy derivative closes this edge.
+The native AC first-crossing/invariance and physical restart adapters must
+then be proved to assemble section 7.
+
+B_TIER_PHYSICAL_ENERGY_AND_ENSTROPHY_IDENTITIES: DERIVED on the actual G01 class.
+B_TIER_REGISTERED_CUBIC_COEFFICIENT: DERIVED using established G02 scalar input.
+B_TIER_EXACT_WEIGHTED_PRODUCT_BUDGET: DERIVED on the same trajectory.
+B_TIER_STRICT_SMALL_PRODUCT_CONTINUATION: DERIVED using actual G01 restart.
+B_TIER_STOPPED_BUDGET_CANONICAL_CRITERION: DERIVED with the zero case separated.
+NATIVE_G03_PARENT_CLOSURE: OPEN.
+UNIVERSAL_DATA_BUDGET_FINITENESS_OR_PROJECT_ROOT: NOT_CLAIMED.
+NEW_A_TIER_ACCEPTANCE: NONE FROM THIS DOCUMENT.

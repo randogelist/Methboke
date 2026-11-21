@@ -1,0 +1,10 @@
+MethbokeAddon/QuasiFeffermanA/HeatSemigroup.lean:325:2: error: Type mismatch: After simplification, term
+  Continuous.add hv hG
+ has type
+  @Continuous ℝ≥0 ℝ NNReal.instTopologicalSpace PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    ((fun t => ‖heatL2 ν t (physicalH1Velocity u) - heatL2 ν s (physicalH1Velocity u)‖ ^ 2) + fun t =>
+      ∑ j, ‖heatL2 ν t ((physicalH1Gradient j) u) - heatL2 ν s ((physicalH1Gradient j) u)‖ ^ 2)
+but is expected to have type
+  @Continuous ℝ≥0 ℝ NNReal.instTopologicalSpace PseudoMetricSpace.toUniformSpace.toTopologicalSpace fun t =>
+    ‖heatL2 ν t (physicalH1Velocity u) - heatL2 ν s (physicalH1Velocity u)‖ ^ 2 +
+      ∑ x, ‖heatL2 ν t ((physicalH1Gradient x) u) - heatL2 ν s ((physicalH1Gradient x) u)‖ ^ 2

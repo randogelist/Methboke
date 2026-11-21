@@ -1,0 +1,17 @@
+TYPE_BEGIN:SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE : ∀ (ν : ℝ),
+  LE.le.{0} 0 ν →
+    ∀ (c : SingularClosure.FourierCoeff),
+      SingularClosure.SpectralReality c →
+        SingularClosure.SpectralSolenoidal c →
+          ∀ (N : ℕ),
+            ∃ g,
+              Eq.{1} (g.coeff 0) (SingularClosure.cutoffCoeff N c) ∧
+                ∀ (h : SingularClosure.GalerkinSolution ν (SingularClosure.finiteSynthesis N c) N),
+                  Set.EqOn.{0, 0} g.coeff h.coeff (Set.Ici.{0} 0)
+TYPE_END:SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+AXIOMS_BEGIN:SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE
+'SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:SingularClosure.CRITICAL_GALERKIN_GLOBAL_EXISTS_UNIQUE

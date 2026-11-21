@@ -1,0 +1,48 @@
+/-- The actual physical enstrophy-square integral over the whole open front
+controls enstrophy and accumulated Laplacian square at every earlier time.
+The constant is shared by all closed subintervals approaching the endpoint.
+-/
+theorem initial_front_enstrophy_accumulation_of_dissipation_square
+    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)
+    (hν : 0 < ν) (hT : 0 < T) (H : InitialClassicalFront ν T a u p)
+    (hD : Integrable (fun t => physicalDissipation (u t) ^ 2)
+      (volume.restrict (Ioo (0 : ℝ) T))) :
+    ∃ B : ℝ, 0 ≤ B ∧ ∀ t ∈ Ico (0 : ℝ) T,
+      physicalDissipation (u t) +
+        ν * (∫ s in (0 : ℝ)..t, physicalLaplacianSquare (u s)) ≤ B := by
+  obtain ⟨C, hC, hcubic⟩ := INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC
+  let M : ℝ := ∫ s in Ioo (0 : ℝ) T, physicalDissipation (u s) ^ 2
+  have hM : 0 ≤ M := integral_nonneg (fun _ => sq_nonneg _)
+  let B : ℝ := physicalDissipation (u 0) * Real.exp (C / ν ^ 3 * M)
+  refine ⟨B, mul_nonneg (physical_dissipation_nonneg _) (Real.exp_pos _).le, ?_⟩
+  intro t ht
+  let b : ℝ := (t + T) / 2
+  have hb : 0 ≤ b := by dsimp only [b]; linarith [ht.1]
+  have htb : t ≤ b := by dsimp only [b]; linarith [ht.2]
+  have hbT : b < T := by dsimp only [b]; linarith [ht.2]
+  have hcont := initial_front_enstrophy_scalar_continuity ν T a u p H b hbT
+  have hsub : Ioc (0 : ℝ) b ⊆ Ioo (0 : ℝ) T := by
+    intro s hs
+    exact ⟨hs.1, hs.2.trans_lt hbT⟩
+  have hclosed : (∫ s in (0 : ℝ)..b, physicalDissipation (u s) ^ 2) ≤ M := by
+    rw [intervalIntegral.integral_of_le hb]
+    exact integral_mono_measure (Measure.restrict_mono_set volume hsub)
+      (Eventually.of_forall (fun s => sq_nonneg (physicalDissipation (u s)))) hD
+  have hscalar := CUBIC_ENERGY_OF_SQUARE_BUDGET_EXACT_INITIAL
+    (y := fun s => physicalDissipation (u s))
+    (z := fun s => Real.sqrt (physicalLaplacianSquare (u s)))
+    (d := fun s => physicalEnstrophyRate ν (u s))
+    (ν := ν) (κ := C / ν ^ 3) (T := b) (M := M)
+    hν (div_nonneg hC.le (pow_nonneg hν.le _)) hb hM
+    hcont.1 hcont.2.1 hcont.2.2
+    (fun s _ => physical_dissipation_nonneg (u s))
+    (fun s hs => (hcubic ν T hν a u p H s ⟨hs.1, hs.2.trans hbT⟩).1)
+    (by
+      intro s hs
+      rw [Real.sq_sqrt (physicalLaplacianSquare_nonneg (u s))]
+      exact (hcubic ν T hν a u p H s ⟨hs.1, hs.2.trans hbT⟩).2)
+    hclosed
+  have hzsq (s : ℝ) : Real.sqrt (physicalLaplacianSquare (u s)) ^ 2 =
+      physicalLaplacianSquare (u s) :=
+    Real.sq_sqrt (physicalLaplacianSquare_nonneg (u s))
+  simpa only [B, hzsq] using hscalar t ⟨ht.1, htb⟩

@@ -1,0 +1,272 @@
+/-- **B6a `convFormH1_ibp` [must-prove].** Integration by parts for `convFormH1`:
+moving the derivative from slot 2 to slots 1 and 3 using the weak IBP identity B2.
+
+With the positive-sum definition `convFormH1 u v w = ∑_{i,a} ∫ uₐ·∂ₐvᵢ·wᵢ`, IBP via the
+Leibniz product rule `∂ₐ(vᵢ) = ∂ₐ(vᵢ·1)` gives:
+  `∫ uₐ·(∂ₐvᵢ)·wᵢ = -∫ (∂ₐuₐ)·vᵢ·wᵢ - ∫ uₐ·vᵢ·(∂ₐwᵢ)`
+
+so that `convFormH1 u v w = -∑_{i,a} ∫ (∂ₐuₐ · vᵢ · wᵢ) - ∑_{i,a} ∫ (uₐ · vᵢ · ∂ₐwᵢ)`.
+After IBP, the div-free condition kills the first sum via B6b. -/
+theorem convFormH1_ibp (u v w : L2VF_R3)
+    (hu : memH1VF_R3 u) (hv : memH1VF_R3 v) (hw : memH1VF_R3 w)
+    (_hu_sigma : (u : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3))
+    (_hw_sigma : (w : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3)) :
+    convFormH1 u v w hu hv hw =
+    -(∑ i : Fin 3, ∑ a : Fin 3,
+      ∫ x : Domain3,
+        (gradComp_of_memH1 u hu a a x).re *
+        (L2VF_projComponentC_R3 i v x).re *
+        (L2VF_projComponentC_R3 i w x).re
+      ∂(volume : Measure Domain3)) -
+    ∑ i : Fin 3, ∑ a : Fin 3,
+      ∫ x : Domain3,
+        (L2VF_projComponentC_R3 a u x).re *
+        (L2VF_projComponentC_R3 i v x).re *
+        (gradComp_of_memH1 w hw a i x).re
+      ∂(volume : Measure Domain3) := by
+  classical
+  -- Per-(i,a) IBP identity from the H¹-test weak Leibniz rule.
+  have hpia : ∀ i a : Fin 3,
+      ∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re *
+        (gradComp_of_memH1 v hv a i x).re * (L2VF_projComponentC_R3 i w x).re
+        ∂(volume : Measure Domain3)
+      = -(∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re *
+            (L2VF_projComponentC_R3 i v x).re * (L2VF_projComponentC_R3 i w x).re
+            ∂(volume : Measure Domain3))
+        - ∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re *
+            (L2VF_projComponentC_R3 i v x).re * (gradComp_of_memH1 w hw a i x).re
+            ∂(volume : Measure Domain3) := by
+    intro i a
+    have hL := h1Leibniz2_H1test (L2VF_projComponentC_R3 a u) (L2VF_projComponentC_R3 i w)
+      (gradComp_of_memH1 u hu a a) (gradComp_of_memH1 w hw a i)
+      (L2VF_projComponentC_R3 i v) (gradComp_of_memH1 v hv a i) a
+      (hu a) (hw i)
+      (gradComp_of_memH1_spec u hu a a) (gradComp_of_memH1_spec w hw a i)
+      (hv i) (gradComp_of_memH1_spec v hv a i)
+      (memLp_six_componentRe u hu a) (memLp_three_componentRe u hu a)
+      (memLp_six_componentRe w hw i)
+    -- Reorder the LHS integrand `uₐ·wᵢ·(∂ₐvᵢ)` to match `uₐ·(∂ₐvᵢ)·wᵢ`.
+    rw [show (∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re *
+          (gradComp_of_memH1 v hv a i x).re * (L2VF_projComponentC_R3 i w x).re
+          ∂(volume : Measure Domain3))
+        = ∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re * (L2VF_projComponentC_R3 i w x).re
+          * (gradComp_of_memH1 v hv a i x).re ∂(volume : Measure Domain3) from
+        MeasureTheory.integral_congr_ae (Filter.Eventually.of_forall fun x => by ring)]
+    rw [hL]
+    -- Split the RHS sum-integral; the two coefficient products are each integrable (Hölder).
+    -- `(∂ₐuₐ).re·wᵢ.re ∈ L^{3/2}` (L²·L⁶), times `vᵢ.re ∈ L³` ⇒ L¹.
+    haveI hHT263 : ENNReal.HolderTriple 6 2 (3/2) := by
+      have h : Real.HolderTriple (6 : ℝ) (2 : ℝ) (3/2 : ℝ) := by constructor <;> norm_num
+      have h2 := h.ennrealOfReal
+      have e32 : ENNReal.ofReal (3 / 2 : ℝ) = (3 / 2 : ENNReal) := by
+        rw [ENNReal.ofReal_div_of_pos (by norm_num)]; simp
+      simpa only [ENNReal.ofReal_ofNat, e32] using h2
+    haveI hHT3321 : ENNReal.HolderTriple (3/2) 3 1 := by
+      have h : Real.HolderTriple (3/2 : ℝ) (3 : ℝ) (1 : ℝ) := by constructor <;> norm_num
+      have h2 := h.ennrealOfReal
+      have e32 : ENNReal.ofReal (3 / 2 : ℝ) = (3 / 2 : ENNReal) := by
+        rw [ENNReal.ofReal_div_of_pos (by norm_num)]; simp
+      simpa only [ENNReal.ofReal_ofNat, ENNReal.ofReal_one, e32] using h2
+    have hcoeff1 : MemLp (fun x => (gradComp_of_memH1 u hu a a x).re
+        * (L2VF_projComponentC_R3 i w x).re) (3/2) (volume : Measure Domain3) :=
+      MeasureTheory.MemLp.ae_eq (Filter.Eventually.of_forall fun x => by simp [Pi.mul_apply, mul_comm])
+        ((memLp_two_gradRe u hu a a).mul (p := 6) (q := 2) (r := 3/2)
+          (memLp_six_componentRe w hw i))
+    have hcoeff2 : MemLp (fun x => (L2VF_projComponentC_R3 a u x).re
+        * (gradComp_of_memH1 w hw a i x).re) (3/2) (volume : Measure Domain3) :=
+      MeasureTheory.MemLp.ae_eq (Filter.Eventually.of_forall fun x => by simp [Pi.mul_apply, mul_comm])
+        ((memLp_two_gradRe w hw a i).mul (p := 6) (q := 2) (r := 3/2)
+          (memLp_six_componentRe u hu a))
+    have hint1 : MeasureTheory.Integrable
+        (fun x => (gradComp_of_memH1 u hu a a x).re * (L2VF_projComponentC_R3 i v x).re
+          * (L2VF_projComponentC_R3 i w x).re) (volume : Measure Domain3) := by
+      have := (memLp_three_componentRe v hv i).mul (p := 3/2) (q := 3) (r := 1) hcoeff1
+      rw [memLp_one_iff_integrable] at this
+      refine this.congr ?_; filter_upwards with x; simp only [Pi.mul_apply]; ring
+    have hint2 : MeasureTheory.Integrable
+        (fun x => (L2VF_projComponentC_R3 a u x).re * (L2VF_projComponentC_R3 i v x).re
+          * (gradComp_of_memH1 w hw a i x).re) (volume : Measure Domain3) := by
+      have := (memLp_three_componentRe v hv i).mul (p := 3/2) (q := 3) (r := 1) hcoeff2
+      rw [memLp_one_iff_integrable] at this
+      refine this.congr ?_; filter_upwards with x; simp only [Pi.mul_apply]; ring
+    -- `∫((∂ₐuₐ·wᵢ) + (uₐ·∂ₐwᵢ))·vᵢ = ∫(∂ₐuₐ)·vᵢ·wᵢ + ∫uₐ·vᵢ·(∂ₐwᵢ)`.
+    rw [show (∫ x : Domain3, ((gradComp_of_memH1 u hu a a x).re * (L2VF_projComponentC_R3 i w x).re
+          + (L2VF_projComponentC_R3 a u x).re * (gradComp_of_memH1 w hw a i x).re)
+          * (L2VF_projComponentC_R3 i v x).re ∂(volume : Measure Domain3))
+        = (∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re * (L2VF_projComponentC_R3 i v x).re
+            * (L2VF_projComponentC_R3 i w x).re ∂(volume : Measure Domain3))
+          + ∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re * (L2VF_projComponentC_R3 i v x).re
+            * (gradComp_of_memH1 w hw a i x).re ∂(volume : Measure Domain3) from by
+        rw [← MeasureTheory.integral_add hint1 hint2]
+        refine MeasureTheory.integral_congr_ae (Filter.Eventually.of_forall fun x => ?_)
+        ring]
+    ring
+  -- Sum the per-(i,a) identity and distribute the sums.
+  rw [convFormH1]
+  rw [Finset.sum_congr rfl (fun i _ => Finset.sum_congr rfl (fun a _ => hpia i a))]
+  simp only [Finset.sum_sub_distrib, Finset.sum_neg_distrib]
+
+/-- **B6b `convFormH1_divFree` [must-prove].** The weak div-free identity for `H¹_σ` elements:
+for `u ∈ L2Sigma_R3 ∩ H1Sigma_R3`, the weak divergence vanishes:
+
+  `∑ a : Fin 3, ∫ x, (gradComp_of_memH1 u hu a a x).re * φ(x) dx = 0`
+
+for any `v, w` in L² (as a consequence, `∑_a (∂_a uₐ) = 0` in the weak sense).
+
+**Proof route:** `u ∈ L2Sigma_R3` means `divTestFunctional φ u = 0` for all Schwartz `φ`.
+The weak derivative `gradComp_of_memH1 u hu a a` is the L² representative of `∂_{eₐ} uₐ`.
+Summing over `a` and using the B2 IBP identity gives the weak div-free condition. -/
+theorem convFormH1_divFree (u : L2VF_R3) (hu : memH1VF_R3 u)
+    (hu_sigma : (u : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3))
+    (φ : SchwartzMap Domain3 ℝ) :
+    ∑ a : Fin 3,
+      ∫ x : Domain3,
+        (gradComp_of_memH1 u hu a a x).re * (φ x)
+      ∂(volume : Measure Domain3) = 0 := by
+  -- u ∈ L2Sigma_R3 ⟹ divTestFunctional φ u = 0.
+  have hdiv : divTestFunctional φ (u : L2VF_R3) = 0 :=
+    LinearMap.mem_ker.mp ((Submodule.mem_iInf _).mp hu_sigma φ)
+  -- Unfold: ∑ⱼ ⟪(∂ⱼφ).toLp, uⱼ⟫ = 0, and rewrite each inner product as an integral.
+  simp only [divTestFunctional, ContinuousLinearMap.coe_sum', Finset.sum_apply,
+    ContinuousLinearMap.coe_comp', Function.comp, innerSL_apply_apply] at hdiv
+  -- Each inner ⟪(∂ₐφ).toLp, uₐ⟫ = ∫ (∂ₐφ x) · uₐ.re x  (real L²-inner as a pointwise integral).
+  have hinner : ∀ a : Fin 3,
+      (inner ℝ ((lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+            (EuclideanSpace.single a (1 : ℝ) : Domain3) φ).toLp 2 (volume : Measure Domain3))
+          (L2VF_projComponent_R3 a (u : L2VF_R3)) : ℝ)
+        = ∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re *
+            ((lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+              (EuclideanSpace.single a (1 : ℝ) : Domain3) φ) x)
+            ∂(volume : Measure Domain3) := by
+    intro a
+    rw [MeasureTheory.L2.inner_def]
+    refine MeasureTheory.integral_congr_ae ?_
+    have hcomp : (⇑(L2VF_projComponentC_R3 a u) : Domain3 → ℂ) =ᵐ[volume]
+        fun x => (((L2VF_projComponent_R3 a u) x : ℝ) : ℂ) := by
+      rw [L2VF_projComponentC_R3]
+      filter_upwards [ContinuousLinearMap.coeFn_compLpL
+        (RCLike.ofRealCLM (K := ℂ)) (L2VF_projComponent_R3 a u)] with x hx
+      simpa using hx
+    filter_upwards [(lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+        (EuclideanSpace.single a (1 : ℝ) : Domain3) φ).coeFn_toLp 2 (volume : Measure Domain3),
+      hcomp] with x hφx hux
+    rw [Real.inner_apply, hφx, hux, Complex.ofReal_re]; ring
+  simp_rw [hinner] at hdiv
+  -- ∑ₐ ∫ gradComp_aa.re·φ = -∑ₐ ∫ uₐ.re·∂ₐφ = -0 = 0.
+  have hB2 : ∀ a : Fin 3,
+      ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re * (φ x) ∂(volume : Measure Domain3)
+        = -∫ x : Domain3, (L2VF_projComponentC_R3 a u x).re *
+            ((lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+              (EuclideanSpace.single a (1 : ℝ) : Domain3) φ) x)
+            ∂(volume : Measure Domain3) := by
+    intro a
+    have := gradComponent_weakDeriv u hu a a φ
+    linarith [this]
+  rw [Finset.sum_congr rfl (fun a _ => hB2 a), Finset.sum_neg_distrib, hdiv, neg_zero]
+
+/-- **H¹-test div-free.** The weak divergence of an `H¹_σ` element vanishes against ANY real
+`L²` test `θ` (not just Schwartz): `∑ₐ ∫ (∂ₐuₐ).re·θ = 0`. Extended from `convFormH1_divFree`
+(Schwartz tests) by `L²` density and continuity of the real `L²` inner product. -/
+private theorem divFree_L2test (u : L2VF_R3) (hu : memH1VF_R3 u)
+    (hu_sigma : (u : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3))
+    (θ : Lp ℝ 2 (volume : Measure Domain3)) :
+    ∑ a : Fin 3, ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re * (θ x)
+      ∂(volume : Measure Domain3) = 0 := by
+  classical
+  -- Express each summand as a real `L²` inner product `⟨reLp (∂ₐuₐ), θ⟩`.
+  have hinner : ∀ (a : Fin 3) (η : Lp ℝ 2 (volume : Measure Domain3)),
+      ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re * (η x) ∂(volume : Measure Domain3)
+        = (inner ℝ (reLp (gradComp_of_memH1 u hu a a)) η : ℝ) := by
+    intro a η
+    rw [MeasureTheory.L2.inner_def]
+    refine MeasureTheory.integral_congr_ae ?_
+    filter_upwards [reLp_coeFn (gradComp_of_memH1 u hu a a)] with x hx
+    rw [RCLike.inner_apply, conj_trivial, hx, mul_comm]
+  -- The continuous functional `η ↦ ∑ₐ ⟨reLp (∂ₐuₐ), η⟩` vanishes on the dense Schwartz range.
+  set G : Lp ℝ 2 (volume : Measure Domain3) →L[ℝ] ℝ :=
+    ∑ a : Fin 3, innerSL ℝ (reLp (gradComp_of_memH1 u hu a a)) with hG
+  have hGapply : ∀ η : Lp ℝ 2 (volume : Measure Domain3),
+      G η = ∑ a : Fin 3, ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re * (η x)
+        ∂(volume : Measure Domain3) := by
+    intro η
+    rw [hG, ContinuousLinearMap.coe_sum', Finset.sum_apply]
+    refine Finset.sum_congr rfl (fun a _ => ?_)
+    rw [innerSL_apply_apply, hinner a η]
+  -- On Schwartz tests, `G (φ.toLp) = 0` (convFormH1_divFree).
+  have hGzero_schwartz : ∀ φ : SchwartzMap Domain3 ℝ,
+      G (φ.toLp 2 (volume : Measure Domain3)) = 0 := by
+    intro φ
+    rw [hGapply]
+    have heq : ∀ a : Fin 3,
+        ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re
+          * ((φ.toLp 2 (volume : Measure Domain3)) x) ∂(volume : Measure Domain3)
+          = ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re * (φ x)
+          ∂(volume : Measure Domain3) := by
+      intro a
+      refine MeasureTheory.integral_congr_ae ?_
+      filter_upwards [φ.coeFn_toLp 2 (volume : Measure Domain3)] with x hx
+      rw [hx]
+    rw [Finset.sum_congr rfl (fun a _ => heq a)]
+    exact convFormH1_divFree u hu hu_sigma φ
+  -- `G = 0` on the dense Schwartz range, hence `G θ = 0`.
+  have hGzero : G θ = 0 := by
+    have hdr : DenseRange (SchwartzMap.toLpCLM ℝ ℝ (2 : ENNReal) (volume : Measure Domain3)) :=
+      SchwartzMap.denseRange_toLpCLM (F := ℝ) ENNReal.ofNat_ne_top
+    have hcont : Continuous (fun η => G η) := G.continuous
+    refine (hdr.induction_on θ (isClosed_eq hcont continuous_const) ?_)
+    intro φ
+    exact hGzero_schwartz φ
+  rw [← hGapply θ]; exact hGzero
+
+/-- **B6 `convFormH1_antisymm` [must-prove].** `convFormH1` is antisymmetric in slots 2,3:
+
+  `convFormH1 u v w hu hv hw = -convFormH1 u w v hu hw hv`
+
+for `u, v, w ∈ H1Sigma_R3` with `u, v, w ∈ L2Sigma_R3`.
+
+**Proof route:**
+1. Apply B6a (IBP) to `convFormH1 u v w`: gives `= -(∑∑∫ ∂uₐ·vᵢ·wᵢ) - ∑∑∫ uₐ·vᵢ·∂wᵢ`.
+2. The first term vanishes by B6b (div-free of u kills `∑_a ∂_a uₐ`).
+   So `convFormH1 u v w = -∑_{i,a} ∫ uₐ · vᵢ · ∂ₐwᵢ`.
+3. Similarly `convFormH1 u w v = -∑_{i,a} ∫ uₐ · wᵢ · ∂ₐvᵢ`.
+4. Note `∑_{i,a} ∫ uₐ · vᵢ · ∂ₐwᵢ = -convFormH1 u w v`
+   (because `convFormH1 u w v = ∑_{i,a} ∫ uₐ · ∂ₐwᵢ · vᵢ` before IBP, and after IBP equals
+   `-∑∑∫ uₐ·wᵢ·∂ₐvᵢ` ... actually the symmetric argument gives `b(u,v,w) + b(u,w,v) = 0`).
+   Concretely: B6a on `convFormH1 u v w` after div-free gives `-∑∑∫ uₐ·vᵢ·∂wᵢ`;
+   and B6a on `convFormH1 u w v` after div-free gives `-∑∑∫ uₐ·wᵢ·∂vᵢ = -convFormH1 u v w`
+   (by B6a + div-free), establishing `convFormH1 u v w = -convFormH1 u w v`. -/
+theorem convFormH1_antisymm (u v w : L2VF_R3)
+    (hu : memH1VF_R3 u) (hv : memH1VF_R3 v) (hw : memH1VF_R3 w)
+    (hu_sigma : (u : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3))
+    (_hv_sigma : (v : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3))
+    (hw_sigma : (w : L2VF_R3) ∈ (L2Sigma_R3 : Submodule ℝ L2VF_R3)) :
+    convFormH1 u v w hu hv hw = -convFormH1 u w v hu hw hv := by
+  classical
+  -- B6a (IBP): convFormH1 u v w = -(S1) - S2.
+  rw [convFormH1_ibp u v w hu hv hw hu_sigma hw_sigma]
+  -- S1 = ∑ᵢ ∑ₐ ∫(∂ₐuₐ)·vᵢ·wᵢ = 0 (div-free of u against the H¹ test vᵢ·wᵢ ∈ L²).
+  have hS1 : (∑ i : Fin 3, ∑ a : Fin 3,
+      ∫ x : Domain3, (gradComp_of_memH1 u hu a a x).re *
+        (L2VF_projComponentC_R3 i v x).re * (L2VF_projComponentC_R3 i w x).re
+        ∂(volume : Measure Domain3)) = 0 := by
+    refine Finset.sum_eq_zero (fun i _ => ?_)
+    -- For fixed i, the test `θᵢ = vᵢ.re·wᵢ.re ∈ L²` (L³·L⁶).
+    haveI hHT362 : ENNReal.HolderTriple 6 3 2 := instHolderTriple_6_3_2
+    have hθmem : MemLp (fun x => (L2VF_projComponentC_R3 i v x).re
+        * (L2VF_projComponentC_R3 i w x).re) 2 (volume : Measure Domain3) :=
+      MeasureTheory.MemLp.ae_eq
+        (Filter.Eventually.of_forall fun x => by rw [Pi.mul_apply, mul_comm])
+        ((memLp_three_componentRe v hv i).mul (p := 6) (q := 3) (r := 2)
+          (memLp_six_componentRe w hw i))
+    have hdf := divFree_L2test u hu hu_sigma hθmem.toLp
+    -- rewrite the integrand using the L² test coeFn.
+    refine Eq.trans (Finset.sum_congr rfl (fun a _ => ?_)) hdf
+    refine MeasureTheory.integral_congr_ae ?_
+    filter_upwards [hθmem.coeFn_toLp] with x hx
+    rw [hx, ← mul_assoc]
+  rw [hS1, neg_zero, zero_sub]
+  -- Remaining: -∑ᵢ∑ₐ∫uₐ·vᵢ·(∂ₐwᵢ) = -convFormH1 u w v, i.e. the sum equals convFormH1 u w v.
+  rw [neg_inj, convFormH1]
+  refine Finset.sum_congr rfl (fun i _ => Finset.sum_congr rfl (fun a _ => ?_))
+  refine MeasureTheory.integral_congr_ae (Filter.Eventually.of_forall fun x => ?_)
+  ring

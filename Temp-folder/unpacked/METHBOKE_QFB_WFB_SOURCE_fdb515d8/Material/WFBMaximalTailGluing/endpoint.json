@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "WFBMaximalTailGluing",
+  "endpoint_module": "WFBMaximalTailGluing.Endpoint",
+  "audit_module": "WFBMaximalTailGluing.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.MaximalTailGluing"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.MaximalTailGluing",
+      "path": "MethbokeAddon/WeakFouriermanB/MaximalTailGluing.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.maximal_front_tail_overlap_of_same_leray_hopf",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/MaximalTailGluing.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.MaximalTailGluing",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    },
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.maximal_front_tail_gluing_of_leray_hopf",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/MaximalTailGluing.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.MaximalTailGluing",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapOverlap.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Apply Q09 to the supplied original weak witness, identify its actual normalized tail, and glue a global physical pair preserving the entire maximal path and the tail.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS",
+  "source_layout": "Owned source plus complete unchanged pinned vendor dependencies; exact existing public dependency lock retained.",
+  "type_policy": "Every public theorem has an independently stated full signature and fresh complete type/axiom sentinels; definitions/private helpers are covered transitively.",
+  "whole_wfb_obligation_completed": false,
+  "universal_budget_finiteness_included": false
+}

@@ -1,0 +1,1426 @@
+{
+  "title": "QFA/QFB source anchors: steps 3–6",
+  "scope": "Static inspection only; no local Lean/Lake/kernel/project-runner execution. Intermediate report for root synthesis.",
+  "pins": {
+    "native": {
+      "repository": "randogelist/Methboke",
+      "revision": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "root": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    "qfa": {
+      "repository": "randogelist/Methlib",
+      "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "root": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "branch": "QFA",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    "methlib_vendor": {
+      "repository": "randogelist/Methlib",
+      "revision": "96033dd69c994bec337a87369a6c27256e724980",
+      "root": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-96033dd69c994bec337a87369a6c27256e724980",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    "upstream": {
+      "repository": "openai/NavierStokesAndEuler",
+      "revision": "f9e8bc5b38b6e212696e8a30e3e91517af887bbd",
+      "root": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/upstream-f9e8bc5b",
+      "toolchain": "leanprover/lean4:v4.34.0-rc2",
+      "mathlib": "85e3a25e006c35636f0e53b0e9296caca2685bc0",
+      "scope": "Seven relevant files only; distinct toolchain, not imported or executed."
+    },
+    "mathlib": {
+      "repository": "leanprover-community/mathlib4",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "root": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/mathlib4-db584cd6"
+    }
+  },
+  "methlib_discovery": {
+    "default_main": "4813604a46179c745b82f51bee51a186e9f4cc2d",
+    "main_qfa_scope": "Only README.md; named QFA branch. Diverged from vendor pin, not a later linear pin.",
+    "qfa_archive_sha256": "083883ac6c6f7c2ffb13bcb96b448f680457db7fa8fcb82a2693ab66be9c18d6",
+    "qfa_archive_bytes": 13475391,
+    "vendor_archive_sha256": "3c48c880b2d0a2de5e0a30c22444b2dbf3f20fb15dbcecffdd7f75b26f098b82",
+    "vendor_archive_bytes": 12484861,
+    "vendor_identity": "269 vendor manifest source files compared with downloaded Methlib96033 and manifest SHA256, zero mismatches."
+  },
+  "steps": [
+    {
+      "step": 3,
+      "title": "Actual local H1 NSE existence and continuation",
+      "qfa_status": "OPEN_PHYSICAL_R3_CONSTRUCTION",
+      "usable": "Native periodic smooth-data existence with H1-controlled lifespan; actual maximal continuation and enstrophy-square criterion. QFA explicitly identifies reference-construction port.",
+      "missing": "Whole-space arbitrary H1 local strong construction, its actual PDE/trace estimates and maximal continuation; cannot instantiate from periodic or compact candidate wrappers."
+    },
+    {
+      "step": 4,
+      "title": "Global Leray–Hopf existence and exact restarts",
+      "qfa_status": "REUSABLE_TRACE_AND_PROFILE_PROOFS; PHYSICAL_CLASS_OPEN",
+      "usable": "Periodic global LH construction and full a.e. LH restart; QFA full-volume L2 time-translation and strong right-trace proof.",
+      "missing": "Actual R3 weak momentum/divergence/weak-gradient solution class and nonemptiness, energy profile realization, translated full LH membership. These remain ClassRealization fields."
+    },
+    {
+      "step": 5,
+      "title": "Weak–strong uniqueness from common restart trace",
+      "qfa_status": "REUSABLE_GRONWALL_ASSEMBLY; PHYSICAL_RELATIVE_ENERGY_OPEN",
+      "usable": "Actual periodic weak–strong finite-window comparison; generic QFA all-time normed comparison from explicit scalar premises; upstream actual R3 H3/compact-smooth comparison.",
+      "missing": "Derive ComparisonData from actual R3 LH and strong equations with required coefficient/product integrability. Existing upstream competitor assumptions are stronger than LH."
+    },
+    {
+      "step": 6,
+      "title": "Small energy–enstrophy product bootstrap and global strong restart",
+      "qfa_status": "REUSABLE_POINTWISE_ABSORPTION; TEMPORAL_BOOTSTRAP_AND_REFERENCE_OPEN",
+      "usable": "Periodic numerical H-half smallness admits global actual reference; native actual periodic enstrophy derivative/continuation; QFA scalar/full-L2 pointwise absorption under explicit analytic endpoints.",
+      "missing": "Actual R3 energy/enstrophy evolution, preservation of strict product smallness and uniform margin along lifespan, integrated dissipation/continuation, construction of reference from selected H1 datum. Historical threshold/cutoff differs target."
+    }
+  ],
+  "anchors": [
+    {
+      "id": "P3_LOCAL",
+      "steps": [
+        3
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists; uniform_H1_local_initial_classical_front_exists",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/LocalExistence.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/LocalExistence.lean",
+      "lines": [
+        24,
+        58
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/LocalExistence.lean#L24-L58",
+      "sha256": "2f467e6f01c4b726f1531e4826e593e639ba755d19729d89a0865a001b2fcba5",
+      "fit": "ACTUAL_PERIODIC_PDE",
+      "hypotheses": "ν>0; R≥0; SmoothSigmaZero a (smooth, periodic, solenoidal, mean zero); physical dissipation or H1-square ≤R.",
+      "result": "A positive uniform lifespan and actual InitialClassicalFront velocity/normalized pressure, including t=0.",
+      "proof_route_inspected": "Uniform finite Galerkin estimates → untruncated local Sobolev flow → physical PDE recovery. No assumed local-existence port; datum is still smooth, not arbitrary rough H1.",
+      "source_excerpt": "theorem local_initial_classical_front_exists\n    (ν R : ℝ) (hν : 0 < ν) (hR : 0 ≤ R)\n    (a : Field) (ha : SmoothSigmaZero a) (hinit : physicalDissipation a ≤ R) :\n    ∃ u : Velocity, ∃ p : Pressure,\n      InitialClassicalFront ν (localGalerkinTime ν R) a u p := by\n  let T : ℝ := localGalerkinTime ν R\n  let S : ℝ := 6 * (R + 1) * T + localGalerkinAccumulationBound ν R / ν\n  have hT : 0 < T := localGalerkinTime_pos hν hR\n  have hS : 0 ≤ S := by\n    have hacc := localGalerkinAccumulationBound_nonneg (ν := ν) hR\n    dsimp only [S]\n    positivity\n  have hH2 : ∀ N : ℕ, 1 ≤ N → ∀ g : GalerkinSolution ν a N,\n      (∫ t in (0 : ℝ)..T, ‖g.sobolevState 2 t‖ ^ 2) ≤ S := by\n    intro N _hN g\n    exact (galerkin_uniform_local_sobolev_bounds ν R hν hR a ha hinit N g).2.2\n  obtain ⟨L, hL⟩ := local_sobolev_flow_of_uniform_H2 ν hν a ha T hT S hS hH2\n  exact ⟨L.velocity, L.pressure, L.initialClassicalFront hT a ha hL⟩\n\n/-- A single positive lifespan works for every smooth initial datum in the\nspecified physical H1 ball. Higher smooth norms affect regularity bounds only.\n-/\ntheorem uniform_H1_local_initial_classical_front_exists\n    (ν R : ℝ) (hν : 0 < ν) (hR : 0 ≤ R) :\n    ∃ T : ℝ, 0 < T ∧ ∀ a : Field, SmoothSigmaZero a → physicalH1Square a ≤ R →\n      ∃ u : Velocity, ∃ p : Pressure, InitialClassicalFront ν T a u p := by\n  refine ⟨localGalerkinTime ν R, localGalerkinTime_pos hν hR, ?_⟩\n  intro a ha hH1\n  have hE : 0 ≤ physicalEnergy a := by\n    rw [physicalEnergy_eq_integral_norm_sq]\n    exact integral_nonneg (fun x => sq_nonneg ‖a x‖)\n  have hinit : physicalDissipation a ≤ R := by\n    change physicalEnergy a + physicalDissipation a ≤ R at hH1\n    linarith\n  exact local_initial_classical_front_exists ν R hν hR a ha hinit",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBLocalExistence",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/LocalExistence.lean#L24-L58"
+    },
+    {
+      "id": "P3_FRONT",
+      "steps": [
+        3
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.InitialClassicalFront",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean",
+      "lines": [
+        29,
+        49
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean#L29-L49",
+      "sha256": "6d2d752db24df2ee305f5cbec7e780406d03fbf28592c58d7bc6ea8759f9efa6",
+      "fit": "DEFINITION_OF_ACTUAL_PERIODIC_PDE",
+      "hypotheses": "Structure fields: smooth on [0,T)×R3, periodic velocity/pressure, divergence free, actual NSE, initial equality, velocity and pressure mean zero.",
+      "result": "Exact semantic output of the existence theorem.",
+      "proof_route_inspected": "Read all fields; a class definition itself is not existence.",
+      "source_excerpt": "def initialFrontSpacetime (T : ℝ) : Set (ℝ × Vec) :=\n  {z | 0 ≤ z.1 ∧ z.1 < T}\n\n/-- A literal finite initial classical pair, with smoothness up to time zero.\nExistence of this pair is an explicit input, not inferred from smooth data.\n-/\nstructure InitialClassicalFront (ν T : ℝ) (a : Field)\n    (u : Velocity) (p : Pressure) : Prop where\n  velocity_smooth :\n    ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (initialFrontSpacetime T)\n  pressure_smooth :\n    ContDiffOn ℝ ∞ (fun z : ℝ × Vec => p z.1 z.2) (initialFrontSpacetime T)\n  velocity_periodic : ∀ t ∈ Ico (0 : ℝ) T, SpatialPeriodic (u t)\n  pressure_periodic : ∀ t ∈ Ico (0 : ℝ) T, SpatialPeriodic (p t)\n  divergence_free : ∀ t ∈ Ico (0 : ℝ) T, ∀ x : Vec, divergence (u t) x = 0\n  equation : ∀ t ∈ Ico (0 : ℝ) T, ∀ x : Vec,\n    timeDerivative u t x + convection (u t) x + SingularClosure.gradient (p t) x =\n      ν • laplacian (u t) x\n  initial : u 0 = a\n  velocity_mean_zero : ∀ t ∈ Ico (0 : ℝ) T, MeanZero (u t)\n  pressure_mean_zero : ∀ t ∈ Ico (0 : ℝ) T, PressureMeanZero (p t)",
+      "matches_pinned_native_snapshot": true,
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean#L29-L49"
+    },
+    {
+      "id": "P3_CONTINUE",
+      "steps": [
+        3
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/StrongContinuation.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/StrongContinuation.lean",
+      "lines": [
+        42,
+        83
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/StrongContinuation.lean#L42-L83",
+      "sha256": "e97dc5eee5ce076095d0827d6e15a6dac2ffca55723f0ebfd381feb643ba927e",
+      "fit": "ACTUAL_PERIODIC_PDE",
+      "hypotheses": "ν>0; actual MaximalClassicalFront; one R bounds physicalH1Square for every nonnegative time before Tmax.",
+      "result": "Tmax=∞.",
+      "proof_route_inspected": "Choose restart near a hypothetical finite endpoint; smooth slice + uniform local existence + exact finite gluing contradict maximality.",
+      "source_excerpt": "theorem maximal_classical_lifetime_eq_top_of_uniform_H1\n    (ν R : ℝ) (a : Field) (u : Velocity) (p : Pressure) (Tmax : ℝ≥0∞)\n    (hν : 0 < ν) (H : MaximalClassicalFront ν a u p Tmax)\n    (hbound : ∀ t : ℝ, 0 ≤ t → ENNReal.ofReal t < Tmax →\n      physicalH1Square (u t) ≤ R) : Tmax = ⊤ := by\n  have hR : 0 ≤ R :=\n    (strongContinuation_physicalH1Square_nonneg (u 0)).trans\n      (hbound 0 le_rfl (by simpa only [ENNReal.ofReal_zero] using H.lifetime_pos))\n  obtain ⟨h, hh, hlocal⟩ := uniform_H1_local_initial_classical_front_exists ν R hν hR\n  by_contra hfinite\n  let τ : ℝ := Tmax.toReal\n  have hτ : 0 < τ := ENNReal.toReal_pos H.lifetime_pos.ne' hfinite\n  let s : ℝ := max (τ / 2) (τ - h / 2)\n  have hs0 : 0 ≤ s := by\n    exact (by linarith : 0 ≤ τ / 2).trans (le_max_left (τ / 2) (τ - h / 2))\n  have hsτ : s < τ := by\n    exact max_lt (by linarith) (by linarith)\n  have hreach : τ < s + h := by\n    have hnear : τ - h / 2 ≤ s := le_max_right (τ / 2) (τ - h / 2)\n    linarith\n  let T : ℝ := (s + τ) / 2\n  have hsT : s < T := by dsimp only [T]; linarith\n  have hTτ : T < τ := by dsimp only [T]; linarith\n  have hT : 0 < T := hs0.trans_lt hsT\n  have hTmax : ENNReal.ofReal T < Tmax :=\n    (ENNReal.ofReal_lt_iff_lt_toReal hT.le hfinite).mpr hTτ\n  have hsmax : ENNReal.ofReal s < Tmax :=\n    (ENNReal.ofReal_lt_iff_lt_toReal hs0 hfinite).mpr hsτ\n  have HF : InitialClassicalFront ν T a u p := H.finite_front T hT hTmax\n  have hdata : SmoothSigmaZero (u s) :=\n    initial_front_smooth_slices ν T a u p HF s ⟨hs0, hsT⟩\n  obtain ⟨v, q, K⟩ := hlocal (u s) hdata (hbound s hs0 hsmax)\n  obtain ⟨U, P, Hlong, _⟩ := initial_front_extend_from_restart ν T s h a u v p q\n    hν HF ⟨hs0, hsT⟩ hh K (hTτ.trans hreach)\n  have hlong : ENNReal.ofReal (s + h) ≤ Tmax :=\n    H.no_extension (s + h) U P (hτ.trans hreach) Hlong\n  have hstrict : Tmax < ENNReal.ofReal (s + h) := by\n    calc\n      Tmax = ENNReal.ofReal τ := (ENNReal.ofReal_toReal hfinite).symm\n      _ < ENNReal.ofReal (s + h) :=\n        (ENNReal.ofReal_lt_ofReal_iff_of_nonneg hτ.le).mpr hreach\n  exact (not_le_of_gt hstrict) hlong",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBStrongContinuation",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/StrongContinuation.lean#L42-L83"
+    },
+    {
+      "id": "P3_SQUARE",
+      "steps": [
+        3
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square; maximal_classical_front_no_finite_dissipation_square",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean",
+      "lines": [
+        30,
+        73
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean#L30-L73",
+      "sha256": "f54e0a5ad204df982b4202dffa56eb630ecbac50da40696d7327528a4de4b778",
+      "fit": "ACTUAL_PERIODIC_PDE",
+      "hypotheses": "ν,T>0; actual classical front; Integrable (physicalDissipation(u t)^2) on (0,T).",
+      "result": "A strictly longer actual front preserving old velocity and normalized pressure; impossible finite maximal lifespan with that whole-interval budget.",
+      "proof_route_inspected": "Derive uniform H1 bound, construct restart and glue; no endpoint value or endpoint regularity assumed.",
+      "source_excerpt": "theorem initial_front_extends_of_dissipation_square\n    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)\n    (hν : 0 < ν) (hT : 0 < T) (H : InitialClassicalFront ν T a u p)\n    (hD : Integrable (fun t => physicalDissipation (u t) ^ 2)\n      (volume.restrict (Ioo (0 : ℝ) T))) :\n    ∃ S : ℝ, T < S ∧ ∃ (U : Velocity) (P : Pressure),\n      InitialClassicalFront ν S a U P ∧\n        ∀ t ∈ Ico (0 : ℝ) T, U t = u t ∧ P t = p t := by\n  obtain ⟨R, hR, hbound⟩ := initial_front_uniform_H1_of_dissipation_square\n    ν T a u p hν hT H hD\n  obtain ⟨h, hh, hlocal⟩ := uniform_H1_local_initial_classical_front_exists ν R hν hR\n  let s : ℝ := max (T / 2) (T - h / 2)\n  have hs0 : 0 ≤ s :=\n    (by linarith : 0 ≤ T / 2).trans (le_max_left (T / 2) (T - h / 2))\n  have hsT : s < T := max_lt (by linarith) (by linarith)\n  have hreach : T < s + h := by\n    have hnear : T - h / 2 ≤ s := le_max_right (T / 2) (T - h / 2)\n    linarith\n  have hdata : SmoothSigmaZero (u s) :=\n    initial_front_smooth_slices ν T a u p H s ⟨hs0, hsT⟩\n  obtain ⟨v, q, K⟩ := hlocal (u s) hdata (hbound s ⟨hs0, hsT⟩)\n  obtain ⟨U, P, Hlong, hagree, _⟩ := initial_front_extend_from_restart\n    ν T s h a u v p q hν H ⟨hs0, hsT⟩ hh K hreach\n  exact ⟨s + h, hreach, U, P, Hlong, hagree⟩\n\n/-- A finite maximal classical lifetime cannot have finite actual physical\nenstrophy-square integral over its entire open pre-endpoint interval.\n-/\ntheorem maximal_classical_front_no_finite_dissipation_square\n    (ν : ℝ) (a : Field) (u : Velocity) (p : Pressure) (Tmax : ℝ≥0∞)\n    (hν : 0 < ν) (H : MaximalClassicalFront ν a u p Tmax)\n    (hfinite : Tmax ≠ ⊤)\n    (hD : Integrable (fun t => physicalDissipation (u t) ^ 2)\n      (volume.restrict (Ioo (0 : ℝ) Tmax.toReal))) : False := by\n  have hT : 0 < Tmax.toReal := ENNReal.toReal_pos H.lifetime_pos.ne' hfinite\n  have HF := maximal_classical_front_restrict_le ν Tmax.toReal a u p Tmax H hT\n    (ENNReal.ofReal_toReal hfinite).le\n  obtain ⟨R, _, hR⟩ := initial_front_uniform_H1_of_dissipation_square\n    ν Tmax.toReal a u p hν hT HF hD\n  have htop : Tmax = ⊤ := maximal_classical_lifetime_eq_top_of_uniform_H1\n    ν R a u p Tmax hν H (by\n      intro t ht htmax\n      exact hR t ⟨ht, (ENNReal.ofReal_lt_iff_lt_toReal ht hfinite).mp htmax⟩)\n  exact hfinite htop",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBPhysicalEndpointContinuation",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalEndpointContinuation.lean#L30-L73"
+    },
+    {
+      "id": "P4_LH",
+      "steps": [
+        4
+      ],
+      "origin": "native",
+      "declaration": "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean",
+      "repository_path": "Material/_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean",
+      "lines": [
+        35,
+        149
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean#L35-L149",
+      "sha256": "9f1073863d87c24cb9baceb8f04055b31d2a43afe6563225a85ff741765281b4",
+      "fit": "ACTUAL_PERIODIC_PDE",
+      "hypotheses": "ν>0; a:CriticalPhysicalL2; EnergySigmaZero a.",
+      "result": "∃u,G, CriticalLerayHopf ν a u G.",
+      "proof_route_inspected": "Global Galerkin limit plus actual weak momentum, H1 realization, initial data, weak continuity, strong initial trace, and all energy fields. This is not merely finite-dimensional Galerkin existence.",
+      "source_excerpt": "theorem Q01_LERAY_HOPF_EXISTENCE\n    (ν : ℝ) (hν : 0 < ν) (a : CriticalPhysicalL2) (ha : EnergySigmaZero a) :\n    ∃ (u : Velocity) (G : WeakGradientTrajectory), CriticalLerayHopf ν a u G := by\n  classical\n  let A : EnergyDatum := ⟨a, ha⟩\n  let aSeq : ℕ → Field := fun n =>\n    finiteSynthesis (n + 1) (datumFourierCoeff (a : Field))\n  let N : ℕ → ℕ := fun n => n + 1\n  let g : ∀ n, GalerkinSolution ν (aSeq n) (N n) :=\n    energyDatumGalerkinFamily ν hν.le A\n  have hinitFamily (n : ℕ) :\n      coefficientEnergy (N n) ((g n).coeff 0) ≤ ‖a‖ ^ 2 :=\n    energyDatumGalerkinFamily_energy_initial ν hν.le A n\n  obtain ⟨U, σ, hσ, hbound, hcoord, hcoeff, htime⟩ :=\n    ENERGY_GALERKIN_GLOBAL_LIMIT ν hν aSeq N g ‖a‖ (norm_nonneg a) hinitFamily\n  have hp (t : ℝ) (ht : 0 ≤ t) (k : Frequency) (i : Fin 3) :\n      Tendsto (fun n => (g (σ n)).coeff t k i) atTop (𝓝 ((U t).val k i)) :=\n    (hcoeff (t + 1) k i).tendsto_at ⟨ht, by linarith⟩\n  have hinit : (U 0).val = datumFourierCoeff (a : Field) := by\n    apply ENERGY_GALERKIN_LIMIT_INITIAL_COEFFICIENTS ν hν.le A σ hσ ((U 0).val)\n    intro k i\n    exact hp 0 le_rfl k i\n  let b : ℕ → Field := fun n => aSeq (σ n)\n  let M : ℕ → ℕ := fun n => σ n + 1\n  let γ : ∀ n, GalerkinSolution ν (b n) (M n) := fun n => g (σ n)\n  have hM : Tendsto M atTop atTop := by\n    have hmono : StrictMono M := by\n      intro m n hmn\n      exact Nat.add_lt_add_right (hσ hmn) 1\n    exact hmono.tendsto_atTop\n  have hinitSub (n : ℕ) : coefficientEnergy (M n) ((γ n).coeff 0) ≤ ‖a‖ ^ 2 :=\n    hinitFamily (σ n)\n  have hspec (t : ℝ) (ht : 0 ≤ t) :=\n    energy_modal_limit_constraints ν b M γ U hp t ht\n  have hreal (T : ℝ) :\n      ∀ᵐ t ∂volume.restrict (Icc (0 : ℝ) T), SpectralReality (U t).val := by\n    filter_upwards [ae_restrict_mem measurableSet_Icc] with t ht\n    exact (hspec t ht.1).1\n  have hzero (T : ℝ) :\n      ∀ᵐ t ∂volume.restrict (Icc (0 : ℝ) T), SpectralMeanZero (U t).val := by\n    filter_upwards [ae_restrict_mem measurableSet_Icc] with t ht\n    exact (hspec t ht.1).2.2\n  have hH1 (T : ℝ) (hT : 0 ≤ T) :\n      ∃ W : ℝ → CriticalSobolev 2,\n        MemLp W 2 (volume.restrict (Icc (0 : ℝ) T)) ∧\n        (∀ᵐ t ∂volume.restrict (Icc (0 : ℝ) T), criticalCoeff 2 (W t) = (U t).val) ∧\n        (∫ t in Icc (0 : ℝ) T, ‖W t‖ ^ 2) ≤ ‖a‖ ^ 2 / (2 * ν) :=\n    energy_modal_limit_H1_representative ν hν b M γ ‖a‖ T hT hinitSub U hcoord hp\n  have hmomentum : CriticalIntegratedWeakMomentum ν (energyPeriodicVelocity U) :=\n    ENERGY_GALERKIN_PHYSICAL_MOMENTUM ν hν.le b M γ ‖a‖ (norm_nonneg a)\n      hinitSub U hM hp (fun T hT => htime T hT.le)\n  have henergy := ENERGY_PERIODIC_LIMIT_ENERGY ν hν b M γ ‖a‖ hinitSub U hcoord hp htime\n  refine ⟨energyPeriodicVelocity U, energyGlobalGradient U,\n    { momentum := hmomentum\n      velocity_L2 := fun t _ => energyPeriodicVelocity_memLp U t\n      velocity_energy_class := ?_\n      gradient_energy_class := ?_\n      initial := energyPeriodicVelocity_initial U A hinit\n      weak_continuity := fun φ hφ =>\n        ENERGY_PERIODIC_WEAK_CONTINUITY U (Ici 0) ‖a‖ (norm_nonneg a)\n          (fun t ht => hbound t ht) hcoord φ hφ\n      strong_trace := ENERGY_PHYSICAL_STRONG_INITIAL_TRACE U A hinit hbound hcoord\n      spatial_H1 := ?_\n      dissipation_integrable := ?_\n      energy_initial := henergy.1\n      energy_intervals := henergy.2 }⟩\n  · intro T hT\n    obtain ⟨z, _, hcompat⟩ := htime T hT.le\n    have hU2 : MemLp U 2 (volume.restrict (Icc (0 : ℝ) T)) :=\n      (memLp_congr_ae hcompat).mp (Lp.memLp z)\n    have hUtop : MemLp U ∞ (volume.restrict (Icc (0 : ℝ) T)) := by\n      apply memLp_top_of_bound hU2.aestronglyMeasurable ‖a‖\n      filter_upwards [ae_restrict_mem measurableSet_Icc] with t ht\n      exact hbound t ht.1\n    have hphysical : MemLp (fun t => energyPhysicalVelocityL2 U t) ∞\n        (volume.restrict (Icc (0 : ℝ) T)) := by\n      simpa only [Function.comp_def, energyH0PhysicalMap_apply] using\n        energyH0PhysicalMap.comp_memLp' hUtop\n    have hclass : MemLp\n        (fun t => criticalL2Representative (energyPeriodicVelocity U t)) ∞\n        (volume.restrict (Icc (0 : ℝ) T)) := by\n      simpa only [energyPeriodicVelocity_L2] using hphysical\n    exact MemLp.mono_measure\n      (Measure.restrict_mono\n        (show Ioc (0 : ℝ) T ⊆ Icc (0 : ℝ) T from fun t ht => ⟨ht.1.le, ht.2⟩)\n        le_rfl) hclass\n  · intro T hT\n    obtain ⟨W, hW, hw, _⟩ := hH1 T hT.le\n    have hK := energyGlobalGradient_memLp U W\n      (volume.restrict (Icc (0 : ℝ) T)) hW hw\n    have hclass : MemLp\n        (fun t => criticalL2Representative (energyGlobalGradient U t)) 2\n        (volume.restrict (Icc (0 : ℝ) T)) := by\n      simpa only [endpoint_gradient_representative] using hK\n    exact MemLp.mono_measure\n      (Measure.restrict_mono\n        (show Ioc (0 : ℝ) T ⊆ Icc (0 : ℝ) T from fun t ht => ⟨ht.1.le, ht.2⟩)\n        le_rfl) hclass\n  · intro T hT\n    obtain ⟨W, _, hw, _⟩ := hH1 T hT.le\n    exact ae_restrict_of_ae_restrict_of_subset\n      (show Ioc (0 : ℝ) T ⊆ Icc (0 : ℝ) T from fun t ht => ⟨ht.1.le, ht.2⟩)\n      (energyPeriodicVelocity_spatial_H1 U W\n        (volume.restrict (Icc (0 : ℝ) T)) (hreal T) (hzero T) hw)\n  · intro T hT\n    obtain ⟨W, hW, hw, _⟩ := hH1 T hT.le\n    have hD := energyGlobalGradient_energy_integrable U W\n      (volume.restrict (Icc (0 : ℝ) T)) hW (hreal T) (hzero T) hw\n    have hDo : Integrable (fun t => criticalGradientEnergy (energyGlobalGradient U t))\n        (volume.restrict (Ioc (0 : ℝ) T)) :=\n      hD.mono_measure\n        (Measure.restrict_mono\n          (show Ioc (0 : ℝ) T ⊆ Icc (0 : ℝ) T from fun t ht => ⟨ht.1.le, ht.2⟩)\n          le_rfl)\n    exact (intervalIntegrable_iff_integrableOn_Ioc_of_le hT.le).mpr hDo",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "QFBLerayHopf",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/Endpoints/LerayHopfExistence.lean#L35-L149"
+    },
+    {
+      "id": "P4_CLASS",
+      "steps": [
+        4
+      ],
+      "origin": "native",
+      "declaration": "SingularClosure.CriticalPhysicalL2; CriticalLerayHopf",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/SingularClosure/CriticalLerayHopf.lean",
+      "repository_path": "Material/_vendor/SingularClosure/CriticalLerayHopf.lean",
+      "lines": [
+        24,
+        62
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalLerayHopf.lean#L24-L62",
+      "sha256": "7c075141a7c5f2719eb1aad516f5ddcd13c2bb43f64f818ba780df79103f5f87",
+      "fit": "PERIODIC_CARRIER_AND_CLASS",
+      "hypotheses": "CriticalPhysicalL2 is Lp Vec 2 (volume.restrict unitCube); class includes actual periodic weak momentum, energy regularity and strong initial trace.",
+      "result": "11-field periodic Leray–Hopf class.",
+      "proof_route_inspected": "All class fields and measure restriction read. Full-space-looking Vec is used with unit-cube measure and periodic conditions; not R3 finite-energy LH.",
+      "source_excerpt": "abbrev CriticalPhysicalL2 := Lp Vec 2 (volume.restrict unitCube)\n\n/-- The actual physical L2 equivalence class whenever the representative is\nsquare integrable.  The zero branch is irrelevant on every stated energy class. -/\ndef criticalL2Representative {E : Type*} [NormedAddCommGroup E] (f : Vec → E) :\n    Lp E 2 (volume.restrict unitCube) := by\n  classical\n  exact if hf : MemLp f 2 (volume.restrict unitCube) then hf.toLp f else 0\n\ntheorem criticalL2Representative_eq {E : Type*} [NormedAddCommGroup E]\n    (f : Vec → E) (hf : MemLp f 2 (volume.restrict unitCube)) :\n    criticalL2Representative f = hf.toLp f := by\n  simp only [criticalL2Representative, dif_pos hf]\n\nstructure CriticalLerayHopf\n    (ν : ℝ) (a₀ : CriticalPhysicalL2) (v : Velocity)\n    (G : ℝ → Vec → (Vec →L[ℝ] Vec)) : Prop where\n  momentum : CriticalIntegratedWeakMomentum ν v\n  velocity_L2 : ∀ t : ℝ, 0 ≤ t → MemLp (v t) 2 (volume.restrict unitCube)\n  velocity_energy_class : ∀ T : ℝ, 0 < T →\n    MemLp (fun t => criticalL2Representative (v t)) ∞ (volume.restrict (Ioc (0 : ℝ) T))\n  gradient_energy_class : ∀ T : ℝ, 0 < T →\n    MemLp (fun t => criticalL2Representative (G t)) 2 (volume.restrict (Ioc (0 : ℝ) T))\n  initial : v 0 =ᵐ[volume.restrict unitCube] (a₀ : Vec → Vec)\n  weak_continuity : ∀ φ : Field, MemLp φ 2 (volume.restrict unitCube) →\n    ContinuousOn (fun t => physicalFieldInner (v t) φ) (Ici 0)\n  strong_trace : Tendsto\n    (fun t => eLpNorm (v t - (a₀ : Vec → Vec)) 2 (volume.restrict unitCube))\n    (𝓝[>] (0 : ℝ)) (𝓝 0)\n  spatial_H1 : ∀ T : ℝ, 0 < T →\n    ∀ᵐ t ∂volume.restrict (Ioc (0 : ℝ) T), CriticalPhysicalH1 (v t) (G t)\n  dissipation_integrable : ∀ T : ℝ, 0 < T →\n    IntervalIntegrable (fun t => criticalGradientEnergy (G t)) volume 0 T\n  energy_initial : ∀ t : ℝ, 0 ≤ t →\n    physicalEnergy (v t) + 2 * ν * (∫ r in (0 : ℝ)..t, criticalGradientEnergy (G r)) ≤ ‖a₀‖ ^ 2\n  energy_intervals : ∀ T : ℝ, 0 < T →\n    ∀ᵐ s ∂volume.restrict (Ioc (0 : ℝ) T), ∀ t ∈ Icc s T,\n      physicalEnergy (v t) + 2 * ν * (∫ r in s..t, criticalGradientEnergy (G r)) ≤\n        physicalEnergy (v s)",
+      "matches_pinned_native_snapshot": true,
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalLerayHopf.lean#L24-L62"
+    },
+    {
+      "id": "P4_TRACE",
+      "steps": [
+        4
+      ],
+      "origin": "native",
+      "declaration": "QuasiFeffermanB.lh_strong_right_trace_of_energy_start",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "repository_path": "Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "lines": [
+        117,
+        149
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L117-L149",
+      "sha256": "2e631205d82a320acfddcc2c684cd5ed1154fd88acd9cbab7f9202ea4a530ecc",
+      "fit": "ACTUAL_PERIODIC_TRACE",
+      "hypotheses": "Existing CriticalLerayHopf; ν≥0; s≥0; energy inequality from s to every r≥s.",
+      "result": "Strong L2 right trace at exactly v(s).",
+      "proof_route_inspected": "Weak continuity + norm bound → Hilbert strong convergence.",
+      "source_excerpt": "theorem lh_strong_right_trace_of_energy_start\n    {ν : ℝ} {a₀ : CriticalPhysicalL2} {v : Velocity}\n    {G : ℝ → Vec → (Vec →L[ℝ] Vec)}\n    (hv : CriticalLerayHopf ν a₀ v G) (hν : 0 ≤ ν)\n    {s : ℝ} (hs : 0 ≤ s)\n    (hE : ∀ r : ℝ, s ≤ r → physicalEnergy (v r) +\n      2 * ν * (∫ q in s..r, criticalGradientEnergy (G q)) ≤ physicalEnergy (v s)) :\n    Tendsto (fun t => criticalL2Representative (v t))\n      (𝓝[>] s) (𝓝 (criticalL2Representative (v s))) := by\n  have hvs := hv.velocity_L2 s hs\n  have hc := (hv.weak_continuity (v s) hvs) s hs\n  have hi : Tendsto (fun t => physicalFieldInner (v t) (v s))\n      (𝓝[>] s) (𝓝 (physicalFieldInner (v s) (v s))) :=\n    hc.tendsto.mono_left (nhdsWithin_mono _\n      (show Ioi s ⊆ Ici (0 : ℝ) from fun t ht => hs.trans ht.le))\n  apply strong_tendsto_of_inner_and_norm_bound\n  · have hpair : (fun t => inner ℝ (criticalL2Representative (v t))\n        (criticalL2Representative (v s))) =ᶠ[𝓝[>] s]\n        (fun t => physicalFieldInner (v t) (v s)) := by\n      filter_upwards [self_mem_nhdsWithin] with t ht\n      exact restart_representative_inner (v t) (v s)\n        (hv.velocity_L2 t (hs.trans ht.le)) hvs\n    have hself : physicalFieldInner (v s) (v s) =\n        ‖criticalL2Representative (v s)‖ ^ 2 := by\n      rw [← restart_representative_inner (v s) (v s) hvs hvs,\n        real_inner_self_eq_norm_sq]\n    rw [hself] at hi\n    exact hi.congr' hpair.symm\n  · filter_upwards [self_mem_nhdsWithin] with t ht\n    rw [restart_representative_norm_sq (v t)\n      (hv.velocity_L2 t (hs.trans ht.le)),\n      restart_representative_norm_sq (v s) hvs]\n    exact lh_energy_le_from_start hν hE ht.le",
+      "matches_pinned_native_snapshot": true,
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L117-L149"
+    },
+    {
+      "id": "P4_RESTART",
+      "steps": [
+        4
+      ],
+      "origin": "native",
+      "declaration": "QuasiFeffermanB.LH_RESTART_FROM_ENERGY_START",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "repository_path": "Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "lines": [
+        215,
+        276
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L215-L276",
+      "sha256": "2e631205d82a320acfddcc2c684cd5ed1154fd88acd9cbab7f9202ea4a530ecc",
+      "fit": "ACTUAL_PERIODIC_PDE",
+      "hypotheses": "Existing CriticalLerayHopf; ν≥0; s≥0; all-upper-endpoint energy-start inequality.",
+      "result": "Translated velocity and gradient satisfy full CriticalLerayHopf with datum criticalL2Representative(v s).",
+      "proof_route_inspected": "Reconstructs all class fields, including translated momentum and the derived strong trace.",
+      "source_excerpt": "theorem LH_RESTART_FROM_ENERGY_START\n    {ν : ℝ} {a₀ : CriticalPhysicalL2} {v : Velocity}\n    {G : ℝ → Vec → (Vec →L[ℝ] Vec)}\n    (hv : CriticalLerayHopf ν a₀ v G) (hν : 0 ≤ ν)\n    {s : ℝ} (hs : 0 ≤ s)\n    (hE : ∀ r : ℝ, s ≤ r → physicalEnergy (v r) +\n      2 * ν * (∫ q in s..r, criticalGradientEnergy (G q)) ≤ physicalEnergy (v s)) :\n    CriticalLerayHopf ν (criticalL2Representative (v s))\n      (timeTranslate s v) (timeTranslate s G) := by\n  have hs0 : 0 ≤ s := hs\n  have hvs := hv.velocity_L2 s hs0\n  refine {\n    momentum := timeTranslate_integrated_momentum hv.momentum hs0\n    velocity_L2 := fun t ht => hv.velocity_L2 (t + s) (add_nonneg ht hs0)\n    velocity_energy_class := fun T hT =>\n      timeTranslate_memLp_Ioc hs0 (hv.velocity_energy_class (T + s) (by linarith))\n    gradient_energy_class := fun T hT =>\n      timeTranslate_memLp_Ioc hs0 (hv.gradient_energy_class (T + s) (by linarith))\n    initial := ?_\n    weak_continuity := ?_\n    strong_trace := lh_shifted_strong_trace_of_energy_start hv hν hs hE\n    spatial_H1 := ?_\n    dissipation_integrable := ?_\n    energy_initial := ?_\n    energy_intervals := ?_\n  }\n  · simpa only [timeTranslate, zero_add, criticalL2Representative_eq (v s) hvs]\n      using hvs.coeFn_toLp.symm\n  · intro φ hφ\n    exact (hv.weak_continuity φ hφ).comp\n      (continuous_id.add continuous_const).continuousOn\n      (fun t ht => add_nonneg ht hs0)\n  · intro T hT\n    exact timeTranslate_ae_Ioc hs0 (hv.spatial_H1 (T + s) (by linarith))\n  · intro T hT\n    have hI := (hv.dissipation_integrable (T + s) (by linarith)).mono_set\n      (show uIcc s (T + s) ⊆ uIcc (0 : ℝ) (T + s) by\n        rw [uIcc_of_le (by linarith : s ≤ T + s),\n          uIcc_of_le (by linarith : (0 : ℝ) ≤ T + s)]\n        exact Icc_subset_Icc hs0 le_rfl)\n    simpa only [sub_self, add_sub_cancel_right, timeTranslate]\n      using hI.comp_add_right s\n  · intro t ht\n    change physicalEnergy (v (t + s)) +\n      2 * ν * (∫ r in (0 : ℝ)..t, criticalGradientEnergy (G (r + s))) ≤ _\n    rw [intervalIntegral.integral_comp_add_right\n        (fun r => criticalGradientEnergy (G r)) s, zero_add,\n      restart_representative_norm_sq (v s) hvs]\n    exact hE (t + s) (by linarith)\n  · intro T hT\n    have hE := timeTranslate_ae_Ioc hs0\n      (hv.energy_intervals (T + s) (by linarith))\n    filter_upwards [hE] with r hr\n    intro t ht\n    change physicalEnergy (v (t + s)) +\n      2 * ν * (∫ q in r..t, criticalGradientEnergy (G (q + s))) ≤\n        physicalEnergy (v (r + s))\n    rw [intervalIntegral.integral_comp_add_right\n      (fun q => criticalGradientEnergy (G q)) s]\n    have hleft : r + s ≤ t + s := by linarith only [ht.1]\n    have hright : t + s ≤ T + s := by linarith only [ht.2]\n    exact hr (t + s) ⟨hleft, hright⟩",
+      "matches_pinned_native_snapshot": true,
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L215-L276"
+    },
+    {
+      "id": "P4_RESTART_AE",
+      "steps": [
+        4
+      ],
+      "origin": "native",
+      "declaration": "QuasiFeffermanB.LH_RESTART_AE; LH_RESTART_AE_Ioc; LH_RESTART_AE_Ioo",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "repository_path": "Material/_vendor/QuasiFeffermanB/LHRestart.lean",
+      "lines": [
+        287,
+        324
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L287-L324",
+      "sha256": "2e631205d82a320acfddcc2c684cd5ed1154fd88acd9cbab7f9202ea4a530ecc",
+      "fit": "ACTUAL_PERIODIC_PDE",
+      "hypotheses": "Existing CriticalLerayHopf and ν≥0.",
+      "result": "Almost every positive start has actual physical H1 slice and full restarted LH membership, including every finite open observation interval.",
+      "proof_route_inspected": "Good energy-start full-measure set plus previous restart theorem.",
+      "source_excerpt": "theorem LH_RESTART_AE\n    {ν : ℝ} {a₀ : CriticalPhysicalL2} {v : Velocity}\n    {G : ℝ → Vec → (Vec →L[ℝ] Vec)}\n    (hv : CriticalLerayHopf ν a₀ v G) (hν : 0 ≤ ν) :\n    ∀ᵐ s ∂volume.restrict (Ioi (0 : ℝ)),\n      CriticalPhysicalH1 (v s) (G s) ∧\n      CriticalLerayHopf ν (criticalL2Representative (v s))\n        (timeTranslate s v) (timeTranslate s G) := by\n  filter_upwards [lh_ae_good_energy_time hv] with s hs\n  exact ⟨hs.2.1, LH_RESTART_AT_GOOD_TIME hv hν hs⟩\n\ntheorem LH_RESTART_AE_Ioc\n    {ν : ℝ} {a₀ : CriticalPhysicalL2} {v : Velocity}\n    {G : ℝ → Vec → (Vec →L[ℝ] Vec)}\n    (hv : CriticalLerayHopf ν a₀ v G) (hν : 0 ≤ ν) (T : ℝ) :\n    ∀ᵐ s ∂volume.restrict (Ioc (0 : ℝ) T),\n      CriticalPhysicalH1 (v s) (G s) ∧\n      CriticalLerayHopf ν (criticalL2Representative (v s))\n        (timeTranslate s v) (timeTranslate s G) := by\n  have hglobal := (ae_restrict_iff' measurableSet_Ioi).mp (LH_RESTART_AE hv hν)\n  apply (ae_restrict_iff' measurableSet_Ioc).mpr\n  filter_upwards [hglobal] with s hs\n  intro hsT\n  exact hs hsT.1\n\ntheorem LH_RESTART_AE_Ioo\n    {ν : ℝ} {a₀ : CriticalPhysicalL2} {v : Velocity}\n    {G : ℝ → Vec → (Vec →L[ℝ] Vec)}\n    (hv : CriticalLerayHopf ν a₀ v G) (hν : 0 ≤ ν) (T : ℝ) :\n    ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) T),\n      CriticalPhysicalH1 (v s) (G s) ∧\n      CriticalLerayHopf ν (criticalL2Representative (v s))\n        (timeTranslate s v) (timeTranslate s G) := by\n  have hglobal := (ae_restrict_iff' measurableSet_Ioi).mp (LH_RESTART_AE hv hν)\n  apply (ae_restrict_iff' measurableSet_Ioo).mpr\n  filter_upwards [hglobal] with s hs\n  intro hsT\n  exact hs hsT.1",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "QFBRestart",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/LHRestart.lean#L287-L324"
+    },
+    {
+      "id": "P5_SERRIN",
+      "steps": [
+        5
+      ],
+      "origin": "native",
+      "declaration": "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean",
+      "repository_path": "Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean",
+      "lines": [
+        37,
+        173
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean#L37-L173",
+      "sha256": "341ec5bad1d787e77ae5e15d42eb88f60b4b5b9bd427c2135a90e66cd0ac416e",
+      "fit": "ACTUAL_PERIODIC_WEAK_STRONG",
+      "hypotheses": "ν>0; LH competitor; positive smooth solenoidal periodic reference; actual reference PDE; common strong L2 initial trace; reference L4_t L6_x on (0,T].",
+      "result": "Every t∈(0,T] has spatial-a.e. equality.",
+      "proof_route_inspected": "Derives relative-energy estimate from actual weak/strong equations and controls convection; selects admissible starts tending to zero and applies Grönwall.",
+      "source_excerpt": "theorem CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON\n    (ν : ℝ) (hν : 0 < ν) (a₀ : CriticalPhysicalL2)\n    (v u : Velocity) (G : ℝ → Vec → (Vec →L[ℝ] Vec)) (p : Pressure)\n    (hv : CriticalLerayHopf ν a₀ v G)\n    (hu : CriticalPositiveSolenoidalTest u)\n    (hp : ∀ r : ℝ, 0 < r → ContDiff ℝ ∞ (p r))\n    (hpp : ∀ r : ℝ, 0 < r → SpatialPeriodic (p r))\n    (hNSE : ∀ r : ℝ, 0 < r → ∀ x : Vec,\n      timeDerivative u r x + convection (u r) x + gradient (p r) x =\n        ν • laplacian (u r) x)\n    (hu_trace : Tendsto\n      (fun t => eLpNorm (u t - (a₀ : Vec → Vec)) 2 (volume.restrict unitCube))\n      (𝓝[>] (0 : ℝ)) (𝓝 0))\n    (T : ℝ) (hT : 0 < T)\n    (hSerrin : MemLp (fun t => criticalSpatialNorm 6 (u t)) 4\n      (volume.restrict (Ioc (0 : ℝ) T))) :\n    ∀ t ∈ Ioc (0 : ℝ) T, v t =ᵐ[volume.restrict unitCube] u t := by\n  obtain ⟨C, hC, htransport⟩ := CRITICAL_ROUGH_TRANSPORT_ENERGY_BOUND\n  let U : ℝ → ℝ := fun r => criticalSpatialNorm 6 (u r)\n  let B : ℝ → ℝ := fun r => 216 * C ^ 4 * (U r) ^ 4 / ν ^ 3 +\n    3 * C ^ 2 * (U r) ^ 2 / ν\n  let A : ℝ → ℝ := fun r => 2 * B r\n  let E : ℝ → ℝ := fun r => physicalEnergy (v r - u r)\n  have hUc : ContinuousOn U (Ioc (0 : ℝ) T) :=\n    hu.eLpNorm_six_toReal_continuousOn T\n  have hBc : ContinuousOn B (Ioc (0 : ℝ) T) :=\n    ((continuousOn_const.mul (hUc.pow 4)).div_const (ν ^ 3)).add\n      ((continuousOn_const.mul (hUc.pow 2)).div_const ν)\n  have hAc : ContinuousOn A (Ioc (0 : ℝ) T) := continuousOn_const.mul hBc\n  have hAnonneg : ∀ r ∈ Ioc (0 : ℝ) T, 0 ≤ A r := by\n    intro r hr\n    dsimp [A, B]\n    positivity\n  have hEnonneg : ∀ r ∈ Ioc (0 : ℝ) T, 0 ≤ E r := by\n    intro r hr\n    dsimp [E]\n    rw [physicalEnergy_eq_integral_norm_sq]\n    exact integral_nonneg (fun x => sq_nonneg _)\n  haveI : IsFiniteMeasure (volume.restrict (Ioc (0 : ℝ) T)) :=\n    ⟨by simp only [Measure.restrict_apply_univ, Real.volume_Ioc]; finiteness⟩\n  have hBI : IntervalIntegrable B volume 0 T :=\n    (intervalIntegrable_iff_integrableOn_Ioc_of_le hT.le).mpr\n      (criticalSerrinEnergyCoefficient_integrable ν C U hSerrin)\n  have hAI : IntervalIntegrable A volume 0 T := hBI.const_mul 2\n  obtain ⟨ε, hε, hε_zero⟩ := CRITICAL_ADMISSIBLE_TIMES_TENDSTO_ZERO hT\n    (fun s => ∀ t ∈ Icc s T, physicalEnergy (v t) +\n      2 * ν * (∫ r in s..t, criticalGradientEnergy (G r)) ≤ physicalEnergy (v s))\n    (hv.energy_intervals T hT)\n  have hεWithin : Tendsto ε atTop (𝓝[>] (0 : ℝ)) :=\n    tendsto_nhdsWithin_iff.mpr ⟨hε_zero, Eventually.of_forall (fun n => (hε n).1.1)⟩\n  have hvε (n : ℕ) : MemLp (v (ε n)) 2 (volume.restrict unitCube) :=\n    hv.velocity_L2 (ε n) (hε n).1.1.le\n  have huε (n : ℕ) : MemLp (u (ε n)) 2 (volume.restrict unitCube) :=\n    critical_continuous_memLp_cube _ (hu.spatial_smooth (hε n).1.1).continuous 2\n  have ha₀ : MemLp (a₀ : Vec → Vec) 2 (volume.restrict unitCube) := Lp.memLp a₀\n  have hv_trace_L2 := critical_toLp_tendsto_of_eLpNorm_sub\n    (fun n => v (ε n)) (a₀ : Vec → Vec) hvε ha₀ (hv.strong_trace.comp hεWithin)\n  have hu_trace_L2 := critical_toLp_tendsto_of_eLpNorm_sub\n    (fun n => u (ε n)) (a₀ : Vec → Vec) huε ha₀ (hu_trace.comp hεWithin)\n  have htrace : Tendsto (fun n => E (ε n)) atTop (𝓝 0) := by\n    have heq (n : ℕ) : E (ε n) =\n        ‖(hvε n).toLp (v (ε n)) - (huε n).toLp (u (ε n))‖ ^ 2 :=\n      critical_physicalEnergy_sub_eq_norm_toLp_sub_sq _ _ (hvε n) (huε n)\n    simpa only [heq, sub_self, norm_zero, zero_pow (by decide : (2 : ℕ) ≠ 0)] using\n      (hv_trace_L2.sub hu_trace_L2).norm.pow 2\n  have hprod (n : ℕ) : IntervalIntegrable (fun r => A r * E r) volume (ε n) T :=\n    CRITICAL_RELATIVE_ENERGY_PRODUCT_INTERVAL_INTEGRABLE hv hu A (ε n) T\n      (hε n).1.1 (hε n).1.2 (hAc.mono (fun r hr =>\n        ⟨lt_of_lt_of_le (hε n).1.1 hr.1, hr.2⟩))\n  have hrelative : ∀ n t, t ∈ Icc (ε n) T →\n      E t ≤ E (ε n) + ∫ r in ε n..t, A r * E r := by\n    intro n t ht\n    have htpos : 0 < t := lt_of_lt_of_le (hε n).1.1 ht.1\n    have hcoefB : ContinuousOn B (Icc (ε n) t) := hBc.mono (fun r hr =>\n      ⟨lt_of_lt_of_le (hε n).1.1 hr.1, hr.2.trans ht.2⟩)\n    have hBE : IntervalIntegrable (fun r => B r * E r) volume (ε n) t :=\n      CRITICAL_RELATIVE_ENERGY_PRODUCT_INTERVAL_INTEGRABLE hv hu B (ε n) t\n        (hε n).1.1 ht.1 hcoefB\n    obtain ⟨hD, hR, hrel⟩ := CRITICAL_LH_SMOOTH_RELATIVE_ENERGY_TRANSPORT\n      ν hν a₀ v u G p hv hu hp hpp hNSE (ε n) t (hε n).1.1 ht.1 ((hε n).2 t ht)\n    have hupper : IntervalIntegrable (fun r =>\n        (ν / 2) * criticalGradientEnergy (G r - fderiv ℝ (u r)) + B r * E r)\n        volume (ε n) t := (hD.const_mul (ν / 2)).add hBE\n    have hH1 : ∀ᵐ r ∂volume.restrict (Ioc (ε n) t), CriticalPhysicalH1 (v r) (G r) :=\n      ae_restrict_of_ae_restrict_of_subset (Ioc_subset_Ioc (hε n).1.1.le le_rfl)\n        (hv.spatial_H1 t htpos)\n    have hpoint : (fun r => criticalRoughTransport (v r - u r)\n        (G r - fderiv ℝ (u r)) (u r)) ≤ᵐ[volume.restrict (Ioc (ε n) t)]\n        (fun r => (ν / 2) * criticalGradientEnergy (G r - fderiv ℝ (u r)) + B r * E r) := by\n      filter_upwards [hH1, ae_restrict_mem measurableSet_Ioc] with r hHr hr\n      have hrpos : 0 < r := (hε n).1.1.trans hr.1\n      have hus := hu.spatial_smooth hrpos\n      exact (le_abs_self _).trans (htransport ν hν (u r) (v r - u r)\n        (G r - fderiv ℝ (u r)) (critical_continuous_memLp_cube _ hus.continuous 6)\n        (hHr.sub_smooth (u r) hus (hu.periodic r hrpos)))\n    have hbound : (∫ r in ε n..t, criticalRoughTransport (v r - u r)\n        (G r - fderiv ℝ (u r)) (u r)) ≤\n        (ν / 2) * (∫ r in ε n..t, criticalGradientEnergy (G r - fderiv ℝ (u r))) +\n          (∫ r in ε n..t, B r * E r) := by\n      calc\n        _ ≤ ∫ r in ε n..t,\n            (ν / 2) * criticalGradientEnergy (G r - fderiv ℝ (u r)) + B r * E r := by\n          rw [intervalIntegral.integral_of_le ht.1, intervalIntegral.integral_of_le ht.1]\n          exact setIntegral_mono_ae_restrict hR.1 hupper.1 hpoint\n        _ = _ := by\n          rw [intervalIntegral.integral_add (hD.const_mul (ν / 2)) hBE,\n            intervalIntegral.integral_const_mul]\n    have hDnonneg : 0 ≤ ∫ r in ε n..t,\n        criticalGradientEnergy (G r - fderiv ℝ (u r)) :=\n      intervalIntegral.integral_nonneg_of_forall ht.1\n        (fun r => criticalGradientEnergy_nonneg _)\n    have hAint : (∫ r in ε n..t, A r * E r) = 2 * (∫ r in ε n..t, B r * E r) := by\n      simp only [A, mul_assoc, intervalIntegral.integral_const_mul]\n    change E t + 2 * ν * (∫ r in ε n..t,\n      criticalGradientEnergy (G r - fderiv ℝ (u r))) ≤\n      E (ε n) + 2 * (∫ r in ε n..t,\n        criticalRoughTransport (v r - u r) (G r - fderiv ℝ (u r)) (u r)) at hrel\n    rw [hAint]\n    nlinarith only [hrel, hbound, mul_nonneg hν.le hDnonneg]\n  have hzero := CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE hT\n    hEnonneg hAc hAnonneg hAI hprod (le_refl (∫ r in (0 : ℝ)..T, A r))\n    (fun n => (hε n).1) hε_zero htrace hrelative\n  intro t ht\n  have hvL2 := hv.velocity_L2 t ht.1.le\n  have huL2 : MemLp (u t) 2 (volume.restrict unitCube) :=\n    critical_continuous_memLp_cube _ (hu.spatial_smooth ht.1).continuous 2\n  have hd := hvL2.sub huL2\n  have hn : ‖hd.toLp (v t - u t)‖ = 0 := by\n    have hsq : ‖hd.toLp (v t - u t)‖ ^ 2 = 0 := by\n      rw [← critical_physicalEnergy_eq_norm_toLp_sq (v t - u t) hd]\n      exact hzero t ht\n    nlinarith only [hsq, norm_nonneg (hd.toLp (v t - u t))]\n  have hz : hd.toLp (v t - u t) = 0 := norm_eq_zero.mp hn\n  have hzae : (v t - u t) =ᵐ[volume.restrict unitCube] (0 : Field) :=\n    hd.coeFn_toLp.symm.trans (Lp.eq_zero_iff_ae_eq_zero.mp hz)\n  filter_upwards [hzae] with x hx\n  exact sub_eq_zero.mp hx",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "SerrinComparison",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/CriticalSerrinUniqueness.lean#L37-L173"
+    },
+    {
+      "id": "P5_FINITE",
+      "steps": [
+        5
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean",
+      "lines": [
+        27,
+        169
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean#L27-L169",
+      "sha256": "03f1f899b1a86754d9b45b62239b04c0c01430e79caf5f90f280c0ddbd278def",
+      "fit": "ACTUAL_PERIODIC_WEAK_STRONG",
+      "hypotheses": "Same LH/reference assumptions; actual reference PDE and pressure requirements only on (0,T]; finite L4L6 norm.",
+      "result": "Every-time spatial-a.e. equality in (0,T].",
+      "proof_route_inspected": "Finite-window relative-energy proof. The globally defined smooth test is not assumed to solve NSE after T.",
+      "source_excerpt": "theorem finite_window_leray_hopf_serrin_comparison\n    (ν : ℝ) (hν : 0 < ν) (a₀ : CriticalPhysicalL2)\n    (v u : Velocity) (G : ℝ → Vec → (Vec →L[ℝ] Vec)) (p : Pressure)\n    (hv : CriticalLerayHopf ν a₀ v G)\n    (hu : CriticalPositiveSolenoidalTest u)\n    (T : ℝ) (hT : 0 < T)\n    (hp : ∀ r ∈ Ioc (0 : ℝ) T, ContDiff ℝ ∞ (p r))\n    (hpp : ∀ r ∈ Ioc (0 : ℝ) T, SpatialPeriodic (p r))\n    (hNSE : ∀ r ∈ Ioc (0 : ℝ) T, ∀ x : Vec,\n      timeDerivative u r x + convection (u r) x + SingularClosure.gradient (p r) x =\n        ν • laplacian (u r) x)\n    (hu_trace : Tendsto\n      (fun t => eLpNorm (u t - (a₀ : Vec → Vec)) 2 (volume.restrict unitCube))\n      (𝓝[>] (0 : ℝ)) (𝓝 0))\n    (hSerrin : MemLp (fun t => criticalSpatialNorm 6 (u t)) 4\n      (volume.restrict (Ioc (0 : ℝ) T))) :\n    ∀ t ∈ Ioc (0 : ℝ) T, v t =ᵐ[volume.restrict unitCube] u t := by\n  obtain ⟨C, hC, htransport⟩ := CRITICAL_ROUGH_TRANSPORT_ENERGY_BOUND\n  let U : ℝ → ℝ := fun r => criticalSpatialNorm 6 (u r)\n  let B : ℝ → ℝ := fun r => 216 * C ^ 4 * (U r) ^ 4 / ν ^ 3 +\n    3 * C ^ 2 * (U r) ^ 2 / ν\n  let A : ℝ → ℝ := fun r => 2 * B r\n  let E : ℝ → ℝ := fun r => physicalEnergy (v r - u r)\n  have hUc : ContinuousOn U (Ioc (0 : ℝ) T) :=\n    hu.eLpNorm_six_toReal_continuousOn T\n  have hBc : ContinuousOn B (Ioc (0 : ℝ) T) :=\n    ((continuousOn_const.mul (hUc.pow 4)).div_const (ν ^ 3)).add\n      ((continuousOn_const.mul (hUc.pow 2)).div_const ν)\n  have hAc : ContinuousOn A (Ioc (0 : ℝ) T) := continuousOn_const.mul hBc\n  have hAnonneg : ∀ r ∈ Ioc (0 : ℝ) T, 0 ≤ A r := by\n    intro r hr\n    dsimp [A, B]\n    positivity\n  have hEnonneg : ∀ r ∈ Ioc (0 : ℝ) T, 0 ≤ E r := by\n    intro r hr\n    dsimp [E]\n    rw [physicalEnergy_eq_integral_norm_sq]\n    exact integral_nonneg (fun x => sq_nonneg _)\n  haveI : IsFiniteMeasure (volume.restrict (Ioc (0 : ℝ) T)) :=\n    ⟨by simp only [Measure.restrict_apply_univ, Real.volume_Ioc]; finiteness⟩\n  have hBI : IntervalIntegrable B volume 0 T :=\n    (intervalIntegrable_iff_integrableOn_Ioc_of_le hT.le).mpr\n      (criticalSerrinEnergyCoefficient_integrable ν C U hSerrin)\n  have hAI : IntervalIntegrable A volume 0 T := hBI.const_mul 2\n  obtain ⟨ε, hε, hε_zero⟩ := CRITICAL_ADMISSIBLE_TIMES_TENDSTO_ZERO hT\n    (fun s => ∀ t ∈ Icc s T, physicalEnergy (v t) +\n      2 * ν * (∫ r in s..t, criticalGradientEnergy (G r)) ≤ physicalEnergy (v s))\n    (hv.energy_intervals T hT)\n  have hεWithin : Tendsto ε atTop (𝓝[>] (0 : ℝ)) :=\n    tendsto_nhdsWithin_iff.mpr ⟨hε_zero, Eventually.of_forall (fun n => (hε n).1.1)⟩\n  have hvε (n : ℕ) : MemLp (v (ε n)) 2 (volume.restrict unitCube) :=\n    hv.velocity_L2 (ε n) (hε n).1.1.le\n  have huε (n : ℕ) : MemLp (u (ε n)) 2 (volume.restrict unitCube) :=\n    critical_continuous_memLp_cube _ (hu.spatial_smooth (hε n).1.1).continuous 2\n  have ha₀ : MemLp (a₀ : Vec → Vec) 2 (volume.restrict unitCube) := Lp.memLp a₀\n  have hv_trace_L2 := critical_toLp_tendsto_of_eLpNorm_sub\n    (fun n => v (ε n)) (a₀ : Vec → Vec) hvε ha₀ (hv.strong_trace.comp hεWithin)\n  have hu_trace_L2 := critical_toLp_tendsto_of_eLpNorm_sub\n    (fun n => u (ε n)) (a₀ : Vec → Vec) huε ha₀ (hu_trace.comp hεWithin)\n  have htrace : Tendsto (fun n => E (ε n)) atTop (𝓝 0) := by\n    have heq (n : ℕ) : E (ε n) =\n        ‖(hvε n).toLp (v (ε n)) - (huε n).toLp (u (ε n))‖ ^ 2 :=\n      critical_physicalEnergy_sub_eq_norm_toLp_sub_sq _ _ (hvε n) (huε n)\n    simpa only [heq, sub_self, norm_zero, zero_pow (by decide : (2 : ℕ) ≠ 0)] using\n      (hv_trace_L2.sub hu_trace_L2).norm.pow 2\n  have hprod (n : ℕ) : IntervalIntegrable (fun r => A r * E r) volume (ε n) T :=\n    CRITICAL_RELATIVE_ENERGY_PRODUCT_INTERVAL_INTEGRABLE hv hu A (ε n) T\n      (hε n).1.1 (hε n).1.2 (hAc.mono (fun r hr =>\n        ⟨lt_of_lt_of_le (hε n).1.1 hr.1, hr.2⟩))\n  have hrelative : ∀ n t, t ∈ Icc (ε n) T →\n      E t ≤ E (ε n) + ∫ r in ε n..t, A r * E r := by\n    intro n t ht\n    have htpos : 0 < t := lt_of_lt_of_le (hε n).1.1 ht.1\n    have hcoefB : ContinuousOn B (Icc (ε n) t) := hBc.mono (fun r hr =>\n      ⟨lt_of_lt_of_le (hε n).1.1 hr.1, hr.2.trans ht.2⟩)\n    have hBE : IntervalIntegrable (fun r => B r * E r) volume (ε n) t :=\n      CRITICAL_RELATIVE_ENERGY_PRODUCT_INTERVAL_INTEGRABLE hv hu B (ε n) t\n        (hε n).1.1 ht.1 hcoefB\n    have hwindow : Icc (ε n) t ⊆ Ioc (0 : ℝ) T := by\n      intro r hr\n      exact ⟨(hε n).1.1.trans_le hr.1, hr.2.trans ht.2⟩\n    obtain ⟨hD, hR, hrel⟩ := finite_window_lh_smooth_relative_energy_transport\n      ν hν a₀ v u G p hv hu (ε n) t (hε n).1.1 ht.1\n      (fun r hr => hp r (hwindow hr))\n      (fun r hr => hpp r (hwindow hr))\n      (fun r hr => hNSE r (hwindow hr)) ((hε n).2 t ht)\n    have hupper : IntervalIntegrable (fun r =>\n        (ν / 2) * criticalGradientEnergy (G r - fderiv ℝ (u r)) + B r * E r)\n        volume (ε n) t := (hD.const_mul (ν / 2)).add hBE\n    have hH1 : ∀ᵐ r ∂volume.restrict (Ioc (ε n) t), CriticalPhysicalH1 (v r) (G r) :=\n      ae_restrict_of_ae_restrict_of_subset (Ioc_subset_Ioc (hε n).1.1.le le_rfl)\n        (hv.spatial_H1 t htpos)\n    have hpoint : (fun r => criticalRoughTransport (v r - u r)\n        (G r - fderiv ℝ (u r)) (u r)) ≤ᵐ[volume.restrict (Ioc (ε n) t)]\n        (fun r => (ν / 2) * criticalGradientEnergy (G r - fderiv ℝ (u r)) + B r * E r) := by\n      filter_upwards [hH1, ae_restrict_mem measurableSet_Ioc] with r hHr hr\n      have hrpos : 0 < r := (hε n).1.1.trans hr.1\n      have hus := hu.spatial_smooth hrpos\n      exact (le_abs_self _).trans (htransport ν hν (u r) (v r - u r)\n        (G r - fderiv ℝ (u r)) (critical_continuous_memLp_cube _ hus.continuous 6)\n        (hHr.sub_smooth (u r) hus (hu.periodic r hrpos)))\n    have hbound : (∫ r in ε n..t, criticalRoughTransport (v r - u r)\n        (G r - fderiv ℝ (u r)) (u r)) ≤\n        (ν / 2) * (∫ r in ε n..t, criticalGradientEnergy (G r - fderiv ℝ (u r))) +\n          (∫ r in ε n..t, B r * E r) := by\n      calc\n        _ ≤ ∫ r in ε n..t,\n            (ν / 2) * criticalGradientEnergy (G r - fderiv ℝ (u r)) + B r * E r := by\n          rw [intervalIntegral.integral_of_le ht.1, intervalIntegral.integral_of_le ht.1]\n          exact setIntegral_mono_ae_restrict hR.1 hupper.1 hpoint\n        _ = _ := by\n          rw [intervalIntegral.integral_add (hD.const_mul (ν / 2)) hBE,\n            intervalIntegral.integral_const_mul]\n    have hDnonneg : 0 ≤ ∫ r in ε n..t,\n        criticalGradientEnergy (G r - fderiv ℝ (u r)) :=\n      intervalIntegral.integral_nonneg_of_forall ht.1\n        (fun r => criticalGradientEnergy_nonneg _)\n    have hAint : (∫ r in ε n..t, A r * E r) = 2 * (∫ r in ε n..t, B r * E r) := by\n      simp only [A, mul_assoc, intervalIntegral.integral_const_mul]\n    change E t + 2 * ν * (∫ r in ε n..t,\n      criticalGradientEnergy (G r - fderiv ℝ (u r))) ≤\n      E (ε n) + 2 * (∫ r in ε n..t,\n        criticalRoughTransport (v r - u r) (G r - fderiv ℝ (u r)) (u r)) at hrel\n    rw [hAint]\n    nlinarith only [hrel, hbound, mul_nonneg hν.le hDnonneg]\n  have hzero := CRITICAL_RELATIVE_ENERGY_ZERO_OF_LOCAL_ADMISSIBLE_TRACE hT\n    hEnonneg hAc hAnonneg hAI hprod (le_refl (∫ r in (0 : ℝ)..T, A r))\n    (fun n => (hε n).1) hε_zero htrace hrelative\n  intro t ht\n  have hvL2 := hv.velocity_L2 t ht.1.le\n  have huL2 : MemLp (u t) 2 (volume.restrict unitCube) :=\n    critical_continuous_memLp_cube _ (hu.spatial_smooth ht.1).continuous 2\n  have hd := hvL2.sub huL2\n  have hn : ‖hd.toLp (v t - u t)‖ = 0 := by\n    have hsq : ‖hd.toLp (v t - u t)‖ ^ 2 = 0 := by\n      rw [← critical_physicalEnergy_eq_norm_toLp_sq (v t - u t) hd]\n      exact hzero t ht\n    nlinarith only [hsq, norm_nonneg (hd.toLp (v t - u t))]\n  have hz : hd.toLp (v t - u t) = 0 := norm_eq_zero.mp hn\n  have hzae : (v t - u t) =ᵐ[volume.restrict unitCube] (0 : Field) :=\n    hd.coeFn_toLp.symm.trans (Lp.eq_zero_iff_ae_eq_zero.mp hz)\n  filter_upwards [hzae] with x hx\n  exact sub_eq_zero.mp hx",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBFiniteWindowSerrinComparison",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/FiniteWindowSerrinComparison.lean#L27-L169"
+    },
+    {
+      "id": "P5_MAXIMAL",
+      "steps": [
+        5
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/MaximalLerayHopfIdentification.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/MaximalLerayHopfIdentification.lean",
+      "lines": [
+        27,
+        46
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/MaximalLerayHopfIdentification.lean#L27-L46",
+      "sha256": "77307f5f91fac1859c6d89020622823b2887f90f227ddda1f8f3dd0a9e9c67c5",
+      "fit": "ACTUAL_PERIODIC_WEAK_STRONG",
+      "hypotheses": "ν>0; SmoothSigmaZero datum; actual MaximalClassicalFront; any CriticalLerayHopf with same initial datum.",
+      "result": "Every nonnegative t<Tmax, including t=0, has spatial-a.e. equality with maximal front.",
+      "proof_route_inspected": "Shorter smooth fronts supply finite-window Serrin bound; t=0 uses initial fields.",
+      "source_excerpt": "theorem maximal_front_leray_hopf_identification\n    (ν : ℝ) (a : Field) (u v : Velocity) (p : Pressure)\n    (G : QuasiFeffermanB.WeakGradientTrajectory) (Tmax : ℝ≥0∞)\n    (hν : 0 < ν) (ha : SmoothSigmaZero a)\n    (H : MaximalClassicalFront ν a u p Tmax)\n    (hv : CriticalLerayHopf ν (criticalL2Representative a) v G) :\n    ∀ t : ℝ, 0 ≤ t → ENNReal.ofReal t < Tmax →\n      v t =ᵐ[volume.restrict unitCube] u t := by\n  intro t ht0 htmax\n  rcases eq_or_lt_of_le ht0 with hzero | hpos\n  · subst t\n    have hinit : v 0 =ᵐ[volume.restrict unitCube] a :=\n      hv.initial.trans (smooth_datum_representative_ae ha)\n    simpa only [H.initial] using hinit\n  · obtain ⟨T, _, htT, hTmax⟩ := ENNReal.lt_iff_exists_real_btwn.mp htmax\n    have htTreal : t < T :=\n      (ENNReal.ofReal_lt_ofReal_iff_of_nonneg hpos.le).mp htT\n    have hT : 0 < T := hpos.trans htTreal\n    exact initial_front_leray_hopf_identification ν T a u p v G\n      (H.finite_front T hT hTmax) hν hT hv t ⟨hpos, htTreal⟩",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBMaximalLerayHopfIdentification",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/MaximalLerayHopfIdentification.lean#L27-L46"
+    },
+    {
+      "id": "P6_SMALL",
+      "steps": [
+        6
+      ],
+      "origin": "native",
+      "declaration": "QuasiFeffermanB.SPECTRAL_H1_CALORIC_BUDGET; EXACT_H1_ADMISSION_UNCONDITIONAL",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/QuasiFeffermanB/CaloricNumericalAdmission.lean",
+      "repository_path": "Material/_vendor/QuasiFeffermanB/CaloricNumericalAdmission.lean",
+      "lines": [
+        21,
+        55
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/CaloricNumericalAdmission.lean#L21-L55",
+      "sha256": "6cd3f193ad856a75931bf0f47e7718fbebc9922fecc4dbbf8405d9b6f78a017f",
+      "fit": "ACTUAL_PERIODIC_SMALL_DATA",
+      "hypotheses": "ν>0; expanding ExactH1Admission requires actual periodic physical H1, EnergySigmaZero, physicalHalfEnergy b < 2πν².",
+      "result": "Nonempty actual global RegularReference with exact strong trace and finite-horizon L4L6.",
+      "proof_route_inspected": "Proves uniform finite caloric budget from exact numerical smallness then physical H1 admission; the final theorem has no budget or existence certificate premise. Exact external audit found separately in Methlib43535278019.",
+      "source_excerpt": "theorem SPECTRAL_H1_CALORIC_BUDGET\n    (ν : ℝ) (hν : 0 < ν) (b : CriticalSobolev 2)\n    (hreal : SpectralReality (criticalCoeff 2 b))\n    (_hsol : SpectralSolenoidal (criticalCoeff 2 b))\n    (_hzero : SpectralMeanZero (criticalCoeff 2 b))\n    (hsmall : ‖criticalSobolevLower 1 2 (by norm_num) b‖ ^ 2 < 2 * Real.pi * ν ^ 2) :\n    ∃ S : ℝ, ∀ (N : ℕ)\n      (g : GalerkinSolution ν (finiteSynthesis N (criticalCoeff 2 b)) N),\n      ∀ T : ℝ, 0 ≤ T →\n        (∫ t in (0 : ℝ)..T, finiteChi0 (cutoffModes N) (g.coeff t) ^ 2) ≤ S := by\n  let a : CriticalSobolev 1 := criticalSobolevLower 1 2 (by norm_num) b\n  let B : ℝ := ‖a‖ ^ 2 / (4 * Real.pi)\n  have hB : 0 ≤ B := div_nonneg (sq_nonneg _) (by positivity)\n  have hBsmall : B < ν ^ 2 / 2 := by\n    apply (div_lt_iff₀ (show 0 < 4 * Real.pi by positivity)).2\n    change ‖a‖ ^ 2 < 2 * Real.pi * ν ^ 2 at hsmall\n    nlinarith\n  refine ⟨4 * B / ν, ?_⟩\n  intro N g T hT\n  apply GALERKIN_CHI0_BUDGET_OF_CALORIC_QUADRATIC g hν B hB hBsmall\n    (fun k hk t ht => COEFFICIENT_TRANSPORT_SHARP_EUCLIDEAN N (g.coeff t)\n      (g.mode_support t ht) (g.solenoidal t ht) k (((mem_cutoffModes_iff N k).mp hk).2.1))\n    ?_ T hT\n  apply (FINITE_CALORIC_SCHUR N (g.coeff 0)).trans\n  apply div_le_div_of_nonneg_right _ (show 0 ≤ 4 * Real.pi by positivity)\n  rw [criticalGalerkin_initial_coeff hreal g, criticalEnergy_cutoffCoeff]\n  have hac : criticalCoeff 1 a = criticalCoeff 2 b := criticalSobolevLower_coeff _ _ _ _\n  rw [← hac]\n  exact criticalEnergy_le_norm_sq 1 N a\n\n/-- Exact physical H1 admission with no undisclosed analytic or certificate\npremise. This is a candidate until its matching external audit passes. -/\ntheorem EXACT_H1_ADMISSION_UNCONDITIONAL (ν : ℝ) (hν : 0 < ν) : ExactH1Admission ν := by\n  exact EXACT_H1_ADMISSION_OF_SPECTRAL_CALORIC_BUDGET ν hν\n    (SPECTRAL_H1_CALORIC_BUDGET ν hν)",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "QFB_CALORIC_43535278019",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/CaloricNumericalAdmission.lean#L21-L55"
+    },
+    {
+      "id": "P6_REFERENCE",
+      "steps": [
+        6
+      ],
+      "origin": "native",
+      "declaration": "QuasiFeffermanB.RegularReference; ExactH1Admission",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/QuasiFeffermanB/RegularReference.lean",
+      "repository_path": "Material/_vendor/QuasiFeffermanB/RegularReference.lean",
+      "lines": [
+        18,
+        31
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/RegularReference.lean#L18-L31",
+      "sha256": "da49c63001e8a3a2320cc0e2dc6db801113087bb3f9047d6064b8ed379a9cdb7",
+      "fit": "PERIODIC_PHYSICAL_SMALL_DATA_CONTRACT",
+      "hypotheses": "Physical H1 datum, solenoidal/mean-zero L2 representative, small physicalHalfEnergy.",
+      "result": "Reference contains CriticalPositiveSobolevFlow (actual periodic NSE), strong L2 trace, and L4L6 on every finite positive horizon.",
+      "proof_route_inspected": "Expanded contract prevents misreading theorem name as unrestricted H1 global existence.",
+      "source_excerpt": "structure RegularReference (ν : ℝ) (a : CriticalPhysicalL2) where\n  flow : CriticalPositiveSobolevFlow ν\n  trace : Tendsto\n    (fun t => eLpNorm (flow.velocity t - (a : Field)) 2 (volume.restrict unitCube))\n    (𝓝[>] (0 : ℝ)) (𝓝 0)\n  serrin : ∀ T : ℝ, 0 < T →\n    MemLp (fun t => criticalSpatialNorm 6 (flow.velocity t)) 4\n      (volume.restrict (Ioc (0 : ℝ) T))\n\ndef ExactH1Admission (ν : ℝ) : Prop :=\n  ∀ (b : Field) (D : Vec → (Vec →L[ℝ] Vec)),\n    CriticalPhysicalH1 b D → EnergySigmaZero (criticalL2Representative b) →\n    physicalHalfEnergy b < ENNReal.ofReal (2 * Real.pi * ν ^ 2) →\n    Nonempty (RegularReference ν (criticalL2Representative b))",
+      "matches_pinned_native_snapshot": true,
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/QuasiFeffermanB/RegularReference.lean#L18-L31"
+    },
+    {
+      "id": "P6_HHALF",
+      "steps": [
+        6
+      ],
+      "origin": "native",
+      "declaration": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/_vendor/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean",
+      "repository_path": "Material/_vendor/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean",
+      "lines": [
+        18,
+        53
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean#L18-L53",
+      "sha256": "9d52e321e7778ba62d99a83a9fd2b9fe2026ac107e3c998065788d5dc63bf8ce",
+      "fit": "ACTUAL_PERIODIC_SMALL_DATA",
+      "hypotheses": "ν>0; a:CriticalSobolev 1 (H-half); CriticalSigmaZero; criticalNonlinearConstant*‖a‖<ν.",
+      "result": "Actual regular solution with LH membership, LH uniqueness, positive-time smooth NSE and global regularity budgets.",
+      "proof_route_inspected": "Assembles previously proved critical small-data construction; periodic spectral carrier.",
+      "source_excerpt": "theorem NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL\n    (ν : ℝ) (hν : 0 < ν) (a : CriticalSobolev 1) (ha : CriticalSigmaZero a)\n    (hsmall : criticalNonlinearConstant * ‖a‖ < ν) :\n    CriticalDatumAX6 ν a ∧ ∃ U : CriticalRegularSolution ν a,\n      CriticalLerayHopf ν (criticalInitialPhysicalL2 a) U.lerayVelocity U.lerayGradient ∧\n      U.lerayHopfUnique ∧\n      PositiveSmoothNSE ν U.flow.velocity U.flow.pressure ∧\n      (MemLp U.flow.threeHalfState 2 (volume.restrict (Ioi (0 : ℝ))) ∧\n        (∫ t in Ioi (0 : ℝ), ‖U.flow.threeHalfState t‖ ^ 2) ≤ criticalDissipationBudget ν a) ∧\n      (MemLp U.flow.negativeHalfDerivative 2 (volume.restrict (Ioi (0 : ℝ))) ∧\n        (∫ t in Ioi (0 : ℝ), ‖U.flow.negativeHalfDerivative t‖ ^ 2) ≤\n          criticalTimeDerivativeBudget ν a) ∧\n      MemLp (fun t => criticalSpatialNorm 6 (U.flow.velocity t)) 4\n        (volume.restrict (Ioi (0 : ℝ))) ∧\n      (∀ T : ℝ, 0 < T →\n        IntegrableOn (fun t => physicalDissipation (U.flow.velocity t) ^ 2)\n          (Icc (0 : ℝ) T) volume ∧\n        (∫ t in (0 : ℝ)..T, physicalDissipation (U.flow.velocity t) ^ 2) ≤\n          (‖a‖ ^ 4 - ‖U.critical T‖ ^ 4) /\n            (4 * (ν - criticalNonlinearConstant * ‖a‖))) := by\n  obtain ⟨U, hW, hV, hQ⟩ :=\n    SMALL_DATA_CRITICAL_GLOBAL_ENERGY_CLASS ν hν a ha hsmall\n  have hδ : 0 < ν - criticalNonlinearConstant * ‖a‖ := sub_pos.mpr hsmall\n  have hM : 0 ≤ ‖a‖ ^ 4 / (4 * (ν - criticalNonlinearConstant * ‖a‖)) :=\n    div_nonneg (by positivity) (by positivity)\n  have hS := U.serrin_global_memLp_of_quartic_budget\n    (‖a‖ ^ 4 / (4 * (ν - criticalNonlinearConstant * ‖a‖))) hM\n    (fun T hT => ⟨(hQ T hT).1, (hQ T hT).2.trans\n      (div_le_div_of_nonneg_right (sub_le_self _ (by positivity)) (by positivity))⟩)\n  have hSloc (T : ℝ) (hT : 0 < T) :\n      MemLp (fun t => criticalSpatialNorm 6 (U.flow.velocity t)) 4\n        (volume.restrict (Ioc (0 : ℝ) T)) :=\n    U.serrin_time_memLp T (hQ T hT).1\n  exact ⟨SMALL_DATA_AX6 ν hν a ha.reality ha.solenoidal ha.mean_zero hsmall,\n    U, U.lerayHopf_of_quartic (fun T hT => (hQ T hT).1),\n    U.lerayHopfUnique_of_serrin hν hSloc, U.physicalNSE, hW, hV, hS.1, hQ⟩",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "SmallH12",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/_vendor/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean#L18-L53"
+    },
+    {
+      "id": "P6_RATE",
+      "steps": [
+        6
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt; INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean",
+      "lines": [
+        251,
+        340
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean#L251-L340",
+      "sha256": "46df260b6b5ea904cb2bf9de20e144d6860cba41c9f033de679ed9672fbda866",
+      "fit": "ACTUAL_PERIODIC_BALANCE",
+      "hypotheses": "Actual InitialClassicalFront; t in (0,T), ν>0 for the cubic inequality.",
+      "result": "Actual enstrophy derivative and Y′+νZ≤Cν^-3 Y³.",
+      "proof_route_inspected": "Actual PDE, differentiation under the unit-cube integral, periodic integration by parts and pressure cancellation.",
+      "source_excerpt": "def physicalEnstrophyRate (ν : ℝ) (v : Field) : ℝ :=\n  (-2 * ν) * physicalLaplacianSquare v +\n    2 * physicalFieldInner (convection v) (laplacian v)\n\ntheorem initial_physicalEnstrophyRate_continuousOn_Icc\n    (ν : ℝ) (u : Velocity) (T : ℝ)\n    (hu : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (initialFrontSpacetime T))\n    (τ : ℝ) (hτT : τ < T) :\n    ContinuousOn (fun t => physicalEnstrophyRate ν (u t)) (Icc (0 : ℝ) τ) := by\n  have hZ := initial_physicalLaplacianSquare_continuousOn_Icc u T hu τ hτT\n  have hN : ContinuousOn\n      (fun t => physicalFieldInner (convection (u t)) (laplacian (u t)))\n      (Icc (0 : ℝ) τ) :=\n    initial_real_cube_integral_continuousOn_Icc T\n      (fun t x => inner ℝ (convection (u t) x) (laplacian (u t) x))\n      ((initial_convection_continuousOn u T hu).inner\n        (initial_laplacian_contDiffOn u T hu).continuousOn) τ hτT\n  exact (continuousOn_const.mul hZ).add (continuousOn_const.mul hN)\n\ntheorem initial_front_enstrophy_pairing\n    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)\n    (H : InitialClassicalFront ν T a u p)\n    (t : ℝ) (ht : t ∈ Ioo (0 : ℝ) T) :\n    -2 * physicalFieldInner (timeDerivative u t) (laplacian (u t)) =\n      physicalEnstrophyRate ν (u t) := by\n  have hus := initial_front_smooth_slices ν T a u p H t ⟨ht.1.le, ht.2⟩\n  have hu : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (localFrontSpacetime T) :=\n    H.velocity_smooth.mono (fun z hz => ⟨hz.1.le, hz.2⟩)\n  have hps : ContDiff ℝ ∞ (p t) := by\n    rw [← contDiffOn_univ]\n    exact H.pressure_smooth.comp (contDiff_const.prodMk contDiff_id).contDiffOn\n      (fun _ _ => ⟨ht.1.le, ht.2⟩)\n  have hlap := (laplacian_contDiff (u t) hus.smooth).continuous\n  have hud : Continuous (timeDerivative u t) :=\n    (local_spatial_slice_contDiff _ T (local_timeDerivative_contDiffOn u T hu) t ht).continuous\n  have hconv := convection_continuous hus.smooth\n  have hgrad := criticalWeak_gradient_continuous (p t) hps\n  have hI₁ := physicalFieldInner_integrable (laplacian (u t)) (timeDerivative u t) hlap hud\n  have hI₂ := physicalFieldInner_integrable (laplacian (u t)) (convection (u t)) hlap hconv\n  have hI₃ := physicalFieldInner_integrable (laplacian (u t)) (SingularClosure.gradient (p t)) hlap hgrad\n  have hI₁₂ : IntegrableOn (fun x =>\n      inner ℝ (laplacian (u t) x) (timeDerivative u t x) +\n        inner ℝ (laplacian (u t) x) (convection (u t) x)) unitCube volume :=\n    hI₁.add hI₂\n  have heq : timeDerivative u t + convection (u t) + SingularClosure.gradient (p t) =\n      ν • laplacian (u t) := funext (H.equation t ⟨ht.1.le, ht.2⟩)\n  have h := congrArg (physicalFieldInner (laplacian (u t))) heq\n  simp only [physicalFieldInner, Pi.add_apply, inner_add_right,\n    Pi.smul_apply, inner_smul_right] at h\n  rw [integral_add hI₁₂ hI₃, integral_add hI₁ hI₂, integral_const_mul,\n    critical_smooth_integral_inner_gradient_eq_zero _ (p t)\n      (laplacian_contDiff (u t) hus.smooth) hps\n      (laplacian_spatialPeriodic (u t) hus.periodic) (H.pressure_periodic t ⟨ht.1.le, ht.2⟩)\n      (physical_laplacian_divergence_free (u t) hus)] at h\n  simp_rw [real_inner_self_eq_norm_sq] at h\n  change physicalFieldInner (laplacian (u t)) (timeDerivative u t) +\n    physicalFieldInner (laplacian (u t)) (convection (u t)) + 0 =\n      ν * physicalLaplacianSquare (u t) at h\n  rw [critical_physicalFieldInner_comm (laplacian (u t)) (timeDerivative u t),\n    critical_physicalFieldInner_comm (laplacian (u t)) (convection (u t))] at h\n  unfold physicalEnstrophyRate\n  linarith\n\ntheorem initial_front_physicalEnstrophy_hasDerivAt\n    (ν T : ℝ) (a : Field) (u : Velocity) (p : Pressure)\n    (H : InitialClassicalFront ν T a u p)\n    (t : ℝ) (ht : t ∈ Ioo (0 : ℝ) T) :\n    HasDerivAt (fun r => physicalDissipation (u r)) (physicalEnstrophyRate ν (u t)) t := by\n  have hu : ContDiffOn ℝ ∞ (fun z : ℝ × Vec => u z.1 z.2) (localFrontSpacetime T) :=\n    H.velocity_smooth.mono (fun z hz => ⟨hz.1.le, hz.2⟩)\n  have h := local_physicalDissipation_hasDerivAt u T hu\n    (fun r hr => H.velocity_periodic r ⟨hr.1.le, hr.2⟩) t ht\n  rwa [initial_front_enstrophy_pairing ν T a u p H t ht] at h\n\ntheorem INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC :\n    ∃ C : ℝ, 0 < C ∧ ∀ ν T : ℝ, 0 < ν → ∀ a : Field,\n      ∀ u : Velocity, ∀ p : Pressure, InitialClassicalFront ν T a u p →\n      ∀ t ∈ Ioo (0 : ℝ) T,\n        HasDerivAt (fun r => physicalDissipation (u r)) (physicalEnstrophyRate ν (u t)) t ∧\n        physicalEnstrophyRate ν (u t) + ν * physicalLaplacianSquare (u t) ≤\n          C / ν ^ 3 * physicalDissipation (u t) ^ 3 := by\n  obtain ⟨C, hC, hb⟩ := PHYSICAL_NONLINEAR_ABSORPTION\n  refine ⟨C, hC, ?_⟩\n  intro ν T hν a u p H t ht\n  refine ⟨initial_front_physicalEnstrophy_hasDerivAt ν T a u p H t ht, ?_⟩\n  have hs := initial_front_smooth_slices ν T a u p H t ⟨ht.1.le, ht.2⟩\n  have h := hb ν hν (u t) hs.smooth hs.periodic hs.mean_zero\n  change 2 * physicalFieldInner (convection (u t)) (laplacian (u t)) ≤ _ at h\n  unfold physicalEnstrophyRate\n  linarith",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBPhysicalEnstrophyEvolution",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalEnstrophyEvolution.lean#L251-L340"
+    },
+    {
+      "id": "P6_NONLINEAR",
+      "steps": [
+        6
+      ],
+      "origin": "native",
+      "declaration": "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND; PHYSICAL_NONLINEAR_ABSORPTION",
+      "path": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean",
+      "repository_path": "Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean",
+      "lines": [
+        208,
+        286
+      ],
+      "immutable_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean#L208-L286",
+      "sha256": "128457902664720a24fae52f386d6f5247438051c15a4c31270bc933c0f12102",
+      "fit": "ACTUAL_PERIODIC_ESTIMATE",
+      "hypotheses": "Smooth periodic mean-zero field; ν>0 in absorption.",
+      "result": "Convection bound C Y^(3/4)Z^(3/4), then 2N≤νZ+Cν^-3Y³.",
+      "proof_route_inspected": "Uses periodic Sobolev/Poincaré chain. This is not the requested R3 energy–enstrophy product estimate or its numerical constant.",
+      "source_excerpt": "theorem PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND :\n    ∃ C : ℝ≥0∞, C < ⊤ ∧ ∀ v : Field, ContDiff ℝ ∞ v → SpatialPeriodic v →\n      MeanZero v → ENNReal.ofReal (abs (∫ x in unitCube,\n        inner ℝ (convection v x) (laplacian v x))) ≤\n          C * (ENNReal.ofReal (physicalDissipation v)) ^ (3 / 4 : ℝ) *\n            (ENNReal.ofReal (physicalLaplacianSquare v)) ^ (3 / 4 : ℝ) := by\n  obtain ⟨A, hA, hSob⟩ := PHYSICAL_L6_FROM_DISSIPATION\n  obtain ⟨B, hB, hDeriv⟩ := PHYSICAL_DERIVATIVE_L6_FROM_LAPLACIAN\n  refine ⟨A * (3 : ℝ≥0∞) ^ (1 / 4 : ℝ) * B ^ (1 / 2 : ℝ), by finiteness, ?_⟩\n  intro v hv hp hz\n  have hd : Continuous (fderiv ℝ v) := (hv.fderiv_right (m := 0) (by norm_num)).continuous\n  have hconv : Continuous (convection v) := hd.clm_apply hv.continuous\n  have hlap := (laplacian_contDiff v hv).continuous\n  have hD3 := cube_eLpNorm_three_le_interpolation (fderiv ℝ v) hd\n  have hD2 := physical_fderiv_eLpNorm_two_le v hv\n  have hD6 := hDeriv v hv hp\n  have hV6 := hSob v hv hp hz\n  calc\n    _ ≤ eLpNorm (convection v) 2 (volume.restrict unitCube) *\n        eLpNorm (laplacian v) 2 (volume.restrict unitCube) :=\n      inner_integral_enorm_le_eLpNorm_two _ _ hconv hlap\n    _ ≤ (eLpNorm v 6 (volume.restrict unitCube) *\n        eLpNorm (fderiv ℝ v) 3 (volume.restrict unitCube)) *\n        (ENNReal.ofReal (physicalLaplacianSquare v)) ^ (1 / 2 : ℝ) := by\n      rw [physical_laplacian_eLpNorm_two v hv]\n      exact mul_le_mul_of_nonneg_right (convection_eLpNorm_two_le v hv) bot_le\n    _ ≤ ((A * (ENNReal.ofReal (physicalDissipation v)) ^ (1 / 2 : ℝ)) *\n        (((3 : ℝ≥0∞) ^ (1 / 2 : ℝ) *\n            (ENNReal.ofReal (physicalDissipation v)) ^ (1 / 2 : ℝ)) ^ (1 / 2 : ℝ) *\n          (B * (ENNReal.ofReal (physicalLaplacianSquare v)) ^ (1 / 2 : ℝ)) ^ (1 / 2 : ℝ))) *\n        (ENNReal.ofReal (physicalLaplacianSquare v)) ^ (1 / 2 : ℝ) := by\n      apply mul_le_mul_of_nonneg_right _ bot_le\n      refine mul_le_mul hV6 ?_ bot_le bot_le\n      exact hD3.trans (mul_le_mul\n        (ENNReal.rpow_le_rpow hD2 (by norm_num))\n        (ENNReal.rpow_le_rpow hD6 (by norm_num)) bot_le bot_le)\n    _ = _ := ennreal_three_quarter_product _ _ _ _\n\ntheorem PHYSICAL_NONLINEAR_REAL_BOUND :\n    ∃ K : ℝ, 0 ≤ K ∧ ∀ v : Field, ContDiff ℝ ∞ v → SpatialPeriodic v →\n      MeanZero v → abs (∫ x in unitCube,\n        inner ℝ (convection v x) (laplacian v x)) ≤\n          K * (physicalDissipation v) ^ (3 / 4 : ℝ) *\n            (physicalLaplacianSquare v) ^ (3 / 4 : ℝ) := by\n  obtain ⟨C, hC, hbound⟩ := PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND\n  refine ⟨C.toReal, ENNReal.toReal_nonneg, ?_⟩\n  intro v hv hp hz\n  have h := ENNReal.toReal_mono (by finiteness) (hbound v hv hp hz)\n  simpa only [ENNReal.toReal_mul, ← ENNReal.toReal_rpow,\n    ENNReal.toReal_ofReal (abs_nonneg _),\n    ENNReal.toReal_ofReal (physical_dissipation_nonneg v),\n    ENNReal.toReal_ofReal (physicalLaplacianSquare_nonneg v)] using h\n\n/-- The nonlinear absorption has a universal constant and no evolution premise. -/\ntheorem PHYSICAL_NONLINEAR_ABSORPTION :\n    ∃ C : ℝ, 0 < C ∧ ∀ ν : ℝ, 0 < ν → ∀ v : Field,\n      ContDiff ℝ ∞ v → SpatialPeriodic v → MeanZero v →\n      2 * (∫ x in unitCube, inner ℝ (convection v x) (laplacian v x)) ≤\n        ν * physicalLaplacianSquare v + C / ν ^ 3 * physicalDissipation v ^ 3 := by\n  obtain ⟨K, hK, hb⟩ := PHYSICAL_NONLINEAR_REAL_BOUND\n  refine ⟨(2 * K) ^ 4 + 1, by positivity, ?_⟩\n  intro ν hν v hv hp hz\n  have hD := physical_dissipation_nonneg v\n  have hZ := physicalLaplacianSquare_nonneg v\n  calc\n    _ ≤ 2 * abs (∫ x in unitCube, inner ℝ (convection v x) (laplacian v x)) :=\n      mul_le_mul_of_nonneg_left (le_abs_self _) (by norm_num)\n    _ ≤ 2 * (K * physicalDissipation v ^ (3 / 4 : ℝ) *\n        physicalLaplacianSquare v ^ (3 / 4 : ℝ)) :=\n      mul_le_mul_of_nonneg_left (hb v hv hp hz) (by norm_num)\n    _ = 2 * K * physicalDissipation v ^ (3 / 4 : ℝ) *\n        physicalLaplacianSquare v ^ (3 / 4 : ℝ) := by ring\n    _ ≤ ν * physicalLaplacianSquare v +\n        (2 * K) ^ 4 / ν ^ 3 * physicalDissipation v ^ 3 :=\n      nonlinear_three_quarter_absorption hK hD hZ hν\n    _ ≤ _ := by\n      apply add_le_add le_rfl\n      apply mul_le_mul_of_nonneg_right _ (pow_nonneg hD _)\n      exact div_le_div_of_nonneg_right (by linarith) (pow_nonneg hν.le _)",
+      "matches_pinned_native_snapshot": true,
+      "audit_id": "WFBPhysicalNonlinear",
+      "durable_source_url": "https://github.com/randogelist/Methboke/blob/fdb515d8bde35ec8021bbc26f360aca8dfa2855c/Material/MethbokeAddon/WeakFouriermanB/PhysicalNonlinear.lean#L208-L286"
+    },
+    {
+      "id": "Q4_TRACE",
+      "steps": [
+        4
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Endpoints.Restart.strong_tendsto_of_inner_and_norm_bound; strong_right_trace_of_energy_start; shifted_strong_trace_of_energy_start",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "lines": [
+        50,
+        116
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean#L50-L116",
+      "sha256": "2715d102af4ac35b4e52a4f145792c75a67d39c16f41ee03f2ad6a58f1156727",
+      "fit": "REUSABLE_GENERIC_HILBERT_PROOF",
+      "hypotheses": "Any real inner-product space; weak pairing continuity on t≥0; ν,s≥0; nonnegative dissipation; all-endpoint energy-start inequality.",
+      "result": "Strong right trace at s and exact translated zero trace.",
+      "proof_route_inspected": "Expands squared distance, uses norm upper bound and squeeze; then genuine time-filter translation. No completeness or periodic carrier needed.",
+      "source_excerpt": "theorem strong_tendsto_of_inner_and_norm_bound\n    {ι : Type*} {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]\n    {l : Filter ι} {f : ι → E} {a : E}\n    (hinner : Tendsto (fun i => inner ℝ (f i) a) l (𝓝 (‖a‖ ^ 2)))\n    (hbound : ∀ᶠ i in l, ‖f i‖ ^ 2 ≤ ‖a‖ ^ 2) :\n    Tendsto f l (𝓝 a) := by\n  have hupper : Tendsto (fun i => 2 * ‖a‖ ^ 2 - 2 * inner ℝ (f i) a)\n      l (𝓝 0) := by\n    have hconst : Tendsto (fun _ : ι => 2 * ‖a‖ ^ 2) l (𝓝 (2 * ‖a‖ ^ 2)) :=\n      tendsto_const_nhds\n    have htwo : Tendsto (fun i => 2 * inner ℝ (f i) a)\n        l (𝓝 (2 * ‖a‖ ^ 2)) := tendsto_const_nhds.mul hinner\n    simpa only [sub_self] using hconst.sub htwo\n  have hsq : Tendsto (fun i => ‖f i - a‖ ^ 2) l (𝓝 (0 : ℝ)) := by\n    apply squeeze_zero' (Eventually.of_forall (fun i => sq_nonneg ‖f i - a‖))\n      ?_ hupper\n    filter_upwards [hbound] with i hi\n    -- EP030: the real Hilbert squared-distance identity supplies the bound.\n    rw [norm_sub_sq_real]\n    linarith\n  have hsqrt := Real.continuous_sqrt.continuousAt.tendsto.comp hsq\n  have hn : Tendsto (fun i => ‖f i - a‖) l (𝓝 (0 : ℝ)) := by\n    simpa only [Function.comp_def, Real.sqrt_sq (norm_nonneg _), Real.sqrt_zero]\n      using hsqrt\n  apply tendsto_iff_dist_tendsto_zero.mpr\n  simpa only [dist_eq_norm] using hn\n\n/-- D05.03: weak continuity of the selected pairing on the nonnegative\ntime domain and the supplied energy-start inequality imply a strong right\ntrace at s. Only that pairing, rather than full strong continuity, is assumed. -/\ntheorem strong_right_trace_of_energy_start\n    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H]\n    {u : ℝ → H} {D : ℝ → ℝ} {ν s : ℝ}\n    (hν : 0 ≤ ν) (hs : 0 ≤ s)\n    (hD : ∀ r : ℝ, 0 ≤ r → 0 ≤ D r)\n    (hweak : ContinuousOn (fun t => inner ℝ (u t) (u s)) (Ici (0 : ℝ)))\n    (hE : ∀ r : ℝ, s ≤ r →\n      ‖u r‖ ^ 2 + 2 * ν * (∫ q in s..r, D q) ≤ ‖u s‖ ^ 2) :\n    Tendsto u (𝓝[>] s) (𝓝 (u s)) := by\n  have hc := hweak s hs\n  have hi : Tendsto (fun t => inner ℝ (u t) (u s))\n      (𝓝[>] s) (𝓝 (inner ℝ (u s) (u s))) :=\n    hc.tendsto.mono_left (nhdsWithin_mono _\n      (show Ioi s ⊆ Ici (0 : ℝ) from fun t ht => hs.trans ht.le))\n  -- EP029: the selected weak pairing supplies the limit, while the scalar\n  -- energy inequality supplies the eventual norm bound.\n  apply strong_tendsto_of_inner_and_norm_bound\n  · simpa only [real_inner_self_eq_norm_sq] using hi\n  · filter_upwards [self_mem_nhdsWithin] with t ht\n    exact energy_le_of_energy_start hν hs hD hE ht.le\n\n/-- D05.03 / EP031: the strong right trace becomes the zero-start trace\nof the translated trajectory. -/\ntheorem shifted_strong_trace_of_energy_start\n    {H : Type*} [NormedAddCommGroup H] [InnerProductSpace ℝ H]\n    {u : ℝ → H} {D : ℝ → ℝ} {ν s : ℝ}\n    (hν : 0 ≤ ν) (hs : 0 ≤ s)\n    (hD : ∀ r : ℝ, 0 ≤ r → 0 ≤ D r)\n    (hweak : ContinuousOn (fun t => inner ℝ (u t) (u s)) (Ici (0 : ℝ)))\n    (hE : ∀ r : ℝ, s ≤ r →\n      ‖u r‖ ^ 2 + 2 * ν * (∫ q in s..r, D q) ≤ ‖u s‖ ^ 2) :\n    Tendsto (timeTranslate s u) (𝓝[>] (0 : ℝ)) (𝓝 (u s)) := by\n  -- EP031 composes the proved right trace with the translated source filter.\n  have h := (strong_right_trace_of_energy_start hν hs hD hweak hE).comp\n    (timeTranslate_tendsto_nhdsWithin_right s)\n  change Tendsto (fun t : ℝ => u (t + s)) (𝓝[>] (0 : ℝ)) (𝓝 (u s))\n  exact h",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Restart/HilbertTrace.lean#L50-L116"
+    },
+    {
+      "id": "Q4_RESTART",
+      "steps": [
+        4
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.Restart.energyProfile_timeTranslate; restartData_of_energyStart",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "lines": [
+        124,
+        163
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean#L124-L163",
+      "sha256": "e07d862aa284d0f1c488f7344ac0c0a5ccc8bcc99ad6ecae2f796644cedfa347",
+      "fit": "REUSABLE_ACTUAL_FULL_VOLUME_L2_PROFILE_PROOF",
+      "hypotheses": "Actual full-volume L2 energy profile; ν,s≥0; weak pairing continuity; valid energy start.",
+      "result": "Shifted EnergyProfile + weak pairing continuity + strong shifted initial trace.",
+      "proof_route_inspected": "Restricted measure-preserving time shift derives measurability/MemLp; energy-start inequality transports; Hilbert trace closes exact strong trace.",
+      "source_excerpt": "theorem energyProfile_timeTranslate\n    {ν s : ℝ} {a : RealSpatialL2}\n    {u : ℝ → RealSpatialL2} {G : ℝ → Fin 3 → RealSpatialL2}\n    (h : EnergyProfile ν a u G) (hs : 0 ≤ s)\n    (hstart : EnergyStart ν u G s) :\n    EnergyProfile ν (u s) (timeTranslate s u) (gradientTranslate s G) := by\n  constructor\n  · intro R hR\n    have hRs : 0 < R + s := lt_of_lt_of_le hR (le_add_of_nonneg_right hs)\n    exact timeTranslate_aestronglyMeasurable_Ioo hs\n      (h.velocity_aestronglyMeasurable (R + s) hRs)\n  · intro R hR j\n    have hRs : 0 < R + s := lt_of_lt_of_le hR (le_add_of_nonneg_right hs)\n    change MemLp (timeTranslate s (fun t : ℝ => G t j)) 2\n      (volume.restrict (Ioo (0 : ℝ) R))\n    exact timeTranslate_memLp_Ioo hs (h.gradient_memLp (R + s) hRs j)\n  · -- LE068: no positivity of viscosity is required for the translation itself.\n    have hshift := timeTranslate_energy_from_start\n      (E := fun t => velocityEnergy (u t))\n      (D := fun t => gradientEnergy (G t)) (ν := ν) (s := s) hstart\n    simpa only [gradientTranslate, timeTranslate] using hshift\n\n/-- The field profile, weak pairing continuity and a valid energy start\nconstruct all three fields of RestartData. Positivity used for the strong\ntrace is explicit; the derivative/PDE obligations remain separate. -/\ntheorem restartData_of_energyStart\n    {ν s : ℝ} {a : RealSpatialL2}\n    {u : ℝ → RealSpatialL2} {G : ℝ → Fin 3 → RealSpatialL2}\n    (h : EnergyProfile ν a u G) (hν : 0 ≤ ν) (hs : 0 ≤ s)\n    (hweak : ∀ b : RealSpatialL2,\n      ContinuousOn (fun t => inner ℝ (u t) b) (Ici (0 : ℝ)))\n    (hstart : EnergyStart ν u G s) :\n    RestartData ν u G s := by\n  refine ⟨energyProfile_timeTranslate h hs hstart,\n    timeTranslate_weakPairingContinuousOn hs hweak, ?_⟩\n  have hE : ∀ r : ℝ, s ≤ r →\n      ‖u r‖ ^ 2 + 2 * ν * (∫ q in s..r, gradientEnergy (G q)) ≤ ‖u s‖ ^ 2 := by\n    simpa only [EnergyStart, velocityEnergy] using hstart\n  -- LE072: all dissipation values are squared-norm sums and hence nonnegative.\n  exact shifted_strong_trace_of_energy_start hν hs",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean#L124-L163"
+    },
+    {
+      "id": "Q4_RESTART_TYPE",
+      "steps": [
+        4
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.Restart.EnergyStart; RestartData",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean",
+      "lines": [
+        47,
+        64
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean#L47-L64",
+      "sha256": "e07d862aa284d0f1c488f7344ac0c0a5ccc8bcc99ad6ecae2f796644cedfa347",
+      "fit": "INTERFACE_WITH_NO_PDE_CLAIM",
+      "hypotheses": "Supplied field trajectories in full-volume L2.",
+      "result": "Energy-start inequality and three derived restart fields.",
+      "proof_route_inspected": "No momentum equation, gradient identification, divergence or LH membership occurs in RestartData.",
+      "source_excerpt": "def EnergyStart\n    (ν : ℝ) (u : ℝ → RealSpatialL2) (G : ℝ → Fin 3 → RealSpatialL2)\n    (s : ℝ) : Prop :=\n  ∀ r : ℝ, s ≤ r →\n    velocityEnergy (u r) + 2 * ν * (∫ q in s..r, gradientEnergy (G q)) ≤\n      velocityEnergy (u s)\n\n/-- Precisely the generic field data prepared for a later physical restart.\nNo field asserts the missing weak equation or the desired regularity theorem. -/\nstructure RestartData\n    (ν : ℝ) (u : ℝ → RealSpatialL2) (G : ℝ → Fin 3 → RealSpatialL2)\n    (s : ℝ) : Prop where\n  profile :\n    EnergyProfile ν (u s) (timeTranslate s u) (gradientTranslate s G)\n  weak_pairing_continuity : ∀ b : RealSpatialL2,\n    ContinuousOn (fun t => inner ℝ (timeTranslate s u t) b) (Ici (0 : ℝ))\n  strong_trace :\n    Tendsto (timeTranslate s u) (𝓝[>] (0 : ℝ)) (𝓝 (u s))",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Restart.lean#L47-L64"
+    },
+    {
+      "id": "Q4_CLASS",
+      "steps": [
+        3,
+        4
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.Chain.ClassRealization",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "lines": [
+        124,
+        143
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L124-L143",
+      "sha256": "51efca53b57728326cd81c1b8b2581ec4f2dd4ad64b560f14181726c23e1bdcf",
+      "fit": "ASSUMED_PHYSICAL_REALIZATION_PORT",
+      "hypotheses": "Arbitrary Domain, Admissible and Good predicates.",
+      "result": "nonempty, initial value/trace, energy profile/good starts, restart_admission are record fields.",
+      "proof_route_inspected": "Root projects these fields. There is no constructor here proving physical R3 LH existence or full restart membership.",
+      "source_excerpt": "structure ClassRealization\n    (ν : ℝ) (Domain : Set RealSpatialL2)\n    (Admissible : RealSpatialL2 → Set Trajectory)\n    (Good : Trajectory → GradientTrajectory → ℝ → Prop) : Prop where\n  nonempty : ∀ a ∈ Domain, (Admissible a).Nonempty\n  initial_value : ∀ a ∈ Domain, ∀ u ∈ Admissible a, u 0 = a\n  initial_trace : ∀ a ∈ Domain, ∀ u ∈ Admissible a,\n    Tendsto u (𝓝[>] (0 : ℝ)) (𝓝 a)\n  profile : ∀ a ∈ Domain, ∀ u ∈ Admissible a,\n    ∃ G : GradientTrajectory,\n      EnergyProfile ν a u G ∧\n      (∀ b : RealSpatialL2,\n        ContinuousOn (fun t => inner ℝ (u t) b) (Ici (0 : ℝ))) ∧\n      ∀ R : ℝ, 0 < R →\n        ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) R),\n          Good u G s ∧ EnergyStart ν u G s\n  restart_admission : ∀ a ∈ Domain, ∀ u ∈ Admissible a,\n    ∀ (G : GradientTrajectory) (s : ℝ),\n      0 < s → Good u G s → EnergyStart ν u G s →\n        timeTranslate s u ∈ Admissible (u s)",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L124-L143"
+    },
+    {
+      "id": "Q5_GRONWALL",
+      "steps": [
+        5
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.Comparison.eq_on_Ioc_of_ae_relative_energy; eq_on_Icc_of_ae_relative_energy",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean",
+      "lines": [
+        40,
+        108
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean#L40-L108",
+      "sha256": "fd138e6f4bd91f9e55e6624f9cf99b5d6c0a6ba344770fda5ba421d9b6c1ef92",
+      "fit": "REUSABLE_GENERIC_COMPARISON_PROOF",
+      "hypotheses": "Any normed additive group; nonnegative continuous finite-integrable coefficient; integrable coefficient×squared-difference; a.e. good starts; common strong trace; all-endpoint relative-energy inequality; initial values for closed interval.",
+      "result": "Equality at every positive time, and at zero when explicit initial values supplied.",
+      "proof_route_inspected": "Constructs admissible times tending to zero from full-measure set and supplies actual finite integral as Grönwall budget. The PDE relative-energy inequality is not derived here.",
+      "source_excerpt": "theorem eq_on_Ioc_of_ae_relative_energy\n    {V : Type*} [NormedAddCommGroup V]\n    {u v : ℝ → V} {g : ℝ → ℝ} {a₀ : V} {T : ℝ} {Good : ℝ → Prop}\n    (hT : 0 < T)\n    (hg : ContinuousOn g (Ioc (0 : ℝ) T))\n    (hg_nonneg : ∀ t ∈ Ioc (0 : ℝ) T, 0 ≤ g t)\n    (hg_integrable : IntervalIntegrable g volume (0 : ℝ) T)\n    (hprod : IntervalIntegrable\n      (fun r => g r * ‖u r - v r‖ ^ 2) volume (0 : ℝ) T)\n    (hgood : ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) T), Good s)\n    (hu_trace : Tendsto u (𝓝[>] (0 : ℝ)) (𝓝 a₀))\n    (hv_trace : Tendsto v (𝓝[>] (0 : ℝ)) (𝓝 a₀))\n    (hrelative : ∀ s ∈ Ioo (0 : ℝ) T, Good s →\n      ∀ t ∈ Icc s T,\n        ‖u t - v t‖ ^ 2 ≤ ‖u s - v s‖ ^ 2 +\n          ∫ r in s..t, g r * ‖u r - v r‖ ^ 2) :\n    ∀ t ∈ Ioc (0 : ℝ) T, u t = v t := by\n  -- EP011: null endpoint conversion retains the strict start bound.\n  have hgoodIoc : ∀ᵐ s ∂volume.restrict (Ioc (0 : ℝ) T),\n      s < T ∧ Good s := by\n    rw [← MeasureTheory.restrict_Ioo_eq_restrict_Ioc]\n    filter_upwards [ae_restrict_mem measurableSet_Ioo, hgood] with s hs hgs\n    exact ⟨hs.2, hgs⟩\n  -- LE026 / EP095: the sequence is constructed, not assumed by the caller.\n  obtain ⟨ε, hε, hε_zero⟩ :=\n    QFA.Endpoints.Comparison.CRITICAL_ADMISSIBLE_TIMES_TENDSTO_ZERO\n      hT (fun s => s < T ∧ Good s) hgoodIoc\n  have hε_right : Tendsto ε atTop (𝓝[>] (0 : ℝ)) := by\n    apply tendsto_nhdsWithin_iff.mpr\n    exact ⟨hε_zero, Filter.Eventually.of_forall (fun n => (hε n).1.1)⟩\n  -- LE030 / EP096: M is the actual finite coefficient integral, so its\n  -- budget premise is reflexive. Integrability is retained separately.\n  apply QFA.Endpoints.Comparison.CRITICAL_COMPARISON_EQ_OF_ADMISSIBLE_TRACE\n    (u := u) (v := v) (a := g) (a₀ := a₀)\n    (M := ∫ r in (0 : ℝ)..T, g r) (ε := ε)\n    hT hg hg_nonneg hg_integrable hprod le_rfl\n    (fun n => (hε n).1) hε_zero\n    (hu_trace.comp hε_right) (hv_trace.comp hε_right)\n  intro n t ht\n  exact hrelative (ε n) ⟨(hε n).1.1, (hε n).2.1⟩ (hε n).2.2 t ht\n\n/-- Closed-horizon equality includes time zero only through the explicit\ninitial-value equalities. A right trace alone does not determine a separately\nassigned value of a total-real trajectory at zero.\n-/\ntheorem eq_on_Icc_of_ae_relative_energy\n    {V : Type*} [NormedAddCommGroup V]\n    {u v : ℝ → V} {g : ℝ → ℝ} {a₀ : V} {T : ℝ} {Good : ℝ → Prop}\n    (hT : 0 < T)\n    (hg : ContinuousOn g (Ioc (0 : ℝ) T))\n    (hg_nonneg : ∀ t ∈ Ioc (0 : ℝ) T, 0 ≤ g t)\n    (hg_integrable : IntervalIntegrable g volume (0 : ℝ) T)\n    (hprod : IntervalIntegrable\n      (fun r => g r * ‖u r - v r‖ ^ 2) volume (0 : ℝ) T)\n    (hgood : ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) T), Good s)\n    (hu_trace : Tendsto u (𝓝[>] (0 : ℝ)) (𝓝 a₀))\n    (hv_trace : Tendsto v (𝓝[>] (0 : ℝ)) (𝓝 a₀))\n    (hu_zero : u 0 = a₀) (hv_zero : v 0 = a₀)\n    (hrelative : ∀ s ∈ Ioo (0 : ℝ) T, Good s →\n      ∀ t ∈ Icc s T,\n        ‖u t - v t‖ ^ 2 ≤ ‖u s - v s‖ ^ 2 +\n          ∫ r in s..t, g r * ‖u r - v r‖ ^ 2) :\n    ∀ t ∈ Icc (0 : ℝ) T, u t = v t := by\n  have hpositive := eq_on_Ioc_of_ae_relative_energy hT hg hg_nonneg\n    hg_integrable hprod hgood hu_trace hv_trace hrelative\n  intro t ht\n  rcases eq_or_lt_of_le ht.1 with hzero | hpos\n  · simpa only [← hzero] using hu_zero.trans hv_zero.symm\n  · exact hpositive t ⟨hpos, ht.2⟩",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Comparison.lean#L40-L108"
+    },
+    {
+      "id": "Q5_DATA",
+      "steps": [
+        5
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.TailComparison.ComparisonData; ComparableOnNonnegative; ComparisonData.eq_on_Icc",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean",
+      "lines": [
+        43,
+        88
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean#L43-L88",
+      "sha256": "526677a5971b5ed4c75f0d9f965d67e8810f7ced0c4397817cbd61919f9493d3",
+      "fit": "EXPLICIT_COMPARISON_PREMISE_AND_PROVED_CONSEQUENCE",
+      "hypotheses": "ComparisonData requires coefficient/product integrability, good starts, both traces/values and relative_energy.",
+      "result": "Every-time equality on finite/all nonnegative horizons after those premises.",
+      "proof_route_inspected": "Record stores genuine scalar data rather than equality, but constructing it from physical NSE still requires the cross-testing proof.",
+      "source_excerpt": "structure ComparisonData\n    (u v : ℝ → V) (a₀ : V) (T : ℝ)\n    (g : ℝ → ℝ) (Good : ℝ → Prop) : Prop where\n  coefficient_continuous : ContinuousOn g (Ioc (0 : ℝ) T)\n  coefficient_nonnegative : ∀ t ∈ Ioc (0 : ℝ) T, 0 ≤ g t\n  coefficient_integrable : IntervalIntegrable g volume (0 : ℝ) T\n  relative_energy_integrable :\n    IntervalIntegrable (fun r => g r * ‖u r - v r‖ ^ 2) volume (0 : ℝ) T\n  good_ae : ∀ᵐ r ∂volume.restrict (Ioo (0 : ℝ) T), Good r\n  left_trace : Tendsto u (𝓝[>] (0 : ℝ)) (𝓝 a₀)\n  right_trace : Tendsto v (𝓝[>] (0 : ℝ)) (𝓝 a₀)\n  left_initial : u 0 = a₀\n  right_initial : v 0 = a₀\n  relative_energy : ∀ r ∈ Ioo (0 : ℝ) T, Good r →\n    ∀ t ∈ Icc r T,\n      ‖u t - v t‖ ^ 2 ≤ ‖u r - v r‖ ^ 2 +\n        ∫ q in r..t, g q * ‖u q - v q‖ ^ 2\n\n/-- Finite comparison data for every positive horizon. The witnesses `g`\nand `Good` may vary with that horizon. This definition assumes the actual\ncomparison premises; it contains no trajectory-equality field. -/\ndef ComparableOnNonnegative (u v : ℝ → V) (a₀ : V) : Prop :=\n  ∀ T : ℝ, 0 < T → ∃ g : ℝ → ℝ, ∃ Good : ℝ → Prop,\n    ComparisonData u v a₀ T g Good\n\n/-- The existing closed-horizon endpoint consumes every field of the exact\nfinite comparison data, including its all-upper-endpoint relative energy. -/\ntheorem ComparisonData.eq_on_Icc\n    {u v : ℝ → V} {a₀ : V} {T : ℝ} {g : ℝ → ℝ} {Good : ℝ → Prop}\n    (h : ComparisonData u v a₀ T g Good) (hT : 0 < T) :\n    ∀ t ∈ Icc (0 : ℝ) T, u t = v t := by\n  exact QFA.Assembly.Comparison.eq_on_Icc_of_ae_relative_energy\n    hT h.coefficient_continuous h.coefficient_nonnegative\n    h.coefficient_integrable h.relative_energy_integrable h.good_ae\n    h.left_trace h.right_trace h.left_initial h.right_initial h.relative_energy\n\n/-- Finite-horizon comparison gives equality at every nonnegative time.\nNo global coefficient or integrability over the infinite interval is required. -/\ntheorem ComparableOnNonnegative.eq_on_nonnegative\n    {u v : ℝ → V} {a₀ : V}\n    (h : ComparableOnNonnegative u v a₀) :\n    ∀ t : ℝ, 0 ≤ t → u t = v t := by\n  intro t ht\n  have hT : 0 < t + 1 := by linarith\n  obtain ⟨g, Good, hdata⟩ := h (t + 1) hT\n  exact hdata.eq_on_Icc hT t ⟨ht, by linarith⟩",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/TailComparison.lean#L43-L88"
+    },
+    {
+      "id": "Q5_PORT",
+      "steps": [
+        5
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.Chain.ReferencePorts",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "lines": [
+        46,
+        54
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L46-L54",
+      "sha256": "51efca53b57728326cd81c1b8b2581ec4f2dd4ad64b560f14181726c23e1bdcf",
+      "fit": "ASSUMED_PHYSICAL_COMPARISON_AND_ADMISSION_PORT",
+      "hypotheses": "Every admitted trajectory and reference must have ComparableOnNonnegative; every positive reference shift is a reference and admitted.",
+      "result": "Supplied comparison data and shift admission.",
+      "proof_route_inspected": "The root consumes these fields; no whole-space PDE constructor was found in inspected chain.",
+      "source_excerpt": "structure ReferencePorts\n    (Admissible : RealSpatialL2 → Set Trajectory)\n    (Reference : RealSpatialL2 → Trajectory → Prop) : Prop where\n  comparison : ∀ {b : RealSpatialL2} {w v : Trajectory},\n    w ∈ Admissible b → Reference b v → ComparableOnNonnegative w v b\n  positive_shift : ∀ {b : RealSpatialL2} {v : Trajectory},\n    Reference b v → ∀ r : ℝ, 0 < r →\n      Reference (v r) (timeTranslate r v) ∧\n        timeTranslate r v ∈ Admissible (v r)",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L46-L54"
+    },
+    {
+      "id": "Q6_SCALAR",
+      "steps": [
+        6
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Endpoints.Agmon.ScalarProfile",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean",
+      "lines": [
+        39,
+        47
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean#L39-L47",
+      "sha256": "bc4f1169867d0cc94fbd8865b0f29a6417ed9f11c94be2900ae3e0fa25d1b3e6",
+      "fit": "EXPLICIT_SCALAR_ANALYTIC_HYPOTHESES",
+      "hypotheses": "E,D,Z,A,N≥0; D²≤EZ; A²≤sqrt(DZ)/(2π); N≤A sqrt(D) sqrt(Z).",
+      "result": "Data for scalar fourth-power convection estimate.",
+      "proof_route_inspected": "Each analytic estimate is a structure field, not silently proved by this scalar record.",
+      "source_excerpt": "structure ScalarProfile (E D Z A N : ℝ) : Prop where\n  energy_nonneg : 0 ≤ E\n  gradient_nonneg : 0 ≤ D\n  laplacian_nonneg : 0 ≤ Z\n  amplitude_nonneg : 0 ≤ A\n  nonlinear_nonneg : 0 ≤ N\n  interpolation : D ^ 2 ≤ E * Z\n  agmon : A ^ 2 ≤ Real.sqrt (D * Z) / (2 * Real.pi)\n  convection : N ≤ A * Real.sqrt D * Real.sqrt Z",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean#L39-L47"
+    },
+    {
+      "id": "Q6_ABSORPTION",
+      "steps": [
+        6
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Endpoints.Agmon.nonlinearCoefficient_lt_viscosity; ScalarProfile.enstrophy_absorption; ScalarProfile.viscosity_margin_pos",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean",
+      "lines": [
+        142,
+        212
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean#L142-L212",
+      "sha256": "bc4f1169867d0cc94fbd8865b0f29a6417ed9f11c94be2900ae3e0fa25d1b3e6",
+      "fit": "REUSABLE_POINTWISE_SCALAR_PROOF",
+      "hypotheses": "ScalarProfile; small ED<4π²ν⁴, ν>0 for strict margin; supplied scalar d/2+νZ≤N.",
+      "result": "N≤c(E,D)Z and d+2(ν−c)Z≤0 with positive margin.",
+      "proof_route_inspected": "Exact nested square root/fourth-power algebra includes zero cases. d is only a real number here; no HasDerivAt, actual NSE balance, invariant over time or continuation is proved.",
+      "source_excerpt": "def nonlinearCoefficient (E D : ℝ) : ℝ :=\n  Real.sqrt (Real.sqrt ((E * D) / (4 * Real.pi ^ 2)))\n\ntheorem nonlinearCoefficient_nonneg (E D : ℝ) :\n    0 ≤ nonlinearCoefficient E D :=\n  -- EP112: the outer square root is nonnegative for every real radicand.\n  Real.sqrt_nonneg _\n\n/-- Exact coefficient identity; denominator positivity is independent of E,D. -/\ntheorem nonlinearCoefficient_fourth\n    {E D : ℝ} (hE : 0 ≤ E) (hD : 0 ≤ D) :\n    4 * Real.pi ^ 2 * nonlinearCoefficient E D ^ 4 = E * D := by\n  have hq : 0 ≤ (E * D) / (4 * Real.pi ^ 2) :=\n    div_nonneg (mul_nonneg hE hD) four_pi_sq_pos.le\n  have hfourth : nonlinearCoefficient E D ^ 4 = (E * D) / (4 * Real.pi ^ 2) := by\n    unfold nonlinearCoefficient\n    -- EP112 and EP113: the two nested square roots have the prescribed fourth power.\n    rw [sqrt_fourth _ (Real.sqrt_nonneg _), Real.sq_sqrt hq]\n  rw [hfourth]\n  calc\n    4 * Real.pi ^ 2 * ((E * D) / (4 * Real.pi ^ 2)) =\n        ((E * D) / (4 * Real.pi ^ 2)) * (4 * Real.pi ^ 2) := mul_comm _ _\n    _ = E * D := div_mul_cancel₀ _ four_pi_sq_pos.ne'\n\n/-- The frozen product threshold produces a strictly positive viscosity margin. -/\ntheorem nonlinearCoefficient_lt_viscosity\n    {E D ν : ℝ} (hE : 0 ≤ E) (hD : 0 ≤ D) (hν : 0 < ν)\n    (hSmall : E * D < 4 * Real.pi ^ 2 * ν ^ 4) :\n    nonlinearCoefficient E D < ν := by\n  have hscaled : (4 * Real.pi ^ 2) * nonlinearCoefficient E D ^ 4 <\n      (4 * Real.pi ^ 2) * ν ^ 4 := by\n    rw [nonlinearCoefficient_fourth hE hD]\n    exact hSmall\n  have hpow : nonlinearCoefficient E D ^ 4 < ν ^ 4 :=\n    lt_of_mul_lt_mul_left hscaled four_pi_sq_pos.le\n  -- EP116: strict fourth-power comparison reflects through nonnegative viscosity.\n  exact lt_of_pow_lt_pow_left₀ 4 hν.le hpow\n\n/-- Quantitative nonlinear estimate, including all zero-energy cases. -/\ntheorem ScalarProfile.nonlinear_le_coefficient\n    {E D Z A N : ℝ} (h : ScalarProfile E D Z A N) :\n    N ≤ nonlinearCoefficient E D * Z := by\n  apply nonlinear_le_of_product_le h.laplacian_nonneg (nonlinearCoefficient_nonneg E D)\n    h.nonlinear_fourth_power\n  exact le_of_eq (nonlinearCoefficient_fourth h.energy_nonneg h.gradient_nonneg).symm\n\n/-- Explicit zero-dissipation case; no cancellation by Z is used. -/\ntheorem ScalarProfile.nonlinear_eq_zero_of_laplacian_eq_zero\n    {E D Z A N : ℝ} (h : ScalarProfile E D Z A N) (hZ : Z = 0) : N = 0 := by\n  apply le_antisymm\n  · simpa only [hZ, mul_zero] using h.nonlinear_le_coefficient\n  · exact h.nonlinear_nonneg\n\n/-- A purely scalar absorption step for an already supplied enstrophy inequality.\n\nThe real number `d` denotes its derivative value; this theorem asserts no\nderivative existence or Navier--Stokes identity.\n-/\ntheorem ScalarProfile.enstrophy_absorption\n    {E D Z A N d ν : ℝ} (h : ScalarProfile E D Z A N)\n    (hEnstrophy : d / 2 + ν * Z ≤ N) :\n    d + 2 * (ν - nonlinearCoefficient E D) * Z ≤ 0 := by\n  have hNonlinear := h.nonlinear_le_coefficient\n  nlinarith only [hEnstrophy, hNonlinear]\n\n/-- Positive uniform dissipation margin under the strict product threshold. -/\ntheorem ScalarProfile.viscosity_margin_pos\n    {E D Z A N ν : ℝ} (h : ScalarProfile E D Z A N) (hν : 0 < ν)\n    (hSmall : E * D < 4 * Real.pi ^ 2 * ν ^ 4) :\n    0 < ν - nonlinearCoefficient E D :=\n  sub_pos.mpr (nonlinearCoefficient_lt_viscosity h.energy_nonneg h.gradient_nonneg hν hSmall)",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Scalar.lean#L142-L212"
+    },
+    {
+      "id": "Q6_CORRECTED",
+      "steps": [
+        6
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.CorrectedPhysicalRoot.exists_absorption_of_compactSchwartzData; correctedPointwiseAbsorption_of_analytic_inputs",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean",
+      "repository_path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean",
+      "lines": [
+        62,
+        112
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean#L62-L112",
+      "sha256": "a137651faa602ac6859caf5aa5cd2da434ce8cac37bc41d740942cb37059ddcb",
+      "fit": "CONDITIONAL_FULL_VOLUME_POINTWISE_ANALYTIC_PROOF",
+      "hypotheses": "WholeSpaceSpectralEndpoint; WholeSpaceAgmonEndpoint; compact-Schwartz derivative witnesses; convection estimate; actual L2 energy smallness; supplied scalar enstrophy inequality.",
+      "result": "Positive absorption margin and exact fourth-power nonlinear estimate for actual L2 fields.",
+      "proof_route_inspected": "Uses compact-Schwartz density/extension bridge, supplied spectral/Agmon endpoints, complexification norm identities and scalar absorption. No time-evolution construction.",
+      "source_excerpt": "theorem exists_absorption_of_compactSchwartzData\n    (hSpectral : WholeSpaceSpectralEndpoint)\n    (hAgmon : WholeSpaceAgmonEndpoint)\n    {v L : RealL2} {G : Fin 3 → RealL2} {N d ν : ℝ}\n    (hDerivatives : CompactSchwartzDerivativeWitnesses (complexifyL2 v)\n      (fun j => complexifyL2 (G j)) (complexifyL2 L))\n    (hN : 0 ≤ N)\n    (hConvection : ∀ V : Space →ᵇ ComplexVector,\n      (fun x : Space => V x) =ᵐ[volume] (fun x : Space => complexifyL2 v x) →\n        N ≤ ‖V‖ * Real.sqrt (∑ j : Fin 3, ‖G j‖ ^ 2) * Real.sqrt (‖L‖ ^ 2))\n    (hν : 0 < ν)\n    (hSmall : (‖v‖ ^ 2) * (∑ j : Fin 3, ‖G j‖ ^ 2) < 4 * Real.pi ^ 2 * ν ^ 4)\n    (hEnstrophy : d / 2 + ν * ‖L‖ ^ 2 ≤ N) :\n    ∃ η : ℝ,\n      η = ν - nonlinearCoefficient (‖v‖ ^ 2) (∑ j : Fin 3, ‖G j‖ ^ 2) ∧\n      0 < η ∧\n      4 * Real.pi ^ 2 * N ^ 4 ≤\n        ((‖v‖ ^ 2) * (∑ j : Fin 3, ‖G j‖ ^ 2)) * (‖L‖ ^ 2) ^ 4 ∧\n      N ≤ (ν - η) * ‖L‖ ^ 2 ∧\n      d + 2 * η * ‖L‖ ^ 2 ≤ 0 := by\n  have hSchwartz : SchwartzDerivativeWitnesses (complexifyL2 v)\n      (fun j => complexifyL2 (G j)) (complexifyL2 L) :=\n    schwartzDerivativeWitnesses_of_compactSchwartz_unconditional hDerivatives\n  obtain ⟨V, hV, hProfile⟩ := exists_scalarProfile_of_analytic_endpoints\n    (interpolationEndpoint_of_spectralEndpoint hSpectral) hAgmon hSchwartz hN\n    (by\n      intro V hV\n      simpa only [complexifyL2_gradientEnergy, complexifyL2_laplacianEnergy]\n        using hConvection V hV)\n  have hProfileReal :\n      ScalarProfile (‖v‖ ^ 2) (∑ j : Fin 3, ‖G j‖ ^ 2) (‖L‖ ^ 2) ‖V‖ N := by\n    simpa only [complexifyL2_velocityEnergy, complexifyL2_gradientEnergy,\n      complexifyL2_laplacianEnergy] using hProfile\n  refine ⟨ν - nonlinearCoefficient (‖v‖ ^ 2) (∑ j : Fin 3, ‖G j‖ ^ 2),\n    rfl, hProfileReal.viscosity_margin_pos hν hSmall,\n    hProfileReal.nonlinear_fourth_power, ?_,\n    hProfileReal.enstrophy_absorption hEnstrophy⟩\n  have hCoefficient : ν -\n      (ν - nonlinearCoefficient (‖v‖ ^ 2) (∑ j : Fin 3, ‖G j‖ ^ 2)) =\n      nonlinearCoefficient (‖v‖ ^ 2) (∑ j : Fin 3, ‖G j‖ ^ 2) := by ring\n  simpa only [hCoefficient] using hProfileReal.nonlinear_le_coefficient\n\n/-- The corrected universally quantified absorption theorem. -/\ntheorem correctedPointwiseAbsorption_of_analytic_inputs\n    {ν : ℝ} (hν : 0 < ν)\n    (hSpectral : WholeSpaceSpectralEndpoint)\n    (hAgmon : WholeSpaceAgmonEndpoint) :\n    CorrectedPointwiseAbsorption ν := by\n  intro v L G N d hDerivatives hN hConvection hSmall hEnstrophy\n  exact exists_absorption_of_compactSchwartzData hSpectral hAgmon\n    hDerivatives hN hConvection hν hSmall hEnstrophy",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean#L62-L112"
+    },
+    {
+      "id": "Q6_BACKEND",
+      "steps": [
+        3,
+        6
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.CorrectedPhysicalRoot.CorrectedReferenceConstructionFromAbsorption",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean",
+      "repository_path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean",
+      "lines": [
+        114,
+        125
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean#L114-L125",
+      "sha256": "a137651faa602ac6859caf5aa5cd2da434ce8cac37bc41d740942cb37059ddcb",
+      "fit": "ASSUMED_LOCAL_EVOLUTION_AND_GLOBAL_CONTINUATION_PORT",
+      "hypotheses": "A function from CorrectedPointwiseAbsorption ν to SubcriticalReferenceConstruction.",
+      "result": "Would return a global reference for a selected subcritical restart.",
+      "proof_route_inspected": "Comment and type leave physical derivative realization, local strong evolution, temporal invariant and continuation explicit.",
+      "source_excerpt": "/-- Explicit unresolved physical backend. It must construct the global\nreference from the corrected pointwise absorption statement, including the\nphysical compact-Schwartz derivative identities, local strong evolution,\ntemporal invariant and continuation.\n-/\ndef CorrectedReferenceConstructionFromAbsorption\n    (ν : ℝ) (Domain : Set RealSpatialL2)\n    (Admissible : RealSpatialL2 → Set Trajectory)\n    (Reference : RealSpatialL2 → Trajectory → Prop)\n    (Good : Trajectory → GradientTrajectory → ℝ → Prop) : Prop :=\n  CorrectedPointwiseAbsorption ν →\n    SubcriticalReferenceConstruction ν Domain Admissible Reference Good",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/Analytic.lean#L114-L125"
+    },
+    {
+      "id": "Q6_REFERENCE",
+      "steps": [
+        3,
+        6
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.Assembly.Chain.SubcriticalReferenceConstruction",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "repository_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean",
+      "lines": [
+        148,
+        157
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L148-L157",
+      "sha256": "51efca53b57728326cd81c1b8b2581ec4f2dd4ad64b560f14181726c23e1bdcf",
+      "fit": "ASSUMED_REFERENCE_EXISTENCE_PORT",
+      "hypotheses": "For every admitted trajectory and selected good start with energy start, RestartData and ED<4π²ν⁴.",
+      "result": "∃v, Reference(u s)v.",
+      "proof_route_inspected": "This is the uninhabited construction input used by tail assembly, not a theorem proving arbitrary H1 existence.",
+      "source_excerpt": "def SubcriticalReferenceConstruction\n    (ν : ℝ) (Domain : Set RealSpatialL2)\n    (Admissible : RealSpatialL2 → Set Trajectory)\n    (Reference : RealSpatialL2 → Trajectory → Prop)\n    (Good : Trajectory → GradientTrajectory → ℝ → Prop) : Prop :=\n  ∀ a ∈ Domain, ∀ u ∈ Admissible a, ∀ (G : GradientTrajectory) (s : ℝ),\n    0 < s → Good u G s →\n    velocityEnergy (u s) * gradientEnergy (G s) < 4 * Real.pi ^ 2 * ν ^ 4 →\n    EnergyStart ν u G s → RestartData ν u G s →\n      ∃ v : Trajectory, Reference (u s) v",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/LeanEndpoints/QFA/Assembly/Chain.lean#L148-L157"
+    },
+    {
+      "id": "Q_ROOT",
+      "steps": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "origin": "qfa",
+      "declaration": "QFA.CorrectedPhysicalRoot.QUASI_FEFFERMAN_A_CORRECTED",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean",
+      "repository_path": "Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean",
+      "lines": [
+        131,
+        158
+      ],
+      "immutable_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean#L131-L158",
+      "sha256": "217f93f43be4de8d22966581d69597ce24d43c6324a6b035d2e6007c6d3cbffe",
+      "fit": "CACHED_CONDITIONAL_FORMAL_CLOSURE",
+      "hypotheses": "ν>0; ClassRealization; ReferencePorts; WholeSpaceSpectralEndpoint; WholeSpaceAgmonEndpoint; CorrectedReferenceConstructionFromAbsorption; SmoothReferencePorts.",
+      "result": "QFARoot for supplied Domain/Admissible/SmoothNSETail predicates at historical cutoff ‖a‖⁴/(16π²ν⁵).",
+      "proof_route_inspected": "Assembles quantified tail plus supplied smooth semantic transport. Clean axioms certify the implication; they do not construct remaining port inhabitants.",
+      "source_excerpt": "theorem QUASI_FEFFERMAN_A_CORRECTED\n    {ν : ℝ}\n    {Domain : Set RealSpatialL2}\n    {Admissible : RealSpatialL2 → Set Trajectory}\n    {Reference : RealSpatialL2 → Trajectory → Prop}\n    {Good : Trajectory → GradientTrajectory → ℝ → Prop}\n    {SmoothNSETail : ℝ → Trajectory → ℝ → Prop}\n    (hν : 0 < ν)\n    (hClass : ClassRealization ν Domain Admissible Good)\n    (hPorts : ReferencePorts Admissible Reference)\n    (hSpectral : QFA.Endpoints.Agmon.WholeSpaceSpectralEndpoint)\n    (hAgmon : QFA.Endpoints.Agmon.WholeSpaceAgmonEndpoint)\n    (hReferenceBackend :\n      CorrectedReferenceConstructionFromAbsorption\n        ν Domain Admissible Reference Good)\n    (hSmooth : SmoothReferencePorts ν Reference SmoothNSETail) :\n    QFARoot ν Domain Admissible SmoothNSETail := by\n  intro a ha\n  obtain ⟨hNonempty, hAll⟩ :=\n    quantified_tail_assembly_of_corrected_analytic_inputs\n      hν hClass hPorts hSpectral hAgmon hReferenceBackend a ha\n  refine ⟨hNonempty, ?_⟩\n  intro u hu\n  obtain ⟨hInitial, hTrace, hTails⟩ := hAll u hu\n  refine ⟨hTrace, ?_⟩\n  intro δ hcut\n  obtain ⟨G, hProfile, hSelected⟩ := hTails δ hcut\n  exact selectedTail_root_conclusion hSelected hSmooth",
+      "durable_source_url": "https://github.com/randogelist/Methlib/blob/53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFACorrectedRoot/PhysicalRoot.lean#L131-L158"
+    },
+    {
+      "id": "U3_CLASS",
+      "steps": [
+        3
+      ],
+      "origin": "upstream",
+      "declaration": "NavierStokesR3.H3Comparison.StrongSolutionOnIcc",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/upstream-f9e8bc5b/NavierStokes/R3/H3StrongSolution.lean",
+      "repository_path": "NavierStokes/R3/H3StrongSolution.lean",
+      "lines": [
+        30,
+        46
+      ],
+      "immutable_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3StrongSolution.lean#L30-L46",
+      "sha256": "aa8330f59e09b2923048e342eaa7a53ebe22996fe0500803d1c84cb439c5a39c",
+      "fit": "ACTUAL_R3_STRONG_SOLUTION_DEFINITION_ONLY",
+      "hypotheses": "H3 curve, actual L2 time derivative with HasDerivAt, C1 pressure, div-free weak jets, actual forced NSE.",
+      "result": "Defines a strong-solution class.",
+      "proof_route_inspected": "No existence for arbitrary H1 data is supplied by the definition.",
+      "source_excerpt": "structure StrongSolutionOnIcc (ν : ℝ) (f : VelocityField) (a b : ℝ)\n    (u : VelocityField) (p : PressureField) where\n  time_lt : a < b\n  curve : H3Curve u (Icc a b)\n  timeDerivative : VelocityField\n  timeDerivative_memLp : ∀ t ∈ Ioo a b, MemLp (fun x => timeDerivative (t, x)) 2 volume\n  hasDerivAt_velocity : ∀ t (ht : t ∈ Ioo a b),\n    HasDerivAt curve.velocityLp\n      ((timeDerivative_memLp t ht).toLp (fun x => timeDerivative (t, x))) t\n  pressure_C1 : ∀ t ∈ Ioo a b, ContDiff ℝ 1 (fun x => p (t, x))\n  divergence_free : ∀ t ∈ Ioo a b,\n    ∀ᵐ x ∂volume, weakDivergence (fun i x => curve.first i (t, x)) x = 0\n  navier_stokes : ∀ t ∈ Ioo a b, ∀ᵐ x ∂volume,\n    timeDerivative (t, x) + weakAdvection (fun x => u (t, x))\n        (fun i x => curve.first i (t, x)) x -\n      ν • weakLaplacian (fun i j x => curve.second i j (t, x)) x +\n      NavierStokes.ProblemStatement.pressureGradient p t x = f (t, x)",
+      "durable_source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3StrongSolution.lean#L30-L46"
+    },
+    {
+      "id": "U3_CANDIDATE",
+      "steps": [
+        3
+      ],
+      "origin": "upstream",
+      "declaration": "NavierStokesR3.H3Comparison.strongSolution_of_compact_slab; candidate_classicalH3Solution",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/upstream-f9e8bc5b/NavierStokes/R3/H3CandidateStrong.lean",
+      "repository_path": "NavierStokes/R3/H3CandidateStrong.lean",
+      "lines": [
+        87,
+        126
+      ],
+      "immutable_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3CandidateStrong.lean#L87-L126",
+      "sha256": "db968e40b76e808007bed6b0265232f39ff2c848cd5ae7f82237149b94b9d29e",
+      "fit": "R3_ADAPTER_FOR_ALREADY_SUPPLIED_SOLUTION",
+      "hypotheses": "Already supplied smooth compact-support slab solving actual PDE; candidate variant requires CandidateProperties ν u p f K.",
+      "result": "StrongSolutionOnIcc / ClassicalH3Solution for that supplied candidate.",
+      "proof_route_inspected": "Converts known compact classical field into H3 class; not an initial-value construction for arbitrary data.",
+      "source_excerpt": "def strongSolution_of_compact_slab {ν a b : ℝ} {u f : VelocityField} {p : PressureField}\n    {K : Set Space} (hab : a < b) (hK : IsCompact K)\n    (hu : ContDiffOn ℝ ∞ u (slab a b)) (hp : ContDiffOn ℝ ∞ p (slab a b))\n    (hsupp : ∀ r ∈ Icc a b, tsupport (fun x => u (r, x)) ⊆ K)\n    (hdiv : ∀ t ∈ Ioo a b, ∀ x, spatialDivergence u t x = 0)\n    (hNS : ∀ t ∈ Ioo a b, ∀ x, navierStokesResidual ν u p t x = f (t, x)) :\n    StrongSolutionOnIcc ν f a b u p where\n  time_lt := hab\n  curve := h3Curve_of_compact_slab hab hK hu hsupp\n  timeDerivative := fun z => temporalDerivative u z.1 z.2\n  timeDerivative_memLp := fun _ ht => temporalDerivative_memLp_of_compact hK hu hsupp ht\n  hasDerivAt_velocity := fun _ ht => hasDerivAt_velocityLp_of_compact hK hu hsupp ht _\n  pressure_C1 := fun _ ht => (spatial_smooth hp (Ioo_subset_Icc_self ht)).of_le (by simp)\n  divergence_free := fun t ht => Filter.Eventually.of_forall (hdiv t ht)\n  navier_stokes := fun t ht => Filter.Eventually.of_forall (fun x => by\n    change temporalDerivative u t x + weakAdvection (fun x => u (t, x))\n      (fun i x => H3Compact.partialField i u (t, x)) x -\n      ν • NavierStokes.ProblemStatement.spatialLaplacian u t x +\n      NavierStokes.ProblemStatement.pressureGradient p t x = _\n    rw [weakAdvection_eq_advection]\n    exact hNS t ht x)\n\n/-- The actual candidate belongs to the ordinary classical H³ class on the\nwhole half-open interval [0,1). -/\ndef candidate_classicalH3Solution {ν : ℝ} {u : VelocityField} {p : PressureField}\n    {f : VelocityField} {K : Set Space} (h : CandidateProperties ν u p f K) :\n    ClassicalH3Solution ν f (fun _ => 0) 1 u p where\n  lifespan_pos := zero_lt_one\n  initial_velocity := h.zero_initial_velocity\n  on_shorter_interval := fun _S hS => strongSolution_of_compact_slab hS.1 h.support_compact\n    (h.velocity_smooth.mono (fun _ hz => ⟨⟨hz.1.1, hz.1.2.trans_lt hS.2⟩, hz.2⟩))\n    (h.pressure_smooth.mono (fun _ hz => ⟨⟨hz.1.1, hz.1.2.trans_lt hS.2⟩, hz.2⟩))\n    (fun t ht => h.velocity_support t ⟨ht.1, ht.2.trans_lt hS.2⟩)\n    (fun t ht => h.divergence_free t ⟨ht.1.le, ht.2.trans hS.2⟩)\n    (fun t ht => h.navier_stokes t ⟨ht.1, ht.2.trans hS.2⟩)\n\nend NavierStokesR3.H3Comparison\n",
+      "durable_source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3CandidateStrong.lean#L87-L126"
+    },
+    {
+      "id": "U5_H3",
+      "steps": [
+        5
+      ],
+      "origin": "upstream",
+      "declaration": "NavierStokesR3.H3Comparison.strong_unique",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/upstream-f9e8bc5b/NavierStokes/R3/H3CandidateUniqueness.lean",
+      "repository_path": "NavierStokes/R3/H3CandidateUniqueness.lean",
+      "lines": [
+        45,
+        76
+      ],
+      "immutable_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3CandidateUniqueness.lean#L45-L76",
+      "sha256": "bc83f7ff0e81d0e4c239e23fb67481313eead9c5399de2c911d2fce50fbbec07",
+      "fit": "ACTUAL_R3_STRONG_STRONG_COMPARISON",
+      "hypotheses": "BOTH u and v are StrongSolutionOnIcc (H3); forcing L2 each interior time; bounded measurable reference spatial derivative; same initial velocity.",
+      "result": "Pointwise equality on entire closed slab; arbitrary C1 pressure potentials.",
+      "proof_route_inspected": "Derives pressure-gradient L2 from actual PDE and pressure orthogonality from H1/divergence. Despite weak–strong comment, competitor still has H3 class and actual L2 time derivative, so not LH weak–strong uniqueness.",
+      "source_excerpt": "theorem strong_unique {ν T : ℝ} (hν : 0 ≤ ν)\n    {f u v : VelocityField} {p q : PressureField}\n    (hu : StrongSolutionOnIcc ν f 0 T u p) (hv : StrongSolutionOnIcc ν f 0 T v q)\n    (hf : ∀ t ∈ Ioo (0 : ℝ) T, MemLp (fun x => f (t, x)) 2 volume)\n    (A : ℝ → Space → Space →L[ℝ] Space) {G : ℝ} (hG : 0 ≤ G)\n    (hAm : ∀ t ∈ Ioo (0 : ℝ) T, AEStronglyMeasurable (A t) volume)\n    (hAb : ∀ t ∈ Ioo (0 : ℝ) T, ∀ x, ‖A t x‖ ≤ G)\n    (hAe : ∀ t ∈ Ioo (0 : ℝ) T, ∀ᵐ x ∂volume, ∀ z : Space,\n      A t x z = ∑ i : Fin 3, z i • hu.curve.first i (t, x))\n    (hinitial : ∀ x, u (0, x) = v (0, x)) :\n    ∀ t ∈ Icc (0 : ℝ) T, ∀ x, u (t, x) = v (t, x) := by\n  have hpu t ht := hu.pressureGradient_memLp ht (hf t ht)\n  have hpv t ht := hv.pressureGradient_memLp ht (hf t ht)\n  apply strong_unique_of_pressure_pairing hν hu hv A hG hAm hAb hAe\n    (fun t ht => (hpu t ht).sub (hpv t ht)) _ hinitial\n  intro t ht\n  let hw := (hu.curve.approximation t (Ioo_subset_Icc_self ht)).sub\n    (hv.curve.approximation t (Ioo_subset_Icc_self ht))\n  have hd : ∀ᵐ x ∂volume,\n      ∑ i : Fin 3, (hu.curve.first i (t, x) - hv.curve.first i (t, x)) i = 0 := by\n    filter_upwards [hu.divergence_free t ht, hv.divergence_free t ht] with x hux hvx\n    simp only [weakDivergence] at hux hvx\n    simp only [PiLp.sub_apply, Finset.sum_sub_distrib, hux, hvx, sub_self]\n  have hup := integral_inner_pressureGradient_zero hw.toH1Approximation hd\n    (hu.pressure_C1 t ht) (hpu t ht)\n  have hvp := integral_inner_pressureGradient_zero hw.toH1Approximation hd\n    (hv.pressure_C1 t ht) (hpv t ht)\n  have hi := integral_sub (integrable_inner_of_memLp hw.memLp (hpu t ht))\n    (integrable_inner_of_memLp hw.memLp (hpv t ht))\n  simp only [Pi.sub_apply] at hi hup hvp\n  simp_rw [inner_sub_right]\n  rw [hi, hup, hvp, sub_self]",
+      "durable_source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/H3CandidateUniqueness.lean#L45-L76"
+    },
+    {
+      "id": "U5_SMOOTH",
+      "steps": [
+        5
+      ],
+      "origin": "upstream",
+      "declaration": "NavierStokesR3.WholeSpaceUniqueness.classical_uniqueness_on_Icc",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/upstream-f9e8bc5b/NavierStokes/R3/WholeSpaceUniqueness.lean",
+      "repository_path": "NavierStokes/R3/WholeSpaceUniqueness.lean",
+      "lines": [
+        30,
+        68
+      ],
+      "immutable_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/WholeSpaceUniqueness.lean#L30-L68",
+      "sha256": "82e8df2de4716c1bd593fea9c5c965afbaeb9595d9b6431b7537c95d92d374b0",
+      "fit": "ACTUAL_R3_SMOOTH_COMPARISON_WITH_COMPACT_REFERENCE",
+      "hypotheses": "ν=1 residual equality (same force); BOTH velocities/pressures smooth on closed slab; one common compact support for reference velocity; competing velocity uniformly finite-energy; both divergence free; same initial data.",
+      "result": "Pointwise equality on closed slab; no pressure normalization or pressure growth bound.",
+      "proof_route_inspected": "Derives pressure recovery/flux and comparison estimates from actual equation. Competitor is smooth, not LH, and reference support is restrictive.",
+      "source_excerpt": "theorem classical_uniqueness_on_Icc {T : ℝ} (hT : 0 < T)\n    {u v : VelocityField} {p q : PressureField} {K : Set Space}\n    (hu : ContDiffOn ℝ ∞ u (Comparison.slab 0 T))\n    (hv : ContDiffOn ℝ ∞ v (Comparison.slab 0 T))\n    (hp : ContDiffOn ℝ ∞ p (Comparison.slab 0 T))\n    (hq : ContDiffOn ℝ ∞ q (Comparison.slab 0 T))\n    (hK : IsCompact K)\n    (hsupp : ∀ t ∈ Icc (0 : ℝ) T, tsupport (fun x => u (t, x)) ⊆ K)\n    (hev : UniformFiniteEnergy (Icc (0 : ℝ) T) v)\n    (hdu : ∀ t ∈ Ioo (0 : ℝ) T, ∀ x, spatialDivergence u t x = 0)\n    (hdv : ∀ t ∈ Ioo (0 : ℝ) T, ∀ x, spatialDivergence v t x = 0)\n    (hNS : ∀ t ∈ Ioo (0 : ℝ) T, ∀ x,\n      navierStokesResidual 1 u p t x = navierStokesResidual 1 v q t x)\n    (hzero : ∀ x, u (0, x) = v (0, x)) :\n    ∀ t ∈ Icc (0 : ℝ) T, ∀ x, u (t, x) = v (t, x) := by\n  have heu := CompactComparisonBounds.uniformFiniteEnergy_of_compact_slab hu hK hsupp\n  let H : PressureRecovery.Hypotheses T u v p q :=\n    ⟨hT, hu, hv, hp, hq, hdu, hdv, (fun t ht x => by simpa using hNS t ht x), heu, hev⟩\n  have hum : ∀ t ∈ Icc (0 : ℝ) T,\n      AEStronglyMeasurable (fun x => u (t, x)) volume :=\n    fun t ht => (spatial_smooth hu ht).continuous.aestronglyMeasurable\n  have hvm : ∀ t ∈ Icc (0 : ℝ) T,\n      AEStronglyMeasurable (fun x => v (t, x)) volume :=\n    fun t ht => (spatial_smooth hv ht).continuous.aestronglyMeasurable\n  have hew := uniformFiniteEnergy_sub hum hvm heu hev\n  obtain ⟨M, hM0, hM⟩ := uniformFiniteEnergy_lpNorm_two_bound\n    (fun t ht => (hum t ht).sub (hvm t ht)) hew\n  obtain ⟨U, hU0, hU⟩ := CompactComparisonBounds.exists_lpNorm_three_bound\n    hu.continuousOn hK hsupp\n  obtain ⟨G₀, hG₀, hTensor⟩ := uniformFiniteEnergy_tensorDiff_lpNorm_one_bound hum hvm heu hev\n  obtain ⟨CP, hCP, hpressure⟩ := PressureFlux.exists_uniform_actual_pressure_flux_bound\n    H M U G₀ hM0 hU0 hG₀ hM hU hTensor\n  obtain ⟨G, hG0, hG⟩ := CompactComparisonBounds.exists_gradient_bound hT hu hK hsupp\n  obtain ⟨R₀, _hR₀, hvanish⟩ := CompactComparisonBounds.exists_radius_weight_derivative_zero hK hsupp\n  apply WholeSpaceComparisonClosure.eq_of_pressure_flux_bound\n    hT.le hM0 hG0 hCP hu hv hp hq\n    (fun t ht => (hM t ht).1) (fun t ht => (hM t ht).2) hG hdu hdv hNS hzero hvanish\n  intro R hR t ht\n  simpa only [WholeSpaceComparisonClosure.pressureEnvelope, neg_div] using hpressure R hR t ht",
+      "durable_source_url": "https://github.com/openai/NavierStokesAndEuler/blob/f9e8bc5b38b6e212696e8a30e3e91517af887bbd/NavierStokes/R3/WholeSpaceUniqueness.lean#L30-L68"
+    },
+    {
+      "id": "M3_ODE",
+      "steps": [
+        3
+      ],
+      "origin": "mathlib",
+      "declaration": "IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/mathlib4-db584cd6/Mathlib/Analysis/ODE/ExistUnique.lean",
+      "repository_path": "Mathlib/Analysis/ODE/ExistUnique.lean",
+      "lines": [
+        57,
+        68
+      ],
+      "immutable_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L57-L68",
+      "sha256": "975302569f7c219e936991508664449784dcb57f899f27f2811db0891b4132bd",
+      "fit": "GENERIC_BANACH_ODE_PRIMITIVE",
+      "hypotheses": "Complete normed space; IsPicardLindelof with bounded locally Lipschitz vector field, continuous time dependence and interval-size control; initial point in specified ball.",
+      "result": "Actual ODE solution on prescribed closed interval.",
+      "proof_route_inspected": "General primitive only. No inspected instantiation realizes the unbounded whole-space NSE operator on H1.",
+      "source_excerpt": "theorem exists_eq_forall_mem_Icc_hasDerivWithinAt\n    (hf : IsPicardLindelof f t₀ x₀ a r L K) (hx : x ∈ closedBall x₀ r) :\n    ∃ α : ℝ → E, α t₀ = x ∧\n      ∀ t ∈ Icc tmin tmax, HasDerivWithinAt α (f t (α t)) (Icc tmin tmax) t := by\n  obtain ⟨α, hα⟩ := FunSpace.exists_isFixedPt_next hf hx\n  refine ⟨α.compProj, by rw [FunSpace.compProj_val, ← hα, FunSpace.next_apply₀], fun t ht ↦ ?_⟩\n  apply hasDerivWithinAt_picard_Icc t₀.2 hf.continuousOn_uncurry\n    α.continuous_compProj.continuousOn (fun _ ht' ↦ α.compProj_mem_closedBall hf.mul_max_le)\n    x ht |>.congr_of_mem _ ht\n  intro t' ht'\n  nth_rw 1 [← hα]\n  rw [FunSpace.compProj_of_mem ht', FunSpace.next_apply]",
+      "durable_source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L57-L68"
+    },
+    {
+      "id": "M5_ODE",
+      "steps": [
+        5
+      ],
+      "origin": "mathlib",
+      "declaration": "ODE_solution_unique_of_mem_Icc_right",
+      "path": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/mathlib4-db584cd6/Mathlib/Analysis/ODE/ExistUnique.lean",
+      "repository_path": "Mathlib/Analysis/ODE/ExistUnique.lean",
+      "lines": [
+        194,
+        205
+      ],
+      "immutable_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L194-L205",
+      "sha256": "975302569f7c219e936991508664449784dcb57f899f27f2811db0891b4132bd",
+      "fit": "GENERIC_ODE_UNIQUENESS_PRIMITIVE",
+      "hypotheses": "Lipschitz vector field, continuous trajectories, right derivatives, region membership and same initial value.",
+      "result": "Equality of ordinary ODE solutions.",
+      "proof_route_inspected": "Not a substitute for LH cross-testing/relative-energy uniqueness.",
+      "source_excerpt": "theorem ODE_solution_unique_of_mem_Icc_right\n    (hv : ∀ t ∈ Ico a b, LipschitzOnWith K (v t) (s t))\n    (hf : ContinuousOn f (Icc a b))\n    (hf' : ∀ t ∈ Ico a b, HasDerivWithinAt f (v t (f t)) (Ici t) t)\n    (hfs : ∀ t ∈ Ico a b, f t ∈ s t)\n    (hg : ContinuousOn g (Icc a b))\n    (hg' : ∀ t ∈ Ico a b, HasDerivWithinAt g (v t (g t)) (Ici t) t)\n    (hgs : ∀ t ∈ Ico a b, g t ∈ s t)\n    (ha : f a = g a) :\n    EqOn f g (Icc a b) := fun t ht ↦ by\n  have := dist_le_of_trajectories_ODE_of_mem hv hf hf' hfs hg hg' hgs (dist_le_zero.2 ha) t ht\n  rwa [zero_mul, dist_le_zero] at this",
+      "durable_source_url": "https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean#L194-L205"
+    }
+  ],
+  "external_native_receipt": {
+    "commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+    "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+    "toolchain": "leanprover/lean4:v4.33.0",
+    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "platform": {
+      "machine": "x86_64",
+      "system": "Linux"
+    },
+    "run_id": "44566880192",
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44566880192",
+    "status": "PASS"
+  },
+  "exact_audits": [
+    {
+      "id": "QFBLerayHopf",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "a25aee56459da58cc1da5078b0e28185cb31ca79cb7b20d4e2f884d6ef8f3106",
+      "input_hash": "5f641269ebfdafb3a8a243414a48f740d2276981df280447dd538ec5d01fe69e",
+      "source_drift": [],
+      "axioms": {
+        "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE": "QuasiFeffermanB.Q01_LERAY_HOPF_EXISTENCE : ∀ (ν : ℝ),\n  LT.lt.{0} 0 ν →\n    ∀ (a : ↥SingularClosure.CriticalPhysicalL2),\n      QuasiFeffermanB.EnergySigmaZero a → ∃ u G, SingularClosure.CriticalLerayHopf ν a u G"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/QFBLerayHopf-5f641269ebfdafb3a8a243414a48f740d2276981df280447dd538ec5d01fe69e.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "QFBRestart",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "912042e31d0c17b42e6958a3cee8db368e97ad19762d2027671948e5d3de478b",
+      "input_hash": "fc46ae88080c1d5a533035186433dcdb04c8c5a5c41a4a5d7c76ae8616bf30b1",
+      "source_drift": [],
+      "axioms": {
+        "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE_Ioc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "QuasiFeffermanB.LH_RESTART_AE_Ioo": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME": "@QuasiFeffermanB.LH_GOOD_SUBCRITICAL_TIME : ∀ {ν : ℝ} {a : ↥SingularClosure.CriticalPhysicalL2}\n  {u : SingularClosure.Velocity} {G : QuasiFeffermanB.WeakGradientTrajectory} {Good : ℝ → Prop} {T : ℝ},\n  LT.lt.{0} 0 ν →\n    SingularClosure.CriticalLerayHopf ν a u G →\n      LT.lt.{0} (QuasiFeffermanB.cutoff a ν) T →\n        (∀ᵐ (t : ℝ) ∂QuasiFeffermanB.criticalTimeMeasure T, Good t) →\n          ∃ t,\n            LT.lt.{0} 0 t ∧\n              LT.lt.{0} t T ∧\n                Good t ∧\n                  SingularClosure.CriticalPhysicalH1 (u t) (G t) ∧\n                    LT.lt.{0} (QuasiFeffermanB.physicalHalfEnergy (u t))\n                      (ENNReal.ofReal (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (HPow.hPow.{0, 0, 0} ν 2)))",
+        "QuasiFeffermanB.LH_RESTART_AE": "@QuasiFeffermanB.LH_RESTART_AE : ∀ {ν : ℝ} {a₀ : ↥SingularClosure.CriticalPhysicalL2} {v : SingularClosure.Velocity}\n  {G :\n    ℝ →\n      SingularClosure.Vec →\n        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec},\n  SingularClosure.CriticalLerayHopf ν a₀ v G →\n    LE.le.{0} 0 ν →\n      ∀ᵐ (s : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0),\n        SingularClosure.CriticalPhysicalH1 (v s) (G s) ∧\n          SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} (v s))\n            (QuasiFeffermanB.timeTranslate.{0} s v) (QuasiFeffermanB.timeTranslate.{0} s G)",
+        "QuasiFeffermanB.LH_RESTART_AE_Ioc": "@QuasiFeffermanB.LH_RESTART_AE_Ioc : ∀ {ν : ℝ} {a₀ : ↥SingularClosure.CriticalPhysicalL2} {v : SingularClosure.Velocity}\n  {G :\n    ℝ →\n      SingularClosure.Vec →\n        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec},\n  SingularClosure.CriticalLerayHopf ν a₀ v G →\n    LE.le.{0} 0 ν →\n      ∀ (T : ℝ),\n        ∀ᵐ (s : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T),\n          SingularClosure.CriticalPhysicalH1 (v s) (G s) ∧\n            SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} (v s))\n              (QuasiFeffermanB.timeTranslate.{0} s v) (QuasiFeffermanB.timeTranslate.{0} s G)",
+        "QuasiFeffermanB.LH_RESTART_AE_Ioo": "@QuasiFeffermanB.LH_RESTART_AE_Ioo : ∀ {ν : ℝ} {a₀ : ↥SingularClosure.CriticalPhysicalL2} {v : SingularClosure.Velocity}\n  {G :\n    ℝ →\n      SingularClosure.Vec →\n        ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec},\n  SingularClosure.CriticalLerayHopf ν a₀ v G →\n    LE.le.{0} 0 ν →\n      ∀ (T : ℝ),\n        ∀ᵐ (s : ℝ) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioo.{0} 0 T),\n          SingularClosure.CriticalPhysicalH1 (v s) (G s) ∧\n            SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} (v s))\n              (QuasiFeffermanB.timeTranslate.{0} s v) (QuasiFeffermanB.timeTranslate.{0} s G)"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/QFBRestart-fc46ae88080c1d5a533035186433dcdb04c8c5a5c41a4a5d7c76ae8616bf30b1.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "SerrinComparison",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "550e1e0e87ce44b1d447cf817c62db890e8f34079aa384af14bacfefc9d1fd77",
+      "input_hash": "5949b6a2b5613c4cd26fbc77b9fb64e4b6e48cda7ee3181a2864e61c79f6f3ac",
+      "source_drift": [],
+      "axioms": {
+        "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON": "SingularClosure.CRITICAL_LERAY_HOPF_SERRIN_COMPARISON_ON : ∀ (ν : ℝ),\n  LT.lt.{0} 0 ν →\n    ∀ (a₀ : ↥SingularClosure.CriticalPhysicalL2) (v u : SingularClosure.Velocity)\n      (G :\n        ℝ →\n          SingularClosure.Vec →\n            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec)\n      (p : SingularClosure.Pressure),\n      SingularClosure.CriticalLerayHopf ν a₀ v G →\n        SingularClosure.CriticalPositiveSolenoidalTest u →\n          (∀ (r : ℝ), LT.lt.{0} 0 r → ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (p r)) →\n            (∀ (r : ℝ), LT.lt.{0} 0 r → SingularClosure.SpatialPeriodic.{0} (p r)) →\n              (∀ (r : ℝ),\n                  LT.lt.{0} 0 r →\n                    ∀ (x : SingularClosure.Vec),\n                      Eq.{1}\n                        (HAdd.hAdd.{0, 0, 0}\n                          (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)\n                            (SingularClosure.convection (u r) x))\n                          (SingularClosure.gradient (p r) x))\n                        (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →\n                Filter.Tendsto.{0, 0}\n                    (fun t =>\n                      MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (u t) ↑↑a₀) 2\n                        (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube))\n                    (nhdsWithin.{0} 0 (Set.Ioi.{0} 0)) (nhds.{0} 0) →\n                  ∀ (T : ℝ),\n                    LT.lt.{0} 0 T →\n                      MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4\n                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioc.{0} 0 T)) →\n                        ∀ (t : ℝ),\n                          Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t →\n                            v t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} SingularClosure.unitCube]\n                              u t"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/SerrinComparison-5949b6a2b5613c4cd26fbc77b9fb64e4b6e48cda7ee3181a2864e61c79f6f3ac.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "SmallH12",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "195ee80edc645305b8fe3df420779e11fac539a80f9b8a377f6e6ee74f30ba80",
+      "input_hash": "587654ae01a485f9caf7d73c2b9a550a3034235fc7d99bb42a101fe82af818cb",
+      "source_drift": [],
+      "axioms": {
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY : ∀ (ν : ℝ),\n  LT.lt.{0} 0 ν →\n    ∀ (a : SingularClosure.CriticalSobolev 1),\n      SingularClosure.CriticalSigmaZero a →\n        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) ν →\n          SingularClosure.CriticalDatumAX6 ν a ∧ SingularClosure.CriticalGlobalRegularity ν a",
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL : ∀ (ν : ℝ),\n  LT.lt.{0} 0 ν →\n    ∀ (a : SingularClosure.CriticalSobolev 1),\n      SingularClosure.CriticalSigmaZero a →\n        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) ν →\n          SingularClosure.CriticalDatumAX6 ν a ∧\n            ∃ U,\n              SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalInitialPhysicalL2 a) U.lerayVelocity\n                  U.lerayGradient ∧\n                U.lerayHopfUnique ∧\n                  SingularClosure.PositiveSmoothNSE ν U.flow.velocity U.flow.pressure ∧\n                    (MeasureTheory.MemLp.{0, 0} U.flow.threeHalfState 2\n                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) ∧\n                        LE.le.{0}\n                          (∫ (t : ℝ) in Set.Ioi.{0} 0, HPow.hPow.{0, 0, 0} (norm.{0} (U.flow.threeHalfState t)) 2)\n                          (SingularClosure.criticalDissipationBudget ν a)) ∧\n                      (MeasureTheory.MemLp.{0, 0} U.flow.negativeHalfDerivative 2\n                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) ∧\n                          LE.le.{0}\n                            (∫ (t : ℝ) in Set.Ioi.{0} 0,\n                              HPow.hPow.{0, 0, 0} (norm.{0} (U.flow.negativeHalfDerivative t)) 2)\n                            (SingularClosure.criticalTimeDerivativeBudget ν a)) ∧\n                        MeasureTheory.MemLp.{0, 0}\n                            (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (U.flow.velocity t)) 4\n                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.volume.{0} (Set.Ioi.{0} 0)) ∧\n                          ∀ (T : ℝ),\n                            LT.lt.{0} 0 T →\n                              MeasureTheory.IntegrableOn.{0, 0}\n                                  (fun t =>\n                                    HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (U.flow.velocity t)) 2)\n                                  (Set.Icc.{0} 0 T) MeasureTheory.volume.{0} ∧\n                                LE.le.{0}\n                                  (∫ (t : ℝ) in 0..T,\n                                    HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (U.flow.velocity t)) 2)\n                                  (HDiv.hDiv.{0, 0, 0}\n                                    (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} (norm.{0} a) 4)\n                                      (HPow.hPow.{0, 0, 0} (norm.{0} (U.critical T)) 4))\n                                    (HMul.hMul.{0, 0, 0} 4\n                                      (HSub.hSub.{0, 0, 0} ν\n                                        (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)))))",
+        "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT : ∃ c,\n  LT.lt.{0} 0 c ∧\n    ∀ (ν : ℝ),\n      LT.lt.{0} 0 ν →\n        ∀ (a : SingularClosure.CriticalSobolev 1),\n          SingularClosure.CriticalSigmaZero a →\n            LT.lt.{0} (norm.{0} a) (HMul.hMul.{0, 0, 0} c ν) →\n              SingularClosure.CriticalDatumAX6 ν a ∧ SingularClosure.CriticalGlobalRegularity ν a",
+        "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY": "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY : ∀ (ν : ℝ),\n  LT.lt.{0} 0 ν →\n    ∀ (a : SingularClosure.CriticalSobolev 1),\n      SingularClosure.CriticalSigmaZero a →\n        LT.lt.{0} (HMul.hMul.{0, 0, 0} SingularClosure.criticalNonlinearConstant (norm.{0} a)) ν →\n          SingularClosure.CriticalGlobalRegularity ν a"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/SmallH12-587654ae01a485f9caf7d73c2b9a550a3034235fc7d99bb42a101fe82af818cb.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBFiniteWindowSerrinComparison",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "cf5a73a73509b7a0643bf254b89aa911ede8034136c508100adad6be91a44b21",
+      "input_hash": "28530569d6183b465022e1574ff5c65f1036b3ca436bf10b5613ed84f376000b",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison": "MethbokeAddon.WeakFouriermanB.finite_window_leray_hopf_serrin_comparison : ∀ (ν : ℝ),\n  LT.lt.{0} 0 ν →\n    ∀ (a₀ : ↥SingularClosure.CriticalPhysicalL2) (v u : SingularClosure.Velocity)\n      (G :\n        ℝ →\n          SingularClosure.Vec →\n            ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec)\n      (p : SingularClosure.Pressure),\n      SingularClosure.CriticalLerayHopf ν a₀ v G →\n        SingularClosure.CriticalPositiveSolenoidalTest u →\n          ∀ (T : ℝ),\n            LT.lt.{0} 0 T →\n              (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) r → ContDiff.{0, 0, 0} ℝ ∞ (p r)) →\n                (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (p r)) →\n                  (∀ (r : ℝ),\n                      Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) r →\n                        ∀ (x : SingularClosure.Vec),\n                          Eq.{1}\n                            (HAdd.hAdd.{0, 0, 0}\n                              (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u r x)\n                                (SingularClosure.convection (u r) x))\n                              (SingularClosure.gradient (p r) x))\n                            (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u r) x))) →\n                    Filter.Tendsto.{0, 0}\n                        (fun t =>\n                          MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (u t) ↑↑a₀) 2\n                            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}\n                              SingularClosure.unitCube))\n                        (𝓝[>] 0) (nhds.{0} 0) →\n                      MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4\n                          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioc.{0} 0 T)) →\n                        ∀ (t : ℝ),\n                          Membership.mem.{0, 0} (Set.Ioc.{0} 0 T) t →\n                            v\n                                t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}\n                                SingularClosure.unitCube]\n                              u t"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBFiniteWindowSerrinComparison-28530569d6183b465022e1574ff5c65f1036b3ca436bf10b5613ed84f376000b.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBLocalExistence",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "233e9c82149267363c24f15d837d0c8f81491b4c9e2c862a919f571e7aa7df3a",
+      "input_hash": "27cdfbcdd52815d5bcdf57dbc3dbaede3799c723363ae27ff75d29c727f7eca9",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists": "MethbokeAddon.WeakFouriermanB.local_initial_classical_front_exists : ∀ (ν R : ℝ),\n  LT.lt.{0} 0 ν →\n    LE.le.{0} 0 R →\n      ∀ (a : SingularClosure.Field),\n        SingularClosure.SmoothSigmaZero a →\n          LE.le.{0} (SingularClosure.physicalDissipation a) R →\n            ∃ u p,\n              MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν\n                (MethbokeAddon.WeakFouriermanB.localGalerkinTime ν R) a u p",
+        "MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists": "MethbokeAddon.WeakFouriermanB.uniform_H1_local_initial_classical_front_exists : ∀ (ν R : ℝ),\n  LT.lt.{0} 0 ν →\n    LE.le.{0} 0 R →\n      ∃ T,\n        LT.lt.{0} 0 T ∧\n          ∀ (a : SingularClosure.Field),\n            SingularClosure.SmoothSigmaZero a →\n              LE.le.{0} (SingularClosure.physicalH1Square a) R →\n                ∃ u p, MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBLocalExistence-27cdfbcdd52815d5bcdf57dbc3dbaede3799c723363ae27ff75d29c727f7eca9.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBMaximalLerayHopfIdentification",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "d1dd51e4a930ee5e2c25c26be97d6be7db53b2e44996c1c8de977ccc17e2627e",
+      "input_hash": "79eba2c5f3acfe214ea6aad5603e5159139dd944aea979ec2b062617894c0b29",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification": "MethbokeAddon.WeakFouriermanB.maximal_front_leray_hopf_identification : ∀ (ν : ℝ) (a : SingularClosure.Field)\n  (u v : SingularClosure.Velocity) (p : SingularClosure.Pressure) (G : QuasiFeffermanB.WeakGradientTrajectory)\n  (Tmax : ℝ≥0∞),\n  LT.lt.{0} 0 ν →\n    SingularClosure.SmoothSigmaZero a →\n      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →\n        SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G →\n          ∀ (t : ℝ),\n            LE.le.{0} 0 t →\n              LT.lt.{0} (ENNReal.ofReal t) Tmax →\n                v\n                    t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}\n                    SingularClosure.unitCube]\n                  u t",
+        "MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf": "MethbokeAddon.WeakFouriermanB.maximal_front_original_leray_hopf : ∀ (ν : ℝ) (a : SingularClosure.Field)\n  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),\n  LT.lt.{0} 0 ν →\n    SingularClosure.SmoothSigmaZero a →\n      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →\n        ∃ v G,\n          SingularClosure.CriticalLerayHopf ν (SingularClosure.criticalL2Representative.{0} a) v G ∧\n            v 0 =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube]\n                a ∧\n              ∀ (t : ℝ),\n                LE.le.{0} 0 t →\n                  LT.lt.{0} (ENNReal.ofReal t) Tmax →\n                    v\n                        t =ᵐ[MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}\n                        SingularClosure.unitCube]\n                      u t"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBMaximalLerayHopfIdentification-79eba2c5f3acfe214ea6aad5603e5159139dd944aea979ec2b062617894c0b29.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBPhysicalEndpointContinuation",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "fdbcb8302f75e8161745ca1db1b40255a3a1e726484f5f89287b14e3e7f2c73c",
+      "input_hash": "eca6f07a1472ef0b83e09145926adfd6b0495c1c555be625e84ace0e0ec4b856",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.maximal_classical_front_no_finite_dissipation_square": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square": "MethbokeAddon.WeakFouriermanB.initial_front_extends_of_dissipation_square : ∀ (ν T : ℝ) (a : SingularClosure.Field)\n  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),\n  LT.lt.{0} 0 ν →\n    LT.lt.{0} 0 T →\n      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →\n        MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2)\n            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T)) →\n          ∃ S,\n            LT.lt.{0} T S ∧\n              ∃ U P,\n                MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S a U P ∧\n                  ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → Eq.{1} (U t) (u t) ∧ Eq.{1} (P t) (p t)",
+        "MethbokeAddon.WeakFouriermanB.maximal_classical_front_no_finite_dissipation_square": "MethbokeAddon.WeakFouriermanB.maximal_classical_front_no_finite_dissipation_square : ∀ (ν : ℝ)\n  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),\n  LT.lt.{0} 0 ν →\n    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →\n      Ne.{1} Tmax ∞ →\n        MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2)\n            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 Tmax.toReal)) →\n          False"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBPhysicalEndpointContinuation-eca6f07a1472ef0b83e09145926adfd6b0495c1c555be625e84ace0e0ec4b856.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBPhysicalEnstrophyEvolution",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "4e5af4738fe1bcd5b7751904e69a9df4129224c766adad05a5c86eba7fc0794f",
+      "input_hash": "59fb81132bb7ae73738c92d8179d61b5f13b5541bbd3b493266090c8c6acc56e",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initialFrontSpacetime_uniqueDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_convection_continuousOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_coordinateDerivative_contDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_coordinateDerivative_eq_jointWithin": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_pairing": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_scalar_continuity": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_laplacian_contDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_physicalDissipation_continuousOn_Icc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_physicalEnstrophyRate_continuousOn_Icc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.initial_physicalLaplacianSquare_continuousOn_Icc": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_contDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.local_physicalDissipation_hasDerivAt": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.local_timeDerivative_contDiffOn": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.local_timeDerivative_spatialPeriodic": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.local_time_coordinateDerivative_commute": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_laplacian_divergence_free": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC": "MethbokeAddon.WeakFouriermanB.INITIAL_FRONT_PHYSICAL_ENSTROPHY_CUBIC : ∃ C,\n  LT.lt.{0} 0 C ∧\n    ∀ (ν T : ℝ),\n      LT.lt.{0} 0 ν →\n        ∀ (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),\n          MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →\n            ∀ (t : ℝ),\n              Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →\n                HasDerivAt.{0, 0} (fun r => SingularClosure.physicalDissipation (u r))\n                    (MethbokeAddon.WeakFouriermanB.physicalEnstrophyRate ν (u t)) t ∧\n                  LE.le.{0}\n                    (HAdd.hAdd.{0, 0, 0} (MethbokeAddon.WeakFouriermanB.physicalEnstrophyRate ν (u t))\n                      (HMul.hMul.{0, 0, 0} ν (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare (u t))))\n                    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C (HPow.hPow.{0, 0, 0} ν 3))\n                      (HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 3))",
+        "MethbokeAddon.WeakFouriermanB.initialFrontSpacetime_uniqueDiffOn": "MethbokeAddon.WeakFouriermanB.initialFrontSpacetime_uniqueDiffOn : ∀ (T : ℝ),\n  UniqueDiffOn.{0, 0} ℝ (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T)",
+        "MethbokeAddon.WeakFouriermanB.initial_convection_continuousOn": "MethbokeAddon.WeakFouriermanB.initial_convection_continuousOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ContinuousOn.{0, 0} (fun z => SingularClosure.convection (u z.1) z.2)\n      (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T)",
+        "MethbokeAddon.WeakFouriermanB.initial_coordinateDerivative_contDiffOn": "MethbokeAddon.WeakFouriermanB.initial_coordinateDerivative_contDiffOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ∀ (j : Fin 3),\n      ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => SingularClosure.coordinateDerivative (u z.1) j z.2)\n        (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T)",
+        "MethbokeAddon.WeakFouriermanB.initial_coordinateDerivative_eq_jointWithin": "MethbokeAddon.WeakFouriermanB.initial_coordinateDerivative_eq_jointWithin : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ∀ (t : ℝ),\n      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →\n        ∀ (x : SingularClosure.Vec) (j : Fin 3),\n          Eq.{1} (SingularClosure.coordinateDerivative (u t) j x)\n            ((fderivWithin.{0, 0, 0} ℝ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T)\n                (Prod.mk.{0, 0} t x))\n              (Prod.mk.{0, 0} 0 (SingularClosure.unitVector j)))",
+        "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_pairing": "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_pairing : ∀ (ν T : ℝ) (a : SingularClosure.Field)\n  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),\n  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →\n    ∀ (t : ℝ),\n      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →\n        Eq.{1}\n          (HMul.hMul.{0, 0, 0} (-2)\n            (SingularClosure.physicalFieldInner (SingularClosure.timeDerivative u t) (SingularClosure.laplacian (u t))))\n          (MethbokeAddon.WeakFouriermanB.physicalEnstrophyRate ν (u t))",
+        "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_scalar_continuity": "MethbokeAddon.WeakFouriermanB.initial_front_enstrophy_scalar_continuity : ∀ (ν T : ℝ) (a : SingularClosure.Field)\n  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),\n  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →\n    ∀ (τ : ℝ),\n      LT.lt.{0} τ T →\n        ContinuousOn.{0, 0} (fun t => SingularClosure.physicalDissipation (u t)) (Set.Icc.{0} 0 τ) ∧\n          ContinuousOn.{0, 0} (fun t => √(MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare (u t)))\n              (Set.Icc.{0} 0 τ) ∧\n            ContinuousOn.{0, 0} (fun t => MethbokeAddon.WeakFouriermanB.physicalEnstrophyRate ν (u t)) (Set.Icc.{0} 0 τ)",
+        "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt": "MethbokeAddon.WeakFouriermanB.initial_front_physicalEnstrophy_hasDerivAt : ∀ (ν T : ℝ) (a : SingularClosure.Field)\n  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),\n  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →\n    ∀ (t : ℝ),\n      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →\n        HasDerivAt.{0, 0} (fun r => SingularClosure.physicalDissipation (u r))\n          (MethbokeAddon.WeakFouriermanB.physicalEnstrophyRate ν (u t)) t",
+        "MethbokeAddon.WeakFouriermanB.initial_laplacian_contDiffOn": "MethbokeAddon.WeakFouriermanB.initial_laplacian_contDiffOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => SingularClosure.laplacian (u z.1) z.2)\n      (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T)",
+        "MethbokeAddon.WeakFouriermanB.initial_physicalDissipation_continuousOn_Icc": "MethbokeAddon.WeakFouriermanB.initial_physicalDissipation_continuousOn_Icc : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ∀ (τ : ℝ),\n      LT.lt.{0} τ T → ContinuousOn.{0, 0} (fun t => SingularClosure.physicalDissipation (u t)) (Set.Icc.{0} 0 τ)",
+        "MethbokeAddon.WeakFouriermanB.initial_physicalEnstrophyRate_continuousOn_Icc": "MethbokeAddon.WeakFouriermanB.initial_physicalEnstrophyRate_continuousOn_Icc : ∀ (ν : ℝ) (u : SingularClosure.Velocity)\n  (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ∀ (τ : ℝ),\n      LT.lt.{0} τ T →\n        ContinuousOn.{0, 0} (fun t => MethbokeAddon.WeakFouriermanB.physicalEnstrophyRate ν (u t)) (Set.Icc.{0} 0 τ)",
+        "MethbokeAddon.WeakFouriermanB.initial_physicalLaplacianSquare_continuousOn_Icc": "MethbokeAddon.WeakFouriermanB.initial_physicalLaplacianSquare_continuousOn_Icc : ∀ (u : SingularClosure.Velocity)\n  (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.initialFrontSpacetime T) →\n    ∀ (τ : ℝ),\n      LT.lt.{0} τ T →\n        ContinuousOn.{0, 0} (fun t => MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare (u t)) (Set.Icc.{0} 0 τ)",
+        "MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_contDiffOn": "MethbokeAddon.WeakFouriermanB.local_coordinateDerivative_contDiffOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →\n    ∀ (j : Fin 3),\n      ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => SingularClosure.coordinateDerivative (u z.1) j z.2)\n        (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)",
+        "MethbokeAddon.WeakFouriermanB.local_physicalDissipation_hasDerivAt": "MethbokeAddon.WeakFouriermanB.local_physicalDissipation_hasDerivAt : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →\n    (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →\n      ∀ (t : ℝ),\n        Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →\n          HasDerivAt.{0, 0} (fun r => SingularClosure.physicalDissipation (u r))\n            (HMul.hMul.{0, 0, 0} (-2)\n              (SingularClosure.physicalFieldInner (SingularClosure.timeDerivative u t)\n                (SingularClosure.laplacian (u t))))\n            t",
+        "MethbokeAddon.WeakFouriermanB.local_timeDerivative_contDiffOn": "MethbokeAddon.WeakFouriermanB.local_timeDerivative_contDiffOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →\n    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => SingularClosure.timeDerivative u z.1 z.2)\n      (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)",
+        "MethbokeAddon.WeakFouriermanB.local_timeDerivative_spatialPeriodic": "MethbokeAddon.WeakFouriermanB.local_timeDerivative_spatialPeriodic : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) r → SingularClosure.SpatialPeriodic.{0} (u r)) →\n    ∀ (t : ℝ),\n      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →\n        SingularClosure.SpatialPeriodic.{0} (SingularClosure.timeDerivative u t)",
+        "MethbokeAddon.WeakFouriermanB.local_time_coordinateDerivative_commute": "MethbokeAddon.WeakFouriermanB.local_time_coordinateDerivative_commute : ∀ (u : SingularClosure.Velocity) (T : ℝ),\n  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →\n    ∀ (t : ℝ),\n      Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →\n        ∀ (j : Fin 3) (x : SingularClosure.Vec),\n          Eq.{1} (SingularClosure.timeDerivative (fun r => SingularClosure.coordinateDerivative (u r) j) t x)\n            (SingularClosure.coordinateDerivative (SingularClosure.timeDerivative u t) j x)",
+        "MethbokeAddon.WeakFouriermanB.physical_laplacian_divergence_free": "MethbokeAddon.WeakFouriermanB.physical_laplacian_divergence_free : ∀ (v : SingularClosure.Field),\n  SingularClosure.SmoothSigmaZero v →\n    ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (SingularClosure.laplacian v) x) 0"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBPhysicalEnstrophyEvolution-59fb81132bb7ae73738c92d8179d61b5f13b5541bbd3b493266090c8c6acc56e.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBPhysicalNonlinear",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "f48184b3fb7a5693cf7403e3f77f09a927f1e981cdc8247b4e2e3078a702df79",
+      "input_hash": "97cf14e2c1de7bc3a74a2be63e97e56b865845a4830710845c83639034f11bf4",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_DERIVATIVE_L6_FROM_LAPLACIAN": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_L6_FROM_DISSIPATION": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_ABSORPTION": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_REAL_BOUND": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare_nonneg": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_coordinateDerivative_meanZero": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_coordinateDissipation_le_laplacianSquare": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_dissipation_nonneg": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_eLpNorm_two_le_dissipation": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_fderiv_eLpNorm_two_le": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_hessian_laplacian_eq": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_laplacian_coordinateDerivative_commute": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ],
+        "MethbokeAddon.WeakFouriermanB.physical_laplacian_eLpNorm_two": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_DERIVATIVE_L6_FROM_LAPLACIAN": "MethbokeAddon.WeakFouriermanB.PHYSICAL_DERIVATIVE_L6_FROM_LAPLACIAN : ∃ C,\n  LT.lt.{0} C ∞ ∧\n    ∀ (v : SingularClosure.Field),\n      ContDiff.{0, 0, 0} ℝ ∞ v →\n        SingularClosure.SpatialPeriodic.{0} v →\n          LE.le.{0}\n            (MeasureTheory.eLpNorm.{0, 0} (fderiv.{0, 0, 0} ℝ v) 6\n              (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))\n            (HMul.hMul.{0, 0, 0} C\n              (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v)) (1 / 2)))",
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_L6_FROM_DISSIPATION": "MethbokeAddon.WeakFouriermanB.PHYSICAL_L6_FROM_DISSIPATION : ∃ C,\n  LT.lt.{0} C ∞ ∧\n    ∀ (v : SingularClosure.Field),\n      ContDiff.{0, 0, 0} ℝ ∞ v →\n        SingularClosure.SpatialPeriodic.{0} v →\n          SingularClosure.MeanZero v →\n            LE.le.{0}\n              (MeasureTheory.eLpNorm.{0, 0} v 6\n                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))\n              (HMul.hMul.{0, 0, 0} C\n                (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (SingularClosure.physicalDissipation v)) (1 / 2)))",
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_ABSORPTION": "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_ABSORPTION : ∃ C,\n  LT.lt.{0} 0 C ∧\n    ∀ (ν : ℝ),\n      LT.lt.{0} 0 ν →\n        ∀ (v : SingularClosure.Field),\n          ContDiff.{0, 0, 0} ℝ ∞ v →\n            SingularClosure.SpatialPeriodic.{0} v →\n              SingularClosure.MeanZero v →\n                LE.le.{0}\n                  (HMul.hMul.{0, 0, 0} 2\n                    (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,\n                      Inner.inner.{0, 0} ℝ (SingularClosure.convection v x) (SingularClosure.laplacian v x)))\n                  (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} ν (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v))\n                    (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} C (HPow.hPow.{0, 0, 0} ν 3))\n                      (HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation v) 3)))",
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_REAL_BOUND": "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_REAL_BOUND : ∃ K,\n  LE.le.{0} 0 K ∧\n    ∀ (v : SingularClosure.Field),\n      ContDiff.{0, 0, 0} ℝ ∞ v →\n        SingularClosure.SpatialPeriodic.{0} v →\n          SingularClosure.MeanZero v →\n            LE.le.{0}\n              (abs.{0}\n                (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,\n                  Inner.inner.{0, 0} ℝ (SingularClosure.convection v x) (SingularClosure.laplacian v x)))\n              (HMul.hMul.{0, 0, 0}\n                (HMul.hMul.{0, 0, 0} K (HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation v) (3 / 4)))\n                (HPow.hPow.{0, 0, 0} (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v) (3 / 4)))",
+        "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND": "MethbokeAddon.WeakFouriermanB.PHYSICAL_NONLINEAR_THREE_QUARTER_BOUND : ∃ C,\n  LT.lt.{0} C ∞ ∧\n    ∀ (v : SingularClosure.Field),\n      ContDiff.{0, 0, 0} ℝ ∞ v →\n        SingularClosure.SpatialPeriodic.{0} v →\n          SingularClosure.MeanZero v →\n            LE.le.{0}\n              (ENNReal.ofReal\n                (abs.{0}\n                  (∫ (x : SingularClosure.Vec) in SingularClosure.unitCube,\n                    Inner.inner.{0, 0} ℝ (SingularClosure.convection v x) (SingularClosure.laplacian v x))))\n              (HMul.hMul.{0, 0, 0}\n                (HMul.hMul.{0, 0, 0} C\n                  (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (SingularClosure.physicalDissipation v)) (3 / 4)))\n                (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v))\n                  (3 / 4)))",
+        "MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare_nonneg": "MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare_nonneg : ∀ (v : SingularClosure.Field),\n  LE.le.{0} 0 (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v)",
+        "MethbokeAddon.WeakFouriermanB.physical_coordinateDerivative_meanZero": "MethbokeAddon.WeakFouriermanB.physical_coordinateDerivative_meanZero : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    SingularClosure.SpatialPeriodic.{0} v →\n      ∀ (i : Fin 3), SingularClosure.MeanZero (SingularClosure.coordinateDerivative v i)",
+        "MethbokeAddon.WeakFouriermanB.physical_coordinateDissipation_le_laplacianSquare": "MethbokeAddon.WeakFouriermanB.physical_coordinateDissipation_le_laplacianSquare : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    SingularClosure.SpatialPeriodic.{0} v →\n      ∀ (i : Fin 3),\n        LE.le.{0} (SingularClosure.physicalDissipation (SingularClosure.coordinateDerivative v i))\n          (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v)",
+        "MethbokeAddon.WeakFouriermanB.physical_dissipation_nonneg": "MethbokeAddon.WeakFouriermanB.physical_dissipation_nonneg : ∀ (v : SingularClosure.Field),\n  LE.le.{0} 0 (SingularClosure.physicalDissipation v)",
+        "MethbokeAddon.WeakFouriermanB.physical_eLpNorm_two_le_dissipation": "MethbokeAddon.WeakFouriermanB.physical_eLpNorm_two_le_dissipation : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    SingularClosure.SpatialPeriodic.{0} v →\n      SingularClosure.MeanZero v →\n        LE.le.{0}\n          (MeasureTheory.eLpNorm.{0, 0} v 2\n            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))\n          (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (SingularClosure.physicalDissipation v)) (1 / 2))",
+        "MethbokeAddon.WeakFouriermanB.physical_fderiv_eLpNorm_two_le": "MethbokeAddon.WeakFouriermanB.physical_fderiv_eLpNorm_two_le : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    LE.le.{0}\n      (MeasureTheory.eLpNorm.{0, 0} (fderiv.{0, 0, 0} ℝ v) 2\n        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))\n      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} 3 (1 / 2))\n        (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (SingularClosure.physicalDissipation v)) (1 / 2)))",
+        "MethbokeAddon.WeakFouriermanB.physical_hessian_laplacian_eq": "MethbokeAddon.WeakFouriermanB.physical_hessian_laplacian_eq : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    SingularClosure.SpatialPeriodic.{0} v →\n      Eq.{1} (∑ i, SingularClosure.physicalDissipation (SingularClosure.coordinateDerivative v i))\n        (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v)",
+        "MethbokeAddon.WeakFouriermanB.physical_laplacian_coordinateDerivative_commute": "MethbokeAddon.WeakFouriermanB.physical_laplacian_coordinateDerivative_commute : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    SingularClosure.SpatialPeriodic.{0} v →\n      ∀ (i : Fin 3),\n        Eq.{1} (SingularClosure.laplacian (SingularClosure.coordinateDerivative v i))\n          (SingularClosure.coordinateDerivative (SingularClosure.laplacian v) i)",
+        "MethbokeAddon.WeakFouriermanB.physical_laplacian_eLpNorm_two": "MethbokeAddon.WeakFouriermanB.physical_laplacian_eLpNorm_two : ∀ (v : SingularClosure.Field),\n  ContDiff.{0, 0, 0} ℝ ∞ v →\n    Eq.{1}\n      (MeasureTheory.eLpNorm.{0, 0} (SingularClosure.laplacian v) 2\n        (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} SingularClosure.unitCube))\n      (HPow.hPow.{0, 0, 0} (ENNReal.ofReal (MethbokeAddon.WeakFouriermanB.physicalLaplacianSquare v)) (1 / 2))"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBPhysicalNonlinear-97cf14e2c1de7bc3a74a2be63e97e56b865845a4830710845c83639034f11bf4.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "WFBStrongContinuation",
+      "status": "PASS",
+      "audit_origin_commit": "fdb515d8bde35ec8021bbc26f360aca8dfa2855c",
+      "audit_reused": false,
+      "audit_sha256": "6f683f67806c1082aa5adffc849e907aee483f8b1c970063bdc203eec4e60dae",
+      "input_hash": "eae00e576d43efe95269fc30c5ac05bb73f212d150a7512cc32086085016a67b",
+      "source_drift": [],
+      "axioms": {
+        "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1": [
+          "Classical.choice",
+          "Quot.sound",
+          "propext"
+        ]
+      },
+      "types": {
+        "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1 : ∀ (ν R : ℝ) (a : SingularClosure.Field)\n  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),\n  LT.lt.{0} 0 ν →\n    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →\n      (∀ (t : ℝ),\n          LE.le.{0} 0 t → LT.lt.{0} (ENNReal.ofReal t) Tmax → LE.le.{0} (SingularClosure.physicalH1Square (u t)) R) →\n        Eq.{1} Tmax ∞"
+      },
+      "local_log": "/workspace/scratch/9d4dc6f7f47a/Methboke-AC-Integration/Temp-folder/evidence/material-fdb515d8/audits/WFBStrongContinuation-eae00e576d43efe95269fc30c5ac05bb73f212d150a7512cc32086085016a67b.log",
+      "log_sha256_matches": true
+    },
+    {
+      "id": "QFB_CALORIC_43535278019",
+      "run_id": "43535278019",
+      "log": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-96033dd69c994bec337a87369a6c27256e724980/Quasi-Fefferman-B/evidence/run-43535278019-exact/qfb/QuasiFeffermanB_CaloricNumericalAdmission-axioms.log",
+      "log_lines": [
+        19,
+        22
+      ],
+      "declaration": "QuasiFeffermanB.EXACT_H1_ADMISSION_UNCONDITIONAL",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "source_sha256": "6cd3f193ad856a75931bf0f47e7718fbebc9922fecc4dbbf8405d9b6f78a017f",
+      "matches_exact_manifest": true,
+      "foundation_sha": "09dfe94a1ef150e21d09df3013fbe09002ef139c",
+      "toolchain": "4.33.0",
+      "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "scope_caution": "Historical status retains root PENDING; this cited record is an exact declaration audit, not an independent root promotion."
+    }
+  ],
+  "qfa_evidence_scope": {
+    "top_readme": "Accepted LE001–LE108; compiled revision 9b6ca616b2f26e0222decb872401752e8320babe, run43532773061. Root physical realization remains pending.",
+    "corrected_closure_report": "/workspace/scratch/9d4dc6f7f47a/anchor_sources/methlib-53b2318c2b586137b6db74c4d3a41bb0b964b2d8/Quasi-Fefferman-A/CorrectedPhysicalRoot/QFA_CORRECTED_ROOT_FORMAL_CLOSURE.txt",
+    "corrected_report_claim": "Conditional formal closure PASS, unconditional FALSE, seven CR001–CR007, compiled41188cef6ac21628648e0e2b598d926604d9813f/run43554315545, only standard axioms. Parent handles exact compiled revision/source and raw receipt correspondence.",
+    "warning": "Source comments often still say candidate/pending; exact cached proof scope and actual type govern. Clean transitive axiom lists do not discharge explicit physical records."
+  },
+  "scope_cautions": [
+    "Periodic physical proofs use volume.restrict unitCube, periodic velocity/pressure, mean-zero and often Poincare. They are actual physical PDE proofs in that scope, not finite Galerkin-only results, but cannot be silently transferred to R3.",
+    "QFA historical cutoff is ||a||^4/(16*pi^2*nu^5), with ED<4*pi^2*nu^4. Current requested cutoff8/(27*pi^4) has different normalization/constant and needs separate derivation.",
+    "Current Complexification.lean RealTestWeakDirectionalDerivative quantifies all compactly supported smooth real tests. Do not repeat stale comments describing its current type as radial-only. Corrected compact-Schwartz bridge is an explicit interface change, not evidence of a current radial-only definition.",
+    "Upstream source belongs to a different toolchain/Mathlib pin and only source was inspected here. No matching external audit was independently recovered for those upstream declarations.",
+    "Native receipts are Linux external CI, not native Windows. QFA cached report identifies Windows compiler.",
+    "No generic Mathlib NSE/Leray-Hopf theorem was found by bounded source search in the pinned Mathlib. This is a bounded search finding, not a universal nonexistence claim."
+  ],
+  "local_lean_execution_count": 0,
+  "delivery_note": "Static source report; stable source URLs added for delivery. Existing cached evidence is distinct from new acceptance. See ../SOURCE_REVIEW.json and the main register."
+}

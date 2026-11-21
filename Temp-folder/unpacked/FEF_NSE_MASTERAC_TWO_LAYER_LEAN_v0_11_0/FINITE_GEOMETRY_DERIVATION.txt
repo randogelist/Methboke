@@ -1,0 +1,46 @@
+CURRENT RELEASE NOTE -- v0.7.7
+v0.6.1 is now USER_REPORTED_PASS (174 theorem reports). All of its bodies are retained.
+Historical pending-compiler and no-instance statements below describe earlier releases.
+Use READ_ME.txt, KERNEL_RECONSTRUCTION.txt and RECONSTRUCTION_COVERAGE.tsv for current scope.
+The new scripts remain PENDING_USER_COMPILER. MR3_reconstructed/MT3_reconstructed
+add concrete internal port instances; physical endpoints remain open.
+
+FINITE GEOMETRY EXTENSION -- v0.6.1
+
+Fix a finite cutoff n, real-model scalars, and radii r_i >= 0 for i<n.
+Define dot_n(x,y)=sum_{i<n} x_i y_i and use coordinatewise subtraction.
+Their scale and subtraction laws are proved in FiniteSpectral.lean.
+
+H12_i(r,u)=sqrt(r_i) u_i.
+H32_i(r,u)=r_i sqrt(r_i) u_i.
+Then
+  dot_n(H12,H12) = sum_{i<n} r_i u_i^2,
+  dot_n(H32,H32) = sum_{i<n} r_i^3 u_i^2.
+The second equals the source cut_dissipation with lambda_i=r_i^2.
+The primitive readout is transported by function equality; constructing that
+primitive or realizing continuum Sobolev norms is a separate task.
+
+For a pairing P and total division, define
+  c(v,x)=<x,v>/<v,v>, remove(v,x)=x-c(v,x)v,
+  w=remove(n0,n1), f0=remove(n0,f), beta=c(w,f0),
+  alpha=c(n0,f)-beta c(n0,n1),
+  reduced=f-alpha n0-beta n1, capacity=<reduced,reduced>.
+The formulas agree with the supplied Rocq definitions.
+If <T x,T y>_Q=<x,y>_P, bilinearity gives identical removed pairings,
+then identical beta and alpha, then identical reduced capacities.
+This does not require a determinant, independent directions, or a linear-map
+interface for T. It covers zero/dependent directions using the same total
+division operation. This proof differs from the source proof through optimality.
+It does not claim to port projection orthogonality or minimizer construction.
+
+Apply this to the checked K^(-1/2) heat frame followed by Mellin:
+  capacity(T f,T n0,T n1)=capacity(f,n0,n1).
+On the explicit finite source carrier, also
+  <T(H12(r,u)),T(H12(r,u))>=sum_{i<n} r_i u_i^2.
+
+R3SpectralBinding records vector(t)=H12(radius,velocity(t)) for the SAME ledger.
+MR3_finite_spectral therefore gives its finite H12 bound from the checked MR3
+source result. MR3_finite_source_and_capacity adds capacity transport under
+that SAME heat/Mellin map. No trajectory equivalence with another branch is inferred.
+
+All new proofs await the user's compiler. NSE_CASE_PROVED=NONE.

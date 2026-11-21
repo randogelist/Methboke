@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "id": "MathlibAnalytic",
+  "endpoint_module": "MathlibAnalytic.Endpoint",
+  "audit_module": "MathlibAnalytic.Audit",
+  "imports": [
+    "Mathlib.Analysis.Analytic.Basic",
+    "Mathlib.Analysis.Analytic.Uniqueness",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs"
+  ],
+  "source_roots": [
+    {
+      "module": "Mathlib.Analysis.Analytic.Basic",
+      "path": ".lake/packages/mathlib/Mathlib/Analysis/Analytic/Basic.lean",
+      "storage": "locked_lake_dependency",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    {
+      "module": "Mathlib.Analysis.Analytic.Uniqueness",
+      "path": ".lake/packages/mathlib/Mathlib/Analysis/Analytic/Uniqueness.lean",
+      "storage": "locked_lake_dependency",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    },
+    {
+      "module": "Mathlib.Analysis.Calculus.ContDiff.Defs",
+      "path": ".lake/packages/mathlib/Mathlib/Analysis/Calculus/ContDiff/Defs.lean",
+      "storage": "locked_lake_dependency",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "db584cd6d46c92f209a44c0f1c829460d327499d"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "AnalyticAt",
+      "kind": "def",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Analytic/Basic.lean",
+        "module": "Mathlib.Analysis.Analytic.Basic"
+      },
+      "scope": "Existence of a convergent formal multilinear power series at the specified point."
+    },
+    {
+      "name": "AnalyticOnNhd",
+      "kind": "def",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Analytic/Basic.lean",
+        "module": "Mathlib.Analysis.Analytic.Basic"
+      },
+      "scope": "AnalyticAt at every point of the specified set."
+    },
+    {
+      "name": "AnalyticOnNhd.mono",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Analytic/Basic.lean",
+        "module": "Mathlib.Analysis.Analytic.Basic"
+      },
+      "scope": "Restriction to a subset; no domain extension."
+    },
+    {
+      "name": "HasFPowerSeriesOnBall.uniform_geometric_approx",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Analytic/Basic.lean",
+        "module": "Mathlib.Analysis.Analytic.Basic"
+      },
+      "scope": "Actual convergent series and strict subradius required."
+    },
+    {
+      "name": "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+        "module": "Mathlib.Analysis.Analytic.Uniqueness"
+      },
+      "scope": "Both analytic representatives and neighborhood equality required."
+    },
+    {
+      "name": "AnalyticOnNhd.contDiffOn_of_completeSpace",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean",
+        "module": "Mathlib.Analysis.Calculus.ContDiff.Defs"
+      },
+      "scope": "Complete target space; conversion on an already-existing analytic domain."
+    },
+    {
+      "name": "contDiffOn_of_locally_contDiffOn",
+      "kind": "theorem",
+      "source": {
+        "repository": "leanprover-community/mathlib4",
+        "commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+        "path": "Mathlib/Analysis/Calculus/ContDiff/Defs.lean",
+        "module": "Mathlib.Analysis.Calculus.ContDiff.Defs"
+      },
+      "scope": "One function already defined; local smoothness hypotheses required."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Convergent analytic-germ semantics, restriction, identity and smoothness on already-existing domains; no NSE continuation assertion.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

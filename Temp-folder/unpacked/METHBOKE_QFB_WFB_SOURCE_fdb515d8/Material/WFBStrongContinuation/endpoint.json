@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "id": "WFBStrongContinuation",
+  "endpoint_module": "WFBStrongContinuation.Endpoint",
+  "audit_module": "WFBStrongContinuation.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.StrongContinuation"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.StrongContinuation",
+      "path": "MethbokeAddon/WeakFouriermanB/StrongContinuation.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/StrongContinuation.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.StrongContinuation",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "93ca8a57536512556ec36717ee933ea52db283bf",
+          "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapGluing.lean"
+        }
+      },
+      "scope": "Exact statement and all physical/analytic premises retained; see independent full signature in Audit.lean."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "An actual maximal classical path with a uniform physical H1 bound has infinite lifetime, using constructed norm-controlled local existence and finite restart gluing.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "WFB_MAIN_GOAL_REMAINING_OBLIGATIONS",
+  "source_layout": "Owned source plus complete unchanged pinned vendor dependencies; exact existing public dependency lock retained.",
+  "type_policy": "Every public theorem has an independently stated full signature and fresh complete type/axiom sentinels; definitions/private helpers are covered transitively.",
+  "whole_wfb_obligation_completed": false,
+  "universal_budget_finiteness_included": false
+}

@@ -1,0 +1,34 @@
+/-- Every `L2` representative has an integrable squared pointwise norm. -/
+theorem integrable_norm_sq (f : ComplexL2) :
+    Integrable (fun x : Space => ‖f x‖ ^ 2) volume := by
+  exact (memLp_two_iff_integrable_sq_norm (Lp.aestronglyMeasurable f)).mp (Lp.memLp f)
+
+/-- The square of the `L2` norm is the integral of the squared pointwise norm. -/
+theorem integral_norm_sq_eq_norm_sq (f : ComplexL2) :
+    (∫ x : Space, ‖f x‖ ^ 2 ∂volume) = ‖f‖ ^ 2 := by
+  have h := congrArg RCLike.re (L2.inner_def (𝕜 := ℂ) f f)
+  rw [← integral_re] at h
+  · simpa only [← norm_sq_eq_re_inner] using h.symm
+  · exact L2.integrable_inner f f
+
+/-- The finite sum of the three Fourier derivative norm densities is
+integrable. -/
+theorem integrable_gradient_fourier_sum (G : Fin 3 → ComplexL2) :
+    Integrable (fun k : Space => ∑ j : Fin 3, ‖(𝓕 (G j) : ComplexL2) k‖ ^ 2) volume := by
+  exact integrable_finsetSum Finset.univ
+    (fun j _ => integrable_norm_sq (𝓕 (G j) : ComplexL2))
+
+/-- The integral of the finite derivative sum equals the sum of the three
+Fourier `L2` norm squares. -/
+theorem integral_gradient_fourier_sum (G : Fin 3 → ComplexL2) :
+    (∫ k : Space, ∑ j : Fin 3, ‖(𝓕 (G j) : ComplexL2) k‖ ^ 2 ∂volume) =
+      ∑ j : Fin 3, ‖(𝓕 (G j) : ComplexL2)‖ ^ 2 := by
+  calc
+    (∫ k : Space, ∑ j : Fin 3, ‖(𝓕 (G j) : ComplexL2) k‖ ^ 2 ∂volume) =
+        ∑ j : Fin 3, ∫ k : Space, ‖(𝓕 (G j) : ComplexL2) k‖ ^ 2 ∂volume := by
+      simpa using (integral_finsetSum Finset.univ
+        (fun j _ => integrable_norm_sq (𝓕 (G j) : ComplexL2)))
+    _ = ∑ j : Fin 3, ‖(𝓕 (G j) : ComplexL2)‖ ^ 2 := by
+      apply Finset.sum_congr rfl
+      intro j hj
+      exact integral_norm_sq_eq_norm_sq (𝓕 (G j) : ComplexL2)

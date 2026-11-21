@@ -1,0 +1,12 @@
+MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean:226:4: error: Type mismatch: After simplification, term
+  hcancel
+ has type
+  ∑ j,
+      (TemperedDistribution.smulLeftCLM ComplexVector fun ξ => ↑(inner ℝ ξ (coordinateVector j)))
+        (Lp.toTemperedDistribution (𝓕 (complexifyL2 ((coordinateSliceL2 j) v)))) =
+    (2 * ↑Real.pi * Complex.I)⁻¹ • 0
+but is expected to have type
+  ∑ j,
+      (TemperedDistribution.smulLeftCLM ComplexVector fun ξ => ↑(inner ℝ ξ (coordinateVector j)))
+        (Lp.toTemperedDistribution (𝓕 (complexifyL2 ((coordinateSliceL2 j) v)))) =
+    0

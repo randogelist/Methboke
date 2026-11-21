@@ -1,0 +1,83 @@
+NSE-A SIX-CHARGE FULL-BUDGET SCALAR FOUNDATION
+VERSION: 1.0
+DATE: 2026-11-20
+STATUS: B_TIER_SCALAR_CHAIN_COMPLETE; NATIVE_CANDIDATE_PENDING_EXTERNAL
+SCOPE: G06/P07-P08 factor-six and terminal-budget assembly; supplied charge
+additivity remains explicit. No physical projector identity is asserted.
+
+1. Pointwise finite-six algebra.
+For q:Fin 6 -> R with all q_i>=0,
+  sum_i q_i^2 <= (sum_i q_i)^2.
+The cross terms in the square are nonnegative. Mathlib anchor:
+  Finset.sum_sq_le_sq_sum_of_nonneg.
+For arbitrary real q, finite Cauchy-Schwarz applied to (1,...,1) and q gives
+  (sum_i q_i)^2 <= (sum_i 1^2)(sum_i q_i^2)=6 sum_i q_i^2.
+Anchor: Finset.sum_mul_sq_le_sq_mul_sq.
+The lower bound uses the nonnegative-charge hypothesis. The upper bound
+does not require it.
+
+2. Actual extended budgets for an arbitrary measure.
+For a measurable carrier A, measure mu, and q:Fin 6 -> A -> R define
+  J6(q,mu)=lintegral ofReal(sum_i q_i(t)^2) dmu,
+  J(q,mu)=lintegral ofReal((sum_i q_i(t))^2) dmu.
+No conversion to real is made in either definition.
+If all six charges are nonnegative mu-a.e., monotonicity and step 1 give
+  J6 <= J <= 6 J6.
+The constant six is finite, so Mathlib lintegral_const_mul' moves it
+outside the integral without a measurability premise on the integrand.
+The bounds therefore also hold for infinite budgets.
+
+3. Full-budget finiteness equivalence.
+From step 2,
+  J6 != infinity <-> J != infinity.
+Right-to-left uses J6<=J. Left-to-right uses J<=6 J6 and finite constant
+multiplication. There is no replacement of the full measure by separate
+compact-interval finiteness.
+
+4. Measurable charge splitting.
+If each real charge q_i is ae measurable, its squared ofReal integrand is
+ae measurable. ofReal preserves the finite sum of nonnegative squares and
+lintegral_finsetSum' then yields
+  J6 = sum_i lintegral ofReal(q_i(t)^2) dmu.
+Hence J6 finite iff each of the six individual full budgets is finite.
+Measurability is used for this exact splitting identity, not imposed on the
+bounds in step 2 where it is unnecessary.
+
+5. Supplied same-path charge additivity.
+If a real scalar Y obeys Y(t)=sum_i q_i(t) mu-a.e., then
+  J(q,mu)=lintegral ofReal(Y(t)^2) dmu.
+This is an explicit hypothesis of the scalar adapter. In the NSE application
+it must later be proved from the actual six orthogonal physical projectors
+and the actual weak-gradient/Fourier identities; it is not a new axiom or
+an established physical projection theorem here.
+
+6. Full stopped window.
+Set mu=volume.restrict (Ioo 0 b). The identity in step 5 identifies J with
+ACBudget.stoppedSquareBudget Y b. Thus
+  J6 <= stoppedSquareBudget Y b <= 6 J6,
+and the two full budgets are finite exactly together. The zero tuple and
+the zero window have zero budget.
+
+7. Quantitative connection to the AC cubic bound.
+Suppose kappa>=0, Y(0)>=0, Y is AC on every [0,R], 0<=R<b, and
+Y'<=kappa Y^3 almost everywhere on (0,b). Under the nonnegative-charge
+and additivity inputs above, finite J6 implies finite J. Only then use
+monotonicity of toReal to get
+  J.toReal <= 6 J6.toReal.
+The ACBudget scalar theorem gives the SAME bound for all t in [0,b):
+  Y(t) <= Y(0) exp(kappa * (6 J6.toReal)).
+This is a scalar composition with the complete terminal budget; no local
+NSE solution or continuation property is asserted.
+
+8. First remaining physical obstruction.
+The six q_i must be constructed as ||grad Q_i U||_2^2 with the fixed
+native real-preserving projections. Their physical additivity with
+Y=||grad U||_2^2, measurability, actual NSE AC/cubic inputs, and maximal
+continuation remain G05/G01/G02/G03. No class root or universal charge
+finiteness follows from the scalar package alone.
+
+NATIVE CANDIDATE
+  Material/MethbokeAddon/QuasiFeffermanA/SixChargeBudget.lean
+Public names are recorded with the prepared source. Root supplies independent
+literal type audits and matching authorized cached external compilation.
+No local Lean, Lake, kernel audit or wrapper execution is permitted or used.

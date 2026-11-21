@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "SmallH12",
+  "endpoint_module": "SmallH12.Endpoint",
+  "audit_module": "SmallH12.Audit",
+  "imports": [
+    "SingularClosure.SmallDataRoot",
+    "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL"
+  ],
+  "source_roots": [
+    {
+      "module": "SingularClosure.SmallDataRoot",
+      "path": "_vendor/SingularClosure/SmallDataRoot.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    },
+    {
+      "module": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL",
+      "path": "_vendor/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean",
+      "storage": "vendored_source",
+      "repository": "randogelist/Methlib",
+      "commit": "96033dd69c994bec337a87369a6c27256e724980"
+    }
+  ],
+  "declarations": [
+    {
+      "name": "SingularClosure.SMALL_DATA_CRITICAL_REGULARITY",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SmallDataRoot.lean",
+        "module": "SingularClosure.SmallDataRoot"
+      },
+      "scope": "nu>0; CriticalSigmaZero; criticalNonlinearConstant*norm(a)<nu."
+    },
+    {
+      "name": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_REGULARITY",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SmallDataRoot.lean",
+        "module": "SingularClosure.SmallDataRoot"
+      },
+      "scope": "Same strict smallness; actual CriticalGlobalRegularity and CriticalDatumAX6."
+    },
+    {
+      "name": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNIVERSAL_CONSTANT",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/SmallDataRoot.lean",
+        "module": "SingularClosure.SmallDataRoot"
+      },
+      "scope": "Existence of a positive universal small-data constant; smallness retained."
+    },
+    {
+      "name": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "96033dd69c994bec337a87369a6c27256e724980",
+        "path": "regularity-B-assembly/Singular-Axiomatic-closure/SingularClosure/NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL.lean",
+        "module": "SingularClosure.NSE_H12_SIGMA_ZERO_SMALL_UNCONDITIONAL"
+      },
+      "scope": "Same strict smallness; one actual LH and positively smooth physical witness."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Critical H1/2 small-data theorem; the explicit smallness hypothesis remains part of the exact theorem.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "Complete transitive local source closure shared under ../_vendor; mathlib boundary fixed by ../lake-manifest.json.",
+  "type_policy": "Direct upstream declarations; no theorem aliases, no weakened signatures, no additional axioms.",
+  "new_finite_cap_theorem_included": false
+}

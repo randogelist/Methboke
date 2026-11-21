@@ -1,0 +1,32 @@
+WFBStrongContinuation/Audit.lean:13:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrongContinuation/Audit.lean:13:18: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrongContinuation/Audit.lean:14:5: warning: Variable name `hbound` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbound
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1
+MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1 : ∀ (ν R : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+      (∀ (t : ℝ),
+          LE.le.{0} 0 t → LT.lt.{0} (ENNReal.ofReal t) Tmax → LE.le.{0} (SingularClosure.physicalH1Square (u t)) R) →
+        Eq.{1} Tmax ∞
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1
+'MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_eq_top_of_uniform_H1

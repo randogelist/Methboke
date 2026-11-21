@@ -4,7 +4,43 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
-The current local target, **FDSN_R3**, is **complete and A-tier accepted** at `572fd9ee`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The canonical theorem `MethbokeAddon.FDSNR3.FDSN_R3` constructs the full same-witness `Family` from the original locally Schwartz `Seed`; all sixteen assented endpoint scopes have matching external evidence. The run passed **548 modules, 137 fresh package audits, 1320 named type/axiom reports and the original cutout**, followed by publication and final acceptance. [Exact acceptance evidence](audits/fdsn-r3-572fd9ee-accepted/summary.json), the [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) and the [unchanged mathematical construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) give the full scope. The theorem retains its seed premise; seed existence is not proved.
+## Integration of AC resources into main
+
+The working branch is `integration/ac-into-main`. The immediate task is to
+combine the already developed resources from `AC-Integration` with the current
+`main` resources and verify the resulting revision. This adopts no new
+mathematical goal. The project goal remains **Fefferman D**; the completed
+FDSN_R3 local theorem and every prior accepted result retain their exact scope.
+
+**Combined status: `PENDING_EXTERNAL_VERIFICATION`.** The frozen inputs are
+[`main@4a609ea`](https://github.com/randogelist/Methboke/tree/4a609ea634ec4a5ff846049b9dc12b40b5f1a702)
+and
+[`AC-Integration@000c1bd9`](https://github.com/randogelist/Methboke/tree/000c1bd9baded808b79a04b7f666cacabce64939).
+The intended union contains **654 active modules, 183 owned modules,
+169 endpoint packages and 2,212 named type/axiom reports**, plus the retained
+standalone cutout. These are expected verification counts, not a new acceptance.
+
+The [integration record](integration/AC_INTO_MAIN/README.md),
+[status](integration/AC_INTO_MAIN/INTEGRATION_STATUS.json),
+[preparation report](integration/AC_INTO_MAIN/PREPARATION_REPORT.json) and
+[preservation manifest](integration/AC_INTO_MAIN/PRESERVATION_MANIFEST.json)
+track the exact inputs, registry union and proof preservation. Existing source,
+consumer, closure and evidence identities remain source-specific. The combined
+revision requires its own matching external cached build, fresh complete type
+and axiom audits, publication and final acceptance before this status changes.
+
+The incoming AC head is **A-tier accepted** at
+`000c1bd9baded808b79a04b7f666cacabce64939`,
+[run 44851575278](https://github.com/randogelist/Methboke/actions/runs/44851575278).
+Independent review verified all **526 modules** (520 compatible reuses and six
+fresh compilations), **105 fresh package audits**, **1,402 unique named
+type/axiom reports**, the fresh standalone QFB cutout, permitted axioms,
+publication and final acceptance. The [exact evidence](audits/material-000c1bd9-qfa-accepted/summary.json)
+accepts the new 35-declaration heat-time scope. Earlier AC scopes retain their
+original tested revisions. This incoming acceptance does not accept the new
+combined revision.
+
+The completed local theorem **FDSN_R3** is **A-tier accepted** at `572fd9ee`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The canonical theorem `MethbokeAddon.FDSNR3.FDSN_R3` constructs the full same-witness `Family` from the original locally Schwartz `Seed`; all sixteen assented endpoint scopes have matching external evidence. The run passed **548 modules, 137 fresh package audits, 1320 named type/axiom reports and the original cutout**, followed by publication and final acceptance. [Exact acceptance evidence](audits/fdsn-r3-572fd9ee-accepted/summary.json), the [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) and the [unchanged mathematical construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) give the full scope. The theorem retains its seed premise; seed existence is not proved.
 
 The preserved accepted local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
 
@@ -16,11 +52,12 @@ one site gives the intended obstruction. The cumulative B-tier construction is
 complete relative to the pinned compact seed; its native Lean family theorem
 and literal all-order force-decay adapter remain formal obligations.
 
-The working branch is `main`. The [project context](GPT.txt) records the exact
-scope. The [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
+The integration branch is `integration/ac-into-main`, targeting `main`.
+The [project context](GPT.txt) records the preserved mathematical scopes and
+the immediate integration task. The [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
-## Current implementation
+## Preserved periodic-family implementation
 
 The native family layers are in
 [`Material/MethbokeAddon/FeffermanFamily/`](Material/MethbokeAddon/FeffermanFamily/):
@@ -63,10 +100,11 @@ finite packing, energy, force admission, periodization, smooth-force decay and
 same-force comparison. The seed reference uses Lean `4.34.0-rc2`; it has not been imported
 or newly verified under Methboke's `4.33.0` pin.
 
-## Current build toward Fefferman D
+## Accepted direct-D endpoint and preserved family helpers
 
 The [direct endpoint](T3_NSE/D-Family-Obstruction/UpstreamSeed/README.md)
-`Methboke.FeffermanD.Fefferman_D` is **A-tier accepted** at `66a5292`,
+`Methboke.FeffermanD.Fefferman_D` is **A-tier accepted** at
+`66a529248d3198ed70dc5489d82868bc33a37796`,
 [run 44768857811](https://github.com/randogelist/Methboke/actions/runs/44768857811).
 The matching run passed 605 modules, independent literal-contract checks and
 fresh named axiom audits, with standard axioms only; evidence retention,
@@ -109,6 +147,173 @@ The budget remains a hypothesis. R0 retains its actual finite-cap premise;
 QFB retains eventual-tail energy and post-cutoff uniqueness. These unforced
 results are not substituted for forced same-force comparison.
 
+## Incorporated AC mathematical resources
+
+The following accepted resources retain the exact source revisions and scopes
+established on AC-Integration. Their older full-run counts are not counts for
+the new combined build. No general nonzero-data QFA, WFA, universal six-charge
+budget, or new Fefferman-A theorem is inferred from their integration.
+The general physical QFA target is a definition with separate proof obligations;
+`QFAConditionalRoot` retains its explicit historical analytic hypotheses.
+FDSN_R3 continues to use its original `Seed` and `Family` contracts unchanged.
+
+The accepted `QFAHeatTrajectory`, `QFAHeatTimeEnergy` and
+`QFAWeightedBudgetAllWindows` batch contains **35 declarations: 32 theorems
+and three definitions**. It constructs actual positive-time H2 trajectory and
+strong time measurability, the exact free-heat enstrophy-dissipation identity,
+finite-window L2-time H2 membership and an all-window budget including zero.
+The exact [heat-time construction chain](R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt)
+retains the quantitative bound. Its H2 trajectory's zero extension at time
+zero does not assert that arbitrary H1 input lies in H2. The preceding failures
+at `d53e1fae` / run `44850402452` and `be624903` / run `44850983211` remain
+historical evidence, superseded by the reviewed acceptance at `000c1bd9` /
+run `44851575278`. The [matching acceptance record](audits/material-000c1bd9-qfa-accepted/summary.json)
+retains the exact scope. The general QFA/WFA roots remain open.
+
+## QFA closure progress: three new accepted scopes
+
+**Three native QFA layers are A-tier accepted at `ffbab0f5`**,
+[external run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775). The complete run passed **520 modules,
+102 fresh package audits and 1,367 named type/axiom reports**, plus standalone
+QFB, publication and final acceptance. The new packages add **73 declarations:
+53 theorems and 20 definitions/structures**. Only the approved standard axioms occur.
+
+| Package | Accepted scope |
+|---|---|
+| `QFALHRestart` | Full physical restart of the same supplied LH path from its exact nonnegative energy-start trace, including translated momentum and all energy-class fields |
+| `QFAHeatSmoothing` | Constructed actual positive-time H1-to-H2 heat map, native weak Hessians and quantitative Laplacian/H2 estimates |
+| `QFAZeroDatum` | Exact physical root contract and complete zero-datum strict/closed QFA conclusion, including weak existence, every-path smooth tails, original-gradient energy equality and all future velocities |
+
+**The general nonzero-data QFA theorem remains open.** Its cutoff is unchanged:
+$8\|a\|_2^4/(27\pi^4\nu^5)$. Smooth pressure uses the explicit point gauge
+$p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
+
+[Exact acceptance](audits/material-ffbab0f5-qfa-accepted/independent-review.json) ·
+[Full new-name register](R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt) ·
+[Scoped mathematical chain](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
+No local Lean was executed. The project goal remains Fefferman D.
+
+The subsequent free-heat enstrophy-dissipation and finite-window L2-time
+H2 construction is accepted in the 35-name batch at `000c1bd9` described above.
+The pointwise smoothing bound alone is not time integrable at zero. Actual forced heat, nonlinear H1
+existence, general LH existence, physical comparison, sharp spatial admission
+and small-product continuation remain explicit general-data obligations.
+
+## Earlier accepted NSE-A native basis
+
+**Source `d403c235` is fully accepted**, [run 44837033211](https://github.com/randogelist/Methboke/actions/runs/44837033211):
+**512 modules, 99 fresh package audits and 1,294 named type/axiom reports**,
+plus the standalone QFB audit, publication and final acceptance. The six added
+packages supply **307 declarations: 252 theorems and 55 definitions/instances**.
+They construct the full stopped budgets and physical gauge, actual H2 and
+Laplacian, real L2/H1 Leray projection, bounded real-even Fourier multipliers,
+and strongly continuous heat semigroup. All 22 NSE-A scoped packages now
+contain **596 accepted declarations**. Only the approved standard axioms occur.
+**P01–P08 / M1 are complete** for supplied physical H1 paths. Canonical NSE
+existence, M2/M3 and the five remaining G-parent targets stay open.
+
+[Exact retained acceptance](audits/material-d403c235-nse-a-accepted/independent-review.json).
+The general physical QFA and WFA roots remain open. The next nonlinear edges
+are actual H1 local existence, global LH existence, weak–strong comparison,
+sharp spatial admission and small-product continuation. No local Lean was run.
+
+## Earlier accepted physical H1/Fourier/six-projector target
+
+**G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.
+
+[Six targets and remaining edges](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt) · [All accepted names](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Exact evidence](audits/material-09bcf251-nse-a-accepted/independent-review.json)
+
+The construction now supplies actual real Fourier range, six real L2 and H1
+orthogonal projections, derivative and native solenoidal preservation, and
+physical gradient charges equal to the literal cone integrals with factor
+$4\pi^2$. P07 supplies the exact pointwise factor-six comparison. The
+small-product coefficient result is a separately scoped scalar helper.
+
+Independent reviewed B-tier work develops the physical energy/enstrophy and
+cutoff chain, the actual H2 graph and Hessian/Laplacian reconstruction, and the
+full ENNReal stopped-window/gauge interface. The subsequently accepted stopped-budget packages supply the pathwise P08 layer;
+its window and gauge statements use supplied H1 paths and do not require an
+NSE existence theorem. The [cumulative derivation](R3_NSE/A-Regularity-class/NSE_A_A_TIER_STEPLIST_B_TIER.txt)
+and [package/source assessment](R3_NSE/A-Regularity-class/SIX_GAP_PACKAGE_ASSESSMENT.txt)
+record all hypotheses and remaining edges.
+
+Prior accepted source `3dec32be` and its 155 names remain unchanged and are
+rechecked by this full run. Those three earlier NSE-A batches contain 16 packages
+and 289 accepted names:242 theorems and47 definitions/instances. The later
+`d403c235` batch brings this separate NSE-A register to 22 packages and 596 names.
+
+## AC-Integration: accepted native QFA foundations
+
+**A-tier accepted at `afd67db4`**, [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412).
+All 463 modules, 77 fresh package audits and 698 named type/axiom reports passed,
+including 188 reports for the four new QFA packages. Publication and final
+acceptance passed. The native additions comprise 35 public helper theorems and
+19 contracts/definitions; only standard axioms occur. No local Lean was executed.
+
+The integration supplies concrete whole-space energy-class contracts, weighted
+energy and strong traces for supplied LH paths, half-window selection of actual
+weak-gradient energy traces, and a Fourier spectral endpoint from distributional
+derivative witnesses. The complete physical QFA/WFA roots remain open. The later
+`ffbab0f5` batch constructs full supplied-path PDE restarts and the complete
+zero-data tail and future conclusion. Spatial admissibility, general-data
+weak/strong existence, continuation, comparison and the nonzero-data tails
+remain open.
+
+The [whole-space integration page](R3_NSE/QFA/README.md),
+[accepted name register](R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt),
+[exact receipt](audits/material-afd67db4-qfa-accepted/summary.json) and
+[updated ten-step checklist](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
+record the scope and remaining edges. The Fefferman-D goal, prior periodic
+QFB/WFB conclusions and their original evidence remain preserved.
+
+## NSE-A regularity class: finite six-charge budget
+
+The [whole-space regularity class](R3_NSE/A-Regularity-class/README.md)
+is registered at **B-tier**. A real solenoidal Schwartz datum belongs to the
+class exactly when its canonical maximal strong solution has a finite full-window
+integral of the sum of the six squared gradient charges. The six
+projections are explicitly constructed from even Fourier sectors.
+
+The [complete derivation](R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt)
+proves the factor-six comparison with squared enstrophy and records the existing
+WFA equivalence to global canonical regularity, including the zero datum and
+terminal endpoint. The [status record](R3_NSE/A-Regularity-class/STATUS.json)
+keeps this analytic class characterization separate from the accepted native
+foundations. Universal finiteness for every Schwartz datum remains open.
+This registration adds no Lean declaration or new A-tier acceptance.
+
+The [twenty-endpoint A-tier construction plan](R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md)
+now separates the pathwise six-charge theorem, actual canonical NSE
+continuation, and the literal Fefferman-A solution-class bridge. It is a
+B-tier step list with source anchors and explicit completion criteria;
+the authorized construction has now reached P01–P08/M1 and G05 acceptance.
+The canonical PDE/class obligations and M2/M3 remain open.
+
+The [Lean gap and cutout collection](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md)
+now supplies 51 exact reference blocks, complete pinned source snapshots and
+[a ranked gap assessment](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/GAPS.md).
+The cumulative TXT references every cutout. Source acquisition narrows the
+missing adapters and adds no native theorem or A-tier acceptance.
+
+## NSE-A six-gap native construction
+
+The [six closure targets](R3_NSE/A-Regularity-class/SIX_GAP_A_TIER_TARGETS.txt)
+retain their original contracts. **G05 is complete**; G01,G02,G03,G04,G06
+remain open. The [implementation and evidence register](R3_NSE/A-Regularity-class/SIX_GAP_IMPLEMENTATION_STATUS.json)
+records 22 accepted packages and596 names, with the full named audits and all
+historical failed attempts preserved. Reviewed B-tier chains identify the
+remaining spatial, time-evolution and canonical-class constructions.
+
+## Further NSE-A native work
+
+The accepted six-target register now marks G05 complete. The remaining five
+parents require native local/maximal NSE, sharp spatial admission, physical
+energy/enstrophy evolution, the literal smooth class bridge and the canonical
+full-budget equivalence. Reviewed B-tier derivations are retained in
+[R3_NSE/A-Regularity-class/DERIVATIONS](R3_NSE/A-Regularity-class/DERIVATIONS/).
+The exact failed attempts remain in the implementation history and evidence
+archives; they are superseded by the matching current acceptance above.
+
 ## Repository map
 
 `T3_NSE` and `R3_NSE` are ordinary domain folders. `Material/` retains the
@@ -117,10 +322,14 @@ the previous research-file locations.
 
 | Path | Purpose |
 |---|---|
-| [GPT.txt](GPT.txt) | Current goal, exact contracts, derivation and next formal obligations |
+| [GPT.txt](GPT.txt) | Preserved goal, current integration task, exact mathematical contracts and obligations |
+| [Integration record](integration/AC_INTO_MAIN/README.md) | Frozen branch inputs, expected combined scope, proof preservation and pending verification |
+| [QFA resources](R3_NSE/QFA/README.md) | Accepted physical foundations, restart/heat/zero-datum scopes and remaining general-root obligations |
+| [NSE-A resources](R3_NSE/A-Regularity-class/README.md) | Accepted pathwise six-charge resources, B-tier class characterization and remaining canonical PDE obligations |
+| [Source anchors](Temp-folder/README.md) | Retained QFA/WFA source references and evidence; no acceptance by copying |
 | [INDEX-WORTHY.txt](INDEX-WORTHY.txt) | Substantiated results with source-specific scope and evidence |
 | [SOURCE_STATUS.json](SOURCE_STATUS.json) | Goal, implementation and accepted-evidence identities |
-| [T3_NSE](T3_NSE/README.md) / [R3_NSE](R3_NSE/README.md) | Periodic programs and active whole-space FDSN work |
+| [T3_NSE](T3_NSE/README.md) / [R3_NSE](R3_NSE/README.md) | Preserved periodic programs, accepted whole-space FDSN, and incorporated QFA/NSE-A resources |
 | [T3_NSE/D-Family-Obstruction](T3_NSE/D-Family-Obstruction/README.md) | Current periodic-family route and ledger |
 | [Material](Material/README.md) | Native sources, endpoint packages and complete audits |
 | [Ehrenfest package](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/PREPRINT_FORMALISATION/README.md) | Preserved conditional proof and stronger open operator milestones |
@@ -139,6 +348,11 @@ required exact-type and theorem-axiom audit freshly. New source preparation
 or a green workflow alone is not A-tier. Matching evidence must cover the
 precise statement and allow only `propext`, `Classical.choice` and `Quot.sound`.
 Missing official Mathlib objects do not authorize a source rebuild.
+The integration adds only its exact branch to the existing push trigger;
+the established verification gates and cache policy remain in force.
+The separate direct-D 4.34.0-rc2 project retains its own lock and compiled
+objects. The 35 exact QFA vendor additions retain separate provenance;
+the two failed/inactive upstream modules stay outside active imports.
 
 
 ## Historical FDSN verification attempts
@@ -161,10 +375,16 @@ FDSN verification repair after run44809750811: Normalize the actual correction v
 
 FDSN verification repair after run44810618725: Give all compact force-correction proof components explicit types and scope a larger elaboration budget to that single declaration; exact theorem and consumer contract unchanged. [Failure record](audits/fdsn-a75f3f0c-failed/summary.json).
 
-## Current FDSN acceptance
+## Accepted periodic FDSN root
 
 The exact conditional theorem on the unit three-torus passed at `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`. The same family satisfies all five canonical clauses; the physical presentation gives a literal nonzero Leray-projected force difference. The [construction and acceptance note](T3_NSE/D-Family-Obstruction/FDSN/FDSN_CONSTRUCTION_AND_ACCEPTANCE.txt) records the proof route. Historical repair entries above are superseded by this acceptance; their evidence remains preserved.
 
+
+## Historical R3 construction and verification attempts
+
+The preparation and failure notes in this section describe their original
+source revisions. Their pending labels are superseded by the accepted
+`572fd9ee` root recorded above and below; all failure receipts remain retained.
 
 The first R3 verification stopped at a smoothness-order coercion. Its
 [retained failure evidence](audits/fdsn-r3-5914a69a-failed/summary.json) and
@@ -189,7 +409,7 @@ sources. A proof-only nonzero-patch repair follows its
 [retained diagnostics](audits/fdsn-r3-a568ec75-failed/SUMMARY.txt).
 Acceptance still requires the complete fresh type and axiom audits.
 
-## Full R3 construction candidate
+## Historical full R3 construction preparation
 
 The prepared construction now includes actual joint Fourier differentiation
 and inverse reconstruction, a globally Schwartz velocity correction and its
@@ -329,7 +549,7 @@ are retained, with no theorem source changes.
 Complete fresh audits, the original cutout and final acceptance/publication
 remain pending; no new root or endpoint A-tier acceptance is claimed.
 
-## Current R3 acceptance
+## Accepted whole-space FDSN_R3 root
 
 The complete conditional root and all sixteen user-assented endpoint scopes are
 **A-tier accepted** at `572fd9ee69a6b641f435cbfb2ef74e034809c583`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The reviewed run passed
@@ -341,7 +561,7 @@ accepted beyond the retained 72-declaration foundations. Prior T3 scopes remain 
 
 [Complete evidence](audits/fdsn-r3-572fd9ee-accepted/summary.json) includes the original artifact, exact source
 map, fresh logs, independent review and successful publication/final acceptance.
-Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+The accepted archive preserves the tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs byte-for-byte. The integration unions the current source and endpoint registries while preserving every original entry and proof/consumer byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
 
 Earlier pending descriptions are dated preparation history, superseded by this
 acceptance. Seed existence and the separate prescribed-site family remain outside

@@ -1,0 +1,18 @@
+MethbokeAddon/QuasiFeffermanA/H2Spectral.lean:73:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑↑(𝓕 (complexifyL2 (H j k))) ξ
+in the target expression
+  ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (H j k))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (H k j))) ξ
+
+v : ↥SpatialL2
+G : Fin 3 → ↥SpatialL2
+H : Fin 3 → Fin 3 → ↥SpatialL2
+hG : SpatialWeakGradient v G
+hH : SpatialWeakHessian G H
+j k : Fin 3
+ξ : Space
+hξ :
+  ∀ (j k : Fin 3),
+    ↑↑(𝓕 (complexifyL2 (H j k))) ξ = ↑(-(2 * Real.pi) ^ 2 * ξ.ofLp j * ξ.ofLp k) • ↑↑(𝓕 (complexifyL2 v)) ξ
+⊢ ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (H j k))) ξ =
+    ↑↑((Lp.fourierTransformₗᵢ Space ComplexVector) (complexifyL2LI (H k j))) ξ

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_FAILURE_NO_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "be6249030a6410eea5b1e739cd217cd15537c5bc",
+  "tree": "11c9039b78fc28ad8f33f229aeb943a1342dffad",
+  "prior_policy_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
+  "run_id": 44850983211,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44850983211",
+  "artifact_id": 14686015147,
+  "artifact_sha256": "51a2395d5990dc2af57cf095d41461c131223cce2a12b86df038be78ea8ca373",
+  "artifact_bytes": 82078,
+  "report_sha256": "4bed9a6fa3263836a011eada89503890f170be4c0d777bb71d185a44bf425672",
+  "expected_module_count": 526,
+  "expected_package_count": 105,
+  "expected_named_reports": 1402,
+  "module_count": 526,
+  "module_counts": {
+    "PASS": 524,
+    "FAIL": 1,
+    "BLOCKED_BY_DEPENDENCY": 1
+  },
+  "failed_sources": [
+    "MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy"
+  ],
+  "blocked_sources": [
+    "QFAHeatTimeEnergy.Endpoint"
+  ],
+  "package_count": 0,
+  "named_reports": 0,
+  "passed_package_receipts": [],
+  "all_package_audits_fresh": false,
+  "complete_audit_coverage": false,
+  "final_acceptance_gate": false,
+  "publication_pass": false,
+  "qfb_cutout_pass": false,
+  "new_a_tier_acceptance": false,
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "failure_phase": "compile",
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "error": "own module compilation failed; see module receipts",
+  "diagnostics": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.log",
+      "diagnostics": [
+        {
+          "line": 1,
+          "text": "MethbokeAddon/QuasiFeffermanA/HeatTimeEnergy.lean:55:2: error: Type mismatch: After simplification, term\n  H1Spectral.integrable_fourier_gradient (physicalH1_weakGradient u)\n has type\n  @Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace SeminormedAddGroup.toContinuousENorm Space\n    measureSpaceOfInnerProductSpace.toMeasurableSpace\n    (fun ξ => (2 * Real.pi) ^ 2 * ‖ξ‖ ^ 2 * ‖↑↑(𝓕 (complexifyL2 (physicalH1Velocity u))) ξ‖ ^ 2) volume"
+        },
+        {
+          "line": 10,
+          "text": "    measureSpaceOfInnerProductSpace.toMeasurableSpace (enstrophyDensity u) volume\nMethbokeAddon/QuasiFeffermanA/HeatTimeEnergy.lean:138:9: error: Tactic `unfold` failed to unfold `heatDissipationDensity` in\n  Real.instAddCommGroup = Real.normedCommRing.toAddCommGroup\nMethbokeAddon/QuasiFeffermanA/HeatTimeEnergy.lean:289:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?m.70 * ν * (?m.70 * ν)⁻¹\nin the target expression\n  2 * ↑ν * (2 * ↑ν)⁻¹ * (physicalH1Enstrophy u - physicalH1Enstrophy (heatH1 ν T.toNNReal u)) ="
+        },
+        {
+          "line": 12,
+          "text": "  Real.instAddCommGroup = Real.normedCommRing.toAddCommGroup\nMethbokeAddon/QuasiFeffermanA/HeatTimeEnergy.lean:289:4: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?m.70 * ν * (?m.70 * ν)⁻¹\nin the target expression\n  2 * ↑ν * (2 * ↑ν)⁻¹ * (physicalH1Enstrophy u - physicalH1Enstrophy (heatH1 ν T.toNNReal u)) =\n    physicalH1Enstrophy u - physicalH1Enstrophy (heatH1 ν T.toNNReal u)\n"
+        }
+      ]
+    }
+  ],
+  "retained_diagnostic_logs": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.log",
+      "retained_log": "logs__modules__MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.log.gz",
+      "raw_sha256": "e8accb6de6450957b1428ec66d8be8b32025df94ab7d3a57e450bde4f167eb1e"
+    }
+  ],
+  "checks_passed": 9,
+  "local_lean_executions": 0,
+  "scope_note": "Passing individual source or partial named audit receipts do not establish acceptance of this batch."
+}

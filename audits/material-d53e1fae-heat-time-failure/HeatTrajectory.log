@@ -1,0 +1,40 @@
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:105:28: error: Invalid argument name `c` for function `continuousAt_const`
+
+Hint: Perhaps you meant one of the following parameter names:
+  • `X`: c̵X̲
+  • `Y`: c̵Y̲
+  • `x`: c̵x̲
+  • `y`: c̵y̲
+  • `U`: c̵U̲
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:106:2: error: No goals to be solved
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:127:8: error: failed to synthesize
+  SecondCountableTopologyEither ℝ ↥PhysicalH2
+(deterministic) timeout at `typeclass`, maximum number of heartbeats (20000) has been reached
+
+Note: Use `set_option synthInstance.maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:128:2: error: No goals to be solved
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:151:21: warning: This simp argument is unused:
+  physicalH1Energy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [heatH1ToH2_velocity, heatH1ToH2_gradient, heatH1_velocity, heatH1_gradient, physicalH1Enstrophy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:151:39: warning: This simp argument is unused:
+  physicalH1Enstrophy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [heatH1ToH2_velocity, heatH1ToH2_gradient, heatH1_velocity, heatH1_gradient, physicalH1Energy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/HeatTrajectory.lean:161:4: error: Type mismatch
+  add_le_add_right (heatH1_norm_sq_le ν t.toNNReal u) ?m.74
+has type
+  ?m.74 + ‖heatH1 ν t.toNNReal u‖ ^ 2 ≤ ?m.74 + ‖u‖ ^ 2
+but is expected to have type
+  ‖heatH1 ν t.toNNReal u‖ ^ 2 + ‖physicalH2Laplacian (heatTrajectory ν hν u t)‖ ^ 2 ≤
+    ‖u‖ ^ 2 + ‖physicalH2Laplacian (heatTrajectory ν hν u t)‖ ^ 2

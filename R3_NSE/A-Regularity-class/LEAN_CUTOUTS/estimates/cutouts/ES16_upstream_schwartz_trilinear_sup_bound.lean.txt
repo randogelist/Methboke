@@ -1,0 +1,80 @@
+/-- **B2.** Direct Cauchy–Schwarz bound on `convIntegralSchwartz` with an H¹-seminorm
+of ψv (derivative sits on ψv) and the sup-norm of ψw.
+
+`|convIntegralSchwartz ψu ψv ψw|`
+`  ≤ ‖ψu‖_{L²,comp} · ‖∇ψv‖_{L²,comp} · ‖ψw‖_{L∞,comp}`
+
+where:
+- `‖ψu‖_{L²,comp} = ∑_a ‖(ψu a).toLp 2 volume‖`  (component-wise L² norm)
+- `‖∇ψv‖_{L²,comp} = ∑_a ∑_i ‖(∂_a ψv i).toLp 2 volume‖`  (H¹-seminorm of ψv)
+- `‖ψw‖_{L∞,comp} = ∑_i SchwartzMap.seminorm ℝ 0 0 (ψw i)`  (component-wise sup-norm)
+
+The undifferentiated factor ψw must be bounded in L∞ (not L²): a triple L² bound is
+false in general (Cauchy–Schwarz pairs exactly two L² factors; the third must be L∞).
+The Schwartz seminorm at order (0,0) bounds the sup-norm by `SchwartzMap.norm_le_seminorm`. -/
+theorem convIntegralSchwartz_bound_H1
+    (ψu ψv ψw : Fin 3 → SchwartzMap Domain3 ℝ) :
+    |convIntegralSchwartz ψu ψv ψw| ≤
+      (∑ a : Fin 3, ‖(ψu a).toLp 2 (volume : Measure Domain3)‖) *
+      (∑ a : Fin 3, ∑ i : Fin 3,
+        ‖((lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+            (EuclideanSpace.single a (1 : ℝ) : Domain3) (ψv i)).toLp
+          2 (volume : Measure Domain3))‖) *
+      (∑ i : Fin 3, SchwartzMap.seminorm ℝ 0 0 (ψw i)) := by
+  set A : Fin 3 → ℝ := fun a => ‖(ψu a).toLp 2 (volume : Measure Domain3)‖ with hA
+  set B : Fin 3 → Fin 3 → ℝ := fun a i =>
+    ‖((lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+        (EuclideanSpace.single a (1 : ℝ) : Domain3) (ψv i)).toLp
+      2 (volume : Measure Domain3))‖ with hB
+  set C : Fin 3 → ℝ := fun i => SchwartzMap.seminorm ℝ 0 0 (ψw i) with hC
+  have hAnn : ∀ a, 0 ≤ A a := fun a => norm_nonneg _
+  have hBnn : ∀ a i, 0 ≤ B a i := fun a i => norm_nonneg _
+  have hCnn : ∀ i, 0 ≤ C i := by
+    intro i
+    have := SchwartzMap.norm_le_seminorm ℝ (ψw i) 0
+    exact le_trans (norm_nonneg _) this
+  -- per-term bound
+  have hterm : ∀ i a, |∫ x : Domain3,
+        (ψu a x) *
+        ((lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+            (EuclideanSpace.single a (1 : ℝ) : Domain3) (ψv i)) x) * (ψw i x)
+        ∂(volume : Measure Domain3)| ≤ A a * B a i * C i := by
+    intro i a
+    exact schwartz_trilinear_bound (ψu a)
+      (lineDerivOpCLM ℝ (SchwartzMap Domain3 ℝ)
+        (EuclideanSpace.single a (1 : ℝ) : Domain3) (ψv i)) (ψw i)
+  -- bound the absolute value of the double sum
+  calc |convIntegralSchwartz ψu ψv ψw|
+      ≤ ∑ i : Fin 3, ∑ a : Fin 3, A a * B a i * C i := by
+        unfold convIntegralSchwartz
+        refine le_trans (Finset.abs_sum_le_sum_abs _ _) ?_
+        refine Finset.sum_le_sum (fun i _ => ?_)
+        refine le_trans (Finset.abs_sum_le_sum_abs _ _) ?_
+        exact Finset.sum_le_sum (fun a _ => hterm i a)
+    _ = ∑ i : Fin 3, C i * (∑ a : Fin 3, A a * B a i) := by
+        refine Finset.sum_congr rfl (fun i _ => ?_)
+        rw [Finset.mul_sum]
+        refine Finset.sum_congr rfl (fun a _ => ?_)
+        ring
+    _ ≤ ∑ i : Fin 3, C i * ((∑ a : Fin 3, A a) * (∑ a : Fin 3, B a i)) := by
+        refine Finset.sum_le_sum (fun i _ => ?_)
+        refine mul_le_mul_of_nonneg_left ?_ (hCnn i)
+        exact sum_mul_le_mul_sum _ A (fun a => B a i)
+          (fun a _ => hAnn a) (fun a _ => hBnn a i)
+    _ = (∑ a : Fin 3, A a) * (∑ i : Fin 3, C i * (∑ a : Fin 3, B a i)) := by
+        rw [Finset.mul_sum]
+        refine Finset.sum_congr rfl (fun i _ => ?_)
+        ring
+    _ ≤ (∑ a : Fin 3, A a) * ((∑ a : Fin 3, ∑ i : Fin 3, B a i) * (∑ i : Fin 3, C i)) := by
+        refine mul_le_mul_of_nonneg_left ?_ (Finset.sum_nonneg (fun a _ => hAnn a))
+        calc ∑ i : Fin 3, C i * (∑ a : Fin 3, B a i)
+            = ∑ i : Fin 3, (∑ a : Fin 3, B a i) * C i := by
+              refine Finset.sum_congr rfl (fun i _ => ?_); ring
+          _ ≤ (∑ i : Fin 3, ∑ a : Fin 3, B a i) * (∑ i : Fin 3, C i) :=
+              sum_mul_le_mul_sum _ (fun i => ∑ a : Fin 3, B a i) C
+                (fun i _ => Finset.sum_nonneg (fun a _ => hBnn a i))
+                (fun i _ => hCnn i)
+          _ = (∑ a : Fin 3, ∑ i : Fin 3, B a i) * (∑ i : Fin 3, C i) := by
+              rw [Finset.sum_comm]
+    _ = (∑ a : Fin 3, A a) * (∑ a : Fin 3, ∑ i : Fin 3, B a i) * (∑ i : Fin 3, C i) := by
+        ring

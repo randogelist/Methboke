@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "id": "R0FiniteCapAdmission",
+  "endpoint_module": "R0FiniteCapAdmission.Endpoint",
+  "audit_module": "R0FiniteCapAdmission.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.FiniteCapAdmission"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteCapAdmission",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+        "path": "Material/_vendor/QuasiFeffermanB/TailChain.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.finite_cap_classical_admission",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteCapAdmission.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.FiniteCapAdmission",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "67f766330918577e714e326be82eebfe29f5f2f7",
+          "path": "Material/_vendor/QuasiFeffermanB/TailChain.lean"
+        }
+      },
+      "scope": "Exact new owned declaration; all literal physical, regularity, overlap and finite-cap admission premises retained."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Conditional fixed R0: an actual initial classical cap strictly beyond the literal QFB cutoff yields a globally smooth physical NSE pair retaining both original velocity and normalized pressure through the cap.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "FIXED_R0_FINITE_CAP_ADMISSION",
+  "source_layout": "New owned sources under MethbokeAddon; complete pinned vendor dependencies under _vendor; exact public dependency lock retained.",
+  "type_policy": "Every public named theorem has an independent full signature assertion and fresh complete type/axiom sentinels; private proof helpers are covered by transitive theorem-level axiom audits.",
+  "new_finite_cap_theorem_included": true,
+  "universal_germ_extension_included": false,
+  "whole_wfb_obligation_completed": false
+}

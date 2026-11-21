@@ -1,0 +1,442 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-20",
+  "repository": "randogelist/Methboke",
+  "branch": "AC-Integration",
+  "status": "B_TIER_CLASS_DEFINITION_AND_EQUIVALENCE",
+  "class_id": "NSE_A_FINITE_CHARGE_CLASS",
+  "class_notation": "C^A_nu = {a in S_sigma(R3;R3): L_A(a,nu) < infinity}",
+  "identifiers": [
+    "NSE_A_FINITE_CHARGE_CLASS",
+    "NSE_A_SIX_CHARGE_CHARACTERIZATION",
+    "NSE_A_FINITE_CHARGE_IFF_GLOBAL"
+  ],
+  "scope": "Unforced three-dimensional NSE on R3; fixed nu>0; real solenoidal Schwartz initial data; canonical maximal H1 strong solution.",
+  "project_goal": "Fefferman_D",
+  "project_goal_changed": false,
+  "retained_branch_local_target": "QFA_QFB_A_TIER_INTEGRATION",
+  "source_basis_commit": "05988d7a0d02981200dfeb07ad52d8f8455c5305",
+  "source_basis_specification": "Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt",
+  "source_basis_specification_sha256": "6d87cbe4f2b051fd595349b41753047b2f4df37ae7776bc15cf46831c4852ae7",
+  "entry_point": "R3_NSE/A-Regularity-class/README.md",
+  "derivation": "R3_NSE/A-Regularity-class/NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt",
+  "cumulative_specification_addendum": "Section 15, E17--E21",
+  "definitions": {
+    "cutoff": "tau_A = 8 ||a||_2^4 / (27 pi^4 nu^5)",
+    "endpoint": "b_A = min(T_max(a,nu), tau_A(a,nu))",
+    "trajectory": "The same canonical maximal H1 strong solution U^{a,nu} is used in every charge and budget.",
+    "zero_datum": "J_A = J_6,A = B_A = L_A = 0",
+    "projectors": "Six even Borel Fourier sectors, lexicographically indexed by permutations of (1,2,3), ordering absolute coordinates descending with increasing-index tie breaking.",
+    "charge": "q_alpha,A(t) = ||grad Q_alpha U(t)||_2^2",
+    "enstrophy": "Y(t) = ||grad U(t)||_2^2 = sum_alpha q_alpha,A(t)",
+    "six_charge_budget": "J_6,A = lim_(r up to b_A) integral_0^r sum_(alpha=1)^6 q_alpha,A(t)^2 dt",
+    "enstrophy_budget": "J_A = lim_(r up to b_A) integral_0^r Y(t)^2 dt",
+    "gauge": "L_A^4 = 4 nu J_A = 64 pi^4 nu B_A",
+    "integral_convention": "Extended nonnegative improper integral over the complete endpoint interval; no value at a terminal b_A is assumed.",
+    "fourier_convention": "exp(-2 pi i x dot xi); gradient symbol 2 pi i xi"
+  },
+  "proved_b_tier": [
+    "Concrete projections are orthogonal, resolve the identity, preserve real solenoidal H1 fields, and commute with weak derivatives.",
+    "J_6,A <= J_A <= 6 J_6,A and 4 nu J_6,A <= L_A^4 <= 24 nu J_6,A.",
+    "a belongs to C^A_nu iff J_6,A < infinity iff T_max(a,nu)=infinity.",
+    "Class sublevels L_A<=m increase and their union is C^A_nu.",
+    "With the recorded A4 solution-class identification, Fefferman A iff for every nu>0 the class equals all solenoidal Schwartz data."
+  ],
+  "analytic_dependencies": {
+    "canonical_local_theory": "Existing specification A0 and E01--E03",
+    "continuation": "A1 and E09",
+    "global_restart": "E05--E07 and E10 on the original strong trajectory",
+    "literal_fefferman_class": "A4 and E10 closed-slab/normalized-mild solution-class identification",
+    "six_sector_argument": "Plancherel, bounded even scalar Fourier multipliers, positivity, finite Cauchy--Schwarz, and monotone integration"
+  },
+  "universal_class_equality_proved": false,
+  "universal_budget_finiteness_proved": false,
+  "a_tier_class_equivalence_proved": false,
+  "new_lean_declarations": 289,
+  "new_external_compiler_runs": 10,
+  "new_axiom_audits": 289,
+  "local_lean_executions": 0,
+  "existing_foundation_evidence": {
+    "tested_commit": "afd67db40e71bd1412c82247a78598288deb611e",
+    "run_id": 44788963412,
+    "record": "R3_NSE/QFA/INTEGRATION_STATUS.json",
+    "scope": "Existing exact QFA foundation helpers only; not the complete six-charge class or physical WFA root."
+  },
+  "boundaries": [
+    "Class membership depends on the canonical nonlinear evolution; no initial-norm-only decision test is asserted.",
+    "No norm, linear-space, closedness or compactness assertion.",
+    "No uniform whole-space Galerkin limit or automatic periodic-to-R3 transfer.",
+    "All existing accepted proof, audit, compiler/dependency and workflow bytes are retained."
+  ],
+  "prior_class_registration_review": {
+    "source_commit": "a1dea65c8eb1344b5d55157162db2d38a8d78ff3",
+    "review": {
+      "status": "PASS_STATIC_REVIEW_ONLY",
+      "kind": "Nonexecuting source, statement, JSON, link and repository-consistency review; not a Lean/kernel check.",
+      "changed_or_added_files": 11,
+      "local_markdown_links_checked": 54,
+      "mathematical_review": "PASS; independent written-proof review, with the squared-charge wording clarified.",
+      "checks": [
+        "All eleven changed/new paths are the authorized documentation and status files.",
+        "All edited JSON records parse; all local Markdown links in the changed pages resolve.",
+        "All pre-existing source acceptance/evidence objects and D-ledger values are unchanged.",
+        "The previous cumulative specification is byte-preserved as an exact prefix; its recorded SHA256 matches.",
+        "The QFA formal integration record and all tracked proof/build/dependency/workflow/audit files are unchanged.",
+        "README and cumulative TXT independently reviewed for six-sector projections, factor-six inequalities, normalization, endpoints, same-trajectory globality, A4 and sublevels.",
+        "No Lean/Lake/kernel execution or project runner; this is static review only."
+      ],
+      "document_sha256": {
+        "README.md": "77796c3004c21722e93604401b91af5fdbf0c3bdb212ec8bf51bc44c48f79c27",
+        "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "0675d202c31d7ec333e3906538aaaaa9c3543acfcf3a05617f6cbcaa72c301bf"
+      }
+    }
+  },
+  "a_tier_steplist": {
+    "status": "PARTIAL_A_TIER_P01_TO_P07_AND_G05_ACCEPTED",
+    "endpoint_count": 20,
+    "entry_point": "R3_NSE/A-Regularity-class/A_TIER_STEPLIST.md",
+    "derivation": "R3_NSE/A-Regularity-class/NSE_A_A_TIER_STEPLIST_B_TIER.txt",
+    "plan_record": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+    "source_basis_commit": "a1dea65c8eb1344b5d55157162db2d38a8d78ff3",
+    "formalization_started": true,
+    "new_a_tier_acceptance": true,
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "acceptance": {
+      "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+      "run_id": 44820225574,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+      "package_count": 93,
+      "module_count": 496,
+      "named_reports": 987,
+      "new_packages": 7,
+      "new_named_declarations": 134,
+      "new_theorems": 116,
+      "new_definitions_and_instances": 18,
+      "local_lean_executions": 0,
+      "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+      "accepted_plan_endpoints": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07"
+      ],
+      "parent_targets_closed": 1,
+      "closed_parent_ids": [
+        "G05"
+      ]
+    }
+  },
+  "prior_a_tier_steplist_review": {
+    "source_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+    "review": {
+      "status": "PASS_STATIC_REVIEW_ONLY",
+      "kind": "Nonexecuting step-list, source-anchor, JSON, link, dependency and repository-consistency review; not a Lean/kernel check.",
+      "changed_or_added_files": 12,
+      "json_records_checked": 4,
+      "local_markdown_links_checked": 62,
+      "endpoint_count": 20,
+      "dependency_edges": 40,
+      "mathematical_review": "PASS for the construction plan, with independent spectral and evolution/continuation reviews; all new formal endpoints remain proposed.",
+      "checks": [
+        "All twelve changed/new paths are the scoped documentation and status files.",
+        "All four edited JSON records parse; all local Markdown links in changed pages resolve.",
+        "Exactly twenty unique endpoint IDs have existing, acyclic dependencies; both full step lists agree with the machine-readable plan.",
+        "The earlier class derivation is byte-preserved as an exact prefix; its original SHA256 matches the retained class-registration review.",
+        "All earlier source acceptance/evidence objects and D-ledger values are unchanged; the prior class-registration review is retained exactly at its source commit.",
+        "All tracked proof/build/dependency/workflow/audit bytes and the QFA formal integration record remain unchanged.",
+        "Finite-front horizon, closed-initial-slab AC and lifetime-qualified smoothness clauses are synchronized across the plan and cumulative addendum.",
+        "No Lean/Lake/kernel execution or project runner; no new compiler/axiom evidence and no new A-tier acceptance."
+      ],
+      "document_sha256": {
+        "README.md": "c9958341fc83dcea516b345dcb8e2cde6f63415971e81a0e04a4499fc780c1c8",
+        "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "854587f307a8bc8d0bfa257c3090a6548af7e05356afafd0c95d2825ae3e34a4",
+        "A_TIER_STEPLIST.md": "8241474123dcb0ce09ac8dbb794c92ac4fae87d6b6c1fab49827634451d695df",
+        "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "1f3b445e78c6d1e243dc186035eb49bcd56be2578c4878954f29690a10766857",
+        "A_TIER_PLAN.json": "44b8ba71457bae47002a2b4dea05b96733eeacd3f29c41c4c98522d011bb53dc"
+      }
+    }
+  },
+  "lean_cutout_collection": {
+    "status": "SOURCE_EXACT_REFERENCE_COLLECTION_NO_NEW_FORMAL_ACCEPTANCE",
+    "source_basis_commit": "ce7f809ad20b3498a63420a22d17b3c801dfd558",
+    "entry_point": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md",
+    "gap_report": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/GAPS.md",
+    "catalog": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/IDENTITIES.json",
+    "source_manifest": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/SOURCES.json",
+    "counts": {
+      "source_snapshots": 60,
+      "unique_original_modules": 58,
+      "cutouts": 51,
+      "selected_declaration_entries": 130,
+      "inspected_external_leads_without_source_copy": 5,
+      "evidence_classes": {
+        "EXISTING_NAMED_SCOPED_AUDIT": 21,
+        "PINNED_MATHLIB_SOURCE_ONLY": 14,
+        "EXTERNAL_PINNED_SOURCE_ONLY": 13,
+        "EXISTING_COMPILED_MODULE_ONLY": 3
+      }
+    },
+    "first_native_layer": "P01/P02 physical H1 graph and two-way first-derivative Fourier bridge",
+    "preferred_P15_route": "ES02 AC FTC + ES03 already accepted integral Gronwall; actual PDE-to-Volterra adapter remains new.",
+    "new_lean_declarations": 0,
+    "new_external_compiler_runs": 0,
+    "new_axiom_audits": 0,
+    "new_a_tier_acceptance": false,
+    "local_lean_executions": 0
+  },
+  "six_gap_construction": {
+    "status": "A_TIER_G05_AND_P01_P07_ACCEPTED_FIVE_PARENTS_OPEN",
+    "target_register": "SIX_GAP_A_TIER_TARGETS.txt",
+    "implementation_register": "SIX_GAP_IMPLEMENTATION_STATUS.json",
+    "accepted_parent_count": 1,
+    "local_lean_executions": 0,
+    "accepted_helper_packages": 16,
+    "accepted_named_declarations": 289,
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "evidence": "../../audits/material-09bcf251-nse-a-accepted/independent-review.json"
+  },
+  "prior_lean_cutout_collection_validation": {
+    "source_commit": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+    "status": "PASS_STATIC_REVIEW_ONLY",
+    "kind": "Nonexecuting source acquisition, gap, exact excerpt, JSON, link and repository-consistency review; not a Lean/kernel check.",
+    "total_changed_or_added_files": 202,
+    "json_records_checked": 18,
+    "local_markdown_links_checked": 377,
+    "cutouts_checked": 51,
+    "full_source_snapshots_checked": 60,
+    "source_snapshots_matched_to_accepted_commit": 23,
+    "prior_reviews_preserved": true,
+    "new_formal_acceptance": false,
+    "validation_record": "R3_NSE/A-Regularity-class/LEAN_CUTOUTS/VALIDATION.json",
+    "document_sha256": {
+      "README.md": "dc4dd90b36a778c7bbe6ff18bfcd0fa7c67840969d2c2d4a7de8fa90f98012fc",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "d09b14c5d65008cdd58034bb5cf97e624693f2bc42fa2f228afc77926a07f884",
+      "A_TIER_STEPLIST.md": "84800371ae3f44f78796335b71086b5427d1bceaa49da78924faea563a1318a7",
+      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "226e6177349becb8553b9dc2fe1fc6731e63907fec339eb898a8fa6e4034a335",
+      "A_TIER_PLAN.json": "639aa29bb6ce9fa3c4a61573bcc688ac0fff399c7434a2b995de30b4065eaf16",
+      "LEAN_CUTOUTS/README.md": "18f0453640177a92a139326edf6949c2fc100e17c53acadeb85f372767d6e795",
+      "LEAN_CUTOUTS/GAPS.md": "f06c3a487874bdd366c0a40d844320fe7a4bd329c577a8ed627c6bbcfa0de755",
+      "LEAN_CUTOUTS/IDENTITIES.json": "f3eded3bf622981c8fa70e31ad0fb7e1ae5b1b16e035cc94626f58fdd1e09541",
+      "LEAN_CUTOUTS/SOURCES.json": "999f9400e7945b59df3f9fc9a4f3d84c8c3cdc2024dbeaf475a59d491b1fdcd1",
+      "LEAN_CUTOUTS/VALIDATION.json": "582daf66668cb9ff1ee609c5306e9a33a68bdd0733d1d6ad8b19fb6822892800"
+    }
+  },
+  "scoped_construction": {
+    "status": "A_TIER_G05_AND_P01_P07_ACCEPTED_FIVE_PARENTS_OPEN",
+    "record": "SIX_GAP_IMPLEMENTATION_STATUS.json",
+    "parent_gaps_closed": 1,
+    "local_lean_executions": 0,
+    "accepted_helper_packages": 16,
+    "accepted_named_declarations": 289,
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "evidence": "../../audits/material-09bcf251-nse-a-accepted/independent-review.json"
+  },
+  "independent_b_tier_derivations": [
+    {
+      "file": "DERIVATIONS/H1_LOCAL_FIXED_POINT_CHAIN.txt",
+      "scope": "Actual local/maximal H1 construction, explicit lifespan and finite-terminal-budget divergence",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt",
+      "scope": "Literal Fefferman-A closed-slab identification using precisely mapped established literature inputs",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+      "scope": "Real H1 sector projection construction by transport of supplied physical weak gradients",
+      "native_status": "A_TIER_ORIGINAL_G05_SCOPE_ACCEPTED",
+      "acceptance": {
+        "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "run_id": 44820225574,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+        "package_count": 93,
+        "module_count": 496,
+        "named_reports": 987,
+        "new_packages": 7,
+        "new_named_declarations": 134,
+        "new_theorems": 116,
+        "new_definitions_and_instances": 18,
+        "local_lean_executions": 0,
+        "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+        "accepted_plan_endpoints": [
+          "P01",
+          "P02",
+          "P03",
+          "P04",
+          "P05",
+          "P06",
+          "P07"
+        ],
+        "parent_targets_closed": 1,
+        "closed_parent_ids": [
+          "G05"
+        ]
+      }
+    },
+    {
+      "file": "DERIVATIONS/SHARP_SPATIAL_ADMISSION_CHAIN.txt",
+      "scope": "Exact sharp scalar normalization, vector/tensor Kato transfer and physical H2/convection admission relative to the established scalar theorem",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/PHYSICAL_ENERGY_ENSTROPHY_CHAIN.txt",
+      "scope": "Actual-path energy/enstrophy AC, weighted product identity, invariant and exact cutoff, with native analytical obligations explicit",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/PHYSICAL_H2_GRAPH_CHAIN.txt",
+      "scope": "Actual thirteen-component H2 graph, reconstruction from real L2 Laplacian and exact Hessian/Laplacian norm",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/FULL_STOPPED_WINDOW_GAUGE_CHAIN.txt",
+      "scope": "Full ENNReal stopped window, uniform partial-budget criterion, exact Fourier factors and gauge/sublevels",
+      "native_status": "OPEN"
+    },
+    {
+      "file": "DERIVATIONS/REAL_LERAY_PROJECTION_CHAIN.txt",
+      "scope": "Actual real whole-space Leray projection on L2/H1, native solenoidal range and conditional H2 transport",
+      "native_status": "OPEN",
+      "mathematical_review": "COMPLETE_WITHIN_STATED_SCOPE"
+    }
+  ],
+  "native_helper_acceptance": {
+    "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+    "run_id": 44820225574,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+    "package_count": 93,
+    "module_count": 496,
+    "named_reports": 987,
+    "new_packages": 7,
+    "new_named_declarations": 134,
+    "new_theorems": 116,
+    "new_definitions_and_instances": 18,
+    "local_lean_executions": 0,
+    "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "parent_targets_closed": 1,
+    "closed_parent_ids": [
+      "G05"
+    ]
+  },
+  "physical_class_root_a_tier_proved": false,
+  "parent_targets_closed": 1,
+  "new_declaration_scope": "Sixteen accepted NSE-A packages and the complete original G05/P01-P07 scopes; the canonical/literal class roots remain open.",
+  "current_construction_artifacts": [
+    {
+      "path": "A_TIER_PLAN.json",
+      "sha256": "4e84b3a088caa065da94ee4d13361210b835e8181c51c1aa885895dc2c6603e8"
+    },
+    {
+      "path": "A_TIER_STEPLIST.md",
+      "sha256": "fd098621ff237fe8a93235f99583f81d1bef2027bc75d4bc813871fdbde011dc"
+    },
+    {
+      "path": "SIX_GAP_A_TIER_TARGETS.txt",
+      "sha256": "d4486302819bd822c58e022d38f3f96ab8d0feca8b5120f669f714887c2eb7d3"
+    },
+    {
+      "path": "SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt",
+      "sha256": "ed35ec2da14829d1a3be3a6d7f0b98e03c5d6d4fc5bbf54f329a2b2af215f4a5"
+    },
+    {
+      "path": "SIX_GAP_IMPLEMENTATION_STATUS.json",
+      "sha256": "62cab208bfb84325042c0b777e07f3e351e6b74ff985086bfc9eceab3cb93241"
+    },
+    {
+      "path": "NSE_A_A_TIER_STEPLIST_B_TIER.txt",
+      "sha256": "7e3c91975324fcc32c271810befe77a951c2e44f0ea12607a133884eb657b4f4"
+    },
+    {
+      "path": "SIX_GAP_PACKAGE_ASSESSMENT.txt",
+      "sha256": "dfd1d731bfe6b65e52d723136e8cef1e9245ee5c5d51bfcd5e6cd62daae5ee91"
+    },
+    {
+      "path": "BATCH3_SEMANTIC_REVIEW.json",
+      "sha256": "dfcb3a2f6e71cb329658274436ea3d14fa940cfc6845204bda49b2b0fd202097"
+    }
+  ],
+  "closed_parent_ids": [
+    "G05"
+  ],
+  "prior_static_validation": {
+    "status": "PASS_STATIC_ONLY_PENDING_EXTERNAL",
+    "kind": "Native source/manifest/consumer scope preparation; not compiler or kernel acceptance.",
+    "record": "R3_NSE/A-Regularity-class/BATCH1_STATIC_REVIEW.json",
+    "new_formal_acceptance": false,
+    "document_sha256": {
+      "README.md": "f38468001cb85f8be5d64fa2d54149b2eef1daccf1690dd30b7e7eaa64ed76b2",
+      "A_TIER_PLAN.json": "0061655bd72fd23f23e950c3d26702af4b3df58fc5fd601a3df735cbc76ee8c2",
+      "A_TIER_STEPLIST.md": "aef36a57f31c0937db6067ad4f565858e0d04f52e47520d0b3ec26d63901ae84",
+      "NSE_A_A_TIER_STEPLIST_B_TIER.txt": "5dc4e5f03afaba489441ac44698ad03a4a3f3050effefa200ba2e26abc471daf",
+      "NSE_A_FINITE_CHARGE_CLASS_B_TIER.txt": "404dcbd70c2177ddfaf7bb69a340013fdb9e0edfacc64c8909c407d6499c7a2f",
+      "SIX_GAP_A_TIER_TARGETS.txt": "7bfe967256c21f5c0dbaa8d3c60061267611fbf2f4acbb1e65e4327853191159",
+      "SIX_GAP_IMPLEMENTATION_STATUS.json": "bc001ed1900710916e71fefbf0b094f1f957942ff1e23053a41d4e7da8cb2c63",
+      "SIX_GAP_PACKAGE_ASSESSMENT.txt": "da5db9cf74f2db6044b3ed43cc721e2675118dbee604449ac00aa1e3ee8b3396",
+      "BATCH1_STATIC_REVIEW.json": "4ecd7744dc46060d7d46ebcb8c85e016bee961dd6770312aabb411a82ec7055a"
+    }
+  },
+  "current_external_verification": {
+    "tested_commit": "09bcf25110020760d3d93100b8105d2ffba85e61",
+    "run_id": 44820225574,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44820225574",
+    "package_count": 93,
+    "module_count": 496,
+    "named_reports": 987,
+    "new_packages": 7,
+    "new_named_declarations": 134,
+    "new_theorems": 116,
+    "new_definitions_and_instances": 18,
+    "local_lean_executions": 0,
+    "evidence": "audits/material-09bcf251-nse-a-accepted/independent-review.json",
+    "accepted_plan_endpoints": [
+      "P01",
+      "P02",
+      "P03",
+      "P04",
+      "P05",
+      "P06",
+      "P07"
+    ],
+    "parent_targets_closed": 1,
+    "closed_parent_ids": [
+      "G05"
+    ]
+  }
+}

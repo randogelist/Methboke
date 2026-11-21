@@ -1,0 +1,46 @@
+/-- Conditional numerical rewrite. The sixth-power identity is a premise;
+this theorem does not prove a sharp Sobolev inequality. -/
+theorem safeCutoff_eq_pi_formula_of_sixth_power {S M ν : ℝ}
+    (hν : 0 < ν) (hS6 : S ^ 6 = 16 / (27 * Real.pi ^ 4)) :
+    safeCutoff S M ν = 8 * M ^ 4 / (27 * Real.pi ^ 4 * ν ^ 5) := by
+  unfold safeCutoff
+  rw [hS6]
+  field_simp [ne_of_gt hν, Real.pi_ne_zero] <;> ring
+
+/-- Select an admissible strictly subcritical time from the weighted budget.
+The arbitrary full-measure predicate is retained in the selected witness. -/
+theorem exists_good_time_of_product_budget
+    {E D : ℝ → ℝ} {Good : ℝ → Prop} {S M ν : ℝ}
+    (hS : 0 < S) (hν : 0 < ν) (hM : M ≠ 0)
+    (hprod : Integrable (fun t => E t * D t)
+      (volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν))))
+    (hgood : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν)), Good t)
+    (hbudget : (∫ t in Ioo (0 : ℝ) (safeCutoff S M ν), E t * D t) ≤
+      M ^ 4 / (4 * ν)) :
+    ∃ s, 0 < s ∧ s < safeCutoff S M ν ∧ Good s ∧
+      E s * D s < productThreshold S ν := by
+  exact QFA.Endpoints.GoodTime.exists_good_time_of_integral_lt
+    (f := fun t => E t * D t) (Good := Good)
+    (T := safeCutoff S M ν) (c := productThreshold S ν)
+    (safeCutoff_pos hS hν hM) (productThreshold_pos hS hν).le
+    hprod hgood (hbudget.trans_lt (budget_lt_threshold_cutoff hS hν hM))
+
+/-- Derive product integrability and the sharp weighted budget from the actual
+scalar energy envelope before applying the selector. Only the envelope is
+differentiated inside the imported theorem. -/
+theorem exists_good_time_of_energy_envelope
+    {E D : ℝ → ℝ} {Good : ℝ → Prop} {S M ν : ℝ}
+    (hS : 0 < S) (hν : 0 < ν) (hM : M ≠ 0)
+    (hD : IntervalIntegrable D volume (0 : ℝ) (safeCutoff S M ν))
+    (hEm : AEStronglyMeasurable E
+      (volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν))))
+    (hDnn : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν)), 0 ≤ D t)
+    (hEnn : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν)), 0 ≤ E t)
+    (hEF : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν)),
+      E t ≤ QFA.Energy.envelope M ν D t)
+    (hgood : ∀ᵐ t ∂volume.restrict (Ioo (0 : ℝ) (safeCutoff S M ν)), Good t) :
+    ∃ s, 0 < s ∧ s < safeCutoff S M ν ∧ Good s ∧
+      E s * D s < productThreshold S ν := by
+  obtain ⟨hprod, hbudget⟩ := QFA.Energy.product_budget_Ioo
+    (safeCutoff_nonneg S M hν) hν hD hEm hDnn hEnn hEF
+  exact exists_good_time_of_product_budget hS hν hM hprod hgood hbudget

@@ -1,0 +1,20 @@
+theorem StrongSolutionOnIcc.pressureGradient_memLp {ν a b : ℝ} {f u : VelocityField}
+    {p : PressureField} (h : StrongSolutionOnIcc ν f a b u p)
+    {t : ℝ} (ht : t ∈ Ioo a b) (hf : MemLp (fun x => f (t, x)) 2 volume) :
+    MemLp (fun x => NavierStokes.ProblemStatement.pressureGradient p t x) 2 volume := by
+  have htt : t ∈ Icc a b := Ioo_subset_Icc_self ht
+  have hd := h.curve.approximation t htt
+  have had := weakAdvection_memLp (h.curve.spatial_continuous t htt)
+    (mul_nonneg (by norm_num) (h.curve.normAt_nonneg t)) (h.curve.norm_le htt)
+    hd.derivative_memLp
+  have hla : MemLp (weakLaplacian (fun i j x => h.curve.second i j (t, x))) 2 volume := by
+    apply memLp_finsetSum
+    intro i _
+    exact hd.second_memLp i i
+  apply (hf.sub ((h.timeDerivative_memLp t ht).add had) |>.add (hla.const_smul ν)).ae_eq
+  filter_upwards [h.navier_stokes t ht] with x hx
+  change f (t, x) - (h.timeDerivative (t, x) + weakAdvection (fun x => u (t, x))
+    (fun i x => h.curve.first i (t, x)) x) +
+      ν • weakLaplacian (fun i j x => h.curve.second i j (t, x)) x = _
+  rw [← hx]
+  abel

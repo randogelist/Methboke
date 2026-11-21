@@ -1,0 +1,91 @@
+QFA FOUNDATION A-TIER REGISTER
+DATE: 2026-11-20
+REPOSITORY: randogelist/Methboke
+BRANCH: AC-Integration
+TESTED_COMMIT: afd67db40e71bd1412c82247a78598288deb611e
+EXTERNAL_RUN: 44788963412
+STATUS: ACCEPTED_EXACT_SCOPED_FOUNDATIONS
+PROJECT_GOAL: Fefferman_D (unchanged)
+PHYSICAL_QFA_ROOT: OPEN
+WFA_ROOT: OPEN
+LOCAL_LEAN_EXECUTIONS: 0
+
+ACCEPTANCE: matching external compiler, compiled exact-signature consumers and retained type records, named transitive
+axioms, independent source/evidence review, publication and final gate.
+Standard axioms only. All 463 modules, 77 fresh packages and 698 named reports
+plus the fresh QFB cutout passed. The new packages account for 188 reports.
+
+The 35 native theorems below are helpers with their literal stated premises.
+The 19 remaining declarations define/check interfaces; they are not witnesses
+of global NSE existence. The compiler-reported types and axioms for all new declarations
+are retained in audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json.
+
+ACCEPTED NATIVE HELPERS (35)
+1. MethbokeAddon.QuasiFeffermanA.energyStart_iff_qfa
+2. MethbokeAddon.QuasiFeffermanA.LerayHopf.energyProfile
+3. MethbokeAddon.QuasiFeffermanA.LerayHopf.initial_solenoidal
+4. MethbokeAddon.QuasiFeffermanA.LerayHopf.velocity_energy_le_initial
+5. MethbokeAddon.QuasiFeffermanA.LerayHopf.energy_product_budget_Ioo
+6. MethbokeAddon.QuasiFeffermanA.LerayHopf.energyStart_zero
+7. MethbokeAddon.QuasiFeffermanA.LerayHopf.strong_right_trace
+8. MethbokeAddon.QuasiFeffermanA.LerayHopf.strong_initial_trace
+9. MethbokeAddon.QuasiFeffermanA.LerayHopf.restart_energy_data
+10. MethbokeAddon.QuasiFeffermanA.LerayHopf.ae_restart_energy_data
+11. MethbokeAddon.QuasiFeffermanA.LerayHopf.eq_zero_of_initial_eq_zero
+12. MethbokeAddon.QuasiFeffermanA.productThreshold_pos
+13. MethbokeAddon.QuasiFeffermanA.safeCutoff_nonneg
+14. MethbokeAddon.QuasiFeffermanA.safeCutoff_pos
+15. MethbokeAddon.QuasiFeffermanA.safeCutoff_zero
+16. MethbokeAddon.QuasiFeffermanA.threshold_mul_safeCutoff
+17. MethbokeAddon.QuasiFeffermanA.budget_eq_half_threshold_cutoff
+18. MethbokeAddon.QuasiFeffermanA.budget_lt_threshold_cutoff
+19. MethbokeAddon.QuasiFeffermanA.safeCutoff_eq_pi_formula_of_sixth_power
+20. MethbokeAddon.QuasiFeffermanA.exists_good_time_of_product_budget
+21. MethbokeAddon.QuasiFeffermanA.exists_good_time_of_energy_envelope
+22. MethbokeAddon.QuasiFeffermanA.subcritical_measure_ge_half
+23. MethbokeAddon.QuasiFeffermanA.good_set_measure_ge_half_of_product_budget
+24. MethbokeAddon.QuasiFeffermanA.good_time_and_measure_of_energy_envelope
+25. MethbokeAddon.QuasiFeffermanA.LerayHopf.goodRestart_ae
+26. MethbokeAddon.QuasiFeffermanA.LerayHopf.safe_window_good_time_and_measure
+27. MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_restart
+28. MethbokeAddon.QuasiFeffermanA.FourierMultipliers.ae_eq_of_const_smul_real_multiplier_distribution
+29. MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_distribution_eq
+30. MethbokeAddon.QuasiFeffermanA.FourierMultipliers.gradient_fourier_ae
+31. MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_distribution_eq
+32. MethbokeAddon.QuasiFeffermanA.FourierMultipliers.laplacian_fourier_ae
+33. MethbokeAddon.QuasiFeffermanA.fourierNormAEWitnesses_of_schwartzDerivativeWitnesses
+34. MethbokeAddon.QuasiFeffermanA.nativeSpectralRealization_of_schwartzDerivativeWitnesses
+35. MethbokeAddon.QuasiFeffermanA.wholeSpaceSpectralEndpoint
+
+CHECKED NATIVE CONTRACTS AND DEFINITIONS (19)
+1. MethbokeAddon.QuasiFeffermanA.Space
+2. MethbokeAddon.QuasiFeffermanA.SpatialL2
+3. MethbokeAddon.QuasiFeffermanA.Velocity
+4. MethbokeAddon.QuasiFeffermanA.WeakGradient
+5. MethbokeAddon.QuasiFeffermanA.coordinateVector
+6. MethbokeAddon.QuasiFeffermanA.scalarGradient
+7. MethbokeAddon.QuasiFeffermanA.Solenoidal
+8. MethbokeAddon.QuasiFeffermanA.EnergyDatum
+9. MethbokeAddon.QuasiFeffermanA.SpatialWeakGradient
+10. MethbokeAddon.QuasiFeffermanA.MomentumTest
+11. MethbokeAddon.QuasiFeffermanA.momentumTimeIntegrand
+12. MethbokeAddon.QuasiFeffermanA.momentumConvectionIntegrand
+13. MethbokeAddon.QuasiFeffermanA.momentumDissipationIntegrand
+14. MethbokeAddon.QuasiFeffermanA.WeakMomentum
+15. MethbokeAddon.QuasiFeffermanA.EnergyStart
+16. MethbokeAddon.QuasiFeffermanA.LerayHopf
+17. MethbokeAddon.QuasiFeffermanA.productThreshold
+18. MethbokeAddon.QuasiFeffermanA.safeCutoff
+19. MethbokeAddon.QuasiFeffermanA.GoodRestart
+
+SCOPE AND OPEN EDGES
+Concrete whole-space contracts; weighted energy and strong traces for supplied LH paths; half-window energy/weak-gradient trace selection for arbitrary positive scalar S; Fourier spectral endpoint from actual first-derivative and L2 Laplacian distribution witnesses; recovered statements retain their full hypotheses.
+
+Open: physical H1/H2 and admissible spatial-estimate bridges; sharp Sobolev
+constant; global R3 LH nonemptiness; H1 local strong existence/continuation;
+full shifted-LH membership; physical weak-strong comparison; closed smooth
+tails with pressure and energy equality; future uniqueness and the current
+QFA root; WFA and a literal full Fefferman-A bridge.
+
+Historical root inputs and old cutoff remain explicit. No full QFA/WFA or
+Fefferman-A theorem is inferred from the accepted foundations.

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "endpoint": "QFASixChargeBudget",
+  "source_revision_status": "FIRST_MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.QuasiFeffermanA.SixChargeBudget"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.ACBudget",
+      "path": "MethbokeAddon/QuasiFeffermanA/ACBudget.lean",
+      "sha256": "12d2535dd1b9eef07e6742725ecb63c6369d9341b8b4c492a4558e87ec51a574",
+      "imports": [
+        "QFA.Endpoints.Comparison.RelativeEnergy",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SixChargeBudget",
+      "path": "MethbokeAddon/QuasiFeffermanA/SixChargeBudget.lean",
+      "sha256": "eea748751c641073d351731903fdeccab188a6816396991ab8733d96e1f69c98",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.ACBudget"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "local_path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "git_blob_sha": "ac959dee369897576b57f27556302b38079cec8f",
+      "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+      "size_bytes": 10609,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun"
+  ],
+  "local_module_count": 3,
+  "owned_module_count": 2,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "19fe46a81a374a4376825890044120fe645853e36ae94cbf4bccdaf91812ed6e",
+  "validation_boundary": "Nonexecuting source preparation; matching external compiler, expected types and axioms remain required."
+}

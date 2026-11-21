@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "WFBFiniteWindowCrossIdentity",
+  "endpoint_module": "WFBFiniteWindowCrossIdentity.Endpoint",
+  "audit_module": "WFBFiniteWindowCrossIdentity.Audit",
+  "imports": [
+    "MethbokeAddon.WeakFouriermanB.FiniteWindowCrossIdentity"
+  ],
+  "source_roots": [
+    {
+      "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowCrossIdentity",
+      "path": "MethbokeAddon/WeakFouriermanB/FiniteWindowCrossIdentity.lean",
+      "storage": "owned_source",
+      "origin_kind": "original_owned_development_from_pinned_basis",
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+        "path": "Material/_vendor/SingularClosure/CriticalWeakMomentum.lean"
+      }
+    }
+  ],
+  "declarations": [
+    {
+      "name": "MethbokeAddon.WeakFouriermanB.finite_window_weak_classical_cross_identity",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/MethbokeAddon/WeakFouriermanB/FiniteWindowCrossIdentity.lean",
+        "module": "MethbokeAddon.WeakFouriermanB.FiniteWindowCrossIdentity",
+        "revision_status": "FIRST_EXTERNAL_COMMIT_PENDING",
+        "derivation_basis": {
+          "repository": "randogelist/Methboke",
+          "revision": "0402aa37ea09f90a216e63e5fe67c3f58bb2b844",
+          "path": "Material/_vendor/SingularClosure/CriticalWeakMomentum.lean"
+        }
+      },
+      "scope": "Exact new owned declaration with all explicit premises retained; basis is not the historical location of this theorem."
+    }
+  ],
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Actual weak-momentum cross identity with the classical NSE equation and pressure premises restricted to a finite compact interval.",
+  "status": "PENDING_EXTERNAL_CI",
+  "source_layout": "New owned sources under MethbokeAddon; complete pinned vendor dependencies under _vendor; exact public dependency lock retained.",
+  "type_policy": "Each public named theorem has an independent full signature assertion and fresh complete type/axiom sentinels; private proof helpers are covered by transitive theorem-level axiom audits.",
+  "new_finite_cap_theorem_included": false,
+  "whole_wfb_obligation_completed": false
+}

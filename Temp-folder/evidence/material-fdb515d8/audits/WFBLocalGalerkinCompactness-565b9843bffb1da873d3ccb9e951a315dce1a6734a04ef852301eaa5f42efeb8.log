@@ -1,0 +1,40 @@
+WFBLocalGalerkinCompactness/Audit.lean:13:13: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinCompactness/Audit.lean:14:13: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinCompactness/Audit.lean:15:5: warning: Variable name `hH2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hH2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence
+MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : SingularClosure.Field) (ha : SingularClosure.SmoothSigmaZero a) (T : ℝ),
+  LT.lt.{0} 0 T →
+    ∀ (S : ℝ),
+      LE.le.{0} 0 S →
+        (∀ (N : ℕ),
+            LE.le.{0} 1 N →
+              ∀ (g : SingularClosure.GalerkinSolution ν a N),
+                LE.le.{0} (∫ (t : ℝ) in 0..T, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (g.sobolevState 2 t)) 2) S) →
+          ∃ u φ,
+            StrictMono.{0, 0} φ ∧
+              TendstoUniformly.{0, 0, 0}
+                (fun n t =>
+                  (SingularClosure.canonicalGalerkinSolution ν hν a ha (HAdd.hAdd.{0, 0, 0} (φ n) 1)).sobolevState 0 ↑t)
+                (⇑u) Filter.atTop.{0}
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence
+'MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_canonical_galerkin_H0_uniform_subsequence

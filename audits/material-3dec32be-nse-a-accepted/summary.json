@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "3dec32be2868f4a798e442d3516fb810d97db737",
+  "run_id": 44810272232,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44810272232",
+  "artifact_sha256": "bd3ae90185c28641d39c9bb4bcb70f838a0dce83136e00820c4ab965410ae265",
+  "artifact_bytes": 798488,
+  "report_sha256": "16e7716eacca6eaf57355903513309852f038d6395016d0c1836eecdce1adec9",
+  "checks_passed": 3327,
+  "module_count": 481,
+  "package_count": 86,
+  "named_reports": 853,
+  "all_package_audits_fresh": true,
+  "new_packages": 9,
+  "new_named_declarations": 155,
+  "new_theorems": 126,
+  "new_definitions_and_instances": 29,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "metrics": {
+    "audit_fresh_count": 86,
+    "audit_reused_count": 0,
+    "audit_seconds": 172.064,
+    "build_seconds": 46.184,
+    "cache_seconds": 9.272,
+    "fresh_loc": 1884,
+    "fresh_module_count": 18,
+    "module_count": 481,
+    "rerun_receipt_seconds": 0.302,
+    "reused_loc": 56641,
+    "reused_module_count": 463,
+    "target_loc": 58525
+  },
+  "total_seconds": 228.181,
+  "dependency_cache_class": "EXACT",
+  "project_cache_class": "PREFIX",
+  "final_acceptance_gate": true,
+  "publication_pass": true,
+  "qfb_cutout_pass": true,
+  "publication_evidence": "Original structured routing artifact, matching GitHub artifact/run/job metadata and terminal acceptance-job log.",
+  "routing_artifact_sha256": "584771b35a32ebb50f47274f072d5a4656e2a1111b6e30fde8e413b7e31d946a",
+  "full_worker_console_log_retrieval": "Connector returned Transport closed twice; unauthenticated fallback returned HTTP403. Full compiler/type/axiom logs remain in evidence.zip; exact publication step outcomes remain in routing-evidence.zip.",
+  "local_lean_executions": 0,
+  "parent_targets_closed": 0,
+  "physical_qfa_root_proved": false,
+  "universal_budget_finiteness_proved": false,
+  "scope_limits": [
+    "Acceptance is for the exact nine scoped helper packages; G01--G06 remain open.",
+    "Supplied-gradient Fourier equivalence does not construct arbitrary weighted gradient witnesses.",
+    "Complex L2 projectors do not yet establish the real physical H1/solenoidal lift.",
+    "Scalar and physical-observable budget helpers retain their explicit PDE/path hypotheses.",
+    "Independent B-tier analytical chains are not native Lean verification."
+  ],
+  "new_package_scopes": [
+    {
+      "id": "QFAPhysicalH1",
+      "declarations": 46,
+      "audit_sha256": "540c43f970c06d471adc28016950887455498bfb71eda01c838c8b83d2c205dc",
+      "scope": "Actual real compact-test gradient uniqueness; complete physical H1 and solenoidal H1 Hilbert graphs, exact norm and Schwartz admission.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+          "sha256": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8"
+        }
+      ],
+      "audit_source_sha256": "cadcc0952f4edcc3c187323038bb2edacd3e13e615cf3e604648f3c54e8fd101",
+      "consumer_examples": 55,
+      "theorems": 28,
+      "definitions_and_instances": 18
+    },
+    {
+      "id": "QFAACBudget",
+      "declarations": 9,
+      "audit_sha256": "8ae27238dd127d6d8116ad8bc29194d3d9854c1e5422878b63a308faf45446a9",
+      "scope": "Scalar AC-to-Volterra comparison, integral Gronwall and uniform bound from an explicitly finite full stopped square budget.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/ACBudget.lean",
+          "sha256": "12d2535dd1b9eef07e6742725ecb63c6369d9341b8b4c492a4558e87ec51a574"
+        }
+      ],
+      "audit_source_sha256": "30111425c3499b89bfb62c3442c22c62b00985f5645090bc508e20048fef4d50",
+      "consumer_examples": 9,
+      "theorems": 8,
+      "definitions_and_instances": 1
+    },
+    {
+      "id": "QFASixChargeBudget",
+      "declarations": 16,
+      "audit_sha256": "1a4a7b06ebc9693d3e372a2c13da05418b5e2bca16a5798ce0c529968bb3a580",
+      "scope": "Actual finite-six inequalities and full ENNReal budget comparison/finiteness; scalar AC composition under explicit same-path additivity.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/SixChargeBudget.lean",
+          "sha256": "eea748751c641073d351731903fdeccab188a6816396991ab8733d96e1f69c98"
+        }
+      ],
+      "audit_source_sha256": "eb5fc7f6256ce28b2d0eda6e6cce8a2013cd475f8091b39eeed6b83e0019fc83",
+      "consumer_examples": 21,
+      "theorems": 14,
+      "definitions_and_instances": 2
+    },
+    {
+      "id": "QFAH1Fourier",
+      "declarations": 8,
+      "audit_sha256": "6a1238cbe02be5e1dfba631f7340a0dec4740f4f75a17fc9fb43b5679471c316",
+      "scope": "Forward first-derivative Fourier identity from literal native compact real tests, with no Laplacian or H2 premise.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/H1Fourier.lean",
+          "sha256": "565edf7f029712801da88586f997677d5f0e964a804714d02a07ac20e1b72a4c"
+        }
+      ],
+      "audit_source_sha256": "4beea0db2739b430566b65975c3491bbf528e9618d8647bf62f90a0df89227c4",
+      "consumer_examples": 14,
+      "theorems": 8,
+      "definitions_and_instances": 0
+    },
+    {
+      "id": "QFAH1FourierReverse",
+      "declarations": 8,
+      "audit_sha256": "a44391ead7842a2b76dd85a81a855e084c87016e9bd751d05cc530fd805fdb8d",
+      "scope": "Two-way first-derivative Fourier identification of supplied actual real L2 velocity and gradient fields, without Laplacian, H2, NSE, or extra spectral-integrability premises.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean",
+          "sha256": "ff3ea4e617028a35e3645a7b8d869b5598def0646953d1ef256d82fececdaa3a"
+        }
+      ],
+      "audit_source_sha256": "0f94a0b5a1b4880e52f0643683e07b4e089f4ccc987e9a0cf588cb8cbf0cd13e",
+      "consumer_examples": 14,
+      "theorems": 8,
+      "definitions_and_instances": 0
+    },
+    {
+      "id": "QFAPhysicalH1Budget",
+      "declarations": 15,
+      "audit_sha256": "30412b835181e0e6804d4856b73191903faa30273c101f0251c40e6af83bf1b2",
+      "scope": "Actual physical H1 energy/enstrophy observables and norm identity; finite full budgets from full closed-slab path continuity; uniform H1 bounds under explicit energy, AC/cubic, and finite full-budget premises.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Budget.lean",
+          "sha256": "be0fdfa70d83feae2bbe93a5cbff0ca66718ccf56ce8584c43db6c08709d1223"
+        }
+      ],
+      "audit_source_sha256": "316044b45a42bda080da65ead00ad640344f953da36d61ef490e2d9917ee8196",
+      "consumer_examples": 17,
+      "theorems": 13,
+      "definitions_and_instances": 2
+    },
+    {
+      "id": "QFASixSectors",
+      "declarations": 17,
+      "audit_sha256": "6e60277292ec954c344ff4a3afb1b1fb749fe301a8fa54da318f9177294c7495",
+      "scope": "Exact six even Borel cones on physical Euclidean R3 with lower-index tie priority, unique pointwise partition, nonempty interiors and actual real indicator algebra; no physical Fourier projector or NSE construction.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/SixSectors.lean",
+          "sha256": "8f2f6cbe9c43370c93a3c4fb0520837e5cf188755121d833fc25f182ceb2c920"
+        }
+      ],
+      "audit_source_sha256": "af15ba21b6a6bd03fd24e05f9638484404caa7f939e3f4dcac052c29759a6a38",
+      "consumer_examples": 18,
+      "theorems": 15,
+      "definitions_and_instances": 2
+    },
+    {
+      "id": "QFAEnstrophyCoefficient",
+      "declarations": 8,
+      "audit_sha256": "85c99e037afe5aadf9583e3a636bbb2d83e91bc7173f1e8e2757eca3c5512c92",
+      "scope": "Exact scalar fourth-power Young coefficient extraction and conditional AC/full-stopped-budget composition; actual spatial and PDE admission remains explicit.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/EnstrophyCoefficient.lean",
+          "sha256": "c3f13589893a5710cd25e7eb38fa0f10cd34434f6f915331798cdb2adae354af"
+        }
+      ],
+      "audit_source_sha256": "b1e2c6cdbf04de537302f28b7844230ba66f6eb2114b214f04bf5ed720dab8eb",
+      "consumer_examples": 8,
+      "theorems": 8,
+      "definitions_and_instances": 0
+    },
+    {
+      "id": "QFASixSectorL2",
+      "declarations": 28,
+      "audit_sha256": "2c3cf314817e86995a73073229c3e3e0b9eae7a64ea6ae163f5b1a33adb67178",
+      "scope": "Constructed complex-vector full-volume L2 sector restrictions and Fourier-conjugate projections: bounded linearity, idempotence, orthogonality, reconstruction, exact norm splitting and supplied scalar multiplier commutation. Native real-range/H1/solenoidal adapters remain open.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean",
+          "sha256": "f7b96ffc83a2bfea6fec9cd148871a3a0069188569f4c536998279d276412031"
+        }
+      ],
+      "audit_source_sha256": "45b27f078a1e0a12dd0a4ea1e5e2fd7aca9325f0885dbe0c30ef3b3b8b1b2684",
+      "consumer_examples": 31,
+      "theorems": 24,
+      "definitions_and_instances": 4
+    }
+  ],
+  "accepted_plan_endpoints": [
+    "P01",
+    "P02",
+    "P03"
+  ],
+  "artifact_id": 14665975309,
+  "routing_artifact_id": 14665622186,
+  "binary_artifact_id": 14667840144,
+  "binary_artifact_sha256": "b5871de0a999be5ed213a22190cc1c39585283f6f2b5cbd15169a15a5d956a01"
+}

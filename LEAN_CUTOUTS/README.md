@@ -2,6 +2,14 @@
 
 The [Ehrenfest identity collection](../T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/LEAN_CUTOUTS/README.md) contains 60 source-exact reference excerpts and 36 complete pinned source snapshots. Start with its [fast-route reading order](../T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/LEAN_CUTOUTS/FAST_IDENTITIES.md). This collection has no new compilation or formal acceptance.
 
+## NSE-A regularity-class source collection
+
+The [NSE-A collection](../R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md)
+contains 51 exact reference cutouts and 60 pinned source snapshots, with a
+ranked gap assessment and links from the cumulative B-tier TXT. These are
+source references; the audited standalone QFB cutout below retains its own
+unchanged acceptance scope.
+
 ## Native QFB root cutout
 
 `Cutouts.lean` contains the original QFB root interface and its complete proof

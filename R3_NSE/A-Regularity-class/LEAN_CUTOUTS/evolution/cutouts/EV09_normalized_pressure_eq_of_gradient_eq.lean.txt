@@ -1,0 +1,23 @@
+theorem normalized_pressure_eq_of_gradient_eq
+    {p q : Vec → ℝ}
+    (hp : ContDiff ℝ ∞ p) (hq : ContDiff ℝ ∞ q)
+    (hpmean : PressureMeanZero p) (hqmean : PressureMeanZero q)
+    (hgrad : ∀ x : Vec, SingularClosure.gradient p x = SingularClosure.gradient q x) : p = q := by
+  have hpD : Differentiable ℝ p := hp.differentiable (by simp)
+  have hqD : Differentiable ℝ q := hq.differentiable (by simp)
+  have hzero (x : Vec) : fderiv ℝ (fun y : Vec => p y - q y) x = 0 := by
+    change fderiv ℝ (p - q) x = 0
+    rw [fderiv_sub (hpD x) (hqD x),
+      scalar_fderiv_eq_of_gradient_eq (hgrad x), sub_self]
+  have hconstant : (fun x : Vec => p x - q x) =
+      (fun _ : Vec => p 0 - q 0) := by
+    funext x
+    exact is_const_of_fderiv_eq_zero (hpD.sub hqD) hzero x 0
+  have hc : p 0 - q 0 = 0 := by
+    calc
+      p 0 - q 0 = ∫ x in unitCube, p x - q x := by
+        rw [hconstant, pressure_integral_unitCube_const]
+      _ = 0 := by
+        rw [integral_sub hpmean.1 hqmean.1, hpmean.2, hqmean.2, sub_self]
+  funext x
+  exact sub_eq_zero.mp ((congrFun hconstant x).trans hc)

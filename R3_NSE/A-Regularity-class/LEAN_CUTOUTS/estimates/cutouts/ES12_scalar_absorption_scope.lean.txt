@@ -1,0 +1,18 @@
+/-- A purely scalar absorption step for an already supplied enstrophy inequality.
+
+The real number `d` denotes its derivative value; this theorem asserts no
+derivative existence or Navier--Stokes identity.
+-/
+theorem ScalarProfile.enstrophy_absorption
+    {E D Z A N d ν : ℝ} (h : ScalarProfile E D Z A N)
+    (hEnstrophy : d / 2 + ν * Z ≤ N) :
+    d + 2 * (ν - nonlinearCoefficient E D) * Z ≤ 0 := by
+  have hNonlinear := h.nonlinear_le_coefficient
+  nlinarith only [hEnstrophy, hNonlinear]
+
+/-- Positive uniform dissipation margin under the strict product threshold. -/
+theorem ScalarProfile.viscosity_margin_pos
+    {E D Z A N ν : ℝ} (h : ScalarProfile E D Z A N) (hν : 0 < ν)
+    (hSmall : E * D < 4 * Real.pi ^ 2 * ν ^ 4) :
+    0 < ν - nonlinearCoefficient E D :=
+  sub_pos.mpr (nonlinearCoefficient_lt_viscosity h.energy_nonneg h.gradient_nonneg hν hSmall)

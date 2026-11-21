@@ -1,0 +1,40 @@
+PHYSICAL H1 DIVERGENCE AS AN ACTUAL L2 GRADIENT TRACE
+Date:2026-11-20
+Scope:G05/P05 solenoidal preservation dependency
+Status:B_TIER_COMPLETE_FOR_STATED_NATIVE_H1_INPUT
+No local Lean/Lake/kernel execution.
+
+Let v and G_j be actual full-volume real vector L2 classes satisfying the
+native compact-test first weak-gradient equations. Let e0 be the first
+coordinate unit vector. Define the bounded real vector map A_j z=z_j e0,
+its actual compLpL lift A_j:L2->L2, and T(G)=sum_j A_j G_j in vector L2.
+This embeds the scalar divergence in a fixed nonzero vector direction;
+it is an actual trace of supplied weak derivatives, not an assumed port.
+
+For every smooth compact scalar test phi, all pairings below are integrable
+by local L2 integrability and compact continuous test support. Bounded
+linear maps commute with these genuine Bochner integrals. Apply A_j to
+the native vector weak-derivative identity, then sum the three components:
+  integral phi T(G)
+    =-sum_j A_j(integral (partial_j phi) v)
+    =-(integral sum_j v_j partial_j phi)e0
+    =-(integral <v,grad phi>)e0.
+Finite sums and integrals interchange because each summand is integrable.
+The native scalarGradient and Euclidean inner product have exactly this
+coordinate expansion. No pressure, PDE or H2 premise is required.
+
+If Solenoidal(v), the right side vanishes for every such phi. Compact smooth
+test separation for locally integrable vector fields makes T(G)=0 a.e.,
+and Lp.ext gives equality to the zero L2 class. Conversely, T(G)=0 makes
+the right side zero. Taking coordinate0 and using (e0)_0=1 proves the
+literal solenoidal test integral is zero. Its integrability follows from
+the accepted actual compact-test gradient L2 pairing construction.
+Therefore SpatialWeakGradient(v,G) implies
+  Solenoidal(v) iff T(G)=0.
+
+For each six-sector projection Q, the separate naturality construction
+must prove Q(A_j f)=A_j(Q f). Together with linearity, derivative commutation
+and Q(0)=0, this criterion then gives actual solenoidal preservation.
+The criterion alone does not assert that remaining commutation or close P05.
+Prepared Lean source requires exact cached external compiler/full consumers/
+named standard-only axiom evidence before any A-tier designation.
