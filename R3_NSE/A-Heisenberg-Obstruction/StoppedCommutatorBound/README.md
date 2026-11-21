@@ -1,3 +1,28 @@
+# R3 stopped-commutator construction — accepted foundations, open root
+
+CURRENT R3 FOUNDATION ACCEPTANCE — LITERAL ROOT REMAINS OPEN
+
+Source 1d4a9324f2cfb576f8a389da0e354da29ef7dbde; Material run44875907550.
+All 668 modules passed (654 compatible reuses, 14 fresh compilations).
+All 176 package audits were fresh: 2,323 named reports plus fresh QFB.
+Seven new packages /111 declarations are accepted, with only the standard
+axioms propext, Classical.choice and Quot.sound. The separate R3 foundation
+job passed 25 fresh package audits /489 named reports from 69 cached modules.
+Independent review preserved all 2,212 old exact types, axiom sets and package
+identities and verified all 668 object hashes /846 archive members /177 logs.
+Receipt: [source-specific acceptance](../../../audits/r3-ehrenfest-1d4a9324-accepted/summary.json).
+This accepts the named contract, cutoff, carrier, weak-derivative, approximation,
+Fourier inverse and smooth-representative foundations. I01-I03 retain their
+listed remaining substeps. The native R3 root remains OPEN_NO_NATIVE_ROOT;
+the actual canonical flow, cutoff-uniform stability and literal closed-slab
+Sobolev admission remain unproved. No stopped-bound witness is constructed.
+An eight-name derivative-coherence candidate is retained as inactive .lean.txt
+material under NEXT_LAYER_CANDIDATE and is not accepted or registered.
+The exact earlier source receipt is preserved on a later documentation head;
+that head's separate matching external status is read from the live branch.
+
+## Retained preparation and failed-run history
+
 # Whole-space stopped-commutator obstruction
 
 The selected target is the R3 analogue of the accepted periodic conditional
@@ -54,7 +79,7 @@ report. Only authorized cached external CI executes Lean.
 [Run 44872662109](https://github.com/randogelist/Methboke/actions/runs/44872662109)
 rejected the first candidate on two Lean Fourier-map rewrite mismatches.
 The repaired statements are unchanged. No new audited scope was accepted in
-that attempt; its [receipt](../../../../audits/r3-ehrenfest-ba451454-failed/summary.json)
+that attempt; its [receipt](../../../audits/r3-ehrenfest-ba451454-failed/summary.json)
 is retained. The source-count check passed at the exact attempted commit.
 
 The next prepared batch has seven packages and 111 named declarations. Its
@@ -65,7 +90,7 @@ this is source preparation, with external acceptance still pending.
 
 [Run 44873417429](https://github.com/randogelist/Methboke/actions/runs/44873417429)
 compiled Contracts, SharpCutoff and Carrier, then rejected later elaboration
-failures. The [exact failed receipt](../../../../audits/r3-ehrenfest-aa0fd8ee-failed/summary.json)
+failures. The [exact failed receipt](../../../audits/r3-ehrenfest-aa0fd8ee-failed/summary.json)
 is retained. The third candidate repairs explicit types and namespace resolution
 with all 111 declaration statements unchanged. No new audited scope is accepted
 until the full gate and the scoped R3 audit pass.
@@ -75,7 +100,7 @@ until the full gate and the scoped R3 audit pass.
 [Run 44874347518](https://github.com/randogelist/Methboke/actions/runs/44874347518) failed before full acceptance.
 Five new source modules compiled, including Bandlimited and FourierL1L2. Approximation retained one scalar zero-power simplification error. SmoothRepresentative was reached and reported notation, measurable-ball inference, Fourier-map specialization and function-composition errors.
 Explicit scalar-zero simplification, unambiguous ENNReal/top notation, typed measurable ball, real-linear Fourier-map specialization and explicit function composition. The seven-package/111-declaration scope and theorem statements are preserved.
-The [exact receipt](../../../../audits/r3-ehrenfest-66461374-failed/summary.json) is retained.
+The [exact receipt](../../../audits/r3-ehrenfest-66461374-failed/summary.json) is retained.
 All seven packages remain candidates pending matching full and scoped audits.
 
 ## External attempt 4
@@ -83,5 +108,5 @@ All seven packages remain candidates pending matching full and scoped audits.
 [Run 44874923670](https://github.com/randogelist/Methboke/actions/runs/44874923670) failed before full acceptance.
 Six new source modules and their endpoints compiled, including SmoothRepresentative. Approximation had one remaining diagnostic: an untyped power in a local scalar equality did not simplify to the expected natural-number square.
 Explicit real codomain and natural exponent in the local norm-square equality; all 111 public declarations and independent consumers are unchanged.
-The [exact receipt](../../../../audits/r3-ehrenfest-b12c1e9b-failed/summary.json) is retained.
+The [exact receipt](../../../audits/r3-ehrenfest-b12c1e9b-failed/summary.json) is retained.
 All seven packages remain candidates pending matching full and scoped audits.

@@ -28,7 +28,7 @@ results, explicit hypotheses and source-specific evidence retain their status.
 | **WFB** | `!!!` | Real exact-type and axiom audits | Formal closure of the full-Fourier-budget implication; budget hypothesis retained |
 | **QFA** | `!=` | Dummy/pending | B-tier tail theorem for general solenoidal $L^2$ data established; complete general Lean root pending |
 | **QFB** | `!!!!` | Real exact-root and standalone-cutout audits | Closed in its exact post-cutoff scope: smooth tails, tail energy equality and uniqueness of the Leray–Hopf future from each solution's own trace |
-| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN; foundations in construction** | Real foundation audit, root open | Literal NSE-A, actual cutoff and carrier/derivative layers; conditional root remains open |
+| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN; 111 named foundations accepted** | Real foundation audit, root open | Seven packages accepted at 1d4a9324/run44875907550; canonical flow, stability, literal admission and conditional root remain open |
 | **SIGNULAR-PREMISE OBSTRUCT T3** | **`!!!!` — conditional on axiom** | Real exact conditional-theorem audits | Closed relative to the explicit `StoppedCommutatorBound` axiom for positive viscosity |
 
 Here `!=` records a complete B-tier derivation and `!!!` records formal
@@ -75,9 +75,15 @@ source revision.
 
 ### Active R3 construction branch
 
+The first seven foundation packages are [externally accepted](audits/r3-ehrenfest-1d4a9324-accepted/summary.json)
+at source `1d4a9324`: 111 new declarations, full Material acceptance and the
+R3 goal audit passed. All 2,212 retained declaration identities are unchanged.
+See the [native progress index](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_NATIVE_PROGRESS.txt)
+for the exact names and boundaries. The literal single-premise root remains open.
+
 The branch [codex/nse-a-r3-ehrenfest](https://github.com/randogelist/Methboke/tree/codex/nse-a-r3-ehrenfest)
 implements the assented [sixteen-step plan](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_B_TIER.txt).
-The first candidates fix literal NSE-A and construct the actual sharp Fourier
+The accepted foundation batch fixes literal NSE-A and constructs the actual sharp Fourier
 cutoff, complete solenoidal carrier, real weak derivative machinery, strong
 and compact-uniform approximation, and smooth bounded representatives.
 See the [implementation ledger](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json)

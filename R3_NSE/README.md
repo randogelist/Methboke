@@ -98,3 +98,12 @@ single-premise obstruction architecture. See the [cumulative plan, Lean index
 and ledger](A-Heisenberg-Obstruction/StoppedCommutatorBound/README.md).
 New native foundations require matching external audits. The conditional root
 remains open. Existing QFA, NSE-A and FDSN evidence retains its exact scope.
+
+## R3 obstruction foundation acceptance
+
+Seven packages /111 new declarations passed full Material and the scoped R3
+foundation audit at `1d4a9324`, run44875907550. The
+[receipt](../audits/r3-ehrenfest-1d4a9324-accepted/summary.json) preserves the
+exact source/type/axiom scope. The literal obstruction root remains open;
+canonical dynamics, cutoff-uniform comparison and literal Sobolev admission
+remain required. The next derivative-coherence candidate is inactive text.

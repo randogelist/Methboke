@@ -22,7 +22,11 @@ R3 obstruction construction from main at `5f53d3eb320cc3860a9f28384a825349e0df5e
 The current six goals are preserved; the selected local target is
 `SINGULAR_PREMISE_OBSTRUCT_R3`. Follow the assented I01-I16 architecture.
 Only matching external audits lift individual scopes; the literal root stays
-open until its exact implication is proved. Read
+open until its exact implication is proved. The first seven packages /111 named
+foundations are accepted at 1d4a9324/run44875907550 with complete canonical
+and scoped audits; see audits/r3-ehrenfest-1d4a9324-accepted/summary.json.
+The inactive eight-name derivative-coherence text is unverified and excluded
+from the accepted scope. Preserve this distinction and all open root gaps. Read
 `R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json`.
 
 The user-authorized integration was promoted by non-force
