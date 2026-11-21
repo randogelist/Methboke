@@ -14,6 +14,19 @@ $p(t,0)=0$. **These new files are pending matching external verification.**
 [Scoped derivation](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt) ·
 [QFA integration status](R3_NSE/QFA/INTEGRATION_STATUS.json)
 
+
+## First QFA candidate verification and repair
+
+[Run44845214610](https://github.com/randogelist/Methboke/actions/runs/44845214610)
+passed 513 of 520 modules, including the new exact root contract. Two new
+modules failed proof elaboration; five dependents were blocked. No package
+audits or new acceptance followed. The repair uses the pinned inner-product
+and positive-factor cancellation lemmas, explicit heat continuity, precise
+scalar-norm simplification, and explicit inverse nonnegativity. Public
+statements, hypotheses and audit consumers are unchanged.
+[Original failure evidence](audits/material-293db84a-qfa-failed/independent-review.json).
+A matching external retry is required; no local Lean was executed.
+
 ## Latest accepted native basis
 
 **Source `d403c235` is fully accepted**, [run 44837033211](https://github.com/randogelist/Methboke/actions/runs/44837033211):

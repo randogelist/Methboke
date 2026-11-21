@@ -61,7 +61,7 @@ theorem heatRate_mul_heatValue_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 < t)
             Real.exp (-((ν : ℝ) * (t : ℝ) * heatRate ξ)) := by ring
       _ ≤ Real.exp (-1) := Real.mul_exp_neg_le_exp_neg_one _
       _ ≤ 1 := Real.exp_le_one_iff.mpr (by norm_num)
-  apply (mul_le_mul_left hprod).mp
+  apply (mul_le_mul_iff_left₀ hprod).mp
   simpa only [mul_inv_cancel₀ (ne_of_gt hprod)] using hbound
 
 private theorem heatRate_mul_heatValue_sq_le (ν t : ℝ≥0)
@@ -82,7 +82,7 @@ def heatHessianValue (ν t : ℝ≥0) (j k : Fin 3) (ξ : Space) : ℝ :=
 
 theorem heatHessianValue_continuous (ν t : ℝ≥0) (j k : Fin 3) :
     Continuous (heatHessianValue ν t j k) := by
-  unfold heatHessianValue
+  unfold heatHessianValue heatValue
   fun_prop
 
 theorem heatHessianValue_even (ν t : ℝ≥0) (j k : Fin 3) (ξ : Space) :
@@ -244,8 +244,8 @@ theorem heatH1ToH2_laplacian_norm_sq_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 
             ‖(𝓕 (complexifyL2 (physicalH1Velocity u)) : ComplexL2) ξ‖ ^ 2) := by
       apply integral_mono_ae hA hB
       filter_upwards [heatL2_fourier_ae ν t (physicalH1Velocity u)] with ξ hξ
-      rw [heatH1ToH2_velocity, hξ, norm_smul, mul_pow, Complex.norm_real,
-        Real.norm_eq_abs, sq_abs]
+      rw [heatH1ToH2_velocity, hξ, norm_smul, Complex.norm_real,
+        Real.norm_eq_abs, abs_of_pos (heatValue_pos ν t ξ)]
       have hb := mul_le_mul_of_nonneg_right (heatRate_mul_heatValue_sq_le ν t hν ht ξ)
         (mul_nonneg (heatRate_nonneg ξ)
           (sq_nonneg ‖(𝓕 (complexifyL2 (physicalH1Velocity u)) : ComplexL2) ξ‖))
@@ -273,8 +273,10 @@ theorem heatH1ToH2_norm_sq_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 < t)
         ‖u‖ ^ 2 + ((ν : ℝ) * (t : ℝ))⁻¹ * physicalH1Enstrophy u :=
       heatH1ToH2_norm_sq_le_energy_enstrophy ν t hν ht u
     _ ≤ ‖u‖ ^ 2 + ((ν : ℝ) * (t : ℝ))⁻¹ * ‖u‖ ^ 2 := by
+      have hinv : 0 ≤ ((ν : ℝ) * (t : ℝ))⁻¹ :=
+        inv_nonneg.mpr (mul_nonneg ν.property t.property)
       exact add_le_add_left
-        (mul_le_mul_of_nonneg_left (physicalH1Enstrophy_le_norm_sq u) (by positivity)) _
+        (mul_le_mul_of_nonneg_left (physicalH1Enstrophy_le_norm_sq u) hinv) _
     _ = _ := by ring
 
 theorem norm_heatH1ToH2_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 < t)

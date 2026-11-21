@@ -166,7 +166,7 @@ theorem zeroDatum_initial_dissipation_eq_zero
   rw [zeroDatum_velocity_eq_zero h hν.le ht] at he
   simp only [velocityEnergy, norm_zero, zero_pow (by norm_num : (2 : ℕ) ≠ 0), zero_add] at he
   have hDle : (∫ r in (0 : ℝ)..t, gradientEnergy (G r)) ≤ 0 := by
-    apply (mul_le_mul_left (show 0 < 2 * ν by positivity)).mp
+    apply (mul_le_mul_iff_left₀ (show 0 < 2 * ν by positivity)).mp
     simpa only [mul_zero] using he
   exact le_antisymm hDle hD
 

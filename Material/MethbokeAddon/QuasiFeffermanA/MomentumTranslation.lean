@@ -125,21 +125,21 @@ private theorem momentumTimeIntegrand_restart_zero (s : ℝ) (hs : 0 ≤ s)
     momentumTimeIntegrand u (φ.restart s hs) t x = 0 := by
   simp only [momentumTimeIntegrand, MomentumTest.restart_time_fderiv,
     φ.time_fderiv_eq_zero_of_nonpos (sub_nonpos.mpr ht) x,
-    ContinuousLinearMap.zero_apply, inner_zero]
+    ContinuousLinearMap.zero_apply, inner_zero_right]
 
 private theorem momentumConvectionIntegrand_restart_zero (s : ℝ) (hs : 0 ≤ s)
     (u : Velocity) (φ : MomentumTest) {t : ℝ} (ht : t ≤ s) (x : Space) :
     momentumConvectionIntegrand u (φ.restart s hs) t x = 0 := by
   simp only [momentumConvectionIntegrand, MomentumTest.restart_spatial_fderiv,
     φ.spatial_fderiv_eq_zero_of_nonpos (sub_nonpos.mpr ht) x,
-    ContinuousLinearMap.zero_apply, inner_zero, mul_zero, Finset.sum_const_zero]
+    ContinuousLinearMap.zero_apply, inner_zero_right, mul_zero, Finset.sum_const_zero]
 
 private theorem momentumDissipationIntegrand_restart_zero (s : ℝ) (hs : 0 ≤ s)
     (G : WeakGradient) (φ : MomentumTest) {t : ℝ} (ht : t ≤ s) (x : Space) :
     momentumDissipationIntegrand G (φ.restart s hs) t x = 0 := by
   simp only [momentumDissipationIntegrand, MomentumTest.restart_spatial_fderiv,
     φ.spatial_fderiv_eq_zero_of_nonpos (sub_nonpos.mpr ht) x,
-    ContinuousLinearMap.zero_apply, inner_zero, Finset.sum_const_zero]
+    ContinuousLinearMap.zero_apply, inner_zero_right, Finset.sum_const_zero]
 
 /-- Exact translation of the positive half-line with its restricted Lebesgue measure. -/
 theorem timeTranslate_measurePreserving_Ioi (s : ℝ) :
