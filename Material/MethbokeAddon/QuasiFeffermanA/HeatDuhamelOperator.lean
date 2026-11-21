@@ -42,11 +42,13 @@ private def responseLinearMap (ν : ℝ≥0) (T : ℝ) (hT : 0 ≤ T) :
   map_add' F G := by
     apply ContinuousMap.ext
     intro t
-    change duhamelL2 ν ((F + G) : ℝ → SpatialL2) (t : ℝ) =
+    change duhamelL2 ν ((F + G : Lp SpatialL2 2 (volume.restrict (Ioc (0 : ℝ) T))) :
+        ℝ → SpatialL2) (t : ℝ) =
       duhamelL2 ν (F : ℝ → SpatialL2) (t : ℝ) +
         duhamelL2 ν (G : ℝ → SpatialL2) (t : ℝ)
     calc
-      duhamelL2 ν ((F + G) : ℝ → SpatialL2) (t : ℝ) =
+      duhamelL2 ν ((F + G : Lp SpatialL2 2 (volume.restrict (Ioc (0 : ℝ) T))) :
+          ℝ → SpatialL2) (t : ℝ) =
           duhamelL2 ν (fun s => F s + G s) (t : ℝ) :=
         duhamelL2_ae_eq ν _ _ T (Lp.coeFn_add F G) (t : ℝ) t.property.1 t.property.2
       _ = _ := duhamelL2_add ν _ _ T (Lp.memLp F) (Lp.memLp G)
@@ -54,10 +56,12 @@ private def responseLinearMap (ν : ℝ≥0) (T : ℝ) (hT : 0 ≤ T) :
   map_smul' c F := by
     apply ContinuousMap.ext
     intro t
-    change duhamelL2 ν ((c • F) : ℝ → SpatialL2) (t : ℝ) =
+    change duhamelL2 ν ((c • F : Lp SpatialL2 2 (volume.restrict (Ioc (0 : ℝ) T))) :
+        ℝ → SpatialL2) (t : ℝ) =
       c • duhamelL2 ν (F : ℝ → SpatialL2) (t : ℝ)
     calc
-      duhamelL2 ν ((c • F) : ℝ → SpatialL2) (t : ℝ) =
+      duhamelL2 ν ((c • F : Lp SpatialL2 2 (volume.restrict (Ioc (0 : ℝ) T))) :
+          ℝ → SpatialL2) (t : ℝ) =
           duhamelL2 ν (fun s => c • F s) (t : ℝ) :=
         duhamelL2_ae_eq ν _ _ T (Lp.coeFn_smul c F) (t : ℝ) t.property.1 t.property.2
       _ = _ := duhamelL2_smul ν c _ (t : ℝ)

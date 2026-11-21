@@ -269,3 +269,17 @@ The repair explicitly applies ContinuousMap.ext and introduces the time argument
 All 24 public declarations and 29 independent consumers retain their statements.
 No analytic premise, accepted source, compiler policy or dependency changed.
 Complete matching cached external verification remains required; no local Lean.
+
+THIRD EXTERNAL ATTEMPT AND REPAIR
+Source 305f86499e2a62eedb337b8e5dc91bcee7c7f15a, run 44856945923.
+532 modules PASS; HeatDuhamelOperator failed; its endpoint blocked; 0 fresh audits.
+STATUS=FAIL_NO_NEW_A_TIER_ACCEPTANCE
+Evidence: audits/material-305f8649-forced-heat-failure/.
+The continuous-map extensionality now retains SpatialL2 equality. The remaining
+change failures exposed coercion-before-addition/scaling: the expected function
+type caused representatives to be combined instead of the original Lp quotient.
+The repair explicitly types quotient addition and scalar multiplication before
+the function coercion in the two private change and calc left sides.
+All 24 public declarations and 29 independent consumers retain their statements.
+No analytic premise, accepted source, compiler policy or dependency changed.
+Complete matching cached external verification remains required; no local Lean.
