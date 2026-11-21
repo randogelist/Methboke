@@ -53,7 +53,7 @@
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
   "ci_handoff": "QFAHeatGenerator candidate: 9 new theorems and 11 independent consumers; expected 528 modules, 106 fresh package audits and 1411 named reports. Accepted heat-time basis remains 000c1bd9 / run 44851575278. Matching cached external compiler, named standard-only audits, publication and final gate required. No local Lean.",
-  "current_material_external_verification": "QFA_HEAT_GENERATOR_MATCHING_EXTERNAL_PENDING",
+  "current_material_external_verification": "QFA_HEAT_GENERATOR_REPAIRED_MATCHING_EXTERNAL_PENDING",
   "latest_material_run": {
     "tested_commit": "000c1bd9baded808b79a04b7f666cacabce64939",
     "tree": "3c6fa11713d67bbd1d8d27c067cf5a42317fbf17",
@@ -2917,7 +2917,7 @@
   "active_scoped_request": "QFA_A_TIER_CLOSURE",
   "current_material_candidate": {
     "id": "QFA_HEAT_GENERATOR_BATCH",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_CI",
+    "status": "REPAIRED_PENDING_MATCHING_EXTERNAL_CI",
     "source_basis": "000c1bd9baded808b79a04b7f666cacabce64939",
     "packages": [
       "QFAHeatGenerator"
@@ -2935,7 +2935,34 @@
     "wfa_proved": false,
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
-    "public_statement_policy": "Original physical initial trace and exact viscosity retained; no supplied derivative, regularity or integrability witness."
+    "public_statement_policy": "Original physical initial trace and exact viscosity retained; no supplied derivative, regularity or integrability witness.",
+    "preceding_attempts": [
+      {
+        "tested_commit": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+        "run_id": 44853235830,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44853235830",
+        "status": "FAIL",
+        "failure_class": "MODULE_COMPILATION_FAILED",
+        "phase": "compile",
+        "module_count": 528,
+        "passed_modules": 526,
+        "failed_modules": 1,
+        "blocked_modules": 1,
+        "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatGenerator",
+        "artifact_id": 14686507096,
+        "artifact_sha256": "4f6abf2e23b6f4d06a0866cc1c283af51040d9b1f358117b8716fc317b6af78b",
+        "evidence": "audits/material-d884a36b-heat-generator-failure/independent-review.json",
+        "repairs": [
+          "Open ENNReal scope for the finite-measure MemLp2-to-L1 exponent annotation.",
+          "Use the exact square-of-absolute-value identity in the derivative-energy scalar calculation."
+        ],
+        "public_statement_changes": false,
+        "independent_consumer_changes": false,
+        "prior_accepted_source_changes": false,
+        "compiler_dependency_driver_policy_changed": false,
+        "local_lean_executions": 0
+      }
+    ]
   },
   "prior_material_candidates": [
     {
@@ -3872,7 +3899,7 @@
   },
   "qfa_heat_generator_construction": {
     "id": "QFA_HEAT_GENERATOR_BATCH",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_CI",
+    "status": "REPAIRED_PENDING_MATCHING_EXTERNAL_CI",
     "source_basis": "000c1bd9baded808b79a04b7f666cacabce64939",
     "packages": [
       "QFAHeatGenerator"
@@ -3890,6 +3917,85 @@
     "wfa_proved": false,
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
-    "public_statement_policy": "Original physical initial trace and exact viscosity retained; no supplied derivative, regularity or integrability witness."
+    "public_statement_policy": "Original physical initial trace and exact viscosity retained; no supplied derivative, regularity or integrability witness.",
+    "preceding_attempts": [
+      {
+        "tested_commit": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+        "run_id": 44853235830,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44853235830",
+        "status": "FAIL",
+        "failure_class": "MODULE_COMPILATION_FAILED",
+        "phase": "compile",
+        "module_count": 528,
+        "passed_modules": 526,
+        "failed_modules": 1,
+        "blocked_modules": 1,
+        "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatGenerator",
+        "artifact_id": 14686507096,
+        "artifact_sha256": "4f6abf2e23b6f4d06a0866cc1c283af51040d9b1f358117b8716fc317b6af78b",
+        "evidence": "audits/material-d884a36b-heat-generator-failure/independent-review.json",
+        "repairs": [
+          "Open ENNReal scope for the finite-measure MemLp2-to-L1 exponent annotation.",
+          "Use the exact square-of-absolute-value identity in the derivative-energy scalar calculation."
+        ],
+        "public_statement_changes": false,
+        "independent_consumer_changes": false,
+        "prior_accepted_source_changes": false,
+        "compiler_dependency_driver_policy_changed": false,
+        "local_lean_executions": 0
+      }
+    ]
+  },
+  "qfa_heat_generator_attempt_history": [
+    {
+      "tested_commit": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+      "run_id": 44853235830,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44853235830",
+      "status": "FAIL",
+      "failure_class": "MODULE_COMPILATION_FAILED",
+      "phase": "compile",
+      "module_count": 528,
+      "passed_modules": 526,
+      "failed_modules": 1,
+      "blocked_modules": 1,
+      "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatGenerator",
+      "artifact_id": 14686507096,
+      "artifact_sha256": "4f6abf2e23b6f4d06a0866cc1c283af51040d9b1f358117b8716fc317b6af78b",
+      "evidence": "audits/material-d884a36b-heat-generator-failure/independent-review.json",
+      "repairs": [
+        "Open ENNReal scope for the finite-measure MemLp2-to-L1 exponent annotation.",
+        "Use the exact square-of-absolute-value identity in the derivative-energy scalar calculation."
+      ],
+      "public_statement_changes": false,
+      "independent_consumer_changes": false,
+      "prior_accepted_source_changes": false,
+      "compiler_dependency_driver_policy_changed": false,
+      "local_lean_executions": 0
+    }
+  ],
+  "qfa_heat_generator_latest_attempt": {
+    "tested_commit": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+    "run_id": 44853235830,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44853235830",
+    "status": "FAIL",
+    "failure_class": "MODULE_COMPILATION_FAILED",
+    "phase": "compile",
+    "module_count": 528,
+    "passed_modules": 526,
+    "failed_modules": 1,
+    "blocked_modules": 1,
+    "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatGenerator",
+    "artifact_id": 14686507096,
+    "artifact_sha256": "4f6abf2e23b6f4d06a0866cc1c283af51040d9b1f358117b8716fc317b6af78b",
+    "evidence": "audits/material-d884a36b-heat-generator-failure/independent-review.json",
+    "repairs": [
+      "Open ENNReal scope for the finite-measure MemLp2-to-L1 exponent annotation.",
+      "Use the exact square-of-absolute-value identity in the derivative-energy scalar calculation."
+    ],
+    "public_statement_changes": false,
+    "independent_consumer_changes": false,
+    "prior_accepted_source_changes": false,
+    "compiler_dependency_driver_policy_changed": false,
+    "local_lean_executions": 0
   }
 }

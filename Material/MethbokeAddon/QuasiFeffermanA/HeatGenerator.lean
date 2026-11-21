@@ -33,7 +33,7 @@ set_option Elab.async true
 noncomputable section
 
 open Set Filter MeasureTheory FourierTransform
-open scoped BigOperators FourierTransform NNReal Topology
+open scoped BigOperators FourierTransform NNReal ENNReal Topology
 
 namespace MethbokeAddon.QuasiFeffermanA.HeatGenerator
 
@@ -333,7 +333,7 @@ theorem heatH1_velocity_timeDerivative_sq_integral
       ‖(ν : ℝ) • physicalH2Laplacian (heatTrajectory ν hν a t)‖ ^ 2) =
       (ν : ℝ) / 2 *
         (physicalH1Enstrophy a - physicalH1Enstrophy (heatH1 ν T.toNNReal a)) := by
-  simp only [norm_smul, Real.norm_eq_abs, abs_of_nonneg ν.property, mul_pow]
+  simp only [norm_smul, mul_pow, Real.norm_eq_abs, sq_abs]
   rw [intervalIntegral.integral_const_mul,
     heatTrajectory_laplacian_sq_integral ν hν a T hT]
   have hν0 : (ν : ℝ) ≠ 0 := ne_of_gt hν

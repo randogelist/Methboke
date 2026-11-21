@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_FAILURE_NO_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "d884a36b055caa810f7ce54a69f5a0def6c899ca",
+  "tree": "95cea0601e7839ba04ed8515aafb0bc2145c9248",
+  "prior_policy_basis": "000c1bd9baded808b79a04b7f666cacabce64939",
+  "run_id": 44853235830,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44853235830",
+  "artifact_id": 14686507096,
+  "artifact_sha256": "4f6abf2e23b6f4d06a0866cc1c283af51040d9b1f358117b8716fc317b6af78b",
+  "artifact_bytes": 81156,
+  "report_sha256": "3c1fd19e2400827e8e7cfb33775408acc8a8b32ce1bc58fa68c940a9f0483956",
+  "expected_module_count": 528,
+  "expected_package_count": 106,
+  "expected_named_reports": 1411,
+  "module_count": 528,
+  "module_counts": {
+    "PASS": 526,
+    "FAIL": 1,
+    "BLOCKED_BY_DEPENDENCY": 1
+  },
+  "failed_sources": [
+    "MethbokeAddon.QuasiFeffermanA.HeatGenerator"
+  ],
+  "blocked_sources": [
+    "QFAHeatGenerator.Endpoint"
+  ],
+  "package_count": 0,
+  "named_reports": 0,
+  "passed_package_receipts": [],
+  "all_package_audits_fresh": false,
+  "complete_audit_coverage": false,
+  "final_acceptance_gate": false,
+  "publication_pass": false,
+  "qfb_cutout_pass": false,
+  "new_a_tier_acceptance": false,
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "prior_accepted_source_audits_and_closures_byte_preserved": true,
+  "failure_phase": "compile",
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "error": "own module compilation failed; see module receipts",
+  "diagnostics": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatGenerator.log",
+      "diagnostics": [
+        {
+          "line": 1,
+          "text": "MethbokeAddon/QuasiFeffermanA/HeatGenerator.lean:310:45: error: expected token\nTry this:\n  [apply] ring_nf\n  \n  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.\n    "
+        },
+        {
+          "line": 8,
+          "text": "  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.\nMethbokeAddon/QuasiFeffermanA/HeatGenerator.lean:335:81: error: unsolved goals\nν : ℝ≥0\nhν : 0 < ν\na : ↥PhysicalH1\nT : ℝ\nhT : 0 ≤ T"
+        }
+      ]
+    }
+  ],
+  "retained_diagnostic_logs": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatGenerator.log",
+      "retained_log": "logs__modules__MethbokeAddon.QuasiFeffermanA.HeatGenerator.log.gz",
+      "raw_sha256": "abc3766a86cfcd663d94ebf04188d44dd44c323db1108c6216ad54f2823903d7"
+    }
+  ],
+  "checks_passed": 241,
+  "local_lean_executions": 0,
+  "scope_note": "Passing individual source or partial named audit receipts do not establish acceptance of this batch."
+}
