@@ -1,19 +1,27 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 8.2
+DOCUMENT_VERSION = 8.3
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
 INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
 TARGET_BRANCH = main
 INCOMING_BRANCH = AC-Integration
-PROJECT_GOAL = Fefferman_D
-LOCAL_TARGET = LEAN_SOURCE_LINE_COUNT_CI
-LOCAL_TARGET_STATUS = IMPLEMENTED_STATIC_COUNT_CHECKED
-REMAINING_ENGINEERING_CHECK = MATCHING_MAIN_CI_RUN_STATUS
+PROJECT_GOALS = {WFA, WFB, QFA, QFB, NSE_A_SINGLE_INPUT_OBSTRUCTION, NSE_B_SINGLE_INPUT_OBSTRUCTION}
+R3_GOALS = {WFA, QFA, NSE_A_SINGLE_INPUT_OBSTRUCTION}
+T3_GOALS = {WFB, QFB, NSE_B_SINGLE_INPUT_OBSTRUCTION}
+PROJECT_GOAL_SOURCE = Explicit user selection, 2026-11-21
+LOCAL_TARGET = SIX_THEOREM_GOALS_AND_PARALLEL_CI
+LOCAL_TARGET_STATUS = CONFIGURED_PENDING_EXTERNAL_VALIDATION
+REMAINING_ENGINEERING_CHECK = MATCHING_SIX_GOAL_CI_RUN_STATUS
+THEOREM_GOAL_WORKFLOW = .github/workflows/theorem-goals.yml
+THEOREM_GOAL_MANIFEST = Material/ci/theorem-goals.json
+THEOREM_GOAL_RUNNERS = 6
+GOAL_REGISTRATION_IS_PROOF = false
+RETAINED_PREVIOUS_PROJECT_GOAL = Fefferman_D
 COMPLETED_LOCAL_THEOREM = FDSN_R3
 ACTIVE_MODE = A_TIER_DERIVATION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
-CURRENT_ROOT_STATUS = DIRECT_FEFFERMAN_D_A_TIER_ACCEPTED_AT_66a5292
+RETAINED_DIRECT_FEFFERMAN_D_STATUS = A_TIER_ACCEPTED_AT_66a5292
 PRESCRIBED_SITE_FAMILY_STATUS = B_TIER_CLOSED_RELATIVE_TO_PINNED_STRONG_SEED; A_TIER_OPEN
 CURRENT_FDSN_STATUS = A_TIER_CANONICAL_SEED_TO_FAMILY_ACCEPTED_AT_87ab6b4c
 CURRENT_FDSN_EVIDENCE = audits/fdsn-87ab6b4c-accepted/summary.json
@@ -59,7 +67,7 @@ GitHub Actions run for external count-check status; this is no Lean proof or
 A-tier acceptance claim. No local Lean or Lake execution occurs.
 The preceding main documentation revision 10f73223 completed Material run
 44859131356 with conclusion success. Existing exact accepted scopes and evidence
-retain their original pinned revisions; Fefferman_D remains the project goal.
+retain their original pinned revisions; Fefferman_D was the goal for that task.
 
 0. ACCEPTED INTEGRATION AND LIVE DOCUMENTATION HEAD VERIFICATION
 
@@ -90,7 +98,7 @@ and full cache publication:548reused,106fresh modules;169fresh package audits;
 The donor was572fd9ee/run44848985720. The combined cache is now published in
 main scope. The later documentation head 10f73223 completed Material run
 44859131356 with conclusion success; source-specific acceptance remains pinned.
-PROJECT_GOAL remains Fefferman_D;FDSN_R3 is a completed prior theorem.
+HISTORICAL_INTEGRATION_GOAL: Fefferman_D; FDSN_R3 is a completed prior theorem.
 
 VERIFIED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;
 2212 named type/axiom reports plus the retained standalone cutout.
@@ -165,35 +173,44 @@ Preserve successful compatible resources; no local Lean or Mathlib source rebuil
 
 1. GOAL AND TARGET HIERARCHY
 
-MACROSCOPIC: Fefferman_D, the classical smooth-force periodic obstruction.
-MESOSCOPIC: AC_INTO_MAIN_INTEGRATION, MERGED_COMPLETE on main at e627a39e;
-  both accepted resource sets and original source-specific receipts preserved.
-MICROSCOPIC: main run44857663580 passed final acceptance and full cache
-  publication. Only the ordinary promotion-documentation head check remains.
-  This is an engineering verification task; no further mathematical target
-  is selected. Later head acceptance requires its own matching observation.
-COMPLETED PRIOR LOCAL THEOREM: FDSN_R3, original Seed-to-Family with all sixteen
-  assented scopes, accepted at572fd9ee/run44848985720.
-NEXT MATHEMATICAL THEOREM TARGET: none newly adopted by this integration.
+MACROSCOPIC: six user-selected theorem goals.
+  R3: WFA, QFA, and a single-input NSE-A obstruction.
+  T3: WFB, QFB, and a single-input NSE-B obstruction.
+MESOSCOPIC: SIX_THEOREM_GOALS_AND_PARALLEL_CI on main.
+MICROSCOPIC: synchronize the goal declaration and configure six independent
+  theorem-specific external CI runners with explicit audited endpoint scope.
+CI_CONFIGURATION: .github/workflows/theorem-goals.yml;
+  Material/ci/theorem-goals.json.
+CI_STATUS: CONFIGURED_PENDING_EXTERNAL_VALIDATION.
+NEXT_ENGINEERING_CHECK: inspect the exact-commit six-runner result and its
+  per-goal evidence. No local Lean execution or implicit proof promotion.
 
-The user's Fefferman-D project goal is unchanged. Direct-D remains accepted;
-its stronger prescribed-site periodic family remains formally open. T3 FDSN
-and R3 FDSN retain their exact conditional seed premises and accepted roots.
-The AC QFA/NSE-A foundations retain their accepted helper scopes; their general
-physical roots and canonical-class obligations are not supplied by this merge.
-Section0 governs the current integration/evidence status. Sections2--10 retain
-the main mathematical contracts and exact history. Section11 records current
-AC accepted scopes; section12 preserves the original AC development history.
-Historical next-step suggestions and branch instructions do not adopt a new
-current target or supersede this hierarchy.
+General physical WFA/QFA remain OPEN. WFB/QFB retain their exact recorded
+hypotheses, accepted scopes and source-specific evidence. The two single-input
+obstruction goals require actual witnesses with the exact corresponding NSE
+semantics. Conditional obstruction contracts retain all explicit premises;
+checking a helper or conditional reduction does not establish witness existence.
+The goal manifest records the endpoint scope of each runner and the remaining
+root obligations. Six successful configured jobs do not assert six closed roots.
+
+Direct-D remains accepted; its stronger prescribed-site periodic family remains
+formally open. T3 FDSN and R3 FDSN retain their exact conditional seed premises
+and accepted roots. The AC QFA/NSE-A resources retain their accepted helper
+scopes. The six current goals supersede Fefferman_D as the project-goal selection;
+no accepted theorem, source-specific receipt or historical contract is changed.
+Section 0 retains integration/evidence history. Sections 2--11 retain exact
+mathematical contracts and accepted scopes; section 12 preserves the original
+AC development history. Historical goal and next-step statements do not
+supersede the current six-goal hierarchy.
 
 DIRECTORY ORGANIZATION
 
-T3_NSE/D-Family-Obstruction is the current research-program folder.
-T3_NSE/B-Regularity-class/{WFB,QFB} and
-T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound retain prior programs.
-R3_NSE/FDSN contains the accepted whole-space FDSN extension.
-R3_NSE/QFA and R3_NSE/A-Regularity-class retain the incorporated AC resources;
+T3_NSE/B-Regularity-class/{WFB,QFB} contains the periodic regularity goals.
+T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound retains the conditional
+periodic obstruction route and its unresolved witness premise.
+R3_NSE/QFA and R3_NSE/A-Regularity-class contain the whole-space resources.
+T3_NSE/D-Family-Obstruction retains the separate prescribed-site D-family work.
+R3_NSE/FDSN contains the accepted whole-space FDSN extension;
 Temp-folder retains its source anchors and reference collections.
 Material is the shared verified build workspace;
 research-folder names are not Lean namespaces. REORGANIZATION_MAP.json records
@@ -458,7 +475,7 @@ records are not current instructions. New status must match exact tested source,
 consumer type, dependency pins, policy and theorem-level axioms.
 Use chat-only !=! for precisely accepted intermediate scopes; do not promote their
 parent family root. No scheduled monitors. New goals require explicit user
-selection. The user's current Fefferman-D selection is authoritative.
+selection. The six goals and domain mapping in section 1 are authoritative.
 
 HISTORICAL NATIVE FAMILY ACCEPTANCE
 Material run 44663707207 at f19531bc accepted the repaired assembly layer and
@@ -519,14 +536,14 @@ LATEST FDSN ACCEPTANCE
 SOURCE:87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef;RUN:44811785125.
 ROOT:Seed->Family, all five clauses with common witnesses; physical projection presentation accepted.
 EVIDENCE:audits/fdsn-87ab6b4c-accepted/summary.json.
-No singular seed existence or optional C1/C2 formalization is claimed. Local target completed; project goal remains Fefferman_D.
+No singular seed existence or optional C1/C2 formalization is claimed. That local target completed under the then-current Fefferman_D goal.
 
 
 10. USER-ASSENTED R3 CONSTRUCTION
 
 The user requested construction on R3 and explicitly assented to all sixteen
 endpoints, with acceptance signals for each exact established scope. This
-changes the local target only; Fefferman_D remains the project goal.
+changed the local target only; Fefferman_D was the project goal at that time.
 
 The complete B-tier chain is R3_NSE/FDSN/FDSN_R3_B_TIER.txt. The seed has
 local Schwartz mixed-derivative bounds, compact-local terminal blowup,
@@ -728,8 +745,8 @@ Axioms: propext, Classical.choice, Quot.sound only. Publication and final
 Material accepted job 136679598135: PASS. Local Lean executions: ZERO.
 EVIDENCE: audits/fdsn-r3-572fd9ee-accepted/summary.json.
 The accepted archive preserves the tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs byte-for-byte. The integration unions the current source and endpoint registries while preserving every original entry and proof/consumer byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
-FDSN_R3 theorem target completed; project goal remains Fefferman_D. The
-current integration task is recorded in section0 and adds no mathematical goal.
+FDSN_R3 theorem target completed under the then-current Fefferman_D goal.
+That completed integration is recorded in section 0; section 1 now fixes the goals.
 
 11. PRESERVED AC QFA AND NSE-A ACCEPTED RESOURCE SCOPES
 

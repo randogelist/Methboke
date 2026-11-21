@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "audit_dependency_packages": true,
+  "verification_boundary": "Each goal selects existing principal packages and their registered dependency packages for fresh exact-type and transitive-axiom audits. Passing that configured scope does not prove an absent root or discharge an explicit analytic premise. The complete Material verification scope remains separate and unchanged.",
+  "goals": [
+    {
+      "id": "WFA",
+      "domain": "R3",
+      "name": "Whole-space Weak Fourierman A",
+      "root_status": "OPEN",
+      "root_declaration": null,
+      "principal_packages": [
+        "QFAPhysicalStoppedGauge",
+        "QFAPhysicalH1SigmaSectors"
+      ],
+      "verification_scope": "Physical H1 Fourier and six-sector projections, the full stopped enstrophy/Fourier budgets, and their gauge and finiteness equivalences for supplied physical H1 paths. The canonical whole-space NSE trajectory and WFA continuation root are not supplied by these packages.",
+      "open_obligations": [
+        "Construct the actual whole-space local and maximal strong NSE trajectory with its original initial trace.",
+        "Prove physical evolution estimates, continuation and comparison for the same trajectory.",
+        "Construct the general QFA tail and the strict cutoff-overlap bridge needed by the WFA assembly.",
+        "Prove the WFA root with the full improper Fourier budget retained explicitly; universal budget finiteness is a separate obligation."
+      ],
+      "standalone_qfb": false
+    },
+    {
+      "id": "WFB",
+      "domain": "T3",
+      "name": "Periodic Weak Fourierman B",
+      "root_status": "CONDITIONAL_FULL_BUDGET",
+      "root_declaration": "MethbokeAddon.WeakFouriermanB.Weak_Fourierman_B",
+      "principal_packages": [
+        "WFBWeakFouriermanB"
+      ],
+      "verification_scope": "Actual maximal classical trajectory existence for smooth periodic solenoidal mean-zero data and the exact Weak_Fourierman_B conditional root. Finiteness of the full Fourier-square budget up to min(maximal lifetime, QFB cutoff) remains an explicit hypothesis; the conclusion preserves the original velocity and normalized pressure.",
+      "open_obligations": [
+        "Universal finiteness of the full improper Fourier budget is not proved; the existing WFB theorem retains that hypothesis.",
+        "The conditional budget theorem does not establish universal unforced NSE-B regularity."
+      ],
+      "standalone_qfb": false
+    },
+    {
+      "id": "QFA",
+      "domain": "R3",
+      "name": "Whole-space Quasi-Fefferman A",
+      "root_status": "OPEN_GENERAL_DATA",
+      "root_declaration": null,
+      "target_definition": "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.QuasiFeffermanA",
+      "principal_packages": [
+        "QFAZeroDatum",
+        "QFALHRestart",
+        "QFAHeatTimeEnergy",
+        "QFAWeightedBudgetAllWindows",
+        "QFARealLeray",
+        "QFASmallProductCoefficient"
+      ],
+      "verification_scope": "The exact physical QFA proposition and zero-datum strict/closed conclusions, full restart of supplied LH paths, free-heat time-energy estimates, all-window weighted product budget, real Leray projection and scalar small-product coefficients. The target_definition is a proposition definition, not a theorem proving general QFA.",
+      "open_obligations": [
+        "Prove the actual sharp whole-space Sobolev admission needed by the frozen cutoff 8*norm(a)^4/(27*pi^4*nu^5).",
+        "Construct forced maximal regularity and actual nonlinear local/maximal H1 theory with continuation.",
+        "Construct global physical Leray-Hopf solutions for general solenoidal L2 data.",
+        "Prove actual whole-space weak-strong comparison and small-product global continuation.",
+        "Assemble the general nonzero-data smooth tail, original-gradient energy equality and unique future from every path's own trace, preserving the strict/closed cutoff distinction."
+      ],
+      "standalone_qfb": false
+    },
+    {
+      "id": "QFB",
+      "domain": "T3",
+      "name": "Periodic Quasi-Fefferman B",
+      "root_status": "EXACT_ROOT_ESTABLISHED",
+      "root_declaration": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED",
+      "principal_packages": [
+        "QFBRoot"
+      ],
+      "verification_scope": "The literal QuasiFeffermanBStatement: physical periodic L2 solenoidal mean-zero data, LH nonemptiness, every specified LH path, smoothness at the safe cutoff and the strict-cutoff smooth-tail, energy-equality and own-trace future-uniqueness clauses. This is the exact established QFB theorem, not universal regularity from time zero.",
+      "open_obligations": [],
+      "standalone_qfb": true
+    },
+    {
+      "id": "NSE_A_SINGLE_INPUT_OBSTRUCTION",
+      "domain": "R3",
+      "name": "Single-input whole-space NSE-A obstruction",
+      "root_status": "OPEN_NO_NATIVE_ROOT",
+      "root_declaration": null,
+      "principal_packages": [
+        "EhrenfestScalar",
+        "EhrenfestCoreAlgebra"
+      ],
+      "verification_scope": "Only domain-independent stopped scalar descent and transport/Hamiltonian commutator algebra. These existing generic packages do not define or prove a whole-space NSE-A obstruction and do not instantiate the periodic Galerkin obstruction as an R3 theorem.",
+      "open_obligations": [
+        "Define the actual unforced whole-space NSE-A target and a noncircular single-input obstruction predicate with the intended datum and solution classes.",
+        "Construct the whole-space physical approximation/dynamical identification and the required smooth-solution stability bound.",
+        "Prove the exact single-input implication to failure of NSE-A; no native root declaration currently exists.",
+        "Construct an input satisfying the obstruction predicate separately from proving the conditional implication."
+      ],
+      "standalone_qfb": false
+    },
+    {
+      "id": "NSE_B_SINGLE_INPUT_OBSTRUCTION",
+      "domain": "T3",
+      "name": "Single-input periodic NSE-B obstruction",
+      "root_status": "CONDITIONAL_REDUCTION_WITNESS_OPEN",
+      "root_declaration": "MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION",
+      "principal_packages": [
+        "EhrenfestObstructionRoot"
+      ],
+      "verification_scope": "The exact positive-viscosity implication StoppedCommutatorBound nu -> Not (NSE_B nu), together with its initial-front, global-smooth and dynamical reduction theorems. The stopped condition concerns one fixed smooth periodic datum and its actual canonical Galerkin family. It remains an explicit hypothesis, not a constructed counterexample or a forced Fefferman-D result.",
+      "open_obligations": [
+        "Construct a witness of StoppedCommutatorBound for an actual fixed smooth datum, with the stated uniform stopped drift and diverging threshold quantifiers.",
+        "A complete Hilbert-operator realization remains a separate milestone and is not supplied by the scalar conditional root.",
+        "Unconditional failure of unforced NSE-B is not established by the accepted conditional reduction."
+      ],
+      "standalone_qfb": false
+    }
+  ]
+}

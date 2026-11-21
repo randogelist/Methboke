@@ -1,0 +1,150 @@
+name: Theorem goals / six parallel cached audits
+
+on:
+  workflow_run:
+    workflows: ['Material / cached verification and passed objects']
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: theorem-goals-${{ github.repository }}-${{ github.event.workflow_run.head_sha || github.sha }}
+  cancel-in-progress: false
+
+jobs:
+  theorem-goal:
+    name: ${{ matrix.label }}
+    if: >-
+      github.repository == 'randogelist/Methboke' &&
+      ((github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.head_repository.full_name == github.repository &&
+        github.event.workflow_run.head_branch == 'main') ||
+       (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'))
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        include:
+          - goal: WFA
+            label: WFA / R3
+          - goal: WFB
+            label: WFB / T3
+          - goal: QFA
+            label: QFA / R3
+          - goal: QFB
+            label: QFB / T3
+          - goal: NSE_A_SINGLE_INPUT_OBSTRUCTION
+            label: Single-input NSE-A obstruction / R3
+          - goal: NSE_B_SINGLE_INPUT_OBSTRUCTION
+            label: Single-input NSE-B obstruction / T3
+    env:
+      PYTHONUNBUFFERED: '1'
+      LEAN_NUM_THREADS: '2'
+      MATERIAL_COMMAND_TIMEOUT: '1800'
+      TARGET_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+      GOAL_ID: ${{ matrix.goal }}
+
+    steps:
+      - name: Checkout the exact verified source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Check scope-runner controls without invoking Lean
+        run: python3 -m unittest discover -s scripts/tests -p 'test_theorem_goal.py'
+
+      - name: Record theorem scope, exact revision and compatible cache keys
+        id: plan
+        run: >-
+          python3 scripts/verify_theorem_goal.py plan
+          --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
+          --github-output "$GITHUB_OUTPUT"
+
+      - name: Reclaim unused disposable runner SDKs
+        run: bash Material/ci/prepare-runner.sh --mode warm
+
+      - name: Find a repaired dependency cache
+        id: repaired-dependencies
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: Material/.lake/packages
+          key: ${{ steps.plan.outputs.dependency_key }}-recovered-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ${{ steps.plan.outputs.dependency_key }}-recovered-
+          lookup-only: true
+
+      - name: Restore the pinned dependency objects
+        id: dependencies
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: Material/.lake/packages
+          key: ${{ steps.repaired-dependencies.outputs.cache-matched-key || steps.plan.outputs.dependency_key }}
+
+      - name: Find a repaired project cache
+        id: repaired-project
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            Material/.lake/build
+            Material/registry/current.json
+          key: ${{ steps.plan.outputs.project_key }}-recovered-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: ${{ steps.plan.outputs.project_key }}-recovered-
+          lookup-only: true
+
+      - name: Restore passed project objects and their original receipts
+        id: project
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            Material/.lake/build
+            Material/registry/current.json
+          key: ${{ steps.repaired-project.outputs.cache-matched-key || steps.plan.outputs.project_key }}
+          restore-keys: ${{ steps.plan.outputs.project_prefix }}
+
+      - name: Require a complete passed cache donor before compiler setup
+        env:
+          DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
+          DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
+          PROJECT_HIT: ${{ steps.project.outputs.cache-hit }}
+          PROJECT_MATCHED: ${{ steps.project.outputs.cache-matched-key }}
+        run: >-
+          python3 scripts/verify_theorem_goal.py admit
+          --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
+
+      - name: Install the checksum-pinned native toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 https://github.com/leanprover/elan/releases/download/v4.2.4/elan-x86_64-unknown-linux-gnu.tar.gz --output "$RUNNER_TEMP/elan.tar.gz"
+          printf '%s  %s\n' '42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63' "$RUNNER_TEMP/elan.tar.gz" | sha256sum --check --strict
+          tar -xzf "$RUNNER_TEMP/elan.tar.gz" -C "$RUNNER_TEMP"
+          "$RUNNER_TEMP/elan-init" -y --no-modify-path --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+          "$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"
+
+      - name: Validate cached closure and freshly audit this goal's complete scope
+        env:
+          DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
+          DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
+          PROJECT_HIT: ${{ steps.project.outputs.cache-hit }}
+          PROJECT_MATCHED: ${{ steps.project.outputs.cache-matched-key }}
+        run: >-
+          python3 scripts/verify_theorem_goal.py verify
+          --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
+
+      - name: Retain goal status, exact types, axioms and source receipts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: theorem-goal-${{ matrix.goal }}-${{ env.TARGET_SHA }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/theorem-goal
+          if-no-files-found: error
+          retention-days: 90

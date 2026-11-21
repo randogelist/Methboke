@@ -1,8 +1,37 @@
 # Methboke
 
-The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
-initial data and an admissible smooth periodic force for which no global
-smooth periodic velocity–pressure solution exists.
+## Current project goals
+
+The six goals are **WFA, WFB, QFA, QFB, a single-input NSE-A obstruction,
+and a single-input NSE-B obstruction**.
+
+| Domain | Goals |
+|---|---|
+| $\mathbb R^3$ | **WFA**, **QFA**, **single-input NSE-A obstruction** |
+| $\mathbb T^3$ | **WFB**, **QFB**, **single-input NSE-B obstruction** |
+
+This is the current goal declaration. General physical WFA/QFA remain open;
+WFB/QFB retain their exact recorded scopes and hypotheses. The single-input
+obstruction goals require the corresponding actual witness. Existing conditional
+obstruction reductions retain their explicit premises; registering a goal or
+passing its configured audits does not construct that witness. The retained
+Fefferman-D and FDSN results keep their original proof status and evidence.
+
+### Six parallel theorem CI runners
+
+[Theorem-goal CI](.github/workflows/theorem-goals.yml) and its
+[goal manifest](Material/ci/theorem-goals.json) configure one parallel runner
+for each of the six goals. After the complete Material workflow succeeds on
+`main`, six Ubuntu jobs check that exact source revision, with `max-parallel: 6`
+and `fail-fast: false`. Each job validates the restored compiled objects and
+runs fresh type and axiom audits for its goal's registered scope. These jobs
+consume the canonical caches without publishing partial replacements.
+
+The configuration is **pending matching external validation**. Each runner
+reports its configured endpoint scope and remaining root obligations; a
+successful helper or conditional endpoint audit does not close an open root.
+The existing complete Material verification and Lean source-count checks are
+retained.
 
 <!-- lean-source-stats:start -->
 ## Lean source size
@@ -35,9 +64,9 @@ closed as merged on 2026-11-21 at 02:46:09 UTC. The authorized non-force
 fast-forward advanced main from `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`
 to the verified head `e627a39e6c27cd4432ab063741fe726af8378a63`, preserving
 the original integration history. The local integration target is complete.
-The project goal remains **Fefferman D**; the completed FDSN_R3 theorem and
-every prior accepted result retain their exact scope. No new mathematical
-goal is adopted.
+That integration retained the then-current **Fefferman D** goal. The completed
+FDSN_R3 theorem and every prior accepted result retain their exact scope; the
+current six-goal declaration above supersedes the historical goal selection.
 
 The promoted head passed [run 44856391458](https://github.com/randogelist/Methboke/actions/runs/44856391458):
 **654 modules reused, zero freshly compiled, 169 fresh package audits and
@@ -264,7 +293,7 @@ $p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
 [Exact acceptance](audits/material-ffbab0f5-qfa-accepted/independent-review.json) ·
 [Full new-name register](R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt) ·
 [Scoped mathematical chain](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
-No local Lean was executed. The project goal remains Fefferman D.
+No local Lean was executed. Fefferman D was the goal at that milestone.
 
 The subsequent free-heat enstrophy-dissipation and finite-window L2-time
 H2 construction is accepted in the 35-name batch at `000c1bd9` described above.
@@ -336,7 +365,7 @@ The [whole-space integration page](R3_NSE/QFA/README.md),
 [accepted name register](R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt),
 [exact receipt](audits/material-afd67db4-qfa-accepted/summary.json) and
 [updated ten-step checklist](Temp-folder/QFA_QFB_10_STEP_CHECKLIST.md)
-record the scope and remaining edges. The Fefferman-D goal, prior periodic
+record the scope and remaining edges. Retained Fefferman-D work, prior periodic
 QFB/WFB conclusions and their original evidence remain preserved.
 
 ## NSE-A regularity class: finite six-charge budget
@@ -395,7 +424,7 @@ the previous research-file locations.
 
 | Path | Purpose |
 |---|---|
-| [GPT.txt](GPT.txt) | Preserved goal, completed integration, main verification and exact mathematical contracts |
+| [GPT.txt](GPT.txt) | Six current domain goals, CI scope, retained integration and exact mathematical contracts |
 | [Integration record](integration/AC_INTO_MAIN/README.md) | Frozen inputs, accepted combined scope, proof preservation and live head verification policy |
 | [QFA resources](R3_NSE/QFA/README.md) | Accepted physical foundations, restart/heat/zero-datum scopes and remaining general-root obligations |
 | [NSE-A resources](R3_NSE/A-Regularity-class/README.md) | Accepted pathwise six-charge resources, B-tier class characterization and remaining canonical PDE obligations |

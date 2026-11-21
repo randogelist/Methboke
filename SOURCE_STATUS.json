@@ -6,39 +6,78 @@
   "mode": "A_TIER_DERIVATION",
   "resume_mode": "A_TIER_DERIVATION",
   "main_goal": {
-    "name": "Fefferman_D",
-    "source": "Explicit user selection: The Goal Is Fefferman D; implement T3 family on Methboke main, 2026-11-20",
-    "status": "DIRECT_D_AND_CONDITIONAL_FDSN_A_TIER_PRESCRIBED_SITE_FAMILY_OPEN",
-    "construction_route": "Fefferman_D_Family_obstruction",
-    "previous_goal": {
-      "name": "EHRENFEST_OBSTRUCTION",
-      "program_name": "EHRENFEST-OBSTRUCTION",
-      "source": "Explicit user selection of the exact conditional root; subsequent authorization to apply amendments and complete A-tier verification",
-      "exact_statement": "forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu",
-      "stopped_bound_hypothesis_retained": true,
-      "stopped_bound_witness_proved": false,
-      "status": "ACHIEVED_EXACT_CONDITIONAL_ROOT_A_TIER",
-      "previous_goal": "Weak_Fourierman_B",
-      "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
+    "name": "SIX_THEOREM_GOALS",
+    "source": "Explicit user selection: WFA, WFB, QFA, QFB, single input NSE A obstruct, single input NSE B obstruct; six parallel CI runners, one per theorem; 2026-11-21",
+    "goals_by_domain": {
+      "R3": [
+        "WFA",
+        "QFA",
+        "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+      ],
+      "T3": [
+        "WFB",
+        "QFB",
+        "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+      ]
     },
-    "family_witness_constructed": false,
-    "literal_force_decay_adapter_proved": false,
-    "literal_force_decay_adapter_scope": "Native family route; the separate direct theorem already uses the literal admissible-force contract.",
-    "family_witness_scope": "Prescribed-site family, distinct from the accepted canonical FDSN conditional family."
+    "goal_count": 6,
+    "status": "GOALS_DECLARED_NO_NEW_PROOF_ACCEPTANCE",
+    "previous_goal": {
+      "name": "Fefferman_D",
+      "source": "Explicit user selection: The Goal Is Fefferman D; implement T3 family on Methboke main, 2026-11-20",
+      "status": "DIRECT_D_AND_CONDITIONAL_FDSN_A_TIER_PRESCRIBED_SITE_FAMILY_OPEN",
+      "construction_route": "Fefferman_D_Family_obstruction",
+      "previous_goal": {
+        "name": "EHRENFEST_OBSTRUCTION",
+        "program_name": "EHRENFEST-OBSTRUCTION",
+        "source": "Explicit user selection of the exact conditional root; subsequent authorization to apply amendments and complete A-tier verification",
+        "exact_statement": "forall nu>0, StoppedCommutatorBound nu -> not NSE_B nu",
+        "stopped_bound_hypothesis_retained": true,
+        "stopped_bound_witness_proved": false,
+        "status": "ACHIEVED_EXACT_CONDITIONAL_ROOT_A_TIER",
+        "previous_goal": "Weak_Fourierman_B",
+        "previous_goal_role": "ACCEPTED_FOUNDATION_WITH_FINITE_FOURIER_BUDGET_PREMISE"
+      },
+      "family_witness_constructed": false,
+      "literal_force_decay_adapter_proved": false,
+      "literal_force_decay_adapter_scope": "Native family route; the separate direct theorem already uses the literal admissible-force contract.",
+      "family_witness_scope": "Prescribed-site family, distinct from the accepted canonical FDSN conditional family."
+    }
   },
   "target_hierarchy": {
-    "macroscopic": "Fefferman D, classical forced periodic obstruction",
-    "mesoscopic": "LEAN_SOURCE_LINE_COUNT_CI: independent source counting and a maintained README statistic on main.",
-    "microscopic": "Count tracked Lean text, check the generated README section and retain an exact-commit per-file inventory.",
-    "next_scoped_endpoint": "Read the matching main CI result; no new mathematical theorem target is adopted."
+    "macroscopic": "R3: WFA, QFA, single-input NSE-A obstruction. T3: WFB, QFB, single-input NSE-B obstruction.",
+    "mesoscopic": "SIX_THEOREM_GOALS_AND_PARALLEL_CI: current goal declaration and one parallel external CI runner per theorem.",
+    "microscopic": "Configure explicit theorem scopes and preserve all proof premises, source-specific receipts and existing complete verification gates.",
+    "next_scoped_endpoint": "Inspect the matching exact-commit six-runner CI evidence; open roots and witness obligations remain explicit."
   },
   "goal_transition": {
-    "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
-    "source_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
-    "historical_register_manifest": "audits/goal-transition-fefferman-d/manifest.json",
+    "authorized_by": "Explicit user six-goal declaration and request for six parallel theorem CI runners, 2026-11-21",
+    "source_basis_revision": "b4218fbcdd130189b69b1ee3f6df81b036553e4a",
+    "goals_by_domain": {
+      "R3": [
+        "WFA",
+        "QFA",
+        "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+      ],
+      "T3": [
+        "WFB",
+        "QFB",
+        "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+      ]
+    },
     "prior_accepted_statements_changed": false,
-    "compiler_dependency_or_ci_policy_changed": false,
-    "local_lean_executions": 0
+    "prior_receipts_changed": false,
+    "compiler_or_dependency_pins_changed": false,
+    "existing_complete_material_gates_preserved": true,
+    "local_lean_executions": 0,
+    "previous_goal_transition": {
+      "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
+      "source_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
+      "historical_register_manifest": "audits/goal-transition-fefferman-d/manifest.json",
+      "prior_accepted_statements_changed": false,
+      "compiler_dependency_or_ci_policy_changed": false,
+      "local_lean_executions": 0
+    }
   },
   "source_pins": {
     "methlib_qfb": "96033dd69c994bec337a87369a6c27256e724980",
@@ -5096,7 +5135,7 @@
       "accepted_pathwise_milestone": "M1"
     }
   ],
-  "active_scoped_request": "LEAN_SOURCE_LINE_COUNT_CI",
+  "active_scoped_request": "SIX_THEOREM_GOALS_AND_PARALLEL_CI",
   "current_material_candidate": {
     "schema_version": 1,
     "date": "2026-11-21",
@@ -6704,8 +6743,8 @@
     }
   },
   "integration_phase": "GITHUB_MODE_MAIN_PROMOTION_FINALIZATION",
-  "active_scoped_request_status": "IMPLEMENTED_STATIC_COUNT_CHECKED",
-  "remaining_engineering_check": "MATCHING_MAIN_CI_RUN_STATUS",
+  "active_scoped_request_status": "CONFIGURED_PENDING_EXTERNAL_VALIDATION",
+  "remaining_engineering_check": "MATCHING_SIX_GOAL_CI_RUN_STATUS",
   "main_promotion": {
     "status": "MERGED_COMPLETE",
     "authorized": true,
@@ -6780,5 +6819,27 @@
     "lean_or_lake_execution": false,
     "proof_acceptance_claimed": false,
     "project_goal_changed": false
+  },
+  "theorem_goal_ci": {
+    "workflow": ".github/workflows/theorem-goals.yml",
+    "manifest": "Material/ci/theorem-goals.json",
+    "parallel_runners": 6,
+    "status": "CONFIGURED_PENDING_EXTERNAL_VALIDATION",
+    "goals_by_domain": {
+      "R3": [
+        "WFA",
+        "QFA",
+        "NSE_A_SINGLE_INPUT_OBSTRUCTION"
+      ],
+      "T3": [
+        "WFB",
+        "QFB",
+        "NSE_B_SINGLE_INPUT_OBSTRUCTION"
+      ]
+    },
+    "full_material_workflow_preserved": true,
+    "root_closure_claimed": false,
+    "local_lean_executions": 0,
+    "scope_policy": "Each runner reports its configured endpoint scope and remaining root obligations. Existing conditional reductions retain all premises. No obstruction witness or open general root is supplied by goal registration."
   }
 }

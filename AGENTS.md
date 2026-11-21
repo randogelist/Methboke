@@ -15,7 +15,7 @@ Lean build, with unchanged namespace and import paths. Preserve
 `REORGANIZATION_MAP.json`, historical receipts and the standalone audited
 `LEAN_CUTOUTS/Cutouts.lean`.
 
-## Current integration and preserved goal
+## Current goals and retained integration
 
 Work on `main`. The user-authorized integration was promoted by non-force
 fast-forward from `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` to
@@ -24,10 +24,24 @@ PR #2 is closed and merged. Its source branch was `integration/ac-into-main`,
 with the incoming AC snapshot frozen at `000c1bd9baded808b79a04b7f666cacabce64939`.
 The local integration target is `MERGED_COMPLETE`; main verification and
 publication of its combined cache have passed. The documentation head 10f73223
-completed Material run 44859131356 with conclusion success. The current engineering
-task adds independent Lean source-line counting and a maintained README statistic.
-No new mathematical goal or theorem target is adopted.
-The project goal remains **Fefferman D**.
+completed Material run 44859131356 with conclusion success. The independent
+Lean source-line counting and maintained README statistic remain in place.
+
+The current user-selected goals are **WFA, WFB, QFA, QFB, a single-input NSE-A
+obstruction, and a single-input NSE-B obstruction**. The domain mapping is:
+
+- **R3:** WFA, QFA, single-input NSE-A obstruction.
+- **T3:** WFB, QFB, single-input NSE-B obstruction.
+
+The active engineering task is their six parallel theorem-specific CI runners:
+`.github/workflows/theorem-goals.yml`, with scope in
+`Material/ci/theorem-goals.json`. The configuration is pending matching external
+validation. Preserve the full Material workflow and its gates. Per-goal helper
+or conditional endpoint acceptance does not prove an open root or construct an
+obstruction witness. General physical WFA/QFA remain open; WFB/QFB and all
+conditional obstruction reductions retain their exact hypotheses and scopes.
+The new goal declaration supersedes Fefferman D as the project goal, while its
+accepted results, open prescribed-site family and source receipts are retained.
 
 The exact promoted head `e627a39e` passed external run `44856391458`: all 654
 modules were reused, zero modules were freshly compiled, and all 169 package
@@ -165,7 +179,7 @@ Before commits synchronize GPT, README, INDEX-WORTHY, SOURCE_STATUS and the
 T3 implementation ledger. Keep prior accepted proof bytes and evidence intact.
 Record the integration status and both QFA/NSE-A and FDSN ledgers as well
 as the preserved T3 ledger. Historical branch priorities do not override the
-current integration task or the preserved project goal.
+current six-goal hierarchy or its explicitly selected engineering task.
 Record formal gaps explicitly, including seed/toolchain compatibility, force
 admission, periodization and same-force comparison. Do not add a global custom
 axiom, hide a missing witness in a definition, or claim prepared code is verified.
