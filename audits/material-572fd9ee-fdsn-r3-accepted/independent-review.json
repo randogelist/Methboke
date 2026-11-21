@@ -1,0 +1,1331 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+  "tree": "d5b0e6baa53c68c2d4c97e4f2f0843b76047eb07",
+  "run_id": 44848985720,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44848985720",
+  "artifact_id": 14684049987,
+  "artifact_sha256": "320d05ae62963c329de38c4c570abef1a5e947e98dfe32ad2e3be43e78f76243",
+  "artifact_bytes": 400034,
+  "report_sha256": "95dbf99d33f16ad0ab391b9115837d050f3f553d6eb24ea82cd75d9c8d091a8b",
+  "routing_artifact_sha256": "6924d19607101c695e71de3b37cf99595f10ee69c29fe24554a8c8c5f15dd99b",
+  "module_count": 548,
+  "package_count": 137,
+  "named_reports": 1320,
+  "all_package_audits_fresh": true,
+  "metrics": {
+    "audit_fresh_count": 137,
+    "audit_reused_count": 0,
+    "audit_seconds": 342.931,
+    "build_seconds": 153.323,
+    "cache_seconds": 9.97,
+    "fresh_loc": 5805,
+    "fresh_module_count": 46,
+    "module_count": 548,
+    "rerun_receipt_seconds": 0.361,
+    "reused_loc": 57006,
+    "reused_module_count": 502,
+    "target_loc": 62811
+  },
+  "fdsn_r3_packages": 26,
+  "fdsn_r3_named_declarations": 493,
+  "fdsn_r3_theorems": 391,
+  "fdsn_r3_definitions_abbreviations_structures": 102,
+  "fdsn_r3_literal_consumers": 497,
+  "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
+  "fdsn_r3_new_packages": 23,
+  "fdsn_r3_new_named_declarations": 421,
+  "fdsn_r3_new_theorems": 354,
+  "fdsn_r3_new_definitions_abbreviations_structures": 67,
+  "original_seed_family_contracts_byte_preserved": true,
+  "compiler_dependencies_and_verification_policy_unchanged": true,
+  "root_type": "@MethbokeAddon.FDSNR3.FDSN_R3 : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n  MethbokeAddon.FDSNR3.Seed ν T u p F → MethbokeAddon.FDSNR3.Family ν T u p F",
+  "root_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "final_acceptance_gate": true,
+  "publication_pass": true,
+  "qfb_cutout_pass": true,
+  "native_fdsn_r3_conditional_root_accepted": true,
+  "seed_existence_proved": false,
+  "mathematical_endpoints_accepted": [
+    "R3-01",
+    "R3-02",
+    "R3-03",
+    "R3-04",
+    "R3-05",
+    "R3-06",
+    "R3-07",
+    "R3-08",
+    "R3-09",
+    "R3-10",
+    "R3-11",
+    "R3-12",
+    "R3-13",
+    "R3-14",
+    "R3-15",
+    "R3-16"
+  ],
+  "mathematical_endpoint_packages": {
+    "R3-01": [
+      "FDSNR3Contracts"
+    ],
+    "R3-02": [
+      "FDSNR3CompactSchwartz",
+      "FDSNR3Realization"
+    ],
+    "R3-03": [
+      "FDSNR3Fourier",
+      "FDSNR3SliceSchwartz",
+      "FDSNR3ParametricFourier",
+      "FDSNR3ForwardFourierSmooth"
+    ],
+    "R3-04": [
+      "FDSNR3Helical",
+      "FDSNR3HelicalFrame"
+    ],
+    "R3-05": [
+      "FDSNR3NonzeroPatch",
+      "FDSNR3SliceSchwartz"
+    ],
+    "R3-06": [
+      "FDSNR3Phase",
+      "FDSNR3FrequencyCutoff"
+    ],
+    "R3-07": [
+      "FDSNR3CrossingTimePhase"
+    ],
+    "R3-08": [
+      "FDSNR3Phase",
+      "FDSNR3SchwartzPhase",
+      "FDSNR3ParametricFourier",
+      "FDSNR3ForwardFourierSmooth",
+      "FDSNR3JointPacket",
+      "FDSNR3CompactFrequencyInverse",
+      "FDSNR3PhysicalFamily"
+    ],
+    "R3-09": [
+      "FDSNR3Phase",
+      "FDSNR3Helical",
+      "FDSNR3SchwartzPhase",
+      "FDSNR3PhysicalFamily"
+    ],
+    "R3-10": [
+      "FDSNR3Phase",
+      "FDSNR3Helical",
+      "FDSNR3HelicalFrame",
+      "FDSNR3SchwartzPhase",
+      "FDSNR3Realization",
+      "FDSNR3PhysicalFamily"
+    ],
+    "R3-11": [
+      "FDSNR3Realization",
+      "FDSNR3ResidualSchwartz"
+    ],
+    "R3-12": [
+      "FDSNR3JointPacket",
+      "FDSNR3Realization",
+      "FDSNR3CompactFrequencyInverse",
+      "FDSNR3ResidualSchwartz",
+      "FDSNR3LocalizedSeed",
+      "FDSNR3CorrectionAdmission"
+    ],
+    "R3-13": [
+      "FDSNR3Phase",
+      "FDSNR3TranslationRigidity",
+      "FDSNR3PhysicalFamily"
+    ],
+    "R3-14": [
+      "FDSNR3ParametricFourier",
+      "FDSNR3SpectralGenerator",
+      "FDSNR3CrossingTimePhase",
+      "FDSNR3ForceSeparation",
+      "FDSNR3CrossingDerivative",
+      "FDSNR3PhysicalFamily"
+    ],
+    "R3-15": [
+      "FDSNR3Phase",
+      "FDSNR3JointPacket",
+      "FDSNR3SchwartzJets",
+      "FDSNR3CompactFrequencyInverse",
+      "FDSNR3ResidualSchwartz",
+      "FDSNR3LocalizedSeed",
+      "FDSNR3CorrectionAdmission"
+    ],
+    "R3-16": [
+      "FDSNR3CorrectionAdmission",
+      "FDSNR3Main"
+    ]
+  },
+  "independently_reconstructed_module_source_identities": 548,
+  "independently_reconstructed_audit_source_identities": 137,
+  "checks_passed": 11541,
+  "local_lean_executions": 0,
+  "scope_limits": [
+    "The accepted root assumes the original explicit local-Schwartz compact-local-blowup Seed; it does not construct such a seed.",
+    "One actual physical velocity/force family satisfies every original Family clause; parameter-dependent forces retain the same pressure and terminal tail.",
+    "Rapid spatial Schwartz decay is proved; compact spatial support of the force is not asserted.",
+    "This is not the separate stronger prescribed-site same-force family root, and it does not close general QFA or WFA.",
+    "External Linux compiler evidence is retained; no local Lean or native-Windows verification was performed."
+  ],
+  "packages": [
+    {
+      "id": "Galerkin",
+      "declarations": 1,
+      "audit_sha256": "ec3fdf30df6265f582b6d95a560f149fffeaeaab1fe86bcd14c3afbeefa1781c",
+      "audit_source_sha256": "dedae9d15280d73bf09eff7c2995c89cc02c30df0634d90dcd41862e254da942",
+      "input_hash": "e02228800d62362592577cb080c1de28262a2ca67611f3b924efba000461eff4"
+    },
+    {
+      "id": "MathlibAnalytic",
+      "declarations": 7,
+      "audit_sha256": "8a0359a6f7e8807e952e6a043ca0bcd1cbd611275bbf0da967d333ab497801ac",
+      "audit_source_sha256": "fb85025a27cdddbee13cdcd2be93c105db14a3746e4cff57c1dec10239ffd94b",
+      "input_hash": "145e40fd2d79d4af0d989d1e15843627780e3020c61ba71f71aaf103b4816ee0"
+    },
+    {
+      "id": "MathlibFourier",
+      "declarations": 3,
+      "audit_sha256": "fbbac38ea50628003e3a858a03a887a69fceda9ccfe03686a21732ba94e30fe4",
+      "audit_source_sha256": "a8c13af204acdc60a8c024c940e6d180112047d1c427f4cb2a7f0cb8fb6e6577",
+      "input_hash": "b5bcea1ba17a30935e48f659ba4edefad9cd838a3f5627f1684241b93fc38814"
+    },
+    {
+      "id": "MathlibODE",
+      "declarations": 3,
+      "audit_sha256": "97f59de20564c8e48c60ad46ab820de552b3dd754e7a25ca554e0f54f5ddaa23",
+      "audit_source_sha256": "9ea94d1cbc3b5934d7075fb790dca80e3138e1387524d96c2e133dd9d4ffc515",
+      "input_hash": "aad4e9e2231941ad2fd859de9b763124a5f7332a8e279419bbbbabc2249cb3d7"
+    },
+    {
+      "id": "PhysicalNSE",
+      "declarations": 3,
+      "audit_sha256": "7bad6322fbb0dd96b466eada5fbdff1a0e6cabc69acf16c52f19604046727ffa",
+      "audit_source_sha256": "bfc2adee4eb7729a480b48baa3a33aa8a6e0e799d9598dfef5ee65262f1faa24",
+      "input_hash": "dc4fb24b097eeebf6789d1df60c6fbb48dc55f0ae0ec1fe98f237fcbf4d7513d"
+    },
+    {
+      "id": "QFBCutoff",
+      "declarations": 6,
+      "audit_sha256": "2852a151fea822d8ccd2758fdd6ec340be17eb8e6ebd307326b7150a617c8b37",
+      "audit_source_sha256": "784e70cce5ceb0980f8d8114e9d3660f0c087f3bdd4189bd88ed55b011fb19ea",
+      "input_hash": "6ae4b9cfd7068cee49737c8b0c64a30f068dc51951c011b6e1a2f077fb8fed37"
+    },
+    {
+      "id": "QFBLerayHopf",
+      "declarations": 1,
+      "audit_sha256": "a25aee56459da58cc1da5078b0e28185cb31ca79cb7b20d4e2f884d6ef8f3106",
+      "audit_source_sha256": "a077e7d021efab7530bfec16754fbb29aa632f7d17f064a6721e33a719515bef",
+      "input_hash": "5f641269ebfdafb3a8a243414a48f740d2276981df280447dd538ec5d01fe69e"
+    },
+    {
+      "id": "QFBRestart",
+      "declarations": 4,
+      "audit_sha256": "912042e31d0c17b42e6958a3cee8db368e97ad19762d2027671948e5d3de478b",
+      "audit_source_sha256": "edee7326fdf3c48ff60cac5dbe5ae1b76f5d6293e0f0054ac80aab4cf11b481b",
+      "input_hash": "fc46ae88080c1d5a533035186433dcdb04c8c5a5c41a4a5d7c76ae8616bf30b1"
+    },
+    {
+      "id": "QFBRoot",
+      "declarations": 1,
+      "audit_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+      "audit_source_sha256": "540a5607de5380a2419145783fa9e6e6371aca4e05eda3d896e2b177defeffc8",
+      "input_hash": "5174f671bd6f373a7400f759608dae32e5dab1f87a6ca3813df638c72a4de4c8"
+    },
+    {
+      "id": "QFBTail",
+      "declarations": 4,
+      "audit_sha256": "59745649bd0fb089de2e9041b092c942d6fd651578f5d61b0810bd22904d2953",
+      "audit_source_sha256": "73e79d8a832feaca22f6f7730c1816f56058307895e02f05d4ef08216ad87cec",
+      "input_hash": "803399cd0f0b117f541d26ab1e12b62a9f6cab3e1cdb4e80bcc396c0673043a0"
+    },
+    {
+      "id": "QFBTraceUniqueness",
+      "declarations": 2,
+      "audit_sha256": "700295656cf72242d96135529f106b7009b729918a3dbefeedbad22350b5c64e",
+      "audit_source_sha256": "98709da38cbd281f90882bc5d27e9c9db580f4c4188381a598e4113b9eb2757d",
+      "input_hash": "b9033430bf54c78b60253c49f6d235a4d908d280e9faccd2c13a0842b41fd4b9"
+    },
+    {
+      "id": "R0AnalyticCapAdmission",
+      "declarations": 4,
+      "audit_sha256": "4f1617750142af93eb7e632bdd91a8ba08828ee3900c8f84ec1d394b4cb11574",
+      "audit_source_sha256": "1a0b7c260b3604cec459d373232c4d04e97d326b7d969fd1803964490ec927c2",
+      "input_hash": "68f2de55781376d0df8b7767d73ed7a579c7f6c2a57cbdc024a02ed8d71b1308"
+    },
+    {
+      "id": "R0AnalyticTwoSidedCap",
+      "declarations": 5,
+      "audit_sha256": "e5c7eb2e50c3c4c56653ad6d0b85fed48e93d0fa0d855fddd029da6b06b824ed",
+      "audit_source_sha256": "b7d527b3db7c521721dd32e7dd1f70efd12afca19e0ad7603330618f9c43ca99",
+      "input_hash": "8148061b850ee288faee9543043c698b631e789c75ceaa7cfa2aac20cf19c28e"
+    },
+    {
+      "id": "R0CompactCylinderSerrin",
+      "declarations": 4,
+      "audit_sha256": "11559ef9f659a02d0f30bbc03c3ddec30ed6324260874face2bd5e1663da8c83",
+      "audit_source_sha256": "89ff699a52b9e0d0814b23f51081868d7ff0e293f0c9aaa05449e0d2b2c787d9",
+      "input_hash": "ae692bb5c6b93edfa9ae4ccb3c8e0fa1e065d9045bc514185ce6e9e7dded4f8e"
+    },
+    {
+      "id": "R0DataAdmission",
+      "declarations": 2,
+      "audit_sha256": "d1f4b34b3d5d0e733deab9cd08e54139661f7772a6d9fef76adb0a8ab85f726c",
+      "audit_source_sha256": "2a8afa1823c2964c00e9636a50cdb8a15ee32d6d53274cc1a46bf75289dd0a06",
+      "input_hash": "9988ab7ac688ae04ce4f314b2e2ef0f54767676dd09200ef9532bf66929dfc7d"
+    },
+    {
+      "id": "R0FiniteCapAdmission",
+      "declarations": 1,
+      "audit_sha256": "29ebcb684521d9b138b1cf51545a85c98a66d98e7c076549547d2e4e423b9265",
+      "audit_source_sha256": "21057519464903a94e95058dc3dd526373030ebd434f5c394c3f5127d9c5814b",
+      "input_hash": "4ae10cfb52532769143965acd2fc1387c07955beb1fbb0b9bdfab667563152de"
+    },
+    {
+      "id": "R0FiniteCapGluing",
+      "declarations": 5,
+      "audit_sha256": "ff3eee363f86ecf0a66d3ad50529a1703c479a4952e07c47957288ebf7e54388",
+      "audit_source_sha256": "b7b0432b6abf70bf11c0a14912b27589badeb6911f330c426bff8ae1ba75c4f8",
+      "input_hash": "2ec86cdd5ff6cf68b5e21638bda900137428de30596bd9e0300367f776ff4d36"
+    },
+    {
+      "id": "R0FiniteCapOverlap",
+      "declarations": 2,
+      "audit_sha256": "e59b1b08979b5d95f91bef311a083938fd75c86f19603681ccb9dd160a6e52ee",
+      "audit_source_sha256": "8201fd04cedf5d276c8e833c55183f92b88fbf8a4a3d5562d21a2c1621dc1c2f",
+      "input_hash": "1be43cdd4dfbd8fd57dbe01c8eeaedd08d35ea42cfabab5db56b4378a19a929b"
+    },
+    {
+      "id": "R0InitialFrontAdmission",
+      "declarations": 9,
+      "audit_sha256": "ebf1755fde63f27d1085115b7d4b3ca68232b550e172b5b54823ce0db205ce05",
+      "audit_source_sha256": "1a98174f71c2adda5eda442a703d609ad89e850921ecf36de607346765d6ed77",
+      "input_hash": "13e72b020d994ebf8441524a688de41b37b3fc323c983fea9c69e1630ab8d893"
+    },
+    {
+      "id": "R0PressureUniqueness",
+      "declarations": 9,
+      "audit_sha256": "befbe098e5eaa4122d995a3a2a145b47cf19da4722e6e673a1f6281e007da4ac",
+      "audit_source_sha256": "b09350e62ed572becc5648444d293374b470d2efcd7ffcf60392e8291b3f2898",
+      "input_hash": "4d6a238511b3de518a4fea2fde6d36b92a5072ed953ade9a615767185186b68b"
+    },
+    {
+      "id": "RelativeEnergy",
+      "declarations": 1,
+      "audit_sha256": "ff83fe70b0e6bf76651ac46d118d2c1f73d803ec286fe5c12d96480d51fbc2e9",
+      "audit_source_sha256": "996a5cba6d7ab8cbcf5077c68757756b785f348ad120a23ae889c22b00441c1b",
+      "input_hash": "8cc081ee8df42404e99f442ce91abac252e220f0d1ab6882a6923f1918cbf39d"
+    },
+    {
+      "id": "SerrinComparison",
+      "declarations": 1,
+      "audit_sha256": "550e1e0e87ce44b1d447cf817c62db890e8f34079aa384af14bacfefc9d1fd77",
+      "audit_source_sha256": "893663fc9ae4d428d5c50a8ea71f928257e229209d9b056ed6c4511f5c666a97",
+      "input_hash": "5949b6a2b5613c4cd26fbc77b9fb64e4b6e48cda7ee3181a2864e61c79f6f3ac"
+    },
+    {
+      "id": "SmallH12",
+      "declarations": 4,
+      "audit_sha256": "195ee80edc645305b8fe3df420779e11fac539a80f9b8a377f6e6ee74f30ba80",
+      "audit_source_sha256": "2aca1074b796e4733433762b1a78739a87f254eb841d6bf0941eaa08a5eb0c47",
+      "input_hash": "587654ae01a485f9caf7d73c2b9a550a3034235fc7d99bb42a101fe82af818cb"
+    },
+    {
+      "id": "WFBFiniteFrontGluing",
+      "declarations": 2,
+      "audit_sha256": "b233ec65ad0deeeeb0b93a9c6ba3d23d03c4318c211a7f026cb64fb15ef9d8a1",
+      "audit_source_sha256": "9ecb48013819c99ed1dee208c83cbc10537837c6ba9ed2581a71ea717d71b1a4",
+      "input_hash": "aa52607e4d51ea16b1d944b600a5e6284e0377f773da925a9bcdf55dbf0db2ff"
+    },
+    {
+      "id": "WFBFiniteFrontTest",
+      "declarations": 5,
+      "audit_sha256": "c27cd4410baaef404f21510d891afc96a20dd2ff12f498e7dd11fe8aa049541a",
+      "audit_source_sha256": "f8af76a9dc668f581af988f8e5b454e758f54c62cceb447377d758b321776e17",
+      "input_hash": "18363573197dd4ef5770189a46db64f3b7c5e8490d3ff28d026fc0e42e91fe72"
+    },
+    {
+      "id": "WFBFiniteWindowCrossIdentity",
+      "declarations": 1,
+      "audit_sha256": "6b43bb5dc2582d13d03d67afdfa23095ad7cfdbb2f47fb69f42ad2f7856b622f",
+      "audit_source_sha256": "46176f5cfc6059d613146c854211908d73bb34908bb750f9ef0b3087e898fb51",
+      "input_hash": "d3a1de9df918271ff6133d16e74f2e3c59459b929328cd6406e1622620536e04"
+    },
+    {
+      "id": "WFBFiniteWindowRelativeEnergy",
+      "declarations": 3,
+      "audit_sha256": "107328a7b4b6c9fd42425953a80f10901a8c01691c8ec316b6a6efad115e11d6",
+      "audit_source_sha256": "d28f115bbc1bfa8341e386ffd30416fa1934ac0ca00f6356e3c14b36b29d53fb",
+      "input_hash": "305516653625d45b35f5b57d2b4a9fb21d09509b4e70149db0f2e05db49e0e49"
+    },
+    {
+      "id": "WFBFiniteWindowSerrinComparison",
+      "declarations": 1,
+      "audit_sha256": "cf5a73a73509b7a0643bf254b89aa911ede8034136c508100adad6be91a44b21",
+      "audit_source_sha256": "42da5743dea4fc8cb2017a0c3aad3a44ed258df6f8b095f4e235dbfb4dfa776a",
+      "input_hash": "28530569d6183b465022e1574ff5c65f1036b3ca436bf10b5613ed84f376000b"
+    },
+    {
+      "id": "WFBFourierBudget",
+      "declarations": 5,
+      "audit_sha256": "f712c0fd5e148e52386f0a36c71b5427b8899155dce3bd4fafc1a839a8a58548",
+      "audit_source_sha256": "67dd70d0cca50c75de40a5f5e70263a1098cdd1ee6ff52a8ba5b656c6c2dd0e2",
+      "input_hash": "4e998b017684be0c0a7b13ec940579b396c5528d1ddfc91ce5abcf4b152b7e16"
+    },
+    {
+      "id": "WFBHomogeneousBudget",
+      "declarations": 10,
+      "audit_sha256": "f8eb7964753b2dd020b0f2d502d3e394825c64e7b9296fa9e4483e9c4a32295d",
+      "audit_source_sha256": "1538a7150e2f68047f8c0438abf7eff2dda1f20b5782c984be1b66ff25fff32f",
+      "input_hash": "3a28cee2f9678f53ffbe99982244f849725dda022435486da4563cccd06f2afb"
+    },
+    {
+      "id": "WFBLocalClassicalUniqueness",
+      "declarations": 4,
+      "audit_sha256": "72ec269d189ab742a151725ce3876e7888d79ccd4ba83c6c37fa0907f24d3ba7",
+      "audit_source_sha256": "953ff6759dbaa2b413b77e977a680f721826f90e8eca1b9b6de7884d5feb89da",
+      "input_hash": "61f21cd146a10d607612582b63d3432b70b0c5342ed9fa033c4eaa13c6546745"
+    },
+    {
+      "id": "WFBLocalCubicBarrier",
+      "declarations": 4,
+      "audit_sha256": "1000940c9d70b7ee13a4b2a9ff097aacf6ba5a9d4ba9f3859c2e92a21ad9e64f",
+      "audit_source_sha256": "81828d3c7c2d2049af0fef057b34825233aaed84024e0c8abed6cb33331b2665",
+      "input_hash": "241ad2ec96ca8f83776f6ed858f916b2325af409be8e5aea58dce8f1d5bb616e"
+    },
+    {
+      "id": "WFBLocalExistence",
+      "declarations": 2,
+      "audit_sha256": "233e9c82149267363c24f15d837d0c8f81491b4c9e2c862a919f571e7aa7df3a",
+      "audit_source_sha256": "1fa255621419a942d7877e2ee1a4abf7c97c9881abdd9419378ef6e3c2cbd628",
+      "input_hash": "27cdfbcdd52815d5bcdf57dbc3dbaede3799c723363ae27ff75d29c727f7eca9"
+    },
+    {
+      "id": "WFBLocalFront",
+      "declarations": 29,
+      "audit_sha256": "f5df5be45cbda59bff2cfce346737134285eb598903233d364f42603a40360c0",
+      "audit_source_sha256": "d4a96b1520085a7fc54d30bc5654e31d7b46519314057f24b23c9f6321cab9a1",
+      "input_hash": "a9aad02b2205c96a50332c31c4365609d563a775320b6003c68019907849536b"
+    },
+    {
+      "id": "WFBLocalFrontIdentification",
+      "declarations": 5,
+      "audit_sha256": "930768ce3cc9a0b13e36087d006190f83759c8b0ed5a45e4271b41c95017c0d8",
+      "audit_source_sha256": "c94731c93b9e035c3f326edb90a8ee565dadfb389f743058ae7762c88106edd5",
+      "input_hash": "2d5ac85788cee881d3cb0c748321422869c815190a1d17ebd9ebcca5536c0242"
+    },
+    {
+      "id": "WFBLocalGalerkinBounds",
+      "declarations": 8,
+      "audit_sha256": "ce4c466c888fdb69203fd61bfcabc03342fa4e05c574a097f79cbba8bfa0f140",
+      "audit_source_sha256": "5afcc3473031c6ee5eae14c21890dc8485b58f6aad542790b05559ce62b39d0a",
+      "input_hash": "1a78dfc1d48f7c908fd1e1cfe62b81159eb16ada256c6411e769668f93fad918"
+    },
+    {
+      "id": "WFBLocalGalerkinCompactness",
+      "declarations": 1,
+      "audit_sha256": "fcc9d5a34bcfb0c5d38aed0409a13d928f7d4efc828a9f4d0a1e3f391279f8c5",
+      "audit_source_sha256": "e4172e4250ddf33dd1d6788fb00e36d6c7717a44d4cfe11d897e54366d18792f",
+      "input_hash": "565b9843bffb1da873d3ccb9e951a315dce1a6734a04ef852301eaa5f42efeb8"
+    },
+    {
+      "id": "WFBLocalGalerkinLimit",
+      "declarations": 2,
+      "audit_sha256": "2b2b2904189d018932e09530e971472cb5e8e7af1fa29acc23152639662d76b1",
+      "audit_source_sha256": "7a92b5a7bbe6b14a385ec7955e3d2a4d99dd883e575d4dfcfbbf567141c5d2b0",
+      "input_hash": "4f6146bd97150b62cb8ded9bb1c4ab832f1e62d438ea6ced9a3fe0af7a45e151"
+    },
+    {
+      "id": "WFBLocalGalerkinRegularity",
+      "declarations": 4,
+      "audit_sha256": "f3e9d5564d04ec6c5c96d57fa0b75a2f378bff362923e97cbbea45d980987e8f",
+      "audit_source_sha256": "36a877333b57a13e8c381da0eb11b4f94341d6990c42377691378446a6250756",
+      "input_hash": "a74f0a859e0caa4c5784fa3282e9ac336b886b86d621d3fab17996e5170fcb65"
+    },
+    {
+      "id": "WFBLocalSobolevCalculus",
+      "declarations": 17,
+      "audit_sha256": "3146ec924fd37629dfbc05543c52d9ba87f3d06003e3ea5b3cb19b7b4503231d",
+      "audit_source_sha256": "08c3a74482f2499872e76e618e75e1b1ff6901a0392e606a31ed146e5f37b7f9",
+      "input_hash": "cdd2023c0b798a78530a0c2dbe1131ca9a863857e64f566305d54b9610b07985"
+    },
+    {
+      "id": "WFBLocalTimeTranslation",
+      "declarations": 5,
+      "audit_sha256": "d39c821e770215ce4a3f8a837102bed7154b4e075a8773766df2489277ef1fd8",
+      "audit_source_sha256": "483cb4d670dc782165371275bffbc80e91f9f89652be806f312253f2b5982d1d",
+      "input_hash": "a1b1103bba98be66a77b2e65726db0389d995f0e045552c53d9aca2487b05288"
+    },
+    {
+      "id": "WFBMaximalClassicalFront",
+      "declarations": 4,
+      "audit_sha256": "1bf89ea9d562c1bb2bb2c6b715a3bd92f048c4311194fcabd80a9f9727e4bf40",
+      "audit_source_sha256": "1d21f2ac578f3df2d34139c8ede2461fa68d9e42cf2d69f6c2fe9977326ed0d4",
+      "input_hash": "c9c84a70863dda69a12dce6453e9fba5134d1d0df9e364d69b553075e46611e1"
+    },
+    {
+      "id": "WFBMaximalFrontRestriction",
+      "declarations": 1,
+      "audit_sha256": "7348a3e83f5df584b702f77b4959bc404d3d3540644584f38db8beb8f9d2f717",
+      "audit_source_sha256": "3199eb2d87c008d00ab23bb871b025486164c452edff5dcb5faa50cc4372545f",
+      "input_hash": "366173862c606a5696c04487cba93a2bdf0735881541f80741b4e5f2c216888c"
+    },
+    {
+      "id": "WFBMaximalLerayHopfIdentification",
+      "declarations": 2,
+      "audit_sha256": "d1dd51e4a930ee5e2c25c26be97d6be7db53b2e44996c1c8de977ccc17e2627e",
+      "audit_source_sha256": "170cbbd59dc84660326237f62d9fcabb9263d76faf0a98394a23f73837ce36e0",
+      "input_hash": "79eba2c5f3acfe214ea6aad5603e5159139dd944aea979ec2b062617894c0b29"
+    },
+    {
+      "id": "WFBMaximalTailGluing",
+      "declarations": 2,
+      "audit_sha256": "0595aec217dcd969ae1191276bb3ae125ced8ee39b86a82f8da176e29bf44f3e",
+      "audit_source_sha256": "13f0fc2bc87d3c4f64cf1505008e2e4bdb5f164f1d64becbe075c9e296eed5a1",
+      "input_hash": "fb21036bff1a40225e278d450f65064d3878fbc14ca7580528c35c43b4e1c1c3"
+    },
+    {
+      "id": "WFBPhysicalBudgetContinuation",
+      "declarations": 6,
+      "audit_sha256": "746844f2a6c2e92edee7590e8bf4c6a65cceee14a32a01149adebd6f1df5ef74",
+      "audit_source_sha256": "1eeac3953b7a8ede15b5a3025cc116ca01754f1cac3101419880419bc06f48e8",
+      "input_hash": "7c4af930daae5159dd49fb03cae356a6c9c07e26a00f8fa2ca723452ece02000"
+    },
+    {
+      "id": "WFBPhysicalEndpointContinuation",
+      "declarations": 2,
+      "audit_sha256": "fdbcb8302f75e8161745ca1db1b40255a3a1e726484f5f89287b14e3e7f2c73c",
+      "audit_source_sha256": "b2d8bb318d4e816bf9b50aa9477311db4c39438e413d1b7f25f6167621b2ca43",
+      "input_hash": "eca6f07a1472ef0b83e09145926adfd6b0495c1c555be625e84ace0e0ec4b856"
+    },
+    {
+      "id": "WFBPhysicalEnstrophyEvolution",
+      "declarations": 18,
+      "audit_sha256": "4e5af4738fe1bcd5b7751904e69a9df4129224c766adad05a5c86eba7fc0794f",
+      "audit_source_sha256": "f2f89d3ff3cb7dfb0769774abfedf8fbb1e8e45332fe72262ebbe226e9e288f6",
+      "input_hash": "59fb81132bb7ae73738c92d8179d61b5f13b5541bbd3b493266090c8c6acc56e"
+    },
+    {
+      "id": "WFBPhysicalFourier",
+      "declarations": 13,
+      "audit_sha256": "75adee0ae2280c0b74404623d029e98d824ebfb20143565274b09d135bea7835",
+      "audit_source_sha256": "beab3305b6937218b19831090285d7cf791148313fe16b1b40a785aabe34a9fc",
+      "input_hash": "c78b6f0ebc40edae3e5a005382f95914dc7e6fc2f687273975617fb3e6f0674c"
+    },
+    {
+      "id": "WFBPhysicalNonlinear",
+      "declarations": 14,
+      "audit_sha256": "f48184b3fb7a5693cf7403e3f77f09a927f1e981cdc8247b4e2e3078a702df79",
+      "audit_source_sha256": "1fe8ca04afc9a7740b9f374f1728eebfbbf065f39e62b0fe2080bb95e32815e8",
+      "input_hash": "97cf14e2c1de7bc3a74a2be63e97e56b865845a4830710845c83639034f11bf4"
+    },
+    {
+      "id": "WFBSmoothDatum",
+      "declarations": 7,
+      "audit_sha256": "6c02154d6e2a37fca1acc55d2750ff609b059a1eb7903e5bf31d6b76b720d4ca",
+      "audit_source_sha256": "d97b2e83c66c31d882abbb12fa59949dec3990f2b7815c87fe9563c6285608e0",
+      "input_hash": "9bc7e38044b9477a6cb67d8d9d4217b8a5d8b283f3c7f1b991fc248ef2c0fbbd"
+    },
+    {
+      "id": "WFBStrictCutoff",
+      "declarations": 2,
+      "audit_sha256": "e3d1a8efcb8b826096ce69893cadc474cfa65733ec9e79f64377fc3841f23ea8",
+      "audit_source_sha256": "2b11e89cc0074c895fa7a3384de8c366af248d7591b78390354de9587cb6fbef",
+      "input_hash": "dac23b2c6321be836dd1601580bd98f023694ed743df92ecf47080db2ad0b76c"
+    },
+    {
+      "id": "WFBStrongContinuation",
+      "declarations": 1,
+      "audit_sha256": "6f683f67806c1082aa5adffc849e907aee483f8b1c970063bdc203eec4e60dae",
+      "audit_source_sha256": "f90a4eb9670ffacd8dcce201080729f3d4a2b7c5c1388c660fd30d272bf1d027",
+      "input_hash": "eae00e576d43efe95269fc30c5ac05bb73f212d150a7512cc32086085016a67b"
+    },
+    {
+      "id": "WFBWFBRootAssembly",
+      "declarations": 1,
+      "audit_sha256": "ab4aef4d0960f631573ff92ffdbe9a458d40b0f9f6d03b9eae8bd2cadc4a68d4",
+      "audit_source_sha256": "05d5d3ec88dc38583bf1f875c599477583780e9f9d1b2ace396a5a9af37562d7",
+      "input_hash": "9d2ddcdf698ade93c8ec5da20feef860735fe8a499f790d2109f148683dd2fc3"
+    },
+    {
+      "id": "WFBWeakFouriermanB",
+      "declarations": 2,
+      "audit_sha256": "608240f352af2cd82246ad840d210dce9a7773c23e5e5605f62a93a72dcef909",
+      "audit_source_sha256": "4605ca4792598f65266b9b603d39576366ffd350a12b842433b2b1e279874bfb",
+      "input_hash": "a183a2ca6a5cc1df5e9ea3ff2224dcf1e5a0a21d0e3e415ce1a26ba358d3f10b"
+    },
+    {
+      "id": "EhrenfestScalar",
+      "declarations": 4,
+      "audit_sha256": "44c4b80e4cbeee031c5a671222606deb2f495b047a6dfacc8343c82b3c4b678d",
+      "audit_source_sha256": "abd845aa356c0767a3ad1b75c569733e2f2d778ef393372a7e6b2db4dee59bc2",
+      "input_hash": "fe59213ecff6e64e600e036250732828952cf2abf476d7731fd4c14c2095e260"
+    },
+    {
+      "id": "EhrenfestCanonical",
+      "declarations": 11,
+      "audit_sha256": "865f76cce25781319093d815e2a74d46013ae286e2a5a303e2882820a736ede7",
+      "audit_source_sha256": "356566656bbe92c6412e9bba10bde3e6e1a2d5c05e5f5686b1569adc768931ea",
+      "input_hash": "a0596c584301687b366a0d3dd7f6e367a52d7378d7c02266cfda073d0bfef216"
+    },
+    {
+      "id": "EhrenfestErrorCalculus",
+      "declarations": 8,
+      "audit_sha256": "7494882d47ac04f09569902e9b33a2cfd028cee4b784e9b746da519187633e56",
+      "audit_source_sha256": "cf5d9b8c158089a272879d406dc9905a87eccfb14b490b687e0a3fb69d1bdecd",
+      "input_hash": "c267ae29e891082455a4a4fe7d8489a84ca2f104b11e724d65456f438849074f"
+    },
+    {
+      "id": "EhrenfestBootstrap",
+      "declarations": 7,
+      "audit_sha256": "9516080d5441ddc1e72228cde15895d8754a089f92745e6428455126e728ecd6",
+      "audit_source_sha256": "316b61151d8ad31dcd3e96cc292ab5a9bb994a2d118c3759f062036f593d1da0",
+      "input_hash": "db76dcb168ee36933ef51f196b5cb1da9898f16c62bb99411dd51e803c2aea01"
+    },
+    {
+      "id": "EhrenfestCoreAlgebra",
+      "declarations": 3,
+      "audit_sha256": "58efea6b300c87a642d4a3abf73784ae2af27ecae76fb208ea23cbc92f526114",
+      "audit_source_sha256": "64cc7d0b6217662e1546fb6bb7909af2eafbc222821a31eceaec46bfde882dc1",
+      "input_hash": "d527f538e88d051e9ca0c29733adce6a0edfdd2892ed3e7aa503929a5f1c21d7"
+    },
+    {
+      "id": "EhrenfestCrossTransport",
+      "declarations": 13,
+      "audit_sha256": "e7ece6e0facf9fc6a17da81d4f206e71ed964f6c8a52192d5f709e860caa97e5",
+      "audit_source_sha256": "201df9a7bfb6cf1105d8eef6ae29b23726f1aa1908cd9c2c045291a9dc611180",
+      "input_hash": "fa787846f70e09b5505055cf599f181f4216259081e2579d649fa8249630a600"
+    },
+    {
+      "id": "EhrenfestEscape",
+      "declarations": 19,
+      "audit_sha256": "fdd39d11b72a8920e5644e339c1b9f02e799fe1b980e216a6e93416057ef03a6",
+      "audit_source_sha256": "d58153b62b0fe83c9a933addc86c677327abdcdbbcb068e0de10a0f9ac7808a4",
+      "input_hash": "04a9ef3591c47ee5ab1910675902f659b296cfd1c926470648155b0466ce3fb1"
+    },
+    {
+      "id": "EhrenfestPhysicalForcing",
+      "declarations": 9,
+      "audit_sha256": "84689de75760dcc25f4e2b31a80d917c8f19e7aab51bb4d0003c806112e31c16",
+      "audit_source_sha256": "63b74c5c8874e0f7878e223baebd046134f6a4dd0418c2cc36c2419ef5efbdb3",
+      "input_hash": "ef7fddc7b4f524adde4afa56992fb691bfb447ae4c634e686feea0e497c03f07"
+    },
+    {
+      "id": "EhrenfestReference",
+      "declarations": 34,
+      "audit_sha256": "73c828a985ddcd8384e40f2ca3a67edae10aa1e8685c4f8e88c49f361269f569",
+      "audit_source_sha256": "d90ceb0cde5c8d220950f0ad81d3fc23993072c609d95126b346424c0822cc85",
+      "input_hash": "369051b539fe7e32126e2b3986a67db620ed70c51793867d149c55c27ae2e727"
+    },
+    {
+      "id": "EhrenfestCanonicalErrorInequality",
+      "declarations": 1,
+      "audit_sha256": "f439a497af1fe6d847f4e104e0bca0eebf68bf7d2d1bd6f6f65f28a21ef88374",
+      "audit_source_sha256": "de27a8a4cf6ade457b1e09c6da0d0ff3e31a75e54bffda6ff88c86535beb1fc6",
+      "input_hash": "e707e33293b24b861ff9d5cf4f76f87cc9e33151ff987da0586f27706984a215"
+    },
+    {
+      "id": "EhrenfestErrorEquation",
+      "declarations": 6,
+      "audit_sha256": "fc308cb2910002404efe245582f0362443ffe412932dd45f26d0cc75c38bf58d",
+      "audit_source_sha256": "463ee2ea874a99b28334fa545385862d281518da6b02b5318d9f43f7b9ae8234",
+      "input_hash": "fd1b0befdbb539c2f8b7e05e7e8a84e49a134b61b578d6c2a433a2ef35c1b99c"
+    },
+    {
+      "id": "EhrenfestErrorState",
+      "declarations": 17,
+      "audit_sha256": "a269e344ee473c63c4e7fa7280b61bc33141569a8ea9714fab012433f945fbe6",
+      "audit_source_sha256": "54b7192983e63e6068ab4ac3e7fe40e746b8ca71d4cca007d3626a77c8de8c0d",
+      "input_hash": "a2a59c9bff555712754fbc950a2c045011485fc3c016b25f603b4097630fcc36"
+    },
+    {
+      "id": "EhrenfestEventualEnstrophyBound",
+      "declarations": 4,
+      "audit_sha256": "6c8d56841f68b0768375bbacc892f604079e9645858e7d6a3770ff01378a6c06",
+      "audit_source_sha256": "67f65eb65efd07c001053adaccb61ef99901b9712d81e79f7665ad108c025519",
+      "input_hash": "420848536201d461a23bb8f819264c683b27447a7da3aa742cf76c41bfbc4033"
+    },
+    {
+      "id": "EhrenfestObstructionRoot",
+      "declarations": 4,
+      "audit_sha256": "04d50771ecf033abd3bcfbe0e2d2423565cf5db97d912209191f1fc84b293ce3",
+      "audit_source_sha256": "7f20999d4645b529f49a20035edb68daa72f2e1bb87faab16ebb63fc64c65b69",
+      "input_hash": "086bb3f41daa703b9b8d3b436fc18ed0898b41c69ef6dd624cf95697de9e2c5f"
+    },
+    {
+      "id": "EhrenfestPressureFourier",
+      "declarations": 10,
+      "audit_sha256": "f5dfe18ea40d0cb7fb3106fd82dcc66867af7e398a317060cc2bf5e056596c30",
+      "audit_source_sha256": "fdaa361f4e2383c554ec228363735f456d678d51e92d844be3890837b74de463",
+      "input_hash": "88dc98df7fe1eba3868a99c96ddb7ddaa88bd5bb42b8c16d45b281e44c667d6d"
+    },
+    {
+      "id": "EhrenfestReferenceEvolution",
+      "declarations": 33,
+      "audit_sha256": "67ec7ea9208bfd2aee23e43a28b751ba6869053a5565a884f0c23f2b57182605",
+      "audit_source_sha256": "3bcda8074c886a1279c6a617a61d9dc6cff7902ea65fdc4462112f47c1f7b9ba",
+      "input_hash": "c59745898879a85ac3b578878c2765dc59c3d0a93bf5fb40966d53af9a617b09"
+    },
+    {
+      "id": "FeffermanFamilyFoundation",
+      "declarations": 39,
+      "audit_sha256": "a1ad813c50e9e5417cb3964614d93ede543f486ab2b117a2ecd40b00e4053781",
+      "audit_source_sha256": "6e1826b1c1d9a16f6f52d37046131a113bddf20f80f94636d0a3c5971179d66e",
+      "input_hash": "0b5c604c7a3efd28f8f21fd366d62a773c7135e6a0cdc008bd644f438b3ccfde"
+    },
+    {
+      "id": "FeffermanFamilyAssembly",
+      "declarations": 23,
+      "audit_sha256": "da3eb2d054ad02e8a715d8cb0d0ef2ce341094e19b38de816eb76c848618df60",
+      "audit_source_sha256": "0db7c4e9111830ba4686535e9bc4e43e7163424795922f1ce9ba2d8697ad33f4",
+      "input_hash": "5928f61a1a3073ef9aef905a6d6519d5f74409de06ab8a6bf7645a83b2a40012"
+    },
+    {
+      "id": "FDSNPhase",
+      "declarations": 20,
+      "audit_sha256": "9424beee4546868094f3734a43778c235130ab5353bd9a3f076aa9c299d995c8",
+      "audit_source_sha256": "ecd1e96c8340f856e4eb46397c7a3bbac366ba30daacc2abede247c89341248c",
+      "input_hash": "3ad3642f603f19e5f89f755dc02c5d6279670efbe2dafa2645402a56e7a16c15"
+    },
+    {
+      "id": "FDSNBump",
+      "declarations": 1,
+      "audit_sha256": "da7a42838f40ee444fea522d9d32ccd795fc3887d87b27e1762c18f19d793ed3",
+      "audit_source_sha256": "7df7e95be90aa1e0d51df6ea29f02dabcfd55e56d351588ca18b73a42c533304",
+      "input_hash": "eb0efcc0d0a472d9f50255ed6665aadd2501bcaf796c49a7e0677931b621e9e7"
+    },
+    {
+      "id": "FDSNFourierPair",
+      "declarations": 21,
+      "audit_sha256": "84f69addd9ea167001ddb2f8b93ca4ef8787956d77b1d15dc3d75bfd218493fe",
+      "audit_source_sha256": "958bb312ae2466ae9ec1f4932fe39ee8659bb2004c48fba69bcd90fd5c98f19e",
+      "input_hash": "a7a9712a2a140b11c72015d51858f19059ec33e6df5d625a4b32b907f59b9934"
+    },
+    {
+      "id": "FDSNPhysicalPair",
+      "declarations": 14,
+      "audit_sha256": "1aa68bb44e0f9ef45d3006b56002c1942d73fd9be3671d7afe400da981874276",
+      "audit_source_sha256": "bfec0ed39fbf3172abdaeded508cc8ebed45bfb9f2ac84664e522c681ec1076e",
+      "input_hash": "bf8a77c92ab376b2cf734566ec17104c9319a73aa3ff08369b79d81bae5f75a0"
+    },
+    {
+      "id": "FDSNFiniteCorrection",
+      "declarations": 7,
+      "audit_sha256": "4918579a3acd11cfc4b923a441f2686d0a9203a34b05d3ff58326234c098b70f",
+      "audit_source_sha256": "66f6af25aec2aa228104bfdc4669b4c32fe7b54eaf1a33fe4e7dcd1f685cbcf3",
+      "input_hash": "1cadc9b81d7a75646aa79c11853884e367634bb9120a3ff8b483643da84040aa"
+    },
+    {
+      "id": "FDSNCharacterTriad",
+      "declarations": 6,
+      "audit_sha256": "09b21492f067fa80dcf9d18c8f5d7321e47eeed855836c276051cecc061d1984",
+      "audit_source_sha256": "1f89743916d868ae6680ed84d72eaa8025de74c656b3cf73be5ca2e1cafa8359",
+      "input_hash": "543e05e24c3bcf6406ba04d764387998544dfdf477baddab5a2dcffd4edc4f32"
+    },
+    {
+      "id": "FDSNFourierTranslation",
+      "declarations": 11,
+      "audit_sha256": "4cc244e1b5fb94776a73bc35ff86b1a80f53fd4f0312f4a6326e223374d3f0bf",
+      "audit_source_sha256": "3f546d63773c9554915dafc0a1ae680b058b47e082c3a6ac3ea371978db7be61",
+      "input_hash": "633516c7b9af1940f9a83dffa7707cdb2d31b97a05e1d199475f296922b7b56e"
+    },
+    {
+      "id": "FDSNContracts",
+      "declarations": 13,
+      "audit_sha256": "567988727d461172b2820e3acf31ed1e7606b8f27c71a95d9508a1a7c71433b5",
+      "audit_source_sha256": "17aa63c3797032183cd8953a126410e01349e2e370c3bd16ceb86769a3658214",
+      "input_hash": "1145072c8b35290d4d8880f79d328c306677da2c1afaa6c5ae972f84545d993b"
+    },
+    {
+      "id": "FDSNTimePhase",
+      "declarations": 20,
+      "audit_sha256": "02446d82479c767014710eeb5c3196ce4c8fcff8b19dc4d01b900aa401770e9f",
+      "audit_source_sha256": "ee3740ae1852b165ed6a424a84f94256950c8d59d085cd991e9e033ee3795fe5",
+      "input_hash": "be7c02d9b102037aa3863189dae054e97be80e9017c446aeda67df6a289257b3"
+    },
+    {
+      "id": "FDSNNonvanishing",
+      "declarations": 2,
+      "audit_sha256": "e02d99a0da6312576cd604e0502828950f0fb9b03de40e771725c00a91b7a996",
+      "audit_source_sha256": "369157a3916f872148efa4d3eda6767aaeeaa208855dfd2274be9034c29e9f8b",
+      "input_hash": "cf8801455dc362f77a6213fcdcf95c5a23480e7c03098224504729758e85027f"
+    },
+    {
+      "id": "FDSNLocalizedCoefficient",
+      "declarations": 5,
+      "audit_sha256": "a705a9fd031f3ea44b357745bd4b7bc61b993127c36ebfbebe1c170a4ca62721",
+      "audit_source_sha256": "0ce96bb91a78cfa5f83691644aaa2558bb429fc862347021ecc5ed9ef560dfeb",
+      "input_hash": "82cb1c1371a27605db9a3ece59fa51fdc3c8fb6637aa7034e8d62599144166fb"
+    },
+    {
+      "id": "FDSNCoefficientSmooth",
+      "declarations": 4,
+      "audit_sha256": "105713daae5861c954965816f3cf797a470767c12d358cd6122f4d3ac5e39fab",
+      "audit_source_sha256": "8485646c34c6c3d56da2ac0fcc7d4706824322b0086c21f4bd30018f1224bfd9",
+      "input_hash": "25b4da2bd15bf4ef7535077d584e9df7839631530566be4f0b3be54962adb683"
+    },
+    {
+      "id": "FDSNLocalizedPair",
+      "declarations": 16,
+      "audit_sha256": "a87b8fc2aea4778486151147d318e5b8e0cdf6a7e3bc23bbff556f9cf6e8f81d",
+      "audit_source_sha256": "b569f2ef58c3debef51b6d71c9c367e284daa11faef06973b442bd9e995dfef3",
+      "input_hash": "673ca415e7fcdbab47e77c658460603893ca1e4a5d58696ccea8bf8e0365324e"
+    },
+    {
+      "id": "FDSNTriadCancellation",
+      "declarations": 18,
+      "audit_sha256": "56ffb7b47604426033bf351e03c17853109a44a868a5ea481830901b1bd53ca7",
+      "audit_source_sha256": "eedfdf2a76624cf7195010503b3a2d49cff7030a4f95aa12dc052541a8bd6646",
+      "input_hash": "53e8a83352b2f7cd0c32356effa9fef593e0c9071c85ba7e02e3bd1f64b76f0c"
+    },
+    {
+      "id": "FDSNPairTransport",
+      "declarations": 10,
+      "audit_sha256": "0f22ec7f92ca0923c14e059f8db875297f8f27275272734101fa79e2df08296d",
+      "audit_source_sha256": "23a7c98aa76978e7fd15f5f2d9e3c05eeef0eea253badaa664bd761487d7aa3d",
+      "input_hash": "4920f1a348dcf73c872e8cf71340f8597da69ef2039981a8b9a9450b9a48dd0f"
+    },
+    {
+      "id": "FDSNModalEnergy",
+      "declarations": 6,
+      "audit_sha256": "99f4fd89f244a671e9aefc4ffe431f6f2f3056bc8f393365df230d324064aa1e",
+      "audit_source_sha256": "6143d334a59f527dbdbe2aa7aa39ba098d222992176fc18c388fabc9bfd80d1f",
+      "input_hash": "d0022e1248b20d8c043047078b3e3c4c8126ddcddfaff555c192851b4c4f3d72"
+    },
+    {
+      "id": "FDSNForcedFourierEvolution",
+      "declarations": 14,
+      "audit_sha256": "5c26dc2d0962c82e6b6cc68f5770f2f27c257e98216faf5a3bb6a266afa0bcc0",
+      "audit_source_sha256": "20099427517ec1c94a9d1fb2b2a29ad8e484e6609929908b62edc6823b6b1e2e",
+      "input_hash": "0f54e745233d8de06ee775c41197f380e5716289e7e5d6259a6afd1fc9c82b96"
+    },
+    {
+      "id": "FDSNPairForceUniqueness",
+      "declarations": 6,
+      "audit_sha256": "3968206f2a2139499c85f22a908948ba4b097276c16b5aee6d6d3b580ae0e489",
+      "audit_source_sha256": "90479b382b90badcd98ba0eff3e7ce62e076578201ee7b9800da88264f1ee50e",
+      "input_hash": "3536ecab1932a2b3e3ab3834428c83d7b569f72349a6ddda081ca0f607b76ef1"
+    },
+    {
+      "id": "FDSNUniformForceDecay",
+      "declarations": 6,
+      "audit_sha256": "4d85d1d8b3035fbb87790daa9e9e26e17113621ced49247cb7c14d0fceb0a872",
+      "audit_source_sha256": "eb879668651fd5eb36a16ac381da7b8527eb18a0960beb8bdc69826aa08e202c",
+      "input_hash": "edf0e51a1f59d76bdac4463c661792f5056ee7ea18d0614c6bd28c23f89bca64"
+    },
+    {
+      "id": "FDSNPointwiseEnvelope",
+      "declarations": 6,
+      "audit_sha256": "becd9141158d0e30a528c7cbe58f1f76e4838240dafee63940de28facf63fe25",
+      "audit_source_sha256": "84abf9b6e07e4032b268f1103a2fbfffb57c88bb6d62ddcd3978aacf7b62f7c0",
+      "input_hash": "3103ff0e2dcda344adfc15b7f63c3cef5e5719b8703ec1f7ebcd1c9a43a8aa27"
+    },
+    {
+      "id": "FDSNModeEnvelope",
+      "declarations": 4,
+      "audit_sha256": "f808d847d17a1fb95cd78b8bc2b275d4f0d3cb30b9e307bcac8ef2335e4ce196",
+      "audit_source_sha256": "c99912fdb3859560ea43bc9ea42b9d322585c40e5abc66d6840943260f9cdfe2",
+      "input_hash": "e20d04026aaae3723d2f8ef95860c95a804d964ed4a1b14693dd2bef699c96db"
+    },
+    {
+      "id": "FDSNActiveTriad",
+      "declarations": 2,
+      "audit_sha256": "1d575524d8889ddac8f9d1807f80891ce472ea810d3c7e3dbc75c85c3d8d27b6",
+      "audit_source_sha256": "225d0759234a0d1f0f8fdd57e8f7862f38515d9c51f542770fbeb8169d27381e",
+      "input_hash": "8b160164aabb31c2b0bac9b8a9c7db3993f06328ecb714bdabacd4ec6eadb38b"
+    },
+    {
+      "id": "FDSNLocalizedPairSeparation",
+      "declarations": 11,
+      "audit_sha256": "1ef742bc2cda4ff19a0efe0a86ba080d07158be2745612fa5093637ed1ea50f8",
+      "audit_source_sha256": "9e72ebb28075a2933f7c7824704e5d6b262d60be5daab2ae8b72fd374260e893",
+      "input_hash": "3c0eea6a5668811c547f802914f9964fb7a23c36553378135413c74c9c7e0f0a"
+    },
+    {
+      "id": "FDSNResidualForce",
+      "declarations": 9,
+      "audit_sha256": "e41168d76bb12f2d1002deab5221d095af16c8f74d773f41f83feb998aefe07f",
+      "audit_source_sha256": "e9425f73b5310ccaf9af87eb70fb242ed60d3115864932f92678641eaf019a94",
+      "input_hash": "969214df3cef298e4a9725251c294249009e1c9656c52a41ecf28abfdc58faea"
+    },
+    {
+      "id": "FDSNResidualLocality",
+      "declarations": 8,
+      "audit_sha256": "f29a9a641ec45e468e66af0f6b3c45998c8ba33eacad0cbb6fb21abe6c807a77",
+      "audit_source_sha256": "41724300d511d4601632f28fa2a5f4ad463b63d28cdb5bb76b9e186600041780",
+      "input_hash": "161a76e8b98348d6b40f67520b2f82e04f888f50a61d696e6296046b47699c7a"
+    },
+    {
+      "id": "FDSNResidualAdmission",
+      "declarations": 8,
+      "audit_sha256": "4ca15fe445c288800aa84f87e9c09a0307679f3557efc1093bb9d97f914fc133",
+      "audit_source_sha256": "c2bfe886ddd5c8485e2e9e69a3c8ac99da40161362e91808db5c0bfb0dc0e2c0",
+      "input_hash": "eefdbc969b6b85205d8d8e6b9e7defcfba17947422ea1ed808f298c124ef9996"
+    },
+    {
+      "id": "FDSNJointResidual",
+      "declarations": 8,
+      "audit_sha256": "3046e22ef1d392cfbd32cedebf654040ab29be642e20280435d7056843951e46",
+      "audit_source_sha256": "a3fec68453a2817dfc61b2d00a71c5358906ee26a5463dae9da06dd442bb6119",
+      "input_hash": "8e3fca91f2835b2d20b5da23a71506965232f5e1015649bc1db10d79ddddf185"
+    },
+    {
+      "id": "FDSNLocalizedResidual",
+      "declarations": 9,
+      "audit_sha256": "2d88b726583a3d75edf179345c4bdd9c7126d2bced7761dea1165ebb4a25d01e",
+      "audit_source_sha256": "6e4b20f26cc82cbac171316426d1f4de76b59d9bb0aabf79b806cbc19db20b44",
+      "input_hash": "56a7cd6bbf334a3e8038a620ad30984b46d5286269efd05ed88c96b3a199313d"
+    },
+    {
+      "id": "FDSNLocalizedFront",
+      "declarations": 2,
+      "audit_sha256": "d0701b180e51f93c4fe0d1f4cb61bb1b6ef368203164a7c7fdee2dbd61e681d2",
+      "audit_source_sha256": "688be726402ebda0a71cd419c4382856e5e183d2431085e3f19cab47500873d2",
+      "input_hash": "fccff3654520ccf3232868ffe65f327f474ebecc0f2545e6a9613b1c95139f93"
+    },
+    {
+      "id": "FDSNSmoothSmallness",
+      "declarations": 4,
+      "audit_sha256": "6a5992ba633413c7885a56e821dcc07d591264f69d85da45914d92233e11ba1e",
+      "audit_source_sha256": "2484864907a1bb66b0b1280ca20a39c9a2306998ab51e415834feb1311070b15",
+      "input_hash": "a5bcc9e1b10b2746bf07dc869d1f68bba57ff67c90c2ae8e79eebb307748e080"
+    },
+    {
+      "id": "FDSNLocalizedSmallness",
+      "declarations": 2,
+      "audit_sha256": "ea96339df9cb301c0628c9be4d5d4c73d99d4685d7f395674c3175948352a66c",
+      "audit_source_sha256": "841b22422f829b94a71487efea932e86da45b3c5584aa11a5eb059f6f6fe1a4a",
+      "input_hash": "9c48cde01215a4b39c46a4e33cd35a4584ff0d4ec32bc6a8e754911ed0103de3"
+    },
+    {
+      "id": "FDSNFamilyContracts",
+      "declarations": 17,
+      "audit_sha256": "33baa7d6ce5656acd12e576d9e650f0251e1ea5b6fd7893396bb5b253f837e64",
+      "audit_source_sha256": "6b5687c5b567178ee15ffbbe69611de7857d0752b851839dc3adf712dd21d1ab",
+      "input_hash": "990c8472359c0b926333995499643c52bb5fa797ad9f0cbf3c4181a2a9b29746"
+    },
+    {
+      "id": "FDSNFamilySmallness",
+      "declarations": 3,
+      "audit_sha256": "4c6705f97012bb9521f1dc14100e7c2ef45a6094deed426e89f332196d815404",
+      "audit_source_sha256": "1b52ec357709891155ee7ea823ee6e24a51843e869592384675755a0b3e220d5",
+      "input_hash": "24ac11f06433f9c53dd016151610a05043a94263a327d8c8e429bd0a5e4ecec8"
+    },
+    {
+      "id": "FDSNFamilyRealization",
+      "declarations": 6,
+      "audit_sha256": "359bcc9ff1068eaf3e311e8729ccb961912a3ed133130b527fefcd340222b1cf",
+      "audit_source_sha256": "065e5a00c7627a6e6b8a1f9bd8bdd5301ef9e19e0655922f40803a3ddd8911b7",
+      "input_hash": "4649e5a357af3d56cae3c740c59f09e59a9d397409fe70521f63f7001c154c86"
+    },
+    {
+      "id": "FDSNLocalizedForceSeparation",
+      "declarations": 2,
+      "audit_sha256": "b1e5d10c1dd105b9f0e94dd1c15f7b35f2e943fcfe7a22d0a72aa43263cec3e6",
+      "audit_source_sha256": "cd7782f2eef14862fb2fc4b7a97371373b5ea95731d357c8ca30f2d9ebc14cf7",
+      "input_hash": "be9bdc7ba54637adc9bdf36055a84270a584dd92c0e55dc8aa3fd57a0828d517"
+    },
+    {
+      "id": "FDSNMain",
+      "declarations": 4,
+      "audit_sha256": "9a3b349a5e9d8fdf5f22c82697c0b9aacf54f7c8f7ce264aadf328eebff3e497",
+      "audit_source_sha256": "231c27cbe067a980d61775874d2f3766fdc6a04fe43113c571ba302d5c730c48",
+      "input_hash": "cd32040150e3aa29310334aad0973d18628cbec6f7906bd2445034aa2afb7e0a"
+    },
+    {
+      "id": "FDSNPhysicalLerayAdapter",
+      "declarations": 11,
+      "audit_sha256": "295a10bee172bff0e0c891342dc62f4bf2d0f1b2a272b865124a34733a2b7daa",
+      "audit_source_sha256": "bcd02977c804b0705a58143fcb4ee52bd2f4a8aa0b48568e80c112b962d52356",
+      "input_hash": "ebdd90d66f9edcdc287bc1456218037a60f0327e9a1c3f1b1c6940faa057b5c6"
+    },
+    {
+      "id": "FDSNPhysicalPresentation",
+      "declarations": 1,
+      "audit_sha256": "0ef49b452769c774f9dc7d6338196df331235f399f6764f1b12c50b22436905d",
+      "audit_source_sha256": "1c314950edca9e20452a89a09dd3adac0ead22367772cae6c2cbd30b7ba045c7",
+      "input_hash": "c1ed3c21b50df257440747be932e066a4d0b1ce7f8591cc848870690f3ea0a0b"
+    },
+    {
+      "id": "FDSNR3Contracts",
+      "declarations": 38,
+      "audit_sha256": "22aeff03125fd80d984271e1e2adf68800dd2d773a8a7df83008ac795d851345",
+      "audit_source_sha256": "bb9625552cf84171fc40e6c842b12ca8dbce1c81d17d30b6f52347d065687a16",
+      "input_hash": "9d52c743d6b1b715d0699a9d385270eaa89a0f0b4222270bf21d5bdfcde0173a",
+      "retained_log": "FDSNR3Contracts.log.gz",
+      "consumer_examples": 38,
+      "scope": "Exact actual whole-space NSE, local-Schwartz seed and common-witness family contracts, with elementary initial/tail helpers.",
+      "supports_proposed_endpoints": [
+        "R3-01"
+      ]
+    },
+    {
+      "id": "FDSNR3CompactSchwartz",
+      "declarations": 4,
+      "audit_sha256": "50cbc9125d29b8b948fcdc30d3b98cd9fd517273f3a9ea944c67f3501dff4dd8",
+      "audit_source_sha256": "7c9697680da9be96c9b2eb2ea25bbda964b1e8e90ab11e8904f3ade7207852ba",
+      "input_hash": "524a497bf7a5feb98b2e67357e4be5782d8c99c945acadf1cf614235287366a4",
+      "retained_log": "FDSNR3CompactSchwartz.log.gz",
+      "consumer_examples": 4,
+      "scope": "Actual local weighted Schwartz admission from joint smoothness and one fixed compact spatial carrier, including time-zero within derivatives.",
+      "supports_proposed_endpoints": [
+        "R3-02"
+      ]
+    },
+    {
+      "id": "FDSNR3Phase",
+      "declarations": 30,
+      "audit_sha256": "3a98485031980b3ba3bc34feab5b9f43a15a21ec4780b83df2b67240e26820e8",
+      "audit_source_sha256": "43e0cb3f7fa6bc4b4fbe3f7a0a5a512541a4ea92d98091c0755fae5bbdd5d429",
+      "input_hash": "4d5fa0fecd010d641f4d587617b4e6e4129f2b88c34e176dff19e22f25922dab",
+      "retained_log": "FDSNR3Phase.log.gz",
+      "consumer_examples": 30,
+      "scope": "Scalar continuous-frequency phase-packet algebra: actual exponential, support, smoothness, norm preservation and active-coefficient separation; physical assembly remains separate.",
+      "supports_proposed_endpoints": [
+        "R3-06",
+        "R3-08",
+        "R3-09",
+        "R3-10",
+        "R3-13",
+        "R3-15"
+      ]
+    },
+    {
+      "id": "FDSNR3Fourier",
+      "declarations": 33,
+      "audit_sha256": "9cc64e204eac487bded147ca6bf8d3781b83b2eb8414016af01c6efcbd365381",
+      "audit_source_sha256": "f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a",
+      "input_hash": "2a484dc848c65482e88d1ed1981c0597c43c062808e421437afb16da03e86974",
+      "retained_log": "FDSNR3Fourier.log.gz",
+      "consumer_examples": 33,
+      "scope": "Actual whole-space Fourier inversion, Hermitian reality, translations, derivative/divergence symbols, and Plancherel for native Euclidean fields.",
+      "supports_proposed_endpoints": [
+        "R3-03"
+      ]
+    },
+    {
+      "id": "FDSNR3NonzeroPatch",
+      "declarations": 7,
+      "audit_sha256": "8f658d3c3bad1fad88cd9d7ab4e1baa26dbd1e503e13c925db487592bbea5002",
+      "audit_source_sha256": "22ffbb3ba76032ddd559190b66fabadbb3045c1b5e3fed0d7fcea5f284a4c415",
+      "input_hash": "009167f7a4d9e362c3fe61b62775c09882960dc24a434eb83420d967dfec22bb",
+      "retained_log": "FDSNR3NonzeroPatch.log.gz",
+      "consumer_examples": 7,
+      "scope": "A nonzero actual Schwartz slice supplies a nonzero open Fourier observation away from zero.",
+      "supports_proposed_endpoints": [
+        "R3-05"
+      ]
+    },
+    {
+      "id": "FDSNR3SliceSchwartz",
+      "declarations": 14,
+      "audit_sha256": "3456d42024470b090b7c48e7bd84f29930f899bd363699ce559727bd63210ae8",
+      "audit_source_sha256": "f990a34cd921bec84fddb0c9c2a5608796ae13f6374346998e7cef4012ae0d90",
+      "input_hash": "810a034b61e959dcc89a18cbcd7b53d1e34f4828da32bfd4657eb8a4f144e62b",
+      "retained_log": "FDSNR3SliceSchwartz.log.gz",
+      "consumer_examples": 14,
+      "scope": "Actual local-Schwartz slice admission including time zero, and the original seed's nonzero Fourier ball after every regular start time.",
+      "supports_proposed_endpoints": [
+        "R3-03",
+        "R3-05"
+      ]
+    },
+    {
+      "id": "FDSNR3Helical",
+      "declarations": 52,
+      "audit_sha256": "c53f3d521075e760091395b8a1d068bd5de0c3e35e916153def2532f9c7938a7",
+      "audit_source_sha256": "aa4b2ca1825d89167c53c0eb4d4c0cfd7061a50c116fbab557e0a0e0a82f8aa9",
+      "input_hash": "93ec47decc3f03bd3faa0738d60485007612d3d11079a8ab6064c4f161b4bfb0",
+      "retained_log": "FDSNR3Helical.log.gz",
+      "consumer_examples": 52,
+      "scope": "Intrinsic transverse/helical projector algebra, curl eigenvalues, Hermitian orthogonality and phase-power preservation.",
+      "supports_proposed_endpoints": [
+        "R3-04",
+        "R3-09",
+        "R3-10"
+      ]
+    },
+    {
+      "id": "FDSNR3HelicalFrame",
+      "declarations": 3,
+      "audit_sha256": "d5b113ac0ad9b0fd055cebaf735a4f6bc8bd05bcaf704b1cc43fee6bc0fa4c7b",
+      "audit_source_sha256": "baf4a42a3e8c87c11a65b1f1bd85c89afa98ba82058969e87ad530a936d15ceb",
+      "input_hash": "899b62fe07c4ca4540cc14c41bd2beb8e1ecdf2e6f22d7140288223a97afcddb",
+      "retained_log": "FDSNR3HelicalFrame.log.gz",
+      "consumer_examples": 3,
+      "scope": "The intrinsic helical projector and actual Fourier power equal the scalar coefficient projector and squared magnitude in every ordinary orthonormal curl eigenframe.",
+      "supports_proposed_endpoints": [
+        "R3-04",
+        "R3-10"
+      ]
+    },
+    {
+      "id": "FDSNR3FrequencyCutoff",
+      "declarations": 20,
+      "audit_sha256": "fa2cc3b539e732eef151bb73cd6ea963d9e3a49d5f7ace3c402468c209cef8f3",
+      "audit_source_sha256": "6ef56d76e9263ed97da5b345807ca97f768dbe810c6d7bf92b84a42cb97fe12f",
+      "input_hash": "025c141d2d6285477a2c29f12443bda81f342c00430e62207ed468e6d5b5c5da",
+      "retained_log": "FDSNR3FrequencyCutoff.log.gz",
+      "consumer_examples": 20,
+      "scope": "Explicit active/untouched frequency regions and a smooth odd compactly supported cutoff away from zero with exact active and anchor values.",
+      "supports_proposed_endpoints": [
+        "R3-06"
+      ]
+    },
+    {
+      "id": "FDSNR3TranslationRigidity",
+      "declarations": 3,
+      "audit_sha256": "2a326d2c274997197bc2ad792450741b0cfe3b6e7aa6d5bed6d8eb2d5fe1f25f",
+      "audit_source_sha256": "b3b5b2424b8d79425943592f7204e188f108988c5143c42356020a12d751812b",
+      "input_hash": "d644e717b69c33640422b2c50692b2db86711b0f0a468d81d1bea585794f06bd",
+      "retained_log": "FDSNR3TranslationRigidity.log.gz",
+      "consumer_examples": 3,
+      "scope": "Open-frequency translation-character rigidity and physical nontranslation under the explicit actual Fourier reconstruction identity.",
+      "supports_proposed_endpoints": [
+        "R3-13"
+      ]
+    },
+    {
+      "id": "FDSNR3SchwartzPhase",
+      "declarations": 41,
+      "audit_sha256": "aba674a60a6d020e120c3d8daed180fcaf7195733ff249cded250cd3dad83608",
+      "audit_source_sha256": "571c518c2e364fe5b26c801493e27651dc2debfc1cabfd0553cafc4f87b19944",
+      "input_hash": "e4946d083620739f6c2cd0d6a173440e4f4320c571e270ae9700637071427ac5",
+      "retained_log": "FDSNR3SchwartzPhase.log.gz",
+      "consumer_examples": 41,
+      "scope": "Actual real Schwartz phase reconstruction, literal Fourier recovery, solenoidality, energy and dissipation invariance at every Schwartz slice.",
+      "supports_proposed_endpoints": [
+        "R3-08",
+        "R3-09",
+        "R3-10"
+      ]
+    },
+    {
+      "id": "FDSNR3ParametricFourier",
+      "declarations": 20,
+      "audit_sha256": "fcf437b85aeb682b9bf4cb6e123ba94936df76444ae956eab1660afe297d00bb",
+      "audit_source_sha256": "66a21bec1e100bfef245aa1da1c142c974376fb743c218113c434c91dd608b09",
+      "input_hash": "1d28ce85107a0cb2d9be9441ee86ee443806fd7ed9d982c53fde6feb5c72b71e",
+      "retained_log": "FDSNR3ParametricFourier.log.gz",
+      "consumer_examples": 20,
+      "scope": "Dominated Taylor integration and the original local-Schwartz contract imply actual joint Fourier continuity and native time differentiation.",
+      "supports_proposed_endpoints": [
+        "R3-03",
+        "R3-08",
+        "R3-14"
+      ]
+    },
+    {
+      "id": "FDSNR3ForwardFourierSmooth",
+      "declarations": 15,
+      "audit_sha256": "7c4107cd68d08b22a9883e46c72bbfc25535d4d19f2d6d26ea83f2a43f05afa1",
+      "audit_source_sha256": "e1f2e105528e930016e2c3ec236a2bf68ae2d515d84664a13b5b1277224154e2",
+      "input_hash": "2d8e1ffa398150e22a72faf02103596080b53611066f3d2ece9554cf7d009c6d",
+      "retained_log": "FDSNR3ForwardFourierSmooth.log.gz",
+      "consumer_examples": 15,
+      "scope": "All-order dominated differentiation proves actual joint time-frequency Fourier smoothness from the original local-Schwartz contract.",
+      "supports_proposed_endpoints": [
+        "R3-03",
+        "R3-08"
+      ]
+    },
+    {
+      "id": "FDSNR3SpectralGenerator",
+      "declarations": 17,
+      "audit_sha256": "599edb59e4d0564e542496b43f8345bdb8cf1d85a1ecec93aae948993c263232",
+      "audit_source_sha256": "5ae5fa80191815a9af286569a560ed79a76bb75b809c6d2078064a5542b91f08",
+      "input_hash": "3d6c0a35432d1920160fc05921bb57773affe4af9793bb661a286d8b1d8cea57",
+      "retained_log": "FDSNR3SpectralGenerator.log.gz",
+      "consumer_examples": 17,
+      "scope": "Actual inverse of the compact i-psi Fourier spectrum is a real solenoidal nonzero Schwartz generator.",
+      "supports_proposed_endpoints": [
+        "R3-14"
+      ]
+    },
+    {
+      "id": "FDSNR3CrossingTimePhase",
+      "declarations": 10,
+      "audit_sha256": "c5c7ab34b03ae7f3f1167a44cce5267eabc317259d77418effddfcb1937ef925",
+      "audit_source_sha256": "294f7ff7fa34e1560e735362eccfc4b9dc5f7cd729a86733d08b517ea2555afc",
+      "input_hash": "fd7b9da3b355dd90fe8e6b3f819e53214bf3567d811573bbefbffa9f0137d7f6",
+      "retained_log": "FDSNR3CrossingTimePhase.log.gz",
+      "consumer_examples": 10,
+      "scope": "An explicit signed normalized compact time phase has a simple zero at a nearby nonvanishing Fourier observation.",
+      "supports_proposed_endpoints": [
+        "R3-07",
+        "R3-14"
+      ]
+    },
+    {
+      "id": "FDSNR3ForceSeparation",
+      "declarations": 9,
+      "audit_sha256": "cd2651c8125d4247707202c428fdabd7bbe4ba30495df082ccc888fe6f2317e5",
+      "audit_source_sha256": "7689017f3cce774c430e5de67bbd4c83b1f645b3cbddd15090f0cd328e4c1fb3",
+      "input_hash": "71675e4a591da9ee87939573cb21c9aa59fc4b5eb8c733ceae91da4ad5668dae",
+      "retained_log": "FDSNR3ForceSeparation.log.gz",
+      "consumer_examples": 9,
+      "scope": "Literal physical Leray identity on solenoidal Schwartz fields and native residual cancellation at a common zero, with explicit derivative bridge inputs.",
+      "supports_proposed_endpoints": [
+        "R3-14"
+      ]
+    },
+    {
+      "id": "FDSNR3CrossingDerivative",
+      "declarations": 9,
+      "audit_sha256": "a2a4baf2564e010875d5076a196e13fe96eef36ab018b1bc7018e9f041c0cdac",
+      "audit_source_sha256": "54306c403baba334b072cfb926877239d6913ac8b477700d1e3b267898b6efea",
+      "input_hash": "a342067f74febb7bd6321b4cc649824577a405278b6c2c9d9ae21d4ed29c0077",
+      "retained_log": "FDSNR3CrossingDerivative.log.gz",
+      "consumer_examples": 9,
+      "scope": "Genuine dominated inverse-Fourier differentiation discharges the common-zero generator formula and concrete physical projected-force separation.",
+      "supports_proposed_endpoints": [
+        "R3-14"
+      ]
+    },
+    {
+      "id": "FDSNR3JointPacket",
+      "declarations": 22,
+      "audit_sha256": "711a7f50493292335c57a48553b28e2802718504adac62b013e4e1df809a0e73",
+      "audit_source_sha256": "36709eb7bc237bbd51d9f3ae858c8b1553cedce1a2c60dd4246963f7aead37ca",
+      "input_hash": "1652190d5b5bb082070f63eeb1488f617c2b546e18c8672dfe6f730c18cfcf57",
+      "retained_log": "FDSNR3JointPacket.log.gz",
+      "consumer_examples": 22,
+      "scope": "A compact parameter cutoff constructs a full joint Schwartz spectral correction with exact small-parameter formula, support, Hermitian reality and transverse constraint.",
+      "supports_proposed_endpoints": [
+        "R3-08",
+        "R3-12",
+        "R3-15"
+      ]
+    },
+    {
+      "id": "FDSNR3Realization",
+      "declarations": 13,
+      "audit_sha256": "70ea5ac80aa27cc31fc0557797c202f578314bfaa666190cb71ab3f659184792",
+      "audit_source_sha256": "0123c07eef6afdb5df96007e018c9a3cc842b575c6870691562503ec88963dda",
+      "input_hash": "55f60b2bbfef2c0a48cf8a7cba180bb66bb2a163604aaf93bbc6d29a26692384",
+      "retained_log": "FDSNR3Realization.log.gz",
+      "consumer_examples": 14,
+      "scope": "Native whole-space regularity/admission closure, residual Navier-Stokes realization including the initial boundary, energy/dissipation history transport, and exact time-integrated dissipation equality.",
+      "supports_proposed_endpoints": [
+        "R3-02",
+        "R3-10",
+        "R3-11",
+        "R3-12"
+      ]
+    },
+    {
+      "id": "FDSNR3SchwartzJets",
+      "declarations": 9,
+      "audit_sha256": "450a987e7f32383772c4d5c1f5861b9d320ad07dedad199983d8522b2c1b58f6",
+      "audit_source_sha256": "dd18f41e65a5ca168fed8a16b56e816a72fefcb1431c6f71a8ae7bc03126cc9a",
+      "input_hash": "4d1e522ecceff6f8fd2127510e14fd13d00c5176a0036ac4f673cadacf889705",
+      "retained_log": "FDSNR3SchwartzJets.log.gz",
+      "consumer_examples": 10,
+      "scope": "Actual full joint Schwartz correction jets satisfy all weighted mixed derivative bounds linear in the parameter.",
+      "supports_proposed_endpoints": [
+        "R3-15"
+      ]
+    },
+    {
+      "id": "FDSNR3CompactFrequencyInverse",
+      "declarations": 40,
+      "audit_sha256": "3d165e730dc7bc7f178e2183a5bc0559512abfa8640c1fdeb9873a530663878a",
+      "audit_source_sha256": "8e436aa7384402b82030b8497a4a41212dcecc8090d937f0b8bcc672c2725746",
+      "input_hash": "f4e3fef18d9e6c09d67c5664137931b296248ec4e63c54d472598da8db475db4",
+      "retained_log": "FDSNR3CompactFrequencyInverse.log.gz",
+      "consumer_examples": 41,
+      "scope": "Actual partial Fourier/inverse transform maps the full joint Schwartz space to itself, with genuine all-order Taylor integrals and uniform mixed weighted decay.",
+      "supports_proposed_endpoints": [
+        "R3-08",
+        "R3-12",
+        "R3-15"
+      ]
+    },
+    {
+      "id": "FDSNR3ResidualSchwartz",
+      "declarations": 23,
+      "audit_sha256": "732e94b1e93fd3b3d2874d7a7735a87766073ff24d2979581b3257a06645ef79",
+      "audit_source_sha256": "b3dc76de28e5e1aadba9ddf2500babdd100c77a62359b83cc367e1d19a492da8",
+      "input_hash": "c7fa15b486bce8f04655bdc8e71b91db7e104b7fa31cc5f1cdc9a7e2adff9042",
+      "retained_log": "FDSNR3ResidualSchwartz.log.gz",
+      "consumer_examples": 23,
+      "scope": "Actual full joint Schwartz residual from proved tempered localized-seed multipliers, with native spatial/time differential identities and original-force equality.",
+      "supports_proposed_endpoints": [
+        "R3-11",
+        "R3-12",
+        "R3-15"
+      ]
+    },
+    {
+      "id": "FDSNR3LocalizedSeed",
+      "declarations": 10,
+      "audit_sha256": "f4d3a1ca4ab8d3a7c7a1b472a9dd8ee8d8d8dbc2d1d327eeb0e7705928d85e81",
+      "audit_source_sha256": "a152e618ee0166699ec4c135e4d09a8a3fe3beba71048d5f2b597bbabc62d1fe",
+      "input_hash": "67234d2f09b542f1eb7403e02f3c4d3618f548aee7cbe7294f208d152e3db162",
+      "retained_log": "FDSNR3LocalizedSeed.log.gz",
+      "consumer_examples": 10,
+      "scope": "The original local-Schwartz seed admits an actual compact-time localized smooth Schwartz representative agreeing on any selected compact regular interval.",
+      "supports_proposed_endpoints": [
+        "R3-12",
+        "R3-15"
+      ]
+    },
+    {
+      "id": "FDSNR3PhysicalFamily",
+      "declarations": 31,
+      "audit_sha256": "081ed1056167ec7acd7c6a91f481a6cb3c320b101410b7b5c073e830e9809140",
+      "audit_source_sha256": "1d59da2ef27374f18221e04eb7f4deb8f9b56d379d2875f0b464462fcf460ba7",
+      "input_hash": "c782f4295b9441ad35c9dcd4c08e72c361fb894e35f087f1c537728802c42fcb",
+      "retained_log": "FDSNR3PhysicalFamily.log.gz",
+      "consumer_examples": 31,
+      "scope": "One actual full joint Schwartz physical correction equals the literal inverse phase increment on the symmetric small-parameter interval and preserves the physical Fourier, helical, energy, dissipation and support identities.",
+      "supports_proposed_endpoints": [
+        "R3-08",
+        "R3-09",
+        "R3-10",
+        "R3-13",
+        "R3-14"
+      ]
+    },
+    {
+      "id": "FDSNR3CorrectionAdmission",
+      "declarations": 19,
+      "audit_sha256": "e8342a9a91deffbb8db57170b852cc69f9cb1bc7c0d2c9de2f346def6907cf9a",
+      "audit_source_sha256": "82ba027cad70626203911319af9a065625ffbb0860b2a38d8d2bad744f2076dd",
+      "input_hash": "186261c837e1bd3a6556d7f27ca613e2d9297fd20c8dbb8b875460866407e7a1",
+      "retained_log": "FDSNR3CorrectionAdmission.log.gz",
+      "consumer_examples": 19,
+      "scope": "Actual joint Schwartz corrections give native regularity, positive compact force support, common temporal support, terminal agreement and compact blowup transfer, with the constructed residual and quantitative weighted smallness.",
+      "supports_proposed_endpoints": [
+        "R3-12",
+        "R3-15",
+        "R3-16"
+      ]
+    },
+    {
+      "id": "FDSNR3Main",
+      "declarations": 1,
+      "audit_sha256": "f0387ce3c2b8c1d8889977dd8432c7764808d10889352f80c97e8df439624b18",
+      "audit_source_sha256": "134a5f332fe02a625422222768370d0ba9092903b1575b629de75a4c824a9d55",
+      "input_hash": "51f91ba915ad184c9ee0c0d945c6c8209b93caa51c6a19eae521586cb73e1ab0",
+      "retained_log": "FDSNR3Main.log.gz",
+      "consumer_examples": 2,
+      "scope": "Prepared canonical whole-space FDSN_R3 root construction from the original Seed to the full Family contract, with one concrete physical velocity/force family and all sixteen endpoint obligations assembled.",
+      "supports_proposed_endpoints": [
+        "R3-16"
+      ]
+    }
+  ]
+}

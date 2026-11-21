@@ -1,7 +1,10 @@
 # Exact free-heat time-energy and actual L2-time H2 membership
 
-Status: prepared, pending matching cached external compilation, independent
-exact types and named transitive axiom audits.
+Status: A-tier accepted at `000c1bd9`, [external run 44851575278](https://github.com/randogelist/Methboke/actions/runs/44851575278).
+Exact scope: 19 named declarations (17 theorems, 2 definitions).
+[Matching independent review](../../audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json); the complete run
+passed 526 modules, 105 fresh package audits and 1,402 unique named reports,
+plus fresh QFB, complete publication and final acceptance.
 
 For arbitrary actual physical H1 input and positive viscosity, this package
 constructs time integrability of the actual heat Laplacian and proves

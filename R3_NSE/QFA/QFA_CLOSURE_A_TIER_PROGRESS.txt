@@ -1,3 +1,28 @@
+QFA CURRENT CANDIDATE: ACTUAL L2 HEAT GENERATOR
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL_CI
+BASE=000c1bd9baded808b79a04b7f666cacabce64939
+SCOPE=9 theorems;11 independent consumers;528 modules;106 packages;1411 named reports expected.
+CHAIN=R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt
+ACCEPTANCE_BOUNDARY=The following accepted heat-time scope remains valid; this candidate is not yet accepted.
+LOCAL_LEAN_EXECUTIONS=0
+
+QFA CLOSURE: CURRENT ACCEPTED FREE-HEAT TIME-ENERGY AND ALL-WINDOW BUDGET
+SOURCE=000c1bd9baded808b79a04b7f666cacabce64939
+RUN=44851575278 https://github.com/randogelist/Methboke/actions/runs/44851575278
+EVIDENCE=audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json
+FULL_RUN=526 modules;105 fresh package audits;1402 unique named reports;QFB/publication/final PASS.
+NEW_NAMES=35;32 theorems;3 definitions;three packages.
+COMPLETED_CHECKLIST_STEPS=1,7
+GENERAL_PHYSICAL_QFA_ROOT=OPEN
+WFA_ROOT=OPEN
+NEXT_MICROSCOPIC_TARGET=QFA_FREE_HEAT_GENERATOR
+LOCAL_LEAN_EXECUTIONS=0
+PROJECT_GOAL=Fefferman_D (unchanged)
+
+HISTORICAL_ACCEPTED_REGISTER_BEGIN
+The following prior register is preserved verbatim, including its then-current
+next endpoint. The current acceptance and target are stated above and below.
+
 QFA CLOSURE: ACCEPTED SCOPED PROGRESS
 DATE=2026-11-21
 SOURCE=ffbab0f5a1405b86e1bce105f0ed9881cd5380ef
@@ -99,6 +124,70 @@ GENERAL ROOT REQUIREMENTS STILL OPEN
 Actual heat generator/primitive identity
 Forced Duhamel and maximal regularity
 Nonlinear norm-controlled H1 local existence
+Global physical LH existence and physical weak--strong comparison
+Exact sharp Sobolev admission and small-product global continuation
+Nonzero-data smooth pressure tails, energy equality and own-trace future uniqueness
+
+HISTORICAL_ACCEPTED_REGISTER_END
+
+NEW_MATCHING_ACCEPTED_NAMED_SCOPE
+
+PACKAGE=QFAHeatTrajectory
+DEFINITION MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_eq_of_pos
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_eq_zero_of_nonpos
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_velocity
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_toH1
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_factor
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_continuousAt_pos
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_continuousAt_neg
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_continuousOn_pos
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_continuousOn_ne_zero
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_stronglyMeasurable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_laplacian_stronglyMeasurable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_laplacian_sq_stronglyMeasurable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_norm_sq
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTrajectory.heatTrajectory_norm_sq_le
+
+PACKAGE=QFAHeatTimeEnergy
+DEFINITION MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.enstrophyDensity
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.enstrophyDensity_nonneg
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.integrable_enstrophyDensity
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.integral_enstrophyDensity
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatH1_enstrophy_eq_integral
+DEFINITION MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatDissipationDensity
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatDissipationDensity_nonneg
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.integral_heatDissipationDensity_time
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.integrable_heatDissipationDensity_prod
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatH1ToH2_laplacian_norm_sq_eq_integral
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_laplacian_norm_sq_eq_integral
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_laplacian_sq_integrableOn
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_laplacian_sq_intervalIntegrable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_laplacian_sq_integral
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_enstrophy_dissipation
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_laplacian_sq_integral_le
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_norm_sq_integrableOn
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_memLp_two
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatTimeEnergy.heatTrajectory_norm_sq_integral_le
+
+PACKAGE=QFAWeightedBudgetAllWindows
+THEOREM MethbokeAddon.QuasiFeffermanA.LerayHopf.energy_product_budget_Ioo_nonneg
+
+All 35 names above have matching independent literal consumers, full types and
+fresh transitive axiom reports in audits/material-000c1bd9-qfa-heat-time-accepted/.
+The accepted heat-time bounds are for the actual physical flow with arbitrary
+PhysicalH1 input; no time-integrability or H2-output premise is assumed.
+The zero extension of the H2 trajectory does not assert an H2 initial trace.
+The actual weighted budget is for every supplied LH path and every finite T>=0;
+constructing general-data global LH solutions remains a separate obligation.
+
+NEXT_SCOPED_ENDPOINT_CURRENT
+For positive viscosity and arbitrary actual PhysicalH1 input, construct the actual positive-time strong L2 derivative of the physical free heat flow as nu times its physical Laplacian, and prove the Bochner integrated equation from the original H1/L2 initial trace.
+
+GENERAL_ROOT_REQUIREMENTS_STILL_OPEN_CURRENT
+Actual heat generator/primitive identity
+Forced Duhamel and maximal regularity
+Nonlinear norm-controlled H1 local existence and continuation
 Global physical LH existence and physical weak--strong comparison
 Exact sharp Sobolev admission and small-product global continuation
 Nonzero-data smooth pressure tails, energy equality and own-trace future uniqueness

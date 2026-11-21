@@ -1,28 +1,58 @@
 # Methboke
 
-## Current QFA candidate: actual free-heat time-energy
+## Current construction: actual free-heat generator
 
-Three packages, `QFAHeatTrajectory`, `QFAHeatTimeEnergy` and
-`QFAWeightedBudgetAllWindows`, prepare **35 declarations: 32 theorems and
-three definitions**. They construct the actual
-positive-time H2 trajectory and strong time measurability, prove the exact
-free-heat enstrophy-dissipation identity, and derive finite-window L2-time H2
-membership with a quantitative bound. The weighted-budget theorem also covers
-the zero-length horizon, completing the stated step-7 packaging once accepted.
-**Matching external acceptance is pending.**
-The required run covers 526 modules, 105 fresh package audits and 1,402 named
-reports. No accepted proof, independent consumer, compiler pin or CI policy
-has changed. No local Lean is executed.
+**External verification is pending** for `QFAHeatGenerator`: nine theorems,
+eleven independent consumers, and an expected full run of 528 modules,
+106 fresh package audits and 1,411 named reports. The candidate constructs
+the strong L2 time derivative of the actual heat path, its finite-window
+integrability, and the exact Bochner equation from the original H1/L2 trace.
+Its derivative-energy coefficient is exactly viscosity divided by two.
 
-[Exact construction chain](R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
-The preceding external run `44850402452` found three trajectory elaboration
-issues, now repaired with unchanged statements. Exact failure evidence is retained.
-Run `44850983211` then passed that trajectory and the all-window budget;
-three heat-time scalar elaborations are now repaired with unchanged statements.
-The H2 trajectory's zero extension at time zero makes no claim that arbitrary
-H1 input lies in H2. The general QFA/WFA roots remain open.
+The accepted heat-time and all-window budget result below supplies the
+unchanged source basis. Prepared generator source is not A-tier acceptance.
+The full nonlinear H1 construction, general QFA and WFA remain open.
 
-## QFA closure progress: three new accepted scopes
+## Accepted free-heat time-energy and all-window weighted budget
+
+**35 declarations are A-tier accepted at `000c1bd9`: 32 theorems and three
+definitions**, in [external run 44851575278](https://github.com/randogelist/Methboke/actions/runs/44851575278). The complete run
+passed **526 modules, 105 fresh package audits and 1,402 unique named type/axiom
+reports**, plus fresh standalone QFB, complete publication and the final gate.
+The matching [independent review](audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json)
+checks the exact source, full types and standard-only transitive axioms.
+
+| Package | Accepted scope |
+|---|---|
+| `QFAHeatTrajectory` | 15 declarations: the actual positive-time H2 heat trajectory, physical semigroup agreement, H2 continuity away from zero and strong time measurability |
+| `QFAHeatTimeEnergy` | 19 declarations: exact enstrophy dissipation, actual Laplacian square integrability and finite-window L2-time H2 membership with a quantitative bound |
+| `QFAWeightedBudgetAllWindows` | One theorem: actual LH product integrability and the factor-one-quarter weighted bound for every finite T >= 0, including the empty zero window |
+
+**Checklist step 7 is complete for every supplied actual LH path.** Steps 1
+and 7 are complete; step 3 has gained the free-heat time-energy layer, while
+the actual generator/integral equation, forced heat and nonlinear H1 theory
+remain open. General-data global LH existence is a separate step-4 obligation.
+The H2 trajectory's zero extension at nonpositive times makes no H2 initial
+trace claim for arbitrary H1 data; the physical H1 heat flow retains its original trace.
+
+[Exact construction chain](R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt) ·
+[All 35 named declarations](audits/material-000c1bd9-qfa-heat-time-accepted/new-declaration-index.json).
+Earlier failed attempts remain in the retained evidence and history registers.
+The general QFA/WFA roots, five open NSE-A G-parent targets, P/M status and
+Fefferman D project goal are unchanged. No local Lean was executed.
+
+### Separate accepted main-branch FDSN_R3 result
+
+Main source `572fd9ee`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720),
+has all **16 FDSN_R3 endpoints** accepted, including the original conditional
+`Seed → Family` root. Its [retained independent evidence](audits/material-572fd9ee-fdsn-r3-accepted/independent-review.json)
+records 548 modules, 137 fresh package audits and 1,320 named reports; the
+FDSN_R3 scope comprises 493 declarations in 26 packages. This is explicitly
+**main-branch provenance**. Seed existence, general QFA/WFA and the D-family
+root remain open. Retaining this evidence neither imports FDSN_R3 into
+AC-Integration nor changes the main branch or its proof scope.
+
+## Earlier accepted restart, smoothing and zero-datum scopes
 
 **Three native QFA layers are A-tier accepted at `ffbab0f5`**,
 [external run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775). The complete run passed **520 modules,
@@ -45,11 +75,12 @@ $p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
 [Scoped mathematical chain](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
 No local Lean was executed. The project goal remains Fefferman D.
 
-The next scoped construction is the exact free heat enstrophy-dissipation
-identity and finite-window L2-time H2 membership. The pointwise smoothing
-bound alone is not time integrable at zero. Actual forced heat, nonlinear H1
-existence, general LH existence, physical comparison, sharp spatial admission
-and small-product continuation remain explicit general-data obligations.
+The next scoped construction is **HeatGenerator**: the actual positive-time
+L2 derivative and the integrated free-heat equation from the original H1/L2
+initial trace. The accepted time-energy estimates supply the needed finite-window
+integrability. Forced heat, nonlinear H1 existence, general LH existence,
+physical comparison, sharp spatial admission and small-product continuation
+remain explicit general-data obligations.
 
 ## Earlier accepted NSE-A native basis
 

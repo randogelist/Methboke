@@ -1,0 +1,97 @@
+QFA: ACTUAL L2 HEAT GENERATOR AND INTEGRATED EQUATION
+DATE=2026-11-21
+MODE=A_TIER_DERIVATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
+LOCAL_LEAN_EXECUTIONS=0
+
+The preceding exact heat-time energy batch is externally accepted at
+000c1bd9baded808b79a04b7f666cacabce64939, run44851575278. This new layer
+is registered for matching external verification against that unchanged basis.
+Prepared source, semantic review and static API inspection are not A-tier.
+
+1. THE TRUE INITIAL-TRACE PATH
+For nu>0 and a in the actual PhysicalH1 graph, put v=physicalH1Velocity(a)
+and A(t)=heatL2(nu,max(t,0),v). The accepted strongly continuous L2 heat
+semigroup and continuous real-to-NNReal clock give A continuous on R.
+The zero-time semigroup identity gives A(0)=v. This path is distinct from
+the arbitrary zero extension of the H2-valued trajectory at nonpositive
+times; the latter is used only to represent the derivative and integrals.
+
+2. UNIFORM SCALAR SLOPE CONTROL AWAY FROM ZERO
+Let lambda(xi)=(2*pi)^2*norm(xi)^2 and q_xi(r)=exp(-nu*lambda(xi)*r).
+For any alpha>0 and r>=alpha, norm(q'_xi(r))<=1/alpha. Indeed c=nu*lambda
+is nonnegative, exp(-c*r)<=exp(-c*alpha), and
+alpha*c*exp(-c*alpha)<=exp(-1)<=1. There is no division by lambda; zero
+frequency and zero-viscosity scalar helper cases are included.
+The convex mean-value theorem on Ici(alpha) gives
+norm(slope(q_xi,t,r))<=1/alpha. Hence the scalar slope error against
+q'_xi(t) has norm at most2/alpha for t,r>=alpha, including r=t.
+
+3. EXACT PHYSICAL FOURIER TRANSFER
+For fixed t>0, define D(t)=nu*physicalH2Laplacian(heatTrajectory(nu,a,t)).
+The accepted actual Laplacian Fourier formula gives F(D(t))=-nu*lambda*q(t)*F(v).
+Linearity of complexification/Fourier and all required Lp representative
+subtraction/scalar-multiplication identities prove, for each positive r,
+
+ norm(slope(A,t,r)-D(t))^2
+   = integral_xi [scalarSlopeError(t,r,xi)^2 * norm(F(v)(xi))^2].
+
+The a.e. representative witnesses are used separately for each r. The
+argument does not assume a simultaneous representative outside one null
+set for all real times.
+
+4. DOMINATED CONVERGENCE IN THE PUNCTURED TIME FILTER
+Fix t>0 and alpha=t/2. Eventually r>alpha in the punctured neighborhood
+of t. The scalar integrand above is bounded by
+(2/alpha)^2*norm(F(v)(xi))^2, a genuinely integrable majorant supplied by
+the accepted L2 Fourier-energy theorem. Scalar differentiability gives
+pointwise convergence of the slope error to zero. The pinned filter DCT
+therefore sends the squared L2 slope error to zero. Taking square roots
+and the norm limit criterion gives the strong SpatialL2 slope limit.
+The native slope criterion proves HasDerivAt A D(t) t for every t>0.
+
+5. ACTUAL DERIVATIVE INTEGRABILITY TO THE INITIAL TIME
+The preceding heat-time theorem supplies actual MemLp2 PhysicalH2 on
+Ioc(0,T), for every T>=0. Compose with the actual continuous-linear graph
+Laplacian, then multiply by nu, to obtain actual MemLp2 SpatialL2 for D.
+The restricted measure is finite; L2 implies Bochner L1 on this interval.
+Thus D is interval integrable from0 toT. No integration of a singular
+pointwise 1/t estimate and no supplied integrability witness is used.
+
+6. THE BOCHNER EQUATION FROM THE ORIGINAL TRACE
+Use the native FTC with continuous A on Icc(0,T), the proved derivatives
+on Ioo(0,T), and actual interval integrability of D. The theorem requires
+no derivative at time0. It yields integral_0^T D=A(T)-A(0), hence
+
+ heatL2(nu,T,v)-v=integral_0^T nu*Delta(heatTrajectory(nu,a,t))dt.
+
+All terms are actual full-volume L2 classes. T=0 is included. No H2
+initial trace is asserted for arbitrary H1 initial data.
+
+7. EXACT DERIVATIVE ENERGY
+The scalar norm identity and the accepted exact heat dissipation give
+
+ integral_0^T norm(D(t))^2
+   = nu^2/(2*nu)*(Y(a)-Y(heatH1(nu,T,a)))
+   = (nu/2)*(Y(a)-Y(heatH1(nu,T,a)))
+   <= (nu/2)*Y(a).
+
+The cancellation uses nu>0 in the real field. Y is the literal sum of
+the three actual weak-gradient squared norms, with the exact terminal
+H1 heat trace retained.
+
+8. EXTERNAL ACCEPTANCE SURFACE AND BOUNDARY
+Nine public theorems are independently consumed by eleven literal examples,
+including expanded physical enstrophy, one common continuous path carrying
+all derivative/integral claims, and ordinary positive real viscosity.
+Each public declaration requires a fresh named type report and transitive
+axiom audit restricted to propext, Classical.choice and Quot.sound.
+No compiler, dependency, audit policy or prior accepted proof is changed.
+
+This closes only the free-heat generator and integral-equation layer after
+matching external acceptance. Forced Duhamel construction, forced maximal
+regularity, nonlinear H1 local existence/continuation, general LH existence,
+physical weak--strong comparison, sharp Sobolev admission, nonzero tails
+and the general QFA/WFA roots remain distinct obligations.

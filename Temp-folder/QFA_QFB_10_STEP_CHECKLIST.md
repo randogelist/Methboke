@@ -16,22 +16,33 @@ The retained project goal remains Fefferman_D.
 
 ## Latest QFA closure acceptance
 
-Source `ffbab0f5`, [run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775), accepts full supplied-path energy-start
-restart, actual positive-time H1-to-H2 heat smoothing, and the complete
-zero-datum strict/closed conclusion. [Exact register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
-General nonzero-data QFA remains open. No local Lean was run.
+Source `000c1bd9`, [run 44851575278](https://github.com/randogelist/Methboke/actions/runs/44851575278), accepts
+the actual measurable H2 free-heat trajectory, exact enstrophy dissipation,
+finite-window L2-time H2 membership and the actual LH weighted budget for
+every finite T >= 0. The complete receipt covers 526 modules, 105 fresh
+package audits and 1,402 unique named reports, with QFB/publication/final PASS.
+The new scope has 35 declarations: 32 theorems and three definitions.
+[Independent acceptance](../audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json) ·
+[Exact cumulative register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
 
-## Current linear time-energy construction
+Steps **1 and 7** are complete. Step 3 has gained the linear time-energy
+layer; its generator, forced and nonlinear obligations remain open.
+The prior `ffbab0f5` receipt remains accepted for supplied-path full restart,
+positive-time heat smoothing and the complete zero-datum strict/closed root.
+General nonzero-data QFA and WFA remain open. No local Lean was run.
 
-`QFAHeatTrajectory` and `QFAHeatTimeEnergy` prepare the actual measurable H2
-trajectory, exact free-heat enstrophy dissipation and finite-window L2-time H2
-membership. `QFAWeightedBudgetAllWindows` additionally packages the actual
-weighted budget for T=0 as well as every positive finite horizon. These 35
-new declarations await matching external verification;
-the accepted-scope table below is unchanged until that evidence passes.
-The preceding trajectory and then heat-time scalar elaboration failures are
-retained and repaired; the source-pass evidence alone does not promote a step.
-[Construction](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
+## Current linear candidate: HeatGenerator (external verification pending)
+
+For positive viscosity and arbitrary actual PhysicalH1 input, construct the actual positive-time strong L2 derivative of the physical free heat flow as nu times its physical Laplacian, and prove the Bochner integrated equation from the original H1/L2 initial trace.
+The accepted free-heat time-energy bound supplies finite-window Laplacian
+integrability. The generator/integral equation is a separate endpoint and is
+not counted as accepted by this batch. General-data global LH existence,
+forced heat, nonlinear H1 theory and physical comparison remain explicit.
+Nine theorem candidates and eleven independent consumers are registered for
+matching external verification; expected full run: 528 modules, 106 fresh
+packages and 1,411 named reports. Prepared source does not close step 3.
+[Generator chain](../R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt) ·
+[Accepted heat-time chain](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
 
 ## Accepted subresults and remaining obligations
 
@@ -39,11 +50,11 @@ retained and repaired; the source-pass evidence alone does not promote a step.
 |---|---|---|
 | 1. Concrete contract | Full-volume L2/LH interface and exact current physical root, with actual smooth pressure and strict/closed cutoffs separately checked | Contract complete; proving the general root belongs to steps 2–10 |
 | 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives and real Leray projection | Sobolev/interpolation admissibility and the exact sharp constant |
-| 3. Local H1 theory | Actual heat semigroup and positive-time H1-to-H2 smoothing; zero nonlinear solution | Time-integrated/forced heat, arbitrary-H1 nonlinear existence, uniqueness and continuation |
+| 3. Local H1 theory | Actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation and finite-window L2-time H2 membership; zero nonlinear solution | Actual heat generator/integral equation, forced heat, arbitrary-H1 nonlinear existence, uniqueness and continuation |
 | 4. LH solutions and restarts | Full shifted physical LH membership at nonnegative energy starts; actual zero-datum nonemptiness | General-data global nonemptiness |
 | 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
 | 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |
-| 7. Weighted budget | Product integrability and one-quarter weighted bound for every finite positive horizon of a supplied LH path | The zero-length interval is not separately packaged; global LH existence belongs to step 4 |
+| 7. Weighted budget | Complete: actual product integrability and one-quarter weighted bound for every finite T >= 0 of a supplied LH path, including T = 0 | No remaining step-7 packaging gap; general-data global LH existence belongs to step 4 |
 | 8. Finite-window selection | Half-window measure, strict interior good trace, strong right trace and full PDE restart | Admissible sharp physical threshold and nonzero continuation |
 | 9. Closed smooth tail | Complete zero-data smooth normalized tail and original-gradient energy equality at every nonnegative start | Nonzero-data smooth representative, pressure and energy equality |
 | 10. Full QFA conclusion | Full zero-data strict/closed root, including own-trace future velocity uniqueness | General nonzero-data QFA at the frozen cutoff |
@@ -115,7 +126,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **3. Construct local $H^1$ strong solutions and prove continuation.**
 
-  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup and positive-time H1-to-H2 map are accepted. Arbitrary-H1 nonlinear local existence remains open.
+  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation and finite-window L2-time H2 membership are accepted. The actual generator/integral equation, forced heat and arbitrary-H1 nonlinear local existence remain open.
 
   Prove actual local existence, uniqueness, maximal lifetime, continuity in
   $H^1$, sufficient $L^2_tH^2_x$ control, bounded-$H^1$ continuation,
@@ -179,9 +190,9 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
   **Map:** O07 and O09. **Character:** actual PDE balances followed by a
   reusable scalar bootstrap.
 
-- [ ] **7. Prove the weighted-energy integral bound.**
+- [x] **7. Prove the weighted-energy integral bound.**
 
-  **Available anchors:** **Exact reusable proof found:** QFA.Energy.product_budget and EnergyProfile.energy_product_budget_Ioo. The actual LH-to-EnergyProfile bridge and finite positive-horizon product budget are accepted; the zero-length interval is not separately packaged.
+  **Accepted endpoint:** `MethbokeAddon.QuasiFeffermanA.LerayHopf.energy_product_budget_Ioo_nonneg` extends the accepted actual LH-to-EnergyProfile/product-budget proof to every finite T >= 0, including the empty zero window. Both integrability and the exact one-quarter bound use the literal physical velocity and weak gradients. Step 7 is complete for every supplied actual LH path; general-data LH nonemptiness remains step 4.
 
   From the LH energy inequality, derive for every finite $T\ge0$
   $$
@@ -263,7 +274,8 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 ## Dependency order and A-tier completion rule
 
 Steps 2–5 establish the spatial and solution-theoretic foundation.
-Step 6 uses steps 2–3. Step 7 uses step 4. Step 8 uses steps 2, 4 and 7.
+Step 6 uses steps 2–3. Step 7 is proved for every supplied actual LH path;
+step 4 separately constructs such paths for general data. Step 8 uses steps 2, 4 and 7.
 Step 9 combines steps 3, 5, 6 and 8. Step 10 adds tail restart and a new
 weak–strong comparison from each tail trace.
 

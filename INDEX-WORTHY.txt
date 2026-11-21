@@ -633,3 +633,38 @@ SOURCE:be6249030a6410eea5b1e739cd217cd15537c5bc;RUN:44850983211.
 524/526modulesPASS;HeatTrajectory and WeightedBudgetAllWindows sourcePASS.
 HeatTimeEnergy3elaborationrepairs;publictypes/consumers unchanged;no acceptance.
 EVIDENCE:audits/material-be624903-heat-time-failure/independent-review.json.
+
+QFA_FREE_HEAT_TIME_ENERGY_AND_ALL_WINDOWS_A_TIER_ACCEPTED
+SOURCE=000c1bd9baded808b79a04b7f666cacabce64939
+RUN=44851575278 https://github.com/randogelist/Methboke/actions/runs/44851575278
+EVIDENCE=audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json
+NEW_NAMES=audits/material-000c1bd9-qfa-heat-time-accepted/new-declaration-index.json
+SCOPE=35 declarations;32 theorems;3 definitions;QFAHeatTrajectory/QFAHeatTimeEnergy/QFAWeightedBudgetAllWindows.
+FULL_RUN=526 modules;105 fresh package audits;1402 unique named reports;QFB/publication/final PASS.
+RESULT=Actual H2 trajectory/time measurability;exact enstrophy dissipation;finite-window MemLp2 H2;actual LH weighted budget for every finite T>=0.
+CHECKLIST=Steps1,7 complete;step3 linear time-energy accepted;generator/forced/nonlinear construction open.
+NEXT=QFA_FREE_HEAT_GENERATOR: actual positive-time L2 derivative and integrated equation from original H1/L2 trace.
+LIMITS=General QFA/WFA open;G05 only accepted parent;G01/G02/G03/G04/G06 open;P01-P08/M1 unchanged;M2/M3 open.
+HISTORY=Earlier prepared/repair entries remain historical and are superseded by this matching acceptance for the same 35-name scope.
+LOCAL_LEAN_EXECUTIONS=0
+
+CROSS_BRANCH_MAIN_FDSN_R3_A_TIER_ACCEPTED
+SOURCE_BRANCH=main
+SOURCE=572fd9ee69a6b641f435cbfb2ef74e034809c583
+RUN=44848985720 https://github.com/randogelist/Methboke/actions/runs/44848985720
+EVIDENCE=audits/material-572fd9ee-fdsn-r3-accepted/independent-review.json
+FULL_RUN=548 modules;137 fresh package audits;1320 unique named reports.
+FDSN_SCOPE=26 packages;493 names;391 theorems;102 lower declarations;R3-01 through R3-16 accepted.
+ROOT=MethbokeAddon.FDSNR3.FDSN_R3 : original Seed -> Family.
+LIMITS=Seed existence open;general QFA/WFA open;D-family root unchanged;no import into AC-Integration;no main-branch edit.
+PROJECT_GOAL=Fefferman_D (unchanged)
+
+QFA_ACTUAL_L2_HEAT_GENERATOR_PREPARED
+DATE:2026-11-21. AC-Integration. Pending matching external acceptance.
+Nine theorems;eleven independent consumers. Expected528modules/106packages/1411reports.
+Actual positive-time L2 derivative, finite-window derivative MemLp2 and Bochner
+integrability, integrated equation from the original H1/L2 trace, exact nu/2 energy.
+BASE:000c1bd9baded808b79a04b7f666cacabce64939 accepted run44851575278.
+CHAIN:R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt.
+No supplied regularity/derivative witness; no general nonlinear/QFA/WFA promotion.
+No local Lean. Exact matching compiler/consumer/axiom/publication/final evidence required.
