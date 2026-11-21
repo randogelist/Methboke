@@ -2,7 +2,7 @@
 
 ## AC-Integration into main: accepted resource union
 
-The immediate task on `integration/ac-into-main` combines main
+The integration promoted to `main` combines the original main baseline
 `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` with AC-Integration
 `000c1bd9baded808b79a04b7f666cacabce64939`. The project goal remains
 **Fefferman D**. No new mathematical goal is selected by this integration.
@@ -20,12 +20,18 @@ The [acceptance record](../audits/integration-5a44e985-accepted/summary.json)
 and [independent review](../audits/integration-5a44e985-accepted/independent-review.json)
 retain the exact source, run, compiler, dependency, audit and artifact identities.
 
-[Draft PR #2](https://github.com/randogelist/Methboke/pull/2) remains the review
-location; `main` has not advanced. For the current documentation head, consult
-the latest Material run at the exact PR head and its final acceptance gate.
-This record was written before that documentation commit; its later head/run
-identity is recorded in PR metadata and does not replace this first tested-source
-receipt. The incoming baseline stays pinned to `000c1bd9`;
+[PR #2](https://github.com/randogelist/Methboke/pull/2) is closed and merged.
+Main was fast-forwarded to `e627a39e6c27cd4432ab063741fe726af8378a63` on
+2026-11-21 at 02:46:09 UTC. That exact head passed
+[run 44856391458](https://github.com/randogelist/Methboke/actions/runs/44856391458)
+with all 654 modules reused, zero fresh compilations, 169 fresh package audits,
+2,212 named reports and fresh QFB; both cache admissions were EXACT.
+The first main run [44857663580](https://github.com/randogelist/Methboke/actions/runs/44857663580)
+passed final acceptance and full cache publication: 548 reused modules,
+106 fresh compilations, 169 fresh package audits and 2,212 named reports plus
+QFB, with EXACT dependency and PREFIX project caches. Later documentation
+heads require matching main SHA/run evidence. These identities do not replace
+the original tested-source receipt. The incoming baseline stays pinned to `000c1bd9`;
 later AC work, including the separate generator at `809aadc6`, is outside this
 first integration.
 

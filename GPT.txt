@@ -1,12 +1,15 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 8.0
+DOCUMENT_VERSION = 8.1
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
-WORKING_BRANCH = integration/ac-into-main
+WORKING_BRANCH = main
+INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
 TARGET_BRANCH = main
 INCOMING_BRANCH = AC-Integration
 PROJECT_GOAL = Fefferman_D
 LOCAL_TARGET = AC_INTO_MAIN_INTEGRATION
+LOCAL_TARGET_STATUS = MERGED_COMPLETE
+REMAINING_ENGINEERING_CHECK = LATER_DOCUMENTATION_HEAD_EXTERNAL_CHECK
 COMPLETED_LOCAL_THEOREM = FDSN_R3
 ACTIVE_MODE = A_TIER_DERIVATION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
@@ -17,15 +20,19 @@ CURRENT_FDSN_EVIDENCE = audits/fdsn-87ab6b4c-accepted/summary.json
 CURRENT_FDSN_R3_STATUS = A_TIER_COMPLETE_ORIGINAL_SEED_TO_FULL_FAMILY_AT_572fd9ee
 CURRENT_FDSN_R3_LEDGER = R3_NSE/FDSN/IMPLEMENTATION_STATUS.json
 CURRENT_HELPER_STATUS = PRESERVED_EXACT_MAIN_AND_AC_ACCEPTED_SCOPES
-CURRENT_INTEGRATION_STATUS = ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION
+CURRENT_INTEGRATION_STATUS = MERGED_COMPLETE_ORIGINAL_ACCEPTANCE_PRESERVED
 CURRENT_INTEGRATION_TESTED_SOURCE = 5a44e985c15a302110fd91d064431f1183e55857
 CURRENT_INTEGRATION_TESTED_RUN = 44854389941
 CURRENT_INTEGRATION_PULL_REQUEST = https://github.com/randogelist/Methboke/pull/2
 CURRENT_INTEGRATION_EVIDENCE = audits/integration-5a44e985-accepted/summary.json
 CURRENT_INTEGRATION_INDEPENDENT_REVIEW = audits/integration-5a44e985-accepted/independent-review.json
-DOCUMENTATION_HEAD_VERIFICATION_POLICY = LATEST_MATERIAL_RUN_MUST_MATCH_EXACT_PR_2_HEAD
-DOCUMENTATION_HEAD_LIVE_AUTHORITY = https://github.com/randogelist/Methboke/pull/2
-MAIN_INTEGRATION_STATUS = PR_2_OPEN_MAIN_UNCHANGED_AT_4a609ea
+DOCUMENTATION_HEAD_VERIFICATION_POLICY = LATEST_MATERIAL_RUN_MUST_MATCH_EXACT_MAIN_HEAD
+DOCUMENTATION_HEAD_LIVE_AUTHORITY = https://github.com/randogelist/Methboke/tree/main
+MAIN_INTEGRATION_STATUS = PR_2_MERGED_FAST_FORWARD_TO_e627a39e
+MAIN_PROMOTED_SOURCE = e627a39e6c27cd4432ab063741fe726af8378a63
+ACCEPTED_PROMOTED_HEAD_RUN = 44856391458
+FIRST_MAIN_RUN = 44857663580
+FIRST_MAIN_RUN_STATUS = SUCCESS_FINAL_ACCEPTANCE_AND_CACHE_PUBLICATION
 INCOMING_HEAD_STATUS = A_TIER_ACCEPTED_AT_000c1bd9
 INCOMING_HEAD_EVIDENCE = audits/material-000c1bd9-qfa-accepted/summary.json
 STATUS_AUTHORITY = THIS_DOCUMENT_AND_SOURCE_SPECIFIC_EVIDENCE
@@ -33,7 +40,8 @@ HISTORICAL_REGISTERS = audits/goal-transition-fefferman-d/
 
 0. ACCEPTED INTEGRATION AND LIVE DOCUMENTATION HEAD VERIFICATION
 
-ACTIVE_BRANCH: integration/ac-into-main.
+ACTIVE_BRANCH: main.
+INTEGRATION_SOURCE_BRANCH: integration/ac-into-main.
 BASE_MAIN: 4a609ea634ec4a5ff846049b9dc12b40b5f1a702.
 INCOMING_AC: 000c1bd9baded808b79a04b7f666cacabce64939.
 COMMON_ANCESTOR: 66a529248d3198ed70dc5489d82868bc33a37796.
@@ -47,12 +55,18 @@ QFAHeatGenerator introduced at d884a36b055caa810f7ce54a69f5a0def6c899ca and
 repaired at 809aadc6da1eeabd5c128eb9c78005a38d3d4935. Its two active modules,
 one package and nine theorem targets are outside the current combined scope.
 Any later addition requires a distinct source record and matching verification.
-USER_SCOPE: preserve the accepted combined resource set and finalize its
-evidence and documentation. Every later ordinary documentation head is assessed
-through the live PR #2 SHA and its latest matching Material workflow run.
-The original combined source and all required audits passed.
-This is an integration task, not adoption of a new mathematical goal.
-PROJECT_GOAL remains Fefferman_D. FDSN_R3 is a completed prior local theorem.
+USER_SCOPE: the authorized integration is MERGED_COMPLETE. PR #2 is closed
+and merged; main was non-force fast-forwarded from the pinned baseline to
+e627a39e6c27cd4432ab063741fe726af8378a63 at2026-11-21T02:46:09Z.
+The promoted head passed run44856391458:654reused,0fresh modules;
+169fresh package audits;2212named type/axiom reports plus freshQFB;
+EXACT dependency and project caches;standard3axioms;recoverySKIPPED.
+The first main run44857663580 at the promoted SHA passed final acceptance
+and full cache publication:548reused,106fresh modules;169fresh package audits;
+2212named reports plusQFB;dependencyEXACT/projectPREFIX;recoverySKIPPED.
+The donor was572fd9ee/run44848985720. The combined cache is now published in
+main scope. Only a later documentation-head check remains unobserved.
+PROJECT_GOAL remains Fefferman_D;FDSN_R3 is a completed prior theorem.
 
 VERIFIED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;
 2212 named type/axiom reports plus the retained standalone cutout.
@@ -118,23 +132,22 @@ Precommit static review:
 That precommit record concerns the historical planned tree a7810ee179093a387f9740f94b544c735a886dfe.
 The exact tested index's PENDING_EXTERNAL_CI labels remain launch-time metadata;
 this matching receipt establishes acceptance of the tested source above.
-A subsequent documentation/evidence commit is ordinary and requires its own
-external head check. Its SHA is distinct from the accepted source identity.
-For that check's observed result, use the live PR #2 head SHA and the latest
-Material workflow run matching that exact SHA; do not infer a later result
-from this archived acceptance. PR #2 is open; main remains at
-4a609ea634ec4a5ff846049b9dc12b40b5f1a702. No main merge is asserted.
+The separate promoted-head acceptance is e627a39e/run44856391458; the
+original source-specific receipt above remains unchanged. PR #2 is merged.
+Main run44857663580 has its own observed successful final acceptance and
+cache publication at e627a39e. Every later ordinary documentation commit still
+requires its own exact main-head Material check; its outcome is not pre-accepted.
 Preserve successful compatible resources; no local Lean or Mathlib source rebuild.
 
 1. GOAL AND TARGET HIERARCHY
 
 MACROSCOPIC: Fefferman_D, the classical smooth-force periodic obstruction.
-MESOSCOPIC: integrate the frozen AC-Integration resources into main through
-  integration/ac-into-main, retaining both accepted resource sets.
-MICROSCOPIC: finalize the accepted combined evidence and synchronized
-  documentation. Assess later ordinary documentation heads through the live
-  PR #2 SHA and its matching Material run. The original combined verification
-  is accepted; main has not advanced.
+MESOSCOPIC: AC_INTO_MAIN_INTEGRATION, MERGED_COMPLETE on main at e627a39e;
+  both accepted resource sets and original source-specific receipts preserved.
+MICROSCOPIC: main run44857663580 passed final acceptance and full cache
+  publication. Only the ordinary promotion-documentation head check remains.
+  This is an engineering verification task; no further mathematical target
+  is selected. Later head acceptance requires its own matching observation.
 COMPLETED PRIOR LOCAL THEOREM: FDSN_R3, original Seed-to-Family with all sixteen
   assented scopes, accepted at572fd9ee/run44848985720.
 NEXT MATHEMATICAL THEOREM TARGET: none newly adopted by this integration.
@@ -407,7 +420,7 @@ No sorry, global custom axiom or hidden witness premise may close these gaps.
 
 8. OPERATING RULES
 
-Work on integration/ac-into-main for the authorized integration. Never
+Work on main after the authorized integration promotion. Never
 execute Lean locally, directly or
 through Lake, scripts, subprocesses, containers or subagents. Only source
 reading/preparation and nonexecuting static inspection are local. Use authorized

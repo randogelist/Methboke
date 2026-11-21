@@ -17,16 +17,27 @@ Lean build, with unchanged namespace and import paths. Preserve
 
 ## Current integration and preserved goal
 
-Work on `integration/ac-into-main`, created from main at
-`4a609ea634ec4a5ff846049b9dc12b40b5f1a702`, with incoming AC-Integration at
-`000c1bd9baded808b79a04b7f666cacabce64939`. The user authorized integration
-preparation and matching external verification. The frozen combined source is
-now externally accepted. The immediate scope remains this integration and its
-evidence and documentation. Each later ordinary documentation commit has its
-own external head check, tracked by the live PR metadata. No new mathematical
-goal or theorem target is adopted.
-The project goal remains **Fefferman D**. PR #2 remains open and main remains
-at `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`.
+Work on `main`. The user-authorized integration was promoted by non-force
+fast-forward from `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` to
+`e627a39e6c27cd4432ab063741fe726af8378a63` on 2026-11-21 at 02:46:09 UTC.
+PR #2 is closed and merged. Its source branch was `integration/ac-into-main`,
+with the incoming AC snapshot frozen at `000c1bd9baded808b79a04b7f666cacabce64939`.
+The local integration target is `MERGED_COMPLETE`; main verification and
+publication of its combined cache have passed. Only the later documentation-head
+external check remains. No new mathematical goal or theorem target is adopted.
+The project goal remains **Fefferman D**.
+
+The exact promoted head `e627a39e` passed external run `44856391458`: all 654
+modules were reused, zero modules were freshly compiled, and all 169 package
+audits ran fresh, covering 2,212 named type/axiom reports plus fresh QFB.
+Dependency and project cache admission were both EXACT; only the three
+approved standard axioms occur, and recovery was skipped. The first main run
+is `44857663580`, at that same promoted commit, and passed final acceptance
+and full cache publication: 548 reused modules, 106 fresh compilations,
+169 fresh package audits, 2,212 named reports plus QFB, EXACT dependency
+and PREFIX project caches. Its donor was `572fd9ee` / run `44848985720`.
+The combined cache is now published in main's scope. A later documentation
+head still requires its own matching external result.
 
 The combined source is `ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION` at
 `5a44e985c15a302110fd91d064431f1183e55857`, run `44854389941`. All 654 modules
@@ -57,9 +68,9 @@ The precommit static review at
 historical planned tree. A later documentation/evidence commit is a distinct
 revision: use an ordinary commit that triggers its external head check and
 retain both source identities. For a later head's verification outcome, use
-the live PR #2 head SHA and the latest matching Material workflow run. This
-source-specific receipt does not assert acceptance of an unspecified later
-revision or that PR #2 has merged.
+the exact live main SHA and the latest matching Material workflow run. The
+original receipt remains unchanged; the separate main-promotion record carries
+the observed PR merge and accepted pre-promotion head identities.
 
 The original whole-space FDSN_R3 Seed-to-Family theorem and all sixteen
 assented scopes are complete at `572fd9ee` / run `44848985720`; preserve
@@ -108,7 +119,7 @@ QFB, with reviewed integrity, standard axioms, publication and final acceptance.
 Its 35 new declarations retain their precise free-heat and weighted-budget
 scope; see `audits/material-000c1bd9-qfa-accepted/summary.json`. The combined
 integration has its separate matching acceptance at `5a44e985` above. Check a
-later documentation head through PR #2 and its exact matching Material run.
+later documentation head through main and its exact matching Material run.
 
 Keep Material's Lean 4.33.0 and complete dependency lock unchanged. Its original
 269 vendor files remain byte-preserved; the 35 exact QFA additions have their

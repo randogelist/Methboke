@@ -2,7 +2,7 @@
   "schema_version": 1,
   "date": "2026-11-21",
   "repository": "randogelist/Methboke",
-  "branch": "integration/ac-into-main",
+  "branch": "main",
   "main_goal": "Fefferman_D",
   "local_target": "Fefferman_D_Family_obstruction",
   "base_revision": "c483fe0683e443b42c93c6bf00d37613567b0d03",
@@ -492,8 +492,8 @@
     "schema_version": 1,
     "date": "2026-11-21",
     "repository": "randogelist/Methboke",
-    "branch": "integration/ac-into-main",
-    "status": "ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION",
+    "branch": "main",
+    "status": "MERGED_COMPLETE",
     "accepted": true,
     "destination_branch": "main",
     "main_revision": "4a609ea634ec4a5ff846049b9dc12b40b5f1a702",
@@ -502,7 +502,7 @@
     "merge_base": "66a529248d3198ed70dc5489d82868bc33a37796",
     "project_goal": "Fefferman_D",
     "project_goal_changed": false,
-    "immediate_task": "Integrate both source trees and registered proof obligations while preserving established Lean resources and source-specific acceptance evidence.",
+    "immediate_task": "Integration is merged and complete; first main verification and combined-cache publication passed. Only the later documentation-head external check remains; no new mathematical target is adopted.",
     "new_mathematical_goal_adopted": false,
     "new_theorem_claimed_by_integration": false,
     "expected_verification_scope": {
@@ -529,9 +529,9 @@
     "candidate_run_url": "https://github.com/randogelist/Methboke/actions/runs/44854389941",
     "pull_request": 2,
     "pull_request_url": "https://github.com/randogelist/Methboke/pull/2",
-    "pull_request_draft": true,
-    "main_advanced": false,
-    "promotion_to_main_authorized": false,
+    "pull_request_draft": false,
+    "main_advanced": true,
+    "promotion_to_main_authorized": true,
     "incoming_follow_up": {
       "observed_revision": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
       "included": false,
@@ -559,15 +559,21 @@
     "fast_job_id": 136693029163,
     "acceptance_job_id": 136697273608,
     "documentation_head_verification": {
-      "status": "CONSULT_LIVE_PR_HEAD_CHECK",
-      "pull_request": 2,
-      "pull_request_url": "https://github.com/randogelist/Methboke/pull/2",
-      "authority": "Latest Material workflow run at the exact current PR head; verify the head SHA and final Material accepted gate in GitHub.",
-      "first_accepted_source": "5a44e985c15a302110fd91d064431f1183e55857",
-      "record_timing": "Written before the ordinary documentation-only commit; PR metadata records its exact head and run after observation.",
+      "status": "MAIN_HEAD_CHECK_REQUIRES_SEPARATE_OBSERVATION",
+      "policy": "REQUIRE_SUCCESSFUL_EXTERNAL_MATERIAL_CHECK_AT_EXACT_MAIN_HEAD",
+      "authority": "Latest Material workflow run matching the exact live main SHA and its final Material accepted gate.",
+      "source_receipt_unchanged": true,
+      "accepted_pre_promotion_commit": "e627a39e6c27cd4432ab063741fe726af8378a63",
+      "accepted_pre_promotion_run": 44856391458,
+      "first_main_run": 44857663580,
       "later_head_acceptance_claimed_by_this_record": false,
-      "policy": "One ordinary documentation-only commit with an external current-head check; retain the first exact-source archive without a further archive/commit loop."
-    }
+      "first_main_run_status": "SUCCESS_FINAL_ACCEPTANCE_AND_CACHE_PUBLICATION"
+    },
+    "integration_source_branch": "integration/ac-into-main",
+    "pull_request_state": "closed",
+    "pull_request_merged": true,
+    "promoted_commit": "e627a39e6c27cd4432ab063741fe726af8378a63",
+    "main_promotion_record": "integration/AC_INTO_MAIN/INTEGRATION_STATUS.json#main_promotion"
   },
   "source_specific_branch_history": {
     "main_revision": "4a609ea634ec4a5ff846049b9dc12b40b5f1a702",
@@ -1248,5 +1254,18 @@
     "wfa_proved": false,
     "native_D_family_status_changed": false,
     "combined_integration_accepted": false
+  },
+  "active_local_target_status": "MERGED_COMPLETE",
+  "remaining_engineering_check": "LATER_DOCUMENTATION_HEAD_EXTERNAL_CHECK",
+  "main_promotion": {
+    "status": "MERGED_COMPLETE",
+    "promoted_commit": "e627a39e6c27cd4432ab063741fe726af8378a63",
+    "accepted_pre_promotion_head_run": 44856391458,
+    "first_main_run": 44857663580,
+    "first_main_run_status": "SUCCESS_FINAL_ACCEPTANCE_AND_CACHE_PUBLICATION",
+    "record": "integration/AC_INTO_MAIN/INTEGRATION_STATUS.json#main_promotion",
+    "mathematical_status_changed": false,
+    "later_documentation_head_acceptance_claimed": false,
+    "main_cache_publication_complete": true
   }
 }

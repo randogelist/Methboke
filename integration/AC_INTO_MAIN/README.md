@@ -1,9 +1,12 @@
 # AC resources integrated with the accepted main resources
 
-This branch combines the accepted FDSN work on `main` with the QFA/NSE-A
+The completed integration combines the accepted FDSN work on `main` with the QFA/NSE-A
 resources on `AC-Integration`. The project goal remains **Fefferman D**.
-The immediate engineering task is to prepare and externally verify the combined
-resource set. Advancing `main` is outside this branch-preparation task.
+The user authorized promotion after exact head verification. Main was advanced
+by non-force fast-forward to `e627a39e6c27cd4432ab063741fe726af8378a63` on
+2026-11-21 at 02:46:09 UTC, and PR #2 is closed and merged. The integration
+target is `MERGED_COMPLETE`. Main verification and publication of the combined
+cache have passed. Only the later documentation-head external check remains.
 
 ## Pinned inputs
 
@@ -12,16 +15,20 @@ resource set. Advancing `main` is outside this branch-preparation task.
 | Destination baseline, `main` | `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` |
 | Incoming baseline, `AC-Integration` | `000c1bd9baded808b79a04b7f666cacabce64939` |
 | Common ancestor | `66a529248d3198ed70dc5489d82868bc33a37796` |
-| Integration branch | `integration/ac-into-main` |
+| Integration source branch | `integration/ac-into-main` |
+| Working branch after promotion | `main` |
+| Exact promoted head | `e627a39e6c27cd4432ab063741fe726af8378a63` |
 
 The integration commit retains both input commits as parents. The input branches
 and their historical source/evidence identities are preserved.
 
-## Frozen boundary and live review
+## Frozen boundary and completed review
 
 The first integration is pinned to the two revisions above. The merge commit is
 `5a44e985c15a302110fd91d064431f1183e55857`, with both pinned commits retained as
-parents. [Draft PR #2](https://github.com/randogelist/Methboke/pull/2) targets main.
+parents. [PR #2](https://github.com/randogelist/Methboke/pull/2) merged this
+history into main without a new merge commit; GitHub's recorded merge commit
+is the promoted head `e627a39e`.
 
 AC advanced concurrently through `d884a36b` to `809aadc6`, adding the separate
 `QFAHeatGenerator` candidate. That later research is outside this frozen merge.
@@ -35,7 +42,7 @@ The [independent static review](reviews/PRECOMMIT_STATIC_REVIEW.json) records
 `a7810ee179093a387f9740f94b544c735a886dfe`. It is a historical precommit review,
 not a compiler receipt for a later documentation commit.
 
-## Current acceptance
+## Source acceptance and promoted head
 
 The combined source is **accepted at `5a44e985`**, by
 [external run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941).
@@ -51,6 +58,24 @@ artifact digests and independent review. The original preparation report and
 preservation manifest remain historical static records. The later ordinary
 documentation commit receives its own external head check; it does not relabel
 this accepted source receipt.
+
+The exact pre-promotion head `e627a39e6c27cd4432ab063741fe726af8378a63` passed
+[run 44856391458](https://github.com/randogelist/Methboke/actions/runs/44856391458).
+Independent review confirmed **654 reused modules, zero freshly compiled
+modules, 169 fresh package audits and 2,212 named type/axiom reports plus
+fresh QFB**. Dependency and project cache admission were both EXACT, only
+`propext`, `Classical.choice` and `Quot.sound` occurred, and recovery was skipped.
+The original `5a44e985` acceptance and this later exact head check remain
+separate records.
+
+The first main run, [44857663580](https://github.com/randogelist/Methboke/actions/runs/44857663580),
+passed at the same promoted commit, including final acceptance and full cache
+publication. It reused 548 modules and freshly compiled 106, with 169 fresh
+package audits and 2,212 named reports plus QFB; dependency cache was EXACT,
+project cache PREFIX, and recovery was skipped. Its donor was
+`572fd9ee` / run `44848985720`. The downloaded evidence archive SHA256 is
+`ffa9f5044ade02ddda080770ab165920fabf0a2ff70c6a2b7a814228fff41c49`.
+A subsequent documentation commit still requires its own exact-head check.
 
 The original main evidence retains these independent scopes:
 
@@ -115,7 +140,7 @@ source integration. Relative to a complete matching 548-module main donor,
 106 modules are additional. Actual reuse depends on receipts and compilation
 context, not this arithmetic alone.
 
-The candidate must pass all 654 registered build modules, 169 fresh package
+Each new verification must pass all 654 registered build modules, 169 fresh package
 audits, 2,212 exact named type/axiom reports, the fresh QFB cutout, evidence
 retention, publication, and the final `Material accepted` gate. The incoming
 and main theorem type/axiom maps are compared with the candidate's reports.
@@ -125,7 +150,7 @@ Missing or incompatible external dependency objects are an obstruction. They
 do not authorize local Lean execution or compilation of Mathlib from source.
 Previous accepted evidence and cache snapshots are retained on failure.
 
-## Review and possible later promotion
+## Completed promotion and main verification
 
 The full evidence must identify the actual tested source commit and run.
 A documentation-only acceptance commit keeps that source identity in the
@@ -135,29 +160,27 @@ accepted-source archive remains authoritative for that run; a later green head
 run is separate readiness evidence and does not require another documentation
 commit merely to record another run.
 
-Before any authorized promotion, re-read `main` and the reviewed PR head. If
-`main` is still the pinned baseline, a non-force fast-forward to the reviewed
-integration history preserves the original two-parent merge and both sources.
-If repository policy uses a PR merge commit, retain that promotion identity
-separately from the tested source. If main has advanced, first combine and
-verify the newer changes on the integration branch. The task recorded here
-prepares a reviewable branch; it does not advance main.
+The authorized promotion re-read main and the reviewed PR head, confirmed
+main still matched the pinned baseline, and fast-forwarded main without force
+to the verified `e627a39e` history. This preserves the original two-parent merge
+and both inputs. GitHub confirms PR #2 closed and merged at 2026-11-21
+02:46:09 UTC, with merge commit `e627a39e6c27cd4432ab063741fe726af8378a63`.
 
-As part of a later authorized promotion, refresh the current working-branch and
-completed-task selectors in GPT, README and status records for main. Keep the
-original receipt's integration branch, tested commit and run immutable. Any
-such edits remain documentation-only and follow the ordinary head-check rule.
+The current working-branch and completed-task selectors in GPT, README and
+status records now identify main and `MERGED_COMPLETE`. The original receipt's
+integration branch, tested commit and run remain immutable. These synchronization
+edits remain documentation-only and follow the ordinary exact-head check rule.
 
-The first ordinary main run after promotion establishes the combined cache in
+The first ordinary main run established the combined cache in
 main's own branch scope. GitHub's [cache access rules](https://docs.github.com/en/actions/reference/workflows-and-actions/dependency-caching)
 allow the current/default branch, and main cannot restore a cache created only
-on its child integration branch. A compatible 548-module main donor may require
-106 additions to be compiled externally before publication creates the combined
-main snapshot. This is conditional on donor availability and receipts. Preserve
-the existing single-donor validation and publication rules.
+on its child integration branch. The observed main run reused the compatible
+548-module donor at `572fd9ee` and compiled 106 additions externally before
+publishing the combined main snapshot. Preserve the existing single-donor
+validation and publication rules; later reuse remains subject to those checks.
 
-The final documentation commit uses an ordinary message so the current PR head
-has its external check and a future normal main push can trigger verification.
+The promotion documentation commit uses an ordinary message so its main head
+receives the existing external check after the first main cache is published.
 GitHub [skip directives](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs)
 can suppress those workflows and leave required checks pending. No verification
 requirement is waived for a documentation-only descendant.
@@ -170,7 +193,7 @@ that same source requires an explicit restoration. Do not reset or force-push
 main or delete accepted evidence and caches. A documentation-only problem calls
 for a documentation correction.
 
-[Detailed promotion review](reviews/PROMOTION_REVIEW.txt) records the observed
-workflow, cache and history constraints. Later AC generator work remains a
+[Detailed promotion review](reviews/PROMOTION_REVIEW.txt) preserves the historical
+pre-promotion workflow, cache and history review. Later AC generator work remains a
 separate, source-pinned follow-up under the same preservation and verification
 requirements.

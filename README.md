@@ -6,23 +6,35 @@ smooth periodic velocity–pressure solution exists.
 
 ## Integration of AC resources into main
 
-The combined source on `integration/ac-into-main` is externally accepted at
-`5a44e985c15a302110fd91d064431f1183e55857`,
-[run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941).
-Later documentation/evidence commits use the ordinary external verification
-workflow. Their observed status is recorded against the exact live head of
-[PR #2](https://github.com/randogelist/Methboke/pull/2), which remains open;
-`main` remains at `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`.
+**Merged into `main`.** [PR #2](https://github.com/randogelist/Methboke/pull/2)
+closed as merged on 2026-11-21 at 02:46:09 UTC. The authorized non-force
+fast-forward advanced main from `4a609ea634ec4a5ff846049b9dc12b40b5f1a702`
+to the verified head `e627a39e6c27cd4432ab063741fe726af8378a63`, preserving
+the original integration history. The local integration target is complete.
 The project goal remains **Fefferman D**; the completed FDSN_R3 theorem and
 every prior accepted result retain their exact scope. No new mathematical
 goal is adopted.
 
-**Combined status: `ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION`.** The frozen inputs are
+The promoted head passed [run 44856391458](https://github.com/randogelist/Methboke/actions/runs/44856391458):
+**654 modules reused, zero freshly compiled, 169 fresh package audits and
+2,212 named type/axiom reports plus fresh QFB**. Dependency and project caches
+were both EXACT, only the approved standard axioms occurred, and recovery was
+skipped. The first main run, [44857663580](https://github.com/randogelist/Methboke/actions/runs/44857663580),
+also passed at the promoted commit, including final acceptance and full cache
+publication. It reused **548 modules and compiled 106 additions**, with 169
+fresh package audits and 2,212 named reports plus QFB; dependency cache was
+EXACT and project cache PREFIX. Its donor was `572fd9ee` / run `44848985720`.
+The combined cache is now published in main's scope. The later documentation
+head still requires its own exact external check.
+
+**Original combined acceptance:** `5a44e985c15a302110fd91d064431f1183e55857`,
+[run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941).
+The frozen inputs are
 [`main@4a609ea`](https://github.com/randogelist/Methboke/tree/4a609ea634ec4a5ff846049b9dc12b40b5f1a702)
 and
 [`AC-Integration@000c1bd9`](https://github.com/randogelist/Methboke/tree/000c1bd9baded808b79a04b7f666cacabce64939).
 The verified union contains **654 active modules and 183 owned modules**.
-The run reused **548 compatible cached modules** and compiled **106 modules
+That original run reused **548 compatible cached modules** and compiled **106 modules
 freshly**. All **169 package audits were fresh**, covering **2,212 named
 type/axiom reports** plus the fresh standalone QFB cutout. Only `propext`,
 `Classical.choice` and `Quot.sound` occur; publication and final acceptance passed.
@@ -50,9 +62,9 @@ and 2,213 marked type/axiom blocks including QFB. The final gate recorded
 
 A subsequent documentation/evidence commit is a distinct revision with its
 own ordinary external head check. For its observed verification outcome, use
-the **live PR #2 head SHA and the latest Material run matching that exact SHA**.
-The archived acceptance remains pinned to `5a44e985`; it does not assert a
-main-branch merge or verification of an unspecified later head.
+the **live main SHA and the latest Material run matching that exact SHA**.
+The archived acceptance remains pinned to `5a44e985`; the separate promotion
+record identifies the accepted PR head and observed merge into main.
 
 The [integration record](integration/AC_INTO_MAIN/README.md),
 [status](integration/AC_INTO_MAIN/INTEGRATION_STATUS.json),
@@ -88,9 +100,9 @@ one site gives the intended obstruction. The cumulative B-tier construction is
 complete relative to the pinned compact seed; its native Lean family theorem
 and literal all-order force-decay adapter remain formal obligations.
 
-The integration branch is `integration/ac-into-main`, targeting `main`.
+The working branch is `main`; `integration/ac-into-main` supplied the merged PR.
 The [project context](GPT.txt) records the preserved mathematical scopes and
-the immediate integration task. The [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
+the completed integration, successful main verification and later head-check policy. The [prior goal documents](audits/goal-transition-fefferman-d/manifest.json)
 retain the previous conditional Ehrenfest goal and its accepted evidence.
 
 ## Preserved periodic-family implementation
@@ -358,7 +370,7 @@ the previous research-file locations.
 
 | Path | Purpose |
 |---|---|
-| [GPT.txt](GPT.txt) | Preserved goal, current integration task, exact mathematical contracts and obligations |
+| [GPT.txt](GPT.txt) | Preserved goal, completed integration, main verification and exact mathematical contracts |
 | [Integration record](integration/AC_INTO_MAIN/README.md) | Frozen inputs, accepted combined scope, proof preservation and live head verification policy |
 | [QFA resources](R3_NSE/QFA/README.md) | Accepted physical foundations, restart/heat/zero-datum scopes and remaining general-root obligations |
 | [NSE-A resources](R3_NSE/A-Regularity-class/README.md) | Accepted pathwise six-charge resources, B-tier class characterization and remaining canonical PDE obligations |

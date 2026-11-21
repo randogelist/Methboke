@@ -1,8 +1,8 @@
 # Whole-space three-dimensional Navier–Stokes
 
-## Integration task
+## Completed integration into main
 
-The immediate task on `integration/ac-into-main` brings together the accepted
+The completed integration into `main` brings together the accepted
 FDSN_R3 program from main and the QFA/NSE-A work from AC-Integration. The project
 goal remains **Fefferman D**. The [combined integration](../integration/AC_INTO_MAIN/README.md)
 is **accepted at `5a44e985c15a302110fd91d064431f1183e55857`** by
@@ -16,11 +16,18 @@ with 510 shared names and only the three standard axioms. The
 the exact source and audit identity; earlier source-specific receipts below
 retain their original scopes.
 
-[Draft PR #2](https://github.com/randogelist/Methboke/pull/2) remains under review;
-`main` has not advanced. The latest Material run at the exact PR head governs
-its documentation-head check. This record precedes that documentation commit;
-PR metadata records the later head/run identity without replacing the accepted
-source above. The incoming baseline stays pinned to
+[PR #2](https://github.com/randogelist/Methboke/pull/2) is closed and merged.
+Main was fast-forwarded to `e627a39e6c27cd4432ab063741fe726af8378a63` on
+2026-11-21 at 02:46:09 UTC. That exact head passed
+[run 44856391458](https://github.com/randogelist/Methboke/actions/runs/44856391458):
+654 reused modules, zero fresh compilations, 169 fresh package audits,
+2,212 named reports and fresh QFB, with EXACT dependency and project caches.
+The first main run [44857663580](https://github.com/randogelist/Methboke/actions/runs/44857663580)
+passed final acceptance and full cache publication: 548 reused modules,
+106 fresh compilations, 169 fresh package audits and 2,212 named reports plus
+QFB, with EXACT dependency and PREFIX project caches. Later documentation
+heads are assessed at the exact main SHA; these records preserve the original
+source acceptance above. The incoming baseline stays pinned to
 `000c1bd9baded808b79a04b7f666cacabce64939`; later AC work, including the separate
 generator at `809aadc6`, is outside this first integration.
 
