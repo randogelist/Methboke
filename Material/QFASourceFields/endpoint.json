@@ -4,8 +4,7 @@
   "endpoint_module": "QFASourceFields.Endpoint",
   "audit_module": "QFASourceFields.Audit",
   "imports": [
-    "QFASourceCoordinates.Endpoint",
-    "Mathlib.MeasureTheory.Function.LpSpace.Basic"
+    "QFASourceCoordinates.Endpoint"
   ],
   "source_roots": [
     {
@@ -24,14 +23,6 @@
         "CKN/Foundation/Ambient/Euclidean.lean"
       ],
       "role": "Raw coordinate vector-field carrier and physical Euclidean norm; reference only."
-    },
-    {
-      "repository": "leanprover-community/mathlib4",
-      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
-      "files": [
-        "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean"
-      ],
-      "role": "MemLp composition, continuous-linear codomain transport, and Lp representatives."
     }
   ],
   "declarations": [
@@ -45,17 +36,6 @@
         "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Raw source-coordinate spatial vector-field type."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.SourceSpatialL2",
-      "kind": "definition",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Source-coordinate spatial L2 class with the source raw finite-Pi norm."
     },
     {
       "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldFunctionOfNative",
@@ -80,6 +60,28 @@
       "scope": "Pointwise pushforward of a source-coordinate field to native Euclidean space."
     },
     {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldFunctionOfNative_apply",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceFields/Endpoint.lean",
+        "module": "QFASourceFields.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Literal application formula for sourceFieldFunctionOfNative."
+    },
+    {
+      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldFunctionOfSource_apply",
+      "kind": "theorem",
+      "source": {
+        "repository": "randogelist/Methboke",
+        "path": "Material/QFASourceFields/Endpoint.lean",
+        "module": "QFASourceFields.Endpoint",
+        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+      },
+      "scope": "Literal application formula for nativeFieldFunctionOfSource."
+    },
+    {
       "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldFunctionOfSource_sourceFieldFunctionOfNative",
       "kind": "theorem",
       "source": {
@@ -100,72 +102,6 @@
         "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Pointwise right inverse law for field transport."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldOfNative_memLp",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Native spatial L2 fields pull back to source MemLp 2."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceL2OfNative",
-      "kind": "definition",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Source spatial L2 class induced by a native spatial L2 field."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceL2OfNative_ae",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Almost-everywhere representative identity for sourceL2OfNative."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeFieldOfSource_memLp",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Source spatial L2 fields push forward to native MemLp 2."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeL2OfSource",
-      "kind": "definition",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Native spatial L2 class induced by a source spatial L2 field."
-    },
-    {
-      "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.nativeL2OfSource_ae",
-      "kind": "theorem",
-      "source": {
-        "repository": "randogelist/Methboke",
-        "path": "Material/QFASourceFields/Endpoint.lean",
-        "module": "QFASourceFields.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
-      },
-      "scope": "Almost-everywhere representative identity for nativeL2OfSource."
     },
     {
       "name": "MethbokeAddon.QuasiFeffermanA.SourceFields.sourceFieldOfNative_euclideanNorm",
@@ -195,10 +131,10 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "scope": "Exact pointwise and L2 transport of spatial vector fields between accepted source coordinates and Methboke native Euclidean space, with exact physical pointwise Euclidean norm transport.",
+  "scope": "Exact pointwise source/native spatial vector-field equivalence and exact physical Euclidean-norm transport.",
   "status": "PENDING_MATCHING_EXTERNAL_CI",
   "project_scope": "QFA_A_TIER_CLOSURE",
-  "implementation_base": "f2cb59f6e91f543fee45793cb4329163e43bbf52",
+  "implementation_base": "ff8df2b6f35a6ce8f6a24c225a5673f6b2023773",
   "research_layout": "R3_NSE/QFA/STRUCTURED_ASSEMBLY",
   "derivation_chain": "R3_NSE/QFA/STRUCTURED_ASSEMBLY/ASSEMBLY_MANIFEST.txt",
   "type_policy": "Independent exact consumers and fresh named exact-type and theorem-level axiom reports for every declaration.",
