@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "endpoint": "R3EhrenfestDatumAdmission",
+  "source_revision_status": "MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "e7b080436a3e37ac728c071ed0f747295ee99af4",
+  "source_preparation_revision": "e7b080436a3e37ac728c071ed0f747295ee99af4",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "validation_boundary": "Static source/import/hash inspection only. Matching external compiler, independent exact-type consumers, standard-only named axiom reports, publication and full Material acceptance are required.",
+  "roots": [
+    "MethbokeAddon.R3Ehrenfest.DatumAdmission"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "path": "MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92",
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "sha256": "40a364af5c5e399442cd9ed0e31a8d4e7e811f494cb77f375c348232fe35279f",
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1Fourier.lean",
+      "sha256": "565edf7f029712801da88586f997677d5f0e964a804714d02a07ac20e1b72a4c",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+        "QFALC005.Density"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+      "sha256": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.MeasureTheory.Function.Holder",
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.Topology.Algebra.Module.ClosedSubmodule"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Divergence.lean",
+      "sha256": "e17ac1d4552d8c96c99f7c3f73f4e782ec97715508bf4edb8bfafb1eb1c7710f",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean",
+      "sha256": "de5b5c612dbae66afa1191be8f202604adbb4fb949091117adb72921ab5d52bd",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+        "Mathlib.Analysis.Distribution.TemperedDistribution"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.Contracts",
+      "path": "MethbokeAddon/R3Ehrenfest/Contracts.lean",
+      "sha256": "a93cefccdf1c961bdf11adf598c513211bb72604a6bc86eb71bf6b93e36b8704",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "SingularClosure.Contracts"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.DatumAdmission",
+      "path": "MethbokeAddon/R3Ehrenfest/DatumAdmission.lean",
+      "sha256": "438f524d632a825e3f3d58a6ed1262250c7a97b1a99f5d03a1b22d51603521f5",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.Contracts",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d",
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5",
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9",
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a",
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ]
+    },
+    {
+      "module": "QFALC001Reduction.NativeFromAENorms",
+      "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ]
+    },
+    {
+      "module": "QFALC004.CompactSchwartz",
+      "path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+      ]
+    },
+    {
+      "module": "QFALC005.Density",
+      "path": "_vendor/QFALC005/Density.lean",
+      "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+      "imports": [
+        "QFALC004.CompactSchwartz",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ]
+    },
+    {
+      "module": "R3EhrenfestDatumAdmission.Audit",
+      "path": "R3EhrenfestDatumAdmission/Audit.lean",
+      "sha256": "062f5c72a8517b3ab228240d76f7428cd93e6b48819869198541a08f85b62efb",
+      "imports": [
+        "R3EhrenfestDatumAdmission.Endpoint"
+      ]
+    },
+    {
+      "module": "R3EhrenfestDatumAdmission.Endpoint",
+      "path": "R3EhrenfestDatumAdmission/Endpoint.lean",
+      "sha256": "4673773fd170e01a8e2678f7b157114357eca71947a945d80d8daa8663aa8793",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.DatumAdmission"
+      ]
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "imports": [
+        "Mathlib"
+      ]
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs",
+    "Mathlib.Analysis.Calculus.ContDiff.Operations",
+    "Mathlib.Analysis.Calculus.FDeriv.Const",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.Distribution.TemperedDistribution",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.MeasureTheory.Function.Holder",
+    "Mathlib.MeasureTheory.Function.L2Space",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Module.ClosedSubmodule",
+    "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+  ],
+  "source_drift": [],
+  "source_closure_sha256": "ead7af15bcc8b594dd92c6848bb6744ae114f0e2ef2f277817ba8e6af1ff0634"
+}
