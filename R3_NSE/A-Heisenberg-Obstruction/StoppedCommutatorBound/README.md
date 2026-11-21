@@ -58,7 +58,7 @@ that attempt; its [receipt](../../../../audits/r3-ehrenfest-ba451454-failed/summ
 is retained. The source-count check passed at the exact attempted commit.
 
 The next prepared batch has seven packages and 111 named declarations. Its
-latest immutable source snapshot is d82fde9368ecd640046688a35c0d0168f04ab81b;
+latest immutable source snapshot is 80f36647edc71bc36f94cae410d958b5157be862;
 this is source preparation, with external acceptance still pending.
 
 ## Second external attempt
@@ -76,4 +76,12 @@ until the full gate and the scoped R3 audit pass.
 Five new source modules compiled, including Bandlimited and FourierL1L2. Approximation retained one scalar zero-power simplification error. SmoothRepresentative was reached and reported notation, measurable-ball inference, Fourier-map specialization and function-composition errors.
 Explicit scalar-zero simplification, unambiguous ENNReal/top notation, typed measurable ball, real-linear Fourier-map specialization and explicit function composition. The seven-package/111-declaration scope and theorem statements are preserved.
 The [exact receipt](../../../../audits/r3-ehrenfest-66461374-failed/summary.json) is retained.
+All seven packages remain candidates pending matching full and scoped audits.
+
+## External attempt 4
+
+[Run 44874923670](https://github.com/randogelist/Methboke/actions/runs/44874923670) failed before full acceptance.
+Six new source modules and their endpoints compiled, including SmoothRepresentative. Approximation had one remaining diagnostic: an untyped power in a local scalar equality did not simplify to the expected natural-number square.
+Explicit real codomain and natural exponent in the local norm-square equality; all 111 public declarations and independent consumers are unchanged.
+The [exact receipt](../../../../audits/r3-ehrenfest-b12c1e9b-failed/summary.json) is retained.
 All seven packages remain candidates pending matching full and scoped audits.
