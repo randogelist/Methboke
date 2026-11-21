@@ -21,6 +21,14 @@ restart, actual positive-time H1-to-H2 heat smoothing, and the complete
 zero-datum strict/closed conclusion. [Exact register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
 General nonzero-data QFA remains open. No local Lean was run.
 
+## Current linear time-energy construction
+
+`QFAHeatTrajectory` and `QFAHeatTimeEnergy` prepare the actual measurable H2
+trajectory, exact free-heat enstrophy dissipation and finite-window L2-time H2
+membership. These 34 new declarations await matching external verification;
+the accepted-scope table below is unchanged until that evidence passes.
+[Construction](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
+
 ## Accepted subresults and remaining obligations
 
 | Step | Accepted scope | Remaining construction |

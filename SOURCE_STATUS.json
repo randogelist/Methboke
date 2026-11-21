@@ -27,7 +27,7 @@
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
     "mesoscopic": "QFA/QFB native A-tier integration on AC-Integration; retained D-family program on main",
-    "microscopic": "Complete: full supplied-path energy-start LH restart, positive-time physical H1-to-H2 heat smoothing and complete zero-datum QFA. General nonzero-data QFA remains open.",
+    "microscopic": "Prepared actual H2 heat trajectory, exact free-heat enstrophy-dissipation identity and finite-window L2-time H2 membership; matching external acceptance pending.",
     "next_scoped_endpoint": "For nu>0, finite T>=0 and arbitrary actual PhysicalH1 input u, construct the positive-time H2 trajectory with finite-window time measurability and prove 2*nu*integral_0^T norm(Delta heat u)^2 = Enstrophy(u)-Enstrophy(heatH1 nu T u); obtain actual MemLp2 H2."
   },
   "goal_transition": {
@@ -52,8 +52,8 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "All required source/type/axiom, QFB, publication and final gates passed at ffbab0f5/run44847013775. General physical QFA remains open.",
-  "current_material_external_verification": "A_TIER_QFA_RESTART_HEAT_ZERO_MATCHING_EXTERNAL_ACCEPTED",
+  "ci_handoff": "Prepared34newnames in2packages for524modules104freshpackageaudits1401namedreports; exact cached external verification required. No local Lean.",
+  "current_material_external_verification": "PENDING_QFA_HEAT_TIME_MATCHING_EXTERNAL",
   "latest_material_run": {
     "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
     "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
@@ -2833,89 +2833,26 @@
   ],
   "active_scoped_request": "QFA_A_TIER_CLOSURE",
   "current_material_candidate": {
-    "id": "QFA_RESTART_HEAT_ZERO_BATCH",
-    "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
-    "source_basis": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+    "id": "QFA_HEAT_TIME_ENERGY_BATCH",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "source_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
     "packages": [
-      "QFALHRestart",
-      "QFAHeatSmoothing",
-      "QFAZeroDatum"
+      "QFAHeatTrajectory",
+      "QFAHeatTimeEnergy"
     ],
-    "new_named_declarations": 73,
-    "new_theorems": 53,
-    "new_definitions_and_structures": 20,
-    "total_packages": 102,
-    "named_reports_expected": 1367,
-    "expected_compiled_modules": 520,
-    "scope": "Full supplied-path LH restarts, actual positive-time H1-to-H2 heat smoothing, exact physical QFA root contract and complete zero-datum branch.",
+    "new_named_declarations": 34,
+    "new_theorems": 31,
+    "new_definitions": 3,
+    "expected_compiled_modules": 524,
+    "expected_fresh_package_audits": 104,
+    "expected_named_reports": 1401,
+    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data.",
     "physical_qfa_root_proved": false,
     "wfa_proved": false,
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
-    "derivation": "R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt",
-    "latest_external_attempt": {
-      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
-      "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
-      "run_id": 44847013775,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
-      "module_count": 520,
-      "package_count": 102,
-      "named_reports": 1367,
-      "fresh_package_audits": 102,
-      "unique_named_reports": 1367,
-      "new_packages": 3,
-      "new_named_declarations": 73,
-      "new_theorems": 53,
-      "new_definitions_and_structures": 20,
-      "packages": [
-        "QFALHRestart",
-        "QFAHeatSmoothing",
-        "QFAZeroDatum"
-      ],
-      "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
-      "standard_axioms_only": true,
-      "fresh_qfb_cutout": true,
-      "publication_complete": true,
-      "matching_evidence_review_complete": true,
-      "local_lean_executions": 0,
-      "physical_qfa_root_proved": false,
-      "zero_datum_qfa_proved": true,
-      "wfa_proved": false,
-      "full_supplied_path_energy_start_restart_proved": true,
-      "positive_time_physical_heat_H1_to_H2_proved": true
-    },
-    "public_statement_changes": false,
-    "acceptance": {
-      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
-      "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
-      "run_id": 44847013775,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
-      "module_count": 520,
-      "package_count": 102,
-      "named_reports": 1367,
-      "fresh_package_audits": 102,
-      "unique_named_reports": 1367,
-      "new_packages": 3,
-      "new_named_declarations": 73,
-      "new_theorems": 53,
-      "new_definitions_and_structures": 20,
-      "packages": [
-        "QFALHRestart",
-        "QFAHeatSmoothing",
-        "QFAZeroDatum"
-      ],
-      "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
-      "standard_axioms_only": true,
-      "fresh_qfb_cutout": true,
-      "publication_complete": true,
-      "matching_evidence_review_complete": true,
-      "local_lean_executions": 0,
-      "physical_qfa_root_proved": false,
-      "zero_datum_qfa_proved": true,
-      "wfa_proved": false,
-      "full_supplied_path_energy_start_restart_proved": true,
-      "positive_time_physical_heat_H1_to_H2_proved": true
-    }
+    "derivation": "R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt",
+    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data."
   },
   "prior_material_candidates": [
     {
@@ -2952,6 +2889,91 @@
         "evidence": "audits/material-e4eb9f5f-nse-a-failed/summary.json",
         "public_statement_changes_in_repair": false,
         "new_acceptance": false
+      }
+    },
+    {
+      "id": "QFA_RESTART_HEAT_ZERO_BATCH",
+      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
+      "source_basis": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+      "packages": [
+        "QFALHRestart",
+        "QFAHeatSmoothing",
+        "QFAZeroDatum"
+      ],
+      "new_named_declarations": 73,
+      "new_theorems": 53,
+      "new_definitions_and_structures": 20,
+      "total_packages": 102,
+      "named_reports_expected": 1367,
+      "expected_compiled_modules": 520,
+      "scope": "Full supplied-path LH restarts, actual positive-time H1-to-H2 heat smoothing, exact physical QFA root contract and complete zero-datum branch.",
+      "physical_qfa_root_proved": false,
+      "wfa_proved": false,
+      "local_lean_executions": 0,
+      "compiler_dependency_driver_policy_changed": false,
+      "derivation": "R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt",
+      "latest_external_attempt": {
+        "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
+        "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+        "run_id": 44847013775,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+        "module_count": 520,
+        "package_count": 102,
+        "named_reports": 1367,
+        "fresh_package_audits": 102,
+        "unique_named_reports": 1367,
+        "new_packages": 3,
+        "new_named_declarations": 73,
+        "new_theorems": 53,
+        "new_definitions_and_structures": 20,
+        "packages": [
+          "QFALHRestart",
+          "QFAHeatSmoothing",
+          "QFAZeroDatum"
+        ],
+        "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
+        "standard_axioms_only": true,
+        "fresh_qfb_cutout": true,
+        "publication_complete": true,
+        "matching_evidence_review_complete": true,
+        "local_lean_executions": 0,
+        "physical_qfa_root_proved": false,
+        "zero_datum_qfa_proved": true,
+        "wfa_proved": false,
+        "full_supplied_path_energy_start_restart_proved": true,
+        "positive_time_physical_heat_H1_to_H2_proved": true
+      },
+      "public_statement_changes": false,
+      "acceptance": {
+        "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
+        "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+        "run_id": 44847013775,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+        "module_count": 520,
+        "package_count": 102,
+        "named_reports": 1367,
+        "fresh_package_audits": 102,
+        "unique_named_reports": 1367,
+        "new_packages": 3,
+        "new_named_declarations": 73,
+        "new_theorems": 53,
+        "new_definitions_and_structures": 20,
+        "packages": [
+          "QFALHRestart",
+          "QFAHeatSmoothing",
+          "QFAZeroDatum"
+        ],
+        "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
+        "standard_axioms_only": true,
+        "fresh_qfb_cutout": true,
+        "publication_complete": true,
+        "matching_evidence_review_complete": true,
+        "local_lean_executions": 0,
+        "physical_qfa_root_proved": false,
+        "zero_datum_qfa_proved": true,
+        "wfa_proved": false,
+        "full_supplied_path_energy_start_restart_proved": true,
+        "positive_time_physical_heat_H1_to_H2_proved": true
       }
     }
   ],
@@ -3112,5 +3134,27 @@
       "evidence": "audits/material-82e6035f-qfa-failed/independent-review.json",
       "new_acceptance": false
     }
-  ]
+  ],
+  "qfa_heat_time_construction": {
+    "id": "QFA_HEAT_TIME_ENERGY_BATCH",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "source_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
+    "packages": [
+      "QFAHeatTrajectory",
+      "QFAHeatTimeEnergy"
+    ],
+    "new_named_declarations": 34,
+    "new_theorems": 31,
+    "new_definitions": 3,
+    "expected_compiled_modules": 524,
+    "expected_fresh_package_audits": 104,
+    "expected_named_reports": 1401,
+    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data.",
+    "physical_qfa_root_proved": false,
+    "wfa_proved": false,
+    "local_lean_executions": 0,
+    "compiler_dependency_driver_policy_changed": false,
+    "derivation": "R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt",
+    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data."
+  }
 }

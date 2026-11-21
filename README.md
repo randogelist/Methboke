@@ -1,5 +1,20 @@
 # Methboke
 
+## Current QFA candidate: actual free-heat time-energy
+
+Two new packages, `QFAHeatTrajectory` and `QFAHeatTimeEnergy`, prepare **34
+declarations: 31 theorems and three definitions**. They construct the actual
+positive-time H2 trajectory and strong time measurability, prove the exact
+free-heat enstrophy-dissipation identity, and derive finite-window L2-time H2
+membership with a quantitative bound. **Matching external acceptance is pending.**
+The required run covers 524 modules, 104 fresh package audits and 1,401 named
+reports. No accepted proof, independent consumer, compiler pin or CI policy
+has changed. No local Lean is executed.
+
+[Exact construction chain](R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
+The H2 trajectory's zero extension at time zero makes no claim that arbitrary
+H1 input lies in H2. The general QFA/WFA roots remain open.
+
 ## QFA closure progress: three new accepted scopes
 
 **Three native QFA layers are A-tier accepted at `ffbab0f5`**,

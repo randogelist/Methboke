@@ -167,57 +167,26 @@
   },
   "a_tier_register": "R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt",
   "current_construction": {
-    "id": "QFA_RESTART_HEAT_ZERO_BATCH",
-    "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
-    "source_basis": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+    "id": "QFA_HEAT_TIME_ENERGY_BATCH",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "source_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
     "packages": [
-      "QFALHRestart",
-      "QFAHeatSmoothing",
-      "QFAZeroDatum"
+      "QFAHeatTrajectory",
+      "QFAHeatTimeEnergy"
     ],
-    "new_named_declarations": 73,
-    "new_theorems": 53,
-    "new_definitions_and_structures": 20,
-    "total_packages": 102,
-    "named_reports_expected": 1367,
-    "expected_compiled_modules": 520,
-    "scope": "Full supplied-path LH restarts, actual positive-time H1-to-H2 heat smoothing, exact physical QFA root contract and complete zero-datum branch.",
+    "new_named_declarations": 34,
+    "new_theorems": 31,
+    "new_definitions": 3,
+    "expected_compiled_modules": 524,
+    "expected_fresh_package_audits": 104,
+    "expected_named_reports": 1401,
+    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data.",
     "physical_qfa_root_proved": false,
     "wfa_proved": false,
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
-    "derivation": "R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt",
-    "acceptance": {
-      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
-      "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
-      "run_id": 44847013775,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
-      "module_count": 520,
-      "package_count": 102,
-      "named_reports": 1367,
-      "fresh_package_audits": 102,
-      "unique_named_reports": 1367,
-      "new_packages": 3,
-      "new_named_declarations": 73,
-      "new_theorems": 53,
-      "new_definitions_and_structures": 20,
-      "packages": [
-        "QFALHRestart",
-        "QFAHeatSmoothing",
-        "QFAZeroDatum"
-      ],
-      "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
-      "standard_axioms_only": true,
-      "fresh_qfb_cutout": true,
-      "publication_complete": true,
-      "matching_evidence_review_complete": true,
-      "local_lean_executions": 0,
-      "physical_qfa_root_proved": false,
-      "zero_datum_qfa_proved": true,
-      "wfa_proved": false,
-      "full_supplied_path_energy_start_restart_proved": true,
-      "positive_time_physical_heat_H1_to_H2_proved": true
-    }
+    "derivation": "R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt",
+    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data."
   },
   "latest_shared_basis_acceptance": {
     "tested_commit": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
@@ -413,5 +382,27 @@
     "Global physical LH existence and physical weak--strong comparison",
     "Exact sharp Sobolev admission and small-product global continuation",
     "Nonzero-data smooth pressure tails, energy equality and own-trace future uniqueness"
-  ]
+  ],
+  "heat_time_construction": {
+    "id": "QFA_HEAT_TIME_ENERGY_BATCH",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "source_basis": "6a13c70a5527491774507d5b73396e80f91f0a0f",
+    "packages": [
+      "QFAHeatTrajectory",
+      "QFAHeatTimeEnergy"
+    ],
+    "new_named_declarations": 34,
+    "new_theorems": 31,
+    "new_definitions": 3,
+    "expected_compiled_modules": 524,
+    "expected_fresh_package_audits": 104,
+    "expected_named_reports": 1401,
+    "scope": "Actual positive-time physical H2 heat trajectory and strong time measurability; exact enstrophy-dissipation identity and finite-window MemLp2 H2 for arbitrary actual H1 data.",
+    "physical_qfa_root_proved": false,
+    "wfa_proved": false,
+    "local_lean_executions": 0,
+    "compiler_dependency_driver_policy_changed": false,
+    "derivation": "R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt",
+    "initial_H2_value": "Zero extension at nonpositive times; no H2 initial trace claimed for arbitrary H1 data."
+  }
 }
