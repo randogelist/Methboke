@@ -1,5 +1,8 @@
 # Actual positive-time heat smoothing into physical H2
 
+**A-tier accepted at `ffbab0f5` / [run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775)** for the exact scoped declarations.
+[Matching evidence](../../audits/material-ffbab0f5-qfa-accepted/independent-review.json). The general QFA root remains open.
+
 For positive viscosity and time, this package constructs a continuous linear
 map from the actual full-volume physical H1 graph into the actual H2 graph.
 It constructs all nine real L2 Hessian fields by bounded real-even Fourier
@@ -13,9 +16,8 @@ The native Laplacian has the literal multiplier
 The full H2 norm is at most `sqrt(1+(nu*t)^(-1)) * norm(u)`.
 No H2 witness, smoothing estimate or new spectral identity is assumed.
 
-**Status: prepared pending matching external verification.** There are
-26 named declarations, each with an independent exact consumer and fresh
-named type/transitive-axiom audit requirement. No local Lean was executed.
+All 26 named declarations passed independent exact consumers and fresh
+named type/transitive-axiom audits. No local Lean was executed.
 
 The time-integrated free/forced heat estimates, Duhamel construction and
 nonlinear H1 local existence remain separate obligations. This package does

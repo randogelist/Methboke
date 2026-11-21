@@ -1,7 +1,10 @@
 # Exact physical QFA target and complete zero-datum instance
 
+**A-tier accepted at `ffbab0f5` / [run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775)** for the exact scoped declarations.
+[Matching evidence](../../audits/material-ffbab0f5-qfa-accepted/independent-review.json). The general QFA root remains open.
+
 This package fixes the current full-volume physical QFA proposition at
-`8*norm(a)^4/(27*pi^4*nu^5)` and prepares a complete proof for zero initial
+`8*norm(a)^4/(27*pi^4*nu^5)` and proves the complete conclusion for zero initial
 data and positive viscosity. The strict-cutoff proposition and the stronger
 closed-cutoff version are distinct. Pressure is explicitly fixed by the
 smooth point gauge `p(t,0)=0`; no pressure Lp normalization is assumed.
@@ -14,9 +17,8 @@ witness, full shifted PDE membership, and uniqueness of L2 velocity against
 every future from the exact own trace. Arbitrary time-null gradient values
 are preserved; no pointwise gradient uniqueness is claimed.
 
-**Status: prepared pending matching external verification.** All 29 public
-declarations have independent literal consumers and named type/transitive-
-axiom audit requirements. Defining the all-data root is not a proof of that
+All 29 public declarations passed independent literal consumers and named
+type/transitive-axiom audits. Defining the all-data root is not a proof of that
 root. The nonzero-data QFA construction remains open. No local Lean was run.
 
 The mathematical chain is

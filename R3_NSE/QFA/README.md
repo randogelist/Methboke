@@ -1,6 +1,7 @@
-# QFA: accepted whole-space foundation integration
+# QFA: accepted foundations, full restart, heat smoothing and zero datum
 
-**Status: A-tier accepted for the exact foundation scopes below.**
+**Status: A-tier accepted for the exact foundation, restart, heat-smoothing
+and zero-datum scopes below.**
 The complete physical QFA and WFA theorems remain formally open in this project.
 
 The [NSE-A finite-charge regularity class](../A-Regularity-class/README.md)
@@ -8,29 +9,44 @@ separately registers the B-tier six-charge characterization and datumwise
 global-regularity equivalence from the written WFA chain. That registration
 adds no theorem to the accepted native scope described here.
 
-Tested commit: `afd67db40e71bd1412c82247a78598288deb611e` on `AC-Integration`.
-Matching [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412) passed compilation, fresh
-signature/type/axiom audits, exact publication checks and final acceptance.
-The [receipt](../../audits/material-afd67db4-qfa-accepted/summary.json),
-[independent review](../../audits/material-afd67db4-qfa-accepted/independent-review.json) and
-[complete new declaration evidence](../../audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json)
-fix the accepted source and statement scope. The project goal remains Fefferman D.
+## QFA closure progress: three new accepted scopes
 
-## Current closure candidate
+**Three native QFA layers are A-tier accepted at `ffbab0f5`**,
+[external run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775). The complete run passed **520 modules,
+102 fresh package audits and 1,367 named type/axiom reports**, plus standalone
+QFB, publication and final acceptance. The new packages add **73 declarations:
+53 theorems and 20 definitions/structures**. Only the approved standard axioms occur.
 
-The current user-selected work prepares `QFALHRestart`, `QFAHeatSmoothing`
-and `QFAZeroDatum`. They add full physical restart, actual positive-time heat
-H2 smoothing, and a complete zero-datum conclusion under an explicitly fixed
-physical root contract. These are **pending matching external verification**.
-The sharp cutoff is $8\|a\|_2^4/(27\pi^4\nu^5)$; smooth pressure is normalized
-by $p(t,0)=0$. The general root remains open.
+| Package | Accepted scope |
+|---|---|
+| `QFALHRestart` | Full physical restart of the same supplied LH path from its exact nonnegative energy-start trace, including translated momentum and all energy-class fields |
+| `QFAHeatSmoothing` | Constructed actual positive-time H1-to-H2 heat map, native weak Hessians and quantitative Laplacian/H2 estimates |
+| `QFAZeroDatum` | Exact physical root contract and complete zero-datum strict/closed QFA conclusion, including weak existence, every-path smooth tails, original-gradient energy equality and all future velocities |
 
-[Exact scoped chain](DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt) ·
-[Latest shared native basis](../../audits/material-d403c235-nse-a-accepted/independent-review.json).
-The shared basis now includes actual H2, real Leray, heat and stopped-budget
-constructions accepted at `d403c235` / run44837033211.
+**The general nonzero-data QFA theorem remains open.** Its cutoff is unchanged:
+$8\|a\|_2^4/(27\pi^4\nu^5)$. Smooth pressure uses the explicit point gauge
+$p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
 
-## Accepted native layers
+[Exact acceptance](../../audits/material-ffbab0f5-qfa-accepted/independent-review.json) ·
+[Full new-name register](QFA_CLOSURE_A_TIER_PROGRESS.txt) ·
+[Scoped mathematical chain](DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
+No local Lean was executed. The project goal remains Fefferman D.
+
+The next scoped construction is the exact free heat enstrophy-dissipation
+identity and finite-window L2-time H2 membership. The pointwise smoothing
+bound alone is not time integrable at zero. Actual forced heat, nonlinear H1
+existence, general LH existence, physical comparison, sharp spatial admission
+and small-product continuation remain explicit general-data obligations.
+
+## Earlier accepted foundation layers
+
+The foundation batch was tested at `afd67db40e71bd1412c82247a78598288deb611e`
+on `AC-Integration`. [External run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412)
+passed compilation, fresh signature/type/axiom audits, publication and final
+acceptance. The [receipt](../../audits/material-afd67db4-qfa-accepted/summary.json),
+[independent review](../../audits/material-afd67db4-qfa-accepted/independent-review.json)
+and [complete declaration evidence](../../audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json)
+retain that original scope. Later batches extend it as described above.
 
 | Layer | Source | Scope |
 |---|---|---|
@@ -41,8 +57,8 @@ constructions accepted at `d403c235` / run44837033211.
 | Fourier multipliers | `FourierMultipliers.lean` | Five owned derivative-witness proofs; the exact original failed upstream port is retained inactive |
 | Spectral realization | `Spectral.lean` | Derivative witnesses imply Fourier norm identities and the native spectral endpoint, without assumed norm identities or spectral realization |
 
-The native package has **35 accepted public helper theorems and 19 checked
-contracts/definitions**. The four new packages supply 188 named reports:
+The original native foundation has **35 accepted public helper theorems and
+19 checked contracts/definitions**. Its four packages supply 188 named reports:
 108 recovered QFA declarations, 14 representation declarations, 12 historical
 conditional-root declarations, and 54 native declarations. All 698 names across
 77 packages were freshly audited; all 463 required modules passed, with 420
@@ -73,14 +89,17 @@ energy/trace data and strong right convergence to $u(s)$.
 
 This is a pathwise selection theorem. It assumes a supplied LH path and does
 not construct one. Its energy inequalities are standard defining LH assumptions,
-not conclusions derived from the weak momentum equation alone. `GoodRestart`
-does not assert the translated weak momentum equation or full shifted LH membership.
+not conclusions derived from the weak momentum equation alone. The original
+`GoodRestart` record contains energy/trace data. The accepted `LHRestart.lean`
+extension now proves the translated weak momentum equation and full shifted
+LH membership at each nonnegative energy start, including the selected traces.
 
 The explicit premise $S^6=16/(27\pi^4)$ gives the algebraic rewrite
 $\tau=8M^4/(27\pi^4\nu^5)$. Admissibility of this Sobolev constant and the
 physical continuation threshold remain unproved here. For zero datum the cutoff
-is zero and every supplied LH velocity vanishes at every nonnegative time;
-the rigidity theorem does not construct a zero solution or pressure.
+is zero and every supplied LH velocity vanishes at every nonnegative time.
+The accepted `ZeroDatum.lean` extension additionally constructs an actual zero
+LH solution and proves the complete smooth-pressure, energy and future conclusion.
 
 ## Spectral scope
 
@@ -91,23 +110,25 @@ densities, weighted integrability and Plancherel energy identities, thereby
 inhabiting `WholeSpaceSpectralEndpoint`.
 
 Native LH traces supply first weak derivatives almost everywhere; the current
-bridge does not manufacture an L2 Laplacian for every such trace. Physical H1/H2
-adapters and the remaining spatial estimates are separate obligations.
+bridge does not manufacture an L2 Laplacian for every such trace. Actual physical
+H1/H2 graphs and the Hessian–Laplacian identity were accepted in the subsequent
+NSE-A batches. Positive-time heat H1-to-H2 smoothing is now accepted as well;
+the sharp Sobolev/interpolation admission remains open.
 
 ## Ten-step construction status
 
 | Step | Accepted scope | Remaining construction |
 |---|---|---|
-| 1. Concrete contract | Full-volume L2, solenoidality, compact-test weak gradients, projected weak momentum and LH energy-class interface | Pressure formulation and the complete current physical root contract |
-| 2. Spatial analysis | Fourier multipliers and the spectral endpoint from first-derivative and L2 Laplacian distribution witnesses | Physical H1/H2 bridges, Hessian identity, Sobolev/interpolation admissibility and the stated sharp constant |
-| 3. Local H1 theory | No new whole-space constructor accepted | Existence, uniqueness, smoothing and continuation |
-| 4. LH solutions and restarts | Strong initial/right traces and translated energy/trace data for supplied LH paths | Global nonemptiness and full shifted-LH membership |
+| 1. Concrete contract | Full-volume L2/LH interface and exact current physical root, with actual smooth pressure and strict/closed cutoffs separately checked | Contract complete; proving the general root belongs to steps 2–10 |
+| 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives and real Leray projection | Sobolev/interpolation admissibility and the exact sharp constant |
+| 3. Local H1 theory | Actual heat semigroup and positive-time H1-to-H2 smoothing; zero nonlinear solution | Time-integrated/forced heat, arbitrary-H1 nonlinear existence, uniqueness and continuation |
+| 4. LH solutions and restarts | Full shifted physical LH membership at nonnegative energy starts; actual zero-datum nonemptiness | General-data global nonemptiness |
 | 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
 | 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |
 | 7. Weighted budget | Product integrability and one-quarter weighted bound for every finite positive horizon of a supplied LH path | The zero-length interval is not separately packaged; global LH existence belongs to step 4 |
-| 8. Finite-window selection | Half-window measure, strict interior good trace, strong right trace and zero-datum rigidity | Admissible physical threshold and full PDE restart |
-| 9. Closed smooth tail | No new physical tail theorem accepted | Classical representative, pressure and tail energy equality |
-| 10. Full QFA conclusion | Historical conditional root retained with its original assumptions and cutoff | Future uniqueness from each path's own trace and assembly of the current physical QFA root |
+| 8. Finite-window selection | Half-window measure, strict interior good trace, strong right trace and full PDE restart | Admissible sharp physical threshold and nonzero continuation |
+| 9. Closed smooth tail | Complete zero-data smooth normalized tail and original-gradient energy equality at every nonnegative start | Nonzero-data smooth representative, pressure and energy equality |
+| 10. Full QFA conclusion | Full zero-data strict/closed root, including own-trace future velocity uniqueness | General nonzero-data QFA at the frozen cutoff |
 
 
 The historical corrected root retains class realization, comparison,

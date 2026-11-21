@@ -3,8 +3,10 @@ Date: 2026-11-21
 Scope: current whole-space QFA ten-step chain on AC-Integration.
 Project goal: Fefferman_D, unchanged. This is a local QFA construction.
 Source basis: d403c235a1cf6db5d9276f7cd987a4cc990a2fdf.
-Status: exact mathematical derivation and native candidates; new A-tier
-acceptance requires matching cached external compiler/type/axiom evidence.
+Status: the exact restart, positive-time heat and zero-datum scopes below are
+A-tier accepted at ffbab0f5a1405b86e1bce105f0ed9881cd5380ef / run44847013775.
+Evidence: audits/material-ffbab0f5-qfa-accepted/independent-review.json.
+The general physical QFA root remains open; no local Lean was executed.
 
 1. FROZEN PHYSICAL ROOT
 
@@ -114,16 +116,21 @@ The general nonzero-datum QFA theorem is not inferred from this branch.
 
 5. FIRST REMAINING GENERAL-DATUM CONSTRUCTION EDGES
 
-The current candidate does not construct arbitrary-data global LH existence,
+The accepted scoped batch does not construct arbitrary-data global LH existence,
 arbitrary H1 local nonlinear existence, weak--strong comparison, physical
 energy/enstrophy evolution and small-product global continuation, all-order
 smoothing/pressure for nonzero data, or the sharp Sobolev admission
   S6^6 = 16/(27 pi^4)
 needed for the exact frozen cutoff. These are explicit mathematical/formal
 obligations. No prepared file, record field, historical conditional root, or
-new scalar parameter discharges them. The next local-IVP edge is genuine
-forced-heat maximal regularity followed by the L2-time forcing-space fixed
-point already derived in H1_LOCAL_FIXED_POINT_CHAIN.txt. WFA-only canonical
+new scalar parameter discharges them. For nu>0, finite T>=0 and arbitrary
+actual PhysicalH1 input a, the next local-IVP edge is the free heat identity
+  2 nu integral_0^T ||Delta S_nu(t)a||_2^2 dt = Y(a)-Y(S_nu(T)a),
+with finite-window H2 trajectory measurability and L2-time H2 membership.
+The accepted pointwise 1/t squared bound does not establish integrability at
+zero. Then follow the actual generator/primitive identity, forced-heat maximal
+regularity and the L2-time forcing-space fixed point already derived in
+H1_LOCAL_FIXED_POINT_CHAIN.txt. WFA-only canonical
 lifetime/budget packaging is not a prerequisite for closing QFA.
 
 Verification boundary: native Lean4.33.0 and pinned Mathlib db584cd6...,

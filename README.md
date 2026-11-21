@@ -1,35 +1,35 @@
 # Methboke
 
-## Current QFA closure work
+## QFA closure progress: three new accepted scopes
 
-The active local task is **A-tier closure of whole-space QFA**. The next
-candidate prepares three concrete layers: full Leray–Hopf restart of the same
-supplied path from its own trace; actual positive-time heat smoothing from
-physical H1 into H2; and the complete zero-datum QFA conclusion. The root
-contract separately fixes nonemptiness, every-path smooth tails, tail energy
-equality and future velocity uniqueness at the exact cutoff
-$8\|a\|_2^4/(27\pi^4\nu^5)$. Pressure uses the explicit smooth point gauge
-$p(t,0)=0$. **These new files are pending matching external verification.**
+**Three native QFA layers are A-tier accepted at `ffbab0f5`**,
+[external run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775). The complete run passed **520 modules,
+102 fresh package audits and 1,367 named type/axiom reports**, plus standalone
+QFB, publication and final acceptance. The new packages add **73 declarations:
+53 theorems and 20 definitions/structures**. Only the approved standard axioms occur.
 
-[Scoped derivation](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt) ·
-[QFA integration status](R3_NSE/QFA/INTEGRATION_STATUS.json)
+| Package | Accepted scope |
+|---|---|
+| `QFALHRestart` | Full physical restart of the same supplied LH path from its exact nonnegative energy-start trace, including translated momentum and all energy-class fields |
+| `QFAHeatSmoothing` | Constructed actual positive-time H1-to-H2 heat map, native weak Hessians and quantitative Laplacian/H2 estimates |
+| `QFAZeroDatum` | Exact physical root contract and complete zero-datum strict/closed QFA conclusion, including weak existence, every-path smooth tails, original-gradient energy equality and all future velocities |
 
+**The general nonzero-data QFA theorem remains open.** Its cutoff is unchanged:
+$8\|a\|_2^4/(27\pi^4\nu^5)$. Smooth pressure uses the explicit point gauge
+$p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
 
-## QFA external verification and proof repair
+[Exact acceptance](audits/material-ffbab0f5-qfa-accepted/independent-review.json) ·
+[Full new-name register](R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt) ·
+[Scoped mathematical chain](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
+No local Lean was executed. The project goal remains Fefferman D.
 
-[Run44846461910](https://github.com/randogelist/Methboke/actions/runs/44846461910)
-at `82e6035f` passed **518 of 520 modules**, including actual heat smoothing
-and full LH restart with their endpoint modules. Only the newly unblocked
-zero-datum source failed; its endpoint was blocked. The repair supplies
-explicit types to the zero integrability/continuity lemmas and proves the
-literal equality between the t+delta and delta+t clocks. All mathematical
-statements and independent consumers are preserved. No package audits or
-new A-tier acceptance occurred yet.
-[Exact failure evidence](audits/material-82e6035f-qfa-failed/independent-review.json)
-retains the previous two failures as history. Matching external verification
-is required; no local Lean was run.
+The next scoped construction is the exact free heat enstrophy-dissipation
+identity and finite-window L2-time H2 membership. The pointwise smoothing
+bound alone is not time integrable at zero. Actual forced heat, nonlinear H1
+existence, general LH existence, physical comparison, sharp spatial admission
+and small-product continuation remain explicit general-data obligations.
 
-## Latest accepted native basis
+## Earlier accepted NSE-A native basis
 
 **Source `d403c235` is fully accepted**, [run 44837033211](https://github.com/randogelist/Methboke/actions/runs/44837033211):
 **512 modules, 99 fresh package audits and 1,294 named type/axiom reports**,
@@ -84,8 +84,9 @@ and [package/source assessment](R3_NSE/A-Regularity-class/SIX_GAP_PACKAGE_ASSESS
 record all hypotheses and remaining edges.
 
 Prior accepted source `3dec32be` and its 155 names remain unchanged and are
-rechecked by this full run. Across the three NSE-A batches, 16 packages contain
-289 accepted names:242 theorems and47 definitions/instances.
+rechecked by this full run. Those three earlier NSE-A batches contain 16 packages
+and 289 accepted names:242 theorems and47 definitions/instances. The later
+`d403c235` batch brings this separate NSE-A register to 22 packages and 596 names.
 
 ## AC-Integration: accepted native QFA foundations
 
@@ -98,9 +99,11 @@ acceptance passed. The native additions comprise 35 public helper theorems and
 The integration supplies concrete whole-space energy-class contracts, weighted
 energy and strong traces for supplied LH paths, half-window selection of actual
 weak-gradient energy traces, and a Fourier spectral endpoint from distributional
-derivative witnesses. The complete physical QFA/WFA roots remain open: spatial
-admissibility, weak/strong existence, continuation, full PDE restarts, comparison,
-smooth tails and future uniqueness still require construction.
+derivative witnesses. The complete physical QFA/WFA roots remain open. The later
+`ffbab0f5` batch constructs full supplied-path PDE restarts and the complete
+zero-data tail and future conclusion. Spatial admissibility, general-data
+weak/strong existence, continuation, comparison and the nonzero-data tails
+remain open.
 
 The [whole-space integration page](R3_NSE/QFA/README.md),
 [accepted name register](R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt),
@@ -129,8 +132,8 @@ The [twenty-endpoint A-tier construction plan](R3_NSE/A-Regularity-class/A_TIER_
 now separates the pathwise six-charge theorem, actual canonical NSE
 continuation, and the literal Fefferman-A solution-class bridge. It is a
 B-tier step list with source anchors and explicit completion criteria;
-the authorized construction has now reached original P01–P07/G05 acceptance.
-The next native step is P08; later canonical PDE/class obligations remain open.
+the authorized construction has now reached P01–P08/M1 and G05 acceptance.
+The canonical PDE/class obligations and M2/M3 remain open.
 
 The [Lean gap and cutout collection](R3_NSE/A-Regularity-class/LEAN_CUTOUTS/README.md)
 now supplies 51 exact reference blocks, complete pinned source snapshots and

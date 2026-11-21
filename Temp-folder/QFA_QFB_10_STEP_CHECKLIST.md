@@ -1,32 +1,40 @@
 # QFA/QFB: ten-step construction checklist
 
-Date: 2026-11-20. Branch: **AC-Integration**.
+Updated: 2026-11-21. Branch: **AC-Integration**.
 
 **Purpose:** construct the whole-space QFA theorem alongside the accepted
 periodic QFB theorem, with the same four-part structure: weak existence,
 eventual smoothness, tail energy equality, and uniqueness from each tail trace.
 
-The construction plan now has accepted native subresults at
-`afd67db4`, [external run 44788963412](https://github.com/randogelist/Methboke/actions/runs/44788963412).
+The construction plan has accepted native foundations at `afd67db4` and
+new restart, heat-smoothing and zero-datum scopes at `ffbab0f5`,
+[external run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775).
 The boxes below still describe the complete physical construction; source or
 helper acceptance does not close a larger step automatically. The full accepted
 scope and evidence are in [the integration record](../R3_NSE/QFA/README.md).
 The retained project goal remains Fefferman_D.
 
+## Latest QFA closure acceptance
+
+Source `ffbab0f5`, [run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775), accepts full supplied-path energy-start
+restart, actual positive-time H1-to-H2 heat smoothing, and the complete
+zero-datum strict/closed conclusion. [Exact register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
+General nonzero-data QFA remains open. No local Lean was run.
+
 ## Accepted subresults and remaining obligations
 
 | Step | Accepted scope | Remaining construction |
 |---|---|---|
-| 1. Concrete contract | Full-volume L2, solenoidality, compact-test weak gradients, projected weak momentum and LH energy-class interface | Pressure formulation and the complete current physical root contract |
-| 2. Spatial analysis | Fourier multipliers and the spectral endpoint from first-derivative and L2 Laplacian distribution witnesses | Physical H1/H2 bridges, Hessian identity, Sobolev/interpolation admissibility and the stated sharp constant |
-| 3. Local H1 theory | No new whole-space constructor accepted | Existence, uniqueness, smoothing and continuation |
-| 4. LH solutions and restarts | Strong initial/right traces and translated energy/trace data for supplied LH paths | Global nonemptiness and full shifted-LH membership |
+| 1. Concrete contract | Full-volume L2/LH interface and exact current physical root, with actual smooth pressure and strict/closed cutoffs separately checked | Contract complete; proving the general root belongs to steps 2–10 |
+| 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives and real Leray projection | Sobolev/interpolation admissibility and the exact sharp constant |
+| 3. Local H1 theory | Actual heat semigroup and positive-time H1-to-H2 smoothing; zero nonlinear solution | Time-integrated/forced heat, arbitrary-H1 nonlinear existence, uniqueness and continuation |
+| 4. LH solutions and restarts | Full shifted physical LH membership at nonnegative energy starts; actual zero-datum nonemptiness | General-data global nonemptiness |
 | 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
 | 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |
 | 7. Weighted budget | Product integrability and one-quarter weighted bound for every finite positive horizon of a supplied LH path | The zero-length interval is not separately packaged; global LH existence belongs to step 4 |
-| 8. Finite-window selection | Half-window measure, strict interior good trace, strong right trace and zero-datum rigidity | Admissible physical threshold and full PDE restart |
-| 9. Closed smooth tail | No new physical tail theorem accepted | Classical representative, pressure and tail energy equality |
-| 10. Full QFA conclusion | Historical conditional root retained with its original assumptions and cutoff | Future uniqueness from each path's own trace and assembly of the current physical QFA root |
+| 8. Finite-window selection | Half-window measure, strict interior good trace, strong right trace and full PDE restart | Admissible sharp physical threshold and nonzero continuation |
+| 9. Closed smooth tail | Complete zero-data smooth normalized tail and original-gradient energy equality at every nonnegative start | Nonzero-data smooth representative, pressure and energy equality |
+| 10. Full QFA conclusion | Full zero-data strict/closed root, including own-trace future velocity uniqueness | General nonzero-data QFA at the frozen cutoff |
 
 
 ## Fixed sources and exact scope
@@ -61,9 +69,9 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 ## The ten construction steps
 
-- [ ] **1. Fix the concrete QFA contract against the accepted QFB contract.**
+- [x] **1. Fix the concrete QFA contract against the accepted QFB contract.**
 
-  **Available anchors:** Mathlib Lp and native differential operators; Methlib RealSpatialL2, compact-test weak derivatives and complexifyL2LI. Concrete whole-space LH/root semantics remain open.
+  **Available anchors:** Mathlib Lp and native differential operators; Methlib RealSpatialL2, compact-test weak derivatives and complexifyL2LI. The actual whole-space LH and strict/closed physical root contracts are accepted; defining these contracts does not prove the general root.
 
   Define the actual whole-space datum, velocity, weak-gradient, distributional
   NSE, pressure and Leray–Hopf predicates. State the four-part QFA conclusion
@@ -79,7 +87,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **2. Establish the whole-space spatial estimates and constants.**
 
-  **Available anchors:** Mathlib whole-space compact C1 Sobolev, continuous L2 Plancherel and IBP; Methlib corrected compact-Schwartz density and Fourier multipliers. Actual H1/H2 adapters and sharp S6 remain open.
+  **Available anchors:** Mathlib whole-space compact C1 Sobolev, continuous L2 Plancherel and IBP; Methlib corrected compact-Schwartz density and Fourier multipliers. Actual H1/H2 graphs, the Hessian–Laplacian identity and real Leray projection are accepted. Sharp S6 and the remaining spatial estimates remain open.
 
   Supply Sobolev, interpolation, the vector/tensor norm extension, and
   $\|D^2u\|_2=\|\Delta u\|_2$. Prove admissibility of $S_6$ in
@@ -95,7 +103,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **3. Construct local $H^1$ strong solutions and prove continuation.**
 
-  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. No arbitrary-H1 whole-space local constructor was recovered.
+  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup and positive-time H1-to-H2 map are accepted. Arbitrary-H1 nonlinear local existence remains open.
 
   Prove actual local existence, uniqueness, maximal lifetime, continuity in
   $H^1$, sufficient $L^2_tH^2_x$ control, bounded-$H^1$ continuation,
@@ -111,7 +119,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **4. Construct global Leray–Hopf solutions and admissible restart traces.**
 
-  **Available anchors:** Periodic Q01_LERAY_HOPF_EXISTENCE and LH_RESTART_AE_Ioo; Methlib strong traces and restartData_of_energyStart. R3 existence and physical restart admission remain open.
+  **Available anchors:** Periodic Q01_LERAY_HOPF_EXISTENCE and LH_RESTART_AE_Ioo; Methlib strong traces and restartData_of_energyStart. Full physical restart of supplied R3 LH paths at nonnegative energy starts is accepted. Zero-data nonemptiness is accepted; general-data nonemptiness remains open.
 
   For every $L^2_\sigma$ datum, establish global LH nonemptiness, weak
   $L^2$ continuity, strong initial attainment, the energy inequality from
@@ -161,7 +169,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **7. Prove the weighted-energy integral bound.**
 
-  **Available anchors:** **Exact reusable proof found:** QFA.Energy.product_budget and EnergyProfile.energy_product_budget_Ioo. Construct the EnergyProfile from the actual LH class.
+  **Available anchors:** **Exact reusable proof found:** QFA.Energy.product_budget and EnergyProfile.energy_product_budget_Ioo. The actual LH-to-EnergyProfile bridge and finite positive-horizon product budget are accepted; the zero-length interval is not separately packaged.
 
   From the LH energy inequality, derive for every finite $T\ge0$
   $$
@@ -178,7 +186,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **8. Select a good restart strictly before the explicit cutoff.**
 
-  **Available anchors:** QFA.Endpoints.GoodTime.exists_good_time_of_integral_lt and Mathlib Markov inequality. Add the current threshold/cutoff, half-measure statement, actual good-start set and zero branch.
+  **Available anchors:** QFA.Endpoints.GoodTime.exists_good_time_of_integral_lt and Mathlib Markov inequality. The scalar threshold/cutoff, half-measure selection, actual full-PDE restart set and zero branch are accepted. The exact sharp physical threshold and nonzero continuation remain open.
 
   Set
   $$
@@ -199,7 +207,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **9. Construct the closed smooth tail and prove tail energy equality.**
 
-  **Available anchors:** Periodic TailRegularity/TailEnergy and generic comparison/time-shift helpers. Actual R3 smooth pressure/velocity and the closed-tail energy identity remain open.
+  **Available anchors:** Periodic TailRegularity/TailEnergy and generic comparison/time-shift helpers. Actual zero-data smooth pressure/velocity and the closed-tail original-gradient energy identity are accepted. The nonzero-data tail remains open.
 
   Restart globally at the selected $s$, identify that continuation with
   the specified LH solution, and produce smooth velocity and normalized
@@ -218,7 +226,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **10. Prove unique future from every tail trace and assemble QFA alongside QFB.**
 
-  **Available anchors:** Methlib restricted_restart_class_eq_singleton and conditional corrected root, with accepted QFB as reference. Current physical QFA root, cutoff and energy-equality adapters remain open.
+  **Available anchors:** Methlib restricted_restart_class_eq_singleton and conditional corrected root, with accepted QFB as reference. The current physical root contract and full strict/closed zero-data conclusion are accepted. General nonzero-data energy, comparison and root assembly remain open.
 
   For each specified LH path and $\delta\ge\tau_A$, prove that the shifted
   original path belongs to $\mathrm{LH}_\nu(u(\delta))$, and
@@ -248,8 +256,8 @@ Step 9 combines steps 3, 5, 6 and 8. Step 10 adds tail restart and a new
 weak–strong comparison from each tail trace.
 
 The heaviest unresolved work is the actual whole-space analytic instance:
-Sobolev estimates, strong and weak existence, admissible restarts and
-weak–strong comparison. Periodic proofs provide precise construction
+Sobolev estimates, general-data strong and weak existence, and weak–strong
+comparison. Full admissible restarts for supplied paths are now accepted. Periodic proofs provide precise construction
 patterns and some reusable scalar lemmas; they do not discharge these
 whole-space instances by renaming.
 

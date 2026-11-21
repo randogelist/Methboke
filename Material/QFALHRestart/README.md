@@ -1,7 +1,10 @@
 # Whole-space full Leray–Hopf restart
 
-Status: prepared; matching external compilation, independent exact types and
-named standard-only axiom audits are required.
+**A-tier accepted at `ffbab0f5` / [run 44847013775](https://github.com/randogelist/Methboke/actions/runs/44847013775)** for the exact scoped declarations.
+[Matching evidence](../../audits/material-ffbab0f5-qfa-accepted/independent-review.json). The general QFA root remains open.
+
+The exact package source, independent expected types and named standard-only
+axiom audits passed in the matching external run above.
 
 The new source files preserve the original concrete contracts and prior
 energy/selection sources. They construct the missing weak-PDE translation and

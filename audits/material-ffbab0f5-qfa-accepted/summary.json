@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+  "tree": "2216c2cc0cb5dd7d458af538789771111a09db67",
+  "run_id": 44847013775,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+  "artifact_sha256": "7d5f2bbb61c1bfeacd303448ee412c4487bacc21abe9a624cde2fc40205d092a",
+  "artifact_bytes": 2043788,
+  "report_sha256": "0479b0c225e1bbaa8313aad1375adf962afac7c41386b4c1a1a02c453f233272",
+  "checks_passed": 5045,
+  "module_count": 520,
+  "package_count": 102,
+  "named_reports": 1367,
+  "all_package_audits_fresh": true,
+  "new_packages": 3,
+  "new_named_declarations": 73,
+  "new_theorems": 53,
+  "new_definitions_and_structures": 20,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "metrics": {
+    "audit_fresh_count": 102,
+    "audit_reused_count": 0,
+    "audit_seconds": 234.178,
+    "build_seconds": 21.642,
+    "cache_seconds": 9.567,
+    "fresh_loc": 1069,
+    "fresh_module_count": 8,
+    "module_count": 520,
+    "rerun_receipt_seconds": 0.325,
+    "reused_loc": 62950,
+    "reused_module_count": 512,
+    "target_loc": 64019
+  },
+  "total_seconds": 266.073,
+  "dependency_cache_class": "EXACT",
+  "project_cache_class": "PREFIX",
+  "final_acceptance_gate": true,
+  "publication_pass": true,
+  "qfb_cutout_pass": true,
+  "publication_evidence": "Original structured routing artifact, matching GitHub artifact/run/job metadata and terminal acceptance-job log.",
+  "routing_artifact_sha256": "c02793ffb26e4be19ffd89a27392d8c4f2f2e5e4832aae76793865d731d6ddfa",
+  "worker_evidence": "Full compiler/type/axiom logs retained in original evidence.zip. Exact publication step outcomes retained in original routing-evidence.zip and cross-checked against authenticated run/job/artifact metadata and terminal acceptance-job log.",
+  "local_lean_executions": 0,
+  "parent_targets_closed": [
+    "G05"
+  ],
+  "new_parent_targets_closed": [],
+  "parent_target_register": "G01-G06 PDE gap register; distinct from the pathwise P01-P20 steplist",
+  "new_pathwise_endpoints_accepted": [],
+  "preserved_pathwise_milestones": [
+    "M1"
+  ],
+  "pathwise_semantic_review": "semantic-review.json",
+  "physical_qfa_zero_datum_proved": true,
+  "closed_physical_qfa_zero_datum_proved": true,
+  "full_supplied_lh_restart_proved": true,
+  "physical_h1_to_h2_heat_smoothing_proved": true,
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "physical_class_root_a_tier_proved": false,
+  "universal_budget_finiteness_proved": false,
+  "independently_checked_closure_source_count": 39,
+  "scope_limits": [
+    "This accepts exactly 73 named declarations across three packages: 53 theorems, 19 definitions and one structure. The all-data QFA proposition is defined, not proved.",
+    "QFAHeatSmoothing constructs an actual positive-time physical H1-to-H2 heat map, nine weak Hessians, the literal Laplacian Fourier multiplier and the quantitative H2 bound. No time-integrated estimate, heat generator or nonlinear evolution is claimed.",
+    "QFALHRestart constructs full shifted physical Leray-Hopf membership of every supplied path at a nonnegative energy start, including actual weak momentum, all energy-class fields, and the original strict safe-window threshold. It does not construct an initial nonzero-data weak solution.",
+    "QFAZeroDatum proves the full strict and closed physical QFA conclusion for zero data: actual weak-solution nonemptiness, every supplied path, smooth zero velocity and point-normalized pressure, original-gradient tail energy equality and own-trace full LH future velocity uniqueness.",
+    "The exact all-data root retains arbitrary solenoidal L2 data and cutoff 8*norm(a)^4/(27*pi^4*nu^5); the nonzero-data obligations remain open.",
+    "Prior G05 and P08/M1 acceptance is preserved and freshly reaudited. G01, G02, G03, G04, G06, M2 and M3 remain open.",
+    "General physical QFA, WFA, canonical class root, sharp Sobolev admission and universal budget finiteness remain open.",
+    "The local reviewer only inspects Python text/JSON/hashes and immutable Git objects; no local Lean, Lake or kernel audit is executed."
+  ],
+  "new_package_scopes": [
+    {
+      "id": "QFAHeatSmoothing",
+      "declarations": 26,
+      "audit_sha256": "b88a79ee261bdbe60112c17b75b8aafb46bd46dc4b73d9794e068e0132f42b3e",
+      "retained_log": "QFAHeatSmoothing.log.gz",
+      "retained_log_gzip_sha256": "23d703be8c5d23a4f24bef4a9b8d0b03221fa170b9e06250241359b7e6c82f20",
+      "retained_log_raw_sha256": "b88a79ee261bdbe60112c17b75b8aafb46bd46dc4b73d9794e068e0132f42b3e",
+      "scope": "Constructed actual positive-time physical H1-to-H2 heat map, nine compact-test weak Hessians, literal Laplacian Fourier action and quantitative H2 bound; no supplied H2 or smoothing premise.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean",
+          "sha256": "8b940e665a5933edd6f94765b6a5f72ef05f2a6dfe40545d03fcea1e6de744cc"
+        }
+      ],
+      "audit_source_sha256": "d2eebb945a15d7aec70b413410efd2f8187d312dcb475a9c562ab9e656d75251",
+      "consumer_examples": 36,
+      "closure_source_count": 26,
+      "theorems": 20,
+      "definitions_and_structures": 6
+    },
+    {
+      "id": "QFALHRestart",
+      "declarations": 18,
+      "audit_sha256": "13917267cc8ee5793badd93c9e4ce4564351f861e2736c388806dd449ea92eba",
+      "retained_log": "QFALHRestart.log.gz",
+      "retained_log_gzip_sha256": "1b725b0ca1369731722032d20ce5333234fa859b196c7c0f358714b3021194cc",
+      "retained_log_raw_sha256": "13917267cc8ee5793badd93c9e4ce4564351f861e2736c388806dd449ea92eba",
+      "scope": "Full shifted physical Leray--Hopf membership for the same supplied path at its exact nonnegative admissible energy start, transported weak momentum and energy-class fields, a.e. and safe-window full PDE restarts.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/LHRestart.lean",
+          "sha256": "2753472e72879b033ec31c26c4569a8c5ce8933aa2f09ac8df8f2512c5ff5626"
+        }
+      ],
+      "audit_source_sha256": "9a3c0ed73106ad66e3e842f317e2c8cd8af2d40b97894d0f4de41b9fe2ab496f",
+      "consumer_examples": 19,
+      "closure_source_count": 18,
+      "theorems": 17,
+      "definitions_and_structures": 1
+    },
+    {
+      "id": "QFAZeroDatum",
+      "declarations": 29,
+      "audit_sha256": "a487eb04a7683624a2afdde3e2f48552a98ef020e59bedf944820afb2cb5fe9d",
+      "retained_log": "QFAZeroDatum.log.gz",
+      "retained_log_gzip_sha256": "bfdad963beace2c310c5bd278518802e8ba94a8fa3ff4ccb60771b54b5f7a12a",
+      "retained_log_raw_sha256": "a487eb04a7683624a2afdde3e2f48552a98ef020e59bedf944820afb2cb5fe9d",
+      "scope": "Exact all-data physical QFA target definitions and complete constructed zero-datum closed/strict conclusion, including LH existence, all-path smooth normalized tails, energy equality and own-trace future velocity uniqueness; the nonzero-data root remains open.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/ZeroDatum.lean",
+          "sha256": "de5f7ca522a6195b41e7498eeb85a90e4533a7805769c10356cce791d73e4968"
+        }
+      ],
+      "audit_source_sha256": "cf37cdce165052c8749b8d7a6492d48a05a6589459cd0634c2ded68ca3478cf4",
+      "consumer_examples": 38,
+      "closure_source_count": 22,
+      "theorems": 16,
+      "definitions_and_structures": 13
+    }
+  ],
+  "new_definitions": 19,
+  "new_structures": 1
+}

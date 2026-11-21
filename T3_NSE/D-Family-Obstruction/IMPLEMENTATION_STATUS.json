@@ -859,72 +859,84 @@
     "local_lean_executions": 0
   },
   "qfa_closure_branch_context": {
-    "active_request": "QFA_A_TIER_CLOSURE",
-    "candidate": {
-      "id": "QFA_RESTART_HEAT_ZERO_BATCH",
-      "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
-      "source_basis": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+    "acceptance": {
+      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
+      "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+      "run_id": 44847013775,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+      "module_count": 520,
+      "package_count": 102,
+      "named_reports": 1367,
+      "fresh_package_audits": 102,
+      "unique_named_reports": 1367,
+      "new_packages": 3,
+      "new_named_declarations": 73,
+      "new_theorems": 53,
+      "new_definitions_and_structures": 20,
       "packages": [
         "QFALHRestart",
         "QFAHeatSmoothing",
         "QFAZeroDatum"
       ],
-      "new_named_declarations": 73,
-      "new_theorems": 53,
-      "new_definitions_and_structures": 20,
-      "total_packages": 102,
-      "named_reports_expected": 1367,
-      "expected_compiled_modules": 520,
-      "scope": "Full supplied-path LH restarts, actual positive-time H1-to-H2 heat smoothing, exact physical QFA root contract and complete zero-datum branch.",
-      "physical_qfa_root_proved": false,
-      "wfa_proved": false,
-      "local_lean_executions": 0,
-      "compiler_dependency_driver_policy_changed": false,
-      "derivation": "R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt"
-    },
-    "latest_shared_acceptance": {
-      "tested_commit": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
-      "run_id": 44837033211,
-      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44837033211",
-      "module_count": 512,
-      "package_count": 99,
-      "named_reports": 1294,
-      "new_packages": 6,
-      "new_named_declarations": 307,
-      "new_theorems": 252,
-      "new_definitions_and_instances": 55,
-      "local_lean_executions": 0,
-      "physical_qfa_root_proved": false,
-      "wfa_proved": false,
-      "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
-      "evidence": "audits/material-d403c235-nse-a-accepted/independent-review.json",
-      "independent_review": "audits/material-d403c235-nse-a-accepted/independent-review.json",
+      "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
       "standard_axioms_only": true,
-      "fresh_package_audits": 99,
-      "unique_named_reports": 1294,
-      "passed_modules": 512,
       "fresh_qfb_cutout": true,
       "publication_complete": true,
       "matching_evidence_review_complete": true,
-      "closed_parent_ids": [
-        "G05"
-      ],
-      "new_parent_targets_closed": []
+      "local_lean_executions": 0,
+      "physical_qfa_root_proved": false,
+      "zero_datum_qfa_proved": true,
+      "wfa_proved": false,
+      "full_supplied_path_energy_start_restart_proved": true,
+      "positive_time_physical_heat_H1_to_H2_proved": true
     },
+    "next_scoped_endpoint": {
+      "id": "QFA_FREE_HEAT_TIME_ENERGY",
+      "status": "OPEN",
+      "scope": "For nu>0, finite T>=0 and arbitrary actual PhysicalH1 input u, construct the positive-time H2 trajectory with finite-window time measurability and prove 2*nu*integral_0^T norm(Delta heat u)^2 = Enstrophy(u)-Enstrophy(heatH1 nu T u); obtain actual MemLp2 H2.",
+      "reason": "The accepted pointwise squared bound scales as 1/t and does not imply integrability at zero.",
+      "subsequent_edges": [
+        "Actual heat generator/primitive identity",
+        "Forced Duhamel and maximal regularity",
+        "Nonlinear norm-controlled H1 local existence",
+        "Global physical LH existence and physical weak--strong comparison",
+        "Exact sharp Sobolev admission and small-product global continuation",
+        "Nonzero-data smooth pressure tails, energy equality and own-trace future uniqueness"
+      ]
+    },
+    "main_goal_changed": false,
     "D_family_proof_status_changed": false
   },
   "qfa_closure_latest_attempt": {
-    "source_commit": "82e6035f1fe0b1143b1acd0ee8fa60400df9fde3",
-    "run_id": 44846461910,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44846461910",
-    "status": "FAILED_SOURCE_COMPILATION",
-    "passed_modules": 518,
-    "reused_modules": 512,
-    "failed_modules": 1,
-    "dependency_blocked_modules": 1,
-    "fresh_package_audits": 0,
-    "evidence": "audits/material-82e6035f-qfa-failed/independent-review.json",
-    "new_acceptance": false
+    "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
+    "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+    "run_id": 44847013775,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+    "module_count": 520,
+    "package_count": 102,
+    "named_reports": 1367,
+    "fresh_package_audits": 102,
+    "unique_named_reports": 1367,
+    "new_packages": 3,
+    "new_named_declarations": 73,
+    "new_theorems": 53,
+    "new_definitions_and_structures": 20,
+    "packages": [
+      "QFALHRestart",
+      "QFAHeatSmoothing",
+      "QFAZeroDatum"
+    ],
+    "evidence": "audits/material-ffbab0f5-qfa-accepted/independent-review.json",
+    "standard_axioms_only": true,
+    "fresh_qfb_cutout": true,
+    "publication_complete": true,
+    "matching_evidence_review_complete": true,
+    "local_lean_executions": 0,
+    "physical_qfa_root_proved": false,
+    "zero_datum_qfa_proved": true,
+    "wfa_proved": false,
+    "full_supplied_path_energy_start_restart_proved": true,
+    "positive_time_physical_heat_H1_to_H2_proved": true
   },
   "qfa_closure_attempt_history": [
     {
@@ -951,6 +963,19 @@
       "dependency_blocked_modules": 4,
       "fresh_package_audits": 0,
       "evidence": "audits/material-fd72e221-qfa-failed/independent-review.json",
+      "new_acceptance": false
+    },
+    {
+      "source_commit": "82e6035f1fe0b1143b1acd0ee8fa60400df9fde3",
+      "run_id": 44846461910,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44846461910",
+      "status": "FAILED_SOURCE_COMPILATION",
+      "passed_modules": 518,
+      "reused_modules": 512,
+      "failed_modules": 1,
+      "dependency_blocked_modules": 1,
+      "fresh_package_audits": 0,
+      "evidence": "audits/material-82e6035f-qfa-failed/independent-review.json",
       "new_acceptance": false
     }
   ]

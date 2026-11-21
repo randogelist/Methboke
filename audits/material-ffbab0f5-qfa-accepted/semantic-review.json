@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "review_kind": "manual_semantic_review_of_exact_externally_accepted_types_and_native_source",
+  "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+  "tree": "2216c2cc0cb5dd7d458af538789771111a09db67",
+  "run_id": 44847013775,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+  "status": "EXACT_NEW_73_DECLARATIONS_ACCEPTED",
+  "new_packages": 3,
+  "new_named_declarations": 73,
+  "new_theorems": 53,
+  "new_definitions": 19,
+  "new_structures": 1,
+  "local_lean_executions": 0,
+  "scopes": [
+    {
+      "package": "QFAHeatSmoothing",
+      "principal_names": [
+        "MethbokeAddon.QuasiFeffermanA.HeatSmoothing.heatH1ToH2",
+        "MethbokeAddon.QuasiFeffermanA.HeatSmoothing.spatialWeakHessian_heatL2",
+        "MethbokeAddon.QuasiFeffermanA.HeatSmoothing.heatH1ToH2_laplacian_fourier_ae",
+        "MethbokeAddon.QuasiFeffermanA.HeatSmoothing.heatH1ToH2_laplacian_norm_sq_le",
+        "MethbokeAddon.QuasiFeffermanA.HeatSmoothing.heatH1ToH2CLM"
+      ],
+      "finding": "Constructs the actual physical H2 output from arbitrary physical H1 input at positive viscosity and time, including actual weak Hessians, exact physical Fourier Laplacian and the bound norm(Delta heat(u))^2 <= (nu*t)^(-1) * physicalH1Enstrophy(u). No supplied H2/smoothing witness occurs.",
+      "remaining": "Time-integrated heat estimates, generator identification, Duhamel estimates and nonlinear local existence remain outside this package."
+    },
+    {
+      "package": "QFALHRestart",
+      "principal_names": [
+        "MethbokeAddon.QuasiFeffermanA.WeakMomentum.timeTranslate",
+        "MethbokeAddon.QuasiFeffermanA.LerayHopf.timeTranslate",
+        "MethbokeAddon.QuasiFeffermanA.LerayHopf.ae_full_restart",
+        "MethbokeAddon.QuasiFeffermanA.LerayHopf.safe_window_full_restart_and_measure",
+        "MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_full_restart"
+      ],
+      "finding": "Constructs original full physical LH membership for the translated supplied path at every nonnegative energy start. The test translation proves actual weak momentum; other unchanged fields retain every upper energy endpoint. Safe-window selection retains the original strict product threshold and gives full restarted PDE membership.",
+      "remaining": "Initial weak nonemptiness for nonzero data, local strong existence and weak-strong comparison are not assumed as constructed results."
+    },
+    {
+      "package": "QFAZeroDatum",
+      "principal_names": [
+        "MethbokeAddon.QuasiFeffermanA.ZeroDatum.zero_lerayHopf",
+        "MethbokeAddon.QuasiFeffermanA.ZeroDatum.zeroDatum_hasSmoothTail",
+        "MethbokeAddon.QuasiFeffermanA.ZeroDatum.zeroDatum_tailEnergyEquality",
+        "MethbokeAddon.QuasiFeffermanA.ZeroDatum.zeroDatum_uniqueFuture",
+        "MethbokeAddon.QuasiFeffermanA.ZeroDatum.closedDatumConclusion_zero",
+        "MethbokeAddon.QuasiFeffermanA.ZeroDatum.datumConclusion_zero"
+      ],
+      "finding": "Constructs a genuine zero-data LH inhabitant, then proves the complete closed and strict physical datum conclusion for every supplied zero-data LH path and every allowed tail start. Tail energy uses the original weak-gradient witness with genuine interval integrability. Own-trace uniqueness compares L2 velocities at every nonnegative future time.",
+      "remaining": "The conclusion is specialized to a=0. Arbitrary nonzero solenoidal L2 data remain open."
+    },
+    {
+      "package": "QFAZeroDatum",
+      "principal_names": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.cutoff",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.ClassicalTail",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.HasSmoothTail",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.TailEnergyEquality",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.UniqueFuture",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.DatumConclusion",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.ClosedDatumConclusion",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.QuasiFeffermanA",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.ClosedQuasiFeffermanA"
+      ],
+      "finding": "Audited exact target definitions preserve full-volume L2 data, cutoff 8*norm(a)^4/(27*pi^4*nu^5), actual Euclidean NSE differential operators, spatial a.e. representative agreement at every tail time, smooth point gauge p(t,0)=0, tail energy equality and full exact-own-trace LH future uniqueness. Strict and closed cutoffs are separate.",
+      "remaining": "These all-data root propositions are definitions. No all-data theorem follows from their acceptance."
+    }
+  ],
+  "general_qfa_root_proved": false,
+  "closed_zero_datum_qfa_proved": true,
+  "strict_zero_datum_qfa_proved": true,
+  "open_pde_gap_targets": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G06"
+  ],
+  "preserved_milestones": [
+    "G05",
+    "M1"
+  ],
+  "open_milestones": [
+    "M2",
+    "M3"
+  ]
+}

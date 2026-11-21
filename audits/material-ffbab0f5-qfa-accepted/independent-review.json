@@ -1,0 +1,680 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "ffbab0f5a1405b86e1bce105f0ed9881cd5380ef",
+  "tree": "2216c2cc0cb5dd7d458af538789771111a09db67",
+  "run_id": 44847013775,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44847013775",
+  "artifact_sha256": "7d5f2bbb61c1bfeacd303448ee412c4487bacc21abe9a624cde2fc40205d092a",
+  "artifact_bytes": 2043788,
+  "report_sha256": "0479b0c225e1bbaa8313aad1375adf962afac7c41386b4c1a1a02c453f233272",
+  "checks_passed": 5045,
+  "module_count": 520,
+  "package_count": 102,
+  "named_reports": 1367,
+  "all_package_audits_fresh": true,
+  "new_packages": 3,
+  "new_named_declarations": 73,
+  "new_theorems": 53,
+  "new_definitions_and_structures": 20,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "metrics": {
+    "audit_fresh_count": 102,
+    "audit_reused_count": 0,
+    "audit_seconds": 234.178,
+    "build_seconds": 21.642,
+    "cache_seconds": 9.567,
+    "fresh_loc": 1069,
+    "fresh_module_count": 8,
+    "module_count": 520,
+    "rerun_receipt_seconds": 0.325,
+    "reused_loc": 62950,
+    "reused_module_count": 512,
+    "target_loc": 64019
+  },
+  "total_seconds": 266.073,
+  "dependency_cache_class": "EXACT",
+  "project_cache_class": "PREFIX",
+  "final_acceptance_gate": true,
+  "publication_pass": true,
+  "qfb_cutout_pass": true,
+  "publication_evidence": "Original structured routing artifact, matching GitHub artifact/run/job metadata and terminal acceptance-job log.",
+  "routing_artifact_sha256": "c02793ffb26e4be19ffd89a27392d8c4f2f2e5e4832aae76793865d731d6ddfa",
+  "worker_evidence": "Full compiler/type/axiom logs retained in original evidence.zip. Exact publication step outcomes retained in original routing-evidence.zip and cross-checked against authenticated run/job/artifact metadata and terminal acceptance-job log.",
+  "local_lean_executions": 0,
+  "parent_targets_closed": [
+    "G05"
+  ],
+  "new_parent_targets_closed": [],
+  "parent_target_register": "G01-G06 PDE gap register; distinct from the pathwise P01-P20 steplist",
+  "new_pathwise_endpoints_accepted": [],
+  "preserved_pathwise_milestones": [
+    "M1"
+  ],
+  "pathwise_semantic_review": "semantic-review.json",
+  "physical_qfa_zero_datum_proved": true,
+  "closed_physical_qfa_zero_datum_proved": true,
+  "full_supplied_lh_restart_proved": true,
+  "physical_h1_to_h2_heat_smoothing_proved": true,
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "physical_class_root_a_tier_proved": false,
+  "universal_budget_finiteness_proved": false,
+  "packages": [
+    {
+      "id": "Galerkin",
+      "declarations": 1,
+      "audit_sha256": "ec3fdf30df6265f582b6d95a560f149fffeaeaab1fe86bcd14c3afbeefa1781c"
+    },
+    {
+      "id": "MathlibAnalytic",
+      "declarations": 7,
+      "audit_sha256": "8a0359a6f7e8807e952e6a043ca0bcd1cbd611275bbf0da967d333ab497801ac"
+    },
+    {
+      "id": "MathlibFourier",
+      "declarations": 3,
+      "audit_sha256": "fbbac38ea50628003e3a858a03a887a69fceda9ccfe03686a21732ba94e30fe4"
+    },
+    {
+      "id": "MathlibODE",
+      "declarations": 3,
+      "audit_sha256": "97f59de20564c8e48c60ad46ab820de552b3dd754e7a25ca554e0f54f5ddaa23"
+    },
+    {
+      "id": "PhysicalNSE",
+      "declarations": 3,
+      "audit_sha256": "7bad6322fbb0dd96b466eada5fbdff1a0e6cabc69acf16c52f19604046727ffa"
+    },
+    {
+      "id": "QFBCutoff",
+      "declarations": 6,
+      "audit_sha256": "2852a151fea822d8ccd2758fdd6ec340be17eb8e6ebd307326b7150a617c8b37"
+    },
+    {
+      "id": "QFBLerayHopf",
+      "declarations": 1,
+      "audit_sha256": "a25aee56459da58cc1da5078b0e28185cb31ca79cb7b20d4e2f884d6ef8f3106"
+    },
+    {
+      "id": "QFBRestart",
+      "declarations": 4,
+      "audit_sha256": "912042e31d0c17b42e6958a3cee8db368e97ad19762d2027671948e5d3de478b"
+    },
+    {
+      "id": "QFBRoot",
+      "declarations": 1,
+      "audit_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d"
+    },
+    {
+      "id": "QFBTail",
+      "declarations": 4,
+      "audit_sha256": "59745649bd0fb089de2e9041b092c942d6fd651578f5d61b0810bd22904d2953"
+    },
+    {
+      "id": "QFBTraceUniqueness",
+      "declarations": 2,
+      "audit_sha256": "700295656cf72242d96135529f106b7009b729918a3dbefeedbad22350b5c64e"
+    },
+    {
+      "id": "R0AnalyticCapAdmission",
+      "declarations": 4,
+      "audit_sha256": "4f1617750142af93eb7e632bdd91a8ba08828ee3900c8f84ec1d394b4cb11574"
+    },
+    {
+      "id": "R0AnalyticTwoSidedCap",
+      "declarations": 5,
+      "audit_sha256": "e5c7eb2e50c3c4c56653ad6d0b85fed48e93d0fa0d855fddd029da6b06b824ed"
+    },
+    {
+      "id": "R0CompactCylinderSerrin",
+      "declarations": 4,
+      "audit_sha256": "11559ef9f659a02d0f30bbc03c3ddec30ed6324260874face2bd5e1663da8c83"
+    },
+    {
+      "id": "R0DataAdmission",
+      "declarations": 2,
+      "audit_sha256": "d1f4b34b3d5d0e733deab9cd08e54139661f7772a6d9fef76adb0a8ab85f726c"
+    },
+    {
+      "id": "R0FiniteCapAdmission",
+      "declarations": 1,
+      "audit_sha256": "29ebcb684521d9b138b1cf51545a85c98a66d98e7c076549547d2e4e423b9265"
+    },
+    {
+      "id": "R0FiniteCapGluing",
+      "declarations": 5,
+      "audit_sha256": "ff3eee363f86ecf0a66d3ad50529a1703c479a4952e07c47957288ebf7e54388"
+    },
+    {
+      "id": "R0FiniteCapOverlap",
+      "declarations": 2,
+      "audit_sha256": "e59b1b08979b5d95f91bef311a083938fd75c86f19603681ccb9dd160a6e52ee"
+    },
+    {
+      "id": "R0InitialFrontAdmission",
+      "declarations": 9,
+      "audit_sha256": "ebf1755fde63f27d1085115b7d4b3ca68232b550e172b5b54823ce0db205ce05"
+    },
+    {
+      "id": "R0PressureUniqueness",
+      "declarations": 9,
+      "audit_sha256": "befbe098e5eaa4122d995a3a2a145b47cf19da4722e6e673a1f6281e007da4ac"
+    },
+    {
+      "id": "RelativeEnergy",
+      "declarations": 1,
+      "audit_sha256": "ff83fe70b0e6bf76651ac46d118d2c1f73d803ec286fe5c12d96480d51fbc2e9"
+    },
+    {
+      "id": "SerrinComparison",
+      "declarations": 1,
+      "audit_sha256": "550e1e0e87ce44b1d447cf817c62db890e8f34079aa384af14bacfefc9d1fd77"
+    },
+    {
+      "id": "SmallH12",
+      "declarations": 4,
+      "audit_sha256": "195ee80edc645305b8fe3df420779e11fac539a80f9b8a377f6e6ee74f30ba80"
+    },
+    {
+      "id": "WFBFiniteFrontGluing",
+      "declarations": 2,
+      "audit_sha256": "b233ec65ad0deeeeb0b93a9c6ba3d23d03c4318c211a7f026cb64fb15ef9d8a1"
+    },
+    {
+      "id": "WFBFiniteFrontTest",
+      "declarations": 5,
+      "audit_sha256": "c27cd4410baaef404f21510d891afc96a20dd2ff12f498e7dd11fe8aa049541a"
+    },
+    {
+      "id": "WFBFiniteWindowCrossIdentity",
+      "declarations": 1,
+      "audit_sha256": "6b43bb5dc2582d13d03d67afdfa23095ad7cfdbb2f47fb69f42ad2f7856b622f"
+    },
+    {
+      "id": "WFBFiniteWindowRelativeEnergy",
+      "declarations": 3,
+      "audit_sha256": "107328a7b4b6c9fd42425953a80f10901a8c01691c8ec316b6a6efad115e11d6"
+    },
+    {
+      "id": "WFBFiniteWindowSerrinComparison",
+      "declarations": 1,
+      "audit_sha256": "cf5a73a73509b7a0643bf254b89aa911ede8034136c508100adad6be91a44b21"
+    },
+    {
+      "id": "WFBFourierBudget",
+      "declarations": 5,
+      "audit_sha256": "f712c0fd5e148e52386f0a36c71b5427b8899155dce3bd4fafc1a839a8a58548"
+    },
+    {
+      "id": "WFBHomogeneousBudget",
+      "declarations": 10,
+      "audit_sha256": "f8eb7964753b2dd020b0f2d502d3e394825c64e7b9296fa9e4483e9c4a32295d"
+    },
+    {
+      "id": "WFBLocalClassicalUniqueness",
+      "declarations": 4,
+      "audit_sha256": "72ec269d189ab742a151725ce3876e7888d79ccd4ba83c6c37fa0907f24d3ba7"
+    },
+    {
+      "id": "WFBLocalCubicBarrier",
+      "declarations": 4,
+      "audit_sha256": "1000940c9d70b7ee13a4b2a9ff097aacf6ba5a9d4ba9f3859c2e92a21ad9e64f"
+    },
+    {
+      "id": "WFBLocalExistence",
+      "declarations": 2,
+      "audit_sha256": "233e9c82149267363c24f15d837d0c8f81491b4c9e2c862a919f571e7aa7df3a"
+    },
+    {
+      "id": "WFBLocalFront",
+      "declarations": 29,
+      "audit_sha256": "f5df5be45cbda59bff2cfce346737134285eb598903233d364f42603a40360c0"
+    },
+    {
+      "id": "WFBLocalFrontIdentification",
+      "declarations": 5,
+      "audit_sha256": "930768ce3cc9a0b13e36087d006190f83759c8b0ed5a45e4271b41c95017c0d8"
+    },
+    {
+      "id": "WFBLocalGalerkinBounds",
+      "declarations": 8,
+      "audit_sha256": "ce4c466c888fdb69203fd61bfcabc03342fa4e05c574a097f79cbba8bfa0f140"
+    },
+    {
+      "id": "WFBLocalGalerkinCompactness",
+      "declarations": 1,
+      "audit_sha256": "fcc9d5a34bcfb0c5d38aed0409a13d928f7d4efc828a9f4d0a1e3f391279f8c5"
+    },
+    {
+      "id": "WFBLocalGalerkinLimit",
+      "declarations": 2,
+      "audit_sha256": "2b2b2904189d018932e09530e971472cb5e8e7af1fa29acc23152639662d76b1"
+    },
+    {
+      "id": "WFBLocalGalerkinRegularity",
+      "declarations": 4,
+      "audit_sha256": "f3e9d5564d04ec6c5c96d57fa0b75a2f378bff362923e97cbbea45d980987e8f"
+    },
+    {
+      "id": "WFBLocalSobolevCalculus",
+      "declarations": 17,
+      "audit_sha256": "3146ec924fd37629dfbc05543c52d9ba87f3d06003e3ea5b3cb19b7b4503231d"
+    },
+    {
+      "id": "WFBLocalTimeTranslation",
+      "declarations": 5,
+      "audit_sha256": "d39c821e770215ce4a3f8a837102bed7154b4e075a8773766df2489277ef1fd8"
+    },
+    {
+      "id": "WFBMaximalClassicalFront",
+      "declarations": 4,
+      "audit_sha256": "1bf89ea9d562c1bb2bb2c6b715a3bd92f048c4311194fcabd80a9f9727e4bf40"
+    },
+    {
+      "id": "WFBMaximalFrontRestriction",
+      "declarations": 1,
+      "audit_sha256": "7348a3e83f5df584b702f77b4959bc404d3d3540644584f38db8beb8f9d2f717"
+    },
+    {
+      "id": "WFBMaximalLerayHopfIdentification",
+      "declarations": 2,
+      "audit_sha256": "d1dd51e4a930ee5e2c25c26be97d6be7db53b2e44996c1c8de977ccc17e2627e"
+    },
+    {
+      "id": "WFBMaximalTailGluing",
+      "declarations": 2,
+      "audit_sha256": "0595aec217dcd969ae1191276bb3ae125ced8ee39b86a82f8da176e29bf44f3e"
+    },
+    {
+      "id": "WFBPhysicalBudgetContinuation",
+      "declarations": 6,
+      "audit_sha256": "746844f2a6c2e92edee7590e8bf4c6a65cceee14a32a01149adebd6f1df5ef74"
+    },
+    {
+      "id": "WFBPhysicalEndpointContinuation",
+      "declarations": 2,
+      "audit_sha256": "fdbcb8302f75e8161745ca1db1b40255a3a1e726484f5f89287b14e3e7f2c73c"
+    },
+    {
+      "id": "WFBPhysicalEnstrophyEvolution",
+      "declarations": 18,
+      "audit_sha256": "4e5af4738fe1bcd5b7751904e69a9df4129224c766adad05a5c86eba7fc0794f"
+    },
+    {
+      "id": "WFBPhysicalFourier",
+      "declarations": 13,
+      "audit_sha256": "75adee0ae2280c0b74404623d029e98d824ebfb20143565274b09d135bea7835"
+    },
+    {
+      "id": "WFBPhysicalNonlinear",
+      "declarations": 14,
+      "audit_sha256": "f48184b3fb7a5693cf7403e3f77f09a927f1e981cdc8247b4e2e3078a702df79"
+    },
+    {
+      "id": "WFBSmoothDatum",
+      "declarations": 7,
+      "audit_sha256": "6c02154d6e2a37fca1acc55d2750ff609b059a1eb7903e5bf31d6b76b720d4ca"
+    },
+    {
+      "id": "WFBStrictCutoff",
+      "declarations": 2,
+      "audit_sha256": "e3d1a8efcb8b826096ce69893cadc474cfa65733ec9e79f64377fc3841f23ea8"
+    },
+    {
+      "id": "WFBStrongContinuation",
+      "declarations": 1,
+      "audit_sha256": "6f683f67806c1082aa5adffc849e907aee483f8b1c970063bdc203eec4e60dae"
+    },
+    {
+      "id": "WFBWFBRootAssembly",
+      "declarations": 1,
+      "audit_sha256": "ab4aef4d0960f631573ff92ffdbe9a458d40b0f9f6d03b9eae8bd2cadc4a68d4"
+    },
+    {
+      "id": "WFBWeakFouriermanB",
+      "declarations": 2,
+      "audit_sha256": "608240f352af2cd82246ad840d210dce9a7773c23e5e5605f62a93a72dcef909"
+    },
+    {
+      "id": "EhrenfestScalar",
+      "declarations": 4,
+      "audit_sha256": "44c4b80e4cbeee031c5a671222606deb2f495b047a6dfacc8343c82b3c4b678d"
+    },
+    {
+      "id": "EhrenfestCanonical",
+      "declarations": 11,
+      "audit_sha256": "865f76cce25781319093d815e2a74d46013ae286e2a5a303e2882820a736ede7"
+    },
+    {
+      "id": "EhrenfestErrorCalculus",
+      "declarations": 8,
+      "audit_sha256": "7494882d47ac04f09569902e9b33a2cfd028cee4b784e9b746da519187633e56"
+    },
+    {
+      "id": "EhrenfestBootstrap",
+      "declarations": 7,
+      "audit_sha256": "9516080d5441ddc1e72228cde15895d8754a089f92745e6428455126e728ecd6"
+    },
+    {
+      "id": "EhrenfestCoreAlgebra",
+      "declarations": 3,
+      "audit_sha256": "58efea6b300c87a642d4a3abf73784ae2af27ecae76fb208ea23cbc92f526114"
+    },
+    {
+      "id": "EhrenfestCrossTransport",
+      "declarations": 13,
+      "audit_sha256": "e7ece6e0facf9fc6a17da81d4f206e71ed964f6c8a52192d5f709e860caa97e5"
+    },
+    {
+      "id": "EhrenfestEscape",
+      "declarations": 19,
+      "audit_sha256": "fdd39d11b72a8920e5644e339c1b9f02e799fe1b980e216a6e93416057ef03a6"
+    },
+    {
+      "id": "EhrenfestPhysicalForcing",
+      "declarations": 9,
+      "audit_sha256": "84689de75760dcc25f4e2b31a80d917c8f19e7aab51bb4d0003c806112e31c16"
+    },
+    {
+      "id": "EhrenfestReference",
+      "declarations": 34,
+      "audit_sha256": "73c828a985ddcd8384e40f2ca3a67edae10aa1e8685c4f8e88c49f361269f569"
+    },
+    {
+      "id": "EhrenfestCanonicalErrorInequality",
+      "declarations": 1,
+      "audit_sha256": "f439a497af1fe6d847f4e104e0bca0eebf68bf7d2d1bd6f6f65f28a21ef88374"
+    },
+    {
+      "id": "EhrenfestErrorEquation",
+      "declarations": 6,
+      "audit_sha256": "fc308cb2910002404efe245582f0362443ffe412932dd45f26d0cc75c38bf58d"
+    },
+    {
+      "id": "EhrenfestErrorState",
+      "declarations": 17,
+      "audit_sha256": "a269e344ee473c63c4e7fa7280b61bc33141569a8ea9714fab012433f945fbe6"
+    },
+    {
+      "id": "EhrenfestEventualEnstrophyBound",
+      "declarations": 4,
+      "audit_sha256": "6c8d56841f68b0768375bbacc892f604079e9645858e7d6a3770ff01378a6c06"
+    },
+    {
+      "id": "EhrenfestObstructionRoot",
+      "declarations": 4,
+      "audit_sha256": "04d50771ecf033abd3bcfbe0e2d2423565cf5db97d912209191f1fc84b293ce3"
+    },
+    {
+      "id": "EhrenfestPressureFourier",
+      "declarations": 10,
+      "audit_sha256": "f5dfe18ea40d0cb7fb3106fd82dcc66867af7e398a317060cc2bf5e056596c30"
+    },
+    {
+      "id": "EhrenfestReferenceEvolution",
+      "declarations": 33,
+      "audit_sha256": "67ec7ea9208bfd2aee23e43a28b751ba6869053a5565a884f0c23f2b57182605"
+    },
+    {
+      "id": "FeffermanFamilyFoundation",
+      "declarations": 39,
+      "audit_sha256": "a1ad813c50e9e5417cb3964614d93ede543f486ab2b117a2ecd40b00e4053781"
+    },
+    {
+      "id": "FeffermanFamilyAssembly",
+      "declarations": 23,
+      "audit_sha256": "da3eb2d054ad02e8a715d8cb0d0ef2ce341094e19b38de816eb76c848618df60"
+    },
+    {
+      "id": "QFARecovered",
+      "declarations": 108,
+      "audit_sha256": "888e53730eb106d566526f3b990129aacb781f4f86bbf1121db056745b0bfb98"
+    },
+    {
+      "id": "QFARepresentation",
+      "declarations": 14,
+      "audit_sha256": "1bc492704a6de8fa9962d91770112d202d3edd255bcc23ba32f8afbc7be6f48b"
+    },
+    {
+      "id": "QFAConditionalRoot",
+      "declarations": 12,
+      "audit_sha256": "77c5a27fa7549e47e4e4005109db31a7b91ca025ebd807b9109ac64b168e6868"
+    },
+    {
+      "id": "QFANativeFoundation",
+      "declarations": 54,
+      "audit_sha256": "e9ab048d54aafbb36c0c5a314df88097093831b91fb0f4ca436bc5ead5ae7b4c"
+    },
+    {
+      "id": "QFAPhysicalH1",
+      "declarations": 46,
+      "audit_sha256": "540c43f970c06d471adc28016950887455498bfb71eda01c838c8b83d2c205dc"
+    },
+    {
+      "id": "QFAACBudget",
+      "declarations": 9,
+      "audit_sha256": "8ae27238dd127d6d8116ad8bc29194d3d9854c1e5422878b63a308faf45446a9"
+    },
+    {
+      "id": "QFASixChargeBudget",
+      "declarations": 16,
+      "audit_sha256": "1a4a7b06ebc9693d3e372a2c13da05418b5e2bca16a5798ce0c529968bb3a580"
+    },
+    {
+      "id": "QFAH1Fourier",
+      "declarations": 8,
+      "audit_sha256": "6a1238cbe02be5e1dfba631f7340a0dec4740f4f75a17fc9fb43b5679471c316"
+    },
+    {
+      "id": "QFAH1FourierReverse",
+      "declarations": 8,
+      "audit_sha256": "a44391ead7842a2b76dd85a81a855e084c87016e9bd751d05cc530fd805fdb8d"
+    },
+    {
+      "id": "QFAPhysicalH1Budget",
+      "declarations": 15,
+      "audit_sha256": "30412b835181e0e6804d4856b73191903faa30273c101f0251c40e6af83bf1b2"
+    },
+    {
+      "id": "QFASixSectors",
+      "declarations": 17,
+      "audit_sha256": "6e60277292ec954c344ff4a3afb1b1fb749fe301a8fa54da318f9177294c7495"
+    },
+    {
+      "id": "QFAEnstrophyCoefficient",
+      "declarations": 8,
+      "audit_sha256": "85c99e037afe5aadf9583e3a636bbb2d83e91bc7173f1e8e2757eca3c5512c92"
+    },
+    {
+      "id": "QFASixSectorL2",
+      "declarations": 28,
+      "audit_sha256": "2c3cf314817e86995a73073229c3e3e0b9eae7a64ea6ae163f5b1a33adb67178"
+    },
+    {
+      "id": "QFAH1Spectral",
+      "declarations": 13,
+      "audit_sha256": "3c2ec3c3748bac9d673a3bb6b04765d977fc42351de355bedea78c18e1702f55"
+    },
+    {
+      "id": "QFARealFourier",
+      "declarations": 24,
+      "audit_sha256": "d9c788b0ee7d2eac6a45e3c01e8a63d6eb329b39e69fcde0268cde35142d2407"
+    },
+    {
+      "id": "QFARealSectorL2",
+      "declarations": 16,
+      "audit_sha256": "26271619af21b655adfc1c446a112f131c2e4db29d402c80e60492363b89ba1c"
+    },
+    {
+      "id": "QFAPhysicalH1Sectors",
+      "declarations": 34,
+      "audit_sha256": "6f535e8a3b0d5ad243d6fe22b02a52a4b495589395a739e50abce0213afc9243"
+    },
+    {
+      "id": "QFAPhysicalH1Divergence",
+      "declarations": 9,
+      "audit_sha256": "3f397079a659d45fe67ae11a00bcfd0954bc8c66b12295c99ce33767828b0361"
+    },
+    {
+      "id": "QFASmallProductCoefficient",
+      "declarations": 6,
+      "audit_sha256": "6c5a05704f1f0d755f2f7203d405cb8e1a1602ffacef216380778cbb66e0b32a"
+    },
+    {
+      "id": "QFAPhysicalH1SigmaSectors",
+      "declarations": 32,
+      "audit_sha256": "0c9a98423360708ae1854ab70acee5a5fbe4dbd5e8b7e0c5dbe4a38c78c9c55f"
+    },
+    {
+      "id": "QFAStoppedBudget",
+      "declarations": 63,
+      "audit_sha256": "53b192b79f9614c370b9dbe8b9af073ae6c3e03060f838d2e258a879ed3f92aa"
+    },
+    {
+      "id": "QFAPhysicalStoppedGauge",
+      "declarations": 42,
+      "audit_sha256": "57df7fc064619378bc405ff9de7f92722d992abf1ef55e147a29e3b6753e3e2a"
+    },
+    {
+      "id": "QFAPhysicalH2",
+      "declarations": 65,
+      "audit_sha256": "71854c4bc045f4a358c9e216029c5b7e9ccb8102625b8f608f4de67b317d09cd"
+    },
+    {
+      "id": "QFARealLeray",
+      "declarations": 72,
+      "audit_sha256": "fead4f3afd0129efe957f7c4ab826c70d050ad3b59c23ddc7a2999a29a8afa63"
+    },
+    {
+      "id": "QFARealEvenMultipliers",
+      "declarations": 24,
+      "audit_sha256": "20b86ce1068b4719ed8d65716bc0e502592f42756cb05c2eb35618317d5535dc"
+    },
+    {
+      "id": "QFAHeatSemigroup",
+      "declarations": 41,
+      "audit_sha256": "75ad0644228c6a095ce9043de8fd7dce68c9aedfb4408f005133677e4b5104c5"
+    },
+    {
+      "id": "QFAHeatSmoothing",
+      "declarations": 26,
+      "audit_sha256": "b88a79ee261bdbe60112c17b75b8aafb46bd46dc4b73d9794e068e0132f42b3e",
+      "retained_log": "QFAHeatSmoothing.log.gz",
+      "retained_log_gzip_sha256": "23d703be8c5d23a4f24bef4a9b8d0b03221fa170b9e06250241359b7e6c82f20",
+      "retained_log_raw_sha256": "b88a79ee261bdbe60112c17b75b8aafb46bd46dc4b73d9794e068e0132f42b3e",
+      "scope": "Constructed actual positive-time physical H1-to-H2 heat map, nine compact-test weak Hessians, literal Laplacian Fourier action and quantitative H2 bound; no supplied H2 or smoothing premise.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean",
+          "sha256": "8b940e665a5933edd6f94765b6a5f72ef05f2a6dfe40545d03fcea1e6de744cc"
+        }
+      ],
+      "audit_source_sha256": "d2eebb945a15d7aec70b413410efd2f8187d312dcb475a9c562ab9e656d75251",
+      "consumer_examples": 36,
+      "closure_source_count": 26,
+      "theorems": 20,
+      "definitions_and_structures": 6
+    },
+    {
+      "id": "QFALHRestart",
+      "declarations": 18,
+      "audit_sha256": "13917267cc8ee5793badd93c9e4ce4564351f861e2736c388806dd449ea92eba",
+      "retained_log": "QFALHRestart.log.gz",
+      "retained_log_gzip_sha256": "1b725b0ca1369731722032d20ce5333234fa859b196c7c0f358714b3021194cc",
+      "retained_log_raw_sha256": "13917267cc8ee5793badd93c9e4ce4564351f861e2736c388806dd449ea92eba",
+      "scope": "Full shifted physical Leray--Hopf membership for the same supplied path at its exact nonnegative admissible energy start, transported weak momentum and energy-class fields, a.e. and safe-window full PDE restarts.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/LHRestart.lean",
+          "sha256": "2753472e72879b033ec31c26c4569a8c5ce8933aa2f09ac8df8f2512c5ff5626"
+        }
+      ],
+      "audit_source_sha256": "9a3c0ed73106ad66e3e842f317e2c8cd8af2d40b97894d0f4de41b9fe2ab496f",
+      "consumer_examples": 19,
+      "closure_source_count": 18,
+      "theorems": 17,
+      "definitions_and_structures": 1
+    },
+    {
+      "id": "QFAZeroDatum",
+      "declarations": 29,
+      "audit_sha256": "a487eb04a7683624a2afdde3e2f48552a98ef020e59bedf944820afb2cb5fe9d",
+      "retained_log": "QFAZeroDatum.log.gz",
+      "retained_log_gzip_sha256": "bfdad963beace2c310c5bd278518802e8ba94a8fa3ff4ccb60771b54b5f7a12a",
+      "retained_log_raw_sha256": "a487eb04a7683624a2afdde3e2f48552a98ef020e59bedf944820afb2cb5fe9d",
+      "scope": "Exact all-data physical QFA target definitions and complete constructed zero-datum closed/strict conclusion, including LH existence, all-path smooth normalized tails, energy equality and own-trace future velocity uniqueness; the nonzero-data root remains open.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/ZeroDatum.lean",
+          "sha256": "de5f7ca522a6195b41e7498eeb85a90e4533a7805769c10356cce791d73e4968"
+        }
+      ],
+      "audit_source_sha256": "cf37cdce165052c8749b8d7a6492d48a05a6589459cd0634c2ded68ca3478cf4",
+      "consumer_examples": 38,
+      "closure_source_count": 22,
+      "theorems": 16,
+      "definitions_and_structures": 13
+    }
+  ],
+  "independently_checked_closure_source_count": 39,
+  "closure_source_sha256": {
+    "Material/MethbokeAddon/QuasiFeffermanA/ACBudget.lean": "12d2535dd1b9eef07e6742725ecb63c6369d9341b8b4c492a4558e87ec51a574",
+    "Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92",
+    "Material/MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean": "40a364af5c5e399442cd9ed0e31a8d4e7e811f494cb77f375c348232fe35279f",
+    "Material/MethbokeAddon/QuasiFeffermanA/H1Fourier.lean": "565edf7f029712801da88586f997677d5f0e964a804714d02a07ac20e1b72a4c",
+    "Material/MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean": "ff3ea4e617028a35e3645a7b8d869b5598def0646953d1ef256d82fececdaa3a",
+    "Material/MethbokeAddon/QuasiFeffermanA/H1Spectral.lean": "6e30a75ed55f7c99bc833d292c337ee0a5626a95517cb47a8cc139a7f70bb9cb",
+    "Material/MethbokeAddon/QuasiFeffermanA/H2Spectral.lean": "1f9c71bf144184d65e304525e20f7868bf06335657ca5d1e9c701c63b7143e03",
+    "Material/MethbokeAddon/QuasiFeffermanA/HeatSemigroup.lean": "dc08288d5bf1d21213c785bc321b36b70ce90599365e5b65ca3b904d18b2b458",
+    "Material/MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean": "8b940e665a5933edd6f94765b6a5f72ef05f2a6dfe40545d03fcea1e6de744cc",
+    "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8",
+    "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1Budget.lean": "be0fdfa70d83feae2bbe93a5cbff0ca66718ccf56ce8584c43db6c08709d1223",
+    "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean": "de5b5c612dbae66afa1191be8f202604adbb4fb949091117adb72921ab5d52bd",
+    "Material/MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean": "63aa431ed95e456c40f023ddb9cdb7ed10e23143486f7e3bdeccedceec45b876",
+    "Material/MethbokeAddon/QuasiFeffermanA/RealFourier.lean": "98a1e6dd84597626ebcb5887f6649658cf3b23f40ff993aac7bd72debfcc7a19",
+    "Material/MethbokeAddon/QuasiFeffermanA/Spectral.lean": "8ba6079186788c6b1a6fb6e6892b7a147c1df36f42aab904e490f32e9effe109",
+    "Material/_vendor/QFA/Endpoints/Agmon/Contracts.lean": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+    "Material/_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+    "Material/_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d",
+    "Material/_vendor/QFA/Endpoints/Energy/ProductBudget.lean": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+    "Material/_vendor/QFA/Endpoints/GoodTime/Basic.lean": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5",
+    "Material/_vendor/QFA/Endpoints/GoodTime/Cutoff.lean": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9",
+    "Material/_vendor/QFA/Endpoints/Representation/Complexification.lean": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+    "Material/_vendor/QFA/Endpoints/Representation/EnergyProfile.lean": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a",
+    "Material/_vendor/QFALC001Reduction/NativeFromAENorms.lean": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+    "Material/_vendor/QFALC004/CompactSchwartz.lean": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+    "Material/_vendor/QFALC005/Density.lean": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+    "Material/MethbokeAddon/QuasiFeffermanA/Cutoff.lean": "63f61a3def4ea651d9b9116b6a566ff1b4241eff2bf2f25159699df1b35d6f7a",
+    "Material/MethbokeAddon/QuasiFeffermanA/Energy.lean": "a444546bef9c02d9beaff289e3d23e7054389dd50550a1d640e2199fd9c61b4f",
+    "Material/MethbokeAddon/QuasiFeffermanA/Integration.lean": "5947245512a7a03780a857cd3d14712eec270bfc156d52d81f06389f9f16bf48",
+    "Material/MethbokeAddon/QuasiFeffermanA/LHRestart.lean": "2753472e72879b033ec31c26c4569a8c5ce8933aa2f09ac8df8f2512c5ff5626",
+    "Material/MethbokeAddon/QuasiFeffermanA/MomentumTranslation.lean": "fa21eeb358bb067cd2ae730b8b27059fa99dac0cca8eaed9e710468123ec929c",
+    "Material/_vendor/QFA/Assembly/Restart.lean": "e07d862aa284d0f1c488f7344ac0c0a5ccc8bcc99ad6ecae2f796644cedfa347",
+    "Material/_vendor/QFA/Endpoints/Composition/GoodTimeAndTrace.lean": "27170ebd29b091e4d93cbecee1ae8e7d5860acbe03988d7c5fa090e73e24655e",
+    "Material/_vendor/QFA/Endpoints/Restart/EnergyShift.lean": "0111c14a6ab440f9623e0f419e199cbf981622a35a00a774d55f67fd26c9f68e",
+    "Material/_vendor/QFA/Endpoints/Restart/HilbertTrace.lean": "2715d102af4ac35b4e52a4f145792c75a67d39c16f41ee03f2ad6a58f1156727",
+    "Material/_vendor/QFA/Endpoints/Restart/TimeTranslate.lean": "ec4370573c9dbdcb482c9ce732f5c6ebed2a1eed2711c5361a4c307906080e7d",
+    "Material/MethbokeAddon/QuasiFeffermanA/PhysicalRoot.lean": "6656676afe46609e749d82cf4b7d05e539be775035599743fa19d5653e5ed49b",
+    "Material/MethbokeAddon/QuasiFeffermanA/ZeroDatum.lean": "de5f7ca522a6195b41e7498eeb85a90e4533a7805769c10356cce791d73e4968",
+    "Material/_vendor/SingularClosure/Contracts.lean": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7"
+  },
+  "scope_limits": [
+    "This accepts exactly 73 named declarations across three packages: 53 theorems, 19 definitions and one structure. The all-data QFA proposition is defined, not proved.",
+    "QFAHeatSmoothing constructs an actual positive-time physical H1-to-H2 heat map, nine weak Hessians, the literal Laplacian Fourier multiplier and the quantitative H2 bound. No time-integrated estimate, heat generator or nonlinear evolution is claimed.",
+    "QFALHRestart constructs full shifted physical Leray-Hopf membership of every supplied path at a nonnegative energy start, including actual weak momentum, all energy-class fields, and the original strict safe-window threshold. It does not construct an initial nonzero-data weak solution.",
+    "QFAZeroDatum proves the full strict and closed physical QFA conclusion for zero data: actual weak-solution nonemptiness, every supplied path, smooth zero velocity and point-normalized pressure, original-gradient tail energy equality and own-trace full LH future velocity uniqueness.",
+    "The exact all-data root retains arbitrary solenoidal L2 data and cutoff 8*norm(a)^4/(27*pi^4*nu^5); the nonzero-data obligations remain open.",
+    "Prior G05 and P08/M1 acceptance is preserved and freshly reaudited. G01, G02, G03, G04, G06, M2 and M3 remain open.",
+    "General physical QFA, WFA, canonical class root, sharp Sobolev admission and universal budget finiteness remain open.",
+    "The local reviewer only inspects Python text/JSON/hashes and immutable Git objects; no local Lean, Lake or kernel audit is executed."
+  ]
+}
