@@ -532,3 +532,9 @@ FDSN_R3 repair after run44845509310 atf5fb09b7.
 Run44845509310 atf5fb09b7 leaves two proof-normalization errors: CompactFrequencyInverse:363 natural-zero coercion and ForwardFourierSmooth:225 additive orientation. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal repairs prepared; no new A-tier acceptance.
 Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
 Evidence:audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt.
+
+
+FDSN_R3 repair after run44846133642 at44725d62.
+Run44846133642 at44725d62 compiled CompactFrequencyInverse and ForwardFourierSmooth with both wrappers, then reached JointPacket (3 diagnostics) and CrossingDerivative (4 diagnostics). Counts:540PASS/2FAIL/6BLOCKED/0fresh audits. Source-only repairs prepared; no new A-tier acceptance.
+Make the JointPacket bump inner radius and actual Fourier composition explicit; replace neighborhood-proof field notation by explicit Filter.Eventually.mono and normalize CrossingDerivative scalar actions pointwise with the intended derivative instances. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
+Evidence:audits/fdsn-r3-44725d62-failed/SUMMARY.txt.

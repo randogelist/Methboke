@@ -42,7 +42,7 @@ Reused R3-07/R3-11: complete matching archived audits at run44811785125.
 Full candidate:421pending stage2/stage3 declarations;137packages/1320total reports.
 Canonical root: MethbokeAddon.FDSNR3.FDSN_R3, original Seed -> full Family.
 Root status: PREPARED, NOT EXTERNALLY ACCEPTED. Seed existence not asserted.
-Latest failure:run44845509310 atf5fb09b7; natural-zero/additive-orientation normalizations prepared;536PASS/2FAIL/10BLOCKED/0fresh audits.
+Latest failure:run44846133642 at44725d62; JointPacket/CrossingDerivative repairs prepared;540PASS/2FAIL/6BLOCKED/0fresh audits.
 Local Lean or Lake executions: ZERO.
 
 Full run44836866962: all stage2 sources/wrappers compile, six stage3 source
@@ -112,3 +112,9 @@ FDSN_R3 repair after run44845509310 atf5fb09b7.
 Run44845509310 atf5fb09b7 leaves two proof-normalization errors: CompactFrequencyInverse:363 natural-zero coercion and ForwardFourierSmooth:225 additive orientation. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal repairs prepared; no new A-tier acceptance.
 Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
 Evidence:audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt.
+
+
+FDSN_R3 repair after run44846133642 at44725d62.
+Run44846133642 at44725d62 compiled CompactFrequencyInverse and ForwardFourierSmooth with both wrappers, then reached JointPacket (3 diagnostics) and CrossingDerivative (4 diagnostics). Counts:540PASS/2FAIL/6BLOCKED/0fresh audits. Source-only repairs prepared; no new A-tier acceptance.
+Make the JointPacket bump inner radius and actual Fourier composition explicit; replace neighborhood-proof field notation by explicit Filter.Eventually.mono and normalize CrossingDerivative scalar actions pointwise with the intended derivative instances. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
+Evidence:audits/fdsn-r3-44725d62-failed/SUMMARY.txt.

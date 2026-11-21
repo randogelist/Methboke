@@ -1,0 +1,27 @@
+MethbokeAddon/FDSNR3/CrossingDerivative.lean:67:6: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  Ioo_mem_nhds hr.left hr.right
+has type `(𝓝 r).1 (Ioo a b)` which does not have the necessary form.
+MethbokeAddon/FDSNR3/CrossingDerivative.lean:124:4: error: Type mismatch
+  HasDerivAt.const_smul ?m.956 (hdiff q (hsubtime hq) ξ)
+has type
+  HasDerivAt (?m.956 • fun q => g (q, ξ)) (?m.956 • g' (q, ξ)) q
+but is expected to have type
+  HasDerivAt (fun q => ↑(𝐞 (inner ℝ ξ x)) • g (q, ξ)) (↑(𝐞 (inner ℝ ξ x)) • g' (q, ξ)) q
+MethbokeAddon/FDSNR3/CrossingDerivative.lean:127:5: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  Ioo_mem_nhds hlt htr
+has type `(𝓝 t).1 (Ioo l r)` which does not have the necessary form.
+MethbokeAddon/FDSNR3/CrossingDerivative.lean:149:74: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+MethbokeAddon/FDSNR3/CrossingDerivative.lean:193:6: error: Type mismatch: After simplification, term
+  hp
+ has type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField CVec (PiLp.normedAddCommGroup 2 fun x => ℂ).toAddCommGroup
+    (PiLp.normedSpace 2 ℝ fun x => ℂ).toModule PseudoMetricSpace.toUniformSpace.toTopologicalSpace ⋯
+    ((fun r => packetPhase β ψ lam r ξ - 1) • fun r => fourierVelocity (u r) ξ)
+    ((↑(lam * slope * ψ ξ) * Complex.I) • fourierVelocity (u t) ξ) t
+but is expected to have type
+  @HasDerivAt ℝ DenselyNormedField.toNontriviallyNormedField CVec (WithLp.instAddCommGroup 2 (Fin 3 → ℂ))
+    (WithLp.instModule 2 ℝ (Fin 3 → ℂ)) (PiLp.topologicalSpace 2 fun x => ℂ) ⋯
+    (fun r => (packetPhase β ψ lam r ξ - 1) • fourierVelocity (u r) ξ)
+    ((↑(lam * slope * ψ ξ) * Complex.I) • fourierVelocity (u t) ξ) t

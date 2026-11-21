@@ -152,7 +152,7 @@
     "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
     "Definition/consumer checks do not construct a family."
   ],
-  "next": "Externally verify the natural-zero and additive-orientation normalizations, then complete all remaining sources, fresh exact type/axiom audits and final acceptance.",
+  "next": "Externally verify JointPacket and CrossingDerivative elaboration repairs, then complete the remaining physical-family/root modules, all fresh exact type/axiom audits and final acceptance.",
   "failed_attempts": [
     {
       "status": "FAILED_NO_NEW_ACCEPTANCE",
@@ -509,6 +509,40 @@
       "evidence": "audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt",
       "repair": "Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
       "local_lean_executions": 0
+    },
+    {
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "source_commit": "44725d625d95ef688793ccf3f96ccfbfad2dafff",
+      "run_id": 44846133642,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44846133642",
+      "job_id": 136666163545,
+      "artifact_id": 14683450851,
+      "artifact_sha256": "5550f066c084937765c3c135397f6c5d7b2b74e028216b79e22bab6fe7aea45e",
+      "artifact_download_and_hash_verified": true,
+      "failed_sources": [
+        "MethbokeAddon.FDSNR3.CrossingDerivative",
+        "MethbokeAddon.FDSNR3.JointPacket"
+      ],
+      "module_counts": {
+        "PASS": 540,
+        "BLOCKED_BY_DEPENDENCY": 6,
+        "FAIL": 2
+      },
+      "fresh_package_audits_executed": false,
+      "fresh_package_audit_count": 0,
+      "new_a_tier_acceptance": false,
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "failure_phase": "compile",
+      "cause": "JointPacket:44 bump inner radius, :141-142 actual Fourier composition inference; CrossingDerivative:67 and :127 neighborhood/eventual field notation, :124 scalar derivative action, :193 pointwise scalar/instance normalization.",
+      "prior_repair_source_compiled": [
+        "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+        "FDSNR3CompactFrequencyInverse.Endpoint",
+        "MethbokeAddon.FDSNR3.ForwardFourierSmooth",
+        "FDSNR3ForwardFourierSmooth.Endpoint"
+      ],
+      "evidence": "audits/fdsn-r3-44725d62-failed/SUMMARY.txt",
+      "repair": "Make the JointPacket bump inner radius and actual Fourier composition explicit; replace neighborhood-proof field notation by explicit Filter.Eventually.mono and normalize CrossingDerivative scalar actions pointwise with the intended derivative instances. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+      "local_lean_executions": 0
     }
   ],
   "stage_2": {
@@ -651,9 +685,9 @@
     ],
     "new_acceptance_claimed": false,
     "local_lean_executions": 0,
-    "previous_failed_run": 44845509310,
-    "repair_scope": "Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
-    "latest_source_compiler_progress": "Run44845509310 atf5fb09b7 leaves two proof-normalization errors: CompactFrequencyInverse:363 natural-zero coercion and ForwardFourierSmooth:225 additive orientation. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal repairs prepared; no new A-tier acceptance."
+    "previous_failed_run": 44846133642,
+    "repair_scope": "Make the JointPacket bump inner radius and actual Fourier composition explicit; replace neighborhood-proof field notation by explicit Filter.Eventually.mono and normalize CrossingDerivative scalar actions pointwise with the intended derivative instances. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+    "latest_source_compiler_progress": "Run44846133642 at44725d62 compiled CompactFrequencyInverse and ForwardFourierSmooth with both wrappers, then reached JointPacket (3 diagnostics) and CrossingDerivative (4 diagnostics). Counts:540PASS/2FAIL/6BLOCKED/0fresh audits. Source-only repairs prepared; no new A-tier acceptance."
   },
   "scope_completion": {
     "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",

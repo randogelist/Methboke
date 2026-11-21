@@ -1,0 +1,19 @@
+MethbokeAddon/FDSNR3/JointPacket.lean:44:2: error: Type mismatch: After simplification, term
+  hlam
+ has type
+  @LE.le ℝ Real.instLE |lam| (Real.pi / 4)
+but is expected to have type
+  @LE.le ℝ Real.instLE |lam| phaseParameterBump.rIn
+MethbokeAddon/FDSNR3/JointPacket.lean:141:6: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  NormedAddCommGroup (Vec → CVec)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/JointPacket.lean:142:8: error: Application type mismatch: The argument
+  ContDiff.contDiffAt (ContDiff.prodMk (ContDiff.comp contDiff_snd contDiff_fst) contDiff_snd)
+has type
+  ContDiffAt ?m.468 ?m.478 (fun x => ((Prod.snd ∘ Prod.fst) x, x.2)) ?m.477
+but is expected to have type
+  ContDiffAt ℝ ∞ (fun y v => 𝐞 (-((innerₗ Vec) v) y.2) • (fun x => complexify (u y.1.2 x)) v) z
+in the application
+  ContDiffAt.comp z ?m.412
+    (ContDiff.contDiffAt (ContDiff.prodMk (ContDiff.comp contDiff_snd contDiff_fst) contDiff_snd))

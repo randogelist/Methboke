@@ -64,7 +64,8 @@ theorem inverseFourier_hasDerivAt_of_commonCompactSupport
   have hsupp' (r : ℝ) (hr : r ∈ Ioo a b) (ξ : Vec) (hξ : ξ ∉ K) :
       g' (r, ξ) = 0 := by
     have hz : (fun q : ℝ => g (q, ξ)) =ᶠ[𝓝 r] 0 :=
-      (Ioo_mem_nhds hr.1 hr.2).mono (fun q hq => hsupp q hq ξ hξ)
+      Filter.Eventually.mono (Ioo_mem_nhds hr.1 hr.2)
+        (fun q hq => hsupp q hq ξ hξ)
     exact (hdiff r hr ξ).unique ((hasDerivAt_const r (0 : CVec)).congr_of_eventuallyEq hz)
   have hgc (r : ℝ) (hr : r ∈ Ioo a b) :
       Continuous (fun ξ : Vec => g (r, ξ)) :=
@@ -121,10 +122,12 @@ theorem inverseFourier_hasDerivAt_of_commonCompactSupport
     intro ξ q hq
     change HasDerivAt (fun q : ℝ => (Real.fourierChar (inner ℝ ξ x) : ℂ) • g (q, ξ))
       ((Real.fourierChar (inner ℝ ξ x) : ℂ) • g' (q, ξ)) q
-    exact (hdiff q (hsubtime hq) ξ).const_smul _
+    simpa only [Pi.smul_apply] using!
+      (hdiff q (hsubtime hq) ξ).const_smul (Real.fourierChar (inner ℝ ξ x) : ℂ)
   have hd := (hasDerivAt_integral_of_dominated_loc_of_deriv_le
     (Ioo_mem_nhds hlt htr)
-    ((Ioo_mem_nhds hlt htr).mono (fun q hq => (hFInt q (hsubtime hq)).aestronglyMeasurable))
+    (Filter.Eventually.mono (Ioo_mem_nhds hlt htr)
+      (fun q hq => (hFInt q (hsubtime hq)).aestronglyMeasurable))
     (hFInt t ht) (hFInt' t ht).aestronglyMeasurable hbound hB hFdiff).2
   simpa only [Real.fourierInv_eq, g'] using hd
 
@@ -191,7 +194,8 @@ theorem LocalSchwartz.hasDerivAt_inversePhaseCorrection_at_crossing
     have hp' : HasDerivAt (fun r : ℝ => g (r, ξ))
         ((((lam * slope * ψ ξ : ℝ) : ℂ) * Complex.I) • fourierVelocity (u t) ξ) t := by
       simpa only [g, packetPhaseIncrement,
-        packetPhase_eq_one_of_beta_zero ψ lam hzero, sub_self, zero_smul, zero_add] using hp
+        packetPhase_eq_one_of_beta_zero ψ lam hzero, sub_self, zero_smul, zero_add,
+        Pi.smul_apply] using! hp
     rw [(hasDerivAt_spectrum_time_of_joint_smooth hg ht ξ).unique hp']
     change ((((lam * slope * ψ ξ : ℝ) : ℂ) * Complex.I) • fourierVelocity (u t) ξ) =
       (lam * slope) • ((Complex.I * (ψ ξ : ℂ)) • fourierVelocity (u t) ξ)

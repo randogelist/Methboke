@@ -124,7 +124,7 @@ The next candidate applies minimal source-only repairs with unchanged theorem
 statements. [Exact failure evidence](../../audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt)
 is retained; full matching external acceptance remains pending.
 
-## Current R3 verification
+## Previous R3 verification
 
 [Run44845509310](https://github.com/randogelist/Methboke/actions/runs/44845509310)
 at `f5fb09b7` leaves two proof-normalization errors: a natural-zero coercion
@@ -132,4 +132,14 @@ in the compact Fourier bound and additive orientation in the forward Fourier bou
 **536 modules passed, two failed, ten were blocked; no fresh audit ran.**
 Minimal source repairs preserve the theorem statements.
 [Exact evidence](../../audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt)
+is retained; full matching external acceptance remains pending.
+
+## Current R3 verification
+
+[Run44846133642](https://github.com/randogelist/Methboke/actions/runs/44846133642)
+at `44725d62` compiled both compact and forward Fourier layers and their wrappers.
+It reached `JointPacket` and `CrossingDerivative` elaboration failures:
+**540 modules passed, two failed, six were blocked; no fresh audit ran.**
+Explicit bump/Fourier composition and pointwise derivative repairs preserve
+the original statements. [Exact evidence](../../audits/fdsn-r3-44725d62-failed/SUMMARY.txt)
 is retained; full matching external acceptance remains pending.

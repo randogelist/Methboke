@@ -41,7 +41,7 @@ theorem phaseParameterCutoff_hasCompactSupport : HasCompactSupport phaseParamete
 theorem phaseParameterCutoff_eq_one {lam : ℝ} (hlam : |lam| ≤ Real.pi / 4) :
     phaseParameterCutoff lam = 1 := by
   apply phaseParameterBump.one_of_mem_closedBall
-  simpa only [Metric.mem_closedBall, Real.dist_eq, sub_zero] using hlam
+  simpa only [Metric.mem_closedBall, Real.dist_eq, sub_zero, phaseParameterBump] using hlam
 
 /-- The actual spectrum of the physical correction. Its grouping agrees
 with the partial inverse Fourier transform: `((parameter,time),frequency)`. -/
@@ -138,7 +138,10 @@ theorem jointSpectralCorrection_contDiff
       continuous_fst.continuousAt.preimage_mem_nhds (isOpen_Ioo.mem_nhds htT)
     have hfourier : ContDiffAt ℝ ∞
         (fun y : (ℝ × ℝ) × Vec => fourierVelocity (u y.1.2) y.2) z :=
-      (hu.contDiffOn_fourierVelocity.contDiffAt hnhds).comp z
+      ContDiffAt.comp
+        (f := fun y : (ℝ × ℝ) × Vec => (y.1.2, y.2))
+        (g := fun q : ℝ × Vec => fourierVelocity (u q.1) q.2) z
+        (hu.contDiffOn_fourierVelocity.contDiffAt hnhds)
         (((contDiff_snd.comp contDiff_fst).prodMk contDiff_snd).contDiffAt)
     exact hparam.contDiffAt.smul (hphase.contDiffAt.smul hfourier)
   · have hzero : jointSpectralCorrection β ψ u =ᶠ[𝓝 z]
