@@ -1,5 +1,5 @@
 METHBOKE_QFA_BRANCH_AGENT_CONTEXT
-DOCUMENT_VERSION = 1.0
+DOCUMENT_VERSION = 1.1
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = codex/qfa-structured-assembly
@@ -30,6 +30,28 @@ ASSEMBLY ORDER
   PK08 -> PK09 -> PK10 -> PK11 -> PK12 -> PK13
   PK14 -> PK15 -> PK16
   {PK07,PK12,PK16} -> PK17 -> PK18 -> PK19 -> PK20
+
+ACCEPTED MID-TIER ENDPOINT
+  SIGNAL = !=!
+  PACKAGE = QFASafeH1Restart
+  SCOPE = Exact native PhysicalH1Sigma packaging of the already selected safe
+          restart, preserving the original velocity trace u(s), original weak
+          gradient G(s), energy start, restart data, full shifted Leray-Hopf
+          membership, right trace and strict product bound.
+  TESTED_SOURCE = e6a2ef7587627eabd99116a262f51e9a82da6568
+  RUN = 44876499421
+  STATUS = A_TIER_ACCEPTED_EXACT_MID_TIER_ENDPOINT
+  DECLARATIONS = 7
+  AXIOMS = {propext, Classical.choice, Quot.sound}
+  EVIDENCE = audits/qfa-safe-h1-e6a2ef75-accepted/summary.json
+  BOUNDARY = This does not prove global existence, local strong construction,
+             continuation, comparison, smooth tails, sharp Sobolev admission,
+             or either physical QFA root.
+
+CURRENT_TARGET
+  PK01_SOURCE_ADMISSION_AND_COMPATIBILITY for the retained CKN/ESS construction
+  route, followed by PK02 exact coordinate transport and the source-facing
+  remainder of PK03 datum admission.
 
 MAIN OPEN PROVIDERS
   - exact native global Leray-Hopf existence with arbitrary-start energy;
