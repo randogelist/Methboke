@@ -1,5 +1,5 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 8.5
+DOCUMENT_VERSION = 8.6
 DATE = 2026-11-21
 WORKING_BRANCH = main
 INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
@@ -20,6 +20,9 @@ QFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 QFB_CI_STAGE = REAL_EXACT_ROOT_AND_CUTOUT_AUDIT
 SINGULAR_PREMISE_OBSTRUCT_R3_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 SIGNULAR_PREMISE_OBSTRUCT_T3_CI_STAGE = REAL_CONDITIONAL_SINGLE_PREMISE_AUDIT
+CURRENT_GOAL_MARKERS = {WFA: !=, WFB: !!!, QFA: !=, QFB: !!!!, SINGULAR_PREMISE_OBSTRUCT_R3: OPEN, SIGNULAR_PREMISE_OBSTRUCT_T3: !!!! conditional on axiom}
+CURRENT_STATE_PRESENTATION = README.md#current-state-and-six-parallel-theorem-ci-stages
+B_TIER_WFA_QFA_RECORD = Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt; sections 13.1, 13.3 and 14; general Lean roots pending
 SUPERSEDED_GOAL_CONFIGURATIONS = PRIOR_THREE_GOAL_AND_PRIOR_SIX_GOAL_SETUPS; NOT_CURRENT_RUN_EVIDENCE
 RETAINED_PREVIOUS_PROJECT_GOAL = Fefferman_D
 RETAINED_DIRECT_FEFFERMAN_D_STATUS = A_TIER_ACCEPTED_AT_66a5292
@@ -392,6 +395,12 @@ BOUNDARY: not the full E09 C([0,T];H2) convergence theorem.
 
 I30 EHRENFEST_OBSTRUCTION_EXACT_CONDITIONAL_ROOT_ACCEPTED
 STATUS: A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS; CONDITIONAL_FORMAL_CLOSURE.
+DISPLAY_MARKER: !!!! conditional on axiom; explicit user convention 2026-11-21.
+MARKER_SCOPE: closure relative to the explicit StoppedCommutatorBound assumption;
+the qualification is part of the marker. The premise remains a Lean hypothesis,
+its witness remains unproved, and the standard-only axiom audit is retained.
+DISCUSSION: Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean;
+T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_B_TIER.txt.
 DECLARATION: MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION.
 EXACT TYPE: (nu : Real) -> 0 < nu -> StoppedCommutatorBound nu -> Not (NSE_B nu).
 ALSO ACCEPTED: stopped_forbids_initial_front, stopped_forbids_global_smooth,

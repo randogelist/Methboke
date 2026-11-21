@@ -17,19 +17,28 @@
 This latest six-goal declaration supersedes the earlier configurations. Existing
 results, explicit hypotheses and source-specific evidence retain their status.
 
-### Six parallel theorem CI stages
+### Current state and six parallel theorem CI stages
 
 [Theorem-goal CI](.github/workflows/theorem-goals.yml) and its
 [goal manifest](Material/ci/theorem-goals.json) configure one stage per goal:
 
-| Goal | Stage | Mathematical status |
-|---|---|---|
-| **WFA** | Dummy/pending | General physical WFA remains open |
-| **WFB** | Real exact-type and axiom audits | Established conditional full-Fourier-budget theorem; budget hypothesis retained |
-| **QFA** | Dummy/pending | General-data physical QFA remains open |
-| **QFB** | Real exact-root and standalone-cutout audits | Established exact QFB cutoff and regularity scope |
-| **SINGULAR-PREMISE OBSTRUCT R3** | Dummy/pending | No native whole-space obstruction root is established |
-| **SIGNULAR-PREMISE OBSTRUCT T3** | Real exact conditional-theorem audits | Established single-premise implication `StoppedCommutatorBound nu -> not (NSE_B nu)` for positive viscosity |
+| Goal | Current state | Stage | Mathematical scope |
+|---|---|---|---|
+| **WFA** | `!=` | Dummy/pending | B-tier implication from a finite full Fourier budget established; complete general Lean root pending |
+| **WFB** | `!!!` | Real exact-type and axiom audits | Formal closure of the full-Fourier-budget implication; budget hypothesis retained |
+| **QFA** | `!=` | Dummy/pending | B-tier tail theorem for general solenoidal $L^2$ data established; complete general Lean root pending |
+| **QFB** | `!!!!` | Real exact-root and standalone-cutout audits | Closed in its exact post-cutoff scope: smooth tails, tail energy equality and uniqueness of the Leray–Hopf future from each solution's own trace |
+| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN** | Dummy/pending | No complete named root derivation or native whole-space obstruction root is established |
+| **SIGNULAR-PREMISE OBSTRUCT T3** | **`!!!!` — conditional on axiom** | Real exact conditional-theorem audits | Closed relative to the explicit `StoppedCommutatorBound` axiom for positive viscosity |
+
+Here `!=` records a complete B-tier derivation and `!!!` records formal
+closure with the stated hypotheses. QFB's `!!!!` records unconditional closure
+within its exact displayed scope. For T3, the qualified marker
+**`!!!!` — conditional on axiom** records closure of the selected axiom-relative
+target; the qualification is part of its status.
+The [WFA/QFA B-tier derivations](Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt),
+sections 13.1, 13.3 and 14, establish their recorded mathematical chains; their
+general Lean roots remain pending.
 
 After the complete Material workflow succeeds on `main`, six jobs inspect that
 exact source revision with `max-parallel: 6` and `fail-fast: false`. The three
@@ -38,9 +47,25 @@ they record pending status and open obligations. The three real stages use
 verified canonical cached objects and run fresh exact-type and axiom audits.
 They do not publish partial replacement caches.
 
-The T3 obstruction stage checks the established conditional implication. Its
-`StoppedCommutatorBound` premise remains explicit; constructing a witness and
-establishing unconditional failure of NSE-B are separate, unresolved tasks.
+**T3 obstruction: `!!!!` — conditional on the explicit
+`StoppedCommutatorBound` axiom.** The accepted theorem is
+
+$$
+\forall\nu>0,\qquad
+\mathrm{StoppedCommutatorBound}(\nu)\Longrightarrow\neg\mathrm{NSE}_B(\nu).
+$$
+
+The assumption and its physical motivation are set out in the
+[stopped-commutator discussion](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/README.md),
+the [definition and physicists' reason trace](Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean#L73)
+and the [B-tier derivation](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_B_TIER.txt).
+The [A-tier acceptance record](T3_NSE/B-Heisenberg-Obstruction/StoppedCommutatorBound/EHRENFEST_OBSTRUCTION_A_TIER.txt)
+states the exact audited implication. Here “axiom” means the explicit
+mathematical assumption supplied to that theorem. In Lean it remains a defined
+predicate passed as a hypothesis; the theorem's axiom audit uses only
+`propext`, `Classical.choice` and `Quot.sound`. Its witness has not been
+constructed, and unconditional failure of NSE-B remains unresolved.
+
 The existing complete Material verification and Lean source-count checks remain.
 Validation is reported by the [theorem-goal workflow](https://github.com/randogelist/Methboke/actions/workflows/theorem-goals.yml)
 for each exact source commit. Dummy-stage completion keeps the corresponding
