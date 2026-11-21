@@ -5,7 +5,8 @@
   "audit_module": "QFASourceL2.Audit",
   "imports": [
     "QFASourceFields.Endpoint",
-    "Mathlib.MeasureTheory.Function.LpSpace.Basic"
+    "Mathlib.MeasureTheory.Function.LpSpace.Basic",
+    "Mathlib.MeasureTheory.SpecificCodomains.WithLp"
   ],
   "source_roots": [
     {
@@ -29,9 +30,11 @@
       "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
       "files": [
         "Mathlib/MeasureTheory/Function/LpSeminorm/Basic.lean",
-        "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean"
+        "Mathlib/MeasureTheory/Function/LpSpace/Basic.lean",
+        "Mathlib/MeasureTheory/SpecificCodomains/Pi.lean",
+        "Mathlib/MeasureTheory/SpecificCodomains/WithLp.lean"
       ],
-      "role": "Measure-preserving composition, continuous-linear value transport, and Lp representative construction."
+      "role": "Measure-preserving composition, componentwise raw-Pi and PiLp MemLp transport, and Lp representative construction."
     }
   ],
   "declarations": [
@@ -42,7 +45,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Raw source-coordinate L2 equivalence-class type."
     },
@@ -53,7 +56,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Genuine MemLp 2 admission for a native SpatialL2 field transported to source coordinates."
     },
@@ -64,7 +67,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "A.e.-strong measurability of the transported raw source field."
     },
@@ -75,7 +78,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Canonical source-coordinate L2 class represented by a native SpatialL2 field."
     },
@@ -86,7 +89,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "A.e. representative identity for sourceSpatialL2OfNative."
     },
@@ -97,7 +100,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Reverse qualitative MemLp transport from a raw source field to native coordinates."
     },
@@ -108,7 +111,7 @@
         "repository": "randogelist/Methboke",
         "path": "Material/QFASourceL2/Endpoint.lean",
         "module": "QFASourceL2.Endpoint",
-        "revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+        "revision_status": "REPAIRED_MATCHING_EXTERNAL_VERIFICATION_PENDING"
       },
       "scope": "Two-way raw/native MemLp equivalence for a source vector field."
     }
@@ -119,7 +122,7 @@
     "Quot.sound"
   ],
   "scope": "Exact qualitative raw-source MemLp/L2 admission and two-way field transport.",
-  "status": "PENDING_MATCHING_EXTERNAL_CI",
+  "status": "REPAIRED_PENDING_MATCHING_EXTERNAL_CI",
   "project_scope": "QFA_A_TIER_CLOSURE",
   "implementation_base": "ba4aca1a1a94ff10e28361e004f8ebc3b606b9c5",
   "research_layout": "R3_NSE/QFA/STRUCTURED_ASSEMBLY",
