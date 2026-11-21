@@ -78,7 +78,7 @@ theorem nativeFieldFunctionOfSource_memLp
 
 /-- Raw source-coordinate square integrability is recovered from square integrability of
 the pushed-forward native field. -/
-theorem sourceField_memLp_of_nativeField_memLp
+private theorem sourceField_memLp_of_nativeField_memLp
     (a : SourceVectorField)
     (ha : MemLp (nativeFieldFunctionOfSource a) (2 : ℝ≥0∞)
       (volume : Measure Space)) :
