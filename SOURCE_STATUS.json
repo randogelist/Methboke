@@ -53,7 +53,7 @@
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
   "ci_handoff": "Prepared 24 new declarations (22 theorems,2 definitions) and29 literal consumers in3packages: expected534modules,109freshpackageaudits,1435namedreports. Accepted generator basis809aadc6/run44853804320. Actual L2 Duhamel response/operator and physical spatial energy pairing; forced maximal regularity remains open. Matching cached external compilation, audits, publication and final gate required. No local Lean.",
-  "current_material_external_verification": "QFA_FORCED_HEAT_RESPONSE_MATCHING_EXTERNAL_PENDING",
+  "current_material_external_verification": "QFA_FORCED_HEAT_RESPONSE_REPAIRED_MATCHING_EXTERNAL_PENDING",
   "latest_material_run": {
     "tested_commit": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
     "tree": "2575f2d3fb994a51ab50eac7362388083c333246",
@@ -2982,7 +2982,7 @@
   "active_scoped_request": "QFA_A_TIER_CLOSURE",
   "current_material_candidate": {
     "id": "QFA_FORCED_HEAT_RESPONSE_BATCH",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_CI",
+    "status": "REPAIRED_PENDING_MATCHING_EXTERNAL_CI",
     "source_basis": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
     "packages": [
       "QFAHeatDuhamel",
@@ -3008,7 +3008,35 @@
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
     "forcing_space": "Actual MemLp 2 SpatialL2 on volume.restrict (Ioc 0 T); no extra construction, continuity, derivative or spatial-regularity witness.",
-    "spatial_pairing_scope": "Explicit bilinear symmetry on actual physical H2; no unbounded self-adjoint-domain theorem is asserted."
+    "spatial_pairing_scope": "Explicit bilinear symmetry on actual physical H2; no unbounded self-adjoint-domain theorem is asserted.",
+    "preceding_attempts": [
+      {
+        "tested_commit": "966dad9dac6c3e224887bf0140b3d7e28990d6c8",
+        "run_id": 44855166853,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44855166853",
+        "status": "FAIL",
+        "failure_class": "MODULE_COMPILATION_FAILED",
+        "phase": "compile",
+        "module_count": 534,
+        "passed_modules": 530,
+        "failed_modules": 1,
+        "blocked_modules": 3,
+        "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatDuhamel",
+        "artifact_id": 14687860237,
+        "artifact_sha256": "4262c89cb4afbf3a68756b74867ff3ce95f6cf543276728b70aab4882bf9055a",
+        "evidence": "audits/material-966dad9d-forced-heat-failure/independent-review.json",
+        "repairs": [
+          "Make the real-side clock countability, a.e. measurability, product and composition types explicit.",
+          "Reduce the square of one in the exact Holder bound.",
+          "Use literal Iic membership in the four indicator reductions."
+        ],
+        "public_statement_changes": false,
+        "independent_consumer_changes": false,
+        "prior_accepted_source_changes": false,
+        "compiler_dependency_driver_policy_changed": false,
+        "local_lean_executions": 0
+      }
+    ]
   },
   "prior_material_candidates": [
     {
@@ -4563,7 +4591,7 @@
   },
   "qfa_forced_heat_construction": {
     "id": "QFA_FORCED_HEAT_RESPONSE_BATCH",
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_CI",
+    "status": "REPAIRED_PENDING_MATCHING_EXTERNAL_CI",
     "source_basis": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
     "packages": [
       "QFAHeatDuhamel",
@@ -4589,6 +4617,88 @@
     "local_lean_executions": 0,
     "compiler_dependency_driver_policy_changed": false,
     "forcing_space": "Actual MemLp 2 SpatialL2 on volume.restrict (Ioc 0 T); no extra construction, continuity, derivative or spatial-regularity witness.",
-    "spatial_pairing_scope": "Explicit bilinear symmetry on actual physical H2; no unbounded self-adjoint-domain theorem is asserted."
+    "spatial_pairing_scope": "Explicit bilinear symmetry on actual physical H2; no unbounded self-adjoint-domain theorem is asserted.",
+    "preceding_attempts": [
+      {
+        "tested_commit": "966dad9dac6c3e224887bf0140b3d7e28990d6c8",
+        "run_id": 44855166853,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44855166853",
+        "status": "FAIL",
+        "failure_class": "MODULE_COMPILATION_FAILED",
+        "phase": "compile",
+        "module_count": 534,
+        "passed_modules": 530,
+        "failed_modules": 1,
+        "blocked_modules": 3,
+        "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatDuhamel",
+        "artifact_id": 14687860237,
+        "artifact_sha256": "4262c89cb4afbf3a68756b74867ff3ce95f6cf543276728b70aab4882bf9055a",
+        "evidence": "audits/material-966dad9d-forced-heat-failure/independent-review.json",
+        "repairs": [
+          "Make the real-side clock countability, a.e. measurability, product and composition types explicit.",
+          "Reduce the square of one in the exact Holder bound.",
+          "Use literal Iic membership in the four indicator reductions."
+        ],
+        "public_statement_changes": false,
+        "independent_consumer_changes": false,
+        "prior_accepted_source_changes": false,
+        "compiler_dependency_driver_policy_changed": false,
+        "local_lean_executions": 0
+      }
+    ]
+  },
+  "qfa_forced_heat_attempt_history": [
+    {
+      "tested_commit": "966dad9dac6c3e224887bf0140b3d7e28990d6c8",
+      "run_id": 44855166853,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44855166853",
+      "status": "FAIL",
+      "failure_class": "MODULE_COMPILATION_FAILED",
+      "phase": "compile",
+      "module_count": 534,
+      "passed_modules": 530,
+      "failed_modules": 1,
+      "blocked_modules": 3,
+      "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatDuhamel",
+      "artifact_id": 14687860237,
+      "artifact_sha256": "4262c89cb4afbf3a68756b74867ff3ce95f6cf543276728b70aab4882bf9055a",
+      "evidence": "audits/material-966dad9d-forced-heat-failure/independent-review.json",
+      "repairs": [
+        "Make the real-side clock countability, a.e. measurability, product and composition types explicit.",
+        "Reduce the square of one in the exact Holder bound.",
+        "Use literal Iic membership in the four indicator reductions."
+      ],
+      "public_statement_changes": false,
+      "independent_consumer_changes": false,
+      "prior_accepted_source_changes": false,
+      "compiler_dependency_driver_policy_changed": false,
+      "local_lean_executions": 0
+    }
+  ],
+  "qfa_forced_heat_latest_attempt": {
+    "tested_commit": "966dad9dac6c3e224887bf0140b3d7e28990d6c8",
+    "run_id": 44855166853,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44855166853",
+    "status": "FAIL",
+    "failure_class": "MODULE_COMPILATION_FAILED",
+    "phase": "compile",
+    "module_count": 534,
+    "passed_modules": 530,
+    "failed_modules": 1,
+    "blocked_modules": 3,
+    "failed_module": "MethbokeAddon.QuasiFeffermanA.HeatDuhamel",
+    "artifact_id": 14687860237,
+    "artifact_sha256": "4262c89cb4afbf3a68756b74867ff3ce95f6cf543276728b70aab4882bf9055a",
+    "evidence": "audits/material-966dad9d-forced-heat-failure/independent-review.json",
+    "repairs": [
+      "Make the real-side clock countability, a.e. measurability, product and composition types explicit.",
+      "Reduce the square of one in the exact Holder bound.",
+      "Use literal Iic membership in the four indicator reductions."
+    ],
+    "public_statement_changes": false,
+    "independent_consumer_changes": false,
+    "prior_accepted_source_changes": false,
+    "compiler_dependency_driver_policy_changed": false,
+    "local_lean_executions": 0
   }
 }

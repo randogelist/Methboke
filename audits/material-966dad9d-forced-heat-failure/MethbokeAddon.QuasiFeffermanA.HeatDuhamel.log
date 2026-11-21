@@ -1,0 +1,62 @@
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:86:8: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:187:2: error: Type mismatch: After simplification, term
+  hcs
+ has type
+  ∫ (a : ℝ) in 0..t, ‖f a‖ ≤ √(t * 1 ^ 2) * √(∫ (a : ℝ) in 0..t, ‖f a‖ ^ 2)
+but is expected to have type
+  ∫ (s : ℝ) in 0..t, ‖f s‖ ≤ √t * √(∫ (s : ℝ) in 0..t, ‖f s‖ ^ 2)
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:254:4: error: Type mismatch: After simplification, term
+  norm_heatL2_le ν (t - s).toNNReal (f s)
+ has type
+  ‖heatL2 ν (t - s).toNNReal (f s)‖ ≤ ‖f s‖
+but is expected to have type
+  ‖(Iic t).indicator (fun r => heatL2 ν (t - r).toNNReal (f r)) s‖ ≤ ‖f s‖
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:256:4: error: Type mismatch: After simplification, term
+  norm_nonneg (f s)
+ has type
+  0 ≤ ‖f s‖
+but is expected to have type
+  ‖(Iic t).indicator (fun r => heatL2 ν (t - r).toNNReal (f r)) s‖ ≤ ‖f s‖
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:262:2: error: unsolved goals
+ν : ℝ≥0
+f : ℝ → ↥SpatialL2
+t s : ℝ
+hst : s ≠ t
+hs : s < t
+hc : Continuous fun r => heatL2 ν (r - s).toNNReal (f s)
+r : ℝ
+hr : s < r
+⊢ (Iic r).indicator (fun r_1 => heatL2 ν (r - r_1).toNNReal (f r_1)) s = heatL2 ν (r - s).toNNReal (f s)
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:268:2: error: unsolved goals
+ν : ℝ≥0
+f : ℝ → ↥SpatialL2
+t s : ℝ
+hst : s ≠ t
+hs : t < s
+r : ℝ
+hr : r < s
+⊢ (Iic r).indicator (fun r_1 => heatL2 ν (r - r_1).toNNReal (f r_1)) s = 0
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:267:31: warning: This simp argument is unused:
+  indicator_of_mem hr.le
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [retardedKernel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:270:31: warning: This simp argument is unused:
+  indicator_of_notMem (not_le_of_gt hr)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [retardedKernel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:297:43: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

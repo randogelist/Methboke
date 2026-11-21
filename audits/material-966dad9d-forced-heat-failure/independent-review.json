@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_FAILURE_NO_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "966dad9dac6c3e224887bf0140b3d7e28990d6c8",
+  "tree": "07588e6325392cf3f31a05fd3f270d0eeb32129d",
+  "prior_policy_basis": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+  "run_id": 44855166853,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44855166853",
+  "artifact_id": 14687860237,
+  "artifact_sha256": "4262c89cb4afbf3a68756b74867ff3ce95f6cf543276728b70aab4882bf9055a",
+  "artifact_bytes": 82740,
+  "report_sha256": "8c95a215d5d16f1e2c8e9ef3879eeac96e3a9af3a51b5cde4208826643d9ceec",
+  "expected_module_count": 534,
+  "expected_package_count": 109,
+  "expected_named_reports": 1435,
+  "module_count": 534,
+  "module_counts": {
+    "PASS": 530,
+    "FAIL": 1,
+    "BLOCKED_BY_DEPENDENCY": 3
+  },
+  "failed_sources": [
+    "MethbokeAddon.QuasiFeffermanA.HeatDuhamel"
+  ],
+  "blocked_sources": [
+    "MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator",
+    "QFAHeatDuhamel.Endpoint",
+    "QFAHeatDuhamelOperator.Endpoint"
+  ],
+  "package_count": 0,
+  "named_reports": 0,
+  "passed_package_receipts": [],
+  "all_package_audits_fresh": false,
+  "complete_audit_coverage": false,
+  "final_acceptance_gate": false,
+  "publication_pass": false,
+  "qfb_cutout_pass": false,
+  "new_a_tier_acceptance": false,
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "prior_accepted_source_audits_and_closures_byte_preserved": true,
+  "failure_phase": "compile",
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "error": "own module compilation failed; see module receipts",
+  "diagnostics": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatDuhamel.log",
+      "diagnostics": [
+        {
+          "line": 1,
+          "text": "MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:86:8: error: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached\n\nNote: Use `set_option maxHeartbeats <num>` to set the limit.\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nMethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:187:2: error: Type mismatch: After simplification, term"
+        },
+        {
+          "line": 6,
+          "text": "Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\nMethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:187:2: error: Type mismatch: After simplification, term\n  hcs\n has type\n  ∫ (a : ℝ) in 0..t, ‖f a‖ ≤ √(t * 1 ^ 2) * √(∫ (a : ℝ) in 0..t, ‖f a‖ ^ 2)\nbut is expected to have type\n  ∫ (s : ℝ) in 0..t, ‖f s‖ ≤ √t * √(∫ (s : ℝ) in 0..t, ‖f s‖ ^ 2)"
+        },
+        {
+          "line": 12,
+          "text": "  ∫ (s : ℝ) in 0..t, ‖f s‖ ≤ √t * √(∫ (s : ℝ) in 0..t, ‖f s‖ ^ 2)\nMethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:254:4: error: Type mismatch: After simplification, term\n  norm_heatL2_le ν (t - s).toNNReal (f s)\n has type\n  ‖heatL2 ν (t - s).toNNReal (f s)‖ ≤ ‖f s‖\nbut is expected to have type\n  ‖(Iic t).indicator (fun r => heatL2 ν (t - r).toNNReal (f r)) s‖ ≤ ‖f s‖"
+        },
+        {
+          "line": 18,
+          "text": "  ‖(Iic t).indicator (fun r => heatL2 ν (t - r).toNNReal (f r)) s‖ ≤ ‖f s‖\nMethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:256:4: error: Type mismatch: After simplification, term\n  norm_nonneg (f s)\n has type\n  0 ≤ ‖f s‖\nbut is expected to have type\n  ‖(Iic t).indicator (fun r => heatL2 ν (t - r).toNNReal (f r)) s‖ ≤ ‖f s‖"
+        },
+        {
+          "line": 24,
+          "text": "  ‖(Iic t).indicator (fun r => heatL2 ν (t - r).toNNReal (f r)) s‖ ≤ ‖f s‖\nMethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:262:2: error: unsolved goals\nν : ℝ≥0\nf : ℝ → ↥SpatialL2\nt s : ℝ\nhst : s ≠ t\nhs : s < t"
+        },
+        {
+          "line": 34,
+          "text": "⊢ (Iic r).indicator (fun r_1 => heatL2 ν (r - r_1).toNNReal (f r_1)) s = heatL2 ν (r - s).toNNReal (f s)\nMethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean:268:2: error: unsolved goals\nν : ℝ≥0\nf : ℝ → ↥SpatialL2\nt s : ℝ\nhst : s ≠ t\nhs : t < s"
+        }
+      ]
+    }
+  ],
+  "retained_diagnostic_logs": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatDuhamel.log",
+      "retained_log": "logs__modules__MethbokeAddon.QuasiFeffermanA.HeatDuhamel.log.gz",
+      "raw_sha256": "cc1e1538b89fadb6776bea31c4c1a3bfcec1bc0696bc973312409f213ef527de"
+    }
+  ],
+  "checks_passed": 243,
+  "local_lean_executions": 0,
+  "scope_note": "Passing individual source or partial named audit receipts do not establish acceptance of this batch."
+}

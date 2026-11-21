@@ -81,10 +81,18 @@ theorem duhamelL2_integrand_aestronglyMeasurable
     (ν : ℝ≥0) (f : ℝ → SpatialL2) (μ : Measure ℝ)
     (hf : AEStronglyMeasurable f μ) (t : ℝ) :
     AEStronglyMeasurable (fun s : ℝ => heatL2 ν (t - s).toNNReal (f s)) μ := by
+  letI : SecondCountableTopologyEither ℝ ℝ≥0 := ⟨Or.inl inferInstance⟩
   have hclock : Continuous (fun s : ℝ => (t - s).toNNReal) :=
     continuous_real_toNNReal.comp (continuous_const.sub continuous_id)
-  exact (heatL2_joint_continuous ν).comp_aestronglyMeasurable
-    (hclock.aestronglyMeasurable.prodMk hf)
+  have hclock_ae : AEStronglyMeasurable (fun s : ℝ => (t - s).toNNReal) μ :=
+    hclock.aestronglyMeasurable
+  have hpair : AEStronglyMeasurable
+      (fun s : ℝ => ((t - s).toNNReal, f s)) μ :=
+    hclock_ae.prodMk hf
+  exact Continuous.comp_aestronglyMeasurable
+    (g := fun p : ℝ≥0 × SpatialL2 => heatL2 ν p.1 p.2)
+    (f := fun s : ℝ => ((t - s).toNNReal, f s)) (μ := μ)
+    (heatL2_joint_continuous ν) hpair
 
 private theorem forcing_memLp_subwindow
     (f : ℝ → SpatialL2) (T : ℝ)
@@ -186,7 +194,7 @@ private theorem integral_norm_le_sqrt_mul
     (by simpa only [ENNReal.ofReal_ofNat] using hf.norm)
   simpa only [one_mul, Real.one_rpow, Real.rpow_two, ← Real.sqrt_eq_rpow,
     ← intervalIntegral.integral_of_le ht, intervalIntegral.integral_const,
-    sub_zero, smul_eq_mul, mul_one] using hcs
+    sub_zero, smul_eq_mul, one_pow, mul_one] using hcs
 
 /-- Exact square-root-of-time estimate with the actual forcing energy on
 the same time interval, with no viscosity or spectral-gap loss. -/
@@ -251,9 +259,10 @@ private theorem retardedKernel_norm_le
     (ν : ℝ≥0) (f : ℝ → SpatialL2) (t s : ℝ) :
     ‖retardedKernel ν f t s‖ ≤ ‖f s‖ := by
   by_cases hst : s ≤ t
-  · simpa only [retardedKernel, indicator_of_mem hst] using
+  · simpa only [retardedKernel, indicator_of_mem (show s ∈ Iic t from hst)] using
       norm_heatL2_le ν (t - s).toNNReal (f s)
-  · simpa only [retardedKernel, indicator_of_notMem hst, norm_zero] using norm_nonneg (f s)
+  · simpa only [retardedKernel, indicator_of_notMem (show s ∉ Iic t from hst),
+      norm_zero] using norm_nonneg (f s)
 
 private theorem retardedKernel_continuousAt
     (ν : ℝ≥0) (f : ℝ → SpatialL2) (t s : ℝ) (hst : s ≠ t) :
@@ -264,10 +273,11 @@ private theorem retardedKernel_continuousAt
         (continuous_real_toNNReal.comp (continuous_id.sub continuous_const))
     apply hc.continuousAt.congr_of_eventuallyEq
     filter_upwards [eventually_gt_nhds hs] with r hr
-    simp only [retardedKernel, indicator_of_mem hr.le]
+    simp only [retardedKernel, indicator_of_mem (show s ∈ Iic r from hr.le)]
   · apply (continuousAt_const (y := (0 : SpatialL2))).congr_of_eventuallyEq
     filter_upwards [eventually_lt_nhds hs] with r hr
-    simp only [retardedKernel, indicator_of_notMem (not_le_of_gt hr)]
+    simp only [retardedKernel,
+      indicator_of_notMem (show s ∉ Iic r from not_le_of_gt hr)]
 
 private theorem fixedWindow_response_continuous
     (ν : ℝ≥0) (f : ℝ → SpatialL2) (T : ℝ)
