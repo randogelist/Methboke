@@ -1,7 +1,16 @@
 QFA: ACTUAL L2 DUHAMEL RESPONSE ON A FINITE TIME WINDOW
 DATE=2026-11-21
 MODE=A_TIER_DERIVATION
-STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+STATUS=A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES
+TESTED_SOURCE=9b8250be2f13048e3e21cd94c8ba1939d919bf64
+TESTED_TREE=5e8f0db8caa9063d149922ad571fea7d594a735d
+EXTERNAL_RUN=44857358591 https://github.com/randogelist/Methboke/actions/runs/44857358591
+EVIDENCE=audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+ACCEPTED_SCOPE=QFAHeatDuhamel;15 declarations=14 theorems+1 definition;17 consumers.
+FULL_RUN=534 modules;109 fresh package audits;1435 unique named reports;fresh QFB/publication/final PASS.
+CHECKLIST=Steps1,7 complete;step2 sharp constant and step3 forced/nonlinear theory remain open.
+NEXT_MICROSCOPIC_TARGET=QFA_H2_HEAT_SEMIGROUP
+HISTORY=Any failed external attempts retained below remain historical.
 PROJECT_GOAL=Fefferman_D (unchanged)
 LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
 LOCAL_LEAN_EXECUTIONS=0
@@ -10,11 +19,11 @@ PUBLIC_THEOREMS=14
 PUBLIC_DEFINITIONS=1
 INDEPENDENT_CONSUMERS=17
 
-Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean
-Prepared package: Material/QFAHeatDuhamel
-Matching cached external compiler, independent literal consumers and named
-transitive axiom evidence remain required. Source preparation and static
-review do not confer A-tier acceptance.
+Accepted native source: Material/MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean
+Accepted package: Material/QFAHeatDuhamel
+Matching cached external compilation, independent literal consumers and fresh
+named type/transitive axiom audits passed, with complete publication and the
+final acceptance gate. The exact reviewed scope and evidence are above.
 
 1. ACTUAL SPACES, FORCING AND RETARDED CONSTRUCTOR
 
@@ -151,20 +160,22 @@ include literal retarded integrals, the actual forcing Lp norm, one common
 response carrying continuity/zero trace/integral/bound, and the zero-
 viscosity primitive. Every public declaration has a named type and
 transitive axiom audit, restricted to propext, Classical.choice and
-Quot.sound. Matching external execution is pending.
+Quot.sound. Complete matching external acceptance is recorded above.
 
 8. BOUNDARY AND NEXT ANALYTIC EDGE
 
 This layer constructs the actual continuous L2 response and the
 low-frequency estimate in H1_LOCAL_FIXED_POINT_CHAIN.txt section 3.2.
-The separate prepared QFAHeatDuhamelOperator package bundles the response
+The separately accepted QFAHeatDuhamelOperator package bundles the response
 as an actual forcing-to-continuous-path linear map, as recorded in the
-appendix below; its matching external verification is also pending.
+appendix below; it passed the same complete matching external run.
 Forced H1/H2 maximal regularity, the inhomogeneous derivative equation,
 solenoidal response packaging and the nonlinear fixed point remain open.
 
-The substantial next edge is the forced gradient/Laplacian energy bound
-and the closed-graph passage to arbitrary L2 forcing. The positive-time
+The next microscopic edge is the actual H2 heat semigroup, retaining the
+original H2 trace and strong continuity down to zero for regular forcing.
+The inhomogeneous equation, forced gradient/Laplacian energy bound and
+density/closed-graph passage to arbitrary time-L2 spatial-L2 forcing follow. The positive-time
 operator estimate behaves singularly at the Duhamel diagonal and cannot
 be integrated to replace that missing estimate. For general L2 forcing,
 the eventual derivative equation is an a.e. time statement with an exact
@@ -174,7 +185,16 @@ representative is asserted. General-data QFA and WFA remain open.
 APPENDIX A. SEPARATE ACTUAL FORCING-QUOTIENT RESPONSE OPERATOR
 
 PACKAGE=QFAHeatDuhamelOperator
-STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+STATUS=A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES
+TESTED_SOURCE=9b8250be2f13048e3e21cd94c8ba1939d919bf64
+TESTED_TREE=5e8f0db8caa9063d149922ad571fea7d594a735d
+EXTERNAL_RUN=44857358591 https://github.com/randogelist/Methboke/actions/runs/44857358591
+EVIDENCE=audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+ACCEPTED_SCOPE=QFAHeatDuhamelOperator;5 declarations=4 theorems+1 definition;7 consumers.
+FULL_RUN=534 modules;109 fresh package audits;1435 unique named reports;fresh QFB/publication/final PASS.
+CHECKLIST=Steps1,7 complete;step2 sharp constant and step3 forced/nonlinear theory remain open.
+NEXT_MICROSCOPIC_TARGET=QFA_H2_HEAT_SEMIGROUP
+HISTORY=Any failed external attempts retained below remain historical.
 PUBLIC_DECLARATIONS=5
 PUBLIC_THEOREMS=4
 PUBLIC_DEFINITIONS=1
@@ -236,8 +256,8 @@ Seven independent consumers cover these five public declarations,
 including one common operator carrying the integral, trace and norm
 claims, and the exact zero operator on the zero-length horizon. Each
 declaration requires its own named type and transitive axiom report,
-restricted to propext, Classical.choice and Quot.sound. Matching cached
-external verification remains pending. The main QFAHeatDuhamel package
+restricted to propext, Classical.choice and Quot.sound. Complete matching
+external acceptance is recorded in this appendix's header. The main QFAHeatDuhamel package
 above retains exactly fifteen declarations and seventeen consumers.
 
 This appendix constructs the actual L2 forcing-to-continuous-L2-response

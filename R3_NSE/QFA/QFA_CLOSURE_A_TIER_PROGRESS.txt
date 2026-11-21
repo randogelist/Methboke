@@ -1,3 +1,37 @@
+QFA CURRENT CANDIDATE: H2 EVOLUTION AND PHYSICAL INTERPOLATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL_CI
+ACTIVE_ID=QFA_H2_EVOLUTION_INTERPOLATION_BATCH
+BASE=9b8250be2f13048e3e21cd94c8ba1939d919bf64; acceptedrun44857358591
+BASIS_EVIDENCE=audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+NEW=32 declarations;29 theorems;3 definitions;40 independent consumers;4 packages.
+EXPECTED_RUN=542 modules;113 fresh packages;1467 named reports.
+COMPLETED_CHECKLIST_STEPS=1,7
+SHARP_S6=OPEN;STEP3=OPEN;GENERAL_QFA_WFA_ROOTS=OPEN
+NEXT_AFTER_ACCEPTANCE=Construct the actual inhomogeneous heat equation and energy estimates for continuous PhysicalH2 forcing, then prove density passage to general finite-window time-L2 spatial-L2 forcing and forced maximal regularity.
+LOCAL_LEAN_EXECUTIONS=0
+The prior cumulative accepted and failed record is preserved verbatim below.
+
+QFA CLOSURE: CURRENT ACCEPTED DUHAMEL RESPONSE, FORCING OPERATOR AND SPATIAL ENERGY
+SOURCE=9b8250be2f13048e3e21cd94c8ba1939d919bf64
+TREE=5e8f0db8caa9063d149922ad571fea7d594a735d
+RUN=44857358591 https://github.com/randogelist/Methboke/actions/runs/44857358591
+EVIDENCE=audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+FULL_RUN=534 modules;109 fresh package audits;1435 unique named reports;fresh QFB/publication/final PASS.
+NEW_NAMES=24 declarations;22 theorems;2 definitions;29 independent consumers;3 packages.
+COMPLETED_CHECKLIST_STEPS=1,7
+STEP2=OPEN;physical IBP and Green/energy pairings accepted;sharp Sobolev constant still open.
+STEP3=OPEN;actual L2 Duhamel response and forcing-space operator accepted;forced equation/maximal regularity and nonlinear theory still open.
+GENERAL_PHYSICAL_QFA_ROOT=OPEN
+WFA_ROOT=OPEN
+NEXT_MICROSCOPIC_TARGET=QFA_H2_HEAT_SEMIGROUP
+LOCAL_LEAN_EXECUTIONS=0
+PROJECT_GOAL=Fefferman_D (unchanged)
+
+PRE_FORCED_HEAT_ACCEPTED_REGISTER_BEGIN
+The entire prior cumulative register is preserved verbatim below, including
+prepared candidates, failed attempts, accepted receipts and then-current targets.
+The current acceptance and next microscopic target are above and below.
+
 QFA CURRENT CANDIDATE: FORCED L2 RESPONSE AND PHYSICAL ENERGY PAIRING
 STATUS=PREPARED_PENDING_MATCHING_EXTERNAL_CI
 BASE=809aadc6da1eeabd5c128eb9c78005a38d3d4935
@@ -248,6 +282,62 @@ Construct the actual spatial-L2 Duhamel response for finite-window time-L2 spati
 
 GENERAL_ROOT_REQUIREMENTS_STILL_OPEN_CURRENT
 Actual L2 Duhamel response, finite-window continuity and forcing bound
+Forced heat maximal regularity and actual L2-time H2/derivative estimates
+Nonlinear norm-controlled H1 local existence and continuation
+Global physical LH existence and physical weak--strong comparison
+Exact sharp Sobolev admission and small-product global continuation
+Nonzero-data smooth pressure tails, energy equality and own-trace future uniqueness
+
+PRE_FORCED_HEAT_ACCEPTED_REGISTER_END
+
+NEW_MATCHING_ACCEPTED_DUHAMEL_OPERATOR_SPATIAL_ENERGY_NAMES
+PACKAGE=QFAHeatDuhamel
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.heatL2_joint_continuous
+DEFINITION MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_integrand_aestronglyMeasurable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_integrand_memLp_two
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_integrand_intervalIntegrable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_zero_time
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_zero_forcing
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_ae_eq
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_add
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_smul
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_norm_le_integral_norm
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_norm_le_sqrt_mul
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_norm_le_sqrt_horizon
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_norm_le_sqrt_mul_lpNorm
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamel.duhamelL2_continuousOn
+PACKAGE=QFAHeatDuhamelOperator
+DEFINITION MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.duhamelL2Operator
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.duhamelL2Operator_apply
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.duhamelL2Operator_norm_le
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.duhamelL2Operator_zero_trace
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.duhamelL2Operator_toLp_apply
+PACKAGE=QFAHeatSpatialEnergy
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.physicalH1_gradient_integration_by_parts
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.physicalH1H2_laplacian_pairing
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.physicalH2_laplacian_symmetric
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.physicalH2_laplacian_enstrophy
+
+All 24 names have complete matching type and fresh standard-only transitive
+axiom reports; 29 independent consumers retain the literal physical carriers,
+integrals, norms and pairings. Exact evidence: audits/material-9b8250be-qfa-forced-heat-accepted/.
+Forcing is finite-window time-L2 spatial-L2; nonnegative viscosity and T=0
+are covered. The actual response and bounded operator are constructed,
+without supplied response, continuity or regularity witnesses.
+Physical IBP yields the H1-H2 Green pairing and exactly negative enstrophy,
+with no one-half factor. Bilinear Laplacian symmetry is not an unbounded
+self-adjoint-domain theorem. The forced derivative equation remains open.
+The accepted generator nine-theorem scope, 35-name heat-time/all-window scope,
+73-name restart/smoothing/zero scope and conditional main FDSN receipt remain.
+
+NEXT_SCOPED_ENDPOINT_CURRENT
+Construct the actual heat semigroup on PhysicalH2, preserving the original H2 datum at time zero, commuting with the physical gradient, Hessian, Laplacian and H2-to-H1 map, and proving graph-norm contraction and strong continuity down to zero. This supplies the semigroup layer for regular forcing; it does not assert an H2 initial trace for arbitrary H1 data or forced maximal regularity.
+
+GENERAL_ROOT_REQUIREMENTS_STILL_OPEN_CURRENT
+Actual H2 heat semigroup with original H2 trace and strong continuity down to zero
+Actual inhomogeneous heat equation and primitive for regular forcing
+Forced gradient/Laplacian energy estimate and density passage to arbitrary time-L2 spatial-L2 forcing
 Forced heat maximal regularity and actual L2-time H2/derivative estimates
 Nonlinear norm-controlled H1 local existence and continuation
 Global physical LH existence and physical weak--strong comparison

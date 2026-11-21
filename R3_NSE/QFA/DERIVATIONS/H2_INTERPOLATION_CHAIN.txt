@@ -1,0 +1,170 @@
+QFA ACTUAL PHYSICAL H2 INTERPOLATION
+Date: 2026-11-21
+Scope: constant-one spatial interpolation for arbitrary actual PhysicalH2
+Project goal: Fefferman_D (unchanged)
+Branch target: QFA_QFB_A_TIER_INTEGRATION (unchanged)
+Mode: complete scoped derivation and candidate source preparation
+Formal status: PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION
+Local Lean/Lake/kernel/runner executions: NONE
+Sharp S6 admissibility: OPEN
+
+0. EXACT TARGET
+
+For every u : PhysicalH2, set
+  v = physicalH2Velocity u,
+  G_j = physicalH2Gradient j u,
+  L = physicalH2Laplacian u,
+  E = ||v||_2^2,
+  Y = sum_(j:Fin3) ||G_j||_2^2,
+  Z = ||L||_2^2.
+
+Prove
+  Y^2 <= E Z.                                             (0.1)
+
+All norms use the original real vector L2 space on full Lebesgue measure
+in R3. The input is the actual compact-test weak-derivative H2 graph, with
+all nine ordered Hessian entries. No spectral realization, interpolation,
+Sobolev inequality, solenoidal condition or evolution is an input premise.
+
+The sole public declaration is
+MethbokeAddon.QuasiFeffermanA.
+  physicalH2_enstrophy_sq_le_energy_mul_laplacian
+in Material/MethbokeAddon/QuasiFeffermanA/H2Interpolation.lean.
+
+1. ACTUAL H2 DERIVATIVES SUPPLY THE SPECTRAL WITNESS
+
+The already proved physicalH2_schwartzDerivativeWitnesses u constructs the
+literal distributional identities for complexifyL2 v, complexifyL2 G_j
+and complexifyL2 L. Its Laplacian is the diagonal sum of the actual Hessian
+and the native tempered-distribution Laplacian. This construction is
+discharged from graph membership, not supplied as a new hypothesis.
+
+Applying nativeSpectralRealization_of_schwartzDerivativeWitnesses gives
+all three genuine integrability statements and exact spectral identities.
+With Fourier convention exp(-2*pi*i*x.xi), let
+  q(xi) = |F(complexifyL2 v)(xi)|^2,
+  lambda(xi) = (2*pi)^2 |xi|^2.
+Then
+  integral q = E,
+  integral lambda q = Y,
+  integral lambda^2 q = Z.                               (1.1)
+The equalities identify the original real norms because complexifyL2 is
+isometric. Every 2*pi factor remains in lambda.
+
+2. EXACT QUADRATIC-MOMENT ARGUMENT
+
+For every real x, nonnegativity gives
+  0 <= integral (x-lambda(xi))^2 q(xi) dxi
+     = E*x^2 - 2*Y*x + Z.                                (2.1)
+The three integrable moments justify each sum, difference and scalar
+multiplication under the integral. The discriminant of this everywhere
+nonnegative quadratic is nonpositive:
+  (-2*Y)^2 - 4*E*Z <= 0.
+This is exactly (0.1).
+
+The accepted theorem
+QFA.Assembly.AnalyticChain.interpolation_of_nativeSpectralRealization
+contains this argument. The prepared endpoint composes it with Section 1
+and rewrites the complexification norms. No step divides by E,Y or Z;
+all zero cases are included automatically.
+
+3. INDEPENDENT CONSUMERS AND VERIFICATION SCOPE
+
+Material/QFAH2Interpolation/Endpoint.lean imports the single source.
+Material/QFAH2Interpolation/Audit.lean has three independent consumers:
+
+  (a) The literal velocity/gradient/Laplacian L2 norm signature for every
+      actual PhysicalH2 input, with no spectral or inequality premise.
+  (b) Given actual L2 v,G,H satisfying the original SpatialWeakGradient
+      and SpatialWeakHessian predicates, derive
+        (sum_j ||G_j||_2^2)^2 <= ||v||_2^2 ||sum_j H_jj||_2^2.
+      The physical graph is constructed; no Laplacian norm is assumed.
+  (c) Replace ||L||_2^2 by the exact sum of all nine squared Hessian norms
+      using physicalH2_hessian_norm_sq_eq_laplacian. Constant one remains.
+
+Full type and named axiom sentinels cover the declaration. Static checks
+confirm the single theorem, three consumers, all four sentinels, and
+unchanged supporting source bytes. No proof tool was run locally.
+
+The supporting H2Spectral, PhysicalH2, Spectral, recovered AnalyticChain
+and Complexification source files are byte-identical to accepted
+d403c235a1cf6db5d9276f7cd987a4cc990a2fdf. Its retained matching external
+acceptance identifies run44837033211 with 512 modules and 99 fresh package
+audits. The newly prepared wrapper and audit are not thereby accepted.
+The pinned Mathlib revision is db584cd6d46c92f209a44c0f1c829460d327499d.
+
+No newer heat-energy result is required by this proof. A direct
+Cauchy-Schwarz proof from an actual Green identity is another route only
+after that identity's own verification has been accepted.
+
+4. COMPLETE SHARP-S6 BOUNDARY
+
+The registered constant and normalization are unchanged:
+  S6 = 2^(2/3)/(sqrt(3)*pi^(2/3)),
+  S6^6 = 16/(27*pi^4).
+
+For every actual PhysicalH1 input, with physical velocity v and actual
+gradient energy Y, the missing quantitative assertion is
+  v in L6(R3;R3),
+  ||v||_6 <= S6*sqrt(Y).                                  (4.1)
+
+Equivalently, a single nonnegative-integral bound can establish both the
+finiteness and constant without using a totalized real integral too early:
+  lintegral_R3 ofReal(||v(x)||^6) dx
+    <= ofReal((16/(27*pi^4))*Y^3).                         (4.2)
+
+The H2 convection application also needs the same scalar constant for the
+matrix-valued gradient:
+  ||grad v||_6 <= S6 ||D2 v||_2 = S6 ||Delta v||_2.
+The final norm equality is already proved; the L6 bound is not its consequence.
+
+The earliest genuinely missing sharp analytic statement is already the
+real smooth compactly supported scalar inequality
+  27*pi^4 * integral_R3 |f|^6
+    <= 16 * (integral_R3 sum_j |partial_j f|^2)^3.          (4.3)
+The integrals in (4.3) are genuinely finite by compact support and smoothness.
+No accepted proof of (4.3), or of a stronger quantitative theorem implying
+it, was found in the inspected native/vendor modules or pinned Mathlib.
+
+The precise limits of the available theorems are:
+
+  - Native spectral interpolation gives Y^2<=E Z and contains no L6 norm.
+  - The exact Hessian/Laplacian identity compares L2 derivative norms only.
+  - Mathlib eLpNorm_le_eLpNorm_fderiv_of_eq_inner proves compact-C1 Sobolev
+    with eLpNormLESNormFDerivOfEqInnerConst volume 2. Its construction uses
+    grid lines, finite-dimensional equivalences, Haar normalization and a
+    p*(n-1)/(n-p) factor. No comparison placing this constant below S6 is
+    supplied. Rewriting S6^6 alone proves no such comparison.
+  - The retained upstream ES13 source gives L6 membership from Bessel H1
+    under different pins and uses the generic constant. Its approximation
+    machinery is a source pattern, not a native sharp admission theorem.
+  - EnstrophyCoefficient and Cutoff retain explicit fourth-power convection
+    and/or normalization hypotheses. Their valid scalar arithmetic cannot
+    discharge the underlying physical inequality.
+  - The historical Agmon threshold E*Y<4*pi^2*nu^4 does not establish the
+    registered threshold E*Y<(27*pi^4/16)*nu^4.
+
+5. NEXT CONSTRUCTIVE BRIDGES WITHOUT A CIRCULAR ADMISSION
+
+A useful separate target is native simultaneous real Schwartz density in
+the PhysicalH1 graph: one sequence converges in velocity and every actual
+L2 gradient. Accepted Fourier identities, real Fourier range, Schwartz L2
+density and smooth inverse Bessel weights supply a constructive route.
+A theorem only giving L2 density of PhysicalH2 velocities is useful for
+forcing approximation but does not by itself give this graph-norm density.
+
+Once (4.3) has an actual proof, cutoffs, simultaneous H1 convergence and
+Fatou can extend it with the same constant. Finite vector/tensor extension
+introduces no dimension factor: Minkowski in L3 gives
+  ||F||_6^2 = ||sum_i |F_i|^2||_3
+            <= sum_i ||F_i||_6^2
+            <= S6^2 sum_(i,j)||partial_j F_i||_2^2.
+This is a bridge after the sharp scalar theorem, not a proof of it.
+
+A complete new sharp route would require, for example, a proved
+rearrangement/energy reduction and sharp radial one-dimensional inequality,
+or another full sharp Sobolev proof. A norm identity, scalar normalization
+or extremizer calculation alone does not prove the all-function estimate.
+No missing inequality is inserted as an axiom, supplied port or field of
+an assumed construction here. This endpoint constructs no NSE solution,
+temporal enstrophy identity, continuation theorem or full QFA root.

@@ -697,3 +697,37 @@ exact negative enstrophy. Forced maximal regularity and general QFA/WFA open.
 BASE:809aadc6da1eeabd5c128eb9c78005a38d3d4935 acceptedrun44853804320.
 CHAINS:R3_NSE/QFA/DERIVATIONS/HEAT_DUHAMEL_CHAIN.txt;HEAT_SPATIAL_ENERGY_CHAIN.txt.
 No local Lean. No earlier accepted proof/audit or verification-policy change.
+
+QFA_DUHAMEL_OPERATOR_SPATIAL_ENERGY_A_TIER_ACCEPTED
+SOURCE=9b8250be2f13048e3e21cd94c8ba1939d919bf64
+TREE=5e8f0db8caa9063d149922ad571fea7d594a735d
+RUN=44857358591 https://github.com/randogelist/Methboke/actions/runs/44857358591
+EVIDENCE=audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+NEW_NAMES=audits/material-9b8250be-qfa-forced-heat-accepted/new-declaration-index.json
+SCOPE=3 packages;24 declarations=22 theorems+2 definitions;29 independent consumers.
+QFAHeatDuhamel=15 declarations (14 theorems,1 definition);17 consumers.
+QFAHeatDuhamelOperator=5 declarations (4 theorems,1 definition);7 consumers.
+QFAHeatSpatialEnergy=4 theorems;5 consumers.
+FULL_RUN=534 modules;109 fresh package audits;1435 unique named reports;fresh QFB/publication/final PASS.
+RESULT=Actual finite-window time-L2 spatial-L2 Duhamel response;AE invariance,linearity,continuous zero trace,integral-of-norm and sqrt(T) actual forcing-Lp bounds;constructed forcing-quotient CLM;physical H1 IBP,H1-H2 Green pairing,H2 bilinear symmetry and exact negative enstrophy.
+CHECKLIST=Steps1,7 complete;step2 sharp constant and step3 forced/nonlinear theory remain open.
+NEXT=QFA_H2_HEAT_SEMIGROUP: actual H2 graph action,original H2 trace,commuting derivatives and strong continuity down to zero for regular forcing.
+SUBSEQUENT_OPEN=Inhomogeneous equation,forced energy estimate,density passage,forced maximal regularity and nonlinear H1 local/maximal theory.
+RETAINED_GENERATOR=audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json;9 accepted theorems at809aadc6.
+RETAINED_HEAT_TIME=audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json;35 accepted declarations at000c1bd9.
+RETAINED_MAIN_FDSN=audits/material-572fd9ee-fdsn-r3-accepted/independent-review.json;all16 conditional Seed->Family endpoints at572fd9ee;seed existence open.
+LIMITS=No unbounded-operator self-adjointness or forced time-derivative theorem;general QFA/WFA open;G05 accepted;five G-parent gaps open;P01-P08/M1 unchanged;M2/M3 open;D-family root unchanged.
+HISTORY=Earlier preparation and failed-attempt entries remain historical and are superseded for current status only by this exact 24-declaration acceptance.
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_LEAN_EXECUTIONS=0
+
+QFA_H2_EVOLUTION_INTERPOLATION_PREPARED
+DATE:2026-11-21. AC-Integration. STATUS:PREPARED_PENDING_MATCHING_EXTERNAL_CI.
+ACTIVE_ID:QFA_H2_EVOLUTION_INTERPOLATION_BATCH. BASE:9b8250be2f13048e3e21cd94c8ba1939d919bf64; acceptedrun44857358591.
+NEW:32 declarations=29 theorems+3 definitions;40 independent consumers;4 packages.
+EXPECTED:542 modules/113 fresh packages/1467 named reports.
+Actual PhysicalH2 heat semigroup with original H2 trace and graph continuity; positive-time L2 velocity generator and original-trace integrated equation; actual continuous PhysicalH2-forcing response with original-coordinate L2 identities and H2 norm bound; unconditional constant-one physical enstrophy-energy-Laplacian interpolation Y^2 <= E Z.
+Steps1,7 remain complete; sharp S6 and step3 open. General QFA/WFA and D unchanged.
+NEXT_AFTER_ACCEPTANCE:Construct the actual inhomogeneous heat equation and energy estimates for continuous PhysicalH2 forcing, then prove density passage to general finite-window time-L2 spatial-L2 forcing and forced maximal regularity.
+CHAINS:R3_NSE/QFA/DERIVATIONS/HEAT_H2_SEMIGROUP_CHAIN.txt;R3_NSE/QFA/DERIVATIONS/HEAT_H2_DYNAMICS_CHAIN.txt;R3_NSE/QFA/DERIVATIONS/HEAT_H2_DUHAMEL_CHAIN.txt;R3_NSE/QFA/DERIVATIONS/H2_INTERPOLATION_CHAIN.txt.
+No local Lean; prior proof, audit, dependency and verification bytes preserved.

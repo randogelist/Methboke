@@ -1,6 +1,13 @@
 # Actual L2 forcing-to-continuous-response operator
 
-**Status: prepared; matching cached external verification is pending.**
+**Status: A-tier accepted for the exact QFAHeatDuhamelOperator scope at `9b8250be`.**
+
+[External run 44857358591](https://github.com/randogelist/Methboke/actions/runs/44857358591) passed the complete 534-module,
+109-package, 1,435-report run, with fresh named audits, standalone QFB, complete
+publication and the final gate. This package has 5 declarations
+(4 theorems and 1 definitions) and 7 independent consumers.
+[Exact independent review](../../audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json) ·
+[New declaration index](../../audits/material-9b8250be-qfa-forced-heat-accepted/new-declaration-index.json).
 
 This package constructs the actual bounded real linear map
 
@@ -9,7 +16,7 @@ K_{\nu,T}:L^2((0,T];L^2(\mathbb R^3))
 \longrightarrow C([0,T];L^2(\mathbb R^3))
 $$
 
-from the separate prepared `QFAHeatDuhamel` response. It uses the native
+from the separately accepted `QFAHeatDuhamel` response. It uses the native
 forcing `Lp SpatialL2 2 (volume.restrict (Ioc 0 T))` and the actual
 `ContinuousMap (Icc 0 T) SpatialL2` carrier, with its supremum norm.
 Every nonnegative viscosity and finite nonnegative horizon are covered,
@@ -58,8 +65,8 @@ Every public declaration requires a named exact-type report and a
 transitive axiom audit permitting only `propext`, `Classical.choice` and
 `Quot.sound`. The operator is constructed from the actual response and its
 proved properties; no continuity, linearity, norm-bound or response witness
-is supplied as an additional hypothesis. Prepared source and static
-review do not establish A-tier acceptance.
+is supplied as an additional hypothesis. The matching external evidence
+above establishes only this exact package scope.
 
 ## Scope boundary
 
@@ -71,6 +78,11 @@ subsequent constructions. The general QFA and WFA roots remain open.
 The separate Duhamel package retains its own **15 declarations and 17
 consumers**. This operator package adds **five declarations and seven
 consumers**; their verification surfaces are distinct.
+
+The next microscopic construction is the actual H2 heat semigroup with
+the original H2 trace and strong continuity down to zero for regular forcing.
+The inhomogeneous equation, forced energy estimate, density passage and
+forced maximal regularity remain open.
 
 [Source](../MethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean) ·
 [Independent consumers](Audit.lean) ·

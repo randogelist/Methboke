@@ -1,0 +1,146 @@
+QFA: ACTUAL H2 DUHAMEL RESPONSE FOR CONTINUOUS PHYSICAL H2 FORCING
+DATE=2026-11-21
+MODE=A_TIER_DERIVATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
+LOCAL_LEAN_EXECUTIONS=0
+PUBLIC_DECLARATIONS=12
+PUBLIC_THEOREMS=11
+PUBLIC_DEFINITIONS=1
+INDEPENDENT_CONSUMERS=14
+
+Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatH2Duhamel.lean
+Prepared package: Material/QFAHeatH2Duhamel
+Matching cached external compiler, independent literal consumers and named
+transitive axiom evidence remain required. Source preparation and static
+review do not confer A-tier acceptance.
+
+1. ACTUAL REGULAR FORCING AND RESPONSE
+
+Let nu be any nonnegative viscosity, represented by NNReal. Let
+f:R->PhysicalH2 be an ordinary continuous function into the complete
+actual physical H2 graph. No differentiability of f, supplied response,
+kernel regularity or integrability witness is an input hypothesis.
+
+Define the actual H2-valued Bochner integral
+
+  duhamelH2(nu,f,t)
+    = integral_(s in 0..t) heatH2(nu,(t-s).toNNReal,f(s))ds.
+
+All physical spatial operators and Lebesgue time measure are unchanged.
+The physical retarded interpretation concerns t>=0. The same explicit
+toNNReal-clock formula defines a real-time extension for every real t.
+
+2. JOINT STRONG H2 CONTINUITY
+
+For nonnegative elapsed times r,s and actual H2 fields v,w, linearity and
+H2 contraction give
+
+  ||S2(r)v-S2(s)w||_H2
+    <= ||v-w||_H2 + ||S2(r)w-S2(s)w||_H2.
+
+The right side tends to zero by continuity of the input field and strong
+H2 continuity for the fixed datum w. The norm limit criterion proves
+joint continuity of (r,v)|->S2(r)v, including r=0. No operator-norm
+continuity at zero is assumed.
+
+The map (t,s)|->((t-s).toNNReal,f(s)) is continuous. Composing it with
+the proved joint H2 heat action yields a jointly continuous kernel
+
+  H(t,s)=heatH2(nu,(t-s).toNNReal,f(s)).
+
+For each fixed t, continuity in s proves actual IntervalIntegrable H(t,.)
+over 0..t, for every finite real t. This supplies genuine H2 Bochner
+integrability before commuting any physical operator with the integral.
+
+3. ZERO TRACE AND RESPONSE CONTINUITY
+
+The zero-length integral gives duhamelH2(nu,f,0)=0 exactly in PhysicalH2.
+The pinned theorem
+
+  intervalIntegral.continuous_parametric_intervalIntegral_of_continuous
+
+applies to the jointly continuous kernel H and the continuous upper-bound
+map t|->t, with fixed lower endpoint zero. It proves continuity on R of
+the actual response extension. In particular the physical nonnegative-
+time response is H2-continuous through its exact zero initial trace.
+
+The forcing is continuous into H2, so this argument uses ordinary native
+parametric integration rather than a separately assumed response or a
+new measurable-forcing construction.
+
+4. ACTUAL COORDINATE AND LAPLACIAN IDENTIFICATIONS
+
+Each native coordinate projection is a continuous real linear map from
+the actual H2 graph to SpatialL2. Apply its intervalIntegral_comp_comm
+theorem to the proved H2 integrability, then the literal heat coordinate
+identity. This gives, for each actual coordinate C=V,G_j,H_jk,
+
+  C(duhamelH2(nu,f,t))
+    = integral_0^t heatL2(nu,(t-s).toNNReal,C(f(s)))ds
+    = duhamelL2(nu,fun s=>C(f(s)),t).
+
+The actual physical Laplacian is also a continuous linear graph map.
+Its heat commutation identity yields the exact same conclusion:
+
+  physicalH2Laplacian(duhamelH2(nu,f,t))
+    = duhamelL2(nu,fun s=>physicalH2Laplacian(f(s)),t).
+
+The original forcing coordinates are retained inside every integral.
+No independent gradient, Hessian, Laplacian or spectral witness is used.
+The actual H2-to-H1 continuous linear map similarly gives
+
+  physicalH2ToH1(duhamelH2(nu,f,t))
+    = integral_0^t heatH1(nu,(t-s).toNNReal,physicalH2ToH1(f(s)))ds.
+
+5. FULL H2 FORCING-INTEGRAL BOUND AND ZERO VISCOSITY
+
+For t>=0, the Bochner norm bound and actual H2 contraction give
+
+  ||duhamelH2(nu,f,t)||_H2 <= integral_0^t ||f(s)||_H2 ds.
+
+The bound function is genuinely interval integrable because f is
+continuous. It controls the full inhomogeneous thirteen-coordinate graph
+norm and introduces no viscosity denominator or spectral-gap assumption.
+
+At zero viscosity, the exact H2 heat identity reduces the response to
+the actual H2 primitive integral_0^t f(s)ds. The independent audit consumes
+this case explicitly, without adding a positivity premise.
+
+6. EXACT PUBLIC AND AUDIT SURFACE
+
+Namespace: MethbokeAddon.QuasiFeffermanA.HeatH2Duhamel
+Public definition:
+  duhamelH2
+Public theorems:
+  heatH2_joint_continuous
+  duhamelH2_integrand_continuous
+  duhamelH2_integrand_intervalIntegrable
+  duhamelH2_zero_time
+  duhamelH2_continuous
+  duhamelH2_velocity
+  duhamelH2_gradient
+  duhamelH2_hessian
+  duhamelH2_laplacian
+  duhamelH2_toH1
+  duhamelH2_norm_le_integral_norm
+
+Fourteen independent consumers cover all twelve declarations, including
+literal H2/L2 integrals, original coordinate forcings, one common H2 path
+carrying the integral/continuity/trace/velocity/Laplacian/bound claims, and
+the zero-viscosity H2 primitive. Every declaration requires a named exact-
+type report and transitive axiom audit allowing only propext,
+Classical.choice and Quot.sound. Matching verification remains pending.
+
+7. BOUNDARY AND SUBSEQUENT ENERGY CONSTRUCTION
+
+The source uses the separate actual H2 heat semigroup and existing L2
+Duhamel constructor. It does not depend on the separate free H2 dynamics
+bridge. This package constructs a regular-forcing response with the
+ordinary assumption Continuous f into the actual PhysicalH2 space.
+
+The inhomogeneous differential equation, forced gradient/Laplacian energy
+estimate, density passage to arbitrary time-L2 spatial-L2 forcing, forced
+maximal regularity, solenoidal response and nonlinear local existence
+remain subsequent constructions. General QFA and WFA remain open.

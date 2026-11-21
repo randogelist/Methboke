@@ -1,0 +1,152 @@
+QFA: ACTUAL PHYSICAL H2 HEAT SEMIGROUP WITH ITS ORIGINAL INITIAL TRACE
+DATE=2026-11-21
+MODE=A_TIER_DERIVATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
+LOCAL_LEAN_EXECUTIONS=0
+PUBLIC_DECLARATIONS=15
+PUBLIC_THEOREMS=13
+PUBLIC_DEFINITIONS=2
+INDEPENDENT_CONSUMERS=17
+
+Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatH2Semigroup.lean
+Prepared package: Material/QFAHeatH2Semigroup
+Matching cached external compiler, independent literal consumers and named
+transitive axiom evidence remain required. Source preparation and static
+review do not confer A-tier acceptance.
+
+1. ACTUAL H2 DATA AND THE THIRTEEN-COORDINATE CONSTRUCTION
+
+Let nu,t be nonnegative real viscosity and elapsed time, represented by
+NNReal. Let u belong to the actual PhysicalH2 closed graph. Write V(u) for
+its full-volume real L2 velocity, G_j(u) for its three weak gradients and
+H_jk(u) for its nine ordered weak Hessian fields.
+
+Apply the accepted physical L2 heat semigroup S_nu(t) to every coordinate:
+
+  V_t = S_nu(t)V(u),
+  G_(t,j) = S_nu(t)G_j(u),
+  H_(t,j,k) = S_nu(t)H_jk(u).
+
+The accepted spatialWeakGradient_heatL2 theorem sends the original weak
+gradient relation to SpatialWeakGradient(V_t,G_t). Apply that same theorem
+to each original gradient row to obtain SpatialWeakGradient(G_(t,j),H_(t,j)).
+These are exactly the two native compact-test derivative relations required
+by physicalH2OfWeakDerivatives. This constructs heatH2(nu,t,u) in the actual
+H2 graph, rather than assuming membership of an independently chosen field.
+
+The definition directly gives the literal velocity, gradient and Hessian
+coordinate equalities for every nonnegative elapsed time.
+
+2. PHYSICAL LAPLACIAN AND H1 COMPATIBILITY
+
+The physical Laplacian is the sum of the three diagonal Hessian fields.
+Linearity of the actual L2 heat map therefore gives
+
+  physicalH2Laplacian(heatH2(nu,t,u))
+    = heatL2(nu,t,physicalH2Laplacian(u)).
+
+The native physicalH2ToH1 map retains velocity and first derivatives.
+The constructed H2 heat action and the accepted H1 heat action have the
+same actual velocity; injectivity of the physical H1 velocity map yields
+
+  physicalH2ToH1(heatH2(nu,t,u))
+    = heatH1(nu,t,physicalH2ToH1(u)).
+
+3. LINEARITY, GRAPH-NORM CONTRACTION AND THE ACTUAL CLM
+
+The physical H2 velocity map is injective because its actual weak
+derivatives are unique. Apply this injectivity and the L2 addition and
+real scalar-multiplication laws to prove linearity of heatH2.
+
+The exact native graph norm is
+
+  ||u||_H2^2 = ||V(u)||_L2^2
+              + sum_j ||G_j(u)||_L2^2
+              + sum_j sum_k ||H_jk(u)||_L2^2.
+
+Apply L2 heat contraction separately to all thirteen squared norms and
+sum. Nonnegativity of norms then gives
+
+  ||heatH2(nu,t,u)||_H2 <= ||u||_H2.
+
+The native bounded-linear-map constructor packages the proved linearity
+and bound one as heatH2CLM(nu,t):PhysicalH2 ->L[R] PhysicalH2. Its evaluation
+is exactly heatH2(nu,t,u). No bound or linearity witness is an input premise.
+
+4. ORIGINAL INITIAL TRACE AND SEMIGROUP LAW
+
+At time zero, the constructed velocity equals V(u) by the actual L2 heat
+identity. H2 velocity injectivity gives heatH2(nu,0,u)=u as an equality in
+the actual complete H2 graph. Thus the original velocity, all gradients
+and all Hessian entries are retained at the initial trace.
+
+The same argument proves heatH2(0,t,u)=u at zero viscosity. Applying the
+actual L2 semigroup law to the velocity and then H2 injectivity gives
+
+  heatH2(nu,s+t,u) = heatH2(nu,s,heatH2(nu,t,u)).
+
+All three identities include their zero cases without positivity premises.
+
+5. STRONG H2 CONTINUITY THROUGH ZERO
+
+Fix a reference time s>=0. The squared H2 distance between heatH2(nu,t,u)
+and heatH2(nu,s,u) is the literal sum of thirteen squared L2 coordinate
+differences. Each summand is continuous in t by the accepted strong L2
+continuity for its fixed actual input coordinate. Finite summation proves
+continuity of this squared distance, and its value at t=s is zero.
+
+Composition with the continuous square root sends the H2 norm difference
+to zero. The norm limit criterion therefore proves
+
+  Continuous (fun t:NNReal => heatH2(nu,t,u)).
+
+No generator, higher derivative, positive-time lower bound or separately
+supplied continuity hypothesis is used. In particular the theorem holds
+at t=0 for every original PhysicalH2 datum and every nonnegative viscosity.
+
+6. EXACT PUBLIC AND AUDIT SURFACE
+
+Namespace: MethbokeAddon.QuasiFeffermanA.HeatH2Semigroup
+Public definitions:
+  heatH2
+  heatH2CLM
+Public theorems:
+  heatH2_velocity
+  heatH2_gradient
+  heatH2_hessian
+  heatH2_laplacian
+  heatH2_toH1
+  heatH2_add
+  heatH2_smul
+  norm_heatH2_le
+  heatH2CLM_apply
+  heatH2_zero_time
+  heatH2_zero_viscosity
+  heatH2_add_time
+  heatH2_continuous
+
+Seventeen independent consumers cover all fifteen declarations. They also
+assemble one actual H2 path carrying the original trace, all thirteen
+physical coordinate identities, the Laplacian identity and contraction.
+Another consumer composes the actual Laplacian CLM with this continuous
+path and proves its original Laplacian trace at time zero.
+
+Each declaration requires a named exact-type report and transitive axiom
+audit allowing only propext, Classical.choice and Quot.sound. Matching
+external verification remains pending. The source depends only on the
+accepted HeatSemigroup and PhysicalH2 modules, independently of the
+separately prepared Duhamel/operator/spatial-energy batch.
+
+7. BOUNDARY AND SUBSEQUENT FORCED CONSTRUCTION
+
+This is the actual original-trace H2 semigroup layer for regular forcing.
+The initial datum is required to belong to the actual PhysicalH2 graph.
+No H2 initial trace for arbitrary PhysicalH1 data is asserted.
+
+The inhomogeneous equation for regular forcing, the forced gradient and
+Laplacian energy estimate, passage by density to arbitrary time-L2
+spatial-L2 forcing, forced maximal regularity, solenoidal response and
+nonlinear local existence remain distinct subsequent constructions.
+The general QFA and WFA roots remain open.

@@ -16,32 +16,51 @@ The retained project goal remains Fefferman_D.
 
 ## Latest QFA closure acceptance
 
-Source `809aadc6`, [run 44853804320](https://github.com/randogelist/Methboke/actions/runs/44853804320), accepts
-the actual strong L2 free-heat generator, derivative MemLp2 and Bochner
-integrability, the exact integrated equation from the original H1/L2 trace,
-and the derivative-energy identity with coefficient viscosity divided by two.
-The package has nine theorems and eleven independent consumers. Its complete
-receipt covers 528 modules, 106 fresh package audits and 1,411 unique named
-reports, with fresh QFB, complete publication and final acceptance.
-[Independent acceptance](../audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json) ·
+Source `9b8250be`, [run 44857358591](https://github.com/randogelist/Methboke/actions/runs/44857358591), accepts
+the actual continuous L2 Duhamel response, its bounded forcing-space operator,
+and the physical integration-by-parts/Green/negative-enstrophy pairings.
+The three packages contain **24 declarations: 22 theorems and two definitions**,
+with **29 independent consumers**. The complete receipt covers **534 modules,
+109 fresh package audits and 1,435 unique named reports**, with fresh QFB,
+complete publication and final acceptance.
+[Independent acceptance](../audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json) ·
+[All new names](../audits/material-9b8250be-qfa-forced-heat-accepted/new-declaration-index.json) ·
 [Cumulative register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
 
-**Steps 1 and 7 remain the only completed steps. Step 3 remains open.**
-The prior `000c1bd9` acceptance remains intact for 35 heat-time/all-window
-declarations; `ffbab0f5` remains accepted for restart, smoothing and zero datum.
-General nonzero-data QFA/WFA remain open. No local Lean was executed.
+The response uses actual finite-window time-L2 spatial-L2 forcing. Its norm
+is bounded by the integral of the forcing norm and by sqrt(T) times the
+actual forcing Lp norm; the initial trace is zero and the closed-window
+path is continuous. The operator respects the forcing quotient. The
+physical pairing is exactly negative enstrophy, with no one-half factor;
+bilinear Laplacian symmetry makes no unbounded self-adjointness claim.
 
-## Current candidate: actual L2 Duhamel response and energy pairing
+**Steps 1 and 7 remain the only completed steps. Steps 2 and 3 remain open.**
+Step 2 still needs sharp Sobolev admissibility. Step 3 still needs the
+inhomogeneous equation, forced energy estimate and density passage, maximal
+regularity and arbitrary-H1 nonlinear local/maximal theory.
+The prior `809aadc6` generator, `000c1bd9` heat-time/all-window and `ffbab0f5`
+restart/smoothing/zero-datum acceptances remain intact. General nonzero-data
+QFA/WFA remain open. No local Lean was executed.
 
-Construct the actual spatial-L2 Duhamel response for finite-window time-L2 spatial-L2 forcing, prove continuity and the zero initial trace, and bound its L2 norm by sqrt(T) times the norm of the actual time-L2 forcing class; also prove the bound by the time integral of the forcing norm.
-Forced maximal regularity and nonlinear H1 local/maximal theory remain
-separate subsequent constructions. An accepted linear generator does not
-prove nonlinear NSE existence, general LH nonemptiness or physical comparison.
-Prepared batch: actual response, bounded forcing-quotient operator and physical
-integration by parts. Twenty-four declarations and 29 independent consumers
-await matching external verification (534 modules,109 packages,1435 reports).
-This candidate does not yet add accepted scope or complete step 3.
-[Duhamel chain](../R3_NSE/QFA/DERIVATIONS/HEAT_DUHAMEL_CHAIN.txt) ·
+## Current candidate: H2 evolution and physical interpolation
+
+Prepared four-package batch `QFA_H2_EVOLUTION_INTERPOLATION_BATCH`:
+32 declarations (29 theorems, three definitions), with 40 independent consumers.
+Expected matching external scope: 542 modules, 113 fresh package audits and
+1,467 named reports. The actual H2 semigroup, L2 free dynamics, continuous-H2
+forcing response and physical constant-one interpolation remain pending.
+Sharp S6 is a separate open obligation. Steps 1 and 7 remain the only complete
+items; no box is promoted by this preparation. The next construction after
+acceptance is the actual regular-forcing equation and energy estimates, followed
+by density passage and general time-L2 maximal regularity.
+
+## Next construction: original-trace H2 heat semigroup
+
+Construct the actual heat semigroup on PhysicalH2, preserving the original H2 datum at time zero, commuting with the physical gradient, Hessian, Laplacian and H2-to-H1 map, and proving graph-norm contraction and strong continuity down to zero. This supplies the semigroup layer for regular forcing; it does not assert an H2 initial trace for arbitrary H1 data or forced maximal regularity.
+The inhomogeneous equation for regular forcing, forced energy estimate and
+density passage to arbitrary time-L2 spatial-L2 forcing are subsequent open
+constructions. General LH existence and physical comparison remain separate.
+[Duhamel and operator chain](../R3_NSE/QFA/DERIVATIONS/HEAT_DUHAMEL_CHAIN.txt) ·
 [Spatial energy chain](../R3_NSE/QFA/DERIVATIONS/HEAT_SPATIAL_ENERGY_CHAIN.txt) ·
 [Accepted generator chain](../R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt) ·
 [Accepted heat-time chain](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
@@ -51,8 +70,8 @@ This candidate does not yet add accepted scope or complete step 3.
 | Step | Accepted scope | Remaining construction |
 |---|---|---|
 | 1. Concrete contract | Full-volume L2/LH interface and exact current physical root, with actual smooth pressure and strict/closed cutoffs separately checked | Contract complete; proving the general root belongs to steps 2–10 |
-| 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives and real Leray projection | Sobolev/interpolation admissibility and the exact sharp constant |
-| 3. Local H1 theory | Actual heat semigroup, H1-to-H2 map, measurable H2 trajectory, exact dissipation, finite-window L2-time H2, strong L2 generator and integrated equation from the original trace; zero nonlinear solution | Actual L2 Duhamel response, forced maximal regularity, arbitrary-H1 nonlinear existence, uniqueness and continuation |
+| 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives, real Leray projection, physical H1 integration by parts, H1-H2 Green pairing and negative-enstrophy identity | Sobolev/interpolation admissibility and the exact sharp constant |
+| 3. Local H1 theory | Actual heat semigroup, H1-to-H2 map, time-energy estimates, strong L2 generator and original-trace integral equation; actual continuous L2 Duhamel response and bounded forcing-space operator; zero nonlinear solution | Original-trace H2 semigroup for regular forcing, inhomogeneous equation, forced energy/density passage and maximal regularity; arbitrary-H1 nonlinear existence, uniqueness and continuation |
 | 4. LH solutions and restarts | Full shifted physical LH membership at nonnegative energy starts; actual zero-datum nonemptiness | General-data global nonemptiness |
 | 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
 | 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |
@@ -112,7 +131,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **2. Establish the whole-space spatial estimates and constants.**
 
-  **Available anchors:** Mathlib whole-space compact C1 Sobolev, continuous L2 Plancherel and IBP; Methlib corrected compact-Schwartz density and Fourier multipliers. Actual H1/H2 graphs, the Hessian–Laplacian identity and real Leray projection are accepted. Sharp S6 and the remaining spatial estimates remain open.
+  **Available anchors:** Mathlib whole-space compact C1 Sobolev, continuous L2 Plancherel and IBP; Methlib corrected compact-Schwartz density and Fourier multipliers. Actual H1/H2 graphs, the Hessian–Laplacian identity, real Leray projection, physical H1 integration by parts, H1-H2 Green pairing, bilinear Laplacian symmetry and exact negative-enstrophy identity are accepted. Sharp S6 and the remaining Sobolev/interpolation estimates remain open.
 
   Supply Sobolev, interpolation, the vector/tensor norm extension, and
   $\|D^2u\|_2=\|\Delta u\|_2$. Prove admissibility of $S_6$ in
@@ -128,7 +147,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **3. Construct local $H^1$ strong solutions and prove continuation.**
 
-  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation, finite-window L2-time H2 membership, strong L2 generator and integrated equation from the original trace are accepted. Actual Duhamel response, forced maximal regularity and arbitrary-H1 nonlinear local/maximal theory remain open.
+  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation, finite-window L2-time H2 membership, strong L2 generator and original-trace equation are accepted. The actual continuous L2 Duhamel response, AE-invariant forcing-space operator and exact forcing norm bounds are also accepted. The original-trace H2 heat semigroup for regular forcing is next; the inhomogeneous equation, forced energy/density passage, maximal regularity and arbitrary-H1 nonlinear local/maximal theory remain open.
 
   Prove actual local existence, uniqueness, maximal lifetime, continuity in
   $H^1$, sufficient $L^2_tH^2_x$ control, bounded-$H^1$ continuation,

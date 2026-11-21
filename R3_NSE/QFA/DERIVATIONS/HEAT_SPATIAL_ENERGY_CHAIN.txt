@@ -1,7 +1,16 @@
 QFA: ACTUAL PHYSICAL INTEGRATION BY PARTS AND LAPLACIAN ENERGY
 DATE=2026-11-21
 MODE=A_TIER_DERIVATION
-STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+STATUS=A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES
+TESTED_SOURCE=9b8250be2f13048e3e21cd94c8ba1939d919bf64
+TESTED_TREE=5e8f0db8caa9063d149922ad571fea7d594a735d
+EXTERNAL_RUN=44857358591 https://github.com/randogelist/Methboke/actions/runs/44857358591
+EVIDENCE=audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+ACCEPTED_SCOPE=QFAHeatSpatialEnergy;4 theorems;5 consumers.
+FULL_RUN=534 modules;109 fresh package audits;1435 unique named reports;fresh QFB/publication/final PASS.
+CHECKLIST=Steps1,7 complete;step2 sharp constant and step3 forced/nonlinear theory remain open.
+NEXT_MICROSCOPIC_TARGET=QFA_H2_HEAT_SEMIGROUP
+HISTORY=Any failed external attempts retained below remain historical.
 PROJECT_GOAL=Fefferman_D (unchanged)
 LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
 LOCAL_LEAN_EXECUTIONS=0
@@ -10,11 +19,11 @@ PUBLIC_THEOREMS=4
 PUBLIC_DEFINITIONS=0
 INDEPENDENT_CONSUMERS=5
 
-Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatSpatialEnergy.lean
-Prepared package: Material/QFAHeatSpatialEnergy
-Matching cached external compiler, independent literal consumers and named
-transitive axiom evidence remain required. Source preparation and static
-review do not confer A-tier acceptance.
+Accepted native source: Material/MethbokeAddon/QuasiFeffermanA/HeatSpatialEnergy.lean
+Accepted package: Material/QFAHeatSpatialEnergy
+Matching cached external compilation, independent literal consumers and fresh
+named type/transitive axiom audits passed, with complete publication and the
+final acceptance gate. The exact reviewed scope and evidence are above.
 
 1. ACTUAL GRAPH OPERATORS AND GENUINE PAIRINGS
 
@@ -110,7 +119,11 @@ of enstrophy and, for arbitrary real nu, the exact coefficient
 
 Each public theorem requires a named exact-type
 report and transitive axiom audit allowing only propext, Classical.choice
-and Quot.sound. Matching external verification remains pending.
+and Quot.sound. Complete matching external acceptance is recorded above.
+
+The next microscopic construction is the original-trace H2 heat semigroup
+with strong continuity down to zero, for regular forcing. The inhomogeneous
+equation, forced energy estimate and density passage remain subsequent.
 
 This supplies the spatial integration-by-parts ingredient for a future
 forced gradient/Laplacian energy estimate. It does not construct forced

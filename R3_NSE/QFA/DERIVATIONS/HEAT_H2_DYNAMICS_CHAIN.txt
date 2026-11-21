@@ -1,0 +1,126 @@
+QFA: ACTUAL H2 HEAT DYNAMICS IN THE PHYSICAL L2 VELOCITY SPACE
+DATE=2026-11-21
+MODE=A_TIER_DERIVATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
+LOCAL_LEAN_EXECUTIONS=0
+PUBLIC_DECLARATIONS=4
+PUBLIC_THEOREMS=4
+PUBLIC_DEFINITIONS=0
+INDEPENDENT_CONSUMERS=6
+
+Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatH2Dynamics.lean
+Prepared package: Material/QFAHeatH2Dynamics
+Accepted generator proof basis: 809aadc6da1eeabd5c128eb9c78005a38d3d4935,
+run44853804320. HeatTrajectory, HeatSmoothing and PhysicalH2 retain their
+accepted bytes at that basis. The new HeatH2Semigroup dependency is a
+prepared construction that must pass the same matching external batch.
+The registration/policy basis is to be fixed only after the preceding
+forced-response batch has complete matching external acceptance.
+Source preparation and static review do not confer A-tier acceptance.
+
+1. THE ACTUAL H2 PATH AND ITS ORIGINAL TRACE
+
+Let u:PhysicalH2 be an actual whole-space physical H2 field. The prepared
+heatH2(nu,s,u) heats its velocity, three weak gradients and nine Hessian
+entries using the existing real physical L2 heat semigroup. It has the
+original H2 value u at s=0 and is strongly continuous in the H2 graph.
+
+For real time define w(t)=heatH2(nu,t.toNNReal,u). This total function
+holds the original trace fixed at nonpositive times. The clamped-time
+extension is used to state continuity. Physical evolution is restricted
+to nonnegative times and the derivative statements below to positive time.
+
+2. IDENTIFICATION WITH THE ACCEPTED SMOOTHING TRAJECTORY
+
+For nu>0 and t>0, the accepted heatTrajectory theorem gives
+
+  V(heatTrajectory(nu,positive_nu,physicalH2ToH1(u),t))
+    = heatL2(nu,t.toNNReal,V(u)).
+
+The actual H2 heat construction has exactly the same velocity. The
+accepted injectivity of physicalH2Velocity therefore yields equality in
+the whole physical H2 graph:
+
+  heatTrajectory(nu,positive_nu,physicalH2ToH1(u),t) = w(t).
+
+This does not equate the arbitrary zero extension of heatTrajectory at
+t=0 with u. No such equality is needed or claimed.
+
+3. CONTINUOUS ACTUAL LAPLACIAN AND STRONG L2 VELOCITY DERIVATIVE
+
+The physical Laplacian is an existing continuous linear map from the
+H2 graph to SpatialL2. Composing it with the strongly continuous H2
+semigroup and the continuous real-to-nonnegative clock gives
+
+  Continuous(t |-> physicalH2Laplacian(w(t))).
+
+This includes t=0 and every nonnegative viscosity. The initial value is
+the actual Laplacian of the original H2 datum. In particular the density
+nu * physicalH2Laplacian(w(t)) is genuinely Bochner integrable on every
+finite interval by continuity; it is not an assumed integrability port.
+
+The accepted HeatGenerator.heatH1_velocity_hasDerivAt theorem applies to
+the actual H1 inclusion of u. At every t>0 the trajectory identification
+above rewrites its derivative into
+
+  HasDerivAt (r |-> V(w(r))) (nu * physicalH2Laplacian(w(t))) t.
+
+The derivative lives in the actual SpatialL2 velocity space. No H2-valued
+time derivative, extra higher spatial derivative, or derivative witness
+is asserted or supplied.
+
+4. THE ORIGINAL-TRACE INTEGRAL EQUATION, INCLUDING T=0
+
+For every finite T>=0, apply the accepted
+HeatGenerator.heatH1_velocity_integrated_equation theorem to the actual
+H1 inclusion of u. Its left side is already
+
+  V(w(T)) - V(u).
+
+On every t in the positive open interval (0,T), the H1-smoothing
+trajectory equals w(t). The pinned
+intervalIntegral.integral_congr_Ioo_of_le theorem transfers the Bochner
+integral using precisely that equality; Lebesgue endpoint singletons
+have zero measure. The resulting physical identity is
+
+  V(w(T)) - V(u)
+    = integral_(t in 0..T) nu * physicalH2Laplacian(w(t)).
+
+For T=0 both interval integrals vanish and the original H2 trace is
+retained. This argument makes no equality claim about the arbitrary
+smoothing representative at the single time zero.
+
+5. EXACT VERIFICATION SURFACE AND OPEN BOUNDARY
+
+Namespace: MethbokeAddon.QuasiFeffermanA.HeatH2Dynamics
+Public theorems:
+  heatTrajectory_eq_heatH2
+  heatH2_laplacian_realTime_continuous
+  heatH2_velocity_hasDerivAt
+  heatH2_velocity_integrated_equation
+
+Six independent consumers retain the literal graph equality, continuity
+of the diagonal-Hessian sum, actual generator-density integrability,
+the L2 velocity derivative and original-trace integral, and one common
+constructed H2 path carrying all these evolution clauses simultaneously.
+All four names require exact type and transitive axiom reports permitting
+only propext, Classical.choice and Quot.sound. Matching external cached
+compilation, all fresh audits, publication and final acceptance remain
+required. No local compiler or kernel fallback is permitted.
+
+This package adds four free-heat bridge theorems. Together with the
+planned H2Semigroup, continuous-H2-forcing Duhamel and actual physical
+H2 interpolation packages, the next four-package batch has 32 declarations
+(29 theorems and three definitions) and 40 independent consumers. The
+interpolation package adds the actual constant-one inequality Y^2<=E*Z;
+sharp S6 remains open. No scope is accepted merely by being prepared.
+
+The actual inhomogeneous equation for regular forcing, the forced
+gradient/Laplacian energy estimate, density passage to arbitrary
+time-L2 spatial-L2 forcing, forced maximal regularity and nonlinear H1
+theory remain subsequent obligations. Step 2 sharp Sobolev admissibility,
+step 3, general QFA/WFA, five G-parent gaps, M2/M3 and the D-family root
+remain open. Completed steps 1 and 7, G05, P01-P08/M1 and the Fefferman D
+project goal are unchanged.

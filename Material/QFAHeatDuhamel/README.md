@@ -1,6 +1,13 @@
 # Actual finite-window L2 Duhamel response
 
-**Status: prepared; matching cached external verification is pending.**
+**Status: A-tier accepted for the exact QFAHeatDuhamel scope at `9b8250be`.**
+
+[External run 44857358591](https://github.com/randogelist/Methboke/actions/runs/44857358591) passed the complete 534-module,
+109-package, 1,435-report run, with fresh named audits, standalone QFB, complete
+publication and the final gate. This package has 15 declarations
+(14 theorems and 1 definitions) and 17 independent consumers.
+[Exact independent review](../../audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json) ·
+[New declaration index](../../audits/material-9b8250be-qfa-forced-heat-accepted/new-declaration-index.json).
 
 This package constructs the actual retarded Bochner integral
 
@@ -49,21 +56,25 @@ transitive axiom audit permitting only `propext`, `Classical.choice` and
 No measurability, integrability, continuity or constructed-response witness
 is supplied as an extra input. The finite-window `MemLp 2` condition is
 the forcing-space assumption from which these properties are derived.
-Prepared source and static review do not establish A-tier acceptance.
+The matching external evidence above establishes only this exact package scope.
 
 ## Scope boundary
 
 This is the continuous L2 response and its low-frequency estimate.
 Forced H1/H2 maximal regularity, the inhomogeneous derivative equation,
 solenoidal response packaging and nonlinear local existence remain
-subsequent constructions. The separate prepared
+subsequent constructions. The separately accepted
 [QFAHeatDuhamelOperator package](../QFAHeatDuhamelOperator/README.md)
 bundles this response as an actual continuous linear map from the forcing
 `Lp` space to continuous physical L2 paths, with norm at most `sqrt T`,
 zero initial trace and compatibility with original representatives.
-Matching external verification of that five-declaration, seven-consumer
-package is pending. This package retains its own 15-declaration,
-17-consumer scope. The general QFA and WFA roots remain open.
+That five-declaration, seven-consumer package passed the same matching
+external run. This package retains its own 15-declaration, 17-consumer scope. The general QFA and WFA roots remain open.
+
+The next microscopic construction is the actual H2 heat semigroup with
+the original H2 trace and strong continuity down to zero for regular forcing.
+The inhomogeneous equation, forced energy estimate, density passage and
+forced maximal regularity remain open.
 
 [Source](../MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean) ·
 [Independent consumers](Audit.lean) ·

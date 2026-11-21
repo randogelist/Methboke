@@ -1,23 +1,66 @@
 # Methboke
 
-## Current construction: forced L2 response and physical energy pairing
+## Current construction: H2 heat evolution and physical interpolation
 
-**Matching external verification is pending** for three new packages:
+**Matching external verification is pending** for four packages. The accepted
+forcing receipt at `9b8250be` below remains the current acceptance basis.
 
-| Package | Prepared scope |
-|---|---|
-| `QFAHeatDuhamel` | Actual retarded integral, continuous zero trace, forcing-class invariance and exact time-L2 forcing bounds; 15 declarations |
-| `QFAHeatDuhamelOperator` | Actual bounded map from the forcing Lp quotient to continuous L2 paths, norm at most sqrt(T), zero trace and representative compatibility; five declarations |
-| `QFAHeatSpatialEnergy` | Actual H1 integration by parts, H1-H2 Laplacian pairing, bilinear H2 symmetry and negative-enstrophy identity; four theorems |
+| Package | Prepared scope | Declarations / consumers |
+|---|---|---|
+| `QFAHeatH2Semigroup` | Actual H2 graph heat action and bounded map, original H2 trace, contraction, semigroup law and strong continuity through zero | 13 theorems + 2 definitions / 17 |
+| `QFAHeatH2Dynamics` | Positive-time agreement with H1 smoothing, continuous Laplacian, actual L2 velocity generator and original-trace free equation for every T >= 0 | 4 theorems / 6 |
+| `QFAHeatH2Duhamel` | Actual continuous-H2 forcing response, continuous zero trace, original-coordinate L2 identities and full H2 norm bound | 11 theorems + 1 definition / 14 |
+| `QFAH2Interpolation` | Unconditional constant-one physical interpolation Y^2 <= E Z | 1 theorem / 3 |
 
-The batch has **24 declarations: 22 theorems and two definitions**, covered by
-29 independent consumers. The expected complete run is **534 modules,
-109 fresh package audits and 1,435 named reports**. Prepared source is not
-A-tier acceptance. The generator acceptance below and all earlier scopes remain.
+The batch has **32 declarations: 29 theorems and three definitions**, with
+**40 independent consumers**. Its expected complete external scope is
+**542 modules, 113 fresh package audits and 1,467 named reports**.
+Prepared source adds no acceptance. The H2 response uses ordinary continuous
+PhysicalH2 forcing; the generator concerns the L2 velocity, with positive
+viscosity. No H2-valued time derivative or arbitrary-H1 initial H2 trace is asserted.
 
-The response uses finite-window time-L2 spatial-L2 forcing. Forced maximal
-regularity, the inhomogeneous derivative equation and nonlinear local theory
-remain separate obligations. Steps 1 and 7 remain complete; step 3 is open.
+Steps **1 and 7** remain complete. Sharp S6, the actual forced equation and
+energy estimates, density passage, maximal regularity and nonlinear H1 theory
+remain open. General QFA/WFA, G01/G02/G03/G04/G06, M2/M3 and the D-family root
+remain open; G05 and P01-P08/M1 remain accepted. The Fefferman D goal is unchanged.
+
+## Accepted actual Duhamel response, forcing operator and spatial energy
+
+**24 declarations are A-tier accepted at `9b8250be`: 22 theorems
+and two definitions**, with 29 independent consumers, in
+[external run 44857358591](https://github.com/randogelist/Methboke/actions/runs/44857358591). The complete run passed
+**534 modules, 109 fresh package audits and 1,435 unique named type/axiom reports**,
+plus fresh QFB, complete publication and the final acceptance gate.
+[Independent review](audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json) ·
+[All 24 named reports](audits/material-9b8250be-qfa-forced-heat-accepted/new-declaration-index.json).
+
+| Package | Accepted scope | Declarations / consumers |
+|---|---|---|
+| `QFAHeatDuhamel` | Literal retarded heat integral, a.e. forcing invariance, linearity, continuous zero trace and exact forcing bounds | 14 theorems + 1 definition / 17 |
+| `QFAHeatDuhamelOperator` | Constructed bounded map from the actual forcing Lp quotient to continuous physical L2 paths, norm at most sqrt(T), zero trace and representative compatibility | 4 theorems + 1 definition / 7 |
+| `QFAHeatSpatialEnergy` | Actual H1 integration by parts, H1-H2 Green pairing, bilinear Laplacian symmetry and exact negative-enstrophy identity | 4 theorems / 5 |
+
+The response takes **finite-window time-L2 spatial-L2 forcing**. Its norm is
+bounded by the integral of the forcing norm and by sqrt(T) times the actual
+forcing Lp norm. Nonnegative viscosity and every finite nonnegative horizon
+are covered, including zero viscosity and T = 0. No extra response, continuity,
+regularity or integrability witness is supplied. The spatial pairing is exactly
+`inner(u, Delta u) = -Y(u)`, with no one-half factor. Bilinear Laplacian symmetry
+makes no unbounded-operator self-adjointness claim.
+
+**Steps 1 and 7 remain the only completed checklist items.** Step 2 retains the
+sharp Sobolev constant obligation; step 3 retains the inhomogeneous equation,
+forced energy estimate, density passage, maximal regularity and nonlinear H1
+theory. The next microscopic target is the **actual H2 heat semigroup**, with
+the original H2 trace and strong continuity down to zero, for regular forcing.
+This next target makes no H2 initial-trace claim for arbitrary H1 data.
+
+[Duhamel and operator chain](R3_NSE/QFA/DERIVATIONS/HEAT_DUHAMEL_CHAIN.txt) ·
+[Physical spatial-energy chain](R3_NSE/QFA/DERIVATIONS/HEAT_SPATIAL_ENERGY_CHAIN.txt).
+The accepted generator, 35-declaration heat-time layer, restart/zero-data scopes
+and conditional main FDSN_R3 receipt below remain intact. General QFA/WFA,
+G01/G02/G03/G04/G06, M2/M3 and the D-family root remain open; G05 and P01-P08/M1
+remain accepted. The Fefferman D goal is unchanged. No local Lean was executed.
 
 ## Accepted actual free-heat generator and equation from the initial trace
 
@@ -40,10 +83,11 @@ divided by two**. No derivative or integrability witness is supplied as a premis
 The H2 trajectory's auxiliary value at zero is used only in integrals; it does
 not replace the true initial velocity or assert an H2 initial trace.
 **Step 3 remains open. Steps 1 and 7 remain the only completed checklist items.**
-The next microscopic target is the actual L2 Duhamel response for finite-window
-time-L2 spatial-L2 forcing: continuity, zero initial trace and the sqrt(T) bound
-using the actual forcing Lp norm, together with the integral-of-norm bound.
-Forced maximal regularity and nonlinear H1 theory follow as separate obligations.
+The Duhamel response and forcing-space operator are now accepted above.
+The next microscopic target is the H2 heat semigroup with its original H2
+trace and strong continuity down to zero. The regular-forcing equation,
+forced energy estimate, density passage, maximal regularity and nonlinear
+H1 theory remain separate obligations.
 
 The accepted 35-declaration heat-time layer and the conditional main-branch
 FDSN_R3 receipt below are retained. General QFA/WFA, five G-parent gaps, M2/M3
@@ -66,10 +110,11 @@ checks the exact source, full types and standard-only transitive axioms.
 | `QFAWeightedBudgetAllWindows` | One theorem: actual LH product integrability and the factor-one-quarter weighted bound for every finite T >= 0, including the empty zero window |
 
 **Checklist step 7 is complete for every supplied actual LH path.** Steps 1
-and 7 are complete. Step 3 now also has the accepted actual free-heat generator
-and integrated equation described above; the forced response, maximal regularity
-and nonlinear H1 theory remain open. General-data global LH existence is a
-separate step-4 obligation.
+and 7 are complete. Step 3 also has the accepted free-heat generator, original-
+trace integral equation, actual L2 Duhamel response and forcing-space operator
+described above. The inhomogeneous derivative equation, forced maximal
+regularity and nonlinear H1 theory remain open. General-data global LH
+existence is a separate step-4 obligation.
 The H2 trajectory's zero extension at nonpositive times makes no H2 initial
 trace claim for arbitrary H1 data; the physical H1 heat flow retains its original trace.
 
@@ -113,12 +158,13 @@ $p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
 [Scoped mathematical chain](R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
 No local Lean was executed. The project goal remains Fefferman D.
 
-The next scoped construction is the **actual L2 Duhamel response** for
-finite-window time-L2 spatial-L2 forcing: continuity, its zero initial trace,
-the sqrt(T) bound using the actual time-L2 forcing norm and the integral-of-norm
-bound. Forced maximal regularity, nonlinear H1 existence, general
-LH existence, physical comparison, sharp spatial admission and small-product
-continuation remain explicit general-data obligations.
+The next scoped construction is the **actual H2 heat semigroup** with the
+original H2 initial trace and strong continuity down to zero, for the regular-
+forcing route. The inhomogeneous equation, forced energy estimate and density
+passage to arbitrary time-L2 spatial-L2 forcing remain open, followed by forced
+maximal regularity and nonlinear H1 theory. General LH existence, physical
+comparison, sharp spatial admission and small-product continuation remain
+explicit general-data obligations.
 
 ## Earlier accepted NSE-A native basis
 

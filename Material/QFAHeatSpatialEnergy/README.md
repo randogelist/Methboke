@@ -1,6 +1,13 @@
 # Physical integration by parts and Laplacian energy
 
-**Status: prepared; matching cached external verification is pending.**
+**Status: A-tier accepted for the exact QFAHeatSpatialEnergy scope at `9b8250be`.**
+
+[External run 44857358591](https://github.com/randogelist/Methboke/actions/runs/44857358591) passed the complete 534-module,
+109-package, 1,435-report run, with fresh named audits, standalone QFB, complete
+publication and the final gate. This package has 4 declarations
+(4 theorems and 0 definitions) and 5 independent consumers.
+[Exact independent review](../../audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json) ·
+[New declaration index](../../audits/material-9b8250be-qfa-forced-heat-accepted/new-declaration-index.json).
 
 This package derives the exact physical energy pairing
 
@@ -50,8 +57,8 @@ norms and retain the exact coefficient for an arbitrary real multiplier
 Every public theorem requires a named exact-type report and a transitive
 axiom audit permitting only `propext`, `Classical.choice` and `Quot.sound`.
 No integration-by-parts, spectral pairing, boundary, derivative or
-integrability witness is supplied as an additional hypothesis. Prepared
-source and static review do not establish A-tier acceptance.
+integrability witness is supplied as an additional hypothesis. The matching
+external evidence above establishes only these exact spatial identities.
 
 ## Scope boundary
 
@@ -64,6 +71,11 @@ estimate. Forced H1/H2 maximal regularity, the inhomogeneous derivative
 equation, solenoidal response packaging and nonlinear local existence
 remain subsequent constructions. The general QFA and WFA roots remain
 open.
+
+The next microscopic construction is the actual H2 heat semigroup with
+the original H2 trace and strong continuity down to zero for regular forcing.
+The inhomogeneous equation, forced energy estimate, density passage and
+forced maximal regularity remain open.
 
 [Source](../MethbokeAddon/QuasiFeffermanA/HeatSpatialEnergy.lean) ·
 [Independent consumers](Audit.lean) ·
