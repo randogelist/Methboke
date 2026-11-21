@@ -1,0 +1,39 @@
+name: Repair R3 Schwartz datum admission
+
+# One-shot static proof-source/manifest repair. No Lean or Lake is invoked here.
+on:
+  push:
+    branches:
+      - codex/nse-a-r3-ehrenfest
+    paths:
+      - .github/workflows/repair-r3-datum-admission.yml
+      - scripts/repair_r3_datum_admission.py
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact branch head
+        uses: actions/checkout@v4
+        with:
+          ref: codex/nse-a-r3-ehrenfest
+          fetch-depth: 0
+
+      - name: Apply diagnosed static repair
+        run: python3 scripts/repair_r3_datum_admission.py
+
+      - name: Commit repaired source and synchronized manifests
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add Material README.md R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_DATUM_CANDIDATE
+          if git diff --cached --quiet; then
+            echo "No repair changes produced"
+            exit 1
+          fi
+          git commit -m "Repair R3 Schwartz datum trace normalization"
+          git push origin HEAD:codex/nse-a-r3-ehrenfest
