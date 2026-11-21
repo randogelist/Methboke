@@ -2,11 +2,10 @@ name: Promote FDSN showcase
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
-      - .github/workflows/promote-fdsn-showcase.yml
-  workflow_dispatch:
+      - ".github/workflows/promote-fdsn-showcase.yml"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -20,9 +19,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Add the accepted T3 and R3 FDSN roots to the main showcase
-        shell: python
+      - name: Patch the showcase and registers
+        shell: bash
         run: |
+          set -euo pipefail
+          cat > /tmp/promote_fdsn.py <<'PY'
           from pathlib import Path
 
           readme_path = Path("README.md")
@@ -31,20 +32,21 @@ jobs:
               "This latest six-goal declaration supersedes the earlier configurations. Existing\n"
               "results, explicit hypotheses and source-specific evidence retain their status.\n"
           )
-          showcase = r"""## Main showcased theorems
+          showcase = """## Main showcased theorems
 
-| Marker | Domain | Canonical theorem | Exact accepted statement | Evidence |
-|---|---|---|---|---|
-| **`!!!!`** | $\mathbb T^3$ | `MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY` | `∀ ν T U p F, Seed ν T U p F → Family ν T U p F` | [A-tier register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt), [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125) |
-| **`!!!!`** | $\mathbb R^3$ | `MethbokeAddon.FDSNR3.FDSN_R3` | `∀ ν T u p F, Seed ν T u p F → Family ν T u p F` | [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json), [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720) |
+          | Marker | Domain | Canonical theorem | Exact accepted statement | Evidence |
+          |---|---|---|---|---|
+          | **`!!!!`** | $\\mathbb T^3$ | `MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY` | `∀ ν T U p F, Seed ν T U p F → Family ν T U p F` | [A-tier register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt), [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125) |
+          | **`!!!!`** | $\\mathbb R^3$ | `MethbokeAddon.FDSNR3.FDSN_R3` | `∀ ν T u p F, Seed ν T u p F → Family ν T u p F` | [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json), [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720) |
 
-For both rows, `!!!!` records A-tier closure of the exact same-witness
-seed-to-family theorem with only `propext`, `Classical.choice` and `Quot.sound`
-in the theorem-level audit. The original `Seed` premise remains part of each
-statement; neither row asserts seed existence. The accepted T³ source is
-`87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`, and the accepted ℝ³ source is
-`572fd9ee69a6b641f435cbfb2ef74e034809c583`.
-"""
+          For both rows, `!!!!` records A-tier closure of the exact same-witness
+          seed-to-family theorem with only `propext`, `Classical.choice` and `Quot.sound`
+          in the theorem-level audit. The original `Seed` premise remains part of each
+          statement; neither row asserts seed existence. The accepted T³ source is
+          `87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef`, and the accepted ℝ³ source is
+          `572fd9ee69a6b641f435cbfb2ef74e034809c583`.
+          """
+          showcase = "\n".join(line[10:] if line.startswith("          ") else line for line in showcase.splitlines()) + "\n"
           if "## Main showcased theorems" not in readme:
               if readme_anchor not in readme:
                   raise SystemExit("README showcase insertion anchor not found")
@@ -77,6 +79,8 @@ statement; neither row asserts seed existence. The accepted T³ source is
                   raise SystemExit("INDEX showcase insertion anchor not found")
               index = index.replace(index_anchor, index_anchor + status_lines, 1)
           index_path.write_text(index, encoding="utf-8")
+          PY
+          python3 /tmp/promote_fdsn.py
 
       - name: Commit the showcase promotion
         shell: bash
