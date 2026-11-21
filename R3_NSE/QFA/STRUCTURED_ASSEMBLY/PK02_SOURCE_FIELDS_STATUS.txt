@@ -1,4 +1,4 @@
-QFA STRUCTURED ASSEMBLY — PK02B SOURCE FIELDS
+QFA STRUCTURED ASSEMBLY — PK02B POINTWISE SOURCE FIELDS
 
 DATE = 2026-11-21
 BRANCH = codex/qfa-structured-assembly
@@ -9,30 +9,50 @@ STATUS = PENDING_MATCHING_EXTERNAL_CI
 CANDIDATE_SCOPE
 ===============
 
-Lift the accepted CKN/native coordinate bridge to actual spatial vector fields:
+Lift the accepted CKN/native coordinate bridge to pointwise spatial vector
+fields:
 
-  * raw source-coordinate vector-field and spatial-L2 carriers;
-  * pointwise source/native field conversions and inverse laws;
-  * native SpatialL2 -> source MemLp 2 and actual SourceSpatialL2;
-  * source SourceSpatialL2 -> native MemLp 2 and actual SpatialL2;
-  * almost-everywhere representative identities in both directions;
+  * raw source-coordinate vector-field carrier;
+  * pointwise source/native field conversions;
+  * literal application formulas;
+  * pointwise inverse laws in both directions;
   * exact physical pointwise Euclidean-norm transport in both directions.
 
-DECLARATIONS = 14
+DECLARATIONS = 9
 ENDPOINT_COUNT = 172
-TOTAL_NAMED_AUDITS = 2248
+TOTAL_NAMED_AUDITS = 2243
 
-No source solenoidality, CKN IsInJ, ESS good-time admission, PDE construction,
-comparison, continuation, smoothness, sharp Sobolev admission or QFA root is
-asserted.
+Raw-source MemLp/L2 admission is intentionally isolated to a later endpoint.
+The pinned Mathlib environment exposes propositionally compatible but
+non-definitional finite-Pi topology and measurable-space instances; this
+instance bridge is not hidden inside the pointwise theorem package.
 
-PACKAGE_COMMIT = d3f734863549a3c38c0b7405d983dcf96e20511d
+No source L2 admission, source solenoidality, CKN IsInJ, ESS good-time
+admission, PDE construction, comparison, continuation, smoothness, sharp
+Sobolev admission or QFA root is asserted.
+
+POINTWISE_PACKAGE_COMMIT = aa23c6d23888530fccbe09f809c27386a0b33550
 CKN_REFERENCE = 381d658ead0f03a18361965cc0427ce3fa5844ab
 MATHLIB = db584cd6d46c92f209a44c0f1c829460d327499d
 LEAN = 4.33.0
 
-Emit !=! only after matching external compiler, all fourteen independent type
-consumers, all fourteen theorem-level axiom reports, evidence retention,
+HISTORICAL L2 ATTEMPTS
+======================
+
+FIRST_CANDIDATE = 7a4281bd9854218378cbbaed2eb048ef2241e82b
+FIRST_RUN = 44882047090
+FIRST_FAILURE = implicit source/native domain maps in MemLp composition
+
+SECOND_CANDIDATE = 49603ed611c3298d0b94a074b447005219f5efde
+SECOND_RUN = 44882363249
+SECOND_FAILURE = non-definitional finite-Pi measurable/topological instances
+
+Neither failed attempt reached endpoint audits or acceptance. Their public
+L2 declarations are removed from this exact midpoint and retained as the
+explicit next finite-dimensional norm-equivalence/admission obligation.
+
+Emit !=! only after matching external compiler, all nine independent type
+consumers, all nine theorem-level axiom reports, evidence retention,
 publication and terminal Material acceptance pass for one exact source.
 
 LOCAL_LEAN_LAKE_KERNEL_EXECUTIONS = 0
