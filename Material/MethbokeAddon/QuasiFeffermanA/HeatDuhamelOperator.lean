@@ -40,7 +40,8 @@ private def responseLinearMap (ν : ℝ≥0) (T : ℝ) (hT : 0 ≤ T) :
       ContinuousMap (Icc (0 : ℝ) T) SpatialL2 where
   toFun := responseContinuousMap ν T hT
   map_add' F G := by
-    ext t
+    apply ContinuousMap.ext
+    intro t
     change duhamelL2 ν ((F + G) : ℝ → SpatialL2) (t : ℝ) =
       duhamelL2 ν (F : ℝ → SpatialL2) (t : ℝ) +
         duhamelL2 ν (G : ℝ → SpatialL2) (t : ℝ)
@@ -51,7 +52,8 @@ private def responseLinearMap (ν : ℝ≥0) (T : ℝ) (hT : 0 ≤ T) :
       _ = _ := duhamelL2_add ν _ _ T (Lp.memLp F) (Lp.memLp G)
         (t : ℝ) t.property.1 t.property.2
   map_smul' c F := by
-    ext t
+    apply ContinuousMap.ext
+    intro t
     change duhamelL2 ν ((c • F) : ℝ → SpatialL2) (t : ℝ) =
       c • duhamelL2 ν (F : ℝ → SpatialL2) (t : ℝ)
     calc

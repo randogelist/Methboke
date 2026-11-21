@@ -1,0 +1,9 @@
+MethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean:44:4: error: 'change' tactic failed, pattern
+  duhamelL2 ν (↑↑F + ↑↑G) ↑t = duhamelL2 ν ↑↑F ↑t + duhamelL2 ν ↑↑G ↑t
+is not definitionally equal to target
+  ↑↑((responseContinuousMap ν T hT (F + G)) t) =ᵐ[volume]
+    ↑↑((responseContinuousMap ν T hT F + responseContinuousMap ν T hT G) t)
+MethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean:55:4: error: 'change' tactic failed, pattern
+  duhamelL2 ν (c • ↑↑F) ↑t = c • duhamelL2 ν ↑↑F ↑t
+is not definitionally equal to target
+  ↑↑((responseContinuousMap ν T hT (c • F)) t) =ᵐ[volume] ↑↑(((RingHom.id ℝ) c • responseContinuousMap ν T hT F) t)

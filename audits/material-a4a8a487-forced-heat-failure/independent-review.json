@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_FAILURE_NO_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "a4a8a4878b43805e0d3e3387bd3722e266cc80cd",
+  "tree": "cdd7139b9ba89f9d144797c8d20407f452bf0e5f",
+  "prior_policy_basis": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+  "run_id": 44856232687,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44856232687",
+  "artifact_id": 14688275602,
+  "artifact_sha256": "ab8c55c76bf63ae1dbdc2486d1f4b3a4e28280d80b06480e3436f9b73308a2f2",
+  "artifact_bytes": 83055,
+  "report_sha256": "6aab57a640b1692ab75b0e66e91ec5b29c22307b8620534914aaad085c46fdc4",
+  "expected_module_count": 534,
+  "expected_package_count": 109,
+  "expected_named_reports": 1435,
+  "module_count": 534,
+  "module_counts": {
+    "PASS": 532,
+    "FAIL": 1,
+    "BLOCKED_BY_DEPENDENCY": 1
+  },
+  "failed_sources": [
+    "MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator"
+  ],
+  "blocked_sources": [
+    "QFAHeatDuhamelOperator.Endpoint"
+  ],
+  "package_count": 0,
+  "named_reports": 0,
+  "passed_package_receipts": [],
+  "all_package_audits_fresh": false,
+  "complete_audit_coverage": false,
+  "final_acceptance_gate": false,
+  "publication_pass": false,
+  "qfb_cutout_pass": false,
+  "new_a_tier_acceptance": false,
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "prior_accepted_source_audits_and_closures_byte_preserved": true,
+  "failure_phase": "compile",
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "error": "own module compilation failed; see module receipts",
+  "diagnostics": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.log",
+      "diagnostics": [
+        {
+          "line": 1,
+          "text": "MethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean:44:4: error: 'change' tactic failed, pattern\n  duhamelL2 ν (↑↑F + ↑↑G) ↑t = duhamelL2 ν ↑↑F ↑t + duhamelL2 ν ↑↑G ↑t\nis not definitionally equal to target\n  ↑↑((responseContinuousMap ν T hT (F + G)) t) =ᵐ[volume]\n    ↑↑((responseContinuousMap ν T hT F + responseContinuousMap ν T hT G) t)\nMethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean:55:4: error: 'change' tactic failed, pattern"
+        },
+        {
+          "line": 6,
+          "text": "    ↑↑((responseContinuousMap ν T hT F + responseContinuousMap ν T hT G) t)\nMethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean:55:4: error: 'change' tactic failed, pattern\n  duhamelL2 ν (c • ↑↑F) ↑t = c • duhamelL2 ν ↑↑F ↑t\nis not definitionally equal to target\n  ↑↑((responseContinuousMap ν T hT (c • F)) t) =ᵐ[volume] ↑↑(((RingHom.id ℝ) c • responseContinuousMap ν T hT F) t)"
+        }
+      ]
+    }
+  ],
+  "retained_diagnostic_logs": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.log",
+      "retained_log": "logs__modules__MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator.log.gz",
+      "raw_sha256": "995511c0306d44d9fa222398567820d40bf76b240791680515597a7630299321"
+    }
+  ],
+  "checks_passed": 243,
+  "local_lean_executions": 0,
+  "scope_note": "Passing individual source or partial named audit receipts do not establish acceptance of this batch."
+}
