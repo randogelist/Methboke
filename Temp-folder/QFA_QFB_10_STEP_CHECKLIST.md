@@ -16,32 +16,34 @@ The retained project goal remains Fefferman_D.
 
 ## Latest QFA closure acceptance
 
-Source `000c1bd9`, [run 44851575278](https://github.com/randogelist/Methboke/actions/runs/44851575278), accepts
-the actual measurable H2 free-heat trajectory, exact enstrophy dissipation,
-finite-window L2-time H2 membership and the actual LH weighted budget for
-every finite T >= 0. The complete receipt covers 526 modules, 105 fresh
-package audits and 1,402 unique named reports, with QFB/publication/final PASS.
-The new scope has 35 declarations: 32 theorems and three definitions.
-[Independent acceptance](../audits/material-000c1bd9-qfa-heat-time-accepted/independent-review.json) ·
-[Exact cumulative register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
+Source `809aadc6`, [run 44853804320](https://github.com/randogelist/Methboke/actions/runs/44853804320), accepts
+the actual strong L2 free-heat generator, derivative MemLp2 and Bochner
+integrability, the exact integrated equation from the original H1/L2 trace,
+and the derivative-energy identity with coefficient viscosity divided by two.
+The package has nine theorems and eleven independent consumers. Its complete
+receipt covers 528 modules, 106 fresh package audits and 1,411 unique named
+reports, with fresh QFB, complete publication and final acceptance.
+[Independent acceptance](../audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json) ·
+[Cumulative register](../R3_NSE/QFA/QFA_CLOSURE_A_TIER_PROGRESS.txt).
 
-Steps **1 and 7** are complete. Step 3 has gained the linear time-energy
-layer; its generator, forced and nonlinear obligations remain open.
-The prior `ffbab0f5` receipt remains accepted for supplied-path full restart,
-positive-time heat smoothing and the complete zero-datum strict/closed root.
-General nonzero-data QFA and WFA remain open. No local Lean was run.
+**Steps 1 and 7 remain the only completed steps. Step 3 remains open.**
+The prior `000c1bd9` acceptance remains intact for 35 heat-time/all-window
+declarations; `ffbab0f5` remains accepted for restart, smoothing and zero datum.
+General nonzero-data QFA/WFA remain open. No local Lean was executed.
 
-## Current linear candidate: HeatGenerator (external verification pending)
+## Current candidate: actual L2 Duhamel response and energy pairing
 
-For positive viscosity and arbitrary actual PhysicalH1 input, construct the actual positive-time strong L2 derivative of the physical free heat flow as nu times its physical Laplacian, and prove the Bochner integrated equation from the original H1/L2 initial trace.
-The accepted free-heat time-energy bound supplies finite-window Laplacian
-integrability. The generator/integral equation is a separate endpoint and is
-not counted as accepted by this batch. General-data global LH existence,
-forced heat, nonlinear H1 theory and physical comparison remain explicit.
-Nine theorem candidates and eleven independent consumers are registered for
-matching external verification; expected full run: 528 modules, 106 fresh
-packages and 1,411 named reports. Prepared source does not close step 3.
-[Generator chain](../R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt) ·
+Construct the actual spatial-L2 Duhamel response for finite-window time-L2 spatial-L2 forcing, prove continuity and the zero initial trace, and bound its L2 norm by sqrt(T) times the norm of the actual time-L2 forcing class; also prove the bound by the time integral of the forcing norm.
+Forced maximal regularity and nonlinear H1 local/maximal theory remain
+separate subsequent constructions. An accepted linear generator does not
+prove nonlinear NSE existence, general LH nonemptiness or physical comparison.
+Prepared batch: actual response, bounded forcing-quotient operator and physical
+integration by parts. Twenty-four declarations and 29 independent consumers
+await matching external verification (534 modules,109 packages,1435 reports).
+This candidate does not yet add accepted scope or complete step 3.
+[Duhamel chain](../R3_NSE/QFA/DERIVATIONS/HEAT_DUHAMEL_CHAIN.txt) ·
+[Spatial energy chain](../R3_NSE/QFA/DERIVATIONS/HEAT_SPATIAL_ENERGY_CHAIN.txt) ·
+[Accepted generator chain](../R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt) ·
 [Accepted heat-time chain](../R3_NSE/QFA/DERIVATIONS/HEAT_TIME_ENERGY_CHAIN.txt).
 
 ## Accepted subresults and remaining obligations
@@ -50,7 +52,7 @@ packages and 1,411 named reports. Prepared source does not close step 3.
 |---|---|---|
 | 1. Concrete contract | Full-volume L2/LH interface and exact current physical root, with actual smooth pressure and strict/closed cutoffs separately checked | Contract complete; proving the general root belongs to steps 2–10 |
 | 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives and real Leray projection | Sobolev/interpolation admissibility and the exact sharp constant |
-| 3. Local H1 theory | Actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation and finite-window L2-time H2 membership; zero nonlinear solution | Actual heat generator/integral equation, forced heat, arbitrary-H1 nonlinear existence, uniqueness and continuation |
+| 3. Local H1 theory | Actual heat semigroup, H1-to-H2 map, measurable H2 trajectory, exact dissipation, finite-window L2-time H2, strong L2 generator and integrated equation from the original trace; zero nonlinear solution | Actual L2 Duhamel response, forced maximal regularity, arbitrary-H1 nonlinear existence, uniqueness and continuation |
 | 4. LH solutions and restarts | Full shifted physical LH membership at nonnegative energy starts; actual zero-datum nonemptiness | General-data global nonemptiness |
 | 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
 | 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |
@@ -126,7 +128,7 @@ All whole-space integrals use Lebesgue measure on $\mathbb R^3$.
 
 - [ ] **3. Construct local $H^1$ strong solutions and prove continuation.**
 
-  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation and finite-window L2-time H2 membership are accepted. The actual generator/integral equation, forced heat and arbitrary-H1 nonlinear local existence remain open.
+  **Available anchors:** Native periodic smooth-data local fronts and continuation; upstream R3 H3 structures. The actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation, finite-window L2-time H2 membership, strong L2 generator and integrated equation from the original trace are accepted. Actual Duhamel response, forced maximal regularity and arbitrary-H1 nonlinear local/maximal theory remain open.
 
   Prove actual local existence, uniqueness, maximal lifetime, continuity in
   $H^1$, sufficient $L^2_tH^2_x$ control, bounded-$H^1$ continuation,

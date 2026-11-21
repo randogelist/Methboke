@@ -1,7 +1,7 @@
-# QFA: accepted foundations, restart, free-heat time-energy and zero datum
+# QFA: accepted foundations, restart, free-heat generator and zero datum
 
 **Status: A-tier accepted for the exact foundation, restart, heat-smoothing,
-free-heat time-energy, all-window weighted-budget and zero-datum scopes below.**
+free-heat time-energy and generator, all-window weighted-budget and zero-datum scopes below.**
 The complete physical QFA and WFA theorems remain formally open in this project.
 
 The [NSE-A finite-charge regularity class](../A-Regularity-class/README.md)
@@ -9,18 +9,55 @@ separately registers the B-tier six-charge characterization and datumwise
 global-regularity equivalence from the written WFA chain. That registration
 adds no theorem to the accepted native scope described here.
 
-## Current construction: actual free-heat generator
+## Current construction: forced L2 response and physical energy pairing
 
-**External verification is pending** for `QFAHeatGenerator`: nine theorems,
-eleven independent consumers, and an expected full run of 528 modules,
-106 fresh package audits and 1,411 named reports. The candidate constructs
-the strong L2 time derivative of the actual heat path, its finite-window
-integrability, and the exact Bochner equation from the original H1/L2 trace.
-Its derivative-energy coefficient is exactly viscosity divided by two.
+**Matching external verification is pending** for three new packages:
 
-The accepted heat-time and all-window budget result below supplies the
-unchanged source basis. Prepared generator source is not A-tier acceptance.
-The full nonlinear H1 construction, general QFA and WFA remain open.
+| Package | Prepared scope |
+|---|---|
+| `QFAHeatDuhamel` | Actual retarded integral, continuous zero trace, forcing-class invariance and exact time-L2 forcing bounds; 15 declarations |
+| `QFAHeatDuhamelOperator` | Actual bounded map from the forcing Lp quotient to continuous L2 paths, norm at most sqrt(T), zero trace and representative compatibility; five declarations |
+| `QFAHeatSpatialEnergy` | Actual H1 integration by parts, H1-H2 Laplacian pairing, bilinear H2 symmetry and negative-enstrophy identity; four theorems |
+
+The batch has **24 declarations: 22 theorems and two definitions**, covered by
+29 independent consumers. The expected complete run is **534 modules,
+109 fresh package audits and 1,435 named reports**. Prepared source is not
+A-tier acceptance. The generator acceptance below and all earlier scopes remain.
+
+The response uses finite-window time-L2 spatial-L2 forcing. Forced maximal
+regularity, the inhomogeneous derivative equation and nonlinear local theory
+remain separate obligations. Steps 1 and 7 remain complete; step 3 is open.
+
+## Accepted actual free-heat generator and equation from the initial trace
+
+**Nine theorems are A-tier accepted at `809aadc6`**, with eleven
+independent consumers, in [external run 44853804320](https://github.com/randogelist/Methboke/actions/runs/44853804320).
+The complete run passed **528 modules, 106 fresh package audits and 1,411 unique
+named type/axiom reports**, plus fresh QFB, complete publication and the final gate.
+[Independent review](../../audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json) ·
+[All nine theorem reports](../../audits/material-809aadc6-qfa-heat-generator-accepted/new-declaration-index.json) ·
+[Exact derivation](DERIVATIONS/HEAT_GENERATOR_CHAIN.txt).
+
+For arbitrary actual physical H1 data and positive viscosity, `QFAHeatGenerator`
+proves the strong L2 time derivative of the actual free-heat velocity at every
+positive time. Its derivative is exactly viscosity times the physical Laplacian.
+That derivative belongs to finite-window L2 in time and is Bochner integrable
+down to zero. The integrated equation starts from the **original continuous
+H1/L2 initial trace**. Its exact derivative-energy coefficient is **viscosity
+divided by two**. No derivative or integrability witness is supplied as a premise.
+
+The H2 trajectory's auxiliary value at zero is used only in integrals; it does
+not replace the true initial velocity or assert an H2 initial trace.
+**Step 3 remains open. Steps 1 and 7 remain the only completed checklist items.**
+The next microscopic target is the actual L2 Duhamel response for finite-window
+time-L2 spatial-L2 forcing: continuity, zero initial trace and the sqrt(T) bound
+using the actual forcing Lp norm, together with the integral-of-norm bound.
+Forced maximal regularity and nonlinear H1 theory follow as separate obligations.
+
+The accepted 35-declaration heat-time layer and the conditional main-branch
+FDSN_R3 receipt below are retained. General QFA/WFA, five G-parent gaps, M2/M3
+and the D-family root remain open; P01-P08/M1 and the Fefferman D goal are unchanged.
+No local Lean was executed.
 
 ## Accepted free-heat time-energy and all-window weighted budget
 
@@ -38,9 +75,10 @@ checks the exact source, full types and standard-only transitive axioms.
 | `QFAWeightedBudgetAllWindows` | One theorem: actual LH product integrability and the factor-one-quarter weighted bound for every finite T >= 0, including the empty zero window |
 
 **Checklist step 7 is complete for every supplied actual LH path.** Steps 1
-and 7 are complete; step 3 has gained the free-heat time-energy layer, while
-the actual generator/integral equation, forced heat and nonlinear H1 theory
-remain open. General-data global LH existence is a separate step-4 obligation.
+and 7 are complete. Step 3 now also has the accepted actual free-heat generator
+and integrated equation described above; the forced response, maximal regularity
+and nonlinear H1 theory remain open. General-data global LH existence is a
+separate step-4 obligation.
 The H2 trajectory's zero extension at nonpositive times makes no H2 initial
 trace claim for arbitrary H1 data; the physical H1 heat flow retains its original trace.
 
@@ -84,12 +122,12 @@ $p(t,0)=0$. The new zero-datum result includes the closed cutoff at time zero.
 [Scoped mathematical chain](DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt).
 No local Lean was executed. The project goal remains Fefferman D.
 
-The next scoped construction is **HeatGenerator**: the actual positive-time
-L2 derivative and the integrated free-heat equation from the original H1/L2
-initial trace. The accepted time-energy estimates supply the needed finite-window
-integrability. Forced heat, nonlinear H1 existence, general LH existence,
-physical comparison, sharp spatial admission and small-product continuation
-remain explicit general-data obligations.
+The next scoped construction is the **actual L2 Duhamel response** for
+finite-window time-L2 spatial-L2 forcing: continuity, its zero initial trace,
+the sqrt(T) bound using the actual time-L2 forcing norm and the integral-of-norm
+bound. Forced maximal regularity, nonlinear H1 existence, general
+LH existence, physical comparison, sharp spatial admission and small-product
+continuation remain explicit general-data obligations.
 
 ## Earlier accepted foundation layers
 
@@ -174,7 +212,7 @@ the sharp Sobolev/interpolation admission remains open.
 |---|---|---|
 | 1. Concrete contract | Full-volume L2/LH interface and exact current physical root, with actual smooth pressure and strict/closed cutoffs separately checked | Contract complete; proving the general root belongs to steps 2–10 |
 | 2. Spatial analysis | Actual H1/H2 graphs, Hessian–Laplacian identity, Fourier derivatives and real Leray projection | Sobolev/interpolation admissibility and the exact sharp constant |
-| 3. Local H1 theory | Actual heat semigroup, positive-time H1-to-H2 map, measurable H2 trajectory, exact enstrophy dissipation and finite-window L2-time H2 membership; zero nonlinear solution | Actual heat generator/integral equation, forced heat, arbitrary-H1 nonlinear existence, uniqueness and continuation |
+| 3. Local H1 theory | Actual heat semigroup, H1-to-H2 map, measurable H2 trajectory, exact dissipation, finite-window L2-time H2, strong L2 generator and integrated equation from the original trace; zero nonlinear solution | Actual L2 Duhamel response, forced maximal regularity, arbitrary-H1 nonlinear existence, uniqueness and continuation |
 | 4. LH solutions and restarts | Full shifted physical LH membership at nonnegative energy starts; actual zero-datum nonemptiness | General-data global nonemptiness |
 | 5. Weak-strong uniqueness | Recovered abstract comparison statements retain their premises | Actual R3 relative-energy inequality and comparison |
 | 6. Small-product continuation | Scalar threshold arithmetic | Physical evolution estimates, invariant bootstrap and global continuation |

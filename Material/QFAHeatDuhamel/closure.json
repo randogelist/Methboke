@@ -1,0 +1,504 @@
+{
+  "schema_version": 1,
+  "endpoint": "QFAHeatDuhamel",
+  "source_revision_status": "FIRST_MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "MethbokeAddon.QuasiFeffermanA.HeatDuhamel"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.ACBudget",
+      "path": "MethbokeAddon/QuasiFeffermanA/ACBudget.lean",
+      "sha256": "12d2535dd1b9eef07e6742725ecb63c6369d9341b8b4c492a4558e87ec51a574",
+      "imports": [
+        "QFA.Endpoints.Comparison.RelativeEnergy",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "path": "MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92",
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+        "path": "GPT.txt",
+        "role": "Immutable native integration preparation baseline; not a claim that new proof bytes existed at that revision."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "sha256": "40a364af5c5e399442cd9ed0e31a8d4e7e811f494cb77f375c348232fe35279f",
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "9c5141b2fa7606a8ee92d45684964bd43c80b62a",
+        "path": "GPT.txt",
+        "role": "Immutable native integration preparation baseline; not a claim that new proof bytes existed at that revision."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis",
+      "derivation_sources": [
+        {
+          "repository": "randogelist/Methlib",
+          "revision": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+          "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/DistributionMultipliers.lean",
+          "preserved_upstream_sha256": "60315c5cfb038ead5e07a3dc36d9a2060603ad4da6f56938e94330b38c448b2a",
+          "repair_evidence": "audits/material-73501cde-qfa-failed/summary.json",
+          "changes": "Owned namespace; explicit distribution evaluation, complex multiplier temperate growth, and typed real/complex scalar conversion. Same mathematical hypotheses and conclusions.",
+          "repair_evidence_history": [
+            "audits/material-73501cde-qfa-failed/summary.json",
+            "audits/material-62acb4de-qfa-failed/summary.json"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1Fourier.lean",
+      "sha256": "565edf7f029712801da88586f997677d5f0e964a804714d02a07ac20e1b72a4c",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+        "QFALC005.Density"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean",
+      "sha256": "ff3ea4e617028a35e3645a7b8d869b5598def0646953d1ef256d82fececdaa3a",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "053147fc75677f3b086a7a2da740ccc95fed5b8f",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1Spectral.lean",
+      "sha256": "6e30a75ed55f7c99bc833d292c337ee0a5626a95517cb47a8cc139a7f70bb9cb",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget",
+        "QFALC001Reduction.NativeFromAENorms",
+        "Mathlib.Analysis.Complex.Norm"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "612832ffa636da3db65acb253515d2d70ed6003e",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted first-derivative and physical H1 basis; new proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.HeatDuhamel",
+      "path": "MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean",
+      "sha256": "877311822514031cf16521b13b7968de12aeb1ec6f804f86874f8fcf15b9f1ce",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.HeatSemigroup",
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+        "Mathlib.Topology.Instances.NNReal.Lemmas",
+        "Mathlib.Analysis.SpecialFunctions.Pow.Real"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "809aadc6da1eeabd5c128eb9c78005a38d3d4935",
+        "path": "R3_NSE/QFA/DERIVATIONS/HEAT_GENERATOR_CHAIN.txt",
+        "role": "Immutable previously assented ten-step QFA plan and accepted source basis; these new proof bytes are not claimed at the baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis",
+      "derivation_chain": "R3_NSE/QFA/DERIVATIONS/HEAT_DUHAMEL_CHAIN.txt"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.HeatSemigroup",
+      "path": "MethbokeAddon/QuasiFeffermanA/HeatSemigroup.lean",
+      "sha256": "dc08288d5bf1d21213c785bc321b36b70ce90599365e5b65ca3b904d18b2b458",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+        "Mathlib.Analysis.SpecialFunctions.Exp",
+        "Mathlib.MeasureTheory.Integral.Bochner.Basic"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "4dcf71c10bfab60b670cc5d35c68c8c46bfcaebd",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_HEAT_SEMIGROUP_CHAIN.txt",
+        "role": "Complete scoped B-tier heat derivation; accepted actual real L2/H1/Fourier basis and coordinated new bounded even multiplier construction. New proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+      "sha256": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.MeasureTheory.Function.Holder",
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.Topology.Algebra.Module.ClosedSubmodule"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "cb3bafdc71c7eb10e57996af6111ba6c24f6865c",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Budget.lean",
+      "sha256": "be0fdfa70d83feae2bbe93a5cbff0ca66718ccf56ce8584c43db6c08709d1223",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+        "MethbokeAddon.QuasiFeffermanA.ACBudget"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "053147fc75677f3b086a7a2da740ccc95fed5b8f",
+        "path": "R3_NSE/A-Regularity-class/A_TIER_PLAN.json",
+        "role": "Immutable twenty-endpoint source/plan baseline for subsequent owned development; new proof bytes are not claimed at that baseline."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean",
+      "sha256": "63aa431ed95e456c40f023ddb9cdb7ed10e23143486f7e3bdeccedceec45b876",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealFourier",
+        "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "09bcf25110020760d3d93100b8105d2ffba85e61",
+        "path": "Material/MethbokeAddon/QuasiFeffermanA/RealFourier.lean",
+        "role": "Accepted actual real Fourier-range criterion and native L2 foundation; the general scalar multiplier proof bytes are new."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealFourier",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealFourier.lean",
+      "sha256": "98a1e6dd84597626ebcb5887f6649658cf3b23f40ff993aac7bd72debfcc7a19",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.LinearMap"
+      ],
+      "origin": {
+        "repository": "randogelist/Methboke",
+        "revision": "612832ffa636da3db65acb253515d2d70ed6003e",
+        "path": "R3_NSE/A-Regularity-class/DERIVATIONS/REAL_H1_SECTOR_LIFT_CHAIN.txt",
+        "role": "Accepted native first-derivative and physical H1 basis; new proof bytes require matching external verification."
+      },
+      "origin_kind": "new_owned_development_against_pinned_native_basis"
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "local_path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean",
+      "git_blob_sha": "45429b61943aeba1bf43ba7abcb5fa3e1bdfb791",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+      "size_bytes": 4473,
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Agmon/Contracts.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "local_path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "git_blob_sha": "ac959dee369897576b57f27556302b38079cec8f",
+      "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+      "size_bytes": 10609,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Comparison/RelativeEnergy.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "local_path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "git_blob_sha": "cfea445a31ed91b47cb7875e7f2a8996772a15a5",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d",
+      "size_bytes": 2345,
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ],
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "local_path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean",
+      "git_blob_sha": "0e82e8aacacc920ee36c963bbbc9a5d879d34950",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+      "size_bytes": 11142,
+      "imports": [
+        "Mathlib"
+      ],
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Energy/ProductBudget.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "local_path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Basic.lean",
+      "git_blob_sha": "c8635c3ba7d1142efb6bc7a92bd3e4cfe1374e26",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5",
+      "size_bytes": 2858,
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ],
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Basic.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "local_path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "git_blob_sha": "4571547fa20a296dad39a5c596bdd0c70714faf3",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9",
+      "size_bytes": 3303,
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/GoodTime/Cutoff.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "local_path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean",
+      "git_blob_sha": "e9e71e66d6162c99c841e2157288a7d78e85958b",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+      "size_bytes": 10091,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/Complexification.lean"
+      }
+    },
+    {
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "local_path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "git_blob_sha": "a4111256fc4d5083a914b7d1d922a186f85905ca",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a",
+      "size_bytes": 10173,
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ],
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LeanEndpoints/QFA/Endpoints/Representation/EnergyProfile.lean"
+      }
+    },
+    {
+      "module": "QFALC001Reduction.NativeFromAENorms",
+      "local_path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean",
+      "git_blob_sha": "cf2a77f018ebe1c07feb6e5c9f6b245c6f0aaa16",
+      "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+      "size_bytes": 6686,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ],
+      "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC001SpectralReduction/QFALC001Reduction/NativeFromAENorms.lean"
+      }
+    },
+    {
+      "module": "QFALC004.CompactSchwartz",
+      "local_path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean",
+      "git_blob_sha": "b2626e98ab01d7d4fc17fd4ca443b0c0207774cb",
+      "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+      "size_bytes": 4015,
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+      ],
+      "path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC004Bridge/QFALC004/CompactSchwartz.lean"
+      }
+    },
+    {
+      "module": "QFALC005.Density",
+      "local_path": "_vendor/QFALC005/Density.lean",
+      "upstream_repository": "randogelist/Methlib",
+      "upstream_commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+      "upstream_path": "Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean",
+      "git_blob_sha": "06754cbcd1c7f042cdd8fdd0c3bb273eea5bf393",
+      "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+      "size_bytes": 7464,
+      "imports": [
+        "QFALC004.CompactSchwartz",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ],
+      "path": "_vendor/QFALC005/Density.lean",
+      "source": {
+        "repository": "randogelist/Methlib",
+        "commit": "53b2318c2b586137b6db74c4d3a41bb0b964b2d8",
+        "path": "Quasi-Fefferman-A/LC005Density/QFALC005/Density.lean"
+      }
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs",
+    "Mathlib.Analysis.Calculus.ContDiff.Operations",
+    "Mathlib.Analysis.Calculus.FDeriv.Const",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Complex.Norm",
+    "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.LinearMap",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.Analysis.SpecialFunctions.Exp",
+    "Mathlib.Analysis.SpecialFunctions.Pow.Real",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.MeasureTheory.Function.Holder",
+    "Mathlib.MeasureTheory.Function.L2Space",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity",
+    "Mathlib.MeasureTheory.Integral.Bochner.Basic",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.DominatedConvergence",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Module.ClosedSubmodule",
+    "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic",
+    "Mathlib.Topology.Instances.NNReal.Lemmas"
+  ],
+  "local_module_count": 23,
+  "owned_module_count": 12,
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "source_closure_sha256": "8007d8775381928ec54292bbf0f3c4c475c0bd590705148fec5f74e5cd6ccbad",
+  "validation_boundary": "Prepared source requires matching external compiler, independent expected types and named standard-only axiom reports."
+}

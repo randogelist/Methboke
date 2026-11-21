@@ -17,7 +17,13 @@ derivative and integral claims, and the exact coefficient for ordinary
 positive real viscosity. Every theorem has a named type and transitive
 axiom audit, permitting only `propext`, `Classical.choice` and `Quot.sound`.
 
-Matching cached external acceptance is pending. The statements assume no
+Matching cached external acceptance passed at `809aadc6`, [run 44853804320](https://github.com/randogelist/Methboke/actions/runs/44853804320).
+All nine theorems and eleven consumers passed in the complete 528-module,
+106-package, 1,411-report run, with fresh QFB, complete publication and the final gate.
+[Exact independent review](../../audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json) and
+[new theorem index](../../audits/material-809aadc6-qfa-heat-generator-accepted/new-declaration-index.json).
+
+The statements assume no
 supplied derivative, time-integrability or regularity witness. The H2
 trajectory's value at zero is used only inside integrals; no H2 initial
 trace or H1-valued time derivative is asserted. Forced heat, its maximal

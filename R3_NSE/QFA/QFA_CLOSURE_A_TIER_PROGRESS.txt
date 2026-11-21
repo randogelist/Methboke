@@ -1,3 +1,32 @@
+QFA CURRENT CANDIDATE: FORCED L2 RESPONSE AND PHYSICAL ENERGY PAIRING
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL_CI
+BASE=809aadc6da1eeabd5c128eb9c78005a38d3d4935
+NEW=24 declarations;22 theorems;2 definitions;29 independent consumers;3 packages.
+EXPECTED_RUN=534 modules;109 fresh packages;1435 named reports.
+FORCED_MAXIMAL_REGULARITY=OPEN
+GENERAL_QFA_WFA_ROOTS=OPEN
+LOCAL_LEAN_EXECUTIONS=0
+The following accepted generator and prior scopes remain unchanged.
+
+QFA CLOSURE: CURRENT ACCEPTED ACTUAL FREE-HEAT GENERATOR
+SOURCE=809aadc6da1eeabd5c128eb9c78005a38d3d4935
+TREE=2575f2d3fb994a51ab50eac7362388083c333246
+RUN=44853804320 https://github.com/randogelist/Methboke/actions/runs/44853804320
+EVIDENCE=audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json
+FULL_RUN=528 modules;106 fresh package audits;1411 unique named reports;fresh QFB/publication/final PASS.
+NEW_NAMES=9 theorems;0 definitions;11 independent consumers;QFAHeatGenerator.
+COMPLETED_CHECKLIST_STEPS=1,7
+STEP3=OPEN;actual free-heat generator and original-trace integral equation accepted.
+GENERAL_PHYSICAL_QFA_ROOT=OPEN
+WFA_ROOT=OPEN
+NEXT_MICROSCOPIC_TARGET=QFA_L2_DUHAMEL_RESPONSE
+LOCAL_LEAN_EXECUTIONS=0
+PROJECT_GOAL=Fefferman_D (unchanged)
+
+PRE_GENERATOR_ACCEPTED_REGISTER_BEGIN
+The prior cumulative register is preserved verbatim below, including its
+then-current targets. The current scope and next endpoint are above and below.
+
 QFA CURRENT CANDIDATE: ACTUAL L2 HEAT GENERATOR
 STATUS=PREPARED_PENDING_MATCHING_EXTERNAL_CI
 BASE=000c1bd9baded808b79a04b7f666cacabce64939
@@ -187,6 +216,39 @@ For positive viscosity and arbitrary actual PhysicalH1 input, construct the actu
 GENERAL_ROOT_REQUIREMENTS_STILL_OPEN_CURRENT
 Actual heat generator/primitive identity
 Forced Duhamel and maximal regularity
+Nonlinear norm-controlled H1 local existence and continuation
+Global physical LH existence and physical weak--strong comparison
+Exact sharp Sobolev admission and small-product global continuation
+Nonzero-data smooth pressure tails, energy equality and own-trace future uniqueness
+
+PRE_GENERATOR_ACCEPTED_REGISTER_END
+
+NEW_MATCHING_ACCEPTED_GENERATOR_NAMES
+PACKAGE=QFAHeatGenerator
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatL2_realTime_continuous
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatL2_realTime_zero
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_hasDerivAt
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatTrajectory_laplacian_memLp_two
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_memLp_two
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_intervalIntegrable
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_integrated_equation
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_sq_integral
+THEOREM MethbokeAddon.QuasiFeffermanA.HeatGenerator.heatH1_velocity_timeDerivative_sq_integral_le
+
+Every theorem has an independent literal consumer, complete matching type
+and fresh standard-only transitive axiom evidence in audits/material-809aadc6-qfa-heat-generator-accepted/.
+The original continuous H1/L2 trace is retained. The H2 zero extension is
+used only for integrability and is not substituted for the initial velocity.
+The derivative and integral equation are constructed; no supplied derivative,
+regularity or time-integrability witness is assumed.
+The previous 35-name heat-time and 73-name restart/smoothing/zero scopes remain accepted.
+
+NEXT_SCOPED_ENDPOINT_CURRENT
+Construct the actual spatial-L2 Duhamel response for finite-window time-L2 spatial-L2 forcing, prove continuity and the zero initial trace, and bound its L2 norm by sqrt(T) times the norm of the actual time-L2 forcing class; also prove the bound by the time integral of the forcing norm.
+
+GENERAL_ROOT_REQUIREMENTS_STILL_OPEN_CURRENT
+Actual L2 Duhamel response, finite-window continuity and forcing bound
+Forced heat maximal regularity and actual L2-time H2/derivative estimates
 Nonlinear norm-controlled H1 local existence and continuation
 Global physical LH existence and physical weak--strong comparison
 Exact sharp Sobolev admission and small-product global continuation

@@ -1,0 +1,119 @@
+QFA: ACTUAL PHYSICAL INTEGRATION BY PARTS AND LAPLACIAN ENERGY
+DATE=2026-11-21
+MODE=A_TIER_DERIVATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
+LOCAL_LEAN_EXECUTIONS=0
+PUBLIC_DECLARATIONS=4
+PUBLIC_THEOREMS=4
+PUBLIC_DEFINITIONS=0
+INDEPENDENT_CONSUMERS=5
+
+Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatSpatialEnergy.lean
+Prepared package: Material/QFAHeatSpatialEnergy
+Matching cached external compiler, independent literal consumers and named
+transitive axiom evidence remain required. Source preparation and static
+review do not confer A-tier acceptance.
+
+1. ACTUAL GRAPH OPERATORS AND GENUINE PAIRINGS
+
+PhysicalH1 contains an actual full-volume SpatialL2 velocity and its three
+compact-test weak derivatives. PhysicalH2 contains the corresponding
+velocity, gradient and nine actual weak Hessian fields. The native
+physicalH2GradientH1(j,v) has velocity partial_j(v) and kth gradient
+partial_k partial_j(v). The native Laplacian is the sum of the three
+diagonal Hessian fields. No derivative is supplied independently of these
+closed graph carriers.
+
+For actual SpatialL2 fields u,v, isometric real complexification identifies
+the real L2 pairing with the real part of its complex L2 pairing. Native
+complex Plancherel then identifies that complex pairing with the integral
+of the two actual Fourier representatives. Native L2 inner-product
+integrability applies to those actual L2 classes; no improper or divergent
+integral is used.
+
+2. FIRST-ORDER INTEGRATION BY PARTS
+
+The accepted compact-test-to-Fourier theorem gives, simultaneously for the
+three coordinate directions and almost every frequency xi,
+
+  F(partial_j u)(xi) = m_j(xi) F(u)(xi),
+  m_j(xi) = (2*pi*i) * inner_R(xi,e_j).
+
+The multiplier is purely imaginary, so conjugate(m_j)=-m_j. Complex inner
+products are conjugate-linear in the first argument. Therefore
+
+  inner_C(x,m_j*y) = -inner_C(m_j*x,y).
+
+Apply this identity to the two Fourier fields at every frequency where
+both actual derivative identities hold. Integral a.e. congruence, native
+Plancherel and real complexification give, for arbitrary PhysicalH1 u,v,
+
+  inner_R(V(u),G_j(v)) = -inner_R(G_j(u),V(v)).
+
+There is no boundary term on the full spatial volume and no boundary or
+integration-by-parts premise. The identity follows from the actual weak
+derivatives already present in the H1 graph.
+
+3. H1-H2 LAPLACIAN PAIRING
+
+Apply the first-order theorem to u:PhysicalH1 and
+physicalH2GradientH1(j,v), for v:PhysicalH2. Its literal graph identities
+give
+
+  inner_R(V(u),H_jj(v)) = -inner_R(G_j(u),G_j(v)).
+
+Sum the three identities and use the actual diagonal-sum Laplacian:
+
+  inner_R(V(u),Delta(v))
+    = -sum_(j:Fin3) inner_R(G_j(u),G_j(v)).
+
+The theorem pairs every actual H1 field with every actual H2 field. It
+does not require the H1 field itself to possess second derivatives.
+
+4. SYMMETRY AND EXACT DIAGONAL ENERGY
+
+For u,v:PhysicalH2, specialize the preceding formula using the native
+physicalH2ToH1 map and use symmetry of the real inner product. This gives
+
+  inner_R(Delta(u),V(v)) = inner_R(V(u),Delta(v)).
+
+This is the explicit bilinear symmetry statement on the actual H2 graph.
+It does not assert a full unbounded-operator self-adjoint-domain theorem.
+
+Set both fields equal and use inner_R(w,w)=norm(w)^2. The literal physical
+enstrophy definition gives
+
+  inner_R(V(u),Delta(u))
+    = -sum_(j:Fin3) norm(G_j(u))^2
+    = -physicalH1Enstrophy(physicalH2ToH1(u)).
+
+There is no one-half normalization, viscosity factor or omitted spatial
+Fourier constant. The first-derivative multiplier uses the existing 2*pi
+normalization, and the final identity is entirely in physical operators.
+
+5. EXACT VERIFICATION SURFACE AND NEXT EDGE
+
+Namespace: MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy
+Public theorems:
+  physicalH1_gradient_integration_by_parts
+  physicalH1H2_laplacian_pairing
+  physicalH2_laplacian_symmetric
+  physicalH2_laplacian_enstrophy
+
+The package has four public theorems, no public definitions and five
+independent consumers. They include the literal three-gradient expansion
+of enstrophy and, for arbitrary real nu, the exact coefficient
+
+  inner_R(V(u),nu*Delta(u)) = -nu * sum_(j:Fin3) norm(G_j(u))^2.
+
+Each public theorem requires a named exact-type
+report and transitive axiom audit allowing only propext, Classical.choice
+and Quot.sound. Matching external verification remains pending.
+
+This supplies the spatial integration-by-parts ingredient for a future
+forced gradient/Laplacian energy estimate. It does not construct forced
+H1/H2 maximal regularity, an inhomogeneous time derivative, a solenoidal
+response or a nonlinear fixed point. Those remain distinct obligations;
+the general QFA and WFA roots remain open.

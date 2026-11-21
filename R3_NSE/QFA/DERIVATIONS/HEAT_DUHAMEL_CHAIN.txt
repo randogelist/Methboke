@@ -1,0 +1,246 @@
+QFA: ACTUAL L2 DUHAMEL RESPONSE ON A FINITE TIME WINDOW
+DATE=2026-11-21
+MODE=A_TIER_DERIVATION
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PROJECT_GOAL=Fefferman_D (unchanged)
+LOCAL_SCOPE=QFA_QFB_A_TIER_INTEGRATION
+LOCAL_LEAN_EXECUTIONS=0
+PUBLIC_DECLARATIONS=15
+PUBLIC_THEOREMS=14
+PUBLIC_DEFINITIONS=1
+INDEPENDENT_CONSUMERS=17
+
+Prepared native source: Material/MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean
+Prepared package: Material/QFAHeatDuhamel
+Matching cached external compiler, independent literal consumers and named
+transitive axiom evidence remain required. Source preparation and static
+review do not confer A-tier acceptance.
+
+1. ACTUAL SPACES, FORCING AND RETARDED CONSTRUCTOR
+
+Let nu be any nonnegative real viscosity, represented by NNReal. Let
+f:R->SpatialL2 be actual real whole-space L2 forcing, and suppose
+MemLp f 2 (volume.restrict (Ioc(0,T))) for a finite T>=0. No spatial
+derivative, time continuity, kernel measurability or solution witness is
+an input assumption.
+
+Define the actual Bochner response
+
+  K_nu f(t) = integral_(s in 0..t)
+                heatL2(nu,(t-s).toNNReal,f(s)).
+
+All physical time-window claims concern 0<=t<=T. On that integration
+interval the elapsed time t-s is nonnegative. The native real L2 heat
+semigroup acts on the full-volume spatial class, with its existing
+physical Fourier normalization and norm-one contraction.
+
+2. JOINT STRONG CONTINUITY OF THE HEAT ACTION
+
+For elapsed times r,s>=0 and actual L2 fields v,w, linearity and heat
+contraction give
+
+  ||S(r)v-S(s)w|| <= ||v-w|| + ||S(r)w-S(s)w||.
+
+The first term tends to zero by continuity of the input field. The second
+tends to zero by the accepted strong continuity for the fixed input w.
+The norm limit criterion therefore proves continuity of (r,v)|->S(r)v,
+including r=0. This is joint strong continuity; no operator-norm
+continuity at zero is used.
+
+For each fixed t, the map s|->((t-s).toNNReal,f(s)) is a.e. strongly
+measurable under the forcing measure. Its composition with the proved
+jointly continuous heat action is the actual retarded integrand. The
+measurability theorem is also stated for an arbitrary real-time measure.
+
+3. ACTUAL INTEGRABILITY BEFORE USING THE RESPONSE
+
+Restrict MemLp2 forcing from (0,T] to (0,t]. Pointwise contraction gives
+
+  ||S((t-s).toNNReal)f(s)|| <= ||f(s)||.
+
+Together with actual integrand measurability this proves MemLp2 for the
+kernel on (0,t]. Lebesgue measure restricted to a finite interval is
+finite, so MemLp2 implies Bochner integrability. This proves the actual
+IntervalIntegrable statement used in the response and its addition law.
+The zero-length case is included.
+
+4. TRACE, REPRESENTATIVES AND LINEARITY
+
+The integral over 0..0 gives K_nu f(0)=0 exactly. Zero forcing gives the
+zero response. Forcing equality a.e. on the original (0,T] window
+restricts to every (0,t] subwindow and yields equality of the actual
+retarded integrals. The response therefore depends only on the original
+forcing L2 class on that window.
+
+Heat additivity and the proved integrability give K(f+g)=K(f)+K(g).
+Real scalar multiplication commutes with both the actual heat operator
+and its Bochner integral. At zero viscosity the existing heat identity
+reduces the constructor to the actual primitive integral_0^t f(s)ds;
+the independent audit consumes this degenerate case explicitly.
+
+5. EXACT LOW-FREQUENCY ESTIMATE
+
+The Bochner norm bound and contraction give
+
+  ||K_nu f(t)|| <= integral_0^t ||f(s)||ds.
+
+Holder with exponents two and two, applied to the constant one function
+and the scalar norm of f, gives
+
+  ||K_nu f(t)||
+    <= sqrt(t) * sqrt(integral_0^t ||f(s)||^2 ds)
+    <= sqrt(T) * sqrt(integral_0^T ||f(s)||^2 ds).
+
+The constant is exactly one. There is no viscosity loss and no spatial
+Poincare or spectral-gap assumption. The inhomogeneous L2 part is retained
+because it is required on the whole space.
+
+For the actual forcing element hf.toLp(f), the native real L2 inner
+product and its a.e. coeFn_toLp equality establish
+
+  ||hf.toLp(f)||^2 = integral_0^T ||f(s)||^2 ds.
+
+Taking the nonnegative square root gives a literal norm bound
+
+  ||K_nu f(t)|| <= sqrt(T) * ||hf.toLp(f)||.
+
+This uses the norm of the constructed forcing Lp class, not a separately
+supplied numerical bound. It holds at every time of the finite window.
+
+6. CONTINUITY WITH THE MOVING UPPER LIMIT
+
+On the fixed forcing window (0,T], define
+
+  H(t,s)=1_(s<=t) * S((t-s).toNNReal)f(s).
+
+For each t this is a.e. strongly measurable in s and is bounded in norm
+by the integrable function ||f(s)||. For fixed s, the map t|->H(t,s) is
+continuous at every t other than s: on one side it is zero, and on the
+other side it is the strongly continuous heat action on the fixed field
+f(s). The exceptional singleton has zero restricted Lebesgue measure.
+
+The pinned filter dominated convergence theorem proves continuity of
+t|->integral_(s in (0,T]) H(t,s) on the real line. For 0<=t<=T, the exact
+interval-indicator identity identifies this integral with K_nu f(t).
+Thus the actual response is continuous on [0,T], including the zero
+initial trace. T=0 is included without a separate regularity premise.
+
+7. EXACT PUBLIC AND AUDIT SURFACE
+
+Namespace: MethbokeAddon.QuasiFeffermanA.HeatDuhamel
+Public definition:
+  duhamelL2
+Public theorems:
+  heatL2_joint_continuous
+  duhamelL2_integrand_aestronglyMeasurable
+  duhamelL2_integrand_memLp_two
+  duhamelL2_integrand_intervalIntegrable
+  duhamelL2_zero_time
+  duhamelL2_zero_forcing
+  duhamelL2_ae_eq
+  duhamelL2_add
+  duhamelL2_smul
+  duhamelL2_norm_le_integral_norm
+  duhamelL2_norm_le_sqrt_mul
+  duhamelL2_norm_le_sqrt_horizon
+  duhamelL2_norm_le_sqrt_mul_lpNorm
+  duhamelL2_continuousOn
+
+Seventeen independent consumers cover all fifteen declarations. They
+include literal retarded integrals, the actual forcing Lp norm, one common
+response carrying continuity/zero trace/integral/bound, and the zero-
+viscosity primitive. Every public declaration has a named type and
+transitive axiom audit, restricted to propext, Classical.choice and
+Quot.sound. Matching external execution is pending.
+
+8. BOUNDARY AND NEXT ANALYTIC EDGE
+
+This layer constructs the actual continuous L2 response and the
+low-frequency estimate in H1_LOCAL_FIXED_POINT_CHAIN.txt section 3.2.
+The separate prepared QFAHeatDuhamelOperator package bundles the response
+as an actual forcing-to-continuous-path linear map, as recorded in the
+appendix below; its matching external verification is also pending.
+Forced H1/H2 maximal regularity, the inhomogeneous derivative equation,
+solenoidal response packaging and the nonlinear fixed point remain open.
+
+The substantial next edge is the forced gradient/Laplacian energy bound
+and the closed-graph passage to arbitrary L2 forcing. The positive-time
+operator estimate behaves singularly at the Duhamel diagonal and cannot
+be integrated to replace that missing estimate. For general L2 forcing,
+the eventual derivative equation is an a.e. time statement with an exact
+primitive identity; no everywhere derivative of an arbitrary forcing
+representative is asserted. General-data QFA and WFA remain open.
+
+APPENDIX A. SEPARATE ACTUAL FORCING-QUOTIENT RESPONSE OPERATOR
+
+PACKAGE=QFAHeatDuhamelOperator
+STATUS=PREPARED_PENDING_MATCHING_EXTERNAL
+PUBLIC_DECLARATIONS=5
+PUBLIC_THEOREMS=4
+PUBLIC_DEFINITIONS=1
+INDEPENDENT_CONSUMERS=7
+
+Source: Material/MethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean
+Namespace: MethbokeAddon.QuasiFeffermanA.HeatDuhamelOperator
+
+For any nu:NNReal and real T>=0, use the actual forcing quotient
+
+  Lp SpatialL2 2 (volume.restrict (Ioc(0,T)))
+
+and the actual continuous-path carrier
+
+  ContinuousMap (Icc(0,T)) SpatialL2.
+
+An actual forcing class F supplies its native MemLp2 representative.
+The preceding response theorem gives a continuous map on the closed
+interval. Native Lp addition and scalar multiplication agree a.e. with
+the pointwise operations; the preceding a.e. invariance and response
+linearity therefore prove linearity on the actual forcing quotient.
+No equality of arbitrary chosen representatives at every time is used.
+
+The actual forcing-class norm estimate holds at every t in [0,T]. The
+continuous-path supremum norm therefore satisfies
+
+  ||K_(nu,T)(F)||_C([0,T];L2) <= sqrt(T) * ||F||_Lp2.
+
+The native bounded-linear-map constructor packages this proved bound:
+
+  duhamelL2Operator(nu,T,hT)
+    : Lp SpatialL2 2 (volume.restrict (Ioc(0,T)))
+        ->L[R] ContinuousMap (Icc(0,T)) SpatialL2,
+  ||duhamelL2Operator(nu,T,hT)|| <= sqrt(T).
+
+Evaluation is the literal retarded integral
+
+  (duhamelL2Operator(nu,T,hT)(F))(t)
+    = integral_0^t heatL2(nu,(t-s).toNNReal,F(s))ds.
+
+Every output has exact value zero at t=0. For any original function f and
+hf:MemLp f 2 (volume.restrict (Ioc(0,T))), native coeFn_toLp a.e. equality
+and response a.e. invariance give
+
+  (duhamelL2Operator(nu,T,hT)(hf.toLp(f)))(t) = duhamelL2(nu,f,t)
+
+at every t in [0,T]. Both zero viscosity and T=0 are included. No spatial
+spectral-gap, time-continuity or stronger forcing assumption is added.
+
+Public definition:
+  duhamelL2Operator
+Public theorems:
+  duhamelL2Operator_apply
+  duhamelL2Operator_norm_le
+  duhamelL2Operator_zero_trace
+  duhamelL2Operator_toLp_apply
+
+Seven independent consumers cover these five public declarations,
+including one common operator carrying the integral, trace and norm
+claims, and the exact zero operator on the zero-length horizon. Each
+declaration requires its own named type and transitive axiom report,
+restricted to propext, Classical.choice and Quot.sound. Matching cached
+external verification remains pending. The main QFAHeatDuhamel package
+above retains exactly fifteen declarations and seventeen consumers.
+
+This appendix constructs the actual L2 forcing-to-continuous-L2-response
+operator. It does not close forced H1/H2 maximal regularity, the
+inhomogeneous derivative equation, the solenoidal forcing/response spaces
+or nonlinear local existence.
