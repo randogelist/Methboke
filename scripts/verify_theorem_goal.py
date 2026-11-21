@@ -24,15 +24,8 @@ import time
 
 REPOSITORY = "randogelist/Methboke"
 UPSTREAM_WORKFLOW = "Material / cached verification and passed objects"
-GOAL_IDS = (
-    "WFA", "WFB", "QFA", "QFB", "NSE_A_SINGLE_INPUT_OBSTRUCTION",
-    "NSE_B_SINGLE_INPUT_OBSTRUCTION",
-)
-ROOT_STATUSES = {
-    "OPEN", "OPEN_GENERAL_DATA", "OPEN_NO_NATIVE_ROOT",
-    "CONDITIONAL_FULL_BUDGET", "CONDITIONAL_REDUCTION_WITNESS_OPEN",
-    "EXACT_ROOT_ESTABLISHED",
-}
+GOAL_IDS = ("WFA", "WFB", "QFB")
+ROOT_STATUSES = {"OPEN", "CONDITIONAL_FULL_BUDGET", "EXACT_ROOT_ESTABLISHED"}
 STANDARD_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 ROOT = Path(__file__).resolve().parents[1]
 SHA = re.compile(r"[0-9a-f]{40}")
@@ -150,22 +143,24 @@ def validate_manifest(manifest: dict, entries: list[dict]) -> dict[str, dict]:
     rows = manifest.get("goals")
     require(isinstance(rows, list) and len(rows) == len(GOAL_IDS)
             and all(isinstance(row, dict) for row in rows),
-            "SCOPE_MANIFEST_REJECTED", "Exactly six goal records are required.")
+            "SCOPE_MANIFEST_REJECTED", "Exactly three goal records are required.")
     ids = [row.get("id") for row in rows]
     require(len(set(ids)) == len(GOAL_IDS) and set(ids) == set(GOAL_IDS),
-            "SCOPE_MANIFEST_REJECTED", "Goal IDs must be the six distinct registered IDs.")
+            "SCOPE_MANIFEST_REJECTED", "Goal IDs must be WFA, WFB and QFB exactly once.")
     available = {entry["id"] for entry in entries}
     for row in rows:
         status = row.get("root_status")
+        mode = row.get("ci_mode")
         packages = row.get("principal_packages")
         obligations = row.get("open_obligations")
-        require(row.get("domain") == ("R3" if row["id"] in
-                {"WFA", "QFA", "NSE_A_SINGLE_INPUT_OBSTRUCTION"} else "T3")
+        require(row.get("domain") == ("R3" if row["id"] == "WFA" else "T3")
                 and isinstance(row.get("name"), str) and bool(row["name"].strip())
                 and isinstance(row.get("verification_scope"), str) and bool(row["verification_scope"].strip())
                 and status in ROOT_STATUSES and isinstance(row.get("standalone_qfb"), bool),
                 "SCOPE_MANIFEST_REJECTED", "Invalid domain, status or verification boundary: " + row["id"])
-        require(isinstance(packages, list) and bool(packages)
+        require(mode in {"placeholder", "audit"} and (mode == "placeholder") == (status == "OPEN"),
+                "SCOPE_MANIFEST_REJECTED", "Open statements require placeholder mode; theorem scopes require audit mode.")
+        require(isinstance(packages, list) and (bool(packages) or mode == "placeholder")
                 and all(isinstance(p, str) for p in packages)
                 and len(packages) == len(set(packages)) and set(packages) <= available,
                 "SCOPE_MANIFEST_REJECTED", "Missing, duplicate or unknown principal packages: " + row["id"])
@@ -213,9 +208,6 @@ def root_contract(goal: dict, selected_entries: list[dict]) -> dict:
         matches = declarations.get(target, [])
         require(target != root_name and bool(matches) and all(kind == "definition" for _, kind in matches),
                 "SCOPE_MANIFEST_REJECTED", "A target proposition must be audited as a definition, never as a proved root.")
-    if goal["id"] == "QFA":
-        require(isinstance(target, str) and bool(target), "SCOPE_MANIFEST_REJECTED",
-                "The QFA lane must retain its separately named target proposition definition.")
     return {"root_declaration": root_name,
             "root_packages": [package for package, _ in declarations.get(root_name, [])],
             "target_definition": target,
@@ -232,6 +224,8 @@ def make_plan(root: Path, goal_id: str, revision: str, route: dict, drivers) -> 
     manifest = read_object(manifest_path)
     goals = validate_manifest(manifest, full["endpoints"])
     goal = goals[goal_id]
+    require(goal["ci_mode"] == "audit", "AUDIT_MODE_REJECTED",
+            "This open statement has only a dummy stage; use the placeholder command.")
     ids = select_scope(full["endpoints"], goal)
     selected = build.validate(root / "Material", ids)
     contract = root_contract(goal, selected["endpoints"])
@@ -407,6 +401,34 @@ def base_report(plan: dict) -> dict:
             "source_closure_sha256": plan["source_closure_sha256"]}
 
 
+def placeholder_report(root: Path, goal_id: str, revision: str, route: dict) -> dict:
+    """Static statement registration only; no driver, cache or compiler access."""
+    manifest_path = root / "Material/ci/theorem-goals.json"
+    manifest = read_object(manifest_path)
+    entries = [{"id": path.parent.name} for path in (root / "Material").glob("*/endpoint.json")]
+    goal = validate_manifest(manifest, entries)[goal_id]
+    require(goal["ci_mode"] == "placeholder" and goal["root_status"] == "OPEN"
+            and goal.get("root_declaration") is None,
+            "PLACEHOLDER_MODE_REJECTED", "A dummy stage is allowed only for an explicitly open, absent root.")
+    return {"schema_version": 1, "repository": REPOSITORY, "report_scope": "placeholder_only",
+            "goal_id": goal_id, "goal_name": goal["name"], "domain": goal["domain"],
+            "source_revision": revision, "route": route, "ci_mode": "placeholder",
+            "audit_status": "DUMMY_PENDING", "root_status": "OPEN", "root_declaration": None,
+            "root_declaration_freshly_audited": False, "dummy_stage_completed": True,
+            "root_status_automatically_promoted": False, "full_project_acceptance": False,
+            "verification_scope": goal["verification_scope"],
+            "verification_boundary": "Dummy stage only: no theorem proof, compiler execution, cached-object "
+                                     "verification or fresh theorem audit was performed. The WFA root remains open.",
+            "open_obligations": goal["open_obligations"], "selected_packages": [],
+            "required_package_count": 0, "required_named_reports": 0, "endpoints": [],
+            "fresh_package_count": 0, "fresh_named_reports": 0, "audit_reused_count": 0,
+            "fresh_required_audits": False, "compiler_executed": False,
+            "cache_accessed": False, "module_compilation_allowed": False,
+            "dependency_hydration_allowed": False, "cache_publication_allowed": False,
+            "local_lean_allowed": False, "goal_manifest_sha256": digest(manifest_path.read_bytes()),
+            "orchestrator_sha256": digest(Path(__file__).read_bytes())}
+
+
 def verify_goal(root: Path, output: Path, plan: dict, selected: dict,
                 environment: dict[str, str], drivers, report: dict) -> dict:
     build, _, _ = drivers
@@ -519,8 +541,9 @@ def append_summary(report: dict, environment: dict[str, str]) -> None:
              "| Fresh packages / named reports | " + str(report.get("fresh_package_count", 0)) +
              " / " + str(report.get("fresh_named_reports", 0)) + " |", "",
              report.get("verification_scope", "No mathematical scope was accepted."), "",
-             "Audit success verifies this configured scope. It does not construct an absent root, "
-             "discharge a retained premise, or replace complete Material acceptance."]
+             report.get("verification_boundary", "Audit success verifies this configured scope. "
+                        "It does not construct an absent root, discharge a retained premise, "
+                        "or replace complete Material acceptance.")]
     if report.get("donor_source_revision"):
         lines += ["", "Object donor: `" + report["donor_source_revision"] + "` — " + report["donor_run_url"] + "."]
     if report.get("error"):
@@ -534,7 +557,7 @@ def append_summary(report: dict, environment: dict[str, str]) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("plan", "admit", "verify"))
+    parser.add_argument("command", choices=("plan", "admit", "verify", "placeholder"))
     parser.add_argument("--goal", choices=GOAL_IDS, required=True)
     parser.add_argument("--revision", required=True)
     parser.add_argument("--output", type=Path, required=True)
@@ -557,6 +580,13 @@ def main() -> int:
         event = read_object(Path(environment["GITHUB_EVENT_PATH"]))
         route = validate_route(environment, event, args.revision)
         check_checkout(root, args.revision, environment)
+        if args.command == "placeholder":
+            report = placeholder_report(root, args.goal, args.revision, route)
+            atomic_json(output / "scope-report.json", report)
+            append_summary(report, environment)
+            print(json.dumps({"goal": args.goal, "stage": "placeholder", "audit_status": "DUMMY_PENDING",
+                              "root_status": "OPEN", "source_revision": args.revision}, sort_keys=True))
+            return 0
         drivers = load_drivers(root)
         plan, selected = make_plan(root, args.goal, args.revision, route, drivers)
         report = base_report(plan)

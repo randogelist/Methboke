@@ -86,9 +86,9 @@ class TheoremGoalControls(unittest.TestCase):
         with self.assertRaises(goal.ScopeError):
             goal.root_contract(row, [entry])
 
-    def test_qfa_target_definition_remains_distinct_from_proof(self):
-        row = {"id": "QFA", "root_declaration": None, "target_definition": "QFA.target"}
-        entry = endpoint("Root", ["R"], ["R"], [{"name": "QFA.target", "kind": "definition"}])
+    def test_target_definition_remains_distinct_from_proof(self):
+        row = {"id": "WFA", "root_declaration": None, "target_definition": "Example.target"}
+        entry = endpoint("Root", ["R"], ["R"], [{"name": "Example.target", "kind": "definition"}])
         contract = goal.root_contract(row, [entry])
         self.assertFalse(contract["target_definition_is_proof"])
         self.assertIsNone(contract["root_declaration"])
@@ -96,20 +96,75 @@ class TheoremGoalControls(unittest.TestCase):
         with self.assertRaises(goal.ScopeError):
             goal.root_contract(row, [entry])
 
-    def test_checked_in_manifest_keeps_six_explicit_goal_statuses(self):
+    def test_checked_in_manifest_keeps_three_explicit_goals_and_dummy_mode(self):
         root = SCRIPT.parents[1]
         manifest = json.loads((root / "Material/ci/theorem-goals.json").read_text())
         entries = [{"id": path.parent.name} for path in (root / "Material").glob("*/endpoint.json")]
         rows = goal.validate_manifest(manifest, entries)
-        self.assertEqual(set(rows), set(goal.GOAL_IDS))
-        self.assertIsNone(rows["QFA"]["root_declaration"])
-        self.assertTrue(rows["QFA"]["root_status"].startswith("OPEN"))
-        self.assertEqual(rows["NSE_B_SINGLE_INPUT_OBSTRUCTION"]["root_status"],
-                         "CONDITIONAL_REDUCTION_WITNESS_OPEN")
+        self.assertEqual(set(rows), {"WFA", "WFB", "QFB"})
+        self.assertEqual(goal.GOAL_IDS, ("WFA", "WFB", "QFB"))
+        self.assertIsNone(rows["WFA"]["root_declaration"])
+        self.assertEqual(rows["WFA"]["root_status"], "OPEN")
+        self.assertEqual(rows["WFA"]["ci_mode"], "placeholder")
+        self.assertEqual(rows["WFB"]["ci_mode"], "audit")
+        self.assertEqual(rows["QFB"]["ci_mode"], "audit")
         bad = copy.deepcopy(manifest)
         bad["goals"][0]["root_status"] = "EXACT_ROOT_ESTABLISHED"
         with self.assertRaises(goal.ScopeError):
             goal.validate_manifest(bad, entries)
+
+    def _placeholder_main(self, goal_id):
+        manifest = json.loads((SCRIPT.parents[1] / "Material/ci/theorem-goals.json").read_text())
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            root, output = base / "checkout", base / "evidence"
+            (root / "Material/ci").mkdir(parents=True)
+            (root / "Material/ci/theorem-goals.json").write_text(json.dumps(manifest))
+            for row in manifest["goals"]:
+                for package in row["principal_packages"]:
+                    path = root / "Material" / package / "endpoint.json"
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text(json.dumps({"id": package}))
+            event_path = base / "event.json"
+            event_path.write_text(json.dumps(event_payload()))
+            env = dict(environment(), GITHUB_EVENT_PATH=str(event_path), GITHUB_WORKSPACE=str(root),
+                       GITHUB_STEP_SUMMARY=str(base / "summary.md"))
+            arguments = [str(SCRIPT), "placeholder", "--goal", goal_id, "--revision", REVISION,
+                         "--output", str(output)]
+            with mock.patch.object(goal, "ROOT", root), mock.patch.dict(os.environ, env, clear=True), \
+                    mock.patch.object(goal.sys, "argv", arguments), \
+                    mock.patch.object(goal, "check_checkout") as checkout, \
+                    mock.patch.object(goal, "load_drivers", side_effect=AssertionError("No drivers allowed")) as drivers, \
+                    mock.patch.object(goal, "make_plan", side_effect=AssertionError("No audit planning allowed")) as planning, \
+                    mock.patch.object(goal, "cached_preflight", side_effect=AssertionError("No cache allowed")) as cache, \
+                    mock.patch.object(goal, "verify_goal", side_effect=AssertionError("No verification allowed")) as verify, \
+                    mock.patch.object(goal.subprocess, "run", side_effect=AssertionError("No subprocess allowed")) as command, \
+                    mock.patch("builtins.print"):
+                result = goal.main()
+                checkout.assert_called_once()
+                for forbidden in (drivers, planning, cache, verify, command):
+                    forbidden.assert_not_called()
+            return result, json.loads((output / "scope-report.json").read_text()), (base / "summary.md").read_text()
+
+    def test_placeholder_branch_never_loads_drivers_caches_or_compiler(self):
+        result, report, summary = self._placeholder_main("WFA")
+        self.assertEqual(result, 0)
+        self.assertEqual(report["audit_status"], "DUMMY_PENDING")
+        self.assertEqual(report["root_status"], "OPEN")
+        self.assertIsNone(report["root_declaration"])
+        self.assertFalse(report["compiler_executed"])
+        self.assertFalse(report["cache_accessed"])
+        self.assertEqual(report["fresh_package_count"], 0)
+        self.assertEqual(report["fresh_named_reports"], 0)
+        self.assertFalse(report["full_project_acceptance"])
+        self.assertIn("Dummy stage only", summary)
+
+    def test_placeholder_command_rejects_a_real_audit_goal(self):
+        result, report, _ = self._placeholder_main("WFB")
+        self.assertEqual(result, 1)
+        self.assertEqual(report["audit_status"], "FAIL")
+        self.assertEqual(report["failure_class"], "PLACEHOLDER_MODE_REJECTED")
+        self.assertFalse(report["compiler_executed"])
 
     def test_receipt_mismatch_is_read_only_and_never_reaches_a_compiler(self):
         records = {"Example": {"imports": [], "sha256": "source"}}
@@ -145,9 +200,9 @@ class TheoremGoalControls(unittest.TestCase):
                 goal.validate_receipts(records, {"A": receipt_a, "B": receipt_b}, context, output, matches)
 
     def test_audit_success_does_not_promote_an_open_goal_or_a_definition(self):
-        plan = {"goal": {"id": "QFA", "name": "QFA", "domain": "R3",
-                         "root_status": "OPEN_GENERAL_DATA", "root_declaration": None,
-                         "target_definition": "QFA.target", "verification_scope": "Foundations only",
+        plan = {"goal": {"id": "WFA", "name": "WFA", "domain": "R3",
+                         "root_status": "OPEN", "root_declaration": None,
+                         "target_definition": "Example.target", "verification_scope": "Foundations only",
                          "open_obligations": ["Actual general-data construction"]},
                 "source_revision": REVISION, "route": {}, "plan_sha256": "plan",
                 "selected_packages": ["Root"], "selected_package_count": 1,
@@ -155,7 +210,7 @@ class TheoremGoalControls(unittest.TestCase):
                 "audit_policy_sha256": "policy", "source_closure_sha256": "sources"}
         report = goal.base_report(plan)
         report["audit_status"] = "PASS"
-        self.assertEqual(report["root_status"], "OPEN_GENERAL_DATA")
+        self.assertEqual(report["root_status"], "OPEN")
         self.assertIsNone(report["root_declaration"])
         self.assertFalse(report["target_definition_is_proof"])
         self.assertFalse(report["root_status_automatically_promoted"])

@@ -1,4 +1,4 @@
-name: Theorem goals / six parallel cached audits
+name: Theorem goals / audits and open-goal placeholders
 
 on:
   workflow_run:
@@ -29,21 +29,18 @@ jobs:
     timeout-minutes: 45
     strategy:
       fail-fast: false
-      max-parallel: 6
+      max-parallel: 3
       matrix:
         include:
           - goal: WFA
-            label: WFA / R3
+            label: WFA / R3 / dummy (open)
+            ci_mode: placeholder
           - goal: WFB
             label: WFB / T3
-          - goal: QFA
-            label: QFA / R3
+            ci_mode: audit
           - goal: QFB
             label: QFB / T3
-          - goal: NSE_A_SINGLE_INPUT_OBSTRUCTION
-            label: Single-input NSE-A obstruction / R3
-          - goal: NSE_B_SINGLE_INPUT_OBSTRUCTION
-            label: Single-input NSE-B obstruction / T3
+            ci_mode: audit
     env:
       PYTHONUNBUFFERED: '1'
       LEAN_NUM_THREADS: '2'
@@ -62,7 +59,14 @@ jobs:
       - name: Check scope-runner controls without invoking Lean
         run: python3 -m unittest discover -s scripts/tests -p 'test_theorem_goal.py'
 
+      - name: Dummy stage — WFA remains open
+        if: ${{ matrix.ci_mode == 'placeholder' }}
+        run: >-
+          python3 scripts/verify_theorem_goal.py placeholder
+          --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
+
       - name: Record theorem scope, exact revision and compatible cache keys
+        if: ${{ matrix.ci_mode == 'audit' }}
         id: plan
         run: >-
           python3 scripts/verify_theorem_goal.py plan
@@ -70,9 +74,11 @@ jobs:
           --github-output "$GITHUB_OUTPUT"
 
       - name: Reclaim unused disposable runner SDKs
+        if: ${{ matrix.ci_mode == 'audit' }}
         run: bash Material/ci/prepare-runner.sh --mode warm
 
       - name: Find a repaired dependency cache
+        if: ${{ matrix.ci_mode == 'audit' }}
         id: repaired-dependencies
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -82,6 +88,7 @@ jobs:
           lookup-only: true
 
       - name: Restore the pinned dependency objects
+        if: ${{ matrix.ci_mode == 'audit' }}
         id: dependencies
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -89,6 +96,7 @@ jobs:
           key: ${{ steps.repaired-dependencies.outputs.cache-matched-key || steps.plan.outputs.dependency_key }}
 
       - name: Find a repaired project cache
+        if: ${{ matrix.ci_mode == 'audit' }}
         id: repaired-project
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -100,6 +108,7 @@ jobs:
           lookup-only: true
 
       - name: Restore passed project objects and their original receipts
+        if: ${{ matrix.ci_mode == 'audit' }}
         id: project
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -110,6 +119,7 @@ jobs:
           restore-keys: ${{ steps.plan.outputs.project_prefix }}
 
       - name: Require a complete passed cache donor before compiler setup
+        if: ${{ matrix.ci_mode == 'audit' }}
         env:
           DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
           DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
@@ -120,6 +130,7 @@ jobs:
           --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
 
       - name: Install the checksum-pinned native toolchain
+        if: ${{ matrix.ci_mode == 'audit' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -131,6 +142,7 @@ jobs:
           "$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"
 
       - name: Validate cached closure and freshly audit this goal's complete scope
+        if: ${{ matrix.ci_mode == 'audit' }}
         env:
           DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
           DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
@@ -140,7 +152,7 @@ jobs:
           python3 scripts/verify_theorem_goal.py verify
           --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
 
-      - name: Retain goal status, exact types, axioms and source receipts
+      - name: Retain explicit goal status and any real audit evidence
         if: ${{ always() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

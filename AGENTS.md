@@ -27,21 +27,23 @@ publication of its combined cache have passed. The documentation head 10f73223
 completed Material run 44859131356 with conclusion success. The independent
 Lean source-line counting and maintained README statistic remain in place.
 
-The current user-selected goals are **WFA, WFB, QFA, QFB, a single-input NSE-A
-obstruction, and a single-input NSE-B obstruction**. The domain mapping is:
+The current user-selected goals are **WFA, WFB and QFB**:
 
-- **R3:** WFA, QFA, single-input NSE-A obstruction.
-- **T3:** WFB, QFB, single-input NSE-B obstruction.
+- **R3:** WFA.
+- **T3:** WFB and QFB.
 
-The active engineering task is their six parallel theorem-specific CI runners:
+The active engineering task is `THREE_THEOREM_GOALS_AND_CI`:
 `.github/workflows/theorem-goals.yml`, with scope in
-`Material/ci/theorem-goals.json`. The configuration is pending matching external
-validation. Preserve the full Material workflow and its gates. Per-goal helper
-or conditional endpoint acceptance does not prove an open root or construct an
-obstruction witness. General physical WFA/QFA remain open; WFB/QFB and all
-conditional obstruction reductions retain their exact hypotheses and scopes.
-The new goal declaration supersedes Fefferman D as the project goal, while its
-accepted results, open prescribed-site family and source receipts are retained.
+`Material/ci/theorem-goals.json`, configures three parallel stages. WFA is an
+explicit dummy/pending stage with no Lean execution, cache restoration or theorem
+audit. WFB freshly audits its established exact conditional full-budget theorem;
+QFB freshly audits its established exact root and standalone cutout. Preserve
+WFB's full Fourier-budget hypothesis and QFB's precise cutoff/regularity scope.
+The configuration is pending matching external validation. Preserve the full
+Material workflow and its gates. A dummy status supplies no theorem evidence.
+The earlier six-goal configuration is superseded and is not current proof
+evidence. Retained QFA, obstruction, Fefferman-D and FDSN resources keep their
+original statuses, explicit premises and source-specific receipts.
 
 The exact promoted head `e627a39e` passed external run `44856391458`: all 654
 modules were reused, zero modules were freshly compiled, and all 169 package
@@ -179,7 +181,7 @@ Before commits synchronize GPT, README, INDEX-WORTHY, SOURCE_STATUS and the
 T3 implementation ledger. Keep prior accepted proof bytes and evidence intact.
 Record the integration status and both QFA/NSE-A and FDSN ledgers as well
 as the preserved T3 ledger. Historical branch priorities do not override the
-current six-goal hierarchy or its explicitly selected engineering task.
+current three-goal hierarchy or its explicitly selected engineering task.
 Record formal gaps explicitly, including seed/toolchain compatibility, force
 admission, periodization and same-force comparison. Do not add a global custom
 axiom, hide a missing witness in a definition, or claim prepared code is verified.
