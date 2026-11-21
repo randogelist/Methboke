@@ -1,18 +1,25 @@
 R3 EHRENFEST — SCHWARTZ DATUM ADMISSION CANDIDATE
 
-STATUS: ACTIVATED_PENDING_MATCHING_EXTERNAL_CI
+STATUS: REPAIRED_PENDING_MATCHING_EXTERNAL_CI
 ACTIVE PACKAGE: R3EhrenfestDatumAdmission
 ACTIVATION COMMIT: 6de02f59853fc7c559a8b78082abc354b067cd42
+REPAIR COMMIT: 647c43e187ed6a1111b338d71762684217247226
+FAILED RUN: 44883719460
 
 This candidate constructs the literal `SmoothDatum` as actual native
 `EnergyDatum`, `PhysicalH1Sigma`, `PhysicalH2`, and `PhysicalH2Sigma` objects.
 Its substantive bridge is pointwise Schwartz divergence zero to the full-volume
 compact-test `Solenoidal` predicate via the accepted weak-gradient trace theorem.
 
+The sole reported proof failure was a brittle definitional `change` between a
+Schwartz directional derivative and `fderiv`. The repaired source uses the
+explicit accepted theorem `SchwartzMap.lineDerivOp_apply_eq_fderiv`; all fifteen
+public statements are unchanged.
+
 It contains no nonlinear flow, time evolution, stopped-bound witness, literal
-solution Sobolev admission, or R3 obstruction root. The active source, Endpoint,
-and Audit require matching cached external compilation, exact-type consumers,
-and theorem-level standard-only axiom evidence before any status lift.
+solution Sobolev admission, or R3 obstruction root. The repaired active source,
+Endpoint, and Audit require matching cached external compilation, exact-type
+consumers, and theorem-level standard-only axiom evidence before any status lift.
 
 INTENDED MID-TIER
   R3_SCHWARTZ_DATUM_PHYSICAL_ADMISSION
