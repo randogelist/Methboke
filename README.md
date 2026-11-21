@@ -17,17 +17,17 @@ $p(t,0)=0$. **These new files are pending matching external verification.**
 
 ## QFA external verification and proof repair
 
-The first two runs retained their exact failure evidence:
-[293db84a / run44845214610](audits/material-293db84a-qfa-failed/independent-review.json)
-and [fd72e221 / run44845844062](audits/material-fd72e221-qfa-failed/independent-review.json).
-The second passed 514 of 520 modules, including the new root contract and
-translated weak momentum. Heat smoothing and the newly unblocked full-LH
-wrapper still failed elaboration; four dependents were blocked. No package
-audits or new acceptance followed. The next repair qualifies the actual time
-shift throughout the wrapper, gives its literal initial-trace proof, and uses
-the pinned positive-factor cancellation and addition signatures. Mathematical
-statements, assumptions and independent consumers are preserved. A matching
-cached external retry is required; no local Lean was executed.
+[Run44846461910](https://github.com/randogelist/Methboke/actions/runs/44846461910)
+at `82e6035f` passed **518 of 520 modules**, including actual heat smoothing
+and full LH restart with their endpoint modules. Only the newly unblocked
+zero-datum source failed; its endpoint was blocked. The repair supplies
+explicit types to the zero integrability/continuity lemmas and proves the
+literal equality between the t+delta and delta+t clocks. All mathematical
+statements and independent consumers are preserved. No package audits or
+new A-tier acceptance occurred yet.
+[Exact failure evidence](audits/material-82e6035f-qfa-failed/independent-review.json)
+retains the previous two failures as history. Matching external verification
+is required; no local Lean was run.
 
 ## Latest accepted native basis
 

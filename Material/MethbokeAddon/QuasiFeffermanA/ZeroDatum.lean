@@ -87,12 +87,14 @@ including genuine spatial and time integrability. -/
 theorem zero_weakMomentum (ν : ℝ) : WeakMomentum ν zeroVelocity zeroGradient := by
   constructor
   · intro φ t _
-    exact ⟨integrable_zero.congr (zero_timeIntegrand_ae φ t).symm,
-      integrable_zero.congr (zero_convectionIntegrand_ae φ t).symm,
-      integrable_zero.congr (zero_dissipationIntegrand_ae φ t).symm⟩
+    exact ⟨(integrable_zero Space ℝ volume).congr (zero_timeIntegrand_ae φ t).symm,
+      (integrable_zero Space ℝ volume).congr (zero_convectionIntegrand_ae φ t).symm,
+      (integrable_zero Space ℝ volume).congr (zero_dissipationIntegrand_ae φ t).symm⟩
   · intro φ
     simp only [zero_timeIntegral, zero_convectionIntegral, zero_dissipationIntegral]
-    exact ⟨integrable_zero, integrable_zero, integrable_zero⟩
+    exact ⟨integrable_zero ℝ ℝ (volume.restrict (Ioi (0 : ℝ))),
+      integrable_zero ℝ ℝ (volume.restrict (Ioi (0 : ℝ))),
+      integrable_zero ℝ ℝ (volume.restrict (Ioi (0 : ℝ)))⟩
   · intro φ
     simp only [zero_timeIntegral, zero_convectionIntegral, zero_dissipationIntegral,
       integral_zero, zero_add, mul_zero, sub_self]
@@ -113,7 +115,8 @@ theorem zero_lerayHopf (ν : ℝ) : LerayHopf ν 0 zeroVelocity zeroGradient := 
   · intro R _
     exact Eventually.of_forall (fun _ => zero_spatialWeakGradient)
   · intro b
-    exact continuousOn_const
+    simpa only [zeroVelocity, inner_zero_left] using
+      (continuous_const : Continuous (fun _ : ℝ => (0 : ℝ))).continuousOn
   · intro t _
     simp [zeroVelocity, zeroGradient, velocityEnergy, gradientEnergy]
   · intro R _
@@ -228,7 +231,16 @@ theorem zeroDatum_uniqueFuture
     UniqueFuture ν u G δ := by
   constructor
   · have hshift := h.timeTranslate hδ (zeroDatum_energyStart h hν hδ)
-    simpa only [QFA.Endpoints.Restart.timeTranslate, add_comm] using hshift
+    change LerayHopf ν (u δ) (fun t : ℝ => u (t + δ))
+      (fun t : ℝ => G (t + δ)) at hshift
+    have hu : (fun t : ℝ => u (t + δ)) = fun t : ℝ => u (δ + t) := by
+      funext t
+      rw [add_comm t δ]
+    have hG : (fun t : ℝ => G (t + δ)) = fun t : ℝ => G (δ + t) := by
+      funext t
+      rw [add_comm t δ]
+    rw [hu, hG] at hshift
+    exact hshift
   · intro v H hv t ht
     change u (δ + t) = v t
     have htrace : u δ = 0 := zeroDatum_velocity_eq_zero h hν.le hδ
