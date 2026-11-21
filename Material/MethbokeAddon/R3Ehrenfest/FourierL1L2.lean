@@ -39,12 +39,12 @@ open QFA.Endpoints.Agmon (ComplexL2 ComplexVector)
 def inverseL1Representative (f : ComplexL2)
     (hf : Integrable (fun ξ : Space => f ξ) volume) : Space →ᵇ ComplexVector :=
   Real.Lp.fourierTransformInv
-    (hf.memLp_one.toLp (fun ξ : Space => f ξ))
+    ((memLp_one_iff_integrable.mpr hf).toLp (fun ξ : Space => f ξ))
 
 theorem inverseL1Representative_apply (f : ComplexL2)
     (hf : Integrable (fun ξ : Space => f ξ) volume) (x : Space) :
     inverseL1Representative f hf x = (𝓕⁻ (fun ξ : Space => f ξ)) x := by
-  exact congrFun (Real.Lp.fourierTransformInv_toLp hf.memLp_one) x
+  exact congrFun (Real.Lp.fourierTransformInv_toLp (memLp_one_iff_integrable.mpr hf)) x
 
 theorem continuous_fourierInv_integral (f : ComplexL2)
     (hf : Integrable (fun ξ : Space => f ξ) volume) :
@@ -128,7 +128,7 @@ theorem norm_inverseL1Representative_le (f : ComplexL2)
     (hf : Integrable (fun ξ : Space => f ξ) volume) :
     ‖inverseL1Representative f hf‖ ≤
       ‖Real.Lp.fourierTransformInvCLM Space ComplexVector‖ *
-        ‖hf.memLp_one.toLp (fun ξ : Space => f ξ)‖ :=
+        ‖(memLp_one_iff_integrable.mpr hf).toLp (fun ξ : Space => f ξ)‖ :=
   (Real.Lp.fourierTransformInvCLM Space ComplexVector).le_opNorm _
 
 /-- Every polynomial L1 moment yields smoothness of the same actual inverse

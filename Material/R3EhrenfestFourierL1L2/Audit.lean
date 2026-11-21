@@ -40,7 +40,7 @@ example (f : ComplexL2) (hf : Integrable (fun ξ : Space => f ξ) volume) :
 example (f : ComplexL2) (hf : Integrable (fun ξ : Space => f ξ) volume) :
     ‖inverseL1Representative f hf‖ ≤
       ‖Real.Lp.fourierTransformInvCLM Space ComplexVector‖ *
-        ‖hf.memLp_one.toLp (fun ξ : Space => f ξ)‖ :=
+        ‖(memLp_one_iff_integrable.mpr hf).toLp (fun ξ : Space => f ξ)‖ :=
   norm_inverseL1Representative_le f hf
 
 -- Smoothness uses actual polynomial L1 moments, without a smoothness input.

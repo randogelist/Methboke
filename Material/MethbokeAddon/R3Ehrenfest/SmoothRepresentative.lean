@@ -143,7 +143,8 @@ theorem complexRepresentative_eq_inverseL1 (n : ℕ) (u : SpatialL2) :
   apply Lp.ext
   filter_upwards [cutoffFrequencyL1_ae n (𝓕 (complexifyL2 u)),
     sharpCutoff_fourier_ae n u,
-    (integrable_sharpCutoff_fourier n u).memLp_one.coeFn_toLp] with ξ h1 h2 h3
+    (memLp_one_iff_integrable.mpr (integrable_sharpCutoff_fourier n u)).coeFn_toLp]
+    with ξ h1 h2 h3
   exact h1.trans (h2.symm.trans h3.symm)
 
 /-- A coherent actual smooth representative is built as a bounded real-linear
