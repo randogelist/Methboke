@@ -189,7 +189,6 @@ theorem contDiff_sharpCutoffRepresentative (n : ℕ) (u : SpatialL2) :
           (integrable_sharpCutoff_fourier n u) x) := by
     funext x
     rw [sharpCutoffRepresentativeCLM_apply, complexRepresentative_eq_inverseL1]
-    rfl
   rw [he]
   exact realPartVectorCLM.contDiff.comp hc
 

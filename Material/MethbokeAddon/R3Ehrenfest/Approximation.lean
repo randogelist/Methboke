@@ -87,7 +87,11 @@ theorem tendsto_frequencyMultiplier_cutoff (f : ComplexL2) :
     filter_upwards [hformula] with ξ hξ
     apply (tendsto_const_nhds : Tendsto (fun _ : ℕ => (0 : ℝ)) atTop (𝓝 0)).congr'
     filter_upwards [cutoffValue_eventually_one ξ] with n hn
-    simp [hξ n, hn]
+    have hz : (frequencyMultiplier (cutoffSymbol n) f - f) ξ = 0 := by
+      rw [hξ n, hn]
+      simp
+    simpa only [norm_zero, zero_pow (by decide : (2 : ℕ) ≠ 0)] using
+      (congrArg (fun z : ComplexVector => ‖z‖ ^ 2) hz).symm
   have hDCT := tendsto_integral_of_dominated_convergence
     (F := fun n ξ => ‖(frequencyMultiplier (cutoffSymbol n) f - f) ξ‖ ^ 2)
     (f := fun _ : Space => (0 : ℝ)) (fun ξ : Space => ‖f ξ‖ ^ 2)
@@ -110,7 +114,9 @@ theorem tendsto_sharpCutoff (u : SpatialL2) :
 
 theorem norm_sharpCutoff_sub_tendsto_zero (u : SpatialL2) :
     Tendsto (fun n : ℕ => ‖sharpCutoff n u - u‖) atTop (𝓝 (0 : ℝ)) := by
-  simpa only [sub_self, norm_zero] using ((tendsto_sharpCutoff u).sub tendsto_const_nhds).norm
+  simpa only [sub_self, norm_zero] using
+    ((tendsto_sharpCutoff u).sub
+      (tendsto_const_nhds : Tendsto (fun _ : ℕ => u) atTop (𝓝 u))).norm
 
 /-- Strong approximation in the original physical H1 graph norm. -/
 theorem tendsto_physicalH1SharpCutoff (u : PhysicalH1) :
@@ -131,7 +137,8 @@ theorem tendsto_physicalH1SharpCutoffCLM (u : PhysicalH1) :
 theorem norm_physicalH1SharpCutoff_sub_tendsto_zero (u : PhysicalH1) :
     Tendsto (fun n : ℕ => ‖physicalH1SharpCutoff n u - u‖) atTop (𝓝 (0 : ℝ)) := by
   simpa only [sub_self, norm_zero] using
-    ((tendsto_physicalH1SharpCutoff u).sub tendsto_const_nhds).norm
+    ((tendsto_physicalH1SharpCutoff u).sub
+      (tendsto_const_nhds : Tendsto (fun _ : ℕ => u) atTop (𝓝 u))).norm
 
 /-- A common contraction modulus, uniform in the cutoff radius. -/
 theorem dist_physicalH1SharpCutoff_le (n : ℕ) (u v : PhysicalH1) :

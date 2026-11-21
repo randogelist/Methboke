@@ -31,7 +31,7 @@ set_option maxHeartbeats 800000
 
 noncomputable section
 
-open MeasureTheory FourierTransform
+open MeasureTheory FourierTransform ComplexConjugate
 open scoped BigOperators FourierTransform NNReal
 
 namespace MethbokeAddon.R3Ehrenfest.Bandlimited
@@ -56,6 +56,7 @@ private theorem memLp_hermitian_smul (m : HermitianSymbol) (f : ComplexL2) :
   apply (Lp.memLp f).of_le_mul (c := (m.bound : ℝ))
     (m.measurable.aestronglyMeasurable.smul (Lp.aestronglyMeasurable f))
   filter_upwards with ξ
+  change ‖m.value ξ • f ξ‖ ≤ (m.bound : ℝ) * ‖f ξ‖
   rw [norm_smul]
   exact mul_le_mul_of_nonneg_right (m.norm_le ξ) (norm_nonneg _)
 

@@ -72,11 +72,13 @@ private theorem integral_inverse_test_swap (f : ComplexL2)
     rw [real_inner_comm]
   have h := VectorFourier.integral_fourierIntegral_smul_eq_flip
     (e := Real.fourierChar) (L := -innerₗ Space)
+    (μ := (volume : Measure Space)) (ν := (volume : Measure Space))
+    (f := (test : Space → ℂ)) (g := (fun ξ : Space => f ξ))
     Real.continuous_fourierChar
     (by
       change Continuous (fun p : Space × Space => -(inner ℝ p.1 p.2))
       fun_prop)
-    test.integrable hf
+    (show Integrable (test : Space → ℂ) volume from test.integrable) hf
   rw [hflip] at h
   change (∫ ξ : Space, (𝓕⁻ (test : Space → ℂ)) ξ • f ξ) =
     ∫ x : Space, test x • (𝓕⁻ (fun ξ : Space => f ξ)) x at h
