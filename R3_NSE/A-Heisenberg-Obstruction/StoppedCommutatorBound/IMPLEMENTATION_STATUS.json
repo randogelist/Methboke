@@ -171,6 +171,86 @@
       "repair": "Explicit measure, representative, pointwise scalar-action and constant-sequence types; open ComplexConjugate. Public statements, exact-type consumers and scope unchanged.",
       "next_source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
       "root_proved": false
+    },
+    {
+      "commit": "6646137492c22a8502ab7710252c9c8a5225ce4f",
+      "tree": "7ee1accc20dae5bbe4cd6c6e4e1997faea5dc581",
+      "run_id": 44874347518,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44874347518",
+      "fast_job": 136755624668,
+      "material_acceptance_job": 136756574065,
+      "r3_job": 136756600711,
+      "diagnosis": "Five new source modules compiled, including Bandlimited and FourierL1L2. Approximation retained one scalar zero-power simplification error. SmoothRepresentative was reached and reported notation, measurable-ball inference, Fourier-map specialization and function-composition errors.",
+      "repair": "Explicit scalar-zero simplification, unambiguous ENNReal/top notation, typed measurable ball, real-linear Fourier-map specialization and explicit function composition. The seven-package/111-declaration scope and theorem statements are preserved.",
+      "count_run": 44874347517,
+      "count_status": "PASS",
+      "count_artifact": {
+        "id": 14695551116,
+        "bytes": 14607,
+        "sha256": "cabf15abce303cd048f43a1d0e595a7fda7d5f408a7fba68ffbc89840935b56c"
+      },
+      "artifact": {
+        "id": 14695915027,
+        "bytes": 101054,
+        "sha256": "9421201ae71e92ab6960a22953403886def93c9097a5a8901e5c1fb563be2854"
+      },
+      "schema_version": 1,
+      "repository": "randogelist/Methboke",
+      "branch": "codex/nse-a-r3-ehrenfest",
+      "status": "FAILED_NO_NEW_ACCEPTANCE",
+      "failure_class": "PROOF_OR_TYPE_FAILURE",
+      "driver_failure_class": "MODULE_COMPILATION_FAILED",
+      "compiler_diagnostic_count": 13,
+      "compiler_diagnostic_headers": [
+        "MethbokeAddon/R3Ehrenfest/Approximation.lean:93:4: error: Type mismatch: After simplification, term",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:51:62: error: Type mismatch",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:56:21: error: don't know how to synthesize implicit argument `\u03b5`",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:56:21: error: don't know how to synthesize implicit argument `x`",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:62:18: error: unexpected token '\u221e'; expected ')'",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:78:41: error: unexpected token '\u221e'; expected ')'",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:94:56: error: unexpected token '\u221e'; expected ')'",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:104:60: error: unexpected token '\u221e'; expected ')'",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:156:8: error(lean.unknownIdentifier): Unknown constant `Subtype.restrictScalars`",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:158:0: error: Not a definitional equality: the left-hand side",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:162:74: error: Type mismatch",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:189:53: error: unsolved goals",
+        "MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:229:75: error: Type mismatch"
+      ],
+      "compiled_not_accepted_new_modules": [
+        "MethbokeAddon.R3Ehrenfest.Bandlimited",
+        "MethbokeAddon.R3Ehrenfest.Carrier",
+        "MethbokeAddon.R3Ehrenfest.Contracts",
+        "MethbokeAddon.R3Ehrenfest.FourierL1L2",
+        "MethbokeAddon.R3Ehrenfest.SharpCutoff"
+      ],
+      "dependency_cache": "EXACT",
+      "project_cache": "PREFIX",
+      "matching_native_compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+      "fresh_audits_completed": false,
+      "new_scopes_accepted": [],
+      "cache_publication": false,
+      "recovery": "SKIPPED",
+      "r3_goal_audit": "SKIPPED",
+      "local_lean_executions": 0,
+      "retained_file_sha256": {
+        "current.json": "65eab2293faf83efb7caa7b86b7808ca1f6e1568114cd939d6c9180311062722",
+        "cache-admission.json": "7feef437cb6d6e43928930bdc6d5ecbe9a4976aa6ad2bedf45e5f9d996eba296",
+        "transport.json": "d0e210c5bbd6d3f2aeacaef4092e3575f07f75375d38d528323f7558c687f57b",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Approximation.log": "0a8231a5d6f51389a6ae66687bb87fbb12130bb11f2caaafd4411d969df31e99",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Bandlimited.log": "cc992603551af0aef4bf86cdaf885697887399a488ea3922f147f891afb83f79",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Carrier.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.Contracts.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.FourierL1L2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.SharpCutoff.log": "ea1818bf1e0ce7903a36dea33cbc4bcec00b565051d5fbae29a29c6f148e937b",
+        "logs/modules/MethbokeAddon.R3Ehrenfest.SmoothRepresentative.log": "2601b9ba7e478d4ea8cc34cac44686b148813dcfb683581c774a0c764ff8654d",
+        "logs/modules/R3EhrenfestBandlimited.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestCarrier.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestContracts.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestFourierL1L2.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "logs/modules/R3EhrenfestSharpCutoff.Endpoint.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "next_source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
+      "root_proved": false
     }
   ],
   "b_tier_record": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_B_TIER.txt",
@@ -268,12 +348,12 @@
     "Full Material gates and retained accepted proof bytes preserved",
     "No local Lean or Mathlib source rebuild"
   ],
-  "prepared_source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+  "prepared_source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
   "packages": [
     {
       "package": "R3EhrenfestContracts",
       "declarations": 8,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "f281ec4b43c795c209876995e5a45e6c4810ae77e9e5a6b19fa345cd5c5892ec",
       "audit_sha256": "0101b77ae7f58c0ac3058d7f1b734af11dfba38597e2cf8c8b2ca31d2bb53f2b",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -291,7 +371,7 @@
     {
       "package": "R3EhrenfestSharpCutoff",
       "declarations": 28,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "ed72a9d344a00df865f571e89865c16909b73ee613e7ba692c89847da1c96734",
       "audit_sha256": "04f0f6c3f41c39e5924bb854521eafedc888e714b4f8ab401bd03accd7284943",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -329,7 +409,7 @@
     {
       "package": "R3EhrenfestCarrier",
       "declarations": 18,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "ee31ec35d59bbe9cf09483002cb5f0bb0565b86de0ec9156ad2ed94d3cdc4ba2",
       "audit_sha256": "b4eff44a7c5f2313bf2a07a16aca495eb049df840908c60740f0132cc27b1ca1",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -357,7 +437,7 @@
     {
       "package": "R3EhrenfestBandlimited",
       "declarations": 21,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "c68f13756ac7840595ddee7d42daa726aa9f1ddc9e21250de130432cd3f67d87",
       "audit_sha256": "7074205a2198e7539dd0c11f5bce5cec1cee66dc2f7512c266f2c095bbfe6395",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -388,7 +468,7 @@
     {
       "package": "R3EhrenfestApproximation",
       "declarations": 10,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "cbb4e778143e6e15e40c6b55a4174c3e4c37ffb43e75121cbcf6159c561b8490",
       "audit_sha256": "697a555da98222e78159e205834b2963cf5a5e4a135082ffac3c4cfda74b418b",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -408,7 +488,7 @@
     {
       "package": "R3EhrenfestFourierL1L2",
       "declarations": 7,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "bdef9d867e31d9426f45c1f149717838f25ed593a692cbf2c8db893a3274ad44",
       "audit_sha256": "25bf39d635ef4cf74d2ce7e653fdae48415e485441311d3368814aeefa80b85e",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -425,7 +505,7 @@
     {
       "package": "R3EhrenfestSmoothRepresentative",
       "declarations": 19,
-      "source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+      "source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
       "endpoint_sha256": "0a0c3929329869f8fc34cf8befa981fcc92a8a474c2d1fe6231ac05f51a35292",
       "audit_sha256": "55996c5898682471c2ef89440d41473f3a3a7c6fe1e8b42174a91d43f63fbbb5",
       "status": "PREPARED_PENDING_EXTERNAL_CACHED_VERIFICATION",
@@ -461,7 +541,7 @@
     "fresh_standalone_qfb": true
   },
   "new_h2_bound": "L_n=2*pi*(n+1); norm(sharpCutoffH2 n u)^2 <= (1+3*L_n^2+9*L_n^4)*norm(u)^2",
-  "current_prepared_source_snapshot": "eb67c0c897d81eb808b3451edc239fb82809eaef",
+  "current_prepared_source_snapshot": "d82fde9368ecd640046688a35c0d0168f04ab81b",
   "first_substantive_literal_admission_gap": {
     "id": "I14.global_derivative_integrability",
     "statement": "For positive viscosity and a literal GlobalSmoothNSE witness, every actual coordinate derivative at every nonnegative time belongs to whole-space L2. The closed-slab conclusion also needs uniform bounds, temporal control, pressure projection and same-velocity traces.",

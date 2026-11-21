@@ -58,7 +58,7 @@ that attempt; its [receipt](../../../../audits/r3-ehrenfest-ba451454-failed/summ
 is retained. The source-count check passed at the exact attempted commit.
 
 The next prepared batch has seven packages and 111 named declarations. Its
-latest immutable source snapshot is eb67c0c897d81eb808b3451edc239fb82809eaef;
+latest immutable source snapshot is d82fde9368ecd640046688a35c0d0168f04ab81b;
 this is source preparation, with external acceptance still pending.
 
 ## Second external attempt
@@ -69,3 +69,11 @@ failures. The [exact failed receipt](../../../../audits/r3-ehrenfest-aa0fd8ee-fa
 is retained. The third candidate repairs explicit types and namespace resolution
 with all 111 declaration statements unchanged. No new audited scope is accepted
 until the full gate and the scoped R3 audit pass.
+
+## External attempt 3
+
+[Run 44874347518](https://github.com/randogelist/Methboke/actions/runs/44874347518) failed before full acceptance.
+Five new source modules compiled, including Bandlimited and FourierL1L2. Approximation retained one scalar zero-power simplification error. SmoothRepresentative was reached and reported notation, measurable-ball inference, Fourier-map specialization and function-composition errors.
+Explicit scalar-zero simplification, unambiguous ENNReal/top notation, typed measurable ball, real-linear Fourier-map specialization and explicit function composition. The seven-package/111-declaration scope and theorem statements are preserved.
+The [exact receipt](../../../../audits/r3-ehrenfest-66461374-failed/summary.json) is retained.
+All seven packages remain candidates pending matching full and scoped audits.

@@ -1,0 +1,51 @@
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:51:62: error: Type mismatch
+  ∞
+has type
+  ℕ∞ω
+but is expected to have type
+  ENNReal
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:56:21: error: don't know how to synthesize implicit argument `ε`
+  @measurableSet_closedBall Space (PiLp.instPseudoMetricSpace 2 fun x => ℝ)
+    measureSpaceOfInnerProductSpace.toMeasurableSpace BorelSpace.opensMeasurable (?m.26 n) (?m.27 n)
+context:
+n : ℕ
+⊢ ℝ
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:56:21: error: don't know how to synthesize implicit argument `x`
+  @measurableSet_closedBall Space (PiLp.instPseudoMetricSpace 2 fun x => ℝ)
+    measureSpaceOfInnerProductSpace.toMeasurableSpace BorelSpace.opensMeasurable (?m.26 n) (?m.27 n)
+context:
+n : ℕ
+⊢ Space
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:62:18: error: unexpected token '∞'; expected ')'
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:78:41: error: unexpected token '∞'; expected ')'
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:77:9: warning: declaration uses `sorry`
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:94:56: error: unexpected token '∞'; expected ')'
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:104:60: error: unexpected token '∞'; expected ')'
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:156:8: error(lean.unknownIdentifier): Unknown constant `Subtype.restrictScalars`
+
+Note: Inferred this name from the expected resulting type of `.restrictScalars`:
+  ↥(Lp ComplexVector 2 volume)
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:158:0: error: Not a definitional equality: the left-hand side
+  ((sharpCutoffRepresentativeCLM n) u) x
+is not definitionally equal to the right-hand side
+  realPartVectorCLM (((sharpCutoffComplexRepresentativeCLM n) (𝓕 (complexifyL2 u))) x)
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:162:74: error: Type mismatch
+  rfl
+has type
+  ?m.12 = ?m.12
+but is expected to have type
+  ((sharpCutoffRepresentativeCLM n) u) x =
+    realPartVectorCLM (((sharpCutoffComplexRepresentativeCLM n) (𝓕 (complexifyL2 u))) x)
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:189:53: error: unsolved goals
+n : ℕ
+u : ↥SpatialL2
+hc : ContDiff ℝ ∞ fun x => (inverseL1Representative (𝓕 (complexifyL2 ((sharpCutoff n) u))) ⋯) x
+x : Space
+⊢ realPartVectorCLM ((inverseL1Representative (𝓕 (complexifyL2 ((sharpCutoff n) u))) ⋯) x) =
+    (⇑realPartVectorCLM ∘ fun x => (inverseL1Representative (𝓕 (complexifyL2 ((sharpCutoff n) u))) ⋯) x) x
+MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean:229:75: error: Type mismatch
+  rfl
+has type
+  ?m.166 = ?m.166
+but is expected to have type
+  ‖((sharpCutoffRepresentativeCLM n) u) x‖ = ‖realPartVectorCLM (((sharpCutoffComplexRepresentativeCLM n) f) x)‖
