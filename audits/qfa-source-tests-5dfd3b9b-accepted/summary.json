@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "codex/qfa-structured-assembly",
+  "tested_source": "5dfd3b9b791931abce656328848e4767aa7fd5ef",
+  "status": "A_TIER_ACCEPTED_EXACT_MID_TIER_ENDPOINT",
+  "scope": "Exact source-coordinate smooth compact scalar-test structure and canonical native smooth compact pullback.",
+  "run": {
+    "id": 44884209954,
+    "url": "https://github.com/randogelist/Methboke/actions/runs/44884209954",
+    "conclusion": "success",
+    "fast_job": {"id": 136785877592, "conclusion": "success"},
+    "terminal_job": {"id": 136788111949, "name": "Material accepted", "conclusion": "success"},
+    "recovery_job": {"id": 136788113003, "conclusion": "skipped"}
+  },
+  "environment": {
+    "toolchain": "leanprover/lean4:v4.33.0",
+    "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "dependency_cache_class": "EXACT",
+    "project_cache_class": "PREFIX",
+    "local_lean_executed": false,
+    "mathlib_source_build_allowed": false,
+    "platform": {"system": "Linux", "machine": "x86_64"}
+  },
+  "coverage": {
+    "module_count": 658,
+    "fresh_module_count": 1,
+    "reused_module_count": 657,
+    "endpoint_count": 173,
+    "fresh_endpoint_audit_count": 173,
+    "reused_endpoint_audit_count": 0,
+    "named_declaration_count": 2249,
+    "standalone_cutout_status": "PASS",
+    "all_endpoints_selected": true
+  },
+  "endpoint": {
+    "id": "QFASourceTestsBasic",
+    "status": "PASS",
+    "declaration_count": 6,
+    "input_hash": "6336bc9976bb8d0f93f61f933779e0243c0a5590619c888f07b4e2fa2bc02806",
+    "object_sha256": "d13c9ceb9074690ed8454d216f92e5c8224576b8d8a43450ffb0d92f83ef3a7b",
+    "audit_sha256": "eaf7f27409546393980077305596ab77089797835f8462d966c5669ec9ec9d33",
+    "audit_origin_commit": "5dfd3b9b791931abce656328848e4767aa7fd5ef",
+    "audit_reused": false,
+    "source_drift": [],
+    "declarations": [
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceTests.SourceWeakTestFunction", "type_sha256": "c0a1788880b6fb2b495391211457b88ff90736443ea28fb9f9d3fa70e49d5a26", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceTests.instCoeFunSourceWeakTestFunction", "type_sha256": "399383bfbbbb71f927fb6fe824d3b425358ea3a778d57f186a7238cf3625a0b9", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceTests.nativeTestFunctionOfSource", "type_sha256": "fc916eb4c4cdfad3e56bd96bf9a71cfa02a6869c6015d258ca383e9c1159d0de", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceTests.nativeTestFunctionOfSource_apply", "type_sha256": "e0ad97bf38cb6e112a98342a535fea4132eb19325a811f928329123b2e50f229", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceTests.nativeTestFunctionOfSource_contDiff", "type_sha256": "c0fe40ab303a53a949a84e22911c59495ec95ccea2c8e34109c49fc91babfcce", "axioms": ["Classical.choice", "Quot.sound", "propext"]},
+      {"name": "MethbokeAddon.QuasiFeffermanA.SourceTests.nativeTestFunctionOfSource_hasCompactSupport", "type_sha256": "d1e6fbd33e41924552313d28517b067acaa4a627f7c2e480f08ea9d76272593f", "axioms": ["Classical.choice", "Quot.sound", "propext"]}
+    ]
+  },
+  "artifacts": {
+    "evidence": {"id": 14699462691, "digest": "sha256:7799af0b88a77e8048453207ea0ce92555ec40be31db78905bd2931de391a80c"},
+    "binary": {"id": 14699054531, "digest": "sha256:cde4d344cc468b8c00e2cc0f597a969b72008bc6671b6082de481a2dcf4e4453"},
+    "routing": {"id": 14699417989, "digest": "sha256:9ae0680d33f834d23362f775d2e1a1210abee65ff9746747f49cfef8faf2ce45"},
+    "verified": {"id": 14699920220, "digest": "sha256:c85a5f2359e56502aca1b19867ebfe41928eb7e42ee3dfb6ba75ab27ab08251e"}
+  },
+  "independent_static_review": {
+    "downloaded_evidence_zip_sha256": "7799af0b88a77e8048453207ea0ce92555ec40be31db78905bd2931de391a80c",
+    "artifact_digest_match": true,
+    "type_begin_count": 6,
+    "type_end_count": 6,
+    "axioms_begin_count": 6,
+    "axioms_end_count": 6,
+    "marker_name_sets_equal": true,
+    "sorryAx_occurrences": 0,
+    "compiler_error_occurrences": 0,
+    "permitted_axioms": ["Classical.choice", "Quot.sound", "propext"],
+    "review_conclusion": "PASS_EXACT_SCOPE_ONLY"
+  },
+  "not_claimed": [
+    "coordinate derivative transport",
+    "raw-source MemLp or L2 admission",
+    "source solenoidality",
+    "CKN IsInJ admission",
+    "ESS H1 good-time admission",
+    "global Leray-Hopf existence",
+    "nonlinear local strong construction",
+    "small-product continuation",
+    "smooth tail",
+    "weak-strong comparison",
+    "closed QFA root",
+    "strict QFA root"
+  ]
+}
