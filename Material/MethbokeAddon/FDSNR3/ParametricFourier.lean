@@ -69,9 +69,23 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
         ((hTaylor a).fderivWithin n hn y hy).hasFDerivAt (hs.mem_nhds hy)))
     have heq : (∫ a, (p a q (n + 1)).curryLeft ∂μ) =
         (∫ a, p a q (n + 1) ∂μ).curryLeft := by
-      exact (continuousMultilinearCurryLeftEquiv ℝ
-        (fun _ : Fin (n + 1) => P) E).toContinuousLinearEquiv.integral_comp_comm
-          (μ := μ) (fun a : A => p a q (n + 1))
+      let curryLinear :
+          ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E →ₗ[ℝ]
+            (P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E) :=
+        { toFun := fun f => f.curryLeft
+          map_add' := fun f g => by
+            ext v m
+            rfl
+          map_smul' := fun c f => by
+            ext v m
+            rfl }
+      let curryContinuous :
+          ContinuousMultilinearMap ℝ (fun _ : Fin (n + 1) => P) E →L[ℝ]
+            (P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E) :=
+        curryLinear.mkContinuous 1 (fun f => by
+          change ‖f.curryLeft‖ ≤ 1 * ‖f‖
+          simp only [ContinuousMultilinearMap.curryLeft_norm, one_mul, le_refl])
+      exact curryContinuous.integral_comp_comm (μ := μ) (hInt (n + 1) q hq)
     rw [heq] at hd
     exact hd.hasFDerivWithinAt
   · intro n hn

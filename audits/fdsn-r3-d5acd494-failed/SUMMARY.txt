@@ -1,0 +1,18 @@
+FDSN_R3 EXTERNAL ATTEMPT d5acd494 — FAILED; PROOF REPAIR PREPARED
+
+Source: d5acd494aa3aa605d7996aec43e130a1a3394d65
+Run: https://github.com/randogelist/Methboke/actions/runs/44842165398
+Artifact: 14681750271
+ZIP SHA256: dc40e8d698105ef47cb0a942232ab6f589d4f930076ce4eb929d3cba4fa97574
+Downloaded evidence independently hashed and matched the published digest.
+
+Run 44842165398 compiled CorrectionAdmission and its wrapper, leaving only ParametricFourier's bundled normed/seminormed instance mismatch. Its explicit normed-map repair is prepared. The run had 534 passing modules, 1 failure, 13 blocked dependencies and no fresh named audits.
+
+Failure: ParametricFourier line72:12, application of the bundled curry equivalence
+has seminormed additive/module instance projections where the integral API
+requires its canonical normed projections. Exact diagnostics retained verbatim.
+Source-pin integrity passed. No fresh named audits were reached.
+
+Prepared repair: Rebuild the actual curry operation as a linear map with the integral's canonical normed source and target, prove its norm-one continuity from curryLeft_norm, and commute that continuous linear map with the already integrable Taylor jet. All mathematical statements, consumers, compiler/dependency pins and audit policy remain unchanged.
+
+No new A-tier acceptance. No local Lean, Lake or kernel execution.

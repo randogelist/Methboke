@@ -1,0 +1,24 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:72:12: error: Application type mismatch: The argument
+  ↑(continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E)
+has type
+  @ContinuousLinearEquiv ℝ ℝ Field.toSemifield.toDivisionSemiring.toSemiring
+    Field.toSemifield.toDivisionSemiring.toSemiring (RingHom.id ℝ) (RingHom.id ℝ) ⋯ ⋯
+    (ContinuousMultilinearMap ℝ (fun x => P) E) PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+    ContinuousMultilinearMap.seminormedAddCommGroup.toAddCommMonoid (P →L[ℝ] P [×n]→L[ℝ] E)
+    (@UniformSpace.toTopologicalSpace (P →L[ℝ] P [×n]→L[ℝ] E)
+      (@PseudoMetricSpace.toUniformSpace (P →L[ℝ] P [×n]→L[ℝ] E)
+        (@SeminormedAddCommGroup.toPseudoMetricSpace (P →L[ℝ] P [×n]→L[ℝ] E)
+          ContinuousLinearMap.toSeminormedAddCommGroup)))
+    ContinuousLinearMap.toSeminormedAddCommGroup.toAddCommMonoid ContinuousMultilinearMap.instModule
+    ContinuousLinearMap.module
+but is expected to have type
+  @ContinuousLinearEquiv ?m.525 ?m.525 Field.toSemifield.toDivisionSemiring.toSemiring
+    Field.toSemifield.toDivisionSemiring.toSemiring (RingHom.id ?m.525) (RingHom.id ?m.525) ⋯ ⋯ (P [×n + 1]→L[ℝ] E)
+    PseudoMetricSpace.toUniformSpace.toTopologicalSpace ContinuousMultilinearMap.normedAddCommGroup'.toAddCommMonoid
+    ?m.523
+    (@UniformSpace.toTopologicalSpace ?m.523
+      (@PseudoMetricSpace.toUniformSpace ?m.523
+        (@SeminormedAddCommGroup.toPseudoMetricSpace ?m.523 NormedAddCommGroup.toSeminormedAddCommGroup)))
+    NormedAddCommGroup.toAddCommGroup.toAddCommMonoid NormedSpace.toModule NormedSpace.toModule
+in the application
+  ContinuousLinearEquiv.integral_comp_comm ↑(continuousMultilinearCurryLeftEquiv ℝ (fun x => P) E)
