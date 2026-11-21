@@ -129,7 +129,8 @@ theorem schwartzResidual_zero_parameter
     funext t x
     exact hzero (t, x)
   intro z
-  rw [hnative 0 z.1 z.2, hH, MethbokeAddon.FDSN.residualForce_zero_correction]
+  simp only [hnative 0 z.1 z.2, hH,
+    MethbokeAddon.FDSN.residualForce_zero_correction, Pi.zero_apply]
 
 theorem correctedForce_eq_native_residual
     (ν : ℝ) (u F : Velocity) (H J : 𝓢(FamilySpacetime, Vec))

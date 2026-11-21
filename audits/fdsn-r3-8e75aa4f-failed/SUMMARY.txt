@@ -1,0 +1,31 @@
+FDSN_R3 EXTERNAL ATTEMPT AT 8e75aa4f — FAILED; PROOF REPAIR PREPARED
+
+Source commit: 8e75aa4feb1f19b1aca912196b73bc1561616096
+External run: https://github.com/randogelist/Methboke/actions/runs/44840893717
+Fast verification job: 136648677606 — failure
+Final acceptance job: 136650258862 — failure
+Recovery job: 136650260788 — skipped
+Artifact: 14680403255
+ZIP SHA256: 96e5fcf38f23ded14a8667637661d2b7dd6e554068896c7adddc6991a4ed0720
+Downloaded ZIP bytes were independently hashed and matched the GitHub artifact digest.
+
+Exact module receipts: 532 PASS, 2 FAIL, 14 BLOCKED_BY_DEPENDENCY.
+Fresh named package audits: 0; compilation stopped before those audits.
+Source-pin integrity: true. Failure classification: PROOF_OR_TYPE_FAILURE.
+
+Failed sources:
+- ParametricFourier: unsupported exact! tactic and the curried integral's
+  normed/measure elaboration; dependent integral-curry, derivative and
+  continuity goals consequently remained unclosed.
+- CorrectionAdmission: zero-parameter residual proof left the literal
+  function application goal 0 z.1 z.2 = 0.
+
+ResidualSchwartz and HelicalFrame now compile, including their wrappers.
+Source compilation alone supplies no new endpoint acceptance.
+
+Prepared repair:
+Use the pinned continuous-linear curry equivalence to commute the actual Taylor-jet integral, with a theorem-scoped elaboration transparency setting; normalize both zero-function applications in the residual-at-zero proof. Exact theorem statements, Seed/Family contracts, consumers, dependency pins and audit policy are unchanged.
+
+No local Lean, Lake invoking Lean, or kernel audit was executed.
+The canonical R3 root and all previously pending endpoint scopes remain
+unaccepted until complete matching external compiler/type/axiom evidence.

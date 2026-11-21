@@ -30,6 +30,7 @@ variable {P E A : Type*}
   [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
   [MeasurableSpace A] {μ : Measure A}
 
+set_option backward.isDefEq.respectTransparency false in
 /-- Integration of all actual Taylor jets on an open parameter domain.
 The dominating function may depend on the derivative order. -/
 theorem integral_hasFTaylorSeriesUpToOn_of_dominated
@@ -68,24 +69,9 @@ theorem integral_hasFTaylorSeriesUpToOn_of_dominated
         ((hTaylor a).fderivWithin n hn y hy).hasFDerivAt (hs.mem_nhds hy)))
     have heq : (∫ a, (p a q (n + 1)).curryLeft ∂μ) =
         (∫ a, p a q (n + 1) ∂μ).curryLeft := by
-      have hIntc : Integrable
-          (ε := P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E)
-          (fun a : A => by exact! (p a q (n + 1)).curryLeft) μ := by
-        apply Integrable.mono'
-          (β := P →L[ℝ] ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E) hB
-        · simpa using! hMeas'
-        · exact ae_of_all _ (fun a => by
-            simpa only [ContinuousMultilinearMap.curryLeft_norm] using! hbound a q hq)
-      apply ContinuousLinearMap.ext
-      intro v
-      apply ContinuousMultilinearMap.ext
-      intro m
-      rw [ContinuousLinearMap.integral_apply hIntc v]
-      rw [ContinuousMultilinearMap.integral_apply
-        ((ContinuousLinearMap.apply ℝ
-          (ContinuousMultilinearMap ℝ (fun _ : Fin n => P) E) v).integrable_comp hIntc) m]
-      simpa only [ContinuousMultilinearMap.curryLeft_apply] using
-        (ContinuousMultilinearMap.integral_apply (hInt (n + 1) q hq) (Fin.cons v m)).symm
+      exact (continuousMultilinearCurryLeftEquiv ℝ
+        (fun _ : Fin (n + 1) => P) E).toContinuousLinearEquiv.integral_comp_comm
+          (μ := μ) (fun a : A => p a q (n + 1))
     rw [heq] at hd
     exact hd.hasFDerivWithinAt
   · intro n hn

@@ -1,0 +1,152 @@
+MethbokeAddon/FDSNR3/ParametricFourier.lean:73:28: error: unknown tactic
+MethbokeAddon/FDSNR3/ParametricFourier.lean:71:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  ContinuousENorm (P →L[ℝ] P [×n]→L[ℝ] E)
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/ParametricFourier.lean:73:24: error: unsolved goals
+P : Type u_1
+E : Type u_2
+A : Type u_3
+inst✝⁵ : NormedAddCommGroup P
+inst✝⁴ : NormedSpace ℝ P
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : CompleteSpace E
+inst✝ : MeasurableSpace A
+μ : Measure A
+F : P → A → E
+p : A → P → FormalMultilinearSeries ℝ P E
+s : Set P
+hs : IsOpen[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] s
+hTaylor : ∀ (a : A), HasFTaylorSeriesUpToOn ∞ (fun q => F q a) (p a) s
+hMeas : ∀ (n : ℕ), ∀ q ∈ s, AEStronglyMeasurable (fun a => p a q n) μ
+hBound : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ (a : A), ∀ q ∈ s, ‖p a q n‖ ≤ B a
+hInt : ∀ (n : ℕ), ∀ q ∈ s, Integrable (fun a => p a q n) μ
+n : ℕ
+hn : ↑n < ∞
+q : P
+hq : q ∈ s
+B : A → ℝ
+hB : Integrable B μ
+hbound : ∀ (a : A), ∀ q ∈ s, ‖p a q (n + 1)‖ ≤ B a
+hMeas' : AEStronglyMeasurable (fun a => (p a q (n + 1)).curryLeft) μ
+hd : HasFDerivAt (fun x => ∫ (a : A), p a x n ∂μ) (∫ (a : A), (p a q n.succ).curryLeft ∂μ) q
+a : A
+⊢ P →L[ℝ] P [×n]→L[ℝ] E
+MethbokeAddon/FDSNR3/ParametricFourier.lean:71:19: error: could not synthesize default value for parameter 'μ' using tactics
+MethbokeAddon/FDSNR3/ParametricFourier.lean:71:19: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  MeasureSpace A
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+MethbokeAddon/FDSNR3/ParametricFourier.lean:70:45: error: unsolved goals
+case hIntc
+P : Type u_1
+E : Type u_2
+A : Type u_3
+inst✝⁵ : NormedAddCommGroup P
+inst✝⁴ : NormedSpace ℝ P
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : CompleteSpace E
+inst✝ : MeasurableSpace A
+μ : Measure A
+F : P → A → E
+p : A → P → FormalMultilinearSeries ℝ P E
+s : Set P
+hs : IsOpen[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] s
+hTaylor : ∀ (a : A), HasFTaylorSeriesUpToOn ∞ (fun q => F q a) (p a) s
+hMeas : ∀ (n : ℕ), ∀ q ∈ s, AEStronglyMeasurable (fun a => p a q n) μ
+hBound : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ (a : A), ∀ q ∈ s, ‖p a q n‖ ≤ B a
+hInt : ∀ (n : ℕ), ∀ q ∈ s, Integrable (fun a => p a q n) μ
+n : ℕ
+hn : ↑n < ∞
+q : P
+hq : q ∈ s
+B : A → ℝ
+hB : Integrable B μ
+hbound : ∀ (a : A), ∀ q ∈ s, ‖p a q (n + 1)‖ ≤ B a
+hMeas' : AEStronglyMeasurable (fun a => (p a q (n + 1)).curryLeft) μ
+hd : HasFDerivAt (fun x => ∫ (a : A), p a x n ∂μ) (∫ (a : A), (p a q n.succ).curryLeft ∂μ) q
+⊢ sorry
+
+P : Type u_1
+E : Type u_2
+A : Type u_3
+inst✝⁵ : NormedAddCommGroup P
+inst✝⁴ : NormedSpace ℝ P
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : CompleteSpace E
+inst✝ : MeasurableSpace A
+μ : Measure A
+F : P → A → E
+p : A → P → FormalMultilinearSeries ℝ P E
+s : Set P
+hs : IsOpen[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] s
+hTaylor : ∀ (a : A), HasFTaylorSeriesUpToOn ∞ (fun q => F q a) (p a) s
+hMeas : ∀ (n : ℕ), ∀ q ∈ s, AEStronglyMeasurable (fun a => p a q n) μ
+hBound : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ (a : A), ∀ q ∈ s, ‖p a q n‖ ≤ B a
+hInt : ∀ (n : ℕ), ∀ q ∈ s, Integrable (fun a => p a q n) μ
+n : ℕ
+hn : ↑n < ∞
+q : P
+hq : q ∈ s
+B : A → ℝ
+hB : Integrable B μ
+hbound : ∀ (a : A), ∀ q ∈ s, ‖p a q (n + 1)‖ ≤ B a
+hMeas' : AEStronglyMeasurable (fun a => (p a q (n + 1)).curryLeft) μ
+hd : HasFDerivAt (fun x => ∫ (a : A), p a x n ∂μ) (∫ (a : A), (p a q n.succ).curryLeft ∂μ) q
+hIntc : sorry
+⊢ ∫ (a : A), (p a q (n + 1)).curryLeft ∂μ = (∫ (a : A), p a q (n + 1) ∂μ).curryLeft
+MethbokeAddon/FDSNR3/ParametricFourier.lean:56:2: error: unsolved goals
+case fderivWithin
+P : Type u_1
+E : Type u_2
+A : Type u_3
+inst✝⁵ : NormedAddCommGroup P
+inst✝⁴ : NormedSpace ℝ P
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : CompleteSpace E
+inst✝ : MeasurableSpace A
+μ : Measure A
+F : P → A → E
+p : A → P → FormalMultilinearSeries ℝ P E
+s : Set P
+hs : IsOpen[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] s
+hTaylor : ∀ (a : A), HasFTaylorSeriesUpToOn ∞ (fun q => F q a) (p a) s
+hMeas : ∀ (n : ℕ), ∀ q ∈ s, AEStronglyMeasurable (fun a => p a q n) μ
+hBound : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ (a : A), ∀ q ∈ s, ‖p a q n‖ ≤ B a
+hInt : ∀ (n : ℕ), ∀ q ∈ s, Integrable (fun a => p a q n) μ
+n : ℕ
+hn : ↑n < ∞
+q : P
+hq : q ∈ s
+B : A → ℝ
+hB : Integrable B μ
+hbound : ∀ (a : A), ∀ q ∈ s, ‖p a q (n + 1)‖ ≤ B a
+hMeas' : AEStronglyMeasurable (fun a => (p a q (n + 1)).curryLeft) μ
+hd : HasFDerivAt (fun x => ∫ (a : A), p a x n ∂μ) (∫ (a : A), (p a q n.succ).curryLeft ∂μ) q
+heq : ∫ (a : A), (p a q (n + 1)).curryLeft ∂μ = (∫ (a : A), p a q (n + 1) ∂μ).curryLeft
+⊢ HasFDerivWithinAt (fun x => ∫ (a : A), p a x n ∂μ) (∫ (a : A), p a q n.succ ∂μ).curryLeft s q
+MethbokeAddon/FDSNR3/ParametricFourier.lean:43:40: error: unsolved goals
+case cont
+P : Type u_1
+E : Type u_2
+A : Type u_3
+inst✝⁵ : NormedAddCommGroup P
+inst✝⁴ : NormedSpace ℝ P
+inst✝³ : NormedAddCommGroup E
+inst✝² : NormedSpace ℝ E
+inst✝¹ : CompleteSpace E
+inst✝ : MeasurableSpace A
+μ : Measure A
+F : P → A → E
+p : A → P → FormalMultilinearSeries ℝ P E
+s : Set P
+hs : IsOpen[PseudoMetricSpace.toUniformSpace.toTopologicalSpace] s
+hTaylor : ∀ (a : A), HasFTaylorSeriesUpToOn ∞ (fun q => F q a) (p a) s
+hMeas : ∀ (n : ℕ), ∀ q ∈ s, AEStronglyMeasurable (fun a => p a q n) μ
+hBound : ∀ (n : ℕ), ∃ B, Integrable B μ ∧ ∀ (a : A), ∀ q ∈ s, ‖p a q n‖ ≤ B a
+hInt : ∀ (n : ℕ), ∀ q ∈ s, Integrable (fun a => p a q n) μ
+⊢ ∀ (m : ℕ), ↑m ≤ ∞ → ContinuousOn (fun x => ∫ (a : A), p a x m ∂μ) s

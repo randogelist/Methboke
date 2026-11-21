@@ -1,0 +1,9 @@
+MethbokeAddon/FDSNR3/CorrectionAdmission.lean:127:35: error: unsolved goals
+ν : ℝ
+u : Velocity
+H J : 𝓢(FamilySpacetime, Vec)
+hnative : ∀ (lam t : ℝ) (x : Vec), J (lam, t, x) = FDSN.residualForce ν u 0 (schwartzFamilyVelocity H lam) t x
+hzero : ∀ (z : ℝ × Vec), H (0, z) = 0
+hH : schwartzFamilyVelocity H 0 = 0
+z : ℝ × Vec
+⊢ 0 z.1 z.2 = 0

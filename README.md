@@ -224,3 +224,12 @@ prepared statement-preserving repair. Full fresh audits remain required.
 Run 44840058960 isolated two remaining reported instance-inference errors. Their exact typed-map repairs are prepared, alongside four explicit fixed-frame and integrated-dissipation scope-completion declarations. The complete candidate now requires 137 packages and 1320 fresh named reports.
 [Retained external diagnostics](audits/fdsn-r3-4911da18-failed/SUMMARY.txt) accompany the
 prepared statement-preserving repair. Full fresh audits remain required.
+
+
+Latest R3 repair: [run44840893717](https://github.com/randogelist/Methboke/actions/runs/44840893717)
+compiled the joint residual and fixed-frame layers, then stopped in the
+parameter-integral and zero-parameter residual proofs. The statement-preserving
+repairs use the actual continuous-linear curry equivalence and explicit
+zero-function normalization. [Failure evidence](audits/fdsn-r3-8e75aa4f-failed/SUMMARY.txt)
+records 532 passing modules, 2 failures and 14 blocked dependencies. Fresh
+named audits were not reached; the R3 root remains pending external acceptance.
