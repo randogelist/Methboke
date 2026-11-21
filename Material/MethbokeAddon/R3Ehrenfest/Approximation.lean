@@ -90,8 +90,11 @@ theorem tendsto_frequencyMultiplier_cutoff (f : ComplexL2) :
     have hz : (frequencyMultiplier (cutoffSymbol n) f - f) ξ = 0 := by
       rw [hξ n, hn]
       simp
-    simpa only [norm_zero, pow_two, zero_mul] using
-      (congrArg (fun z : ComplexVector => ‖z‖ ^ 2) hz).symm
+    change (0 : ℝ) = ‖(frequencyMultiplier (cutoffSymbol n) f - f) ξ‖ ^ (2 : ℕ)
+    calc
+      (0 : ℝ) = ‖(0 : ComplexVector)‖ ^ (2 : ℕ) := by norm_num
+      _ = ‖(frequencyMultiplier (cutoffSymbol n) f - f) ξ‖ ^ (2 : ℕ) :=
+        congrArg (fun z : ComplexVector => (‖z‖ : ℝ) ^ (2 : ℕ)) hz.symm
   have hDCT := tendsto_integral_of_dominated_convergence
     (F := fun n ξ => ‖(frequencyMultiplier (cutoffSymbol n) f - f) ξ‖ ^ 2)
     (f := fun _ : Space => (0 : ℝ)) (fun ξ : Space => ‖f ξ‖ ^ 2)
