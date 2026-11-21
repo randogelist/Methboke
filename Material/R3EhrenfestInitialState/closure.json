@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "endpoint": "R3EhrenfestInitialState",
+  "source_revision_status": "MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
+  "source_baseline": "edd1bb666e78c90d4ba621d1f268bb5e6c2798f3",
+  "source_preparation_revision": "edd1bb666e78c90d4ba621d1f268bb5e6c2798f3",
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
+  "validation_boundary": "Static source/import/hash inspection only. Matching external compiler, independent exact-type consumers, standard-only named axiom reports, publication and full Material acceptance are required.",
+  "roots": [
+    "MethbokeAddon.R3Ehrenfest.InitialState"
+  ],
+  "files": [
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.ACBudget",
+      "path": "MethbokeAddon/QuasiFeffermanA/ACBudget.lean",
+      "sha256": "12d2535dd1b9eef07e6742725ecb63c6369d9341b8b4c492a4558e87ec51a574",
+      "imports": [
+        "QFA.Endpoints.Comparison.RelativeEnergy",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "path": "MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92",
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/FourierMultipliers.lean",
+      "sha256": "40a364af5c5e399442cd9ed0e31a8d4e7e811f494cb77f375c348232fe35279f",
+      "imports": [
+        "QFALC001Reduction.NativeFromAENorms"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1Fourier.lean",
+      "sha256": "565edf7f029712801da88586f997677d5f0e964a804714d02a07ac20e1b72a4c",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "MethbokeAddon.QuasiFeffermanA.FourierMultipliers",
+        "QFALC005.Density"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1FourierReverse.lean",
+      "sha256": "ff3ea4e617028a35e3645a7b8d869b5598def0646953d1ef256d82fececdaa3a",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+      "path": "MethbokeAddon/QuasiFeffermanA/H1Spectral.lean",
+      "sha256": "6e30a75ed55f7c99bc833d292c337ee0a5626a95517cb47a8cc139a7f70bb9cb",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget",
+        "QFALC001Reduction.NativeFromAENorms",
+        "Mathlib.Analysis.Complex.Norm"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LerayH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/LerayH1.lean",
+      "sha256": "21767ebb684c63c67cb67fdec78784c13708ccc2d09655d8e06ada658b6cd134",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.LerayMultiplier",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1SigmaSectors"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LerayMultiplier",
+      "path": "MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean",
+      "sha256": "1e82a009126f8c5a833589a38be016fa852e48e78e81f3f649eedad2ddcaddd5",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealSectorMultipliers",
+        "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Inner",
+        "Mathlib.Tactic"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.LeraySolenoidal",
+      "path": "MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean",
+      "sha256": "f67ee0924cf73b1302fcd3da69b54aa2fbe4e7fb15bdd65f2af884fbca56c35b",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.LerayH1"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+      "sha256": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.MeasureTheory.Function.Holder",
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.Topology.Algebra.Module.ClosedSubmodule"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Budget",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Budget.lean",
+      "sha256": "be0fdfa70d83feae2bbe93a5cbff0ca66718ccf56ce8584c43db6c08709d1223",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+        "MethbokeAddon.QuasiFeffermanA.ACBudget"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Divergence.lean",
+      "sha256": "e17ac1d4552d8c96c99f7c3f73f4e782ec97715508bf4edb8bfafb1eb1c7710f",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1Sectors.lean",
+      "sha256": "0734ee539d9d1092bbf8a839ea5ebed7504230391f91cd741043405d913d5ab7",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealSectorMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+        "MethbokeAddon.QuasiFeffermanA.H1Spectral",
+        "MethbokeAddon.QuasiFeffermanA.SixChargeBudget"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1SigmaSectors",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1SigmaSectors.lean",
+      "sha256": "a8cc4afcad490a04fde09877b9f04a64baba385348de7a4b9862a322e03cda49",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.SixSectorNaturality"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean",
+      "sha256": "de5b5c612dbae66afa1191be8f202604adbb4fb949091117adb72921ab5d52bd",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+        "MethbokeAddon.QuasiFeffermanA.H1Fourier",
+        "Mathlib.Analysis.Distribution.TemperedDistribution"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean",
+      "sha256": "63aa431ed95e456c40f023ddb9cdb7ed10e23143486f7e3bdeccedceec45b876",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealFourier",
+        "MethbokeAddon.QuasiFeffermanA.H1FourierReverse",
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealFourier",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealFourier.lean",
+      "sha256": "98a1e6dd84597626ebcb5887f6649658cf3b23f40ff993aac7bd72debfcc7a19",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.LinearMap"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.RealSectorMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/RealSectorMultipliers.lean",
+      "sha256": "dfba3d3c5b63d235844923c4debf3fe2b7d344153ade1c3a5d3e056a7a04f6e1",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealFourier",
+        "MethbokeAddon.QuasiFeffermanA.SixSectorMultipliers"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SixChargeBudget",
+      "path": "MethbokeAddon/QuasiFeffermanA/SixChargeBudget.lean",
+      "sha256": "eea748751c641073d351731903fdeccab188a6816396991ab8733d96e1f69c98",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.ACBudget"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SixSectorMultipliers",
+      "path": "MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean",
+      "sha256": "f7b96ffc83a2bfea6fec9cd148871a3a0069188569f4c536998279d276412031",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.SixSectors",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SixSectorNaturality",
+      "path": "MethbokeAddon/QuasiFeffermanA/SixSectorNaturality.lean",
+      "sha256": "f6aa35dceed0891edea42bf690ee9f213124c5d2bed4aca97dffc5cc6d12a9f3",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Sectors",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.QuasiFeffermanA.SixSectors",
+      "path": "MethbokeAddon/QuasiFeffermanA/SixSectors.lean",
+      "sha256": "8f2f6cbe9c43370c93a3c4fb0520837e5cf188755121d833fc25f182ceb2c920",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Tactic.FinCases",
+        "Mathlib.Tactic.Linarith"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.Bandlimited",
+      "path": "MethbokeAddon/R3Ehrenfest/Bandlimited.lean",
+      "sha256": "14beeae4a01630f6c62ee17a68d55d0f32c6158d1a37ae6a63434d3194eae432",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.SharpCutoff",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+        "Mathlib.Analysis.Complex.Norm",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.NormNum",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.Carrier",
+      "path": "MethbokeAddon/R3Ehrenfest/Carrier.lean",
+      "sha256": "79f6005e446f258d444acb2680500dccf2d8e54d0f8febbed68c59b0983d28eb",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.SharpCutoff"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.Contracts",
+      "path": "MethbokeAddon/R3Ehrenfest/Contracts.lean",
+      "sha256": "a93cefccdf1c961bdf11adf598c513211bb72604a6bc86eb71bf6b93e36b8704",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "SingularClosure.Contracts"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.DatumAdmission",
+      "path": "MethbokeAddon/R3Ehrenfest/DatumAdmission.lean",
+      "sha256": "c514d3c7e5fb7f968dbb2ed1f3167b2b9b6c6b58eb7fa7973683494b3d0c9891",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.Contracts",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH2",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1Divergence"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.InitialState",
+      "path": "MethbokeAddon/R3Ehrenfest/InitialState.lean",
+      "sha256": "5ec7ab6ed046e52c0117835fc05901da1e2335a11d7d16d768c02a37cdcb9110",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.DatumAdmission",
+        "MethbokeAddon.R3Ehrenfest.Carrier",
+        "MethbokeAddon.R3Ehrenfest.Bandlimited"
+      ]
+    },
+    {
+      "module": "MethbokeAddon.R3Ehrenfest.SharpCutoff",
+      "path": "MethbokeAddon/R3Ehrenfest/SharpCutoff.lean",
+      "sha256": "f2e220f3a2d3979963ed0c447405097dc30c850012c298438f05bfeddea59532",
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers",
+        "MethbokeAddon.QuasiFeffermanA.LeraySolenoidal"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0",
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Comparison.RelativeEnergy",
+      "path": "_vendor/QFA/Endpoints/Comparison/RelativeEnergy.lean",
+      "sha256": "ff79ddced5e8dc97b430bbea95f5eb54686864632df01003f5f5211e90e80285",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d",
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183",
+      "imports": [
+        "Mathlib"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5",
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9",
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ]
+    },
+    {
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a",
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ]
+    },
+    {
+      "module": "QFALC001Reduction.NativeFromAENorms",
+      "path": "_vendor/QFALC001Reduction/NativeFromAENorms.lean",
+      "sha256": "3e68fbc74d63ba48459899a66594810b7ad63fd7559b3ee3e12c718aaabcb57b",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.MeasureTheory.Function.L2Space"
+      ]
+    },
+    {
+      "module": "QFALC004.CompactSchwartz",
+      "path": "_vendor/QFALC004/CompactSchwartz.lean",
+      "sha256": "fd283670bc1564ac4ee04b1a9e4c1e761c2278640c6b9303749bef1aaf32f703",
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+      ]
+    },
+    {
+      "module": "QFALC005.Density",
+      "path": "_vendor/QFALC005/Density.lean",
+      "sha256": "f061631170f06d8f75f2e28644d68df7d063c34cb54fe988b874968dc6e7ad0c",
+      "imports": [
+        "QFALC004.CompactSchwartz",
+        "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+        "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+        "Mathlib.Analysis.Calculus.ContDiff.Operations",
+        "Mathlib.Analysis.Normed.Group.Bounded"
+      ]
+    },
+    {
+      "module": "R3EhrenfestInitialState.Audit",
+      "path": "R3EhrenfestInitialState/Audit.lean",
+      "sha256": "89b2bf74071488f84a98449443cda900c11af09303e813e78aeb5682f6a84439",
+      "imports": [
+        "R3EhrenfestInitialState.Endpoint"
+      ]
+    },
+    {
+      "module": "R3EhrenfestInitialState.Endpoint",
+      "path": "R3EhrenfestInitialState/Endpoint.lean",
+      "sha256": "f325179c256b469d793ff752128b210bc5db432e6578b145041942d6c6c00043",
+      "imports": [
+        "MethbokeAddon.R3Ehrenfest.InitialState"
+      ]
+    },
+    {
+      "module": "SingularClosure.Contracts",
+      "path": "_vendor/SingularClosure/Contracts.lean",
+      "sha256": "4c59cbf26fd4196529a4865ac09404d18015228c737055c2674cbcc4a5fd18f7",
+      "imports": [
+        "Mathlib"
+      ]
+    }
+  ],
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.BumpFunction.FiniteDimension",
+    "Mathlib.Analysis.Calculus.ContDiff.Bounds",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs",
+    "Mathlib.Analysis.Calculus.ContDiff.Operations",
+    "Mathlib.Analysis.Calculus.FDeriv.Const",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Complex.Norm",
+    "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.Distribution.TemperedDistribution",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.LinearMap",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.InnerProductSpace.Projection.Basic",
+    "Mathlib.Analysis.Normed.Group.Bounded",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.MeasureTheory.Function.Holder",
+    "Mathlib.MeasureTheory.Function.L2Space",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Indicator",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Monotonicity",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.Inner",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.AbsolutelyContinuousFun",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.Tactic",
+    "Mathlib.Tactic.FinCases",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Module.ClosedSubmodule",
+    "Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Basic"
+  ],
+  "source_drift": [],
+  "source_closure_sha256": "85844eabd7b5ecd4dc761ff5138f76f486885f927c9f2f6dafdb513d2fc83f72"
+}
