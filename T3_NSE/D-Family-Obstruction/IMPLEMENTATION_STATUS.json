@@ -477,7 +477,7 @@
     "final_acceptance": "failure",
     "next_action": "Push hidden-folder upload repair and inspect complete matching external evidence"
   },
-  "active_local_target": "AC_INTO_MAIN_INTEGRATION",
+  "active_local_target": "LEAN_SOURCE_LINE_COUNT_CI",
   "fdsn": {
     "ledger": "FDSN/IMPLEMENTATION_STATUS.json",
     "status": "A_TIER_CANONICAL_FDSN_AND_PHYSICAL_PRESENTATION_ACCEPTED",
@@ -1255,8 +1255,8 @@
     "native_D_family_status_changed": false,
     "combined_integration_accepted": false
   },
-  "active_local_target_status": "MERGED_COMPLETE",
-  "remaining_engineering_check": "LATER_DOCUMENTATION_HEAD_EXTERNAL_CHECK",
+  "active_local_target_status": "IMPLEMENTED_STATIC_COUNT_CHECKED",
+  "remaining_engineering_check": "MATCHING_MAIN_CI_RUN_STATUS",
   "main_promotion": {
     "status": "MERGED_COMPLETE",
     "promoted_commit": "e627a39e6c27cd4432ab063741fe726af8378a63",
@@ -1267,5 +1267,16 @@
     "mathematical_status_changed": false,
     "later_documentation_head_acceptance_claimed": false,
     "main_cache_publication_complete": true
+  },
+  "repository_statistics_context": {
+    "status": "IMPLEMENTED_STATIC_COUNT_CHECKED",
+    "scope": "Repository engineering: separate Lean source count CI and README statistics",
+    "source_status": "SOURCE_STATUS.json#repository_statistics",
+    "script": "scripts/count_lean_lines.py",
+    "workflow": ".github/workflows/lean-line-count.yml",
+    "current_count_authority": "Generated top-level README section and exact-commit CI inventory",
+    "family_proof_status_changed": false,
+    "main_goal_changed": false,
+    "local_lean_executions": 0
   }
 }

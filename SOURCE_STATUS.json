@@ -28,9 +28,9 @@
   },
   "target_hierarchy": {
     "macroscopic": "Fefferman D, classical forced periodic obstruction",
-    "mesoscopic": "AC_INTO_MAIN_INTEGRATION is MERGED_COMPLETE on main, with established Lean resources and exact accepted scopes preserved.",
-    "microscopic": "Main run44857663580 at e627a39e passed final acceptance and combined-cache publication. Assess only the later ordinary promotion-documentation head separately.",
-    "next_scoped_endpoint": "Only the later documentation-head external check remains; no new mathematical theorem target is adopted."
+    "mesoscopic": "LEAN_SOURCE_LINE_COUNT_CI: independent source counting and a maintained README statistic on main.",
+    "microscopic": "Count tracked Lean text, check the generated README section and retain an exact-commit per-file inventory.",
+    "next_scoped_endpoint": "Read the matching main CI result; no new mathematical theorem target is adopted."
   },
   "goal_transition": {
     "authorized_by": "Explicit user statement: The Goal Is Fefferman D",
@@ -5096,7 +5096,7 @@
       "accepted_pathwise_milestone": "M1"
     }
   ],
-  "active_scoped_request": "AC_INTO_MAIN_INTEGRATION",
+  "active_scoped_request": "LEAN_SOURCE_LINE_COUNT_CI",
   "current_material_candidate": {
     "schema_version": 1,
     "date": "2026-11-21",
@@ -6704,8 +6704,8 @@
     }
   },
   "integration_phase": "GITHUB_MODE_MAIN_PROMOTION_FINALIZATION",
-  "active_scoped_request_status": "MERGED_COMPLETE",
-  "remaining_engineering_check": "LATER_DOCUMENTATION_HEAD_EXTERNAL_CHECK",
+  "active_scoped_request_status": "IMPLEMENTED_STATIC_COUNT_CHECKED",
+  "remaining_engineering_check": "MATCHING_MAIN_CI_RUN_STATUS",
   "main_promotion": {
     "status": "MERGED_COMPLETE",
     "authorized": true,
@@ -6731,5 +6731,54 @@
     "first_main_run": 44857663580,
     "first_main_run_status": "SUCCESS_FINAL_ACCEPTANCE_AND_CACHE_PUBLICATION",
     "main_cache_publication_complete": true
+  },
+  "repository_statistics": {
+    "status": "IMPLEMENTED_STATIC_COUNT_CHECKED",
+    "source_basis_revision": "10f73223b80a9e4e6fd431c5671fdfde57b581fe",
+    "script": "scripts/count_lean_lines.py",
+    "workflow": ".github/workflows/lean-line-count.yml",
+    "workflow_url": "https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml",
+    "readme": "README.md",
+    "metric": "Physical LF-delimited lines, including comments and blank lines",
+    "selection": "Git-tracked filenames ending in .lean",
+    "archive_prefix": "Temp-folder/",
+    "vendor_prefix": "Material/_vendor/",
+    "counts_at_preparation": {
+      "non_vendored": {
+        "files": 544,
+        "lines": 65780
+      },
+      "vendored": {
+        "files": 305,
+        "lines": 43929
+      },
+      "archives": {
+        "files": 537,
+        "lines": 68790
+      },
+      "project": {
+        "files": 849,
+        "lines": 109709
+      },
+      "repository": {
+        "files": 1386,
+        "lines": 178499
+      }
+    },
+    "current_count_authority": "Generated README Lean source size section; matching CI JSON inventory",
+    "ci_triggers": [
+      "push to main",
+      "pull_request targeting main",
+      "workflow_dispatch"
+    ],
+    "ci_behavior": "Read-only count; fail if generated README section is stale; upload per-file JSON and job summary",
+    "ci_result_authority": "GitHub Actions run for lean-line-count.yml matching the exact reviewed source commit",
+    "static_checks": {
+      "matching_readme": "PASS",
+      "stale_readme_rejected": "PASS"
+    },
+    "lean_or_lake_execution": false,
+    "proof_acceptance_claimed": false,
+    "project_goal_changed": false
   }
 }

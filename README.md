@@ -4,6 +4,30 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
+<!-- lean-source-stats:start -->
+## Lean source size
+
+[![Lean source count](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml/badge.svg?branch=main)](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml)
+
+**109,709 physical lines of Lean across 849 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
+
+| Scope | Lean files | Physical lines |
+|---|---:|---:|
+| Non-vendored project files | 544 | 65,780 |
+| Retained vendored sources ([Material/_vendor/](Material/_vendor/)) | 305 | 43,929 |
+| **Project tree total** | 849 | 109,709 |
+| Archive/reference copies ([Temp-folder/](Temp-folder/)) | 537 | 68,790 |
+| All tracked .lean files, including archive/reference copies | 1,386 | 178,499 |
+
+These are physical source lines, including comments, blank lines, audit consumers, and Lean build-description files. They are not an authorship or compiled-module count. Only Git-tracked filenames ending in .lean are counted; compressed archives and .lean.txt documents are not unpacked or counted.
+
+[Lean source count CI](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml) recounts the files and checks this section using Python and Git only. Its JSON artifact includes the exact source commit and every counted file.
+
+After staging source-file additions or deletions, refresh this section with:
+
+    python3 scripts/count_lean_lines.py --write-readme
+<!-- lean-source-stats:end -->
+
 ## Integration of AC resources into main
 
 **Merged into `main`.** [PR #2](https://github.com/randogelist/Methboke/pull/2)
@@ -24,8 +48,9 @@ also passed at the promoted commit, including final acceptance and full cache
 publication. It reused **548 modules and compiled 106 additions**, with 169
 fresh package audits and 2,212 named reports plus QFB; dependency cache was
 EXACT and project cache PREFIX. Its donor was `572fd9ee` / run `44848985720`.
-The combined cache is now published in main's scope. The later documentation
-head still requires its own exact external check.
+The combined cache is now published in main's scope. The subsequent documentation
+head `10f73223` also completed [Material run 44859131356](https://github.com/randogelist/Methboke/actions/runs/44859131356)
+with a successful conclusion. Each later main commit has its own matching CI status.
 
 **Original combined acceptance:** `5a44e985c15a302110fd91d064431f1183e55857`,
 [run 44854389941](https://github.com/randogelist/Methboke/actions/runs/44854389941).

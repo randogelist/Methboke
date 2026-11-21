@@ -1,5 +1,5 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 8.1
+DOCUMENT_VERSION = 8.2
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
 WORKING_BRANCH = main
@@ -7,9 +7,9 @@ INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
 TARGET_BRANCH = main
 INCOMING_BRANCH = AC-Integration
 PROJECT_GOAL = Fefferman_D
-LOCAL_TARGET = AC_INTO_MAIN_INTEGRATION
-LOCAL_TARGET_STATUS = MERGED_COMPLETE
-REMAINING_ENGINEERING_CHECK = LATER_DOCUMENTATION_HEAD_EXTERNAL_CHECK
+LOCAL_TARGET = LEAN_SOURCE_LINE_COUNT_CI
+LOCAL_TARGET_STATUS = IMPLEMENTED_STATIC_COUNT_CHECKED
+REMAINING_ENGINEERING_CHECK = MATCHING_MAIN_CI_RUN_STATUS
 COMPLETED_LOCAL_THEOREM = FDSN_R3
 ACTIVE_MODE = A_TIER_DERIVATION
 LOCAL_LEAN_EXECUTION = STRICTLY_FORBIDDEN
@@ -38,6 +38,29 @@ INCOMING_HEAD_EVIDENCE = audits/material-000c1bd9-qfa-accepted/summary.json
 STATUS_AUTHORITY = THIS_DOCUMENT_AND_SOURCE_SPECIFIC_EVIDENCE
 HISTORICAL_REGISTERS = audits/goal-transition-fefferman-d/
 
+LEAN SOURCE LINE COUNT CI — ENGINEERING BOOKKEEPING
+
+The user requested a separate source-line CI check and README statistic on main.
+Implementation: scripts/count_lean_lines.py and .github/workflows/lean-line-count.yml.
+The check counts Git-tracked .lean files using Python and read-only Git commands,
+including comments and blank lines. The project headline excludes Temp-folder/
+archive/reference copies and includes retained Material/_vendor/ source files.
+At preparation: 109,709 lines / 849 project files; 65,780 lines / 544 non-vendored
+files; 43,929 lines / 305 vendored files; 68,790 lines / 537 archive files;
+178,499 lines / 1,386 tracked Lean files overall.
+The README's generated section is the maintained count authority. The workflow
+checks it on main pushes, pull requests targeting main, and manual dispatch.
+A stale README fails the check; refresh with
+  python3 scripts/count_lean_lines.py --write-readme
+after staging source additions/deletions. Each CI run retains a per-file JSON
+inventory tied to the exact checked commit and a readable job summary.
+Static positive and stale-README negative checks passed. Consult the matching
+GitHub Actions run for external count-check status; this is no Lean proof or
+A-tier acceptance claim. No local Lean or Lake execution occurs.
+The preceding main documentation revision 10f73223 completed Material run
+44859131356 with conclusion success. Existing exact accepted scopes and evidence
+retain their original pinned revisions; Fefferman_D remains the project goal.
+
 0. ACCEPTED INTEGRATION AND LIVE DOCUMENTATION HEAD VERIFICATION
 
 ACTIVE_BRANCH: main.
@@ -65,7 +88,8 @@ The first main run44857663580 at the promoted SHA passed final acceptance
 and full cache publication:548reused,106fresh modules;169fresh package audits;
 2212named reports plusQFB;dependencyEXACT/projectPREFIX;recoverySKIPPED.
 The donor was572fd9ee/run44848985720. The combined cache is now published in
-main scope. Only a later documentation-head check remains unobserved.
+main scope. The later documentation head 10f73223 completed Material run
+44859131356 with conclusion success; source-specific acceptance remains pinned.
 PROJECT_GOAL remains Fefferman_D;FDSN_R3 is a completed prior theorem.
 
 VERIFIED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;

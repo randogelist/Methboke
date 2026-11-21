@@ -23,8 +23,10 @@ fast-forward from `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` to
 PR #2 is closed and merged. Its source branch was `integration/ac-into-main`,
 with the incoming AC snapshot frozen at `000c1bd9baded808b79a04b7f666cacabce64939`.
 The local integration target is `MERGED_COMPLETE`; main verification and
-publication of its combined cache have passed. Only the later documentation-head
-external check remains. No new mathematical goal or theorem target is adopted.
+publication of its combined cache have passed. The documentation head 10f73223
+completed Material run 44859131356 with conclusion success. The current engineering
+task adds independent Lean source-line counting and a maintained README statistic.
+No new mathematical goal or theorem target is adopted.
 The project goal remains **Fefferman D**.
 
 The exact promoted head `e627a39e` passed external run `44856391458`: all 654
@@ -37,7 +39,7 @@ and full cache publication: 548 reused modules, 106 fresh compilations,
 169 fresh package audits, 2,212 named reports plus QFB, EXACT dependency
 and PREFIX project caches. Its donor was `572fd9ee` / run `44848985720`.
 The combined cache is now published in main's scope. A later documentation
-head still requires its own matching external result.
+head has its own matching external result; use live exact-commit CI status.
 
 The combined source is `ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION` at
 `5a44e985c15a302110fd91d064431f1183e55857`, run `44854389941`. All 654 modules
@@ -169,3 +171,15 @@ admission, periodization and same-force comparison. Do not add a global custom
 axiom, hide a missing witness in a definition, or claim prepared code is verified.
 
 
+
+## Lean source statistics
+
+The independent `.github/workflows/lean-line-count.yml` check uses only Python
+and read-only Git commands. It counts tracked `.lean` files, including comments
+and blank lines, and checks the generated top-level README section. The project
+headline excludes `Temp-folder/`; vendored sources and archive totals are shown
+separately. Stage source additions/deletions and run
+`python3 scripts/count_lean_lines.py --write-readme` when updating Lean sources.
+This command is static text processing and must never invoke Lean or Lake.
+Read the workflow run matching the exact commit for CI status; a line count
+does not alter any mathematical target, source-specific acceptance, or proof scope.

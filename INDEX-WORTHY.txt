@@ -1,5 +1,5 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
-DOCUMENT_VERSION = 8.1
+DOCUMENT_VERSION = 8.2
 DATE = 2026-11-21
 WORKING_BRANCH = main
 INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
@@ -14,9 +14,9 @@ CURRENT_FDSN_EVIDENCE = audits/fdsn-87ab6b4c-accepted/summary.json
 CURRENT_FDSN_R3_STATUS = A_TIER_COMPLETE_ORIGINAL_SEED_TO_FULL_FAMILY_AT_572fd9ee
 CURRENT_FDSN_R3_EVIDENCE = audits/fdsn-r3-572fd9ee-accepted/summary.json
 ACTIVE_MODE = A_TIER_DERIVATION
-LOCAL_TARGET = AC_INTO_MAIN_INTEGRATION
-LOCAL_TARGET_STATUS = MERGED_COMPLETE
-REMAINING_ENGINEERING_CHECK = LATER_DOCUMENTATION_HEAD_EXTERNAL_CHECK
+LOCAL_TARGET = LEAN_SOURCE_LINE_COUNT_CI
+LOCAL_TARGET_STATUS = IMPLEMENTED_STATIC_COUNT_CHECKED
+REMAINING_ENGINEERING_CHECK = MATCHING_MAIN_CI_RUN_STATUS
 COMPLETED_LOCAL_THEOREM = FDSN_R3
 CURRENT_INTEGRATION_STATUS = MERGED_COMPLETE_ORIGINAL_ACCEPTANCE_PRESERVED
 CURRENT_INTEGRATION_TESTED_SOURCE = 5a44e985c15a302110fd91d064431f1183e55857
@@ -38,6 +38,29 @@ LATEST_ACCEPTED_EHRENFEST_RUN = 44651224180
 LATEST_ACCEPTED_EHRENFEST_SCOPE = E07/E08/E10 andE09.bound;183 Ehrenfest declarations;411 modules/71 fresh packages/448 named audits plus QFB
 PRIOR_EHRENFEST_EVIDENCE = audits/material-b730e52c-branch/summary.json
 HISTORICAL_REGISTER = audits/goal-transition-fefferman-d/INDEX-WORTHY.txt
+
+LEAN SOURCE LINE COUNT CI — ENGINEERING BOOKKEEPING
+
+The user requested a separate source-line CI check and README statistic on main.
+Implementation: scripts/count_lean_lines.py and .github/workflows/lean-line-count.yml.
+The check counts Git-tracked .lean files using Python and read-only Git commands,
+including comments and blank lines. The project headline excludes Temp-folder/
+archive/reference copies and includes retained Material/_vendor/ source files.
+At preparation: 109,709 lines / 849 project files; 65,780 lines / 544 non-vendored
+files; 43,929 lines / 305 vendored files; 68,790 lines / 537 archive files;
+178,499 lines / 1,386 tracked Lean files overall.
+The README's generated section is the maintained count authority. The workflow
+checks it on main pushes, pull requests targeting main, and manual dispatch.
+A stale README fails the check; refresh with
+  python3 scripts/count_lean_lines.py --write-readme
+after staging source additions/deletions. Each CI run retains a per-file JSON
+inventory tied to the exact checked commit and a readable job summary.
+Static positive and stale-README negative checks passed. Consult the matching
+GitHub Actions run for external count-check status; this is no Lean proof or
+A-tier acceptance claim. No local Lean or Lake execution occurs.
+The preceding main documentation revision 10f73223 completed Material run
+44859131356 with conclusion success. Existing exact accepted scopes and evidence
+retain their original pinned revisions; Fefferman_D remains the project goal.
 
 CURRENT INTEGRATION REGISTER
 
@@ -66,7 +89,8 @@ The first main run44857663580 at the promoted SHA passed final acceptance
 and full cache publication:548reused,106fresh modules;169fresh package audits;
 2212named reports plusQFB;dependencyEXACT/projectPREFIX;recoverySKIPPED.
 The donor was572fd9ee/run44848985720. The combined cache is now published in
-main scope. Only a later documentation-head check remains unobserved.
+main scope. The later documentation head 10f73223 completed Material run
+44859131356 with conclusion success; source-specific acceptance remains pinned.
 PROJECT_GOAL remains Fefferman_D;FDSN_R3 is a completed prior theorem.
 
 VERIFIED_UNION: 654 active modules; 183 owned modules; 169 endpoint packages;
