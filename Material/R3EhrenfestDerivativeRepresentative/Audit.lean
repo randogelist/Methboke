@@ -23,7 +23,6 @@ open MethbokeAddon.R3Ehrenfest.DerivativeRepresentative
 example : SpatialL2 = Lp (EuclideanSpace ℝ (Fin 3)) 2
     (volume : Measure (EuclideanSpace ℝ (Fin 3))) := rfl
 
--- Independent positive-sign inverse Fourier derivative statement.
 example (f : ComplexL2)
     (hf : Integrable (fun ξ : Space => f ξ) volume)
     (h1 : Integrable (fun ξ : Space => ‖ξ‖ * ‖f ξ‖) volume) (x e : Space) :
@@ -32,7 +31,6 @@ example (f : ComplexL2)
         ((2 * Real.pi * Complex.I) * (inner ℝ ξ e : ℂ)) • f ξ)) x :=
   fourierInv_integral_fderiv_apply f hf h1 x e
 
--- Classical derivatives of the same representative, with no coherence premise.
 example (n : ℕ) (u : SpatialL2) (j : Fin 3) (x : Space) :
     fderiv ℝ (fun y : Space => sharpCutoffRepresentativeCLM n u y) x
       (EuclideanSpace.single j (1 : ℝ)) =
@@ -44,7 +42,6 @@ example (n : ℕ) (u : SpatialL2) (j : Fin 3) (x : Space) :
         sharpCutoffRepresentativeCLM n (physicalH2Gradient j (sharpCutoffH2 n u)) x :=
   fderiv_sharpCutoffRepresentative_physicalH2Gradient n u j x
 
--- Ordered native derivative operators and actual classical partial derivatives.
 example (n : ℕ) (a : List (Fin 3)) : SpatialL2 →L[ℝ] SpatialL2 := cutoffWordCLM n a
 example (n : ℕ) : cutoffWordCLM n [] = ContinuousLinearMap.id ℝ SpatialL2 := rfl
 example (n : ℕ) (j : Fin 3) (a : List (Fin 3)) :
@@ -122,4 +119,3 @@ end R3EhrenfestDerivativeRepresentative.ExpectedTypes
 #eval IO.println "AXIOMS_BEGIN:MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative_bound"
 #print axioms MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative_bound
 #eval IO.println "AXIOMS_END:MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative_bound"
-

@@ -4,19 +4,28 @@
   "endpoint_module": "R3EhrenfestDerivativeRepresentative.Endpoint",
   "audit_module": "R3EhrenfestDerivativeRepresentative.Audit",
   "imports": [
-    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative"
+    "MethbokeAddon.R3Ehrenfest.Bandlimited",
+    "MethbokeAddon.R3Ehrenfest.SmoothRepresentative",
+    "Mathlib.Analysis.Fourier.FourierTransformDeriv",
+    "Mathlib.Tactic.Ring"
   ],
   "source_roots": [
     {
-      "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-      "path": "MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-      "storage": "owned_source",
-      "origin_kind": "new_owned_development_at_exact_source_snapshot",
+      "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+      "path": "R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+      "storage": "endpoint_wrapper",
+      "origin_kind": "activated_prepared_candidate",
       "source_snapshot": {
         "repository": "randogelist/Methboke",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
         "path": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_LAYER_CANDIDATE/DerivativeRepresentative.lean.txt",
-        "role": "Exact candidate bytes activated unchanged; matching registered external verification pending."
+        "role": "Exact prepared proof spine activated as a self-contained endpoint wrapper; matching external verification pending."
+      },
+      "derivation_basis": {
+        "repository": "randogelist/Methboke",
+        "revision": "1d4a9324f2cfb576f8a389da0e354da29ef7dbde",
+        "path": "Material/MethbokeAddon/R3Ehrenfest/SmoothRepresentative.lean",
+        "role": "Accepted 111-name R3 foundation basis."
       }
     }
   ],
@@ -27,12 +36,12 @@
       "source_kind": "theorem",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "The actual inverse Fourier integral has the positive 2*pi*i*xi derivative symbol under explicit L1 and first-moment hypotheses."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fderiv_sharpCutoffRepresentative_coordinate",
@@ -40,12 +49,12 @@
       "source_kind": "theorem",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "Each classical coordinate derivative of the constructed smooth sharp-cutoff representative equals the representative of the already constructed native L2 cutoff derivative."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fderiv_sharpCutoffRepresentative_physicalH2Gradient",
@@ -53,12 +62,12 @@
       "source_kind": "theorem",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "The same classical derivative agrees with the gradient field stored in the accepted physical H2 cutoff graph."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.cutoffWordCLM",
@@ -66,12 +75,12 @@
       "source_kind": "def",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "Ordered words of the actual bounded L2 cutoff derivative operators."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.norm_cutoffWordCLM_apply_le",
@@ -79,12 +88,12 @@
       "source_kind": "theorem",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "A finite fixed-cutoff norm bound for every ordered derivative word."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate",
@@ -92,12 +101,12 @@
       "source_kind": "def",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "Ordered classical coordinate differentiation of vector-valued representatives."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative",
@@ -105,12 +114,12 @@
       "source_kind": "theorem",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "Every ordered classical coordinate derivative is exactly represented by the matching native cutoff derivative word."
     },
     {
       "name": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative_bound",
@@ -118,12 +127,12 @@
       "source_kind": "theorem",
       "source": {
         "repository": "randogelist/Methboke",
-        "path": "Material/MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean",
-        "module": "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative",
-        "revision": "96c70b888873ed4b5466762a2558fd3f61b091d1",
-        "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
+        "path": "Material/R3EhrenfestDerivativeRepresentative/Endpoint.lean",
+        "module": "R3EhrenfestDerivativeRepresentative.Endpoint",
+        "revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+        "revision_status": "PREPARED_CANDIDATE_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
       },
-      "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+      "scope": "All ordered classical coordinate derivatives satisfy a finite fixed-cutoff Bernstein bound for the same representative."
     }
   ],
   "allowed_axioms": [
@@ -131,5 +140,19 @@
     "Classical.choice",
     "Quot.sound"
   ],
-  "scope": "Classical coordinate derivatives of the actual smooth sharp-cutoff representative equal representatives of the already constructed native Fourier derivatives. Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, stopped-bound witness or obstruction root is asserted."
+  "scope": "Classical coordinate derivatives of the actual sharp-cutoff representative agree exactly with the constructed native L2 and physical H2 derivative fields; all ordered derivatives have finite fixed-cutoff bounds. No cutoff-uniform comparison, nonlinear flow, literal NSE-A admission, obstruction root or stopped-bound witness is asserted.",
+  "status": "PENDING_EXTERNAL_CI",
+  "project_scope": "SINGULAR_PREMISE_OBSTRUCT_R3_DERIVATIVE_COHERENCE",
+  "implementation_base": "1d4a9324f2cfb576f8a389da0e354da29ef7dbde",
+  "source_preparation_revision": "c3f1fe3a1c7f8c6b77fceeaeb5e2063839f7dbef",
+  "research_layout": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound",
+  "type_policy": "Independent literal expected-type consumers plus one ordered complete named type/axiom report per declaration; standard axioms only.",
+  "plan_endpoints": [
+    "I03.DERIVATIVE_REPRESENTATIVE_COHERENCE"
+  ],
+  "parent_gap_closed": false,
+  "r3_obstruction_root_proved": false,
+  "general_solution_existence_proved": false,
+  "stopped_bound_witness_constructed": false,
+  "local_lean_executed": false
 }
