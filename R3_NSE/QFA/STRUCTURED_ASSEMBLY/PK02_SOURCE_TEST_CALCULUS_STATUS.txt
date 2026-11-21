@@ -1,0 +1,48 @@
+QFA STRUCTURED ASSEMBLY — PK02E SOURCE TEST CALCULUS
+
+DATE = 2026-11-21
+BRANCH = codex/qfa-structured-assembly
+TARGET = QFA_A_TIER_CLOSURE
+PACKAGE = QFASourceTestCalculus
+STATUS = PREPARED_PENDING_DEPENDENCY_ACCEPTANCE_AND_EXTERNAL_CI
+
+CANDIDATE_SCOPE
+===============
+
+Exact source/native scalar-test calculus:
+
+  * source coordinate partial derivative;
+  * native coordinate-vector forgetting;
+  * exact Fréchet chain rule for the native pullback;
+  * exact coordinate derivative transport;
+  * raw source test gradient;
+  * exact native gradient transport;
+  * exact source coordinate pairing = native Euclidean inner pairing.
+
+DECLARATIONS = 7
+EXPECTED_ENDPOINT_COUNT_AFTER_REGISTRATION = 175
+EXPECTED_TOTAL_NAMED_AUDITS_AFTER_REGISTRATION = 2263
+
+DEPENDENCIES
+============
+
+  QFASourceCoordinates !=! accepted
+  QFASourceFields !=! accepted
+  QFASourceTestsBasic !=! accepted
+  QFASourceL2 matching external verification pending
+  Mathlib ContinuousLinearEquiv.comp_right_fderiv
+  Mathlib PiLp.inner_apply
+
+The calculus package is source-prepared independently while QFASourceL2 is
+verified. It is not registered or promoted before the immediate L2 dependency
+has matching acceptance.
+
+No weak divergence, CKN IsInJ, ESS H1 good-time, PDE construction,
+comparison, continuation, sharp Sobolev admission, smooth solution or QFA root
+is asserted.
+
+Emit !=! only after matching compiler, seven exact-type checks, seven fresh
+theorem-level axiom reports, retained evidence, publication and terminal
+Material acceptance pass for one exact registered source.
+
+LOCAL_LEAN_LAKE_KERNEL_EXECUTIONS = 0
