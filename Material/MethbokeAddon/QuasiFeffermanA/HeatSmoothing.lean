@@ -61,7 +61,7 @@ theorem heatRate_mul_heatValue_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 < t)
             Real.exp (-((ν : ℝ) * (t : ℝ) * heatRate ξ)) := by ring
       _ ≤ Real.exp (-1) := Real.mul_exp_neg_le_exp_neg_one _
       _ ≤ 1 := Real.exp_le_one_iff.mpr (by norm_num)
-  apply (mul_le_mul_iff_left₀ hprod).mp
+  apply (mul_le_mul_iff_of_pos_left hprod).mp
   simpa only [mul_inv_cancel₀ (ne_of_gt hprod)] using hbound
 
 private theorem heatRate_mul_heatValue_sq_le (ν t : ℝ≥0)
@@ -275,8 +275,8 @@ theorem heatH1ToH2_norm_sq_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 < t)
     _ ≤ ‖u‖ ^ 2 + ((ν : ℝ) * (t : ℝ))⁻¹ * ‖u‖ ^ 2 := by
       have hinv : 0 ≤ ((ν : ℝ) * (t : ℝ))⁻¹ :=
         inv_nonneg.mpr (mul_nonneg ν.property t.property)
-      exact add_le_add_left
-        (mul_le_mul_of_nonneg_left (physicalH1Enstrophy_le_norm_sq u) hinv) _
+      exact add_le_add le_rfl
+        (mul_le_mul_of_nonneg_left (physicalH1Enstrophy_le_norm_sq u) hinv)
     _ = _ := by ring
 
 theorem norm_heatH1ToH2_le (ν t : ℝ≥0) (hν : 0 < ν) (ht : 0 < t)

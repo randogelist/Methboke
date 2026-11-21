@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_SOURCE_FAILURE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "fd72e2218553f6eb89532a4548552d42ba8476f8",
+  "tree": "60af2cec39b3e6e03c2fedfa331b8c9315c6b291",
+  "run_id": 44845844062,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44845844062",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "artifact_sha256": {
+    "evidence.zip": "d1c1493a99b76e8d2372f01865f0b11afdd490397f8a6417c8d9455cdf71dd79",
+    "routing-evidence.zip": "68b5597c645f86c3569a5734071df6e674fbd4569b27636603e589ec97603929"
+  },
+  "report_sha256": "09a7899921fb62a843f18253e374659d283a9ce3eea90d949f5af97464fcd6f5",
+  "checks_passed": 29,
+  "local_lean_executions": 0,
+  "module_count": 520,
+  "module_status_counts": {
+    "PASS": 514,
+    "FAIL": 2,
+    "BLOCKED_BY_DEPENDENCY": 4
+  },
+  "reused_passing_modules": 512,
+  "fresh_passing_modules": 2,
+  "planned_packages": 102,
+  "planned_named_reports": 1367,
+  "fresh_package_audits_completed": 0,
+  "new_names_accepted": 0,
+  "new_packages": [
+    {
+      "id": "QFAHeatSmoothing",
+      "names": 26,
+      "theorems": 20,
+      "definitions_and_structures": 6,
+      "scope": "Constructed actual positive-time physical H1-to-H2 heat map, nine compact-test weak Hessians, literal Laplacian Fourier action and quantitative H2 bound; no supplied H2 or smoothing premise."
+    },
+    {
+      "id": "QFALHRestart",
+      "names": 18,
+      "theorems": 17,
+      "definitions_and_structures": 1,
+      "scope": "Full shifted physical Leray--Hopf membership for the same supplied path at its exact nonnegative admissible energy start, transported weak momentum and energy-class fields, a.e. and safe-window full PDE restarts."
+    },
+    {
+      "id": "QFAZeroDatum",
+      "names": 29,
+      "theorems": 16,
+      "definitions_and_structures": 13,
+      "scope": "Exact all-data physical QFA target definitions and complete constructed zero-datum closed/strict conclusion, including LH existence, all-path smooth normalized tails, energy equality and own-trace future velocity uniqueness; the nonzero-data root remains open."
+    }
+  ],
+  "failure_class": "MODULE_COMPILATION_FAILED",
+  "routing_failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failed_modules": [
+    "MethbokeAddon.QuasiFeffermanA.HeatSmoothing",
+    "MethbokeAddon.QuasiFeffermanA.LHRestart"
+  ],
+  "blocked_modules": [
+    "MethbokeAddon.QuasiFeffermanA.ZeroDatum",
+    "QFAHeatSmoothing.Endpoint",
+    "QFALHRestart.Endpoint",
+    "QFAZeroDatum.Endpoint"
+  ],
+  "candidate_source_sha256": {
+    "Material/MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean": "e4f560e8e1285f66912b9f7b0f60e3a1a6bf896b9c088ec97455e8bc6c0a253d",
+    "Material/MethbokeAddon/QuasiFeffermanA/LHRestart.lean": "cc3bb7bebdd82eeb7157d2d5c505bb1cae6f7d8386aeb9304a0ad6652d407a36",
+    "Material/MethbokeAddon/QuasiFeffermanA/MomentumTranslation.lean": "fa21eeb358bb067cd2ae730b8b27059fa99dac0cca8eaed9e710468123ec929c",
+    "Material/MethbokeAddon/QuasiFeffermanA/PhysicalRoot.lean": "6656676afe46609e749d82cf4b7d05e539be775035599743fa19d5653e5ed49b",
+    "Material/MethbokeAddon/QuasiFeffermanA/ZeroDatum.lean": "c9e97d5869b34b4c7813d0ee0202a5f50deeba06541976e0dadcb45116521a45",
+    "Material/QFAHeatSmoothing/Endpoint.lean": "1ead28bf1677464a612cc35a508203f7b96209dc2c91748f6a6b6dcaf2e853db",
+    "Material/QFALHRestart/Endpoint.lean": "94b3e0f65ae6270c4c0180b49e73016281f193ee816d191b7dd92b323ed01770",
+    "Material/QFAZeroDatum/Endpoint.lean": "3e03fc725aef77a75fa06ae84b62c6a3015e70fd95ec7a123f0f6bfba029c359"
+  },
+  "compiler_logs": [
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.HeatSmoothing.log",
+      "retained_log": "MethbokeAddon.QuasiFeffermanA.HeatSmoothing.log.gz",
+      "raw_sha256": "2aedd7c8ec627e07244d38e231dc482e9fa6e5673088a382642e26c5af7bf664",
+      "raw_bytes": 931,
+      "diagnostic_headers": [
+        "MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean:65:2: error: Type mismatch: After simplification, term",
+        "MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean:252:51: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice",
+        "MethbokeAddon/QuasiFeffermanA/HeatSmoothing.lean:278:6: error: Type mismatch"
+      ]
+    },
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.LHRestart.log",
+      "retained_log": "MethbokeAddon.QuasiFeffermanA.LHRestart.log.gz",
+      "raw_sha256": "57ae65b98fcf5e23791a2d4a0928fbd0635c4ee809fbeaa2cbf7e9f3473e6877",
+      "raw_bytes": 2847,
+      "diagnostic_headers": [
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:48:23: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:60:18: error: `simp` made no progress",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:87:41: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:87:61: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:102:41: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:102:61: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:116:43: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:116:63: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:120:43: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:120:63: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:141:39: error: Application type mismatch: The argument",
+        "MethbokeAddon/QuasiFeffermanA/LHRestart.lean:141:59: error: Application type mismatch: The argument"
+      ]
+    },
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.MomentumTranslation.log",
+      "retained_log": "MethbokeAddon.QuasiFeffermanA.MomentumTranslation.log.gz",
+      "raw_sha256": "867d04eb1a718c1a45a99b8a6aa7d217d4dbfeec673f08254ba1ab16530f4341",
+      "raw_bytes": 870,
+      "diagnostic_headers": [
+        "MethbokeAddon/QuasiFeffermanA/MomentumTranslation.lean:128:4: warning: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead",
+        "MethbokeAddon/QuasiFeffermanA/MomentumTranslation.lean:135:4: warning: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead",
+        "MethbokeAddon/QuasiFeffermanA/MomentumTranslation.lean:142:4: warning: `ContinuousLinearMap.zero_apply` has been deprecated: Use `zero_apply` instead"
+      ]
+    },
+    {
+      "archive_path": "logs/modules/MethbokeAddon.QuasiFeffermanA.PhysicalRoot.log",
+      "retained_log": "MethbokeAddon.QuasiFeffermanA.PhysicalRoot.log.gz",
+      "raw_sha256": "3211efdd63fd7207d03a9d67d1f36e2fe6d5fccd346f33959308e759df5b6a46",
+      "raw_bytes": 269,
+      "diagnostic_headers": [
+        "MethbokeAddon/QuasiFeffermanA/PhysicalRoot.lean:90:4: warning: The namespace `QuasiFeffermanA` is duplicated in the declaration `MethbokeAddon.QuasiFeffermanA.PhysicalRoot.QuasiFeffermanA`."
+      ]
+    }
+  ],
+  "scope_limit": "PhysicalRoot and MomentumTranslation compiled, but no new independent package audit completed. This run grants no new A-tier acceptance; the earlier d403c235 acceptance remains the accepted baseline."
+}

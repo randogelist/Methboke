@@ -15,17 +15,19 @@ $p(t,0)=0$. **These new files are pending matching external verification.**
 [QFA integration status](R3_NSE/QFA/INTEGRATION_STATUS.json)
 
 
-## First QFA candidate verification and repair
+## QFA external verification and proof repair
 
-[Run44845214610](https://github.com/randogelist/Methboke/actions/runs/44845214610)
-passed 513 of 520 modules, including the new exact root contract. Two new
-modules failed proof elaboration; five dependents were blocked. No package
-audits or new acceptance followed. The repair uses the pinned inner-product
-and positive-factor cancellation lemmas, explicit heat continuity, precise
-scalar-norm simplification, and explicit inverse nonnegativity. Public
-statements, hypotheses and audit consumers are unchanged.
-[Original failure evidence](audits/material-293db84a-qfa-failed/independent-review.json).
-A matching external retry is required; no local Lean was executed.
+The first two runs retained their exact failure evidence:
+[293db84a / run44845214610](audits/material-293db84a-qfa-failed/independent-review.json)
+and [fd72e221 / run44845844062](audits/material-fd72e221-qfa-failed/independent-review.json).
+The second passed 514 of 520 modules, including the new root contract and
+translated weak momentum. Heat smoothing and the newly unblocked full-LH
+wrapper still failed elaboration; four dependents were blocked. No package
+audits or new acceptance followed. The next repair qualifies the actual time
+shift throughout the wrapper, gives its literal initial-trace proof, and uses
+the pinned positive-factor cancellation and addition signatures. Mathematical
+statements, assumptions and independent consumers are preserved. A matching
+cached external retry is required; no local Lean was executed.
 
 ## Latest accepted native basis
 

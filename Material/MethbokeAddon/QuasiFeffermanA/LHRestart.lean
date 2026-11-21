@@ -39,25 +39,29 @@ theorem timeTranslate_ae_Ioo {P : ℝ → Prop} {s R : ℝ} (hs : 0 ≤ s)
 /-- All upper endpoints remain quantified after transporting an energy start. -/
 theorem energyStart_timeTranslate {ν s r : ℝ} {u : Velocity} {G : WeakGradient}
     (hstart : EnergyStart ν u G (r + s)) :
-    EnergyStart ν (timeTranslate s u) (timeTranslate s G) r := by
+    EnergyStart ν (QFA.Endpoints.Restart.timeTranslate s u)
+      (QFA.Endpoints.Restart.timeTranslate s G) r := by
   intro t ht
   change velocityEnergy (u (t + s)) +
     2 * ν * (∫ q in r..t, gradientEnergy (G (q + s))) ≤
       velocityEnergy (u (r + s))
   rw [intervalIntegral.integral_comp_add_right (fun q => gradientEnergy (G q)) s]
-  exact hstart (t + s) (add_le_add_right ht s)
+  exact hstart (t + s) (by linarith)
 
 /-- Full native shifted-LH membership at every supplied nonnegative energy start.
 No positivity of viscosity is required merely to translate the class. -/
 theorem LerayHopf.timeTranslate {ν s : ℝ} {a : SpatialL2}
     {u : Velocity} {G : WeakGradient}
     (h : LerayHopf ν a u G) (hs : 0 ≤ s) (hstart : EnergyStart ν u G s) :
-    LerayHopf ν (u s) (timeTranslate s u) (timeTranslate s G) := by
+    LerayHopf ν (u s) (QFA.Endpoints.Restart.timeTranslate s u)
+      (QFA.Endpoints.Restart.timeTranslate s G) := by
   have hprofile := QFA.Assembly.Restart.energyProfile_timeTranslate
     h.energyProfile hs (energyStart_iff_qfa.mp hstart)
   refine {
     momentum := h.momentum.timeTranslate hs
-    initial := by simp only [timeTranslate, zero_add]
+    initial := by
+      change u (0 + s) = u s
+      rw [zero_add]
     solenoidal := fun t ht => h.solenoidal (t + s) (add_nonneg ht hs)
     velocity_aestronglyMeasurable := hprofile.velocity_aestronglyMeasurable
     gradient_memLp := hprofile.gradient_memLp
@@ -84,7 +88,8 @@ theorem LerayHopf.ae_full_restart {ν R : ℝ} {a : SpatialL2}
     ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) R),
       Solenoidal (u s) ∧ SpatialWeakGradient (u s) (G s) ∧
         EnergyStart ν u G s ∧
-        LerayHopf ν (u s) (timeTranslate s u) (timeTranslate s G) := by
+        LerayHopf ν (u s) (QFA.Endpoints.Restart.timeTranslate s u)
+          (QFA.Endpoints.Restart.timeTranslate s G) := by
   have htime : ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) R), s ∈ Ioo (0 : ℝ) R :=
     ae_restrict_mem measurableSet_Ioo
   filter_upwards [htime, h.spatial_weak_gradient R hR, h.energy_starts R hR]
@@ -99,7 +104,8 @@ theorem LerayHopf.goodRestart_and_full_restart_ae {ν R : ℝ} {a : SpatialL2}
     (h : LerayHopf ν a u G) (hν : 0 ≤ ν) (hR : 0 < R) :
     ∀ᵐ s ∂volume.restrict (Ioo (0 : ℝ) R),
       GoodRestart ν u G s ∧
-        LerayHopf ν (u s) (timeTranslate s u) (timeTranslate s G) := by
+        LerayHopf ν (u s) (QFA.Endpoints.Restart.timeTranslate s u)
+          (QFA.Endpoints.Restart.timeTranslate s G) := by
   filter_upwards [h.goodRestart_ae hν hR, h.ae_full_restart hR]
     with s hgood hfull
   exact ⟨hgood, hfull.2.2.2⟩
@@ -113,11 +119,13 @@ theorem LerayHopf.safe_window_full_restart_and_measure
     (safeCutoff S ‖a‖ ν / 2 ≤
       (volume.restrict (Ioo (0 : ℝ) (safeCutoff S ‖a‖ ν))).real
         {s | (GoodRestart ν u G s ∧
-          LerayHopf ν (u s) (timeTranslate s u) (timeTranslate s G)) ∧
+          LerayHopf ν (u s) (QFA.Endpoints.Restart.timeTranslate s u)
+            (QFA.Endpoints.Restart.timeTranslate s G)) ∧
           velocityEnergy (u s) * gradientEnergy (G s) < productThreshold S ν}) ∧
       ∃ s, 0 < s ∧ s < safeCutoff S ‖a‖ ν ∧
         (GoodRestart ν u G s ∧
-          LerayHopf ν (u s) (timeTranslate s u) (timeTranslate s G)) ∧
+          LerayHopf ν (u s) (QFA.Endpoints.Restart.timeTranslate s u)
+            (QFA.Endpoints.Restart.timeTranslate s G)) ∧
         velocityEnergy (u s) * gradientEnergy (G s) < productThreshold S ν := by
   have hM : ‖a‖ ≠ 0 := ne_of_gt (norm_pos_iff.mpr ha)
   have hR : 0 < safeCutoff S ‖a‖ ν := safeCutoff_pos hS hν hM
@@ -138,7 +146,8 @@ theorem LerayHopf.exists_safe_full_restart
     ∃ s, 0 < s ∧ s < safeCutoff S ‖a‖ ν ∧
       Solenoidal (u s) ∧ SpatialWeakGradient (u s) (G s) ∧
       EnergyStart ν u G s ∧ QFA.Assembly.Restart.RestartData ν u G s ∧
-      LerayHopf ν (u s) (timeTranslate s u) (timeTranslate s G) ∧
+      LerayHopf ν (u s) (QFA.Endpoints.Restart.timeTranslate s u)
+        (QFA.Endpoints.Restart.timeTranslate s G) ∧
       Tendsto u (𝓝[>] s) (𝓝 (u s)) ∧
       velocityEnergy (u s) * gradientEnergy (G s) < productThreshold S ν := by
   obtain ⟨s, hs0, hsR, hsol, hgrad, hstart, hdata, htrace, hsmall⟩ :=
