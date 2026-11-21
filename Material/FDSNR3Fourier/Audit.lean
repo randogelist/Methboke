@@ -22,7 +22,7 @@ example (f : 𝓢(Vec, Vec)) (x : Vec) :
   apply MethbokeAddon.FDSNR3.complexifySchwartz_apply <;> assumption
 
 example (f : 𝓢(Vec, Vec)) :
-    fourierVelocity f = (𝓕 (complexifySchwartz f) : Vec → CVec) := by
+    fourierVelocity f = ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec) := by
   apply MethbokeAddon.FDSNR3.fourierVelocity_eq_schwartz <;> assumption
 
 example (f : 𝓢(Vec, CVec)) :

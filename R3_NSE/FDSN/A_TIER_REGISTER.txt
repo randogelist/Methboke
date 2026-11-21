@@ -42,7 +42,7 @@ Reused R3-07/R3-11: complete matching archived audits at run44811785125.
 Full candidate:421pending stage2/stage3 declarations;137packages/1320total reports.
 Canonical root: MethbokeAddon.FDSNR3.FDSN_R3, original Seed -> full Family.
 Root status: PREPARED, NOT EXTERNALLY ACCEPTED. Seed existence not asserted.
-Latest failure:run44846785644 at5423da48; all548modules compile,52fresh audits/537declarations recorded; standalone audit namespace repair required; no new acceptance.
+Latest failure: run 44847910880 at 7dd6dba6; all 548 modules compile, 55 fresh audits / 571 declarations recorded; independent Fourier consumer type annotation required; no new acceptance.
 Local Lean or Lake executions: ZERO.
 
 Full run44836866962: all stage2 sources/wrappers compile, six stage3 source
@@ -124,3 +124,9 @@ FDSN_R3 audit repair after run44846785644 at5423da48.
 Run44846785644 at5423da48 compiled all548 modules, including the original Seed-to-Family root and wrappers. The report records52 fresh endpoint audits covering537 declarations before FDSNR3CrossingTimePhase/Audit.lean:9 failed on an unknown namespace. Complete audits, cutout and acceptance/publication remain pending; no new A-tier acceptance.
 Remove only the unused open MethbokeAddon.EhrenfestObstruction line from FDSNR3CrossingTimePhase/Audit.lean. All10 independent consumers and10 named type/axiom targets are byte-preserved; no theorem source, Seed/Family statement, pin or axiom policy changes. The original audit reconstructs to exact5423da48 blob9eaa8e7016d17a4dfee5160adb0a4d69ee10eb1e; replacement audit SHA256294f7ff7fa34e1560e735362eccfc4b9dc5f7cd729a86733d08b517ea2555afc. Full matching external verification remains pending.
 Evidence:audits/fdsn-r3-5423da48-failed/SUMMARY.txt.
+
+
+FDSN_R3 audit repair after run 44847910880 at 7dd6dba6.
+Run 44847910880 at 7dd6dba6 compiled all 548 modules, including the original Seed-to-Family root and wrappers. The report records 55 fresh passing endpoint audits covering 571 declarations; CrossingTimePhase now passes. FDSNR3Fourier/Audit.lean lines 25–26 then fail because an omitted intermediate Schwartz-map type selects an unavailable FourierTransform instance. Complete audits, cutout and final acceptance/publication remain pending; no new A-tier acceptance.
+Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.
+Evidence: audits/fdsn-r3-7dd6dba6-failed/SUMMARY.txt.
