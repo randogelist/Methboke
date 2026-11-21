@@ -1,308 +1,394 @@
 #!/usr/bin/env python3
-"""Activate the prepared R3 derivative-representative package without invoking Lean.
-
-This is a one-shot static repository transformation. It copies the already
-reviewed .lean.txt candidate into active Material paths, registers its exact
-sources and endpoint, computes the current source closure, updates the scoped
-R3 goal package list, and refreshes the README Lean source count.
-"""
 from __future__ import annotations
 
 import hashlib
-import importlib.util
 import json
 import os
 from pathlib import Path
+import re
+import shutil
 import subprocess
+import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-MATERIAL = ROOT / "Material"
-CANDIDATE = ROOT / "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_LAYER_CANDIDATE"
-MODULE = "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative"
-PACKAGE = "R3EhrenfestDerivativeRepresentative"
-SOURCE_REL = "MethbokeAddon/R3Ehrenfest/DerivativeRepresentative.lean"
-SOURCE = MATERIAL / SOURCE_REL
-PACKAGE_DIR = MATERIAL / PACKAGE
+TESTED = "dc265b9489dac0504c660255d0a3da02c4e0f484"
+RUN_ID = 44880439634
+RUN_URL = f"https://github.com/randogelist/Methboke/actions/runs/{RUN_ID}"
+MAT_ARTIFACT_ID = 14698327135
+GOAL_ARTIFACT_ID = 14697488691
+MAT_SHA = "1998d7708c7ead496d2fad9281715cc52ad84be9a4198b74656350126bfb985e"
+GOAL_SHA = "87a1e56eb7d86a854af7d0e38ab27a5f250b35ceed21c7b9edaf4ac5ebd0f8e8"
+PKG = "R3EhrenfestDerivativeRepresentative"
+AUDIT_SHA = "3ec2df80c5169c8372b6d5a736386cdf85d659ce8b80f675915b61132dfc2e80"
+DECLS = [
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fourierInv_integral_fderiv_apply",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fderiv_sharpCutoffRepresentative_coordinate",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fderiv_sharpCutoffRepresentative_physicalH2Gradient",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.cutoffWordCLM",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.norm_cutoffWordCLM_apply_le",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative",
+    "MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative_bound",
+]
 SCOPE = (
     "Classical coordinate derivatives of the actual smooth sharp-cutoff representative "
-    "equal representatives of the already constructed native Fourier derivatives. "
-    "Ordered coordinate words have explicit finite fixed-cutoff Bernstein bounds. "
+    "coincide with the already constructed native Fourier derivative operators. Ordered "
+    "coordinate words equal cutoffWordCLM and satisfy finite fixed-cutoff Bernstein bounds. "
     "No nonlinear flow, cutoff-uniform comparison, literal NSE-A Sobolev admission, "
     "stopped-bound witness or obstruction root is asserted."
 )
-DECLARATIONS = [
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fourierInv_integral_fderiv_apply", "theorem"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fderiv_sharpCutoffRepresentative_coordinate", "theorem"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.fderiv_sharpCutoffRepresentative_physicalH2Gradient", "theorem"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.cutoffWordCLM", "definition"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.norm_cutoffWordCLM_apply_le", "theorem"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate", "definition"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative", "theorem"),
-    ("MethbokeAddon.R3Ehrenfest.DerivativeRepresentative.coordinateIterate_sharpCutoffRepresentative_bound", "theorem"),
-]
 
 
-def load(path: Path) -> dict:
-    value = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(value, dict):
-        raise RuntimeError(f"expected JSON object: {path}")
-    return value
+def sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for block in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
 
 
-def save(path: Path, value: object) -> None:
+def load(path: Path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def save(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(value, indent=2, sort_keys=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(obj, indent=2, sort_keys=False) + "\n", encoding="utf-8")
 
 
-def sha256(data: bytes) -> str:
-    return hashlib.sha256(data).hexdigest()
+def replace_required(text: str, old: str, new: str, label: str) -> str:
+    if old not in text:
+        raise RuntimeError(f"missing replacement anchor {label}: {old!r}")
+    return text.replace(old, new)
 
 
-def fingerprint(value: object) -> str:
-    return sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode())
+def extract_json(zip_path: Path, member: str):
+    with zipfile.ZipFile(zip_path) as z:
+        names = z.namelist()
+        candidate = member if member in names else next((n for n in names if n.endswith('/' + member)), None)
+        if candidate is None:
+            raise RuntimeError(f"{member} missing from {zip_path}")
+        return json.loads(z.read(candidate).decode("utf-8"))
 
 
-def import_build_module():
-    path = MATERIAL / "ci/build.py"
-    spec = importlib.util.spec_from_file_location("material_build_static", path)
-    if spec is None or spec.loader is None:
-        raise RuntimeError("cannot load Material/ci/build.py")
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+def validate_artifacts(mat_zip: Path, goal_zip: Path):
+    if sha256(mat_zip) != MAT_SHA:
+        raise RuntimeError("material artifact digest mismatch")
+    if sha256(goal_zip) != GOAL_SHA:
+        raise RuntimeError("goal artifact digest mismatch")
+    current = extract_json(mat_zip, "current.json")
+    scope = extract_json(goal_zip, "scope-report.json")
+    assert current["status"] == "PASS" and current["commit"] == TESTED
+    assert scope["audit_status"] == "PASS" and scope["source_revision"] == TESTED
+    assert scope["root_status"] == "OPEN_NO_NATIVE_ROOT" and scope["root_declaration"] is None
+    endpoint = next(e for e in current["endpoints"] if e["id"] == PKG)
+    assert endpoint["status"] == "PASS" and endpoint["declaration_count"] == 8
+    assert endpoint["audit_sha256"] == AUDIT_SHA
+    assert set(endpoint["axioms"]) == set(DECLS)
+    for name in DECLS:
+        assert endpoint["axioms"][name] == ["Classical.choice", "Quot.sound", "propext"]
+    assert PKG in scope["selected_packages"]
+    assert current["metrics"]["module_count"] == 670
+    assert current["metrics"]["audit_fresh_count"] == 177
+    assert sum(e["declaration_count"] for e in current["endpoints"]) == 2331
+    assert scope["fresh_package_count"] == 26 and scope["fresh_named_reports"] == 497
+    return current, scope, endpoint
 
 
-def copy_candidate() -> None:
-    SOURCE.parent.mkdir(parents=True, exist_ok=True)
-    SOURCE.write_bytes((CANDIDATE / "DerivativeRepresentative.lean.txt").read_bytes())
-    PACKAGE_DIR.mkdir(parents=True, exist_ok=True)
-    (PACKAGE_DIR / "Endpoint.lean").write_bytes((CANDIDATE / "Endpoint.lean.txt").read_bytes())
-    (PACKAGE_DIR / "Audit.lean").write_bytes((CANDIDATE / "Audit.lean.txt").read_bytes())
-
-
-def register_owned(build, source_revision: str) -> None:
-    path = MATERIAL / "owned-sources.json"
-    data = load(path)
-    modules = data.get("modules")
-    if not isinstance(modules, list):
-        raise RuntimeError("owned-sources modules must be a list")
-    imports = build.lean_imports(SOURCE.read_text(encoding="utf-8"))
-    record = {
-        "module": MODULE,
-        "path": SOURCE_REL,
-        "sha256": sha256(SOURCE.read_bytes()),
-        "imports": imports,
-        "origin": {
-            "repository": "randogelist/Methboke",
-            "revision": source_revision,
-            "path": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_LAYER_CANDIDATE/DerivativeRepresentative.lean.txt",
-            "role": "Exact inactive candidate bytes promoted unchanged into the active owned source path. Matching external verification remains mandatory."
-        },
-        "origin_kind": "new_owned_development_at_exact_source_snapshot"
-    }
-    existing = [row for row in modules if isinstance(row, dict) and row.get("module") == MODULE]
-    if existing:
-        if existing != [record]:
-            raise RuntimeError("conflicting owned-source registration")
-    else:
-        modules.append(record)
-    save(path, data)
-
-
-def write_endpoint(source_revision: str) -> None:
-    declarations = []
-    for name, kind in DECLARATIONS:
-        declarations.append({
-            "name": name,
-            "kind": kind,
-            "source_kind": "def" if kind == "definition" else "theorem",
-            "source": {
-                "repository": "randogelist/Methboke",
-                "path": "Material/" + SOURCE_REL,
-                "module": MODULE,
-                "revision": source_revision,
-                "revision_status": "EXACT_INACTIVE_SOURCE_SNAPSHOT_ACTIVATED_PENDING_EXTERNAL_VERIFICATION"
-            },
-            "scope": SCOPE
-        })
-    endpoint = {
+def write_evidence(mat_zip: Path, goal_zip: Path, current, scope, endpoint) -> Path:
+    out = ROOT / "audits/r3-ehrenfest-dc265b94-accepted"
+    out.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(mat_zip, out / "material-evidence.zip")
+    shutil.copyfile(goal_zip, out / "r3-goal-evidence.zip")
+    summary = {
         "schema_version": 1,
-        "id": PACKAGE,
-        "endpoint_module": PACKAGE + ".Endpoint",
-        "audit_module": PACKAGE + ".Audit",
-        "imports": [MODULE],
-        "source_roots": [{
-            "module": MODULE,
-            "path": SOURCE_REL,
-            "storage": "owned_source",
-            "origin_kind": "new_owned_development_at_exact_source_snapshot",
-            "source_snapshot": {
-                "repository": "randogelist/Methboke",
-                "revision": source_revision,
-                "path": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_LAYER_CANDIDATE/DerivativeRepresentative.lean.txt",
-                "role": "Exact candidate bytes activated unchanged; matching registered external verification pending."
-            }
-        }],
-        "declarations": declarations,
+        "repository": "randogelist/Methboke",
+        "branch": "codex/nse-a-r3-ehrenfest",
+        "tested_commit": TESTED,
+        "run_id": RUN_ID,
+        "run_url": RUN_URL,
+        "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPE",
+        "accepted": True,
+        "accepted_mid_tier": "R3_DERIVATIVE_REPRESENTATIVE_COHERENCE",
+        "package": PKG,
+        "new_declarations": 8,
+        "cumulative_r3_foundation_declarations": 119,
+        "cumulative_r3_foundation_packages": 8,
+        "scope": SCOPE,
+        "compiler": current["compiler"],
+        "toolchain": current["toolchain"],
+        "mathlib_commit": current["mathlib_commit"],
+        "module_count": current["metrics"]["module_count"],
+        "fresh_modules": current["metrics"]["fresh_module_count"],
+        "reused_modules": current["metrics"]["reused_module_count"],
+        "fresh_package_audits": current["metrics"]["audit_fresh_count"],
+        "named_type_axiom_reports": sum(e["declaration_count"] for e in current["endpoints"]),
+        "fresh_qfb_cutout": current["cutout"]["status"] == "PASS",
+        "package_audit_sha256": endpoint["audit_sha256"],
+        "standard_axioms_only": True,
         "allowed_axioms": ["propext", "Classical.choice", "Quot.sound"],
-        "scope": SCOPE
-    }
-    save(PACKAGE_DIR / "endpoint.json", endpoint)
-    (PACKAGE_DIR / "README.md").write_text(
-        "# R3 Ehrenfest derivative representative\n\n"
-        + SCOPE + "\n\n"
-        + "**Status:** active A-tier candidate. Matching cached external compilation, "
-          "independent exact-type consumers, fresh named axiom reports, publication and "
-          "the full Material acceptance gate remain mandatory. The R3 obstruction root "
-          "and stopped-bound witness remain open.\n",
-        encoding="utf-8"
-    )
-
-
-def compute_closure(build, source_revision: str) -> tuple[dict, str, int]:
-    source_manifest = load(MATERIAL / "_vendor/source-manifest.json")
-    baseline = {item["module"]: item for item in source_manifest["files"]}
-    index = build.module_index(MATERIAL)
-    files, external, drift = build.current_closure(
-        MATERIAL, index, [PACKAGE + ".Endpoint", PACKAGE + ".Audit"], baseline
-    )
-    payload = {
-        "roots": [MODULE],
-        "files": files,
-        "external_imports": external,
-    }
-    closure_hash = fingerprint(payload)
-    closure = {
-        "schema_version": 1,
-        "endpoint": PACKAGE,
-        "source_revision_status": "MATCHING_NATIVE_EXTERNAL_VERIFICATION_PENDING",
-        "source_baseline": source_revision,
-        "source_preparation_revision": source_revision,
-        "lean_toolchain": (MATERIAL / "lean-toolchain").read_text(encoding="utf-8").strip(),
-        "mathlib_commit": source_manifest["mathlib_commit"],
-        "source_closure_hash_policy": "SHA256 of compact sorted-key JSON object containing roots, files, external_imports.",
-        "validation_boundary": "Static source/import/hash inspection only. Matching external compiler, independent exact-type consumers, standard-only named axiom reports, publication and full Material acceptance are required.",
-        "roots": [MODULE],
-        "files": files,
-        "external_imports": external,
-        "source_drift": drift,
-        "source_closure_sha256": closure_hash
-    }
-    save(PACKAGE_DIR / "closure.json", closure)
-    return closure, closure_hash, len(files)
-
-
-def register_endpoint(closure_hash: str, local_source_modules: int) -> None:
-    path = MATERIAL / "endpoints.json"
-    data = load(path)
-    endpoints = data.get("endpoints")
-    if not isinstance(endpoints, list):
-        raise RuntimeError("endpoints must be a list")
-    record = {
-        "id": PACKAGE,
-        "endpoint_module": PACKAGE + ".Endpoint",
-        "audit_module": PACKAGE + ".Audit",
-        "manifest": PACKAGE + "/endpoint.json",
-        "closure": PACKAGE + "/closure.json",
-        "declarations": len(DECLARATIONS),
-        "local_source_modules": local_source_modules,
-        "source_closure_sha256": closure_hash
-    }
-    existing = [row for row in endpoints if isinstance(row, dict) and row.get("id") == PACKAGE]
-    if existing:
-        if existing != [record]:
-            raise RuntimeError("conflicting endpoint registration")
-    else:
-        endpoints.append(record)
-    data["endpoint_count"] = len(endpoints)
-    data["declaration_count"] = sum(int(row["declarations"]) for row in endpoints)
-    data["status"] = "PENDING_EXTERNAL_CI"
-    save(path, data)
-
-
-def update_goal_manifest() -> None:
-    path = MATERIAL / "ci/theorem-goals.json"
-    data = load(path)
-    goals = data.get("goals")
-    if not isinstance(goals, list):
-        raise RuntimeError("theorem goals must be a list")
-    goal = next((row for row in goals if row.get("id") == "SINGULAR_PREMISE_OBSTRUCT_R3"), None)
-    if goal is None:
-        raise RuntimeError("R3 goal missing")
-    packages = goal.get("principal_packages")
-    if not isinstance(packages, list):
-        raise RuntimeError("R3 principal_packages must be a list")
-    if PACKAGE not in packages:
-        insert_at = packages.index("R3EhrenfestSmoothRepresentative") + 1
-        packages.insert(insert_at, PACKAGE)
-    goal["verification_scope"] = (
-        "Fresh exact-type and standard-axiom audits of literal R3 Schwartz-data/finite-energy NSE-A contracts, "
-        "actual sharp ball Fourier projections, the complete solenoidal bandlimited carrier, bandlimited weak-derivative "
-        "foundations, actual smooth representatives, their classical/native derivative coherence and fixed-cutoff ordered "
-        "derivative bounds, together with retained domain-independent scalar/commutator helpers. The NSE_A declaration is "
-        "a proposition definition, not a proved obstruction or existence theorem. This stage never promotes the OPEN root."
-    )
-    goal["retained_foundation_scope"] = (
-        "Literal target definitions and zero-datum consistency; actual real L2/H1 sharp cutoff and Leray commutation; "
-        "complete fixed-point subspace with no finite-dimensional premise; concrete bandlimited gradient/Hessian construction; "
-        "strong L2/H1 and compact-trajectory approximation; actual inverse-Fourier representative agreement; smooth bounded "
-        "representatives; and classical coordinate derivatives identified with the native cutoff derivative operators, with "
-        "finite fixed-cutoff ordered bounds. No regularized nonlinear trajectory, cutoff-uniform comparison, literal closed-slab "
-        "admission, stopped-bound witness or R3 obstruction root is supplied."
-    )
-    save(path, data)
-
-
-def update_candidate_status(source_revision: str, closure_hash: str) -> None:
-    status_path = CANDIDATE / "STATUS.json"
-    data = load(status_path)
-    data.update({
-        "status": "ACTIVATED_PENDING_MATCHING_EXTERNAL_CI",
-        "registered_in_active_material": True,
-        "included_in_111_named_foundations": False,
-        "active_package": PACKAGE,
-        "active_module": MODULE,
-        "activation_source_revision": source_revision,
-        "source_closure_sha256": closure_hash,
-        "external_compilation_completed": False,
-        "exact_type_and_axiom_acceptance": False,
+        "scoped_r3_replay": {
+            "status": scope["audit_status"],
+            "fresh_packages": scope["fresh_package_count"],
+            "fresh_named_reports": scope["fresh_named_reports"],
+            "verified_cached_modules": scope["cache_admission"]["verified_module_count"],
+            "dependency_cache_class": scope["cache_admission"]["dependency_cache_class"],
+            "project_cache_class": scope["cache_admission"]["project_cache_class"],
+            "root_status": scope["root_status"],
+            "root_declaration": scope["root_declaration"],
+        },
+        "artifacts": {
+            "material": {"id": MAT_ARTIFACT_ID, "sha256": MAT_SHA, "path": "material-evidence.zip"},
+            "r3_goal": {"id": GOAL_ARTIFACT_ID, "sha256": GOAL_SHA, "path": "r3-goal-evidence.zip"},
+        },
+        "declarations": DECLS,
         "root_proved": False,
         "stopped_witness_constructed": False,
-        "activation_requirement": "Obtain matching authorized cached external compiler, exact-type and theorem-level axiom evidence for all eight names before promotion."
-    })
-    save(status_path, data)
+        "local_lean_executions": 0,
+        "open_obligations": scope["open_obligations"],
+    }
+    save(out / "summary.json", summary)
+    (out / "README.txt").write_text(
+        "R3 DERIVATIVE-REPRESENTATIVE COHERENCE — SOURCE-SPECIFIC ACCEPTANCE\n\n"
+        f"Tested source: {TESTED}\nExternal run: {RUN_ID}\n\n"
+        "All eight declarations passed matching cached external compilation, independent exact-type consumers, "
+        "fresh theorem-level axiom reports, publication, the full Material acceptance gate and the scoped R3 replay. "
+        "Only propext, Classical.choice and Quot.sound occur.\n\n"
+        "The accepted scope identifies the classical coordinate derivatives of the actual smooth sharp-cutoff "
+        "representative with the native Fourier derivative operators and proves finite fixed-cutoff bounds for ordered "
+        "coordinate words. The nonlinear regularized flow, cutoff-uniform comparison, literal closed-slab admission, "
+        "conditional obstruction root and stopped-bound witness remain open.\n",
+        encoding="utf-8",
+    )
+    return out
 
 
-def main() -> None:
-    source_revision = os.environ.get("GITHUB_SHA", "")
-    if len(source_revision) != 40:
-        raise RuntimeError("GITHUB_SHA exact source revision required")
-    if SOURCE.exists() or PACKAGE_DIR.exists():
-        raise RuntimeError("active derivative package already exists; refusing a second activation")
-    build = import_build_module()
-    copy_candidate()
-    register_owned(build, source_revision)
-    write_endpoint(source_revision)
-    closure, closure_hash, local_source_modules = compute_closure(build, source_revision)
-    register_endpoint(closure_hash, local_source_modules)
-    update_goal_manifest()
-    update_candidate_status(source_revision, closure_hash)
-
-    # Pure Python source-count refresh; this executes no Lean, Lake or kernel.
-    subprocess.run(["python3", "scripts/count_lean_lines.py", "--write-readme"],
-                   cwd=ROOT, check=True)
-
-    # Exercise the repository's documented static validation only.
-    subprocess.run(["python3", "Material/ci/build.py", "--validate-only"],
-                   cwd=ROOT, check=True)
-    print(json.dumps({
-        "status": "ACTIVATED_PENDING_EXTERNAL_CI",
-        "package": PACKAGE,
-        "declarations": len(DECLARATIONS),
-        "local_source_modules": local_source_modules,
-        "source_closure_sha256": closure_hash,
+def update_implementation_status(summary):
+    path = ROOT / "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json"
+    data = load(path)
+    data["candidate_status"] = "119_NAMED_FOUNDATIONS_ACCEPTED_ROOT_OPEN"
+    data["accepted_new_declarations"] = 119
+    data["accepted_foundation_packages"] = 8
+    data["latest_mid_tier_acceptance"] = {
+        "id": "R3_DERIVATIVE_REPRESENTATIVE_COHERENCE",
+        "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPE",
+        "tested_commit": TESTED,
+        "run_id": RUN_ID,
+        "evidence": "audits/r3-ehrenfest-dc265b94-accepted/summary.json",
+        "package": PKG,
+        "declarations": 8,
+        "audit_sha256": AUDIT_SHA,
         "root_proved": False,
-        "local_lean_executions": 0
+    }
+    scopes = data.setdefault("accepted_new_scopes", [])
+    if not any(s.get("package") == PKG for s in scopes):
+        scopes.append({
+            "package": PKG,
+            "declarations": 8,
+            "scope": SCOPE,
+            "status": "ACCEPTED_MATCHING_EXTERNAL_CACHED_VERIFICATION",
+            "tested_commit": TESTED,
+            "run_id": RUN_ID,
+            "audit_sha256": AUDIT_SHA,
+            "root_proved": False,
+        })
+    save(path, data)
+
+
+def update_candidate_status():
+    path = ROOT / "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NEXT_LAYER_CANDIDATE/STATUS.json"
+    data = load(path)
+    data.update({
+        "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPE",
+        "registered_in_active_material": True,
+        "included_in_119_named_foundations": True,
+        "accepted_mid_tier": "R3_DERIVATIVE_REPRESENTATIVE_COHERENCE",
+        "tested_commit": TESTED,
+        "run_id": RUN_ID,
+        "evidence": "audits/r3-ehrenfest-dc265b94-accepted/summary.json",
+        "external_compilation_completed": True,
+        "exact_type_and_axiom_acceptance": True,
+        "package_audit_sha256": AUDIT_SHA,
+        "root_proved": False,
+        "stopped_witness_constructed": False,
+        "next_endpoint": "R3_FIXED_CUTOFF_NONLINEAR_CONVECTION",
+    })
+    save(path, data)
+
+
+def update_native_progress():
+    path = ROOT / "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_NATIVE_PROGRESS.txt"
+    text = path.read_text(encoding="utf-8")
+    text = re.sub(r"Version 0\.3 — 21 November 2026", "Version 0.4 — 21 November 2026", text, count=1)
+    text = re.sub(r"STATUS: 111 NAMED FOUNDATIONS ACCEPTED; LITERAL ROOT OPEN", "STATUS: 119 NAMED FOUNDATIONS ACCEPTED; LITERAL ROOT OPEN", text, count=1)
+    text = re.sub(r"TESTED SOURCE: 1d4a9324f2cfb576f8a389da0e354da29ef7dbde", f"TESTED SOURCE: {TESTED}", text, count=1)
+    text = re.sub(r"EXTERNAL RUN: 44875907550", f"EXTERNAL RUN: {RUN_ID}", text, count=1)
+    marker = "CURRENT R3 FOUNDATION ACCEPTANCE — LITERAL ROOT REMAINS OPEN\n\n"
+    start = text.index(marker) + len(marker)
+    end = text.index("\nEXACT ACCEPTED DECLARATIONS\n")
+    new_intro = (
+        f"Source {TESTED}; Material run {RUN_ID}.\n"
+        "All 670 modules passed (668 compatible reuses, 2 fresh compilations).\n"
+        "All 177 package audits were fresh: 2,331 named reports plus fresh QFB.\n"
+        "Eight R3 packages /119 declarations are accepted, with only the standard\n"
+        "axioms propext, Classical.choice and Quot.sound. The scoped R3 replay\n"
+        "passed 26 fresh package audits /497 named reports from 71 cached modules.\n"
+        "The newly accepted eight-name layer proves derivative-representative\n"
+        "coherence and finite fixed-cutoff ordered derivative bounds.\n"
+        "Receipt: audits/r3-ehrenfest-dc265b94-accepted/summary.json.\n"
+        "The native R3 root remains OPEN_NO_NATIVE_ROOT; canonical nonlinear flow,\n"
+        "cutoff-uniform stability and literal closed-slab Sobolev admission remain\n"
+        "unproved. No stopped-bound witness is constructed.\n"
+    )
+    text = text[:start] + new_intro + text[end:]
+    package_block = (
+        "\nR3EhrenfestDerivativeRepresentative — 8 declarations\n"
+        "Classical/native derivative coherence for the actual smooth cutoff representative and finite fixed-cutoff ordered derivative bounds.\n"
+        f"Audit SHA256: {AUDIT_SHA}\n" +
+        "".join(f"  {name}\n" for name in DECLS) + "\n"
+    )
+    total_marker = "TOTAL: 111 new named declarations in seven independently audited packages."
+    if PKG not in text:
+        text = replace_required(text, total_marker, package_block + "TOTAL: 119 new named declarations in eight independently audited packages.", "progress total")
+    else:
+        text = text.replace(total_marker, "TOTAL: 119 new named declarations in eight independently audited packages.")
+    text = text.replace("Canonical full gate: 668 modules, 176 fresh package audits, 2,323 names + QFB.",
+                        "Canonical full gate: 670 modules, 177 fresh package audits, 2,331 names + QFB.")
+    text = text.replace("R3 scoped gate: 69 cached modules, 25 fresh package audits, 489 names.",
+                        "R3 scoped gate: 71 cached modules, 26 fresh package audits, 497 names.")
+    next_idx = text.find("NEXT PREPARED LAYER")
+    if next_idx >= 0:
+        text = text[:next_idx] + (
+            "NEXT TARGET\n"
+            "R3_FIXED_CUTOFF_NONLINEAR_CONVECTION: construct the actual fixed-cutoff\n"
+            "bilinear convection map on the complete carrier, prove its L2 bound,\n"
+            "project it back into the carrier, and derive the diagonal ballwise\n"
+            "Lipschitz estimate needed by the Banach-space Picard theorem.\n"
+            "This target remains unverified until matching external evidence exists.\n"
+        )
+    path.write_text(text, encoding="utf-8")
+
+
+def update_obstruction_readme():
+    path = ROOT / "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/README.md"
+    text = path.read_text(encoding="utf-8")
+    marker = "## Retained preparation and failed-run history"
+    pos = text.index(marker)
+    head = (
+        "# R3 stopped-commutator construction — accepted foundations, open root\n\n"
+        "CURRENT R3 FOUNDATION ACCEPTANCE — LITERAL ROOT REMAINS OPEN\n\n"
+        f"Source `{TESTED}`; [Material run {RUN_ID}]({RUN_URL}).\n"
+        "All 670 modules passed (668 compatible reuses, two fresh compilations).\n"
+        "All 177 package audits were fresh: 2,331 named reports plus fresh QFB.\n"
+        "Eight R3 packages /119 declarations are accepted, with only `propext`,\n"
+        "`Classical.choice` and `Quot.sound`. The scoped R3 replay passed 26 fresh\n"
+        "package audits /497 named reports from 71 cached modules.\n\n"
+        "The new `R3EhrenfestDerivativeRepresentative` package identifies classical\n"
+        "coordinate derivatives of the actual smooth cutoff representative with the\n"
+        "native Fourier derivative operators and proves finite fixed-cutoff ordered\n"
+        "derivative bounds. [Exact evidence](../../../audits/r3-ehrenfest-dc265b94-accepted/summary.json).\n\n"
+        "The native R3 root remains `OPEN_NO_NATIVE_ROOT`; the actual canonical flow,\n"
+        "cutoff-uniform stability, literal closed-slab Sobolev admission and the\n"
+        "stopped-bound witness remain open.\n\n"
+    )
+    text = head + text[pos:]
+    row = "| I03 derivative coherence | DerivativeRepresentative | Classical/native derivative identity for the actual smooth cutoff representative and fixed-cutoff ordered bounds |\n"
+    table_anchor = "| I03 derivatives | Bandlimited | New real weak derivative witnesses and physical H2 admission; exact delivered scope in the endpoint manifest |\n"
+    if row not in text:
+        text = replace_required(text, table_anchor, table_anchor + row, "README table")
+    text = text.replace(
+        "All modules are under Material/MethbokeAddon/R3Ehrenfest/. New statements\nremain candidates until matching external compilation and complete exact\ntype/axiom audits pass. A foundation-stage success does not establish the root.",
+        "All active modules are under `Material/MethbokeAddon/R3Ehrenfest/`. The eight\npackages listed above have matching external compilation and complete exact\ntype/axiom evidence. A foundation-stage success does not establish the root."
+    )
+    path.write_text(text, encoding="utf-8")
+
+
+def update_top_readme():
+    path = ROOT / "README.md"
+    text = path.read_text(encoding="utf-8")
+    text = text.replace("OPEN; 111 named foundations accepted", "OPEN; 119 named foundations accepted")
+    text = text.replace("Seven packages accepted at 1d4a9324/run44875907550; canonical flow, stability, literal admission and conditional root remain open",
+                        "Eight packages /119 declarations accepted through dc265b94/run44880439634; canonical flow, stability, literal admission and conditional root remain open")
+    text = text.replace("The first seven foundation packages are [externally accepted](audits/r3-ehrenfest-1d4a9324-accepted/summary.json)\nat source `1d4a9324`: 111 new declarations, full Material acceptance and the\nR3 goal audit passed. All 2,212 retained declaration identities are unchanged.",
+                        "Eight foundation packages /119 declarations are externally accepted. The original seven-package batch remains pinned at [1d4a9324](audits/r3-ehrenfest-1d4a9324-accepted/summary.json); the derivative-coherence extension is accepted at [dc265b94](audits/r3-ehrenfest-dc265b94-accepted/summary.json), run 44880439634. The literal root remains open.")
+    path.write_text(text, encoding="utf-8")
+
+
+def update_misc_docs(summary):
+    gpt = ROOT / "GPT.txt"
+    text = gpt.read_text(encoding="utf-8")
+    tag = "R3_DERIVATIVE_REPRESENTATIVE_COHERENCE"
+    if tag not in text:
+        text += (
+            "\n\nR3 EHRENFEST CURRENT ACCEPTANCE (2026-11-21)\n"
+            f"- !=! {tag}: A-tier at {TESTED}, run {RUN_ID}.\n"
+            "- Eight declarations identify classical derivatives of the actual smooth sharp-cutoff representative with native Fourier derivative operators and prove finite fixed-cutoff ordered derivative bounds.\n"
+            "- Cumulative R3 foundations: 8 packages /119 declarations. Literal obstruction root and stopped-bound witness remain open.\n"
+            "- Evidence: audits/r3-ehrenfest-dc265b94-accepted/summary.json.\n"
+        )
+        gpt.write_text(text, encoding="utf-8")
+
+    idx = ROOT / "INDEX-WORTHY.txt"
+    text = idx.read_text(encoding="utf-8")
+    if tag not in text:
+        text += (
+            f"\n{tag} — !! A-tier exact mid-tier endpoint. At `{TESTED}` / run `{RUN_ID}`, classical coordinate derivatives of the actual R3 sharp-cutoff representative are identified with the native Fourier derivative operators; ordered derivative words have finite fixed-cutoff Bernstein bounds. This is not the nonlinear flow or obstruction root. Evidence: `audits/r3-ehrenfest-dc265b94-accepted/summary.json`.\n"
+        )
+        idx.write_text(text, encoding="utf-8")
+
+    r3 = ROOT / "R3_NSE/README.md"
+    text = r3.read_text(encoding="utf-8")
+    note = (f"\n## R3 Ehrenfest derivative coherence\n\nThe eighth R3 foundation package is A-tier accepted at `{TESTED}`, run `{RUN_ID}`. It adds eight classical/native derivative-coherence declarations, bringing the branch foundation total to 119 declarations. The nonlinear flow and literal obstruction root remain open.\n")
+    if "## R3 Ehrenfest derivative coherence" not in text:
+        text += note
+        r3.write_text(text, encoding="utf-8")
+
+    source_status = ROOT / "SOURCE_STATUS.json"
+    data = load(source_status)
+    data["r3_ehrenfest_current_acceptance"] = {
+        "status": "119_NAMED_FOUNDATIONS_ACCEPTED_ROOT_OPEN",
+        "tested_commit": TESTED,
+        "run_id": RUN_ID,
+        "evidence": "audits/r3-ehrenfest-dc265b94-accepted/summary.json",
+        "latest_mid_tier": "R3_DERIVATIVE_REPRESENTATIVE_COHERENCE",
+        "root_proved": False,
+        "stopped_witness_constructed": False,
+    }
+    save(source_status, data)
+
+
+def cleanup_and_count():
+    for rel in [
+        ".github/workflows/activate-r3-derivative-layer.yml",
+        "scripts/activate_r3_derivative_layer.py",
+    ]:
+        p = ROOT / rel
+        if p.exists():
+            p.unlink()
+    subprocess.run(["python3", "scripts/count_lean_lines.py", "--write-readme"], cwd=ROOT, check=True)
+
+
+def main():
+    mat_zip = Path(os.environ.get("MATERIAL_EVIDENCE_ZIP", "/tmp/material-evidence.zip"))
+    goal_zip = Path(os.environ.get("R3_GOAL_EVIDENCE_ZIP", "/tmp/r3-goal-evidence.zip"))
+    current, scope, endpoint = validate_artifacts(mat_zip, goal_zip)
+    out = write_evidence(mat_zip, goal_zip, current, scope, endpoint)
+    summary = load(out / "summary.json")
+    update_implementation_status(summary)
+    update_candidate_status()
+    update_native_progress()
+    update_obstruction_readme()
+    update_top_readme()
+    update_misc_docs(summary)
+    cleanup_and_count()
+    print(json.dumps({
+        "status": "FROZEN_ACCEPTED_MID_TIER",
+        "mid_tier": "R3_DERIVATIVE_REPRESENTATIVE_COHERENCE",
+        "tested_commit": TESTED,
+        "run_id": RUN_ID,
+        "cumulative_foundation_declarations": 119,
+        "root_proved": False,
+        "local_lean_executions": 0,
     }, indent=2))
 
 
