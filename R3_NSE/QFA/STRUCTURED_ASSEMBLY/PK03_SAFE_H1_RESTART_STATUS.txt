@@ -1,0 +1,54 @@
+QFA STRUCTURED ASSEMBLY — PK03 SAFE H1 RESTART
+
+DATE = 2026-11-21
+BRANCH = codex/qfa-structured-assembly
+TARGET = QFA_A_TIER_CLOSURE
+PACKAGE = QFASafeH1Restart
+STATUS = PENDING_MATCHING_EXTERNAL_CI
+
+CANDIDATE_SCOPE
+===============
+
+Package the already accepted supplied-path safe full restart as one exact
+native PhysicalH1Sigma datum while preserving, at the same selected time:
+
+  * the original velocity trace u(s),
+  * the original supplied weak-gradient witness G(s),
+  * the energy-start proof,
+  * the restart data,
+  * full Leray--Hopf membership of the original shifted path,
+  * the strong right trace,
+  * and the strict product bound below productThreshold S nu.
+
+No global weak existence, local nonlinear strong construction, continuation,
+comparison, smoothness, sharp Sobolev admission, or QFA root is asserted.
+
+DECLARATIONS = 7
+ENDPOINT_COUNT = 170
+TOTAL_NAMED_AUDITS = 2219
+
+FIRST_EXTERNAL_ATTEMPT
+======================
+
+SOURCE = e8ba0629e785b6dd63129d9f7aea0f8ac00d8437
+RUN = 44874525475
+RESULT = SOURCE_AND_ALL_SEVEN_FRESH_AUDITS_PASS; PUBLICATION_REJECTED_STALE_INDEX
+
+The first attempt established exact compilation and standard-only axiom reports
+for the seven new declarations, but the checked-in endpoint index still named
+169 packages. No A-tier or mid-tier acceptance followed.
+
+METADATA_REPAIR
+===============
+
+SOURCE = 2d03f7266f480a1f42395ff06b699182fa431ed5
+METHOD = PURE_STATIC_BUILD_VALIDATE_IN_AUTHORIZED_GITHUB_ACTIONS
+RESULT = 170 exact endpoint identities; 2219 exact declaration total;
+         generated QFASafeH1Restart/closure.json; one-shot workflow removed.
+
+This status commit changes no Lean source or audit consumer. It exists to launch
+matching external verification of the exact registered source. Emit !=! only
+after compiler, fresh audits, evidence retention, publication and terminal
+Material acceptance all pass for one exact descendant commit.
+
+LOCAL_LEAN_LAKE_KERNEL_EXECUTIONS = 0
