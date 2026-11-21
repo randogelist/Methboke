@@ -63,14 +63,16 @@ def nativeToSource (x : Space) : SourceVec3 := WithLp.ofLp x
 /-- Raw-to-native coordinates preserve full Lebesgue volume exactly. -/
 theorem sourceToNative_measurePreserving :
     MeasurePreserving sourceToNative := by
-  simpa only [sourceToNative] using
-    (PiLp.volume_preserving_toLp (Fin 3))
+  change MeasurePreserving
+    (WithLp.toLp 2 : (Fin 3 → ℝ) → WithLp 2 (Fin 3 → ℝ))
+  exact PiLp.volume_preserving_toLp (Fin 3)
 
 /-- Native-to-raw coordinates preserve full Lebesgue volume exactly. -/
 theorem nativeToSource_measurePreserving :
     MeasurePreserving nativeToSource := by
-  simpa only [nativeToSource] using
-    (PiLp.volume_preserving_ofLp (Fin 3))
+  change MeasurePreserving
+    (WithLp.ofLp : WithLp 2 (Fin 3 → ℝ) → (Fin 3 → ℝ))
+  exact PiLp.volume_preserving_ofLp (Fin 3)
 
 /-- The source's finite-coordinate Euclidean norm. -/
 noncomputable def sourceEuclideanNorm (x : SourceVec3) : ℝ :=
@@ -84,7 +86,7 @@ theorem sourceEuclideanNorm_eq_native_norm (x : SourceVec3) :
   congr 1
   apply Finset.sum_congr rfl
   intro i hi
-  simp only [PiLp.toLp_apply, Real.norm_eq_abs, sq_abs]
+  simp only [Real.norm_eq_abs, sq_abs]
 
 /-- Exact coordinate sum-of-squares formula for the native norm. -/
 theorem sourceToNative_norm_sq (x : SourceVec3) :
