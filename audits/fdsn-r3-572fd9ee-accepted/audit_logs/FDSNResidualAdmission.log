@@ -1,0 +1,96 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn
+MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn : ∀ (h : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => h z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => SingularClosure.laplacian (h z.1) z.2)
+      (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)
+TYPE_END:MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn
+'MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residual_local_laplacian_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.residual_local_transport_contDiffOn
+MethbokeAddon.FDSN.residual_local_transport_contDiffOn : ∀ (a b : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => a z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => b z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => MethbokeAddon.EhrenfestObstruction.physicalTransport (a z.1) (b z.1) z.2)
+        (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)
+TYPE_END:MethbokeAddon.FDSN.residual_local_transport_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residual_local_transport_contDiffOn
+'MethbokeAddon.FDSN.residual_local_transport_contDiffOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residual_local_transport_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_contDiffOn_front
+MethbokeAddon.FDSN.residualForce_contDiffOn_front : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => U z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => F z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => h z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+        ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => MethbokeAddon.FDSN.residualForce ν U F h z.1 z.2)
+          (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T)
+TYPE_END:MethbokeAddon.FDSN.residualForce_contDiffOn_front
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_contDiffOn_front
+'MethbokeAddon.FDSN.residualForce_contDiffOn_front' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_contDiffOn_front
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside
+MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => U z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (ContDiff.{0, 0, 0} ℝ ∞ fun z => F z.1 z.2) →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => h z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+        tsupport.{0, 0} h ⊆ Set.Ioo.{0} 0 T →
+          ContDiff.{0, 0, 0} ℝ ∞ fun z => MethbokeAddon.FDSN.residualForce ν U F h z.1 z.2
+TYPE_END:MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside
+'MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_contDiff_of_timeSupport_inside
+TYPE_BEGIN:MethbokeAddon.FDSN.residual_transport_spatialPeriodic
+MethbokeAddon.FDSN.residual_transport_spatialPeriodic : ∀ (a b : SingularClosure.Field),
+  SingularClosure.SpatialPeriodic.{0} a →
+    SingularClosure.SpatialPeriodic.{0} b →
+      SingularClosure.SpatialPeriodic.{0} (MethbokeAddon.EhrenfestObstruction.physicalTransport a b)
+TYPE_END:MethbokeAddon.FDSN.residual_transport_spatialPeriodic
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residual_transport_spatialPeriodic
+'MethbokeAddon.FDSN.residual_transport_spatialPeriodic' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residual_transport_spatialPeriodic
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside
+MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity)
+  (T : ℝ),
+  (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (U t)) →
+    (∀ (t : ℝ), SingularClosure.SpatialPeriodic.{0} (F t)) →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (h t)) →
+        tsupport.{0, 0} h ⊆ Set.Ioo.{0} 0 T →
+          ∀ (t : ℝ), SingularClosure.SpatialPeriodic.{0} (MethbokeAddon.FDSN.residualForce ν U F h t)
+TYPE_END:MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside
+'MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_spatialPeriodic_of_timeSupport_inside
+TYPE_BEGIN:MethbokeAddon.FDSN.compact_timeSupport_positive_interval
+MethbokeAddon.FDSN.compact_timeSupport_positive_interval : ∀ (h : SingularClosure.Velocity) (T : ℝ),
+  HasCompactSupport.{0, 0} h →
+    tsupport.{0, 0} h ⊆ Set.Ioo.{0} 0 T → ∃ a b, LT.lt.{0} 0 a ∧ LT.lt.{0} a b ∧ tsupport.{0, 0} h ⊆ Set.Icc.{0} a b
+TYPE_END:MethbokeAddon.FDSN.compact_timeSupport_positive_interval
+AXIOMS_BEGIN:MethbokeAddon.FDSN.compact_timeSupport_positive_interval
+'MethbokeAddon.FDSN.compact_timeSupport_positive_interval' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.compact_timeSupport_positive_interval
+TYPE_BEGIN:MethbokeAddon.FDSN.admissiblePeriodicForce_residual
+MethbokeAddon.FDSN.admissiblePeriodicForce_residual : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity) (T : ℝ),
+  MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce F →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => U z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => h z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+        (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (U t)) →
+          (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (h t)) →
+            HasCompactSupport.{0, 0} h →
+              tsupport.{0, 0} h ⊆ Set.Ioo.{0} 0 T →
+                MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce (MethbokeAddon.FDSN.residualForce ν U F h)
+TYPE_END:MethbokeAddon.FDSN.admissiblePeriodicForce_residual
+AXIOMS_BEGIN:MethbokeAddon.FDSN.admissiblePeriodicForce_residual
+'MethbokeAddon.FDSN.admissiblePeriodicForce_residual' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.admissiblePeriodicForce_residual

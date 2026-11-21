@@ -1,0 +1,136 @@
+FDSNModalEnergy/Audit.lean:14:5: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:20:5: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:26:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:27:5: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:28:5: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:32:37: warning: Variable name `hst` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hst
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:33:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:34:5: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:35:5: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:35:40: warning: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:43:33: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNModalEnergy/Audit.lean:43:46: warning: Variable name `hN` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hN
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_normSq_hasDerivAt
+@MethbokeAddon.FDSN.complex_normSq_hasDerivAt : ∀ {z : ℝ → ℂ} {dz : ℂ} {t : ℝ},
+  HasDerivAt.{0, 0} z dz t →
+    HasDerivAt.{0, 0} (fun s => Complex.normSq (z s))
+      (HMul.hMul.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} (Star.star.{0} (z t)) dz).re) t
+TYPE_END:MethbokeAddon.FDSN.complex_normSq_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_normSq_hasDerivAt
+'MethbokeAddon.FDSN.complex_normSq_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_normSq_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt
+@MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt : ∀ {z : ℝ → ℂ} {a : ℂ} {t : ℝ},
+  HasDerivAt.{0, 0} z (HMul.hMul.{0, 0, 0} (Neg.neg.{0} a) (z t)) t →
+    HasDerivAt.{0, 0} (fun s => Complex.normSq (z s))
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (-2) a.re) (Complex.normSq (z t))) t
+TYPE_END:MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt
+'MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_damped_normSq_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_damped_energy_antitone
+MethbokeAddon.FDSN.complex_damped_energy_antitone : ∀ (z a : ℝ → ℂ) (s t : ℝ),
+  ContinuousOn.{0, 0} z (Set.Icc.{0} s t) →
+    (∀ (r : ℝ),
+        Membership.mem.{0, 0} (Set.Ioo.{0} s t) r →
+          HasDerivAt.{0, 0} z (HMul.hMul.{0, 0, 0} (Neg.neg.{0} (a r)) (z r)) r) →
+      (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} s t) r → LE.le.{0} 0 (a r).re) →
+        AntitoneOn.{0, 0} (fun r => Complex.normSq (z r)) (Set.Icc.{0} s t)
+TYPE_END:MethbokeAddon.FDSN.complex_damped_energy_antitone
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_damped_energy_antitone
+'MethbokeAddon.FDSN.complex_damped_energy_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_damped_energy_antitone
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_damped_zero_on_Icc
+MethbokeAddon.FDSN.complex_damped_zero_on_Icc : ∀ (z a : ℝ → ℂ) (s t : ℝ),
+  LE.le.{0} s t →
+    ContinuousOn.{0, 0} z (Set.Icc.{0} s t) →
+      (∀ (r : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} s t) r →
+            HasDerivAt.{0, 0} z (HMul.hMul.{0, 0, 0} (Neg.neg.{0} (a r)) (z r)) r) →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} s t) r → LE.le.{0} 0 (a r).re) →
+          Eq.{1} (z s) 0 → ∀ (r : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} s t) r → Eq.{1} (z r) 0
+TYPE_END:MethbokeAddon.FDSN.complex_damped_zero_on_Icc
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_damped_zero_on_Icc
+'MethbokeAddon.FDSN.complex_damped_zero_on_Icc' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_damped_zero_on_Icc
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_work_le_normSq
+MethbokeAddon.FDSN.complex_work_le_normSq : ∀ (z f : ℂ),
+  LE.le.{0} (HMul.hMul.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} (Star.star.{0} z) f).re)
+    (HAdd.hAdd.{0, 0, 0} (Complex.normSq z) (Complex.normSq f))
+TYPE_END:MethbokeAddon.FDSN.complex_work_le_normSq
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_work_le_normSq
+'MethbokeAddon.FDSN.complex_work_le_normSq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_work_le_normSq
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_forced_energy_bound
+MethbokeAddon.FDSN.complex_forced_energy_bound : ∀ (z N f : ℂ) (d : ℝ),
+  LE.le.{0} 0 d →
+    Eq.{1} (HMul.hMul.{0, 0, 0} (Star.star.{0} z) N).re 0 →
+      LE.le.{0}
+        (HMul.hMul.{0, 0, 0} 2
+          (HMul.hMul.{0, 0, 0} (Star.star.{0} z)
+              (HAdd.hAdd.{0, 0, 0} (HSub.hSub.{0, 0, 0} (Neg.neg.{0} (HMul.hMul.{0, 0, 0} (↑d) z)) N) f)).re)
+        (HAdd.hAdd.{0, 0, 0} (Complex.normSq z) (Complex.normSq f))
+TYPE_END:MethbokeAddon.FDSN.complex_forced_energy_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_forced_energy_bound
+'MethbokeAddon.FDSN.complex_forced_energy_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_forced_energy_bound

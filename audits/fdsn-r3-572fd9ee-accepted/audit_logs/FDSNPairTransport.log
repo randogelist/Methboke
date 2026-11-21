@@ -1,0 +1,186 @@
+FDSNPairTransport/Audit.lean:31:32: warning: Variable name `hsol` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsol
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:35:32: warning: Variable name `hsol` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsol
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:40:5: warning: Variable name `hsol` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsol
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:40:39: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:45:5: warning: Variable name `hsol` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsol
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:45:39: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:51:5: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:51:37: warning: Variable name `hh` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hh
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:52:5: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:58:5: warning: Variable name `hreal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hreal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:58:37: warning: Variable name `hc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:59:5: warning: Variable name `hh` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hh
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNPairTransport/Audit.lean:59:37: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.FDSN.PairSupported
+MethbokeAddon.FDSN.PairSupported : SingularClosure.Frequency → SingularClosure.FourierCoeff → Prop
+TYPE_END:MethbokeAddon.FDSN.PairSupported
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PairSupported
+'MethbokeAddon.FDSN.PairSupported' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PairSupported
+TYPE_BEGIN:MethbokeAddon.FDSN.mixedTransportModeTerm
+MethbokeAddon.FDSN.mixedTransportModeTerm : SingularClosure.FourierCoeff →
+  SingularClosure.FourierCoeff → SingularClosure.Frequency → SingularClosure.Frequency → Fin 3 → ℂ
+TYPE_END:MethbokeAddon.FDSN.mixedTransportModeTerm
+AXIOMS_BEGIN:MethbokeAddon.FDSN.mixedTransportModeTerm
+'MethbokeAddon.FDSN.mixedTransportModeTerm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.mixedTransportModeTerm
+TYPE_BEGIN:MethbokeAddon.FDSN.mixedTransportModeTerm_factored
+MethbokeAddon.FDSN.mixedTransportModeTerm_factored : ∀ (c d : SingularClosure.FourierCoeff)
+  (k p : SingularClosure.Frequency) (i : Fin 3),
+  Eq.{1} (MethbokeAddon.FDSN.mixedTransportModeTerm c d k p i)
+    (HMul.hMul.{0, 0, 0} (∑ j, HMul.hMul.{0, 0, 0} (SingularClosure.derivativeSymbol j k) (c p j))
+      (d (HSub.hSub.{0, 0, 0} k p) i))
+TYPE_END:MethbokeAddon.FDSN.mixedTransportModeTerm_factored
+AXIOMS_BEGIN:MethbokeAddon.FDSN.mixedTransportModeTerm_factored
+'MethbokeAddon.FDSN.mixedTransportModeTerm_factored' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.mixedTransportModeTerm_factored
+TYPE_BEGIN:MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum
+MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum : ∀ (c d : SingularClosure.TorusSobolev 0)
+  (k : SingularClosure.Frequency) (i : Fin 3),
+  HasSum.{0, 0} (fun p => MethbokeAddon.FDSN.mixedTransportModeTerm (↑c) (↑d) k p i)
+    (((SingularClosure.divergenceTransportCoefficient k i) c) d)
+TYPE_END:MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum
+AXIOMS_BEGIN:MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum
+'MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.divergenceTransportCoefficient_hasSum
+TYPE_BEGIN:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative
+MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative : ∀ (c : SingularClosure.FourierCoeff),
+  SingularClosure.SpectralSolenoidal c →
+    ∀ (a : SingularClosure.Frequency),
+      Eq.{1} (∑ j, HMul.hMul.{0, 0, 0} (SingularClosure.derivativeSymbol j a) (c (Neg.neg.{0} a) j)) 0
+TYPE_END:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative
+AXIOMS_BEGIN:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative
+'MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_negative
+TYPE_BEGIN:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double
+MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double : ∀ (c : SingularClosure.FourierCoeff),
+  SingularClosure.SpectralSolenoidal c →
+    ∀ (a : SingularClosure.Frequency),
+      Eq.{1} (∑ j, HMul.hMul.{0, 0, 0} (SingularClosure.derivativeSymbol j a) (c (HAdd.hAdd.{0, 0, 0} a a) j)) 0
+TYPE_END:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double
+AXIOMS_BEGIN:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double
+'MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.solenoidal_derivativeSum_at_double
+TYPE_BEGIN:MethbokeAddon.FDSN.divergenceTransport_pair_left
+MethbokeAddon.FDSN.divergenceTransport_pair_left : ∀ (h c : SingularClosure.TorusSobolev 0)
+  (a : SingularClosure.Frequency) (i : Fin 3),
+  SingularClosure.SpectralSolenoidal ↑h →
+    MethbokeAddon.FDSN.PairSupported a ↑h → Eq.{1} (((SingularClosure.divergenceTransportCoefficient a i) h) c) 0
+TYPE_END:MethbokeAddon.FDSN.divergenceTransport_pair_left
+AXIOMS_BEGIN:MethbokeAddon.FDSN.divergenceTransport_pair_left
+'MethbokeAddon.FDSN.divergenceTransport_pair_left' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.divergenceTransport_pair_left
+TYPE_BEGIN:MethbokeAddon.FDSN.divergenceTransport_pair_right
+MethbokeAddon.FDSN.divergenceTransport_pair_right : ∀ (c h : SingularClosure.TorusSobolev 0)
+  (a : SingularClosure.Frequency) (i : Fin 3),
+  SingularClosure.SpectralSolenoidal ↑c →
+    MethbokeAddon.FDSN.PairSupported a ↑h →
+      Eq.{1} (((SingularClosure.divergenceTransportCoefficient a i) c) h)
+        (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.meanTransportFactor (↑c) a) (↑h a i))
+TYPE_END:MethbokeAddon.FDSN.divergenceTransport_pair_right
+AXIOMS_BEGIN:MethbokeAddon.FDSN.divergenceTransport_pair_right
+'MethbokeAddon.FDSN.divergenceTransport_pair_right' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.divergenceTransport_pair_right
+TYPE_BEGIN:MethbokeAddon.FDSN.fullTransport_pair_difference
+MethbokeAddon.FDSN.fullTransport_pair_difference : ∀ (c h : SingularClosure.TorusSobolev 0)
+  (a : SingularClosure.Frequency) (i : Fin 3),
+  SingularClosure.SpectralSolenoidal ↑c →
+    SingularClosure.SpectralSolenoidal ↑h →
+      MethbokeAddon.FDSN.PairSupported a ↑h →
+        Eq.{1}
+          (HSub.hSub.{0, 0, 0} (SingularClosure.fullTransportCoefficients (HAdd.hAdd.{0, 0, 0} c h) a i)
+            (SingularClosure.fullTransportCoefficients c a i))
+          (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.meanTransportFactor (↑c) a) (↑h a i))
+TYPE_END:MethbokeAddon.FDSN.fullTransport_pair_difference
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fullTransport_pair_difference
+'MethbokeAddon.FDSN.fullTransport_pair_difference' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fullTransport_pair_difference
+TYPE_BEGIN:MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero
+MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero : ∀ (c h : SingularClosure.TorusSobolev 0)
+  (a : SingularClosure.Frequency) (i : Fin 3),
+  SingularClosure.SpectralReality ↑c →
+    SingularClosure.SpectralSolenoidal ↑c →
+      SingularClosure.SpectralSolenoidal ↑h →
+        MethbokeAddon.FDSN.PairSupported a ↑h →
+          Eq.{1}
+            (HMul.hMul.{0, 0, 0} (Star.star.{0} (↑h a i))
+                (HSub.hSub.{0, 0, 0} (SingularClosure.fullTransportCoefficients (HAdd.hAdd.{0, 0, 0} c h) a i)
+                  (SingularClosure.fullTransportCoefficients c a i))).re
+            0
+TYPE_END:MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero
+'MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.fullTransport_pair_difference_real_transfer_zero

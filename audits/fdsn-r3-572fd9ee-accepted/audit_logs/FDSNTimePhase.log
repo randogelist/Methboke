@@ -1,0 +1,186 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhase
+MethbokeAddon.FDSN.timePhase : (ℝ → ℝ) → ℝ → ℝ → ℂ
+TYPE_END:MethbokeAddon.FDSN.timePhase
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhase
+'MethbokeAddon.FDSN.timePhase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhase
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhaseIncrement
+MethbokeAddon.FDSN.timePhaseIncrement : (ℝ → ℝ) → ℝ → ℝ → ℂ
+TYPE_END:MethbokeAddon.FDSN.timePhaseIncrement
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhaseIncrement
+'MethbokeAddon.FDSN.timePhaseIncrement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhaseIncrement
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_phase
+MethbokeAddon.FDSN.contDiff_phase : ContDiff.{0, 0, 0} ℝ ∞ MethbokeAddon.FDSN.phase
+TYPE_END:MethbokeAddon.FDSN.contDiff_phase
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_phase
+'MethbokeAddon.FDSN.contDiff_phase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_phase
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_timePhase
+@MethbokeAddon.FDSN.contDiff_timePhase : ∀ {β : ℝ → ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β → ∀ (lambda : ℝ), ContDiff.{0, 0, 0} ℝ ∞ (MethbokeAddon.FDSN.timePhase β lambda)
+TYPE_END:MethbokeAddon.FDSN.contDiff_timePhase
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_timePhase
+'MethbokeAddon.FDSN.contDiff_timePhase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_timePhase
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_timePhase_joint
+@MethbokeAddon.FDSN.contDiff_timePhase_joint : ∀ {β : ℝ → ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β → ContDiff.{0, 0, 0} ℝ ∞ fun q => MethbokeAddon.FDSN.timePhase β q.1 q.2
+TYPE_END:MethbokeAddon.FDSN.contDiff_timePhase_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_timePhase_joint
+'MethbokeAddon.FDSN.contDiff_timePhase_joint' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_timePhase_joint
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_timePhaseIncrement
+@MethbokeAddon.FDSN.contDiff_timePhaseIncrement : ∀ {β : ℝ → ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β → ∀ (lambda : ℝ), ContDiff.{0, 0, 0} ℝ ∞ (MethbokeAddon.FDSN.timePhaseIncrement β lambda)
+TYPE_END:MethbokeAddon.FDSN.contDiff_timePhaseIncrement
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_timePhaseIncrement
+'MethbokeAddon.FDSN.contDiff_timePhaseIncrement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_timePhaseIncrement
+TYPE_BEGIN:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint
+@MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint : ∀ {β : ℝ → ℝ},
+  ContDiff.{0, 0, 0} ℝ ∞ β → ContDiff.{0, 0, 0} ℝ ∞ fun q => MethbokeAddon.FDSN.timePhaseIncrement β q.1 q.2
+TYPE_END:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint
+'MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.contDiff_timePhaseIncrement_joint
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhase_zero_parameter
+MethbokeAddon.FDSN.timePhase_zero_parameter : ∀ (β : ℝ → ℝ) (t : ℝ), Eq.{1} (MethbokeAddon.FDSN.timePhase β 0 t) 1
+TYPE_END:MethbokeAddon.FDSN.timePhase_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhase_zero_parameter
+'MethbokeAddon.FDSN.timePhase_zero_parameter' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhase_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter
+MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter : ∀ (β : ℝ → ℝ) (t : ℝ),
+  Eq.{1} (MethbokeAddon.FDSN.timePhaseIncrement β 0 t) 0
+TYPE_END:MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter
+'MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhaseIncrement_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhase_at_normalization
+@MethbokeAddon.FDSN.timePhase_at_normalization : ∀ {β : ℝ → ℝ} {t : ℝ},
+  Eq.{1} (β t) 1 → ∀ (lambda : ℝ), Eq.{1} (MethbokeAddon.FDSN.timePhase β lambda t) (MethbokeAddon.FDSN.phase lambda)
+TYPE_END:MethbokeAddon.FDSN.timePhase_at_normalization
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhase_at_normalization
+'MethbokeAddon.FDSN.timePhase_at_normalization' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhase_at_normalization
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport
+@MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport : ∀ {β : ℝ → ℝ} {t : ℝ},
+  t ∉ tsupport.{0, 0} β → ∀ (lambda : ℝ), Eq.{1} (MethbokeAddon.FDSN.timePhase β lambda t) 1
+TYPE_END:MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport
+'MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhase_eq_one_of_notMem_tsupport
+TYPE_BEGIN:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset
+MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset : ∀ (β : ℝ → ℝ) (lambda : ℝ),
+  tsupport.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda) ⊆ tsupport.{0, 0} β
+TYPE_END:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset
+'MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.tsupport_timePhaseIncrement_subset
+TYPE_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement
+@MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement : ∀ {β : ℝ → ℝ},
+  HasCompactSupport.{0, 0} β → ∀ (lambda : ℝ), HasCompactSupport.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda)
+TYPE_END:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement
+AXIOMS_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement
+'MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.hasCompactSupport_timePhaseIncrement
+TYPE_BEGIN:MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset
+MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset : ∀ (β : ℝ → ℝ) (lambda : ℝ),
+  tsupport.{0, 0} (deriv.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda)) ⊆ tsupport.{0, 0} β
+TYPE_END:MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset
+'MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.tsupport_deriv_timePhaseIncrement_subset
+TYPE_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement
+@MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement : ∀ {β : ℝ → ℝ},
+  HasCompactSupport.{0, 0} β →
+    ∀ (lambda : ℝ), HasCompactSupport.{0, 0} (deriv.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda))
+TYPE_END:MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement
+AXIOMS_BEGIN:MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement
+'MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.hasCompactSupport_deriv_timePhaseIncrement
+TYPE_BEGIN:MethbokeAddon.FDSN.norm_timePhase
+MethbokeAddon.FDSN.norm_timePhase : ∀ (β : ℝ → ℝ) (lambda t : ℝ),
+  Eq.{1} (Norm.norm.{0} (MethbokeAddon.FDSN.timePhase β lambda t)) 1
+TYPE_END:MethbokeAddon.FDSN.norm_timePhase
+AXIOMS_BEGIN:MethbokeAddon.FDSN.norm_timePhase
+'MethbokeAddon.FDSN.norm_timePhase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.norm_timePhase
+TYPE_BEGIN:MethbokeAddon.FDSN.norm_timePhaseIncrement_le
+MethbokeAddon.FDSN.norm_timePhaseIncrement_le : ∀ (β : ℝ → ℝ) (lambda t : ℝ),
+  LE.le.{0} (Norm.norm.{0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda t))
+    (HMul.hMul.{0, 0, 0} (Norm.norm.{0} lambda) (Norm.norm.{0} (β t)))
+TYPE_END:MethbokeAddon.FDSN.norm_timePhaseIncrement_le
+AXIOMS_BEGIN:MethbokeAddon.FDSN.norm_timePhaseIncrement_le
+'MethbokeAddon.FDSN.norm_timePhaseIncrement_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.norm_timePhaseIncrement_le
+TYPE_BEGIN:MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter
+@MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter : ∀ {β : ℝ → ℝ} {t : ℝ},
+  LE.le.{0} 0 (β t) →
+    LE.le.{0} (β t) 1 →
+      ∀ (lambda : ℝ),
+        LE.le.{0} (Norm.norm.{0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda t)) (Norm.norm.{0} lambda)
+TYPE_END:MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter
+'MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.norm_timePhaseIncrement_le_parameter
+TYPE_BEGIN:MethbokeAddon.FDSN.timePhase_triad_separates
+@MethbokeAddon.FDSN.timePhase_triad_separates : ∀ {β : ℝ → ℝ} {t : ℝ},
+  Eq.{1} (β t) 1 →
+    ∀ {a b c : ℂ},
+      Ne.{1} (MethbokeAddon.FDSN.triadCorrelation a b c) 0 →
+        ∀ {lambda eta : ℝ},
+          LT.lt.{0} (abs.{0} lambda) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+            LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+              Ne.{1} lambda eta →
+                Ne.{1}
+                  (MethbokeAddon.FDSN.triadCorrelation a b
+                    (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.timePhase β lambda t) c))
+                  (MethbokeAddon.FDSN.triadCorrelation a b
+                    (HMul.hMul.{0, 0, 0} (MethbokeAddon.FDSN.timePhase β eta t) c))
+TYPE_END:MethbokeAddon.FDSN.timePhase_triad_separates
+AXIOMS_BEGIN:MethbokeAddon.FDSN.timePhase_triad_separates
+'MethbokeAddon.FDSN.timePhase_triad_separates' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.timePhase_triad_separates
+TYPE_BEGIN:MethbokeAddon.FDSN.exists_localized_time_phase_family
+@MethbokeAddon.FDSN.exists_localized_time_phase_family : ∀ {s t T : ℝ},
+  LT.lt.{0} s t →
+    LT.lt.{0} t T →
+      ∃ β,
+        ContDiff.{0, 0, 0} ℝ ∞ β ∧
+          HasCompactSupport.{0, 0} β ∧
+            tsupport.{0, 0} β ⊆ Set.Ioo.{0} s T ∧
+              Eq.{1} (β t) 1 ∧
+                (∀ (u : ℝ), LE.le.{0} 0 (β u) ∧ LE.le.{0} (β u) 1) ∧
+                  (ContDiff.{0, 0, 0} ℝ ∞ fun q => MethbokeAddon.FDSN.timePhase β q.1 q.2) ∧
+                    ∀ (lambda : ℝ),
+                      HasCompactSupport.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda) ∧
+                        tsupport.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda) ⊆ Set.Ioo.{0} s T ∧
+                          tsupport.{0, 0} (deriv.{0, 0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda)) ⊆
+                              Set.Ioo.{0} s T ∧
+                            ∀ (u : ℝ),
+                              LE.le.{0} (Norm.norm.{0} (MethbokeAddon.FDSN.timePhaseIncrement β lambda u))
+                                (Norm.norm.{0} lambda)
+TYPE_END:MethbokeAddon.FDSN.exists_localized_time_phase_family
+AXIOMS_BEGIN:MethbokeAddon.FDSN.exists_localized_time_phase_family
+'MethbokeAddon.FDSN.exists_localized_time_phase_family' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.exists_localized_time_phase_family

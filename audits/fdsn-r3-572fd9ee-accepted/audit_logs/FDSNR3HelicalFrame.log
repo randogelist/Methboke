@@ -1,0 +1,109 @@
+FDSNR3HelicalFrame/Audit.lean:14:23: warning: Variable name `hξ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hξ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:15:5: warning: Variable name `hcurl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcurl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:18:5: warning: Variable name `hlong` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlong
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:24:23: warning: Variable name `hξ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hξ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:25:5: warning: Variable name `hcurl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcurl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:28:5: warning: Variable name `hlong` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlong
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:34:23: warning: Variable name `hξ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hξ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:35:5: warning: Variable name `hcurl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcurl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3HelicalFrame/Audit.lean:38:5: warning: Variable name `hlong` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlong
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame
+@MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame : ∀ {ξ : SingularClosure.Vec},
+  Ne.{1} ξ 0 →
+    ∀ (b : OrthonormalBasis.{0, 0, 0} (Fin 3) ℂ MethbokeAddon.FDSNR3.CVec),
+      (∀ (τ : Fin 2),
+          Eq.{1} (HSMul.hSMul.{0, 0, 0} Complex.I (MethbokeAddon.FDSNR3.complexCross ξ (b τ.castSucc)))
+            (HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} ↑(MethbokeAddon.FDSNR3.helicitySign τ) ↑(Norm.norm.{0} ξ))
+              (b τ.castSucc))) →
+        Eq.{1} (b 2) (HSMul.hSMul.{0, 0, 0} (Inv.inv.{0} ↑(Norm.norm.{0} ξ)) (MethbokeAddon.FDSNR3.complexify ξ)) →
+          ∀ (σ : Fin 2) (z : MethbokeAddon.FDSNR3.CVec),
+            Eq.{1} (MethbokeAddon.FDSNR3.helicalSymbol σ ξ z)
+              (HSMul.hSMul.{0, 0, 0} (Inner.inner.{0, 0} ℂ (b σ.castSucc) z) (b σ.castSucc))
+TYPE_END:MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame
+'MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame
+@MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame : ∀ {ξ : SingularClosure.Vec},
+  Ne.{1} ξ 0 →
+    ∀ (b : OrthonormalBasis.{0, 0, 0} (Fin 3) ℂ MethbokeAddon.FDSNR3.CVec),
+      (∀ (τ : Fin 2),
+          Eq.{1} (HSMul.hSMul.{0, 0, 0} Complex.I (MethbokeAddon.FDSNR3.complexCross ξ (b τ.castSucc)))
+            (HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} ↑(MethbokeAddon.FDSNR3.helicitySign τ) ↑(Norm.norm.{0} ξ))
+              (b τ.castSucc))) →
+        Eq.{1} (b 2) (HSMul.hSMul.{0, 0, 0} (Inv.inv.{0} ↑(Norm.norm.{0} ξ)) (MethbokeAddon.FDSNR3.complexify ξ)) →
+          ∀ (σ : Fin 2) (z : MethbokeAddon.FDSNR3.CVec),
+            Eq.{1} (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (MethbokeAddon.FDSNR3.helicalSymbol σ ξ z)) 2)
+              (HPow.hPow.{0, 0, 0} (Norm.norm.{0} (Inner.inner.{0, 0} ℂ (b σ.castSucc) z)) 2)
+TYPE_END:MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame
+'MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame
+TYPE_BEGIN:MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame
+@MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame : ∀ {ξ : SingularClosure.Vec},
+  Ne.{1} ξ 0 →
+    ∀ (b : OrthonormalBasis.{0, 0, 0} (Fin 3) ℂ MethbokeAddon.FDSNR3.CVec),
+      (∀ (τ : Fin 2),
+          Eq.{1} (HSMul.hSMul.{0, 0, 0} Complex.I (MethbokeAddon.FDSNR3.complexCross ξ (b τ.castSucc)))
+            (HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} ↑(MethbokeAddon.FDSNR3.helicitySign τ) ↑(Norm.norm.{0} ξ))
+              (b τ.castSucc))) →
+        Eq.{1} (b 2) (HSMul.hSMul.{0, 0, 0} (Inv.inv.{0} ↑(Norm.norm.{0} ξ)) (MethbokeAddon.FDSNR3.complexify ξ)) →
+          ∀ (σ : Fin 2) (v : SingularClosure.Field),
+            Eq.{1} (MethbokeAddon.FDSNR3.helicalPower σ v ξ)
+              (HPow.hPow.{0, 0, 0}
+                (Norm.norm.{0} (Inner.inner.{0, 0} ℂ (b σ.castSucc) (MethbokeAddon.FDSNR3.fourierVelocity v ξ))) 2)
+TYPE_END:MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame
+'MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame

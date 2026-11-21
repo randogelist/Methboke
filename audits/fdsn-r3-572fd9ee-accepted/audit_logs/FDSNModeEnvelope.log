@@ -1,0 +1,54 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le
+@MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le : ∀ {E : ℝ → ℝ} {a T A G ρ : ℝ},
+  LE.le.{0} 0 A →
+    LE.le.{0} 0 G →
+      LE.le.{0} 0 ρ →
+        (∀ (r : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} a T) r → DifferentiableAt.{0, 0, 0} ℝ E r) →
+          LE.le.{0} (E a) (HMul.hMul.{0, 0, 0} A ρ) →
+            (∀ (r : ℝ),
+                Membership.mem.{0, 0} (Set.Ico.{0} a T) r →
+                  LE.le.{0} (deriv.{0, 0} E r) (HAdd.hAdd.{0, 0, 0} (E r) (HMul.hMul.{0, 0, 0} G ρ))) →
+              ∀ (t : ℝ),
+                Membership.mem.{0, 0} (Set.Ico.{0} a T) t →
+                  LE.le.{0} (E t)
+                    (HMul.hMul.{0, 0, 0}
+                      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A G) (Real.exp (HSub.hSub.{0, 0, 0} T a))) ρ)
+TYPE_END:MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le
+AXIOMS_BEGIN:MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le
+'MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.uniform_energy_bound_of_deriv_le
+TYPE_BEGIN:MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le
+@MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le : ∀ {z : ℂ} {C r : ℝ},
+  LE.le.{0} (Norm.norm.{0} z) (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} r 4)) →
+    LE.le.{0} (Complex.normSq z) (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} C 2) (HPow.hPow.{0, 0, 0} r 8))
+TYPE_END:MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le
+AXIOMS_BEGIN:MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le
+'MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.complex_normSq_le_of_weighted_norm_le
+TYPE_BEGIN:MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope
+MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope : ∀ (k : SingularClosure.Frequency) (v : Fin 3 → ℂ)
+  (C : ℝ),
+  (∀ (j : Fin 3),
+      LE.le.{0} (Norm.norm.{0} (v j))
+        (HMul.hMul.{0, 0, 0} C (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 4))) →
+    ∀ (i : Fin 3),
+      LE.le.{0} (Complex.normSq (SingularClosure.coefficientLeray k v i))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} C 2))
+          (HPow.hPow.{0, 0, 0} (Inv.inv.{0} (SingularClosure.torusSobolevWeight k)) 8))
+TYPE_END:MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope
+AXIOMS_BEGIN:MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope
+'MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.coefficientLeray_component_normSq_le_envelope
+TYPE_BEGIN:MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le
+@MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le : ∀ {z : ℂ} {B r : ℝ},
+  LE.le.{0} 0 B →
+    LE.le.{0} (Complex.normSq z) (HMul.hMul.{0, 0, 0} B (HPow.hPow.{0, 0, 0} r 8)) →
+      LE.le.{0} (Norm.norm.{0} z) (HMul.hMul.{0, 0, 0} (√B) (HPow.hPow.{0, 0, 0} r 4))
+TYPE_END:MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le
+AXIOMS_BEGIN:MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le
+'MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.weighted_norm_le_of_normSq_le

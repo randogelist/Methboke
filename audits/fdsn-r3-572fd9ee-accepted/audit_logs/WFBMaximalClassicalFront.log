@@ -1,0 +1,111 @@
+WFBMaximalClassicalFront/Audit.lean:13:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:13:18: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:13:31: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:19:21: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:20:5: warning: Variable name `hLocal` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hLocal
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:23:17: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:31:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:32:5: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:39:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBMaximalClassicalFront/Audit.lean:40:5: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front
+MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front : ∀ (ν T : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure),
+  LT.lt.{0} 0 ν →
+    LT.lt.{0} 0 T →
+      MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p →
+        ∃ Tmax U P, MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a U P Tmax
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front
+'MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_front
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_local_existence
+MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_local_existence : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    (∀ (b : SingularClosure.Field),
+        SingularClosure.SmoothSigmaZero b →
+          ∃ T, LT.lt.{0} 0 T ∧ ∃ v q, MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T b v q) →
+      ∀ (a : SingularClosure.Field),
+        SingularClosure.SmoothSigmaZero a → ∃ Tmax U P, MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a U P Tmax
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_local_existence
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_local_existence
+'MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_local_existence' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_exists_of_local_existence
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_lifetime_unique
+MethbokeAddon.WeakFouriermanB.maximal_classical_front_lifetime_unique : ∀ (ν : ℝ) (a : SingularClosure.Field)
+  (u v : SingularClosure.Velocity) (p q : SingularClosure.Pressure) (Tmax Smax : ℝ≥0∞),
+  MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a v q Smax → Eq.{1} Tmax Smax
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_lifetime_unique
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_lifetime_unique
+'MethbokeAddon.WeakFouriermanB.maximal_classical_front_lifetime_unique' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_lifetime_unique
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique
+MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique : ∀ (ν : ℝ) (a : SingularClosure.Field)
+  (u v : SingularClosure.Velocity) (p q : SingularClosure.Pressure) (Tmax Smax : ℝ≥0∞),
+  MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a v q Smax →
+      Eq.{1} Tmax Smax ∧
+        ∀ (r : ℝ), LE.le.{0} 0 r → LT.lt.{0} (ENNReal.ofReal r) Tmax → Eq.{1} (u r) (v r) ∧ Eq.{1} (p r) (q r)
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique
+'MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_unique

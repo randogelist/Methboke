@@ -1,5 +1,48 @@
 # FDSN on R³
 
+**The user-selected FDSN_R3 local target is complete and A-tier accepted.**
+The project goal remains Fefferman D. The exact canonical declaration
+`MethbokeAddon.FDSNR3.FDSN_R3` proves the original `Seed → Family` implication,
+with all sixteen user-assented scopes and the same physical witnesses.
+
+[The cumulative mathematical derivation](FDSN_R3_B_TIER.txt),
+[endpoint register](A_TIER_REGISTER.txt) and [implementation ledger](IMPLEMENTATION_STATUS.json)
+retain the original local-Schwartz, finite energy/dissipation, compact-local
+terminal blowup and compact-time rapidly decaying force hypotheses. An actual
+compact-frequency phase packet preserves helical powers, fixed-frame scalar
+powers, energy, gradient norm and integrated dissipation. The same-pressure
+residual gives the force; common-time translation separation, physical
+projected-force separation and every finite weighted smallness estimate hold.
+All members retain the same initial/terminal germs and singular tail.
+
+Rapid spatial decay is the force conclusion; compact spatial force support,
+fixed-force nonuniqueness and existence of a seed are separate claims.
+
+## Current R3 acceptance
+
+The complete conditional root and all sixteen user-assented endpoint scopes are
+**A-tier accepted** at `572fd9ee69a6b641f435cbfb2ef74e034809c583`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The reviewed run passed
+all **548 modules, 137 fresh package audits and 1320 exact named reports**, plus
+the original cutout, with only `propext`, `Classical.choice` and `Quot.sound`.
+The root is `Seed ν T u p F → Family ν T u p F` with the original contracts.
+There are 493 R3 declarations across 26 R3 packages; 421 declarations are newly
+accepted beyond the retained 72-declaration foundations. Prior T3 scopes remain intact.
+
+[Complete evidence](../../audits/fdsn-r3-572fd9ee-accepted/summary.json) includes the original artifact, exact source
+map, fresh logs, independent review and successful publication/final acceptance.
+Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+
+Earlier pending descriptions are dated preparation history, superseded by this
+acceptance. Seed existence and the separate prescribed-site family remain outside
+this accepted conditional R3 result. No local Lean execution was used.
+
+## Retained preparation and failure history
+
+The following records state the status at each earlier attempt. Their pending
+descriptions are superseded by the exact current acceptance above; their
+source-specific evidence and original accepted foundations are preserved.
+
+
 The user-selected local target is the whole-space extension of the accepted
 periodic spectral-nonrigidity theorem. The project goal remains Fefferman D.
 
@@ -156,7 +199,7 @@ and10 named type/axiom targets are byte-preserved. No theorem source changes.
 is retained. Complete fresh audits, the cutout and final acceptance/publication
 remain pending; no new root or endpoint A-tier acceptance is claimed.
 
-## Current R3 verification
+## Previous R3 verification
 
 [Run 44847910880](https://github.com/randogelist/Methboke/actions/runs/44847910880)
 at `7dd6dba6` compiled **all 548 modules, including the canonical Seed-to-Family

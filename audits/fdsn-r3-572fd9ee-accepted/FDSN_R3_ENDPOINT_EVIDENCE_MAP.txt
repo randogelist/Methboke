@@ -1,0 +1,373 @@
+FDSN_R3 — ACCEPTED 16-ENDPOINT EVIDENCE MAP
+Candidate: 572fd9ee69a6b641f435cbfb2ef74e034809c583
+External run: 44848985720 (full matching acceptance observed)
+Status: ALL SIXTEEN EXACT SCOPES ACCEPTED; matching external evidence and final workflow reviewed.
+26 R3 packages / 493 named declarations; reused bump and residual add 2 packages / 10 names.
+Full repository acceptance verified 548 modules / 137 packages / 1320 named reports plus the original cutout.
+No local Lean execution.
+
+R3-01 — Exact whole-space Seed and Family contracts
+  Primary audit packages: FDSNR3Contracts
+  Prior accepted scope: 4d00e260e82368b9d9abbec7e14ce32844f8f7dc / run 44831894933; Exact original endpoint
+  Actual physical seed and regularity:
+    MethbokeAddon.FDSNR3.Seed [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.PreterminalNSE [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.LocalSchwartz [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.AdmissibleForce [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.BoundedEnergy [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.FiniteDissipation [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.CompactLocalBlowup [FDSNR3Contracts]
+  Same-witness conclusion:
+    MethbokeAddon.FDSNR3.Family [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.CommonTemporalSupport [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.ExactRealizationAndAgreement [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.CompleteHelicalPowerPreservation [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.TranslationSeparation [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.PhysicalProjectedForceSeparation [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.WeightedSmoothSmallness [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.EnergyDissipationPreservation [FDSNR3Contracts]
+  Literal whole-space spectral operators:
+    MethbokeAddon.FDSNR3.fourierVelocity [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.helicalSymbol [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.helicalPower [FDSNR3Contracts]
+    MethbokeAddon.FDSNR3.physicalLeray [FDSNR3Contracts]
+
+R3-02 — Compact-carrier admission to local Schwartz regularity
+  Primary audit packages: FDSNR3CompactSchwartz
+  Prior accepted scope: 4d00e260e82368b9d9abbec7e14ce32844f8f7dc / run 44831894933; Exact original endpoint
+  All weighted mixed within-derivative bounds, including time zero:
+    MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier [FDSNR3CompactSchwartz]
+    MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime [FDSNR3CompactSchwartz]
+    MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier [FDSNR3CompactSchwartz]
+    MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier [FDSNR3CompactSchwartz]
+
+R3-03 — Actual whole-space Fourier bridge
+  Primary audit packages: FDSNR3Fourier
+  Inversion and injectivity:
+    MethbokeAddon.FDSNR3.physical_fourier_inversion [FDSNR3Fourier]
+    MethbokeAddon.FDSNR3.schwartz_fourierInv_fourier [FDSNR3Fourier]
+    MethbokeAddon.FDSNR3.schwartz_fourier_fourierInv [FDSNR3Fourier]
+    MethbokeAddon.FDSNR3.fourierVelocity_injective_on_schwartz [FDSNR3Fourier]
+  Reality and conjugacy:
+    MethbokeAddon.FDSNR3.fourierVelocity_conjugacy [FDSNR3Fourier]
+    MethbokeAddon.FDSNR3.inverse_fourier_real_of_hermitian [FDSNR3Fourier]
+  Translations and differential symbols:
+    MethbokeAddon.FDSNR3.fourierVelocity_translation [FDSNR3Fourier]
+    MethbokeAddon.FDSNR3.fourier_directionalDerivative [FDSNR3Fourier]
+    MethbokeAddon.FDSNR3.fourierVelocity_divergence_free [FDSNR3Fourier]
+  Actual Plancherel identity:
+    MethbokeAddon.FDSNR3.physical_plancherel [FDSNR3Fourier]
+
+R3-04 — Intrinsic helical projectors and fixed-frame scalar powers
+  Primary audit packages: FDSNR3Helical, FDSNR3HelicalFrame
+  Projection and Hermitian algebra:
+    MethbokeAddon.FDSNR3.transverseSymbol_idempotent [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.transverseSymbol_selfAdjoint [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.helicalSymbol_idempotent [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.helicalSymbol_sum [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.helicalSymbol_selfAdjoint [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.helicalSymbol_orthogonal [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.helicalSymbol_norm_decomposition_of_solenoidal [FDSNR3Helical]
+    MethbokeAddon.FDSNR3.fourierCurl_helicalSymbol [FDSNR3Helical]
+  Fixed orthonormal curl-frame supplement:
+    MethbokeAddon.FDSNR3.helicalSymbol_eq_inner_smul_of_orthonormal_curl_frame [FDSNR3HelicalFrame]
+    MethbokeAddon.FDSNR3.norm_helicalSymbol_sq_eq_inner_sq_of_orthonormal_curl_frame [FDSNR3HelicalFrame]
+    MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame [FDSNR3HelicalFrame]
+
+R3-05 — A nonzero continuous Fourier region after every cutoff
+  Primary audit packages: FDSNR3NonzeroPatch, FDSNR3SliceSchwartz
+  Actual Schwartz slices from the original seed contract:
+    MethbokeAddon.FDSNR3.LocalSchwartz.slice [FDSNR3SliceSchwartz]
+    MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice [FDSNR3SliceSchwartz]
+  Nonzero frequency ball away from zero:
+    MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball [FDSNR3NonzeroPatch]
+    MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball [FDSNR3NonzeroPatch]
+    MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after [FDSNR3SliceSchwartz]
+
+R3-06 — Separated active and untouched patches and an odd cutoff
+  Primary audit packages: FDSNR3FrequencyCutoff
+  Common cutoff with all geometric and support clauses:
+    MethbokeAddon.FDSNR3.exists_odd_frequency_cutoff [FDSNR3FrequencyCutoff]
+  Explicit local values and parity:
+    MethbokeAddon.FDSNR3.oddFrequencyCutoff_odd [FDSNR3FrequencyCutoff]
+    MethbokeAddon.FDSNR3.oddFrequencyCutoff_eq_one_on_active [FDSNR3FrequencyCutoff]
+    MethbokeAddon.FDSNR3.oddFrequencyCutoff_eq_zero_on_anchor [FDSNR3FrequencyCutoff]
+    MethbokeAddon.FDSNR3.oddFrequencyCutoff_eq_zero_of_small_norm [FDSNR3FrequencyCutoff]
+    MethbokeAddon.FDSNR3.oddFrequencyCutoff_zero_notMem_tsupport [FDSNR3FrequencyCutoff]
+
+R3-07 — Normalized smooth compact interior time bump
+  Primary audit packages: FDSNBump, FDSNR3CrossingTimePhase
+  Prior accepted scope: 87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef / run 44811785125; Domain-independent original helper only; new concrete R3 application and signed refinement need matching new evidence
+  Previously accepted domain-independent bump:
+    MethbokeAddon.FDSN.exists_normalized_time_bump [FDSNBump]
+  Signed refinement used by the new root:
+    MethbokeAddon.FDSNR3.exists_signed_crossing_time_phase [FDSNR3CrossingTimePhase]
+    MethbokeAddon.FDSNR3.crossingTimePhase_at_normalization [FDSNR3CrossingTimePhase]
+    MethbokeAddon.FDSNR3.crossingTimePhase_tsupport_subset [FDSNR3CrossingTimePhase]
+    MethbokeAddon.FDSNR3.crossingTimePhase_hasCompactSupport [FDSNR3CrossingTimePhase]
+
+R3-08 — Actual inverse phase family and joint Schwartz regularity
+  Primary audit packages: FDSNR3CompactFrequencyInverse, FDSNR3ForwardFourierSmooth, FDSNR3JointPacket, FDSNR3ParametricFourier, FDSNR3PhysicalFamily
+  Same-witness concrete assembly: FDSNR3Main
+  Actual all-order Fourier integration:
+    MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated [FDSNR3ParametricFourier]
+    MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets [FDSNR3ParametricFourier]
+    MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity [FDSNR3ForwardFourierSmooth]
+    MethbokeAddon.FDSNR3.partialFourierInverse [FDSNR3CompactFrequencyInverse]
+    MethbokeAddon.FDSNR3.partialFourierInverse_apply [FDSNR3CompactFrequencyInverse]
+  Joint spectral and physical Schwartz representatives:
+    MethbokeAddon.FDSNR3.jointSpectralSchwartz [FDSNR3JointPacket]
+    MethbokeAddon.FDSNR3.jointPhysicalCorrection [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.jointPhysicalCorrection_apply [FDSNR3PhysicalFamily]
+  Identification, zero parameter and fixed time support:
+    MethbokeAddon.FDSNR3.physicalPhaseCorrection_eq_inversePhaseCorrection [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.jointPhysicalCorrection_zero_parameter [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseCorrection_tsupport_subset [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseCorrection_hasCompactSupport [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_zero_parameter [FDSNR3PhysicalFamily]
+
+R3-09 — Reality, divergence and exact low-frequency agreement
+  Primary audit packages: FDSNR3Fourier, FDSNR3FrequencyCutoff, FDSNR3PhysicalFamily, FDSNR3SchwartzPhase
+  Same-witness concrete assembly: FDSNR3Main
+  Reality of the actual reconstructed fields:
+    MethbokeAddon.FDSNR3.complexifySchwartz_phaseSlice [FDSNR3SchwartzPhase]
+    MethbokeAddon.FDSNR3.inverse_fourier_real_of_hermitian [FDSNR3Fourier]
+  Actual reconstructed Fourier formula and divergence:
+    MethbokeAddon.FDSNR3.fourierVelocity_physicalPhaseFamily [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_divergence_free [FDSNR3PhysicalFamily]
+  Exact untouched low-frequency values:
+    MethbokeAddon.FDSNR3.fourierVelocity_physicalPhaseFamily_eq_of_cutoff_zero [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.oddFrequencyCutoff_eq_zero_of_small_norm [FDSNR3FrequencyCutoff]
+
+R3-10 — Full helical powers, energy, gradient and integrated dissipation
+  Primary audit packages: FDSNR3HelicalFrame, FDSNR3PhysicalFamily, FDSNR3Realization, FDSNR3SchwartzPhase
+  Same-witness concrete assembly: FDSNR3Main
+  Same physical family powers and energy:
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_helicalPower [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_integrable_norm_sq [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_energy [FDSNR3PhysicalFamily]
+  Actual gradient norm and dissipation:
+    MethbokeAddon.FDSNR3.phaseSlice_directional_energy [FDSNR3SchwartzPhase]
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_gradientSquare_integrable [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.physicalPhaseFamily_dissipation [FDSNR3PhysicalFamily]
+  Time-integrated supplement and finite admission:
+    MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation [FDSNR3Realization]
+    MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history [FDSNR3Realization]
+  Fixed-frame scalar-power interpretation:
+    MethbokeAddon.FDSNR3.helicalPower_eq_inner_sq_of_orthonormal_curl_frame [FDSNR3HelicalFrame]
+
+R3-11 — Native same-pressure residual identity
+  Primary audit packages: FDSNR3CorrectionAdmission, FDSNR3Realization, FDSNR3ResidualSchwartz, FDSNResidualForce
+  Same-witness concrete assembly: FDSNR3Main
+  Prior accepted scope: 87ab6b4cfc4a81a1fb6c8e37bb6d5caf3972b1ef / run 44811785125; Domain-independent original helper only; new concrete R3 application and signed refinement need matching new evidence
+  Previously accepted Euclidean residual expansion:
+    MethbokeAddon.FDSN.residualForce [FDSNResidualForce]
+    MethbokeAddon.FDSN.native_residual_momentum_at [FDSNResidualForce]
+    MethbokeAddon.FDSN.native_residual_momentum_on_open_slab [FDSNResidualForce]
+    MethbokeAddon.FDSN.native_divergence_add_zero [FDSNResidualForce]
+  Whole-space front application including time zero:
+    MethbokeAddon.FDSNR3.PreterminalNSE.add_residual [FDSNR3Realization]
+  Constructed Schwartz residual is the original native residual:
+    MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original [FDSNR3ResidualSchwartz]
+    MethbokeAddon.FDSNR3.correctedForce_eq_native_residual [FDSNR3CorrectionAdmission]
+
+R3-12 — Global smooth rapid-decay force admission
+  Primary audit packages: FDSNR3CorrectionAdmission, FDSNR3LocalizedSeed, FDSNR3Realization, FDSNR3ResidualSchwartz
+  Same-witness concrete assembly: FDSNR3Main
+  Localized seed supplies actual tempered coefficients:
+    MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval [FDSNR3LocalizedSeed]
+    MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed [FDSNR3LocalizedSeed]
+  Actual joint Schwartz force correction and zero extension:
+    MethbokeAddon.FDSNR3.jointResidualSchwartz [FDSNR3ResidualSchwartz]
+    MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original [FDSNR3ResidualSchwartz]
+    MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz [FDSNR3ResidualSchwartz]
+    MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset [FDSNR3CorrectionAdmission]
+    MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz [FDSNR3CorrectionAdmission]
+  Admissible force and common carrier for actual fields:
+    MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce [FDSNR3Realization]
+    MethbokeAddon.FDSNR3.AdmissibleForce.add [FDSNR3Realization]
+    MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual [FDSNR3CorrectionAdmission]
+    MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual [FDSNR3CorrectionAdmission]
+
+R3-13 — One-time separation modulo every spatial translation
+  Primary audit packages: FDSNR3Fourier, FDSNR3PhysicalFamily, FDSNR3TranslationRigidity
+  Same-witness concrete assembly: FDSNR3Main
+  Untouched open region forces zero translation:
+    MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball [FDSNR3TranslationRigidity]
+    MethbokeAddon.FDSNR3.packet_phase_not_translation [FDSNR3TranslationRigidity]
+  Physical family and actual Fourier translation law:
+    MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier [FDSNR3TranslationRigidity]
+    MethbokeAddon.FDSNR3.fourierVelocity_physicalPhaseFamily [FDSNR3PhysicalFamily]
+    MethbokeAddon.FDSNR3.fourierVelocity_translation [FDSNR3Fourier]
+
+R3-14 — Physical Leray-projected force separation
+  Primary audit packages: FDSNR3CrossingDerivative, FDSNR3CrossingTimePhase, FDSNR3ForceSeparation, FDSNR3SpectralGenerator
+  Same-witness concrete assembly: FDSNR3Main
+  Nonzero common zero-crossing slope:
+    MethbokeAddon.FDSNR3.exists_signed_crossing_time_phase [FDSNR3CrossingTimePhase]
+  Concrete nonzero real solenoidal generator:
+    MethbokeAddon.FDSNR3.spectralGenerator [FDSNR3SpectralGenerator]
+    MethbokeAddon.FDSNR3.spectralGenerator_divergence_free [FDSNR3SpectralGenerator]
+    MethbokeAddon.FDSNR3.spectralGenerator_ne_zero [FDSNR3SpectralGenerator]
+  Native derivative of the actual inverse phase correction:
+    MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_inversePhaseCorrection_at_crossing [FDSNR3CrossingDerivative]
+  Literal physical Leray identity and direct pair separation:
+    MethbokeAddon.FDSNR3.physicalLeray_eq_of_divergence_free_schwartz [FDSNR3ForceSeparation]
+    MethbokeAddon.FDSNR3.physicalLeray_residual_difference_at_crossing [FDSNR3ForceSeparation]
+    MethbokeAddon.FDSNR3.physicalProjectedForceSeparation_of_common_crossing [FDSNR3ForceSeparation]
+    MethbokeAddon.FDSNR3.physicalProjectedForceSeparation_inversePhaseCorrection [FDSNR3CrossingDerivative]
+
+R3-15 — All finite weighted smooth orders are O(abs(parameter))
+  Primary audit packages: FDSNR3CorrectionAdmission, FDSNR3SchwartzJets
+  Same-witness concrete assembly: FDSNR3Main
+  Actual joint-Schwartz jets and mean-value bound:
+    MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound [FDSNR3SchwartzJets]
+    MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound [FDSNR3SchwartzJets]
+    MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound [FDSNR3SchwartzJets]
+  Two corrections on the same parameter interval:
+    MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections [FDSNR3SchwartzJets]
+    MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected [FDSNR3CorrectionAdmission]
+
+R3-16 — Canonical same-witness Seed-to-Family root
+  Primary audit packages: FDSNR3Main
+  Same-witness concrete assembly: FDSNR3Main
+  Exact original root and expanded literal consumer:
+    MethbokeAddon.FDSNR3.FDSN_R3 [FDSNR3Main]
+
+ACCEPTANCE REQUIREMENTS
+  Exact candidate source, compiler, dependency pin, audit policy and all required module identities match.
+  Every required current package audit has PASS status, fresh run origin, complete type/axiom sentinels and matching log digest.
+  All 1320 repository named reports and all 137 package audits remain required; this 503-name map is the FDSN R3 subset and does not replace repository-wide gates.
+  Axioms for every audited declaration are a subset of propext, Classical.choice and Quot.sound; no sorryAx or custom axiom.
+  Root audit must compile both the original Seed-to-Family consumer and expanded literal Family consumer.
+  All actual-family endpoint claims use the same constructed witnesses discharged in FDSNR3Main; helper hypotheses are not root premises.
+  Evidence retention, passed cache publication and final Material acceptance succeed before global root acceptance.
+
+SCOPE BOUNDARIES
+  Seed existence and compatible upstream seed import remain separate and unproved by this root.
+  Local Schwartz seed regularity and one compact-local terminal blowup witness remain explicit.
+  Physical force varies; the construction is not fixed-force nonuniqueness or an unforced counterexample.
+  All family members retain the identical singular terminal tail.
+  Rapid spatial decay is retained, not compact spatial force support.
+  R3-04 fixed-frame supplement is conditional on an ordinary supplied orthonormal curl eigenframe; intrinsic powers require no global frame choice.
+  Physical force separation is proved on an explicit solenoidal Schwartz residual difference; no standalone general L2 projection API is asserted.
+
+
+CURRENT CANDIDATE SOURCE BINDINGS
+Every SHA256 below hashes file bytes independently bound to the exact candidate Git blob.
+All 28 packages also bind their endpoint wrapper, manifest and closure in the JSON map.
+Full acceptance verified all 548 modules, 137 package audits, 1320 named reports and the original cutout.
+Static source identity is supplemented by the matching fresh external audits and final workflow acceptance recorded here.
+
+FDSNR3CompactFrequencyInverse
+  Audit SHA256: 8e436aa7384402b82030b8497a4a41212dcecc8090d937f0b8bcc672c2725746
+  Source: Material/MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean
+  Source SHA256: 04b0cb9b15fe8166ab798e65ef210d26b912431378e2590eb1d16cceb89edcd7
+FDSNR3CompactSchwartz
+  Audit SHA256: 7c9697680da9be96c9b2eb2ea25bbda964b1e8e90ab11e8904f3ade7207852ba
+  Source: Material/MethbokeAddon/FDSNR3/CompactSchwartz.lean
+  Source SHA256: 6f732a479793bb175823a604509579544f7950f36a0300b48c47372bdf837714
+FDSNR3Contracts
+  Audit SHA256: bb9625552cf84171fc40e6c842b12ca8dbce1c81d17d30b6f52347d065687a16
+  Source: Material/MethbokeAddon/FDSNR3/Contracts.lean
+  Source SHA256: 5e7888bdd634107334c466a93e79bd4b448b47f7ac55bb8bec3316ce1bcf036f
+FDSNR3CorrectionAdmission
+  Audit SHA256: 82ba027cad70626203911319af9a065625ffbb0860b2a38d8d2bad744f2076dd
+  Source: Material/MethbokeAddon/FDSNR3/CorrectionAdmission.lean
+  Source SHA256: 4f20c1fd556fe7ac1be22e29b9379c4d9162131dd15bf6c01405f0aa6cee2a50
+FDSNR3CrossingDerivative
+  Audit SHA256: 54306c403baba334b072cfb926877239d6913ac8b477700d1e3b267898b6efea
+  Source: Material/MethbokeAddon/FDSNR3/CrossingDerivative.lean
+  Source SHA256: 67c38a84e5564ab16fbe3c97dc92ef6bd0a54b53fd4e019ba801ec54bee4efff
+FDSNR3CrossingTimePhase
+  Audit SHA256: 294f7ff7fa34e1560e735362eccfc4b9dc5f7cd729a86733d08b517ea2555afc
+  Source: Material/MethbokeAddon/FDSNR3/CrossingTimePhase.lean
+  Source SHA256: ddfe3eeb82e92767497c0dd3829be09a2cc7dad945a09b4c691d8ab4b90feb0a
+FDSNR3ForceSeparation
+  Audit SHA256: 7689017f3cce774c430e5de67bbd4c83b1f645b3cbddd15090f0cd328e4c1fb3
+  Source: Material/MethbokeAddon/FDSNR3/ForceSeparation.lean
+  Source SHA256: 245068c5d4224ab43844c89046578a62c295bd738d037d90ed495e5cc481e718
+FDSNR3ForwardFourierSmooth
+  Audit SHA256: e1f2e105528e930016e2c3ec236a2bf68ae2d515d84664a13b5b1277224154e2
+  Source: Material/MethbokeAddon/FDSNR3/ForwardFourierSmooth.lean
+  Source SHA256: faf6cb92d5a4db7d65416b5eca64973447d897689acf5a57be8e4e3e7d3d29a2
+FDSNR3Fourier
+  Audit SHA256: f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a
+  Source: Material/MethbokeAddon/FDSNR3/Fourier.lean
+  Source SHA256: 4ebcab055b58c57ce9317bb7453e1a11275c15a8d96be9be1efe3bf6315def55
+FDSNR3FrequencyCutoff
+  Audit SHA256: 6ef56d76e9263ed97da5b345807ca97f768dbe810c6d7bf92b84a42cb97fe12f
+  Source: Material/MethbokeAddon/FDSNR3/FrequencyCutoff.lean
+  Source SHA256: af9ec45c522a30df13993d574978d3268421cd0ecc61cf89a43ab36b5866190c
+FDSNR3Helical
+  Audit SHA256: aa4b2ca1825d89167c53c0eb4d4c0cfd7061a50c116fbab557e0a0e0a82f8aa9
+  Source: Material/MethbokeAddon/FDSNR3/Helical.lean
+  Source SHA256: d5cf54da871b75198637dbeb5455b643f1eb5120ab1d29989b623805e4554001
+FDSNR3HelicalFrame
+  Audit SHA256: baf4a42a3e8c87c11a65b1f1bd85c89afa98ba82058969e87ad530a936d15ceb
+  Source: Material/MethbokeAddon/FDSNR3/HelicalFrame.lean
+  Source SHA256: 88d58497e552e82e49bb40b086adee0e8430de05d1a09a29c4362c1029ce6721
+FDSNR3JointPacket
+  Audit SHA256: 36709eb7bc237bbd51d9f3ae858c8b1553cedce1a2c60dd4246963f7aead37ca
+  Source: Material/MethbokeAddon/FDSNR3/JointPacket.lean
+  Source SHA256: f1d4d5cc296e83a0c16fb68b668766e69c9e5ec99b103343bea4ffca9b0c827f
+FDSNR3LocalizedSeed
+  Audit SHA256: a152e618ee0166699ec4c135e4d09a8a3fe3beba71048d5f2b597bbabc62d1fe
+  Source: Material/MethbokeAddon/FDSNR3/LocalizedSeed.lean
+  Source SHA256: 4020e841e11133755fe6c3245ef7961b9245e2b7f9ad69b562d387a4b96d946b
+FDSNR3Main
+  Audit SHA256: 134a5f332fe02a625422222768370d0ba9092903b1575b629de75a4c824a9d55
+  Source: Material/MethbokeAddon/FDSNR3/Main.lean
+  Source SHA256: 142e59d84a28d5fba4ddbc45fee0331c826591ba6bbe151cb6cf9ec6d203c870
+FDSNR3NonzeroPatch
+  Audit SHA256: 22ffbb3ba76032ddd559190b66fabadbb3045c1b5e3fed0d7fcea5f284a4c415
+  Source: Material/MethbokeAddon/FDSNR3/NonzeroPatch.lean
+  Source SHA256: dc7af4edafad696a7a69b29b807b3366ef0f54142630259f0e4e02dd74100bf2
+FDSNR3ParametricFourier
+  Audit SHA256: 66a21bec1e100bfef245aa1da1c142c974376fb743c218113c434c91dd608b09
+  Source: Material/MethbokeAddon/FDSNR3/ParametricFourier.lean
+  Source SHA256: db5a7c9575dc8a6bf9edd7e5273f40a5a4c52a8e3b13f9d103fc2f60d8d9a8b2
+FDSNR3Phase
+  Audit SHA256: 43e0cb3f7fa6bc4b4fbe3f7a0a5a512541a4ea92d98091c0755fae5bbdd5d429
+  Source: Material/MethbokeAddon/FDSNR3/Phase.lean
+  Source SHA256: c6cee99568d762facb546d890e161d88bd725ae885879e9c2c6e99088ea7ded6
+FDSNR3PhysicalFamily
+  Audit SHA256: 1d59da2ef27374f18221e04eb7f4deb8f9b56d379d2875f0b464462fcf460ba7
+  Source: Material/MethbokeAddon/FDSNR3/PhysicalFamily.lean
+  Source SHA256: d62182a9ad6056310a913573d17b203fb3ed59e59ccad76d85b8de58e7d98aeb
+FDSNR3Realization
+  Audit SHA256: 0123c07eef6afdb5df96007e018c9a3cc842b575c6870691562503ec88963dda
+  Source: Material/MethbokeAddon/FDSNR3/Realization.lean
+  Source SHA256: a1d2ab2f521de32453c4fb8c04fd1796379f6add62275ae61b82451e3a686865
+FDSNR3ResidualSchwartz
+  Audit SHA256: b3dc76de28e5e1aadba9ddf2500babdd100c77a62359b83cc367e1d19a492da8
+  Source: Material/MethbokeAddon/FDSNR3/ResidualSchwartz.lean
+  Source SHA256: a12b20acb6877d218d86e55443e576fa635bd4435aa002170b9e45d9893a8411
+FDSNR3SchwartzJets
+  Audit SHA256: dd18f41e65a5ca168fed8a16b56e816a72fefcb1431c6f71a8ae7bc03126cc9a
+  Source: Material/MethbokeAddon/FDSNR3/SchwartzJets.lean
+  Source SHA256: 963b4dffd7c17e69b77929cd90cc9a402c9a72b8b343384f74cae188ac2d6b92
+FDSNR3SchwartzPhase
+  Audit SHA256: 571c518c2e364fe5b26c801493e27651dc2debfc1cabfd0553cafc4f87b19944
+  Source: Material/MethbokeAddon/FDSNR3/SchwartzPhase.lean
+  Source SHA256: 82a339c3de3a89bc676217e6f485331378c8a2a4a8778c36287ba45ac4c62634
+FDSNR3SliceSchwartz
+  Audit SHA256: f990a34cd921bec84fddb0c9c2a5608796ae13f6374346998e7cef4012ae0d90
+  Source: Material/MethbokeAddon/FDSNR3/SliceSchwartz.lean
+  Source SHA256: 90913d368cc80d3f3736aa19612af07297b5d4dffd4f0776a0690740691546c2
+FDSNR3SpectralGenerator
+  Audit SHA256: 5ae5fa80191815a9af286569a560ed79a76bb75b809c6d2078064a5542b91f08
+  Source: Material/MethbokeAddon/FDSNR3/SpectralGenerator.lean
+  Source SHA256: 0f62d8425778168aed50d8b9c2b6b688d1cfa4c0684ec30fdea785aa5b0b25c2
+FDSNR3TranslationRigidity
+  Audit SHA256: b3b5b2424b8d79425943592f7204e188f108988c5143c42356020a12d751812b
+  Source: Material/MethbokeAddon/FDSNR3/TranslationRigidity.lean
+  Source SHA256: 66db33c0c7a37df35b60b941de72d325a4fa2ea50d32d305c9178bbfecf1c681
+FDSNBump
+  Audit SHA256: 7df7e95be90aa1e0d51df6ea29f02dabcfd55e56d351588ca18b73a42c533304
+  Source: Material/MethbokeAddon/FDSN/TimeBump.lean
+  Source SHA256: 8b1ee3376b39accf26e5c2c599eaf03e5534f779aa0f9dfa3ccbe4e82007d333
+FDSNResidualForce
+  Audit SHA256: e9425f73b5310ccaf9af87eb70fb242ed60d3115864932f92678641eaf019a94
+  Source: Material/MethbokeAddon/FDSN/ResidualForce.lean
+  Source SHA256: 3cedf75600060b0daf1b11ecb683cf8fbce470b2bd01317e68fcc3ac42a7e03a

@@ -1,0 +1,112 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_apply_zero
+MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_apply_zero : ∀ (p : SingularClosure.Vec → ℝ)
+  (x : SingularClosure.Vec),
+  Eq.{1} (WithLp.ofLp.{0} (MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent p x) 0) (p x)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_apply_zero
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_apply_zero
+'MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_apply_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_apply_zero
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_contDiff
+MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_contDiff : ∀ (p : SingularClosure.Vec → ℝ),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) p →
+    ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) (MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent p)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_contDiff
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_contDiff
+'MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_contDiff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_contDiff
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_periodic
+MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_periodic : ∀ (p : SingularClosure.Vec → ℝ),
+  SingularClosure.SpatialPeriodic.{0} p →
+    SingularClosure.SpatialPeriodic.{0} (MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent p)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_periodic
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_periodic
+'MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_periodic' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_periodic
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.scalarPressureFourierIntegrand_integrableOn
+MethbokeAddon.EhrenfestObstruction.scalarPressureFourierIntegrand_integrableOn : ∀ (p : SingularClosure.Vec → ℝ),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) p →
+    ∀ (k : SingularClosure.Frequency),
+      MeasureTheory.IntegrableOn.{0, 0}
+        (fun x => HMul.hMul.{0, 0, 0} (Star.star.{0} (SingularClosure.fourierCharacter k x)) ↑(p x))
+        SingularClosure.unitCube MeasureTheory.MeasureSpace.volume.{0}
+TYPE_END:MethbokeAddon.EhrenfestObstruction.scalarPressureFourierIntegrand_integrableOn
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.scalarPressureFourierIntegrand_integrableOn
+'MethbokeAddon.EhrenfestObstruction.scalarPressureFourierIntegrand_integrableOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.scalarPressureFourierIntegrand_integrableOn
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_pressureAsFirstComponent_zero
+MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_pressureAsFirstComponent_zero : ∀ (p : SingularClosure.Vec → ℝ)
+  (k : SingularClosure.Frequency),
+  Eq.{1} (SingularClosure.datumFourierCoeff (MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent p) k 0)
+    (MethbokeAddon.EhrenfestObstruction.scalarPressureFourierCoeff p k)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_pressureAsFirstComponent_zero
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_pressureAsFirstComponent_zero
+'MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_pressureAsFirstComponent_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_pressureAsFirstComponent_zero
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_coordinateDerivative_zero
+MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_coordinateDerivative_zero : ∀ (p : SingularClosure.Vec → ℝ),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) p →
+    ∀ (j : Fin 3) (x : SingularClosure.Vec),
+      Eq.{1}
+        (WithLp.ofLp.{0}
+          (SingularClosure.coordinateDerivative (MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent p) j x) 0)
+        ((fderiv.{0, 0, 0} ℝ p x) (SingularClosure.unitVector j))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_coordinateDerivative_zero
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_coordinateDerivative_zero
+'MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_coordinateDerivative_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.pressureAsFirstComponent_coordinateDerivative_zero
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient
+MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient : ∀ (p : SingularClosure.Vec → ℝ),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) p →
+    SingularClosure.SpatialPeriodic.{0} p →
+      Eq.{1} (SingularClosure.datumFourierCoeff (SingularClosure.gradient p)) fun k i =>
+        HMul.hMul.{0, 0, 0} (SingularClosure.derivativeSymbol i k)
+          (MethbokeAddon.EhrenfestObstruction.scalarPressureFourierCoeff p k)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient
+'MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientLeray_frequency_mul_eq_zero
+MethbokeAddon.EhrenfestObstruction.coefficientLeray_frequency_mul_eq_zero : ∀ (k : SingularClosure.Frequency) (z : ℂ),
+  Eq.{1} (SingularClosure.coefficientLeray k fun i => HMul.hMul.{0, 0, 0} (↑(k i)) z) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficientLeray_frequency_mul_eq_zero
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientLeray_frequency_mul_eq_zero
+'MethbokeAddon.EhrenfestObstruction.coefficientLeray_frequency_mul_eq_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficientLeray_frequency_mul_eq_zero
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientLeray_derivativeSymbol_mul_eq_zero
+MethbokeAddon.EhrenfestObstruction.coefficientLeray_derivativeSymbol_mul_eq_zero : ∀ (k : SingularClosure.Frequency)
+  (z : ℂ),
+  Eq.{1} (SingularClosure.coefficientLeray k fun i => HMul.hMul.{0, 0, 0} (SingularClosure.derivativeSymbol i k) z) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficientLeray_derivativeSymbol_mul_eq_zero
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientLeray_derivativeSymbol_mul_eq_zero
+'MethbokeAddon.EhrenfestObstruction.coefficientLeray_derivativeSymbol_mul_eq_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficientLeray_derivativeSymbol_mul_eq_zero
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero
+MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero : ∀ (p : SingularClosure.Vec → ℝ),
+  ContDiff.{0, 0, 0} ℝ (↑Top.top.{0}) p →
+    SingularClosure.SpatialPeriodic.{0} p →
+      ∀ (k : SingularClosure.Frequency),
+        Eq.{1} (SingularClosure.coefficientLeray k (SingularClosure.datumFourierCoeff (SingularClosure.gradient p) k)) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero
+'MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.datumFourierCoeff_gradient_leray_eq_zero

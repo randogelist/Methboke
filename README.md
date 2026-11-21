@@ -4,7 +4,7 @@ The project goal is **Fefferman D**: construct smooth periodic Navier–Stokes
 initial data and an admissible smooth periodic force for which no global
 smooth periodic velocity–pressure solution exists.
 
-The current local target is **FDSN_R3**, the user-assented whole-space extension of spectral nonrigidity. The [complete B-tier construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) and [sixteen-endpoint implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) state the explicit local-Schwartz seed and rapid-decay force scope. The exact R3 contracts and compact-carrier admission passed [run44831894933](https://github.com/randogelist/Methboke/actions/runs/44831894933); [matching evidence](audits/fdsn-r3-4d00e260-accepted/summary.json) also covers the phase helpers. The complete original-Seed-to-Family R3 construction is now prepared in [Main.lean](Material/MethbokeAddon/FDSNR3/Main.lean), with fully literal independent consumers. The full candidate awaits matching external verification; the R3 root is not yet accepted. The domain-independent normalized time bump and exact residual identity reuse matching accepted evidence.
+The current local target, **FDSN_R3**, is **complete and A-tier accepted** at `572fd9ee`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The canonical theorem `MethbokeAddon.FDSNR3.FDSN_R3` constructs the full same-witness `Family` from the original locally Schwartz `Seed`; all sixteen assented endpoint scopes have matching external evidence. The run passed **548 modules, 137 fresh package audits, 1320 named type/axiom reports and the original cutout**, followed by publication and final acceptance. [Exact acceptance evidence](audits/fdsn-r3-572fd9ee-accepted/summary.json), the [implementation ledger](R3_NSE/FDSN/IMPLEMENTATION_STATUS.json) and the [unchanged mathematical construction](R3_NSE/FDSN/FDSN_R3_B_TIER.txt) give the full scope. The theorem retains its seed premise; seed existence is not proved.
 
 The preserved accepted local theorem is **FEFFERMAN_D_SPECTRAL_NONRIGIDITY (FDSN)** on the unit three-torus: an exact admissible preterminal seed produces a localized phase family preserving modal powers while separating translation classes and projected force histories. The [canonical proof and construction checklist](T3_NSE/D-Family-Obstruction/FDSN/FDSN_B_TIER.txt) and [implementation ledger](T3_NSE/D-Family-Obstruction/FDSN/IMPLEMENTATION_STATUS.json) track this single local target. The initial phase and bump packages passed [external CI44801643103](https://github.com/randogelist/Methboke/actions/runs/44801643103): 21 exact named declarations, standard axioms only. The canonical root and its physical presentation are now **A-tier accepted** at [run 44811785125](https://github.com/randogelist/Methboke/actions/runs/44811785125), with 317 exact audited FDSN declarations. [Accepted evidence](audits/fdsn-87ab6b4c-accepted/summary.json) and the [theorem register](T3_NSE/D-Family-Obstruction/FDSN/A_TIER_REGISTER.txt) retain the exact scope.
 
@@ -315,7 +315,7 @@ and10 named type/axiom targets are byte-preserved. No theorem source changes.
 is retained. Complete fresh audits, the cutout and final acceptance/publication
 remain pending; no new root or endpoint A-tier acceptance is claimed.
 
-## Current R3 verification
+## Previous R3 verification
 
 [Run 44847910880](https://github.com/randogelist/Methboke/actions/runs/44847910880)
 at `7dd6dba6` compiled **all 548 modules, including the canonical Seed-to-Family
@@ -328,3 +328,21 @@ are retained, with no theorem source changes.
 [Exact partial evidence](audits/fdsn-r3-7dd6dba6-failed/SUMMARY.txt) is retained.
 Complete fresh audits, the original cutout and final acceptance/publication
 remain pending; no new root or endpoint A-tier acceptance is claimed.
+
+## Current R3 acceptance
+
+The complete conditional root and all sixteen user-assented endpoint scopes are
+**A-tier accepted** at `572fd9ee69a6b641f435cbfb2ef74e034809c583`, [run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720). The reviewed run passed
+all **548 modules, 137 fresh package audits and 1320 exact named reports**, plus
+the original cutout, with only `propext`, `Classical.choice` and `Quot.sound`.
+The root is `Seed ν T u p F → Family ν T u p F` with the original contracts.
+There are 493 R3 declarations across 26 R3 packages; 421 declarations are newly
+accepted beyond the retained 72-declaration foundations. Prior T3 scopes remain intact.
+
+[Complete evidence](audits/fdsn-r3-572fd9ee-accepted/summary.json) includes the original artifact, exact source
+map, fresh logs, independent review and successful publication/final acceptance.
+Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+
+Earlier pending descriptions are dated preparation history, superseded by this
+acceptance. Seed existence and the separate prescribed-site family remain outside
+this accepted conditional R3 result. No local Lean execution was used.

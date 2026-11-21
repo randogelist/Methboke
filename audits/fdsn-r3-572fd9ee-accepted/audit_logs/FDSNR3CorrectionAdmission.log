@@ -1,0 +1,251 @@
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity
+MethbokeAddon.FDSNR3.correctedVelocity : SingularClosure.Velocity →
+  SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec → ℝ → SingularClosure.Velocity
+TYPE_END:MethbokeAddon.FDSNR3.correctedVelocity
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity
+'MethbokeAddon.FDSNR3.correctedVelocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedVelocity
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedForce
+MethbokeAddon.FDSNR3.correctedForce : SingularClosure.Velocity →
+  SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec → ℝ → SingularClosure.Velocity
+TYPE_END:MethbokeAddon.FDSNR3.correctedForce
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedForce
+'MethbokeAddon.FDSNR3.correctedForce' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedForce
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_sub
+MethbokeAddon.FDSNR3.correctedVelocity_sub : ∀ (u : SingularClosure.Velocity)
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ),
+  Eq.{1} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSNR3.correctedVelocity u H lam) u)
+    (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam)
+TYPE_END:MethbokeAddon.FDSNR3.correctedVelocity_sub
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_sub
+'MethbokeAddon.FDSNR3.correctedVelocity_sub' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedVelocity_sub
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedForce_sub
+MethbokeAddon.FDSNR3.correctedForce_sub : ∀ (F : SingularClosure.Velocity)
+  (J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ),
+  Eq.{1} (HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSNR3.correctedForce F J lam) F)
+    (MethbokeAddon.FDSNR3.schwartzFamilyVelocity J lam)
+TYPE_END:MethbokeAddon.FDSNR3.correctedForce_sub
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedForce_sub
+'MethbokeAddon.FDSNR3.correctedForce_sub' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedForce_sub
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_zero
+MethbokeAddon.FDSNR3.correctedVelocity_zero : ∀ (u : SingularClosure.Velocity)
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (H (Prod.mk.{0, 0} 0 z)) 0) →
+    Eq.{1} (MethbokeAddon.FDSNR3.correctedVelocity u H 0) u
+TYPE_END:MethbokeAddon.FDSNR3.correctedVelocity_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_zero
+'MethbokeAddon.FDSNR3.correctedVelocity_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedVelocity_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedForce_zero
+MethbokeAddon.FDSNR3.correctedForce_zero : ∀ (F : SingularClosure.Velocity)
+  (J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (J (Prod.mk.{0, 0} 0 z)) 0) →
+    Eq.{1} (MethbokeAddon.FDSNR3.correctedForce F J 0) F
+TYPE_END:MethbokeAddon.FDSNR3.correctedForce_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedForce_zero
+'MethbokeAddon.FDSNR3.correctedForce_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedForce_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_smooth
+MethbokeAddon.FDSNR3.schwartzFamilyVelocity_smooth : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ),
+  ContDiff.{0, 0, 0} ℝ ∞ fun z => MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam z.1 z.2
+TYPE_END:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_smooth
+'MethbokeAddon.FDSNR3.schwartzFamilyVelocity_smooth' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_smooth
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_joint_correction_smooth
+MethbokeAddon.FDSNR3.correctedVelocity_joint_correction_smooth : ∀ (u : SingularClosure.Velocity)
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  ContDiff.{0, 0, 0} ℝ ∞ fun q => HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSNR3.correctedVelocity u H q.1) u q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSNR3.correctedVelocity_joint_correction_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_joint_correction_smooth
+'MethbokeAddon.FDSNR3.correctedVelocity_joint_correction_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedVelocity_joint_correction_smooth
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedForce_joint_correction_smooth
+MethbokeAddon.FDSNR3.correctedForce_joint_correction_smooth : ∀ (F : SingularClosure.Velocity)
+  (J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  ContDiff.{0, 0, 0} ℝ ∞ fun q => HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSNR3.correctedForce F J q.1) F q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSNR3.correctedForce_joint_correction_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedForce_joint_correction_smooth
+'MethbokeAddon.FDSNR3.correctedForce_joint_correction_smooth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedForce_joint_correction_smooth
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_eq_of_notMem_timeSupport
+MethbokeAddon.FDSNR3.correctedVelocity_eq_of_notMem_timeSupport : ∀ (u : SingularClosure.Velocity)
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ) {t : ℝ},
+  t ∉ tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) →
+    Eq.{1} (MethbokeAddon.FDSNR3.correctedVelocity u H lam t) (u t)
+TYPE_END:MethbokeAddon.FDSNR3.correctedVelocity_eq_of_notMem_timeSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedVelocity_eq_of_notMem_timeSupport
+'MethbokeAddon.FDSNR3.correctedVelocity_eq_of_notMem_timeSupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedVelocity_eq_of_notMem_timeSupport
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedForce_eq_of_notMem_timeSupport
+MethbokeAddon.FDSNR3.correctedForce_eq_of_notMem_timeSupport : ∀ (F : SingularClosure.Velocity)
+  (J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ) {t : ℝ},
+  t ∉ tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity J lam) →
+    Eq.{1} (MethbokeAddon.FDSNR3.correctedForce F J lam t) (F t)
+TYPE_END:MethbokeAddon.FDSNR3.correctedForce_eq_of_notMem_timeSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedForce_eq_of_notMem_timeSupport
+'MethbokeAddon.FDSNR3.correctedForce_eq_of_notMem_timeSupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedForce_eq_of_notMem_timeSupport
+TYPE_BEGIN:MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz
+@MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz : ∀ {a b : ℝ}
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ) {S : Set.{0} ℝ},
+  IsCompact.{0} S →
+    S ⊆ Set.Ioo.{0} a b →
+      tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) ⊆ S →
+        MethbokeAddon.FDSNR3.CompactTemporalCorrection a b (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam)
+TYPE_END:MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz
+'MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.compactTemporalCorrection_of_jointSchwartz
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_eq_native_residual
+MethbokeAddon.FDSNR3.schwartzFamilyVelocity_eq_native_residual : ∀ (ν : ℝ) (u : SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} (J (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)) →
+    ∀ (lam : ℝ),
+      Eq.{1} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity J lam)
+        (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam))
+TYPE_END:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_eq_native_residual
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_eq_native_residual
+'MethbokeAddon.FDSNR3.schwartzFamilyVelocity_eq_native_residual' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzFamilyVelocity_eq_native_residual
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset
+MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset : ∀ (ν : ℝ) (u : SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} (J (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)) →
+    ∀ (lam : ℝ),
+      tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity J lam) ⊆
+        tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam)
+TYPE_END:MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset
+'MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzResidual_timeSupport_subset
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzResidual_zero_parameter
+MethbokeAddon.FDSNR3.schwartzResidual_zero_parameter : ∀ (ν : ℝ) (u : SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} (J (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)) →
+    (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (H (Prod.mk.{0, 0} 0 z)) 0) →
+      ∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (J (Prod.mk.{0, 0} 0 z)) 0
+TYPE_END:MethbokeAddon.FDSNR3.schwartzResidual_zero_parameter
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzResidual_zero_parameter
+'MethbokeAddon.FDSNR3.schwartzResidual_zero_parameter' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzResidual_zero_parameter
+TYPE_BEGIN:MethbokeAddon.FDSNR3.correctedForce_eq_native_residual
+MethbokeAddon.FDSNR3.correctedForce_eq_native_residual : ∀ (ν : ℝ) (u F : SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} (J (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)) →
+    ∀ (lam : ℝ),
+      Eq.{1} (MethbokeAddon.FDSNR3.correctedForce F J lam)
+        (MethbokeAddon.FDSN.residualForce ν u F (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam))
+TYPE_END:MethbokeAddon.FDSNR3.correctedForce_eq_native_residual
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.correctedForce_eq_native_residual
+'MethbokeAddon.FDSNR3.correctedForce_eq_native_residual' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.correctedForce_eq_native_residual
+TYPE_BEGIN:MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual
+MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual : ∀ (ν a b ε : ℝ) (u F : SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (S : Set.{0} ℝ),
+  IsCompact.{0} S →
+    S ⊆ Set.Ioo.{0} a b →
+      (∀ (lam : ℝ), tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) ⊆ S) →
+        (∀ (lam t : ℝ) (x : SingularClosure.Vec),
+            Eq.{1} (J (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+              (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)) →
+          MethbokeAddon.FDSNR3.CommonTemporalSupport a b ε u F (MethbokeAddon.FDSNR3.correctedVelocity u H)
+            (MethbokeAddon.FDSNR3.correctedForce F J)
+TYPE_END:MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual
+'MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.commonTemporalSupport_of_schwartz_residual
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected
+MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected : ∀ (ε : ℝ) (u F : SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (H (Prod.mk.{0, 0} 0 z)) 0) →
+    (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (J (Prod.mk.{0, 0} 0 z)) 0) →
+      MethbokeAddon.FDSNR3.WeightedSmoothSmallness ε u F (MethbokeAddon.FDSNR3.correctedVelocity u H)
+        (MethbokeAddon.FDSNR3.correctedForce F J)
+TYPE_END:MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected
+'MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedSmoothSmallness_corrected
+TYPE_BEGIN:MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual
+@MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual : ∀ {ν T a b ε : ℝ}
+  {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSNR3.Seed ν T u p F →
+    LT.lt.{0} 0 a →
+      LT.lt.{0} a b →
+        LT.lt.{0} b T →
+          ∀ (H J : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (S : Set.{0} ℝ),
+            IsCompact.{0} S →
+              S ⊆ Set.Ioo.{0} a b →
+                (∀ (lam : ℝ), tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) ⊆ S) →
+                  (∀ (lam t : ℝ) (x : SingularClosure.Vec),
+                      Eq.{1} (J (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+                        (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t
+                          x)) →
+                    (∀ (lam : ℝ),
+                        LT.lt.{0} (abs.{0} lam) ε →
+                          ∀ (t : ℝ),
+                            Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+                              ∀ (x : SingularClosure.Vec),
+                                Eq.{1} (SingularClosure.divergence (MethbokeAddon.FDSNR3.correctedVelocity u H lam t) x)
+                                  0) →
+                      (∀ (lam : ℝ),
+                          LT.lt.{0} (abs.{0} lam) ε →
+                            ∀ (t : ℝ),
+                              Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+                                MeasureTheory.Integrable.{0, 0}
+                                  (fun x =>
+                                    HPow.hPow.{0, 0, 0}
+                                      (Norm.norm.{0} (MethbokeAddon.FDSNR3.correctedVelocity u H lam t x)) 2)
+                                  MeasureTheory.MeasureSpace.volume.{0}) →
+                        (∀ (lam : ℝ),
+                            LT.lt.{0} (abs.{0} lam) ε →
+                              ∀ (t : ℝ),
+                                Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+                                  MeasureTheory.Integrable.{0, 0}
+                                    (MethbokeAddon.FDSNR3.gradientSquare
+                                      (MethbokeAddon.FDSNR3.correctedVelocity u H lam t))
+                                    MeasureTheory.MeasureSpace.volume.{0}) →
+                          MethbokeAddon.FDSNR3.EnergyDissipationPreservation T ε u
+                              (MethbokeAddon.FDSNR3.correctedVelocity u H) →
+                            MethbokeAddon.FDSNR3.ExactRealizationAndAgreement ν T a b ε u p F
+                              (MethbokeAddon.FDSNR3.correctedVelocity u H) (MethbokeAddon.FDSNR3.correctedForce F J)
+TYPE_END:MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual
+'MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.exactRealizationAndAgreement_of_schwartz_residual

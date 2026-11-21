@@ -1,0 +1,71 @@
+WFBStrictCutoff/Audit.lean:13:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrictCutoff/Audit.lean:13:18: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrictCutoff/Audit.lean:14:5: warning: Variable name `hbudget` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbudget
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrictCutoff/Audit.lean:20:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrictCutoff/Audit.lean:20:18: warning: Variable name `hcutoff` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcutoff
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrictCutoff/Audit.lean:21:5: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBStrictCutoff/Audit.lean:22:5: warning: Variable name `hbudget` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbudget
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff : ∀ (ν cutoff : ℝ)
+  (a : SingularClosure.Field) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+      MethbokeAddon.WeakFouriermanB.MaximalFourierBudgetFinite u Tmax cutoff → LT.lt.{0} (ENNReal.ofReal cutoff) Tmax
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+'MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_lifetime_strictly_exceeds_cutoff
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_exists_strictly_after_cutoff
+MethbokeAddon.WeakFouriermanB.maximal_front_exists_strictly_after_cutoff : ∀ (ν cutoff : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    LE.le.{0} 0 cutoff →
+      MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+        MethbokeAddon.WeakFouriermanB.MaximalFourierBudgetFinite u Tmax cutoff →
+          ∃ T,
+            LT.lt.{0} 0 T ∧
+              LT.lt.{0} cutoff T ∧
+                LT.lt.{0} (ENNReal.ofReal T) Tmax ∧ MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν T a u p
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_front_exists_strictly_after_cutoff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_front_exists_strictly_after_cutoff
+'MethbokeAddon.WeakFouriermanB.maximal_front_exists_strictly_after_cutoff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_front_exists_strictly_after_cutoff

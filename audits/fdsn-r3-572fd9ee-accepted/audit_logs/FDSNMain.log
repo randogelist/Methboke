@@ -1,0 +1,35 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.familyFor
+@MethbokeAddon.FDSN.Seed.familyFor : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (frame : MethbokeAddon.FDSN.HelicalFrameArray), MethbokeAddon.FDSN.FamilyFor frame ν T u p F
+TYPE_END:MethbokeAddon.FDSN.Seed.familyFor
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.familyFor
+'MethbokeAddon.FDSN.Seed.familyFor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.familyFor
+TYPE_BEGIN:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY : ∀ (ν T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure) (F : SingularClosure.Velocity),
+  MethbokeAddon.FDSN.Seed ν T u p F → MethbokeAddon.FDSN.Family ν T u p F
+TYPE_END:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+AXIOMS_BEGIN:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+'MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY
+TYPE_BEGIN:MethbokeAddon.FDSN.FDSN
+MethbokeAddon.FDSN.FDSN : ∀ (ν T : ℝ) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure)
+  (F : SingularClosure.Velocity), MethbokeAddon.FDSN.Seed ν T u p F → MethbokeAddon.FDSN.Family ν T u p F
+TYPE_END:MethbokeAddon.FDSN.FDSN
+AXIOMS_BEGIN:MethbokeAddon.FDSN.FDSN
+'MethbokeAddon.FDSN.FDSN' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.FDSN
+TYPE_BEGIN:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame
+@MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ {frame : MethbokeAddon.FDSN.HelicalFrameArray},
+      MethbokeAddon.FDSN.IsHelicalFrame frame → MethbokeAddon.FDSN.FamilyFor frame ν T u p F
+TYPE_END:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame
+AXIOMS_BEGIN:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame
+'MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_fixed_frame

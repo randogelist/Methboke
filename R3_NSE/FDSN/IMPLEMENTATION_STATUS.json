@@ -9,7 +9,7 @@
   "endpoint_assent": "User explicitly assented to R3-01 through R3-16 and requested continued work and per-endpoint acceptance signals.",
   "implementation_basis": "0a2091093b2a86d5bf8624a6332cc1d62fa49dc8",
   "b_tier_status": "COMPLETE_CONDITIONAL_LOCAL_SCHWARTZ_COMPACT_LOCAL_SEED_CONSTRUCTION",
-  "a_tier_root_status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+  "a_tier_root_status": "A_TIER_ACCEPTED_EXACT_ORIGINAL_SEED_TO_FULL_FAMILY",
   "root_statement": "forall nu T u p F, Seed nu T u p F -> Family nu T u p F",
   "local_lean_executions": 0,
   "compiler": "leanprover/lean4:v4.33.0",
@@ -24,88 +24,229 @@
       "id": "R3-01",
       "scope": "Exact whole-space Seed and Family contracts",
       "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
-      "accepted_source": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
-      "run_id": 44831894933,
-      "evidence": "audits/fdsn-r3-4d00e260-accepted/summary.json"
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "prior_accepted_scope": {
+        "id": "R3-01",
+        "scope": "Exact whole-space Seed and Family contracts",
+        "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+        "accepted_source": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "run_id": 44831894933,
+        "evidence": "audits/fdsn-r3-4d00e260-accepted/summary.json"
+      },
+      "primary_audit_packages": [
+        "FDSNR3Contracts"
+      ]
     },
     {
       "id": "R3-02",
       "scope": "Compact-carrier admission to local Schwartz regularity",
       "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
-      "accepted_source": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
-      "run_id": 44831894933,
-      "evidence": "audits/fdsn-r3-4d00e260-accepted/summary.json"
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "prior_accepted_scope": {
+        "id": "R3-02",
+        "scope": "Compact-carrier admission to local Schwartz regularity",
+        "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+        "accepted_source": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "run_id": 44831894933,
+        "evidence": "audits/fdsn-r3-4d00e260-accepted/summary.json"
+      },
+      "primary_audit_packages": [
+        "FDSNR3CompactSchwartz"
+      ]
     },
     {
       "id": "R3-03",
       "scope": "Actual Fourier inversion, conjugacy, divergence, translation and Plancherel",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3Fourier"
+      ]
     },
     {
       "id": "R3-04",
       "scope": "Intrinsic helical projector algebra and fixed-frame scalar powers",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3Helical",
+        "FDSNR3HelicalFrame"
+      ]
     },
     {
       "id": "R3-05",
       "scope": "Nonzero continuous Fourier region after any regular cutoff",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3NonzeroPatch",
+        "FDSNR3SliceSchwartz"
+      ]
     },
     {
       "id": "R3-06",
       "scope": "Separated active and untouched frequency regions and odd cutoff",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3FrequencyCutoff"
+      ]
     },
     {
       "id": "R3-07",
       "scope": "Normalized compact interior time bump",
-      "status": "ACCEPTED_REUSED_EXACT_SCOPE"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "prior_accepted_scope": {
+        "id": "R3-07",
+        "scope": "Normalized compact interior time bump",
+        "status": "ACCEPTED_REUSED_EXACT_SCOPE"
+      },
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNBump",
+        "FDSNR3CrossingTimePhase"
+      ]
     },
     {
       "id": "R3-08",
       "scope": "Actual phase family and joint Schwartz regularity",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3CompactFrequencyInverse",
+        "FDSNR3ForwardFourierSmooth",
+        "FDSNR3JointPacket",
+        "FDSNR3ParametricFourier",
+        "FDSNR3PhysicalFamily"
+      ]
     },
     {
       "id": "R3-09",
       "scope": "Reality, divergence freedom and low-frequency preservation",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3Fourier",
+        "FDSNR3FrequencyCutoff",
+        "FDSNR3PhysicalFamily",
+        "FDSNR3SchwartzPhase"
+      ]
     },
     {
       "id": "R3-10",
       "scope": "Complete helical powers, energy, gradient norm and time-integrated dissipation preservation",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3HelicalFrame",
+        "FDSNR3PhysicalFamily",
+        "FDSNR3Realization",
+        "FDSNR3SchwartzPhase"
+      ]
     },
     {
       "id": "R3-11",
       "scope": "Exact same-pressure residual identity",
-      "status": "ACCEPTED_REUSED_EXACT_SCOPE"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "prior_accepted_scope": {
+        "id": "R3-11",
+        "scope": "Exact same-pressure residual identity",
+        "status": "ACCEPTED_REUSED_EXACT_SCOPE"
+      },
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3CorrectionAdmission",
+        "FDSNR3Realization",
+        "FDSNR3ResidualSchwartz",
+        "FDSNResidualForce"
+      ]
     },
     {
       "id": "R3-12",
       "scope": "Global rapid-decay force admission and smooth zero extension",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3CorrectionAdmission",
+        "FDSNR3LocalizedSeed",
+        "FDSNR3Realization",
+        "FDSNR3ResidualSchwartz"
+      ]
     },
     {
       "id": "R3-13",
       "scope": "Common-time separation modulo every spatial translation",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3Fourier",
+        "FDSNR3PhysicalFamily",
+        "FDSNR3TranslationRigidity"
+      ]
     },
     {
       "id": "R3-14",
       "scope": "Physical Leray-projected force separation",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
-      "proof_method": "Signed time-phase zero crossing; actual nonzero real solenoidal Schwartz generator; physical Leray fixes the force difference."
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "proof_method": "Signed time-phase zero crossing; actual nonzero real solenoidal Schwartz generator; physical Leray fixes the force difference.",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3CrossingDerivative",
+        "FDSNR3CrossingTimePhase",
+        "FDSNR3ForceSeparation",
+        "FDSNR3SpectralGenerator"
+      ]
     },
     {
       "id": "R3-15",
       "scope": "All finite-order weighted O(parameter) estimates",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3CorrectionAdmission",
+        "FDSNR3SchwartzJets"
+      ]
     },
     {
       "id": "R3-16",
       "scope": "Canonical same-witness FDSN_R3 root",
-      "status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION"
+      "status": "A_TIER_ACCEPTED_EXACT_SCOPE",
+      "accepted_source": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "run_id": 44848985720,
+      "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+      "primary_audit_packages": [
+        "FDSNR3Main"
+      ]
     }
   ],
   "stage_1": {
@@ -152,7 +293,7 @@
     "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
     "Definition/consumer checks do not construct a family."
   ],
-  "next": "Make the independent Fourier consumer Schwartz-map type explicit, then obtain all 137 fresh package audits / 1320 named type-axiom reports, the original cutout and final external acceptance/publication.",
+  "next": "The user-selected FDSN_R3 local target is complete through all sixteen assented endpoints. No further local target is adopted; Fefferman_D remains the project goal.",
   "failed_attempts": [
     {
       "status": "FAILED_NO_NEW_ACCEPTANCE",
@@ -609,7 +750,7 @@
     }
   ],
   "stage_2": {
-    "status": "PREPARED_WITH_FIXED_FRAME_SCOPE_COMPLETION",
+    "status": "A_TIER_ACCEPTED_EXACT_SCOPES",
     "source_basis": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
     "sources": [
       "MethbokeAddon.FDSNR3.Fourier",
@@ -624,12 +765,15 @@
     "new_declarations": 132,
     "all_packages": 121,
     "all_declarations": 1031,
-    "new_acceptance_claimed": false,
+    "new_acceptance_claimed": true,
     "previous_failed_run": 44835804706,
-    "repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged.",
     "source_compiler_commit": "8b49f5c0ad53563964c5647809e3b273d125905c",
     "source_compiler_run": 44842918759,
-    "source_compiler_scope": "The six original stage2 sources and the independent HelicalFrame source compiled in run44842918759 at8b49f5c0. This source compilation alone is not fresh type/axiom acceptance."
+    "source_compiler_scope": "The six original stage2 sources and the independent HelicalFrame source compiled in run44842918759 at8b49f5c0. This source compilation alone is not fresh type/axiom acceptance.",
+    "source_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+    "run_id": 44848985720,
+    "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+    "historical_preacceptance_repair_scope": "Correct the point-then-vector binder order in spatialSliceAffine; apply the same proved API correction to the prepared parametric and partial-Fourier affine maps. All theorem statements and consumers are unchanged."
   },
   "accepted_evidence": {
     "stage_1": {
@@ -708,6 +852,156 @@
       "fdsn_r3_root_proved": false,
       "seed_existence_proved": false,
       "local_lean_executions": 0
+    },
+    "full_chain": {
+      "schema_version": 2,
+      "status": "A_TIER_ACCEPTED_EXACT_FDSN_R3_ROOT_AND_ALL_16_ENDPOINTS",
+      "repository": "randogelist/Methboke",
+      "branch": "main",
+      "source_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+      "source_tree_git_sha1": "d5b0e6baa53c68c2d4c97e4f2f0843b76047eb07",
+      "run_id": 44848985720,
+      "run_url": "https://github.com/randogelist/Methboke/actions/runs/44848985720",
+      "artifact_id": 14684049987,
+      "artifact_bytes": 400034,
+      "artifact_sha256": "320d05ae62963c329de38c4c570abef1a5e947e98dfe32ad2e3be43e78f76243",
+      "artifact_download_and_hash_verified": true,
+      "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+      "toolchain": "leanprover/lean4:v4.33.0",
+      "mathlib": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "source_pin_integrity": true,
+      "fresh_required_audits": true,
+      "metrics": {
+        "audit_fresh_count": 137,
+        "audit_reused_count": 0,
+        "audit_seconds": 342.931,
+        "build_seconds": 153.323,
+        "cache_seconds": 9.97,
+        "fresh_loc": 5805,
+        "fresh_module_count": 46,
+        "module_count": 548,
+        "rerun_receipt_seconds": 0.361,
+        "reused_loc": 57006,
+        "reused_module_count": 502,
+        "target_loc": 62811
+      },
+      "all_packages": 137,
+      "all_declarations": 1320,
+      "passed_modules": 548,
+      "r3_packages": 26,
+      "r3_named_declarations": 493,
+      "new_packages": 23,
+      "new_declarations": 421,
+      "prior_r3_accepted_declarations": 72,
+      "reused_helper_packages": 2,
+      "reused_helper_declarations": 10,
+      "accepted_endpoint_ids": [
+        "R3-01",
+        "R3-02",
+        "R3-03",
+        "R3-04",
+        "R3-05",
+        "R3-06",
+        "R3-07",
+        "R3-08",
+        "R3-09",
+        "R3-10",
+        "R3-11",
+        "R3-12",
+        "R3-13",
+        "R3-14",
+        "R3-15",
+        "R3-16"
+      ],
+      "accepted_scopes": {
+        "R3-01": "Exact whole-space Seed and Family contracts",
+        "R3-02": "Compact-carrier admission to local Schwartz regularity",
+        "R3-03": "Actual Fourier inversion, conjugacy, divergence, translation and Plancherel",
+        "R3-04": "Intrinsic helical projector algebra and fixed-frame scalar powers",
+        "R3-05": "Nonzero continuous Fourier region after any regular cutoff",
+        "R3-06": "Separated active and untouched frequency regions and odd cutoff",
+        "R3-07": "Normalized compact interior time bump",
+        "R3-08": "Actual phase family and joint Schwartz regularity",
+        "R3-09": "Reality, divergence freedom and low-frequency preservation",
+        "R3-10": "Complete helical powers, energy, gradient norm and time-integrated dissipation preservation",
+        "R3-11": "Exact same-pressure residual identity",
+        "R3-12": "Global rapid-decay force admission and smooth zero extension",
+        "R3-13": "Common-time separation modulo every spatial translation",
+        "R3-14": "Physical Leray-projected force separation",
+        "R3-15": "All finite-order weighted O(parameter) estimates",
+        "R3-16": "Canonical same-witness FDSN_R3 root"
+      },
+      "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
+      "exact_root_type": "@MethbokeAddon.FDSNR3.FDSN_R3 : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n  MethbokeAddon.FDSNR3.Seed ν T u p F → MethbokeAddon.FDSNR3.Family ν T u p F",
+      "root_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+      "fdsn_r3_root_proved": true,
+      "seed_existence_proved": false,
+      "original_seed_and_family_unchanged": true,
+      "allowed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "observed_axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "unapproved_axioms": [],
+      "complete_type_axiom_sentinels": true,
+      "all_audits_fresh_at_tested_commit": true,
+      "cutout": {
+        "audit_log": "registry/logs/cutouts-audit.log",
+        "audit_origin_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+        "audit_reused": false,
+        "audit_sha256": "256ff6ec53da11d10e85943715481629444de75f37794a5ecb86015ea42c581d",
+        "axioms": {
+          "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": [
+            "Classical.choice",
+            "Quot.sound",
+            "propext"
+          ]
+        },
+        "seconds": 4.276,
+        "source_sha256": "b67344ddb9e509d7224b529bcd1022181360b973a17602aca8a66d4cdc273f7b",
+        "status": "PASS",
+        "types": {
+          "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED": "QuasiFeffermanB.QUASI_FEFFERMAN_B_COMPOSED : QuasiFeffermanB.QuasiFeffermanBStatement"
+        }
+      },
+      "prior_acceptance_comparison": {
+        "performed": true,
+        "commit": "4d00e260e82368b9d9abbec7e14ce32844f8f7dc",
+        "packages": 114,
+        "declarations": 899,
+        "all_type_axiom_maps_unchanged": true,
+        "cutout_unchanged": true,
+        "external_objects_digest_unchanged": true
+      },
+      "workflow_conclusion": "success",
+      "fast_job_id": 136675579227,
+      "passed_cache_publication": true,
+      "worker_publication_evidence": "worker-publication-outcomes.json",
+      "final_acceptance_job": {
+        "id": 136679598135,
+        "name": "Material accepted",
+        "conclusion": "success"
+      },
+      "observed_at_utc": "2026-11-21 01:27:33 UTC",
+      "independent_review": "external-evidence-review.json",
+      "endpoint_evidence_map": "FDSN_R3_ENDPOINT_EVIDENCE_MAP.json",
+      "complete_evidence_archive": "evidence.zip",
+      "frozen_verification_inputs_note": "Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.",
+      "local_lean_executions": 0,
+      "binary_object_bytes_rehashed_locally": false,
+      "project_goal": "Fefferman_D",
+      "local_target": "FDSN_R3",
+      "local_target_complete": true
     }
   },
   "b_tier_version": "1.1",
@@ -715,7 +1009,7 @@
   "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
   "root_source": "Material/MethbokeAddon/FDSNR3/Main.lean",
   "stage_3": {
-    "status": "FULL_CHAIN_COMPILED_AUDIT_REPAIR_PREPARED",
+    "status": "A_TIER_ACCEPTED_COMPLETE_ORIGINAL_SEED_TO_FAMILY_CHAIN",
     "source_basis": "0f68d4a1af6328f8160a5c6e438fd748d3f61d53",
     "sources": [
       "MethbokeAddon.FDSNR3.SchwartzPhase",
@@ -739,25 +1033,73 @@
     "new_declarations": 289,
     "all_packages": 137,
     "all_declarations": 1320,
-    "pending_stage_2_and_3_declarations": 421,
+    "pending_stage_2_and_3_declarations": 0,
     "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
     "root_premise": "Original Seed nu T u p F only; all spectral, multiplier, regularity, force and separation witnesses constructed.",
     "independent_root_consumers": [
       "Exact Seed-to-Family implication",
       "Fully expanded quantified Family conclusion, actual native PDE/force fields and weighted iterated derivatives"
     ],
-    "new_acceptance_claimed": false,
+    "new_acceptance_claimed": true,
     "local_lean_executions": 0,
     "previous_failed_run": 44847910880,
-    "repair_scope": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
-    "latest_source_compiler_progress": "Run 44847910880 at 7dd6dba6 compiled all 548 modules, including the original Seed-to-Family root and wrappers. The report records 55 fresh passing endpoint audits covering 571 declarations; CrossingTimePhase now passes. FDSNR3Fourier/Audit.lean lines 25–26 then fail because an omitted intermediate Schwartz-map type selects an unavailable FourierTransform instance. Complete audits, cutout and final acceptance/publication remain pending; no new A-tier acceptance.",
-    "root_source_compiler_pass": true
+    "latest_source_compiler_progress": "All 548 module receipts, 137 fresh package audits, 1320 named reports and the original cutout passed at the exact accepted source; final acceptance and publication succeeded.",
+    "root_source_compiler_pass": true,
+    "source_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+    "run_id": 44848985720,
+    "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+    "historical_preacceptance_repair_scope": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
+    "root_proved": true
   },
   "scope_completion": {
-    "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",
+    "status": "A_TIER_ACCEPTED_EXACT_SCOPES",
     "description": "Three declarations derive the projector coefficient and scalar-power identities in any ordinary orthonormal curl eigenframe, as originally requested by R3-04. One declaration and literal double-integral consumer expose the exact time-integrated dissipation consequence for R3-10. These are derived conclusions, with no new premise on Seed or Family.",
     "added_named_declarations": 4,
     "seed_and_family_unchanged": true,
-    "new_acceptance_claimed": false
-  }
+    "new_acceptance_claimed": true,
+    "source_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+    "run_id": 44848985720,
+    "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json"
+  },
+  "root_proved": true,
+  "seed_existence_proved": false,
+  "local_target_complete": true,
+  "current_acceptance": {
+    "status": "A_TIER_ACCEPTED_EXACT_FDSN_R3_ROOT_AND_ALL_16_ENDPOINTS",
+    "tested_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+    "run_id": 44848985720,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44848985720",
+    "final_acceptance": "success",
+    "final_acceptance_job": 136679598135,
+    "workflow_conclusion": "success",
+    "artifact_id": 14684049987,
+    "artifact_sha256": "320d05ae62963c329de38c4c570abef1a5e947e98dfe32ad2e3be43e78f76243",
+    "artifact_download_and_hash_verified": true,
+    "accepted_named_declarations": 421,
+    "all_r3_named_declarations": 493,
+    "all_required_fresh_named_audits": 1320,
+    "all_required_packages": 137,
+    "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+    "toolchain": "leanprover/lean4:v4.33.0",
+    "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+    "allowed_axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "local_lean_executions": 0,
+    "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
+    "root_proved": true,
+    "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+    "seed_existence_proved": false,
+    "passed_modules": 548,
+    "reused_modules": 502,
+    "fresh_modules": 46,
+    "fresh_audit_files": 137,
+    "reused_audit_files": 0,
+    "fresh_cutout": "PASS",
+    "passed_cache_publication": true,
+    "record_role": "LATEST_MATCHING_ACCEPTED_MATERIAL_VERIFICATION"
+  },
+  "frozen_verification_inputs_note": "Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit."
 }

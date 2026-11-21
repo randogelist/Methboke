@@ -1,0 +1,34 @@
+WFBWFBRootAssembly/Audit.lean:13:5: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBWFBRootAssembly/Audit.lean:13:18: warning: Variable name `H` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _H
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBWFBRootAssembly/Audit.lean:14:5: warning: Variable name `hcut` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hcut
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_global_of_strict_cutoff
+MethbokeAddon.WeakFouriermanB.maximal_classical_front_global_of_strict_cutoff : ∀ (ν : ℝ) (a : SingularClosure.Field)
+  (u : SingularClosure.Velocity) (p : SingularClosure.Pressure) (Tmax : ℝ≥0∞),
+  LT.lt.{0} 0 ν →
+    MethbokeAddon.WeakFouriermanB.MaximalClassicalFront ν a u p Tmax →
+      LT.lt.{0} (ENNReal.ofReal (QuasiFeffermanB.cutoff (SingularClosure.criticalL2Representative.{0} a) ν)) Tmax →
+        Eq.{1} Tmax ∞ ∧
+          ∃ U P,
+            SingularClosure.GlobalSmoothNSE ν a U P ∧
+              ∀ (t : ℝ), LE.le.{0} 0 t → LT.lt.{0} (ENNReal.ofReal t) Tmax → Eq.{1} (U t) (u t) ∧ Eq.{1} (P t) (p t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_global_of_strict_cutoff
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.maximal_classical_front_global_of_strict_cutoff
+'MethbokeAddon.WeakFouriermanB.maximal_classical_front_global_of_strict_cutoff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.maximal_classical_front_global_of_strict_cutoff

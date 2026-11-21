@@ -1,0 +1,42 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat
+MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat : ∀ (n : ℕ) (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+      ContDiffOn.{0, 0, 0} ℝ (↑n) (fun t => SingularClosure.datumFourierCoeff (u t) k i) (Set.Ioo.{0} 0 T)
+TYPE_END:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat
+AXIOMS_BEGIN:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat
+'MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn_nat
+TYPE_BEGIN:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn
+MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun t => SingularClosure.datumFourierCoeff (u t) k i) (Set.Ioo.{0} 0 T)
+TYPE_END:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn
+'MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.local_fourierCoeff_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn
+@MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun t => SingularClosure.datumFourierCoeff (u t) k i) (Set.Ioo.{0} 0 T)
+TYPE_END:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn
+'MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc
+@MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc : ∀ {ν T a b : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    LT.lt.{0} 0 a →
+      LT.lt.{0} b T →
+        ∀ (k : SingularClosure.Frequency) (i : Fin 3),
+          ContDiffOn.{0, 0, 0} ℝ ∞ (fun t => SingularClosure.datumFourierCoeff (u t) k i) (Set.Icc.{0} a b)
+TYPE_END:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc
+'MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.fourierCoeff_contDiffOn_Icc

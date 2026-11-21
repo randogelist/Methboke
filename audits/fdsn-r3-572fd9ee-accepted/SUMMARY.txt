@@ -1,0 +1,20 @@
+LATEST FDSN_R3 ACCEPTANCE
+SOURCE: 572fd9ee69a6b641f435cbfb2ef74e034809c583; RUN: 44848985720.
+ROOT: MethbokeAddon.FDSNR3.FDSN_R3; original Seed ν T u p F -> full Family ν T u p F.
+All R3-01 through R3-16 exact scopes accepted. The same constructed velocity
+and force families, with the original pressure, satisfy every clause;
+Seed existence remains unproved.
+Coverage: 548 modules; 137 fresh package audits; 1320 named type/axiom reports
+plus the original QFB cutout. R3: 26 packages / 493 declarations, including
+421 newly accepted declarations beyond the 72 accepted foundations.
+Compiler: Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Axioms: propext, Classical.choice, Quot.sound only. Publication and final
+Material accepted job 136679598135: PASS. Local Lean executions: ZERO.
+EVIDENCE: audits/fdsn-r3-572fd9ee-accepted/summary.json.
+Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+Local target completed; project goal remains Fefferman_D. No new target adopted.
+
+EXACT EXTERNAL ROOT TYPE
+@MethbokeAddon.FDSNR3.FDSN_R3 : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSNR3.Seed ν T u p F → MethbokeAddon.FDSNR3.Family ν T u p F

@@ -1,0 +1,319 @@
+FDSNR3ParametricFourier/Audit.lean:61:64: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ParametricFourier/Audit.lean:61:64: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ParametricFourier/Audit.lean:65:69: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ParametricFourier/Audit.lean:65:69: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ParametricFourier/Audit.lean:69:67: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ParametricFourier/Audit.lean:69:67: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ParametricFourier/Audit.lean:119:59: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated
+@MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated.{u_1, u_2,
+    u_3} : ∀ {P : Type u_1} {E : Type u_2} {A : Type u_3} [inst : NormedAddCommGroup.{u_1} P]
+  [inst_1 : NormedSpace.{0, u_1} ℝ P] [inst_2 : NormedAddCommGroup.{u_2} E] [inst_3 : NormedSpace.{0, u_2} ℝ E]
+  [CompleteSpace.{u_2} E] [inst_5 : MeasurableSpace.{u_3} A] {μ : MeasureTheory.Measure.{u_3} A} {F : P → A → E}
+  {p : A → P → FormalMultilinearSeries.{0, u_1, u_2} ℝ P E} {s : Set.{u_1} P},
+  IsOpen.{u_1} s →
+    (∀ (a : A), HasFTaylorSeriesUpToOn.{0, u_1, u_2} ∞ (fun q => F q a) (p a) s) →
+      (∀ (n : ℕ) (q : P),
+          Membership.mem.{u_1, u_1} s q → MeasureTheory.AEStronglyMeasurable.{u_3, max u_1 u_2} (fun a => p a q n) μ) →
+        (∀ (n : ℕ),
+            ∃ B,
+              MeasureTheory.Integrable.{0, u_3} B μ ∧
+                ∀ (a : A) (q : P),
+                  Membership.mem.{u_1, u_1} s q → LE.le.{0} (Norm.norm.{max u_1 u_2} (p a q n)) (B a)) →
+          HasFTaylorSeriesUpToOn.{0, u_1, u_2} ∞ (fun q => ∫ (a : A), F q a ∂μ) (fun q n => ∫ (a : A), p a q n ∂μ) s
+TYPE_END:MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated
+'MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.integral_hasFTaylorSeriesUpToOn_of_dominated
+TYPE_BEGIN:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_iteratedFDerivWithin
+@MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_iteratedFDerivWithin.{u_1, u_2,
+    u_3} : ∀ {P : Type u_1} {E : Type u_2} {A : Type u_3} [inst : NormedAddCommGroup.{u_1} P]
+  [inst_1 : NormedSpace.{0, u_1} ℝ P] [inst_2 : NormedAddCommGroup.{u_2} E] [inst_3 : NormedSpace.{0, u_2} ℝ E]
+  [CompleteSpace.{u_2} E] [inst_5 : MeasurableSpace.{u_3} A] {μ : MeasureTheory.Measure.{u_3} A} {F : P → A → E}
+  {s : Set.{u_1} P},
+  IsOpen.{u_1} s →
+    (∀ (a : A), ContDiffOn.{0, u_1, u_2} ℝ ∞ (fun q => F q a) s) →
+      (∀ (n : ℕ) (q : P),
+          Membership.mem.{u_1, u_1} s q →
+            MeasureTheory.AEStronglyMeasurable.{u_3, max u_2 u_1}
+              (fun a => iteratedFDerivWithin.{0, u_1, u_2} ℝ n (fun y => F y a) s q) μ) →
+        (∀ (n : ℕ),
+            ∃ B,
+              MeasureTheory.Integrable.{0, u_3} B μ ∧
+                ∀ (a : A) (q : P),
+                  Membership.mem.{u_1, u_1} s q →
+                    LE.le.{0} (Norm.norm.{max u_2 u_1} (iteratedFDerivWithin.{0, u_1, u_2} ℝ n (fun y => F y a) s q))
+                      (B a)) →
+          ContDiffOn.{0, u_1, u_2} ℝ ∞ (fun q => ∫ (a : A), F q a ∂μ) s
+TYPE_END:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_iteratedFDerivWithin
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_iteratedFDerivWithin
+'MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_iteratedFDerivWithin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_iteratedFDerivWithin
+TYPE_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionCLM
+MethbokeAddon.FDSNR3.parameterInclusionCLM.{u_1,
+  u_2} : (P : Type u_1) →
+  (X : Type u_2) →
+    [inst : NormedAddCommGroup.{u_1} P] →
+      [inst_1 : NormedSpace.{0, u_1} ℝ P] →
+        [inst_2 : NormedAddCommGroup.{u_2} X] →
+          [inst_3 : NormedSpace.{0, u_2} ℝ X] →
+            ContinuousLinearMap.{0, 0, u_1, max u_2 u_1} (RingHom.id.{0} ℝ) P (Prod.{u_1, u_2} P X)
+TYPE_END:MethbokeAddon.FDSNR3.parameterInclusionCLM
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionCLM
+'MethbokeAddon.FDSNR3.parameterInclusionCLM' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.parameterInclusionCLM
+TYPE_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine
+MethbokeAddon.FDSNR3.parameterInclusionAffine.{u_1,
+  u_2} : (P : Type u_1) →
+  (X : Type u_2) →
+    [inst : NormedAddCommGroup.{u_1} P] →
+      [inst_1 : NormedSpace.{0, u_1} ℝ P] →
+        [inst_2 : NormedAddCommGroup.{u_2} X] →
+          [inst_3 : NormedSpace.{0, u_2} ℝ X] →
+            X → ContinuousAffineMap.{0, u_1, max u_1 u_2, u_1, max u_2 u_1} ℝ P (Prod.{u_1, u_2} P X)
+TYPE_END:MethbokeAddon.FDSNR3.parameterInclusionAffine
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine
+'MethbokeAddon.FDSNR3.parameterInclusionAffine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.parameterInclusionAffine
+TYPE_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine_apply
+MethbokeAddon.FDSNR3.parameterInclusionAffine_apply.{u_1,
+  u_2} : ∀ (P : Type u_1) (X : Type u_2) [inst : NormedAddCommGroup.{u_1} P] [inst_1 : NormedSpace.{0, u_1} ℝ P]
+  [inst_2 : NormedAddCommGroup.{u_2} X] [inst_3 : NormedSpace.{0, u_2} ℝ X] (x : X) (q : P),
+  Eq.{max (u_1 + 1) (u_2 + 1)} ((MethbokeAddon.FDSNR3.parameterInclusionAffine.{u_1, u_2} P X x) q)
+    (Prod.mk.{u_1, u_2} q x)
+TYPE_END:MethbokeAddon.FDSNR3.parameterInclusionAffine_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine_apply
+'MethbokeAddon.FDSNR3.parameterInclusionAffine_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.parameterInclusionAffine_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine_contLinear
+MethbokeAddon.FDSNR3.parameterInclusionAffine_contLinear.{u_1,
+  u_2} : ∀ (P : Type u_1) (X : Type u_2) [inst : NormedAddCommGroup.{u_1} P] [inst_1 : NormedSpace.{0, u_1} ℝ P]
+  [inst_2 : NormedAddCommGroup.{u_2} X] [inst_3 : NormedSpace.{0, u_2} ℝ X] (x : X),
+  Eq.{max (u_1 + 1) (u_2 + 1)}
+    (ContinuousAffineMap.contLinear.{0, u_1, max u_1 u_2, u_1, max u_1 u_2}
+      (MethbokeAddon.FDSNR3.parameterInclusionAffine.{u_1, u_2} P X x))
+    (MethbokeAddon.FDSNR3.parameterInclusionCLM.{u_1, u_2} P X)
+TYPE_END:MethbokeAddon.FDSNR3.parameterInclusionAffine_contLinear
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine_contLinear
+'MethbokeAddon.FDSNR3.parameterInclusionAffine_contLinear' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.parameterInclusionAffine_contLinear
+TYPE_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine_preimage
+MethbokeAddon.FDSNR3.parameterInclusionAffine_preimage.{u_1,
+  u_2} : ∀ (P : Type u_1) (X : Type u_2) [inst : NormedAddCommGroup.{u_1} P] [inst_1 : NormedSpace.{0, u_1} ℝ P]
+  [inst_2 : NormedAddCommGroup.{u_2} X] [inst_3 : NormedSpace.{0, u_2} ℝ X] (x : X) (s : Set.{u_1} P),
+  Eq.{u_1 + 1}
+    (Set.preimage.{u_1, max u_1 u_2} (⇑(MethbokeAddon.FDSNR3.parameterInclusionAffine.{u_1, u_2} P X x))
+      (SProd.sprod.{u_1, u_2, max u_1 u_2} s Set.univ.{u_2}))
+    s
+TYPE_END:MethbokeAddon.FDSNR3.parameterInclusionAffine_preimage
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.parameterInclusionAffine_preimage
+'MethbokeAddon.FDSNR3.parameterInclusionAffine_preimage' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.parameterInclusionAffine_preimage
+TYPE_BEGIN:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets
+@MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets.{u_1, u_2,
+    u_3} : ∀ {P : Type u_1} {X : Type u_2} [inst : NormedAddCommGroup.{u_1} P] [inst_1 : NormedSpace.{0, u_1} ℝ P]
+  [inst_2 : NormedAddCommGroup.{u_2} X] [inst_3 : NormedSpace.{0, u_2} ℝ X] {E : Type u_3}
+  [inst_4 : NormedAddCommGroup.{u_3} E] [inst_5 : NormedSpace.{0, u_3} ℝ E] [CompleteSpace.{u_3} E]
+  [inst_7 : MeasurableSpace.{u_2} X] [BorelSpace.{u_2} X] [SecondCountableTopology.{u_2} X]
+  {μ : MeasureTheory.Measure.{u_2} X} {F : Prod.{u_1, u_2} P X → E} {s : Set.{u_1} P},
+  IsOpen.{u_1} s →
+    ContDiffOn.{0, max u_1 u_2, u_3} ℝ ∞ F (SProd.sprod.{u_1, u_2, max u_1 u_2} s Set.univ.{u_2}) →
+      (∀ (n : ℕ),
+          ∃ B,
+            MeasureTheory.Integrable.{0, u_2} B μ ∧
+              ∀ (q : P),
+                Membership.mem.{u_1, u_1} s q →
+                  ∀ (x : X),
+                    LE.le.{0}
+                      (Norm.norm.{max u_3 u_1 u_2}
+                        (iteratedFDerivWithin.{0, max u_1 u_2, u_3} ℝ n F
+                          (SProd.sprod.{u_1, u_2, max u_1 u_2} s Set.univ.{u_2}) (Prod.mk.{u_1, u_2} q x)))
+                      (B x)) →
+        ContDiffOn.{0, u_1, u_3} ℝ ∞ (fun q => ∫ (x : X), F (Prod.mk.{u_1, u_2} q x) ∂μ) s
+TYPE_END:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets
+'MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.contDiffOn_integral_of_dominated_joint_jets
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_jet_decay
+@MethbokeAddon.FDSNR3.LocalSchwartz.uniform_jet_decay : ∀ {T b : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      ∀ (N n : ℕ),
+        ∃ C,
+          LE.le.{0} 0 C ∧
+            ∀ (t : ℝ),
+              Membership.mem.{0, 0} (Set.Icc.{0} 0 b) t →
+                ∀ (x : SingularClosure.Vec),
+                  LE.le.{0}
+                    (Norm.norm.{0}
+                      (iteratedFDerivWithin.{0, 0, 0} ℝ n (fun z => u z.1 z.2)
+                        (MethbokeAddon.FDSNR3.preterminalSpacetime T) (Prod.mk.{0, 0} t x)))
+                    (HMul.hMul.{0, 0, 0} C
+                      (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} x)) (Neg.neg.{0} ↑N)))
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_jet_decay
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_jet_decay
+'MethbokeAddon.FDSNR3.LocalSchwartz.uniform_jet_decay' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_jet_decay
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuousOn_fourierVelocity_slab
+@MethbokeAddon.FDSNR3.LocalSchwartz.continuousOn_fourierVelocity_slab : ∀ {T b : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      ContinuousOn.{0, 0} (fun q => MethbokeAddon.FDSNR3.fourierVelocity (u q.1) q.2)
+        (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Icc.{0} 0 b) q.1)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuousOn_fourierVelocity_slab
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuousOn_fourierVelocity_slab
+'MethbokeAddon.FDSNR3.LocalSchwartz.continuousOn_fourierVelocity_slab' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuousOn_fourierVelocity_slab
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourierVelocity
+@MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourierVelocity : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      ∀ (ξ : SingularClosure.Vec),
+        ContinuousAt.{0, 0} (fun q => MethbokeAddon.FDSNR3.fourierVelocity (u q.1) q.2) (Prod.mk.{0, 0} t ξ)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourierVelocity
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourierVelocity
+'MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourierVelocity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourierVelocity
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourier_time
+@MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourier_time : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      ∀ (ξ : SingularClosure.Vec), ContinuousAt.{0, 0} (fun r => MethbokeAddon.FDSNR3.fourierVelocity (u r) ξ) t
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourier_time
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourier_time
+'MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourier_time' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuousAt_fourier_time
+TYPE_BEGIN:MethbokeAddon.FDSNR3.preterminalSpacetime_mem_nhds
+@MethbokeAddon.FDSNR3.preterminalSpacetime_mem_nhds : ∀ {T t : ℝ},
+  Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+    ∀ (x : SingularClosure.Vec),
+      Membership.mem.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+TYPE_END:MethbokeAddon.FDSNR3.preterminalSpacetime_mem_nhds
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.preterminalSpacetime_mem_nhds
+'MethbokeAddon.FDSNR3.preterminalSpacetime_mem_nhds' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.preterminalSpacetime_mem_nhds
+TYPE_BEGIN:MethbokeAddon.FDSNR3.preterminal_hasDerivAt_time_joint
+@MethbokeAddon.FDSNR3.preterminal_hasDerivAt_time_joint : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T) →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      ∀ (x : SingularClosure.Vec),
+        HasDerivAt.{0, 0} (fun r => u r x)
+          ((fderivWithin.{0, 0, 0} ℝ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+              (Prod.mk.{0, 0} t x))
+            (Prod.mk.{0, 0} 1 0))
+          t
+TYPE_END:MethbokeAddon.FDSNR3.preterminal_hasDerivAt_time_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.preterminal_hasDerivAt_time_joint
+'MethbokeAddon.FDSNR3.preterminal_hasDerivAt_time_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.preterminal_hasDerivAt_time_joint
+TYPE_BEGIN:MethbokeAddon.FDSNR3.preterminal_timeDerivative_eq_joint
+@MethbokeAddon.FDSNR3.preterminal_timeDerivative_eq_joint : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T) →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      ∀ (x : SingularClosure.Vec),
+        Eq.{1} (SingularClosure.timeDerivative u t x)
+          ((fderivWithin.{0, 0, 0} ℝ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+              (Prod.mk.{0, 0} t x))
+            (Prod.mk.{0, 0} 1 0))
+TYPE_END:MethbokeAddon.FDSNR3.preterminal_timeDerivative_eq_joint
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.preterminal_timeDerivative_eq_joint
+'MethbokeAddon.FDSNR3.preterminal_timeDerivative_eq_joint' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.preterminal_timeDerivative_eq_joint
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_time
+@MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_time : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      ∀ (x : SingularClosure.Vec), HasDerivAt.{0, 0} (fun r => u r x) (SingularClosure.timeDerivative u t x) t
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_time
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_time
+'MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_time' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_time
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuous_timeDerivative_slice
+@MethbokeAddon.FDSNR3.LocalSchwartz.continuous_timeDerivative_slice : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → Continuous.{0, 0} (SingularClosure.timeDerivative u t)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuous_timeDerivative_slice
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.continuous_timeDerivative_slice
+'MethbokeAddon.FDSNR3.LocalSchwartz.continuous_timeDerivative_slice' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.continuous_timeDerivative_slice
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_timeDerivative_decay
+@MethbokeAddon.FDSNR3.LocalSchwartz.uniform_timeDerivative_decay : ∀ {T b : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      ∀ (N : ℕ),
+        ∃ C,
+          LE.le.{0} 0 C ∧
+            ∀ (t : ℝ),
+              Membership.mem.{0, 0} (Set.Ioo.{0} 0 b) t →
+                ∀ (x : SingularClosure.Vec),
+                  LE.le.{0} (Norm.norm.{0} (SingularClosure.timeDerivative u t x))
+                    (HMul.hMul.{0, 0, 0} C
+                      (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} x)) (Neg.neg.{0} ↑N)))
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_timeDerivative_decay
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_timeDerivative_decay
+'MethbokeAddon.FDSNR3.LocalSchwartz.uniform_timeDerivative_decay' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.uniform_timeDerivative_decay
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_integrable
+@MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_integrable : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      MeasureTheory.Integrable.{0, 0} (SingularClosure.timeDerivative u t) MeasureTheory.MeasureSpace.volume.{0}
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_integrable
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_integrable
+'MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_integrable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.timeDerivative_integrable
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_fourier_time
+@MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_fourier_time : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+      ∀ (ξ : SingularClosure.Vec),
+        HasDerivAt.{0, 0} (fun r => MethbokeAddon.FDSNR3.fourierVelocity (u r) ξ)
+          (MethbokeAddon.FDSNR3.fourierVelocity (SingularClosure.timeDerivative u t) ξ) t
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_fourier_time
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_fourier_time
+'MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_fourier_time' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.hasDerivAt_fourier_time

@@ -1,0 +1,168 @@
+FDSNR3SliceSchwartz/Audit.lean:17:55: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SliceSchwartz/Audit.lean:17:55: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3SliceSchwartz/Audit.lean:21:58: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SliceSchwartz/Audit.lean:21:58: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3SliceSchwartz/Audit.lean:25:63: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SliceSchwartz/Audit.lean:25:63: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3SliceSchwartz/Audit.lean:29:57: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3SliceSchwartz/Audit.lean:59:59: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SliceSchwartz/Audit.lean:59:59: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.spatialSliceCLM
+MethbokeAddon.FDSNR3.spatialSliceCLM : ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec
+  (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSNR3.spatialSliceCLM
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.spatialSliceCLM
+'MethbokeAddon.FDSNR3.spatialSliceCLM' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.spatialSliceCLM
+TYPE_BEGIN:MethbokeAddon.FDSNR3.spatialSliceCLM_apply
+MethbokeAddon.FDSNR3.spatialSliceCLM_apply : ∀ (x : SingularClosure.Vec),
+  Eq.{1} (MethbokeAddon.FDSNR3.spatialSliceCLM x) (Prod.mk.{0, 0} 0 x)
+TYPE_END:MethbokeAddon.FDSNR3.spatialSliceCLM_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.spatialSliceCLM_apply
+'MethbokeAddon.FDSNR3.spatialSliceCLM_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.spatialSliceCLM_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine
+MethbokeAddon.FDSNR3.spatialSliceAffine : ℝ →
+  ContinuousAffineMap.{0, 0, 0, 0, 0} ℝ SingularClosure.Vec (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSNR3.spatialSliceAffine
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine
+'MethbokeAddon.FDSNR3.spatialSliceAffine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.spatialSliceAffine
+TYPE_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine_apply
+MethbokeAddon.FDSNR3.spatialSliceAffine_apply : ∀ (t : ℝ) (x : SingularClosure.Vec),
+  Eq.{1} ((MethbokeAddon.FDSNR3.spatialSliceAffine t) x) (Prod.mk.{0, 0} t x)
+TYPE_END:MethbokeAddon.FDSNR3.spatialSliceAffine_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine_apply
+'MethbokeAddon.FDSNR3.spatialSliceAffine_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.spatialSliceAffine_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine_contLinear
+MethbokeAddon.FDSNR3.spatialSliceAffine_contLinear : ∀ (t : ℝ),
+  Eq.{1} (ContinuousAffineMap.contLinear.{0, 0, 0, 0, 0} (MethbokeAddon.FDSNR3.spatialSliceAffine t))
+    MethbokeAddon.FDSNR3.spatialSliceCLM
+TYPE_END:MethbokeAddon.FDSNR3.spatialSliceAffine_contLinear
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine_contLinear
+'MethbokeAddon.FDSNR3.spatialSliceAffine_contLinear' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.spatialSliceAffine_contLinear
+TYPE_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine_preimage
+@MethbokeAddon.FDSNR3.spatialSliceAffine_preimage : ∀ {T t : ℝ},
+  Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+    Eq.{1}
+      (Set.preimage.{0, 0} (⇑(MethbokeAddon.FDSNR3.spatialSliceAffine t)) (MethbokeAddon.FDSNR3.preterminalSpacetime T))
+      Set.univ.{0}
+TYPE_END:MethbokeAddon.FDSNR3.spatialSliceAffine_preimage
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.spatialSliceAffine_preimage
+'MethbokeAddon.FDSNR3.spatialSliceAffine_preimage' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.spatialSliceAffine_preimage
+TYPE_BEGIN:MethbokeAddon.FDSNR3.preterminal_slice_smooth
+@MethbokeAddon.FDSNR3.preterminal_slice_smooth : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T) →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → ContDiff.{0, 0, 0} ℝ ∞ (u t)
+TYPE_END:MethbokeAddon.FDSNR3.preterminal_slice_smooth
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.preterminal_slice_smooth
+'MethbokeAddon.FDSNR3.preterminal_slice_smooth' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.preterminal_slice_smooth
+TYPE_BEGIN:MethbokeAddon.FDSNR3.iteratedFDeriv_slice
+@MethbokeAddon.FDSNR3.iteratedFDeriv_slice : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T) →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+      ∀ (n : ℕ) (x : SingularClosure.Vec),
+        Eq.{1} (iteratedFDeriv.{0, 0, 0} ℝ n (u t) x)
+          (ContinuousMultilinearMap.compContinuousLinearMap.{0, 0, 0, 0, 0}
+            (iteratedFDerivWithin.{0, 0, 0} ℝ n (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+              (Prod.mk.{0, 0} t x))
+            fun x => MethbokeAddon.FDSNR3.spatialSliceCLM)
+TYPE_END:MethbokeAddon.FDSNR3.iteratedFDeriv_slice
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.iteratedFDeriv_slice
+'MethbokeAddon.FDSNR3.iteratedFDeriv_slice' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.iteratedFDeriv_slice
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_iteratedFDeriv_slice_le
+@MethbokeAddon.FDSNR3.norm_iteratedFDeriv_slice_le : ∀ {T t : ℝ} {u : SingularClosure.Velocity},
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T) →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+      ∀ (n : ℕ) (x : SingularClosure.Vec),
+        LE.le.{0} (Norm.norm.{0} (iteratedFDeriv.{0, 0, 0} ℝ n (u t) x))
+          (HMul.hMul.{0, 0, 0}
+            (Norm.norm.{0}
+              (iteratedFDerivWithin.{0, 0, 0} ℝ n (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+                (Prod.mk.{0, 0} t x)))
+            (HPow.hPow.{0, 0, 0} (Norm.norm.{0} MethbokeAddon.FDSNR3.spatialSliceCLM) n))
+TYPE_END:MethbokeAddon.FDSNR3.norm_iteratedFDeriv_slice_le
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_iteratedFDeriv_slice_le
+'MethbokeAddon.FDSNR3.norm_iteratedFDeriv_slice_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_iteratedFDeriv_slice_le
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.slice
+@MethbokeAddon.FDSNR3.LocalSchwartz.slice : {T : ℝ} →
+  {u : SingularClosure.Velocity} →
+    MethbokeAddon.FDSNR3.LocalSchwartz T u →
+      {t : ℝ} → Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → SchwartzMap.{0, 0} SingularClosure.Vec SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.slice
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.slice
+'MethbokeAddon.FDSNR3.LocalSchwartz.slice' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.slice
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.slice_apply
+@MethbokeAddon.FDSNR3.LocalSchwartz.slice_apply : ∀ {T : ℝ} {u : SingularClosure.Velocity}
+  (hu : MethbokeAddon.FDSNR3.LocalSchwartz T u) {t : ℝ} (ht : Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t)
+  (x : SingularClosure.Vec), Eq.{1} ((hu.slice ht) x) (u t x)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.slice_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.slice_apply
+'MethbokeAddon.FDSNR3.LocalSchwartz.slice_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.slice_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice
+@MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice : ∀ {T : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    ∀ {t : ℝ}, Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → ∃ f, ∀ (x : SingularClosure.Vec), Eq.{1} (f x) (u t x)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice
+'MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.exists_schwartz_slice
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.slice_integrable
+@MethbokeAddon.FDSNR3.LocalSchwartz.slice_integrable : ∀ {T : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    ∀ {t : ℝ},
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+        MeasureTheory.Integrable.{0, 0} (u t) MeasureTheory.MeasureSpace.volume.{0}
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.slice_integrable
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.slice_integrable
+'MethbokeAddon.FDSNR3.LocalSchwartz.slice_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.slice_integrable
+TYPE_BEGIN:MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after
+@MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSNR3.Seed ν T u p F →
+    ∀ {s : ℝ},
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) s →
+        ∃ t,
+          Membership.mem.{0, 0} (Set.Ioo.{0} s T) t ∧
+            ∃ i ξ₀ r,
+              Ne.{1} ξ₀ 0 ∧
+                LT.lt.{0} 0 r ∧
+                  LT.lt.{0} r (Norm.norm.{0} ξ₀) ∧
+                    ∀ (ξ : SingularClosure.Vec),
+                      Membership.mem.{0, 0} (Metric.ball.{0} ξ₀ r) ξ →
+                        Ne.{1} (WithLp.ofLp.{0} (MethbokeAddon.FDSNR3.fourierVelocity (u t) ξ) i) 0
+TYPE_END:MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after
+'MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.Seed.exists_nonzero_fourier_ball_after

@@ -1,6 +1,6 @@
 METHBOKE_SUBSTANTIATED_RESULT_REGISTER
 DOCUMENT_VERSION = 5.5
-DATE = 2026-11-20
+DATE = 2026-11-21
 WORKING_BRANCH = main
 VALIDATED_LAYOUT_BRANCH = codex/reorganize-nse-domains
 CURRENT_MAIN_GOAL = Fefferman_D; periodic forced family route
@@ -8,6 +8,8 @@ CURRENT_ROOT_STATUS = DIRECT_FEFFERMAN_D_A_TIER_ACCEPTED_AT_66a5292
 PRESCRIBED_SITE_FAMILY_STATUS = B_TIER_CLOSED_RELATIVE_TO_PINNED_STRONG_SEED; A_TIER_OPEN
 CURRENT_FDSN_STATUS = A_TIER_CANONICAL_SEED_TO_FAMILY_ACCEPTED_AT_87ab6b4c
 CURRENT_FDSN_EVIDENCE = audits/fdsn-87ab6b4c-accepted/summary.json
+CURRENT_FDSN_R3_STATUS = A_TIER_COMPLETE_ORIGINAL_SEED_TO_FULL_FAMILY_AT_572fd9ee
+CURRENT_FDSN_R3_EVIDENCE = audits/fdsn-r3-572fd9ee-accepted/summary.json
 ACTIVE_MODE = A_TIER_DERIVATION
 LATEST_ACCEPTED_EHRENFEST_COMMIT = b730e52ca1e4a661a83a09110378db542455097b
 LATEST_ACCEPTED_EHRENFEST_RUN = 44651224180
@@ -554,3 +556,21 @@ BLOCK:FDSNR3Fourier.Audit_intermediate_Schwartz_map_type;COMPLETE_AUDITS_AND_CUT
 REPAIR:Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.
 EVIDENCE:audits/fdsn-r3-7dd6dba6-failed/SUMMARY.txt.
 NEW_ACCEPTANCE:NONE;LOCAL_LEAN_EXECUTIONS:ZERO.
+
+
+LATEST FDSN_R3 ACCEPTANCE
+SOURCE: 572fd9ee69a6b641f435cbfb2ef74e034809c583; RUN: 44848985720.
+ROOT: MethbokeAddon.FDSNR3.FDSN_R3; original Seed ν T u p F -> full Family ν T u p F.
+All R3-01 through R3-16 exact scopes accepted. The same constructed velocity
+and force families, with the original pressure, satisfy every clause;
+Seed existence remains unproved.
+Coverage: 548 modules; 137 fresh package audits; 1320 named type/axiom reports
+plus the original QFB cutout. R3: 26 packages / 493 declarations, including
+421 newly accepted declarations beyond the 72 accepted foundations.
+Compiler: Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Axioms: propext, Classical.choice, Quot.sound only. Publication and final
+Material accepted job 136679598135: PASS. Local Lean executions: ZERO.
+EVIDENCE: audits/fdsn-r3-572fd9ee-accepted/summary.json.
+Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+Local target completed; project goal remains Fefferman_D. No new target adopted.

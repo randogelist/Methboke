@@ -1,0 +1,39 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPair_momentum
+@MethbokeAddon.FDSN.localizedPair_momentum : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+          ∀ (lambda t : ℝ),
+            Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+              ∀ (x : SingularClosure.Vec),
+                Eq.{1}
+                  (HAdd.hAdd.{0, 0, 0}
+                    (HAdd.hAdd.{0, 0, 0}
+                      (SingularClosure.timeDerivative (MethbokeAddon.FDSN.localizedPairVelocity a β u lambda) t x)
+                      (SingularClosure.convection (MethbokeAddon.FDSN.localizedPairVelocity a β u lambda t) x))
+                    (SingularClosure.gradient (p t) x))
+                  (HAdd.hAdd.{0, 0, 0}
+                    (HSMul.hSMul.{0, 0, 0} ν
+                      (SingularClosure.laplacian (MethbokeAddon.FDSN.localizedPairVelocity a β u lambda t) x))
+                    (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda t x))
+TYPE_END:MethbokeAddon.FDSN.localizedPair_momentum
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPair_momentum
+'MethbokeAddon.FDSN.localizedPair_momentum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPair_momentum
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPair_front
+@MethbokeAddon.FDSN.localizedPair_front : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ {a : SingularClosure.Frequency},
+      Ne.{1} a 0 →
+        ∀ {β : ℝ → ℝ},
+          ContDiff.{0, 0, 0} ℝ ∞ β →
+            tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+              ∀ (lambda : ℝ),
+                MethbokeAddon.FDSN.PreterminalNSE ν T (MethbokeAddon.FDSN.localizedPairVelocity a β u lambda) p
+                  (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda)
+TYPE_END:MethbokeAddon.FDSN.localizedPair_front
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPair_front
+'MethbokeAddon.FDSN.localizedPair_front' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPair_front

@@ -1,0 +1,333 @@
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt
+@MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.{u_1,
+    u_2} : {X : Type u_1} → {E : Type u_2} → [NormedAddCommGroup.{u_2} E] → (ℝ → X → E) → ℝ → Prop
+TYPE_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt
+'MethbokeAddon.FeffermanFamily.SpeedUnboundedAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T →
+    MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.{u_1, u_2} U T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.speedUnboundedAt
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos
+@MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [PseudoMetricSpace.{u_1} X] [inst : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {T : ℝ}, MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.{u_1, u_2} U T → LT.lt.{0} 0 T
+TYPE_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos
+'MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.terminal_pos
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence
+@MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [PseudoMetricSpace.{u_1} X] [inst : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.{u_1, u_2} U T →
+    ∃ t x,
+      (∀ (n : ℕ), LT.lt.{0} 0 (t n) ∧ LT.lt.{0} (t n) T) ∧
+        (∀ (n : ℕ), LT.lt.{0} (HSub.hSub.{0, 0, 0} T (t n)) (HDiv.hDiv.{0, 0, 0} 1 (HAdd.hAdd.{0, 0, 0} (↑n) 1))) ∧
+          (∀ (n : ℕ), LT.lt.{0} (HAdd.hAdd.{0, 0, 0} (↑n) 1) (Norm.norm.{u_2} (U (t n) (x n)))) ∧
+            Filter.Tendsto.{0, 0} t Filter.atTop.{0} (nhds.{0} T) ∧
+              Filter.Tendsto.{0, 0} (fun n => Norm.norm.{u_2} (U (t n) (x n))) Filter.atTop.{0} Filter.atTop.{0}
+TYPE_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence
+'MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier
+@MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [PseudoMetricSpace.{u_1} X] [inst : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.{u_1, u_2} U T →
+    ∀ (K : Set.{u_1} X),
+      (∀ (t : ℝ), LT.lt.{0} 0 t → LT.lt.{0} t T → ∀ x ∉ K, Eq.{u_2 + 1} (U t x) 0) →
+        ∃ t x,
+          (∀ (n : ℕ), LT.lt.{0} 0 (t n) ∧ LT.lt.{0} (t n) T) ∧
+            (∀ (n : ℕ), Membership.mem.{u_1, u_1} K (x n)) ∧
+              (∀ (n : ℕ),
+                  LT.lt.{0} (HSub.hSub.{0, 0, 0} T (t n)) (HDiv.hDiv.{0, 0, 0} 1 (HAdd.hAdd.{0, 0, 0} (↑n) 1))) ∧
+                (∀ (n : ℕ), LT.lt.{0} (HAdd.hAdd.{0, 0, 0} (↑n) 1) (Norm.norm.{u_2} (U (t n) (x n)))) ∧
+                  Filter.Tendsto.{0, 0} t Filter.atTop.{0} (nhds.{0} T) ∧
+                    Filter.Tendsto.{0, 0} (fun n => Norm.norm.{u_2} (U (t n) (x n))) Filter.atTop.{0} Filter.atTop.{0}
+TYPE_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier
+'MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_growth_sequence_in_carrier
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup
+@MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.{u_1, u_2} U T →
+    ∀ (K : Set.{u_1} X),
+      IsCompact.{u_1} K →
+        (∀ (t : ℝ), LT.lt.{0} 0 t → LT.lt.{0} t T → ∀ x ∉ K, Eq.{u_2 + 1} (U t x) 0) →
+          ∃ a, Membership.mem.{u_1, u_1} K a ∧ MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T
+TYPE_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup
+'MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.SpeedUnboundedAt.exists_localVelocityBlowup
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {b : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U b T →
+    ∀ (a : X),
+      MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} (fun t x => U t (HSub.hSub.{u_1, u_1, u_1} x a))
+        (HAdd.hAdd.{u_1, u_1, u_1} b a) T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.spatial_translate
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {b : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U b T →
+    MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} (fun t x => U t (HAdd.hAdd.{u_1, u_1, u_1} x b)) 0 T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.recenter
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  [inst_2 : NormedSpace.{0, u_2} ℝ E] {U : ℝ → X → E} {a : X} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a T →
+    ∀ (c : ℝ),
+      LT.lt.{0} 0 c →
+        MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} (fun t x => HSMul.hSMul.{0, u_2, u_2} c (U t x)) a
+          T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_smul
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup.{u_1} X] [inst_1 : NormedSpace.{0, u_1} ℝ X]
+  [inst_2 : NormedAddCommGroup.{u_2} E] {U : ℝ → X → E} {T : ℝ},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U 0 T →
+    ∀ (c : ℝ),
+      LT.lt.{0} 0 c →
+        MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} (fun t x => U t (HSMul.hSMul.{0, u_1, u_1} c x)) 0
+          T
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.positive_spatial_scale
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : PseudoMetricSpace.{u_1} X] [inst_1 : NormedAddCommGroup.{u_2} E]
+  {U : ℝ → X → E} {a : X},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U a 1 →
+    ∀ (c : ℝ),
+      LE.le.{0} 1 c →
+        MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2}
+          (fun t x => U (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} c (HSub.hSub.{0, 0, 0} t 1))) x) a 1
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.time_compress_at_one
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy
+@MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy.{u_1,
+    u_2} : ∀ {X : Type u_1} {E : Type u_2} [inst : NormedAddCommGroup.{u_1} X] [inst_1 : NormedSpace.{0, u_1} ℝ X]
+  [inst_2 : NormedAddCommGroup.{u_2} E] [inst_3 : NormedSpace.{0, u_2} ℝ E] {U : ℝ → X → E},
+  MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2} U 0 1 →
+    ∀ (scale : ℝ),
+      LT.lt.{0} 1 scale →
+        ∀ (a : X),
+          MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.{u_1, u_2}
+            (fun t x =>
+              HSMul.hSMul.{0, u_2, u_2} scale
+                (U (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} scale 2) (HSub.hSub.{0, 0, 0} t 1)))
+                  (HSMul.hSMul.{0, u_1, u_1} scale (HSub.hSub.{u_1, u_1, u_1} x a))))
+            a 1
+TYPE_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy
+'MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.LocalVelocityBlowup.parabolic_copy
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr
+@MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] {f g : ℝ → SingularClosure.Vec → E} {t : ℝ} {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, u_1} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => f z.1 z.2) fun z => g z.1 z.2) →
+    Eq.{u_1 + 1} (fderiv.{0, 0, u_1} ℝ (f t) x) (fderiv.{0, 0, u_1} ℝ (g t) x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr
+'MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeSpatialFDeriv_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr
+@MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr : ∀ {u v : SingularClosure.Velocity} {t : ℝ}
+  {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => u z.1 z.2) fun z => v z.1 z.2) →
+    Eq.{1} (SingularClosure.timeDerivative u t x) (SingularClosure.timeDerivative v t x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr
+'MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeTimeDerivative_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr
+@MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr : ∀ {u v : SingularClosure.Velocity} {t : ℝ}
+  {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => u z.1 z.2) fun z => v z.1 z.2) →
+    ∀ (i : Fin 3),
+      Eq.{1} (SingularClosure.coordinateDerivative (u t) i x) (SingularClosure.coordinateDerivative (v t) i x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr
+'MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeCoordinateDerivative_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeDivergence_congr
+@MethbokeAddon.FeffermanFamily.nativeDivergence_congr : ∀ {u v : SingularClosure.Velocity} {t : ℝ}
+  {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => u z.1 z.2) fun z => v z.1 z.2) →
+    Eq.{1} (SingularClosure.divergence (u t) x) (SingularClosure.divergence (v t) x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeDivergence_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeDivergence_congr
+'MethbokeAddon.FeffermanFamily.nativeDivergence_congr' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeDivergence_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeGradient_congr
+@MethbokeAddon.FeffermanFamily.nativeGradient_congr : ∀ {p q : SingularClosure.Pressure} {t : ℝ}
+  {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => p z.1 z.2) fun z => q z.1 z.2) →
+    Eq.{1} (SingularClosure.gradient (p t) x) (SingularClosure.gradient (q t) x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeGradient_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeGradient_congr
+'MethbokeAddon.FeffermanFamily.nativeGradient_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeGradient_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeLaplacian_congr
+@MethbokeAddon.FeffermanFamily.nativeLaplacian_congr : ∀ {u v : SingularClosure.Velocity} {t : ℝ}
+  {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => u z.1 z.2) fun z => v z.1 z.2) →
+    Eq.{1} (SingularClosure.laplacian (u t) x) (SingularClosure.laplacian (v t) x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeLaplacian_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeLaplacian_congr
+'MethbokeAddon.FeffermanFamily.nativeLaplacian_congr' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeLaplacian_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeConvection_congr
+@MethbokeAddon.FeffermanFamily.nativeConvection_congr : ∀ {u v : SingularClosure.Velocity} {t : ℝ}
+  {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => u z.1 z.2) fun z => v z.1 z.2) →
+    Eq.{1} (SingularClosure.convection (u t) x) (SingularClosure.convection (v t) x)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeConvection_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeConvection_congr
+'MethbokeAddon.FeffermanFamily.nativeConvection_congr' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeConvection_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr
+MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr : ∀ (ν : ℝ) {u v F G : SingularClosure.Velocity}
+  {p q : SingularClosure.Pressure} {t : ℝ} {x : SingularClosure.Vec},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => u z.1 z.2) fun z => v z.1 z.2) →
+    (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => p z.1 z.2) fun z => q z.1 z.2) →
+      (Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x)) (fun z => F z.1 z.2) fun z => G z.1 z.2) →
+        (Eq.{1}
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u t x) (SingularClosure.convection (u t) x))
+              (SingularClosure.gradient (p t) x))
+            (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u t) x)) (F t x)) ↔
+          Eq.{1}
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative v t x) (SingularClosure.convection (v t) x))
+              (SingularClosure.gradient (q t) x))
+            (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (v t) x)) (G t x)))
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr
+'MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeForcedEquation_congr
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero
+MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero : ∀ (ν t : ℝ) (x : SingularClosure.Vec),
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative 0 t x) (SingularClosure.convection 0 x))
+      (SingularClosure.gradient 0 x))
+    (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian 0 x)) 0)
+TYPE_END:MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero
+'MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.nativeForcedEquation_zero
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free
+@MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free.{u_1} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  {K : ι → Set.{0} SingularClosure.Vec} {u : ι → SingularClosure.Velocity} {times : Set.{0} ℝ},
+  (∀ (i : ι), IsClosed.{0} (K i)) →
+    (Pairwise.{u_1} fun i j => Disjoint.{0} (K i) (K j)) →
+      (∀ (i : ι) (t : ℝ), ∀ x ∉ K i, Eq.{1} (u i t x) 0) →
+        (∀ (i : ι) (t : ℝ),
+            Membership.mem.{0, 0} times t →
+              ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u i t) x) 0) →
+          ∀ (t : ℝ),
+            Membership.mem.{0, 0} times t →
+              ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (fun y => ∑ i, u i t y) x) 0
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free
+'MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_native_divergence_free
+TYPE_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE
+@MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE.{u_1} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  {K : ι → Set.{0} SingularClosure.Vec} {u F : ι → SingularClosure.Velocity} {p : ι → SingularClosure.Pressure}
+  {times : Set.{0} ℝ} (ν : ℝ),
+  (∀ (i : ι), IsClosed.{0} (K i)) →
+    (Pairwise.{u_1} fun i j => Disjoint.{0} (K i) (K j)) →
+      (∀ (i : ι) (t : ℝ), ∀ x ∉ K i, Eq.{1} (u i t x) 0) →
+        (∀ (i : ι) (t : ℝ), ∀ x ∉ K i, Eq.{1} (p i t x) 0) →
+          (∀ (i : ι) (t : ℝ), ∀ x ∉ K i, Eq.{1} (F i t x) 0) →
+            (∀ (i : ι) (t : ℝ),
+                Membership.mem.{0, 0} times t →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative (u i) t x)
+                          (SingularClosure.convection (u i t) x))
+                        (SingularClosure.gradient (p i t) x))
+                      (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u i t) x)) (F i t x))) →
+              ∀ (t : ℝ),
+                Membership.mem.{0, 0} times t →
+                  ∀ (x : SingularClosure.Vec),
+                    Eq.{1}
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative (fun s y => ∑ i, u i s y) t x)
+                          (SingularClosure.convection (fun y => ∑ i, u i t y) x))
+                        (SingularClosure.gradient (fun y => ∑ i, p i t y) x))
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (fun y => ∑ i, u i t y) x)) (∑ i, F i t x))
+TYPE_END:MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE
+AXIOMS_BEGIN:MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE
+'MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FeffermanFamily.finite_sum_native_forcedNSE

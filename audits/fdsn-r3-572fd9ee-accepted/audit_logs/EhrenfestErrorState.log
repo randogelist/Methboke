@@ -1,0 +1,220 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.complex_normSq_add_le_twice
+MethbokeAddon.EhrenfestObstruction.complex_normSq_add_le_twice : ∀ (z w : ℂ),
+  LE.le.{0} (Complex.normSq (HAdd.hAdd.{0, 0, 0} z w))
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (Complex.normSq z)) (HMul.hMul.{0, 0, 0} 2 (Complex.normSq w)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.complex_normSq_add_le_twice
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.complex_normSq_add_le_twice
+'MethbokeAddon.EhrenfestObstruction.complex_normSq_add_le_twice' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.complex_normSq_add_le_twice
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_add_le_twice
+MethbokeAddon.EhrenfestObstruction.coefficientDissipation_add_le_twice : ∀ (N : ℕ) (c v : SingularClosure.FourierCoeff),
+  LE.le.{0} (SingularClosure.coefficientDissipation N (HAdd.hAdd.{0, 0, 0} c v))
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (SingularClosure.coefficientDissipation N c))
+      (HMul.hMul.{0, 0, 0} 2 (SingularClosure.coefficientDissipation N v)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_add_le_twice
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_add_le_twice
+'MethbokeAddon.EhrenfestObstruction.coefficientDissipation_add_le_twice' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_add_le_twice
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_le_error_plus_reference
+MethbokeAddon.EhrenfestObstruction.coefficientDissipation_le_error_plus_reference : ∀ (N : ℕ)
+  (c v : SingularClosure.FourierCoeff),
+  LE.le.{0} (SingularClosure.coefficientDissipation N c)
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (SingularClosure.coefficientDissipation N (HSub.hSub.{0, 0, 0} c v)))
+      (HMul.hMul.{0, 0, 0} 2 (SingularClosure.coefficientDissipation N v)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_le_error_plus_reference
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_le_error_plus_reference
+'MethbokeAddon.EhrenfestObstruction.coefficientDissipation_le_error_plus_reference' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_le_error_plus_reference
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_cutoff_eq
+MethbokeAddon.EhrenfestObstruction.coefficientDissipation_cutoff_eq : ∀ (N : ℕ) (c : SingularClosure.FourierCoeff),
+  Eq.{1} (SingularClosure.coefficientDissipation N (SingularClosure.cutoffCoeff N c))
+    (SingularClosure.coefficientDissipation N c)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_cutoff_eq
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_cutoff_eq
+'MethbokeAddon.EhrenfestObstruction.coefficientDissipation_cutoff_eq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_cutoff_eq
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_zero_eq
+MethbokeAddon.EhrenfestObstruction.coefficientDissipation_zero_eq : ∀ (N : ℕ),
+  Eq.{1} (SingularClosure.coefficientDissipation N 0) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_zero_eq
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_zero_eq
+'MethbokeAddon.EhrenfestObstruction.coefficientDissipation_zero_eq' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.coefficientDissipation_zero_eq
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.spectralReality_sub
+@MethbokeAddon.EhrenfestObstruction.spectralReality_sub : ∀ {c v : SingularClosure.FourierCoeff},
+  SingularClosure.SpectralReality c →
+    SingularClosure.SpectralReality v → SingularClosure.SpectralReality (HSub.hSub.{0, 0, 0} c v)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.spectralReality_sub
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.spectralReality_sub
+'MethbokeAddon.EhrenfestObstruction.spectralReality_sub' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.spectralReality_sub
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.spectralSolenoidal_sub
+@MethbokeAddon.EhrenfestObstruction.spectralSolenoidal_sub : ∀ {c v : SingularClosure.FourierCoeff},
+  SingularClosure.SpectralSolenoidal c →
+    SingularClosure.SpectralSolenoidal v → SingularClosure.SpectralSolenoidal (HSub.hSub.{0, 0, 0} c v)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.spectralSolenoidal_sub
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.spectralSolenoidal_sub
+'MethbokeAddon.EhrenfestObstruction.spectralSolenoidal_sub' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.spectralSolenoidal_sub
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial
+MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity),
+  Eq.{1} (u 0) ↑a → ∀ (n : ℕ), Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n 0) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial
+'MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial_front
+MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial_front : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (S : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S (↑a) u p →
+    ∀ (n : ℕ), Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n 0) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial_front
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial_front
+'MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial_front' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_initial_front
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_support
+MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_support : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity) (n : ℕ) (t : ℝ),
+  LE.le.{0} 0 t →
+    ∀ k ∉ SingularClosure.cutoffModes (HAdd.hAdd.{0, 0, 0} n 1),
+      ∀ (i : Fin 3), Eq.{1} (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t k i) 0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_support
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_support
+'MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_support' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_support
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_reality
+MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_reality : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity) (n : ℕ) (t : ℝ),
+  LE.le.{0} 0 t → SingularClosure.SpectralReality (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_reality
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_reality
+'MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_reality' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_reality
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal
+MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity) (n : ℕ) (t : ℝ),
+  LE.le.{0} 0 t →
+    SingularClosure.SmoothSigmaZero (u t) →
+      SingularClosure.SpectralSolenoidal (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal
+'MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal_front
+MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal_front : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (S : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S (↑a) u p →
+    ∀ (n : ℕ) (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 S) t →
+        SingularClosure.SpectralSolenoidal (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal_front
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal_front
+'MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal_front' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff_solenoidal_front
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_error_initial_dissipation
+MethbokeAddon.EhrenfestObstruction.canonical_error_initial_dissipation : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity),
+  Eq.{1} (u 0) ↑a →
+    ∀ (n : ℕ),
+      Eq.{1}
+        (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+          (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n 0))
+        0
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_error_initial_dissipation
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_error_initial_dissipation
+'MethbokeAddon.EhrenfestObstruction.canonical_error_initial_dissipation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_error_initial_dissipation
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_error_plus_reference
+MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_error_plus_reference : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity) (n : ℕ) (t : ℝ),
+  LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t)
+    (HAdd.hAdd.{0, 0, 0}
+      (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+        (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t))
+      (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1) (SingularClosure.datumFourierCoeff (u t))))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_error_plus_reference
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_error_plus_reference
+'MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_error_plus_reference' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.canonical_enstrophy_le_error_plus_reference
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.eventual_canonical_slab_bound_of_error_and_reference
+MethbokeAddon.EhrenfestObstruction.eventual_canonical_slab_bound_of_error_and_reference : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (u : SingularClosure.Velocity) (T K : ℝ),
+  (∀ᶠ (n : ℕ) in Filter.atTop.{0},
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+          LE.le.{0}
+            (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+              (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t))
+            1) →
+    (∀ (n : ℕ) (t : ℝ),
+        Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+          LE.le.{0}
+            (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1) (SingularClosure.datumFourierCoeff (u t)))
+            K) →
+      ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+        ∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+            LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t) (HAdd.hAdd.{0, 0, 0} 1 K)
+TYPE_END:MethbokeAddon.EhrenfestObstruction.eventual_canonical_slab_bound_of_error_and_reference
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.eventual_canonical_slab_bound_of_error_and_reference
+'MethbokeAddon.EhrenfestObstruction.eventual_canonical_slab_bound_of_error_and_reference' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.eventual_canonical_slab_bound_of_error_and_reference
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_front_eventual_slab_bound_of_unit_error
+MethbokeAddon.EhrenfestObstruction.smooth_front_eventual_slab_bound_of_unit_error : ∀ (ν : ℝ) (hν : LT.lt.{0} 0 ν)
+  (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (S T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S (↑a) u p →
+    LT.lt.{0} T S →
+      (∀ᶠ (n : ℕ) in Filter.atTop.{0},
+          ∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+              LE.le.{0}
+                (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+                  (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t))
+                1) →
+        ∃ C,
+          ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+            ∀ (t : ℝ),
+              Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                LE.le.{0} (MethbokeAddon.EhrenfestObstruction.canonicalEnstrophy ν hν a n t) C
+TYPE_END:MethbokeAddon.EhrenfestObstruction.smooth_front_eventual_slab_bound_of_unit_error
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.smooth_front_eventual_slab_bound_of_unit_error
+'MethbokeAddon.EhrenfestObstruction.smooth_front_eventual_slab_bound_of_unit_error' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.smooth_front_eventual_slab_bound_of_unit_error

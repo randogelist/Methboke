@@ -1,0 +1,95 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt
+MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt : ∀ (H : ℝ → SingularClosure.Velocity)
+  (q : Prod.{0, 0} ℝ (Prod.{0, 0} ℝ SingularClosure.Vec)),
+  ContDiffAt.{0, 0, 0} ℝ ∞ (fun z => H z.1 z.2.1 z.2.2) q →
+    ContDiffAt.{0, 0, 0} ℝ ∞ (fun z => fderiv.{0, 0, 0} ℝ (H z.1 z.2.1) z.2.2) q
+TYPE_END:MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt
+AXIOMS_BEGIN:MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt
+'MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.family_spatial_fderiv_contDiffAt
+TYPE_BEGIN:MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn
+MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn : ∀ (H : ℝ → SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => H q.1 q.2.1 q.2.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+    ∀ (j : Fin 3),
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => SingularClosure.coordinateDerivative (H q.1 q.2.1) j q.2.2)
+        (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1)
+TYPE_END:MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn
+'MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.family_coordinateDerivative_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.family_laplacian_contDiffOn
+MethbokeAddon.FDSN.family_laplacian_contDiffOn : ∀ (H : ℝ → SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => H q.1 q.2.1 q.2.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => SingularClosure.laplacian (H q.1 q.2.1) q.2.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1)
+TYPE_END:MethbokeAddon.FDSN.family_laplacian_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.family_laplacian_contDiffOn
+'MethbokeAddon.FDSN.family_laplacian_contDiffOn' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.family_laplacian_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.family_transport_contDiffOn
+MethbokeAddon.FDSN.family_transport_contDiffOn : ∀ (A B : ℝ → SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => A q.1 q.2.1 q.2.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => B q.1 q.2.1 q.2.2)
+        (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+      ContDiffOn.{0, 0, 0} ℝ ∞
+        (fun q => MethbokeAddon.EhrenfestObstruction.physicalTransport (A q.1 q.2.1) (B q.1 q.2.1) q.2.2)
+        (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1)
+TYPE_END:MethbokeAddon.FDSN.family_transport_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.family_transport_contDiffOn
+'MethbokeAddon.FDSN.family_transport_contDiffOn' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.family_transport_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.family_timeDerivative_contDiffOn
+MethbokeAddon.FDSN.family_timeDerivative_contDiffOn : ∀ (H : ℝ → SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => H q.1 q.2.1 q.2.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => SingularClosure.timeDerivative (H q.1) q.2.1 q.2.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1)
+TYPE_END:MethbokeAddon.FDSN.family_timeDerivative_contDiffOn
+AXIOMS_BEGIN:MethbokeAddon.FDSN.family_timeDerivative_contDiffOn
+'MethbokeAddon.FDSN.family_timeDerivative_contDiffOn' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.family_timeDerivative_contDiffOn
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front
+MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front : ∀ (ν : ℝ) (U F : SingularClosure.Velocity)
+  (H : ℝ → SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => U z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => F z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => H q.1 q.2.1 q.2.2)
+          (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+        ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => MethbokeAddon.FDSN.residualForce ν U F (H q.1) q.2.1 q.2.2)
+          (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1)
+TYPE_END:MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front
+'MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_joint_contDiffOn_front
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport
+MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport : ∀ (ν : ℝ) (U F : SingularClosure.Velocity)
+  (H : ℝ → SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => U z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (ContDiff.{0, 0, 0} ℝ ∞ fun z => F z.1 z.2) →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => H q.1 q.2.1 q.2.2)
+          (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.2.1) →
+        ∀ (S : Set.{0} ℝ),
+          IsClosed.{0} S →
+            S ⊆ Set.Ioo.{0} 0 T →
+              (∀ (lambda : ℝ), tsupport.{0, 0} (H lambda) ⊆ S) →
+                ContDiff.{0, 0, 0} ℝ ∞ fun q => MethbokeAddon.FDSN.residualForce ν U F (H q.1) q.2.1 q.2.2
+TYPE_END:MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport
+'MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_joint_contDiff_of_common_timeSupport
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce_zero_correction
+MethbokeAddon.FDSN.residualForce_zero_correction : ∀ (ν : ℝ) (U F : SingularClosure.Velocity),
+  Eq.{1} (MethbokeAddon.FDSN.residualForce ν U F 0) F
+TYPE_END:MethbokeAddon.FDSN.residualForce_zero_correction
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce_zero_correction
+'MethbokeAddon.FDSN.residualForce_zero_correction' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce_zero_correction

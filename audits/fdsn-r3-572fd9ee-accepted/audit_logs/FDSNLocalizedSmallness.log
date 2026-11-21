@@ -1,0 +1,64 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound
+@MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+          ∀ (K : Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)),
+            IsCompact.{0} K →
+              ∀ (r : ℕ),
+                ∃ C,
+                  LE.le.{0} 0 C ∧
+                    ∀ (lambda : ℝ),
+                      LE.le.{0} (Norm.norm.{0} lambda) 1 →
+                        ∀ (n : ℕ),
+                          LE.le.{0} n r →
+                            ∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec),
+                              Membership.mem.{0, 0} K z →
+                                LE.le.{0}
+                                  (Norm.norm.{0}
+                                    (iteratedFDeriv.{0, 0, 0} ℝ n
+                                      (fun y =>
+                                        HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairVelocity a β u lambda) u
+                                          y.1 y.2)
+                                      z))
+                                  (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound
+'MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairVelocity_finite_order_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound
+@MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (a : SingularClosure.Frequency) {β : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ β →
+        tsupport.{0, 0} β ⊆ Set.Ioo.{0} 0 T →
+          ∀ (K : Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)),
+            IsCompact.{0} K →
+              ∀ (r : ℕ),
+                ∃ C,
+                  LE.le.{0} 0 C ∧
+                    ∀ (lambda : ℝ),
+                      LE.le.{0} (Norm.norm.{0} lambda) 1 →
+                        ∀ (n : ℕ),
+                          LE.le.{0} n r →
+                            ∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec),
+                              Membership.mem.{0, 0} K z →
+                                LE.le.{0}
+                                  (Norm.norm.{0}
+                                    (iteratedFDeriv.{0, 0, 0} ℝ n
+                                      (fun y =>
+                                        HSub.hSub.{0, 0, 0} (MethbokeAddon.FDSN.localizedPairForce ν a β u F lambda) F
+                                          y.1 y.2)
+                                      z))
+                                  (HMul.hMul.{0, 0, 0} C (Norm.norm.{0} lambda))
+TYPE_END:MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound
+'MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.localizedPairForce_finite_order_linear_bound

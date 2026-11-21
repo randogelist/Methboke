@@ -1,0 +1,12 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.exists_normalized_time_bump
+@MethbokeAddon.FDSN.exists_normalized_time_bump : ∀ {s t T : ℝ},
+  LT.lt.{0} s t →
+    LT.lt.{0} t T →
+      ∃ β,
+        ContDiff.{0, 0, 0} ℝ ∞ β ∧
+          HasCompactSupport.{0, 0} β ∧
+            tsupport.{0, 0} β ⊆ Set.Ioo.{0} s T ∧ Eq.{1} (β t) 1 ∧ ∀ (u : ℝ), LE.le.{0} 0 (β u) ∧ LE.le.{0} (β u) 1
+TYPE_END:MethbokeAddon.FDSN.exists_normalized_time_bump
+AXIOMS_BEGIN:MethbokeAddon.FDSN.exists_normalized_time_bump
+'MethbokeAddon.FDSN.exists_normalized_time_bump' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.exists_normalized_time_bump

@@ -1,0 +1,164 @@
+FDSNR3SchwartzJets/Audit.lean:40:62: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SchwartzJets/Audit.lean:40:62: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3SchwartzJets/Audit.lean:45:56: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SchwartzJets/Audit.lean:45:56: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3SchwartzJets/Audit.lean:50:63: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3SchwartzJets/Audit.lean:50:63: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3SchwartzJets/Audit.lean:55:66: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3SchwartzJets/Audit.lean:61:69: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3SchwartzJets/Audit.lean:67:76: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpatialInclusion
+@MethbokeAddon.FDSNR3.familySpatialInclusion.{u_1} : {E : Type u_1} →
+  [inst : NormedAddCommGroup.{u_1} E] →
+    [inst_1 : NormedSpace.{0, u_1} ℝ E] → ContinuousLinearMap.{0, 0, u_1, u_1} (RingHom.id.{0} ℝ) E (Prod.{0, u_1} ℝ E)
+TYPE_END:MethbokeAddon.FDSNR3.familySpatialInclusion
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpatialInclusion
+'MethbokeAddon.FDSNR3.familySpatialInclusion' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpatialInclusion
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpatialInclusion_apply
+@MethbokeAddon.FDSNR3.familySpatialInclusion_apply.{u_1} : ∀ {E : Type u_1} [inst : NormedAddCommGroup.{u_1} E]
+  [inst_1 : NormedSpace.{0, u_1} ℝ E] (z : E),
+  Eq.{u_1 + 1} (MethbokeAddon.FDSNR3.familySpatialInclusion.{u_1} z) (Prod.mk.{0, u_1} 0 z)
+TYPE_END:MethbokeAddon.FDSNR3.familySpatialInclusion_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpatialInclusion_apply
+'MethbokeAddon.FDSNR3.familySpatialInclusion_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpatialInclusion_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzSliceJet
+@MethbokeAddon.FDSNR3.schwartzSliceJet.{u_1,
+    u_2} : {E : Type u_1} →
+  {F : Type u_2} →
+    [inst : NormedAddCommGroup.{u_1} E] →
+      [inst_1 : NormedSpace.{0, u_1} ℝ E] →
+        [inst_2 : NormedAddCommGroup.{u_2} F] →
+          [inst_3 : NormedSpace.{0, u_2} ℝ F] →
+            SchwartzMap.{u_1, u_2} (Prod.{0, u_1} ℝ E) F →
+              (n : ℕ) → SchwartzMap.{u_1, max u_2 u_1} (Prod.{0, u_1} ℝ E) (E [×n]→L[ℝ] F)
+TYPE_END:MethbokeAddon.FDSNR3.schwartzSliceJet
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzSliceJet
+'MethbokeAddon.FDSNR3.schwartzSliceJet' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzSliceJet
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzSliceJet_apply
+@MethbokeAddon.FDSNR3.schwartzSliceJet_apply.{u_1,
+    u_2} : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_2} F] [inst_3 : NormedSpace.{0, u_2} ℝ F]
+  (G : SchwartzMap.{u_1, u_2} (Prod.{0, u_1} ℝ E) F) (n : ℕ) (q : Prod.{0, u_1} ℝ E),
+  Eq.{max (u_1 + 1) (u_2 + 1)} ((MethbokeAddon.FDSNR3.schwartzSliceJet.{u_1, u_2} G n) q)
+    (iteratedFDeriv.{0, u_1, u_2} ℝ n (fun z => G (Prod.mk.{0, u_1} q.1 z)) q.2)
+TYPE_END:MethbokeAddon.FDSNR3.schwartzSliceJet_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzSliceJet_apply
+'MethbokeAddon.FDSNR3.schwartzSliceJet_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzSliceJet_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_value_bound
+@MethbokeAddon.FDSNR3.schwartz_weighted_value_bound.{u_1,
+    u_2} : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_2} F] [inst_3 : NormedSpace.{0, u_2} ℝ F]
+  (G : SchwartzMap.{u_1, u_2} (Prod.{0, u_1} ℝ E) F) (N : ℕ),
+  ∃ C,
+    LE.le.{0} 0 C ∧
+      ∀ (lam : ℝ) (z : E),
+        LE.le.{0}
+          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{u_1} z)) N)
+            (Norm.norm.{u_2} (G (Prod.mk.{0, u_1} lam z))))
+          C
+TYPE_END:MethbokeAddon.FDSNR3.schwartz_weighted_value_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_value_bound
+'MethbokeAddon.FDSNR3.schwartz_weighted_value_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartz_weighted_value_bound
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound
+@MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound.{u_1,
+    u_2} : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_2} F] [inst_3 : NormedSpace.{0, u_2} ℝ F]
+  (G : SchwartzMap.{u_1, u_2} (Prod.{0, u_1} ℝ E) F),
+  (∀ (z : E), Eq.{u_2 + 1} (G (Prod.mk.{0, u_1} 0 z)) 0) →
+    ∀ (N : ℕ),
+      ∃ C,
+        LE.le.{0} 0 C ∧
+          ∀ (lam : ℝ) (z : E),
+            LE.le.{0}
+              (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{u_1} z)) N)
+                (Norm.norm.{u_2} (G (Prod.mk.{0, u_1} lam z))))
+              (HMul.hMul.{0, 0, 0} C (abs.{0} lam))
+TYPE_END:MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound
+'MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartz_weighted_value_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound
+@MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound.{u_1,
+    u_2} : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_2} F] [inst_3 : NormedSpace.{0, u_2} ℝ F]
+  (G : SchwartzMap.{u_1, u_2} (Prod.{0, u_1} ℝ E) F),
+  (∀ (z : E), Eq.{u_2 + 1} (G (Prod.mk.{0, u_1} 0 z)) 0) →
+    ∀ (N n : ℕ),
+      ∃ C,
+        LE.le.{0} 0 C ∧
+          ∀ (lam : ℝ) (z : E),
+            LE.le.{0}
+              (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{u_1} z)) N)
+                (Norm.norm.{max u_2 u_1} (iteratedFDeriv.{0, u_1, u_2} ℝ n (fun y => G (Prod.mk.{0, u_1} lam y)) z)))
+              (HMul.hMul.{0, 0, 0} C (abs.{0} lam))
+TYPE_END:MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound
+'MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartz_weighted_sliceJet_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound
+@MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound.{u_1,
+    u_2} : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_2} F] [inst_3 : NormedSpace.{0, u_2} ℝ F]
+  (G : SchwartzMap.{u_1, u_2} (Prod.{0, u_1} ℝ E) F),
+  (∀ (z : E), Eq.{u_2 + 1} (G (Prod.mk.{0, u_1} 0 z)) 0) →
+    ∀ (N r : ℕ),
+      ∃ C,
+        LE.le.{0} 0 C ∧
+          ∀ (lam : ℝ) (n : ℕ),
+            LE.le.{0} n r →
+              ∀ (z : E),
+                LE.le.{0}
+                  (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{u_1} z)) N)
+                    (Norm.norm.{max u_2 u_1}
+                      (iteratedFDeriv.{0, u_1, u_2} ℝ n (fun y => G (Prod.mk.{0, u_1} lam y)) z)))
+                  (HMul.hMul.{0, 0, 0} C (abs.{0} lam))
+TYPE_END:MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound
+'MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartz_weighted_finite_sliceJet_linear_bound
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections
+MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections : ∀ (ε : ℝ) (u F : SingularClosure.Velocity)
+  (U G : ℝ → SingularClosure.Velocity)
+  (H J : SchwartzMap.{0, 0} (Prod.{0, 0} ℝ (Prod.{0, 0} ℝ SingularClosure.Vec)) SingularClosure.Vec),
+  (∀ (lam : ℝ) (z : Prod.{0, 0} ℝ SingularClosure.Vec),
+      Eq.{1} (H (Prod.mk.{0, 0} lam z)) (HSub.hSub.{0, 0, 0} (U lam) u z.1 z.2)) →
+    (∀ (lam : ℝ) (z : Prod.{0, 0} ℝ SingularClosure.Vec),
+        Eq.{1} (J (Prod.mk.{0, 0} lam z)) (HSub.hSub.{0, 0, 0} (G lam) F z.1 z.2)) →
+      (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (H (Prod.mk.{0, 0} 0 z)) 0) →
+        (∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec), Eq.{1} (J (Prod.mk.{0, 0} 0 z)) 0) →
+          MethbokeAddon.FDSNR3.WeightedSmoothSmallness ε u F U G
+TYPE_END:MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections
+'MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedSmoothSmallness_of_schwartz_corrections

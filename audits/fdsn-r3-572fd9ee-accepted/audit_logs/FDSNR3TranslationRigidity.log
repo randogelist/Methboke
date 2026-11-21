@@ -1,0 +1,62 @@
+TYPE_BEGIN:MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball
+MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball : ∀ (c y : SingularClosure.Vec) {r : ℝ},
+  LT.lt.{0} 0 r →
+    (∀ (ξ : SingularClosure.Vec),
+        Membership.mem.{0, 0} (Metric.ball.{0} c r) ξ →
+          Eq.{1}
+            (MethbokeAddon.FDSN.phase (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (Inner.inner.{0, 0} ℝ y ξ)))
+            1) →
+      Eq.{1} y 0
+TYPE_END:MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball
+'MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.translation_eq_zero_of_phase_one_on_ball
+TYPE_BEGIN:MethbokeAddon.FDSNR3.packet_phase_not_translation
+@MethbokeAddon.FDSNR3.packet_phase_not_translation : ∀ {β : ℝ → ℝ} {ψ : SingularClosure.Vec → ℝ} {t : ℝ},
+  Eq.{1} (β t) 1 →
+    ∀ (c : SingularClosure.Vec → ℂ) (active anchor : SingularClosure.Vec) {r : ℝ},
+      LT.lt.{0} 0 r →
+        Eq.{1} (ψ active) 1 →
+          Ne.{1} (c active) 0 →
+            (∀ (ξ : SingularClosure.Vec),
+                Membership.mem.{0, 0} (Metric.ball.{0} anchor r) ξ → Eq.{1} (ψ ξ) 0 ∧ Ne.{1} (c ξ) 0) →
+              ∀ {lam eta : ℝ},
+                LT.lt.{0} (abs.{0} lam) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+                  LT.lt.{0} (abs.{0} eta) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+                    Ne.{1} lam eta →
+                      ∀ (y : SingularClosure.Vec),
+                        ¬∀ (ξ : SingularClosure.Vec),
+                            Eq.{1} (MethbokeAddon.FDSNR3.packetRotate.{0, 0} β ψ lam t c ξ)
+                              (HMul.hMul.{0, 0, 0}
+                                (MethbokeAddon.FDSN.phase
+                                  (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) (Inner.inner.{0, 0} ℝ y ξ)))
+                                (MethbokeAddon.FDSNR3.packetRotate.{0, 0} β ψ eta t c ξ))
+TYPE_END:MethbokeAddon.FDSNR3.packet_phase_not_translation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.packet_phase_not_translation
+'MethbokeAddon.FDSNR3.packet_phase_not_translation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.packet_phase_not_translation
+TYPE_BEGIN:MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier
+MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier : ∀ (U : ℝ → SingularClosure.Velocity) (β : ℝ → ℝ)
+  (ψ : SingularClosure.Vec → ℝ) (c : SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec) (tstar : ℝ),
+  Eq.{1} (β tstar) 1 →
+    ∀ (i : Fin 3) (active anchor : SingularClosure.Vec) {r : ℝ},
+      LT.lt.{0} 0 r →
+        Eq.{1} (ψ active) 1 →
+          Ne.{1} (WithLp.ofLp.{0} (c active) i) 0 →
+            (∀ (ξ : SingularClosure.Vec),
+                Membership.mem.{0, 0} (Metric.ball.{0} anchor r) ξ →
+                  Eq.{1} (ψ ξ) 0 ∧ Ne.{1} (WithLp.ofLp.{0} (c ξ) i) 0) →
+              (∀ (lam : ℝ),
+                  LT.lt.{0} (abs.{0} lam) (HDiv.hDiv.{0, 0, 0} Real.pi 4) →
+                    ∀ (ξ : SingularClosure.Vec),
+                      Eq.{1} (MethbokeAddon.FDSNR3.fourierVelocity (U lam tstar) ξ)
+                        (MethbokeAddon.FDSNR3.packetRotate.{0, 0} β ψ lam tstar c ξ)) →
+                MethbokeAddon.FDSNR3.TranslationSeparation tstar (HDiv.hDiv.{0, 0, 0} Real.pi 4) U
+TYPE_END:MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier
+'MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.translationSeparation_of_actual_packet_fourier

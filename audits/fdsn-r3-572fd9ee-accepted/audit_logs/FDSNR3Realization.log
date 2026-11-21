@@ -1,0 +1,152 @@
+FDSNR3Realization/Audit.lean:63:65: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3Realization/Audit.lean:63:65: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedJet_add_le
+MethbokeAddon.FDSNR3.weightedJet_add_le : ∀ (N n : ℕ) (u v : SingularClosure.Velocity),
+  (ContDiff.{0, 0, 0} ℝ ∞ fun z => u z.1 z.2) →
+    (ContDiff.{0, 0, 0} ℝ ∞ fun z => v z.1 z.2) →
+      ∀ (z : Prod.{0, 0} ℝ SingularClosure.Vec),
+        LE.le.{0} (MethbokeAddon.FDSNR3.weightedJet N n (HAdd.hAdd.{0, 0, 0} u v) z)
+          (HAdd.hAdd.{0, 0, 0} (MethbokeAddon.FDSNR3.weightedJet N n u z) (MethbokeAddon.FDSNR3.weightedJet N n v z))
+TYPE_END:MethbokeAddon.FDSNR3.weightedJet_add_le
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedJet_add_le
+'MethbokeAddon.FDSNR3.weightedJet_add_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedJet_add_le
+TYPE_BEGIN:MethbokeAddon.FDSNR3.GlobalSchwartzBounds.add
+@MethbokeAddon.FDSNR3.GlobalSchwartzBounds.add : ∀ {u v : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.GlobalSchwartzBounds u →
+    MethbokeAddon.FDSNR3.GlobalSchwartzBounds v →
+      (ContDiff.{0, 0, 0} ℝ ∞ fun z => u z.1 z.2) →
+        (ContDiff.{0, 0, 0} ℝ ∞ fun z => v z.1 z.2) →
+          MethbokeAddon.FDSNR3.GlobalSchwartzBounds (HAdd.hAdd.{0, 0, 0} u v)
+TYPE_END:MethbokeAddon.FDSNR3.GlobalSchwartzBounds.add
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.GlobalSchwartzBounds.add
+'MethbokeAddon.FDSNR3.GlobalSchwartzBounds.add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.GlobalSchwartzBounds.add
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.of_global
+@MethbokeAddon.FDSNR3.LocalSchwartz.of_global : ∀ {T : ℝ} {v : SingularClosure.Velocity},
+  (ContDiff.{0, 0, 0} ℝ ∞ fun z => v z.1 z.2) →
+    MethbokeAddon.FDSNR3.GlobalSchwartzBounds v → MethbokeAddon.FDSNR3.LocalSchwartz T v
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.of_global
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.of_global
+'MethbokeAddon.FDSNR3.LocalSchwartz.of_global' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.of_global
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.add
+@MethbokeAddon.FDSNR3.LocalSchwartz.add : ∀ {T : ℝ} {u v : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    MethbokeAddon.FDSNR3.LocalSchwartz T v → MethbokeAddon.FDSNR3.LocalSchwartz T (HAdd.hAdd.{0, 0, 0} u v)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.add
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.add
+'MethbokeAddon.FDSNR3.LocalSchwartz.add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.add
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.add_global
+@MethbokeAddon.FDSNR3.LocalSchwartz.add_global : ∀ {T : ℝ} {u h : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    (ContDiff.{0, 0, 0} ℝ ∞ fun z => h z.1 z.2) →
+      MethbokeAddon.FDSNR3.GlobalSchwartzBounds h → MethbokeAddon.FDSNR3.LocalSchwartz T (HAdd.hAdd.{0, 0, 0} u h)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.add_global
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.add_global
+'MethbokeAddon.FDSNR3.LocalSchwartz.add_global' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.add_global
+TYPE_BEGIN:MethbokeAddon.FDSNR3.AdmissibleForce.add
+@MethbokeAddon.FDSNR3.AdmissibleForce.add : ∀ {F G : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.AdmissibleForce F →
+    MethbokeAddon.FDSNR3.AdmissibleForce G → MethbokeAddon.FDSNR3.AdmissibleForce (HAdd.hAdd.{0, 0, 0} F G)
+TYPE_END:MethbokeAddon.FDSNR3.AdmissibleForce.add
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.AdmissibleForce.add
+'MethbokeAddon.FDSNR3.AdmissibleForce.add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.AdmissibleForce.add
+TYPE_BEGIN:MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce
+@MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce : ∀ {a b : ℝ} {h : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.CompactTemporalCorrection a b h →
+    LT.lt.{0} 0 a → LT.lt.{0} a b → MethbokeAddon.FDSNR3.AdmissibleForce h
+TYPE_END:MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce
+'MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.CompactTemporalCorrection.admissibleForce
+TYPE_BEGIN:MethbokeAddon.FDSNR3.PreterminalNSE.add_residual
+@MethbokeAddon.FDSNR3.PreterminalNSE.add_residual : ∀ {ν T : ℝ} {u h F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSNR3.PreterminalNSE ν T u p F →
+    (ContDiff.{0, 0, 0} ℝ ∞ fun z => h z.1 z.2) →
+      tsupport.{0, 0} h ⊆ Set.Ioo.{0} 0 T →
+        (∀ (t : ℝ),
+            Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+              ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (h t) x) 0) →
+          MethbokeAddon.FDSNR3.PreterminalNSE ν T (HAdd.hAdd.{0, 0, 0} u h) p (MethbokeAddon.FDSN.residualForce ν u F h)
+TYPE_END:MethbokeAddon.FDSNR3.PreterminalNSE.add_residual
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.PreterminalNSE.add_residual
+'MethbokeAddon.FDSNR3.PreterminalNSE.add_residual' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.PreterminalNSE.add_residual
+TYPE_BEGIN:MethbokeAddon.FDSNR3.residualForce_eq_add_zero_force
+MethbokeAddon.FDSNR3.residualForce_eq_add_zero_force : ∀ (ν : ℝ) (u F h : SingularClosure.Velocity),
+  Eq.{1} (MethbokeAddon.FDSN.residualForce ν u F h) (HAdd.hAdd.{0, 0, 0} F (MethbokeAddon.FDSN.residualForce ν u 0 h))
+TYPE_END:MethbokeAddon.FDSNR3.residualForce_eq_add_zero_force
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.residualForce_eq_add_zero_force
+'MethbokeAddon.FDSNR3.residualForce_eq_add_zero_force' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.residualForce_eq_add_zero_force
+TYPE_BEGIN:MethbokeAddon.FDSNR3.admissibleForce_residual_of_correction
+@MethbokeAddon.FDSNR3.admissibleForce_residual_of_correction : ∀ {ν a b : ℝ} {u F h : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.AdmissibleForce F →
+    MethbokeAddon.FDSNR3.CompactTemporalCorrection a b (MethbokeAddon.FDSN.residualForce ν u 0 h) →
+      LT.lt.{0} 0 a → LT.lt.{0} a b → MethbokeAddon.FDSNR3.AdmissibleForce (MethbokeAddon.FDSN.residualForce ν u F h)
+TYPE_END:MethbokeAddon.FDSNR3.admissibleForce_residual_of_correction
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.admissibleForce_residual_of_correction
+'MethbokeAddon.FDSNR3.admissibleForce_residual_of_correction' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.admissibleForce_residual_of_correction
+TYPE_BEGIN:MethbokeAddon.FDSNR3.BoundedEnergy.of_equal_history
+@MethbokeAddon.FDSNR3.BoundedEnergy.of_equal_history : ∀ {T : ℝ} {u v : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.BoundedEnergy T u →
+    (∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+          MeasureTheory.Integrable.{0, 0} (fun x => HPow.hPow.{0, 0, 0} (Norm.norm.{0} (v t x)) 2)
+            MeasureTheory.MeasureSpace.volume.{0}) →
+      (∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+            Eq.{1} (∫ (x : SingularClosure.Vec), HPow.hPow.{0, 0, 0} (Norm.norm.{0} (v t x)) 2)
+              (∫ (x : SingularClosure.Vec), HPow.hPow.{0, 0, 0} (Norm.norm.{0} (u t x)) 2)) →
+        MethbokeAddon.FDSNR3.BoundedEnergy T v
+TYPE_END:MethbokeAddon.FDSNR3.BoundedEnergy.of_equal_history
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.BoundedEnergy.of_equal_history
+'MethbokeAddon.FDSNR3.BoundedEnergy.of_equal_history' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.BoundedEnergy.of_equal_history
+TYPE_BEGIN:MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history
+@MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history : ∀ {T : ℝ} {u v : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.FiniteDissipation T u →
+    (∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+          MeasureTheory.Integrable.{0, 0} (MethbokeAddon.FDSNR3.gradientSquare (v t))
+            MeasureTheory.MeasureSpace.volume.{0}) →
+      (∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+            Eq.{1} (MethbokeAddon.FDSNR3.dissipation (v t)) (MethbokeAddon.FDSNR3.dissipation (u t))) →
+        MethbokeAddon.FDSNR3.FiniteDissipation T v
+TYPE_END:MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history
+'MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.FiniteDissipation.of_equal_history
+TYPE_BEGIN:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation
+@MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation : ∀ {T ε : ℝ} {u : SingularClosure.Velocity}
+  {U : ℝ → SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.EnergyDissipationPreservation T ε u U →
+    ∀ {lam : ℝ},
+      LT.lt.{0} (abs.{0} lam) ε →
+        Eq.{1} (∫ (t : ℝ) in Set.Ioo.{0} 0 T, MethbokeAddon.FDSNR3.dissipation (U lam t))
+          (∫ (t : ℝ) in Set.Ioo.{0} 0 T, MethbokeAddon.FDSNR3.dissipation (u t))
+TYPE_END:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation
+'MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.EnergyDissipationPreservation.integrated_dissipation

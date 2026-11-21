@@ -1,0 +1,267 @@
+FDSNR3ResidualSchwartz/Audit.lean:81:5: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:89:5: warning: Variable name `hf` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hf
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:94:5: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:99:5: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:104:5: warning: Variable name `hB` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hB
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:110:5: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:119:17: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:120:5: warning: Variable name `hsupp` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hsupp
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+FDSNR3ResidualSchwartz/Audit.lean:121:5: warning: Variable name `heq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _heq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.FamilySpacetime
+MethbokeAddon.FDSNR3.FamilySpacetime : Type
+TYPE_END:MethbokeAddon.FDSNR3.FamilySpacetime
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.FamilySpacetime
+'MethbokeAddon.FDSNR3.FamilySpacetime' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.FamilySpacetime
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartzFamilyVelocity
+MethbokeAddon.FDSNR3.schwartzFamilyVelocity : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime
+    SingularClosure.Vec →
+  ℝ → SingularClosure.Velocity
+TYPE_END:MethbokeAddon.FDSNR3.schwartzFamilyVelocity
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartzFamilyVelocity
+'MethbokeAddon.FDSNR3.schwartzFamilyVelocity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartzFamilyVelocity
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpaceInclusion
+MethbokeAddon.FDSNR3.familySpaceInclusion : ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec
+  MethbokeAddon.FDSNR3.FamilySpacetime
+TYPE_END:MethbokeAddon.FDSNR3.familySpaceInclusion
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpaceInclusion
+'MethbokeAddon.FDSNR3.familySpaceInclusion' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpaceInclusion
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpaceInclusion_apply
+MethbokeAddon.FDSNR3.familySpaceInclusion_apply : ∀ (x : SingularClosure.Vec),
+  Eq.{1} (MethbokeAddon.FDSNR3.familySpaceInclusion x) (Prod.mk.{0, 0} 0 (Prod.mk.{0, 0} 0 x))
+TYPE_END:MethbokeAddon.FDSNR3.familySpaceInclusion_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpaceInclusion_apply
+'MethbokeAddon.FDSNR3.familySpaceInclusion_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpaceInclusion_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpatialJacobian
+MethbokeAddon.FDSNR3.familySpatialJacobian : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime
+    SingularClosure.Vec →
+  SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime
+    (ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSNR3.familySpatialJacobian
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpatialJacobian
+'MethbokeAddon.FDSNR3.familySpatialJacobian' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpatialJacobian
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpatialJacobian_apply
+MethbokeAddon.FDSNR3.familySpatialJacobian_apply : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam t : ℝ)
+  (x : SingularClosure.Vec),
+  Eq.{1} ((MethbokeAddon.FDSNR3.familySpatialJacobian H) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+    (fderiv.{0, 0, 0} ℝ (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam t) x)
+TYPE_END:MethbokeAddon.FDSNR3.familySpatialJacobian_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpatialJacobian_apply
+'MethbokeAddon.FDSNR3.familySpatialJacobian_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpatialJacobian_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpaceDerivative
+MethbokeAddon.FDSNR3.familySpaceDerivative : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime
+    SingularClosure.Vec →
+  Fin 3 → SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.familySpaceDerivative
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpaceDerivative
+'MethbokeAddon.FDSNR3.familySpaceDerivative' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpaceDerivative
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpaceDerivative_apply
+MethbokeAddon.FDSNR3.familySpaceDerivative_apply : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (i : Fin 3) (lam t : ℝ)
+  (x : SingularClosure.Vec),
+  Eq.{1} ((MethbokeAddon.FDSNR3.familySpaceDerivative H i) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+    (SingularClosure.coordinateDerivative (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam t) i x)
+TYPE_END:MethbokeAddon.FDSNR3.familySpaceDerivative_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpaceDerivative_apply
+'MethbokeAddon.FDSNR3.familySpaceDerivative_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpaceDerivative_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpaceLaplacian
+MethbokeAddon.FDSNR3.familySpaceLaplacian : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime
+    SingularClosure.Vec →
+  SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.familySpaceLaplacian
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpaceLaplacian
+'MethbokeAddon.FDSNR3.familySpaceLaplacian' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpaceLaplacian
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familySpaceLaplacian_apply
+MethbokeAddon.FDSNR3.familySpaceLaplacian_apply : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam t : ℝ)
+  (x : SingularClosure.Vec),
+  Eq.{1} ((MethbokeAddon.FDSNR3.familySpaceLaplacian H) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+    (SingularClosure.laplacian (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam t) x)
+TYPE_END:MethbokeAddon.FDSNR3.familySpaceLaplacian_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familySpaceLaplacian_apply
+'MethbokeAddon.FDSNR3.familySpaceLaplacian_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familySpaceLaplacian_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familyTimeDerivative
+MethbokeAddon.FDSNR3.familyTimeDerivative : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime
+    SingularClosure.Vec →
+  SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.familyTimeDerivative
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familyTimeDerivative
+'MethbokeAddon.FDSNR3.familyTimeDerivative' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familyTimeDerivative
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familyTimeDerivative_hasDerivAt
+MethbokeAddon.FDSNR3.familyTimeDerivative_hasDerivAt : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam t : ℝ)
+  (x : SingularClosure.Vec),
+  HasDerivAt.{0, 0} (fun r => MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam r x)
+    ((MethbokeAddon.FDSNR3.familyTimeDerivative H) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x))) t
+TYPE_END:MethbokeAddon.FDSNR3.familyTimeDerivative_hasDerivAt
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familyTimeDerivative_hasDerivAt
+'MethbokeAddon.FDSNR3.familyTimeDerivative_hasDerivAt' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familyTimeDerivative_hasDerivAt
+TYPE_BEGIN:MethbokeAddon.FDSNR3.familyTimeDerivative_native
+MethbokeAddon.FDSNR3.familyTimeDerivative_native : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (lam : ℝ), tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) ⊆ Set.Ioi.{0} 0) →
+    ∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} ((MethbokeAddon.FDSNR3.familyTimeDerivative H) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (SingularClosure.timeDerivative (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)
+TYPE_END:MethbokeAddon.FDSNR3.familyTimeDerivative_native
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.familyTimeDerivative_native
+'MethbokeAddon.FDSNR3.familyTimeDerivative_native' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.familyTimeDerivative_native
+TYPE_BEGIN:MethbokeAddon.FDSNR3.temperate_fderiv
+@MethbokeAddon.FDSNR3.temperate_fderiv.{u_1,
+    u_2} : ∀ {E : Type u_1} {F : Type u_2} [inst : NormedAddCommGroup.{u_1} E] [inst_1 : NormedSpace.{0, u_1} ℝ E]
+  [inst_2 : NormedAddCommGroup.{u_2} F] [inst_3 : NormedSpace.{0, u_2} ℝ F] {f : E → F},
+  Function.HasTemperateGrowth.{u_1, u_2} f → Function.HasTemperateGrowth.{u_1, max u_2 u_1} (fderiv.{0, u_1, u_2} ℝ f)
+TYPE_END:MethbokeAddon.FDSNR3.temperate_fderiv
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.temperate_fderiv
+'MethbokeAddon.FDSNR3.temperate_fderiv' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.temperate_fderiv
+TYPE_BEGIN:MethbokeAddon.FDSNR3.liftedSeed
+MethbokeAddon.FDSNR3.liftedSeed : (Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec) →
+  MethbokeAddon.FDSNR3.FamilySpacetime → SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.liftedSeed
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.liftedSeed
+'MethbokeAddon.FDSNR3.liftedSeed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.liftedSeed
+TYPE_BEGIN:MethbokeAddon.FDSNR3.liftedSeedJacobian
+MethbokeAddon.FDSNR3.liftedSeedJacobian : (Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec) →
+  MethbokeAddon.FDSNR3.FamilySpacetime →
+    ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ) SingularClosure.Vec SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.liftedSeedJacobian
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.liftedSeedJacobian
+'MethbokeAddon.FDSNR3.liftedSeedJacobian' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.liftedSeedJacobian
+TYPE_BEGIN:MethbokeAddon.FDSNR3.liftedSeed_temperate
+@MethbokeAddon.FDSNR3.liftedSeed_temperate : ∀ {B : Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec},
+  Function.HasTemperateGrowth.{0, 0} B → Function.HasTemperateGrowth.{0, 0} (MethbokeAddon.FDSNR3.liftedSeed B)
+TYPE_END:MethbokeAddon.FDSNR3.liftedSeed_temperate
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.liftedSeed_temperate
+'MethbokeAddon.FDSNR3.liftedSeed_temperate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.liftedSeed_temperate
+TYPE_BEGIN:MethbokeAddon.FDSNR3.liftedSeedJacobian_temperate
+@MethbokeAddon.FDSNR3.liftedSeedJacobian_temperate : ∀ {B : Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec},
+  Function.HasTemperateGrowth.{0, 0} B → Function.HasTemperateGrowth.{0, 0} (MethbokeAddon.FDSNR3.liftedSeedJacobian B)
+TYPE_END:MethbokeAddon.FDSNR3.liftedSeedJacobian_temperate
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.liftedSeedJacobian_temperate
+'MethbokeAddon.FDSNR3.liftedSeedJacobian_temperate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.liftedSeedJacobian_temperate
+TYPE_BEGIN:MethbokeAddon.FDSNR3.liftedSeedJacobian_apply
+@MethbokeAddon.FDSNR3.liftedSeedJacobian_apply : ∀ {B : Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec},
+  Function.HasTemperateGrowth.{0, 0} B →
+    ∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} (MethbokeAddon.FDSNR3.liftedSeedJacobian B (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (fderiv.{0, 0, 0} ℝ (fun y => B (Prod.mk.{0, 0} t y)) x)
+TYPE_END:MethbokeAddon.FDSNR3.liftedSeedJacobian_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.liftedSeedJacobian_apply
+'MethbokeAddon.FDSNR3.liftedSeedJacobian_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.liftedSeedJacobian_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.jointResidualSchwartz
+MethbokeAddon.FDSNR3.jointResidualSchwartz : ℝ →
+  (B : Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec) →
+    Function.HasTemperateGrowth.{0, 0} B →
+      SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec →
+        SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec
+TYPE_END:MethbokeAddon.FDSNR3.jointResidualSchwartz
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.jointResidualSchwartz
+'MethbokeAddon.FDSNR3.jointResidualSchwartz' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.jointResidualSchwartz
+TYPE_BEGIN:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_native
+MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_native : ∀ (ν : ℝ)
+  (B : Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec) (hB : Function.HasTemperateGrowth.{0, 0} B)
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  (∀ (lam : ℝ), tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) ⊆ Set.Ioi.{0} 0) →
+    ∀ (lam t : ℝ) (x : SingularClosure.Vec),
+      Eq.{1} ((MethbokeAddon.FDSNR3.jointResidualSchwartz ν B hB H) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+        (MethbokeAddon.FDSN.residualForce ν (fun r y => B (Prod.mk.{0, 0} r y)) 0
+          (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)
+TYPE_END:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_native
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_native
+'MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_native' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_native
+TYPE_BEGIN:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original
+MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original : ∀ (ν : ℝ) (u : SingularClosure.Velocity)
+  (B : Prod.{0, 0} ℝ SingularClosure.Vec → SingularClosure.Vec) (hB : Function.HasTemperateGrowth.{0, 0} B)
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec),
+  ∀ S ⊆ Set.Ioi.{0} 0,
+    (∀ (lam : ℝ), tsupport.{0, 0} (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) ⊆ S) →
+      (∀ (t : ℝ), Membership.mem.{0, 0} S t → ∀ (x : SingularClosure.Vec), Eq.{1} (B (Prod.mk.{0, 0} t x)) (u t x)) →
+        ∀ (lam t : ℝ) (x : SingularClosure.Vec),
+          Eq.{1} ((MethbokeAddon.FDSNR3.jointResidualSchwartz ν B hB H) (Prod.mk.{0, 0} lam (Prod.mk.{0, 0} t x)))
+            (MethbokeAddon.FDSN.residualForce ν u 0 (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam) t x)
+TYPE_END:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original
+'MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.jointResidualSchwartz_eq_original
+TYPE_BEGIN:MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz
+MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz : ∀
+  (H : SchwartzMap.{0, 0} MethbokeAddon.FDSNR3.FamilySpacetime SingularClosure.Vec) (lam : ℝ),
+  MethbokeAddon.FDSNR3.GlobalSchwartzBounds (MethbokeAddon.FDSNR3.schwartzFamilyVelocity H lam)
+TYPE_END:MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz
+'MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.globalSchwartzBounds_of_jointSchwartz

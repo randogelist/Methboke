@@ -1,0 +1,134 @@
+FDSNR3LocalizedSeed/Audit.lean:20:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3LocalizedSeed/Audit.lean:25:73: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3LocalizedSeed/Audit.lean:30:78: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3LocalizedSeed/Audit.lean:34:56: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3LocalizedSeed/Audit.lean:40:76: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3LocalizedSeed/Audit.lean:46:81: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed
+MethbokeAddon.FDSNR3.localizedSeed : (ℝ → ℝ) → SingularClosure.Velocity → SingularClosure.Velocity
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed
+'MethbokeAddon.FDSNR3.localizedSeed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eq_zero_off_support
+MethbokeAddon.FDSNR3.localizedSeed_eq_zero_off_support : ∀ (χ : ℝ → ℝ) (u : SingularClosure.Velocity) {t : ℝ},
+  t ∉ tsupport.{0, 0} χ → Eq.{1} (MethbokeAddon.FDSNR3.localizedSeed χ u t) 0
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed_eq_zero_off_support
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eq_zero_off_support
+'MethbokeAddon.FDSNR3.localizedSeed_eq_zero_off_support' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed_eq_zero_off_support
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_zero_off_support
+MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_zero_off_support : ∀ (χ : ℝ → ℝ) (u : SingularClosure.Velocity) {t : ℝ},
+  t ∉ tsupport.{0, 0} χ →
+    ∀ (x : SingularClosure.Vec),
+      Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x))
+        (fun z => MethbokeAddon.FDSNR3.localizedSeed χ u z.1 z.2) fun x => 0
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_zero_off_support
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_zero_off_support
+'MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_zero_off_support' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_zero_off_support
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_zero_off_support
+MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_zero_off_support : ∀ (χ : ℝ → ℝ) (u : SingularClosure.Velocity)
+  (n : ℕ) {t : ℝ},
+  t ∉ tsupport.{0, 0} χ →
+    ∀ (x : SingularClosure.Vec),
+      Eq.{1}
+        (iteratedFDeriv.{0, 0, 0} ℝ n (fun z => MethbokeAddon.FDSNR3.localizedSeed χ u z.1 z.2) (Prod.mk.{0, 0} t x)) 0
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_zero_off_support
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_zero_off_support
+'MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_zero_off_support' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_zero_off_support
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eq_of_eq_one
+@MethbokeAddon.FDSNR3.localizedSeed_eq_of_eq_one : ∀ {χ : ℝ → ℝ} (u : SingularClosure.Velocity) {t : ℝ},
+  Eq.{1} (χ t) 1 → Eq.{1} (MethbokeAddon.FDSNR3.localizedSeed χ u t) (u t)
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed_eq_of_eq_one
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eq_of_eq_one
+'MethbokeAddon.FDSNR3.localizedSeed_eq_of_eq_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed_eq_of_eq_one
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_of_eventuallyEq_one
+@MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_of_eventuallyEq_one : ∀ {χ : ℝ → ℝ} (u : SingularClosure.Velocity)
+  {t : ℝ},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} t) χ fun x => 1) →
+    ∀ (x : SingularClosure.Vec),
+      Filter.EventuallyEq.{0, 0} (nhds.{0} (Prod.mk.{0, 0} t x))
+        (fun z => MethbokeAddon.FDSNR3.localizedSeed χ u z.1 z.2) fun z => u z.1 z.2
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_of_eventuallyEq_one
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_of_eventuallyEq_one
+'MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_of_eventuallyEq_one' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed_eventuallyEq_of_eventuallyEq_one
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_of_eventuallyEq_one
+@MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_of_eventuallyEq_one : ∀ {χ : ℝ → ℝ} (u : SingularClosure.Velocity)
+  {t : ℝ},
+  (Filter.EventuallyEq.{0, 0} (nhds.{0} t) χ fun x => 1) →
+    ∀ (x : SingularClosure.Vec) (n : ℕ),
+      Eq.{1}
+        (iteratedFDeriv.{0, 0, 0} ℝ n (fun z => MethbokeAddon.FDSNR3.localizedSeed χ u z.1 z.2) (Prod.mk.{0, 0} t x))
+        (iteratedFDeriv.{0, 0, 0} ℝ n (fun z => u z.1 z.2) (Prod.mk.{0, 0} t x))
+TYPE_END:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_of_eventuallyEq_one
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_of_eventuallyEq_one
+'MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_of_eventuallyEq_one' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localizedSeed_iteratedFDeriv_eq_of_eventuallyEq_one
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiff_localizedSeed
+@MethbokeAddon.FDSNR3.LocalSchwartz.contDiff_localizedSeed : ∀ {T : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    ∀ {χ : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ χ →
+        tsupport.{0, 0} χ ⊆ Set.Ioo.{0} 0 T →
+          ContDiff.{0, 0, 0} ℝ ∞ fun z => MethbokeAddon.FDSNR3.localizedSeed χ u z.1 z.2
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiff_localizedSeed
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiff_localizedSeed
+'MethbokeAddon.FDSNR3.LocalSchwartz.contDiff_localizedSeed' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiff_localizedSeed
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed
+@MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed : ∀ {T : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    ∀ {χ : ℝ → ℝ},
+      ContDiff.{0, 0, 0} ℝ ∞ χ →
+        HasCompactSupport.{0, 0} χ →
+          tsupport.{0, 0} χ ⊆ Set.Ioo.{0} 0 T →
+            Function.HasTemperateGrowth.{0, 0} fun z => MethbokeAddon.FDSNR3.localizedSeed χ u z.1 z.2
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed
+'MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.hasTemperateGrowth_localizedSeed
+TYPE_BEGIN:MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval
+@MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval : ∀ {a b T : ℝ},
+  LT.lt.{0} 0 a →
+    LT.lt.{0} a b →
+      LT.lt.{0} b T →
+        ∃ χ,
+          ContDiff.{0, 0, 0} ℝ ∞ χ ∧
+            HasCompactSupport.{0, 0} χ ∧
+              tsupport.{0, 0} χ ⊆ Set.Ioo.{0} 0 T ∧
+                ∀ (t : ℝ),
+                  Membership.mem.{0, 0} (Set.Icc.{0} a b) t → Filter.EventuallyEq.{0, 0} (nhds.{0} t) χ fun x => 1
+TYPE_END:MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval
+'MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.exists_timeCutoff_for_interval

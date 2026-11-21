@@ -1,0 +1,122 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.residualForce
+MethbokeAddon.FDSN.residualForce : ℝ →
+  SingularClosure.Velocity → SingularClosure.Velocity → SingularClosure.Velocity → SingularClosure.Velocity
+TYPE_END:MethbokeAddon.FDSN.residualForce
+AXIOMS_BEGIN:MethbokeAddon.FDSN.residualForce
+'MethbokeAddon.FDSN.residualForce' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.residualForce
+TYPE_BEGIN:MethbokeAddon.FDSN.native_coordinateDerivative_contDiff
+MethbokeAddon.FDSN.native_coordinateDerivative_contDiff : ∀ (a : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ a → ∀ (i : Fin 3), ContDiff.{0, 0, 0} ℝ ∞ (SingularClosure.coordinateDerivative a i)
+TYPE_END:MethbokeAddon.FDSN.native_coordinateDerivative_contDiff
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_coordinateDerivative_contDiff
+'MethbokeAddon.FDSN.native_coordinateDerivative_contDiff' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_coordinateDerivative_contDiff
+TYPE_BEGIN:MethbokeAddon.FDSN.native_coordinateDerivative_add
+MethbokeAddon.FDSN.native_coordinateDerivative_add : ∀ (a b : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ a →
+    ContDiff.{0, 0, 0} ℝ ∞ b →
+      ∀ (i : Fin 3),
+        Eq.{1} (SingularClosure.coordinateDerivative (HAdd.hAdd.{0, 0, 0} a b) i)
+          (HAdd.hAdd.{0, 0, 0} (SingularClosure.coordinateDerivative a i) (SingularClosure.coordinateDerivative b i))
+TYPE_END:MethbokeAddon.FDSN.native_coordinateDerivative_add
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_coordinateDerivative_add
+'MethbokeAddon.FDSN.native_coordinateDerivative_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_coordinateDerivative_add
+TYPE_BEGIN:MethbokeAddon.FDSN.native_laplacian_add
+MethbokeAddon.FDSN.native_laplacian_add : ∀ (a b : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ a →
+    ContDiff.{0, 0, 0} ℝ ∞ b →
+      Eq.{1} (SingularClosure.laplacian (HAdd.hAdd.{0, 0, 0} a b))
+        (HAdd.hAdd.{0, 0, 0} (SingularClosure.laplacian a) (SingularClosure.laplacian b))
+TYPE_END:MethbokeAddon.FDSN.native_laplacian_add
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_laplacian_add
+'MethbokeAddon.FDSN.native_laplacian_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_laplacian_add
+TYPE_BEGIN:MethbokeAddon.FDSN.native_divergence_add
+MethbokeAddon.FDSN.native_divergence_add : ∀ (a b : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ a →
+    ContDiff.{0, 0, 0} ℝ ∞ b →
+      ∀ (x : SingularClosure.Vec),
+        Eq.{1} (SingularClosure.divergence (HAdd.hAdd.{0, 0, 0} a b) x)
+          (HAdd.hAdd.{0, 0, 0} (SingularClosure.divergence a x) (SingularClosure.divergence b x))
+TYPE_END:MethbokeAddon.FDSN.native_divergence_add
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_divergence_add
+'MethbokeAddon.FDSN.native_divergence_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_divergence_add
+TYPE_BEGIN:MethbokeAddon.FDSN.native_timeDerivative_add
+MethbokeAddon.FDSN.native_timeDerivative_add : ∀ (U h : SingularClosure.Velocity) (t : ℝ) (x : SingularClosure.Vec),
+  DifferentiableWithinAt.{0, 0, 0} ℝ (fun r => U r x) (Set.Ici.{0} 0) t →
+    DifferentiableWithinAt.{0, 0, 0} ℝ (fun r => h r x) (Set.Ici.{0} 0) t →
+      Eq.{1} (SingularClosure.timeDerivative (HAdd.hAdd.{0, 0, 0} U h) t x)
+        (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative U t x) (SingularClosure.timeDerivative h t x))
+TYPE_END:MethbokeAddon.FDSN.native_timeDerivative_add
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_timeDerivative_add
+'MethbokeAddon.FDSN.native_timeDerivative_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_timeDerivative_add
+TYPE_BEGIN:MethbokeAddon.FDSN.native_residual_momentum_at
+MethbokeAddon.FDSN.native_residual_momentum_at : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure) (t : ℝ) (x : SingularClosure.Vec),
+  ContDiff.{0, 0, 0} ℝ ∞ (U t) →
+    ContDiff.{0, 0, 0} ℝ ∞ (h t) →
+      DifferentiableWithinAt.{0, 0, 0} ℝ (fun r => U r x) (Set.Ici.{0} 0) t →
+        DifferentiableWithinAt.{0, 0, 0} ℝ (fun r => h r x) (Set.Ici.{0} 0) t →
+          Eq.{1}
+              (HAdd.hAdd.{0, 0, 0}
+                (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative U t x) (SingularClosure.convection (U t) x))
+                (SingularClosure.gradient (p t) x))
+              (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (U t) x)) (F t x)) →
+            Eq.{1}
+              (HAdd.hAdd.{0, 0, 0}
+                (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative (HAdd.hAdd.{0, 0, 0} U h) t x)
+                  (SingularClosure.convection (HAdd.hAdd.{0, 0, 0} U h t) x))
+                (SingularClosure.gradient (p t) x))
+              (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (HAdd.hAdd.{0, 0, 0} U h t) x))
+                (MethbokeAddon.FDSN.residualForce ν U F h t x))
+TYPE_END:MethbokeAddon.FDSN.native_residual_momentum_at
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_residual_momentum_at
+'MethbokeAddon.FDSN.native_residual_momentum_at' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_residual_momentum_at
+TYPE_BEGIN:MethbokeAddon.FDSN.native_divergence_add_zero
+MethbokeAddon.FDSN.native_divergence_add_zero : ∀ (a b : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ a →
+    ContDiff.{0, 0, 0} ℝ ∞ b →
+      (∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence a x) 0) →
+        (∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence b x) 0) →
+          ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (HAdd.hAdd.{0, 0, 0} a b) x) 0
+TYPE_END:MethbokeAddon.FDSN.native_divergence_add_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_divergence_add_zero
+'MethbokeAddon.FDSN.native_divergence_add_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_divergence_add_zero
+TYPE_BEGIN:MethbokeAddon.FDSN.native_residual_momentum_on_open_slab
+MethbokeAddon.FDSN.native_residual_momentum_on_open_slab : ∀ (ν : ℝ) (U F h : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure) (s T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => U z.1 z.2) (Set.ofPred.{0} fun z => Membership.mem.{0, 0} (Set.Ioo.{0} s T) z.1) →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => h z.1 z.2)
+        (Set.ofPred.{0} fun z => Membership.mem.{0, 0} (Set.Ioo.{0} s T) z.1) →
+      (∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} s T) t →
+            ∀ (x : SingularClosure.Vec),
+              Eq.{1}
+                (HAdd.hAdd.{0, 0, 0}
+                  (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative U t x) (SingularClosure.convection (U t) x))
+                  (SingularClosure.gradient (p t) x))
+                (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (U t) x)) (F t x))) →
+        ∀ (t : ℝ),
+          Membership.mem.{0, 0} (Set.Ioo.{0} s T) t →
+            ∀ (x : SingularClosure.Vec),
+              Eq.{1}
+                (HAdd.hAdd.{0, 0, 0}
+                  (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative (HAdd.hAdd.{0, 0, 0} U h) t x)
+                    (SingularClosure.convection (HAdd.hAdd.{0, 0, 0} U h t) x))
+                  (SingularClosure.gradient (p t) x))
+                (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (HAdd.hAdd.{0, 0, 0} U h t) x))
+                  (MethbokeAddon.FDSN.residualForce ν U F h t x))
+TYPE_END:MethbokeAddon.FDSN.native_residual_momentum_on_open_slab
+AXIOMS_BEGIN:MethbokeAddon.FDSN.native_residual_momentum_on_open_slab
+'MethbokeAddon.FDSN.native_residual_momentum_on_open_slab' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.native_residual_momentum_on_open_slab

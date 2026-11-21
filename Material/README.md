@@ -1,10 +1,51 @@
 # Material
 
-The current goal is **Fefferman D**, through the finite periodic forced-family
-route. The first [foundation package](FeffermanFamilyFoundation/README.md) adds
+## Whole-space FDSN_R3
+
+Status: **A-tier accepted at `572fd9ee`**. The [FDSNR3Main package](FDSNR3Main/README.md)
+contains the canonical conditional theorem
+`MethbokeAddon.FDSNR3.FDSN_R3 : Seed ν T u p F → Family ν T u p F`.
+The original seed hypotheses and the complete common-witness family contract
+are retained. The root assembles all sixteen endpoint obligations.
+
+For every regular start time `s`, the velocity and force corrections share a
+compact temporal carrier inside a later interval strictly before `T`, with
+parameter range `|λ| < π / 4`.
+The family realizes the actual whole-space NSE with the same viscosity, initial data
+and pressure; preserves all helical powers and a common low-frequency
+neighborhood; separates distinct parameters from spatial translations at one
+common observation time; separates their actual physical projected forces;
+and gives all weighted mixed-derivative bounds linear in `|λ|`.
+The same witnesses have exact terminal-tail agreement, equal energy and
+dissipation histories, and the original compact-local blowup. The
+time-integrated dissipation equality and the fixed-frame scalar interpretation
+of helical power are separately audited supplements.
+
+The root is conditional on the original `Seed`; it does not construct a singular
+seed. Forces vary with the parameter, so this is not a same-force nonuniqueness
+theorem. Force support is compact in positive time, with rapid spatial decay.
+
+Exact source: [`572fd9ee69a6b641f435cbfb2ef74e034809c583`](https://github.com/randogelist/Methboke/tree/572fd9ee69a6b641f435cbfb2ef74e034809c583);
+[external run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720);
+[retained evidence](../audits/fdsn-r3-572fd9ee-accepted/summary.json).
+The run passed **548 modules (502 reused, 46 fresh), 137 fresh package audits,
+1,320 named type/axiom reports and the independent cutout verification**.
+Only `propext`, `Classical.choice` and `Quot.sound` occurred in the accepted
+axiom reports. The **26 FDSNR3 packages contain 493 named declarations**;
+the sixteen-endpoint chain also reuses `FDSNBump` and `FDSNResidualForce`.
+Workflow publication, the required gate and final Material acceptance passed.
+The retained artifact is `14684049987`, with SHA-256
+`320d05ae62963c329de38c4c570abef1a5e947e98dfe32ad2e3be43e78f76243`.
+Acceptance applies to the tested source and independent consumer identity
+recorded in that receipt.
+
+## Earlier finite periodic family work
+
+The finite periodic forced-family route toward **Fefferman D** remains
+separately tracked. The first [foundation package](FeffermanFamilyFoundation/README.md) adds
 28 local blowup, disjoint-carrier and native contract helper theorems and 11
 contract declarations, accepted at 77a64245 by [external run 44655638162](https://github.com/randogelist/Methboke/actions/runs/44655638162).
-The complete D family root remains unproved; see
+The prescribed-site periodic D-family root remains unproved; see
 the [implementation ledger](../T3_NSE/D-Family-Obstruction/IMPLEMENTATION_STATUS.json).
 
 The [FeffermanFamilyAssembly package](FeffermanFamilyAssembly/README.md) adds
@@ -17,12 +58,17 @@ finite-disjoint-sum NSE assembly. Transformed-copy PDE identities, seed admissio
 packing, energy, force admission, periodization and same-force comparison remain
 open for the family route.
 
-The complete native verification passed 420 modules (415 reused, 5 fresh),
+The earlier `f19531bc` native verification passed 420 modules (415 reused, 5 fresh),
 73 fresh package audits, 510 named type/axiom reports plus QFB and 183 controls,
 using only standard axioms. See the [evidence](../audits/material-f19531bc-assembly/summary.json)
 and [A-tier register](../T3_NSE/D-Family-Obstruction/FEFFERMAN_D_ASSEMBLY_A_TIER.txt).
-The direct Fefferman-D upstream proof remains pending separate verification under
-its own 4.34rc2 pin; Material retains 4.33.0.
+The separate direct Fefferman-D endpoint is already A-tier accepted at
+`66a529248d3198ed70dc5489d82868bc33a37796` by
+[run 44768857811](https://github.com/randogelist/Methboke/actions/runs/44768857811);
+its [accepted record](../T3_NSE/D-Family-Obstruction/UpstreamSeed/ACCEPTANCE.json)
+retains that source and artifact identity. It uses its own 4.34rc2 pin;
+Material retains 4.33.0. That earlier acceptance is not a new result of
+the FDSN_R3 run.
 
 The prior accepted conditional theorem is
 `MethbokeAddon.EhrenfestObstruction.EHRENFEST_OBSTRUCTION`:
@@ -53,18 +99,18 @@ analytic-germ extension R1 are not supplied by those results.
 
 ## Source and package map
 
-The [endpoint registry](endpoints.json) contains 73 accepted packages: the 71
-prior packages plus FeffermanFamilyFoundation and FeffermanFamilyAssembly. It lists their
-exact declaration requests. Each package contains its import boundary, consumer
+The [endpoint registry](endpoints.json) contains **137 packages and 1,320 named
+declaration requests**, including the 26 FDSNR3 packages. It lists their exact
+declaration requests. Each package contains its import boundary, consumer
 type assertions, theorem-level axiom audit, recursive dependency closure and
 source provenance.
 
 | Source group | Count | Role |
 |---|---:|---|
 | `_vendor` | 269 modules | Pinned Methlib foundation sources |
-| `MethbokeAddon` | 78 accepted owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
-| Endpoint wrappers | 73 accepted modules | Independently audited import boundaries |
-| Accepted compiled scope | 420 modules | Shared source closure, without duplicate foundation rebuilding |
+| `MethbokeAddon` | 142 owned modules | Separately registered additions in [owned-sources.json](owned-sources.json) |
+| Endpoint wrappers | 137 modules | Independently audited import boundaries |
+| Full compiled scope | 548 modules | Shared source closure, without duplicate foundation rebuilding |
 
 | Package family | Exact role |
 |---|---|
@@ -78,6 +124,7 @@ source provenance.
 | [EhrenfestObstructionRoot](EhrenfestObstructionRoot/README.md) | Accepted exact conditional E10 root |
 | [FeffermanFamilyFoundation](FeffermanFamilyFoundation/README.md) | Accepted local blowup, disjoint-germ and native-contract foundations |
 | [FeffermanFamilyAssembly](FeffermanFamilyAssembly/README.md) | Accepted growth extraction, geometric transport and conditional native disjoint PDE assembly |
+| [FDSNR3Main and the 25 supporting FDSNR3 packages](FDSNR3Main/README.md) | Conditional whole-space Seed-to-Family root; 493 named declarations, all sixteen endpoint obligations, fixed-frame and integrated-dissipation supplements |
 
 Preparation labels inside immutable endpoint manifests are not a replacement
 for source-specific acceptance receipts. Acceptance applies to the exact source,
@@ -148,9 +195,11 @@ Missing or duplicate required reports, unknown axioms and `sorryAx` fail
 acceptance. Static inspection and CI status alone are not theorem acceptance.
 Missing official Mathlib objects do not authorize a Mathlib source rebuild.
 
-The retained f19531bc receipt covers the current accepted native source and
-audit scope. Later documentation-only updates preserve that tested identity
-and do not require an identical rerun. See
+The [FDSN_R3 receipt](../audits/fdsn-r3-572fd9ee-accepted/summary.json) records the exact
+`572fd9ee69a6b641f435cbfb2ef74e034809c583` source and audit identity. The `f19531bc`
+receipt remains evidence for its earlier scope. Later documentation-only
+updates preserve the tested proof and audit bytes and are not represented
+as the tested revision. See
 [CI controls](ci/README.md) and the [registry guide](registry/README.md).
 
 ## Retained history
@@ -162,7 +211,7 @@ Earlier timing measurements describe their original source scopes and do not
 predict current performance. Failed attempts remain retained in `audits/`.
 
 The prior conditional Ehrenfest implication remains closed with its stopped-bound premise.
-The current Fefferman-D family root remains open in this repository.
+The separately tracked prescribed-site periodic Fefferman-D family root remains open.
 No unconditional stopped witness, full operator construction or full H2
 Galerkin-convergence result is inferred from this acceptance.
 

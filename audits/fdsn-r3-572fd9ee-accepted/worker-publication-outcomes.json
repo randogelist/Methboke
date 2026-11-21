@@ -1,0 +1,193 @@
+{
+  "status": "OBSERVED_FAST_BINARY_CACHE_PUBLICATION_SUCCESS",
+  "source": "Unmodified fast-job.log runner end-action markers",
+  "source_log_sha256": "2bef54367b91f829903b035d62d5222333c32137f03294a38432a50852a3843a",
+  "commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
+  "run_id": 44848985720,
+  "required_success_marker_ids": [
+    "worker.routing",
+    "worker.static",
+    "worker.restore",
+    "worker.dependencies",
+    "worker.project",
+    "worker.cache_admission",
+    "worker.compiler_setup",
+    "worker.audit_options",
+    "worker.verify",
+    "worker.verified_evidence",
+    "worker.binary_package",
+    "worker.published-dependencies",
+    "worker.published-project",
+    "worker.published_identities",
+    "worker.publish_binary",
+    "worker.final_evidence",
+    "worker.classify",
+    "worker.routing_evidence",
+    "worker.route",
+    "worker.accept"
+  ],
+  "conditional_cache_save_ids": [
+    "worker.save_dependencies",
+    "worker.save_project"
+  ],
+  "conditional_skip_justification": "Cache saves may skip on existing exact hits; both exact publication lookups and identity gate passed.",
+  "required_skipped_marker_ids": [
+    "worker.registry_auth",
+    "worker.cold_disk",
+    "worker.recovery_admission",
+    "worker.publish_registry"
+  ],
+  "observed_worker_markers": {
+    "routing": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 207
+    },
+    "static": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1233
+    },
+    "disk": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1252
+    },
+    "registry_auth": {
+      "outcome": "skipped",
+      "conclusion": "skipped",
+      "line_number": 1254
+    },
+    "restore": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1274
+    },
+    "cold_disk": {
+      "outcome": "skipped",
+      "conclusion": "skipped",
+      "line_number": 1276
+    },
+    "repaired-dependencies": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1300
+    },
+    "dependencies": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1341
+    },
+    "repaired-project": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1365
+    },
+    "project": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1395
+    },
+    "cache_admission": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1415
+    },
+    "recovery_admission": {
+      "outcome": "skipped",
+      "conclusion": "skipped",
+      "line_number": 1417
+    },
+    "exact_gate": {
+      "outcome": "skipped",
+      "conclusion": "skipped",
+      "line_number": 1419
+    },
+    "compiler_setup": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1452
+    },
+    "audit_options": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 1492
+    },
+    "verify": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25687
+    },
+    "verified_evidence": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25721
+    },
+    "save_dependencies": {
+      "outcome": "skipped",
+      "conclusion": "skipped",
+      "line_number": 25723
+    },
+    "binary_package": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25741
+    },
+    "save_project": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25765
+    },
+    "published-dependencies": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25788
+    },
+    "published-project": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25813
+    },
+    "published_identities": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25832
+    },
+    "publish_binary": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25870
+    },
+    "publish_registry": {
+      "outcome": "skipped",
+      "conclusion": "skipped",
+      "line_number": 25872
+    },
+    "final_evidence": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25906
+    },
+    "classify": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25952
+    },
+    "routing_evidence": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 25986
+    },
+    "route": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 26012
+    },
+    "accept": {
+      "outcome": "success",
+      "conclusion": "success",
+      "line_number": 26028
+    }
+  },
+  "github_api_metadata_modified": false
+}

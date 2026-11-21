@@ -7,43 +7,46 @@ R3-01: A_TIER_ACCEPTED_EXACT_SCOPE
   Exact whole-space Seed and Family contracts
 R3-02: A_TIER_ACCEPTED_EXACT_SCOPE
   Compact-carrier admission to local Schwartz regularity
-R3-03: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-03: A_TIER_ACCEPTED_EXACT_SCOPE
   Actual Fourier inversion, conjugacy, divergence, translation and Plancherel
-R3-04: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-04: A_TIER_ACCEPTED_EXACT_SCOPE
   Intrinsic helical projector algebra and fixed-frame scalar powers
-R3-05: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-05: A_TIER_ACCEPTED_EXACT_SCOPE
   Nonzero continuous Fourier region after any regular cutoff
-R3-06: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-06: A_TIER_ACCEPTED_EXACT_SCOPE
   Separated active and untouched frequency regions and odd cutoff
-R3-07: ACCEPTED_REUSED_EXACT_SCOPE
+R3-07: A_TIER_ACCEPTED_EXACT_SCOPE
   Normalized compact interior time bump
-R3-08: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-08: A_TIER_ACCEPTED_EXACT_SCOPE
   Actual phase family and joint Schwartz regularity
-R3-09: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-09: A_TIER_ACCEPTED_EXACT_SCOPE
   Reality, divergence freedom and low-frequency preservation
-R3-10: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-10: A_TIER_ACCEPTED_EXACT_SCOPE
   Complete helical powers, energy, gradient norm and time-integrated dissipation preservation
-R3-11: ACCEPTED_REUSED_EXACT_SCOPE
+R3-11: A_TIER_ACCEPTED_EXACT_SCOPE
   Exact same-pressure residual identity
-R3-12: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-12: A_TIER_ACCEPTED_EXACT_SCOPE
   Global rapid-decay force admission and smooth zero extension
-R3-13: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-13: A_TIER_ACCEPTED_EXACT_SCOPE
   Common-time separation modulo every spatial translation
-R3-14: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-14: A_TIER_ACCEPTED_EXACT_SCOPE
   Physical Leray-projected force separation
-R3-15: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-15: A_TIER_ACCEPTED_EXACT_SCOPE
   All finite-order weighted O(parameter) estimates
-R3-16: PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION
+R3-16: A_TIER_ACCEPTED_EXACT_SCOPE
   Canonical same-witness FDSN_R3 root
 
 R3-01/R3-02: accepted at4d00e260/run44831894933;72new declarations including phase helpers.
 Evidence: audits/fdsn-r3-4d00e260-accepted/summary.json.
 Reused R3-07/R3-11: complete matching archived audits at run44811785125.
-Full candidate:421pending stage2/stage3 declarations;137packages/1320total reports.
+Full accepted chain: 421 newly accepted stage2/stage3 declarations; 137 packages / 1320 fresh named reports.
 Canonical root: MethbokeAddon.FDSNR3.FDSN_R3, original Seed -> full Family.
-Root status: PREPARED, NOT EXTERNALLY ACCEPTED. Seed existence not asserted.
-Latest failure: run 44847910880 at 7dd6dba6; all 548 modules compile, 55 fresh audits / 571 declarations recorded; independent Fourier consumer type annotation required; no new acceptance.
+Root status: A_TIER_ACCEPTED_EXACT_ORIGINAL_SEED_TO_FAMILY. Seed existence not asserted.
+Latest acceptance: 572fd9ee69a6b641f435cbfb2ef74e034809c583, run 44848985720; audits/fdsn-r3-572fd9ee-accepted/summary.json.
 Local Lean or Lake executions: ZERO.
+
+HISTORICAL PREPARATION AND FAILED ATTEMPTS
+Pending descriptions below are superseded by the current acceptance.
 
 Full run44836866962: all stage2 sources/wrappers compile, six stage3 source
 proof failures. Matching repairs prepared; all fresh audits remain pending.
@@ -130,3 +133,21 @@ FDSN_R3 audit repair after run 44847910880 at 7dd6dba6.
 Run 44847910880 at 7dd6dba6 compiled all 548 modules, including the original Seed-to-Family root and wrappers. The report records 55 fresh passing endpoint audits covering 571 declarations; CrossingTimePhase now passes. FDSNR3Fourier/Audit.lean lines 25–26 then fail because an omitted intermediate Schwartz-map type selects an unavailable FourierTransform instance. Complete audits, cutout and final acceptance/publication remain pending; no new A-tier acceptance.
 Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.
 Evidence: audits/fdsn-r3-7dd6dba6-failed/SUMMARY.txt.
+
+
+LATEST FDSN_R3 ACCEPTANCE
+SOURCE: 572fd9ee69a6b641f435cbfb2ef74e034809c583; RUN: 44848985720.
+ROOT: MethbokeAddon.FDSNR3.FDSN_R3; original Seed ν T u p F -> full Family ν T u p F.
+All R3-01 through R3-16 exact scopes accepted. The same constructed velocity
+and force families, with the original pressure, satisfy every clause;
+Seed existence remains unproved.
+Coverage: 548 modules; 137 fresh package audits; 1320 named type/axiom reports
+plus the original QFB cutout. R3: 26 packages / 493 declarations, including
+421 newly accepted declarations beyond the 72 accepted foundations.
+Compiler: Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+Axioms: propext, Classical.choice, Quot.sound only. Publication and final
+Material accepted job 136679598135: PASS. Local Lean executions: ZERO.
+EVIDENCE: audits/fdsn-r3-572fd9ee-accepted/summary.json.
+Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.
+Local target completed; project goal remains Fefferman_D. No new target adopted.

@@ -1,0 +1,34 @@
+TYPE_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_canonical_error_differential_inequality
+MethbokeAddon.EhrenfestObstruction.initial_front_canonical_error_differential_inequality : ∀ (ν : ℝ)
+  (hν : LT.lt.{0} 0 ν) (a : MethbokeAddon.EhrenfestObstruction.SmoothDatum) (S T : ℝ) (u : SingularClosure.Velocity)
+  (p : SingularClosure.Pressure),
+  MethbokeAddon.WeakFouriermanB.InitialClassicalFront ν S (↑a) u p →
+    LT.lt.{0} T S →
+      ∃ C A,
+        LT.lt.{0} 0 C ∧
+          LT.lt.{0} 0 A ∧
+            ∀ (n : ℕ) (t : ℝ),
+              Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t →
+                ∃ d,
+                  HasDerivAt.{0, 0}
+                      (fun r =>
+                        SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+                          (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n r))
+                      d t ∧
+                    LE.le.{0} d
+                      (HAdd.hAdd.{0, 0, 0}
+                        (HMul.hMul.{0, 0, 0} C
+                          (HAdd.hAdd.{0, 0, 0}
+                            (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+                              (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t))
+                            (HPow.hPow.{0, 0, 0}
+                              (SingularClosure.coefficientDissipation (HAdd.hAdd.{0, 0, 0} n 1)
+                                (MethbokeAddon.EhrenfestObstruction.canonicalErrorCoeff ν hν a u n t))
+                              3)))
+                        (HDiv.hDiv.{0, 0, 0} A (HPow.hPow.{0, 0, 0} (↑(HAdd.hAdd.{0, 0, 0} n 1)) 2)))
+TYPE_END:MethbokeAddon.EhrenfestObstruction.initial_front_canonical_error_differential_inequality
+AXIOMS_BEGIN:MethbokeAddon.EhrenfestObstruction.initial_front_canonical_error_differential_inequality
+'MethbokeAddon.EhrenfestObstruction.initial_front_canonical_error_differential_inequality' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.EhrenfestObstruction.initial_front_canonical_error_differential_inequality

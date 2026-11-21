@@ -1,0 +1,101 @@
+WFBLocalGalerkinLimit/Audit.lean:12:45: warning: Variable name `hφ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hφ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:14:13: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:15:30: warning: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:16:5: warning: Variable name `hconv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hconv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:18:5: warning: Variable name `hbound` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hbound
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:24:21: warning: Variable name `hν` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hν
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:24:46: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:25:13: warning: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:25:34: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+WFBLocalGalerkinLimit/Audit.lean:26:5: warning: Variable name `hH2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hH2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit
+MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit : ∀ (ν : ℝ) (a : SingularClosure.Field) (φ : ℕ → ℕ),
+  StrictMono.{0, 0} φ →
+    ∀ (g : (n : ℕ) → SingularClosure.GalerkinSolution ν a (HAdd.hAdd.{0, 0, 0} (φ n) 1)) (T : ℝ),
+      LT.lt.{0} 0 T →
+        ∀ (u : ℝ → SingularClosure.TorusSobolev 0),
+          ContinuousOn.{0, 0} u (Set.Icc.{0} 0 T) →
+            TendstoUniformlyOn.{0, 0, 0} (fun n t => (g n).sobolevState 0 t) u Filter.atTop.{0} (Set.Icc.{0} 0 T) →
+              (∀ (s : ℕ),
+                  ∃ B,
+                    LE.le.{0} 0 B ∧
+                      ∀ (n : ℕ) (t : ℝ),
+                        Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t →
+                          LE.le.{0} (Norm.norm.{0} ((g n).sobolevState s t)) B) →
+                ∃ L, ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Icc.{0} 0 T) t → Eq.{1} (L.state 0 t) (u t)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit
+'MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_galerkin_limit
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2
+MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2 : ∀ (ν : ℝ),
+  LT.lt.{0} 0 ν →
+    ∀ (a : SingularClosure.Field),
+      SingularClosure.SmoothSigmaZero a →
+        ∀ (T : ℝ),
+          LT.lt.{0} 0 T →
+            ∀ (S : ℝ),
+              LE.le.{0} 0 S →
+                (∀ (N : ℕ),
+                    LE.le.{0} 1 N →
+                      ∀ (g : SingularClosure.GalerkinSolution ν a N),
+                        LE.le.{0} (∫ (t : ℝ) in 0..T, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (g.sobolevState 2 t)) 2) S) →
+                  ∃ L, Eq.{1} (↑(L.state 0 0)) (SingularClosure.datumFourierCoeff a)
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2
+'MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_sobolev_flow_of_uniform_H2

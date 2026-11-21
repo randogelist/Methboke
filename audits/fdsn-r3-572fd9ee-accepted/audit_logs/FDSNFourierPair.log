@@ -1,0 +1,178 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier
+MethbokeAddon.FDSN.pairMultiplier : SingularClosure.Frequency → ℂ → SingularClosure.Frequency → ℂ
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier
+'MethbokeAddon.FDSN.pairMultiplier' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate
+MethbokeAddon.FDSN.pairRotate : SingularClosure.Frequency →
+  ℂ → SingularClosure.FourierCoeff → SingularClosure.FourierCoeff
+TYPE_END:MethbokeAddon.FDSN.pairRotate
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate
+'MethbokeAddon.FDSN.pairRotate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate
+TYPE_BEGIN:MethbokeAddon.FDSN.frequency_ne_neg_self
+@MethbokeAddon.FDSN.frequency_ne_neg_self : ∀ {a : SingularClosure.Frequency}, Ne.{1} a 0 → Ne.{1} a (Neg.neg.{0} a)
+TYPE_END:MethbokeAddon.FDSN.frequency_ne_neg_self
+AXIOMS_BEGIN:MethbokeAddon.FDSN.frequency_ne_neg_self
+'MethbokeAddon.FDSN.frequency_ne_neg_self' depends on axioms: [propext, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.frequency_ne_neg_self
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_at
+MethbokeAddon.FDSN.pairMultiplier_at : ∀ (a : SingularClosure.Frequency) (z : ℂ),
+  Eq.{1} (MethbokeAddon.FDSN.pairMultiplier a z a) z
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_at
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_at
+'MethbokeAddon.FDSN.pairMultiplier_at' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_at
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_at_neg
+@MethbokeAddon.FDSN.pairMultiplier_at_neg : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 → ∀ (z : ℂ), Eq.{1} (MethbokeAddon.FDSN.pairMultiplier a z (Neg.neg.{0} a)) (Star.star.{0} z)
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_at_neg
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_at_neg
+'MethbokeAddon.FDSN.pairMultiplier_at_neg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_at_neg
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_off
+@MethbokeAddon.FDSN.pairMultiplier_off : ∀ {a k : SingularClosure.Frequency} (z : ℂ),
+  Ne.{1} k a → Ne.{1} k (Neg.neg.{0} a) → Eq.{1} (MethbokeAddon.FDSN.pairMultiplier a z k) 1
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_off
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_off
+'MethbokeAddon.FDSN.pairMultiplier_off' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_off
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_at_zero
+@MethbokeAddon.FDSN.pairMultiplier_at_zero : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 → ∀ (z : ℂ), Eq.{1} (MethbokeAddon.FDSN.pairMultiplier a z 0) 1
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_at_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_at_zero
+'MethbokeAddon.FDSN.pairMultiplier_at_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_at_zero
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_neg
+@MethbokeAddon.FDSN.pairMultiplier_neg : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ (z : ℂ) (k : SingularClosure.Frequency),
+      Eq.{1} (MethbokeAddon.FDSN.pairMultiplier a z (Neg.neg.{0} k))
+        (Star.star.{0} (MethbokeAddon.FDSN.pairMultiplier a z k))
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_neg
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_neg
+'MethbokeAddon.FDSN.pairMultiplier_neg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_neg
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_norm
+MethbokeAddon.FDSN.pairMultiplier_norm : ∀ (a : SingularClosure.Frequency) {z : ℂ},
+  Eq.{1} (Norm.norm.{0} z) 1 →
+    ∀ (k : SingularClosure.Frequency), Eq.{1} (Norm.norm.{0} (MethbokeAddon.FDSN.pairMultiplier a z k)) 1
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_norm
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_norm
+'MethbokeAddon.FDSN.pairMultiplier_norm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_norm
+TYPE_BEGIN:MethbokeAddon.FDSN.pairMultiplier_one
+MethbokeAddon.FDSN.pairMultiplier_one : ∀ (a k : SingularClosure.Frequency),
+  Eq.{1} (MethbokeAddon.FDSN.pairMultiplier a 1 k) 1
+TYPE_END:MethbokeAddon.FDSN.pairMultiplier_one
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairMultiplier_one
+'MethbokeAddon.FDSN.pairMultiplier_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairMultiplier_one
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_one
+MethbokeAddon.FDSN.pairRotate_one : ∀ (a : SingularClosure.Frequency) (c : SingularClosure.FourierCoeff),
+  Eq.{1} (MethbokeAddon.FDSN.pairRotate a 1 c) c
+TYPE_END:MethbokeAddon.FDSN.pairRotate_one
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_one
+'MethbokeAddon.FDSN.pairRotate_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_one
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_at
+MethbokeAddon.FDSN.pairRotate_at : ∀ (a : SingularClosure.Frequency) (z : ℂ) (c : SingularClosure.FourierCoeff),
+  Eq.{1} (MethbokeAddon.FDSN.pairRotate a z c a) (HSMul.hSMul.{0, 0, 0} z (c a))
+TYPE_END:MethbokeAddon.FDSN.pairRotate_at
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_at
+'MethbokeAddon.FDSN.pairRotate_at' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_at
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_at_neg
+@MethbokeAddon.FDSN.pairRotate_at_neg : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ (z : ℂ) (c : SingularClosure.FourierCoeff),
+      Eq.{1} (MethbokeAddon.FDSN.pairRotate a z c (Neg.neg.{0} a))
+        (HSMul.hSMul.{0, 0, 0} (Star.star.{0} z) (c (Neg.neg.{0} a)))
+TYPE_END:MethbokeAddon.FDSN.pairRotate_at_neg
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_at_neg
+'MethbokeAddon.FDSN.pairRotate_at_neg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_at_neg
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_off
+@MethbokeAddon.FDSN.pairRotate_off : ∀ {a k : SingularClosure.Frequency} (z : ℂ) (c : SingularClosure.FourierCoeff),
+  Ne.{1} k a → Ne.{1} k (Neg.neg.{0} a) → Eq.{1} (MethbokeAddon.FDSN.pairRotate a z c k) (c k)
+TYPE_END:MethbokeAddon.FDSN.pairRotate_off
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_off
+'MethbokeAddon.FDSN.pairRotate_off' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_off
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_mean
+@MethbokeAddon.FDSN.pairRotate_mean : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 → ∀ (z : ℂ) (c : SingularClosure.FourierCoeff), Eq.{1} (MethbokeAddon.FDSN.pairRotate a z c 0) (c 0)
+TYPE_END:MethbokeAddon.FDSN.pairRotate_mean
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_mean
+'MethbokeAddon.FDSN.pairRotate_mean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_mean
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_reality
+@MethbokeAddon.FDSN.pairRotate_reality : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ (z : ℂ) {c : SingularClosure.FourierCoeff},
+      SingularClosure.SpectralReality c → SingularClosure.SpectralReality (MethbokeAddon.FDSN.pairRotate a z c)
+TYPE_END:MethbokeAddon.FDSN.pairRotate_reality
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_reality
+'MethbokeAddon.FDSN.pairRotate_reality' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_reality
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_solenoidal
+MethbokeAddon.FDSN.pairRotate_solenoidal : ∀ (a : SingularClosure.Frequency) (z : ℂ) {c : SingularClosure.FourierCoeff},
+  SingularClosure.SpectralSolenoidal c → SingularClosure.SpectralSolenoidal (MethbokeAddon.FDSN.pairRotate a z c)
+TYPE_END:MethbokeAddon.FDSN.pairRotate_solenoidal
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_solenoidal
+'MethbokeAddon.FDSN.pairRotate_solenoidal' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_solenoidal
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_component_norm
+MethbokeAddon.FDSN.pairRotate_component_norm : ∀ (a : SingularClosure.Frequency) {z : ℂ},
+  Eq.{1} (Norm.norm.{0} z) 1 →
+    ∀ (c : SingularClosure.FourierCoeff) (k : SingularClosure.Frequency) (i : Fin 3),
+      Eq.{1} (Norm.norm.{0} (MethbokeAddon.FDSN.pairRotate a z c k i)) (Norm.norm.{0} (c k i))
+TYPE_END:MethbokeAddon.FDSN.pairRotate_component_norm
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_component_norm
+'MethbokeAddon.FDSN.pairRotate_component_norm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_component_norm
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_observable_norm
+MethbokeAddon.FDSN.pairRotate_observable_norm : ∀ (a : SingularClosure.Frequency) {z : ℂ},
+  Eq.{1} (Norm.norm.{0} z) 1 →
+    ∀ (c : SingularClosure.FourierCoeff) (k : SingularClosure.Frequency)
+      (L : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ),
+      Eq.{1} (Norm.norm.{0} (L (MethbokeAddon.FDSN.pairRotate a z c k))) (Norm.norm.{0} (L (c k)))
+TYPE_END:MethbokeAddon.FDSN.pairRotate_observable_norm
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_observable_norm
+'MethbokeAddon.FDSN.pairRotate_observable_norm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_observable_norm
+TYPE_BEGIN:MethbokeAddon.FDSN.pairRotate_weighted_power_sum
+MethbokeAddon.FDSN.pairRotate_weighted_power_sum : ∀ (a : SingularClosure.Frequency) {z : ℂ},
+  Eq.{1} (Norm.norm.{0} z) 1 →
+    ∀ (c : SingularClosure.FourierCoeff) (w : SingularClosure.Frequency → ℝ),
+      Eq.{1}
+        (∑' (k : SingularClosure.Frequency),
+          HMul.hMul.{0, 0, 0} (w k)
+            (∑ i, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (MethbokeAddon.FDSN.pairRotate a z c k i)) 2))
+        (∑' (k : SingularClosure.Frequency),
+          HMul.hMul.{0, 0, 0} (w k) (∑ i, HPow.hPow.{0, 0, 0} (Norm.norm.{0} (c k i)) 2))
+TYPE_END:MethbokeAddon.FDSN.pairRotate_weighted_power_sum
+AXIOMS_BEGIN:MethbokeAddon.FDSN.pairRotate_weighted_power_sum
+'MethbokeAddon.FDSN.pairRotate_weighted_power_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.pairRotate_weighted_power_sum
+TYPE_BEGIN:MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS
+@MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS : ∀ {a : SingularClosure.Frequency},
+  Ne.{1} a 0 →
+    ∀ {z : ℂ},
+      Eq.{1} (Norm.norm.{0} z) 1 →
+        ∀ (c : SingularClosure.FourierCoeff),
+          SingularClosure.SpectralReality c →
+            SingularClosure.SpectralSolenoidal c →
+              SingularClosure.SpectralReality (MethbokeAddon.FDSN.pairRotate a z c) ∧
+                SingularClosure.SpectralSolenoidal (MethbokeAddon.FDSN.pairRotate a z c) ∧
+                  Eq.{1} (MethbokeAddon.FDSN.pairRotate a z c 0) (c 0) ∧
+                    ∀ (k : SingularClosure.Frequency) (L : LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ),
+                      Eq.{1} (Norm.norm.{0} (L (MethbokeAddon.FDSN.pairRotate a z c k))) (Norm.norm.{0} (L (c k)))
+TYPE_END:MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS
+'MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PAIR_ROTATION_PRESERVES_PERIODIC_SPECTRAL_CONSTRAINTS

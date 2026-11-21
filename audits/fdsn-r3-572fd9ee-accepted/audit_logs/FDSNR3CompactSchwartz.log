@@ -1,0 +1,56 @@
+TYPE_BEGIN:MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime
+MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime : ∀ (T : ℝ),
+  UniqueDiffOn.{0, 0} ℝ (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+TYPE_END:MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime
+'MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.uniqueDiffOn_preterminalSpacetime
+TYPE_BEGIN:MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier
+@MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier : ∀ {T : ℝ} {u : SingularClosure.Velocity}
+  {K : Set.{0} SingularClosure.Vec},
+  IsClosed.{0} K →
+    (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → ∀ x ∉ K, Eq.{1} (u t x) 0) →
+      ∀ (n : ℕ) {t : ℝ},
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+          ∀ {x : SingularClosure.Vec},
+            x ∉ K →
+              Eq.{1}
+                (iteratedFDerivWithin.{0, 0, 0} ℝ n (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+                  (Prod.mk.{0, 0} t x))
+                0
+TYPE_END:MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier
+'MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.iteratedFDerivWithin_eq_zero_off_spatialCarrier
+TYPE_BEGIN:MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier
+@MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier : ∀ {T : ℝ} {u : SingularClosure.Velocity}
+  {K : Set.{0} SingularClosure.Vec},
+  IsClosed.{0} K →
+    (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → ∀ x ∉ K, Eq.{1} (u t x) 0) →
+      ∀ (N n : ℕ) {t : ℝ},
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+          ∀ {x : SingularClosure.Vec},
+            x ∉ K → Eq.{1} (MethbokeAddon.FDSNR3.weightedJetWithin T N n u (Prod.mk.{0, 0} t x)) 0
+TYPE_END:MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier
+'MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.weightedJetWithin_eq_zero_off_spatialCarrier
+TYPE_BEGIN:MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier
+@MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier : ∀ {T : ℝ} {u : SingularClosure.Velocity}
+  {K : Set.{0} SingularClosure.Vec},
+  IsCompact.{0} K →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T) →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → ∀ x ∉ K, Eq.{1} (u t x) 0) →
+        MethbokeAddon.FDSNR3.LocalSchwartz T u
+TYPE_END:MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier
+'MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.localSchwartz_of_compact_spatialCarrier

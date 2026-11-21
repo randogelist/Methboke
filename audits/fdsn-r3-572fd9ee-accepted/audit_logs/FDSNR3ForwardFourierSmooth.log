@@ -1,0 +1,196 @@
+FDSNR3ForwardFourierSmooth/Audit.lean:17:68: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:17:68: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:23:56: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:23:56: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:30:71: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:30:71: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:36:60: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:36:60: warning: Unused tactic linter: `assumption` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+FDSNR3ForwardFourierSmooth/Audit.lean:63:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3ForwardFourierSmooth/Audit.lean:83:70: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.fourierChar_neg_hasTemperateGrowth
+MethbokeAddon.FDSNR3.fourierChar_neg_hasTemperateGrowth : Function.HasTemperateGrowth.{0, 0} fun r =>
+  ↑(𝐞 (Neg.neg.{0} r))
+TYPE_END:MethbokeAddon.FDSNR3.fourierChar_neg_hasTemperateGrowth
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.fourierChar_neg_hasTemperateGrowth
+'MethbokeAddon.FDSNR3.fourierChar_neg_hasTemperateGrowth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.fourierChar_neg_hasTemperateGrowth
+TYPE_BEGIN:MethbokeAddon.FDSNR3.fourierSourceCLM
+MethbokeAddon.FDSNR3.fourierSourceCLM : ContinuousLinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℝ)
+  (Prod.{0, 0} (Prod.{0, 0} ℝ SingularClosure.Vec) SingularClosure.Vec) (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSNR3.fourierSourceCLM
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.fourierSourceCLM
+'MethbokeAddon.FDSNR3.fourierSourceCLM' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.fourierSourceCLM
+TYPE_BEGIN:MethbokeAddon.FDSNR3.fourierSourceCLM_apply
+MethbokeAddon.FDSNR3.fourierSourceCLM_apply : ∀ (q : Prod.{0, 0} ℝ SingularClosure.Vec) (x : SingularClosure.Vec),
+  Eq.{1} (MethbokeAddon.FDSNR3.fourierSourceCLM (Prod.mk.{0, 0} q x)) (Prod.mk.{0, 0} q.1 x)
+TYPE_END:MethbokeAddon.FDSNR3.fourierSourceCLM_apply
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.fourierSourceCLM_apply
+'MethbokeAddon.FDSNR3.fourierSourceCLM_apply' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.fourierSourceCLM_apply
+TYPE_BEGIN:MethbokeAddon.FDSNR3.jointFourierKernel
+MethbokeAddon.FDSNR3.jointFourierKernel : Prod.{0, 0} (Prod.{0, 0} ℝ SingularClosure.Vec) SingularClosure.Vec → ℂ
+TYPE_END:MethbokeAddon.FDSNR3.jointFourierKernel
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.jointFourierKernel
+'MethbokeAddon.FDSNR3.jointFourierKernel' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.jointFourierKernel
+TYPE_BEGIN:MethbokeAddon.FDSNR3.jointFourierKernel_hasTemperateGrowth
+MethbokeAddon.FDSNR3.jointFourierKernel_hasTemperateGrowth : Function.HasTemperateGrowth.{0, 0}
+  MethbokeAddon.FDSNR3.jointFourierKernel
+TYPE_END:MethbokeAddon.FDSNR3.jointFourierKernel_hasTemperateGrowth
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.jointFourierKernel_hasTemperateGrowth
+'MethbokeAddon.FDSNR3.jointFourierKernel_hasTemperateGrowth' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.jointFourierKernel_hasTemperateGrowth
+TYPE_BEGIN:MethbokeAddon.FDSNR3.fourierParameterBox
+MethbokeAddon.FDSNR3.fourierParameterBox : ℝ → ℝ → Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSNR3.fourierParameterBox
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.fourierParameterBox
+'MethbokeAddon.FDSNR3.fourierParameterBox' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.fourierParameterBox
+TYPE_BEGIN:MethbokeAddon.FDSNR3.isOpen_fourierParameterBox
+MethbokeAddon.FDSNR3.isOpen_fourierParameterBox : ∀ (b R : ℝ), IsOpen.{0} (MethbokeAddon.FDSNR3.fourierParameterBox b R)
+TYPE_END:MethbokeAddon.FDSNR3.isOpen_fourierParameterBox
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.isOpen_fourierParameterBox
+'MethbokeAddon.FDSNR3.isOpen_fourierParameterBox' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.isOpen_fourierParameterBox
+TYPE_BEGIN:MethbokeAddon.FDSNR3.norm_le_of_mem_fourierParameterBox
+@MethbokeAddon.FDSNR3.norm_le_of_mem_fourierParameterBox : ∀ {b R : ℝ},
+  LT.lt.{0} 0 R →
+    ∀ {q : Prod.{0, 0} ℝ SingularClosure.Vec},
+      Membership.mem.{0, 0} (MethbokeAddon.FDSNR3.fourierParameterBox b R) q →
+        LE.le.{0} (Norm.norm.{0} q) (HAdd.hAdd.{0, 0, 0} b R)
+TYPE_END:MethbokeAddon.FDSNR3.norm_le_of_mem_fourierParameterBox
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.norm_le_of_mem_fourierParameterBox
+'MethbokeAddon.FDSNR3.norm_le_of_mem_fourierParameterBox' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.norm_le_of_mem_fourierParameterBox
+TYPE_BEGIN:MethbokeAddon.FDSNR3.jointFourierIntegrand
+MethbokeAddon.FDSNR3.jointFourierIntegrand : SingularClosure.Velocity →
+  Prod.{0, 0} (Prod.{0, 0} ℝ SingularClosure.Vec) SingularClosure.Vec → MethbokeAddon.FDSNR3.CVec
+TYPE_END:MethbokeAddon.FDSNR3.jointFourierIntegrand
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.jointFourierIntegrand
+'MethbokeAddon.FDSNR3.jointFourierIntegrand' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.jointFourierIntegrand
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_jointFourierIntegrand
+@MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_jointFourierIntegrand : ∀ {T b R : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      ContDiffOn.{0, 0, 0} ℝ ∞ (MethbokeAddon.FDSNR3.jointFourierIntegrand u)
+        (SProd.sprod.{0, 0, 0} (MethbokeAddon.FDSNR3.fourierParameterBox b R) Set.univ.{0})
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_jointFourierIntegrand
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_jointFourierIntegrand
+'MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_jointFourierIntegrand' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_jointFourierIntegrand
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.norm_fourier_source_jet_le
+@MethbokeAddon.FDSNR3.LocalSchwartz.norm_fourier_source_jet_le : ∀ {T b R : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      ∀ {q : Prod.{0, 0} ℝ SingularClosure.Vec},
+        Membership.mem.{0, 0} (MethbokeAddon.FDSNR3.fourierParameterBox b R) q →
+          ∀ (x : SingularClosure.Vec) (n : ℕ),
+            LE.le.{0}
+              (Norm.norm.{0}
+                (iteratedFDerivWithin.{0, 0, 0} ℝ n (fun z => MethbokeAddon.FDSNR3.complexify (u z.1.1 z.2))
+                  (SProd.sprod.{0, 0, 0} (MethbokeAddon.FDSNR3.fourierParameterBox b R) Set.univ.{0})
+                  (Prod.mk.{0, 0} q x)))
+              (HMul.hMul.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0} (Norm.norm.{0} MethbokeAddon.FDSNR3.complexifyCLM)
+                  (HPow.hPow.{0, 0, 0} (Norm.norm.{0} MethbokeAddon.FDSNR3.fourierSourceCLM) n))
+                (Norm.norm.{0}
+                  (iteratedFDerivWithin.{0, 0, 0} ℝ n (fun z => u z.1 z.2) (MethbokeAddon.FDSNR3.preterminalSpacetime T)
+                    (Prod.mk.{0, 0} q.1 x))))
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.norm_fourier_source_jet_le
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.norm_fourier_source_jet_le
+'MethbokeAddon.FDSNR3.LocalSchwartz.norm_fourier_source_jet_le' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.norm_fourier_source_jet_le
+TYPE_BEGIN:MethbokeAddon.FDSNR3.pow_mul_rpow_neg_add
+MethbokeAddon.FDSNR3.pow_mul_rpow_neg_add : ∀ (a : ℝ),
+  LT.lt.{0} 0 a →
+    ∀ (k m : ℕ),
+      Eq.{1}
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} a k) (HPow.hPow.{0, 0, 0} a (Neg.neg.{0} ↑(HAdd.hAdd.{0, 0, 0} k m))))
+        (HPow.hPow.{0, 0, 0} a (Neg.neg.{0} ↑m))
+TYPE_END:MethbokeAddon.FDSNR3.pow_mul_rpow_neg_add
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.pow_mul_rpow_neg_add
+'MethbokeAddon.FDSNR3.pow_mul_rpow_neg_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.pow_mul_rpow_neg_add
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.jointFourierIntegrand_jet_bound
+@MethbokeAddon.FDSNR3.LocalSchwartz.jointFourierIntegrand_jet_bound : ∀ {T b R : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      LT.lt.{0} 0 R →
+        ∀ (n : ℕ),
+          ∃ C,
+            LE.le.{0} 0 C ∧
+              ∀ (q : Prod.{0, 0} ℝ SingularClosure.Vec),
+                Membership.mem.{0, 0} (MethbokeAddon.FDSNR3.fourierParameterBox b R) q →
+                  ∀ (x : SingularClosure.Vec),
+                    LE.le.{0}
+                      (Norm.norm.{0}
+                        (iteratedFDerivWithin.{0, 0, 0} ℝ n (MethbokeAddon.FDSNR3.jointFourierIntegrand u)
+                          (SProd.sprod.{0, 0, 0} (MethbokeAddon.FDSNR3.fourierParameterBox b R) Set.univ.{0})
+                          (Prod.mk.{0, 0} q x)))
+                      (HMul.hMul.{0, 0, 0} C
+                        (HPow.hPow.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (Norm.norm.{0} x))
+                          (Neg.neg.{0}
+                            ↑(MeasureTheory.Measure.integrablePower.{0} MeasureTheory.MeasureSpace.volume.{0}))))
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.jointFourierIntegrand_jet_bound
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.jointFourierIntegrand_jet_bound
+'MethbokeAddon.FDSNR3.LocalSchwartz.jointFourierIntegrand_jet_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.jointFourierIntegrand_jet_bound
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity_box
+@MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity_box : ∀ {T b R : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    Membership.mem.{0, 0} (Set.Ico.{0} 0 T) b →
+      LT.lt.{0} 0 R →
+        ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => MethbokeAddon.FDSNR3.fourierVelocity (u q.1) q.2)
+          (MethbokeAddon.FDSNR3.fourierParameterBox b R)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity_box
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity_box
+'MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity_box' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity_box
+TYPE_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity
+@MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity : ∀ {T : ℝ} {u : SingularClosure.Velocity},
+  MethbokeAddon.FDSNR3.LocalSchwartz T u →
+    ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => MethbokeAddon.FDSNR3.fourierVelocity (u q.1) q.2)
+      (Set.ofPred.{0} fun q => Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) q.1)
+TYPE_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity
+'MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.LocalSchwartz.contDiffOn_fourierVelocity

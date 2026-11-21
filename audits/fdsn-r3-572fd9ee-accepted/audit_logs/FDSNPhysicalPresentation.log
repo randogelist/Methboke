@@ -1,0 +1,40 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical
+@MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F →
+    ∀ (frame : MethbokeAddon.FDSN.HelicalFrameArray) (s : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) s →
+        ∃ a b tstar ε U G,
+          LT.lt.{0} s a ∧
+            LT.lt.{0} a b ∧
+              LT.lt.{0} b T ∧
+                Membership.mem.{0, 0} (Set.Ioo.{0} a b) tstar ∧
+                  LT.lt.{0} 0 ε ∧
+                    Eq.{1} (U 0) u ∧
+                      Eq.{1} (G 0) F ∧
+                        ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => HSub.hSub.{0, 0, 0} (U q.1) u q.2.1 q.2.2)
+                            (Set.ofPred.{0} fun q => LT.lt.{0} (abs.{0} q.1) ε) ∧
+                          ContDiffOn.{0, 0, 0} ℝ ∞ (fun q => HSub.hSub.{0, 0, 0} (G q.1) F q.2.1 q.2.2)
+                              (Set.ofPred.{0} fun q => LT.lt.{0} (abs.{0} q.1) ε) ∧
+                            MethbokeAddon.FDSN.ExactRealizationAndAgreement ν T a b ε u p F U G ∧
+                              MethbokeAddon.FDSN.CompleteHelicalPowerPreservation frame T ε u U ∧
+                                MethbokeAddon.FDSN.TranslationSeparation tstar ε U ∧
+                                  MethbokeAddon.FDSN.ProjectedForceSeparation T ε G ∧
+                                    MethbokeAddon.FDSN.SmoothSmallness a b ε u F U G ∧
+                                      ∀ (lambda eta : ℝ),
+                                        LT.lt.{0} (abs.{0} lambda) ε →
+                                          LT.lt.{0} (abs.{0} eta) ε →
+                                            Ne.{1} lambda eta →
+                                              ∃ t,
+                                                Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t ∧
+                                                  ∃ x,
+                                                    Ne.{1}
+                                                      (MethbokeAddon.FDSN.physicalLerayProjection
+                                                        (HSub.hSub.{0, 0, 0} (G lambda) (G eta) t) x)
+                                                      0
+TYPE_END:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical
+AXIOMS_BEGIN:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical
+'MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.FEFFERMAN_D_SPECTRAL_NONRIGIDITY_physical

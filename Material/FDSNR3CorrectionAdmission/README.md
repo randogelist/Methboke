@@ -1,8 +1,16 @@
 # FDSNR3CorrectionAdmission
 
-Actual joint Schwartz corrections give native regularity, positive compact force support, common temporal support, terminal agreement and compact blowup transfer, with the constructed residual and quantitative weighted smallness.
+Actual joint Schwartz corrections give native regularity, compact force support in positive time, common temporal support, terminal agreement and compact blowup transfer, with the constructed residual and quantitative weighted smallness.
 
-Status: prepared candidate; matching external cached compilation and fresh named type/axiom reports are required before acceptance.
+Status: **A-tier accepted at `572fd9ee`**.
+
+This package registers **19 named declarations** in the full verification
+scope of **548 modules, 137 fresh package audits and 1,320 named type/axiom
+reports**. Exact source: [`572fd9ee`](https://github.com/randogelist/Methboke/tree/572fd9ee69a6b641f435cbfb2ef74e034809c583/Material/FDSNR3CorrectionAdmission);
+[external run 44848985720](https://github.com/randogelist/Methboke/actions/runs/44848985720);
+[retained evidence](../../audits/fdsn-r3-572fd9ee-accepted/summary.json).
+Acceptance belongs to that tested source and audit identity; later
+documentation edits do not change the tested revision.
 
 The package imports the actual owned source through Endpoint.lean. Audit.lean contains independent explicit consumer statements, literal definition contracts where applicable, and complete named type/axiom reports. No local Lean execution or local kernel audit is part of preparation.
 

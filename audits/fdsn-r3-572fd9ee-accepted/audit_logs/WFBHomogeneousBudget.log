@@ -1,0 +1,138 @@
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.meanZero_datumFourierCoeff_meanZero
+MethbokeAddon.WeakFouriermanB.meanZero_datumFourierCoeff_meanZero : ∀ (v : SingularClosure.Field),
+  SingularClosure.MeanZero v → SingularClosure.SpectralMeanZero (SingularClosure.datumFourierCoeff v)
+TYPE_END:MethbokeAddon.WeakFouriermanB.meanZero_datumFourierCoeff_meanZero
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.meanZero_datumFourierCoeff_meanZero
+'MethbokeAddon.WeakFouriermanB.meanZero_datumFourierCoeff_meanZero' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.meanZero_datumFourierCoeff_meanZero
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation
+MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      SingularClosure.MeanZero v → LE.le.{0} (SingularClosure.physicalEnergy v) (SingularClosure.physicalDissipation v)
+TYPE_END:MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation
+'MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.smooth_periodic_meanZero_energy_le_dissipation
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH
+MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH : ∃ K,
+  LT.lt.{0} 0 K ∧
+    ∀ (v : SingularClosure.Field),
+      ContDiff.{0, 0, 0} ℝ ∞ v →
+        SingularClosure.SpatialPeriodic.{0} v →
+          SingularClosure.MeanZero v →
+            LE.le.{0} (HPow.hPow.{0, 0, 0} (SingularClosure.criticalSpatialNorm.{0} 6 v) 4)
+              (HMul.hMul.{0, 0, 0} K (HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation v) 2))
+TYPE_END:MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH
+'MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.SMOOTH_MEAN_ZERO_HOMOGENEOUS_L6_FOURTH
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_pos
+MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_pos : LT.lt.{0} 0
+  MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant
+TYPE_END:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_pos
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_pos
+'MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_pos' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_pos
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound
+MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound : ∀ (v : SingularClosure.Field),
+  ContDiff.{0, 0, 0} ℝ ∞ v →
+    SingularClosure.SpatialPeriodic.{0} v →
+      SingularClosure.MeanZero v →
+        LE.le.{0} (HPow.hPow.{0, 0, 0} (SingularClosure.criticalSpatialNorm.{0} 6 v) 4)
+          (HMul.hMul.{0, 0, 0} MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant
+            (HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation v) 2))
+TYPE_END:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound
+'MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.homogeneousL6FourthConstant_bound
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_l6_fourth_integrable_of_dissipation_square
+MethbokeAddon.WeakFouriermanB.homogeneous_l6_fourth_integrable_of_dissipation_square : ∀
+  (μ : MeasureTheory.Measure.{0} ℝ) (u : ℝ → SingularClosure.Field),
+  (∀ᵐ (t : ℝ) ∂μ,
+      ContDiff.{0, 0, 0} ℝ ∞ (u t) ∧ SingularClosure.SpatialPeriodic.{0} (u t) ∧ SingularClosure.MeanZero (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) μ →
+      MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2) μ →
+        MeasureTheory.Integrable.{0, 0}
+          (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4) μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.homogeneous_l6_fourth_integrable_of_dissipation_square
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_l6_fourth_integrable_of_dissipation_square
+'MethbokeAddon.WeakFouriermanB.homogeneous_l6_fourth_integrable_of_dissipation_square' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.homogeneous_l6_fourth_integrable_of_dissipation_square
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_serrin_of_dissipation_square
+MethbokeAddon.WeakFouriermanB.homogeneous_serrin_of_dissipation_square : ∀ (μ : MeasureTheory.Measure.{0} ℝ)
+  (u : ℝ → SingularClosure.Field),
+  (∀ᵐ (t : ℝ) ∂μ,
+      ContDiff.{0, 0, 0} ℝ ∞ (u t) ∧ SingularClosure.SpatialPeriodic.{0} (u t) ∧ SingularClosure.MeanZero (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) μ →
+      MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2) μ →
+        MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4 μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.homogeneous_serrin_of_dissipation_square
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_serrin_of_dissipation_square
+'MethbokeAddon.WeakFouriermanB.homogeneous_serrin_of_dissipation_square' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.homogeneous_serrin_of_dissipation_square
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget
+MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget : ∀
+  (μ : MeasureTheory.Measure.{0} ℝ) (u : ℝ → SingularClosure.Field),
+  (∀ᵐ (t : ℝ) ∂μ,
+      ContDiff.{0, 0, 0} ℝ ∞ (u t) ∧ SingularClosure.SpatialPeriodic.{0} (u t) ∧ SingularClosure.MeanZero (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalDissipation (u t)) μ →
+      LT.lt.{0}
+          (∫⁻ (t : ℝ),
+            HPow.hPow.{0, 0, 0}
+              (MethbokeAddon.WeakFouriermanB.ExtendedFourierEnstrophy (SingularClosure.datumFourierCoeff (u t))) 2 ∂μ)
+          ∞ →
+        MeasureTheory.Integrable.{0, 0} (fun t => HPow.hPow.{0, 0, 0} (SingularClosure.physicalDissipation (u t)) 2) μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget
+'MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.homogeneous_dissipation_square_integrable_of_fourier_budget
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_physical_fourier_budget_to_serrin
+MethbokeAddon.WeakFouriermanB.homogeneous_physical_fourier_budget_to_serrin : ∀ (μ : MeasureTheory.Measure.{0} ℝ)
+  (u : ℝ → SingularClosure.Field),
+  (∀ᵐ (t : ℝ) ∂μ,
+      ContDiff.{0, 0, 0} ℝ ∞ (u t) ∧ SingularClosure.SpatialPeriodic.{0} (u t) ∧ SingularClosure.MeanZero (u t)) →
+    MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) μ →
+      MeasureTheory.AEStronglyMeasurable.{0, 0} (fun t => SingularClosure.physicalDissipation (u t)) μ →
+        LT.lt.{0}
+            (∫⁻ (t : ℝ),
+              HPow.hPow.{0, 0, 0}
+                (MethbokeAddon.WeakFouriermanB.ExtendedFourierEnstrophy (SingularClosure.datumFourierCoeff (u t))) 2 ∂μ)
+            ∞ →
+          MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4 μ
+TYPE_END:MethbokeAddon.WeakFouriermanB.homogeneous_physical_fourier_budget_to_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.homogeneous_physical_fourier_budget_to_serrin
+'MethbokeAddon.WeakFouriermanB.homogeneous_physical_fourier_budget_to_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.homogeneous_physical_fourier_budget_to_serrin
+TYPE_BEGIN:MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin
+MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin : ∀ (u : SingularClosure.Velocity) (T : ℝ),
+  ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.WeakFouriermanB.localFrontSpacetime T) →
+    (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (u t)) →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} 0 T) t → SingularClosure.MeanZero (u t)) →
+        MethbokeAddon.WeakFouriermanB.FourierBudgetFinite (fun t => SingularClosure.datumFourierCoeff (u t)) T →
+          MeasureTheory.MemLp.{0, 0} (fun t => SingularClosure.criticalSpatialNorm.{0} 6 (u t)) 4
+            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Ioo.{0} 0 T))
+TYPE_END:MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin
+AXIOMS_BEGIN:MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin
+'MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.WeakFouriermanB.local_homogeneous_fourier_budget_to_serrin

@@ -1,0 +1,156 @@
+structure MethbokeAddon.FDSN.PreterminalNSE (ν T : ℝ) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure)
+  (F : SingularClosure.Velocity) : Prop
+number of parameters: 5
+fields:
+  MethbokeAddon.FDSN.PreterminalNSE.velocity_smooth : ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2)
+      (MethbokeAddon.FDSN.preterminalSpacetime T)
+  MethbokeAddon.FDSN.PreterminalNSE.pressure_smooth : ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => p z.1 z.2)
+      (MethbokeAddon.FDSN.preterminalSpacetime T)
+  MethbokeAddon.FDSN.PreterminalNSE.velocity_periodic : ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (u t)
+  MethbokeAddon.FDSN.PreterminalNSE.pressure_periodic : ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (p t)
+  MethbokeAddon.FDSN.PreterminalNSE.divergence_free : ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+        ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u t) x) 0
+  MethbokeAddon.FDSN.PreterminalNSE.equation : ∀ (t : ℝ),
+      Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+        ∀ (x : SingularClosure.Vec),
+          Eq.{1}
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u t x) (SingularClosure.convection (u t) x))
+              (SingularClosure.gradient (p t) x))
+            (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u t) x)) (F t x))
+constructor:
+  MethbokeAddon.FDSN.PreterminalNSE.mk {ν T : ℝ} {u : SingularClosure.Velocity} {p : SingularClosure.Pressure}
+    {F : SingularClosure.Velocity}
+    (velocity_smooth : ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => u z.1 z.2) (MethbokeAddon.FDSN.preterminalSpacetime T))
+    (pressure_smooth : ContDiffOn.{0, 0, 0} ℝ ∞ (fun z => p z.1 z.2) (MethbokeAddon.FDSN.preterminalSpacetime T))
+    (velocity_periodic :
+      ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (u t))
+    (pressure_periodic :
+      ∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t → SingularClosure.SpatialPeriodic.{0} (p t))
+    (divergence_free :
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+          ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u t) x) 0)
+    (equation :
+      ∀ (t : ℝ),
+        Membership.mem.{0, 0} (Set.Ico.{0} 0 T) t →
+          ∀ (x : SingularClosure.Vec),
+            Eq.{1}
+              (HAdd.hAdd.{0, 0, 0}
+                (HAdd.hAdd.{0, 0, 0} (SingularClosure.timeDerivative u t x) (SingularClosure.convection (u t) x))
+                (SingularClosure.gradient (p t) x))
+              (HAdd.hAdd.{0, 0, 0} (HSMul.hSMul.{0, 0, 0} ν (SingularClosure.laplacian (u t) x)) (F t x))) :
+    MethbokeAddon.FDSN.PreterminalNSE ν T u p F
+structure MethbokeAddon.FDSN.Seed (ν T : ℝ) (u : SingularClosure.Velocity) (p : SingularClosure.Pressure)
+  (F : SingularClosure.Velocity) : Prop
+number of parameters: 5
+fields:
+  MethbokeAddon.FDSN.Seed.viscosity_pos : LT.lt.{0} 0 ν
+  MethbokeAddon.FDSN.Seed.terminal_pos : LT.lt.{0} 0 T
+  MethbokeAddon.FDSN.Seed.front : MethbokeAddon.FDSN.PreterminalNSE ν T u p F
+  MethbokeAddon.FDSN.Seed.force : MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce F
+  MethbokeAddon.FDSN.Seed.initial_smooth : ContDiff.{0, 0, 0} ℝ ∞ (u 0)
+  MethbokeAddon.FDSN.Seed.bounded_energy : MethbokeAddon.FDSN.BoundedCellEnergy T u
+  MethbokeAddon.FDSN.Seed.finite_dissipation : MethbokeAddon.FDSN.FiniteDissipation T u
+  MethbokeAddon.FDSN.Seed.terminal_blowup : MethbokeAddon.FDSN.CofinalVelocityBlowup T u
+constructor:
+  MethbokeAddon.FDSN.Seed.mk {ν T : ℝ} {u : SingularClosure.Velocity} {p : SingularClosure.Pressure}
+    {F : SingularClosure.Velocity} (viscosity_pos : LT.lt.{0} 0 ν) (terminal_pos : LT.lt.{0} 0 T)
+    (front : MethbokeAddon.FDSN.PreterminalNSE ν T u p F)
+    (force : MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce F) (initial_smooth : ContDiff.{0, 0, 0} ℝ ∞ (u 0))
+    (bounded_energy : MethbokeAddon.FDSN.BoundedCellEnergy T u)
+    (finite_dissipation : MethbokeAddon.FDSN.FiniteDissipation T u)
+    (terminal_blowup : MethbokeAddon.FDSN.CofinalVelocityBlowup T u) : MethbokeAddon.FDSN.Seed ν T u p F
+TYPE_BEGIN:MethbokeAddon.FDSN.preterminalSpacetime
+MethbokeAddon.FDSN.preterminalSpacetime : ℝ → Set.{0} (Prod.{0, 0} ℝ SingularClosure.Vec)
+TYPE_END:MethbokeAddon.FDSN.preterminalSpacetime
+AXIOMS_BEGIN:MethbokeAddon.FDSN.preterminalSpacetime
+'MethbokeAddon.FDSN.preterminalSpacetime' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.preterminalSpacetime
+TYPE_BEGIN:MethbokeAddon.FDSN.PreterminalNSE
+MethbokeAddon.FDSN.PreterminalNSE : ℝ →
+  ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.PreterminalNSE
+AXIOMS_BEGIN:MethbokeAddon.FDSN.PreterminalNSE
+'MethbokeAddon.FDSN.PreterminalNSE' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.PreterminalNSE
+TYPE_BEGIN:MethbokeAddon.FDSN.BoundedCellEnergy
+MethbokeAddon.FDSN.BoundedCellEnergy : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.BoundedCellEnergy
+AXIOMS_BEGIN:MethbokeAddon.FDSN.BoundedCellEnergy
+'MethbokeAddon.FDSN.BoundedCellEnergy' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.BoundedCellEnergy
+TYPE_BEGIN:MethbokeAddon.FDSN.gradientSquare
+MethbokeAddon.FDSN.gradientSquare : SingularClosure.Field → SingularClosure.Vec → ℝ
+TYPE_END:MethbokeAddon.FDSN.gradientSquare
+AXIOMS_BEGIN:MethbokeAddon.FDSN.gradientSquare
+'MethbokeAddon.FDSN.gradientSquare' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.gradientSquare
+TYPE_BEGIN:MethbokeAddon.FDSN.cellDissipation
+MethbokeAddon.FDSN.cellDissipation : SingularClosure.Field → ℝ
+TYPE_END:MethbokeAddon.FDSN.cellDissipation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.cellDissipation
+'MethbokeAddon.FDSN.cellDissipation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.cellDissipation
+TYPE_BEGIN:MethbokeAddon.FDSN.FiniteDissipation
+MethbokeAddon.FDSN.FiniteDissipation : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.FiniteDissipation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.FiniteDissipation
+'MethbokeAddon.FDSN.FiniteDissipation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.FiniteDissipation
+TYPE_BEGIN:MethbokeAddon.FDSN.CofinalVelocityBlowup
+MethbokeAddon.FDSN.CofinalVelocityBlowup : ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.CofinalVelocityBlowup
+AXIOMS_BEGIN:MethbokeAddon.FDSN.CofinalVelocityBlowup
+'MethbokeAddon.FDSN.CofinalVelocityBlowup' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.CofinalVelocityBlowup
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed
+MethbokeAddon.FDSN.Seed : ℝ → ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.Seed
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed
+'MethbokeAddon.FDSN.Seed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.initial_periodic
+@MethbokeAddon.FDSN.Seed.initial_periodic : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F → SingularClosure.SpatialPeriodic.{0} (u 0)
+TYPE_END:MethbokeAddon.FDSN.Seed.initial_periodic
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.initial_periodic
+'MethbokeAddon.FDSN.Seed.initial_periodic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.initial_periodic
+TYPE_BEGIN:MethbokeAddon.FDSN.Seed.initial_divergence_free
+@MethbokeAddon.FDSN.Seed.initial_divergence_free : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Seed ν T u p F → ∀ (x : SingularClosure.Vec), Eq.{1} (SingularClosure.divergence (u 0) x) 0
+TYPE_END:MethbokeAddon.FDSN.Seed.initial_divergence_free
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Seed.initial_divergence_free
+'MethbokeAddon.FDSN.Seed.initial_divergence_free' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Seed.initial_divergence_free
+TYPE_BEGIN:MethbokeAddon.FDSN.gradientSquare_nonneg
+MethbokeAddon.FDSN.gradientSquare_nonneg : ∀ (v : SingularClosure.Field) (x : SingularClosure.Vec),
+  LE.le.{0} 0 (MethbokeAddon.FDSN.gradientSquare v x)
+TYPE_END:MethbokeAddon.FDSN.gradientSquare_nonneg
+AXIOMS_BEGIN:MethbokeAddon.FDSN.gradientSquare_nonneg
+'MethbokeAddon.FDSN.gradientSquare_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.gradientSquare_nonneg
+TYPE_BEGIN:MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq
+@MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq : ∀ {T r : ℝ} {u v : SingularClosure.Velocity},
+  LT.lt.{0} r T →
+    MethbokeAddon.FDSN.CofinalVelocityBlowup T u →
+      (∀ (t : ℝ), Membership.mem.{0, 0} (Set.Ioo.{0} r T) t → Eq.{1} (v t) (u t)) →
+        MethbokeAddon.FDSN.CofinalVelocityBlowup T v
+TYPE_END:MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq
+AXIOMS_BEGIN:MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq
+'MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.cofinalVelocityBlowup_of_late_eq
+TYPE_BEGIN:MethbokeAddon.FDSN.admissiblePeriodicForce_add
+@MethbokeAddon.FDSN.admissiblePeriodicForce_add : ∀ {F G : SingularClosure.Velocity},
+  MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce F →
+    MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce G →
+      MethbokeAddon.FeffermanFamily.AdmissiblePeriodicForce (HAdd.hAdd.{0, 0, 0} F G)
+TYPE_END:MethbokeAddon.FDSN.admissiblePeriodicForce_add
+AXIOMS_BEGIN:MethbokeAddon.FDSN.admissiblePeriodicForce_add
+'MethbokeAddon.FDSN.admissiblePeriodicForce_add' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.admissiblePeriodicForce_add

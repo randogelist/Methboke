@@ -1,0 +1,103 @@
+FDSNR3NonzeroPatch/Audit.lean:30:66: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3NonzeroPatch/Audit.lean:34:56: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3NonzeroPatch/Audit.lean:40:71: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+FDSNR3NonzeroPatch/Audit.lean:52:70: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+TYPE_BEGIN:MethbokeAddon.FDSNR3.continuous_exists_nonzero_point
+@MethbokeAddon.FDSNR3.continuous_exists_nonzero_point : ∀ {g : SingularClosure.Vec → ℂ},
+  Continuous.{0, 0} g → ∀ {x : SingularClosure.Vec}, Ne.{1} (g x) 0 → ∃ y, Ne.{1} y 0 ∧ Ne.{1} (g y) 0
+TYPE_END:MethbokeAddon.FDSNR3.continuous_exists_nonzero_point
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.continuous_exists_nonzero_point
+'MethbokeAddon.FDSNR3.continuous_exists_nonzero_point' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.continuous_exists_nonzero_point
+TYPE_BEGIN:MethbokeAddon.FDSNR3.continuous_exists_nonzero_ball
+@MethbokeAddon.FDSNR3.continuous_exists_nonzero_ball : ∀ {g : SingularClosure.Vec → ℂ},
+  Continuous.{0, 0} g →
+    ∀ {x : SingularClosure.Vec},
+      Ne.{1} (g x) 0 →
+        ∃ ξ₀ r,
+          Ne.{1} ξ₀ 0 ∧
+            LT.lt.{0} 0 r ∧
+              LT.lt.{0} r (Norm.norm.{0} ξ₀) ∧
+                ∀ (ξ : SingularClosure.Vec), Membership.mem.{0, 0} (Metric.ball.{0} ξ₀ r) ξ → Ne.{1} (g ξ) 0
+TYPE_END:MethbokeAddon.FDSNR3.continuous_exists_nonzero_ball
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.continuous_exists_nonzero_ball
+'MethbokeAddon.FDSNR3.continuous_exists_nonzero_ball' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.continuous_exists_nonzero_ball
+TYPE_BEGIN:MethbokeAddon.FDSNR3.schwartz_exists_nonzero_fourier_ball
+MethbokeAddon.FDSNR3.schwartz_exists_nonzero_fourier_ball : ∀
+  (f : SchwartzMap.{0, 0} SingularClosure.Vec MethbokeAddon.FDSNR3.CVec),
+  Ne.{1} f 0 →
+    ∃ i ξ₀ r,
+      Ne.{1} ξ₀ 0 ∧
+        LT.lt.{0} 0 r ∧
+          LT.lt.{0} r (Norm.norm.{0} ξ₀) ∧
+            ∀ (ξ : SingularClosure.Vec),
+              Membership.mem.{0, 0} (Metric.ball.{0} ξ₀ r) ξ →
+                Ne.{1} (WithLp.ofLp.{0} ((FourierTransform.fourier.{0, 0} f) ξ) i) 0
+TYPE_END:MethbokeAddon.FDSNR3.schwartz_exists_nonzero_fourier_ball
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.schwartz_exists_nonzero_fourier_ball
+'MethbokeAddon.FDSNR3.schwartz_exists_nonzero_fourier_ball' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.schwartz_exists_nonzero_fourier_ball
+TYPE_BEGIN:MethbokeAddon.FDSNR3.complexifySchwartz_ne_zero
+@MethbokeAddon.FDSNR3.complexifySchwartz_ne_zero : ∀ {f : SchwartzMap.{0, 0} SingularClosure.Vec SingularClosure.Vec},
+  Ne.{1} f 0 → Ne.{1} (MethbokeAddon.FDSNR3.complexifySchwartz f) 0
+TYPE_END:MethbokeAddon.FDSNR3.complexifySchwartz_ne_zero
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.complexifySchwartz_ne_zero
+'MethbokeAddon.FDSNR3.complexifySchwartz_ne_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.complexifySchwartz_ne_zero
+TYPE_BEGIN:MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball
+MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball : ∀
+  (f : SchwartzMap.{0, 0} SingularClosure.Vec SingularClosure.Vec),
+  Ne.{1} f 0 →
+    ∃ i ξ₀ r,
+      Ne.{1} ξ₀ 0 ∧
+        LT.lt.{0} 0 r ∧
+          LT.lt.{0} r (Norm.norm.{0} ξ₀) ∧
+            ∀ (ξ : SingularClosure.Vec),
+              Membership.mem.{0, 0} (Metric.ball.{0} ξ₀ r) ξ →
+                Ne.{1} (WithLp.ofLp.{0} (MethbokeAddon.FDSNR3.fourierVelocity (⇑f) ξ) i) 0
+TYPE_END:MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball
+'MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.real_schwartz_exists_nonzero_fourier_ball
+TYPE_BEGIN:MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball
+@MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball : ∀ {v : SingularClosure.Field}
+  (f : SchwartzMap.{0, 0} SingularClosure.Vec SingularClosure.Vec),
+  (∀ (x : SingularClosure.Vec), Eq.{1} (f x) (v x)) →
+    (∃ x, Ne.{1} (v x) 0) →
+      ∃ i ξ₀ r,
+        Ne.{1} ξ₀ 0 ∧
+          LT.lt.{0} 0 r ∧
+            LT.lt.{0} r (Norm.norm.{0} ξ₀) ∧
+              ∀ (ξ : SingularClosure.Vec),
+                Membership.mem.{0, 0} (Metric.ball.{0} ξ₀ r) ξ →
+                  Ne.{1} (WithLp.ofLp.{0} (MethbokeAddon.FDSNR3.fourierVelocity v ξ) i) 0
+TYPE_END:MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball
+'MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.physical_exists_nonzero_fourier_ball
+TYPE_BEGIN:MethbokeAddon.FDSNR3.zero_notMem_closedBall_of_radius_lt_norm
+@MethbokeAddon.FDSNR3.zero_notMem_closedBall_of_radius_lt_norm : ∀ {ξ₀ : SingularClosure.Vec} {r : ℝ},
+  LT.lt.{0} r (Norm.norm.{0} ξ₀) → 0 ∉ Metric.closedBall.{0} ξ₀ r
+TYPE_END:MethbokeAddon.FDSNR3.zero_notMem_closedBall_of_radius_lt_norm
+AXIOMS_BEGIN:MethbokeAddon.FDSNR3.zero_notMem_closedBall_of_radius_lt_norm
+'MethbokeAddon.FDSNR3.zero_notMem_closedBall_of_radius_lt_norm' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSNR3.zero_notMem_closedBall_of_radius_lt_norm

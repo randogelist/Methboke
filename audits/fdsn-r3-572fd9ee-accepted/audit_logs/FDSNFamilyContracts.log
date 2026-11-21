@@ -1,0 +1,124 @@
+TYPE_BEGIN:MethbokeAddon.FDSN.helicitySign
+MethbokeAddon.FDSN.helicitySign : Fin 2 → ℝ
+TYPE_END:MethbokeAddon.FDSN.helicitySign
+AXIOMS_BEGIN:MethbokeAddon.FDSN.helicitySign
+'MethbokeAddon.FDSN.helicitySign' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.helicitySign
+TYPE_BEGIN:MethbokeAddon.FDSN.frequencyLength
+MethbokeAddon.FDSN.frequencyLength : SingularClosure.Frequency → ℝ
+TYPE_END:MethbokeAddon.FDSN.frequencyLength
+AXIOMS_BEGIN:MethbokeAddon.FDSN.frequencyLength
+'MethbokeAddon.FDSN.frequencyLength' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.frequencyLength
+TYPE_BEGIN:MethbokeAddon.FDSN.helicalCurl
+MethbokeAddon.FDSN.helicalCurl : SingularClosure.Frequency → (Fin 3 → ℂ) → Fin 3 → ℂ
+TYPE_END:MethbokeAddon.FDSN.helicalCurl
+AXIOMS_BEGIN:MethbokeAddon.FDSN.helicalCurl
+'MethbokeAddon.FDSN.helicalCurl' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.helicalCurl
+TYPE_BEGIN:MethbokeAddon.FDSN.IsHelicalFrame
+MethbokeAddon.FDSN.IsHelicalFrame : MethbokeAddon.FDSN.HelicalFrameArray → Prop
+TYPE_END:MethbokeAddon.FDSN.IsHelicalFrame
+AXIOMS_BEGIN:MethbokeAddon.FDSN.IsHelicalFrame
+'MethbokeAddon.FDSN.IsHelicalFrame' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.IsHelicalFrame
+TYPE_BEGIN:MethbokeAddon.FDSN.helicalObservation
+MethbokeAddon.FDSN.helicalObservation : (Fin 3 → ℂ) → LinearMap.{0, 0, 0, 0} (RingHom.id.{0} ℂ) (Fin 3 → ℂ) ℂ
+TYPE_END:MethbokeAddon.FDSN.helicalObservation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.helicalObservation
+'MethbokeAddon.FDSN.helicalObservation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.helicalObservation
+TYPE_BEGIN:MethbokeAddon.FDSN.helicalCoefficient
+MethbokeAddon.FDSN.helicalCoefficient : MethbokeAddon.FDSN.HelicalFrameArray →
+  SingularClosure.Field → SingularClosure.Frequency → Fin 2 → ℂ
+TYPE_END:MethbokeAddon.FDSN.helicalCoefficient
+AXIOMS_BEGIN:MethbokeAddon.FDSN.helicalCoefficient
+'MethbokeAddon.FDSN.helicalCoefficient' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.helicalCoefficient
+TYPE_BEGIN:MethbokeAddon.FDSN.CompactTemporalCorrection
+MethbokeAddon.FDSN.CompactTemporalCorrection : ℝ → ℝ → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.CompactTemporalCorrection
+AXIOMS_BEGIN:MethbokeAddon.FDSN.CompactTemporalCorrection
+'MethbokeAddon.FDSN.CompactTemporalCorrection' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.CompactTemporalCorrection
+TYPE_BEGIN:MethbokeAddon.FDSN.spacetimeCrNorm
+MethbokeAddon.FDSN.spacetimeCrNorm : ℕ → ℝ → ℝ → SingularClosure.Velocity → ℝ
+TYPE_END:MethbokeAddon.FDSN.spacetimeCrNorm
+AXIOMS_BEGIN:MethbokeAddon.FDSN.spacetimeCrNorm
+'MethbokeAddon.FDSN.spacetimeCrNorm' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.spacetimeCrNorm
+TYPE_BEGIN:MethbokeAddon.FDSN.ExactRealizationAndAgreement
+MethbokeAddon.FDSN.ExactRealizationAndAgreement : ℝ →
+  ℝ →
+    ℝ →
+      ℝ →
+        ℝ →
+          SingularClosure.Velocity →
+            SingularClosure.Pressure →
+              SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSN.ExactRealizationAndAgreement
+AXIOMS_BEGIN:MethbokeAddon.FDSN.ExactRealizationAndAgreement
+'MethbokeAddon.FDSN.ExactRealizationAndAgreement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.ExactRealizationAndAgreement
+TYPE_BEGIN:MethbokeAddon.FDSN.CompleteHelicalPowerPreservation
+MethbokeAddon.FDSN.CompleteHelicalPowerPreservation : MethbokeAddon.FDSN.HelicalFrameArray →
+  ℝ → ℝ → SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSN.CompleteHelicalPowerPreservation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.CompleteHelicalPowerPreservation
+'MethbokeAddon.FDSN.CompleteHelicalPowerPreservation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.CompleteHelicalPowerPreservation
+TYPE_BEGIN:MethbokeAddon.FDSN.TranslationSeparation
+MethbokeAddon.FDSN.TranslationSeparation : ℝ → ℝ → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSN.TranslationSeparation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.TranslationSeparation
+'MethbokeAddon.FDSN.TranslationSeparation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.TranslationSeparation
+TYPE_BEGIN:MethbokeAddon.FDSN.ProjectedForceSeparation
+MethbokeAddon.FDSN.ProjectedForceSeparation : ℝ → ℝ → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSN.ProjectedForceSeparation
+AXIOMS_BEGIN:MethbokeAddon.FDSN.ProjectedForceSeparation
+'MethbokeAddon.FDSN.ProjectedForceSeparation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.ProjectedForceSeparation
+TYPE_BEGIN:MethbokeAddon.FDSN.SmoothSmallness
+MethbokeAddon.FDSN.SmoothSmallness : ℝ →
+  ℝ →
+    ℝ →
+      SingularClosure.Velocity →
+        SingularClosure.Velocity → (ℝ → SingularClosure.Velocity) → (ℝ → SingularClosure.Velocity) → Prop
+TYPE_END:MethbokeAddon.FDSN.SmoothSmallness
+AXIOMS_BEGIN:MethbokeAddon.FDSN.SmoothSmallness
+'MethbokeAddon.FDSN.SmoothSmallness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.SmoothSmallness
+TYPE_BEGIN:MethbokeAddon.FDSN.FamilyFor
+MethbokeAddon.FDSN.FamilyFor : MethbokeAddon.FDSN.HelicalFrameArray →
+  ℝ → ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.FamilyFor
+AXIOMS_BEGIN:MethbokeAddon.FDSN.FamilyFor
+'MethbokeAddon.FDSN.FamilyFor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.FamilyFor
+TYPE_BEGIN:MethbokeAddon.FDSN.Family
+MethbokeAddon.FDSN.Family : ℝ →
+  ℝ → SingularClosure.Velocity → SingularClosure.Pressure → SingularClosure.Velocity → Prop
+TYPE_END:MethbokeAddon.FDSN.Family
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Family
+'MethbokeAddon.FDSN.Family' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Family
+TYPE_BEGIN:MethbokeAddon.FDSN.family_of_all_frame_arrays
+@MethbokeAddon.FDSN.family_of_all_frame_arrays : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  (∀ (h : MethbokeAddon.FDSN.HelicalFrameArray), MethbokeAddon.FDSN.FamilyFor h ν T u p F) →
+    MethbokeAddon.FDSN.Family ν T u p F
+TYPE_END:MethbokeAddon.FDSN.family_of_all_frame_arrays
+AXIOMS_BEGIN:MethbokeAddon.FDSN.family_of_all_frame_arrays
+'MethbokeAddon.FDSN.family_of_all_frame_arrays' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.family_of_all_frame_arrays
+TYPE_BEGIN:MethbokeAddon.FDSN.Family.for_fixed_helical_frame
+@MethbokeAddon.FDSN.Family.for_fixed_helical_frame : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity}
+  {p : SingularClosure.Pressure},
+  MethbokeAddon.FDSN.Family ν T u p F →
+    ∀ {h : MethbokeAddon.FDSN.HelicalFrameArray},
+      MethbokeAddon.FDSN.IsHelicalFrame h → MethbokeAddon.FDSN.FamilyFor h ν T u p F
+TYPE_END:MethbokeAddon.FDSN.Family.for_fixed_helical_frame
+AXIOMS_BEGIN:MethbokeAddon.FDSN.Family.for_fixed_helical_frame
+'MethbokeAddon.FDSN.Family.for_fixed_helical_frame' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+AXIOMS_END:MethbokeAddon.FDSN.Family.for_fixed_helical_frame
