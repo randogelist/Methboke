@@ -1,0 +1,23 @@
+FDSN_R3 EXTERNAL FAILURE AT f5fb09b7
+Repository:randogelist/Methboke;branch:main.
+Tested commit:f5fb09b77320f746969d9052d46ab23bf8ff6549.
+Run:44845509310;job:136664089404.
+URL:https://github.com/randogelist/Methboke/actions/runs/44845509310
+Outcome:failure;536PASS/2FAIL/10BLOCKED/0fresh endpoint audits.
+
+All failing module logs were inspected for both error: and error(...):.
+Only two diagnostics remain: CompactFrequencyInverse:363 Nat.cast_zero in
+the common factor; ForwardFourierSmooth:225 max+1 versus1+max orientation.
+Exact compiler logs and the original run plan accompany this summary.
+Original artifact14682947221:evidence.zip(91911bytes).
+SHA256:1c69195f64464b979bad928f77757684e72618ec9fa111783e5834945c439bd4
+The downloaded hash matches the GitHub digest. Full original receipts and
+compiler evidence remain in the archive.
+
+PREPARED REPAIR
+Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
+
+Matching external cached compilation, all137packages/1320named fresh type/axiom
+reports, required cutout and final acceptance/publication remain pending.
+Earlier accepted history is preserved; no new A-tier acceptance is claimed.
+Local Lean/Lake/kernel executions:ZERO.

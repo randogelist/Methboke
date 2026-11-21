@@ -1,0 +1,73 @@
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:87:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:163:0: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.schwartzFrequencySlice_uniform_integrals`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:181:0: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.schwartzFrequencySlice_dominated`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:213:8: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierJetStep_apply`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:226:8: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierJet_zero_apply`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:229:8: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierJet_succ_apply`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:238:0: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierTaylor_hasFDerivAt`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:363:2: error: Tactic `apply` failed: could not unify the type of `mul_le_mul_of_nonneg_left ?m.262 ?m.263`
+  ?m.258 * ?m.259 ≤ ?m.258 * ?m.260
+with the goal
+  (2 * Real.pi) ^ 0 * (2 * ↑0 + 2) ^ N *
+      ∑ p_1 ∈ Finset.range (0 + 1) ×ˢ Finset.range (N + 1),
+        ∫ (v : Vec), ‖v‖ ^ p_1.1 * ‖iteratedFDeriv ℝ p_1.2 (⇑(schwartzRightSlice A p)) v‖ ≤
+    (2 * Real.pi) ^ 0 * (2 * 0 + 2) ^ N * ∑ j ∈ S, D j.1 j.2
+
+P : Type u_1
+inst✝⁴ : NormedAddCommGroup P
+inst✝³ : NormedSpace ℝ P
+E : Type u_2
+inst✝² : NormedAddCommGroup E
+inst✝¹ : NormedSpace ℂ E
+inst✝ : CompleteSpace E
+A : 𝓢(P × Vec, E)
+N : ℕ
+D : ℕ → ℕ → ℝ
+hD : ∀ (k n : ℕ), 0 ≤ D k n
+hbound :
+  ∀ (k n : ℕ) (p : P), ‖p‖ ^ 0 * ∫ (ξ : Vec), ‖ξ‖ ^ k * ‖iteratedFDeriv ℝ n (⇑(schwartzRightSlice A p)) ξ‖ ≤ D k n
+S : Finset (ℕ × ℕ) := ⋯
+hsum : 0 ≤ ∑ j ∈ S, D j.1 j.2
+p : P
+x : Vec
+h :
+  ‖x‖ ^ N * ‖𝓕 (⇑(schwartzRightSlice A p)) x‖ ≤
+    (2 * Real.pi) ^ 0 * (2 * ↑0 + 2) ^ N *
+      ∑ p_1 ∈ Finset.range (0 + 1) ×ˢ Finset.range (N + 1),
+        ∫ (v : Vec), ‖v‖ ^ p_1.1 * ‖iteratedFDeriv ℝ p_1.2 (⇑(schwartzRightSlice A p)) v‖
+⊢ (2 * Real.pi) ^ 0 * (2 * ↑0 + 2) ^ N *
+      ∑ p_1 ∈ Finset.range (0 + 1) ×ˢ Finset.range (N + 1),
+        ∫ (v : Vec), ‖v‖ ^ p_1.1 * ‖iteratedFDeriv ℝ p_1.2 (⇑(schwartzRightSlice A p)) v‖ ≤
+    (2 * Real.pi) ^ 0 * (2 * 0 + 2) ^ N * ∑ j ∈ S, D j.1 j.2

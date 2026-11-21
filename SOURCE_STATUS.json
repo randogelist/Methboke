@@ -53,16 +53,16 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Run 44844863588 at8ff47f2e cleared the earlier analytic diagnostics and stopped at affine-slice normalization, a missing index binder, and two integrability-inequality metavariables. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal source-only repairs are prepared; no new A-tier acceptance.",
-  "current_material_external_verification": "FDSN_R3_PROOF_REPAIR_PREPARED_AFTER_44844863588",
+  "ci_handoff": "Run44845509310 atf5fb09b7 leaves two proof-normalization errors: CompactFrequencyInverse:363 natural-zero coercion and ForwardFourierSmooth:225 additive orientation. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal repairs prepared; no new A-tier acceptance.",
+  "current_material_external_verification": "FDSN_R3_PROOF_REPAIR_PREPARED_AFTER_44845509310",
   "latest_material_run": {
     "status": "FAILED_NO_NEW_ACCEPTANCE",
-    "source_commit": "8ff47f2ee34e82b474f3b9ca5739d57a48af08fe",
-    "run_id": 44844863588,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44844863588",
-    "job_id": 136661962823,
-    "artifact_id": 14683056660,
-    "artifact_sha256": "ce7c5bedc49c5010c341c6fbbe992ce75747b259f151c6bcc475682fc5877526",
+    "source_commit": "f5fb09b77320f746969d9052d46ab23bf8ff6549",
+    "run_id": 44845509310,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44845509310",
+    "job_id": 136664089404,
+    "artifact_id": 14682947221,
+    "artifact_sha256": "1c69195f64464b979bad928f77757684e72618ec9fa111783e5834945c439bd4",
     "artifact_download_and_hash_verified": true,
     "failed_sources": [
       "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
@@ -78,9 +78,9 @@
     "new_a_tier_acceptance": false,
     "failure_class": "PROOF_OR_TYPE_FAILURE",
     "failure_phase": "compile",
-    "cause": "CompactFrequencyInverse:58 affine sum/function equality; :358 unknown j binder. ForwardFourierSmooth:225 two unresolved type metavariables in integrability inequality.",
-    "evidence": "audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt",
-    "repair": "Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+    "cause": "CompactFrequencyInverse:363 Nat.cast_zero leaves unequal common factors before monotonicity; ForwardFourierSmooth:225 bound produces max + 1 where 1 + max is required.",
+    "evidence": "audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt",
+    "repair": "Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
     "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
@@ -3315,7 +3315,7 @@
       "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
       "Definition/consumer checks do not construct a family."
     ],
-    "next": "Externally verify the affine-slice/binder and integrability-type repairs, then complete all remaining source modules, fresh exact type/axiom audits and final acceptance.",
+    "next": "Externally verify the natural-zero and additive-orientation normalizations, then complete all remaining sources, fresh exact type/axiom audits and final acceptance.",
     "failed_attempts": [
       {
         "status": "FAILED_NO_NEW_ACCEPTANCE",
@@ -3644,6 +3644,34 @@
         "evidence": "audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt",
         "repair": "Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_NO_NEW_ACCEPTANCE",
+        "source_commit": "f5fb09b77320f746969d9052d46ab23bf8ff6549",
+        "run_id": 44845509310,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44845509310",
+        "job_id": 136664089404,
+        "artifact_id": 14682947221,
+        "artifact_sha256": "1c69195f64464b979bad928f77757684e72618ec9fa111783e5834945c439bd4",
+        "artifact_download_and_hash_verified": true,
+        "failed_sources": [
+          "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+          "MethbokeAddon.FDSNR3.ForwardFourierSmooth"
+        ],
+        "module_counts": {
+          "PASS": 536,
+          "BLOCKED_BY_DEPENDENCY": 10,
+          "FAIL": 2
+        },
+        "fresh_package_audits_executed": false,
+        "fresh_package_audit_count": 0,
+        "new_a_tier_acceptance": false,
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "failure_phase": "compile",
+        "cause": "CompactFrequencyInverse:363 Nat.cast_zero leaves unequal common factors before monotonicity; ForwardFourierSmooth:225 bound produces max + 1 where 1 + max is required.",
+        "evidence": "audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt",
+        "repair": "Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+        "local_lean_executions": 0
       }
     ],
     "stage_2": {
@@ -3786,9 +3814,9 @@
       ],
       "new_acceptance_claimed": false,
       "local_lean_executions": 0,
-      "previous_failed_run": 44844863588,
-      "repair_scope": "Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
-      "latest_source_compiler_progress": "Run 44844863588 at8ff47f2e cleared the earlier analytic diagnostics and stopped at affine-slice normalization, a missing index binder, and two integrability-inequality metavariables. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal source-only repairs are prepared; no new A-tier acceptance."
+      "previous_failed_run": 44845509310,
+      "repair_scope": "Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+      "latest_source_compiler_progress": "Run44845509310 atf5fb09b7 leaves two proof-normalization errors: CompactFrequencyInverse:363 natural-zero coercion and ForwardFourierSmooth:225 additive orientation. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal repairs prepared; no new A-tier acceptance."
     },
     "scope_completion": {
       "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",

@@ -358,7 +358,7 @@ theorem partialFourierTransform_spatial_weight (A : 𝓢(P × Vec, E)) (N : ℕ)
     (fun k n _ _ => SchwartzMap.integrable_pow_mul_iteratedFDeriv volume
       (schwartzRightSlice A p) k n)
     (k := 0) (n := N) le_top le_top x
-  simp only [norm_iteratedFDeriv_zero] at h
+  simp only [norm_iteratedFDeriv_zero, Nat.cast_zero] at h
   apply h.trans
   apply mul_le_mul_of_nonneg_left _ (by positivity)
   change (∑ j ∈ S, ∫ ξ : Vec, ‖ξ‖ ^ j.1 *

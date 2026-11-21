@@ -526,3 +526,9 @@ FDSN_R3 repair after run44844863588 at8ff47f2e.
 Run 44844863588 at8ff47f2e cleared the earlier analytic diagnostics and stopped at affine-slice normalization, a missing index binder, and two integrability-inequality metavariables. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal source-only repairs are prepared; no new A-tier acceptance.
 Normalize the affine slice by an explicit function equality, supply the missing CompactFrequencyInverse index binder, and give the ForwardFourierSmooth integrability inequalities explicit natural-number/real types. These are source-only elaboration repairs; original theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
 Evidence:audits/fdsn-r3-8ff47f2e-failed/SUMMARY.txt.
+
+
+FDSN_R3 repair after run44845509310 atf5fb09b7.
+Run44845509310 atf5fb09b7 leaves two proof-normalization errors: CompactFrequencyInverse:363 natural-zero coercion and ForwardFourierSmooth:225 additive orientation. Counts:536PASS/2FAIL/10BLOCKED/0fresh audits. Minimal repairs prepared; no new A-tier acceptance.
+Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.
+Evidence:audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt.

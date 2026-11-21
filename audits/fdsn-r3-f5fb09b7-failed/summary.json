@@ -1,0 +1,39 @@
+{
+  "status": "FAILED_NO_NEW_ACCEPTANCE",
+  "source_commit": "f5fb09b77320f746969d9052d46ab23bf8ff6549",
+  "run_id": 44845509310,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44845509310",
+  "job_id": 136664089404,
+  "artifact_id": 14682947221,
+  "artifact_sha256": "1c69195f64464b979bad928f77757684e72618ec9fa111783e5834945c439bd4",
+  "artifact_download_and_hash_verified": true,
+  "failed_sources": [
+    "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+    "MethbokeAddon.FDSNR3.ForwardFourierSmooth"
+  ],
+  "module_counts": {
+    "PASS": 536,
+    "BLOCKED_BY_DEPENDENCY": 10,
+    "FAIL": 2
+  },
+  "fresh_package_audits_executed": false,
+  "fresh_package_audit_count": 0,
+  "new_a_tier_acceptance": false,
+  "failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failure_phase": "compile",
+  "cause": "CompactFrequencyInverse:363 Nat.cast_zero leaves unequal common factors before monotonicity; ForwardFourierSmooth:225 bound produces max + 1 where 1 + max is required.",
+  "evidence": "audits/fdsn-r3-f5fb09b7-failed/SUMMARY.txt",
+  "repair": "Normalize Nat.cast_zero in the CompactFrequencyInverse common factor before applying multiplication monotonicity; orient the ForwardFourierSmooth integrability inequality with 1 + max on both sides. These are source-only proof normalization repairs; theorem statements, independent consumers, Seed and Family, pins and axiom policy remain unchanged.",
+  "local_lean_executions": 0,
+  "schema_version": 1,
+  "repository": "randogelist/Methboke",
+  "branch": "main",
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "complete_evidence_archive": "evidence.zip",
+  "all_failed_module_logs_inspected": true,
+  "error_or_tagged_error_count": 2,
+  "root_status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+  "original_seed_and_family_unchanged": true
+}
