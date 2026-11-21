@@ -46,8 +46,8 @@ jobs:
             label: QFB / T3
             ci_mode: audit
           - goal: SINGULAR_PREMISE_OBSTRUCT_R3
-            label: SINGULAR-PREMISE OBSTRUCT R3 / dummy (open)
-            ci_mode: placeholder
+            label: SINGULAR-PREMISE OBSTRUCT R3 / foundations (root open)
+            ci_mode: foundation_audit
           - goal: SIGNULAR_PREMISE_OBSTRUCT_T3
             label: SIGNULAR-PREMISE OBSTRUCT T3 / conditional theorem
             ci_mode: audit
@@ -76,7 +76,7 @@ jobs:
           --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
 
       - name: Record theorem scope, exact revision and compatible cache keys
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         id: plan
         run: >-
           python3 scripts/verify_theorem_goal.py plan
@@ -84,11 +84,11 @@ jobs:
           --github-output "$GITHUB_OUTPUT"
 
       - name: Reclaim unused disposable runner SDKs
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         run: bash Material/ci/prepare-runner.sh --mode warm
 
       - name: Find a repaired dependency cache
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         id: repaired-dependencies
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -98,7 +98,7 @@ jobs:
           lookup-only: true
 
       - name: Restore the pinned dependency objects
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         id: dependencies
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -106,7 +106,7 @@ jobs:
           key: ${{ steps.repaired-dependencies.outputs.cache-matched-key || steps.plan.outputs.dependency_key }}
 
       - name: Find a repaired project cache
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         id: repaired-project
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -118,7 +118,7 @@ jobs:
           lookup-only: true
 
       - name: Restore passed project objects and their original receipts
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         id: project
         uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
@@ -129,7 +129,7 @@ jobs:
           restore-keys: ${{ steps.plan.outputs.project_prefix }}
 
       - name: Require a complete passed cache donor before compiler setup
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         env:
           DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
           DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
@@ -140,7 +140,7 @@ jobs:
           --goal "$GOAL_ID" --revision "$TARGET_SHA" --output "$RUNNER_TEMP/theorem-goal"
 
       - name: Install the checksum-pinned native toolchain
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         shell: bash
         run: |
           set -euo pipefail
@@ -152,7 +152,7 @@ jobs:
           "$HOME/.elan/bin/elan" toolchain install "$(cat Material/lean-toolchain)"
 
       - name: Validate cached closure and freshly audit this goal's complete scope
-        if: ${{ matrix.ci_mode == 'audit' }}
+        if: ${{ matrix.ci_mode == 'audit' || matrix.ci_mode == 'foundation_audit' }}
         env:
           DEPENDENCY_HIT: ${{ steps.dependencies.outputs.cache-hit }}
           DEPENDENCY_MATCHED: ${{ steps.dependencies.outputs.cache-matched-key }}
@@ -170,3 +170,4 @@ jobs:
           path: ${{ runner.temp }}/theorem-goal
           if-no-files-found: error
           retention-days: 90
+

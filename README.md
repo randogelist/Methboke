@@ -28,7 +28,7 @@ results, explicit hypotheses and source-specific evidence retain their status.
 | **WFB** | `!!!` | Real exact-type and axiom audits | Formal closure of the full-Fourier-budget implication; budget hypothesis retained |
 | **QFA** | `!=` | Dummy/pending | B-tier tail theorem for general solenoidal $L^2$ data established; complete general Lean root pending |
 | **QFB** | `!!!!` | Real exact-root and standalone-cutout audits | Closed in its exact post-cutoff scope: smooth tails, tail energy equality and uniqueness of the Leray–Hopf future from each solution's own trace |
-| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN** | Dummy/pending | No complete named root derivation or native whole-space obstruction root is established |
+| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN; foundations in construction** | Real foundation audit, root open | Literal NSE-A, actual cutoff and carrier/derivative layers; conditional root remains open |
 | **SIGNULAR-PREMISE OBSTRUCT T3** | **`!!!!` — conditional on axiom** | Real exact conditional-theorem audits | Closed relative to the explicit `StoppedCommutatorBound` axiom for positive viscosity |
 
 Here `!=` records a complete B-tier derivation and `!!!` records formal
@@ -41,10 +41,11 @@ sections 13.1, 13.3 and 14, establish their recorded mathematical chains; their
 general Lean roots remain pending.
 
 After the complete Material workflow succeeds on `main`, six jobs inspect that
-exact source revision with `max-parallel: 6` and `fail-fast: false`. The three
-dummy stages perform no Lean execution, cache restoration or theorem audit;
-they record pending status and open obligations. The three real stages use
-verified canonical cached objects and run fresh exact-type and axiom audits.
+exact source revision with `max-parallel: 6` and `fail-fast: false`. WFA/QFA
+dummy stages perform no Lean execution, cache restoration or theorem audit.
+The R3 stage audits its concrete foundations while retaining an open root.
+WFB, QFB and T3 retain their established exact scopes. All real audit stages
+use verified cached objects and fresh exact-type and axiom reports.
 They do not publish partial replacement caches.
 
 **T3 obstruction: `!!!!` — conditional on the explicit
@@ -72,20 +73,35 @@ for each exact source commit. Dummy-stage completion keeps the corresponding
 mathematical statement pending. Earlier configurations do not validate a later
 source revision.
 
+### Active R3 construction branch
+
+The branch [codex/nse-a-r3-ehrenfest](https://github.com/randogelist/Methboke/tree/codex/nse-a-r3-ehrenfest)
+implements the assented [sixteen-step plan](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_B_TIER.txt).
+The first candidates fix literal NSE-A and construct the actual sharp Fourier
+cutoff, complete solenoidal carrier and real weak derivative machinery.
+See the [implementation ledger](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json)
+for exact scope and external verification status.
+
+The canonical Material workflow runs on this branch. After full acceptance,
+a branch-specific R3 foundation job performs the goal audit from cached objects
+at the same commit. Its success establishes only the named foundation scopes.
+The complete single-premise implication, literal closed-slab admission,
+nonlinear regularized dynamics and stopped-bound witness remain open.
+
 <!-- lean-source-stats:start -->
 ## Lean source size
 
 [![Lean source count](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml/badge.svg?branch=main)](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml)
 
-**109,709 physical lines of Lean across 849 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
+**111,450 physical lines of Lean across 861 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
 
 | Scope | Lean files | Physical lines |
 |---|---:|---:|
-| Non-vendored project files | 544 | 65,780 |
+| Non-vendored project files | 556 | 67,521 |
 | Retained vendored sources ([Material/_vendor/](Material/_vendor/)) | 305 | 43,929 |
-| **Project tree total** | 849 | 109,709 |
+| **Project tree total** | 861 | 111,450 |
 | Archive/reference copies ([Temp-folder/](Temp-folder/)) | 537 | 68,790 |
-| All tracked .lean files, including archive/reference copies | 1,386 | 178,499 |
+| All tracked .lean files, including archive/reference copies | 1,398 | 180,240 |
 
 These are physical source lines, including comments, blank lines, audit consumers, and Lean build-description files. They are not an authorship or compiled-module count. Only Git-tracked filenames ending in .lean are counted; compressed archives and .lean.txt documents are not unpacked or counted.
 
@@ -707,3 +723,4 @@ The accepted archive preserves the tested endpoint manifests, dependency closure
 Earlier pending descriptions are dated preparation history, superseded by this
 acceptance. Seed existence and the separate prescribed-site family remain outside
 this accepted conditional R3 result. No local Lean execution was used.
+

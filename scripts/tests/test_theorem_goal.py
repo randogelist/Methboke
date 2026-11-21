@@ -68,6 +68,26 @@ class TheoremGoalControls(unittest.TestCase):
             with self.assertRaises(goal.ScopeError):
                 goal.validate_route(changed, event_payload(), REVISION)
 
+    def test_r3_push_requires_full_parent_gate_and_exact_same_source(self):
+        env = dict(environment("push"), GITHUB_REF="refs/heads/" + goal.R3_FOUNDATION_BRANCH,
+                   GITHUB_WORKFLOW=goal.UPSTREAM_WORKFLOW, GITHUB_JOB=goal.R3_FOUNDATION_JOB,
+                   MATERIAL_PARENT_ACCEPTED="true")
+        event = {"repository": {"full_name": goal.REPOSITORY}, "after": REVISION, "deleted": False}
+        route = goal.validate_route(env, event, REVISION)
+        self.assertEqual(route["branch"], goal.R3_FOUNDATION_BRANCH)
+        self.assertEqual(route["upstream"]["run_id"], env["GITHUB_RUN_ID"])
+        self.assertEqual(route["upstream"]["source_revision"], REVISION)
+        for field, value in (("GITHUB_REF", "refs/heads/main"),
+                             ("GITHUB_SHA", "b" * 40),
+                             ("GITHUB_WORKFLOW", "Unrelated workflow"),
+                             ("GITHUB_JOB", "compile-audit-register"),
+                             ("MATERIAL_PARENT_ACCEPTED", "false")):
+            with self.subTest(field=field), self.assertRaises(goal.ScopeError):
+                goal.validate_route(dict(env, **{field: value}), event, REVISION)
+        for field, value in (("after", "b" * 40), ("deleted", True)):
+            with self.subTest(field=field), self.assertRaises(goal.ScopeError):
+                goal.validate_route(env, dict(event, **{field: value}), REVISION)
+
     def test_actual_checkout_must_match_routed_source(self):
         goal.validate_checkout_sha(REVISION + "\n", REVISION)
         with self.assertRaises(goal.ScopeError):
@@ -96,7 +116,7 @@ class TheoremGoalControls(unittest.TestCase):
         with self.assertRaises(goal.ScopeError):
             goal.root_contract(row, [entry])
 
-    def test_checked_in_manifest_keeps_six_explicit_goals_and_dummy_modes(self):
+    def test_checked_in_manifest_keeps_open_roots_distinct_from_foundation_audits(self):
         root = SCRIPT.parents[1]
         manifest = json.loads((root / "Material/ci/theorem-goals.json").read_text())
         entries = [{"id": path.parent.name} for path in (root / "Material").glob("*/endpoint.json")]
@@ -104,12 +124,18 @@ class TheoremGoalControls(unittest.TestCase):
         expected = ("WFA", "WFB", "QFA", "QFB", "SINGULAR_PREMISE_OBSTRUCT_R3", "SIGNULAR_PREMISE_OBSTRUCT_T3")
         self.assertEqual(set(rows), set(expected))
         self.assertEqual(goal.GOAL_IDS, expected)
-        for identifier, status in {"WFA": "OPEN", "QFA": "OPEN_GENERAL_DATA",
-                                   "SINGULAR_PREMISE_OBSTRUCT_R3": "OPEN_NO_NATIVE_ROOT"}.items():
+        for identifier, status in {"WFA": "OPEN", "QFA": "OPEN_GENERAL_DATA"}.items():
             self.assertIsNone(rows[identifier]["root_declaration"])
             self.assertEqual(rows[identifier]["root_status"], status)
             self.assertEqual(rows[identifier]["ci_mode"], "placeholder")
             self.assertEqual(rows[identifier]["domain"], "R3")
+        r3 = rows["SINGULAR_PREMISE_OBSTRUCT_R3"]
+        self.assertIsNone(r3["root_declaration"])
+        self.assertEqual(r3["root_status"], "OPEN_NO_NATIVE_ROOT")
+        self.assertEqual(r3["ci_mode"], "foundation_audit")
+        self.assertEqual(r3["target_definition"], "MethbokeAddon.R3Ehrenfest.NSE_A")
+        self.assertTrue(r3["open_obligations"])
+        self.assertTrue(r3["retained_foundation_scope"])
         for identifier in ("WFB", "QFB", "SIGNULAR_PREMISE_OBSTRUCT_T3"):
             self.assertEqual(rows[identifier]["ci_mode"], "audit")
             self.assertEqual(rows[identifier]["domain"], "T3")
@@ -124,6 +150,19 @@ class TheoremGoalControls(unittest.TestCase):
             goal.validate_manifest(missing_premises, entries)
         bad = copy.deepcopy(manifest)
         bad["goals"][0]["root_status"] = "EXACT_ROOT_ESTABLISHED"
+        with self.assertRaises(goal.ScopeError):
+            goal.validate_manifest(bad, entries)
+
+        for field, value in (("root_declaration", "Pretend.proved_root"),
+                             ("root_status", "EXACT_ROOT_ESTABLISHED"),
+                             ("ci_mode", "audit"), ("open_obligations", []),
+                             ("retained_foundation_scope", "")):
+            bad = copy.deepcopy(manifest)
+            next(row for row in bad["goals"] if row["id"] == r3["id"])[field] = value
+            with self.subTest(field=field), self.assertRaises(goal.ScopeError):
+                goal.validate_manifest(bad, entries)
+        bad = copy.deepcopy(manifest)
+        bad["goals"][0]["ci_mode"] = "foundation_audit"
         with self.assertRaises(goal.ScopeError):
             goal.validate_manifest(bad, entries)
 
@@ -161,8 +200,7 @@ class TheoremGoalControls(unittest.TestCase):
             return result, json.loads((output / "scope-report.json").read_text()), (base / "summary.md").read_text()
 
     def test_placeholder_branch_never_loads_drivers_caches_or_compiler(self):
-        for identifier, status in {"WFA": "OPEN", "QFA": "OPEN_GENERAL_DATA",
-                                   "SINGULAR_PREMISE_OBSTRUCT_R3": "OPEN_NO_NATIVE_ROOT"}.items():
+        for identifier, status in {"WFA": "OPEN", "QFA": "OPEN_GENERAL_DATA"}.items():
             with self.subTest(goal=identifier):
                 result, report, summary = self._placeholder_main(identifier)
                 self.assertEqual(result, 0)
@@ -181,7 +219,7 @@ class TheoremGoalControls(unittest.TestCase):
                 self.assertIn("Dummy stage only", summary)
 
     def test_placeholder_command_rejects_a_real_audit_goal(self):
-        for identifier in ("WFB", "QFB", "SIGNULAR_PREMISE_OBSTRUCT_T3"):
+        for identifier in ("WFB", "QFB", "SIGNULAR_PREMISE_OBSTRUCT_T3", "SINGULAR_PREMISE_OBSTRUCT_R3"):
             with self.subTest(goal=identifier):
                 result, report, _ = self._placeholder_main(identifier)
                 self.assertEqual(result, 1)
@@ -223,8 +261,8 @@ class TheoremGoalControls(unittest.TestCase):
                 goal.validate_receipts(records, {"A": receipt_a, "B": receipt_b}, context, output, matches)
 
     def test_audit_success_does_not_promote_an_open_goal_or_a_definition(self):
-        plan = {"goal": {"id": "WFA", "name": "WFA", "domain": "R3",
-                         "root_status": "OPEN", "root_declaration": None,
+        plan = {"goal": {"id": "SINGULAR_PREMISE_OBSTRUCT_R3", "name": "R3 obstruction", "domain": "R3",
+                         "ci_mode": "foundation_audit", "root_status": "OPEN_NO_NATIVE_ROOT", "root_declaration": None,
                          "target_definition": "Example.target", "verification_scope": "Foundations only",
                          "open_obligations": ["Actual general-data construction"]},
                 "source_revision": REVISION, "route": {}, "plan_sha256": "plan",
@@ -233,11 +271,44 @@ class TheoremGoalControls(unittest.TestCase):
                 "audit_policy_sha256": "policy", "source_closure_sha256": "sources"}
         report = goal.base_report(plan)
         report["audit_status"] = "PASS"
-        self.assertEqual(report["root_status"], "OPEN")
+        self.assertEqual(report["root_status"], "OPEN_NO_NATIVE_ROOT")
+        self.assertEqual(report["ci_mode"], "foundation_audit")
+        self.assertTrue(report["foundation_only"])
         self.assertIsNone(report["root_declaration"])
         self.assertFalse(report["target_definition_is_proof"])
         self.assertFalse(report["root_status_automatically_promoted"])
         self.assertFalse(report["full_project_acceptance"])
+
+    def test_r3_foundations_keep_compatible_cache_donor_provenance_distinct(self):
+        prior = "b" * 40
+        plan = {"toolchain": "leanprover/lean4:v4.33.0", "mathlib_commit": "mathlib",
+                "build_configuration": {}, "source_revision": REVISION,
+                "route": {"event": "push", "upstream": {"run_id": "1234"}}}
+        audit = {"status": "PASS", "audit_reused": False, "audit_origin_commit": prior,
+                 "types": {"Example.theorem": "Example.theorem : True"},
+                 "axioms": {"Example.theorem": []}, "declaration_count": 1}
+        donor = {"status": "PASS", "repository": goal.REPOSITORY, "compiler_executed": True,
+                 "all_endpoints_selected": True, "fresh_required_audits": True,
+                 "source_pin_integrity": True, "commit": prior,
+                 "toolchain": plan["toolchain"], "mathlib_commit": plan["mathlib_commit"],
+                 "build_configuration": {}, "run_id": "5678",
+                 "run_url": f"https://github.com/{goal.REPOSITORY}/actions/runs/5678",
+                 "module_receipts": {"Example": {"status": "PASS"}},
+                 "endpoints": [dict(audit, id="Example")], "cutout": dict(audit)}
+        # Immutable exact caches may retain a prior full PASS donor.  Current
+        # recursive source/object identities are checked by validate_receipts.
+        goal.validate_donor(donor, plan)
+        self.assertNotEqual(donor["commit"], plan["source_revision"])
+        self.assertNotEqual(donor["run_id"], plan["route"]["upstream"]["run_id"])
+        partial = copy.deepcopy(donor)
+        partial["all_endpoints_selected"] = False
+        with self.assertRaises(goal.ScopeError):
+            goal.validate_donor(partial, plan)
+        unapproved = copy.deepcopy(donor)
+        unapproved["endpoints"][0]["axioms"]["Example.theorem"] = ["sorryAx"]
+        with self.assertRaises(goal.ScopeError):
+            goal.validate_donor(unapproved, plan)
+
 
 
 if __name__ == "__main__":

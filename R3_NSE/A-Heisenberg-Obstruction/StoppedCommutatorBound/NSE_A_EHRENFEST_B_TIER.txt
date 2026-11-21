@@ -1,0 +1,1260 @@
+NSE-A WHOLE-SPACE EHRENFEST OBSTRUCTION
+CUMULATIVE B-TIER DERIVATION AND INTERMEDIATE-STEP PLAN
+Version 1.1 — 21 November 2026
+
+MODE: B_TIER_DERIVATION
+SCOPED TARGET: a faithful R3 counterpart of the periodic stopped-commutator
+conditional obstruction.
+CURRENT PROJECT GOALS: WFA; WFB; QFA; QFB;
+  SINGULAR-PREMISE OBSTRUCT R3; SIGNULAR-PREMISE OBSTRUCT T3.
+SELECTED LOCAL TARGET: SINGULAR-PREMISE OBSTRUCT R3.
+HISTORICAL GOAL AT THE ORIGINAL v1.0 SNAPSHOT: Fefferman D.
+WORKING BRANCH: codex/nse-a-r3-ehrenfest, based on main at
+  5f53d3eb320cc3860a9f28384a825349e0df5e21.
+SOURCE BASIS: randogelist/Methboke main
+  b4218fbcdd130189b69b1ee3f6df81b036553e4a.
+CROSS-BRANCH SNAPSHOT: AC-Integration
+  21b4ae85ed3009bc623fbfe882de9ec932bac9f5.
+TOOLCHAIN BASIS: Lean 4.33.0; Mathlib
+  db584cd6d46c92f209a44c0f1c829460d327499d.
+
+DELIVERABLE STATUS
+  B-tier mathematical chain: derived, with the established closed-slab
+    literature inputs identified in Section 14.
+  Intermediate construction plan: sixteen scoped endpoints, Section 17.
+  New native R3 Ehrenfest theorem: NOT established.
+  StoppedCommutatorBoundR3 witness: OPEN.
+  New compiler runs / kernel audits: NONE.
+  Local Lean / Lake executions: NONE.
+  Original v1.0 repository changes / commits / CI triggers: NONE.
+  Current native construction: see Section 21 and IMPLEMENTATION_STATUS.json.
+  Source preparation is not compiler acceptance.
+
+This text is cumulative for the present R3 Ehrenfest target: it retains the
+previously selected regularized-approximation architecture, makes its
+analytical edges explicit, and refines the implementation order using the
+current Mathlib, Methlib, Methboke, and accepted cross-branch resources.
+It does not replace the separate existing NSE-A six-charge class derivation.
+
+
+1. EXACT ENDPOINT AND LOGICAL SCOPE
+
+Fix nu > 0. Define NSE_A(nu) to mean:
+
+  For every real divergence-free Schwartz datum a on R3, there exists a
+  velocity-pressure pair (U,p) on [0,infinity) x R3, jointly smooth up to
+  t=0, satisfying
+    U_t + (U.grad)U + grad p = nu Delta U,
+    div U = 0,
+    U(0) = a,
+  and sup_(t>=0) ||U(t)||_L2^2 < infinity.
+
+This is the literal unforced smooth finite-energy category in Fefferman A.
+No periodicity, mean-zero condition, Sobolev bound on the solution, or
+prescribed pressure gauge is added to this proposition. [L01]
+
+The intended conditional root is
+
+  For every nu > 0,
+    StoppedCommutatorBoundR3(nu) ==> not NSE_A(nu).                 (1.1)
+
+The implication negates the universal existence assertion. It does not
+prove positive global regularity, nor does it construct a datum satisfying
+the stopped condition. If such a datum were later supplied, the conditional
+root would exclude a literal global solution for that datum.
+
+The single research premise in (1.1) will be the actual stopped inequality.
+The approximation family, its uniqueness, energy and enstrophy identities,
+and its stability against a hypothetical smooth solution belong in the
+proof. They are not extra fields hidden inside the condition.
+
+
+2. ESTABLISHED ARCHITECTURE AND SOURCE DISCIPLINE
+
+2.1 Main foundation
+
+Current main includes actual real full-volume SpatialL2, distributional
+Solenoidal, complete physical H1 and H2 weak-derivative graphs, the real
+Fourier transform, Leray projection, real even bounded Fourier multipliers,
+free heat constructions, six physical sectors, and scalar estimates.
+
+It also contains the accepted periodic Ehrenfest implication. That theorem
+uses the periodic canonicalFamily and cannot be retyped as an R3 theorem.
+Its SlabDescent and SmallForcingBootstrap lemmas are genuinely scalar and
+can be instantiated on the new R3 observables. [M01-M08]
+
+The accepted AC snapshot integrated into main was
+000c1bd9baded808b79a04b7f666cacabce64939. The combined integration receipt
+at 5a44e985c15a302110fd91d064431f1183e55857 records 654 modules,
+169 fresh package audits, and 2,212 named reports. Integration itself
+introduced no new mathematical result. [M09]
+
+2.2 Methlib identity
+
+Methlib is randogelist/Methlib, a separate repository. Material retains
+269 original vendor modules from
+96033dd69c994bec337a87369a6c27256e724980
+and 35 additional QFA modules from
+53b2318c2b586137b6db74c4d3a41bb0b964b2d8.
+
+The source manifest records their original identities. A retained source
+file is not automatically an accepted theorem, and its exact hypotheses
+must survive any use here. In particular, a conditional historical QFA
+assembly does not supply a nonlinear whole-space constructor. [M10]
+
+2.3 Accepted cross-branch resources beyond main
+
+The exact HeatSpatialEnergy source tested at
+9b8250be2f13048e3e21cd94c8ba1939d919bf64
+has matching external acceptance at run 44857358591.
+It supplies actual physical H1/H2 Green identities with no supplied
+integration-by-parts premise. Its source blob
+8879b3fa45437e1bc91e618be66715e80983f3c2
+is unchanged at the inspected AC snapshot.
+
+The same accepted batch provides a finite-window L2 Duhamel response,
+continuity, linearity, and its sqrt(T) forcing norm bound. It does not prove
+forced maximal regularity or the forced time-derivative equation.
+
+The preceding accepted HeatGenerator batch,
+809aadc6da1eeabd5c128eb9c78005a38d3d4935 / run 44853804320,
+provides the actual free-heat generator derivative and integrated equation.
+
+Those sources were not part of main's frozen AC integration. They can be
+reused from their accepted source identities in a later scoped integration;
+they are not already imports available from the current main tree. [X01-X04]
+
+The physical H2Interpolation wrapper and accompanying H2 heat developments
+at the inspected 21b4ae85 snapshot are prepared pending matching evidence.
+The lower Methlib spectral interpolation theorem already exists, but that
+does not promote the new physical wrapper. This plan does not depend on
+the pending wrapper. [X05]
+
+
+3. PHYSICAL NORMALIZATION AND SPATIAL ESTIMATES
+
+All spatial integrals use Lebesgue measure on R3. Fibers carry Euclidean
+norms, and gradient/Hessian arrays carry Frobenius norms. Write
+
+  B(v,w) = (v.grad)w,
+  ||v||_H1^2 = ||v||_2^2 + ||grad v||_2^2,
+  ||v||_H2^2 = ||v||_2^2 + ||grad v||_2^2 + ||D2 v||_2^2.
+
+Use the project Fourier convention
+  Fv(xi) = integral exp(-2 pi i x.xi) v(x) dx.
+
+For physical H2 fields, Plancherel and commuting weak derivatives give
+  ||D2 v||_2^2 = ||Delta v||_2^2,
+  ||grad v||_2^2 = integral (2 pi)^2 |xi|^2 |Fv(xi)|^2.
+These normalizations match H2Spectral. [M03]
+
+Choose fixed finite constants S > 0 and Cinf > 0 with
+  ||f||_6 <= S ||grad f||_2,                                    (3.1)
+  ||f||_infinity <= Cinf ||f||_H2.                              (3.2)
+
+The first estimate is used also for finite-dimensional tensor fibers,
+in particular f = grad w. No optimal constant is needed.
+
+B-tier admission of (3.1):
+  Start with the nonsharp scalar Sobolev estimate on compact C1 functions.
+  Apply the norm/Kato argument to finite-dimensional fibers. Approximate
+  a physical H1 field in H1 by compact smooth fields. The Sobolev estimate
+  makes that sequence Cauchy in L6; identify its L6 limit with the L2
+  representative using local convergence or a common a.e. subsequence.
+  This supplies the actual H1-to-L6 map. It is not a supplied "Sobolev port".
+
+Mathlib's compact-C1 eLpNorm estimate and the project's source cutouts are
+concrete formalization inputs. The native extension to the physical graph
+is a new adapter unless an exact accepted one is recovered. [A03, M11]
+
+B-tier admission of (3.2):
+  Let w2(xi) = 1 + (2 pi |xi|)^2 + (2 pi |xi|)^4.
+  The integral of 1/w2 over R3 is finite: the integrand is bounded near
+  zero and decays like |xi|^(-4) at infinity.
+  Cauchy-Schwarz gives
+    ||Ff||_1 <= (integral 1/w2)^(1/2)
+                (integral w2 |Ff|^2)^(1/2)
+              = Cinf ||f||_H2.
+  Fourier inversion supplies the bounded continuous representative and
+  its infinity norm estimate. This proves existence of a sufficient Cinf
+  without introducing a sharp QFA numerical constant.
+
+Combining (3.1), interpolation, and the Hessian-Laplacian identity gives
+  ||grad w||_3 <= S^(1/2) ||grad w||_2^(1/2)
+                             ||Delta w||_2^(1/2),               (3.3)
+  ||B(w,w)||_2 <= S^(3/2) ||grad w||_2^(3/2)
+                                ||Delta w||_2^(1/2).            (3.4)
+
+All constants here are independent of the approximation index. The sharp
+QFA constant, the cutoff tau_A, and universal six-charge finiteness are not
+dependencies of the present obstruction.
+
+
+4. THE ACTUAL SHARP CUTOFF AND COMPLETE STATE SPACE
+
+For n in Nat, put N = n+1 and define
+  m_n(xi) = 1 if |xi| <= N, and 0 otherwise,
+  J_n v = F^(-1)(m_n Fv).
+
+The symbol is measurable, real, even, and bounded by one. It therefore fits
+the existing RealEvenSymbol interface without any smooth-symbol assumption.
+Its discontinuity is harmless for the L2 multiplier construction. [M02]
+
+Prove the following identities for the actual operators:
+
+  J_n^2 = J_n,
+  <J_n v,w> = <v,J_n w>,
+  ||J_n v||_Hk <= ||v||_Hk for k=0,1,2,
+  J_n partial_j = partial_j J_n on actual weak derivatives,
+  J_n Delta = Delta J_n,
+  J_n P = P J_n,                                                (4.1)
+
+where P is the actual real Leray projection. Its symbol is an orthogonal
+projection a.e.; its value at xi=0 does not affect the L2 operator.
+
+Use the accepted gradient multiplier transport, then iterate it on the
+H2 graph. Idempotence and self-adjointness follow from the real indicator
+symbol and Fourier isometry, using the existing sector proofs as templates.
+These ball-cutoff conclusions are new instances, not already existing
+theorems under the sector names. [M02-M04]
+
+Define
+  E_n = {v in SpatialL2 : J_n v = v and P v = v}.
+
+It is the intersection of kernels of the continuous linear maps I-J_n and
+I-P. Hence it is a closed real Hilbert subspace of SpatialL2 and is complete.
+Mathlib has the required closed-kernel/completeness infrastructure. [A01]
+
+Important: E_n is infinite-dimensional. Frequencies in a Euclidean ball
+are continuous. The periodic finite-dimensional Galerkin constructor does
+not instantiate on this space.
+
+Strong convergence:
+  For v in Hk, k=0,1,2,
+    ||(I-J_n)v||_Hk^2
+      = integral_(|xi|>n+1) wk(xi) |Fv(xi)|^2 --> 0.             (4.2)
+
+Here wk is the exact nonnegative Fourier weight for the physical norm.
+The conclusion follows from integrability and dominated convergence.
+
+Uniform convergence on a compact set K in H1:
+  Given eta>0, choose a finite eta/4-net in K.
+  Make ||(I-J_n)v_j||_H1 < eta/2 for each net point.
+  Since ||I-J_n|| <= 2, every point of K then has error < eta.
+Thus strong convergence becomes uniform on compact reference trajectories.
+No compactness of an infinite-dimensional norm ball is used.
+
+
+5. BANDLIMITED CALCULUS AND NONLINEAR LIPSCHITZ BOUNDS
+
+For v in E_n, Fourier inversion supplies actual smooth representatives:
+all frequency moments on the finite ball belong to L1 by Cauchy-Schwarz.
+In particular,
+
+  ||grad v||_2 <= 2 pi N ||v||_2,
+  ||Delta v||_2 <= (2 pi N)^2 ||v||_2,
+  ||v||_infinity <= cB N^(3/2) ||v||_2,                         (5.1)
+  cB = sqrt(4 pi/3).
+
+The last estimate uses the volume of the frequency ball and vector-valued
+Fourier inversion. It has no decay-at-infinity hypothesis on v.
+
+For u,v in E_n, let cN = 2 pi cB N^(5/2). Then
+  ||B(u,v)||_2 <= cN ||u||_2 ||v||_2,
+  ||B(u,u)-B(v,v)||_2
+       <= cN (||u||_2+||v||_2) ||u-v||_2.                     (5.2)
+
+Define the actual vector field
+  F_(nu,n)(v) = nu Delta v - J_n P B(v,v).
+
+It maps E_n to E_n by (4.1). For ||v||_2 <= R,
+  ||F_(nu,n)(v)||_2
+       <= nu (2 pi N)^2 R + cN R^2.                           (5.3)
+
+For u,v in that ball,
+  ||F_(nu,n)(u)-F_(nu,n)(v)||_2
+       <= [nu (2 pi N)^2 + 2 cN R] ||u-v||_2.                (5.4)
+
+These are the exact uniform-on-balls hypotheses needed by the Banach-space
+Picard theorem. They are derived from the physical convolution product,
+not postulated as an NSE solver interface.
+
+
+6. CANONICAL GLOBAL REGULARIZED FLOW
+
+6.1 Local construction
+
+For each nu>0, n, and a in Schwartz_sigma, apply the Banach Picard theorem
+to F_(nu,n) with initial value J_n a. P J_n a = J_n a by solenoidality.
+
+Mathlib's
+  IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+requires completeness, not finite dimension.
+The time-independent constructor takes the ballwise bounds (5.3)-(5.4)
+and the prescribed time-window size condition. [A02]
+
+At any center with norm <= M0, use its radius-one ball, contained in the
+origin-centered ball of radius M0+1. For example let
+  L = nu (2 pi N)^2 (M0+1) + cN (M0+1)^2,
+  K = nu (2 pi N)^2 + 2 cN (M0+1),
+  h = min(1, 1/(2(L+1)), 1/(2(K+1))) > 0.                     (6.1)
+
+The displacement bound is at most 1/2 and the usual Picard contraction
+has slack. The same h works at every such center. This gives a quantitative
+uniform restart interval without compactness of closed balls.
+
+6.2 Nonlinear cancellation
+
+For the smooth bandlimited fields, use spatial cutoffs chi_R that equal
+one on the radius-R ball and satisfy ||grad chi_R||_infinity <= C/R.
+
+For solenoidal b and fields w of the regularity used here,
+  integral chi_R w.(b.grad)w
+     = -(1/2) integral |w|^2 b.grad chi_R.
+
+The boundary term tends to zero. For example, H1 fields belong to L3,
+and the absolute value is at most
+  C/(2R) ||b||_3 ||w||_3^2.
+All interior trilinear expressions used below are integrable by Holder.
+
+Thus
+  <w,B(b,w)> = 0.                                             (6.2)
+
+For the fixed-cutoff energy proof one can obtain L3 from the bandlimited
+L2 and Linfinity estimates alone. General H1-to-L6 admission is not needed
+to construct the regularized flow.
+
+Sharp frequency cutoffs do not generally preserve Schwartz decay.
+Equation (6.2) must therefore be justified by this cutoff argument,
+physical weak-derivative density, or an equivalent legitimate proof.
+
+6.3 Exact energy and global continuation
+
+For the actual local solution,
+  u_n' = F_(nu,n)(u_n),
+  u_n(0)=J_n a,
+
+the self-adjoint commuting projections disappear when paired with u_n.
+The spatial Green identity and (6.2) give
+  (1/2) d/dt ||u_n||_2^2 + nu ||grad u_n||_2^2 = 0.            (6.3)
+
+Hence ||u_n(t)||_2 <= ||J_n a||_2 <= ||a||_2.
+Use M0=||a||_2 in (6.1). Restart and patch uniquely on successive intervals
+of the same positive length h, for every nonnegative time.
+
+Alternatively, a bounded RHS makes the path Cauchy at any finite maximal
+endpoint. Completeness supplies a limit, and the same local existence
+theorem continues the path. Neither proof uses finite-dimensional compactness.
+
+The result is a uniquely determined canonical flow
+  (nu,a,n) |-> u_n : [0,infinity) -> E_n.                     (6.4)
+
+It is C1 in time in E_n. Bounded derivative maps from E_n to every fixed
+physical Hk give the corresponding spatial/time regularity. Endpoint
+derivatives can be stated one-sided; scalar conclusions later use only
+interior two-sided derivatives.
+
+Reuse:
+  SingularClosure.energy_hasDerivAt_of_solution and
+  norm_le_of_forwardSolution_of_dissipative explicitly omit finite
+  dimension. The existing forwardGlobalSolution_exists does not.
+The latter's global construction must be adapted using (6.1), not applied
+with an invalid FiniteDimensional instance. [M05]
+
+
+7. PHYSICAL ENSTROPHY AND THE RECIPROCAL DRIFT
+
+On the actual constructed trajectory define
+  e_n(t) = (1/2)||grad u_n(t)||_2^2,
+  Z_n(t) = ||Delta u_n(t)||_2^2,
+  W_n(t) = <B(u_n(t),u_n(t)), Delta u_n(t)>_L2.
+
+The canonical enstrophy is half of the repository's full gradient-energy
+quantity. This factor must remain explicit in all adapters.
+
+Because u_n and its time derivative have actual H2 regularity at fixed n,
+differentiate the physical gradient norm. Using the H1-H2 Green identity
+and removing J_n P against Delta u_n gives
+  e_n'(t) = W_n(t) - nu Z_n(t).                              (7.1)
+
+For eStar>0 define the reciprocal observable and its explicit drift:
+  V_n(t) = eStar/(eStar+e_n(t)),
+  c_n(t) = eStar/(eStar+e_n(t))^2 * (nu Z_n(t)-W_n(t)).
+
+Since e_n>=0,
+  0 < V_n(t) <= 1,                                           (7.2)
+and the chain rule gives
+  V_n'(t)=c_n(t)                                             (7.3)
+at positive interior times.
+
+Thus a negative drift c_n <= -gamma is equivalent to
+  W_n - nu Z_n >= (gamma/eStar)(eStar+e_n)^2.                  (7.4)
+
+This fixes the production/dissipation sign. The drift is an actual
+directional/time derivative, not an arbitrary function carrying a bound.
+
+
+8. THE SOLE STOPPED CONDITION
+
+For fixed nu>0, define StoppedCommutatorBoundR3(nu) by existence of
+
+  one a in Schwartz_sigma(R3;R3),
+  one eStar>0,
+  one gamma>0,
+  R : Nat -> positive real with R_n -> infinity,
+  one n0 in Nat,
+
+such that, for every n>=n0 and every 0<=t<1/gamma,
+
+  [for every s in [0,t], e_n(s)<R_n]
+       ==> c_n(t)<=-gamma.                                   (8.1)
+
+Every e_n and c_n is formed from the same canonical flow (6.4), with the
+same a and nu. The eStar, gamma, and datum do not depend on n.
+
+This is the R3 analogue of the accepted periodic quantifier structure.
+It includes no:
+  - arbitrary solution-family witness;
+  - convergence or stability assumption;
+  - supplied scalar derivative identity;
+  - singular FDSN seed;
+  - assumed failure of NSE-A.
+
+Initial nonvacuity is available internally:
+  e_n(0) <= (1/2)||grad a||_2^2.
+Because R_n -> infinity, sufficiently large cutoffs start below the threshold.
+The final scalar contradiction does not need a separate initial-bound
+premise; its whole-slab bound will imply the full guard.
+
+No witness for (8.1) is derived in this text. Energy dissipation alone does
+not imply the required positive enstrophy-production lower bound (7.4).
+
+
+9. THE PRECISE INTERMEDIATE REFERENCE CONTRACT
+
+Fix 0<T<infinity. The comparison theorem will take a supplied actual
+reference on [0,T] satisfying
+  U in C([0,T];H2_sigma),
+  U(0)=a in the actual physical class,
+  U_t = nu Delta U - P B(U,U)                                (9.1)
+in distributions in time, with its strong trace.
+
+This is a temporary lemma hypothesis for deriving stability. It is not
+the final definition of NSE_A.
+
+The product map H2 x H2 -> L2 is continuous. Therefore the RHS of (9.1)
+is continuous in L2. The Banach-valued fundamental theorem of calculus
+upgrades the path to C1_t L2 with one-sided endpoint derivatives.
+
+For each fixed n, J_n:L2->Hk is bounded for every finite k. Consequently
+  v_n=J_n U and w_n=u_n-v_n
+have C1_t H1 regularity and continuous H2 representatives. Differentiating
+the H1 error norm below is justified pointwise in the slab interior.
+
+The native derivation needs actual time distribution/Bochner identities,
+not only a field record asserting a projected PDE without trace meaning.
+
+
+10. EXACT PROJECTED ERROR AND VANISHING RESIDUAL
+
+Set
+  v_n = J_n U,
+  rho_n = v_n-U,
+  w_n = u_n-v_n,
+  r_n = J_n P [B(v_n,v_n)-B(U,U)].
+
+Subtract the projected reference equation from the regularized equation:
+  w_n' = nu Delta w_n
+         - J_n P [B(w_n,w_n)+B(v_n,w_n)+B(w_n,v_n)]
+         - r_n,
+  w_n(0)=0.                                                  (10.1)
+
+Both w_n and Delta w_n lie in the range of J_n P. Thus that projection
+can be removed from their inner products with the nonlinear terms.
+The forcing sign in (10.1) is minus.
+
+Let
+  M = sup_(0<=t<=T) ||U(t)||_H2 < infinity,
+  delta_n = sup_(0<=t<=T) ||(J_n-I)U(t)||_H1.
+
+The continuous H1 image of a compact time interval is compact in H1.
+Equation (4.2) and the finite-net argument give
+  delta_n -> 0.                                             (10.2)
+
+Using the identity
+  B(v_n,v_n)-B(U,U)=B(rho_n,v_n)+B(U,rho_n),
+Holder, (3.1)-(3.3), and H2 contraction, obtain
+  ||r_n(t)||_2
+    <= ||rho_n||_6 ||grad v_n||_3
+          + ||U||_infinity ||grad rho_n||_2
+    <= (S^(3/2)+Cinf) M ||rho_n(t)||_H1
+    <= (S^(3/2)+Cinf) M delta_n.                             (10.3)
+
+Thus the residual tends to zero uniformly in time in L2. Only uniform
+H1 tails are required; reference H3 and uniform H2 tail estimates are
+unnecessary. No cutoff-dependent Bernstein constant occurs in (10.3).
+
+
+11. FULL H1 DIFFERENTIAL INEQUALITY, WITH EXPLICIT CONSTANTS
+
+Suppress n temporarily and put
+  D = ||w||_2^2 + ||grad w||_2^2,
+  Y = ||grad w||_2^2,
+  Z = ||Delta w||_2^2,
+  A = S^(3/2) M,
+  Nerr = B(w,w)+B(v,w)+B(w,v).
+
+Testing (10.1) against w-Delta w gives
+  (1/2)D' + nu(Y+Z)
+     = -<w,Nerr+r> + <Delta w,Nerr+r>.                        (11.1)
+
+The L2 self-transport and reference-transport terms vanish:
+  <w,B(w,w)>=0,
+  <w,B(v,w)>=0.
+
+The remaining six terms have the following bounds:
+
+  |<w,B(w,v)>| <= A ||w||_2 ||grad w||_2 <= (A/2)D.           (11.2)
+
+  |<w,r>| <= (1/2)D + (1/2)||r||_2^2.                       (11.3)
+
+  |<Delta w,B(v,w)>|
+     <= (nu/8)Z + (2 Cinf^2 M^2/nu)Y.                       (11.4)
+
+  |<Delta w,B(w,v)>|
+     <= (nu/8)Z + (2 A^2/nu)Y.                              (11.5)
+
+  |<Delta w,B(w,w)>|
+     <= S^(3/2) Y^(3/4) Z^(3/4)
+     <= (nu/8)Z + (54 S^6/nu^3)Y^3.                         (11.6)
+
+  |<Delta w,r>|
+     <= (nu/8)Z + (2/nu)||r||_2^2.                          (11.7)
+
+For (11.2), use w in L6 and grad v in L3.
+For (11.4), use v in Linfinity and grad w in L2.
+For (11.5), use w in L6 and grad v in L3.
+For (11.6), use (3.4) and the elementary Young bound
+  a z^(3/4) <= eta z + 27 a^4/(256 eta^3),
+with eta=nu/8.
+
+Sum (11.2)-(11.7), multiply by two, and use Y<=D:
+  D' + 2nu Y + nu Z
+       <= alpha D + beta D^3 + Kforce ||r||_2^2,              (11.8)
+
+where
+  alpha  = 1 + A + (4/nu)(Cinf^2 M^2 + A^2),
+  beta   = 108 S^6/nu^3,
+  Kforce = 1 + 4/nu.
+
+These quantities are finite, nonnegative, and independent of n. The
+low-frequency error ||w||_2^2 is retained. No Poincare inequality on R3
+has been inserted.
+
+Define the strictly positive sequence
+  epsilon_n
+    = Kforce [(S^(3/2)+Cinf) M delta_n]^2 + 1/(n+1).           (11.9)
+
+Then epsilon_n>0 and epsilon_n->0, including when the residual is zero.
+Dropping the nonnegative dissipative terms from (11.8), and choosing
+C=alpha+beta, gives the exact consumer form
+  D_n' <= C(D_n + D_n^3) + epsilon_n,
+  D_n(0)=0.                                                  (11.10)
+
+The extra 1/(n+1) is intentional: the existing scalar consumer requires
+eventual strict positivity, not merely nonnegativity, of epsilon.
+
+
+12. REUSE THE ACCEPTED BOOTSTRAP
+
+The accepted scalar theorem
+  MethbokeAddon.EhrenfestObstruction.
+    eventually_guarded_cubic_unit_bound_interior
+
+takes:
+  C>=0,
+  eventually epsilon_n>0 and epsilon_n->0,
+  each D_n continuous on [0,T],
+  D_n(0)<=0,
+  actual interior time derivatives,
+  d_n(t)<=C(D_n(t)+D_n(t)^3)+epsilon_n when D_n(t)<=1.
+
+Every premise is supplied by Sections 6 and 9-11. The resulting conclusion is
+  eventually in n, for every t in [0,T], D_n(t)<=1.            (12.1)
+
+The scalar theorem has no periodic-domain hypothesis. This is an actual
+reuse opportunity, whereas invoking the existing periodic E09 theorem
+would retain the wrong family. [M06]
+
+For a paper check, on D<=1 one has D^3<=D, hence
+  D' <= 2 C D + epsilon_n.
+The integrating-factor bound, followed by a continuous barrier argument,
+prevents a first crossing of one for sufficiently small epsilon_n.
+This verifies the mechanism of (12.1); no first-hitting-time construction
+needs to appear in the final native root, since the accepted scalar theorem
+already exports the required bound.
+
+The root below only needs (12.1). A stronger convergence estimate can be
+exported separately if useful, but is not required for the obstruction.
+
+
+13. THE DECISIVE INTERMEDIATE ENDPOINT: R3 E09
+
+By the squared triangle inequality and H1 contraction,
+  e_n(t)
+    = (1/2)||grad(w_n+v_n)||_2^2
+    <= ||grad w_n||_2^2 + ||grad v_n||_2^2
+    <= D_n(t)+M^2.
+
+Combine this with (12.1):
+  There exists n1 such that for every n>=n1 and every t in [0,T],
+    e_n(t) <= M^2+1.                                        (13.1)
+
+Proposed documentary endpoint:
+  R3_EVENTUAL_ENSTROPHY_BOUND_FROM_H2_REFERENCE.
+
+Exact meaning:
+  A supplied actual projected viscosity-nu NSE reference in C_t H2 on the
+  closed slab, with datum a, bounds the enstrophy of the uniquely
+  constructed canonical cutoff family eventually and uniformly on that slab.
+
+It is a theorem about the particular physical canonical family, not a
+definition asking the caller to supply such a bound.
+
+This endpoint isolates the new nonlinear analytical work from the final
+scalar contradiction. It is the main intermediate mathematical milestone
+after constructing the regularized dynamics.
+
+
+14. LITERAL NSE-A TO THE REFERENCE CLASS
+
+The final statement must preserve the literal solution category in Section 1.
+A bare smooth L2 field on noncompact space need not have finite global
+derivative norms. The PDE admission therefore requires an actual theorem.
+
+Established literature inputs [L02]:
+  Tao, Corollary 11.1: a complete almost-smooth finite-energy solution
+    with H1 data belongs to X1 on its closed slab.
+  Lemma 4.1(i) and Corollary 4.3: pressure normalization and H1 mild form.
+  Theorem 5.4(i),(iv): strong traces and all Sobolev/time-derivative bounds
+    for Schwartz data.
+  Remark 11.2: terminal smoothness is required.
+
+These are established analytical inputs, not native Lean declarations.
+
+The adapter for this particular target is shorter than the repository's
+full canonical-globality equivalence. [M12]
+
+Start from a hypothetical literal global pair for the datum a.
+Choose a finite S>T, for instance S=T+1. Restrict that pair to [0,S].
+
+For arbitrary nu>0, make the explicit change
+  tau=nu t,
+  V(tau,x)=nu^(-1)U(tau/nu,x),
+  q(tau,x)=nu^(-2)p(tau/nu,x).
+
+The viscosity-one equation follows by dividing every physical term by
+nu^2. The transformed datum a/nu is Schwartz and solenoidal; the closed
+time interval is [0,nu S]; bounded L2 energy is preserved.
+
+Apply the cited admission and normalization results on this actual
+closed slab, then transport back. The normalized velocity and its time
+derivative have bounded Hm norms, for every fixed m. Hilbert-valued FTC
+therefore supplies a continuous H2 representative and the actual
+projected equation required by (9.1).
+
+For exact timewise identification, pair both the Sobolev representative
+and the original literal field with an arbitrary compact smooth spatial
+test. Both pairings are continuous in time; they agree a.e., hence at
+every time, including 0 and S. Thus this is the same velocity and datum.
+
+The original pressure may differ from the normalized pressure by a smooth
+function of time. Only the normalized pressure has the asserted global
+Sobolev properties; no L2 claim is made for an arbitrary additive constant.
+
+The implication needed is only
+  literal global smooth finite-energy solution
+      ==> adequate H2 reference on each fixed closed slab.    (14.1)
+
+No canonical unregularized maximal solution or bounded-H1 continuation
+theorem is needed for this direction.
+
+Native obligations behind (14.1) remain substantial:
+  a. actual literal closed-slab predicates and viscosity transport;
+  b. localized vorticity/enstrophy estimates and global assembly;
+  c. vorticity-to-physical-H1/H2 reconstruction and time measurability;
+  d. pressure normalization and the genuine mild identity;
+  e. persistence and representative/trace identification.
+
+A record with these conclusions as assumed fields would not close (14.1).
+
+
+15. ONE-CUTOFF CONTRADICTION AND ROOT ASSEMBLY
+
+Assume StoppedCommutatorBoundR3(nu), with witnesses a,eStar,gamma,R,n0.
+Suppose NSE_A(nu). Apply its universal quantifier to that same a.
+
+Set Tc=1/gamma>0. The literal pair restricted to [0,Tc+1] supplies the
+reference on [0,Tc] by Section 14. Section 13 supplies Cbound=M^2+1
+and n1 with
+  e_n(t)<=Cbound for all n>=n1 and t in [0,Tc].
+
+Since R_n->infinity, choose one n satisfying
+  n>=n0, n>=n1, and R_n>Cbound.
+
+For every t<Tc and every s in [0,t],
+  e_n(s)<=Cbound<R_n.
+Thus the stopped guard holds throughout the interval and c_n(t)<=-gamma.
+
+Sections 7 and 8 give closed-slab continuity, the interior derivative
+V_n'=c_n, V_n(0)<=1, and V_n(Tc)>0. Apply the accepted scalar descent:
+  V_n(Tc) <= V_n(0)-gamma Tc <= 1-1=0,
+contradiction.
+
+Therefore (1.1) follows at B-tier level from the preceding construction
+and the explicitly identified established literature inputs.
+
+The accepted native scalar endpoint
+  positive_terminal_contradiction
+has precisely these hypotheses. The existing CanonicalBarrier proof
+already uses the same eventual-threshold selection, but its actual
+periodic family must be replaced by a new R3 adapter. [M07-M08]
+
+No singular limit, first-hit limit, FDSN seed, or general weak-solution
+existence theorem is used in this root argument.
+
+
+16. EXACT REUSE MAP
+
+The following namespaces are written out where ambiguity matters.
+All source links and pins are in Section 20.
+
+R01. Physical carriers — already in accepted main:
+  MethbokeAddon.QuasiFeffermanA.PhysicalH1
+  MethbokeAddon.QuasiFeffermanA.PhysicalH1Sigma
+  MethbokeAddon.QuasiFeffermanA.PhysicalH2
+  physicalH1CompleteSpace
+  physicalH1SigmaCompleteSpace
+  schwartzToPhysicalH1Sigma
+  physicalH2ToH1
+  physicalH2Laplacian
+  H2Spectral.physicalH2_hessian_norm_sq_eq_laplacian
+  Needed adapter: actual bandlimited subspace and its derivative lifts.
+
+R02. Measurable real-even multipliers — already in accepted main:
+  MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.RealEvenSymbol
+  RealEvenMultipliers.realFourierMultiplierCLM
+  RealEvenMultipliers.norm_realFourierMultiplier_le
+  RealEvenMultipliers.spatialWeakGradient_realFourierMultiplier
+  Needed adapter: the ball mask, its projection laws, and approximation.
+
+R03. Sector proofs — already in main; proof templates:
+  SixSectorMultipliers.frequencySector_idempotent
+  SixSectorMultipliers.inner_frequencySector_left
+  RealSectorMultipliers.realFourierSector_idempotent
+  RealSectorMultipliers.inner_realFourierSector_left
+  Needed adapter: replace the particular sector symbol with the ball mask.
+  Their current theorem statements are not ball-cutoff statements.
+
+R04. Physical Leray — accepted main:
+  realLeray_eq_self_iff_solenoidal
+  realLeray_range_iff_solenoidal
+  physicalH1LerayCLM
+  physicalH1Leray_norm_sq_le
+  Needed adapter: commute with J_n and preserve the cutoff RHS.
+
+R05. Spatial Green identities — accepted cross-branch source [X01]:
+  MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.
+    physicalH1_gradient_integration_by_parts
+    physicalH1H2_laplacian_pairing
+    physicalH2_laplacian_symmetric
+    physicalH2_laplacian_enstrophy
+  Needed adapter: import the exact accepted source dependency closure;
+  derive nonlinear cancellations and pathwise time identities separately.
+
+R06. Banach local ODE — pinned Mathlib [A02]:
+  IsPicardLindelof.of_time_independent
+  IsPicardLindelof.exists_eq_forall_mem_Icc_hasDerivWithinAt
+  ODE_solution_unique_of_mem_Ioo
+  Needed adapter: (5.3)-(5.4), invariant carrier, and uniform-time patching.
+  The last two names have existing MathlibODE package audit targets.
+  Extra helper names inspected at the pin are source lookups, not new audits.
+
+R07. Dissipative trajectory calculus — vendored Methlib [M05]:
+  SingularClosure.energy_hasDerivAt_of_solution
+  SingularClosure.norm_le_of_forwardSolution_of_dissipative
+  They omit finite dimension.
+  Needed adapter: actual PDE cancellation.
+  SingularClosure.forwardGlobalSolution_exists retains finite dimension
+  and must not be applied directly to E_n.
+
+R08. Nonsharp Sobolev and products — source inputs [A03, M11]:
+  MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner
+  External reference cutouts:
+    LerayHopf.gns_L6_of_memH1_R3
+    LerayHopf.convFormH1_integrable
+    LerayHopf.convFormH1_ibp
+    LerayHopf.convFormH1_antisymm
+  The external cutouts are pinned source references at their own
+  environments, not accepted native Material adapters.
+  Needed: actual H1/H2 admission, tensor norms, and the estimates in
+  Sections 3 and 11. No sharp-constant port is required.
+
+R09. Scalar small forcing — accepted main [M06]:
+  MethbokeAddon.EhrenfestObstruction.
+    eventually_guarded_cubic_unit_bound_interior
+  Needed adapter: D_n,d_n,epsilon_n,C,T with the exact physical premises.
+
+R10. Scalar terminal contradiction — accepted main [M07]:
+  MethbokeAddon.EhrenfestObstruction.terminal_le_of_rate_le
+  MethbokeAddon.EhrenfestObstruction.positive_terminal_contradiction
+  Needed adapter: actual R3 reciprocal path and threshold selection.
+
+R11. Literal solution admission — existing B-tier chain [M12, L02]:
+  FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt.
+  It is byte-identical between the inspected main and AC snapshots.
+  Needed: the native proof of the direction (14.1), not the full
+  canonical datum-class equivalence.
+
+R12. Optional cross-branch support [X02-X05]:
+  HeatGenerator.heatH1_velocity_hasDerivAt
+  HeatGenerator.heatH1_velocity_integrated_equation
+  HeatDuhamel.duhamelL2_continuousOn
+  HeatDuhamelOperator.duhamelL2Operator
+  These can support a later mild-reference route, but the direct C_t H2
+  comparison above does not require forced maximal regularity.
+  The new H2Interpolation wrapper is still outside accepted evidence
+  at the inspected snapshot.
+
+R13. Optional charge/commutator interpretation:
+  physicalH1SigmaSector_enstrophy_sum
+  sum_physicalH1SectorCharge
+  normalized_hamiltonian_commutator
+  These interpret the same constructed family; they do not prove (8.1).
+  See Section 19.
+
+
+17. SIXTEEN INTERMEDIATE ENDPOINTS
+
+These are documentary target slots, not newly compiled declaration names.
+"B-tier derived" means the mathematics is supplied above. Native
+implementation, integration, and external evidence have separate status.
+
+I01 — Literal target and datum admission
+  Input: actual whole-space fields and Schwartz datum.
+  Output: exact NSE_A predicate, no periodicity or extra H1 premise;
+          Schwartz-to-physical graph adapter, pressure-gauge convention.
+  Dependencies: accepted physical contracts.
+  Native work: new target/representation adapters.
+  B-tier reference: Sections 1 and 3.
+
+I02 — Actual cutoff calculus
+  Input: RealEvenSymbol, real Fourier isometry, physical weak derivatives.
+  Output: J_n on L2/H1/H2; projection/self-adjoint/commutation laws;
+          strong approximation and compact-set uniform approximation.
+  Native work: specific ball-mask instances and approximation proofs.
+  B-tier reference: Section 4.
+
+I03 — Complete bandlimited carrier and Bernstein estimates
+  Input: I02, closed-kernel completeness.
+  Output: E_n complete; actual smooth representatives; (5.1).
+  Native work: L2-to-physical-derivative and inverse-Fourier adapters.
+  B-tier reference: Sections 4-5.
+
+I04 — Actual nonlinear RHS and quantitative local Lipschitz estimates
+  Input: I03 and actual Leray projection.
+  Output: F_(nu,n):E_n->E_n and exact radius-ball bounds (5.3)-(5.4).
+  Native work: convection product and invariant-space construction.
+  B-tier reference: Section 5.
+
+I05 — Unique local regularized flow
+  Input: I04 and pinned Mathlib Banach Picard theorem.
+  Output: actual initial-value solution and uniform restart interval (6.1).
+  Native work: exact theorem instantiation and overlap uniqueness.
+  B-tier reference: Section 6.1.
+
+I06 — Energy identity and canonical global regularized flow
+  Input: I05, actual Green identity, nonlinear cancellation.
+  Output: (6.3), global existence, uniqueness, and canonical family.
+  Native work: cancellation, time identity, dimension-free patching.
+  B-tier reference: Sections 6.2-6.3.
+
+I07 — Actual enstrophy and reciprocal identities
+  Input: I06 and actual derivative lifts.
+  Output: e_n'=W_n-nu Z_n; positivity; exact reciprocal drift.
+  Native work: physical H1 time differentiation and scalar chain rule.
+  B-tier reference: Section 7.
+
+I08 — Sole stopped predicate and scalar family adapter
+  Input: I07.
+  Output: exact condition (8.1) and its incompatibility with an eventual
+          uniform closed-slab bound for this same family.
+  Native work: definitions and thin use of accepted scalar descent.
+  B-tier reference: Sections 8 and 15's threshold selection.
+
+I09 — Nonsharp whole-space H1/H2 product admission
+  Input: actual physical graphs, compact-C1 Sobolev input, Fourier inversion.
+  Output: (3.1)-(3.4) with sufficient fixed constants S,Cinf.
+  Native work: density/Kato and physical norm adapters.
+  B-tier reference: Section 3.
+  This can proceed independently of I04-I08.
+
+I10 — Projected reference and uniform consistency
+  Input: I02, I06, I09, and a supplied genuine C_t H2 reference.
+  Output: exact zero-initial-error equation (10.1);
+          uniform H1 tails and residual bound (10.3).
+  Native work: time projection, compact-trajectory tail argument.
+  B-tier reference: Sections 9-10.
+
+I11 — Cutoff-independent full H1 error inequality
+  Input: I10, Green identity, product/cancellation estimates.
+  Output: (11.8)-(11.10), with strictly positive epsilon_n->0.
+  Native work: actual differentiation, Young algebra, constant assembly.
+  B-tier reference: Section 11.
+
+I12 — Eventual uniform error bound
+  Input: I11 and the accepted small-forcing theorem.
+  Output: eventually n, D_n(t)<=1 throughout [0,T].
+  Native work: exact consumer adapter.
+  B-tier reference: Section 12.
+
+I13 — R3 E09 intermediate theorem
+  Input: I12 and H1 contraction.
+  Output: actual canonical enstrophy <=M^2+1 eventually and uniformly.
+  Native work: short physical norm assembly.
+  B-tier reference: Section 13.
+
+I14 — Literal closed-slab admission
+  Input: a literal global smooth finite-energy pair for Schwartz datum.
+  Output: the same velocity is a genuine C_t H2 reference on each fixed
+          closed slab, with the correct projected PDE and initial trace.
+  Native work: the substantial items a-e in Section 14.
+  B-tier reference: Section 14, with named established literature inputs.
+  This can proceed independently of the regularized construction.
+
+I15 — Literal conditional root
+  Input: I08, I13, I14.
+  Output: for all nu>0, StoppedCommutatorBoundR3(nu) -> not NSE_A(nu).
+  Native work: witness unpacking, same-datum application, one-cutoff descent.
+  B-tier reference: Section 15.
+
+I16 — Exact-scope external acceptance
+  For every promoted new or transferred endpoint:
+    preserve its source/dependency identity;
+    prepare an independent consumer of its complete expected type;
+    obtain matching authorized cached external compilation;
+    collect named theorem-level axiom reports;
+    retain exact hypotheses and verify permitted axioms only.
+  This is applied at each milestone, not postponed until an opaque root.
+  Source preparation alone gives no new A-tier result.
+
+
+18. CONCRETE IMPLEMENTATION ORDER AND MILESTONES
+
+First batch:
+  Freeze I01 and implement I02-I04.
+  Selectively reuse the accepted physical Green package by its pinned
+  source identity when needed; do not merge unrelated moving-branch work.
+
+The useful first nontrivial export is:
+  the literal R3 sharp-cutoff nonlinear RHS is well defined on the actual
+  complete bandlimited solenoidal L2 space, with explicit uniform-on-balls
+  norm and Lipschitz constants.
+
+This is the first new analytic input that allows the existing Mathlib
+Picard theorem to construct a trajectory.
+
+Milestone M1 — Actual regularized dynamics
+  I02-I07 plus external exact-scope evidence.
+  Result: canonical global cutoff paths and exact physical energy,
+          enstrophy, and reciprocal identities.
+  It proves no unregularized global NSE theorem.
+
+Milestone M2 — Uniform smooth-reference comparison
+  I09-I13 plus external exact-scope evidence.
+  Result: actual R3 E09 from the explicitly supplied H2 reference.
+  It does not yet identify that reference hypothesis with literal NSE-A.
+
+Milestone M3 — Literal one-condition obstruction
+  I14-I15 plus external exact-scope evidence.
+  Result: the intended R3 conditional root, with only the stopped
+          condition beyond positive viscosity.
+  The stopped-condition witness remains a separate research problem.
+
+Parallel work:
+  - I09 product admission can proceed alongside I04-I07.
+  - I14 literal admission can proceed alongside both dynamics and stability.
+  - I08 scalar adapter can be prepared once I07 fixes the observable types.
+  - Cross-branch source/evidence preservation is a bounded integration task.
+
+The largest native obligations are I03-I06 and I14. I11 is substantive
+but now has a complete explicit termwise estimate. I12-I13 and the final
+scalar assembly are comparatively small once their physical premises exist.
+
+No schedule estimate is asserted. The lemma count required inside I14
+depends on the actual localization, pressure, and persistence implementations.
+
+
+19. OPTIONAL IDENTITIES AND EXCLUDED DEPENDENCIES
+
+19.1 Six physical charges
+
+Once u_n has been admitted to PhysicalH1Sigma, use the accepted six fixed
+Fourier sectors Q_alpha and set
+  q_(alpha,n)(t)=||grad Q_alpha u_n(t)||_2^2.
+
+The actual orthogonal-sector identity gives
+  sum_alpha q_(alpha,n)(t)=||grad u_n(t)||_2^2=2 e_n(t).         (19.1)
+
+This is an exact interpretation of the same enstrophy. It supplies neither
+a negative reciprocal drift nor a stopped-bound witness. The factor two
+comes from the half-enstrophy convention of this target.
+
+19.2 Pointwise commutator interpretation
+
+On the cutoff phase space, the scalar observable
+  V(v)=eStar/(eStar+(1/2)||grad v||_2^2)
+is differentiable, and its directional derivative along F_(nu,n) is the
+physical c_n evaluated on the trajectory. The elementary derivation rule
+for transport and multiplication reproduces the accepted normalized
+commutator algebra when instantiated on these functions.
+
+This is a pointwise differential-operator identity. No infinite-dimensional
+phase-space measure, self-adjoint Hamiltonian, unitary evolution, or full
+Hilbert operator realization is supplied by this argument.
+
+19.3 Work not required before this conditional root
+
+  General nonzero-data QFA or WFA;
+  general Leray-Hopf existence;
+  the sharp Sobolev constant and exact QFA cutoff;
+  canonical maximal unregularized H1 theory;
+  full NSE-A finite-charge-class equivalence;
+  universal membership in that class;
+  forced-heat maximal regularity;
+  a singular FDSN_R3 seed;
+  full Hilbert-space Heisenberg/Ehrenfest operator realization.
+
+The existing FDSN_R3 Seed->Family theorem remains a distinct conditional
+result about a supplied singular seed and a varied forcing family.
+It does not instantiate this unforced same-datum construction.
+
+19.4 Precise stopping boundary
+
+The B-tier route here invokes the established literature admission in
+Section 14 explicitly. Without that input or its proof, the derivation
+would stop at I13 and at exclusion of the supplied H2-reference category;
+one could not conclude the literal NSE-A root.
+
+In native implementation, any missing physical construction must remain
+an open endpoint. It must not become an extra assumption inside the sole
+stopped predicate, a custom axiom, or a strengthened definition of NSE_A.
+
+
+20. SOURCE REGISTER
+
+All main-source references below use:
+  https://github.com/randogelist/Methboke/blob/
+  b4218fbcdd130189b69b1ee3f6df81b036553e4a/
+with the listed path. Full URLs are supplied for the principal entry points.
+
+M01 — Physical contracts and carriers
+  Material/MethbokeAddon/QuasiFeffermanA/Contracts.lean
+  Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean
+  Material/MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean
+
+M02 — Actual real bounded measurable even multipliers
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean
+
+M03 — Actual H2 spectral identities
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/QuasiFeffermanA/H2Spectral.lean
+
+M04 — Actual Leray and sector projections
+  Material/MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean
+  Material/MethbokeAddon/QuasiFeffermanA/LerayH1.lean
+  Material/MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean
+  Material/MethbokeAddon/QuasiFeffermanA/SixSectorMultipliers.lean
+  Material/MethbokeAddon/QuasiFeffermanA/RealSectorMultipliers.lean
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/QuasiFeffermanA/LerayH1.lean
+
+M05 — Methlib-sourced dissipative ODE
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/_vendor/SingularClosure/DissipativeODE.lean
+
+M06 — Accepted scalar cubic bootstrap
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/EhrenfestObstruction/SmallForcingBootstrap.lean
+
+M07 — Accepted scalar terminal descent
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/EhrenfestObstruction/SlabDescent.lean
+
+M08 — Existing periodic family selection proof and root
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MethbokeAddon/EhrenfestObstruction/CanonicalBarrier.lean
+  Material/MethbokeAddon/EhrenfestObstruction/Definitions.lean
+  Material/MethbokeAddon/EhrenfestObstruction/Root.lean
+
+M09 — Accepted main/AC integration and preserved scope
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/integration/AC_INTO_MAIN/INTEGRATION_STATUS.json
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/AGENTS.md
+
+M10 — Methlib provenance and locked dependency
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/_vendor/source-manifest.json
+  Material/_vendor/README.md
+  Material/lake-manifest.json
+  Material/lean-toolchain
+
+M11 — Exact source cutouts, evidence classes and pin boundaries
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/R3_NSE/A-Regularity-class/LEAN_CUTOUTS/IDENTITIES.json
+  R3_NSE/A-Regularity-class/LEAN_CUTOUTS/SOURCE_ENVIRONMENTS.json
+  Relevant cutouts: SP02, SP06, ES01, ES13, ES14, ES15.
+  Reference-only external declarations are not counted as native acceptance.
+
+M12 — Existing B-tier source-mapped literal bridge and local theory
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/R3_NSE/A-Regularity-class/DERIVATIONS/FEFFERMAN_A_CLOSED_SLAB_CHAIN.txt
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/R3_NSE/A-Regularity-class/DERIVATIONS/H1_LOCAL_FIXED_POINT_CHAIN.txt
+  R3_NSE/A-Regularity-class/DERIVATIONS/PHYSICAL_ENERGY_ENSTROPHY_CHAIN.txt
+
+M13 — Existing exact Mathlib ODE audit targets
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/MathlibODE/Audit.lean
+
+A01 — Pinned Mathlib complete-kernel/equalizer and L2 Fourier inputs
+  Project cutouts SP02 and SP06 in M11 identify:
+    ContinuousLinearMap.isClosed_ker
+    ContinuousLinearMap.completeSpace_ker
+    MeasureTheory.Lp.fourierTransformₗᵢ
+    MeasureTheory.Lp.norm_fourier_eq
+    MeasureTheory.Lp.inner_fourier_eq
+
+A02 — Pinned dimension-free local ODE inputs
+  https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/PicardLindelof.lean
+  https://github.com/leanprover-community/mathlib4/blob/db584cd6d46c92f209a44c0f1c829460d327499d/Mathlib/Analysis/ODE/ExistUnique.lean
+  Local existence source blob:
+    62609142eb50b4420f651aa4b5e94e96908e331a.
+
+A03 — Pinned compact-C1 Sobolev input
+  M11, exact cutout ES01:
+    MeasureTheory.eLpNormLESNormFDerivOfEqInnerConst
+    MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq_inner.
+  This is a compact-C1 starting theorem; physical H1 extension is I09.
+
+X01 — Accepted cross-branch physical Green source
+  https://github.com/randogelist/Methboke/blob/9b8250be2f13048e3e21cd94c8ba1939d919bf64/Material/MethbokeAddon/QuasiFeffermanA/HeatSpatialEnergy.lean
+  Reviewed source blob:
+    8879b3fa45437e1bc91e618be66715e80983f3c2.
+
+X02 — Exact external acceptance for X01 and L2 Duhamel
+  https://github.com/randogelist/Methboke/blob/21b4ae85ed3009bc623fbfe882de9ec932bac9f5/audits/material-9b8250be-qfa-forced-heat-accepted/independent-review.json
+  https://github.com/randogelist/Methboke/actions/runs/44857358591
+  Report: 534 modules, 109 fresh package audits, 1,435 named reports;
+  24 new declarations, including four physical Green theorems.
+  Permitted named axiom set: propext, Classical.choice, Quot.sound.
+
+X03 — Accepted free-heat generator source and receipt
+  https://github.com/randogelist/Methboke/blob/809aadc6da1eeabd5c128eb9c78005a38d3d4935/Material/MethbokeAddon/QuasiFeffermanA/HeatGenerator.lean
+  https://github.com/randogelist/Methboke/blob/21b4ae85ed3009bc623fbfe882de9ec932bac9f5/audits/material-809aadc6-qfa-heat-generator-accepted/independent-review.json
+  https://github.com/randogelist/Methboke/actions/runs/44853804320
+
+X04 — Accepted optional L2 Duhamel source
+  https://github.com/randogelist/Methboke/blob/9b8250be2f13048e3e21cd94c8ba1939d919bf64/Material/MethbokeAddon/QuasiFeffermanA/HeatDuhamel.lean
+  https://github.com/randogelist/Methboke/blob/9b8250be2f13048e3e21cd94c8ba1939d919bf64/Material/MethbokeAddon/QuasiFeffermanA/HeatDuhamelOperator.lean
+
+X05 — Prepared physical interpolation wrapper and existing lower input
+  https://github.com/randogelist/Methboke/blob/21b4ae85ed3009bc623fbfe882de9ec932bac9f5/Material/MethbokeAddon/QuasiFeffermanA/H2Interpolation.lean
+  https://github.com/randogelist/Methboke/blob/21b4ae85ed3009bc623fbfe882de9ec932bac9f5/R3_NSE/QFA/README.md
+  https://github.com/randogelist/Methboke/blob/b4218fbcdd130189b69b1ee3f6df81b036553e4a/Material/_vendor/QFA/Assembly/AnalyticChain.lean
+  Lower name:
+    QFA.Assembly.AnalyticChain.interpolation_of_nativeSpectralRealization.
+
+L01 — Literal problem statement
+  Charles L. Fefferman, Existence and Smoothness of the Navier-Stokes Equation.
+  https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf
+  Conditions (1)-(7), statement (A).
+
+L02 — Established closed-slab analytical admission
+  Terence Tao, Localisation and compactness properties of the Navier-Stokes
+  global regularity problem, Analysis & PDE 6 (2013), 25-107.
+  https://msp.org/apde/2013/6-1/apde-v6-n1-p02-s.pdf
+  https://arxiv.org/pdf/1108.1165
+  Corollary 11.1 / Remark 11.2: journal pp.83-84; arXiv v4 p.68.
+  Lemma 4.1 / Corollary 4.3: journal pp.44-47; arXiv pp.25-28.
+  Theorem 5.4: journal pp.52-53; arXiv pp.33-34.
+  These are mathematical literature inputs, not claimed native imports.
+
+
+21. ENDPOINT STATUS AND NEXT SCOPED ENDPOINT
+
+B-TIER MATHEMATICS
+  The canonical sharp-cutoff Banach flow, exact physical drift, consistency
+  residual, full H1 stability estimate, eventual enstrophy bound, and
+  one-cutoff contradiction have been derived.
+  Literal-category admission is explicitly composed from established
+  closed-slab literature results with viscosity, pressure, and trace
+  identification preserved.
+  No unresolved mathematical inference is concealed as a condition.
+
+FORMAL STATUS
+  The reusable accepted main and cross-branch identities retain their
+  existing exact scopes.
+  No new R3 canonical approximation package, R3 E09 theorem, or R3
+  Ehrenfest root has received native external verification in this work.
+  Source-only and prepared cross-branch material remains separately marked.
+
+WITNESS STATUS
+  Existence of StoppedCommutatorBoundR3 remains OPEN.
+  An unconditional failure of NSE-A is NOT established.
+
+NEXT SCOPED ENDPOINT
+  I01-I04: literal target, actual sharp cutoff, complete bandlimited
+  solenoidal carrier, and explicit local-Lipschitz nonlinear RHS.
+  Then I05-I07 construct the canonical global regularized family.
+
+END OF CUMULATIVE B-TIER DERIVATION — VERSION 1.0
+
+
+
+21. CUMULATIVE NATIVE CONSTRUCTION — FIRST EXTERNAL CANDIDATE
+
+The user authorized implementation and cached external verification on
+codex/nse-a-r3-ehrenfest. This is assent to the sixteen contextual endpoints
+I01-I16 above; the exact literal root and sole-condition scope are unchanged.
+The selected R3 goal is one of the current six project goals.
+
+I01.contract:
+  Contracts.lean defines actual real solenoidal Schwartz data, the
+  whole-space uniformly finite-energy smooth solution predicate and NSE_A.
+  It includes a genuine zero consistency witness. It does not supply
+  Schwartz-to-physical derivative admission or C_t H2 solution admission.
+  Pressure has its unrestricted additive time gauge.
+
+I02.cutoff:
+  SharpCutoff.lean constructs the literal closed-ball multiplier at n+1
+  and its real L2 operator. Projection, contraction, real self-adjointness,
+  Leray commutation, native solenoidal preservation, and transport of
+  supplied H1 weak derivatives are explicit theorem candidates.
+  Strong and uniform approximation remain separate obligations.
+
+I03.carrier / I03.derivatives:
+  Carrier.lean constructs the actual closed complete fixed-point space.
+  Bandlimited.lean constructs new real first/second derivative witnesses
+  and physical H2 admission. The exact delivered bound and declarations
+  are recorded by its endpoint manifest. Imaginary-odd first multipliers
+  must satisfy Hermitian reality and be recovered as real L2 fields.
+  Derivative transport alone would not construct a derivative witness.
+
+I16:
+  Every new package supplies an independently written Endpoint.lean consumer,
+  ordered printed-type and axiom markers, provenance hashes and dependency
+  closure. The full canonical Material gate runs on the authorized branch.
+  A subsequent branch-specific R3 goal stage audits only these foundations
+  from verified cached objects. It must retain root_proved=false.
+
+CURRENT PROOF BOUNDARY:
+  Until exact external acceptance is recorded, all new native files are
+  candidates. After acceptance, only individually audited scopes lift.
+  I04-I08 actual regularized dynamics/drift, I09-I13 physical stability and
+  I14 literal closed-slab admission remain substantive native work.
+  The whole conditional root I15 and existence of its stopped-bound witness
+  must not be inferred from foundation audits.
+
+SOURCE/EVIDENCE AUTHORITY:
+  IMPLEMENTATION_STATUS.json and exact commit/run receipts in audits/.
+  No local Lean, Lake, or kernel execution is permitted or used.

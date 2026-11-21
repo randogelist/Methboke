@@ -745,7 +745,7 @@
       "root_source_compiler_pass": true,
       "root_source_compiler_pass_is_full_acceptance": false,
       "evidence": "audits/fdsn-r3-7dd6dba6-failed/SUMMARY.txt",
-      "repair": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
+      "repair": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((\ud835\udcd5 (complexifySchwartz f) : \ud835\udce2(Vec, CVec)) : Vec \u2192 CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
       "local_lean_executions": 0
     }
   ],
@@ -932,13 +932,13 @@
         "R3-16": "Canonical same-witness FDSN_R3 root"
       },
       "root_declaration": "MethbokeAddon.FDSNR3.FDSN_R3",
-      "exact_root_type": "@MethbokeAddon.FDSNR3.FDSN_R3 : ∀ {ν T : ℝ} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n  MethbokeAddon.FDSNR3.Seed ν T u p F → MethbokeAddon.FDSNR3.Family ν T u p F",
+      "exact_root_type": "@MethbokeAddon.FDSNR3.FDSN_R3 : \u2200 {\u03bd T : \u211d} {u F : SingularClosure.Velocity} {p : SingularClosure.Pressure},\n  MethbokeAddon.FDSNR3.Seed \u03bd T u p F \u2192 MethbokeAddon.FDSNR3.Family \u03bd T u p F",
       "root_axioms": [
         "Classical.choice",
         "Quot.sound",
         "propext"
       ],
-      "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+      "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
       "fdsn_r3_root_proved": true,
       "seed_existence_proved": false,
       "original_seed_and_family_unchanged": true,
@@ -1048,7 +1048,7 @@
     "source_commit": "572fd9ee69a6b641f435cbfb2ef74e034809c583",
     "run_id": 44848985720,
     "evidence": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
-    "historical_preacceptance_repair_scope": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((𝓕 (complexifySchwartz f) : 𝓢(Vec, CVec)) : Vec → CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
+    "historical_preacceptance_repair_scope": "Add only the explicit intermediate Schwartz-map type to the FDSNR3Fourier/Audit.lean line 25 consumer: ((\ud835\udcd5 (complexifySchwartz f) : \ud835\udce2(Vec, CVec)) : Vec \u2192 CVec). The same Fourier identity and hypotheses, all 33 independent consumers and 33 named type/axiom targets are retained. No theorem source, original Seed/Family statement, compiler/dependency pin or axiom-policy change. Reversing the annotation reproduces exact 7dd6dba6 Git blob 53ae658c143c6fb8382a611b4e7bbe3a38dad836; repaired audit SHA256 f7824a369a82885290363903803f40e4a2d7c0bf1cdd71bd4698ecfe6335045a. Complete matching external verification remains pending.",
     "root_proved": true
   },
   "scope_completion": {
@@ -1090,7 +1090,7 @@
     "local_lean_executions": 0,
     "record": "audits/fdsn-r3-572fd9ee-accepted/summary.json",
     "root_proved": true,
-    "root_scope": "Original Seed ν T u p F implies the full same-witness Family ν T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
+    "root_scope": "Original Seed \u03bd T u p F implies the full same-witness Family \u03bd T u p F; R3-01 through R3-16, including rapid-decay force admission, physical projected-force separation, fixed-frame powers and time-integrated dissipation. Seed existence is not proved.",
     "seed_existence_proved": false,
     "passed_modules": 548,
     "reused_modules": 502,
@@ -1101,5 +1101,14 @@
     "passed_cache_publication": true,
     "record_role": "LATEST_MATCHING_ACCEPTED_MATERIAL_VERIFICATION"
   },
-  "frozen_verification_inputs_note": "Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit."
+  "frozen_verification_inputs_note": "Tested endpoint manifests, dependency closures, owned-source provenance and audit/policy inputs are preserved byte-for-byte. Their launch-time PENDING_EXTERNAL_CI/false labels remain historical preparation metadata; this matching source-specific acceptance record and the synchronized implementation ledger establish the current accepted status. A later documentation-only commit is not the tested proof commit.",
+  "current_r3_construction_cross_reference": {
+    "branch": "codex/nse-a-r3-ehrenfest",
+    "selected_goal": "SINGULAR_PREMISE_OBSTRUCT_R3",
+    "construction_ledger": "R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json",
+    "status": "PREPARED_PENDING_EXTERNAL_CI",
+    "retained_scope_changed": false,
+    "retained_evidence_unchanged": true,
+    "new_root_claimed": false
+  }
 }

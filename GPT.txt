@@ -1,8 +1,8 @@
 METHBOKE_AGENT_CONTEXT
-DOCUMENT_VERSION = 8.6
+DOCUMENT_VERSION = 8.7
 DATE = 2026-11-21
 REPOSITORY = randogelist/Methboke
-WORKING_BRANCH = main
+WORKING_BRANCH = codex/nse-a-r3-ehrenfest
 INTEGRATION_SOURCE_BRANCH = integration/ac-into-main
 TARGET_BRANCH = main
 INCOMING_BRANCH = AC-Integration
@@ -10,9 +10,9 @@ PROJECT_GOALS = {WFA, WFB, QFA, QFB, SINGULAR_PREMISE_OBSTRUCT_R3, SIGNULAR_PREM
 R3_GOALS = {WFA, QFA, SINGULAR_PREMISE_OBSTRUCT_R3}
 T3_GOALS = {WFB, QFB, SIGNULAR_PREMISE_OBSTRUCT_T3}
 PROJECT_GOAL_SOURCE = Latest explicit user six-goal list in its supplied order and spelling, 2026-11-21
-LOCAL_TARGET = SIX_THEOREM_GOALS_AND_CI
-LOCAL_TARGET_STATUS = CONFIGURED_WITH_EXACT_COMMIT_CI
-REMAINING_ENGINEERING_CHECK = NEW_MATCHING_SIX_GOAL_CI_RUN_STATUS
+LOCAL_TARGET = SINGULAR_PREMISE_OBSTRUCT_R3
+LOCAL_TARGET_STATUS = NATIVE_FOUNDATION_CONSTRUCTION_PENDING_EXTERNAL_CI
+REMAINING_ENGINEERING_CHECK = MATCHING_R3_FOUNDATION_MATERIAL_AND_GOAL_AUDITS
 THEOREM_GOAL_WORKFLOW = .github/workflows/theorem-goals.yml
 THEOREM_GOAL_MANIFEST = Material/ci/theorem-goals.json
 THEOREM_GOAL_RUNNERS = 6
@@ -20,7 +20,7 @@ WFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 WFB_CI_STAGE = REAL_EXACT_CONDITIONAL_FULL_BUDGET_AUDIT
 QFA_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
 QFB_CI_STAGE = REAL_EXACT_ROOT_AND_CUTOUT_AUDIT
-SINGULAR_PREMISE_OBSTRUCT_R3_CI_STAGE = DUMMY_PENDING_NO_LEAN_CACHE_OR_AUDIT
+SINGULAR_PREMISE_OBSTRUCT_R3_CI_STAGE = REAL_FOUNDATION_AUDIT_ROOT_REMAINS_OPEN
 SIGNULAR_PREMISE_OBSTRUCT_T3_CI_STAGE = REAL_CONDITIONAL_SINGLE_PREMISE_AUDIT
 CURRENT_GOAL_MARKERS = {WFA: !=, WFB: !!!, QFA: !=, QFB: !!!!, SINGULAR_PREMISE_OBSTRUCT_R3: OPEN, SIGNULAR_PREMISE_OBSTRUCT_T3: !!!! conditional on axiom}
 T3_MARKER_QUALIFICATION = CLOSED_RELATIVE_TO_EXPLICIT_StoppedCommutatorBound_ASSUMPTION
@@ -45,8 +45,8 @@ CURRENT_INTEGRATION_TESTED_RUN = 44854389941
 CURRENT_INTEGRATION_PULL_REQUEST = https://github.com/randogelist/Methboke/pull/2
 CURRENT_INTEGRATION_EVIDENCE = audits/integration-5a44e985-accepted/summary.json
 CURRENT_INTEGRATION_INDEPENDENT_REVIEW = audits/integration-5a44e985-accepted/independent-review.json
-DOCUMENTATION_HEAD_VERIFICATION_POLICY = LATEST_MATERIAL_RUN_MUST_MATCH_EXACT_MAIN_HEAD
-DOCUMENTATION_HEAD_LIVE_AUTHORITY = https://github.com/randogelist/Methboke/tree/main
+DOCUMENTATION_HEAD_VERIFICATION_POLICY = LATEST_MATERIAL_RUN_MUST_MATCH_EXACT_ACTIVE_BRANCH_HEAD
+DOCUMENTATION_HEAD_LIVE_AUTHORITY = https://github.com/randogelist/Methboke/tree/codex/nse-a-r3-ehrenfest
 MAIN_INTEGRATION_STATUS = PR_2_MERGED_FAST_FORWARD_TO_e627a39e
 MAIN_PROMOTED_SOURCE = e627a39e6c27cd4432ab063741fe726af8378a63
 ACCEPTED_PROMOTED_HEAD_RUN = 44856391458
@@ -56,6 +56,25 @@ INCOMING_HEAD_STATUS = A_TIER_ACCEPTED_AT_000c1bd9
 INCOMING_HEAD_EVIDENCE = audits/material-000c1bd9-qfa-accepted/summary.json
 STATUS_AUTHORITY = THIS_DOCUMENT_AND_SOURCE_SPECIFIC_EVIDENCE
 HISTORICAL_REGISTERS = audits/goal-transition-fefferman-d/
+
+CURRENT R3 OBSTRUCTION CONSTRUCTION
+
+User-selected local target: SINGULAR-PREMISE OBSTRUCT R3.
+Working branch: codex/nse-a-r3-ehrenfest, based on main at
+5f53d3eb320cc3860a9f28384a825349e0df5e21. Main is not advanced by this task.
+Current mode: A_TIER_DERIVATION, assented I01-I16 architecture.
+Literal contracts, actual Fourier cutoff, complete carrier and derivative
+construction are separately audited scopes. Preparation does not accept
+any new theorem. The literal root and stopped-bound witness remain open.
+The R3 goal channel audits foundations from verified cached objects after
+the full canonical Material gate succeeds at the same commit.
+Construction ledger:
+  R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json
+B-tier and source index:
+  R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_B_TIER.txt
+  R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_LEAN_REUSE_INDEX_v0_2.txt
+No local Lean, Lake, kernel execution, custom axiom or admitted proof.
+Earlier integration and six-goal setup sections below retain their history.
 
 LEAN SOURCE LINE COUNT CI — ENGINEERING BOOKKEEPING
 
@@ -196,18 +215,19 @@ The current goals, in the exact user-supplied order and spelling:
 MACROSCOPIC: the six goals listed above.
   R3: WFA, QFA, SINGULAR-PREMISE OBSTRUCT R3.
   T3: WFB, QFB, SIGNULAR-PREMISE OBSTRUCT T3.
-MESOSCOPIC: SIX_THEOREM_GOALS_AND_CI on main.
-MICROSCOPIC: six parallel test stages, max-parallel 6 and fail-fast false.
-  Dummy/pending: WFA, QFA, SINGULAR_PREMISE_OBSTRUCT_R3.
-  Real audits: WFB, QFB, SIGNULAR_PREMISE_OBSTRUCT_T3.
+MESOSCOPIC: SINGULAR_PREMISE_OBSTRUCT_R3 on codex/nse-a-r3-ehrenfest.
+MICROSCOPIC: external acceptance of actual R3 cutoff/carrier/derivative foundations.
+  Dummy/pending: WFA, QFA.
+  Foundation audit with open root: SINGULAR_PREMISE_OBSTRUCT_R3.
+  Established exact audits: WFB, QFB, SIGNULAR_PREMISE_OBSTRUCT_T3.
 CI_CONFIGURATION: .github/workflows/theorem-goals.yml;
   Material/ci/theorem-goals.json.
 CI_STATUS: CONFIGURED_WITH_EXACT_COMMIT_CI.
 NEXT_ENGINEERING_CHECK: inspect a new matching exact-commit six-stage run.
   Prior configurations do not establish validation of this corrected setup.
 
-The three dummy stages execute no Lean, restore no cache and run no theorem
-audit. The general Lean root statuses remain WFA OPEN, QFA OPEN_GENERAL_DATA,
+The WFA/QFA dummy stages execute no Lean, restore no cache and run no theorem
+audit. The R3 stage audits only its explicitly named foundations. The general Lean root statuses remain WFA OPEN, QFA OPEN_GENERAL_DATA,
 and R3 obstruction OPEN_NO_NATIVE_ROOT. WFA and QFA have complete recorded
 B-tier derivations, marked !=, in sections 13.1, 13.3 and 14 of
 Temp-folder/specification/FEFFERMAN_A_ELEMENTWISE_FINITE_WINDOW_B_TIER_v0_1.txt.
@@ -1379,3 +1399,4 @@ All mathematical source bytes and public contracts unchanged. 36 package
 audit entries completed before the failing package. Full99 fresh package
 audits,1294 named reports, publication and terminal acceptance still required.
 Original evidence:audits/material-dcf32660-nse-a-failed/summary.json. No new !=! acceptance.
+

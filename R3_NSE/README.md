@@ -90,3 +90,11 @@ root remains open.
 goal hierarchy and current evidence selectors. The
 [integration status](../integration/AC_INTO_MAIN/INTEGRATION_STATUS.json)
 distinguishes the immediate repository task from every mathematical program.
+
+## Current whole-space obstruction construction
+
+The branch `codex/nse-a-r3-ehrenfest` implements the literal NSE-A
+single-premise obstruction architecture. See the [cumulative plan, Lean index
+and ledger](A-Heisenberg-Obstruction/StoppedCommutatorBound/README.md).
+New native foundations require matching external audits. The conditional root
+remains open. Existing QFA, NSE-A and FDSN evidence retains its exact scope.

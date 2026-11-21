@@ -24,6 +24,8 @@ import time
 
 REPOSITORY = "randogelist/Methboke"
 UPSTREAM_WORKFLOW = "Material / cached verification and passed objects"
+R3_FOUNDATION_BRANCH = "codex/nse-a-r3-ehrenfest"
+R3_FOUNDATION_JOB = "r3-foundations"
 GOAL_IDS = ("WFA", "WFB", "QFA", "QFB", "SINGULAR_PREMISE_OBSTRUCT_R3", "SIGNULAR_PREMISE_OBSTRUCT_T3")
 ROOT_STATUSES = {"OPEN", "OPEN_GENERAL_DATA", "OPEN_NO_NATIVE_ROOT", "CONDITIONAL_FULL_BUDGET",
                  "EXACT_ROOT_ESTABLISHED", "CONDITIONAL_SINGLE_PREMISE_ESTABLISHED"}
@@ -85,6 +87,7 @@ def validate_route(environment: dict[str, str], event: dict, revision: str) -> d
             "ROUTE_REJECTED", "The triggering event belongs to another repository.")
     event_name = environment.get("GITHUB_EVENT_NAME")
     upstream = None
+    branch = "main"
     if event_name == "workflow_run":
         run = event.get("workflow_run", {})
         require(run.get("name") == UPSTREAM_WORKFLOW
@@ -103,9 +106,22 @@ def validate_route(environment: dict[str, str], event: dict, revision: str) -> d
         require(environment.get("GITHUB_REF") == "refs/heads/main"
                 and environment.get("GITHUB_SHA") == revision,
                 "ROUTE_REJECTED", "Manual scoped verification must use the exact dispatched main revision.")
+    elif event_name == "push":
+        require(environment.get("GITHUB_REF") == "refs/heads/" + R3_FOUNDATION_BRANCH
+                and environment.get("GITHUB_SHA") == revision
+                and event.get("after") == revision and event.get("deleted") is not True
+                and environment.get("GITHUB_WORKFLOW") == UPSTREAM_WORKFLOW
+                and environment.get("GITHUB_JOB") == R3_FOUNDATION_JOB
+                and environment.get("MATERIAL_PARENT_ACCEPTED") == "true",
+                "ROUTE_REJECTED", "R3 foundation pushes require the exact authorized branch, source and successful full Material parent job.")
+        branch = R3_FOUNDATION_BRANCH
+        upstream = {"run_id": environment["GITHUB_RUN_ID"],
+                    "attempt": int(environment["GITHUB_RUN_ATTEMPT"]),
+                    "source_revision": revision,
+                    "url": f"https://github.com/{REPOSITORY}/actions/runs/{environment['GITHUB_RUN_ID']}"}
     else:
-        raise ScopeError("ROUTE_REJECTED", "Only workflow_run and manual main dispatch are supported.")
-    return {"event": event_name, "branch": "main", "upstream": upstream,
+        raise ScopeError("ROUTE_REJECTED", "Only successful main workflow_run, manual main dispatch and the authorized post-Material R3 foundation push job are supported.")
+    return {"event": event_name, "branch": branch, "upstream": upstream,
             "audit_run_id": environment["GITHUB_RUN_ID"],
             "audit_run_attempt": environment["GITHUB_RUN_ATTEMPT"],
             "audit_run_url": f"https://github.com/{REPOSITORY}/actions/runs/{environment['GITHUB_RUN_ID']}"}
@@ -160,8 +176,16 @@ def validate_manifest(manifest: dict, entries: list[dict]) -> dict[str, dict]:
                 and isinstance(row.get("verification_scope"), str) and bool(row["verification_scope"].strip())
                 and status in ROOT_STATUSES and isinstance(row.get("standalone_qfb"), bool),
                 "SCOPE_MANIFEST_REJECTED", "Invalid domain, status or verification boundary: " + row["id"])
-        require(mode in {"placeholder", "audit"} and (mode == "placeholder") == status.startswith("OPEN"),
-                "SCOPE_MANIFEST_REJECTED", "Open statements require placeholder mode; theorem scopes require audit mode.")
+        require(mode in {"placeholder", "audit", "foundation_audit"}
+                and ((status.startswith("OPEN") and mode in {"placeholder", "foundation_audit"})
+                     or (not status.startswith("OPEN") and mode == "audit")),
+                "SCOPE_MANIFEST_REJECTED", "Open roots need an explicit placeholder or foundation audit; established theorem scopes need audit mode.")
+        if mode == "foundation_audit":
+            require(row["id"] == "SINGULAR_PREMISE_OBSTRUCT_R3"
+                    and status == "OPEN_NO_NATIVE_ROOT"
+                    and isinstance(row.get("retained_foundation_scope"), str)
+                    and bool(row["retained_foundation_scope"].strip()),
+                    "SCOPE_MANIFEST_REJECTED", "The new foundation-audit mode is limited to the explicit open R3 scope.")
         require(isinstance(packages, list) and (bool(packages) or mode == "placeholder")
                 and all(isinstance(p, str) for p in packages)
                 and len(packages) == len(set(packages)) and set(packages) <= available,
@@ -232,8 +256,12 @@ def make_plan(root: Path, goal_id: str, revision: str, route: dict, drivers) -> 
     manifest = read_object(manifest_path)
     goals = validate_manifest(manifest, full["endpoints"])
     goal = goals[goal_id]
-    require(goal["ci_mode"] == "audit", "AUDIT_MODE_REJECTED",
+    require(goal["ci_mode"] in {"audit", "foundation_audit"}, "AUDIT_MODE_REJECTED",
             "This open statement has only a dummy stage; use the placeholder command.")
+    if route["event"] == "push":
+        require(goal_id == "SINGULAR_PREMISE_OBSTRUCT_R3"
+                and goal["ci_mode"] == "foundation_audit",
+                "AUDIT_MODE_REJECTED", "The post-Material push job may audit only the open R3 foundation scope.")
     ids = select_scope(full["endpoints"], goal)
     selected = build.validate(root / "Material", ids)
     contract = root_contract(goal, selected["endpoints"])
@@ -298,6 +326,10 @@ def validate_donor(donor: dict, plan: dict) -> None:
     run_id = str(donor.get("run_id", ""))
     require(run_id.isdigit() and donor.get("run_url") == f"https://github.com/{REPOSITORY}/actions/runs/{run_id}",
             "CACHE_SCOPE_NOT_READY", "The donor source/run provenance is incomplete.")
+    # Exact project caches are immutable and may retain an earlier complete
+    # PASS report even after this push's full Material gate succeeds.  Keep
+    # that donor provenance; cached_preflight independently matches every
+    # selected source/import/object receipt against the current source plan.
     receipts = donor.get("module_receipts")
     endpoints = donor.get("endpoints")
     require(isinstance(receipts, dict) and bool(receipts)
@@ -393,6 +425,7 @@ def base_report(plan: dict) -> dict:
     goal = plan["goal"]
     return {"schema_version": 1, "repository": REPOSITORY, "report_scope": "goal_only",
             "goal_id": goal["id"], "goal_name": goal["name"], "domain": goal["domain"],
+            "ci_mode": goal["ci_mode"], "foundation_only": goal["ci_mode"] == "foundation_audit",
             "source_revision": plan["source_revision"], "route": plan["route"],
             "plan_sha256": plan["plan_sha256"], "audit_status": "NOT_STARTED",
             "root_status": goal["root_status"], "root_declaration": goal.get("root_declaration"),
@@ -595,6 +628,9 @@ def main() -> int:
         output.mkdir(parents=True, exist_ok=True)
         event = read_object(Path(environment["GITHUB_EVENT_PATH"]))
         route = validate_route(environment, event, args.revision)
+        if route["event"] == "push":
+            require(args.goal == "SINGULAR_PREMISE_OBSTRUCT_R3" and args.command != "placeholder",
+                    "ROUTE_REJECTED", "The branch push route is reserved for real R3 foundation audits.")
         check_checkout(root, args.revision, environment)
         if args.command == "placeholder":
             report = placeholder_report(root, args.goal, args.revision, route)

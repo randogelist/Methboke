@@ -17,7 +17,15 @@ Lean build, with unchanged namespace and import paths. Preserve
 
 ## Current goals and retained integration
 
-Work on `main`. The user-authorized integration was promoted by non-force
+Work on the user-selected branch `codex/nse-a-r3-ehrenfest` for the
+R3 obstruction construction from main at `5f53d3eb320cc3860a9f28384a825349e0df5e21`.
+The current six goals are preserved; the selected local target is
+`SINGULAR_PREMISE_OBSTRUCT_R3`. Follow the assented I01-I16 architecture.
+Only matching external audits lift individual scopes; the literal root stays
+open until its exact implication is proved. Read
+`R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/IMPLEMENTATION_STATUS.json`.
+
+The user-authorized integration was promoted by non-force
 fast-forward from `4a609ea634ec4a5ff846049b9dc12b40b5f1a702` to
 `e627a39e6c27cd4432ab063741fe726af8378a63` on 2026-11-21 at 02:46:09 UTC.
 PR #2 is closed and merged. Its source branch was `integration/ac-into-main`,
@@ -38,12 +46,12 @@ The current user-selected goals, in their exact order and spelling, are:
 
 The domain mapping is R3 = WFA, QFA, SINGULAR-PREMISE OBSTRUCT R3;
 T3 = WFB, QFB, SIGNULAR-PREMISE OBSTRUCT T3.
-The active task is `SIX_THEOREM_GOALS_AND_CI`:
+The retained six-goal CI configuration is:
 `.github/workflows/theorem-goals.yml`, with scope in
-`Material/ci/theorem-goals.json`, configures six parallel stages. WFA, QFA and
-the R3 obstruction have dummy/pending stages: no Lean, cache restoration or
-theorem audits. WFB, QFB and the T3 obstruction have real exact-type and axiom
-audits from verified cached objects. Preserve WFB's full Fourier-budget
+`Material/ci/theorem-goals.json`, configures six parallel stages. WFA and QFA retain dummy/pending stages: no Lean, cache restoration or
+theorem audits. The R3 stage audits named foundations with its root open.
+WFB, QFB and the T3 obstruction retain exact-type and axiom audits from
+verified cached objects. Preserve WFB's full Fourier-budget
 hypothesis and QFB's exact cutoff/regularity scope and standalone cutout.
 For T3, the established single-premise theorem is
 `StoppedCommutatorBound nu -> not (NSE_B nu)` at positive viscosity. Its premise
@@ -207,3 +215,4 @@ separately. Stage source additions/deletions and run
 This command is static text processing and must never invoke Lean or Lake.
 Read the workflow run matching the exact commit for CI status; a line count
 does not alter any mathematical target, source-specific acceptance, or proof scope.
+
