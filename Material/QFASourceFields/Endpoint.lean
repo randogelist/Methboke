@@ -49,8 +49,10 @@ def nativeFieldFunctionOfSource (a : SourceVectorField) : Space → Space :=
 theorem sourceFieldOfNative_memLp (a : SpatialL2) :
     MemLp (sourceFieldFunctionOfNative a) 2 (volume : Measure SourceVec3) := by
   have hdom : MemLp (fun x : SourceVec3 => a (sourceToNative x)) 2
-      (volume : Measure SourceVec3) :=
-    (Lp.memLp a).comp_measurePreserving sourceToNative_measurePreserving
+      (volume : Measure SourceVec3) := by
+    simpa only [Function.comp_apply] using
+      (Lp.memLp a).comp_measurePreserving
+        (f := sourceToNative) sourceToNative_measurePreserving
   have hout := hdom.continuousLinearMap_comp
     sourceNativeEquiv.symm.toContinuousLinearMap
   simpa only [sourceFieldFunctionOfNative, sourceNativeEquiv_symm_apply] using hout
@@ -70,8 +72,10 @@ theorem sourceL2OfNative_ae (a : SpatialL2) :
 theorem nativeFieldOfSource_memLp (a : SourceSpatialL2) :
     MemLp (nativeFieldFunctionOfSource a) 2 (volume : Measure Space) := by
   have hdom : MemLp (fun x : Space => a (nativeToSource x)) 2
-      (volume : Measure Space) :=
-    (Lp.memLp a).comp_measurePreserving nativeToSource_measurePreserving
+      (volume : Measure Space) := by
+    simpa only [Function.comp_apply] using
+      (Lp.memLp a).comp_measurePreserving
+        (f := nativeToSource) nativeToSource_measurePreserving
   have hout := hdom.continuousLinearMap_comp
     sourceNativeEquiv.toContinuousLinearMap
   simpa only [nativeFieldFunctionOfSource, sourceNativeEquiv_apply] using hout
