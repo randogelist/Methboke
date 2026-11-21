@@ -28,7 +28,7 @@ results, explicit hypotheses and source-specific evidence retain their status.
 | **WFB** | `!!!` | Real exact-type and axiom audits | Formal closure of the full-Fourier-budget implication; budget hypothesis retained |
 | **QFA** | `!=` | Dummy/pending | B-tier tail theorem for general solenoidal $L^2$ data established; complete general Lean root pending |
 | **QFB** | `!!!!` | Real exact-root and standalone-cutout audits | Closed in its exact post-cutoff scope: smooth tails, tail energy equality and uniqueness of the Leray–Hopf future from each solution's own trace |
-| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN; 111 named foundations accepted** | Real foundation audit, root open | Seven packages accepted at 1d4a9324/run44875907550; canonical flow, stability, literal admission and conditional root remain open |
+| **SINGULAR-PREMISE OBSTRUCT R3** | **OPEN; 119 named foundations accepted** | Real foundation audit, root open | Eight packages /119 declarations accepted through dc265b94/run44880439634; canonical flow, stability, literal admission and conditional root remain open |
 | **SIGNULAR-PREMISE OBSTRUCT T3** | **`!!!!` — conditional on axiom** | Real exact conditional-theorem audits | Closed relative to the explicit `StoppedCommutatorBound` axiom for positive viscosity |
 
 Here `!=` records a complete B-tier derivation and `!!!` records formal
@@ -75,9 +75,7 @@ source revision.
 
 ### Active R3 construction branch
 
-The first seven foundation packages are [externally accepted](audits/r3-ehrenfest-1d4a9324-accepted/summary.json)
-at source `1d4a9324`: 111 new declarations, full Material acceptance and the
-R3 goal audit passed. All 2,212 retained declaration identities are unchanged.
+Eight foundation packages /119 declarations are externally accepted. The original seven-package batch remains pinned at [1d4a9324](audits/r3-ehrenfest-1d4a9324-accepted/summary.json); the derivative-coherence extension is accepted at [dc265b94](audits/r3-ehrenfest-dc265b94-accepted/summary.json), run 44880439634. The literal root remains open.
 See the [native progress index](R3_NSE/A-Heisenberg-Obstruction/StoppedCommutatorBound/NSE_A_EHRENFEST_NATIVE_PROGRESS.txt)
 for the exact names and boundaries. The literal single-premise root remains open.
 
@@ -100,15 +98,15 @@ nonlinear regularized dynamics and stopped-bound witness remain open.
 
 [![Lean source count](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml/badge.svg?branch=main)](https://github.com/randogelist/Methboke/actions/workflows/lean-line-count.yml)
 
-**112,523 physical lines of Lean across 870 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
+**112,841 physical lines of Lean across 873 tracked .lean files** in the project tree, excluding archive/reference copies in Temp-folder/.
 
 | Scope | Lean files | Physical lines |
 |---|---:|---:|
-| Non-vendored project files | 565 | 68,594 |
+| Non-vendored project files | 568 | 68,912 |
 | Retained vendored sources ([Material/_vendor/](Material/_vendor/)) | 305 | 43,929 |
-| **Project tree total** | 870 | 112,523 |
+| **Project tree total** | 873 | 112,841 |
 | Archive/reference copies ([Temp-folder/](Temp-folder/)) | 537 | 68,790 |
-| All tracked .lean files, including archive/reference copies | 1,407 | 181,313 |
+| All tracked .lean files, including archive/reference copies | 1,410 | 181,631 |
 
 These are physical source lines, including comments, blank lines, audit consumers, and Lean build-description files. They are not an authorship or compiled-module count. Only Git-tracked filenames ending in .lean are counted; compressed archives and .lean.txt documents are not unpacked or counted.
 

@@ -107,3 +107,7 @@ foundation audit at `1d4a9324`, run44875907550. The
 exact source/type/axiom scope. The literal obstruction root remains open;
 canonical dynamics, cutoff-uniform comparison and literal Sobolev admission
 remain required. The next derivative-coherence candidate is inactive text.
+
+## R3 Ehrenfest derivative coherence
+
+The eighth R3 foundation package is A-tier accepted at `dc265b9489dac0504c660255d0a3da02c4e0f484`, run `44880439634`. It adds eight classical/native derivative-coherence declarations, bringing the branch foundation total to 119 declarations. The nonlinear flow and literal obstruction root remain open.

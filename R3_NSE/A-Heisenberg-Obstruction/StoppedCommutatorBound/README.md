@@ -2,24 +2,21 @@
 
 CURRENT R3 FOUNDATION ACCEPTANCE — LITERAL ROOT REMAINS OPEN
 
-Source 1d4a9324f2cfb576f8a389da0e354da29ef7dbde; Material run44875907550.
-All 668 modules passed (654 compatible reuses, 14 fresh compilations).
-All 176 package audits were fresh: 2,323 named reports plus fresh QFB.
-Seven new packages /111 declarations are accepted, with only the standard
-axioms propext, Classical.choice and Quot.sound. The separate R3 foundation
-job passed 25 fresh package audits /489 named reports from 69 cached modules.
-Independent review preserved all 2,212 old exact types, axiom sets and package
-identities and verified all 668 object hashes /846 archive members /177 logs.
-Receipt: [source-specific acceptance](../../../audits/r3-ehrenfest-1d4a9324-accepted/summary.json).
-This accepts the named contract, cutoff, carrier, weak-derivative, approximation,
-Fourier inverse and smooth-representative foundations. I01-I03 retain their
-listed remaining substeps. The native R3 root remains OPEN_NO_NATIVE_ROOT;
-the actual canonical flow, cutoff-uniform stability and literal closed-slab
-Sobolev admission remain unproved. No stopped-bound witness is constructed.
-An eight-name derivative-coherence candidate is retained as inactive .lean.txt
-material under NEXT_LAYER_CANDIDATE and is not accepted or registered.
-The exact earlier source receipt is preserved on a later documentation head;
-that head's separate matching external status is read from the live branch.
+Source `dc265b9489dac0504c660255d0a3da02c4e0f484`; [Material run 44880439634](https://github.com/randogelist/Methboke/actions/runs/44880439634).
+All 670 modules passed (668 compatible reuses, two fresh compilations).
+All 177 package audits were fresh: 2,331 named reports plus fresh QFB.
+Eight R3 packages /119 declarations are accepted, with only `propext`,
+`Classical.choice` and `Quot.sound`. The scoped R3 replay passed 26 fresh
+package audits /497 named reports from 71 cached modules.
+
+The new `R3EhrenfestDerivativeRepresentative` package identifies classical
+coordinate derivatives of the actual smooth cutoff representative with the
+native Fourier derivative operators and proves finite fixed-cutoff ordered
+derivative bounds. [Exact evidence](../../../audits/r3-ehrenfest-dc265b94-accepted/summary.json).
+
+The native R3 root remains `OPEN_NO_NATIVE_ROOT`; the actual canonical flow,
+cutoff-uniform stability, literal closed-slab Sobolev admission and the
+stopped-bound witness remain open.
 
 ## Retained preparation and failed-run history
 
@@ -49,10 +46,11 @@ identities and precise limitations.
 | I03 inverse representation | FourierL1L2 | Actual inverse integral agrees a.e. with the native L2 inverse; polynomial-moment smoothness |
 | I03 smooth representative | SmoothRepresentative | Constructed bounded smooth representative with finite nonsharp fixed-cutoff norm bound |
 | I03 derivatives | Bandlimited | New real weak derivative witnesses and physical H2 admission; exact delivered scope in the endpoint manifest |
+| I03 derivative coherence | DerivativeRepresentative | Classical/native derivative identity for the actual smooth cutoff representative and fixed-cutoff ordered bounds |
 
-All modules are under Material/MethbokeAddon/R3Ehrenfest/. New statements
-remain candidates until matching external compilation and complete exact
-type/axiom audits pass. A foundation-stage success does not establish the root.
+All active modules are under `Material/MethbokeAddon/R3Ehrenfest/`. The eight
+packages listed above have matching external compilation and complete exact
+type/axiom evidence. A foundation-stage success does not establish the root.
 
 ## Remaining mathematical work
 
