@@ -1,52 +1,22 @@
 # NSE-A regularity class: finite six-charge budget
 
-## External compilation repair
+## Latest accepted native basis
 
-[Run 44835490303](https://github.com/randogelist/Methboke/actions/runs/44835490303) at source `dcf32660` passed **all512 source modules**.
-The first independent audit failure was a missing pair of parentheses around
-the literal sum type in `QFAPhysicalH2`'s H2Index carrier check. The repair
-preserves exactly `H2Index = (Fin 4 ⊕ (Fin 3 × Fin 3))`; no proof statement,
-physical predicate or hypothesis changes.
+**Source `d403c235` is fully accepted**, [run 44837033211](https://github.com/randogelist/Methboke/actions/runs/44837033211):
+**512 modules, 99 fresh package audits and 1,294 named type/axiom reports**,
+plus the standalone QFB audit, publication and final acceptance. The six added
+packages supply **307 declarations: 252 theorems and 55 definitions/instances**.
+They construct the full stopped budgets and physical gauge, actual H2 and
+Laplacian, real L2/H1 Leray projection, bounded real-even Fourier multipliers,
+and strongly continuous heat semigroup. All 22 NSE-A scoped packages now
+contain **596 accepted declarations**. Only the approved standard axioms occur.
+**P01–P08 / M1 are complete** for supplied physical H1 paths. Canonical NSE
+existence, M2/M3 and the five remaining G-parent targets stay open.
 
-The original evidence is retained in [audits/material-dcf32660-nse-a-failed](../../audits/material-dcf32660-nse-a-failed/summary.json).
-All99 fresh package audits,1,294 named reports, publication and final
-acceptance remain required. Source compilation alone makes no new acceptance.
-
-## Current candidate: H2, Leray and real multipliers
-
-The next external candidate adds **202 declarations** in four packages:
-the actual closed H2 graph and its exact Hessian–Laplacian norm identity;
-the constructed real Leray projection and its native L2/H1 solenoidal range;
-bounded real even Fourier multipliers with actual weak-gradient transport;
-and the exact real L2/H1 heat semigroup with contraction and strong continuity.
-It also repairs the missing `NNReal` notation scope exposed by
-[the first stopped-budget run](https://github.com/randogelist/Methboke/actions/runs/44824925503).
-The combined candidate requires **512 modules, 99 fresh package audits and
-1294 named reports**. The 307 additions across these two batches are pending
-matching external verification. The full canonical NSE-A theorem remains open.
-
-
-## Active construction: full stopped budgets and gauge
-
-The selected scoped goal is **`NSE_A_FINITE_CHARGE_IFF_GLOBAL`**. The next
-candidate adds **105 declarations: 91 theorems and 14 definitions**, in
-`QFAStoppedBudget` and `QFAPhysicalStoppedGauge`. It supplies the actual finite
-observation window, complete endpoint budget limits including infinity,
-physical/Fourier normalization, fourth-root gauge and integer sublevels.
-These additions are **prepared pending matching external verification**.
-The new registry contains 95 packages and 1092 named reports; the previously
-accepted G05/P01–P07 proof and audit bytes are preserved.
-
-The native H2, real Leray, local solution, sharp spatial estimate, evolution,
-continuation and literal solution-category layers remain separate obligations.
-The canonical class theorem and universal budget finiteness remain open.
-
-
-## Current native construction
-
-**G05 and P01–P07 are A-tier accepted at `09bcf251`**, [external run 44820225574](https://github.com/randogelist/Methboke/actions/runs/44820225574). All **496 modules, 93 fresh package audits and 987 named type/axiom reports** passed. The latest seven packages add **134 declarations: 116 theorems and 18 definitions**. Only standard axioms occur; publication and final acceptance passed. The original G05 physical H1/Fourier/six-projector scope is complete. G01, G02, G03, G04 and G06, the canonical NSE-A class root and universal budget finiteness remain open. No local Lean was executed.
-
-[Six targets](SIX_GAP_A_TIER_TARGETS.txt) · [Accepted scopes and names](SIX_GAP_A_TIER_ACCEPTED_HELPERS.txt) · [Current implementation status](SIX_GAP_IMPLEMENTATION_STATUS.json)
+[Exact retained acceptance](../../audits/material-d403c235-nse-a-accepted/independent-review.json).
+The general physical QFA and WFA roots remain open. The next nonlinear edges
+are actual H1 local existence, global LH existence, weak–strong comparison,
+sharp spatial admission and small-product continuation. No local Lean was run.
 
 **Status: B-tier analytic class equivalence.** This page registers a class of
 whole-space initial data through the finite budget of their canonical maximal

@@ -65,7 +65,7 @@ tail theorem are separate work, not prerequisites for this class theorem.
 ## The 20 contextual endpoints
 
 Each item below specifies its output, dependency order, existing anchors,
-new obligation and completion criterion. **P01–P07 are accepted; P08–P19 retain their open portions.** An accepted helper does not mark its whole parent endpoint done.
+new obligation and completion criterion. **P01–P08 / M1 are accepted; P09–P19 retain their open portions.** An accepted helper does not mark its whole parent endpoint done.
 
 ### P01. Physical H1 carrier and Schwartz admission
 
@@ -480,3 +480,12 @@ endpoints. G05 is accepted; G01,G02,G03,G04,G06 remain open. The
 [implementation register](SIX_GAP_IMPLEMENTATION_STATUS.json) records the exact
 accepted scopes and historical attempts. The cumulative TXT retains every
 prior derivation and the later H2/full-window chains.
+
+## P08 / M1 acceptance update, 21 November 2026
+
+The exact supplied-path P08 endpoint is accepted at `d403c235`,
+[run44837033211](https://github.com/randogelist/Methboke/actions/runs/44837033211).
+The full stopped-window/gauge and improper-limit clauses are covered by
+`QFAStoppedBudget` and `QFAPhysicalStoppedGauge`, using accepted physical
+H1 sectors. [Clause review](../../audits/material-d403c235-nse-a-accepted/semantic-review.json).
+M1 is complete; M2/M3 and the five general PDE parent targets remain open.

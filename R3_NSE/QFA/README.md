@@ -16,6 +16,20 @@ The [receipt](../../audits/material-afd67db4-qfa-accepted/summary.json),
 [complete new declaration evidence](../../audits/material-afd67db4-qfa-accepted/new-declaration-evidence.json)
 fix the accepted source and statement scope. The project goal remains Fefferman D.
 
+## Current closure candidate
+
+The current user-selected work prepares `QFALHRestart`, `QFAHeatSmoothing`
+and `QFAZeroDatum`. They add full physical restart, actual positive-time heat
+H2 smoothing, and a complete zero-datum conclusion under an explicitly fixed
+physical root contract. These are **pending matching external verification**.
+The sharp cutoff is $8\|a\|_2^4/(27\pi^4\nu^5)$; smooth pressure is normalized
+by $p(t,0)=0$. The general root remains open.
+
+[Exact scoped chain](DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt) ·
+[Latest shared native basis](../../audits/material-d403c235-nse-a-accepted/independent-review.json).
+The shared basis now includes actual H2, real Leray, heat and stopped-budget
+constructions accepted at `d403c235` / run44837033211.
+
 ## Accepted native layers
 
 | Layer | Source | Scope |

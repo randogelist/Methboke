@@ -1,21 +1,21 @@
 NSE-A ACCEPTED SCOPED CONSTRUCTION REGISTER
-DATE = 2026-11-20
-TESTED_SOURCE = 09bcf25110020760d3d93100b8105d2ffba85e61
-EXTERNAL_RUN = 44820225574
-RUN_URL = https://github.com/randogelist/Methboke/actions/runs/44820225574
-EVIDENCE = audits/material-09bcf251-nse-a-accepted/independent-review.json
+DATE = 2026-11-21
+TESTED_SOURCE = d403c235a1cf6db5d9276f7cd987a4cc990a2fdf
+EXTERNAL_RUN = 44837033211
+RUN_URL = https://github.com/randogelist/Methboke/actions/runs/44837033211
+EVIDENCE = audits/material-d403c235-nse-a-accepted/independent-review.json
 LOCAL_LEAN_EXECUTIONS = 0
 PARENT_G05 = !=! A_TIER_ACCEPTED
 PARENTS_G01_G02_G03_G04_G06 = OPEN
 
 !=! G05 -- full original physical H1/Fourier/six-projector construction.
-!=! P01--P07 -- complete original endpoint scopes.
-P08--P19 retain their remaining obligations. P20 verification is satisfied
+!=! P01--P08 / M1 -- complete original supplied-path endpoint scopes.
+P09--P19 retain their remaining obligations. P20 verification is satisfied
 for every scope marked here. No canonical NSE evolution or class root is asserted.
 
-TOTAL = 16 NSE-A packages;289 declarations=242 theorems+47 definitions/instances.
-LATEST_BATCH = 7 packages;134 declarations=116 theorems+18 definitions.
-FULL_RUN = 496 PASS modules;93 fresh package audits;987 named reports.
+TOTAL = 22 NSE-A packages;596 declarations=494 theorems+102 definitions/instances.
+LATEST_BATCH = 6 packages;307 declarations=252 theorems+55 definitions/instances.
+FULL_RUN = 512 PASS modules;99 fresh package audits;1294 named reports.
 STANDALONE_QFB = fresh PASS
 PUBLICATION_AND_FINAL_ACCEPTANCE = PASS
 ALLOWED_AXIOMS = propext, Classical.choice, Quot.sound only.
@@ -389,3 +389,334 @@ Exact registered names:
   theorem MethbokeAddon.QuasiFeffermanA.sum_norm_physicalH1SigmaSector_sq
   theorem MethbokeAddon.QuasiFeffermanA.physicalH1SigmaSector_enstrophy_sum
   theorem MethbokeAddon.QuasiFeffermanA.physicalH1SigmaSector_charge_eq_sector_integral
+
+LATEST MATCHING ACCEPTANCE: d403c235/run44837033211
+EVIDENCE:audits/material-d403c235-nse-a-accepted/independent-review.json
+FULL_RUN:512modules;99freshpackages;1294namedreports;QFB/publication/finalPASS.
+TOTAL:22NSE-Apackages;596names=494theorems+102definitions/instances.
+G05 remains accepted;fiveotherparents and generalQFA/WFA/class rootsOPEN.
+
+!=! QFAStoppedBudget -- Exact finite-cutoff stopping of an ENNReal lifetime before toReal; literal observation set, complete nonnegative partial-budget suprema and left limits including infinity, uniform finite-bound characterization, extension invariance, and genuinely integrable ordinary partial bridges. No temporal regularity or finite-budget premise for the extended definitions and limit identities.
+Exact registered names:
+  definition MethbokeAddon.QuasiFeffermanA.stoppedLifetime
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedLifetime_ne_top
+  definition MethbokeAddon.QuasiFeffermanA.stoppedEndpoint
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_nonneg
+  theorem MethbokeAddon.QuasiFeffermanA.ofReal_stoppedEndpoint
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_le_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_mono
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_top
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedEndpoint_pos_iff
+  definition MethbokeAddon.QuasiFeffermanA.stoppedObservation
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedObservation_eq_Ioo
+  theorem MethbokeAddon.QuasiFeffermanA.measurableSet_stoppedObservation
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedObservation_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedObservation_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedObservation_top
+  theorem MethbokeAddon.QuasiFeffermanA.stoppedObservation_mono
+  theorem MethbokeAddon.QuasiFeffermanA.Icc_subset_lifetime_of_lt_stoppedEndpoint
+  definition MethbokeAddon.QuasiFeffermanA.openIntervalBudget
+  definition MethbokeAddon.QuasiFeffermanA.fullStoppedBudget
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_eq_openIntervalBudget
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_zero_window
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_zero
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_mono
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_mono_integrand
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_congr
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_zero
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_top
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_mono
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_mono_window
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_congr
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_congr_ae
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_const_mul
+  definition MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_eq_sub
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_zero
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_nonneg
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_le
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_lt
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_mono
+  theorem MethbokeAddon.QuasiFeffermanA.tendsto_budgetApproxEndpoint
+  theorem MethbokeAddon.QuasiFeffermanA.budgetApproxEndpoint_cofinal
+  theorem MethbokeAddon.QuasiFeffermanA.iUnion_Ioo_budgetApproxEndpoint
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_eq_iSup_approx
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_eq_iSup_Ico
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_eq_sSup_Iio
+  theorem MethbokeAddon.QuasiFeffermanA.tendsto_openIntervalBudget_approx
+  theorem MethbokeAddon.QuasiFeffermanA.tendsto_openIntervalBudget_nhdsLT
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_ne_top_iff_uniform_bound
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_ne_top_iff_uniform_approx_bound
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_eq_iSup_approx
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_eq_iSup_Ico
+  theorem MethbokeAddon.QuasiFeffermanA.tendsto_fullStoppedBudget_approx
+  theorem MethbokeAddon.QuasiFeffermanA.tendsto_fullStoppedBudget_nhdsLT
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_ne_top_iff_uniform_bound
+  theorem MethbokeAddon.QuasiFeffermanA.fullStoppedBudget_ne_top_iff_uniform_approx_bound
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_ofReal_eq_integral
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_sq_eq_integral
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_sq_ne_top
+  theorem MethbokeAddon.QuasiFeffermanA.openIntervalBudget_sq_eq_intervalIntegral
+
+!=! QFAPhysicalStoppedGauge -- Full actual physical H1 stopped enstrophy, six-sector and weighted Fourier budgets; exact 4*pi^2, 16*pi^4 and 64*pi^4*nu normalizations; extended fourth-root gauge, positive-viscosity finiteness equivalences, finite-radius sublevels and integer exhaustion. No canonical solution construction, evolution or globality implication is assumed or claimed.
+Exact registered names:
+  definition MethbokeAddon.QuasiFeffermanA.physicalFourierCharge
+  theorem MethbokeAddon.QuasiFeffermanA.physicalFourierCharge_eq_ofReal
+  theorem MethbokeAddon.QuasiFeffermanA.physicalFourierCharge_finite
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophy_eq_fourierCharge
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophy_sq_eq_fourierCharge_sq
+  definition MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget
+  definition MethbokeAddon.QuasiFeffermanA.physicalSixBudget
+  definition MethbokeAddon.QuasiFeffermanA.physicalSectorBudget
+  definition MethbokeAddon.QuasiFeffermanA.physicalFourierBudget
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_eq_fourierBudget
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_iff_fourier
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedBudget_bounds
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_iff_six
+  theorem MethbokeAddon.QuasiFeffermanA.physicalSixBudget_eq_sum
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_iff_each
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_zero
+  theorem MethbokeAddon.QuasiFeffermanA.physicalSixBudget_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.physicalSixBudget_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.physicalFourierBudget_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.physicalFourierBudget_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_finite_of_continuousOn
+  theorem MethbokeAddon.QuasiFeffermanA.physicalEnstrophyBudget_global_finite
+  definition MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_pow_four
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_pow_four_fourier
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff_six
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff_fourier
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_finite_iff_each
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_zero_lifetime
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_zero_cutoff
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_zero
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_le_iff
+  theorem MethbokeAddon.QuasiFeffermanA.physicalStoppedGauge_le_iff_fourier
+  definition MethbokeAddon.QuasiFeffermanA.physicalGaugeSublevel
+  definition MethbokeAddon.QuasiFeffermanA.physicalFiniteGaugeClass
+  theorem MethbokeAddon.QuasiFeffermanA.physicalGaugeSublevel_mono
+  theorem MethbokeAddon.QuasiFeffermanA.physicalGaugeSublevel_subset_finite
+  theorem MethbokeAddon.QuasiFeffermanA.physicalFiniteGaugeClass_eq_iUnion
+  theorem MethbokeAddon.QuasiFeffermanA.mem_physicalFiniteGaugeClass_iff_six
+
+!=! QFAPhysicalH2 -- Actual full-volume thirteen-component closed complete physical H2 graph, native compact-test Hessian uniqueness and symmetry, actual L2 distributional Laplacian, exact Hessian/Laplacian norm and full inhomogeneous H2 Fourier norm; no NSE evolution or assumed spectral identity.
+Exact registered names:
+  definition MethbokeAddon.QuasiFeffermanA.H2Index
+  theorem MethbokeAddon.QuasiFeffermanA.card_H2Index
+  definition MethbokeAddon.QuasiFeffermanA.H2Ambient
+  definition MethbokeAddon.QuasiFeffermanA.h2Pack
+  theorem MethbokeAddon.QuasiFeffermanA.h2Pack_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.h2Pack_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.h2Pack_hessian
+  definition MethbokeAddon.QuasiFeffermanA.SpatialWeakHessian
+  theorem MethbokeAddon.QuasiFeffermanA.spatialWeakHessian_unique
+  definition MethbokeAddon.QuasiFeffermanA.weakH2Residual
+  theorem MethbokeAddon.QuasiFeffermanA.weakH2Residual_apply
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2Graph
+  theorem MethbokeAddon.QuasiFeffermanA.mem_physicalH2Graph_iff
+  definition MethbokeAddon.QuasiFeffermanA.PhysicalH2
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2CompleteSpace
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2_isClosed
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2Velocity
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2Gradient
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2Hessian
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2_weakGradient
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2_weakHessian
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2_norm_sq
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2Velocity_injective
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2OfWeakDerivatives
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2OfWeakDerivatives_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2OfWeakDerivatives_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2OfWeakDerivatives_hessian
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2ToH1
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2ToH1_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2ToH1_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.norm_physicalH2ToH1_le
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2GradientH1
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2GradientH1_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2GradientH1_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.norm_physicalH2GradientH1_le
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2Laplacian
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2Laplacian_apply
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2_laplacian_tempered_eq
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2_schwartzDerivativeWitnesses
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2SigmaGraph
+  theorem MethbokeAddon.QuasiFeffermanA.mem_physicalH2SigmaGraph_iff
+  definition MethbokeAddon.QuasiFeffermanA.PhysicalH2Sigma
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2SigmaCompleteSpace
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2Sigma_isClosed
+  definition MethbokeAddon.QuasiFeffermanA.physicalH2SigmaToH2LI
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2SigmaToH2LI_val
+  theorem MethbokeAddon.QuasiFeffermanA.physicalH2Sigma_solenoidal
+  theorem MethbokeAddon.QuasiFeffermanA.schwartz_spatialWeakHessian
+  definition MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH2
+  theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH2_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH2_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.schwartzToPhysicalH2_hessian
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.spatialWeakHessian_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.spatialWeakHessian_symmetric
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.spatialWeakHessian_fourier_norm_ae
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_hessian_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_hessian_symmetric
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_laplacian_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_fourier_laplacian_integrable
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_laplacian_norm_sq_eq_fourier
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_hessian_norm_sq_eq_laplacian
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_norm_sq_eq_laplacian
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_weighted_fourier_integrable
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_laplacian_eq_fourier_weighted
+  theorem MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_norm_sq_eq_fourier
+
+!=! QFARealLeray -- Constructed measurable Leray matrix multiplier and genuine full-volume complex/real L2 orthogonal projection; literal matrix/zero-frequency formula, norm, self-adjointness, idempotence, reality, exact native all-L2 and H1 solenoidal ranges, actual weak-gradient transport, original PhysicalH1Sigma output, and six-sector commutation. No heat evolution, nonlinear estimate, NSE solution construction or continuation is proved.
+Exact registered names:
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_formula
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.inner_complexifyVector_eq_sum
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_coordinate
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_zero
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.norm_leraySymbol_le
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.inner_leraySymbol_left
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_idempotent
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_eq_self_iff
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_transverse
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.leraySymbol_neg
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.conjugate_leraySymbol
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLeray
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLeray_ae
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.norm_frequencyLeray_le
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLerayCLM
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLerayCLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLeray_idempotent
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.inner_frequencyLeray_left
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLeray_multiplier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.frequencyLeray_frequencySector
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.hermitian_frequencyLeray
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.fourierLeray
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.fourier_fourierLeray
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.fourierLerayCLM
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.fourierLerayCLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.norm_fourierLeray_le
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.fourierLeray_idempotent
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.inner_fourierLeray_left
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.fourierLeray_fourierSector
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.complexify_realLeray
+  definition MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLerayCLM
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLerayCLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.norm_realLeray_le
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_idempotent
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.inner_realLeray_left
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_orthogonal_complement
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_norm_sq_split
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_fourier_transverse
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_eq_self_iff_fourier_transverse
+  theorem MethbokeAddon.QuasiFeffermanA.LerayMultiplier.realLeray_realFourierSector
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.spatialWeakGradient_realLeray
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.spatialGradientTrace_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.spatialWeakGradient_solenoidal_iff_fourier_transverse
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.solenoidal_realLeray_of_weakGradient
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.realLeray_eq_self_of_solenoidal
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.solenoidal_realLeray
+  definition MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_norm_sq_le
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.norm_physicalH1Leray_le
+  definition MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1LerayCLM
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1LerayCLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_idempotent
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.inner_physicalH1Leray_left
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_orthogonal_complement
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_norm_sq_split
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_solenoidal
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_eq_self_iff
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_range_iff
+  definition MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1SigmaLeray
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1SigmaLeray_toH1
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_sigma_identity
+  theorem MethbokeAddon.QuasiFeffermanA.LerayH1.physicalH1Leray_sector
+  theorem MethbokeAddon.QuasiFeffermanA.LeraySolenoidal.solenoidal_fourier_transverse
+  theorem MethbokeAddon.QuasiFeffermanA.LeraySolenoidal.solenoidal_iff_fourier_transverse
+  theorem MethbokeAddon.QuasiFeffermanA.LeraySolenoidal.realLeray_eq_self_iff_solenoidal
+  theorem MethbokeAddon.QuasiFeffermanA.LeraySolenoidal.realLeray_range_iff_solenoidal
+  theorem MethbokeAddon.QuasiFeffermanA.LeraySolenoidal.solenoidal_realFourierSector_L2
+
+!=! QFARealEvenMultipliers -- Actual bounded real-even measurable scalar multipliers on full-volume complex and real L2, proved Hermitian preservation and exact real Fourier transport, bounded linearity and actual compact-test weak-gradient commutation.
+Exact registered names:
+  definition MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.RealEvenSymbol
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.memLp_symbol_smul
+  definition MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplier
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.norm_frequencyMultiplier_le
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplier_add
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplier_smul
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplier_zero
+  definition MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplierCLM
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplierCLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.hermitian_frequencyMultiplier
+  definition MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplier
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.complexify_realFourierMultiplier
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.fourier_complexify_realFourierMultiplier
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.fourier_complexify_realFourierMultiplier_ae
+  definition MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplierCLM
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplierCLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplier_add
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplier_smul
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplier_zero
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.norm_realFourierMultiplier_le
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.realFourierMultiplier_eq_of_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.frequencyMultiplier_multiplier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.RealEvenMultipliers.spatialWeakGradient_realFourierMultiplier
+
+!=! QFAHeatSemigroup -- Constructed actual real L2 and physical H1 heat semigroup with exact exp(-4*pi^2*nu*t*norm xi^2), actual Fourier action, zero-time and zero-viscosity identities, real linearity, semigroup law, inhomogeneous norm contraction and proved strong continuity.
+Exact registered names:
+  definition MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_pos
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_le_one
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_continuous_frequency
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_continuous_time
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_neg
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_zero_time
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_zero_viscosity
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatValue_add_time
+  definition MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatSymbol
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatSymbol_value
+  definition MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2
+  definition MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2CLM
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2CLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_fourier_ae
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_add
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_smul
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_zero
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.norm_heatL2_le
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_zero_time
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_zero_viscosity
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_add_time
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_sub_norm_sq_eq_fourier
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatL2_continuous
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.spatialWeakGradient_heatL2
+  definition MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_velocity
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_gradient
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_add
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_smul
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_zero
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_norm_sq_le
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.norm_heatH1_le
+  definition MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1CLM
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1CLM_apply
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_zero_time
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_zero_viscosity
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_add_time
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_energy_le
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_enstrophy_le
+  theorem MethbokeAddon.QuasiFeffermanA.HeatSemigroup.heatH1_continuous

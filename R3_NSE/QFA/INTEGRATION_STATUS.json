@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "repository": "randogelist/Methboke",
   "branch": "AC-Integration",
   "status": "A_TIER_MATCHING_EXTERNAL_COMPILER_TYPE_AXIOM_PASS_SCOPED_QFA_FOUNDATIONS",
@@ -165,5 +165,65 @@
     "requirement": "Connect physical weak derivatives to the spectral witnesses and prove the required whole-space Sobolev/interpolation estimates with an admissible constant.",
     "status": "OPEN_NOT_SUPPLIED_BY_SCALAR_CUTOFF_OR_SPECTRAL_HELPER"
   },
-  "a_tier_register": "R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt"
+  "a_tier_register": "R3_NSE/QFA/QFA_FOUNDATIONS_A_TIER.txt",
+  "current_construction": {
+    "id": "QFA_RESTART_HEAT_ZERO_BATCH",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "source_basis": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+    "packages": [
+      "QFALHRestart",
+      "QFAHeatSmoothing",
+      "QFAZeroDatum"
+    ],
+    "new_named_declarations": 73,
+    "new_theorems": 53,
+    "new_definitions_and_structures": 20,
+    "total_packages": 102,
+    "named_reports_expected": 1367,
+    "expected_compiled_modules": 520,
+    "scope": "Full supplied-path LH restarts, actual positive-time H1-to-H2 heat smoothing, exact physical QFA root contract and complete zero-datum branch.",
+    "physical_qfa_root_proved": false,
+    "wfa_proved": false,
+    "local_lean_executions": 0,
+    "compiler_dependency_driver_policy_changed": false,
+    "derivation": "R3_NSE/QFA/DERIVATIONS/RESTART_HEAT_ZERO_CHAIN.txt"
+  },
+  "latest_shared_basis_acceptance": {
+    "tested_commit": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+    "run_id": 44837033211,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44837033211",
+    "module_count": 512,
+    "package_count": 99,
+    "named_reports": 1294,
+    "new_packages": 6,
+    "new_named_declarations": 307,
+    "new_theorems": 252,
+    "new_definitions_and_instances": 55,
+    "local_lean_executions": 0,
+    "physical_qfa_root_proved": false,
+    "wfa_proved": false,
+    "status": "A_TIER_MATCHING_EXTERNAL_ACCEPTED_EXACT_SCOPES",
+    "evidence": "audits/material-d403c235-nse-a-accepted/independent-review.json",
+    "independent_review": "audits/material-d403c235-nse-a-accepted/independent-review.json",
+    "standard_axioms_only": true,
+    "fresh_package_audits": 99,
+    "unique_named_reports": 1294,
+    "passed_modules": 512,
+    "fresh_qfb_cutout": true,
+    "publication_complete": true,
+    "matching_evidence_review_complete": true,
+    "closed_parent_ids": [
+      "G05"
+    ],
+    "new_parent_targets_closed": []
+  },
+  "active_scoped_request": "QFA_A_TIER_CLOSURE",
+  "root_contract": {
+    "path": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalRoot.lean",
+    "status": "PREPARED_PENDING_MATCHING_EXTERNAL",
+    "cutoff": "8*norm(a)^4/(27*pi^4*nu^5)",
+    "pressure_gauge": "p(t,0)=0, smooth time gauge",
+    "strict_and_closed_cutoff_separate": true
+  },
+  "next_scoped_endpoint": "Matching cached external verification of full physical restart, actual heat H2 smoothing, and complete zero-datum branch."
 }

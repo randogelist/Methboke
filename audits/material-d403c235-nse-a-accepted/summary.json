@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "status": "CHECKED_MATCHING_EXTERNAL_ACCEPTANCE",
+  "review_kind": "nonexecuting_text_json_hash_review",
+  "tested_commit": "d403c235a1cf6db5d9276f7cd987a4cc990a2fdf",
+  "run_id": 44837033211,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44837033211",
+  "artifact_sha256": "7c39509200367c8a47ca5d9a9e9cb052a2adab37bb985d0d47362d322e568307",
+  "report_sha256": "b0f5b7fa1cb6ba20787115a55603e5fc31320bd86abcbb019b81e8be9bc11fbf",
+  "checks_passed": 4873,
+  "module_count": 512,
+  "package_count": 99,
+  "named_reports": 1294,
+  "all_package_audits_fresh": true,
+  "new_packages": 6,
+  "new_named_declarations": 307,
+  "new_theorems": 252,
+  "new_definitions_and_instances": 55,
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "metrics": {
+    "audit_fresh_count": 99,
+    "audit_reused_count": 0,
+    "audit_seconds": 211.421,
+    "build_seconds": 55.737,
+    "cache_seconds": 9.444,
+    "fresh_loc": 2938,
+    "fresh_module_count": 16,
+    "module_count": 512,
+    "rerun_receipt_seconds": 0.323,
+    "reused_loc": 60012,
+    "reused_module_count": 496,
+    "target_loc": 62950
+  },
+  "dependency_cache_class": "EXACT",
+  "project_cache_class": "PREFIX",
+  "final_acceptance_gate": true,
+  "publication_pass": true,
+  "qfb_cutout_pass": true,
+  "local_lean_executions": 0,
+  "new_parent_targets_closed": [],
+  "physical_qfa_root_proved": false,
+  "wfa_proved": false,
+  "physical_class_root_a_tier_proved": false,
+  "universal_budget_finiteness_proved": false,
+  "scope_limits": [
+    "This accepts the exact 307 named declarations of six added helper packages; it does not close a full PDE parent target.",
+    "QFAStoppedBudget and QFAPhysicalStoppedGauge operate on supplied actual H1 paths and ENNReal lifetimes; no canonical NSE trajectory or globality is constructed.",
+    "The accepted stopped-budget/gauge packages cover every pathwise P08 clause and complete M1 with the earlier accepted P01-P07 layer; M2 and M3 remain open.",
+    "QFAPhysicalH2 constructs the physical H2 graph, derivatives, Laplacian and spectral identities; sharp Sobolev admission remains open.",
+    "QFARealLeray constructs physical L2/H1 solenoidal projections; no nonlinear solution or weak-strong comparison is concluded.",
+    "QFARealEvenMultipliers constructs bounded actual real-even multipliers and derivative transport.",
+    "QFAHeatSemigroup proves the actual L2/H1 heat semigroup, contraction and strong continuity; positive-time smoothing, generator and nonlinear NSE existence are not included.",
+    "The already accepted G05 scope is preserved and freshly reaudited. G01, G02, G03, G04 and G06 remain open.",
+    "Full physical QFA, WFA, canonical class root and universal budget finiteness remain open.",
+    "Repository status documents at d403c235 still describe the preceding pending attempt; matching raw external evidence determines this acceptance.",
+    "The local reviewer executes only Python text/JSON/hash inspection and git object reads; it never invokes Lean, Lake or a kernel audit."
+  ],
+  "new_package_scopes": [
+    {
+      "id": "QFAStoppedBudget",
+      "declarations": 63,
+      "audit_sha256": "53b192b79f9614c370b9dbe8b9af073ae6c3e03060f838d2e258a879ed3f92aa",
+      "retained_log": "QFAStoppedBudget.log.gz",
+      "retained_log_gzip_sha256": "790c4975021553956157780b48b72ea96f1afb8e8c820ac1e29785836c0b21f0",
+      "retained_log_raw_sha256": "53b192b79f9614c370b9dbe8b9af073ae6c3e03060f838d2e258a879ed3f92aa",
+      "scope": "Exact finite-cutoff stopping of an ENNReal lifetime before toReal; literal observation set, complete nonnegative partial-budget suprema and left limits including infinity, uniform finite-bound characterization, extension invariance, and genuinely integrable ordinary partial bridges. No temporal regularity or finite-budget premise for the extended definitions and limit identities.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/StoppedWindow.lean",
+          "sha256": "07512bb83ed7c49e61c2a93f22ca81e00a2b00ecc1ce5a8e3f599bb38b6d1375"
+        },
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/FullStoppedBudget.lean",
+          "sha256": "bd682d2b196befdb3cf444b307ab234d0797cb3872e523b34fa63594b81b9616"
+        }
+      ],
+      "audit_source_sha256": "e5b608c229c1731e0e8f979534665802c0811a8eeaea7c4b5e440972e1b3880b",
+      "consumer_examples": 71,
+      "closure_source_count": 2,
+      "theorems": 57,
+      "definitions_and_instances": 6
+    },
+    {
+      "id": "QFAPhysicalStoppedGauge",
+      "declarations": 42,
+      "audit_sha256": "57df7fc064619378bc405ff9de7f92722d992abf1ef55e147a29e3b6753e3e2a",
+      "retained_log": "QFAPhysicalStoppedGauge.log.gz",
+      "retained_log_gzip_sha256": "19f06d6483d4a2903fe2498316059c2cdbe68e3828508edd945c4862d6776e73",
+      "retained_log_raw_sha256": "57df7fc064619378bc405ff9de7f92722d992abf1ef55e147a29e3b6753e3e2a",
+      "scope": "Full actual physical H1 stopped enstrophy, six-sector and weighted Fourier budgets; exact 4*pi^2, 16*pi^4 and 64*pi^4*nu normalizations; extended fourth-root gauge, positive-viscosity finiteness equivalences, finite-radius sublevels and integer exhaustion. No canonical solution construction, evolution or globality implication is assumed or claimed.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalStoppedGauge.lean",
+          "sha256": "9cf980cfc700fa0f30bd6912a3e1c4353851606cb1ac910174ecc7e3d9066886"
+        }
+      ],
+      "audit_source_sha256": "6b87a2f8ef9872d37b11ef63a26b9c767d68932d31603e67643c927254113b46",
+      "consumer_examples": 55,
+      "closure_source_count": 28,
+      "theorems": 34,
+      "definitions_and_instances": 8
+    },
+    {
+      "id": "QFAPhysicalH2",
+      "declarations": 65,
+      "audit_sha256": "71854c4bc045f4a358c9e216029c5b7e9ccb8102625b8f608f4de67b317d09cd",
+      "retained_log": "QFAPhysicalH2.log.gz",
+      "retained_log_gzip_sha256": "979df37e7737918c9b94abcd0fe2d938e1b20fc1ff01826040be3654bd639288",
+      "retained_log_raw_sha256": "71854c4bc045f4a358c9e216029c5b7e9ccb8102625b8f608f4de67b317d09cd",
+      "scope": "Actual full-volume thirteen-component closed complete physical H2 graph, native compact-test Hessian uniqueness and symmetry, actual L2 distributional Laplacian, exact Hessian/Laplacian norm and full inhomogeneous H2 Fourier norm; no NSE evolution or assumed spectral identity.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/PhysicalH2.lean",
+          "sha256": "de5b5c612dbae66afa1191be8f202604adbb4fb949091117adb72921ab5d52bd"
+        },
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/H2Spectral.lean",
+          "sha256": "1f9c71bf144184d65e304525e20f7868bf06335657ca5d1e9c701c63b7143e03"
+        }
+      ],
+      "audit_source_sha256": "c55f47a63b2f2162140aabb81c78dd1369e6080db3ccd538a5c03f20ccd1f5cd",
+      "consumer_examples": 78,
+      "closure_source_count": 21,
+      "theorems": 45,
+      "definitions_and_instances": 20
+    },
+    {
+      "id": "QFARealLeray",
+      "declarations": 72,
+      "audit_sha256": "fead4f3afd0129efe957f7c4ab826c70d050ad3b59c23ddc7a2999a29a8afa63",
+      "retained_log": "QFARealLeray.log.gz",
+      "retained_log_gzip_sha256": "29cfdaaeee5697e9dd3907699e160d1684f2299c76254e61c2e5ce22e78c3142",
+      "retained_log_raw_sha256": "fead4f3afd0129efe957f7c4ab826c70d050ad3b59c23ddc7a2999a29a8afa63",
+      "scope": "Constructed measurable Leray matrix multiplier and genuine full-volume complex/real L2 orthogonal projection; literal matrix/zero-frequency formula, norm, self-adjointness, idempotence, reality, exact native all-L2 and H1 solenoidal ranges, actual weak-gradient transport, original PhysicalH1Sigma output, and six-sector commutation. No heat evolution, nonlinear estimate, NSE solution construction or continuation is proved.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/LerayMultiplier.lean",
+          "sha256": "1e82a009126f8c5a833589a38be016fa852e48e78e81f3f649eedad2ddcaddd5"
+        },
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/LerayH1.lean",
+          "sha256": "21767ebb684c63c67cb67fdec78784c13708ccc2d09655d8e06ada658b6cd134"
+        },
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/LeraySolenoidal.lean",
+          "sha256": "f67ee0924cf73b1302fcd3da69b54aa2fbe4e7fb15bdd65f2af884fbca56c35b"
+        }
+      ],
+      "audit_source_sha256": "490988b94e9790c2c5bd667c56cdb1d332438f2e8bfb62b29a29a55469d39366",
+      "consumer_examples": 85,
+      "closure_source_count": 31,
+      "theorems": 62,
+      "definitions_and_instances": 10
+    },
+    {
+      "id": "QFARealEvenMultipliers",
+      "declarations": 24,
+      "audit_sha256": "20b86ce1068b4719ed8d65716bc0e502592f42756cb05c2eb35618317d5535dc",
+      "retained_log": "QFARealEvenMultipliers.log.gz",
+      "retained_log_gzip_sha256": "73f4f43146bf750afc58544880867902e47a6b9575c4e4befa8095f5fbb4ded1",
+      "retained_log_raw_sha256": "20b86ce1068b4719ed8d65716bc0e502592f42756cb05c2eb35618317d5535dc",
+      "scope": "Actual bounded real-even measurable scalar multipliers on full-volume complex and real L2, proved Hermitian preservation and exact real Fourier transport, bounded linearity and actual compact-test weak-gradient commutation.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/RealEvenMultipliers.lean",
+          "sha256": "63aa431ed95e456c40f023ddb9cdb7ed10e23143486f7e3bdeccedceec45b876"
+        }
+      ],
+      "audit_source_sha256": "beb7ec966c6ad81e69e8e401a3ce416fb71e06ecf3ce6a74851efd78b0e4b97f",
+      "consumer_examples": 33,
+      "closure_source_count": 16,
+      "theorems": 19,
+      "definitions_and_instances": 5
+    },
+    {
+      "id": "QFAHeatSemigroup",
+      "declarations": 41,
+      "audit_sha256": "75ad0644228c6a095ce9043de8fd7dce68c9aedfb4408f005133677e4b5104c5",
+      "retained_log": "QFAHeatSemigroup.log.gz",
+      "retained_log_gzip_sha256": "e60b37c2b87869eec02dff64e33484536aa76c4b08bc42ec19be2c5b8ec5d1c4",
+      "retained_log_raw_sha256": "75ad0644228c6a095ce9043de8fd7dce68c9aedfb4408f005133677e4b5104c5",
+      "scope": "Constructed actual real L2 and physical H1 heat semigroup with exact exp(-4*pi^2*nu*t*norm xi^2), actual Fourier action, zero-time and zero-viscosity identities, real linearity, semigroup law, inhomogeneous norm contraction and proved strong continuity.",
+      "source_roots": [
+        {
+          "path": "Material/MethbokeAddon/QuasiFeffermanA/HeatSemigroup.lean",
+          "sha256": "dc08288d5bf1d21213c785bc321b36b70ce90599365e5b65ca3b904d18b2b458"
+        }
+      ],
+      "audit_source_sha256": "43484fe0cb889836cbe2c8e77b78d4af90a10484d1eadb4328920106ddfcbbf3",
+      "consumer_examples": 53,
+      "closure_source_count": 22,
+      "theorems": 35,
+      "definitions_and_instances": 6
+    }
+  ],
+  "independent_review": "independent-review.json",
+  "new_declarations": "new-declaration-index.json",
+  "full_new_types_and_axioms": "new-declaration-evidence.json.gz",
+  "original_artifact_id": 14680035497,
+  "original_routing_artifact_id": 14679083149,
+  "original_evidence": "evidence.zip",
+  "reviewer": "review_evidence.py",
+  "parent_target_register": "G01-G06 PDE gap register; distinct from the pathwise P01-P20 steplist",
+  "new_pathwise_endpoints_accepted": [
+    "P08"
+  ],
+  "pathwise_milestones_completed": [
+    "M1"
+  ],
+  "pathwise_semantic_review": "semantic-review.json"
+}
