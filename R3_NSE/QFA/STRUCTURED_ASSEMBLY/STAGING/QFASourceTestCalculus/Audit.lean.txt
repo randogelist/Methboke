@@ -1,0 +1,102 @@
+import QFASourceTestCalculus.Endpoint
+
+set_option autoImplicit false
+set_option pp.universes true
+set_option pp.explicit true
+set_option pp.fullNames true
+
+noncomputable section
+
+open scoped BigOperators ContDiff
+
+open MethbokeAddon.QuasiFeffermanA
+open MethbokeAddon.QuasiFeffermanA.SourceCoordinates
+open MethbokeAddon.QuasiFeffermanA.SourceFields
+open MethbokeAddon.QuasiFeffermanA.SourceTests
+open MethbokeAddon.QuasiFeffermanA.SourceTestCalculus
+
+namespace QFASourceTestCalculus.IndependentTypeChecks
+
+example (φ : SourceWeakTestFunction) (i : Fin 3) (x : SourceVec3) : ℝ :=
+  sourcePartialDeriv φ i x
+
+example (i : Fin 3) :
+    nativeToSource (coordinateVector i) = sourceCoordinateVector i :=
+  nativeToSource_coordinateVector i
+
+example (φ : SourceWeakTestFunction) (x : Space) :
+    fderiv ℝ (nativeTestFunctionOfSource φ) x =
+      (fderiv ℝ φ.toFun (nativeToSource x)).comp
+        sourceNativeEquiv.symm.toContinuousLinearMap :=
+  nativeTestFunctionOfSource_fderiv φ x
+
+example (φ : SourceWeakTestFunction) (i : Fin 3) (x : SourceVec3) :
+    fderiv ℝ (nativeTestFunctionOfSource φ) (sourceToNative x) (coordinateVector i) =
+      sourcePartialDeriv φ i x :=
+  nativeTestFunctionOfSource_coordinateDeriv φ i x
+
+example (φ : SourceWeakTestFunction) (x : SourceVec3) : SourceVec3 :=
+  sourceTestGradient φ x
+
+example (φ : SourceWeakTestFunction) (x : SourceVec3) :
+    sourceToNative (sourceTestGradient φ x) =
+      scalarGradient (nativeTestFunctionOfSource φ) (sourceToNative x) :=
+  sourceToNative_sourceTestGradient φ x
+
+example (a : Space → Space) (φ : SourceWeakTestFunction) (x : SourceVec3) :
+    (∑ i : Fin 3,
+      sourceFieldFunctionOfNative a x i * sourcePartialDeriv φ i x) =
+      inner ℝ (a (sourceToNative x))
+        (scalarGradient (nativeTestFunctionOfSource φ) (sourceToNative x)) :=
+  sourceField_testPairing_eq_nativeInner a φ x
+
+end QFASourceTestCalculus.IndependentTypeChecks
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourcePartialDeriv"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourcePartialDeriv
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourcePartialDeriv"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourcePartialDeriv"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourcePartialDeriv
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourcePartialDeriv"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeToSource_coordinateVector"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeToSource_coordinateVector
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeToSource_coordinateVector"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeToSource_coordinateVector"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeToSource_coordinateVector
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeToSource_coordinateVector"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_fderiv"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_fderiv
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_fderiv"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_fderiv"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_fderiv
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_fderiv"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_coordinateDeriv"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_coordinateDeriv
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_coordinateDeriv"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_coordinateDeriv"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_coordinateDeriv
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.nativeTestFunctionOfSource_coordinateDeriv"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceTestGradient"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceTestGradient
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceTestGradient"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceTestGradient"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceTestGradient
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceTestGradient"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceToNative_sourceTestGradient"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceToNative_sourceTestGradient
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceToNative_sourceTestGradient"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceToNative_sourceTestGradient"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceToNative_sourceTestGradient
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceToNative_sourceTestGradient"
+
+#eval IO.println "TYPE_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceField_testPairing_eq_nativeInner"
+#check @MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceField_testPairing_eq_nativeInner
+#eval IO.println "TYPE_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceField_testPairing_eq_nativeInner"
+#eval IO.println "AXIOMS_BEGIN:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceField_testPairing_eq_nativeInner"
+#print axioms MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceField_testPairing_eq_nativeInner
+#eval IO.println "AXIOMS_END:MethbokeAddon.QuasiFeffermanA.SourceTestCalculus.sourceField_testPairing_eq_nativeInner"
