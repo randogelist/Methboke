@@ -42,7 +42,7 @@ Reused R3-07/R3-11: complete matching archived audits at run44811785125.
 Full candidate:421pending stage2/stage3 declarations;137packages/1320total reports.
 Canonical root: MethbokeAddon.FDSNR3.FDSN_R3, original Seed -> full Family.
 Root status: PREPARED, NOT EXTERNALLY ACCEPTED. Seed existence not asserted.
-Latest failure: run44842918759 at8b49f5c0, ParametricFourier mkContinuous type inference; direct continuous-map repair prepared with unchanged statements.
+Latest failure: run44844086846 atf07a4c6a; ParametricFourier compiles, CompactFrequencyInverse and ForwardFourierSmooth require source elaboration repairs; original statements unchanged.
 Local Lean or Lake executions: ZERO.
 
 Full run44836866962: all stage2 sources/wrappers compile, six stage3 source
@@ -92,4 +92,11 @@ FDSN_R3 repair after run 44842918759 at 8b49f5c0.
 Run 44842918759 at 8b49f5c0 failed in ParametricFourier's mkContinuous elaboration. The exact external report records 534 passing modules, 1 failure, 13 blocked dependencies and zero fresh endpoint audits. A directly constructed continuous linear curry map with explicitly typed integral commutation is prepared for external cached verification; no new A-tier acceptance is claimed.
 Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.
 Evidence: audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt.
+No new A-tier acceptance. Original Seed and Family unchanged. Local Lean executions: zero.
+
+
+FDSN_R3 repair after run 44844086846 at f07a4c6a.
+Run 44844086846 at f07a4c6a compiled ParametricFourier and its endpoint wrapper, then reached failures in CompactFrequencyInverse and ForwardFourierSmooth. The exact external report records 536 passing modules, 2 failures, 10 blocked dependencies and zero fresh endpoint audits. Statement-preserving source-only elaboration repairs are prepared for the next external cached verification; no new A-tier acceptance is claimed.
+Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.
+Evidence: audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt.
 No new A-tier acceptance. Original Seed and Family unchanged. Local Lean executions: zero.

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "FAILED_NO_NEW_ACCEPTANCE",
+  "repository": "randogelist/Methboke",
+  "branch": "main",
+  "source_commit": "f07a4c6ac6f4b75b6575dbc9dee1732d19c11636",
+  "run_id": 44844086846,
+  "run_url": "https://github.com/randogelist/Methboke/actions/runs/44844086846",
+  "job_id": 136659419429,
+  "artifact_id": 14681882202,
+  "artifact_sha256": "24d9f053aaa1fad82172defaffc971afd525d900390be2592d25d235ab91116f",
+  "artifact_download_and_hash_verified": true,
+  "failed_sources": [
+    "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+    "MethbokeAddon.FDSNR3.ForwardFourierSmooth"
+  ],
+  "module_counts": {
+    "PASS": 536,
+    "BLOCKED_BY_DEPENDENCY": 10,
+    "FAIL": 2
+  },
+  "fresh_package_audits_executed": false,
+  "fresh_package_audit_count": 0,
+  "new_a_tier_acceptance": false,
+  "failure_class": "PROOF_OR_TYPE_FAILURE",
+  "failure_phase": "compile",
+  "cause": "CompactFrequencyInverse: affine slice temperate growth/coercions, multilinear direction arguments, Fourier integral normalization and reflection-map construction. ForwardFourierSmooth: Dirac Fourier-character normalization, Circle action norm, and continuous-linear-map norm instance inference.",
+  "prior_repair_source_compiled": [
+    "MethbokeAddon.FDSNR3.ParametricFourier",
+    "FDSNR3ParametricFourier.Endpoint"
+  ],
+  "compiler": "Lean (version 4.33.0, x86_64-unknown-linux-gnu, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)",
+  "toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "complete_evidence_archive": "evidence.zip",
+  "evidence": "audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt",
+  "repair_status": "SOURCE_ONLY_PROOF_ELABORATION_REPAIRS_PREPARED_PENDING_EXTERNAL_VERIFICATION",
+  "root_status": "PREPARED_PENDING_FULL_EXTERNAL_VERIFICATION",
+  "original_seed_and_family_unchanged": true,
+  "local_lean_executions": 0,
+  "independent_receipt_review": "All536 passing module identities reconstructed from the exact pinned source/import hashes using an independent stdlib parser; failed full run remains rejected.",
+  "repair": "Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged."
+}

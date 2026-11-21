@@ -52,7 +52,10 @@ variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 
 def schwartzRightSlice (A : 𝓢(P × X, E)) (p : P) : 𝓢(X, E) :=
   SchwartzMap.compCLM ℝ
-    (show Function.HasTemperateGrowth (fun x : X => (p, x)) by fun_prop)
+    (show Function.HasTemperateGrowth (fun x : X => (p, x)) by
+      have h := (Function.HasTemperateGrowth.const (E := X) (p, (0 : X))).add
+        (rightSliceCLM P X).hasTemperateGrowth
+      simpa [rightSliceCLM, Pi.add_apply] using h)
     ⟨1, 1, fun x => by
       simp only [pow_one, one_mul]
       exact (le_max_right ‖p‖ ‖x‖).trans (by
@@ -80,7 +83,7 @@ theorem iteratedFDeriv_schwartzRightSlice (A : 𝓢(P × X, E))
   rw [schwartzRightSlice_coe]
   simpa only [ftaylorSeriesWithin, rightSliceAffine_apply,
     rightSliceAffine_contLinear, preimage_univ, iteratedFDerivWithin_univ,
-    Function.comp_def] using heq.symm
+    Function.comp_def] using! heq.symm
 
 theorem norm_iteratedFDeriv_schwartzRightSlice_le (A : 𝓢(P × X, E))
     (p : P) (n : ℕ) (x : X) :
@@ -236,26 +239,30 @@ theorem partialFourierTaylor_hasFDerivAt (A : 𝓢(P × Vec, E))
   have hB := B.differentiableAt.hasFDerivAt.comp q hp
   have hc := (Real.hasFDerivAt_fourierChar_neg_bilinear_right (innerSL ℝ) ξ q.2).comp q
     (ContinuousLinearMap.snd ℝ P Vec).hasFDerivAt
-  convert hc.smul hB using 1
-  ext v m
-  simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
-    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply,
-    partialFourierJetStep_apply, ContinuousLinearMap.add_apply,
-    ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
-    ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply,
-    Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply,
-    Fin.cons_zero, Fin.tail_cons, innerSL_apply_apply]
-  change ((Real.fourierChar (-inner ℝ ξ q.2) : ℂ) •
-      (fderiv ℝ B (q.1, ξ) (v.1, 0) m +
-        (-(2 * (Real.pi : ℂ) * Complex.I)) • ((inner ℝ ξ v.2) • B (q.1, ξ) m))) =
-    (Real.fourierChar (-inner ℝ ξ q.2) : ℂ) • fderiv ℝ B (q.1, ξ) (v.1, 0) m +
-      ((-2 * (Real.pi : ℂ) * Complex.I * Real.fourierChar (-inner ℝ ξ q.2)) *
-        (inner ℝ ξ v.2 : ℂ)) • B (q.1, ξ) m
-  rw [smul_add]
-  congr 1
-  simp only [← Complex.coe_smul, smul_smul]
-  congr 1
-  ring
+  have hprod := hc.smul hB
+  have hder := hprod.congr_fderiv (g' :=
+      (partialFourierTaylor A ξ q (n + 1)).curryLeft)
+  suffices h : HasFDerivAt
+      (fun y : P × Vec => (Real.fourierChar (-inner ℝ ξ y.2) : ℂ) • B (y.1, ξ))
+      (partialFourierTaylor A ξ q (n + 1)).curryLeft q by
+    simpa only [partialFourierTaylor, B, Circle.smul_def] using! h
+  apply hder
+  · apply ContinuousLinearMap.ext
+    intro v
+    apply ContinuousMultilinearMap.ext
+    intro m
+    change
+      (Real.fourierChar (-inner ℝ ξ q.2) : ℂ) • fderiv ℝ B (q.1, ξ) (v.1, 0) m +
+        ((-2 * (Real.pi : ℂ) * Complex.I * Real.fourierChar (-inner ℝ ξ q.2)) *
+          (inner ℝ ξ v.2 : ℂ)) • B (q.1, ξ) m =
+      ((Real.fourierChar (-inner ℝ ξ q.2) : ℂ) •
+        (fderiv ℝ B (q.1, ξ) (v.1, 0) m +
+          (-(2 * (Real.pi : ℂ) * Complex.I)) • ((inner ℝ ξ v.2) • B (q.1, ξ) m)))
+    rw [smul_add]
+    congr 1
+    simp only [← Complex.coe_smul, smul_smul]
+    congr 1
+    ring
 
 theorem partialFourierTaylor_isTaylor (A : 𝓢(P × Vec, E)) (ξ : Vec) :
     HasFTaylorSeriesUpToOn ∞
@@ -263,7 +270,9 @@ theorem partialFourierTaylor_isTaylor (A : 𝓢(P × Vec, E)) (ξ : Vec) :
       (partialFourierTaylor A ξ) univ := by
   constructor
   · intro q _
-    simp [partialFourierTaylor, ContinuousMultilinearMap.curry0_apply]
+    change (Real.fourierChar (-inner ℝ ξ q.2) : ℂ) • A (q.1, ξ) =
+      (Real.fourierChar (-inner ℝ ξ q.2) : ℂ) • A (q.1, ξ)
+    rfl
   · intro n _ q _
     exact (partialFourierTaylor_hasFDerivAt A ξ n q).hasFDerivWithinAt
   · intro n _
@@ -287,10 +296,18 @@ theorem partialFourierTransform_hasTaylor (A : 𝓢(P × Vec, E)) :
     obtain ⟨B, hB, hbound⟩ := schwartzFrequencySlice_dominated (partialFourierJet A n)
     refine ⟨B, hB, ?_⟩
     intro ξ q _
-    simpa only [partialFourierTaylor, Circle.norm_smul] using hbound q.1 ξ
-  simpa only [partialFourierTransform, Real.fourier_eq] using
-    integral_hasFTaylorSeriesUpToOn_of_dominated isOpen_univ
-      (partialFourierTaylor_isTaylor A) hMeas hbound
+    change ‖(Real.fourierChar (-inner ℝ ξ q.2) : ℂ) •
+      partialFourierJet A n (q.1, ξ)‖ ≤ B ξ
+    rw [norm_smul, Circle.norm_coe, one_mul]
+    exact hbound q.1 ξ
+  have hF : partialFourierTransform A =
+      (fun q : P × Vec => ∫ ξ : Vec,
+        Real.fourierChar (-inner ℝ ξ q.2) • A (q.1, ξ)) := by
+    funext q
+    exact Real.fourier_eq (fun ξ : Vec => A (q.1, ξ)) q.2
+  rw [hF]
+  exact integral_hasFTaylorSeriesUpToOn_of_dominated isOpen_univ
+    (partialFourierTaylor_isTaylor A) hMeas hbound
 
 theorem partialFourierTransform_smooth (A : 𝓢(P × Vec, E)) :
     ContDiff ℝ ∞ (partialFourierTransform A) :=
@@ -335,7 +352,8 @@ theorem partialFourierTransform_spatial_weight (A : 𝓢(P × Vec, E)) (N : ℕ)
     (fun k n _ _ => SchwartzMap.integrable_pow_mul_iteratedFDeriv volume
       (schwartzRightSlice A p) k n)
     (k := 0) (n := N) le_top le_top x
-  apply (by simpa only [norm_iteratedFDeriv_zero] using h).trans
+  simp only [norm_iteratedFDeriv_zero] at h
+  apply h.trans
   gcongr with j hj
   simpa only [pow_zero, one_mul] using hbound j.1 j.2 p
 
@@ -363,8 +381,13 @@ def partialFourierSchwartz (A : 𝓢(P × Vec, E)) : 𝓢(P × Vec, E) where
     partialFourierSchwartz A (p, x) = 𝓕 (fun ξ : Vec => A (p, ξ)) x := rfl
 
 def frequencyReflection (P : Type*) [NormedAddCommGroup P] [NormedSpace ℝ P] :
-    (P × Vec) ≃ₗᵢ[ℝ] (P × Vec) :=
-  (LinearIsometryEquiv.refl ℝ P).prodCongr (LinearIsometryEquiv.neg ℝ (E := Vec))
+    (P × Vec) ≃ₗᵢ[ℝ] (P × Vec) where
+  toLinearEquiv := (LinearIsometryEquiv.refl ℝ P).toLinearEquiv.prodCongr
+    (LinearIsometryEquiv.neg ℝ (E := Vec)).toLinearEquiv
+  norm_map' := by
+    intro q
+    change max ‖q.1‖ ‖-q.2‖ = max ‖q.1‖ ‖q.2‖
+    rw [norm_neg]
 
 @[simp] theorem frequencyReflection_apply (p : P) (x : Vec) :
     frequencyReflection P (p, x) = (p, -x) := rfl
@@ -374,8 +397,9 @@ def partialFourierInverse (A : 𝓢(P × Vec, E)) : 𝓢(P × Vec, E) :=
     (partialFourierSchwartz A)
 
 @[simp] theorem partialFourierInverse_apply (A : 𝓢(P × Vec, E)) (p : P) (x : Vec) :
-    partialFourierInverse A (p, x) = 𝓕⁻ (fun ξ : Vec => A (p, ξ)) x :=
-  (Real.fourierInv_eq_fourier_neg (fun ξ : Vec => A (p, ξ)) x).symm
+    partialFourierInverse A (p, x) = 𝓕⁻ (fun ξ : Vec => A (p, ξ)) x := by
+  change 𝓕 (fun ξ : Vec => A (p, ξ)) (-x) = 𝓕⁻ (fun ξ : Vec => A (p, ξ)) x
+  exact (Real.fourierInv_eq_fourier_neg (fun ξ : Vec => A (p, ξ)) x).symm
 
 theorem partialFourierInverse_zero_fiber (A : 𝓢(P × Vec, E)) {p : P}
     (hp : ∀ ξ : Vec, A (p, ξ) = 0) (x : Vec) : partialFourierInverse A (p, x) = 0 := by

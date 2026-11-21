@@ -1,0 +1,297 @@
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:55:63: error: `fun_prop` was unable to prove `Function.HasTemperateGrowth fun x => (p, x)`
+
+Issues:
+  No theorems found for `Prod.mk` in order to prove `Function.HasTemperateGrowth fun x => (p, x)`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:78:8: warning: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:81:2: error: Type mismatch: After simplification, term
+  Eq.symm heq
+ has type
+  @Eq (X [×n]→L[ℝ] E) (iteratedFDeriv ℝ n (fun x => A.toFun (p, x)) x)
+    ((iteratedFDeriv ℝ n A.toFun (p, x)).compContinuousLinearMap fun x => rightSliceCLM P X)
+but is expected to have type
+  @Eq (X [×n]→L[ℝ] E) (iteratedFDeriv ℝ n (fun x => A (p, x)) x)
+    ((iteratedFDeriv ℝ n ⇑A (p, x)).compContinuousLinearMap fun x => rightSliceCLM P X)
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:154:0: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.schwartzFrequencySlice_uniform_integrals`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:172:0: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.schwartzFrequencySlice_dominated`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:204:8: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierJetStep_apply`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:217:8: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierJet_zero_apply`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:220:8: warning: automatically included section variable(s) unused in theorem `MethbokeAddon.FDSNR3.partialFourierJet_succ_apply`:
+  [CompleteSpace E]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [CompleteSpace E] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:242:4: warning: `ContinuousMultilinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:243:33: warning: `ContinuousLinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:244:4: warning: `ContinuousLinearMap.smul_apply` has been deprecated: Use `smul_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.smul_apply` to `smul_apply x`).
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:245:36: error(lean.unknownIdentifier): Unknown constant `ContinuousLinearMap.snd_apply`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:246:29: warning: `ContinuousMultilinearMap.add_apply` has been deprecated: Use `add_apply` instead
+
+Note: The updated constant is in a different namespace. Dot notation may need to be changed (e.g., from `x.add_apply` to `add_apply x`).
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:249:36: error: Application type mismatch: The argument
+  m
+has type
+  P × Vec
+but is expected to have type
+  Fin n → P × Vec
+in the application
+  ((fderiv ℝ ⇑B (q.1, ξ)) (v.1, 0)) m
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:250:75: error: Application type mismatch: The argument
+  m
+has type
+  P × Vec
+but is expected to have type
+  Fin n → P × Vec
+in the application
+  (B (q.1, ξ)) m
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:251:75: error: Application type mismatch: The argument
+  m
+has type
+  P × Vec
+but is expected to have type
+  Fin n → P × Vec
+in the application
+  ((fderiv ℝ ⇑B (q.1, ξ)) (v.1, 0)) m
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:253:42: error: Application type mismatch: The argument
+  m
+has type
+  P × Vec
+but is expected to have type
+  Fin n → P × Vec
+in the application
+  (B (q.1, ξ)) m
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:241:13: warning: This simp argument is unused:
+  partialFourierTaylor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ContinuousMultilinearMap.curryLeft_apply, ContinuousMultilinearMap.smul_apply,
+    partialFourierJet_succ_apply, partialFourierJetStep_apply, ContinuousLinearMap.add_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:241:35: warning: This simp argument is unused:
+  ContinuousMultilinearMap.curryLeft_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply,
+    partialFourierJetStep_apply, ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
+    ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply,
+    Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero, Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:242:4: warning: This simp argument is unused:
+  ContinuousMultilinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply, partialFourierJet_succ_apply,
+    partialFourierJetStep_apply, ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply,
+    ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply,
+    Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero, Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:242:41: warning: This simp argument is unused:
+  partialFourierJet_succ_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJetStep_apply, ContinuousLinearMap.add_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:243:4: warning: This simp argument is unused:
+  partialFourierJetStep_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, ContinuousLinearMap.add_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:243:33: warning: This simp argument is unused:
+  ContinuousLinearMap.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:244:4: warning: This simp argument is unused:
+  ContinuousLinearMap.smul_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smulRight_apply, ContinuousLinearMap.comp_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:244:36: warning: This simp argument is unused:
+  ContinuousLinearMap.smulRight_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.comp_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:245:4: warning: This simp argument is unused:
+  ContinuousLinearMap.comp_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:246:4: warning: This simp argument is unused:
+  Complex.ofRealCLM_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply, ContinuousMultilinearMap.add_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:246:29: warning: This simp argument is unused:
+  ContinuousMultilinearMap.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply, Fin.cons_zero,
+    Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:247:4: warning: This simp argument is unused:
+  Fin.cons_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply,
+    ContinuousMultilinearMap.add_apply, Fin.tail_cons, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:247:19: warning: This simp argument is unused:
+  Fin.tail_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply,
+    ContinuousMultilinearMap.add_apply, Fin.cons_zero, innerSL_apply_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:247:34: warning: This simp argument is unused:
+  innerSL_apply_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [partialFourierTaylor, ContinuousMultilinearMap.curryLeft_apply,
+    ContinuousMultilinearMap.smul_apply, partialFourierJet_succ_apply, partialFourierJetStep_apply,
+    ContinuousLinearMap.add_apply, ContinuousLinearMap.smul_apply, ContinuousLinearMap.smulRight_apply,
+    ContinuousLinearMap.comp_apply, ContinuousLinearMap.snd_apply, Complex.ofRealCLM_apply,
+    ContinuousMultilinearMap.add_apply, Fin.cons_zero, Fin.tail_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:265:2: error: unsolved goals
+case zero_eq
+P : Type u_1
+inst✝⁴ : NormedAddCommGroup P
+inst✝³ : NormedSpace ℝ P
+E : Type u_2
+inst✝² : NormedAddCommGroup E
+inst✝¹ : NormedSpace ℂ E
+inst✝ : CompleteSpace E
+A : 𝓢(P × Vec, E)
+ξ : Vec
+q : P × Vec
+a✝ : q ∈ univ
+⊢ (𝐞 (-inner ℝ ξ q.2) • (partialFourierJet A 0) (q.1, ξ)) ![] = 𝐞 (-inner ℝ ξ q.2) • A (q.1, ξ)
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:290:4: error: Type mismatch: After simplification, term
+  hbound q.1 ξ
+ has type
+  ‖(partialFourierJet A n) (q.1, ξ)‖ ≤ B ξ
+but is expected to have type
+  ‖𝐞 (-inner ℝ ξ q.2) • (partialFourierJet A n) (q.1, ξ)‖ ≤ B ξ
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:291:2: error: Type mismatch: After simplification, term
+  integral_hasFTaylorSeriesUpToOn_of_dominated isOpen_univ (partialFourierTaylor_isTaylor A) hMeas hbound
+ has type
+  @HasFTaylorSeriesUpToOn ℝ DenselyNormedField.toNontriviallyNormedField (P × Vec) Prod.normedAddCommGroup
+    Prod.normedSpace E inst✝² NormedSpace.complexToReal ∞
+    (fun q => ∫ (a : Vec), 𝐞 (-inner ℝ a q.2) • A (q.1, a) ∂volume)
+    (fun q n => ∫ (a : Vec), partialFourierTaylor A a q n ∂volume) univ
+but is expected to have type
+  @HasFTaylorSeriesUpToOn ℝ DenselyNormedField.toNontriviallyNormedField (P × Vec) Prod.normedAddCommGroup
+    Prod.normedSpace E inst✝² NormedSpace.complexToReal ∞ (partialFourierTransform A)
+    (fun q n => ∫ (ξ : Vec), partialFourierTaylor A ξ q n) univ
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:338:9: error: invalid 'by' tactic, expected type has not been provided
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:339:2: error: No goals to be solved
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:367:2: error: Type mismatch
+  (LinearIsometryEquiv.refl ℝ P).prodCongr ?m.40
+has type
+  (P × ?m.26) ≃ₗ[ℝ] P × ?m.27
+but is expected to have type
+  P × Vec ≃ₗᵢ[ℝ] P × Vec
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:369:0: error: Not a definitional equality: the left-hand side
+  (frequencyReflection P) (p, x)
+is not definitionally equal to the right-hand side
+  (p, -x)
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:370:46: error: Type mismatch
+  rfl
+has type
+  ?m.17 = ?m.17
+but is expected to have type
+  (frequencyReflection P) (p, x) = (p, -x)
+MethbokeAddon/FDSNR3/CompactFrequencyInverse.lean:378:2: error: Type mismatch
+  Eq.symm (Real.fourierInv_eq_fourier_neg (fun ξ => A (p, ξ)) x)
+has type
+  𝓕 (fun ξ => A (p, ξ)) (-x) = 𝓕⁻ (fun ξ => A (p, ξ)) x
+but is expected to have type
+  (partialFourierInverse A) (p, x) = 𝓕⁻ (fun ξ => A (p, ξ)) x

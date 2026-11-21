@@ -20,6 +20,7 @@ namespace MethbokeAddon.FDSNR3
 
 noncomputable section
 
+set_option backward.isDefEq.respectTransparency false in
 /-- All Taylor jets of the scalar Fourier character are obtained from the
 library Fourier Taylor formula with a Dirac measure. -/
 theorem fourierChar_neg_hasTemperateGrowth :
@@ -28,23 +29,44 @@ theorem fourierChar_neg_hasTemperateGrowth :
   have hInt : ∀ n : ℕ, (n : ℕ∞ω) ≤ ∞ →
       Integrable (fun v : ℝ => ‖v‖ ^ n * ‖(1 : ℂ)‖) (Measure.dirac 1) :=
     fun _ _ => integrable_dirac (by simp)
+  have hFourier :
+      VectorFourier.fourierIntegral Real.fourierChar (Measure.dirac (1 : ℝ))
+          L.toLinearMap₁₂ (fun _ : ℝ => (1 : ℂ)) =
+        (fun r : ℝ => (Real.fourierChar (-r) : ℂ)) := by
+    funext r
+    simp [VectorFourier.fourierIntegral, L, Circle.smul_def]
   have hTaylor : HasFTaylorSeriesUpTo ∞
       (fun r : ℝ => (Real.fourierChar (-r) : ℂ))
-      (fun r n => Real.fourierChar (-r) •
+      (fun r n => (Real.fourierChar (-r) : ℂ) •
         VectorFourier.fourierPowSMulRight L (fun _ : ℝ => (1 : ℂ)) 1 n) := by
-    simpa [VectorFourier.fourierIntegral, L, Circle.smul_def] using
-      (VectorFourier.hasFTaylorSeriesUpTo_fourierIntegral L
-        (μ := Measure.dirac (1 : ℝ)) (f := fun _ : ℝ => (1 : ℂ))
-        hInt aestronglyMeasurable_const)
+    have h := VectorFourier.hasFTaylorSeriesUpTo_fourierIntegral L
+      (μ := Measure.dirac (1 : ℝ)) (f := fun _ : ℝ => (1 : ℂ))
+      hInt aestronglyMeasurable_const
+    rw [hFourier] at h
+    simpa [VectorFourier.fourierIntegral, L, Circle.smul_def] using h
   refine ⟨hTaylor.contDiff, ?_⟩
   intro n
   refine ⟨0, (2 * Real.pi * ‖L‖) ^ n, ?_⟩
   intro r
   have hn : (n : ℕ∞ω) ≤ ∞ := by
     exact_mod_cast (le_top : (n : ℕ∞) ≤ ⊤)
-  rw [← hTaylor.eq_iteratedFDeriv hn r, Circle.norm_smul]
-  simpa using VectorFourier.norm_fourierPowSMulRight_le L
-    (fun _ : ℝ => (1 : ℂ)) 1 n
+  let A : ContinuousMultilinearMap ℝ (fun _ : Fin n => ℝ) ℂ :=
+    VectorFourier.fourierPowSMulRight L (fun _ : ℝ => (1 : ℂ)) 1 n
+  have hjet : iteratedFDeriv ℝ n
+      (fun r : ℝ => (Real.fourierChar (-r) : ℂ)) r =
+        (Real.fourierChar (-r) : ℂ) • A :=
+    (hTaylor.eq_iteratedFDeriv hn r).symm
+  calc
+    ‖iteratedFDeriv ℝ n (fun r : ℝ => (Real.fourierChar (-r) : ℂ)) r‖ =
+        ‖(Real.fourierChar (-r) : ℂ) • A‖ := congrArg norm hjet
+    _ ≤ ‖(Real.fourierChar (-r) : ℂ)‖ * ‖A‖ :=
+      ContinuousMultilinearMap.opNorm_smul_le _ A
+    _ = ‖A‖ := by rw [Circle.norm_coe, one_mul]
+    _ ≤ (2 * Real.pi * ‖L‖) ^ n := by
+      simpa only [A, norm_one, one_pow, mul_one] using
+        VectorFourier.norm_fourierPowSMulRight_le L (fun _ : ℝ => (1 : ℂ)) 1 n
+    _ = (2 * Real.pi * ‖L‖) ^ n * (1 + ‖r‖) ^ 0 := by
+      rw [pow_zero, mul_one]
 
 /-- Physical time and integration position, forgetting the Fourier
 parameter but retaining its full tangent-space representation. -/
@@ -188,7 +210,7 @@ theorem LocalSchwartz.jointFourierIntegrand_jet_bound {T b R : ℝ} {u : Velocit
     exact mul_nonneg (mul_nonneg (norm_nonneg _) (pow_nonneg (norm_nonneg _) _))
       (hD_nonneg j)
   refine ⟨‖B‖ * ∑ i ∈ Finset.range (n + 1), (n.choose i : ℝ) * K * A (n - i),
-    mul_nonneg (norm_nonneg _) (Finset.sum_nonneg (fun i _ =>
+    mul_nonneg (ContinuousLinearMap.opNorm_nonneg B) (Finset.sum_nonneg (fun i _ =>
       mul_nonneg (mul_nonneg (Nat.cast_nonneg _) hK) (hA (n - i)))), ?_⟩
   intro q hq x
   have hz : (q, x) ∈ S := ⟨hq, mem_univ x⟩
@@ -237,7 +259,7 @@ theorem LocalSchwartz.jointFourierIntegrand_jet_bound {T b R : ℝ} {u : Velocit
           (fun z : (ℝ × Vec) × Vec => complexify (u z.1.1 z.2)) S (q, x)‖
       ≤ ‖B‖ * ∑ i ∈ Finset.range (n + 1),
           ((n.choose i : ℝ) * K * A (n - i)) * (1 + ‖x‖) ^ (-(m : ℝ)) := by
-        apply mul_le_mul_of_nonneg_left _ (norm_nonneg B)
+        apply mul_le_mul_of_nonneg_left _ (ContinuousLinearMap.opNorm_nonneg B)
         apply Finset.sum_le_sum
         intro i hi
         have hin : i ≤ n := Nat.lt_succ_iff.mp (Finset.mem_range.mp hi)

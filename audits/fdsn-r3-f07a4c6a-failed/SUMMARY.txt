@@ -1,0 +1,33 @@
+FDSN_R3 EXTERNAL FAILURE AT f07a4c6a
+Repository: randogelist/Methboke; branch main.
+Tested commit: f07a4c6ac6f4b75b6575dbc9dee1732d19c11636.
+Run: 44844086846; job: 136659419429.
+URL: https://github.com/randogelist/Methboke/actions/runs/44844086846
+Outcome: completed failure; no new A-tier acceptance.
+
+EXACT EXTERNAL RESULT
+548 own-module receipts: 536 PASS, 2 FAIL, 10 BLOCKED_BY_DEPENDENCY.
+ParametricFourier and its endpoint wrapper now compile, validating that source
+repair at the compiler level. Fresh theorem-level audits were not reached.
+The two newly reached failures are CompactFrequencyInverse and ForwardFourierSmooth.
+The exact diagnostics are retained in the adjacent per-module logs.
+All536 passing module identities were independently reconstructed from exact
+pinned source/import hashes; this does not promote the failed whole run.
+
+EVIDENCE
+Artifact ID 14681882202 is retained in evidence.zip.
+SHA256: 24d9f053aaa1fad82172defaffc971afd525d900390be2592d25d235ab91116f
+The downloaded archive hash matches the GitHub artifact digest.
+The original current.json, module receipts, compiler logs and execution plans
+are preserved in the complete archive. No new passed objects were published.
+Compiler: Lean 4.33.0 x86_64-unknown-linux-gnu,
+commit d8b18978322de05a8f3dba51ef03cf5461676c17.
+Mathlib: db584cd6d46c92f209a44c0f1c829460d327499d.
+
+REMAINING REQUIREMENT
+Statement-preserving source-only elaboration repairs are prepared as follows.
+Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.
+Matching external cached compilation, every required fresh exact type/axiom
+report and final workflow acceptance remain required.
+Original Seed -> Family and previous accepted T3/R3 scopes remain unchanged.
+No native-Windows verification is claimed. Local Lean/Lake/kernel executions: ZERO.

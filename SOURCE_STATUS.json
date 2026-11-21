@@ -53,33 +53,38 @@
   "excluded_axioms": [
     "QuasiFeffermanB.QFB_ONE_RESTART_OVERLAP"
   ],
-  "ci_handoff": "Run 44842918759 at 8b49f5c0 failed in ParametricFourier's mkContinuous elaboration. The exact external report records 534 passing modules, 1 failure, 13 blocked dependencies and zero fresh endpoint audits. A directly constructed continuous linear curry map with explicitly typed integral commutation is prepared for external cached verification; no new A-tier acceptance is claimed.",
-  "current_material_external_verification": "FDSN_R3_PROOF_REPAIR_PREPARED_AFTER_44842918759",
+  "ci_handoff": "Run 44844086846 at f07a4c6a compiled ParametricFourier and its endpoint wrapper, then reached failures in CompactFrequencyInverse and ForwardFourierSmooth. The exact external report records 536 passing modules, 2 failures, 10 blocked dependencies and zero fresh endpoint audits. Statement-preserving source-only elaboration repairs are prepared for the next external cached verification; no new A-tier acceptance is claimed.",
+  "current_material_external_verification": "FDSN_R3_PROOF_REPAIR_PREPARED_AFTER_44844086846",
   "latest_material_run": {
     "status": "FAILED_NO_NEW_ACCEPTANCE",
-    "source_commit": "8b49f5c0ad53563964c5647809e3b273d125905c",
-    "run_id": 44842918759,
-    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44842918759",
-    "job_id": 136655504593,
-    "artifact_id": 14680569663,
-    "artifact_sha256": "81a0159009a45790f2287a0aee18aeac6f409c5924f8f7dfa2da142d916ad8cb",
+    "source_commit": "f07a4c6ac6f4b75b6575dbc9dee1732d19c11636",
+    "run_id": 44844086846,
+    "run_url": "https://github.com/randogelist/Methboke/actions/runs/44844086846",
+    "job_id": 136659419429,
+    "artifact_id": 14681882202,
+    "artifact_sha256": "24d9f053aaa1fad82172defaffc971afd525d900390be2592d25d235ab91116f",
     "artifact_download_and_hash_verified": true,
     "failed_sources": [
-      "MethbokeAddon.FDSNR3.ParametricFourier"
+      "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+      "MethbokeAddon.FDSNR3.ForwardFourierSmooth"
     ],
     "module_counts": {
-      "PASS": 534,
-      "BLOCKED_BY_DEPENDENCY": 13,
-      "FAIL": 1
+      "PASS": 536,
+      "BLOCKED_BY_DEPENDENCY": 10,
+      "FAIL": 2
     },
     "fresh_package_audits_executed": false,
     "fresh_package_audit_count": 0,
     "new_a_tier_acceptance": false,
     "failure_class": "PROOF_OR_TYPE_FAILURE",
     "failure_phase": "compile",
-    "cause": "ParametricFourier.lean:85-86: mkContinuous source/type inference mismatch and unresolved f.curryLeft field notation.",
-    "evidence": "audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt",
-    "repair": "Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.",
+    "cause": "CompactFrequencyInverse: affine slice temperate growth/coercions, multilinear direction arguments, Fourier integral normalization and reflection-map construction. ForwardFourierSmooth: Dirac Fourier-character normalization, Circle action norm, and continuous-linear-map norm instance inference.",
+    "prior_repair_source_compiled": [
+      "MethbokeAddon.FDSNR3.ParametricFourier",
+      "FDSNR3ParametricFourier.Endpoint"
+    ],
+    "evidence": "audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt",
+    "repair": "Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.",
     "local_lean_executions": 0
   },
   "latest_accepted_material_run": {
@@ -3314,7 +3319,7 @@
       "Upstream compact seed uses a different toolchain and is not imported into this native pin.",
       "Definition/consumer checks do not construct a family."
     ],
-    "next": "Externally verify the directly constructed continuous linear curry map and explicit integral-commutation types, then complete all required literal consumers, fresh named type/axiom reports and final acceptance.",
+    "next": "Externally verify the exact CompactFrequencyInverse and ForwardFourierSmooth source repairs, then complete all remaining literal consumers, fresh named type/axiom reports and final acceptance.",
     "failed_attempts": [
       {
         "status": "FAILED_NO_NEW_ACCEPTANCE",
@@ -3583,6 +3588,38 @@
         "evidence": "audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt",
         "repair": "Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.",
         "local_lean_executions": 0
+      },
+      {
+        "status": "FAILED_NO_NEW_ACCEPTANCE",
+        "source_commit": "f07a4c6ac6f4b75b6575dbc9dee1732d19c11636",
+        "run_id": 44844086846,
+        "run_url": "https://github.com/randogelist/Methboke/actions/runs/44844086846",
+        "job_id": 136659419429,
+        "artifact_id": 14681882202,
+        "artifact_sha256": "24d9f053aaa1fad82172defaffc971afd525d900390be2592d25d235ab91116f",
+        "artifact_download_and_hash_verified": true,
+        "failed_sources": [
+          "MethbokeAddon.FDSNR3.CompactFrequencyInverse",
+          "MethbokeAddon.FDSNR3.ForwardFourierSmooth"
+        ],
+        "module_counts": {
+          "PASS": 536,
+          "BLOCKED_BY_DEPENDENCY": 10,
+          "FAIL": 2
+        },
+        "fresh_package_audits_executed": false,
+        "fresh_package_audit_count": 0,
+        "new_a_tier_acceptance": false,
+        "failure_class": "PROOF_OR_TYPE_FAILURE",
+        "failure_phase": "compile",
+        "cause": "CompactFrequencyInverse: affine slice temperate growth/coercions, multilinear direction arguments, Fourier integral normalization and reflection-map construction. ForwardFourierSmooth: Dirac Fourier-character normalization, Circle action norm, and continuous-linear-map norm instance inference.",
+        "prior_repair_source_compiled": [
+          "MethbokeAddon.FDSNR3.ParametricFourier",
+          "FDSNR3ParametricFourier.Endpoint"
+        ],
+        "evidence": "audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt",
+        "repair": "Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.",
+        "local_lean_executions": 0
       }
     ],
     "stage_2": {
@@ -3725,8 +3762,9 @@
       ],
       "new_acceptance_claimed": false,
       "local_lean_executions": 0,
-      "previous_failed_run": 44842918759,
-      "repair_scope": "Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged."
+      "previous_failed_run": 44844086846,
+      "repair_scope": "Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.",
+      "latest_source_compiler_progress": "ParametricFourier and its endpoint wrapper compile at f07a4c6a/run44844086846; fresh audits remain unexecuted. CompactFrequencyInverse and ForwardFourierSmooth are the newly reached failures."
     },
     "scope_completion": {
       "status": "PREPARED_PENDING_MATCHING_EXTERNAL_VERIFICATION",

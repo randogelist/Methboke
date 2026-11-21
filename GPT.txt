@@ -513,3 +513,10 @@ Run 44842918759 at 8b49f5c0 failed in ParametricFourier's mkContinuous elaborati
 Replace the mkContinuous construction in ParametricFourier with a directly constructed continuous linear curry map, using the existing continuous curry equivalence for continuity and explicit source, target, scalar and measure types in integral commutation. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy are unchanged.
 Evidence: audits/fdsn-r3-8b49f5c0-failed/SUMMARY.txt.
 No new A-tier acceptance. Original Seed and Family unchanged. Local Lean executions: zero.
+
+
+FDSN_R3 repair after run 44844086846 at f07a4c6a.
+Run 44844086846 at f07a4c6a compiled ParametricFourier and its endpoint wrapper, then reached failures in CompactFrequencyInverse and ForwardFourierSmooth. The exact external report records 536 passing modules, 2 failures, 10 blocked dependencies and zero fresh endpoint audits. Statement-preserving source-only elaboration repairs are prepared for the next external cached verification; no new A-tier acceptance is claimed.
+Prepare source-only elaboration repairs in ForwardFourierSmooth and CompactFrequencyInverse: evaluate the Dirac Fourier integral by explicit function extensionality before transporting its Taylor theorem; specify the multilinear coefficient and operator-norm bounds explicitly; make affine-slice temperate growth, Schwartz coercion normalization, multilinear composition directions and Schwartz reflection/bundle maps explicit. Original theorem statements, independent consumers, Seed and Family, compiler/dependency pins and axiom policy remain unchanged.
+Evidence: audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt.
+No new A-tier acceptance. Original Seed and Family unchanged. Local Lean executions: zero.

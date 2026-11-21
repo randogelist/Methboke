@@ -1,0 +1,36 @@
+MethbokeAddon/FDSNR3/ForwardFourierSmooth.lean:35:4: error: Type mismatch: After simplification, term
+  VectorFourier.hasFTaylorSeriesUpTo_fourierIntegral L hInt aestronglyMeasurable_const
+ has type
+  HasFTaylorSeriesUpTo ∞
+    (VectorFourier.fourierIntegral 𝐞 (Measure.dirac 1) (ContinuousLinearMap.toLinearMap₁₂ (ContinuousLinearMap.mul ℝ ℝ))
+      fun x => 1)
+    fun w n => ↑(𝐞 (-w)) • VectorFourier.fourierPowSMulRight (ContinuousLinearMap.mul ℝ ℝ) (fun x => 1) 1 n
+but is expected to have type
+  HasFTaylorSeriesUpTo ∞ (fun r => ↑(𝐞 (-r))) fun r n =>
+    ↑(𝐞 (-r)) • VectorFourier.fourierPowSMulRight (ContinuousLinearMap.mul ℝ ℝ) (fun x => 1) 1 n
+MethbokeAddon/FDSNR3/ForwardFourierSmooth.lean:45:40: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖?u • ?v‖
+in the target expression
+  ‖𝐞 (-r) • VectorFourier.fourierPowSMulRight L (fun x => 1) 1 n‖ ≤ (2 * Real.pi * ‖L‖) ^ n * (1 + ‖r‖) ^ 0
+
+L : ℝ →L[ℝ] ℝ →L[ℝ] ℝ := ContinuousLinearMap.mul ℝ ℝ
+hInt : ∀ (n : ℕ), ↑n ≤ ∞ → Integrable (fun v => ‖v‖ ^ n * ‖1‖) (Measure.dirac 1)
+hTaylor :
+  HasFTaylorSeriesUpTo ∞ (fun r => ↑(𝐞 (-r))) fun r n => 𝐞 (-r) • VectorFourier.fourierPowSMulRight L (fun x => 1) 1 n
+n : ℕ
+r : ℝ
+hn : ↑n ≤ ∞
+⊢ ‖𝐞 (-r) • VectorFourier.fourierPowSMulRight L (fun x => 1) 1 n‖ ≤ (2 * Real.pi * ‖L‖) ^ n * (1 + ‖r‖) ^ 0
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    VectorFourier.fourierPowSMulRight L (fun x => 1) 1 n
+MethbokeAddon/FDSNR3/ForwardFourierSmooth.lean:191:15: error: Application type mismatch: The argument
+  norm_nonneg ?m.326
+has type
+  0 ≤ @norm ?m.324 SeminormedAddGroup.toNorm ?m.326
+but is expected to have type
+  0 ≤ @norm (ℂ →L[ℝ] CVec →L[ℝ] CVec) ContinuousLinearMap.hasOpNorm B
+in the application
+  mul_nonneg (norm_nonneg ?m.326)

@@ -83,7 +83,7 @@ with the intended normed instances. The original statements and audit consumers
 are unchanged; all fresh audits and full root acceptance remain pending.
 Failure evidence: [d5acd494](../../audits/fdsn-r3-d5acd494-failed/SUMMARY.txt).
 
-## Current R3 verification
+## Previous R3 verification
 
 [Run 44842918759](https://github.com/randogelist/Methboke/actions/runs/44842918759)
 at `8b49f5c0` failed in `ParametricFourier` while elaborating the bundled
@@ -97,3 +97,19 @@ remain unchanged.
 is retained. Matching external cached compilation and all required fresh exact-type
 and theorem-level axiom reports remain pending for the 137-package,
 1320-declaration candidate. No new A-tier acceptance is claimed.
+
+## Current R3 verification
+
+[Run 44844086846](https://github.com/randogelist/Methboke/actions/runs/44844086846)
+at `f07a4c6a` compiled `ParametricFourier` and its endpoint wrapper. It then
+reached two analytic source failures in `CompactFrequencyInverse` and
+`ForwardFourierSmooth`: **536 modules passed, two failed and ten were blocked**.
+No fresh endpoint audit ran.
+
+The next candidate contains source-only elaboration repairs: explicit Dirac
+Fourier-integral evaluation, typed multilinear coefficients and operator-norm
+bounds, and explicit affine-slice, coercion, composition and Schwartz-map
+arguments. The original theorem statements, Seed, Family and independent
+consumers remain unchanged. [The complete failure evidence](../../audits/fdsn-r3-f07a4c6a-failed/SUMMARY.txt)
+is retained. Matching external cached compilation and all required fresh exact-type
+and theorem-level axiom reports remain pending; no new A-tier acceptance is claimed.
