@@ -1,0 +1,258 @@
+{
+  "endpoint": "QFASafeH1Restart",
+  "external_imports": [
+    "Mathlib",
+    "Mathlib.Analysis.Calculus.ContDiff.Defs",
+    "Mathlib.Analysis.Calculus.FDeriv.Add",
+    "Mathlib.Analysis.Calculus.FDeriv.Comp",
+    "Mathlib.Analysis.Calculus.FDeriv.Const",
+    "Mathlib.Analysis.Complex.Basic",
+    "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+    "Mathlib.Analysis.Distribution.FourierMultiplier",
+    "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+    "Mathlib.Analysis.Fourier.LpSpace",
+    "Mathlib.Analysis.InnerProductSpace.Basic",
+    "Mathlib.Analysis.InnerProductSpace.PiL2",
+    "Mathlib.Analysis.Real.Sqrt",
+    "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+    "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+    "Mathlib.MeasureTheory.Function.Holder",
+    "Mathlib.MeasureTheory.Function.L2Space",
+    "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+    "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+    "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas",
+    "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+    "Mathlib.MeasureTheory.Integral.Bochner.Set",
+    "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+    "Mathlib.MeasureTheory.Measure.Lebesgue.Basic",
+    "Mathlib.MeasureTheory.Measure.Real",
+    "Mathlib.Tactic.Linarith",
+    "Mathlib.Tactic.NormNum",
+    "Mathlib.Tactic.Positivity",
+    "Mathlib.Tactic.Ring",
+    "Mathlib.Topology.Algebra.Module.ClosedSubmodule",
+    "Mathlib.Topology.Algebra.Support",
+    "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
+  ],
+  "files": [
+    {
+      "imports": [
+        "QFA.Endpoints.Representation.Complexification",
+        "QFA.Endpoints.Representation.EnergyProfile"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.Contracts",
+      "path": "MethbokeAddon/QuasiFeffermanA/Contracts.lean",
+      "sha256": "42a87c2a7410e315193f8ed6da1ea020a31444673454831f23fdc2f265d15b92"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.MeasureTheory.Measure.Real"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.Cutoff",
+      "path": "MethbokeAddon/QuasiFeffermanA/Cutoff.lean",
+      "sha256": "63f61a3def4ea651d9b9116b6a566ff1b4241eff2bf2f25159699df1b35d6f7a"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "QFA.Assembly.Restart"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.Energy",
+      "path": "MethbokeAddon/QuasiFeffermanA/Energy.lean",
+      "sha256": "a444546bef9c02d9beaff289e3d23e7054389dd50550a1d640e2199fd9c61b4f"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Energy",
+        "MethbokeAddon.QuasiFeffermanA.Cutoff"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.Integration",
+      "path": "MethbokeAddon/QuasiFeffermanA/Integration.lean",
+      "sha256": "5947245512a7a03780a857cd3d14712eec270bfc156d52d81f06389f9f16bf48"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Integration",
+        "MethbokeAddon.QuasiFeffermanA.MomentumTranslation"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.LHRestart",
+      "path": "MethbokeAddon/QuasiFeffermanA/LHRestart.lean",
+      "sha256": "2753472e72879b033ec31c26c4569a8c5ce8933aa2f09ac8df8f2512c5ff5626"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "QFA.Endpoints.Restart.TimeTranslate",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.Analysis.Calculus.FDeriv.Add",
+        "Mathlib.Analysis.Calculus.FDeriv.Comp",
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.Topology.Algebra.Support"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.MomentumTranslation",
+      "path": "MethbokeAddon/QuasiFeffermanA/MomentumTranslation.lean",
+      "sha256": "fa21eeb358bb067cd2ae730b8b27059fa99dac0cca8eaed9e710468123ec929c"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.Contracts",
+        "Mathlib.Analysis.Distribution.AEEqOfIntegralContDiff",
+        "Mathlib.Analysis.Distribution.SchwartzSpace.Deriv",
+        "Mathlib.Analysis.InnerProductSpace.PiL2",
+        "Mathlib.MeasureTheory.Function.Holder",
+        "Mathlib.MeasureTheory.Function.L2Space",
+        "Mathlib.Topology.Algebra.Module.ClosedSubmodule"
+      ],
+      "module": "MethbokeAddon.QuasiFeffermanA.PhysicalH1",
+      "path": "MethbokeAddon/QuasiFeffermanA/PhysicalH1.lean",
+      "sha256": "da52497f861c0906679e5c8ba3b0695485557a96437d31278086d1126f4211e8"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Composition.GoodTimeAndTrace",
+        "Mathlib.MeasureTheory.Function.StronglyMeasurable.Lemmas"
+      ],
+      "module": "QFA.Assembly.Restart",
+      "path": "_vendor/QFA/Assembly/Restart.lean",
+      "sha256": "e07d862aa284d0f1c488f7344ac0c0a5ccc8bcc99ad6ecae2f796644cedfa347"
+    },
+    {
+      "imports": [
+        "Mathlib.Analysis.Distribution.FourierMultiplier",
+        "Mathlib.Analysis.Fourier.LpSpace",
+        "Mathlib.Analysis.InnerProductSpace.PiL2"
+      ],
+      "module": "QFA.Endpoints.Agmon.Contracts",
+      "path": "_vendor/QFA/Endpoints/Agmon/Contracts.lean",
+      "sha256": "a8094d33071c0cc9da07fea80bd9b481eb5e1a87b08d8109835007cbc5c03ec0"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Representation.EnergyProfile",
+        "QFA.Endpoints.Restart.HilbertTrace"
+      ],
+      "module": "QFA.Endpoints.Composition.GoodTimeAndTrace",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeAndTrace.lean",
+      "sha256": "27170ebd29b091e4d93cbecee1ae8e7d5860acbe03988d7c5fa090e73e24655e"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Energy.ProductBudget",
+        "QFA.Endpoints.GoodTime.Cutoff"
+      ],
+      "module": "QFA.Endpoints.Composition.GoodTimeOfEnvelope",
+      "path": "_vendor/QFA/Endpoints/Composition/GoodTimeOfEnvelope.lean",
+      "sha256": "4cffe763361a0bd8d70ef79276c7127ddb18736415b9c4b9b5ca9d5aa5e6110d"
+    },
+    {
+      "imports": [
+        "Mathlib"
+      ],
+      "module": "QFA.Endpoints.Energy.ProductBudget",
+      "path": "_vendor/QFA/Endpoints/Energy/ProductBudget.lean",
+      "sha256": "9ca6e726cde67c4309eca7baeb3f7ae7f9d183f114c255d6a67a759436519183"
+    },
+    {
+      "imports": [
+        "Mathlib.MeasureTheory.Integral.Bochner.Set",
+        "Mathlib.MeasureTheory.Measure.Lebesgue.Basic"
+      ],
+      "module": "QFA.Endpoints.GoodTime.Basic",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Basic.lean",
+      "sha256": "2a69494e312c0fd2178d7fb1c1f6ed22e2e3ce2e3382ed40fa4c694c003a9fc5"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.GoodTime.Basic",
+        "Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic",
+        "Mathlib.Tactic.Positivity",
+        "Mathlib.Tactic.Ring"
+      ],
+      "module": "QFA.Endpoints.GoodTime.Cutoff",
+      "path": "_vendor/QFA/Endpoints/GoodTime/Cutoff.lean",
+      "sha256": "375484ddc427f6c9abdaa2a738c33a4a96c639a7b3e0476210dec1717473f6f9"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Agmon.Contracts",
+        "Mathlib.Analysis.Complex.Basic",
+        "Mathlib.Analysis.Calculus.ContDiff.Defs",
+        "Mathlib.Analysis.Calculus.FDeriv.Const",
+        "Mathlib.MeasureTheory.Function.LocallyIntegrable",
+        "Mathlib.MeasureTheory.Integral.Bochner.ContinuousLinearMap",
+        "Mathlib.Tactic.NormNum"
+      ],
+      "module": "QFA.Endpoints.Representation.Complexification",
+      "path": "_vendor/QFA/Endpoints/Representation/Complexification.lean",
+      "sha256": "32c4b3035ddf7de4de8157185ec73df5de2b60e5ba3b8fa476da41a9c85da80e"
+    },
+    {
+      "imports": [
+        "Mathlib",
+        "QFA.Endpoints.Composition.GoodTimeOfEnvelope"
+      ],
+      "module": "QFA.Endpoints.Representation.EnergyProfile",
+      "path": "_vendor/QFA/Endpoints/Representation/EnergyProfile.lean",
+      "sha256": "24ac990005bface1f39183a0ab299194c574dd99cadb9fd7fce04a04c452c00a"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Restart.TimeTranslate"
+      ],
+      "module": "QFA.Endpoints.Restart.EnergyShift",
+      "path": "_vendor/QFA/Endpoints/Restart/EnergyShift.lean",
+      "sha256": "0111c14a6ab440f9623e0f419e199cbf981622a35a00a774d55f67fd26c9f68e"
+    },
+    {
+      "imports": [
+        "QFA.Endpoints.Restart.EnergyShift",
+        "Mathlib.Analysis.InnerProductSpace.Basic",
+        "Mathlib.Analysis.Real.Sqrt",
+        "Mathlib.Topology.MetricSpace.Pseudo.Lemmas"
+      ],
+      "module": "QFA.Endpoints.Restart.HilbertTrace",
+      "path": "_vendor/QFA/Endpoints/Restart/HilbertTrace.lean",
+      "sha256": "2715d102af4ac35b4e52a4f145792c75a67d39c16f41ee03f2ad6a58f1156727"
+    },
+    {
+      "imports": [
+        "Mathlib.Dynamics.Ergodic.MeasurePreserving",
+        "Mathlib.MeasureTheory.Function.LpSeminorm.Basic",
+        "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic",
+        "Mathlib.Tactic.Linarith"
+      ],
+      "module": "QFA.Endpoints.Restart.TimeTranslate",
+      "path": "_vendor/QFA/Endpoints/Restart/TimeTranslate.lean",
+      "sha256": "ec4370573c9dbdcb482c9ce732f5c6ebed2a1eed2711c5361a4c307906080e7d"
+    },
+    {
+      "imports": [
+        "QFASafeH1Restart.Endpoint"
+      ],
+      "module": "QFASafeH1Restart.Audit",
+      "path": "QFASafeH1Restart/Audit.lean",
+      "sha256": "0cfa3be38a8c8e9cfbea609c90e711aa6b6eb1a39d58fb95ff5ebc31148f790d"
+    },
+    {
+      "imports": [
+        "MethbokeAddon.QuasiFeffermanA.LHRestart",
+        "MethbokeAddon.QuasiFeffermanA.PhysicalH1"
+      ],
+      "module": "QFASafeH1Restart.Endpoint",
+      "path": "QFASafeH1Restart/Endpoint.lean",
+      "sha256": "554415d662ddea78ae06640f866c7dac4f7753ffc39045fd1eaa9177b540c33e"
+    }
+  ],
+  "lean_toolchain": "leanprover/lean4:v4.33.0",
+  "mathlib_commit": "db584cd6d46c92f209a44c0f1c829460d327499d",
+  "roots": [
+    "QFASafeH1Restart.Endpoint",
+    "QFASafeH1Restart.Audit"
+  ],
+  "schema_version": 1,
+  "source_baseline": "fe2cb503f6d326fa2e14e400f8d7c3d6396238a8",
+  "source_drift": [],
+  "source_revision_status": "FIRST_MATCHING_EXTERNAL_VERIFICATION_PENDING"
+}
