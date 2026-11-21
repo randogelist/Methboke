@@ -1,0 +1,715 @@
+! B_TIER
+METHBOKE QFA — STRUCTURED LEAN ASSEMBLY MANIFEST
+
+VERSION = 0.5-REMOTE-MANIFEST
+DATE = 2026-11-21
+BRANCH = codex/qfa-structured-assembly
+BASE = main@896e84238c2ee51024b3a6616eff2903b59d6059
+TARGET = EXACT_NATIVE_CLOSED_AND_STRICT_QFA
+STATUS = ASSEMBLY_PLAN_FIXED; ROOT_OPEN
+LOCAL_LEAN_EXECUTIONS = 0
+
+PURPOSE
+=======
+
+This file turns the adopted ten-step QFA route into a dependency-ordered Lean
+assembly DAG. Existing declarations, proposed adapters, construction providers,
+and final consumers are separated so later work can proceed package by package
+without changing the mathematical target.
+
+The final root must prove the existing native propositions:
+
+  MethbokeAddon.QuasiFeffermanA.PhysicalRoot.ClosedQuasiFeffermanA
+  MethbokeAddon.QuasiFeffermanA.PhysicalRoot.QuasiFeffermanA
+
+with the unchanged physical cutoff
+
+  tau_A(a,nu) = 8 * ||a||_2^4 / (27*pi^4*nu^5).
+
+DEPENDENCY GRAPH
+================
+
+PK01  Source admission and compatibility
+  |
+  +--> PK02  Coordinate and exact norm transport
+  |      |
+  |      +--> PK03  Native/source datum admission and selected H1 trace
+  |      +--> PK04  Joint spacetime representative transport
+  |      +--> PK05  Time and viscosity scaling
+  |
+  +--> PK06  Shared finite-LH and strong-slab interfaces
+         |
+         +--> PK07  Finite weak-strong comparison
+         +--> PK08  H1 local strong construction
+         |      |
+         |      +--> PK09  Actual energy/enstrophy balances
+         |             |
+         |             +--> PK10  Exact sharp Sobolev admission
+         |             |      |
+         |             |      +--> PK11  Small-product invariant
+         |             |             |
+         |             |             +--> PK12  Coherent global reference
+         |             |                    |
+         |             |                    +--> PK13  Smooth velocity and pressure tail
+         |             |
+         |             +--------------------------+
+         |
+         +--> PK14  Retained CKN weak-construction witness
+                |
+                +--> PK15  Arbitrary-start energy for the same witness
+                       |
+                       +--> PK16  Native global LH existence provider
+
+PK07 + PK12 + PK16 --> PK17  Global comparison for every supplied native LH path
+PK03 + PK13 + PK17 --> PK18  Original-clock/original-gradient tail transfer
+PK17 + PK18       --> PK19  Own-trace future uniqueness
+PK16 + PK18 + PK19 --> PK20 Exact closed root, then strict root
+
+PACKAGE CARDS
+=============
+
+PK01 — QFA_SOURCE_ADMISSION
+---------------------------
+Goal:
+  Freeze the source environment, import boundary, license/provenance record,
+  exact compiler/dependency compatibility plan, and independent audit scope.
+
+Primary sources:
+  - native Methboke / Material at Lean 4.33.0,
+    Mathlib db584cd6d46c92f209a44c0f1c829460d327499d;
+  - scottnarmstrong/CaffarelliKohnNirenberg at
+    381d658ead0f03a18361965cc0427ce3fa5844ab;
+  - scottnarmstrong/EscauriazaSereginSverak at
+    ae1a0e46086b9b16179dea76b41da10b01845151;
+  - optional uda-lab/leray-hopf references at
+    e704400f2fb2f26b2ee7f4372c3e1ecbbc82f3dc.
+
+Output contract:
+  A source manifest assigning every imported declaration to a later package,
+  preserving copyright/license notices and declaring which sources are copied,
+  adapted, or used only as proof references.
+
+Closure condition:
+  No active source is admitted merely by file presence. Each active declaration
+  must compile at the native pin and receive exact theorem-level axiom evidence.
+
+PK02 — QFA_COORDINATE_TRANSPORT
+-------------------------------
+Goal:
+  Build exact coordinate equivalences between source Vec3/function carriers and
+  native SpatialL2/physical H1 carriers without losing constants.
+
+Proposed declarations:
+  coordinate_volume_preserving
+  source_vec3_to_native_spatialL2
+  native_spatialL2_to_source_vec3
+  physical_energy_coordinates
+  physical_gradient_coordinates
+  physical_laplacian_coordinates
+  source_native_spatialL2_inverse
+
+Required facts:
+  - product/Euclidean coordinate measurability;
+  - volume preservation;
+  - exact component-square formulas;
+  - exact gradient-index convention: source Du z i j = partial_j u_i,
+    native G t j x i.
+
+Mathlib support:
+  MeasureTheory.Lp.ext
+  MeasureTheory.MemLp.toLp
+  MeasureTheory.MemLp.toLp_congr
+  MeasureTheory.MeasurePreserving
+  PiLp.continuousLinearEquiv
+
+Output:
+  Constant-preserving conversions used by all later analytic packages.
+
+PK03 — QFA_DATUM_ADMISSION
+--------------------------
+Goal:
+  Convert native physical data to source solenoidal/H1 inputs and package the
+  exact selected restart trace using the original native gradient witness.
+
+Existing native pieces:
+  MethbokeAddon.QuasiFeffermanA.LerayHopf.exists_safe_full_restart
+  MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient
+  MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient_velocity
+  MethbokeAddon.QuasiFeffermanA.physicalH1OfWeakGradient_gradient
+  MethbokeAddon.QuasiFeffermanA.mem_physicalH1SigmaGraph_iff
+  MethbokeAddon.QuasiFeffermanA.physicalH1Sigma_velocity_injective
+
+Proposed declarations:
+  energyDatum_to_source_J
+  physicalH1Sigma_to_source_goodTime
+  safe_restart_h1_datum
+  safe_restart_h1_datum_velocity
+  safe_restart_h1_datum_gradient
+  safe_restart_h1_small_product
+
+Output:
+  For every nonzero supplied native LH path, a time s with
+
+    0 < s < tau_A(a,nu)
+
+  and the exact datum b = u(s), with gradient G(s), H1_sigma admission,
+
+    ||b||_2^2 ||G(s)||_2^2 < (27*pi^4/16) * nu^4,
+
+  plus full native membership of the shifted original path.
+
+PK04 — QFA_REPRESENTATIVE_TRANSPORT
+-----------------------------------
+Goal:
+  Relate native Lp-valued time curves to joint spacetime representatives used by
+  CKN/ESS, while preserving every-time native weak continuity.
+
+Proposed declarations:
+  weak_curve_joint_representative
+  gradient_joint_representative
+  native_pairings_to_spacetime
+  spacetime_ae_eq_to_ae_native_slices
+  ae_native_slices_to_every_time_of_weak_continuity
+  source_finite_LH_to_native_finite
+  native_finite_LH_to_source_finite
+
+Mathlib support:
+  MeasureTheory.integrable_prod_iff
+  MeasureTheory.integral_prod
+  MeasureTheory.lintegral_prod
+  MeasureTheory.Measure.ae_ae_of_ae_prod
+  MeasureTheory.Lp.ext
+
+Critical rule:
+  Spacetime-a.e. equality is never promoted directly to every-time equality.
+  The promotion must pass through a.e. time-slice L2 equality and the two paths'
+  native weak continuity.
+
+PK05 — QFA_TIME_VISCOSITY_TRANSPORT
+-----------------------------------
+Goal:
+  Transport source viscosity-one theorems to arbitrary nu > 0 and keep exact
+  physical energy, gradient, pressure, Serrin and interval identities.
+
+Scaling:
+  Given a viscosity-one source v from b/nu, define
+
+    u(t,x) = nu * v(nu*t,x),
+    p_nu(t,x) = nu^2 * p(nu*t,x).
+
+Proposed declarations:
+  normalize_viscosity_weak_form
+  denormalize_strong_slab
+  denormalize_energy_identity
+  denormalize_enstrophy_identity
+  serrin46_clock_scaling
+  positive_time_shift_realization
+
+Mathlib support:
+  intervalIntegral.integral_comp_mul_add
+  intervalIntegral.integral_comp_sub_right
+  HasDerivAt.comp
+  ContDiff.comp
+
+PK06 — QFA_FINITE_INTERFACES
+----------------------------
+Goal:
+  Define the exact common interfaces consumed by local existence, balance,
+  comparison, gluing and smoothing, so cross-project proof internals remain
+  behind one native boundary.
+
+Proposed structures:
+  FiniteLHRealization nu T a u G
+  StrongSlabRealization nu t0 t1 b u G p
+
+Required StrongSlabRealization fields:
+  - t0 < t1;
+  - exact initial native H1 velocity and gradient;
+  - native/full source strong-solution equations;
+  - C([t0,t1]; L2) velocity and gradient traces;
+  - finite-slab L2 H2 and L2 time derivative;
+  - ordered two-time energy equality;
+  - finite native/source LH membership;
+  - overlap uniqueness in the strong class.
+
+Proposed declarations:
+  strong_slab_restrict
+  strong_slab_timeTranslate
+  nativeLH_to_source_finite
+  source_strong_to_finite_realization
+  source_finite_to_native_LH
+
+PK07 — QFA_FINITE_COMPARISON
+----------------------------
+Goal:
+  Compare one finite native LH path against one finite strong reference from the
+  same trace, using the ESS finite Serrin theorem where possible.
+
+Primary source:
+  ESS.lps_finite_leray_hopf_uniqueness
+  ESS.serrinWeak_of_lerayHopf
+  ESS.lps_finite_relative_cross_identity
+  ESS.lps_serrin_energy_equality
+  ESS.lps_finite_relative_energy_zero
+
+Reference admission:
+  Use the Serrin pair (ell,s) = (4,6):
+
+    integral_0^T ||v(t)||_6^4 dt < infinity.
+
+  A finite nonsharp Sobolev estimate suffices here; PK10's exact constant is not
+  a dependency of finite comparison.
+
+Proposed declarations:
+  finite_reference_serrin46
+  finite_native_weak_strong_ae_eq
+  finite_native_weak_strong_eq
+
+Output:
+  Equality in native L2 at every t in the finite interval.
+
+PK08 — QFA_LOCAL_STRONG
+-----------------------
+Goal:
+  Construct a physical strong slab for each native H1_sigma datum, with a
+  uniform lower lifetime on bounded H1 balls.
+
+Primary source:
+  ESS.lps_local_strong
+  ESS.IsLpsGoodTime
+  ESS.IsLpsStrongSolution
+  ESS.lps_strong_solution_is_leray_hopf
+
+Proposed declarations:
+  exists_local_strong_native
+  exists_local_strong_native_uniform
+  local_strong_exact_initial_gradient
+  local_strong_overlap_unique
+
+Required bound:
+  There is c > 0 such that the returned lifetime satisfies a lower bound of
+  the form
+
+    T >= c * nu^3 / (nu + ||b||_H1)^4.
+
+The precise source normalization may be retained, but the final bound must be
+uniform on a fixed native H1 ball.
+
+PK09 — QFA_PHYSICAL_BALANCES
+----------------------------
+Goal:
+  Prove the actual native energy and enstrophy identities for every strong slab.
+
+Primary source:
+  ESS.LPS.lps_unregularised_h1_energy_identity
+  ESS.lps_h1_energy_balance
+
+Native support:
+  MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.physicalH1H2_laplacian_pairing
+  MethbokeAddon.QuasiFeffermanA.HeatSpatialEnergy.physicalH2_laplacian_enstrophy
+
+Output:
+  With
+
+    E(t)=||u(t)||_2^2,
+    Y(t)=||grad u(t)||_2^2,
+    Z(t)=||Delta u(t)||_2^2,
+
+  prove absolute continuity and a.e.
+
+    E' = -2*nu*Y,
+    Y' + 2*nu*Z = 2 * <(u dot grad)u, Delta u>.
+
+Proposed declarations:
+  strong_energy_absolutelyContinuous
+  strong_enstrophy_absolutelyContinuous
+  strong_energy_derivative_ae
+  strong_enstrophy_derivative_ae
+  strong_ordered_energy_identity
+
+PK10 — QFA_SHARP_SPATIAL_ADMISSION
+----------------------------------
+Goal:
+  Prove the exact constant required by the literal QFA cutoff.
+
+Scalar target:
+
+  27*pi^4 * integral |f|^6
+    <= 16 * (integral |grad f|^2)^3.
+
+Equivalent norm form:
+
+  ||f||_6 <= S_* ||grad f||_2,
+  S_*^6 = 16/(27*pi^4).
+
+Reusable infrastructure:
+  MeasureTheory.eLpNorm_le_eLpNorm_fderiv_of_eq
+  SchwartzMap.denseRange_toLpCLM
+  LerayHopf.schwartz_h1_gradConv_multi
+  LerayHopf.PlancherelKernels.eLpNorm_three_le_interp
+  MethbokeAddon.QuasiFeffermanA.H2Spectral.physicalH2_hessian_norm_sq_eq_laplacian
+
+Proposed declarations:
+  sharp_sobolev_scalar_cc
+  sharp_sobolev_scalar_H1
+  sharp_sobolev_vector_H1
+  sharp_sobolev_gradient_H2
+  sharpConstant_sixth_power
+
+Closure rule:
+  A generic finite Mathlib Sobolev constant cannot replace this package.
+
+PK11 — QFA_SMALL_PRODUCT_INVARIANT
+----------------------------------
+Goal:
+  Use PK09 and PK10 to prove preservation of the exact small-product threshold.
+
+Nonlinear bound:
+
+  |<(u dot grad)u, Delta u>|
+    <= S_*^(3/2) * (E*Y)^(1/4) * Z.
+
+Let W = E*Y and
+
+  theta_nu = nu^4 / S_*^6 = (27*pi^4/16)*nu^4.
+
+From W(0) < theta_nu prove, on the full strong slab,
+
+  W(t) <= W(0),
+  E(t) <= E(0),
+  Y(t) + 2*d0*integral_0^t Z <= Y(0),
+
+where d0 = nu - S_*^(3/2)*W(0)^(1/4) > 0.
+
+Native scalar support:
+  MethbokeAddon.QuasiFeffermanA.smallProduct_positive_gap_and_dissipation
+  MethbokeAddon.QuasiFeffermanA.smallProduct_derivative_nonpos
+
+Proposed declarations:
+  nonlinear_enstrophy_bound
+  smallProduct_first_crossing
+  smallProduct_invariant
+  smallProduct_energy_bound
+  smallProduct_enstrophy_dissipation
+
+PK12 — QFA_GLOBAL_REFERENCE
+---------------------------
+Goal:
+  Build one coherent global strong reference from each strict small-product H1
+  datum without assuming a maximal-lifetime object.
+
+Construction:
+  Fix H0 = ||b||_H1 and choose one step length
+
+    ell = (c/2) * nu^3 / (nu + H0)^4 > 0.
+
+  PK11 keeps all endpoint data inside the same H1 ball. Reapply PK08 at every
+  endpoint and glue adjacent slabs with matching velocity and gradient traces.
+
+Primary source:
+  ESS.lps_strong_solution_glue
+  ESS.lpsGlue_of_le
+
+Proposed declarations:
+  globalReference_prefix
+  globalReference_prefix_compatible
+  exists_global_smallProduct_reference
+  globalReference_restrict
+  globalReference_timeTranslate
+  globalReference_native_LH
+
+Output:
+  One global reference v,H with finite-window strong realization, exact energy
+  equality and native LH membership.
+
+PK13 — QFA_SMOOTH_TAIL
+----------------------
+Goal:
+  Construct the literal positive-time smooth velocity and normalized pressure
+  required by the native root.
+
+Primary velocity source:
+  ESS.lps_smoothing
+
+Velocity obligations:
+  - choose compatible representatives on all positive finite slabs;
+  - upgrade spacetime-a.e. agreement to every-time native L2 agreement;
+  - retain the original global reference curve.
+
+Pressure route:
+  For a smooth divergence-free velocity R define
+
+    F = nu*Delta R - partial_t R - (R dot grad)R.
+
+  Prove curl F = 0 and construct
+
+    p(t,x) = integral_0^1 <F(t,theta*x), x> dtheta.
+
+  Then prove grad p = F, joint C-infinity regularity, the pointwise NSE, and
+  normalize p0(t,x)=p(t,x)-p(t,0).
+
+Proposed declarations:
+  globalReference_smooth_velocity
+  smooth_nse_residual_curlFree
+  radial_pressure
+  radial_pressure_gradient
+  radial_pressure_smooth
+  globalReference_hasSmoothTail
+
+PK14 — QFA_CKN_RETAINED_WITNESS
+-------------------------------
+Goal:
+  Extract one exact CKN weak-construction witness and retain its full
+  approximation/compactness provenance, rather than taking a bare existential
+  theorem and later trying to strengthen a different chosen solution.
+
+Primary sources:
+  CKN.Main.leray_existence
+  CKN.Main.lerayExistenceForced
+  CKN.Leray.forcedLerayLimit_of_spatialTails
+  CKN.Leray.forcedLerayLimit_spatialTails_with_limit
+  CKN.Leray.forcedLerayLimit_strong_clauses
+
+Proposed structure:
+  CKNRetainedGlobalWitness a
+
+Fields must retain:
+  - one velocity u and one gradient Du;
+  - approximating regularized sequence and extraction;
+  - strong spacetime L2 convergence on every finite horizon;
+  - weak gradient convergence;
+  - every-time weak slice convergence;
+  - spatial tails and zero-start energy estimates;
+  - source global LH membership of the same u,Du.
+
+PK15 — QFA_ARBITRARY_START_ENERGY
+--------------------------------
+Goal:
+  Prove the missing energy inequality from almost every positive start for the
+  same retained CKN limit.
+
+Required quantifiers:
+
+  for a.e. s > 0, for every t >= s,
+    E(t) + 2*nu*integral_s^t Y <= E(s).
+
+Proof subchain:
+  1. Prove the interval energy inequality for the exact regularized
+     approximants—not merely separate zero-start bounds.
+  2. Convert strong spacetime convergence into time-L2 convergence of
+     SpatialL2-valued curves.
+  3. Extract strong spatial L2 convergence at almost every start time.
+  4. Pass the start energy strongly, the terminal energy weakly/lower
+     semicontinuously, and dissipation by lower semicontinuity.
+  5. Obtain all terminal times from a countable dense set plus weak continuity
+     and energy monotonicity/right-limit arguments.
+  6. Intersect the good-start sets over integer horizons.
+
+Mathlib support:
+  MeasureTheory.tendstoInMeasure_of_tendsto_eLpNorm
+  MeasureTheory.TendstoInMeasure.exists_seq_tendsto_ae
+  MeasureTheory.ae_all_iff
+  MeasureTheory.ae_imp_of_ae_restrict
+
+Proposed declarations:
+  regularized_interval_energy
+  retained_limit_good_energy_starts
+  retained_limit_arbitrary_start_energy
+
+Critical warning:
+  Two inequalities from time zero may not be subtracted to derive this result.
+
+PK16 — QFA_NATIVE_GLOBAL_LH
+---------------------------
+Goal:
+  Convert the retained CKN witness plus PK15 into Methboke's literal native
+  global LerayHopf predicate.
+
+Proposed declarations:
+  cknRetained_to_native_LerayHopf
+  exists_native_lerayHopf
+
+Output:
+
+  forall nu > 0, forall a : physical L2_sigma,
+    exists u G, NativeLerayHopf nu a u G.
+
+Required fields:
+  - actual measurable velocity and gradient curves;
+  - full-volume weak-gradient relation;
+  - weak momentum equation against native tests;
+  - every-time weak L2 continuity;
+  - strong initial trace;
+  - zero-start energy inequality;
+  - arbitrary-start energy inequality from PK15.
+
+PK17 — QFA_GLOBAL_COMPARISON
+----------------------------
+Goal:
+  Compare every supplied native global LH path to the PK12 reference on every
+  finite horizon, then assemble equality on all nonnegative times.
+
+Inputs:
+  - supplied native path u,G from b;
+  - global reference v,H from the same b;
+  - PK07 finite comparison;
+  - finite restrictions from PK12.
+
+Proposed declarations:
+  suppliedPath_eq_reference_on_Icc
+  suppliedPath_eq_reference_nonnegative
+  suppliedPath_gradient_eq_reference_ae
+
+Output:
+
+  forall t >= 0, u(t)=v(t) in native L2,
+
+  and G(t)=H(t) for a.e. positive time, with the correct index convention.
+
+PK18 — QFA_ORIGINAL_TAIL_TRANSFER
+---------------------------------
+Goal:
+  Transfer the reference conclusions back to the original supplied path after
+  its selected restart time s, while retaining enough reference data for PK19.
+
+Proposed structure:
+  OriginalTailReference nu a u G delta
+
+Fields:
+  - selected s with 0 < s < tau_A(a,nu);
+  - reference v,H,p;
+  - equality u(s+r)=v(r) for every r >= 0;
+  - a.e. equality of original G(s+r) with H(r);
+  - smooth-tail fields transported to the original clock;
+  - exact energy equality using the original G;
+  - native EnergyStart at delta;
+  - full shifted original native LH membership.
+
+Mathlib support:
+  intervalIntegral.integral_congr_ae_restrict
+  intervalIntegral.integral_comp_sub_right
+
+Proposed declarations:
+  energyStart_of_tailEnergyEquality
+  originalTail_smooth
+  originalTail_energy_originalGradient
+  originalTail_full_restart
+
+PK19 — QFA_OWN_TRACE_FUTURES
+----------------------------
+Goal:
+  Prove literal future uniqueness from the supplied path's own trace at every
+  requested delta beyond the cutoff.
+
+For an arbitrary competing future w,K with datum u(delta):
+  - use OriginalTailReference to identify u(delta)=v(delta-s);
+  - shift the same global reference by delta-s;
+  - apply PK17/PK07 against w,K on each finite horizon;
+  - upgrade to every nonnegative time.
+
+Proposed declarations:
+  ownTrace_competitor_eq_reference
+  ownTrace_future_unique
+  originalTail_uniqueFuture
+
+Output:
+  The exact native PhysicalRoot.UniqueFuture clause, not merely uniqueness
+  inside the strong class.
+
+PK20 — QFA_ROOT_ASSEMBLY
+------------------------
+Goal:
+  Assemble the literal existing closed root and derive the strict root.
+
+Zero datum:
+  Reuse the accepted zero-data closed theorem.
+
+Nonzero datum:
+  - PK16 supplies global native LH nonemptiness;
+  - PK03 selects the exact restart trace for every supplied path;
+  - PK12/PK13 build the reference and its smooth tail;
+  - PK17 identifies the supplied path;
+  - PK18 transfers smoothness and original-gradient energy;
+  - PK19 proves own-trace future uniqueness.
+
+Closed-cutoff arithmetic:
+  s < tau_A and delta >= tau_A imply delta-s > 0, so positive-time smoothing
+  applies even at the exact closed cutoff.
+
+Existing native pieces:
+  MethbokeAddon.QuasiFeffermanA.ZeroDatum.closedDatumConclusion_zero
+  MethbokeAddon.QuasiFeffermanA.PhysicalRoot.ClosedDatumConclusion.strict
+  MethbokeAddon.QuasiFeffermanA.safeCutoff_eq_pi_formula_of_sixth_power
+
+Proposed declarations:
+  closedDatumConclusion_nonzero
+  CLOSED_QUASI_FEFFERMAN_A
+  QUASI_FEFFERMAN_A
+
+Acceptance condition:
+  The final theorem types must be definitionally/literally the existing native
+  propositions. The final axiom reports may contain only the permitted standard
+  axioms. No provider class, source theorem, comparison assumption, sharp
+  admission assumption, or reference-existence premise may remain.
+
+MID-TIER CHECKPOINTS
+====================
+
+The following are valid !=! candidates only after matching external acceptance:
+
+  M01 = PK02 + PK03: exact selected restart H1 datum, original gradient retained.
+  M02 = PK04 + PK05 + PK06: shared native/source finite interface layer.
+  M03 = PK07: finite physical weak-strong comparison.
+  M04 = PK08 + PK09: actual native local strong slab with physical balances.
+  M05 = PK10: exact sharp spatial admission at S_*.
+  M06 = PK11: exact small-product invariant on a strong slab.
+  M07 = PK12: coherent global small-product reference.
+  M08 = PK13: literal positive-time smooth velocity-pressure tail.
+  M09 = PK14 + PK15 + PK16: unrestricted native global LH existence.
+  M10 = PK17: equality of every supplied native LH path with the reference.
+  M11 = PK18 + PK19: original-gradient tail equality and own-trace futures.
+  ROOT = PK20: exact closed and strict QFA.
+
+Do not signal !=! for a package whose declared hard dependencies remain only
+B-tier or whose theorem-level audit has not been externally accepted.
+
+FIRST BUILD ORDER
+=================
+
+1. PK01 source manifest and native-pin port boundary.
+2. PK02 coordinate transport.
+3. PK03 selected trace and datum admission.
+4. PK04 representative transport.
+5. PK05 viscosity/time scaling.
+6. PK06 common interfaces.
+7. Develop PK07 and PK08 independently.
+8. PK09; in parallel, PK14/PK15.
+9. PK10 then PK11.
+10. PK12 then PK13.
+11. PK16 and PK17.
+12. PK18, PK19, PK20.
+
+The first recommended formal midpoint is M02. It creates the reusable interface
+boundary needed by both the weak-construction and strong-reference tracks.
+
+STATUS SUMMARY
+==============
+
+Already accepted and reusable in their literal scopes:
+  native physical H1 realization, supplied-path restart, zero-data QFA,
+  heat and H2 foundations, finite scalar comparison infrastructure, cutoff
+  normalization, and historical conditional QFA components.
+
+Concrete cross-project theorem bodies identified:
+  CKN global weak construction and retained compactness;
+  ESS local H1 strong construction, energy identities, gluing, smoothing and
+  finite Serrin comparison.
+
+Still open and not to be hidden:
+  native compatibility ports, arbitrary-start energy for the retained CKN
+  witness, exact sharp Sobolev admission, small-product temporal bootstrap,
+  coherent global construction, literal smooth pressure, every-time comparison,
+  original-gradient transport, own-trace future uniqueness, and final root.
+
+No local Lean, Lake or kernel execution is authorized or recorded by this
+manifest.
