@@ -25,6 +25,7 @@ open MeasureTheory
 namespace MethbokeAddon.R3Ehrenfest.InitialState
 
 open MethbokeAddon.QuasiFeffermanA
+open MethbokeAddon.QuasiFeffermanA.LerayMultiplier
 open MethbokeAddon.QuasiFeffermanA.LeraySolenoidal
 open MethbokeAddon.R3Ehrenfest.DatumAdmission
 open MethbokeAddon.R3Ehrenfest.SharpCutoff
